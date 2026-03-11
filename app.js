@@ -205,7 +205,7 @@ function renderHomePage(data) {
         <img class="card-chip-accent" src="${chipAccentPath(index + 2)}" alt="" />
         <div class="event-card-topline">
           <div class="kicker">${event.title}</div>
-          <div class="event-icon">🃏</div>
+          <div class="event-icon event-icon-card">🂡</div>
         </div>
         <h3>${event.date}</h3>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>
@@ -392,7 +392,7 @@ function renderSchedule(data) {
       <img class="card-chip-accent" src="${chipAccentPath(i + 3)}" alt="" />
       <div class="event-card-topline">
         <div class="kicker">${e.title}</div>
-        <div class="event-icon">🎲</div>
+        <div class="event-icon event-icon-card">🂡</div>
       </div>
       <h3>${e.date}</h3>
       <p class="muted"><strong>Start:</strong> ${e.time}</p>
