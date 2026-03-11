@@ -37,7 +37,10 @@
 
   <script src="app.js"></script>
   <script>
-    loadSiteData().then(data => renderPlayerProfile(data));
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderPlayerProfile(data);
+    });
   </script>
 </body>
 </html>
