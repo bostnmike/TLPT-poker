@@ -14,21 +14,20 @@ const PLAYER_QUOTES = {
   "Wild Bill": "\"It's a skill game.\"",
   "Hiro": "\"That's a prime number.\"",
   "A.I. Dave": "\"Oh man! I caught some of that!\"",
-  "A.l. Dave": "\"Oh man! I caught some of that!\"",
-  "A.I Dave": "\"Oh man! I caught some of that!\"",
-  "A.l Dave": "\"Oh man! I caught some of that!\"",
-  "Li-Fo": "\"I’m going to punish your limping range.\"",
-  "BostnMike": "\"That’s just good, clean poker.\"",
-  "Chris O": "\"I had to put maximum pressure on.\"",
-  "Ahmed": "\"That felt like the spot.\"",
-  "ProvidenceMike": "\"I was priced in.\"",
-  "NASA Al": "\"Houston, we have a double-up.\"",
-  "Cougar": "\"I thought you were weak.\"",
-  "Yann": "\"I knew you didn’t have it.\""
+  "ProvidenceMike": "\"I should'd be in this hand.\"",
+  "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
+  "Ahmed": "\"Get in there, Man!\"",
+  "Chris O": "\"Can I still rebuy?\"",
+  "Cougar": "\"Nice hand, you suck!\"",
+  "NASA Al": "\"I'm running 5 mins late.\"",
+  "BostnMike": "\"Play as tight as you want, Mike\"",
+  "LiFo": "\"What's the worst that can happen?\"",
+  "Li-Fo": "\"What's the worst that can happen?\"",
+  "Nat": "\"Ya Fold\""
 };
 
 function getPlayerQuote(name) {
-  return PLAYER_QUOTES[name] || "They haven't said anything funny... yet.";
+  return PLAYER_QUOTES[name] || "They just haven't said anything funny... yet!";
 }
 
 function fmtMoney(n) {
@@ -218,7 +217,7 @@ function renderHomePage(data) {
       <div class="event-card home-event-card">
         <div class="event-card-topline">
           <div class="kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♦</div>
+          <div class="event-icon event-icon-card">♠</div>
         </div>
         <h3>${event.date}</h3>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>
@@ -228,7 +227,7 @@ function renderHomePage(data) {
         <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
         ${tableFillMarkup(event.rsvp_counts, 9)}
         <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
+        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
     `).join("");
   }
@@ -238,14 +237,15 @@ function renderHomePage(data) {
   const hits = sortPlayers(data.players, "hits")[0];
   const bubbles = sortPlayers(data.players, "bubbles")[0];
 
-  document.getElementById("home-profit-leader").innerHTML =
-    leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
-  document.getElementById("home-power-leader").innerHTML =
-    leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
-  document.getElementById("home-hit-leader").innerHTML =
-    leaderInlineMarkup(hits, hits.hits, "small");
-  document.getElementById("home-bubble-leader").innerHTML =
-    leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
+  const profitEl = document.getElementById("home-profit-leader");
+  const powerEl = document.getElementById("home-power-leader");
+  const hitEl = document.getElementById("home-hit-leader");
+  const bubbleEl = document.getElementById("home-bubble-leader");
+
+  if (profitEl) profitEl.innerHTML = leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
+  if (powerEl) powerEl.innerHTML = leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
+  if (hitEl) hitEl.innerHTML = leaderInlineMarkup(hits, hits.hits, "small");
+  if (bubbleEl) bubbleEl.innerHTML = leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
 
   const tbody = document.querySelector("#home-standings-table tbody");
   if (!tbody) return;
@@ -402,7 +402,7 @@ function renderSchedule(data) {
     <div class="event-card">
       <div class="event-card-topline">
         <div class="kicker">${e.title}</div>
-        <div class="event-icon event-icon-card">♦</div>
+        <div class="event-icon event-icon-card">♠</div>
       </div>
       <h3>${e.date}</h3>
       <p class="muted"><strong>Start:</strong> ${e.time}</p>
@@ -412,7 +412,7 @@ function renderSchedule(data) {
       <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(e.rsvp_counts, 9)}</p>
       ${tableFillMarkup(e.rsvp_counts, 9)}
       <p class="muted">${formatRsvpLine(e.rsvp_counts)}</p>
-      <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+      <a class="btn btn-rsvp" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
   `).join("");
 }
