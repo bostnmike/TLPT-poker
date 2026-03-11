@@ -140,12 +140,20 @@ function badgesMarkup(player, data) {
 }
 
 function renderHomePage(data) {
-  const next = data.events[0];
-  document.getElementById("next-game-title").textContent = next.title;
-  document.getElementById("next-game-meta").textContent = `${next.date} • ${next.time} • ${next.location}`;
-  document.getElementById("rsvp-link").href = next.apple_invite_url;
-  document.getElementById("next-game-rsvp").textContent =
-    `${next.rsvp_counts.confirmed} confirmed • ${next.rsvp_counts.maybe} maybe • ${next.rsvp_counts.out} out`;
+  const eventsEl = document.getElementById("home-events-list");
+  if (eventsEl) {
+    eventsEl.innerHTML = data.events.map(event => `
+      <div class="event-card" style="margin-bottom:14px;">
+        <div class="kicker">${event.title}</div>
+        <h3>${event.date}</h3>
+        <p class="muted">${event.time} – ${event.endTime || ""}</p>
+        <p class="muted">${event.location}</p>
+        <p class="muted">${event.address || ""}</p>
+        <p class="muted">${event.rsvp_counts.confirmed} confirmed • ${event.rsvp_counts.maybe} maybe • ${event.rsvp_counts.out} out</p>
+        <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
+      </div>
+    `).join("");
+  }
 
   const profit = sortPlayers(data.players, "profit")[0];
   const power = sortPlayers(data.players, "trueSkillScore")[0];
@@ -181,6 +189,7 @@ function renderHomePage(data) {
 
 function renderStandings(key) {
   const tbody = document.querySelector("#standings-table tbody");
+  if (!tbody) return;
   tbody.innerHTML = "";
 
   sortPlayers(window.siteData.players, key).forEach((p, i) => {
@@ -204,6 +213,7 @@ function renderStandings(key) {
 
 function renderDashboardSortable(key) {
   const el = document.getElementById("dashboard-grid");
+  if (!el) return;
   const sorted = sortPlayers(window.siteData.players, key);
 
   el.innerHTML = sorted.map((p, i) => `
@@ -256,41 +266,43 @@ function renderPlayerProfile(data) {
   const p = data.players.find(x => x.name === name) || data.players[0];
   const el = document.getElementById("player-profile");
 
-  el.innerHTML = `
-    <div class="profile-shell">
-      <div class="profile-hero">
-        <div class="profile-hero-left">
-          ${playerImageMarkup(p, "large")}
-          <div>
-            <div class="kicker">Player Profile</div>
-            <h2>${displayPlayerName(p)}</h2>
-            <p class="muted">TLPT workbook-driven performance snapshot</p>
-            ${badgesMarkup(p, data)}
+  if (el) {
+    el.innerHTML = `
+      <div class="profile-shell">
+        <div class="profile-hero">
+          <div class="profile-hero-left">
+            ${playerImageMarkup(p, "large")}
+            <div>
+              <div class="kicker">Player Profile</div>
+              <h2>${displayPlayerName(p)}</h2>
+              <p class="muted">TLPT workbook-driven performance snapshot</p>
+              ${badgesMarkup(p, data)}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="profile-grid">
-        <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
-        <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
-        <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
-        <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${p.hits}</div></div>
-        <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${p.timesPlaced}</div></div>
-        <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${p.bubbles}</div></div>
-        <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${p.profit < 0 ? "negative":"positive"}">${fmtMoney(p.profit)}</div></div>
-        <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(p.roi)}</div></div>
-        <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(p.trueSkillScore)}</div></div>
-        <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(p.luckIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(p.clutchIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(p.cashRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(p.bubbleRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(p.hitRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(p.aggressionIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(p.survivorIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(p.tiltIndex)}</div></div>
+        <div class="profile-grid">
+          <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
+          <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
+          <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
+          <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${p.hits}</div></div>
+          <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${p.timesPlaced}</div></div>
+          <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${p.bubbles}</div></div>
+          <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${p.profit < 0 ? "negative":"positive"}">${fmtMoney(p.profit)}</div></div>
+          <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(p.roi)}</div></div>
+          <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(p.trueSkillScore)}</div></div>
+          <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(p.luckIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(p.clutchIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(p.cashRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(p.bubbleRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(p.hitRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(p.aggressionIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(p.survivorIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(p.tiltIndex)}</div></div>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 
   const navEl = document.getElementById("player-nav");
   if (!navEl) return;
@@ -310,10 +322,11 @@ function renderSchedule(data) {
   if (!el) return;
   el.innerHTML = data.events.map(e => `
     <div class="event-card">
-      <div class="kicker">Weekly Game</div>
-      <h3>${e.title}</h3>
-      <p class="muted">${e.date} • ${e.time}</p>
+      <div class="kicker">${e.title}</div>
+      <h3>${e.date}</h3>
+      <p class="muted">${e.time} – ${e.endTime || ""}</p>
       <p class="muted">${e.location}</p>
+      <p class="muted">${e.address || ""}</p>
       <p class="muted">${e.rsvp_counts.confirmed} confirmed • ${e.rsvp_counts.maybe} maybe • ${e.rsvp_counts.out} out</p>
       <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
