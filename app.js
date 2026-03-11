@@ -3,6 +3,34 @@ async function loadSiteData() {
   return await res.json();
 }
 
+const PLAYER_QUOTES = {
+  "Nitro": "\"I don't believe you, Tony.\"",
+  "Jeff T": "\"On my big blind?\"",
+  "Vish": "\"Vamos!\"",
+  "Vic": "\"I don't like it when you call.\"",
+  "Brad R": "\"I raise.\"",
+  "Red": "\"Variance-free Poker!\"",
+  "Hayden D": "\"There's $400 sitting on my table at home.\"",
+  "Wild Bill": "\"It's a skill game.\"",
+  "Hiro": "\"That's a prime number.\"",
+  "A.I. Dave": "\"Oh man! I caught some of that!\"",
+  "A.l. Dave": "\"Oh man! I caught some of that!\"",
+  "A.I Dave": "\"Oh man! I caught some of that!\"",
+  "A.l Dave": "\"Oh man! I caught some of that!\"",
+  "Li-Fo": "\"I’m going to punish your limping range.\"",
+  "BostnMike": "\"That’s just good, clean poker.\"",
+  "Chris O": "\"I had to put maximum pressure on.\"",
+  "Ahmed": "\"That felt like the spot.\"",
+  "ProvidenceMike": "\"I was priced in.\"",
+  "NASA Al": "\"Houston, we have a double-up.\"",
+  "Cougar": "\"I thought you were weak.\"",
+  "Yann": "\"I knew you didn’t have it.\""
+};
+
+function getPlayerQuote(name) {
+  return PLAYER_QUOTES[name] || "They haven't said anything funny... yet.";
+}
+
 function fmtMoney(n) {
   const sign = Number(n) < 0 ? "-" : "";
   return `${sign}$${Math.abs(Number(n)).toFixed(0)}`;
@@ -188,10 +216,9 @@ function renderHomePage(data) {
   if (eventsEl) {
     eventsEl.innerHTML = data.events.map((event) => `
       <div class="event-card home-event-card">
-        <img class="card-chip-accent" src="images/site/chip-1K.jpg" alt="" />
         <div class="event-card-topline">
           <div class="kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">🂡</div>
+          <div class="event-icon event-icon-card">♦</div>
         </div>
         <h3>${event.date}</h3>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>
@@ -269,7 +296,6 @@ function renderDashboardSortable(key) {
 
   el.innerHTML = sorted.map((p, i) => `
     <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
-      <img class="card-chip-accent" src="images/site/chip-100.jpg" alt="" />
       <div class="player-card-top">
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
@@ -294,7 +320,6 @@ function renderPlayers(data) {
   if (!el) return;
   el.innerHTML = data.players.map((p) => `
     <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
-      <img class="card-chip-accent" src="images/site/chip-25.jpg" alt="" />
       <div class="player-card-top">
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
@@ -328,7 +353,7 @@ function renderPlayerProfile(data) {
             <div>
               <div class="kicker">Player Profile</div>
               <h2>${displayPlayerName(p)}</h2>
-              <p class="muted">TLPT workbook-driven performance snapshot</p>
+              <p class="profile-quote">${getPlayerQuote(p.name)}</p>
               ${badgesMarkup(p, data)}
             </div>
           </div>
@@ -375,10 +400,9 @@ function renderSchedule(data) {
   if (!el) return;
   el.innerHTML = data.events.map((e) => `
     <div class="event-card">
-      <img class="card-chip-accent" src="images/site/chip-500.jpg" alt="" />
       <div class="event-card-topline">
         <div class="kicker">${e.title}</div>
-        <div class="event-icon event-icon-card">🂡</div>
+        <div class="event-icon event-icon-card">♦</div>
       </div>
       <h3>${e.date}</h3>
       <p class="muted"><strong>Start:</strong> ${e.time}</p>
@@ -402,7 +426,6 @@ function renderChampions(data) {
       const p = data.players.find(player => player.name === h.name);
       return `
         <div class="champ-card stat-card-visual">
-          <img class="card-chip-accent" src="images/site/chip-25K.jpg" alt="" />
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
@@ -421,7 +444,6 @@ function renderChampions(data) {
       const p = data.players.find(player => player.name === r.name);
       return `
         <div class="champ-card stat-card-visual">
-          <img class="card-chip-accent" src="images/site/chip-25K.jpg" alt="" />
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
