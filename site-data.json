@@ -1,0 +1,54 @@
+{
+  "events": [
+    {
+      "title": "TLPT Weekly Game",
+      "date": "Next Thursday",
+      "time": "7:00 PM",
+      "location": "Poker HQ",
+      "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
+      "rsvp_counts": {
+        "confirmed": 0,
+        "maybe": 0,
+        "out": 0
+      }
+    }
+  ],
+  "honors": [
+    {
+      "type": "Current Profit Leader",
+      "name": "Li-Fo",
+      "note": "Top earner in the current data set."
+    },
+    {
+      "type": "Best ROI",
+      "name": "NASA Al",
+      "note": "Best return on investment so far."
+    },
+    {
+      "type": "Most Hits",
+      "name": "BostnMike",
+      "note": "Knockout machine."
+    }
+  ],
+  "players": [
+    { "name": "BostnMike", "buyIns": 24, "rebuys": 1, "entries": 25, "hits": 23, "timesPlaced": 10, "bubbles": 5, "profit": 360, "roi": 0.48, "cashRate": 0.417, "bubbleRate": 0.208, "hitRate": 0.92 },
+    { "name": "Li-Fo", "buyIns": 16, "rebuys": 8, "entries": 24, "hits": 23, "timesPlaced": 11, "bubbles": 2, "profit": 435, "roi": 0.604, "cashRate": 0.688, "bubbleRate": 0.125, "hitRate": 0.96 },
+    { "name": "Hiro", "buyIns": 21, "rebuys": 9, "entries": 30, "hits": 22, "timesPlaced": 8, "bubbles": 2, "profit": -45, "roi": -0.05, "cashRate": 0.381, "bubbleRate": 0.095, "hitRate": 0.73 },
+    { "name": "A.l. Dave", "buyIns": 16, "rebuys": 3, "entries": 19, "hits": 18, "timesPlaced": 4, "bubbles": 2, "profit": -15, "roi": -0.026, "cashRate": 0.25, "bubbleRate": 0.125, "hitRate": 0.95 },
+    { "name": "Ahmed", "buyIns": 11, "rebuys": 1, "entries": 12, "hits": 14, "timesPlaced": 4, "bubbles": 2, "profit": 45, "roi": 0.125, "cashRate": 0.364, "bubbleRate": 0.182, "hitRate": 1.17 },
+    { "name": "ProvidenceMike", "buyIns": 11, "rebuys": 6, "entries": 17, "hits": 14, "timesPlaced": 5, "bubbles": 0, "profit": 0, "roi": 0, "cashRate": 0.455, "bubbleRate": 0, "hitRate": 0.82 },
+    { "name": "Chris O", "buyIns": 6, "rebuys": 7, "entries": 13, "hits": 14, "timesPlaced": 3, "bubbles": 1, "profit": 100, "roi": 0.256, "cashRate": 0.5, "bubbleRate": 0.167, "hitRate": 1.08 },
+    { "name": "NASA Al", "buyIns": 8, "rebuys": 2, "entries": 10, "hits": 11, "timesPlaced": 6, "bubbles": 0, "profit": 290, "roi": 0.967, "cashRate": 0.75, "bubbleRate": 0, "hitRate": 1.1 },
+    { "name": "Cougar", "buyIns": 12, "rebuys": 1, "entries": 13, "hits": 9, "timesPlaced": 5, "bubbles": 0, "profit": 150, "roi": 0.385, "cashRate": 0.417, "bubbleRate": 0, "hitRate": 0.69 },
+    { "name": "Red", "buyIns": 7, "rebuys": 4, "entries": 11, "hits": 8, "timesPlaced": 2, "bubbles": 0, "profit": -100, "roi": -0.303, "cashRate": 0.286, "bubbleRate": 0, "hitRate": 0.73 },
+    { "name": "Billy B", "buyIns": 6, "rebuys": 2, "entries": 8, "hits": 7, "timesPlaced": 3, "bubbles": 1, "profit": 15, "roi": 0.063, "cashRate": 0.5, "bubbleRate": 0.167, "hitRate": 0.88 },
+    { "name": "Vish", "buyIns": 6, "rebuys": 6, "entries": 12, "hits": 6, "timesPlaced": 1, "bubbles": 1, "profit": -165, "roi": -0.458, "cashRate": 0.167, "bubbleRate": 0.167, "hitRate": 0.5 },
+    { "name": "Yann", "buyIns": 1, "rebuys": 0, "entries": 1, "hits": 6, "timesPlaced": 1, "bubbles": 0, "profit": 30, "roi": 0.6, "cashRate": 1, "bubbleRate": 0, "hitRate": 6.0 },
+    { "name": "Nitro", "buyIns": 8, "rebuys": 4, "entries": 12, "hits": 5, "timesPlaced": 1, "bubbles": 2, "profit": -240, "roi": -0.667, "cashRate": 0.125, "bubbleRate": 0.25, "hitRate": 0.42 },
+    { "name": "Rob F", "buyIns": 2, "rebuys": 1, "entries": 3, "hits": 4, "timesPlaced": 1, "bubbles": 0, "profit": -25, "roi": -0.278, "cashRate": 0.5, "bubbleRate": 0, "hitRate": 1.33 },
+    { "name": "Wild Bill", "buyIns": 5, "rebuys": 1, "entries": 6, "hits": 4, "timesPlaced": 1, "bubbles": 0, "profit": -60, "roi": -0.333, "cashRate": 0.2, "bubbleRate": 0, "hitRate": 0.67 },
+    { "name": "Vic", "buyIns": 3, "rebuys": 2, "entries": 5, "hits": 3, "timesPlaced": 0, "bubbles": 2, "profit": -150, "roi": -1.0, "cashRate": 0, "bubbleRate": 0.667, "hitRate": 0.6 },
+    { "name": "Hayden D", "buyIns": 2, "rebuys": 1, "entries": 3, "hits": 2, "timesPlaced": 0, "bubbles": 1, "profit": -90, "roi": -1.0, "cashRate": 0, "bubbleRate": 0.5, "hitRate": 0.67 },
+    { "name": "Jeff T", "buyIns": 7, "rebuys": 3, "entries": 10, "hits": 2, "timesPlaced": 1, "bubbles": 1, "profit": -230, "roi": -0.767, "cashRate": 0.143, "bubbleRate": 0.143, "hitRate": 0.2 }
+  ]
+}
