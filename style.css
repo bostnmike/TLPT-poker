@@ -107,7 +107,8 @@ a:hover{
 .dash-card,
 .event-card,
 .champ-card,
-.rule-card{
+.rule-card,
+.table-banner-card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
@@ -121,16 +122,14 @@ a:hover{
 .hero-copy-enhanced{
   position:relative;
   overflow:hidden;
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.36), rgba(17,22,30,0.92)),
-    url("images/site/large-table.gif") center/cover no-repeat;
+  background:linear-gradient(135deg, rgba(15,81,50,0.28), rgba(17,22,30,0.94));
 }
 
 .hero-copy-enhanced::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(7,11,16,0.16), rgba(7,11,16,0.44));
+  background:linear-gradient(180deg, rgba(7,11,16,0.10), rgba(7,11,16,0.24));
   pointer-events:none;
 }
 
@@ -179,9 +178,9 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:2px solid rgba(255,184,28,.45);
-  box-shadow:0 6px 14px rgba(0,0,0,.25);
-  opacity:.55;
+  border:2px solid rgba(255,184,28,.55);
+  box-shadow:0 6px 14px rgba(0,0,0,.28);
+  opacity:.78;
   z-index:1;
 }
 
@@ -201,6 +200,45 @@ a:hover{
   left:20px;
   bottom:24px;
   transform:rotate(8deg);
+}
+
+.table-banner-section{
+  margin-top:0;
+}
+
+.table-banner-card{
+  position:relative;
+  overflow:hidden;
+  padding:0;
+}
+
+.table-banner-image{
+  display:block;
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+
+.table-banner-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-end;
+  background:linear-gradient(180deg, rgba(7,11,16,0.08), rgba(7,11,16,0.72));
+}
+
+.table-banner-copy{
+  padding:22px 24px;
+  max-width:520px;
+}
+
+.table-banner-copy h3{
+  margin:0 0 6px 0;
+  font-size:1.6rem;
+}
+
+.table-banner-copy p{
+  margin:0;
 }
 
 .leader-section{
@@ -236,7 +274,7 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  opacity:.18;
+  opacity:.28;
 }
 
 .stat-icon{
@@ -362,7 +400,8 @@ th{
 .dash-card:hover,
 .event-card:hover,
 .champ-card:hover,
-.rule-card:hover{
+.rule-card:hover,
+.table-banner-card:hover{
   transform:translateY(-2px);
   border-color:#3a4b61;
   box-shadow:0 14px 32px rgba(0,0,0,.35);
@@ -588,6 +627,10 @@ th{
     width:44px;
     height:44px;
   }
+
+  .table-banner-image{
+    height:220px;
+  }
 }
 
 @media (max-width:800px){
@@ -608,5 +651,9 @@ th{
   .hero-chip-c{
     width:40px;
     height:40px;
+  }
+
+  .table-banner-image{
+    height:180px;
   }
 }
