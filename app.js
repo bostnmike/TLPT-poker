@@ -39,6 +39,8 @@ function renderHomePage(data) {
   document.getElementById("home-bubble-leader").textContent = `${bubbles.name} (${bubbles.bubbles})`;
 
   const tbody = document.querySelector("#home-standings-table tbody");
+  tbody.innerHTML = "";
+
   sortPlayers(data.players, "profit").slice(0, 8).forEach(p => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -56,6 +58,7 @@ function renderHomePage(data) {
 function renderStandings(key) {
   const tbody = document.querySelector("#standings-table tbody");
   tbody.innerHTML = "";
+
   sortPlayers(window.siteData.players, key).forEach((p, i) => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -79,6 +82,7 @@ function renderStandings(key) {
 
 function renderDashboard(data) {
   const el = document.getElementById("dashboard-grid");
+
   const cards = [
     ["Profit Leader", topPlayer(data.players, "profit"), p => fmtMoney(p.profit)],
     ["Best ROI", topPlayer(data.players, "roi"), p => fmtPct(p.roi)],
@@ -87,11 +91,12 @@ function renderDashboard(data) {
     ["Best Cash Rate", topPlayer(data.players, "cashRate"), p => fmtPct(p.cashRate)],
     ["Worst Bubble Luck", topPlayer(data.players, "bubbles"), p => p.bubbles]
   ];
+
   el.innerHTML = cards.map(([title, p, val]) => `
     <div class="dash-card">
       <div class="kicker">${title}</div>
       <h3>${p.name}</h3>
-      <div class="metric ${Number(val(p)) < 0 ? "negative" : "positive"}">${val(p)}</div>
+      <div class="metric">${val(p)}</div>
     </div>
   `).join("");
 }
@@ -114,6 +119,7 @@ function renderPlayerProfile(data) {
   const name = params.get("name");
   const p = data.players.find(x => x.name === name) || data.players[0];
   const el = document.getElementById("player-profile");
+
   el.innerHTML = `
     <div class="profile-shell">
       <div class="kicker">Player Profile</div>
