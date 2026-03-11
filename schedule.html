@@ -38,7 +38,10 @@
 
   <script src="app.js"></script>
   <script>
-    loadSiteData().then(data => renderSchedule(data));
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderSchedule(data);
+    });
   </script>
 </body>
 </html>
