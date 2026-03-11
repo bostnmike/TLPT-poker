@@ -96,7 +96,8 @@ a:hover{
 .player-card,
 .dash-card,
 .event-card,
-.champ-card{
+.champ-card,
+.rule-card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
@@ -230,10 +231,17 @@ th{
   gap:16px;
 }
 
+.rules-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
 .player-card,
 .dash-card,
 .event-card,
-.champ-card{
+.champ-card,
+.rule-card{
   padding:20px;
   transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
@@ -241,7 +249,8 @@ th{
 .player-card:hover,
 .dash-card:hover,
 .event-card:hover,
-.champ-card:hover{
+.champ-card:hover,
+.rule-card:hover{
   transform:translateY(-2px);
   border-color:#3a4b61;
   box-shadow:0 14px 32px rgba(0,0,0,.35);
@@ -250,7 +259,8 @@ th{
 .player-card h3,
 .dash-card h3,
 .event-card h3,
-.champ-card h3{
+.champ-card h3,
+.rule-card h3{
   margin-top:0;
   color:var(--text);
 }
@@ -270,7 +280,8 @@ th{
   margin:6px 0 0;
 }
 
-.player-card-stats p{
+.player-card-stats p,
+.rule-card p{
   margin:8px 0;
 }
 
