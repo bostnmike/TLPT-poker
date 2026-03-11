@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">Stats Dashboard</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="champions.html">Champions</a>
+        <a href="rules.html">Rules</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section">
+      <h2>League Leaders</h2>
+      <div id="dashboard-grid" class="card-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">TLPT Poker League</div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    loadSiteData().then(data => renderDashboard(data));
+  </script>
+</body>
+</html>
