@@ -3,449 +3,239 @@ async function loadSiteData() {
   return await res.json();
 }
 
-function fmtMoney(n) {
-  const sign = Number(n) < 0 ? "-" : "";
-  return `${sign}$${Math.abs(Number(n)).toFixed(0)}`;
-}
-
-function fmtPct(n) {
-  return `${(Number(n) * 100).toFixed(1)}%`;
-}
-
-function fmtNum(n) {
-  return Number(n).toFixed(1);
-}
-
-function sortPlayers(players, key) {
-  return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
-}
-
-function initialsFromName(name) {
-  return name
-    .split(" ")
-    .filter(Boolean)
-    .map(part => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-}
-
-function displayPlayerName(player) {
-  return player.entries < 5 ? `${player.name}*` : player.name;
-}
-
-function playerImageMarkup(player, size = "medium") {
-  if (player.image && player.image.trim() !== "") {
-    return `
-      <div class="player-avatar-wrap">
-        <img
-          class="player-avatar ${size}"
-          src="${player.image}"
-          alt="${player.name}"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <div class="player-avatar-fallback ${size}" style="display:none;">
-          ${initialsFromName(player.name)}
-        </div>
-      </div>
-    `;
-  }
+function playerAvatar(name, size="small") {
+  const safe = name.replace(/\s+/g,"-").toLowerCase();
+  const path = `images/players/${safe}.jpg`;
 
   return `
-    <div class="player-avatar-wrap">
-      <div class="player-avatar-fallback ${size}">
-        ${initialsFromName(player.name)}
-      </div>
-    </div>
+  <span class="player-avatar-wrap">
+    <img
+      src="${path}"
+      class="player-avatar ${size}"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    />
+    <span class="player-avatar-fallback ${size}" style="display:none">
+      ${name.charAt(0)}
+    </span>
+  </span>
   `;
 }
 
-function playerInlineMarkup(player, size = "small") {
-  return `
-    <div class="player-inline">
-      ${playerImageMarkup(player, size)}
-      <a href="player.html?name=${encodeURIComponent(player.name)}">${displayPlayerName(player)}</a>
-    </div>
-  `;
+function entryStar(entries){
+  if(entries < 5) return " *";
+  return "";
 }
 
-function leaderInlineMarkup(player, value, size = "small") {
-  return `
-    <div class="leader-inline">
-      ${playerImageMarkup(player, size)}
-      <span>${displayPlayerName(player)} (${value})</span>
-    </div>
-  `;
-}
+function renderPlayers(data){
 
-function formatStatLabel(key) {
-  const labels = {
-    trueSkillScore: "Power",
-    buyIns: "Buy-ins",
-    rebuys: "Rebuys",
-    entries: "Entries",
-    hits: "Hits",
-    timesPlaced: "Cashes",
-    bubbles: "Bubbles",
-    profit: "Profit",
-    roi: "ROI",
-    cashRate: "Cash Rate",
-    bubbleRate: "Bubble Rate",
-    hitRate: "Hit Rate",
-    luckIndex: "Luck",
-    clutchIndex: "Clutch",
-    aggressionIndex: "Aggression",
-    survivorIndex: "Survivor",
-    tiltIndex: "Tilt"
-  };
-  return labels[key] || key;
-}
+  const grid = document.getElementById("players-grid");
+  if(!grid) return;
 
-function formatStatValue(player, key) {
-  if (key === "profit") return fmtMoney(player[key]);
-  if (["roi", "cashRate", "bubbleRate", "hitRate"].includes(key)) return fmtPct(player[key]);
-  if (["trueSkillScore", "luckIndex", "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex"].includes(key)) return fmtNum(player[key]);
-  return player[key];
-}
+  grid.innerHTML = data.players.map(p => `
+    <div class="player-card player-card-rich">
 
-function badgeList(player, data) {
-  const players = data.players;
-  const topProfit = sortPlayers(players, "profit")[0]?.name;
-  const topPower = sortPlayers(players, "trueSkillScore")[0]?.name;
-  const topClutch = sortPlayers(players, "clutchIndex")[0]?.name;
-  const topLuck = sortPlayers(players, "luckIndex")[0]?.name;
-  const topHits = sortPlayers(players, "hits")[0]?.name;
-  const topBubbles = sortPlayers(players, "bubbles")[0]?.name;
+      <img class="card-chip-accent" src="images/site/chip-100.jpg">
 
-  const badges = [];
-  if (player.name === topProfit) badges.push("💰 Profit Leader");
-  if (player.name === topPower) badges.push("🏆 Power Leader");
-  if (player.name === topClutch) badges.push("🎯 Clutch Leader");
-  if (player.name === topLuck) badges.push("🔥 Running Hot");
-  if (player.name === topHits) badges.push("💥 Hit King");
-  if (player.name === topBubbles) badges.push("🫧 Bubble King");
-  if (player.entries < 5) badges.push("✳️ Small Sample");
-
-  return badges;
-}
-
-function badgesMarkup(player, data) {
-  const badges = badgeList(player, data);
-  if (!badges.length) return "";
-  return `
-    <div class="button-row" style="margin:10px 0 0 0;">
-      ${badges.map(b => `<span class="btn small" style="cursor:default;">${b}</span>`).join("")}
-    </div>
-  `;
-}
-
-function formatRsvpLine(rsvp) {
-  const confirmed = rsvp.confirmed ?? 0;
-  const maybe = rsvp.maybe ?? 0;
-  const tbd = rsvp.tbd ?? 0;
-  const out = rsvp.out ?? 0;
-  return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
-}
-
-function projectedTableSize(rsvp, maxSeats = 9) {
-  const confirmed = rsvp.confirmed ?? 0;
-  const maybe = rsvp.maybe ?? 0;
-  const tbd = rsvp.tbd ?? 0;
-
-  const minPlayers = Math.min(confirmed, maxSeats);
-  const maxPlayers = Math.min(confirmed + maybe + tbd, maxSeats);
-
-  if (minPlayers === maxPlayers) {
-    return `${minPlayers} players`;
-  }
-
-  return `${minPlayers}–${maxPlayers} players`;
-}
-
-function tableFillPercent(rsvp, maxSeats = 9) {
-  const confirmed = rsvp.confirmed ?? 0;
-  return Math.min((confirmed / maxSeats) * 100, 100);
-}
-
-function tableFillMarkup(rsvp, maxSeats = 9) {
-  const confirmed = rsvp.confirmed ?? 0;
-  const fillPct = tableFillPercent(rsvp, maxSeats);
-  return `
-    <div class="fill-widget">
-      <div class="fill-header">
-        <span class="fill-label">Table Fill</span>
-        <span class="fill-seats">${confirmed} / ${maxSeats} seats locked</span>
-      </div>
-      <div class="fill-bar">
-        <div class="fill-bar-value" style="width:${fillPct}%"></div>
-      </div>
-    </div>
-  `;
-}
-
-function chipAccentPath(index = 0) {
-  const chips = [
-    "images/site/chip-25.jpg",
-    "images/site/chip-100.jpg",
-    "images/site/chip-500.jpg",
-    "images/site/chip-1K.jpg",
-    "images/site/chip-5K.jpg",
-    "images/site/chip-25K.jpg",
-    "images/site/chip-100K.jpg",
-    "images/site/chip-250K.jpg"
-  ];
-  return chips[index % chips.length];
-}
-
-function renderHomePage(data) {
-  const eventsEl = document.getElementById("home-events-list");
-  if (eventsEl) {
-    eventsEl.innerHTML = data.events.map((event, index) => `
-      <div class="event-card home-event-card">
-        <img class="card-chip-accent" src="${chipAccentPath(index + 2)}" alt="" />
-        <div class="event-card-topline">
-          <div class="kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">🂡</div>
-        </div>
-        <h3>${event.date}</h3>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>
-        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-        <p class="muted"><strong>Location:</strong> ${event.location}</p>
-        <p class="muted">${event.address || ""}</p>
-        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-        ${tableFillMarkup(event.rsvp_counts, 9)}
-        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
-      </div>
-    `).join("");
-  }
-
-  const profit = sortPlayers(data.players, "profit")[0];
-  const power = sortPlayers(data.players, "trueSkillScore")[0];
-  const hits = sortPlayers(data.players, "hits")[0];
-  const bubbles = sortPlayers(data.players, "bubbles")[0];
-
-  document.getElementById("home-profit-leader").innerHTML =
-    leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
-  document.getElementById("home-power-leader").innerHTML =
-    leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
-  document.getElementById("home-hit-leader").innerHTML =
-    leaderInlineMarkup(hits, hits.hits, "small");
-  document.getElementById("home-bubble-leader").innerHTML =
-    leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
-
-  const tbody = document.querySelector("#home-standings-table tbody");
-  if (!tbody) return;
-  tbody.innerHTML = "";
-
-  sortPlayers(data.players, "profit").slice(0, 8).forEach(p => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${playerInlineMarkup(p, "tiny")}</td>
-      <td>${p.entries}</td>
-      <td>${p.timesPlaced}</td>
-      <td>${fmtMoney(p.profit)}</td>
-      <td>${fmtNum(p.trueSkillScore)}</td>
-      <td>${p.hits}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function renderStandings(key) {
-  const tbody = document.querySelector("#standings-table tbody");
-  if (!tbody) return;
-  tbody.innerHTML = "";
-
-  sortPlayers(window.siteData.players, key).forEach((p, i) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${i + 1}</td>
-      <td>${playerInlineMarkup(p, "tiny")}</td>
-      <td>${p.entries}</td>
-      <td>${p.hits}</td>
-      <td>${p.timesPlaced}</td>
-      <td>${p.bubbles}</td>
-      <td>${fmtMoney(p.profit)}</td>
-      <td>${fmtPct(p.roi)}</td>
-      <td>${fmtNum(p.trueSkillScore)}</td>
-      <td>${fmtNum(p.luckIndex)}</td>
-      <td>${fmtNum(p.clutchIndex)}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-function renderDashboardSortable(key) {
-  const el = document.getElementById("dashboard-grid");
-  if (!el) return;
-  const sorted = sortPlayers(window.siteData.players, key);
-
-  el.innerHTML = sorted.map((p, i) => `
-    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
-      <img class="card-chip-accent" src="${chipAccentPath(i)}" alt="" />
       <div class="player-card-top">
-        ${playerImageMarkup(p, "medium")}
-        <div class="player-card-meta">
-          <div class="kicker">#${i + 1} • ${formatStatLabel(key)}</div>
-          <h3>${displayPlayerName(p)}</h3>
-        </div>
-      </div>
-      <div class="player-card-stats">
-        <p class="muted"><strong>${formatStatLabel(key)}:</strong> ${formatStatValue(p, key)}</p>
-        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
-        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
-        <p class="muted">Hits: ${p.hits}</p>
-        <p class="muted">Cashes: ${p.timesPlaced}</p>
-        ${badgesMarkup(p, window.siteData)}
-      </div>
-    </a>
-  `).join("");
-}
-
-function renderPlayers(data) {
-  const el = document.getElementById("players-grid");
-  if (!el) return;
-  el.innerHTML = data.players.map((p, i) => `
-    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
-      <img class="card-chip-accent" src="${chipAccentPath(i + 1)}" alt="" />
-      <div class="player-card-top">
-        ${playerImageMarkup(p, "medium")}
+        ${playerAvatar(p.name,"medium")}
         <div class="player-card-meta">
           <div class="kicker">Player</div>
-          <h3>${displayPlayerName(p)}</h3>
+          <h3>${p.name}${entryStar(p.entries)}</h3>
         </div>
       </div>
+
       <div class="player-card-stats">
-        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
-        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
-        <p class="muted">Hits: ${p.hits}</p>
-        <p class="muted">Cashes: ${p.timesPlaced}</p>
-        ${badgesMarkup(p, data)}
+        <p><strong>Entries:</strong> ${p.entries}</p>
+        <p><strong>Profit:</strong> ${p.profit}</p>
+        <p><strong>ROI:</strong> ${p.roi}</p>
       </div>
-    </a>
-  `).join("");
-}
 
-function renderPlayerProfile(data) {
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get("name");
-  const p = data.players.find(x => x.name === name) || data.players[0];
-  const el = document.getElementById("player-profile");
-
-  if (el) {
-    el.innerHTML = `
-      <div class="profile-shell">
-        <div class="profile-hero">
-          <div class="profile-hero-left">
-            ${playerImageMarkup(p, "large")}
-            <div>
-              <div class="kicker">Player Profile</div>
-              <h2>${displayPlayerName(p)}</h2>
-              <p class="muted">TLPT workbook-driven performance snapshot</p>
-              ${badgesMarkup(p, data)}
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-grid">
-          <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
-          <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
-          <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
-          <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${p.hits}</div></div>
-          <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${p.timesPlaced}</div></div>
-          <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${p.bubbles}</div></div>
-          <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${p.profit < 0 ? "negative":"positive"}">${fmtMoney(p.profit)}</div></div>
-          <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(p.roi)}</div></div>
-          <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(p.trueSkillScore)}</div></div>
-          <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(p.luckIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(p.clutchIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(p.cashRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(p.bubbleRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(p.hitRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(p.aggressionIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(p.survivorIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(p.tiltIndex)}</div></div>
-        </div>
+      <div style="margin-top:10px">
+        <a class="btn small" href="player.html?name=${encodeURIComponent(p.name)}">
+          Profile
+        </a>
       </div>
-    `;
-  }
 
-  const navEl = document.getElementById("player-nav");
-  if (!navEl) return;
-  const idx = data.players.findIndex(x => x.name === p.name);
-  const prev = data.players[(idx - 1 + data.players.length) % data.players.length];
-  const next = data.players[(idx + 1) % data.players.length];
-
-  navEl.innerHTML = `
-    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
-    <a class="btn" href="players.html">All Players</a>
-    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
-  `;
-}
-
-function renderSchedule(data) {
-  const el = document.getElementById("schedule-list");
-  if (!el) return;
-  el.innerHTML = data.events.map((e, i) => `
-    <div class="event-card">
-      <img class="card-chip-accent" src="${chipAccentPath(i + 3)}" alt="" />
-      <div class="event-card-topline">
-        <div class="kicker">${e.title}</div>
-        <div class="event-icon event-icon-card">🂡</div>
-      </div>
-      <h3>${e.date}</h3>
-      <p class="muted"><strong>Start:</strong> ${e.time}</p>
-      <p class="muted"><strong>Estimated End:</strong> ${e.endTime || ""}</p>
-      <p class="muted"><strong>Location:</strong> ${e.location}</p>
-      <p class="muted">${e.address || ""}</p>
-      <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(e.rsvp_counts, 9)}</p>
-      ${tableFillMarkup(e.rsvp_counts, 9)}
-      <p class="muted">${formatRsvpLine(e.rsvp_counts)}</p>
-      <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
   `).join("");
 }
 
-function renderChampions(data) {
-  const honorsEl = document.getElementById("champions-list");
-  const recordsEl = document.getElementById("records-list");
+function renderStandings(data){
 
-  if (honorsEl) {
-    honorsEl.innerHTML = data.honors.map((h, i) => {
-      const p = data.players.find(player => player.name === h.name);
-      return `
-        <div class="champ-card stat-card-visual">
-          <img class="card-chip-accent" src="${chipAccentPath(i)}" alt="" />
-          <div class="player-card-top">
-            ${p ? playerImageMarkup(p, "small") : ""}
-            <div>
-              <div class="kicker">${h.type}</div>
-              <h3>${p ? displayPlayerName(p) : h.name}</h3>
-            </div>
-          </div>
-          <p class="muted">${h.note}</p>
-        </div>
-      `;
-    }).join("");
-  }
+  const body = document.querySelector("#standings-body");
+  if(!body) return;
 
-  if (recordsEl) {
-    recordsEl.innerHTML = data.records.map((r, i) => {
-      const p = data.players.find(player => player.name === r.name);
-      return `
-        <div class="champ-card stat-card-visual">
-          <img class="card-chip-accent" src="${chipAccentPath(i + 2)}" alt="" />
-          <div class="player-card-top">
-            ${p ? playerImageMarkup(p, "small") : ""}
-            <div>
-              <div class="kicker">${r.label}</div>
-              <h3>${p ? displayPlayerName(p) : r.name}</h3>
-            </div>
-          </div>
-          <p class="muted">${r.value}</p>
+  body.innerHTML = "";
+
+  const players = [...data.players];
+
+  players.sort((a,b)=> b.profit - a.profit);
+
+  players.forEach(p=>{
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>
+        <div class="player-inline">
+          ${playerAvatar(p.name,"tiny")}
+          ${p.name}${entryStar(p.entries)}
         </div>
-      `;
-    }).join("");
-  }
+      </td>
+      <td>${p.buyIns}</td>
+      <td>${p.rebuys}</td>
+      <td>${p.entries}</td>
+      <td>${p.timesPlaced}</td>
+      <td>${p.bubbles}</td>
+      <td>${p.profit}</td>
+      <td>${p.roi}</td>
+    `;
+
+    body.appendChild(tr);
+  });
+
 }
+
+function renderDashboardSortable(stat){
+
+  const grid = document.getElementById("dashboard-grid");
+  if(!grid) return;
+
+  const players = [...window.siteData.players];
+
+  players.sort((a,b)=> (b[stat] || 0) - (a[stat] || 0));
+
+  grid.innerHTML = players.map(p=>{
+
+    let value = p[stat];
+
+    return `
+      <div class="player-card player-card-rich">
+
+        <img class="card-chip-accent" src="images/site/chip-500.jpg">
+
+        <div class="player-card-top">
+          ${playerAvatar(p.name,"small")}
+          <div class="player-card-meta">
+            <h3>${p.name}${entryStar(p.entries)}</h3>
+          </div>
+        </div>
+
+        <div class="metric">${value ?? "-"}</div>
+
+        <div class="muted">${stat}</div>
+
+        <div style="margin-top:10px">
+          <a class="btn small" href="player.html?name=${encodeURIComponent(p.name)}">
+            Profile
+          </a>
+        </div>
+
+      </div>
+    `;
+  }).join("");
+
+}
+
+function renderPlayerPage(data){
+
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+
+  if(!name) return;
+
+  const player = data.players.find(p=>p.name===name);
+  if(!player) return;
+
+  document.getElementById("player-name").textContent = player.name;
+
+  document.getElementById("player-avatar").innerHTML =
+    playerAvatar(player.name,"large");
+
+  const grid = document.getElementById("player-stats");
+
+  grid.innerHTML = `
+    <div class="profile-stat"><strong>Entries</strong><br>${player.entries}</div>
+    <div class="profile-stat"><strong>Profit</strong><br>${player.profit}</div>
+    <div class="profile-stat"><strong>ROI</strong><br>${player.roi}</div>
+    <div class="profile-stat"><strong>Hits</strong><br>${player.hits}</div>
+    <div class="profile-stat"><strong>Placed</strong><br>${player.timesPlaced}</div>
+    <div class="profile-stat"><strong>Bubbles</strong><br>${player.bubbles}</div>
+  `;
+
+  const index = data.players.indexOf(player);
+
+  const prev = data.players[index-1];
+  const next = data.players[index+1];
+
+  const nav = document.getElementById("player-nav");
+
+  nav.innerHTML = `
+    ${prev ? `<a class="btn small" href="player.html?name=${encodeURIComponent(prev.name)}">← ${prev.name}</a>` : ""}
+    ${next ? `<a class="btn small" href="player.html?name=${encodeURIComponent(next.name)}">${next.name} →</a>` : ""}
+  `;
+
+}
+
+function renderSchedule(data){
+
+  const list = document.getElementById("schedule-list");
+  if(!list) return;
+
+  list.innerHTML = data.events.map(e=>{
+
+    const seats = e.yes + e.maybe;
+    const pct = Math.min(seats/9,1) * 100;
+
+    return `
+      <div class="event-card">
+
+        <div class="event-card-topline">
+          <h3>${e.title}</h3>
+          <div class="event-icon-card">🂡</div>
+        </div>
+
+        <p><strong>Date:</strong> ${e.date}</p>
+        <p><strong>Start:</strong> ${e.start}</p>
+        <p><strong>Location:</strong> ${e.location}</p>
+
+        <div class="fill-widget">
+
+          <div class="fill-header">
+            <span class="fill-label">Projected Table</span>
+            <span class="fill-seats">${seats}/9</span>
+          </div>
+
+          <div class="fill-bar">
+            <div class="fill-bar-value" style="width:${pct}%"></div>
+          </div>
+
+        </div>
+
+        <p class="rsvp-line">Yes: ${e.yes}</p>
+        <p class="rsvp-line">Maybe: ${e.maybe}</p>
+        <p class="rsvp-line">No: ${e.no}</p>
+        <p class="rsvp-line">TBD: ${e.tbd}</p>
+
+        <a class="btn small" href="${e.invite}" target="_blank">
+          View Invite
+        </a>
+
+      </div>
+    `;
+
+  }).join("");
+
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+
+  const data = await loadSiteData();
+  window.siteData = data;
+
+  renderPlayers(data);
+  renderStandings(data);
+  renderPlayerPage(data);
+  renderSchedule(data);
+
+});
