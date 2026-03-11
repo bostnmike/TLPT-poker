@@ -41,7 +41,10 @@
 
   <script src="app.js"></script>
   <script>
-    loadSiteData().then(data => renderPlayers(data));
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderPlayers(data);
+    });
   </script>
 </body>
 </html>
