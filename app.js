@@ -54,6 +54,29 @@ function playerImageMarkup(player, size = "medium") {
   `;
 }
 
+function formatStatLabel(key) {
+  const labels = {
+    buyIns: "Buy-ins",
+    rebuys: "Rebuys",
+    entries: "Entries",
+    hits: "Hits",
+    timesPlaced: "Cashes",
+    bubbles: "Bubbles",
+    profit: "Profit",
+    roi: "ROI",
+    cashRate: "Cash Rate",
+    bubbleRate: "Bubble Rate",
+    hitRate: "Hit Rate"
+  };
+  return labels[key] || key;
+}
+
+function formatStatValue(player, key) {
+  if (key === "profit") return fmtMoney(player[key]);
+  if (["roi", "cashRate", "bubbleRate", "hitRate"].includes(key)) return fmtPct(player[key]);
+  return player[key];
+}
+
 function renderHomePage(data) {
   const next = data.events[0];
   document.getElementById("next-game-title").textContent = next.title;
@@ -132,6 +155,29 @@ function renderDashboard(data) {
       <h3>${p.name}</h3>
       <div class="metric">${val(p)}</div>
     </div>
+  `).join("");
+}
+
+function renderDashboardSortable(key) {
+  const el = document.getElementById("dashboard-grid");
+  const sorted = sortPlayers(window.siteData.players, key);
+
+  el.innerHTML = sorted.map((p, i) => `
+    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <div class="player-card-top">
+        ${playerImageMarkup(p, "medium")}
+        <div class="player-card-meta">
+          <div class="kicker">#${i + 1} • ${formatStatLabel(key)}</div>
+          <h3>${p.name}</h3>
+        </div>
+      </div>
+      <div class="player-card-stats">
+        <p class="muted"><strong>${formatStatLabel(key)}:</strong> ${formatStatValue(p, key)}</p>
+        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
+        <p class="muted">ROI: ${fmtPct(p.roi)}</p>
+        <p class="muted">Hits: ${p.hits}</p>
+      </div>
+    </a>
   `).join("");
 }
 
