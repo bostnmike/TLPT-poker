@@ -8,7 +8,6 @@
   --accent:#d7263d;
   --gold:#ffb81c;
   --gold-soft:#f6c65b;
-  --green:#2ca56d;
 }
 
 *{
@@ -17,7 +16,7 @@
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial, Helvetica, sans-serif;
   background:
     radial-gradient(circle at top right, rgba(255,184,28,0.07), transparent 25%),
     radial-gradient(circle at left center, rgba(215,38,61,0.08), transparent 22%),
@@ -60,7 +59,6 @@ a:hover{
 .logo{
   margin:0;
   font-size:1.8rem;
-  color:var(--text);
 }
 
 .tag{
@@ -107,7 +105,8 @@ a:hover{
 .event-card,
 .champ-card,
 .rule-card,
-.stat-card{
+.stat-card,
+.media-card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
@@ -177,9 +176,8 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:2px solid rgba(255,184,28,.6);
-  box-shadow:0 6px 14px rgba(0,0,0,.28);
-  opacity:.9;
+  border:1px solid rgba(255,184,28,.35);
+  opacity:.75;
   z-index:1;
 }
 
@@ -213,9 +211,8 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:1px solid rgba(255,184,28,.35);
-  box-shadow:0 4px 10px rgba(0,0,0,.2);
-  opacity:.42;
+  border:1px solid rgba(255,184,28,.25);
+  opacity:.75;
   pointer-events:none;
 }
 
@@ -269,7 +266,7 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  opacity:.34;
+  opacity:.75;
   pointer-events:none;
 }
 
@@ -279,6 +276,11 @@ a:hover{
   top:14px;
   font-size:1.25rem;
   opacity:.85;
+}
+
+.event-icon-card{
+  font-size:1.9rem;
+  line-height:1;
 }
 
 .stat-card .label{
@@ -295,8 +297,7 @@ a:hover{
   font-size:.8rem;
 }
 
-.muted,
-.rsvp-line{
+.muted{
   color:var(--muted);
 }
 
@@ -431,7 +432,8 @@ th{
 .dash-card:hover,
 .event-card:hover,
 .champ-card:hover,
-.rule-card:hover{
+.rule-card:hover,
+.media-card:hover{
   transform:translateY(-2px);
   border-color:#3a4b61;
   box-shadow:0 14px 32px rgba(0,0,0,.35);
@@ -441,7 +443,8 @@ th{
 .dash-card h3,
 .event-card h3,
 .champ-card h3,
-.rule-card h3{
+.rule-card h3,
+.media-card h3{
   margin-top:0;
   color:var(--text);
 }
@@ -545,7 +548,6 @@ th{
   align-items:center;
   justify-content:center;
   text-transform:uppercase;
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
   overflow:hidden;
 }
 
@@ -598,11 +600,6 @@ th{
   gap:10px;
 }
 
-.event-icon{
-  font-size:1.2rem;
-  opacity:.9;
-}
-
 .fill-widget{
   margin:10px 0 12px 0;
 }
@@ -640,7 +637,6 @@ th{
   height:100%;
   border-radius:999px;
   background:linear-gradient(90deg, var(--gold), var(--gold-soft));
-  box-shadow:0 0 14px rgba(255,184,28,.25);
 }
 
 .schedule-hero,
@@ -664,9 +660,8 @@ th{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:1px solid rgba(255,184,28,.35);
-  opacity:.5;
-  box-shadow:0 3px 8px rgba(0,0,0,.18);
+  border:1px solid rgba(255,184,28,.25);
+  opacity:.75;
 }
 
 .schedule-chip-a{
@@ -702,8 +697,79 @@ th{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  opacity:.34;
+  opacity:.75;
   pointer-events:none;
+}
+
+.media-header{
+  margin-top:36px;
+}
+
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;
+  margin:22px 0 40px;
+}
+
+.media-card{
+  overflow:hidden;
+  padding:0;
+}
+
+.media-frame{
+  padding:14px;
+  background:
+    linear-gradient(135deg, rgba(15,81,50,0.22), rgba(17,22,30,0.88)),
+    url("images/site/large-table.gif") center/cover no-repeat;
+}
+
+.media-embed-wrap{
+  position:relative;
+  width:100%;
+  padding-top:56.25%;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:#000;
+}
+
+.media-embed-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.media-copy{
+  padding:16px 18px 18px;
+}
+
+.media-frame-link{
+  min-height:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.media-link-panel{
+  width:100%;
+  min-height:180px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:20px;
+  border-radius:14px;
+  background:rgba(10,13,18,0.72);
+  border:1px solid var(--line);
+  text-align:center;
+}
+
+.media-link-icon{
+  font-size:2rem;
 }
 
 .site-footer{
