@@ -163,6 +163,13 @@ a:hover{
   max-width:720px;
 }
 
+#home-events-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:18px;
+}
+
 .hero-chip{
   position:absolute;
   width:52px;
@@ -360,6 +367,10 @@ th{
 .rule-card{
   padding:20px;
   transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.event-card{
+  padding:18px;
 }
 
 .player-card:hover,
@@ -675,6 +686,12 @@ th{
   .schedule-chip{
     width:42px;
     height:42px;
+  }
+}
+
+@media (max-width:800px){
+  #home-events-list{
+    grid-template-columns:1fr;
   }
 }
 
