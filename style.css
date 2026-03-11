@@ -9,7 +9,6 @@
   --gold:#ffb81c;
   --gold-soft:#f6c65b;
   --green:#2ca56d;
-  --felt:#0f5132;
 }
 
 *{
@@ -36,7 +35,7 @@ a:hover{
 }
 
 .wrap{
-  max-width:1280px;
+  max-width:1380px;
   margin:0 auto;
   padding:0 20px;
 }
@@ -108,7 +107,6 @@ a:hover{
 .event-card,
 .champ-card,
 .rule-card,
-.table-banner-card,
 .stat-card{
   background:var(--panel);
   border:1px solid var(--line);
@@ -179,9 +177,9 @@ a:hover{
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:2px solid rgba(255,184,28,.55);
+  border:2px solid rgba(255,184,28,.6);
   box-shadow:0 6px 14px rgba(0,0,0,.28);
-  opacity:.78;
+  opacity:.9;
   z-index:1;
 }
 
@@ -203,43 +201,40 @@ a:hover{
   transform:rotate(8deg);
 }
 
-.table-banner-section{
-  margin-top:0;
-}
-
-.table-banner-card{
+.section-with-chips{
   position:relative;
   overflow:hidden;
-  padding:0;
 }
 
-.table-banner-image{
-  display:block;
-  width:100%;
-  height:280px;
-  object-fit:cover;
-}
-
-.table-banner-overlay{
+.section-chip{
   position:absolute;
-  inset:0;
-  display:flex;
-  align-items:flex-end;
-  background:linear-gradient(180deg, rgba(7,11,16,0.08), rgba(7,11,16,0.72));
+  width:34px;
+  height:34px;
+  object-fit:cover;
+  border-radius:50%;
+  overflow:hidden;
+  border:1px solid rgba(255,184,28,.35);
+  box-shadow:0 4px 10px rgba(0,0,0,.2);
+  opacity:.42;
+  pointer-events:none;
 }
 
-.table-banner-copy{
-  padding:22px 24px;
-  max-width:520px;
+.section-chip-a{
+  top:18px;
+  right:20px;
+  transform:rotate(12deg);
 }
 
-.table-banner-copy h3{
-  margin:0 0 6px 0;
-  font-size:1.6rem;
+.section-chip-b{
+  bottom:18px;
+  right:70px;
+  transform:rotate(-8deg);
 }
 
-.table-banner-copy p{
-  margin:0;
+.section-chip-c{
+  bottom:18px;
+  left:20px;
+  transform:rotate(8deg);
 }
 
 .leader-section{
@@ -262,20 +257,20 @@ a:hover{
 
 .stat-card-visual{
   position:relative;
-  min-height:148px;
   overflow:hidden;
 }
 
 .card-chip-accent{
   position:absolute;
-  right:-6px;
-  bottom:-6px;
-  width:44px;
-  height:44px;
+  right:-8px;
+  bottom:-8px;
+  width:42px;
+  height:42px;
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  opacity:.28;
+  opacity:.34;
+  pointer-events:none;
 }
 
 .stat-icon{
@@ -428,20 +423,15 @@ th{
 .event-card,
 .champ-card,
 .rule-card{
-  padding:20px;
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-
-.event-card{
   padding:18px;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .player-card:hover,
 .dash-card:hover,
 .event-card:hover,
 .champ-card:hover,
-.rule-card:hover,
-.table-banner-card:hover{
+.rule-card:hover{
   transform:translateY(-2px);
   border-color:#3a4b61;
   box-shadow:0 14px 32px rgba(0,0,0,.35);
@@ -458,6 +448,8 @@ th{
 
 .player-card-rich{
   display:block;
+  position:relative;
+  overflow:hidden;
 }
 
 .player-card-top{
@@ -474,12 +466,7 @@ th{
 
 .player-card-stats p{
   margin:6px 0;
-  font-size:.92rem;
-}
-
-.player-card-stats .btn.small{
-  font-size:.75rem;
-  padding:6px 8px;
+  font-size:.9rem;
 }
 
 .rule-card p{
@@ -489,7 +476,7 @@ th{
 .kicker{
   color:var(--gold);
   text-transform:uppercase;
-  font-size:.78rem;
+  font-size:.72rem;
   letter-spacing:.1em;
 }
 
@@ -585,9 +572,9 @@ th{
 
 .player-avatar.medium,
 .player-avatar-fallback.medium{
-  width:64px;
-  height:64px;
-  font-size:1.2rem;
+  width:58px;
+  height:58px;
+  font-size:1.1rem;
 }
 
 .player-avatar.large,
@@ -602,6 +589,18 @@ th{
   align-items:center;
   gap:10px;
   font-weight:700;
+}
+
+.event-card-topline{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.event-icon{
+  font-size:1.2rem;
+  opacity:.9;
 }
 
 .fill-widget{
@@ -660,14 +659,14 @@ th{
 
 .schedule-chip{
   position:absolute;
-  width:24px;
-  height:24px;
+  width:26px;
+  height:26px;
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  border:1px solid rgba(255,184,28,.28);
-  opacity:.26;
-  box-shadow:0 2px 6px rgba(0,0,0,.15);
+  border:1px solid rgba(255,184,28,.35);
+  opacity:.5;
+  box-shadow:0 3px 8px rgba(0,0,0,.18);
 }
 
 .schedule-chip-a{
@@ -696,14 +695,14 @@ th{
 
 .rule-chip{
   position:absolute;
-  right:-4px;
-  bottom:-4px;
-  width:24px;
-  height:24px;
+  right:-8px;
+  bottom:-8px;
+  width:42px;
+  height:42px;
   object-fit:cover;
   border-radius:50%;
   overflow:hidden;
-  opacity:.12;
+  opacity:.34;
   pointer-events:none;
 }
 
@@ -717,7 +716,7 @@ th{
   padding:20px;
 }
 
-@media (max-width:1200px){
+@media (max-width:1280px){
   #players-grid,
   #dashboard-grid,
   .five-col-grid{
@@ -725,15 +724,17 @@ th{
   }
 }
 
-@media (max-width:980px){
-  .leader-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
+@media (max-width:1100px){
   #players-grid,
   #dashboard-grid,
   .five-col-grid{
     grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width:980px){
+  .leader-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 }
 
@@ -755,8 +756,9 @@ th{
     height:44px;
   }
 
-  .table-banner-image{
-    height:220px;
+  .section-chip{
+    width:28px;
+    height:28px;
   }
 }
 
@@ -777,17 +779,14 @@ th{
     grid-template-columns:1fr;
   }
 
-  .hero-chip-b{
+  .hero-chip-b,
+  .section-chip-b{
     display:none;
   }
 
   .hero-chip-c{
     width:40px;
     height:40px;
-  }
-
-  .table-banner-image{
-    height:180px;
   }
 
   #players-grid,
