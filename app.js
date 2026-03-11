@@ -183,11 +183,26 @@ function tableFillMarkup(rsvp, maxSeats = 9) {
   `;
 }
 
+function chipAccentPath(index = 0) {
+  const chips = [
+    "images/site/chip-25.jpg",
+    "images/site/chip-100.jpg",
+    "images/site/chip-500.jpg",
+    "images/site/chip-1K.jpg",
+    "images/site/chip-5K.jpg",
+    "images/site/chip-25K.jpg",
+    "images/site/chip-100K.jpg",
+    "images/site/chip-250K.jpg"
+  ];
+  return chips[index % chips.length];
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
-    eventsEl.innerHTML = data.events.map(event => `
+    eventsEl.innerHTML = data.events.map((event, index) => `
       <div class="event-card home-event-card">
+        <img class="card-chip-accent" src="${chipAccentPath(index + 2)}" alt="" />
         <div class="event-card-topline">
           <div class="kicker">${event.title}</div>
           <div class="event-icon">🃏</div>
@@ -268,6 +283,7 @@ function renderDashboardSortable(key) {
 
   el.innerHTML = sorted.map((p, i) => `
     <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <img class="card-chip-accent" src="${chipAccentPath(i)}" alt="" />
       <div class="player-card-top">
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
@@ -290,8 +306,9 @@ function renderDashboardSortable(key) {
 function renderPlayers(data) {
   const el = document.getElementById("players-grid");
   if (!el) return;
-  el.innerHTML = data.players.map(p => `
+  el.innerHTML = data.players.map((p, i) => `
     <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <img class="card-chip-accent" src="${chipAccentPath(i + 1)}" alt="" />
       <div class="player-card-top">
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
@@ -370,8 +387,9 @@ function renderPlayerProfile(data) {
 function renderSchedule(data) {
   const el = document.getElementById("schedule-list");
   if (!el) return;
-  el.innerHTML = data.events.map(e => `
+  el.innerHTML = data.events.map((e, i) => `
     <div class="event-card">
+      <img class="card-chip-accent" src="${chipAccentPath(i + 3)}" alt="" />
       <div class="event-card-topline">
         <div class="kicker">${e.title}</div>
         <div class="event-icon">🎲</div>
@@ -394,10 +412,11 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl) {
-    honorsEl.innerHTML = data.honors.map(h => {
+    honorsEl.innerHTML = data.honors.map((h, i) => {
       const p = data.players.find(player => player.name === h.name);
       return `
-        <div class="champ-card">
+        <div class="champ-card stat-card-visual">
+          <img class="card-chip-accent" src="${chipAccentPath(i)}" alt="" />
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
@@ -412,10 +431,11 @@ function renderChampions(data) {
   }
 
   if (recordsEl) {
-    recordsEl.innerHTML = data.records.map(r => {
+    recordsEl.innerHTML = data.records.map((r, i) => {
       const p = data.players.find(player => player.name === r.name);
       return `
-        <div class="champ-card">
+        <div class="champ-card stat-card-visual">
+          <img class="card-chip-accent" src="${chipAccentPath(i + 2)}" alt="" />
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
