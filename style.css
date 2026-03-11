@@ -148,6 +148,11 @@ a:hover{
   margin:18px 0;
 }
 
+.dashboard-buttons{
+  margin-top:0;
+  margin-bottom:20px;
+}
+
 .btn{
   display:inline-block;
   padding:11px 16px;
@@ -211,20 +216,12 @@ td{
   border-bottom:1px solid var(--line);
   text-align:left;
   white-space:nowrap;
+  vertical-align:middle;
 }
 
 th{
   color:var(--muted);
   font-weight:600;
-}
-
-td a{
-  color:var(--gold);
-  font-weight:600;
-}
-
-td a:hover{
-  color:var(--gold-soft);
 }
 
 .card-grid{
@@ -327,6 +324,12 @@ td a:hover{
   padding:16px;
 }
 
+.player-inline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
 .player-avatar-wrap{
   position:relative;
   flex-shrink:0;
@@ -344,11 +347,28 @@ td a:hover{
   justify-content:center;
   text-transform:uppercase;
   box-shadow:0 10px 24px rgba(0,0,0,.35);
+  overflow:hidden;
 }
 
 .player-avatar{
   object-fit:cover;
   display:block;
+}
+
+.player-avatar.tiny,
+.player-avatar-fallback.tiny{
+  width:28px;
+  height:28px;
+  font-size:.75rem;
+  border-width:2px;
+}
+
+.player-avatar.small,
+.player-avatar-fallback.small{
+  width:40px;
+  height:40px;
+  font-size:.9rem;
+  border-width:2px;
 }
 
 .player-avatar.medium,
@@ -363,6 +383,13 @@ td a:hover{
   width:140px;
   height:140px;
   font-size:2.2rem;
+}
+
+.leader-inline{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
 }
 
 .site-footer{
