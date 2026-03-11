@@ -413,14 +413,6 @@ th{
   padding:20px;
 }
 
-.prose ul{
-  line-height:1.8;
-}
-
-.prose li::marker{
-  color:var(--gold);
-}
-
 @media (max-width:900px){
   .hero{
     grid-template-columns:1fr;
