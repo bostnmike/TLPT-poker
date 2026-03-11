@@ -59,11 +59,12 @@ a:hover{
 .logo{
   margin:0;
   font-size:1.8rem;
+  color:var(--gold);
 }
 
 .tag{
   margin:4px 0 0;
-  color:var(--muted);
+  color:#ffffff;
 }
 
 .nav{
@@ -210,7 +211,7 @@ a:hover{
   font-size:2.5rem;
   line-height:1;
   background:#fff;
-  color:#000;
+  color:#c1121f;
   padding:6px 10px;
   border-radius:8px;
   border:1px solid #ccc;
@@ -251,29 +252,29 @@ a:hover{
   display:inline-block;
   padding:11px 16px;
   border-radius:10px;
-  border:1px solid var(--line);
-  background:var(--panel-2);
-  color:var(--gold);
+  border:1px solid #c89b1d;
+  background:var(--gold);
+  color:#000000;
   transition:all .2s ease;
   cursor:pointer;
 }
 
 .btn:hover{
-  color:#111;
-  background:var(--gold);
-  border-color:var(--gold);
+  color:#000000;
+  background:#ffffff;
+  border-color:#ffffff;
 }
 
 .btn-primary{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff;
+  background:var(--gold);
+  border-color:#c89b1d;
+  color:#000000;
 }
 
 .btn-primary:hover{
-  background:#f0435a;
-  border-color:#f0435a;
-  color:#fff;
+  background:#ffffff;
+  border-color:#ffffff;
+  color:#000000;
 }
 
 .btn.small{
@@ -443,6 +444,14 @@ th{
   align-items:center;
   gap:22px;
   flex-wrap:wrap;
+}
+
+.profile-quote{
+  margin-top:8px;
+  color:var(--gold);
+  font-style:italic;
+  font-size:1rem;
+  line-height:1.4;
 }
 
 .profile-grid{
@@ -668,7 +677,6 @@ th{
   padding:20px;
 }
 
-/* remove all chip accents globally */
 .hero-chip,
 .section-chip,
 .card-chip-accent,
