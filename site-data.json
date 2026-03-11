@@ -1,11 +1,27 @@
 {
   "events": [
     {
-      "title": "TLPT Weekly Game",
-      "date": "Next Thursday",
+      "title": "TLPT Friday Game",
+      "date": "Friday, March 13, 2026",
       "time": "7:00 PM",
-      "location": "Poker HQ",
+      "endTime": "11:15 PM",
+      "location": "The Caahhd Room",
+      "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
+      "rsvp_counts": {
+        "confirmed": 0,
+        "maybe": 0,
+        "out": 0
+      }
+    },
+    {
+      "title": "TLPT Saturday Game",
+      "date": "Saturday, March 14, 2026",
+      "time": "7:00 PM",
+      "endTime": "11:15 PM",
+      "location": "The Caahhd Room",
+      "address": "430 Otter Cliff Way, Cary, NC 27519",
+      "apple_invite_url": "https://www.icloud.com/invites/07d_zfiupMrJCAo5iPcrojoDg",
       "rsvp_counts": {
         "confirmed": 0,
         "maybe": 0,
@@ -224,7 +240,7 @@
       "trueSkillScore": 0,
       "profitRank": 18,
       "skillRank": 26,
-      "clutchRank": 25,
+      "clutchRank": 19,
       "luckRank": 22,
       "image": "images/players/brad-r.jpg"
     },
