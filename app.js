@@ -13,7 +13,7 @@ function fmtPct(n) {
 }
 
 function sortPlayers(players, key) {
-  return [...players].sort((a, b) => Number(b[key]) - Number(a[key]));
+  return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
 }
 
 function topPlayer(players, key) {
@@ -33,7 +33,7 @@ function initialsFromName(name) {
 function playerImageMarkup(player, size = "medium") {
   if (player.image && player.image.trim() !== "") {
     return `
-      <div class="player-avatar-wrap ${size}">
+      <div class="player-avatar-wrap">
         <img
           class="player-avatar ${size}"
           src="${player.image}"
@@ -48,8 +48,28 @@ function playerImageMarkup(player, size = "medium") {
   }
 
   return `
-    <div class="player-avatar-fallback ${size}">
-      ${initialsFromName(player.name)}
+    <div class="player-avatar-wrap">
+      <div class="player-avatar-fallback ${size}">
+        ${initialsFromName(player.name)}
+      </div>
+    </div>
+  `;
+}
+
+function playerInlineMarkup(player, size = "small") {
+  return `
+    <div class="player-inline">
+      ${playerImageMarkup(player, size)}
+      <a href="player.html?name=${encodeURIComponent(player.name)}">${player.name}</a>
+    </div>
+  `;
+}
+
+function leaderInlineMarkup(player, value, size = "small") {
+  return `
+    <div class="leader-inline">
+      ${playerImageMarkup(player, size)}
+      <span>${player.name} (${value})</span>
     </div>
   `;
 }
@@ -90,10 +110,14 @@ function renderHomePage(data) {
   const hits = topPlayer(data.players, "hits");
   const bubbles = topPlayer(data.players, "bubbles");
 
-  document.getElementById("home-profit-leader").textContent = `${profit.name} (${fmtMoney(profit.profit)})`;
-  document.getElementById("home-roi-leader").textContent = `${roi.name} (${fmtPct(roi.roi)})`;
-  document.getElementById("home-hit-leader").textContent = `${hits.name} (${hits.hits})`;
-  document.getElementById("home-bubble-leader").textContent = `${bubbles.name} (${bubbles.bubbles})`;
+  document.getElementById("home-profit-leader").innerHTML =
+    leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
+  document.getElementById("home-roi-leader").innerHTML =
+    leaderInlineMarkup(roi, fmtPct(roi.roi), "small");
+  document.getElementById("home-hit-leader").innerHTML =
+    leaderInlineMarkup(hits, hits.hits, "small");
+  document.getElementById("home-bubble-leader").innerHTML =
+    leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
 
   const tbody = document.querySelector("#home-standings-table tbody");
   tbody.innerHTML = "";
@@ -101,7 +125,7 @@ function renderHomePage(data) {
   sortPlayers(data.players, "profit").slice(0, 8).forEach(p => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td><a href="player.html?name=${encodeURIComponent(p.name)}">${p.name}</a></td>
+      <td>${playerInlineMarkup(p, "tiny")}</td>
       <td>${p.entries}</td>
       <td>${p.timesPlaced}</td>
       <td>${fmtMoney(p.profit)}</td>
@@ -120,7 +144,7 @@ function renderStandings(key) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${i + 1}</td>
-      <td><a href="player.html?name=${encodeURIComponent(p.name)}">${p.name}</a></td>
+      <td>${playerInlineMarkup(p, "tiny")}</td>
       <td>${p.buyIns}</td>
       <td>${p.rebuys}</td>
       <td>${p.entries}</td>
@@ -135,27 +159,6 @@ function renderStandings(key) {
     `;
     tbody.appendChild(tr);
   });
-}
-
-function renderDashboard(data) {
-  const el = document.getElementById("dashboard-grid");
-
-  const cards = [
-    ["Profit Leader", topPlayer(data.players, "profit"), p => fmtMoney(p.profit)],
-    ["Best ROI", topPlayer(data.players, "roi"), p => fmtPct(p.roi)],
-    ["Most Hits", topPlayer(data.players, "hits"), p => p.hits],
-    ["Most Cashes", topPlayer(data.players, "timesPlaced"), p => p.timesPlaced],
-    ["Best Cash Rate", topPlayer(data.players, "cashRate"), p => fmtPct(p.cashRate)],
-    ["Worst Bubble Luck", topPlayer(data.players, "bubbles"), p => p.bubbles]
-  ];
-
-  el.innerHTML = cards.map(([title, p, val]) => `
-    <div class="dash-card">
-      <div class="kicker">${title}</div>
-      <h3>${p.name}</h3>
-      <div class="metric">${val(p)}</div>
-    </div>
-  `).join("");
 }
 
 function renderDashboardSortable(key) {
@@ -176,6 +179,7 @@ function renderDashboardSortable(key) {
         <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
         <p class="muted">ROI: ${fmtPct(p.roi)}</p>
         <p class="muted">Hits: ${p.hits}</p>
+        <p class="muted">Cashes: ${p.timesPlaced}</p>
       </div>
     </a>
   `).join("");
@@ -196,6 +200,7 @@ function renderPlayers(data) {
         <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
         <p class="muted">ROI: ${fmtPct(p.roi)}</p>
         <p class="muted">Hits: ${p.hits}</p>
+        <p class="muted">Cashes: ${p.timesPlaced}</p>
       </div>
     </a>
   `).join("");
@@ -253,11 +258,28 @@ function renderSchedule(data) {
 
 function renderChampions(data) {
   const el = document.getElementById("champions-list");
-  el.innerHTML = data.honors.map(h => `
-    <div class="champ-card">
-      <div class="kicker">${h.type}</div>
-      <h3>${h.name}</h3>
-      <p class="muted">${h.note}</p>
-    </div>
-  `).join("");
+  el.innerHTML = data.honors.map(h => {
+    const p = data.players.find(player => player.name === h.name);
+    if (p) {
+      return `
+        <div class="champ-card">
+          <div class="player-card-top">
+            ${playerImageMarkup(p, "small")}
+            <div>
+              <div class="kicker">${h.type}</div>
+              <h3>${h.name}</h3>
+            </div>
+          </div>
+          <p class="muted">${h.note}</p>
+        </div>
+      `;
+    }
+    return `
+      <div class="champ-card">
+        <div class="kicker">${h.type}</div>
+        <h3>${h.name}</h3>
+        <p class="muted">${h.note}</p>
+      </div>
+    `;
+  }).join("");
 }
