@@ -12,12 +12,12 @@ function fmtPct(n) {
   return `${(Number(n) * 100).toFixed(1)}%`;
 }
 
-function sortPlayers(players, key) {
-  return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
+function fmtNum(n) {
+  return Number(n).toFixed(1);
 }
 
-function topPlayer(players, key) {
-  return sortPlayers(players, key)[0];
+function sortPlayers(players, key) {
+  return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
 }
 
 function initialsFromName(name) {
@@ -28,6 +28,10 @@ function initialsFromName(name) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
+}
+
+function displayPlayerName(player) {
+  return player.entries < 5 ? `${player.name}*` : player.name;
 }
 
 function playerImageMarkup(player, size = "medium") {
@@ -60,7 +64,7 @@ function playerInlineMarkup(player, size = "small") {
   return `
     <div class="player-inline">
       ${playerImageMarkup(player, size)}
-      <a href="player.html?name=${encodeURIComponent(player.name)}">${player.name}</a>
+      <a href="player.html?name=${encodeURIComponent(player.name)}">${displayPlayerName(player)}</a>
     </div>
   `;
 }
@@ -69,13 +73,14 @@ function leaderInlineMarkup(player, value, size = "small") {
   return `
     <div class="leader-inline">
       ${playerImageMarkup(player, size)}
-      <span>${player.name} (${value})</span>
+      <span>${displayPlayerName(player)} (${value})</span>
     </div>
   `;
 }
 
 function formatStatLabel(key) {
   const labels = {
+    trueSkillScore: "Power",
     buyIns: "Buy-ins",
     rebuys: "Rebuys",
     entries: "Entries",
@@ -86,7 +91,12 @@ function formatStatLabel(key) {
     roi: "ROI",
     cashRate: "Cash Rate",
     bubbleRate: "Bubble Rate",
-    hitRate: "Hit Rate"
+    hitRate: "Hit Rate",
+    luckIndex: "Luck",
+    clutchIndex: "Clutch",
+    aggressionIndex: "Aggression",
+    survivorIndex: "Survivor",
+    tiltIndex: "Tilt"
   };
   return labels[key] || key;
 }
@@ -94,7 +104,39 @@ function formatStatLabel(key) {
 function formatStatValue(player, key) {
   if (key === "profit") return fmtMoney(player[key]);
   if (["roi", "cashRate", "bubbleRate", "hitRate"].includes(key)) return fmtPct(player[key]);
+  if (["trueSkillScore", "luckIndex", "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex"].includes(key)) return fmtNum(player[key]);
   return player[key];
+}
+
+function badgeList(player, data) {
+  const players = data.players;
+  const topProfit = sortPlayers(players, "profit")[0]?.name;
+  const topPower = sortPlayers(players, "trueSkillScore")[0]?.name;
+  const topClutch = sortPlayers(players, "clutchIndex")[0]?.name;
+  const topLuck = sortPlayers(players, "luckIndex")[0]?.name;
+  const topHits = sortPlayers(players, "hits")[0]?.name;
+  const topBubbles = sortPlayers(players, "bubbles")[0]?.name;
+
+  const badges = [];
+  if (player.name === topProfit) badges.push("💰 Profit Leader");
+  if (player.name === topPower) badges.push("🏆 Power Leader");
+  if (player.name === topClutch) badges.push("🎯 Clutch Leader");
+  if (player.name === topLuck) badges.push("🔥 Running Hot");
+  if (player.name === topHits) badges.push("💥 Hit King");
+  if (player.name === topBubbles) badges.push("🫧 Bubble King");
+  if (player.entries < 5) badges.push("✳️ Small Sample");
+
+  return badges;
+}
+
+function badgesMarkup(player, data) {
+  const badges = badgeList(player, data);
+  if (!badges.length) return "";
+  return `
+    <div class="button-row" style="margin:10px 0 0 0;">
+      ${badges.map(b => `<span class="btn small" style="cursor:default;">${b}</span>`).join("")}
+    </div>
+  `;
 }
 
 function renderHomePage(data) {
@@ -105,21 +147,22 @@ function renderHomePage(data) {
   document.getElementById("next-game-rsvp").textContent =
     `${next.rsvp_counts.confirmed} confirmed • ${next.rsvp_counts.maybe} maybe • ${next.rsvp_counts.out} out`;
 
-  const profit = topPlayer(data.players, "profit");
-  const roi = topPlayer(data.players, "roi");
-  const hits = topPlayer(data.players, "hits");
-  const bubbles = topPlayer(data.players, "bubbles");
+  const profit = sortPlayers(data.players, "profit")[0];
+  const power = sortPlayers(data.players, "trueSkillScore")[0];
+  const hits = sortPlayers(data.players, "hits")[0];
+  const bubbles = sortPlayers(data.players, "bubbles")[0];
 
   document.getElementById("home-profit-leader").innerHTML =
     leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
   document.getElementById("home-roi-leader").innerHTML =
-    leaderInlineMarkup(roi, fmtPct(roi.roi), "small");
+    leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
   document.getElementById("home-hit-leader").innerHTML =
     leaderInlineMarkup(hits, hits.hits, "small");
   document.getElementById("home-bubble-leader").innerHTML =
     leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
 
   const tbody = document.querySelector("#home-standings-table tbody");
+  if (!tbody) return;
   tbody.innerHTML = "";
 
   sortPlayers(data.players, "profit").slice(0, 8).forEach(p => {
@@ -145,17 +188,15 @@ function renderStandings(key) {
     tr.innerHTML = `
       <td>${i + 1}</td>
       <td>${playerInlineMarkup(p, "tiny")}</td>
-      <td>${p.buyIns}</td>
-      <td>${p.rebuys}</td>
       <td>${p.entries}</td>
       <td>${p.hits}</td>
       <td>${p.timesPlaced}</td>
       <td>${p.bubbles}</td>
       <td>${fmtMoney(p.profit)}</td>
       <td>${fmtPct(p.roi)}</td>
-      <td>${fmtPct(p.cashRate)}</td>
-      <td>${fmtPct(p.bubbleRate)}</td>
-      <td>${fmtPct(p.hitRate)}</td>
+      <td>${fmtNum(p.trueSkillScore)}</td>
+      <td>${fmtNum(p.luckIndex)}</td>
+      <td>${fmtNum(p.clutchIndex)}</td>
     `;
     tbody.appendChild(tr);
   });
@@ -171,15 +212,16 @@ function renderDashboardSortable(key) {
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
           <div class="kicker">#${i + 1} • ${formatStatLabel(key)}</div>
-          <h3>${p.name}</h3>
+          <h3>${displayPlayerName(p)}</h3>
         </div>
       </div>
       <div class="player-card-stats">
         <p class="muted"><strong>${formatStatLabel(key)}:</strong> ${formatStatValue(p, key)}</p>
         <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
-        <p class="muted">ROI: ${fmtPct(p.roi)}</p>
+        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
         <p class="muted">Hits: ${p.hits}</p>
         <p class="muted">Cashes: ${p.timesPlaced}</p>
+        ${badgesMarkup(p, window.siteData)}
       </div>
     </a>
   `).join("");
@@ -193,14 +235,15 @@ function renderPlayers(data) {
         ${playerImageMarkup(p, "medium")}
         <div class="player-card-meta">
           <div class="kicker">Player</div>
-          <h3>${p.name}</h3>
+          <h3>${displayPlayerName(p)}</h3>
         </div>
       </div>
       <div class="player-card-stats">
         <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
-        <p class="muted">ROI: ${fmtPct(p.roi)}</p>
+        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
         <p class="muted">Hits: ${p.hits}</p>
         <p class="muted">Cashes: ${p.timesPlaced}</p>
+        ${badgesMarkup(p, data)}
       </div>
     </a>
   `).join("");
@@ -219,31 +262,50 @@ function renderPlayerProfile(data) {
           ${playerImageMarkup(p, "large")}
           <div>
             <div class="kicker">Player Profile</div>
-            <h2>${p.name}</h2>
-            <p class="muted">TLPT performance snapshot</p>
+            <h2>${displayPlayerName(p)}</h2>
+            <p class="muted">TLPT workbook-driven performance snapshot</p>
+            ${badgesMarkup(p, data)}
           </div>
         </div>
       </div>
 
       <div class="profile-grid">
+        <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
         <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
         <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
-        <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
         <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${p.hits}</div></div>
         <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${p.timesPlaced}</div></div>
         <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${p.bubbles}</div></div>
         <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${p.profit < 0 ? "negative":"positive"}">${fmtMoney(p.profit)}</div></div>
         <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(p.roi)}</div></div>
+        <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(p.trueSkillScore)}</div></div>
+        <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(p.luckIndex)}</div></div>
+        <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(p.clutchIndex)}</div></div>
         <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(p.cashRate)}</div></div>
         <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(p.bubbleRate)}</div></div>
         <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(p.hitRate)}</div></div>
+        <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(p.aggressionIndex)}</div></div>
+        <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(p.survivorIndex)}</div></div>
+        <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(p.tiltIndex)}</div></div>
       </div>
     </div>
+  `;
+
+  const navEl = document.getElementById("player-nav");
+  const idx = data.players.findIndex(x => x.name === p.name);
+  const prev = data.players[(idx - 1 + data.players.length) % data.players.length];
+  const next = data.players[(idx + 1) % data.players.length];
+
+  navEl.innerHTML = `
+    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
+    <a class="btn" href="players.html">All Players</a>
+    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
   `;
 }
 
 function renderSchedule(data) {
   const el = document.getElementById("schedule-list");
+  if (!el) return;
   el.innerHTML = data.events.map(e => `
     <div class="event-card">
       <div class="kicker">Weekly Game</div>
@@ -257,28 +319,37 @@ function renderSchedule(data) {
 }
 
 function renderChampions(data) {
-  const el = document.getElementById("champions-list");
-  el.innerHTML = data.honors.map(h => {
+  const honorsEl = document.getElementById("champions-list");
+  const recordsEl = document.getElementById("records-list");
+
+  honorsEl.innerHTML = data.honors.map(h => {
     const p = data.players.find(player => player.name === h.name);
-    if (p) {
-      return `
-        <div class="champ-card">
-          <div class="player-card-top">
-            ${playerImageMarkup(p, "small")}
-            <div>
-              <div class="kicker">${h.type}</div>
-              <h3>${h.name}</h3>
-            </div>
-          </div>
-          <p class="muted">${h.note}</p>
-        </div>
-      `;
-    }
     return `
       <div class="champ-card">
-        <div class="kicker">${h.type}</div>
-        <h3>${h.name}</h3>
+        <div class="player-card-top">
+          ${p ? playerImageMarkup(p, "small") : ""}
+          <div>
+            <div class="kicker">${h.type}</div>
+            <h3>${p ? displayPlayerName(p) : h.name}</h3>
+          </div>
+        </div>
         <p class="muted">${h.note}</p>
+      </div>
+    `;
+  }).join("");
+
+  recordsEl.innerHTML = data.records.map(r => {
+    const p = data.players.find(player => player.name === r.name);
+    return `
+      <div class="champ-card">
+        <div class="player-card-top">
+          ${p ? playerImageMarkup(p, "small") : ""}
+          <div>
+            <div class="kicker">${r.label}</div>
+            <h3>${p ? displayPlayerName(p) : r.name}</h3>
+          </div>
+        </div>
+        <p class="muted">${r.value}</p>
       </div>
     `;
   }).join("");
