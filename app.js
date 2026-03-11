@@ -146,8 +146,9 @@ function renderHomePage(data) {
       <div class="event-card" style="margin-bottom:14px;">
         <div class="kicker">${event.title}</div>
         <h3>${event.date}</h3>
-        <p class="muted">${event.time} – ${event.endTime || ""}</p>
-        <p class="muted">${event.location}</p>
+        <p class="muted"><strong>Start:</strong> ${event.time}</p>
+        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+        <p class="muted"><strong>Location:</strong> ${event.location}</p>
         <p class="muted">${event.address || ""}</p>
         <p class="muted">${event.rsvp_counts.confirmed} confirmed • ${event.rsvp_counts.maybe} maybe • ${event.rsvp_counts.out} out</p>
         <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
@@ -324,8 +325,9 @@ function renderSchedule(data) {
     <div class="event-card">
       <div class="kicker">${e.title}</div>
       <h3>${e.date}</h3>
-      <p class="muted">${e.time} – ${e.endTime || ""}</p>
-      <p class="muted">${e.location}</p>
+      <p class="muted"><strong>Start:</strong> ${e.time}</p>
+      <p class="muted"><strong>Estimated End:</strong> ${e.endTime || ""}</p>
+      <p class="muted"><strong>Location:</strong> ${e.location}</p>
       <p class="muted">${e.address || ""}</p>
       <p class="muted">${e.rsvp_counts.confirmed} confirmed • ${e.rsvp_counts.maybe} maybe • ${e.rsvp_counts.out} out</p>
       <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
