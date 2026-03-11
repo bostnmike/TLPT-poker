@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schedule | TLPT Poker League</title>
+  <title>TLPT Poker League</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Schedule & RSVP</p>
+        <p class="tag">Bad beats. Worse folds. Real stats.</p>
       </div>
       <nav class="nav">
         <a href="index.html">Home</a>
@@ -26,14 +26,96 @@
   </header>
 
   <main class="wrap">
+    <section class="hero-stack">
+      <section class="hero hero-events hero-table-bg">
+        <div class="hero-copy hero-copy-enhanced">
+          <img class="hero-chip hero-chip-a" src="images/site/chip-500.jpg" alt="" />
+          <img class="hero-chip hero-chip-b" src="images/site/chip-25k.jpg" alt="" />
+          <img class="hero-chip hero-chip-c" src="images/site/chip-5k.jpg" alt="" />
+
+          <div class="hero-visual-mark">
+            <span>♠</span>
+            <span>♥</span>
+            <span>♣</span>
+            <span>♦</span>
+          </div>
+
+          <p class="eyebrow">This Week’s Events</p>
+          <h2 class="hero-title">Cards in the air at The Caahhd Room</h2>
+          <p class="hero-subtitle muted">
+            Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
+          </p>
+
+          <div id="home-events-list"></div>
+
+          <div class="hero-actions">
+            <a href="schedule.html" class="btn btn-primary">View Full Schedule</a>
+            <a href="standings.html" class="btn">View Standings</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section leader-section">
+        <div class="section-head">
+          <div>
+            <h2>League Leaders</h2>
+            <p class="muted">Current pace-setters across the room.</p>
+          </div>
+        </div>
+
+        <div class="leader-grid">
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-25.jpg" alt="" />
+            <span class="label">Profit Leader</span>
+            <div class="stat-icon">💰</div>
+            <div id="home-profit-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-100.jpg" alt="" />
+            <span class="label">Power Leader</span>
+            <div class="stat-icon">🏆</div>
+            <div id="home-power-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-1k.jpg" alt="" />
+            <span class="label">Most Hits</span>
+            <div class="stat-icon">💥</div>
+            <div id="home-hit-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-500.jpg" alt="" />
+            <span class="label">Bubble Trouble</span>
+            <div class="stat-icon">🫧</div>
+            <div id="home-bubble-leader"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
     <section class="section">
       <div class="section-head">
-        <div>
-          <h2>Upcoming Events</h2>
-          <p class="muted">This week at The Caahhd Room.</p>
-        </div>
+        <h3>Top of the Table</h3>
+        <a href="standings.html">Full standings</a>
       </div>
-      <div id="schedule-list" class="card-grid"></div>
+      <div class="table-wrap">
+        <table id="home-standings-table">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Entries</th>
+              <th>Cashes</th>
+              <th>Profit</th>
+              <th>Power</th>
+              <th>Hits</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
     </section>
   </main>
 
@@ -45,7 +127,7 @@
   <script>
     loadSiteData().then(data => {
       window.siteData = data;
-      renderSchedule(data);
+      renderHomePage(data);
     });
   </script>
 </body>
