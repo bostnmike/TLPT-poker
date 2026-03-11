@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schedule | TLPT Poker League</title>
+  <title>Rules | TLPT Poker League</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,7 +11,7 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Schedule & RSVP</p>
+        <p class="tag">League Rules</p>
       </div>
       <nav class="nav">
         <a href="index.html">Home</a>
@@ -26,35 +26,65 @@
   </header>
 
   <main class="wrap">
-    <section class="section schedule-hero schedule-table-bg">
-      <img class="schedule-chip schedule-chip-a" src="images/site/chip-100K.jpg" alt="" />
-      <img class="schedule-chip schedule-chip-b" src="images/site/chip-25K.jpg" alt="" />
-      <img class="schedule-chip schedule-chip-c" src="images/site/chip-500.jpg" alt="" />
-
+    <section class="section rules-header rules-table-bg">
       <div class="section-head">
         <div>
-          <p class="eyebrow">The Caahhd Room</p>
-          <h2>Upcoming Events</h2>
-          <p class="muted">This week at the table. Bruins chips, full RSVP tracking, and projected table size.</p>
+          <p class="eyebrow">House Structure</p>
+          <h2>House Rules</h2>
+          <p class="muted">Everything you need to know before the cards hit the felt.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div id="schedule-list" class="card-grid"></div>
+      <div class="rules-grid">
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-25.jpg" alt="" />
+          <div class="kicker">Buy-in</div>
+          <h3>$30 Entry</h3>
+          <p class="muted">Standard buy-ins are <strong>$30.00</strong>.</p>
+        </div>
+
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-25.jpg" alt="" />
+          <div class="kicker">Rebuys</div>
+          <h3>$30 Unlimited Through Level 7</h3>
+          <p class="muted">Rebuys are <strong>$30.00</strong> and are <strong>unlimited until the end of Level 7</strong>.</p>
+        </div>
+
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-5K.jpg" alt="" />
+          <div class="kicker">Starting Stack</div>
+          <h3>35K or 500K</h3>
+          <p class="muted">Depending on the format, the starting stack is either <strong>35,000</strong> or <strong>500,000</strong>.</p>
+        </div>
+
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-100.jpg" alt="" />
+          <div class="kicker">Reload Rule</div>
+          <h3>No Bust Required</h3>
+          <p class="muted">Players do <strong>not</strong> need to bust out to rebuy. A player may reload whenever they are at or below <strong>20% of the starting stack</strong>.</p>
+        </div>
+
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-500.jpg" alt="" />
+          <div class="kicker">League Tracking</div>
+          <h3>Stats Count Here</h3>
+          <p class="muted">Bubbles are tracked for league stats, and knockouts are recorded as <strong>Hits</strong>.</p>
+        </div>
+
+        <div class="rule-card rule-card-visual">
+          <img class="rule-chip" src="images/site/chip-1K.jpg" alt="" />
+          <div class="kicker">RSVP</div>
+          <h3>Apple Invites</h3>
+          <p class="muted">Weekly attendance is handled through Apple Invites, while the site acts as the hub for league info and performance tracking.</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">TLPT Poker League</div>
   </footer>
-
-  <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      renderSchedule(data);
-    });
-  </script>
 </body>
 </html>
