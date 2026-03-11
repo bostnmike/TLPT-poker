@@ -1,80 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TLPT Poker League</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">Bad beats. Worse folds. Real stats.</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="champions.html">Champions</a>
+        <a href="rules.html">Rules</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-<h1>TLPT Poker League</h1>
-<nav>
-<a href="standings.html">Standings</a>
-<a href="players.html">Players</a>
-<a href="schedule.html">Schedule</a>
-<a href="dashboard.html">Stats Dashboard</a>
-</nav>
-</header>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Next Game</p>
+        <h2 id="next-game-title">Loading…</h2>
+        <p id="next-game-meta" class="muted"></p>
+        <div class="hero-actions">
+          <a id="rsvp-link" class="btn btn-primary" href="#" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+          <a href="standings.html" class="btn">View Standings</a>
+        </div>
+        <p id="next-game-rsvp" class="rsvp-line"></p>
+      </div>
+      <div class="hero-cards">
+        <div class="stat-card">
+          <span class="label">Profit Leader</span>
+          <strong id="home-profit-leader">—</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label">Best ROI</span>
+          <strong id="home-roi-leader">—</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label">Most Hits</span>
+          <strong id="home-hit-leader">—</strong>
+        </div>
+        <div class="stat-card">
+          <span class="label">Bubble Trouble</span>
+          <strong id="home-bubble-leader">—</strong>
+        </div>
+      </div>
+    </section>
 
-<section class="hero">
-<h2>Next Game Night</h2>
+    <section class="section">
+      <div class="section-head">
+        <h3>Top of the Table</h3>
+        <a href="standings.html">Full standings</a>
+      </div>
+      <div class="table-wrap">
+        <table id="home-standings-table">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Entries</th>
+              <th>Cashes</th>
+              <th>Profit</th>
+              <th>ROI</th>
+              <th>Hits</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
 
-<p>Thursday Night Poker</p>
+  <footer class="site-footer">
+    <div class="wrap">TLPT Poker League</div>
+  </footer>
 
-<a class="rsvp"
-href="https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w"
-target="_blank">
-RSVP on Apple Invites
-</a>
-
-</section>
-
-<section>
-
-<h2>Current Standings</h2>
-
-<table>
-<tr>
-<th>Player</th>
-<th>Entries</th>
-<th>Cashes</th>
-<th>Profit</th>
-<th>ROI</th>
-</tr>
-
-<tr>
-<td>Li-Fo</td>
-<td>24</td>
-<td>11</td>
-<td>$435</td>
-<td>0.604</td>
-</tr>
-
-<tr>
-<td>BostnMike</td>
-<td>25</td>
-<td>10</td>
-<td>$360</td>
-<td>0.48</td>
-</tr>
-
-<tr>
-<td>NASA Al</td>
-<td>10</td>
-<td>6</td>
-<td>$290</td>
-<td>0.967</td>
-</tr>
-
-</table>
-
-</section>
-
-<footer>
-TLPT Poker League
-</footer>
-
+  <script src="app.js"></script>
+  <script>
+    loadSiteData().then(data => {
+      renderHomePage(data);
+    });
+  </script>
 </body>
 </html>
