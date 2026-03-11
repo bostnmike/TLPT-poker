@@ -19,7 +19,7 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
-        <a href="champions.html">Champions</a>
+        <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
       </nav>
     </div>
@@ -31,16 +31,13 @@
         <h2>League Standings</h2>
         <div class="button-row">
           <button class="btn small" onclick="renderStandings('profit')">Profit</button>
+          <button class="btn small" onclick="renderStandings('trueSkillScore')">Power</button>
           <button class="btn small" onclick="renderStandings('roi')">ROI</button>
-          <button class="btn small" onclick="renderStandings('buyIns')">Buy-ins</button>
-          <button class="btn small" onclick="renderStandings('rebuys')">Rebuys</button>
-          <button class="btn small" onclick="renderStandings('entries')">Entries</button>
           <button class="btn small" onclick="renderStandings('hits')">Hits</button>
           <button class="btn small" onclick="renderStandings('timesPlaced')">Cashes</button>
           <button class="btn small" onclick="renderStandings('bubbles')">Bubbles</button>
-          <button class="btn small" onclick="renderStandings('cashRate')">Cash Rate</button>
-          <button class="btn small" onclick="renderStandings('bubbleRate')">Bubble Rate</button>
-          <button class="btn small" onclick="renderStandings('hitRate')">Hit Rate</button>
+          <button class="btn small" onclick="renderStandings('luckIndex')">Luck</button>
+          <button class="btn small" onclick="renderStandings('clutchIndex')">Clutch</button>
         </div>
       </div>
 
@@ -50,22 +47,22 @@
             <tr>
               <th>#</th>
               <th>Player</th>
-              <th>Buy-ins</th>
-              <th>Rebuys</th>
               <th>Entries</th>
               <th>Hits</th>
               <th>Cashes</th>
               <th>Bubbles</th>
               <th>Profit</th>
               <th>ROI</th>
-              <th>Cash Rate</th>
-              <th>Bubble Rate</th>
-              <th>Hit Rate</th>
+              <th>Power</th>
+              <th>Luck</th>
+              <th>Clutch</th>
             </tr>
           </thead>
           <tbody></tbody>
         </table>
       </div>
+
+      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
     </section>
   </main>
 
