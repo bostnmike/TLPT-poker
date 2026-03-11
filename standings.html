@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Standings | TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">Standings</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="champions.html">Champions</a>
+        <a href="rules.html">Rules</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section">
+      <div class="section-head">
+        <h2>League Standings</h2>
+        <div class="button-row">
+          <button class="btn small" onclick="renderStandings('profit')">Sort: Profit</button>
+          <button class="btn small" onclick="renderStandings('roi')">Sort: ROI</button>
+          <button class="btn small" onclick="renderStandings('timesPlaced')">Sort: Cashes</button>
+          <button class="btn small" onclick="renderStandings('hits')">Sort: Hits</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="standings-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Player</th>
+              <th>Buy-ins</th>
+              <th>Rebuys</th>
+              <th>Entries</th>
+              <th>Hits</th>
+              <th>Cashes</th>
+              <th>Bubbles</th>
+              <th>Profit</th>
+              <th>ROI</th>
+              <th>Cash Rate</th>
+              <th>Bubble Rate</th>
+              <th>Hit Rate</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">TLPT Poker League</div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderStandings('profit');
+    });
+  </script>
+</body>
+</html>
