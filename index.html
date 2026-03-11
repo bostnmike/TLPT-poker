@@ -1,688 +1,134 @@
-:root{
-  --bg:#0a0d12;
-  --panel:#11161e;
-  --panel-2:#18212c;
-  --text:#ecf2f8;
-  --muted:#9eb0c3;
-  --line:#283444;
-  --accent:#d7263d;
-  --gold:#ffb81c;
-  --gold-soft:#f6c65b;
-  --green:#2ca56d;
-  --felt:#0f5132;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:
-    radial-gradient(circle at top right, rgba(255,184,28,0.07), transparent 25%),
-    radial-gradient(circle at left center, rgba(215,38,61,0.08), transparent 22%),
-    linear-gradient(180deg,#091018 0%,#0b0f14 100%);
-  color:var(--text);
-}
-
-a{
-  color:var(--gold);
-  text-decoration:none;
-}
-
-a:hover{
-  color:var(--gold-soft);
-}
-
-.wrap{
-  max-width:1180px;
-  margin:0 auto;
-  padding:0 20px;
-}
-
-.site-header{
-  border-bottom:1px solid var(--line);
-  background:rgba(9,13,18,.95);
-  position:sticky;
-  top:0;
-  z-index:10;
-  backdrop-filter:blur(8px);
-}
-
-.header-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding:18px 0;
-}
-
-.logo{
-  margin:0;
-  font-size:1.8rem;
-  color:var(--text);
-}
-
-.tag{
-  margin:4px 0 0;
-  color:var(--muted);
-}
-
-.nav{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.nav a{
-  padding:8px 10px;
-  border-radius:8px;
-  color:var(--muted);
-  transition:all .2s ease;
-}
-
-.nav a:hover{
-  background:var(--panel);
-  color:var(--gold);
-}
-
-.hero-stack{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-  padding:36px 0 0;
-}
-
-.hero{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:24px;
-}
-
-.hero-events{
-  min-height:unset;
-}
-
-.hero-copy,
-.hero-cards,
-.section,
-.profile-shell,
-.player-card,
-.dash-card,
-.event-card,
-.champ-card,
-.rule-card{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-.hero-copy{
-  padding:28px;
-}
-
-.hero-copy-enhanced{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.36), rgba(17,22,30,0.92)),
-    url("images/site/large-table.gif") center/cover no-repeat;
-}
-
-.hero-copy-enhanced::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(7,11,16,0.16), rgba(7,11,16,0.44));
-  pointer-events:none;
-}
-
-.hero-copy-enhanced > *{
-  position:relative;
-  z-index:2;
-}
-
-.hero-visual-mark{
-  display:flex;
-  gap:10px;
-  margin-bottom:12px;
-  font-size:1.25rem;
-  opacity:.9;
-}
-
-.hero-title{
-  margin:0 0 8px 0;
-  font-size:2rem;
-  line-height:1.1;
-}
-
-.hero-subtitle{
-  margin:0 0 18px 0;
-  max-width:720px;
-}
-
-.hero-chip{
-  position:absolute;
-  width:92px;
-  height:92px;
-  object-fit:cover;
-  border-radius:50%;
-  border:3px solid rgba(255,184,28,.65);
-  box-shadow:0 12px 26px rgba(0,0,0,.35);
-  opacity:.95;
-  z-index:1;
-}
-
-.hero-chip-a{
-  right:24px;
-  top:26px;
-  transform:rotate(12deg);
-}
-
-.hero-chip-b{
-  right:132px;
-  bottom:26px;
-  transform:rotate(-10deg);
-}
-
-.hero-chip-c{
-  left:24px;
-  bottom:26px;
-  transform:rotate(8deg);
-}
-
-.leader-section{
-  position:relative;
-  overflow:hidden;
-}
-
-.leader-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
-}
-
-.stat-card{
-  background:var(--panel-2);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:18px;
-}
-
-.stat-card-visual{
-  position:relative;
-  min-height:148px;
-  overflow:hidden;
-}
-
-.card-chip-accent{
-  position:absolute;
-  right:-10px;
-  bottom:-10px;
-  width:82px;
-  height:82px;
-  object-fit:cover;
-  border-radius:50%;
-  opacity:.22;
-  filter:saturate(1.1);
-}
-
-.stat-icon{
-  position:absolute;
-  right:14px;
-  top:14px;
-  font-size:1.25rem;
-  opacity:.85;
-}
-
-.stat-card .label{
-  display:block;
-  color:var(--muted);
-  font-size:.85rem;
-  margin-bottom:8px;
-}
-
-.eyebrow{
-  text-transform:uppercase;
-  letter-spacing:.15em;
-  color:var(--gold);
-  font-size:.8rem;
-}
-
-.muted,
-.rsvp-line{
-  color:var(--muted);
-}
-
-.hero-actions,
-.button-row{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin:18px 0;
-}
-
-.dashboard-buttons{
-  margin-top:0;
-  margin-bottom:20px;
-}
-
-.btn{
-  display:inline-block;
-  padding:11px 16px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:var(--panel-2);
-  color:var(--gold);
-  transition:all .2s ease;
-  cursor:pointer;
-}
-
-.btn:hover{
-  color:#111;
-  background:var(--gold);
-  border-color:var(--gold);
-}
-
-.btn-primary{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#fff;
-}
-
-.btn-primary:hover{
-  background:#f0435a;
-  border-color:#f0435a;
-  color:#fff;
-}
-
-.btn.small{
-  padding:8px 12px;
-  font-size:.9rem;
-}
-
-.section{
-  margin:22px 0;
-  padding:24px;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  margin-bottom:16px;
-  flex-wrap:wrap;
-}
-
-.table-wrap{
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-th,
-td{
-  padding:12px 10px;
-  border-bottom:1px solid var(--line);
-  text-align:left;
-  white-space:nowrap;
-  vertical-align:middle;
-}
-
-th{
-  color:var(--muted);
-  font-weight:600;
-}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-
-.rules-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-
-.player-card,
-.dash-card,
-.event-card,
-.champ-card,
-.rule-card{
-  padding:20px;
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-
-.player-card:hover,
-.dash-card:hover,
-.event-card:hover,
-.champ-card:hover,
-.rule-card:hover{
-  transform:translateY(-2px);
-  border-color:#3a4b61;
-  box-shadow:0 14px 32px rgba(0,0,0,.35);
-}
-
-.player-card h3,
-.dash-card h3,
-.event-card h3,
-.champ-card h3,
-.rule-card h3{
-  margin-top:0;
-  color:var(--text);
-}
-
-.player-card-rich{
-  display:block;
-}
-
-.player-card-top{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  margin-bottom:14px;
-}
-
-.player-card-meta h3{
-  margin:6px 0 0;
-}
-
-.player-card-stats p,
-.rule-card p{
-  margin:8px 0;
-}
-
-.kicker{
-  color:var(--gold);
-  text-transform:uppercase;
-  font-size:.78rem;
-  letter-spacing:.1em;
-}
-
-.metric{
-  font-size:1.9rem;
-  font-weight:700;
-  margin:8px 0;
-}
-
-.metric.positive{
-  color:#7ce0a4;
-}
-
-.metric.negative{
-  color:#ff8f9b;
-}
-
-.profile-shell{
-  padding:26px;
-}
-
-.profile-hero{
-  margin-bottom:22px;
-}
-
-.profile-hero-left{
-  display:flex;
-  align-items:center;
-  gap:22px;
-  flex-wrap:wrap;
-}
-
-.profile-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:14px;
-  margin-top:18px;
-}
-
-.profile-stat{
-  background:var(--panel-2);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:16px;
-}
-
-.player-inline{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.player-avatar-wrap{
-  position:relative;
-  flex-shrink:0;
-}
-
-.player-avatar,
-.player-avatar-fallback{
-  border-radius:50%;
-  border:3px solid var(--gold);
-  background:linear-gradient(135deg,#1b2530 0%,#10161d 100%);
-  color:var(--gold);
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-transform:uppercase;
-  box-shadow:0 10px 24px rgba(0,0,0,.35);
-  overflow:hidden;
-}
-
-.player-avatar{
-  object-fit:cover;
-  display:block;
-}
-
-.player-avatar.tiny,
-.player-avatar-fallback.tiny{
-  width:28px;
-  height:28px;
-  font-size:.75rem;
-  border-width:2px;
-}
-
-.player-avatar.small,
-.player-avatar-fallback.small{
-  width:40px;
-  height:40px;
-  font-size:.9rem;
-  border-width:2px;
-}
-
-.player-avatar.medium,
-.player-avatar-fallback.medium{
-  width:84px;
-  height:84px;
-  font-size:1.5rem;
-}
-
-.player-avatar.large,
-.player-avatar-fallback.large{
-  width:140px;
-  height:140px;
-  font-size:2.2rem;
-}
-
-.leader-inline{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-}
-
-.event-card-topline{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.event-icon{
-  font-size:1.35rem;
-  opacity:.9;
-}
-
-.fill-widget{
-  margin:10px 0 12px 0;
-}
-
-.fill-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin-bottom:6px;
-}
-
-.fill-label{
-  color:var(--gold);
-  font-size:.82rem;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-
-.fill-seats{
-  color:var(--muted);
-  font-size:.9rem;
-}
-
-.fill-bar{
-  width:100%;
-  height:12px;
-  border-radius:999px;
-  background:#0d131a;
-  border:1px solid var(--line);
-  overflow:hidden;
-}
-
-.fill-bar-value{
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg, var(--gold), var(--gold-soft));
-  box-shadow:0 0 14px rgba(255,184,28,.25);
-}
-
-.schedule-hero,
-.rules-header{
-  position:relative;
-  overflow:hidden;
-}
-
-.schedule-table-bg{
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.32), rgba(17,22,30,0.88)),
-    url("images/site/large-table.gif") center/cover no-repeat;
-}
-
-.rules-table-bg{
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.20), rgba(17,22,30,0.92)),
-    url("images/site/large-table.gif") center/cover no-repeat;
-}
-
-.schedule-chip{
-  position:absolute;
-  width:86px;
-  height:86px;
-  object-fit:cover;
-  border-radius:50%;
-  border:3px solid rgba(255,184,28,.55);
-  box-shadow:0 12px 26px rgba(0,0,0,.35);
-  opacity:.92;
-}
-
-.schedule-chip-a{
-  top:18px;
-  right:24px;
-  transform:rotate(10deg);
-}
-
-.schedule-chip-b{
-  bottom:18px;
-  right:124px;
-  transform:rotate(-8deg);
-}
-
-.schedule-chip-c{
-  bottom:20px;
-  left:24px;
-  transform:rotate(8deg);
-}
-
-.rule-card-visual{
-  position:relative;
-  overflow:hidden;
-  min-height:220px;
-}
-
-.rule-chip{
-  position:absolute;
-  right:-18px;
-  bottom:-18px;
-  width:96px;
-  height:96px;
-  object-fit:cover;
-  border-radius:50%;
-  opacity:.24;
-  pointer-events:none;
-}
-
-.site-footer{
-  border-top:1px solid var(--line);
-  margin-top:30px;
-  color:var(--muted);
-}
-
-.site-footer .wrap{
-  padding:20px;
-}
-
-@media (max-width:980px){
-  .leader-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-}
-
-@media (max-width:900px){
-  .header-inner{
-    display:block;
-  }
-
-  .nav{
-    margin-top:14px;
-  }
-
-  .hero-title{
-    font-size:1.6rem;
-  }
-
-  .hero-chip{
-    width:72px;
-    height:72px;
-  }
-}
-
-@media (max-width:640px){
-  .leader-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-chip-b,
-  .schedule-chip-b{
-    display:none;
-  }
-
-  .hero-chip-c,
-  .schedule-chip-c{
-    width:66px;
-    height:66px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">Bad beats. Worse folds. Real stats.</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="champions.html">Honors</a>
+        <a href="rules.html">Rules</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero-stack">
+      <section class="hero hero-events hero-table-bg">
+        <div class="hero-copy hero-copy-enhanced">
+          <img class="hero-chip hero-chip-a" src="images/site/chip-500.jpg" alt="" />
+          <img class="hero-chip hero-chip-b" src="images/site/chip-25k.jpg" alt="" />
+          <img class="hero-chip hero-chip-c" src="images/site/chip-5k.jpg" alt="" />
+
+          <div class="hero-visual-mark">
+            <span>♠</span>
+            <span>♥</span>
+            <span>♣</span>
+            <span>♦</span>
+          </div>
+
+          <p class="eyebrow">This Week’s Events</p>
+          <h2 class="hero-title">Cards in the air at The Caahhd Room</h2>
+          <p class="hero-subtitle muted">
+            Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
+          </p>
+
+          <div id="home-events-list"></div>
+
+          <div class="hero-actions">
+            <a href="schedule.html" class="btn btn-primary">View Full Schedule</a>
+            <a href="standings.html" class="btn">View Standings</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section leader-section">
+        <div class="section-head">
+          <div>
+            <h2>League Leaders</h2>
+            <p class="muted">Current pace-setters across the room.</p>
+          </div>
+        </div>
+
+        <div class="leader-grid">
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-25.jpg" alt="" />
+            <span class="label">Profit Leader</span>
+            <div class="stat-icon">💰</div>
+            <div id="home-profit-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-100.jpg" alt="" />
+            <span class="label">Power Leader</span>
+            <div class="stat-icon">🏆</div>
+            <div id="home-power-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-1K.jpg" alt="" />
+            <span class="label">Most Hits</span>
+            <div class="stat-icon">💥</div>
+            <div id="home-hit-leader"></div>
+          </div>
+
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-500.jpg" alt="" />
+            <span class="label">Bubble Trouble</span>
+            <div class="stat-icon">🫧</div>
+            <div id="home-bubble-leader"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h3>Top of the Table</h3>
+        <a href="standings.html">Full standings</a>
+      </div>
+      <div class="table-wrap">
+        <table id="home-standings-table">
+          <thead>
+            <tr>
+              <th>Player</th>
+              <th>Entries</th>
+              <th>Cashes</th>
+              <th>Profit</th>
+              <th>Power</th>
+              <th>Hits</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">TLPT Poker League</div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderHomePage(data);
+    });
+  </script>
+</body>
+</html>
