@@ -26,51 +26,73 @@
   </header>
 
   <main class="wrap">
-    <section class="hero hero-enhanced">
-      <div class="hero-copy hero-copy-enhanced">
-        <div class="hero-visual-mark">
-          <span>♠</span>
-          <span>♥</span>
-          <span>♣</span>
-          <span>♦</span>
+    <section class="hero-stack">
+      <section class="hero hero-events hero-table-bg">
+        <div class="hero-copy hero-copy-enhanced">
+          <img class="hero-chip hero-chip-a" src="images/site/chip-500.jpg" alt="" />
+          <img class="hero-chip hero-chip-b" src="images/site/chip-25k.jpg" alt="" />
+          <img class="hero-chip hero-chip-c" src="images/site/chip-5k.jpg" alt="" />
+
+          <div class="hero-visual-mark">
+            <span>♠</span>
+            <span>♥</span>
+            <span>♣</span>
+            <span>♦</span>
+          </div>
+
+          <p class="eyebrow">This Week’s Events</p>
+          <h2 class="hero-title">Cards in the air at The Caahhd Room</h2>
+          <p class="hero-subtitle muted">
+            Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
+          </p>
+
+          <div id="home-events-list"></div>
+
+          <div class="hero-actions">
+            <a href="schedule.html" class="btn btn-primary">View Full Schedule</a>
+            <a href="standings.html" class="btn">View Standings</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section leader-section">
+        <div class="section-head">
+          <div>
+            <h2>League Leaders</h2>
+            <p class="muted">Current pace-setters across the room.</p>
+          </div>
         </div>
 
-        <p class="eyebrow">This Week’s Events</p>
-        <h2 class="hero-title">Cards in the air at The Caahhd Room</h2>
-        <p class="hero-subtitle muted">
-          Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
-        </p>
+        <div class="leader-grid">
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-25.jpg" alt="" />
+            <span class="label">Profit Leader</span>
+            <div class="stat-icon">💰</div>
+            <div id="home-profit-leader"></div>
+          </div>
 
-        <div id="home-events-list"></div>
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-100.jpg" alt="" />
+            <span class="label">Power Leader</span>
+            <div class="stat-icon">🏆</div>
+            <div id="home-power-leader"></div>
+          </div>
 
-        <div class="hero-actions">
-          <a href="schedule.html" class="btn btn-primary">View Full Schedule</a>
-          <a href="standings.html" class="btn">View Standings</a>
-        </div>
-      </div>
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-1k.jpg" alt="" />
+            <span class="label">Most Hits</span>
+            <div class="stat-icon">💥</div>
+            <div id="home-hit-leader"></div>
+          </div>
 
-      <div class="hero-cards">
-        <div class="stat-card stat-card-visual">
-          <span class="label">Profit Leader</span>
-          <div class="stat-icon">💰</div>
-          <div id="home-profit-leader"></div>
+          <div class="stat-card stat-card-visual">
+            <img class="card-chip-accent" src="images/site/chip-500.jpg" alt="" />
+            <span class="label">Bubble Trouble</span>
+            <div class="stat-icon">🫧</div>
+            <div id="home-bubble-leader"></div>
+          </div>
         </div>
-        <div class="stat-card stat-card-visual">
-          <span class="label">Power Leader</span>
-          <div class="stat-icon">🏆</div>
-          <div id="home-power-leader"></div>
-        </div>
-        <div class="stat-card stat-card-visual">
-          <span class="label">Most Hits</span>
-          <div class="stat-icon">💥</div>
-          <div id="home-hit-leader"></div>
-        </div>
-        <div class="stat-card stat-card-visual">
-          <span class="label">Bubble Trouble</span>
-          <div class="stat-icon">🫧</div>
-          <div id="home-bubble-leader"></div>
-        </div>
-      </div>
+      </section>
     </section>
 
     <section class="section">
