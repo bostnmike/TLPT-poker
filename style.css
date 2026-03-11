@@ -100,12 +100,7 @@ a:hover{
   gap:24px;
 }
 
-.hero-events{
-  min-height:unset;
-}
-
 .hero-copy,
-.hero-cards,
 .section,
 .profile-shell,
 .player-card,
@@ -163,11 +158,18 @@ a:hover{
   max-width:720px;
 }
 
-#home-events-list{
+.home-events-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
   gap:18px;
+  align-items:start;
   margin-top:18px;
+}
+
+.home-events-grid .event-card{
+  width:100%;
+  margin:0;
+  min-width:0;
 }
 
 .hero-chip{
@@ -272,11 +274,6 @@ a:hover{
   margin:18px 0;
 }
 
-.dashboard-buttons{
-  margin-top:0;
-  margin-bottom:20px;
-}
-
 .btn{
   display:inline-block;
   padding:11px 16px;
@@ -346,18 +343,6 @@ td{
 th{
   color:var(--muted);
   font-weight:600;
-}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-}
-
-.rules-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
 }
 
 .player-card,
@@ -530,18 +515,6 @@ th{
   font-weight:700;
 }
 
-.event-card-topline{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.event-icon{
-  font-size:1.35rem;
-  opacity:.9;
-}
-
 .fill-widget{
   margin:10px 0 12px 0;
 }
@@ -582,73 +555,6 @@ th{
   box-shadow:0 0 14px rgba(255,184,28,.25);
 }
 
-.schedule-hero,
-.rules-header{
-  position:relative;
-  overflow:hidden;
-}
-
-.schedule-table-bg{
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.32), rgba(17,22,30,0.88)),
-    url("images/site/large-table.gif") center/cover no-repeat;
-}
-
-.rules-table-bg{
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.20), rgba(17,22,30,0.92)),
-    url("images/site/large-table.gif") center/cover no-repeat;
-}
-
-.schedule-chip{
-  position:absolute;
-  width:48px;
-  height:48px;
-  object-fit:cover;
-  border-radius:50%;
-  overflow:hidden;
-  border:2px solid rgba(255,184,28,.35);
-  opacity:.55;
-  box-shadow:0 6px 14px rgba(0,0,0,.25);
-}
-
-.schedule-chip-a{
-  top:18px;
-  right:24px;
-  transform:rotate(10deg);
-}
-
-.schedule-chip-b{
-  bottom:18px;
-  right:96px;
-  transform:rotate(-8deg);
-}
-
-.schedule-chip-c{
-  bottom:20px;
-  left:24px;
-  transform:rotate(8deg);
-}
-
-.rule-card-visual{
-  position:relative;
-  overflow:hidden;
-  min-height:220px;
-}
-
-.rule-chip{
-  position:absolute;
-  right:-12px;
-  bottom:-12px;
-  width:52px;
-  height:52px;
-  object-fit:cover;
-  border-radius:50%;
-  overflow:hidden;
-  opacity:.18;
-  pointer-events:none;
-}
-
 .site-footer{
   border-top:1px solid var(--line);
   margin-top:30px;
@@ -682,15 +588,10 @@ th{
     width:44px;
     height:44px;
   }
-
-  .schedule-chip{
-    width:42px;
-    height:42px;
-  }
 }
 
 @media (max-width:800px){
-  #home-events-list{
+  .home-events-grid{
     grid-template-columns:1fr;
   }
 }
@@ -700,13 +601,11 @@ th{
     grid-template-columns:1fr;
   }
 
-  .hero-chip-b,
-  .schedule-chip-b{
+  .hero-chip-b{
     display:none;
   }
 
-  .hero-chip-c,
-  .schedule-chip-c{
+  .hero-chip-c{
     width:40px;
     height:40px;
   }
