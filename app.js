@@ -139,6 +139,14 @@ function badgesMarkup(player, data) {
   `;
 }
 
+function formatRsvpLine(rsvp) {
+  const confirmed = rsvp.confirmed ?? 0;
+  const maybe = rsvp.maybe ?? 0;
+  const tbd = rsvp.tbd ?? 0;
+  const out = rsvp.out ?? 0;
+  return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
@@ -150,7 +158,7 @@ function renderHomePage(data) {
         <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
         <p class="muted"><strong>Location:</strong> ${event.location}</p>
         <p class="muted">${event.address || ""}</p>
-        <p class="muted">${event.rsvp_counts.confirmed} confirmed • ${event.rsvp_counts.maybe} maybe • ${event.rsvp_counts.out} out</p>
+        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
         <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
     `).join("");
@@ -329,7 +337,7 @@ function renderSchedule(data) {
       <p class="muted"><strong>Estimated End:</strong> ${e.endTime || ""}</p>
       <p class="muted"><strong>Location:</strong> ${e.location}</p>
       <p class="muted">${e.address || ""}</p>
-      <p class="muted">${e.rsvp_counts.confirmed} confirmed • ${e.rsvp_counts.maybe} maybe • ${e.rsvp_counts.out} out</p>
+      <p class="muted">${formatRsvpLine(e.rsvp_counts)}</p>
       <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
   `).join("");
