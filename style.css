@@ -87,16 +87,21 @@ a:hover{
   color:var(--gold);
 }
 
-.hero{
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:24px;
-  padding:36px 0;
+.hero-stack{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  padding:36px 0 0;
 }
 
-.hero-enhanced .hero-copy{
-  position:relative;
-  overflow:hidden;
+.hero{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+}
+
+.hero-events{
+  min-height:unset;
 }
 
 .hero-copy,
@@ -119,9 +124,24 @@ a:hover{
 }
 
 .hero-copy-enhanced{
+  position:relative;
+  overflow:hidden;
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,0.10), transparent 25%),
-    linear-gradient(135deg, rgba(15,81,50,0.28), rgba(17,22,30,0.95));
+    linear-gradient(135deg, rgba(15,81,50,0.36), rgba(17,22,30,0.92)),
+    url("images/site/large-table.gif") center/cover no-repeat;
+}
+
+.hero-copy-enhanced::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(7,11,16,0.16), rgba(7,11,16,0.44));
+  pointer-events:none;
+}
+
+.hero-copy-enhanced > *{
+  position:relative;
+  z-index:2;
 }
 
 .hero-visual-mark{
@@ -143,11 +163,45 @@ a:hover{
   max-width:720px;
 }
 
-.hero-cards{
+.hero-chip{
+  position:absolute;
+  width:92px;
+  height:92px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid rgba(255,184,28,.65);
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+  opacity:.95;
+  z-index:1;
+}
+
+.hero-chip-a{
+  right:24px;
+  top:26px;
+  transform:rotate(12deg);
+}
+
+.hero-chip-b{
+  right:132px;
+  bottom:26px;
+  transform:rotate(-10deg);
+}
+
+.hero-chip-c{
+  left:24px;
+  bottom:26px;
+  transform:rotate(8deg);
+}
+
+.leader-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.leader-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  padding:14px;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
 }
 
 .stat-card{
@@ -159,7 +213,20 @@ a:hover{
 
 .stat-card-visual{
   position:relative;
+  min-height:148px;
   overflow:hidden;
+}
+
+.card-chip-accent{
+  position:absolute;
+  right:-10px;
+  bottom:-10px;
+  width:82px;
+  height:82px;
+  object-fit:cover;
+  border-radius:50%;
+  opacity:.22;
+  filter:saturate(1.1);
 }
 
 .stat-icon{
@@ -463,11 +530,6 @@ th{
   opacity:.9;
 }
 
-.home-event-card{
-  background:
-    linear-gradient(135deg, rgba(15,81,50,0.22), rgba(24,33,44,0.95));
-}
-
 .fill-widget{
   margin:10px 0 12px 0;
 }
@@ -508,6 +570,71 @@ th{
   box-shadow:0 0 14px rgba(255,184,28,.25);
 }
 
+.schedule-hero,
+.rules-header{
+  position:relative;
+  overflow:hidden;
+}
+
+.schedule-table-bg{
+  background:
+    linear-gradient(135deg, rgba(15,81,50,0.32), rgba(17,22,30,0.88)),
+    url("images/site/large-table.gif") center/cover no-repeat;
+}
+
+.rules-table-bg{
+  background:
+    linear-gradient(135deg, rgba(15,81,50,0.20), rgba(17,22,30,0.92)),
+    url("images/site/large-table.gif") center/cover no-repeat;
+}
+
+.schedule-chip{
+  position:absolute;
+  width:86px;
+  height:86px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid rgba(255,184,28,.55);
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+  opacity:.92;
+}
+
+.schedule-chip-a{
+  top:18px;
+  right:24px;
+  transform:rotate(10deg);
+}
+
+.schedule-chip-b{
+  bottom:18px;
+  right:124px;
+  transform:rotate(-8deg);
+}
+
+.schedule-chip-c{
+  bottom:20px;
+  left:24px;
+  transform:rotate(8deg);
+}
+
+.rule-card-visual{
+  position:relative;
+  overflow:hidden;
+  min-height:220px;
+}
+
+.rule-chip{
+  position:absolute;
+  right:-18px;
+  bottom:-18px;
+  width:96px;
+  height:96px;
+  object-fit:cover;
+  border-radius:50%;
+  opacity:.24;
+  pointer-events:none;
+}
+
 .site-footer{
   border-top:1px solid var(--line);
   margin-top:30px;
@@ -518,11 +645,13 @@ th{
   padding:20px;
 }
 
-@media (max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
+@media (max-width:980px){
+  .leader-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
+}
 
+@media (max-width:900px){
   .header-inner{
     display:block;
   }
@@ -533,5 +662,27 @@ th{
 
   .hero-title{
     font-size:1.6rem;
+  }
+
+  .hero-chip{
+    width:72px;
+    height:72px;
+  }
+}
+
+@media (max-width:640px){
+  .leader-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-chip-b,
+  .schedule-chip-b{
+    display:none;
+  }
+
+  .hero-chip-c,
+  .schedule-chip-c{
+    width:66px;
+    height:66px;
   }
 }
