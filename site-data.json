@@ -1,312 +1,385 @@
-{
-  "events": [
-    {
-      "title": "TLPT Friday Game",
-      "date": "Friday, March 13, 2026",
-      "time": "7:00 PM",
-      "endTime": "11:15 PM",
-      "location": "The Caahhd Room",
-      "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
-      "rsvp_counts": {
-        "confirmed": 5,
-        "maybe": 0,
-        "tbd": 3,
-        "out": 4
-      }
-    },
-    {
-      "title": "TLPT Saturday Game",
-      "date": "Saturday, March 14, 2026",
-      "time": "7:00 PM",
-      "endTime": "11:15 PM",
-      "location": "The Caahhd Room",
-      "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "https://www.icloud.com/invites/07d_zfiupMrJCAo5iPcrojoDg",
-      "rsvp_counts": {
-        "confirmed": 4,
-        "maybe": 2,
-        "tbd": 3,
-        "out": 4
-      }
-    }
-  ],
+async function loadSiteData() {
+  const res = await fetch("site-data.json");
+  return await res.json();
+}
 
-  "honors": [
-    {
-      "type": "Profit Leader",
-      "name": "Li-Fo",
-      "note": "Current leader in total profit."
-    },
-    {
-      "type": "True Skill Leader",
-      "name": "Li-Fo",
-      "note": "Highest True Skill Score in the current workbook."
-    },
-    {
-      "type": "Clutch Leader",
-      "name": "Yann",
-      "note": "Best Clutch Index in the current workbook."
-    },
-    {
-      "type": "Hit King",
-      "name": "Li-Fo",
-      "note": "Most recorded hits / knockouts."
-    },
-    {
-      "type": "Bubble King",
-      "name": "BostnMike",
-      "note": "Most bubble finishes so far."
-    }
-  ],
+function fmtMoney(n) {
+  const sign = Number(n) < 0 ? "-" : "";
+  return `${sign}$${Math.abs(Number(n)).toFixed(0)}`;
+}
 
-  "records": [
-    { "label": "Highest Profit", "name": "Li-Fo", "value": "$435" },
-    { "label": "Best ROI", "name": "Big Tim", "value": "183.3%" },
-    { "label": "Most Hits", "name": "Li-Fo", "value": "23" },
-    { "label": "Most Cashes", "name": "Li-Fo", "value": "11" },
-    { "label": "Most Bubbles", "name": "BostnMike", "value": "5" },
-    { "label": "Top True Skill", "name": "Li-Fo", "value": "188.7" },
-    { "label": "Best Clutch Index", "name": "Yann", "value": "323.1" },
-    { "label": "Best Luck Index", "name": "Li-Fo", "value": "578.2" },
-    { "label": "Worst Luck Index", "name": "Jeff T", "value": "-170.4" },
-    { "label": "Lowest Profit", "name": "Nitro", "value": "-$240" }
-  ],
+function fmtPct(n) {
+  return `${(Number(n) * 100).toFixed(1)}%`;
+}
 
-  "players": [
-    {
-      "name": "BostnMike",
-      "entries": 25,
-      "buyIns": 24,
-      "rebuys": 1,
-      "hits": 23,
-      "timesPlaced": 10,
-      "bubbles": 5,
-      "profit": 360,
-      "roi": 0.48,
-      "cashRate": 0.417,
-      "bubbleRate": 0.208,
-      "hitRate": 0.92,
-      "trueSkillScore": 148.3,
-      "luckIndex": 509.1,
-      "clutchIndex": 133.1,
-      "image": "images/players/bostnmike.jpg"
-    },
-    {
-      "name": "Li-Fo",
-      "entries": 24,
-      "buyIns": 16,
-      "rebuys": 8,
-      "hits": 23,
-      "timesPlaced": 11,
-      "bubbles": 2,
-      "profit": 435,
-      "roi": 0.604,
-      "cashRate": 0.688,
-      "bubbleRate": 0.125,
-      "hitRate": 0.96,
-      "trueSkillScore": 188.7,
-      "luckIndex": 578.1,
-      "clutchIndex": 173.1,
-      "image": "images/players/lifo.jpg"
-    },
-    {
-      "name": "Hiro",
-      "entries": 30,
-      "buyIns": 21,
-      "rebuys": 9,
-      "hits": 22,
-      "timesPlaced": 8,
-      "bubbles": 2,
-      "profit": -45,
-      "roi": -0.05,
-      "cashRate": 0.381,
-      "bubbleRate": 0.095,
-      "hitRate": 0.73,
-      "trueSkillScore": 114.5,
-      "luckIndex": 133.9,
-      "clutchIndex": 114.6,
-      "image": "images/players/hiro.jpg"
-    },
-    {
-      "name": "A.l. Dave",
-      "entries": 19,
-      "buyIns": 16,
-      "rebuys": 3,
-      "hits": 18,
-      "timesPlaced": 4,
-      "bubbles": 2,
-      "profit": -15,
-      "roi": -0.026,
-      "cashRate": 0.25,
-      "bubbleRate": 0.125,
-      "hitRate": 0.95,
-      "trueSkillScore": 101.8,
-      "luckIndex": 98.3,
-      "clutchIndex": 103.7,
-      "image": "images/players/al-dave.jpg"
-    },
-    {
-      "name": "Ahmed",
-      "entries": 12,
-      "buyIns": 11,
-      "rebuys": 1,
-      "hits": 14,
-      "timesPlaced": 4,
-      "bubbles": 2,
-      "profit": 45,
-      "roi": 0.125,
-      "cashRate": 0.364,
-      "bubbleRate": 0.182,
-      "hitRate": 1.17,
-      "trueSkillScore": 122.0,
-      "luckIndex": 116.5,
-      "clutchIndex": 120.3,
-      "image": "images/players/ahmed.jpg"
-    },
-    {
-      "name": "ProvidenceMike",
-      "entries": 17,
-      "buyIns": 11,
-      "rebuys": 6,
-      "hits": 14,
-      "timesPlaced": 5,
-      "bubbles": 0,
-      "profit": 0,
-      "roi": 0,
-      "cashRate": 0.455,
-      "bubbleRate": 0,
-      "hitRate": 0.82,
-      "trueSkillScore": 124.1,
-      "luckIndex": 101.4,
-      "clutchIndex": 133.7,
-      "image": "images/players/providencemike.jpg"
-    },
-    {
-      "name": "Chris O",
-      "entries": 13,
-      "buyIns": 6,
-      "rebuys": 7,
-      "hits": 14,
-      "timesPlaced": 3,
-      "bubbles": 1,
-      "profit": 100,
-      "roi": 0.256,
-      "cashRate": 0.5,
-      "bubbleRate": 0.167,
-      "hitRate": 1.08,
-      "trueSkillScore": 140.8,
-      "luckIndex": 177.5,
-      "clutchIndex": 139.0,
-      "image": "images/players/chris-o.jpg"
-    },
-    {
-      "name": "NASA Al",
-      "entries": 10,
-      "buyIns": 8,
-      "rebuys": 2,
-      "hits": 11,
-      "timesPlaced": 6,
-      "bubbles": 0,
-      "profit": 290,
-      "roi": 0.967,
-      "cashRate": 0.75,
-      "bubbleRate": 0,
-      "hitRate": 1.10,
-      "trueSkillScore": 187.2,
-      "luckIndex": 349.6,
-      "clutchIndex": 207.1,
-      "image": "images/players/nasa-al.jpg"
-    },
-    {
-      "name": "Cougar",
-      "entries": 13,
-      "buyIns": 12,
-      "rebuys": 1,
-      "hits": 9,
-      "timesPlaced": 5,
-      "bubbles": 0,
-      "profit": 150,
-      "roi": 0.385,
-      "cashRate": 0.417,
-      "bubbleRate": 0,
-      "hitRate": 0.69,
-      "trueSkillScore": 132.0,
-      "luckIndex": 227.5,
-      "clutchIndex": 142.9,
-      "image": "images/players/cougar.jpg"
-    },
-    {
-      "name": "Red",
-      "entries": 11,
-      "buyIns": 7,
-      "rebuys": 4,
-      "hits": 8,
-      "timesPlaced": 2,
-      "bubbles": 0,
-      "profit": -100,
-      "roi": -0.303,
-      "cashRate": 0.286,
-      "bubbleRate": 0,
-      "hitRate": 0.73,
-      "trueSkillScore": 91.4,
-      "luckIndex": -34.3,
-      "clutchIndex": 102.9,
-      "image": "images/players/red.jpg"
-    },
-    {
-      "name": "The Architect",
-      "entries": 8,
-      "buyIns": 6,
-      "rebuys": 2,
-      "hits": 7,
-      "timesPlaced": 3,
-      "bubbles": 1,
-      "profit": 15,
-      "roi": 0.063,
-      "cashRate": 0.5,
-      "bubbleRate": 0.167,
-      "hitRate": 0.88,
-      "trueSkillScore": 125.0,
-      "luckIndex": 62.7,
-      "clutchIndex": 127.5,
-      "image": "images/players/billy-b.jpg"
-    },
-    {
-      "name": "Vish",
-      "entries": 12,
-      "buyIns": 6,
-      "rebuys": 6,
-      "hits": 6,
-      "timesPlaced": 1,
-      "bubbles": 1,
-      "profit": -165,
-      "roi": -0.458,
-      "cashRate": 0.167,
-      "bubbleRate": 0.167,
-      "hitRate": 0.5,
-      "trueSkillScore": 89.0,
-      "luckIndex": -93.4,
-      "clutchIndex": 69.8,
-      "image": "images/players/vish.jpg"
-    },
-    {
-      "name": "Yann",
-      "entries": 1,
-      "buyIns": 1,
-      "rebuys": 0,
-      "hits": 6,
-      "timesPlaced": 1,
-      "bubbles": 0,
-      "profit": 30,
-      "roi": 1.0,
-      "cashRate": 1,
-      "bubbleRate": 0,
-      "hitRate": 6.0,
-      "trueSkillScore": 150.3,
-      "luckIndex": 35.9,
-      "clutchIndex": 323.1,
-      "image": "images/players/yann.jpg"
-    }
-  ]
+function fmtNum(n) {
+  return Number(n).toFixed(1);
+}
+
+function sortPlayers(players, key) {
+  return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
+}
+
+function initialsFromName(name) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .map(part => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function displayPlayerName(player) {
+  return player.entries < 5 ? `${player.name}*` : player.name;
+}
+
+function playerImageMarkup(player, size = "medium") {
+  if (player.image && player.image.trim() !== "") {
+    return `
+      <div class="player-avatar-wrap">
+        <img
+          class="player-avatar ${size}"
+          src="${player.image}"
+          alt="${player.name}"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="player-avatar-fallback ${size}" style="display:none;">
+          ${initialsFromName(player.name)}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="player-avatar-wrap">
+      <div class="player-avatar-fallback ${size}">
+        ${initialsFromName(player.name)}
+      </div>
+    </div>
+  `;
+}
+
+function playerInlineMarkup(player, size = "small") {
+  return `
+    <div class="player-inline">
+      ${playerImageMarkup(player, size)}
+      <a href="player.html?name=${encodeURIComponent(player.name)}">${displayPlayerName(player)}</a>
+    </div>
+  `;
+}
+
+function leaderInlineMarkup(player, value, size = "small") {
+  return `
+    <div class="leader-inline">
+      ${playerImageMarkup(player, size)}
+      <span>${displayPlayerName(player)} (${value})</span>
+    </div>
+  `;
+}
+
+function formatStatLabel(key) {
+  const labels = {
+    trueSkillScore: "Power",
+    buyIns: "Buy-ins",
+    rebuys: "Rebuys",
+    entries: "Entries",
+    hits: "Hits",
+    timesPlaced: "Cashes",
+    bubbles: "Bubbles",
+    profit: "Profit",
+    roi: "ROI",
+    cashRate: "Cash Rate",
+    bubbleRate: "Bubble Rate",
+    hitRate: "Hit Rate",
+    luckIndex: "Luck",
+    clutchIndex: "Clutch",
+    aggressionIndex: "Aggression",
+    survivorIndex: "Survivor",
+    tiltIndex: "Tilt"
+  };
+  return labels[key] || key;
+}
+
+function formatStatValue(player, key) {
+  if (key === "profit") return fmtMoney(player[key]);
+  if (["roi", "cashRate", "bubbleRate", "hitRate"].includes(key)) return fmtPct(player[key]);
+  if (["trueSkillScore", "luckIndex", "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex"].includes(key)) return fmtNum(player[key]);
+  return player[key];
+}
+
+function badgeList(player, data) {
+  const players = data.players;
+  const topProfit = sortPlayers(players, "profit")[0]?.name;
+  const topPower = sortPlayers(players, "trueSkillScore")[0]?.name;
+  const topClutch = sortPlayers(players, "clutchIndex")[0]?.name;
+  const topLuck = sortPlayers(players, "luckIndex")[0]?.name;
+  const topHits = sortPlayers(players, "hits")[0]?.name;
+  const topBubbles = sortPlayers(players, "bubbles")[0]?.name;
+
+  const badges = [];
+  if (player.name === topProfit) badges.push("💰 Profit Leader");
+  if (player.name === topPower) badges.push("🏆 Power Leader");
+  if (player.name === topClutch) badges.push("🎯 Clutch Leader");
+  if (player.name === topLuck) badges.push("🔥 Running Hot");
+  if (player.name === topHits) badges.push("💥 Hit King");
+  if (player.name === topBubbles) badges.push("🫧 Bubble King");
+  if (player.entries < 5) badges.push("✳️ Small Sample");
+
+  return badges;
+}
+
+function badgesMarkup(player, data) {
+  const badges = badgeList(player, data);
+  if (!badges.length) return "";
+  return `
+    <div class="button-row" style="margin:10px 0 0 0;">
+      ${badges.map(b => `<span class="btn small" style="cursor:default;">${b}</span>`).join("")}
+    </div>
+  `;
+}
+
+function formatRsvpLine(rsvp) {
+  const confirmed = rsvp.confirmed ?? 0;
+  const maybe = rsvp.maybe ?? 0;
+  const tbd = rsvp.tbd ?? 0;
+  const out = rsvp.out ?? 0;
+  return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
+}
+
+function renderHomePage(data) {
+  const eventsEl = document.getElementById("home-events-list");
+  if (eventsEl) {
+    eventsEl.innerHTML = data.events.map(event => `
+      <div class="event-card" style="margin-bottom:14px;">
+        <div class="kicker">${event.title}</div>
+        <h3>${event.date}</h3>
+        <p class="muted"><strong>Start:</strong> ${event.time}</p>
+        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+        <p class="muted"><strong>Location:</strong> ${event.location}</p>
+        <p class="muted">${event.address || ""}</p>
+        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
+        <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
+      </div>
+    `).join("");
+  }
+
+  const profit = sortPlayers(data.players, "profit")[0];
+  const power = sortPlayers(data.players, "trueSkillScore")[0];
+  const hits = sortPlayers(data.players, "hits")[0];
+  const bubbles = sortPlayers(data.players, "bubbles")[0];
+
+  document.getElementById("home-profit-leader").innerHTML =
+    leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
+  document.getElementById("home-power-leader").innerHTML =
+    leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
+  document.getElementById("home-hit-leader").innerHTML =
+    leaderInlineMarkup(hits, hits.hits, "small");
+  document.getElementById("home-bubble-leader").innerHTML =
+    leaderInlineMarkup(bubbles, bubbles.bubbles, "small");
+
+  const tbody = document.querySelector("#home-standings-table tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  sortPlayers(data.players, "profit").slice(0, 8).forEach(p => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${playerInlineMarkup(p, "tiny")}</td>
+      <td>${p.entries}</td>
+      <td>${p.timesPlaced}</td>
+      <td>${fmtMoney(p.profit)}</td>
+      <td>${fmtNum(p.trueSkillScore)}</td>
+      <td>${p.hits}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderStandings(key) {
+  const tbody = document.querySelector("#standings-table tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  sortPlayers(window.siteData.players, key).forEach((p, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${playerInlineMarkup(p, "tiny")}</td>
+      <td>${p.entries}</td>
+      <td>${p.hits}</td>
+      <td>${p.timesPlaced}</td>
+      <td>${p.bubbles}</td>
+      <td>${fmtMoney(p.profit)}</td>
+      <td>${fmtPct(p.roi)}</td>
+      <td>${fmtNum(p.trueSkillScore)}</td>
+      <td>${fmtNum(p.luckIndex)}</td>
+      <td>${fmtNum(p.clutchIndex)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderDashboardSortable(key) {
+  const el = document.getElementById("dashboard-grid");
+  if (!el) return;
+  const sorted = sortPlayers(window.siteData.players, key);
+
+  el.innerHTML = sorted.map((p, i) => `
+    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <div class="player-card-top">
+        ${playerImageMarkup(p, "medium")}
+        <div class="player-card-meta">
+          <div class="kicker">#${i + 1} • ${formatStatLabel(key)}</div>
+          <h3>${displayPlayerName(p)}</h3>
+        </div>
+      </div>
+      <div class="player-card-stats">
+        <p class="muted"><strong>${formatStatLabel(key)}:</strong> ${formatStatValue(p, key)}</p>
+        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
+        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
+        <p class="muted">Hits: ${p.hits}</p>
+        <p class="muted">Cashes: ${p.timesPlaced}</p>
+        ${badgesMarkup(p, window.siteData)}
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderPlayers(data) {
+  const el = document.getElementById("players-grid");
+  if (!el) return;
+  el.innerHTML = data.players.map(p => `
+    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <div class="player-card-top">
+        ${playerImageMarkup(p, "medium")}
+        <div class="player-card-meta">
+          <div class="kicker">Player</div>
+          <h3>${displayPlayerName(p)}</h3>
+        </div>
+      </div>
+      <div class="player-card-stats">
+        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
+        <p class="muted">Power: ${fmtNum(p.trueSkillScore)}</p>
+        <p class="muted">Hits: ${p.hits}</p>
+        <p class="muted">Cashes: ${p.timesPlaced}</p>
+        ${badgesMarkup(p, data)}
+      </div>
+    </a>
+  `).join("");
+}
+
+function renderPlayerProfile(data) {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const p = data.players.find(x => x.name === name) || data.players[0];
+  const el = document.getElementById("player-profile");
+
+  if (el) {
+    el.innerHTML = `
+      <div class="profile-shell">
+        <div class="profile-hero">
+          <div class="profile-hero-left">
+            ${playerImageMarkup(p, "large")}
+            <div>
+              <div class="kicker">Player Profile</div>
+              <h2>${displayPlayerName(p)}</h2>
+              <p class="muted">TLPT workbook-driven performance snapshot</p>
+              ${badgesMarkup(p, data)}
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-grid">
+          <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${p.entries}</div></div>
+          <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
+          <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
+          <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${p.hits}</div></div>
+          <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${p.timesPlaced}</div></div>
+          <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${p.bubbles}</div></div>
+          <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${p.profit < 0 ? "negative":"positive"}">${fmtMoney(p.profit)}</div></div>
+          <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(p.roi)}</div></div>
+          <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(p.trueSkillScore)}</div></div>
+          <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(p.luckIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(p.clutchIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(p.cashRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(p.bubbleRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(p.hitRate)}</div></div>
+          <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(p.aggressionIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(p.survivorIndex)}</div></div>
+          <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(p.tiltIndex)}</div></div>
+        </div>
+      </div>
+    `;
+  }
+
+  const navEl = document.getElementById("player-nav");
+  if (!navEl) return;
+  const idx = data.players.findIndex(x => x.name === p.name);
+  const prev = data.players[(idx - 1 + data.players.length) % data.players.length];
+  const next = data.players[(idx + 1) % data.players.length];
+
+  navEl.innerHTML = `
+    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
+    <a class="btn" href="players.html">All Players</a>
+    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
+  `;
+}
+
+function renderSchedule(data) {
+  const el = document.getElementById("schedule-list");
+  if (!el) return;
+  el.innerHTML = data.events.map(e => `
+    <div class="event-card">
+      <div class="kicker">${e.title}</div>
+      <h3>${e.date}</h3>
+      <p class="muted"><strong>Start:</strong> ${e.time}</p>
+      <p class="muted"><strong>Estimated End:</strong> ${e.endTime || ""}</p>
+      <p class="muted"><strong>Location:</strong> ${e.location}</p>
+      <p class="muted">${e.address || ""}</p>
+      <p class="muted">${formatRsvpLine(e.rsvp_counts)}</p>
+      <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+    </div>
+  `).join("");
+}
+
+function renderChampions(data) {
+  const honorsEl = document.getElementById("champions-list");
+  const recordsEl = document.getElementById("records-list");
+
+  if (honorsEl) {
+    honorsEl.innerHTML = data.honors.map(h => {
+      const p = data.players.find(player => player.name === h.name);
+      return `
+        <div class="champ-card">
+          <div class="player-card-top">
+            ${p ? playerImageMarkup(p, "small") : ""}
+            <div>
+              <div class="kicker">${h.type}</div>
+              <h3>${p ? displayPlayerName(p) : h.name}</h3>
+            </div>
+          </div>
+          <p class="muted">${h.note}</p>
+        </div>
+      `;
+    }).join("");
+  }
+
+  if (recordsEl) {
+    recordsEl.innerHTML = data.records.map(r => {
+      const p = data.players.find(player => player.name === r.name);
+      return `
+        <div class="champ-card">
+          <div class="player-card-top">
+            ${p ? playerImageMarkup(p, "small") : ""}
+            <div>
+              <div class="kicker">${r.label}</div>
+              <h3>${p ? displayPlayerName(p) : r.name}</h3>
+            </div>
+          </div>
+          <p class="muted">${r.value}</p>
+        </div>
+      `;
+    }).join("");
+  }
 }
