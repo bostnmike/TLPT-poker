@@ -753,7 +753,7 @@ th{
   display:none !important;
 }
 
-/* make badges plain icon + text, not button-like */
+/* stat leaders: plain icon + text, 15% smaller and italic text only */
 .button-row .btn.small[style*="cursor:default"]{
   background:transparent;
   border:none;
@@ -761,8 +761,9 @@ th{
   border-radius:0;
   box-shadow:none;
   color:var(--gold);
-  font-size:1.125rem;
+  font-size:.956rem;
   line-height:1.35;
+  font-style:italic;
 }
 
 .button-row .btn.small[style*="cursor:default"]:hover{
