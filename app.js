@@ -147,17 +147,58 @@ function formatRsvpLine(rsvp) {
   return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
 }
 
+function projectedTableSize(rsvp, maxSeats = 9) {
+  const confirmed = rsvp.confirmed ?? 0;
+  const maybe = rsvp.maybe ?? 0;
+  const tbd = rsvp.tbd ?? 0;
+
+  const minPlayers = Math.min(confirmed, maxSeats);
+  const maxPlayers = Math.min(confirmed + maybe + tbd, maxSeats);
+
+  if (minPlayers === maxPlayers) {
+    return `${minPlayers} players`;
+  }
+
+  return `${minPlayers}–${maxPlayers} players`;
+}
+
+function tableFillPercent(rsvp, maxSeats = 9) {
+  const confirmed = rsvp.confirmed ?? 0;
+  return Math.min((confirmed / maxSeats) * 100, 100);
+}
+
+function tableFillMarkup(rsvp, maxSeats = 9) {
+  const confirmed = rsvp.confirmed ?? 0;
+  const fillPct = tableFillPercent(rsvp, maxSeats);
+  return `
+    <div class="fill-widget">
+      <div class="fill-header">
+        <span class="fill-label">Table Fill</span>
+        <span class="fill-seats">${confirmed} / ${maxSeats} seats locked</span>
+      </div>
+      <div class="fill-bar">
+        <div class="fill-bar-value" style="width:${fillPct}%"></div>
+      </div>
+    </div>
+  `;
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
     eventsEl.innerHTML = data.events.map(event => `
-      <div class="event-card" style="margin-bottom:14px;">
-        <div class="kicker">${event.title}</div>
+      <div class="event-card home-event-card">
+        <div class="event-card-topline">
+          <div class="kicker">${event.title}</div>
+          <div class="event-icon">🃏</div>
+        </div>
         <h3>${event.date}</h3>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>
         <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
         <p class="muted"><strong>Location:</strong> ${event.location}</p>
         <p class="muted">${event.address || ""}</p>
+        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
+        ${tableFillMarkup(event.rsvp_counts, 9)}
         <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
         <a class="btn btn-primary" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
@@ -331,12 +372,17 @@ function renderSchedule(data) {
   if (!el) return;
   el.innerHTML = data.events.map(e => `
     <div class="event-card">
-      <div class="kicker">${e.title}</div>
+      <div class="event-card-topline">
+        <div class="kicker">${e.title}</div>
+        <div class="event-icon">🎲</div>
+      </div>
       <h3>${e.date}</h3>
       <p class="muted"><strong>Start:</strong> ${e.time}</p>
       <p class="muted"><strong>Estimated End:</strong> ${e.endTime || ""}</p>
       <p class="muted"><strong>Location:</strong> ${e.location}</p>
       <p class="muted">${e.address || ""}</p>
+      <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(e.rsvp_counts, 9)}</p>
+      ${tableFillMarkup(e.rsvp_counts, 9)}
       <p class="muted">${formatRsvpLine(e.rsvp_counts)}</p>
       <a class="btn btn-primary" href="${e.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
