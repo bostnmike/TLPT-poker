@@ -383,6 +383,24 @@ th{
   font-weight:600;
 }
 
+.players-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:16px;
+}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.rules-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
 .player-card,
 .dash-card,
 .event-card,
@@ -594,6 +612,69 @@ th{
   box-shadow:0 0 14px rgba(255,184,28,.25);
 }
 
+.schedule-hero,
+.rules-header{
+  position:relative;
+  overflow:hidden;
+}
+
+.schedule-table-bg{
+  background:linear-gradient(135deg, rgba(15,81,50,0.18), rgba(17,22,30,0.92));
+}
+
+.rules-table-bg{
+  background:linear-gradient(135deg, rgba(15,81,50,0.14), rgba(17,22,30,0.94));
+}
+
+.schedule-chip{
+  position:absolute;
+  width:34px;
+  height:34px;
+  object-fit:cover;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid rgba(255,184,28,.40);
+  opacity:.40;
+  box-shadow:0 4px 10px rgba(0,0,0,.18);
+}
+
+.schedule-chip-a{
+  top:18px;
+  right:24px;
+  transform:rotate(10deg);
+}
+
+.schedule-chip-b{
+  bottom:18px;
+  right:78px;
+  transform:rotate(-8deg);
+}
+
+.schedule-chip-c{
+  bottom:20px;
+  left:24px;
+  transform:rotate(8deg);
+}
+
+.rule-card-visual{
+  position:relative;
+  overflow:hidden;
+  min-height:220px;
+}
+
+.rule-chip{
+  position:absolute;
+  right:-8px;
+  bottom:-8px;
+  width:34px;
+  height:34px;
+  object-fit:cover;
+  border-radius:50%;
+  overflow:hidden;
+  opacity:.16;
+  pointer-events:none;
+}
+
 .site-footer{
   border-top:1px solid var(--line);
   margin-top:30px;
@@ -602,6 +683,12 @@ th{
 
 .site-footer .wrap{
   padding:20px;
+}
+
+@media (max-width:1100px){
+  .players-grid{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width:980px){
@@ -631,6 +718,10 @@ th{
   .table-banner-image{
     height:220px;
   }
+
+  .players-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width:800px){
@@ -655,5 +746,9 @@ th{
 
   .table-banner-image{
     height:180px;
+  }
+
+  .players-grid{
+    grid-template-columns:1fr;
   }
 }
