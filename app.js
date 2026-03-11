@@ -162,7 +162,7 @@ function renderHomePage(data) {
 
   document.getElementById("home-profit-leader").innerHTML =
     leaderInlineMarkup(profit, fmtMoney(profit.profit), "small");
-  document.getElementById("home-roi-leader").innerHTML =
+  document.getElementById("home-power-leader").innerHTML =
     leaderInlineMarkup(power, fmtNum(power.trueSkillScore), "small");
   document.getElementById("home-hit-leader").innerHTML =
     leaderInlineMarkup(hits, hits.hits, "small");
