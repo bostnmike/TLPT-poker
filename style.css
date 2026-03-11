@@ -137,6 +137,43 @@ a:hover{
   z-index:2;
 }
 
+.hero-home-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1.7fr) minmax(260px, .9fr);
+  gap:24px;
+  align-items:start;
+}
+
+.hero-home-copy{
+  min-width:0;
+}
+
+.hero-hosts-callout{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:14px;
+  padding-top:28px;
+}
+
+.hosts-copy{
+  margin:0;
+  color:var(--gold);
+  font-style:italic;
+  font-size:1.05rem;
+  text-align:center;
+  line-height:1.4;
+}
+
+.hosts-image{
+  width:100%;
+  max-width:320px;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
 .hero-visual-mark{
   display:flex;
   gap:10px;
@@ -208,9 +245,13 @@ a:hover{
 }
 
 .event-icon-card{
-  font-size:2.3rem;
+  font-size:2.9rem;
   line-height:1;
-  color:#c1121f;
+  color:#111;
+  -webkit-text-stroke:2px var(--gold);
+  text-shadow:
+    0 0 1px var(--gold),
+    0 0 8px rgba(255,184,28,0.18);
   font-weight:700;
   padding:0;
   background:transparent;
@@ -275,6 +316,18 @@ a:hover{
   background:#f0435a;
   border-color:#f0435a;
   color:#fff;
+}
+
+.btn-rsvp{
+  background:var(--gold);
+  border-color:#c89b1d;
+  color:#000;
+}
+
+.btn-rsvp:hover{
+  background:#fff;
+  border-color:#fff;
+  color:#000;
 }
 
 .btn.small{
@@ -694,6 +747,19 @@ th{
 }
 
 @media (max-width:1100px){
+  .hero-home-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-hosts-callout{
+    align-items:flex-start;
+    padding-top:0;
+  }
+
+  .hosts-copy{
+    text-align:left;
+  }
+
   #players-grid,
   #dashboard-grid,
   .five-col-grid{
@@ -718,6 +784,11 @@ th{
 
   .hero-title{
     font-size:1.6rem;
+  }
+
+  .event-icon-card{
+    font-size:2.5rem;
+    -webkit-text-stroke:1.75px var(--gold);
   }
 }
 
