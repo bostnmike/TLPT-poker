@@ -19,7 +19,7 @@
         <a href="dashboard.html">Dashboard</a>
         <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
-        <a href="champions.html">Champions</a>
+        <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
       </nav>
     </div>
@@ -35,20 +35,24 @@
       </div>
 
       <div class="button-row dashboard-buttons">
+        <button class="btn small" onclick="renderDashboardSortable('trueSkillScore')">Power</button>
         <button class="btn small" onclick="renderDashboardSortable('profit')">Profit</button>
         <button class="btn small" onclick="renderDashboardSortable('roi')">ROI</button>
-        <button class="btn small" onclick="renderDashboardSortable('buyIns')">Buy-ins</button>
-        <button class="btn small" onclick="renderDashboardSortable('rebuys')">Rebuys</button>
-        <button class="btn small" onclick="renderDashboardSortable('entries')">Entries</button>
         <button class="btn small" onclick="renderDashboardSortable('hits')">Hits</button>
         <button class="btn small" onclick="renderDashboardSortable('timesPlaced')">Cashes</button>
         <button class="btn small" onclick="renderDashboardSortable('bubbles')">Bubbles</button>
         <button class="btn small" onclick="renderDashboardSortable('cashRate')">Cash Rate</button>
         <button class="btn small" onclick="renderDashboardSortable('bubbleRate')">Bubble Rate</button>
         <button class="btn small" onclick="renderDashboardSortable('hitRate')">Hit Rate</button>
+        <button class="btn small" onclick="renderDashboardSortable('luckIndex')">Luck</button>
+        <button class="btn small" onclick="renderDashboardSortable('clutchIndex')">Clutch</button>
+        <button class="btn small" onclick="renderDashboardSortable('aggressionIndex')">Aggression</button>
+        <button class="btn small" onclick="renderDashboardSortable('survivorIndex')">Survivor</button>
+        <button class="btn small" onclick="renderDashboardSortable('tiltIndex')">Tilt</button>
       </div>
 
       <div id="dashboard-grid" class="card-grid"></div>
+      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
     </section>
   </main>
 
@@ -60,7 +64,7 @@
   <script>
     loadSiteData().then(data => {
       window.siteData = data;
-      renderDashboardSortable('profit');
+      renderDashboardSortable('trueSkillScore');
     });
   </script>
 </body>
