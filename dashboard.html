@@ -27,7 +27,27 @@
 
   <main class="wrap">
     <section class="section">
-      <h2>League Leaders</h2>
+      <div class="section-head">
+        <div>
+          <h2>Dashboard</h2>
+          <p class="muted">Sort the league by any tracked stat.</p>
+        </div>
+
+        <div class="button-row">
+          <button class="btn small" onclick="renderDashboardSortable('profit')">Profit</button>
+          <button class="btn small" onclick="renderDashboardSortable('roi')">ROI</button>
+          <button class="btn small" onclick="renderDashboardSortable('buyIns')">Buy-ins</button>
+          <button class="btn small" onclick="renderDashboardSortable('rebuys')">Rebuys</button>
+          <button class="btn small" onclick="renderDashboardSortable('entries')">Entries</button>
+          <button class="btn small" onclick="renderDashboardSortable('hits')">Hits</button>
+          <button class="btn small" onclick="renderDashboardSortable('timesPlaced')">Cashes</button>
+          <button class="btn small" onclick="renderDashboardSortable('bubbles')">Bubbles</button>
+          <button class="btn small" onclick="renderDashboardSortable('cashRate')">Cash Rate</button>
+          <button class="btn small" onclick="renderDashboardSortable('bubbleRate')">Bubble Rate</button>
+          <button class="btn small" onclick="renderDashboardSortable('hitRate')">Hit Rate</button>
+        </div>
+      </div>
+
       <div id="dashboard-grid" class="card-grid"></div>
     </section>
   </main>
@@ -38,7 +58,10 @@
 
   <script src="app.js"></script>
   <script>
-    loadSiteData().then(data => renderDashboard(data));
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderDashboardSortable('profit');
+    });
   </script>
 </body>
 </html>
