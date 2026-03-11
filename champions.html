@@ -38,7 +38,10 @@
 
   <script src="app.js"></script>
   <script>
-    loadSiteData().then(data => renderChampions(data));
+    loadSiteData().then(data => {
+      window.siteData = data;
+      renderChampions(data);
+    });
   </script>
 </body>
 </html>
