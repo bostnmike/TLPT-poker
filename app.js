@@ -20,6 +20,40 @@ function topPlayer(players, key) {
   return sortPlayers(players, key)[0];
 }
 
+function initialsFromName(name) {
+  return name
+    .split(" ")
+    .filter(Boolean)
+    .map(part => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function playerImageMarkup(player, size = "medium") {
+  if (player.image && player.image.trim() !== "") {
+    return `
+      <div class="player-avatar-wrap ${size}">
+        <img
+          class="player-avatar ${size}"
+          src="${player.image}"
+          alt="${player.name}"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <div class="player-avatar-fallback ${size}" style="display:none;">
+          ${initialsFromName(player.name)}
+        </div>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="player-avatar-fallback ${size}">
+      ${initialsFromName(player.name)}
+    </div>
+  `;
+}
+
 function renderHomePage(data) {
   const next = data.events[0];
   document.getElementById("next-game-title").textContent = next.title;
@@ -104,12 +138,19 @@ function renderDashboard(data) {
 function renderPlayers(data) {
   const el = document.getElementById("players-grid");
   el.innerHTML = data.players.map(p => `
-    <a class="player-card" href="player.html?name=${encodeURIComponent(p.name)}">
-      <div class="kicker">Player</div>
-      <h3>${p.name}</h3>
-      <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
-      <p class="muted">ROI: ${fmtPct(p.roi)}</p>
-      <p class="muted">Hits: ${p.hits}</p>
+    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
+      <div class="player-card-top">
+        ${playerImageMarkup(p, "medium")}
+        <div class="player-card-meta">
+          <div class="kicker">Player</div>
+          <h3>${p.name}</h3>
+        </div>
+      </div>
+      <div class="player-card-stats">
+        <p class="muted">Profit: ${fmtMoney(p.profit)}</p>
+        <p class="muted">ROI: ${fmtPct(p.roi)}</p>
+        <p class="muted">Hits: ${p.hits}</p>
+      </div>
     </a>
   `).join("");
 }
@@ -122,9 +163,17 @@ function renderPlayerProfile(data) {
 
   el.innerHTML = `
     <div class="profile-shell">
-      <div class="kicker">Player Profile</div>
-      <h2>${p.name}</h2>
-      <p class="muted">TLPT performance snapshot</p>
+      <div class="profile-hero">
+        <div class="profile-hero-left">
+          ${playerImageMarkup(p, "large")}
+          <div>
+            <div class="kicker">Player Profile</div>
+            <h2>${p.name}</h2>
+            <p class="muted">TLPT performance snapshot</p>
+          </div>
+        </div>
+      </div>
+
       <div class="profile-grid">
         <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${p.buyIns}</div></div>
         <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${p.rebuys}</div></div>
