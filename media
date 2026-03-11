@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Media | TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">Media</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">Players</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="champions.html">Honors</a>
+        <a href="rules.html">Rules</a>
+        <a href="media.html">Media</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section media-header">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Highlights</p>
+          <h2>TLPT Media</h2>
+          <p class="muted">Video moments from around the room.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-grid">
+      <article class="media-card">
+        <div class="media-frame">
+          <div class="media-embed-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/RPCM5CLNBjk"
+              title="TLPT Media Video 1"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="media-copy">
+          <div class="kicker">Video 1</div>
+          <h3>TLPT Highlight 1</h3>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-frame">
+          <div class="media-embed-wrap">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/TP_ihbI4BkI"
+              title="TLPT Media Video 2"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <div class="media-copy">
+          <div class="kicker">Video 2</div>
+          <h3>TLPT Highlight 2</h3>
+        </div>
+      </article>
+
+      <article class="media-card">
+        <div class="media-frame media-frame-link">
+          <div class="media-link-panel">
+            <div class="media-link-icon">📹</div>
+            <h3>Facebook Reel</h3>
+            <p class="muted">Open the reel directly on Facebook.</p>
+            <a class="btn btn-primary" href="https://facebook.com/reel/864375159677894/?s=group_other" target="_blank" rel="noopener">Open Reel</a>
+          </div>
+        </div>
+        <div class="media-copy">
+          <div class="kicker">Video 3</div>
+          <h3>Facebook Reel</h3>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">TLPT Poker League</div>
+  </footer>
+</body>
+</html>
