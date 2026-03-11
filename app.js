@@ -172,7 +172,7 @@ function renderHomePage(data) {
       <td>${p.entries}</td>
       <td>${p.timesPlaced}</td>
       <td>${fmtMoney(p.profit)}</td>
-      <td>${fmtPct(p.roi)}</td>
+      <td>${fmtNum(p.trueSkillScore)}</td>
       <td>${p.hits}</td>
     `;
     tbody.appendChild(tr);
@@ -229,6 +229,7 @@ function renderDashboardSortable(key) {
 
 function renderPlayers(data) {
   const el = document.getElementById("players-grid");
+  if (!el) return;
   el.innerHTML = data.players.map(p => `
     <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(p.name)}">
       <div class="player-card-top">
@@ -292,6 +293,7 @@ function renderPlayerProfile(data) {
   `;
 
   const navEl = document.getElementById("player-nav");
+  if (!navEl) return;
   const idx = data.players.findIndex(x => x.name === p.name);
   const prev = data.players[(idx - 1 + data.players.length) % data.players.length];
   const next = data.players[(idx + 1) % data.players.length];
@@ -322,35 +324,39 @@ function renderChampions(data) {
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
 
-  honorsEl.innerHTML = data.honors.map(h => {
-    const p = data.players.find(player => player.name === h.name);
-    return `
-      <div class="champ-card">
-        <div class="player-card-top">
-          ${p ? playerImageMarkup(p, "small") : ""}
-          <div>
-            <div class="kicker">${h.type}</div>
-            <h3>${p ? displayPlayerName(p) : h.name}</h3>
+  if (honorsEl) {
+    honorsEl.innerHTML = data.honors.map(h => {
+      const p = data.players.find(player => player.name === h.name);
+      return `
+        <div class="champ-card">
+          <div class="player-card-top">
+            ${p ? playerImageMarkup(p, "small") : ""}
+            <div>
+              <div class="kicker">${h.type}</div>
+              <h3>${p ? displayPlayerName(p) : h.name}</h3>
+            </div>
           </div>
+          <p class="muted">${h.note}</p>
         </div>
-        <p class="muted">${h.note}</p>
-      </div>
-    `;
-  }).join("");
+      `;
+    }).join("");
+  }
 
-  recordsEl.innerHTML = data.records.map(r => {
-    const p = data.players.find(player => player.name === r.name);
-    return `
-      <div class="champ-card">
-        <div class="player-card-top">
-          ${p ? playerImageMarkup(p, "small") : ""}
-          <div>
-            <div class="kicker">${r.label}</div>
-            <h3>${p ? displayPlayerName(p) : r.name}</h3>
+  if (recordsEl) {
+    recordsEl.innerHTML = data.records.map(r => {
+      const p = data.players.find(player => player.name === r.name);
+      return `
+        <div class="champ-card">
+          <div class="player-card-top">
+            ${p ? playerImageMarkup(p, "small") : ""}
+            <div>
+              <div class="kicker">${r.label}</div>
+              <h3>${p ? displayPlayerName(p) : r.name}</h3>
+            </div>
           </div>
+          <p class="muted">${r.value}</p>
         </div>
-        <p class="muted">${r.value}</p>
-      </div>
-    `;
-  }).join("");
+      `;
+    }).join("");
+  }
 }
