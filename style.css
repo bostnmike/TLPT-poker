@@ -208,13 +208,13 @@ a:hover{
 }
 
 .event-icon-card{
-  font-size:2.5rem;
+  font-size:2.3rem;
   line-height:1;
-  background:#fff;
   color:#c1121f;
-  padding:6px 10px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  font-weight:700;
+  padding:0;
+  background:transparent;
+  border:none;
 }
 
 .stat-card .label{
@@ -252,29 +252,29 @@ a:hover{
   display:inline-block;
   padding:11px 16px;
   border-radius:10px;
-  border:1px solid #c89b1d;
-  background:var(--gold);
-  color:#000000;
+  border:1px solid var(--line);
+  background:var(--panel-2);
+  color:var(--gold);
   transition:all .2s ease;
   cursor:pointer;
 }
 
 .btn:hover{
-  color:#000000;
-  background:#ffffff;
-  border-color:#ffffff;
+  color:#111;
+  background:var(--gold);
+  border-color:var(--gold);
 }
 
 .btn-primary{
-  background:var(--gold);
-  border-color:#c89b1d;
-  color:#000000;
+  background:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
 }
 
 .btn-primary:hover{
-  background:#ffffff;
-  border-color:#ffffff;
-  color:#000000;
+  background:#f0435a;
+  border-color:#f0435a;
+  color:#fff;
 }
 
 .btn.small{
