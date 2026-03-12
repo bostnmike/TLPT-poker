@@ -215,25 +215,6 @@ a:hover{
   opacity:1;
 }
 
-.hero-visual-mark span{
-  display:inline-block;
-  animation:suitFloat 4.2s ease-in-out infinite;
-  transform-origin:center;
-  filter:drop-shadow(0 0 6px rgba(255,184,28,.18));
-}
-
-.hero-visual-mark span:nth-child(1){ animation-delay:0s; }
-.hero-visual-mark span:nth-child(2){ animation-delay:.45s; }
-.hero-visual-mark span:nth-child(3){ animation-delay:.9s; }
-.hero-visual-mark span:nth-child(4){ animation-delay:1.35s; }
-
-@keyframes suitFloat{
-  0%,100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
-  25%{ transform:translateY(-3px) scale(1.06) rotate(-4deg); opacity:.95; }
-  50%{ transform:translateY(1px) scale(1.02) rotate(3deg); opacity:1; }
-  75%{ transform:translateY(-2px) scale(1.05) rotate(-2deg); opacity:.96; }
-}
-
 .eyebrow{
   text-transform:uppercase;
   letter-spacing:.15em;
@@ -544,6 +525,17 @@ a:hover{
   line-height:1.35;
 }
 
+/* honors icons */
+
+.honor-card-icon{
+  position:absolute;
+  right:14px;
+  top:12px;
+  font-size:1.45rem;
+  line-height:1;
+  opacity:.95;
+}
+
 /* avatars */
 
 .player-inline{
@@ -627,6 +619,7 @@ a:hover{
   margin-top:8px;
   color:var(--gold);
   font-style:italic;
+  font-weight:700;
   font-size:1rem;
   line-height:1.4;
 }
@@ -885,12 +878,6 @@ th{
   overflow:hidden;
 }
 
-.media-x-wrap .twitter-tweet{
-  margin:0 auto !important;
-  width:100% !important;
-  max-width:520px !important;
-}
-
 .media-copy{
   padding:16px 18px 18px;
 }
@@ -1011,10 +998,6 @@ img.rule-chip{
   .event-icon-card{
     font-size:2.5rem;
     -webkit-text-stroke:1.75px var(--gold);
-  }
-
-  .hero-visual-mark{
-    font-size:1.65rem;
   }
 
   #schedule-list{
