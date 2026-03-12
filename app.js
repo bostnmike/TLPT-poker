@@ -444,6 +444,29 @@ function renderSchedule(data) {
   `).join("");
 }
 
+function honorIcon(type) {
+  const key = (type || "").toLowerCase();
+  if (key.includes("champ")) return "🏆";
+  if (key.includes("player")) return "⭐";
+  if (key.includes("mvp")) return "👑";
+  if (key.includes("rookie")) return "🌟";
+  if (key.includes("bubble")) return "🫧";
+  if (key.includes("luck")) return "🍀";
+  if (key.includes("clutch")) return "🎯";
+  return "🏅";
+}
+
+function recordIcon(label) {
+  const key = (label || "").toLowerCase();
+  if (key.includes("profit")) return "💰";
+  if (key.includes("roi")) return "📈";
+  if (key.includes("hit")) return "💥";
+  if (key.includes("cash")) return "💵";
+  if (key.includes("bubble")) return "🫧";
+  if (key.includes("power")) return "🏆";
+  return "📊";
+}
+
 function renderChampions(data) {
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
@@ -453,6 +476,7 @@ function renderChampions(data) {
       const p = data.players.find(player => player.name === h.name);
       return `
         <div class="champ-card stat-card-visual">
+          <div class="honor-card-icon">${honorIcon(h.type)}</div>
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
@@ -471,6 +495,7 @@ function renderChampions(data) {
       const p = data.players.find(player => player.name === r.name);
       return `
         <div class="champ-card stat-card-visual">
+          <div class="honor-card-icon">${recordIcon(r.label)}</div>
           <div class="player-card-top">
             ${p ? playerImageMarkup(p, "small") : ""}
             <div>
