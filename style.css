@@ -8,6 +8,8 @@
   --accent:#d7263d;
   --gold:#ffb81c;
   --gold-soft:#f6c65b;
+  --felt-1:#0f5132;
+  --felt-2:#0b3f29;
 }
 
 *{
@@ -149,7 +151,18 @@ a:hover{
 .hero-copy-enhanced{
   position:relative;
   overflow:hidden;
-  background:linear-gradient(135deg, rgba(15,81,50,0.28), rgba(17,22,30,0.94));
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.025) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 80% 35%, rgba(255,255,255,.02) 0 2px, transparent 2px 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.015) 0px,
+      rgba(255,255,255,.015) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(135deg, rgba(15,81,50,0.34), rgba(17,22,30,0.94));
+  background-size:160px 160px, 220px 220px, auto, auto;
 }
 
 .hero-copy-enhanced::after{
@@ -193,6 +206,11 @@ a:hover{
   width:100%;
   max-width:272px;
   object-fit:contain;
+}
+
+/* homepage hosts image only: reduced by 25% */
+.hero-home-grid .hosts-image{
+  max-width:204px;
 }
 
 .hosts-copy{
@@ -502,6 +520,19 @@ a:hover{
   font-style:normal;
 }
 
+/* leaderboard first-place glow */
+.leader-grid .stat-card:first-child{
+  border-color:rgba(255,184,28,.5);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.2),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(255,184,28,.16);
+}
+
+.leader-grid .stat-card:first-child .label{
+  color:var(--gold);
+}
+
 .stat-leader-badges{
   gap:10px;
 }
@@ -717,6 +748,38 @@ th{
   justify-content:space-between;
   align-items:center;
   gap:10px;
+  position:relative;
+}
+
+/* dealer button accent */
+.event-card-topline::after{
+  content:"D";
+  position:absolute;
+  right:48px;
+  top:2px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f5f5f5;
+  color:#111;
+  font-size:.75rem;
+  font-weight:700;
+  box-shadow:0 0 0 2px rgba(0,0,0,.35);
+  animation:dealerPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes dealerPulse{
+  0%,100%{
+    transform:scale(1);
+    box-shadow:0 0 0 2px rgba(0,0,0,.35), 0 0 0 0 rgba(255,184,28,.15);
+  }
+  50%{
+    transform:scale(1.06);
+    box-shadow:0 0 0 2px rgba(0,0,0,.35), 0 0 0 8px rgba(255,184,28,0);
+  }
 }
 
 .event-icon-card{
@@ -998,6 +1061,13 @@ img.rule-chip{
   .event-icon-card{
     font-size:2.5rem;
     -webkit-text-stroke:1.75px var(--gold);
+  }
+
+  .event-card-topline::after{
+    right:42px;
+    width:20px;
+    height:20px;
+    font-size:.72rem;
   }
 
   #schedule-list{
