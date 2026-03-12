@@ -13,7 +13,7 @@ const PLAYER_QUOTES = {
   "Hayden D": "\"There's $400 sitting on my table at home.\"",
   "Wild Bill": "\"It's a skill game.\"",
   "Hiro": "\"That's a prime number.\"",
-  "A.I. Dave": "\"Oh man! I caught some of that!\"",
+  "A.I. Dave": "\"Oh man! I caught some of that $hit!\"",
   "ProvidenceMike": "\"I should'd be in this hand.\"",
   "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
   "Ahmed": "\"Get in there, Man!\"",
@@ -242,11 +242,11 @@ function getCurrentEvents(data) {
   return [
     {
       ...events[0],
-      rsvp_counts: { confirmed: 6, maybe: 0, tbd: 2, out: 3 }
+      rsvp_counts: { confirmed: 7, maybe: 1, tbd: 2, out: 4 }
     },
     {
       ...events[1],
-      rsvp_counts: { confirmed: 4, maybe: 2, tbd: 2, out: 3 }
+      rsvp_counts: { confirmed: 5, maybe: 1, tbd: 2, out: 4 }
     }
   ];
 }
