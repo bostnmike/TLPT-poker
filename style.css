@@ -137,9 +137,10 @@ a:hover{
   z-index:2;
 }
 
-.hero-home-grid{
+.hero-home-grid,
+.schedule-head-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1.7fr) minmax(260px, .9fr);
+  grid-template-columns:minmax(0, 1.7fr) minmax(240px, .85fr);
   gap:24px;
   align-items:start;
 }
@@ -148,13 +149,14 @@ a:hover{
   min-width:0;
 }
 
-.hero-hosts-callout{
+.hero-hosts-callout,
+.schedule-hosts-callout{
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  gap:14px;
-  padding-top:28px;
+  gap:12px;
+  padding-top:18px;
 }
 
 .hosts-copy{
@@ -168,7 +170,7 @@ a:hover{
 
 .hosts-image{
   width:100%;
-  max-width:320px;
+  max-width:272px;
   height:auto;
   display:block;
   object-fit:contain;
@@ -257,6 +259,7 @@ a:hover{
   padding:0;
   background:transparent;
   border:none;
+  font-style:normal;
 }
 
 .stat-card .label{
@@ -603,6 +606,10 @@ th{
   flex-shrink:0;
 }
 
+.leader-inline-icon-text{
+  font-style:normal;
+}
+
 .event-card-topline{
   display:flex;
   justify-content:space-between;
@@ -753,23 +760,27 @@ th{
   display:none !important;
 }
 
-/* stat leaders: plain icon + text, 15% smaller and italic text only */
-.button-row .btn.small[style*="cursor:default"]{
-  background:transparent;
-  border:none;
-  padding:0;
-  border-radius:0;
-  box-shadow:none;
-  color:var(--gold);
-  font-size:.956rem;
-  line-height:1.35;
-  font-style:italic;
+.stat-leader-badges{
+  gap:10px;
 }
 
-.button-row .btn.small[style*="cursor:default"]:hover{
-  background:transparent;
-  border:none;
+.stat-badge-text{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
   color:var(--gold);
+}
+
+.stat-badge-icon{
+  font-style:normal;
+  font-size:1.125rem;
+  line-height:1;
+}
+
+.stat-badge-label{
+  font-style:italic;
+  font-size:.956rem;
+  line-height:1.35;
 }
 
 @media (max-width:1280px){
@@ -781,11 +792,13 @@ th{
 }
 
 @media (max-width:1100px){
-  .hero-home-grid{
+  .hero-home-grid,
+  .schedule-head-grid{
     grid-template-columns:1fr;
   }
 
-  .hero-hosts-callout{
+  .hero-hosts-callout,
+  .schedule-hosts-callout{
     align-items:flex-start;
     padding-top:0;
   }
