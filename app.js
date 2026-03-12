@@ -13,7 +13,7 @@ const PLAYER_QUOTES = {
   "Hayden D": "\"There's $400 sitting on my table at home.\"",
   "Wild Bill": "\"It's a skill game.\"",
   "Hiro": "\"That's a prime number.\"",
-  "A.I. Dave": "\"Oh man, I caught some of that!\"",
+  "A.I. Dave": "\"Oh man, I caught some of that $hit!\"",
   "ProvidenceMike": "\"I should'd be in this hand.\"",
   "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
   "Ahmed": "\"Get in there, Man!\"",
