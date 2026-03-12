@@ -440,10 +440,10 @@ function renderPlayerProfile(data) {
   const next = players[(index + 1) % players.length];
 
   navEl.innerHTML = `
-    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
-    <a class="btn" href="players.html">All Players</a>
-    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
-  `;
+  <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
+  <a class="btn" href="players.html">The Crew</a>
+  <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
+`;
 }
 
 function renderSchedule(data) {
