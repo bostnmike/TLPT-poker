@@ -479,6 +479,16 @@ a:hover{
   font-size:.9rem;
 }
 
+.btn-format{
+  min-width:210px;
+}
+
+.btn-format.active{
+  color:#111;
+  background:var(--gold);
+  border-color:var(--gold);
+}
+
 /* leaders */
 
 .leader-grid{
@@ -588,7 +598,7 @@ a:hover{
   opacity:.95;
 }
 
-/* avatars - increased 25% site-wide + trading-card polish */
+/* avatars - increased 25% site-wide */
 
 .player-inline{
   display:flex;
@@ -692,34 +702,6 @@ a:hover{
   font-weight:700;
   font-size:1rem;
   line-height:1.4;
-}
-
-.profile-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  gap:14px;
-  margin-top:18px;
-}
-
-.profile-stat{
-  background:var(--panel-2);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:16px;
-}
-
-.metric{
-  font-size:1.9rem;
-  font-weight:700;
-  margin:8px 0;
-}
-
-.metric.positive{
-  color:#7ce0a4;
-}
-
-.metric.negative{
-  color:#ff8f9b;
 }
 
 /* table */
@@ -978,6 +960,180 @@ th{
   font-size:2rem;
 }
 
+/* rules page upgrades */
+
+.format-toggle{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.format-content-shell{
+  position:relative;
+  min-height:200px;
+}
+
+.rules-format{
+  animation:formatFade .28s ease;
+}
+
+@keyframes formatFade{
+  from{
+    opacity:0;
+    transform:translateY(6px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.format-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.format-title{
+  margin:0 0 6px 0;
+  color:var(--text);
+}
+
+.format-subtitle{
+  margin:0;
+  color:var(--muted);
+}
+
+.timer-rail{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+
+.timer-pill{
+  background:var(--panel-2);
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius:999px;
+  padding:10px 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.92rem;
+}
+
+.timer-pill strong{
+  color:var(--gold);
+}
+
+.rules-chip-panel{
+  background:rgba(24,33,44,.78);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:18px;
+}
+
+.rules-chip-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+  gap:16px;
+}
+
+.rules-chip-card{
+  background:rgba(10,13,18,.6);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px;
+  text-align:center;
+}
+
+.rules-chip-image{
+  width:72px;
+  height:72px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  border:3px solid var(--gold);
+  object-fit:cover;
+  background:#111;
+  box-shadow:0 0 0 2px rgba(255,184,28,.16), 0 8px 18px rgba(0,0,0,.32);
+}
+
+.rules-chip-label{
+  color:var(--text);
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.rules-chip-count{
+  color:var(--gold);
+  font-size:.92rem;
+}
+
+.rules-chip-card[title]{
+  cursor:help;
+}
+
+.blind-sheet{
+  overflow-x:auto;
+}
+
+.blind-table{
+  width:100%;
+  min-width:760px;
+  border-collapse:separate;
+  border-spacing:0;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.blind-table thead th{
+  background:#000;
+  color:#fff;
+  padding:12px 10px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  white-space:nowrap;
+}
+
+.blind-row-dark{
+  background:#0b0f14;
+  color:#fff;
+}
+
+.blind-row-light{
+  background:#2b3440;
+  color:#fff;
+}
+
+.blind-break{
+  background:var(--gold);
+  color:#000;
+  font-weight:700;
+}
+
+.blind-table td{
+  padding:12px 10px;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  white-space:nowrap;
+}
+
+.blind-break td{
+  border-bottom:1px solid rgba(0,0,0,.14);
+}
+
+.blind-note{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:.92rem;
+}
+
 /* footer */
 
 .site-footer{
@@ -1089,6 +1245,10 @@ img.rule-chip{
   .rules-grid{
     grid-template-columns:1fr;
   }
+
+  .rules-chip-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width:640px){
@@ -1105,6 +1265,14 @@ img.rule-chip{
   }
 
   table{
+    min-width:640px;
+  }
+
+  .rules-chip-grid{
+    grid-template-columns:1fr;
+  }
+
+  .blind-table{
     min-width:640px;
   }
 }
