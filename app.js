@@ -33,6 +33,17 @@ const HOME_LEADER_CONFIG = [
   { key: "bubbles", id: "home-bubble-leader", label: "Bubble Leader", icon: "🫧", formatter: player => String(player.bubbles ?? 0) }
 ];
 
+const DASHBOARD_META = {
+  trueSkillScore: { label: "Power", icon: "🏆" },
+  profit: { label: "Profit", icon: "💰" },
+  hits: { label: "Hits", icon: "💥" },
+  timesPlaced: { label: "Cashes", icon: "💵" },
+  bubbles: { label: "Bubbles", icon: "🫧" },
+  luckIndex: { label: "Luck", icon: "🍀" },
+  clutchIndex: { label: "Clutch", icon: "🎯" },
+  roi: { label: "ROI", icon: "📈" }
+};
+
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "trueSkillScore";
 
@@ -243,6 +254,42 @@ function decorateLeaderCard(card, player, label, icon, valueMarkup) {
   `;
 }
 
+function removeLeagueLeaderSection() {
+  const leaderGrid = document.querySelector(".leader-grid");
+  if (leaderGrid) {
+    const section = leaderGrid.closest(".section") || leaderGrid.parentElement;
+    if (section) section.remove();
+  }
+
+  document.querySelectorAll("h1, h2, h3").forEach(heading => {
+    const text = heading.textContent.trim().toLowerCase();
+    if (text.includes("league leader")) {
+      const section = heading.closest(".section") || heading.parentElement;
+      if (section) section.remove();
+    }
+  });
+}
+
+function ensureHomeEventsSuitRow() {
+  const titleEl = Array.from(document.querySelectorAll("h1, h2, h3")).find(
+    el => el.textContent.trim().toLowerCase() === "this week's events"
+  );
+  if (!titleEl) return;
+
+  const host = titleEl.parentElement;
+  if (!host || host.querySelector(".events-header-suits")) return;
+
+  const suits = document.createElement("div");
+  suits.className = "events-header-suits";
+  suits.innerHTML = `
+    <span class="events-header-suit">♠</span>
+    <span class="events-header-suit">♥</span>
+    <span class="events-header-suit">♦</span>
+    <span class="events-header-suit">♣</span>
+  `;
+  host.insertBefore(suits, titleEl);
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
@@ -293,6 +340,9 @@ function renderHomePage(data) {
       });
     }
   }
+
+  ensureHomeEventsSuitRow();
+  removeLeagueLeaderSection();
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
@@ -321,44 +371,39 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   setActiveSortButton("standings", sortKey);
 }
 
+function ensureDashboardHeadline(sortKey) {
+  const grid = document.getElementById("dashboard-grid");
+  if (!grid) return;
+
+  let headline = document.getElementById("dashboard-current-stat");
+  if (!headline) {
+    headline = document.createElement("div");
+    headline.id = "dashboard-current-stat";
+    headline.className = "dashboard-current-stat";
+    grid.parentNode.insertBefore(headline, grid);
+  }
+
+  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: "♠" };
+  headline.innerHTML = `<span class="dashboard-current-icon">${meta.icon}</span><span>${meta.label}</span>`;
+}
+
 function dashboardCardMarkup(player, sortKey, index) {
   return `
     <a class="player-card player-card-rich dashboard-card ${index === 0 ? "is-top-rank" : ""}" href="${playerUrl(player)}">
       <div class="dashboard-card-top">
         ${playerImageMarkup(player, "dashboard")}
         <div class="dashboard-player-name">${displayPlayerName(player)}</div>
-        <div class="dashboard-card-icon">${dashboardIcon(sortKey)}</div>
       </div>
-      <div class="dashboard-card-label">${formatStatLabel(sortKey)} Leader</div>
       <div class="dashboard-card-value">${formatStatValue(player, sortKey)}</div>
-      <div class="dashboard-card-substats">
-        <span>Profit: ${fmtMoney(player.profit)}</span>
-        <span>Power: ${fmtNum(player.trueSkillScore)}</span>
-        <span>Hits: ${player.hits ?? "-"}</span>
-        <span>Cashes: ${player.timesPlaced ?? "-"}</span>
-      </div>
     </a>
   `;
-}
-
-function dashboardIcon(sortKey) {
-  const map = {
-    trueSkillScore: "🏆",
-    profit: "💰",
-    hits: "💥",
-    timesPlaced: "💵",
-    bubbles: "🫧",
-    luckIndex: "🍀",
-    clutchIndex: "🎯",
-    roi: "📈"
-  };
-  return map[sortKey] || "♠";
 }
 
 function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const grid = document.getElementById("dashboard-grid");
   if (!grid || !window.siteData?.players) return;
   const sorted = sortPlayers(window.siteData.players, sortKey);
+  ensureDashboardHeadline(sortKey);
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index)).join("");
   setActiveSortButton("dashboard", sortKey);
 }
@@ -406,36 +451,14 @@ function renderPlayerProfile(data) {
 
   container.innerHTML = `
     <div class="profile-shell">
-      <div class="profile-hero">
-        <div class="profile-hero-left">
-          ${playerImageMarkup(player, "profile")}
-          <div>
-            <div class="kicker">Player Profile</div>
-            <h2>${displayPlayerName(player)}</h2>
-            <p class="profile-quote">${getPlayerQuote(player.name)}</p>
-            ${badgesMarkup(player, data)}
-          </div>
+      <div class="profile-hero profile-hero-wide">
+        ${playerImageMarkup(player, "profile")}
+        <div class="profile-hero-copy">
+          <div class="kicker">Player Profile</div>
+          <h2>${displayPlayerName(player)}</h2>
+          <p class="profile-quote">${getPlayerQuote(player.name)}</p>
+          ${badgesMarkup(player, data)}
         </div>
-      </div>
-
-      <div class="profile-grid">
-        <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${player.entries ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${player.buyIns ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${player.rebuys ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${player.hits ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${player.timesPlaced ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${player.bubbles ?? "-"}</div></div>
-        <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${Number(player.profit) < 0 ? "negative" : "positive"}">${fmtMoney(player.profit)}</div></div>
-        <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(player.roi)}</div></div>
-        <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(player.trueSkillScore)}</div></div>
-        <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(player.luckIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(player.clutchIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(player.cashRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(player.bubbleRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(player.hitRate)}</div></div>
-        <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(player.aggressionIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(player.survivorIndex)}</div></div>
-        <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(player.tiltIndex)}</div></div>
       </div>
     </div>
   `;
@@ -451,6 +474,30 @@ function renderPlayerProfile(data) {
       <a class="btn" href="${playerUrl(next)}">Next: ${displayPlayerName(next)} →</a>
     `;
   }
+
+  const statsHost = document.createElement("div");
+  statsHost.className = "profile-grid";
+  statsHost.innerHTML = `
+    <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${player.entries ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${player.buyIns ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${player.rebuys ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${player.hits ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${player.timesPlaced ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${player.bubbles ?? "-"}</div></div>
+    <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${Number(player.profit) < 0 ? "negative" : "positive"}">${fmtMoney(player.profit)}</div></div>
+    <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(player.roi)}</div></div>
+    <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(player.trueSkillScore)}</div></div>
+    <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(player.luckIndex)}</div></div>
+    <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(player.clutchIndex)}</div></div>
+    <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(player.cashRate)}</div></div>
+    <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(player.bubbleRate)}</div></div>
+    <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(player.hitRate)}</div></div>
+    <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(player.aggressionIndex)}</div></div>
+    <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(player.survivorIndex)}</div></div>
+    <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(player.tiltIndex)}</div></div>
+  `;
+
+  container.appendChild(statsHost);
 }
 
 function renderSchedule(data) {
