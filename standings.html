@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sortable League Standings | TLPT Poker League</title>
+  <title>TLPT Standings</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,13 +11,13 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Standings</p>
+        <p class="tag">The League. The Players. The Tilt.</p>
       </div>
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="standings.html">Standings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
+        <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
         <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
@@ -28,18 +28,20 @@
 
   <main class="wrap">
     <section class="section">
-      <div class="section-head">
+      <div class="section-head page-title-row">
+        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-5000.png" alt="T-5000 chip" onerror="this.style.display='none';" />
         <h2>Sortable League Standings</h2>
-        <div class="button-row">
-          <button class="btn small" onclick="renderStandings('profit')">Profit</button>
-          <button class="btn small" onclick="renderStandings('trueSkillScore')">Power</button>
-          <button class="btn small" onclick="renderStandings('roi')">ROI</button>
-          <button class="btn small" onclick="renderStandings('hits')">Hits</button>
-          <button class="btn small" onclick="renderStandings('timesPlaced')">Cashes</button>
-          <button class="btn small" onclick="renderStandings('bubbles')">Bubbles</button>
-          <button class="btn small" onclick="renderStandings('luckIndex')">Luck</button>
-          <button class="btn small" onclick="renderStandings('clutchIndex')">Clutch</button>
-        </div>
+      </div>
+
+      <div class="button-row" data-sort-scope="standings">
+        <button class="btn active" data-standings-sort="profit" type="button">Profit</button>
+        <button class="btn" data-standings-sort="roi" type="button">ROI</button>
+        <button class="btn" data-standings-sort="trueSkillScore" type="button">Power</button>
+        <button class="btn" data-standings-sort="hits" type="button">Hits</button>
+        <button class="btn" data-standings-sort="timesPlaced" type="button">Cashes</button>
+        <button class="btn" data-standings-sort="bubbles" type="button">Bubbles</button>
+        <button class="btn" data-standings-sort="luckIndex" type="button">Luck</button>
+        <button class="btn" data-standings-sort="clutchIndex" type="button">Clutch</button>
       </div>
 
       <div class="table-wrap">
@@ -48,13 +50,12 @@
             <tr>
               <th>#</th>
               <th>Player</th>
-              <th>Entries</th>
-              <th>Hits</th>
-              <th>Cashes</th>
-              <th>Bubbles</th>
               <th>Profit</th>
               <th>ROI</th>
               <th>Power</th>
+              <th>Hits</th>
+              <th>Cashes</th>
+              <th>Bubbles</th>
               <th>Luck</th>
               <th>Clutch</th>
             </tr>
@@ -62,21 +63,15 @@
           <tbody></tbody>
         </table>
       </div>
-
-      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">TLPT Poker League</div>
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      renderStandings('profit');
-    });
-  </script>
 </body>
 </html>
