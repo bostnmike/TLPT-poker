@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rules | TLPT Poker League</title>
+  <title>TLPT Rules</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,13 +11,14 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">League Rules</p>
+        <p class="tag">The League. The Players. The Tilt.</p>
       </div>
+
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="standings.html">Standings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
+        <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
         <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
@@ -27,77 +28,76 @@
   </header>
 
   <main class="wrap">
-    <section class="section rules-header rules-table-bg">
+    <section class="section rules-header">
       <div class="section-head">
-        <div>
-          <p class="eyebrow">TLPT</p>
-          <h2>League Rules</h2>
-          <p class="muted">House structure, chip sets, and blind levels for both Small Blind Ante formats.</p>
-        </div>
+        <h2>TLPT Rules & Structures</h2>
       </div>
 
       <div class="rules-grid">
         <div class="rule-card">
-          <h3>Buy-Ins</h3>
-          <p>$30.00</p>
+          <div class="rule-card-head">
+            <div class="dealer-button-icon">D</div>
+            <div class="rule-card-title-wrap">
+              <div class="kicker">Rule</div>
+              <h3>Reloads</h3>
+            </div>
+          </div>
+          <p>Reloads are allowed at or below 20% of the starting stack.</p>
         </div>
 
         <div class="rule-card">
-          <h3>Rebuys</h3>
-          <p>$30.00 and unlimited through the end of Level 7.</p>
+          <div class="rule-card-head">
+            <div class="dealer-button-icon">D</div>
+            <div class="rule-card-title-wrap">
+              <div class="kicker">Rule</div>
+              <h3>Dealing</h3>
+            </div>
+          </div>
+          <p>The dealer button moves one seat clockwise after each completed hand.</p>
         </div>
 
         <div class="rule-card">
-          <h3>Starting Stacks</h3>
-          <p>40K or 500K depending on format.</p>
+          <div class="rule-card-head">
+            <div class="dealer-button-icon">D</div>
+            <div class="rule-card-title-wrap">
+              <div class="kicker">Rule</div>
+              <h3>Structure</h3>
+            </div>
+          </div>
+          <p>Choose either the 40K or 500K format below to view the full blind sheet and chip set.</p>
         </div>
 
         <div class="rule-card">
-          <h3>Reload Rule</h3>
-          <p>Players do not need to bust to rebuy. Reloads are allowed at or below 20% of the starting stack.</p>
-        </div>
-
-        <div class="rule-card">
-          <h3>Level Length</h3>
-          <p>All levels are 20 minutes.</p>
-        </div>
-
-        <div class="rule-card">
-          <h3>Break Length</h3>
-          <p>All breaks are 10 minutes.</p>
+          <div class="rule-card-head">
+            <div class="dealer-button-icon">D</div>
+            <div class="rule-card-title-wrap">
+              <div class="kicker">Rule</div>
+              <h3>House</h3>
+            </div>
+          </div>
+          <p>One player to a hand. Floor decisions and posted structure sheets govern play.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <h2>Formats, Chips & Blind Structure</h2>
-          <p class="muted">Toggle between the 40K and 500K formats to view chips in play, chip counts, timer flow, and full blind sheets.</p>
-        </div>
+    <section class="section rules-table-bg">
+      <div class="format-toggle">
+        <button class="btn btn-format active" id="format-btn-40k" type="button">40K Structure</button>
+        <button class="btn btn-format" id="format-btn-500k" type="button">500K Structure</button>
       </div>
 
-      <div class="format-toggle" role="tablist" aria-label="Game formats">
-        <button id="format-btn-40k" class="btn btn-format active" type="button" onclick="showFormat('40k')">40K Small Blind Ante</button>
-        <button id="format-btn-500k" class="btn btn-format" type="button" onclick="showFormat('500k')">500K Small Blind Ante</button>
+      <div class="format-content-shell">
+        <div id="format-content"></div>
       </div>
-
-      <div id="format-content" class="format-content-shell" aria-live="polite"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">TLPT Poker League</div>
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      initRulesPage();
-    }).catch(() => {
-      initRulesPage();
-    });
-  </script>
 </body>
 </html>
