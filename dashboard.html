@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | TLPT Poker League</title>
+  <title>TLPT Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,13 +11,14 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Stats Dashboard</p>
+        <p class="tag">The League. The Players. The Tilt.</p>
       </div>
+
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="standings.html">Standings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
+        <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
         <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
@@ -27,50 +28,34 @@
   </header>
 
   <main class="wrap">
-    <section class="section section-with-chips">
-      <img class="section-chip section-chip-a" src="images/site/chip-100.jpg" alt="" />
-      <img class="section-chip section-chip-b" src="images/site/chip-100.jpg" alt="" />
-      <img class="section-chip section-chip-c" src="images/site/chip-100.jpg" alt="" />
-
+    <section class="section">
       <div class="section-head">
-        <div>
-          <h2>Dashboard</h2>
-          <p class="muted">Sort the league by any tracked stat.</p>
-        </div>
+        <h2>TLPT Dashboard</h2>
       </div>
 
-      <div class="button-row dashboard-buttons">
-        <button class="btn small" onclick="renderDashboardSortable('trueSkillScore')">Power</button>
-        <button class="btn small" onclick="renderDashboardSortable('profit')">Profit</button>
-        <button class="btn small" onclick="renderDashboardSortable('roi')">ROI</button>
-        <button class="btn small" onclick="renderDashboardSortable('hits')">Hits</button>
-        <button class="btn small" onclick="renderDashboardSortable('timesPlaced')">Cashes</button>
-        <button class="btn small" onclick="renderDashboardSortable('bubbles')">Bubbles</button>
-        <button class="btn small" onclick="renderDashboardSortable('cashRate')">Cash Rate</button>
-        <button class="btn small" onclick="renderDashboardSortable('bubbleRate')">Bubble Rate</button>
-        <button class="btn small" onclick="renderDashboardSortable('hitRate')">Hit Rate</button>
-        <button class="btn small" onclick="renderDashboardSortable('luckIndex')">Luck</button>
-        <button class="btn small" onclick="renderDashboardSortable('clutchIndex')">Clutch</button>
-        <button class="btn small" onclick="renderDashboardSortable('aggressionIndex')">Aggression</button>
-        <button class="btn small" onclick="renderDashboardSortable('survivorIndex')">Survivor</button>
-        <button class="btn small" onclick="renderDashboardSortable('tiltIndex')">Tilt</button>
+      <p class="muted">Sort the league by the stat you want to spotlight.</p>
+
+      <div class="button-row dashboard-buttons" data-sort-scope="dashboard">
+        <button class="btn active" data-dashboard-sort="trueSkillScore" type="button">Power</button>
+        <button class="btn" data-dashboard-sort="profit" type="button">Profit</button>
+        <button class="btn" data-dashboard-sort="hits" type="button">Hits</button>
+        <button class="btn" data-dashboard-sort="timesPlaced" type="button">Cashes</button>
+        <button class="btn" data-dashboard-sort="bubbles" type="button">Bubbles</button>
+        <button class="btn" data-dashboard-sort="luckIndex" type="button">Luck</button>
+        <button class="btn" data-dashboard-sort="clutchIndex" type="button">Clutch</button>
+        <button class="btn" data-dashboard-sort="roi" type="button">ROI</button>
       </div>
 
-      <div id="dashboard-grid" class="five-col-grid"></div>
-      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
+      <div id="dashboard-grid"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">TLPT Poker League</div>
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      renderDashboardSortable('trueSkillScore');
-    });
-  </script>
 </body>
 </html>
