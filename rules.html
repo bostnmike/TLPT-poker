@@ -30,62 +30,74 @@
     <section class="section rules-header rules-table-bg">
       <div class="section-head">
         <div>
-          <p class="eyebrow">House Structure</p>
-          <h2>House Rules</h2>
-          <p class="muted">Everything you need to know before the cards hit the felt.</p>
+          <p class="eyebrow">TLPT</p>
+          <h2>League Rules</h2>
+          <p class="muted">House structure, chip sets, and blind levels for both Small Blind Ante formats.</p>
+        </div>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card">
+          <h3>Buy-Ins</h3>
+          <p>$30.00</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Rebuys</h3>
+          <p>$30.00 and unlimited through the end of Level 7.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Starting Stacks</h3>
+          <p>40K or 500K depending on format.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Reload Rule</h3>
+          <p>Players do not need to bust to rebuy. Reloads are allowed at or below 20% of the starting stack.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Level Length</h3>
+          <p>All levels are 20 minutes.</p>
+        </div>
+
+        <div class="rule-card">
+          <h3>Break Length</h3>
+          <p>All breaks are 10 minutes.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="rules-grid">
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">Buy-in</div>
-          <h3>$30 Entry</h3>
-          <p class="muted">Standard buy-ins are <strong>$30.00</strong>.</p>
-        </div>
-
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">Rebuys</div>
-          <h3>$30 Unlimited Through Level 7</h3>
-          <p class="muted">Rebuys are <strong>$30.00</strong> and are <strong>unlimited until the end of Level 7</strong>.</p>
-        </div>
-
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">Starting Stack</div>
-          <h3>35K or 500K</h3>
-          <p class="muted">Depending on the format, the starting stack is either <strong>35,000</strong> or <strong>500,000</strong>.</p>
-        </div>
-
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">Reload Rule</div>
-          <h3>No Bust Required</h3>
-          <p class="muted">Players do <strong>not</strong> need to bust out to rebuy. A player may reload whenever they are at or below <strong>20% of the starting stack</strong>.</p>
-        </div>
-
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">League Tracking</div>
-          <h3>Stats Count Here</h3>
-          <p class="muted">Bubbles are tracked for league stats, and knockouts are recorded as <strong>Hits</strong>.</p>
-        </div>
-
-        <div class="rule-card rule-card-visual">
-          <img class="rule-chip" src="images/site/chip-100K.jpg" alt="" />
-          <div class="kicker">RSVP</div>
-          <h3>Apple Invites</h3>
-          <p class="muted">Weekly attendance is handled through Apple Invites, while the site acts as the hub for league info and performance tracking.</p>
+      <div class="section-head">
+        <div>
+          <h2>Formats, Chips & Blind Structure</h2>
+          <p class="muted">Toggle between the 40K and 500K formats to view chips in play, chip counts, timer flow, and full blind sheets.</p>
         </div>
       </div>
+
+      <div class="format-toggle" role="tablist" aria-label="Game formats">
+        <button id="format-btn-40k" class="btn btn-format active" type="button" onclick="showFormat('40k')">40K Small Blind Ante</button>
+        <button id="format-btn-500k" class="btn btn-format" type="button" onclick="showFormat('500k')">500K Small Blind Ante</button>
+      </div>
+
+      <div id="format-content" class="format-content-shell" aria-live="polite"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">TLPT Poker League</div>
   </footer>
+
+  <script src="app.js"></script>
+  <script>
+    loadSiteData().then(data => {
+      window.siteData = data;
+      initRulesPage();
+    }).catch(() => {
+      initRulesPage();
+    });
+  </script>
 </body>
 </html>
