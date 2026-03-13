@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Honors | TLPT Poker League</title>
+  <title>TLPT Honors</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,13 +11,14 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Honors & Records</p>
+        <p class="tag">The League. The Players. The Tilt.</p>
       </div>
+
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="standings.html">Standings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
+        <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
         <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
@@ -28,31 +29,28 @@
 
   <main class="wrap">
     <section class="section">
-      <div class="section-head">
-        <h2>League Honors</h2>
+      <div class="section-head page-title-row">
+        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-250000.png" alt="T-250000 chip" onerror="this.style.display='none';" />
+        <h2>Current League Honors</h2>
       </div>
-      <div id="champions-list" class="card-grid"></div>
+      <div id="champions-list"></div>
     </section>
 
     <section class="section">
-      <div class="section-head">
-        <h2>League Records</h2>
+      <div class="section-head page-title-row">
+        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-250000.png" alt="T-250000 chip" onerror="this.style.display='none';" />
+        <h2>Current League Records</h2>
       </div>
-      <div id="records-list" class="card-grid"></div>
-      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
+      <div id="records-list"></div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">TLPT Poker League</div>
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      renderChampions(data);
-    });
-  </script>
 </body>
 </html>
