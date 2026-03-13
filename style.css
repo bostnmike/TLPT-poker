@@ -1161,3 +1161,414 @@ img.rule-chip{
     min-width:640px;
   }
 }
+/* ===== TLPT RESTORE / FIX OVERRIDES ===== */
+
+.wrap{
+  max-width:1240px;
+}
+
+.event-icon-card{
+  font-size:5.8rem;
+  color:var(--gold);
+  -webkit-text-stroke:0;
+  text-shadow:0 0 10px rgba(255,184,28,.16);
+}
+
+.btn-rsvp,
+.btn-format,
+.btn-rsvp:visited,
+.btn-format:visited,
+.btn-format.active{
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#000;
+}
+
+.btn-rsvp:hover,
+.btn-format:hover,
+.btn-format.active:hover{
+  background:#fff;
+  border-color:#fff;
+  color:#000;
+}
+
+.leader-grid .stat-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:176px;
+}
+
+.leader-card-top{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:12px;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.leader-card-top .player-inline{
+  min-width:0;
+}
+
+.leader-card-top .player-inline-name{
+  display:none;
+}
+
+.leader-card-title{
+  color:var(--gold);
+  font-size:.92rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.leader-card-icon{
+  font-size:1.5rem;
+  line-height:1;
+}
+
+.leader-card-value{
+  color:var(--text);
+  font-size:1.8rem;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.player-avatar.leader,
+.player-avatar-fallback.leader{
+  width:62px;
+  height:62px;
+  font-size:1.12rem;
+}
+
+.player-avatar.table,
+.player-avatar-fallback.table{
+  width:44px;
+  height:44px;
+  font-size:.95rem;
+}
+
+.player-avatar.standings,
+.player-avatar-fallback.standings{
+  width:44px;
+  height:44px;
+  font-size:.95rem;
+}
+
+.player-avatar.crew,
+.player-avatar-fallback.crew{
+  width:83px;
+  height:83px;
+  font-size:1.35rem;
+}
+
+.player-avatar.dashboard,
+.player-avatar-fallback.dashboard{
+  width:72px;
+  height:72px;
+  font-size:1.2rem;
+}
+
+.player-avatar.honors,
+.player-avatar-fallback.honors{
+  width:68px;
+  height:68px;
+  font-size:1.2rem;
+}
+
+.player-avatar.profile,
+.player-avatar-fallback.profile{
+  width:320px;
+  height:320px;
+  font-size:4.4rem;
+}
+
+#home-standings-table .player-inline,
+#standings-table .player-inline{
+  gap:12px;
+}
+
+#dashboard-grid{
+  display:grid !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  gap:16px !important;
+  align-items:start;
+}
+
+.dashboard-card{
+  display:block;
+}
+
+.dashboard-card-top{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.dashboard-player-name{
+  color:var(--text);
+  font-size:1.05rem;
+  font-weight:700;
+  line-height:1.2;
+  min-width:0;
+}
+
+.dashboard-card-icon{
+  font-size:1.5rem;
+  line-height:1;
+}
+
+.dashboard-card-label{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:.78rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.dashboard-card-value{
+  color:var(--text);
+  font-size:1.7rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:10px;
+}
+
+.dashboard-card-substats{
+  display:grid;
+  gap:6px;
+  color:#fff;
+  font-size:.92rem;
+}
+
+#dashboard-grid .player-card.is-top-rank{
+  border-color:rgba(255,184,28,.8);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.28),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(255,184,28,.18);
+}
+
+#players-grid{
+  display:grid !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  gap:16px !important;
+  align-items:start;
+}
+
+.crew-card{
+  display:block;
+  min-height:170px;
+}
+
+.crew-card-top{
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.crew-card-meta h3{
+  margin:4px 0 0;
+}
+
+.crew-summary-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:var(--text);
+  font-weight:700;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.crew-card-stats p,
+.crew-card-stats strong{
+  color:#fff;
+}
+
+@media (min-width:801px){
+  #players-grid .crew-card .crew-card-stats{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    margin-top:0;
+    transition:max-height .24s ease, opacity .24s ease, margin-top .24s ease;
+  }
+
+  #players-grid .crew-card:hover .crew-card-stats{
+    max-height:240px;
+    opacity:1;
+    overflow:visible;
+    margin-top:10px;
+  }
+}
+
+#player-nav{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+#schedule-list{
+  grid-template-columns:repeat(2, minmax(0,1fr));
+}
+
+#champions-list,
+#records-list{
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+}
+
+.honors-card{
+  display:block;
+  min-height:184px;
+}
+
+.honors-player-name{
+  color:#fff;
+  font-size:1.05rem;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.honors-card-value{
+  font-size:1rem;
+  font-weight:700;
+  line-height:1.4;
+}
+
+.honors-card.is-top-rank{
+  border-color:rgba(255,184,28,.8);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.28),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(255,184,28,.18);
+}
+
+.rules-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:16px;
+}
+
+.rule-card .kicker,
+.rule-card h3,
+.rules-grid .kicker,
+.rules-grid h3{
+  color:var(--gold);
+}
+
+.format-title{
+  color:var(--gold);
+}
+
+.rules-chip-grid{
+  grid-template-columns:repeat(5, minmax(0,1fr));
+}
+
+.rules-chip-image{
+  width:min(100%, 108px);
+  height:auto;
+  aspect-ratio:1 / 1;
+  object-fit:contain;
+  padding:4px;
+}
+
+.rules-chip-fallback{
+  display:none;
+  width:min(100%, 108px);
+  aspect-ratio:1 / 1;
+  margin:0 auto 10px;
+  border-radius:50%;
+  border:1px dashed rgba(255,184,28,.35);
+  background:rgba(17,22,30,.8);
+  color:var(--gold);
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:.82rem;
+  line-height:1.2;
+  padding:10px;
+}
+
+.rules-chip-fallback.is-visible{
+  display:flex;
+}
+
+@media (max-width:1280px){
+  #players-grid,
+  #dashboard-grid,
+  #champions-list,
+  #records-list,
+  .rules-grid,
+  .rules-chip-grid{
+    grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:1100px){
+  #players-grid,
+  #dashboard-grid,
+  #champions-list,
+  #records-list,
+  .rules-grid,
+  .rules-chip-grid{
+    grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:900px){
+  .event-icon-card{
+    font-size:4.6rem;
+  }
+
+  #schedule-list{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width:800px){
+  #players-grid,
+  #dashboard-grid,
+  #champions-list,
+  #records-list,
+  .rules-grid,
+  .rules-chip-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:640px){
+  #players-grid,
+  #dashboard-grid,
+  #champions-list,
+  #records-list,
+  .rules-grid,
+  .rules-chip-grid,
+  #schedule-list{
+    grid-template-columns:1fr !important;
+  }
+
+  .player-avatar.profile,
+  .player-avatar-fallback.profile{
+    width:220px;
+    height:220px;
+    font-size:3rem;
+  }
+
+  .leader-card-top,
+  .dashboard-card-top{
+    grid-template-columns:auto 1fr;
+  }
+
+  .leader-card-icon,
+  .dashboard-card-icon{
+    grid-column:2;
+    justify-self:end;
+  }
+}
