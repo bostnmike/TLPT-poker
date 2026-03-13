@@ -31,19 +31,19 @@ const DEFAULT_DASHBOARD_SORT = "profit";
 
 const DASHBOARD_META = {
   profit: { label: "Profit", icon: "💰" },
-  trueSkillScore: { label: "Power", icon: "🏆" },
+  trueSkillScore: { label: "Power", icon: "🏆", formula: "Power = Composite score" },
   roi: { label: "ROI", icon: "📈" },
   hits: { label: "Hits", icon: "💥" },
   timesPlaced: { label: "Cashes", icon: "💵" },
   bubbles: { label: "Bubbles", icon: "🫧" },
-  hitRate: { label: "Hit Rate", icon: "💥" },
-  cashRate: { label: "Cash Rate", icon: "💵" },
-  bubbleRate: { label: "Bubble Rate", icon: "🫧" },
-  luckIndex: { label: "Luck", icon: "🍀" },
-  clutchIndex: { label: "Clutch", icon: "🎯" },
-  aggressionIndex: { label: "Aggression", icon: "⚡" },
-  survivorIndex: { label: "Survivor", icon: "🛟" },
-  tiltIndex: { label: "Tilt", icon: "🫨" }
+  hitRate: { label: "Hit Rate", icon: "💥", formula: "Hit Rate = Hits ÷ Entries" },
+  cashRate: { label: "Cash Rate", icon: "💵", formula: "Cash Rate = Cashes ÷ Entries" },
+  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: "Bubble Rate = Bubbles ÷ Entries" },
+  luckIndex: { label: "Luck", icon: "🍀", formula: "Luck = Result vs expectation" },
+  clutchIndex: { label: "Clutch", icon: "🎯", formula: "Clutch = Late-stage conversion" },
+  aggressionIndex: { label: "Aggression", icon: "⚡", formula: "Aggression = Pressure factor" },
+  survivorIndex: { label: "Survivor", icon: "🛟", formula: "Survivor = Staying power" },
+  tiltIndex: { label: "Tilt", icon: "🫨", formula: "Tilt = Volatility index" }
 };
 
 const CHIP_SET_TEXT = {
@@ -333,9 +333,11 @@ function ensureDashboardHeadline(sortKey) {
   }
 
   const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey) };
+  const formulaMarkup = meta.formula ? `<span class="dashboard-formula-inline dynamic-dashboard-formula">${meta.formula}</span>` : "";
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
     <span>${meta.label}</span>
+    ${formulaMarkup}
   `;
 }
 
