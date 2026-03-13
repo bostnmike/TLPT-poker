@@ -36,14 +36,35 @@ const DASHBOARD_META = {
   hits: { label: "Hits", icon: "💥" },
   timesPlaced: { label: "Cashes", icon: "💵" },
   bubbles: { label: "Bubbles", icon: "🫧" },
-  hitRate: { label: "Hit Rate", icon: "💥", formula: "Hits / Entries" },
-  cashRate: { label: "Cash Rate", icon: "💵", formula: "Cashes / Entries" },
-  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: "Bubbles / Entries" },
+  hitRate: { label: "Hit Rate", icon: "💥" },
+  cashRate: { label: "Cash Rate", icon: "💵" },
+  bubbleRate: { label: "Bubble Rate", icon: "🫧" },
   luckIndex: { label: "Luck", icon: "🍀" },
   clutchIndex: { label: "Clutch", icon: "🎯" },
   aggressionIndex: { label: "Aggression", icon: "⚡" },
   survivorIndex: { label: "Survivor", icon: "🛟" },
   tiltIndex: { label: "Tilt", icon: "🫨" }
+};
+
+const CHIP_SET_TEXT = {
+  "40k": {
+    "T-25": 20,
+    "T-100": 20,
+    "T-500": 15,
+    "T-1000": 15,
+    "T-5000": 3,
+    "T-10000": 0,
+    "T-25000": 0
+  },
+  "500k": {
+    "T-500": 20,
+    "T-1000": 20,
+    "T-5000": 20,
+    "T-10000": 12,
+    "T-25000": 6,
+    "T-100000": 1,
+    "T-250000": 0
+  }
 };
 
 function normalizeQuoteName(name) {
@@ -312,11 +333,9 @@ function ensureDashboardHeadline(sortKey) {
   }
 
   const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey) };
-  const formulaMarkup = meta.formula ? `<span class="dashboard-formula">${meta.formula}</span>` : "";
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
     <span>${meta.label}</span>
-    ${formulaMarkup}
   `;
 }
 
@@ -343,7 +362,7 @@ function renderHomePage(data) {
   if (eventsEl) {
     const homeEvents = getCurrentEvents(data);
     eventsEl.innerHTML = homeEvents.map(event => `
-      <div class="event-card home-event-card">
+      <div class="event-card home-event-card compact-event-card">
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
           <div class="event-icon event-icon-card">♠</div>
@@ -375,15 +394,12 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
     <tr>
       <td>${index + 1}</td>
       <td>${playerInlineMarkup(player, "standings")}</td>
-      <td>${player.entries ?? "-"}</td>
-      <td>${player.buyIns ?? "-"}</td>
-      <td>${player.rebuys ?? "-"}</td>
-      <td>${player.hits ?? "-"}</td>
-      <td>${player.timesPlaced ?? "-"}</td>
-      <td>${player.bubbles ?? "-"}</td>
       <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
       <td>${fmtPct(player.roi)}</td>
       <td>${fmtNum(player.trueSkillScore)}</td>
+      <td>${player.hits ?? "-"}</td>
+      <td>${player.timesPlaced ?? "-"}</td>
+      <td>${player.bubbles ?? "-"}</td>
       <td>${fmtNum(player.luckIndex)}</td>
       <td>${fmtNum(player.clutchIndex)}</td>
     </tr>
@@ -397,8 +413,8 @@ function dashboardCardMarkup(player, sortKey, index) {
     <a class="player-card player-card-rich dashboard-card ${index === 0 ? "is-top-rank" : ""}" href="${playerUrl(player)}">
       <div class="dashboard-card-top">
         ${playerImageMarkup(player, "dashboard")}
-        <div class="dashboard-player-name">${displayPlayerName(player)}</div>
       </div>
+      <div class="dashboard-player-name dashboard-player-name-below">${displayPlayerName(player)}</div>
       <div class="dashboard-card-value dashboard-stat-gold ${statValueClass(player, sortKey)}">${formatStatValue(player, sortKey)}</div>
     </a>
   `;
@@ -510,7 +526,7 @@ function renderSchedule(data) {
 
   const events = getCurrentEvents(data);
   list.innerHTML = events.map(event => `
-    <div class="event-card">
+    <div class="event-card compact-event-card">
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
         <div class="event-icon event-icon-card">♠</div>
@@ -573,20 +589,10 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
-function ensureHonorsSectionTitles() {
-  document.querySelectorAll("h1, h2, h3").forEach(el => {
-    const text = el.textContent.trim().toLowerCase();
-    if (text === "league honors" || text === "current league honors") el.textContent = "Current League Honors";
-    if (text === "league records" || text === "current league records") el.textContent = "Current League Records";
-  });
-}
-
 function renderChampions(data) {
   const players = data?.players || [];
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
-
-  ensureHonorsSectionTitles();
 
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map((honor, index) => {
@@ -617,16 +623,15 @@ function renderChampions(data) {
 const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
-    subtitle: "Starting stack: 40,000 • All levels 20 minutes • All breaks 10 minutes",
     runtimeMinutes: 300,
     chips: [
-      { label: "T-25", count: 20, image: "images/site/chip-T-25.png" },
-      { label: "T-100", count: 20, image: "images/site/chip-T-100.png" },
-      { label: "T-500", count: 15, image: "images/site/chip-T-500.png" },
-      { label: "T-1000", count: 15, image: "images/site/chip-T-1000.png" },
-      { label: "T-5000", count: 3, image: "images/site/chip-T-5000.png" },
-      { label: "T-10000", count: 0, image: "images/site/chip-T-10000.png" },
-      { label: "T-25000", count: 0, image: "images/site/chip-T-25000.png" }
+      { label: "T-25", image: "images/site/chip-T-25.png" },
+      { label: "T-100", image: "images/site/chip-T-100.png" },
+      { label: "T-500", image: "images/site/chip-T-500.png" },
+      { label: "T-1000", image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", image: "images/site/chip-T-25000.png" }
     ],
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
@@ -653,16 +658,15 @@ const RULES_FORMATS = {
   },
   "500k": {
     title: "500K Small Blind Ante",
-    subtitle: "Starting stack: 500,000 • All levels 20 minutes • All breaks 10 minutes",
     runtimeMinutes: 300,
     chips: [
-      { label: "T-500", count: 20, image: "images/site/chip-T-500.png" },
-      { label: "T-1000", count: 20, image: "images/site/chip-T-1000.png" },
-      { label: "T-5000", count: 20, image: "images/site/chip-T-5000.png" },
-      { label: "T-10000", count: 12, image: "images/site/chip-T-10000.png" },
-      { label: "T-25000", count: 6, image: "images/site/chip-T-25000.png" },
-      { label: "T-100000", count: 1, image: "images/site/chip-T-100000.png" },
-      { label: "T-250000", count: 0, image: "images/site/chip-T-250000.png" }
+      { label: "T-500", image: "images/site/chip-T-500.png" },
+      { label: "T-1000", image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", image: "images/site/chip-T-25000.png" },
+      { label: "T-100000", image: "images/site/chip-T-100000.png" },
+      { label: "T-250000", image: "images/site/chip-T-250000.png" }
     ],
     levels: [
       { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
@@ -690,10 +694,11 @@ const RULES_FORMATS = {
 };
 
 function buildRulesTimerRail(format) {
-  const totalMinutes = Number(format.runtimeMinutes ?? 300);
   return `
     <div class="timer-rail">
-      <div class="timer-pill">🕒 <strong>Estimated Runtime:</strong> ${totalMinutes} min</div>
+      <div class="timer-pill">🕒 <strong>Levels:</strong> 20 min</div>
+      <div class="timer-pill">☕ <strong>Breaks:</strong> 10 min</div>
+      <div class="timer-pill">⏱ <strong>Estimated Runtime:</strong> ${Number(format.runtimeMinutes || 300)} min</div>
     </div>
   `;
 }
@@ -748,14 +753,15 @@ window.tlptHandleRuleChipError = function tlptHandleRuleChipError(img) {
   }
 };
 
-function buildRulesChipCard(chip) {
+function buildRulesChipCard(chip, formatKey) {
   const candidates = buildChipImageCandidates(chip);
   const firstCandidate = escapeHtmlAttr(candidates[0] || "");
   const candidateAttr = escapeHtmlAttr(candidates.join("|"));
   const label = escapeHtmlAttr(chip.label);
+  const chipCount = CHIP_SET_TEXT[formatKey]?.[chip.label] ?? 0;
 
   return `
-    <div class="rules-chip-card" title="${label} • Set per player: ${chip.count}">
+    <div class="rules-chip-card" title="${label} • Set per player = ${chipCount}">
       <img
         class="rules-chip-image"
         src="${firstCandidate}"
@@ -768,16 +774,16 @@ function buildRulesChipCard(chip) {
       >
       <div class="rules-chip-fallback">${label}</div>
       <div class="rules-chip-label">${label}</div>
-      <div class="rules-chip-count">Set per player</div>
+      <div class="rules-chip-count">Set per player = ${chipCount}</div>
     </div>
   `;
 }
 
-function buildRulesChipPanel(format) {
+function buildRulesChipPanel(format, formatKey) {
   return `
     <div class="rules-chip-panel">
       <div class="rules-chip-grid">
-        ${format.chips.map(chip => buildRulesChipCard(chip)).join("")}
+        ${format.chips.map(chip => buildRulesChipCard(chip, formatKey)).join("")}
       </div>
     </div>
   `;
@@ -839,11 +845,10 @@ function showFormat(formatKey) {
       <div class="format-head">
         <div>
           <h3 class="format-title">${format.title}</h3>
-          <p class="format-subtitle">${format.subtitle}</p>
         </div>
       </div>
       ${buildRulesTimerRail(format)}
-      ${buildRulesChipPanel(format)}
+      ${buildRulesChipPanel(format, formatKey)}
       ${buildRulesBlindTable(format)}
     </div>
   `;
@@ -880,7 +885,6 @@ function initSorting() {
 
 window.renderStandings = renderStandings;
 window.renderDashboard = renderDashboard;
-window.renderDashboardSortable = renderDashboard;
 window.renderPlayers = renderPlayers;
 window.renderPlayerProfile = renderPlayerProfile;
 window.showFormat = showFormat;
