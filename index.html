@@ -11,13 +11,14 @@
     <div class="wrap header-inner">
       <div>
         <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">Bad beats. Worse folds. Real stats.</p>
+        <p class="tag">The League. The Players. The Tilt.</p>
       </div>
+
       <nav class="nav">
         <a href="index.html">Home</a>
         <a href="standings.html">Standings</a>
         <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
+        <a href="players.html">Players</a>
         <a href="schedule.html">Schedule</a>
         <a href="champions.html">Honors</a>
         <a href="rules.html">Rules</a>
@@ -28,97 +29,80 @@
 
   <main class="wrap">
     <section class="hero-stack">
-      <section class="hero hero-events">
-        <div class="hero-copy hero-copy-enhanced">
-          <div class="hero-home-copy">
-            <div class="hero-visual-mark">
-              <span>♠</span>
-              <span>♥</span>
-              <span>♣</span>
-              <span>♦</span>
+      <section class="hero">
+        <div class="hero-copy hero-copy-enhanced hero-home-copy">
+          <div class="callout">♠ Weekly league action • live stats • crew leaderboard energy</div>
+          <h2 class="hero-title">Welcome to TLPT Poker League</h2>
+          <p class="hero-sub">
+            Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="standings.html">View Standings</a>
+            <a class="btn" href="dashboard.html">Open Dashboard</a>
+            <a class="btn" href="schedule.html">See Schedule</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head events-header-row">
+          <div class="events-header-suits" aria-hidden="true">
+            <span class="events-header-suit">♠</span>
+            <span class="events-header-suit">♥</span>
+            <span class="events-header-suit">♦</span>
+            <span class="events-header-suit">♣</span>
+          </div>
+          <h2 class="events-header-title">This Week's Events</h2>
+        </div>
+
+        <div class="home-events-grid" id="home-events-list"></div>
+      </section>
+
+      <section class="section">
+        <div class="schedule-head-row">
+          <div>
+            <div class="section-head">
+              <h2>Top 10 TLPT Table</h2>
             </div>
 
-            <p class="eyebrow">This Week’s Events</p>
-            <h2 class="hero-title">Cards in the air at The Caahhd Room</h2>
-            <p class="hero-subtitle muted">
-              Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.
-            </p>
-
-            <div id="home-events-list" class="home-events-grid"></div>
+            <div class="table-wrap">
+              <table id="home-standings-table">
+                <thead>
+                  <tr>
+                    <th>Player</th>
+                    <th>Entries</th>
+                    <th>Cashes</th>
+                    <th>Profit</th>
+                    <th>Power</th>
+                    <th>Hits</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
+
+          <aside class="schedule-hosts-callout">
+            <img
+              class="hosts-image"
+              src="images/site/TLPT-Table.png"
+              alt="TLPT Table"
+              onerror="this.style.display='none';"
+            />
+            <p class="hosts-copy">Where the cards run cold, the takes run hot, and the stats never forget.</p>
+          </aside>
         </div>
       </section>
-
-      <section class="section leader-section">
-        <div class="section-head">
-          <div>
-            <h2>League Leaders</h2>
-            <p class="muted">Current pace-setters across the room.</p>
-          </div>
-        </div>
-
-        <div class="leader-grid">
-          <div class="stat-card stat-card-visual">
-            <span class="label">Profit Leader</span>
-            <div class="stat-icon">💰</div>
-            <div id="home-profit-leader"></div>
-          </div>
-
-          <div class="stat-card stat-card-visual">
-            <span class="label">Power Leader</span>
-            <div class="stat-icon">🏆</div>
-            <div id="home-power-leader"></div>
-          </div>
-
-          <div class="stat-card stat-card-visual">
-            <span class="label">Most Hits</span>
-            <div class="stat-icon">💥</div>
-            <div id="home-hit-leader"></div>
-          </div>
-
-          <div class="stat-card stat-card-visual">
-            <span class="label">Bubble Trouble</span>
-            <div class="stat-icon">🫧</div>
-            <div id="home-bubble-leader"></div>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <h3>The TLPT Table</h3>
-        <a href="standings.html">Full standings</a>
-      </div>
-      <div class="table-wrap">
-        <table id="home-standings-table">
-          <thead>
-            <tr>
-              <th>Player</th>
-              <th>Entries</th>
-              <th>Cashes</th>
-              <th>Profit</th>
-              <th>Power</th>
-              <th>Hits</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <p class="muted" style="margin-top:16px;">* less than 5 entries</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">TLPT Poker League</div>
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    loadSiteData().then(data => {
-      window.siteData = data;
-      renderHomePage(data);
-    });
-  </script>
 </body>
 </html>
