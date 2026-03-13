@@ -13,7 +13,7 @@ const PLAYER_QUOTES = {
   "Hayden D": "\"There's $400 sitting on my table at home.\"",
   "Wild Bill": "\"It's a skill game.\"",
   "Hiro": "\"That's a prime number.\"",
-  "A.I. Dave": "\"Oh man! I caught some of that $hit!\"",
+  "A.I. Dave": "\"Oh man! I caught some of that!\"",
   "ProvidenceMike": "\"I should'd be in this hand.\"",
   "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
   "Ahmed": "\"Get in there, Man!\"",
@@ -58,6 +58,11 @@ function fmtPct(n) {
 
 function fmtNum(n) {
   return Number(n ?? 0).toFixed(1);
+}
+
+function formatWhole(n) {
+  if (n === "" || n === null || n === undefined) return "";
+  return Number(n).toLocaleString();
 }
 
 function sortPlayers(players, key) {
@@ -440,10 +445,10 @@ function renderPlayerProfile(data) {
   const next = players[(index + 1) % players.length];
 
   navEl.innerHTML = `
-  <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
-  <a class="btn" href="players.html">The Crew</a>
-  <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
-`;
+    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
+    <a class="btn" href="players.html">The Crew</a>
+    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
+  `;
 }
 
 function renderSchedule(data) {
@@ -535,4 +540,186 @@ function renderChampions(data) {
       `;
     }).join("");
   }
+}
+
+/* Rules page */
+
+const RULES_FORMATS = {
+  "40k": {
+    title: "40K Small Blind Ante",
+    subtitle: "Starting stack: 40,000 • All levels 20 minutes • All breaks 10 minutes",
+    chipDir: "images/chips",
+    chips: [
+      { label: "T-25", count: 20, image: "25.jpg" },
+      { label: "T-100", count: 20, image: "100.jpg" },
+      { label: "T-500", count: 15, image: "500.jpg" },
+      { label: "T-1000", count: 15, image: "1K.jpg" },
+      { label: "T-5000", count: 3, image: "5K.jpg" }
+    ],
+    levels: [
+      { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
+      { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB" },
+      { type: "level", level: "3", sb: "125", bb: "250", ante: "", eff: "160 BB" },
+      { type: "level", level: "4", sb: "200", bb: "400", ante: "", eff: "100 BB" },
+      { type: "break", note: "BREAK — Chip up T-25" },
+      { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB" },
+      { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB" },
+      { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB" },
+      { type: "break", note: "BREAK — Chip up T-100" },
+      { type: "level", level: "8", sb: "1,500", bb: "3,000", ante: "1,500", eff: "" },
+      { type: "level", level: "9", sb: "2,500", bb: "5,000", ante: "2,500", eff: "" },
+      { type: "level", level: "10", sb: "4,000", bb: "8,000", ante: "4,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-500" },
+      { type: "level", level: "11", sb: "6,000", bb: "12,000", ante: "6,000", eff: "" },
+      { type: "level", level: "12", sb: "10,000", bb: "20,000", ante: "10,000", eff: "" },
+      { type: "level", level: "13", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-1000 & T-5000" },
+      { type: "level", level: "14", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
+      { type: "level", level: "15", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
+      { type: "level", level: "16", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" }
+    ]
+  },
+  "500k": {
+    title: "500K Small Blind Ante",
+    subtitle: "Starting stack: 500,000 • All levels 20 minutes • All breaks 10 minutes",
+    chipDir: "images/chips",
+    chips: [
+      { label: "T-500", count: 20, image: "500.jpg" },
+      { label: "T-1000", count: 20, image: "1K.jpg" },
+      { label: "T-5000", count: 20, image: "5K.jpg" },
+      { label: "T-10000", count: 12, image: "10K.jpg" },
+      { label: "T-25000", count: 6, image: "25K.jpg" },
+      { label: "T-100000", count: 1, image: "100K.jpg" }
+    ],
+    levels: [
+      { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
+      { type: "level", level: "2", sb: "1,000", bb: "2,000", ante: "", eff: "250 BB" },
+      { type: "level", level: "3", sb: "1,500", bb: "3,000", ante: "", eff: "166 BB" },
+      { type: "level", level: "4", sb: "2,500", bb: "5,000", ante: "", eff: "100 BB" },
+      { type: "break", note: "BREAK — Chip up T-500" },
+      { type: "level", level: "5", sb: "4,000", bb: "8,000", ante: "4,000", eff: "62 BB" },
+      { type: "level", level: "6", sb: "6,000", bb: "12,000", ante: "6,000", eff: "41 BB" },
+      { type: "level", level: "7", sb: "10,000", bb: "20,000", ante: "10,000", eff: "25 BB" },
+      { type: "break", note: "BREAK — Chip up T-1000" },
+      { type: "level", level: "8", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
+      { type: "level", level: "9", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
+      { type: "level", level: "10", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-5000" },
+      { type: "level", level: "11", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" },
+      { type: "level", level: "12", sb: "100,000", bb: "200,000", ante: "100,000", eff: "" },
+      { type: "level", level: "13", sb: "150,000", bb: "300,000", ante: "150,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-10000" },
+      { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "" },
+      { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "" },
+      { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "" }
+    ]
+  }
+};
+
+function buildRulesTimerRail(format) {
+  const totalLevels = format.levels.filter(row => row.type === "level").length;
+  const totalBreaks = format.levels.filter(row => row.type === "break").length;
+  const totalMinutes = (totalLevels * 20) + (totalBreaks * 10);
+
+  return `
+    <div class="timer-rail">
+      <div class="timer-pill">⏱ <strong>Levels:</strong> ${totalLevels} × 20 min</div>
+      <div class="timer-pill">☕ <strong>Breaks:</strong> ${totalBreaks} × 10 min</div>
+      <div class="timer-pill">🕒 <strong>Estimated Runtime:</strong> ${totalMinutes} min</div>
+    </div>
+  `;
+}
+
+function buildRulesChipPanel(format) {
+  return `
+    <div class="rules-chip-panel">
+      <div class="rules-chip-grid">
+        ${format.chips.map(chip => `
+          <div class="rules-chip-card" title="${chip.label} • ${chip.count} chips">
+            <img class="rules-chip-image" src="${format.chipDir}/${chip.image}" alt="${chip.label}" onerror="this.style.display='none'">
+            <div class="rules-chip-label">${chip.label}</div>
+            <div class="rules-chip-count">${chip.count} in play</div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function buildRulesBlindTable(format) {
+  const rows = format.levels.map((row, idx) => {
+    if (row.type === "break") {
+      return `
+        <tr class="blind-break">
+          <td colspan="5">${row.note}</td>
+        </tr>
+      `;
+    }
+
+    const zebra = idx % 2 === 0 ? "blind-row-dark" : "blind-row-light";
+    return `
+      <tr class="${zebra}">
+        <td>${row.level}</td>
+        <td>${row.sb}</td>
+        <td>${row.bb}</td>
+        <td>${row.ante}</td>
+        <td>${row.eff}</td>
+      </tr>
+    `;
+  }).join("");
+
+  return `
+    <div class="blind-sheet">
+      <table class="blind-table">
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Small Blind</th>
+            <th>Big Blind</th>
+            <th>Ante</th>
+            <th>Effective BB</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+      <p class="blind-note">Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels.</p>
+    </div>
+  `;
+}
+
+function setActiveFormatButton(formatKey) {
+  const btn40 = document.getElementById("format-btn-40k");
+  const btn500 = document.getElementById("format-btn-500k");
+  if (btn40) btn40.classList.toggle("active", formatKey === "40k");
+  if (btn500) btn500.classList.toggle("active", formatKey === "500k");
+}
+
+function showFormat(formatKey) {
+  const format = RULES_FORMATS[formatKey];
+  const host = document.getElementById("format-content");
+  if (!format || !host) return;
+
+  setActiveFormatButton(formatKey);
+
+  host.innerHTML = `
+    <div class="rules-format">
+      <div class="format-head">
+        <div>
+          <h3 class="format-title">${format.title}</h3>
+          <p class="format-subtitle">${format.subtitle}</p>
+        </div>
+      </div>
+
+      ${buildRulesTimerRail(format)}
+      ${buildRulesChipPanel(format)}
+      ${buildRulesBlindTable(format)}
+    </div>
+  `;
+}
+
+function initRulesPage() {
+  if (!document.getElementById("format-content")) return;
+  showFormat("40k");
 }
