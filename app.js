@@ -27,17 +27,23 @@ const PLAYER_QUOTES = {
 };
 
 const DEFAULT_STANDINGS_SORT = "profit";
-const DEFAULT_DASHBOARD_SORT = "trueSkillScore";
+const DEFAULT_DASHBOARD_SORT = "profit";
 
 const DASHBOARD_META = {
-  trueSkillScore: { label: "Power", icon: "🏆" },
   profit: { label: "Profit", icon: "💰" },
+  trueSkillScore: { label: "Power", icon: "🏆" },
+  roi: { label: "ROI", icon: "📈" },
   hits: { label: "Hits", icon: "💥" },
   timesPlaced: { label: "Cashes", icon: "💵" },
   bubbles: { label: "Bubbles", icon: "🫧" },
+  hitRate: { label: "Hit Rate", icon: "💥", formula: "Hits / Entries" },
+  cashRate: { label: "Cash Rate", icon: "💵", formula: "Cashes / Entries" },
+  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: "Bubbles / Entries" },
   luckIndex: { label: "Luck", icon: "🍀" },
   clutchIndex: { label: "Clutch", icon: "🎯" },
-  roi: { label: "ROI", icon: "📈" }
+  aggressionIndex: { label: "Aggression", icon: "⚡" },
+  survivorIndex: { label: "Survivor", icon: "🛟" },
+  tiltIndex: { label: "Tilt", icon: "🫨" }
 };
 
 function normalizeQuoteName(name) {
@@ -272,62 +278,6 @@ function getCurrentEvents(data) {
   return [...(data?.events || [])];
 }
 
-function removeTextAboveHeader(pageSelector, forbiddenText) {
-  const page = document.querySelector(pageSelector) || document.body;
-  const text = forbiddenText.trim().toLowerCase();
-
-  page.querySelectorAll(".kicker, .tag, p, div, span").forEach(el => {
-    if (el.children.length === 0 && el.textContent.trim().toLowerCase() === text) {
-      el.remove();
-    }
-  });
-}
-
-function ensureHomeEventsHeaderLayout() {
-  const titleEl = Array.from(document.querySelectorAll("h1, h2, h3")).find(
-    el => el.textContent.trim().toLowerCase() === "this week's events"
-  );
-  if (!titleEl) return;
-
-  const parent = titleEl.parentElement;
-  if (!parent) return;
-
-  if (!parent.classList.contains("events-header-row")) {
-    parent.classList.add("events-header-row");
-  }
-
-  let suits = parent.querySelector(".events-header-suits");
-  if (!suits) {
-    suits = document.createElement("div");
-    suits.className = "events-header-suits";
-    suits.innerHTML = `
-      <span class="events-header-suit">♠</span>
-      <span class="events-header-suit">♥</span>
-      <span class="events-header-suit">♣</span>
-      <span class="events-header-suit">♦</span>
-    `;
-    parent.insertBefore(suits, titleEl);
-  }
-
-  titleEl.classList.add("events-header-title");
-}
-
-function removeLeagueLeaderSection() {
-  const leaderGrid = document.querySelector(".leader-grid");
-  if (leaderGrid) {
-    const section = leaderGrid.closest(".section") || leaderGrid.parentElement;
-    if (section) section.remove();
-  }
-
-  document.querySelectorAll("h1, h2, h3").forEach(heading => {
-    const text = heading.textContent.trim().toLowerCase();
-    if (text.includes("league leader")) {
-      const section = heading.closest(".section") || heading.parentElement;
-      if (section) section.remove();
-    }
-  });
-}
-
 function ensureStandingsHeadline(sortKey) {
   const table = document.getElementById("standings-table");
   if (!table) return;
@@ -349,6 +299,27 @@ function ensureStandingsHeadline(sortKey) {
   `;
 }
 
+function ensureDashboardHeadline(sortKey) {
+  const grid = document.getElementById("dashboard-grid");
+  if (!grid) return;
+
+  let headline = document.getElementById("dashboard-current-stat");
+  if (!headline) {
+    headline = document.createElement("div");
+    headline.id = "dashboard-current-stat";
+    headline.className = "dashboard-current-stat";
+    grid.parentNode.insertBefore(headline, grid);
+  }
+
+  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey) };
+  const formulaMarkup = meta.formula ? `<span class="dashboard-formula">${meta.formula}</span>` : "";
+  headline.innerHTML = `
+    <span class="dashboard-current-icon">${meta.icon}</span>
+    <span>${meta.label}</span>
+    ${formulaMarkup}
+  `;
+}
+
 function renderHomeTopTable(data) {
   const tbody = document.querySelector("#home-standings-table tbody");
   if (!tbody || !data?.players?.length) return;
@@ -357,6 +328,8 @@ function renderHomeTopTable(data) {
     <tr>
       <td>${playerInlineMarkup(player, "table")}</td>
       <td>${player.entries ?? "-"}</td>
+      <td>${player.buyIns ?? "-"}</td>
+      <td>${player.rebuys ?? "-"}</td>
       <td>${player.timesPlaced ?? "-"}</td>
       <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
       <td>${fmtNum(player.trueSkillScore)}</td>
@@ -389,13 +362,6 @@ function renderHomePage(data) {
   }
 
   renderHomeTopTable(data);
-  ensureHomeEventsHeaderLayout();
-  removeLeagueLeaderSection();
-
-  const heroSub = Array.from(document.querySelectorAll(".hero-sub, .muted")).find(
-    el => el.textContent.includes("Weekly games, live RSVP tracking, projected table size, and the full TLPT stat universe.")
-  );
-  if (heroSub) heroSub.classList.add("muted-copy");
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
@@ -424,22 +390,6 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   `).join("");
 
   setActiveSortButton("standings", sortKey);
-}
-
-function ensureDashboardHeadline(sortKey) {
-  const grid = document.getElementById("dashboard-grid");
-  if (!grid) return;
-
-  let headline = document.getElementById("dashboard-current-stat");
-  if (!headline) {
-    headline = document.createElement("div");
-    headline.id = "dashboard-current-stat";
-    headline.className = "dashboard-current-stat";
-    grid.parentNode.insertBefore(headline, grid);
-  }
-
-  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey) };
-  headline.innerHTML = `<span class="dashboard-current-icon">${meta.icon}</span><span>${meta.label}</span>`;
 }
 
 function dashboardCardMarkup(player, sortKey, index) {
@@ -492,16 +442,8 @@ function crewCardMarkup(player, data) {
 function renderPlayers(data) {
   const grid = document.getElementById("players-grid");
   if (!grid || !data?.players) return;
-
   const sorted = sortPlayers(data.players, "trueSkillScore");
   grid.innerHTML = sorted.map(player => crewCardMarkup(player, data)).join("");
-
-  removeTextAboveHeader("main, body", "TLPT");
-  document.querySelectorAll("p, .muted").forEach(el => {
-    if (el.textContent.includes("Mouse over a player for a quick view of some key stats")) {
-      el.classList.add("crew-help-copy");
-    }
-  });
 }
 
 function renderPlayerProfile(data) {
@@ -584,8 +526,6 @@ function renderSchedule(data) {
       <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
     </div>
   `).join("");
-
-  removeTextAboveHeader("main, body", "The Caahhd Room");
 }
 
 function honorIcon(type) {
@@ -614,7 +554,7 @@ function recordIcon(label) {
   return "📊";
 }
 
-function honorsCardMarkup(player, category, icon, descriptionText, valueText, isTop = false, valueClass = "") {
+function honorsCardMarkup(player, category, icon, valueText, isTop = false, valueClass = "") {
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
 
@@ -628,7 +568,6 @@ function honorsCardMarkup(player, category, icon, descriptionText, valueText, is
           <div class="honors-player-name">${nameMarkup}</div>
         </div>
       </div>
-      <div class="honors-card-description">${descriptionText}</div>
       <div class="honors-card-value ${valueClass}">${valueText}</div>
     </a>
   `;
@@ -637,8 +576,8 @@ function honorsCardMarkup(player, category, icon, descriptionText, valueText, is
 function ensureHonorsSectionTitles() {
   document.querySelectorAll("h1, h2, h3").forEach(el => {
     const text = el.textContent.trim().toLowerCase();
-    if (text === "league honors") el.textContent = "Current League Honors";
-    if (text === "league records") el.textContent = "Current League Records";
+    if (text === "league honors" || text === "current league honors") el.textContent = "Current League Honors";
+    if (text === "league records" || text === "current league records") el.textContent = "Current League Records";
   });
 }
 
@@ -658,7 +597,7 @@ function renderChampions(data) {
       const valueText = String(honor.type || "").toLowerCase().includes("profit") && player
         ? fmtMoney(player.profit)
         : honor.note;
-      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), "Current category leader", valueText, index === 0, valueClass);
+      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), valueText, index === 0, valueClass);
     }).join("");
   }
 
@@ -668,7 +607,7 @@ function renderChampions(data) {
       const valueClass = String(record.label || "").toLowerCase().includes("profit")
         ? valueClassFromMoneyString(record.value)
         : "";
-      return honorsCardMarkup(player, record.label, recordIcon(record.label), "Record holder", record.value, index === 0, valueClass);
+      return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, index === 0, valueClass);
     }).join("");
   }
 }
@@ -751,14 +690,9 @@ const RULES_FORMATS = {
 };
 
 function buildRulesTimerRail(format) {
-  const totalLevels = format.levels.filter(row => row.type === "level").length;
-  const totalBreaks = format.levels.filter(row => row.type === "break").length;
-  const calculatedMinutes = (totalLevels * 20) + (totalBreaks * 10);
-  const totalMinutes = Number(format.runtimeMinutes ?? calculatedMinutes);
+  const totalMinutes = Number(format.runtimeMinutes ?? 300);
   return `
     <div class="timer-rail">
-      <div class="timer-pill">⏱ <strong>Levels:</strong> ${totalLevels} × 20 min</div>
-      <div class="timer-pill">☕ <strong>Breaks:</strong> ${totalBreaks} × 10 min</div>
       <div class="timer-pill">🕒 <strong>Estimated Runtime:</strong> ${totalMinutes} min</div>
     </div>
   `;
@@ -925,7 +859,6 @@ function initRulesPage() {
   if (btn500) btn500.addEventListener("click", () => showFormat("500k"));
 
   showFormat("40k");
-  removeTextAboveHeader("main, body", "TLPT");
 }
 
 function setActiveSortButton(scope, sortKey) {
