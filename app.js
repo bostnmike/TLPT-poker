@@ -60,11 +60,6 @@ function fmtNum(n) {
   return Number(n ?? 0).toFixed(1);
 }
 
-function formatWhole(n) {
-  if (n === "" || n === null || n === undefined) return "";
-  return Number(n).toLocaleString();
-}
-
 function sortPlayers(players, key) {
   return [...players].sort((a, b) => Number(b[key] ?? 0) - Number(a[key] ?? 0));
 }
@@ -548,13 +543,14 @@ const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
     subtitle: "Starting stack: 40,000 • All levels 20 minutes • All breaks 10 minutes",
-    chipDir: "images/chips",
     chips: [
-      { label: "T-25", count: 20, image: "25.jpg" },
-      { label: "T-100", count: 20, image: "100.jpg" },
-      { label: "T-500", count: 15, image: "500.jpg" },
-      { label: "T-1000", count: 15, image: "1K.jpg" },
-      { label: "T-5000", count: 3, image: "5K.jpg" }
+      { label: "T-25", count: 20, image: "images/site/chip-T-25.png" },
+      { label: "T-100", count: 20, image: "images/site/chip-T-100.png" },
+      { label: "T-500", count: 15, image: "images/site/chip-T-500.png" },
+      { label: "T-1000", count: 15, image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", count: 3, image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", count: 0, image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", count: 0, image: "images/site/chip-T-25000.png" }
     ],
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
@@ -582,14 +578,14 @@ const RULES_FORMATS = {
   "500k": {
     title: "500K Small Blind Ante",
     subtitle: "Starting stack: 500,000 • All levels 20 minutes • All breaks 10 minutes",
-    chipDir: "images/chips",
     chips: [
-      { label: "T-500", count: 20, image: "500.jpg" },
-      { label: "T-1000", count: 20, image: "1K.jpg" },
-      { label: "T-5000", count: 20, image: "5K.jpg" },
-      { label: "T-10000", count: 12, image: "10K.jpg" },
-      { label: "T-25000", count: 6, image: "25K.jpg" },
-      { label: "T-100000", count: 1, image: "100K.jpg" }
+      { label: "T-500", count: 20, image: "images/site/chip-T-500.png" },
+      { label: "T-1000", count: 20, image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", count: 20, image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", count: 12, image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", count: 6, image: "images/site/chip-T-25000.png" },
+      { label: "T-100000", count: 1, image: "images/site/chip-T-100000.png" },
+      { label: "T-250000", count: 0, image: "images/site/chip-T-250000.png" }
     ],
     levels: [
       { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
@@ -635,10 +631,10 @@ function buildRulesChipPanel(format) {
     <div class="rules-chip-panel">
       <div class="rules-chip-grid">
         ${format.chips.map(chip => `
-          <div class="rules-chip-card" title="${chip.label} • ${chip.count} chips">
-            <img class="rules-chip-image" src="${format.chipDir}/${chip.image}" alt="${chip.label}" onerror="this.style.display='none'">
+          <div class="rules-chip-card" title="${chip.label} • Starting count per player: ${chip.count}">
+            <img class="rules-chip-image" src="${chip.image}" alt="${chip.label}" onerror="this.style.display='none'">
             <div class="rules-chip-label">${chip.label}</div>
-            <div class="rules-chip-count">${chip.count} in play</div>
+            <div class="rules-chip-count">Starting count per player: ${chip.count}</div>
           </div>
         `).join("")}
       </div>
@@ -647,7 +643,9 @@ function buildRulesChipPanel(format) {
 }
 
 function buildRulesBlindTable(format) {
-  const rows = format.levels.map((row, idx) => {
+  let rowIndex = 0;
+
+  const rows = format.levels.map(row => {
     if (row.type === "break") {
       return `
         <tr class="blind-break">
@@ -656,7 +654,9 @@ function buildRulesBlindTable(format) {
       `;
     }
 
-    const zebra = idx % 2 === 0 ? "blind-row-dark" : "blind-row-light";
+    const zebra = rowIndex % 2 === 0 ? "blind-row-dark" : "blind-row-light";
+    rowIndex += 1;
+
     return `
       <tr class="${zebra}">
         <td>${row.level}</td>
