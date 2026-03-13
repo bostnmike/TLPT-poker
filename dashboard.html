@@ -33,17 +33,29 @@
         <h2>TLPT Dashboard</h2>
       </div>
 
-      <p class="muted">Sort the league by the stat you want to spotlight.</p>
+      <div class="dashboard-button-groups" data-sort-scope="dashboard">
+        <div class="button-row dashboard-buttons">
+          <button class="btn active" data-dashboard-sort="profit" type="button">Profit</button>
+          <button class="btn" data-dashboard-sort="trueSkillScore" type="button">Power</button>
+          <button class="btn" data-dashboard-sort="roi" type="button">ROI</button>
+          <button class="btn" data-dashboard-sort="hits" type="button">Hits</button>
+          <button class="btn" data-dashboard-sort="timesPlaced" type="button">Cashes</button>
+          <button class="btn" data-dashboard-sort="bubbles" type="button">Bubbles</button>
+        </div>
 
-      <div class="button-row dashboard-buttons" data-sort-scope="dashboard">
-        <button class="btn active" data-dashboard-sort="trueSkillScore" type="button">Power</button>
-        <button class="btn" data-dashboard-sort="profit" type="button">Profit</button>
-        <button class="btn" data-dashboard-sort="hits" type="button">Hits</button>
-        <button class="btn" data-dashboard-sort="timesPlaced" type="button">Cashes</button>
-        <button class="btn" data-dashboard-sort="bubbles" type="button">Bubbles</button>
-        <button class="btn" data-dashboard-sort="luckIndex" type="button">Luck</button>
-        <button class="btn" data-dashboard-sort="clutchIndex" type="button">Clutch</button>
-        <button class="btn" data-dashboard-sort="roi" type="button">ROI</button>
+        <div class="button-row dashboard-buttons">
+          <button class="btn" data-dashboard-sort="hitRate" type="button">Hit Rate</button>
+          <button class="btn" data-dashboard-sort="cashRate" type="button">Cash Rate</button>
+          <button class="btn" data-dashboard-sort="bubbleRate" type="button">Bubble Rate</button>
+        </div>
+
+        <div class="button-row dashboard-buttons">
+          <button class="btn" data-dashboard-sort="luckIndex" type="button">Luck</button>
+          <button class="btn" data-dashboard-sort="clutchIndex" type="button">Clutch</button>
+          <button class="btn" data-dashboard-sort="aggressionIndex" type="button">Aggression</button>
+          <button class="btn" data-dashboard-sort="survivorIndex" type="button">Survivor</button>
+          <button class="btn" data-dashboard-sort="tiltIndex" type="button">Tilt</button>
+        </div>
       </div>
 
       <div id="dashboard-grid"></div>
