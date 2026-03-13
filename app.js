@@ -272,31 +272,6 @@ function getCurrentEvents(data) {
   return [...(data?.events || [])];
 }
 
-function removeInjectedChipImages() {
-  const dashboardGrid = document.getElementById("dashboard-grid");
-  if (!dashboardGrid) return;
-
-  const section = dashboardGrid.closest(".section");
-  if (!section) return;
-
-  section.querySelectorAll("img").forEach(img => {
-    const src = String(img.getAttribute("src") || "").toLowerCase();
-    const alt = String(img.getAttribute("alt") || "").toLowerCase();
-    const isChip = src.includes("chip-") || alt.includes("chip");
-    const isPlayerAvatar =
-      img.classList.contains("player-avatar") ||
-      img.closest(".player-avatar-wrap");
-
-    if (isChip && !isPlayerAvatar) {
-      const parent = img.parentElement;
-      img.remove();
-      if (parent && !parent.textContent.trim() && parent.children.length === 0) {
-        parent.remove();
-      }
-    }
-  });
-}
-
 function removeTextAboveHeader(pageSelector, forbiddenText) {
   const page = document.querySelector(pageSelector) || document.body;
   const text = forbiddenText.trim().toLowerCase();
@@ -308,24 +283,33 @@ function removeTextAboveHeader(pageSelector, forbiddenText) {
   });
 }
 
-function ensureHomeEventsSuitRow() {
+function ensureHomeEventsHeaderLayout() {
   const titleEl = Array.from(document.querySelectorAll("h1, h2, h3")).find(
     el => el.textContent.trim().toLowerCase() === "this week's events"
   );
   if (!titleEl) return;
 
-  const host = titleEl.parentElement;
-  if (!host || host.querySelector(".events-header-suits")) return;
+  const parent = titleEl.parentElement;
+  if (!parent) return;
 
-  const suits = document.createElement("div");
-  suits.className = "events-header-suits";
-  suits.innerHTML = `
-    <span class="events-header-suit">♠</span>
-    <span class="events-header-suit">♥</span>
-    <span class="events-header-suit">♦</span>
-    <span class="events-header-suit">♣</span>
-  `;
-  host.insertBefore(suits, titleEl);
+  if (!parent.classList.contains("events-header-row")) {
+    parent.classList.add("events-header-row");
+  }
+
+  let suits = parent.querySelector(".events-header-suits");
+  if (!suits) {
+    suits = document.createElement("div");
+    suits.className = "events-header-suits";
+    suits.innerHTML = `
+      <span class="events-header-suit">♠</span>
+      <span class="events-header-suit">♥</span>
+      <span class="events-header-suit">♣</span>
+      <span class="events-header-suit">♦</span>
+    `;
+    parent.insertBefore(suits, titleEl);
+  }
+
+  titleEl.classList.add("events-header-title");
 }
 
 function removeLeagueLeaderSection() {
@@ -342,6 +326,43 @@ function removeLeagueLeaderSection() {
       if (section) section.remove();
     }
   });
+}
+
+function ensureStandingsHeadline(sortKey) {
+  const table = document.getElementById("standings-table");
+  if (!table) return;
+
+  const parent = table.parentElement;
+  if (!parent) return;
+
+  let headline = document.getElementById("standings-current-stat");
+  if (!headline) {
+    headline = document.createElement("div");
+    headline.id = "standings-current-stat";
+    headline.className = "dashboard-current-stat standings-current-stat";
+    parent.insertBefore(headline, table);
+  }
+
+  headline.innerHTML = `
+    <span class="dashboard-current-icon">${statIcon(sortKey)}</span>
+    <span>${formatStatLabel(sortKey)}</span>
+  `;
+}
+
+function renderHomeTopTable(data) {
+  const tbody = document.querySelector("#home-standings-table tbody");
+  if (!tbody || !data?.players?.length) return;
+
+  tbody.innerHTML = sortPlayers(data.players, "profit").slice(0, 10).map(player => `
+    <tr>
+      <td>${playerInlineMarkup(player, "table")}</td>
+      <td>${player.entries ?? "-"}</td>
+      <td>${player.timesPlaced ?? "-"}</td>
+      <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
+      <td>${fmtNum(player.trueSkillScore)}</td>
+      <td>${player.hits ?? "-"}</td>
+    </tr>
+  `).join("");
 }
 
 function renderHomePage(data) {
@@ -367,7 +388,8 @@ function renderHomePage(data) {
     `).join("");
   }
 
-  ensureHomeEventsSuitRow();
+  renderHomeTopTable(data);
+  ensureHomeEventsHeaderLayout();
   removeLeagueLeaderSection();
 
   const heroSub = Array.from(document.querySelectorAll(".hero-sub, .muted")).find(
@@ -380,6 +402,8 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
 
+  ensureStandingsHeadline(sortKey);
+
   const sorted = sortPlayers(window.siteData.players, sortKey);
   tbody.innerHTML = sorted.map((player, index) => `
     <tr>
@@ -391,7 +415,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
       <td>${player.hits ?? "-"}</td>
       <td>${player.timesPlaced ?? "-"}</td>
       <td>${player.bubbles ?? "-"}</td>
-      <td>${fmtMoney(player.profit)}</td>
+      <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
       <td>${fmtPct(player.roi)}</td>
       <td>${fmtNum(player.trueSkillScore)}</td>
       <td>${fmtNum(player.luckIndex)}</td>
@@ -438,7 +462,6 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const sorted = sortPlayers(window.siteData.players, sortKey);
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index)).join("");
   setActiveSortButton("dashboard", sortKey);
-  removeInjectedChipImages();
 }
 
 function crewCardMarkup(player, data) {
@@ -591,22 +614,32 @@ function recordIcon(label) {
   return "📊";
 }
 
-function honorsCardMarkup(player, title, icon, bottomText, isTop = false, valueClass = "") {
+function honorsCardMarkup(player, category, icon, descriptionText, valueText, isTop = false, valueClass = "") {
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
+
   return `
     <a class="champ-card stat-card-visual honors-card ${isTop ? "is-top-rank" : ""}" href="${href}">
       <div class="honors-card-top">
         ${player ? playerImageMarkup(player, "honors") : ""}
         <div class="honors-card-stack">
           <div class="honors-card-icon">${icon}</div>
-          <div class="honors-card-label">${title}</div>
-          <div class="honors-player-name ${valueClass}">${nameMarkup}</div>
+          <div class="honors-card-label">${category}</div>
+          <div class="honors-player-name">${nameMarkup}</div>
         </div>
       </div>
-      <div class="honors-card-value ${valueClass}">${bottomText}</div>
+      <div class="honors-card-description">${descriptionText}</div>
+      <div class="honors-card-value ${valueClass}">${valueText}</div>
     </a>
   `;
+}
+
+function ensureHonorsSectionTitles() {
+  document.querySelectorAll("h1, h2, h3").forEach(el => {
+    const text = el.textContent.trim().toLowerCase();
+    if (text === "league honors") el.textContent = "Current League Honors";
+    if (text === "league records") el.textContent = "Current League Records";
+  });
 }
 
 function renderChampions(data) {
@@ -614,13 +647,18 @@ function renderChampions(data) {
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
 
+  ensureHonorsSectionTitles();
+
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map((honor, index) => {
       const player = players.find(p => p.name === honor.name);
       const valueClass = String(honor.type || "").toLowerCase().includes("profit")
         ? statValueClass(player || {}, "profit")
         : "";
-      return honorsCardMarkup(player, "Leader", honorIcon(honor.type), honor.note, index === 0, valueClass);
+      const valueText = String(honor.type || "").toLowerCase().includes("profit") && player
+        ? fmtMoney(player.profit)
+        : honor.note;
+      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), "Current category leader", valueText, index === 0, valueClass);
     }).join("");
   }
 
@@ -630,7 +668,7 @@ function renderChampions(data) {
       const valueClass = String(record.label || "").toLowerCase().includes("profit")
         ? valueClassFromMoneyString(record.value)
         : "";
-      return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, index === 0, valueClass);
+      return honorsCardMarkup(player, record.label, recordIcon(record.label), "Record holder", record.value, index === 0, valueClass);
     }).join("");
   }
 }
@@ -781,9 +819,9 @@ function buildRulesChipCard(chip) {
   const firstCandidate = escapeHtmlAttr(candidates[0] || "");
   const candidateAttr = escapeHtmlAttr(candidates.join("|"));
   const label = escapeHtmlAttr(chip.label);
-  const countText = `Starting count per player: ${chip.count}`;
+
   return `
-    <div class="rules-chip-card" title="${label} • ${countText}">
+    <div class="rules-chip-card" title="${label} • Set per player: ${chip.count}">
       <img
         class="rules-chip-image"
         src="${firstCandidate}"
@@ -796,7 +834,7 @@ function buildRulesChipCard(chip) {
       >
       <div class="rules-chip-fallback">${label}</div>
       <div class="rules-chip-label">${label}</div>
-      <div class="rules-chip-count">${countText}</div>
+      <div class="rules-chip-count">Set per player</div>
     </div>
   `;
 }
