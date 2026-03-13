@@ -311,152 +311,167 @@ function renderHomePage(data) {
   });
 }
 
-function renderStandings(key) {
+function renderStandingsPage(data) {
   const tbody = document.querySelector("#standings-table tbody");
-  if (!tbody || !window.siteData?.players) return;
+  if (!tbody) return;
 
+  const players = sortPlayers(data.players || [], "profit");
   tbody.innerHTML = "";
-  sortPlayers(window.siteData.players, key).forEach((player, i) => {
+
+  players.forEach(player => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${i + 1}</td>
       <td>${playerInlineMarkup(player, "tiny")}</td>
       <td>${player.entries ?? "-"}</td>
-      <td>${player.hits ?? "-"}</td>
+      <td>${player.buyIns ?? "-"}</td>
+      <td>${player.rebuys ?? "-"}</td>
       <td>${player.timesPlaced ?? "-"}</td>
       <td>${player.bubbles ?? "-"}</td>
+      <td>${player.hits ?? "-"}</td>
       <td>${fmtMoney(player.profit)}</td>
       <td>${fmtPct(player.roi)}</td>
       <td>${fmtNum(player.trueSkillScore)}</td>
-      <td>${fmtNum(player.luckIndex)}</td>
-      <td>${fmtNum(player.clutchIndex)}</td>
     `;
     tbody.appendChild(tr);
   });
 }
 
-function renderDashboardSortable(key) {
-  const grid = document.getElementById("dashboard-grid");
-  if (!grid || !window.siteData?.players) return;
-
-  const sorted = sortPlayers(window.siteData.players, key);
-  grid.innerHTML = sorted.map((player, i) => `
-    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(player.name)}">
-      <div class="player-card-top">
-        ${playerImageMarkup(player, "medium")}
-        <div class="player-card-meta">
-          <div class="kicker">#${i + 1} • ${formatStatLabel(key)}</div>
-          <h3>${displayPlayerName(player)}</h3>
-        </div>
+function statCardMarkup(title, value, subtitle, icon = "♠", badge = "") {
+  return `
+    <div class="stat-card stat-card-visual">
+      <div class="stat-topline">
+        <div class="stat-icon-wrap"><span class="stat-icon">${icon}</span></div>
+        ${badge ? `<div class="stat-badge">${badge}</div>` : ""}
       </div>
-      <div class="player-card-stats">
-        <p class="muted"><strong>${formatStatLabel(key)}:</strong> ${formatStatValue(player, key)}</p>
-        <p class="muted">Profit: ${fmtMoney(player.profit)}</p>
-        <p class="muted">Power: ${fmtNum(player.trueSkillScore)}</p>
-        <p class="muted">Hits: ${player.hits ?? "-"}</p>
-        <p class="muted">Cashes: ${player.timesPlaced ?? "-"}</p>
-        ${badgesMarkup(player, window.siteData)}
-      </div>
-    </a>
-  `).join("");
-}
-
-function renderPlayers(data) {
-  const grid = document.getElementById("players-grid");
-  if (!grid || !data.players) return;
-
-  grid.innerHTML = data.players.map(player => `
-    <a class="player-card player-card-rich" href="player.html?name=${encodeURIComponent(player.name)}">
-      <div class="player-card-top">
-        ${playerImageMarkup(player, "medium")}
-        <div class="player-card-meta">
-          <div class="kicker">Player</div>
-          <h3>${displayPlayerName(player)}</h3>
-        </div>
-      </div>
-      <div class="player-card-stats">
-        <p class="muted">Profit: ${fmtMoney(player.profit)}</p>
-        <p class="muted">Power: ${fmtNum(player.trueSkillScore)}</p>
-        <p class="muted">Hits: ${player.hits ?? "-"}</p>
-        <p class="muted">Cashes: ${player.timesPlaced ?? "-"}</p>
-        ${badgesMarkup(player, data)}
-      </div>
-    </a>
-  `).join("");
-}
-
-function renderPlayerProfile(data) {
-  const params = new URLSearchParams(window.location.search);
-  const name = params.get("name");
-  const players = data.players || [];
-  if (!players.length) return;
-
-  const player = players.find(p => p.name === name) || players[0];
-  const container = document.getElementById("player-profile");
-
-  if (container) {
-    container.innerHTML = `
-      <div class="profile-shell">
-        <div class="profile-hero">
-          <div class="profile-hero-left">
-            ${playerImageMarkup(player, "large")}
-            <div>
-              <div class="kicker">Player Profile</div>
-              <h2>${displayPlayerName(player)}</h2>
-              <p class="profile-quote">${getPlayerQuote(player.name)}</p>
-              ${badgesMarkup(player, data)}
-            </div>
-          </div>
-        </div>
-
-        <div class="profile-grid">
-          <div class="profile-stat"><span class="kicker">Entries</span><div class="metric">${player.entries ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Buy-ins</span><div class="metric">${player.buyIns ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Rebuys</span><div class="metric">${player.rebuys ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Hits</span><div class="metric">${player.hits ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Cashes</span><div class="metric">${player.timesPlaced ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Bubbles</span><div class="metric">${player.bubbles ?? "-"}</div></div>
-          <div class="profile-stat"><span class="kicker">Profit</span><div class="metric ${Number(player.profit) < 0 ? "negative" : "positive"}">${fmtMoney(player.profit)}</div></div>
-          <div class="profile-stat"><span class="kicker">ROI</span><div class="metric">${fmtPct(player.roi)}</div></div>
-          <div class="profile-stat"><span class="kicker">Power</span><div class="metric">${fmtNum(player.trueSkillScore)}</div></div>
-          <div class="profile-stat"><span class="kicker">Luck</span><div class="metric">${fmtNum(player.luckIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Clutch</span><div class="metric">${fmtNum(player.clutchIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Cash Rate</span><div class="metric">${fmtPct(player.cashRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Bubble Rate</span><div class="metric">${fmtPct(player.bubbleRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Hit Rate</span><div class="metric">${fmtPct(player.hitRate)}</div></div>
-          <div class="profile-stat"><span class="kicker">Aggression</span><div class="metric">${fmtNum(player.aggressionIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Survivor</span><div class="metric">${fmtNum(player.survivorIndex)}</div></div>
-          <div class="profile-stat"><span class="kicker">Tilt</span><div class="metric">${fmtNum(player.tiltIndex)}</div></div>
-        </div>
-      </div>
-    `;
-  }
-
-  const navEl = document.getElementById("player-nav");
-  if (!navEl) return;
-
-  const index = players.findIndex(p => p.name === player.name);
-  const prev = players[(index - 1 + players.length) % players.length];
-  const next = players[(index + 1) % players.length];
-
-  navEl.innerHTML = `
-    <a class="btn" href="player.html?name=${encodeURIComponent(prev.name)}">← Previous: ${displayPlayerName(prev)}</a>
-    <a class="btn" href="players.html">The Crew</a>
-    <a class="btn" href="player.html?name=${encodeURIComponent(next.name)}">Next: ${displayPlayerName(next)} →</a>
+      <h3>${title}</h3>
+      <p class="value">${value}</p>
+      <p class="muted">${subtitle}</p>
+    </div>
   `;
 }
 
-function renderSchedule(data) {
-  const list = document.getElementById("schedule-list");
-  if (!list) return;
+function renderDashboardPage(data) {
+  const host = document.getElementById("dashboard-grid");
+  if (!host) return;
 
-  const scheduleEvents = getCurrentEvents(data);
+  const players = data.players || [];
+  if (!players.length) return;
 
-  list.innerHTML = scheduleEvents.map(event => `
+  const profit = sortPlayers(players, "profit")[0];
+  const power = sortPlayers(players, "trueSkillScore")[0];
+  const luck = sortPlayers(players, "luckIndex")[0];
+  const clutch = sortPlayers(players, "clutchIndex")[0];
+  const hits = sortPlayers(players, "hits")[0];
+  const bubbles = sortPlayers(players, "bubbles")[0];
+
+  host.innerHTML = [
+    statCardMarkup("Profit Leader", fmtMoney(profit.profit), displayPlayerName(profit), "💰", "Leader"),
+    statCardMarkup("Power Leader", fmtNum(power.trueSkillScore), displayPlayerName(power), "🏆", "Top"),
+    statCardMarkup("Luck Leader", fmtNum(luck.luckIndex), displayPlayerName(luck), "🍀", "Hot"),
+    statCardMarkup("Clutch Leader", fmtNum(clutch.clutchIndex), displayPlayerName(clutch), "🎯", "Closer"),
+    statCardMarkup("Hit Leader", `${hits.hits}`, displayPlayerName(hits), "💥", "KO"),
+    statCardMarkup("Bubble Leader", `${bubbles.bubbles}`, displayPlayerName(bubbles), "🫧", "Ouch")
+  ].join("");
+}
+
+function buildPlayerStatCards(player) {
+  const keys = [
+    "entries",
+    "buyIns",
+    "rebuys",
+    "hits",
+    "timesPlaced",
+    "bubbles",
+    "profit",
+    "roi",
+    "cashRate",
+    "bubbleRate",
+    "hitRate",
+    "trueSkillScore",
+    "luckIndex",
+    "clutchIndex",
+    "aggressionIndex",
+    "survivorIndex",
+    "tiltIndex"
+  ];
+
+  return keys.map(key => `
+    <div class="profile-stat">
+      <div class="kicker">${formatStatLabel(key)}</div>
+      <div class="metric ${key === "profit" ? (Number(player[key]) >= 0 ? "positive" : "negative") : ""}">
+        ${formatStatValue(player, key)}
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderPlayersPage(data) {
+  const grid = document.getElementById("players-grid");
+  if (!grid) return;
+
+  const players = sortPlayers(data.players || [], "trueSkillScore");
+  grid.innerHTML = players.map(player => `
+    <div class="player-card">
+      <div class="player-card-top">
+        ${playerImageMarkup(player, "medium")}
+        <div style="min-width:0;">
+          <div class="kicker">Player</div>
+          <h3><a href="player.html?name=${encodeURIComponent(player.name)}">${displayPlayerName(player)}</a></h3>
+          <p class="muted">Power ${fmtNum(player.trueSkillScore)} • Profit ${fmtMoney(player.profit)}</p>
+        </div>
+      </div>
+      <p class="muted"><strong>Entries:</strong> ${player.entries ?? "-"}</p>
+      <p class="muted"><strong>Cashes:</strong> ${player.timesPlaced ?? "-"}</p>
+      <p class="muted"><strong>Hits:</strong> ${player.hits ?? "-"}</p>
+      <p class="muted"><strong>Bubble Rate:</strong> ${fmtPct(player.bubbleRate)}</p>
+      ${badgesMarkup(player, data)}
+    </div>
+  `).join("");
+}
+
+function renderSinglePlayerPage(data) {
+  const shell = document.getElementById("player-profile");
+  if (!shell) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  if (!name) return;
+
+  const player = (data.players || []).find(p => p.name === name);
+  if (!player) {
+    shell.innerHTML = `<div class="section"><p>Player not found.</p></div>`;
+    return;
+  }
+
+  shell.innerHTML = `
+    <div class="profile-shell">
+      <div class="profile-hero">
+        ${playerImageMarkup(player, "medium")}
+        <div>
+          <div class="kicker">Player Profile</div>
+          <h2 style="margin:0;">${displayPlayerName(player)}</h2>
+          <p class="profile-quote">${getPlayerQuote(player.name)}</p>
+          ${badgesMarkup(player, data)}
+        </div>
+      </div>
+      <div class="profile-grid">
+        ${buildPlayerStatCards(player)}
+      </div>
+    </div>
+  `;
+}
+
+function renderSchedulePage(data) {
+  const host = document.getElementById("schedule-list");
+  if (!host) return;
+
+  const events = getCurrentEvents(data);
+
+  host.innerHTML = events.map(event => `
     <div class="event-card">
       <div class="event-card-topline">
         <div class="kicker">${event.title}</div>
-        <div class="event-icon event-icon-card">♠</div>
+        <div class="event-icon event-icon-card">♦</div>
       </div>
       <h3>${event.date}</h3>
       <p class="muted"><strong>Start:</strong> ${event.time}</p>
@@ -543,6 +558,7 @@ const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
     subtitle: "Starting stack: 40,000 • All levels 20 minutes • All breaks 10 minutes",
+    runtimeMinutes: 300,
     chips: [
       { label: "T-25", count: 20, image: "images/site/chip-T-25.png" },
       { label: "T-100", count: 20, image: "images/site/chip-T-100.png" },
@@ -578,6 +594,7 @@ const RULES_FORMATS = {
   "500k": {
     title: "500K Small Blind Ante",
     subtitle: "Starting stack: 500,000 • All levels 20 minutes • All breaks 10 minutes",
+    runtimeMinutes: 300,
     chips: [
       { label: "T-500", count: 20, image: "images/site/chip-T-500.png" },
       { label: "T-1000", count: 20, image: "images/site/chip-T-1000.png" },
@@ -615,7 +632,8 @@ const RULES_FORMATS = {
 function buildRulesTimerRail(format) {
   const totalLevels = format.levels.filter(row => row.type === "level").length;
   const totalBreaks = format.levels.filter(row => row.type === "break").length;
-  const totalMinutes = (totalLevels * 20) + (totalBreaks * 10);
+  const calculatedMinutes = (totalLevels * 20) + (totalBreaks * 10);
+  const totalMinutes = Number(format.runtimeMinutes ?? calculatedMinutes);
 
   return `
     <div class="timer-rail">
@@ -626,17 +644,94 @@ function buildRulesTimerRail(format) {
   `;
 }
 
+function escapeHtmlAttr(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function buildChipImageCandidates(chip) {
+  const original = String(chip.image || "").trim();
+  const labelNumber = String(chip.label || "").replace(/[^0-9]/g, "");
+  const dir = original.includes("/") ? original.slice(0, original.lastIndexOf("/") + 1) : "";
+  const extMatch = original.match(/\.([a-zA-Z0-9]+)$/);
+  const originalExt = extMatch ? extMatch[1].toLowerCase() : "png";
+  const exts = [originalExt, "png", "webp", "jpg", "jpeg"];
+  const baseVariants = [
+    `chip-T-${labelNumber}`,
+    `chip-T${labelNumber}`,
+    `chip-t-${labelNumber}`,
+    `chip-t${labelNumber}`
+  ];
+
+  const candidates = [];
+  if (original) candidates.push(original);
+
+  baseVariants.forEach(base => {
+    exts.forEach(ext => {
+      candidates.push(`${dir}${base}.${ext}`);
+    });
+  });
+
+  return [...new Set(candidates.filter(Boolean))];
+}
+
+window.tlptHandleRuleChipError = function tlptHandleRuleChipError(img) {
+  const candidates = (img.dataset.candidates || "")
+    .split("|")
+    .map(item => item.trim())
+    .filter(Boolean);
+
+  const currentIndex = Number(img.dataset.candidateIndex || 0);
+  const nextIndex = currentIndex + 1;
+
+  if (nextIndex < candidates.length) {
+    img.dataset.candidateIndex = String(nextIndex);
+    img.src = candidates[nextIndex];
+    return;
+  }
+
+  img.classList.add("is-missing");
+  const fallback = img.nextElementSibling;
+  if (fallback && fallback.classList.contains("rules-chip-fallback")) {
+    fallback.classList.add("is-visible");
+  }
+};
+
+function buildRulesChipCard(chip) {
+  const candidates = buildChipImageCandidates(chip);
+  const candidateAttr = escapeHtmlAttr(candidates.join("|"));
+  const firstCandidate = escapeHtmlAttr(candidates[0] || "");
+  const label = escapeHtmlAttr(chip.label);
+  const countText = `Starting count per player: ${chip.count}`;
+
+  return `
+    <div class="rules-chip-card" title="${label} • ${countText}">
+      <img
+        class="rules-chip-image"
+        src="${firstCandidate}"
+        alt="${label}"
+        data-candidates="${candidateAttr}"
+        data-candidate-index="0"
+        loading="lazy"
+        decoding="async"
+        onerror="window.tlptHandleRuleChipError(this)"
+      >
+      <div class="rules-chip-fallback">${label}</div>
+      <div class="rules-chip-label">${label}</div>
+      <div class="rules-chip-count">${countText}</div>
+    </div>
+  `;
+}
+
 function buildRulesChipPanel(format) {
   return `
     <div class="rules-chip-panel">
       <div class="rules-chip-grid">
-        ${format.chips.map(chip => `
-          <div class="rules-chip-card" title="${chip.label} • Starting count per player: ${chip.count}">
-            <img class="rules-chip-image" src="${chip.image}" alt="${chip.label}" onerror="this.style.display='none'">
-            <div class="rules-chip-label">${chip.label}</div>
-            <div class="rules-chip-count">Starting count per player: ${chip.count}</div>
-          </div>
-        `).join("")}
+        ${format.chips.map(chip => buildRulesChipCard(chip)).join("")}
       </div>
     </div>
   `;
@@ -723,3 +818,84 @@ function initRulesPage() {
   if (!document.getElementById("format-content")) return;
   showFormat("40k");
 }
+
+function renderMediaPage(data) {
+  const host = document.getElementById("media-grid");
+  if (!host || !Array.isArray(data.media)) return;
+
+  host.innerHTML = data.media.map(item => {
+    const isYouTube = item.type === "youtube";
+    const isX = item.type === "x";
+    const isLink = item.type === "link";
+
+    let embed = "";
+    if (isYouTube) {
+      embed = `
+        <div class="media-frame">
+          <div class="media-embed-wrap">
+            <iframe
+              src="${item.embed}"
+              title="${item.title}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      `;
+    } else if (isX) {
+      embed = `
+        <div class="media-frame">
+          <div class="media-x-wrap">
+            <blockquote class="twitter-tweet">
+              <a href="${item.url}">${item.title}</a>
+            </blockquote>
+          </div>
+        </div>
+      `;
+    } else if (isLink) {
+      embed = `
+        <a class="media-frame media-frame-link" href="${item.url}" target="_blank" rel="noopener">
+          <div class="media-link-panel">
+            <div class="media-link-icon">${item.icon || "🔗"}</div>
+            <div class="kicker">${item.kicker || "Link"}</div>
+            <strong>${item.title}</strong>
+          </div>
+        </a>
+      `;
+    }
+
+    return `
+      <div class="media-card">
+        ${embed}
+        <div class="media-copy">
+          <div class="kicker">${item.kicker || "Media"}</div>
+          <h3>${item.title}</h3>
+          <p class="muted">${item.description || ""}</p>
+          ${item.url ? `<a class="btn" href="${item.url}" target="_blank" rel="noopener">Open</a>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  if (window.twttr && typeof window.twttr.widgets?.load === "function") {
+    window.twttr.widgets.load();
+  }
+}
+
+async function main() {
+  const data = await loadSiteData();
+
+  renderHomePage(data);
+  renderStandingsPage(data);
+  renderDashboardPage(data);
+  renderPlayersPage(data);
+  renderSinglePlayerPage(data);
+  renderSchedulePage(data);
+  renderChampions(data);
+  initRulesPage();
+  renderMediaPage(data);
+}
+
+main();
