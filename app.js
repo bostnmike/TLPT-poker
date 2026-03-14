@@ -1,3 +1,4 @@
+/* app.js */
 async function loadSiteData() {
   const res = await fetch("site-data.json", { cache: "no-store" });
   return await res.json();
@@ -30,29 +31,28 @@ const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
 
 const STAT_FORMULAS = {
-  profit: "Profit = Total Take − Total Cost",
-  roi: "ROI = Profit ÷ Total Cost",
-  cashRate: "Cash Rate = Times Placed ÷ Buy-ins",
-  bubbleRate: "Bubble Rate = Bubbles ÷ Buy-ins",
-  hitRate: "Hit Rate = Hits ÷ (Buy-ins + Rebuys)",
-  entries: "Entries = Buy-ins + Rebuys",
-  buyIns: "Buy-ins = Total number of initial tournament entries purchased",
-  rebuys: "Rebuys = Total number of re-entry purchases after busting",
-  hits: "Hits = Total number of opponents eliminated by the player",
-  timesPlaced: "Times Placed = Total number of times the player finished in the money",
-  bubbles: "Bubbles = Total number of times the player finished one position outside the money",
-  trueSkillScore: "True Skill = (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
-  luckIndex: "Luck Index = Profit − Expected Profit",
-  clutchIndex: "Clutch Index = (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
-  aggressionIndex: "Aggression Index = Hits ÷ Entries",
-  survivorIndex: "Survivor Index = Cash Rate × (1 − Bubble Rate)",
-  tiltIndex: "Tilt Index = (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
-  expectedProfit: "Expected Profit = Entries × League Average Profit per Entry"
+  profit: "Profit: Total Take − Total Cost",
+  roi: "ROI: Profit ÷ Total Cost",
+  cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
+  bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
+  hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
+  entries: "Entries: Buy-ins + Rebuys",
+  buyIns: "Buy-ins: Total number of initial tournament entries purchased",
+  rebuys: "Rebuys: Total number of re-entry purchases after busting",
+  hits: "Hits: Total number of opponents eliminated by the player",
+  timesPlaced: "Times Placed: Total number of times the player finished in the money",
+  bubbles: "Bubbles: Total number of times the player finished one position outside the money",
+  trueSkillScore: "True Skill: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
+  luckIndex: "Luck Index: Profit − Expected Profit",
+  clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
+  aggressionIndex: "Aggression Index: Hits ÷ Entries",
+  survivorIndex: "Survivor Index: Cash Rate × (1 − Bubble Rate)",
+  tiltIndex: "Tilt Index: (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
+  expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
 const DASHBOARD_META = {
   profit: { label: "Profit", icon: "💰", formula: STAT_FORMULAS.profit },
-  trueSkillScore: { label: "Power", icon: "🏆", formula: STAT_FORMULAS.trueSkillScore },
   roi: { label: "ROI", icon: "📈", formula: STAT_FORMULAS.roi },
   hits: { label: "Hits", icon: "💥", formula: STAT_FORMULAS.hits },
   timesPlaced: { label: "Cashes", icon: "💵", formula: STAT_FORMULAS.timesPlaced },
@@ -60,6 +60,7 @@ const DASHBOARD_META = {
   hitRate: { label: "Hit Rate", icon: "💥", formula: STAT_FORMULAS.hitRate },
   cashRate: { label: "Cash Rate", icon: "💵", formula: STAT_FORMULAS.cashRate },
   bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: STAT_FORMULAS.bubbleRate },
+  trueSkillScore: { label: "Power", icon: "🏆", formula: STAT_FORMULAS.trueSkillScore },
   luckIndex: { label: "Luck", icon: "🍀", formula: STAT_FORMULAS.luckIndex },
   clutchIndex: { label: "Clutch", icon: "🎯", formula: STAT_FORMULAS.clutchIndex },
   aggressionIndex: { label: "Aggression", icon: "⚡", formula: STAT_FORMULAS.aggressionIndex },
@@ -85,6 +86,79 @@ const CHIP_SET_TEXT = {
     "T-25000": 6,
     "T-100000": 1,
     "T-250000": 0
+  }
+};
+
+const RULES_FORMATS = {
+  "40k": {
+    title: "40K Small Blind Ante",
+    runtimeMinutes: 300,
+    chips: [
+      { label: "T-25", image: "images/site/chip-T-25.png" },
+      { label: "T-100", image: "images/site/chip-T-100.png" },
+      { label: "T-500", image: "images/site/chip-T-500.png" },
+      { label: "T-1000", image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", image: "images/site/chip-T-25000.png" }
+    ],
+    levels: [
+      { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
+      { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB" },
+      { type: "level", level: "3", sb: "125", bb: "250", ante: "", eff: "160 BB" },
+      { type: "level", level: "4", sb: "200", bb: "400", ante: "", eff: "100 BB" },
+      { type: "break", note: "BREAK — Chip up T-25" },
+      { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB" },
+      { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB" },
+      { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB" },
+      { type: "break", note: "BREAK — Chip up T-100" },
+      { type: "level", level: "8", sb: "1,500", bb: "3,000", ante: "1,500", eff: "" },
+      { type: "level", level: "9", sb: "2,500", bb: "5,000", ante: "2,500", eff: "" },
+      { type: "level", level: "10", sb: "4,000", bb: "8,000", ante: "4,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-500" },
+      { type: "level", level: "11", sb: "6,000", bb: "12,000", ante: "6,000", eff: "" },
+      { type: "level", level: "12", sb: "10,000", bb: "20,000", ante: "10,000", eff: "" },
+      { type: "level", level: "13", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-1000 & T-5000" },
+      { type: "level", level: "14", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
+      { type: "level", level: "15", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
+      { type: "level", level: "16", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" }
+    ]
+  },
+  "500k": {
+    title: "500K Small Blind Ante",
+    runtimeMinutes: 300,
+    chips: [
+      { label: "T-500", image: "images/site/chip-T-500.png" },
+      { label: "T-1000", image: "images/site/chip-T-1000.png" },
+      { label: "T-5000", image: "images/site/chip-T-5000.png" },
+      { label: "T-10000", image: "images/site/chip-T-10000.png" },
+      { label: "T-25000", image: "images/site/chip-T-25000.png" },
+      { label: "T-100000", image: "images/site/chip-T-100000.png" },
+      { label: "T-250000", image: "images/site/chip-T-250000.png" }
+    ],
+    levels: [
+      { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
+      { type: "level", level: "2", sb: "1,000", bb: "2,000", ante: "", eff: "250 BB" },
+      { type: "level", level: "3", sb: "1,500", bb: "3,000", ante: "", eff: "166 BB" },
+      { type: "level", level: "4", sb: "2,500", bb: "5,000", ante: "", eff: "100 BB" },
+      { type: "break", note: "BREAK — Chip up T-500" },
+      { type: "level", level: "5", sb: "4,000", bb: "8,000", ante: "4,000", eff: "62 BB" },
+      { type: "level", level: "6", sb: "6,000", bb: "12,000", ante: "6,000", eff: "41 BB" },
+      { type: "level", level: "7", sb: "10,000", bb: "20,000", ante: "10,000", eff: "25 BB" },
+      { type: "break", note: "BREAK — Chip up T-1000" },
+      { type: "level", level: "8", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
+      { type: "level", level: "9", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
+      { type: "level", level: "10", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-5000" },
+      { type: "level", level: "11", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" },
+      { type: "level", level: "12", sb: "100,000", bb: "200,000", ante: "100,000", eff: "" },
+      { type: "level", level: "13", sb: "150,000", bb: "300,000", ante: "150,000", eff: "" },
+      { type: "break", note: "BREAK — Chip up T-10000" },
+      { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "" },
+      { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "" },
+      { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "" }
+    ]
   }
 };
 
@@ -434,9 +508,9 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   setActiveSortButton("standings", sortKey);
 }
 
-function dashboardCardMarkup(player, sortKey, index) {
+function dashboardCardMarkup(player, sortKey) {
   return `
-    <a class="player-card player-card-rich dashboard-card ${index === 0 ? "is-top-rank" : ""}" href="${playerUrl(player)}">
+    <a class="player-card player-card-rich dashboard-card" href="${playerUrl(player)}">
       <div class="dashboard-card-top">
         ${playerImageMarkup(player, "dashboard")}
       </div>
@@ -452,7 +526,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   ensureDashboardHeadline(sortKey);
   const sorted = sortPlayers(window.siteData.players, sortKey);
-  grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index)).join("");
+  grid.innerHTML = sorted.map(player => dashboardCardMarkup(player, sortKey)).join("");
   setActiveSortButton("dashboard", sortKey);
 }
 
@@ -535,16 +609,18 @@ function renderPlayerProfile(data) {
       <div class="profile-hero profile-hero-wide player-profile-hero">
         <div class="player-profile-left">
           ${playerImageMarkup(player, "profile")}
-          <p class="player-formula-help muted">mouse over any stat to reveal the calculation formula.</p>
+          <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
         </div>
+
         <div class="profile-hero-copy player-profile-copy">
           <div class="kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
           <p class="profile-quote">${quote}</p>
-          <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
           ${badgesMarkup(player, data)}
         </div>
       </div>
+
+      <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
 
       <div id="player-nav" class="player-nav">
         <a class="btn" href="${playerUrl(prev)}">← Previous: ${displayPlayerName(prev)}</a>
@@ -652,7 +728,7 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl && Array.isArray(data?.honors)) {
-    honorsEl.innerHTML = data.honors.map((honor, index) => {
+    honorsEl.innerHTML = data.honors.map(honor => {
       const player = players.find(p => p.name === honor.name);
       const valueClass = String(honor.type || "").toLowerCase().includes("profit")
         ? statValueClass(player || {}, "profit")
@@ -660,93 +736,20 @@ function renderChampions(data) {
       const valueText = String(honor.type || "").toLowerCase().includes("profit") && player
         ? fmtMoney(player.profit)
         : honor.note;
-      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), valueText, index === 0, valueClass);
+      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), valueText, false, valueClass);
     }).join("");
   }
 
   if (recordsEl && Array.isArray(data?.records)) {
-    recordsEl.innerHTML = data.records.map((record, index) => {
+    recordsEl.innerHTML = data.records.map(record => {
       const player = players.find(p => p.name === record.name);
       const valueClass = String(record.label || "").toLowerCase().includes("profit")
         ? valueClassFromMoneyString(record.value)
         : "";
-      return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, index === 0, valueClass);
+      return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, false, valueClass);
     }).join("");
   }
 }
-
-const RULES_FORMATS = {
-  "40k": {
-    title: "40K Small Blind Ante",
-    runtimeMinutes: 300,
-    chips: [
-      { label: "T-25", image: "images/site/chip-T-25.png" },
-      { label: "T-100", image: "images/site/chip-T-100.png" },
-      { label: "T-500", image: "images/site/chip-T-500.png" },
-      { label: "T-1000", image: "images/site/chip-T-1000.png" },
-      { label: "T-5000", image: "images/site/chip-T-5000.png" },
-      { label: "T-10000", image: "images/site/chip-T-10000.png" },
-      { label: "T-25000", image: "images/site/chip-T-25000.png" }
-    ],
-    levels: [
-      { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
-      { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB" },
-      { type: "level", level: "3", sb: "125", bb: "250", ante: "", eff: "160 BB" },
-      { type: "level", level: "4", sb: "200", bb: "400", ante: "", eff: "100 BB" },
-      { type: "break", note: "BREAK — Chip up T-25" },
-      { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB" },
-      { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB" },
-      { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB" },
-      { type: "break", note: "BREAK — Chip up T-100" },
-      { type: "level", level: "8", sb: "1,500", bb: "3,000", ante: "1,500", eff: "" },
-      { type: "level", level: "9", sb: "2,500", bb: "5,000", ante: "2,500", eff: "" },
-      { type: "level", level: "10", sb: "4,000", bb: "8,000", ante: "4,000", eff: "" },
-      { type: "break", note: "BREAK — Chip up T-500" },
-      { type: "level", level: "11", sb: "6,000", bb: "12,000", ante: "6,000", eff: "" },
-      { type: "level", level: "12", sb: "10,000", bb: "20,000", ante: "10,000", eff: "" },
-      { type: "level", level: "13", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
-      { type: "break", note: "BREAK — Chip up T-1000 & T-5000" },
-      { type: "level", level: "14", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
-      { type: "level", level: "15", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
-      { type: "level", level: "16", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" }
-    ]
-  },
-  "500k": {
-    title: "500K Small Blind Ante",
-    runtimeMinutes: 300,
-    chips: [
-      { label: "T-500", image: "images/site/chip-T-500.png" },
-      { label: "T-1000", image: "images/site/chip-T-1000.png" },
-      { label: "T-5000", image: "images/site/chip-T-5000.png" },
-      { label: "T-10000", image: "images/site/chip-T-10000.png" },
-      { label: "T-25000", image: "images/site/chip-T-25000.png" },
-      { label: "T-100000", image: "images/site/chip-T-100000.png" },
-      { label: "T-250000", image: "images/site/chip-T-250000.png" }
-    ],
-    levels: [
-      { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
-      { type: "level", level: "2", sb: "1,000", bb: "2,000", ante: "", eff: "250 BB" },
-      { type: "level", level: "3", sb: "1,500", bb: "3,000", ante: "", eff: "166 BB" },
-      { type: "level", level: "4", sb: "2,500", bb: "5,000", ante: "", eff: "100 BB" },
-      { type: "break", note: "BREAK — Chip up T-500" },
-      { type: "level", level: "5", sb: "4,000", bb: "8,000", ante: "4,000", eff: "62 BB" },
-      { type: "level", level: "6", sb: "6,000", bb: "12,000", ante: "6,000", eff: "41 BB" },
-      { type: "level", level: "7", sb: "10,000", bb: "20,000", ante: "10,000", eff: "25 BB" },
-      { type: "break", note: "BREAK — Chip up T-1000" },
-      { type: "level", level: "8", sb: "15,000", bb: "30,000", ante: "15,000", eff: "" },
-      { type: "level", level: "9", sb: "25,000", bb: "50,000", ante: "25,000", eff: "" },
-      { type: "level", level: "10", sb: "40,000", bb: "80,000", ante: "40,000", eff: "" },
-      { type: "break", note: "BREAK — Chip up T-5000" },
-      { type: "level", level: "11", sb: "60,000", bb: "120,000", ante: "60,000", eff: "" },
-      { type: "level", level: "12", sb: "100,000", bb: "200,000", ante: "100,000", eff: "" },
-      { type: "level", level: "13", sb: "150,000", bb: "300,000", ante: "150,000", eff: "" },
-      { type: "break", note: "BREAK — Chip up T-10000" },
-      { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "" },
-      { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "" },
-      { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "" }
-    ]
-  }
-};
 
 function buildRulesTimerRail(format) {
   return `
