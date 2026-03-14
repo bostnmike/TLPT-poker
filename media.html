@@ -1,127 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TLPT Media</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TLPT Media</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* thumbnail play overlay */
+
+.media-thumb-link{
+position:relative;
+display:block;
+border-radius:12px;
+overflow:hidden;
+}
+
+.media-thumb{
+width:100%;
+display:block;
+border-radius:12px;
+transition:transform .25s ease;
+}
+
+.media-play-overlay{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:46px;
+color:white;
+background:rgba(0,0,0,.6);
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+transition:all .25s ease;
+}
+
+.media-thumb-link:hover .media-thumb{
+transform:scale(1.05);
+}
+
+.media-thumb-link:hover .media-play-overlay{
+background:var(--gold);
+color:#000;
+}
+
+</style>
+
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div>
-        <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">The League. The Players. The Tilt.</p>
-      </div>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="standings.html">Standings</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">Players</a>
-        <a href="schedule.html">Schedule</a>
-        <a href="champions.html">Honors</a>
-        <a href="rules.html">Rules</a>
-        <a href="media.html">Media</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+<div class="wrap header-inner">
 
-  <main class="wrap">
-    <section class="hero-stack">
-      <section class="hero">
-        <div class="hero-copy hero-copy-enhanced hero-home-copy">
-          <h2 class="hero-title">TLPT Media</h2>
-          <p class="hero-sub">The League. The Players. The Tilt.</p>
-        </div>
-      </section>
+<div>
+<h1 class="logo">TLPT Poker League</h1>
+<p class="tag">The League. The Players. The Tilt.</p>
+</div>
 
-      <section class="section media-header">
-        <div class="section-head page-title-row compact-page-title-row">
-          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-5000.png" alt="T-5000 chip" onerror="this.style.display='none';" />
-          <h2>TLPT Media</h2>
-        </div>
+<nav class="nav">
+<a href="index.html">Home</a>
+<a href="standings.html">Standings</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="players.html">Players</a>
+<a href="schedule.html">Schedule</a>
+<a href="champions.html">Honors</a>
+<a href="rules.html">Rules</a>
+<a href="media.html">Media</a>
+</nav>
 
-        <div class="media-grid">
-          <article class="media-card">
-            <div class="media-copy" style="padding-bottom: 0;">
-              <h3 style="color: var(--gold); margin: 0 0 12px 0;">The Nitro “Origin Story”</h3>
-            </div>
-            <div class="media-frame">
-              <div class="media-embed-wrap">
-                <iframe
-                  src="https://www.youtube.com/embed/TP_ihbI4BkI"
-                  title="The Nitro Origin Story"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </article>
+</div>
+</header>
 
-          <article class="media-card">
-            <div class="media-copy" style="padding-bottom: 0;">
-              <h3 style="color: var(--gold); margin: 0 0 12px 0;">Return of the Nitro</h3>
-            </div>
-            <div class="media-frame">
-              <div class="media-embed-wrap">
-                <iframe
-                  src="https://www.youtube.com/embed/hVs41qBEIHo"
-                  title="Return of the Nitro"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </article>
 
-          <article class="media-card">
-            <div class="media-copy" style="padding-bottom: 0;">
-              <h3 style="color: var(--gold); margin: 0 0 12px 0;">TLTP 2025-26 Mid-Season Awards</h3>
-            </div>
-            <div class="media-frame">
-              <div class="media-embed-wrap">
-                <iframe
-                  src="https://www.youtube.com/embed/RPCM5CLNBjk"
-                  title="TLTP 2025-26 Mid-Season Awards"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen>
-                </iframe>
-              </div>
-            </div>
-          </article>
+<main class="wrap">
 
-          <article class="media-card">
-            <div class="media-copy" style="padding-bottom: 0;">
-              <h3 style="color: var(--gold); margin: 0 0 12px 0;">The Nitro Strikes Back</h3>
-            </div>
-            <div class="media-frame media-frame-link">
-              <div class="media-link-panel">
-                <div class="media-link-icon">𝕏</div>
-                <p class="muted">
-                  Watch the Nitro strike again on X.
-                </p>
-                <a
-                  class="btn btn-primary"
-                  href="https://x.com/i/status/2011230641132835019"
-                  target="_blank"
-                  rel="noopener">
-                  Watch on X
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </section>
-  </main>
+<section class="hero-stack">
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>TLPT Poker League</p>
-    </div>
-  </footer>
+<section class="hero">
+<div class="hero-copy hero-copy-enhanced hero-home-copy">
+<h2 class="hero-title">TLPT Media</h2>
+<p class="hero-sub">The League. The Players. The Tilt.</p>
+</div>
+</section>
 
-  <script src="app.js"></script>
+
+<section class="section media-header">
+
+<div class="section-head page-title-row compact-page-title-row">
+<img class="page-chip page-chip-dashboard"
+src="images/site/chip-T-5000.png"
+alt="T-5000 chip"
+onerror="this.style.display='none';">
+
+<h2>TLPT Media</h2>
+</div>
+
+
+<div class="media-grid">
+
+<!-- VIDEO 1 -->
+<div class="media-card">
+
+<div class="media-copy" style="padding-bottom:0;">
+<h3 style="color:var(--gold); margin:0 0 12px 0;">
+The Nitro “Origin Story”
+</h3>
+</div>
+
+<div class="media-frame">
+
+<div class="media-embed-wrap">
+<iframe
+src="https://www.youtube.com/embed/TP_ihbI4BkI"
+title="The Nitro Origin Story"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO 2 -->
+<div class="media-card">
+
+<div class="media-copy" style="padding-bottom:0;">
+<h3 style="color:var(--gold); margin:0 0 12px 0;">
+Return of the Nitro
+</h3>
+</div>
+
+<div class="media-frame">
+
+<div class="media-embed-wrap">
+<iframe
+src="https://www.youtube.com/embed/hVs41qBEIHo"
+title="Return of the Nitro"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO 3 -->
+<div class="media-card">
+
+<div class="media-copy" style="padding-bottom:0;">
+<h3 style="color:var(--gold); margin:0 0 12px 0;">
+TLPT 2025-26 Mid-Season Awards
+</h3>
+</div>
+
+<div class="media-frame">
+
+<div class="media-embed-wrap">
+<iframe
+src="https://www.youtube.com/embed/RPCM5CLNBjk"
+title="TLPT Mid Season Awards"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- VIDEO 4 (X VIDEO LINK WITH THUMBNAIL) -->
+<div class="media-card">
+
+<div class="media-copy" style="padding-bottom:0;">
+<h3 style="color:var(--gold); margin:0 0 12px 0;">
+The Nitro Strikes Back
+</h3>
+</div>
+
+<div class="media-frame media-frame-link">
+
+<a class="media-thumb-link"
+href="https://x.com/i/status/2011230641132835019"
+target="_blank">
+
+<img
+src="images/TheNitroStrikesBack.png"
+alt="The Nitro Strikes Back"
+class="media-thumb">
+
+<div class="media-play-overlay">
+▶
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+</section>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+<div class="wrap">
+<p>TLPT Poker League</p>
+</div>
+</footer>
+
+<script src="app.js"></script>
+
 </body>
 </html>
