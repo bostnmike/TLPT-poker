@@ -749,10 +749,15 @@ th{
   align-items:flex-start;
 }
 
+.player-profile-kicker{
+  color:var(--gold) !important;
+}
+
 .player-formula-help{
   margin:0 0 10px 0;
   text-align:left;
-  max-width:340px;
+  max-width:none;
+  white-space:nowrap;
   font-size:.95rem;
   line-height:1.45;
 }
@@ -767,7 +772,7 @@ th{
   color:#fff;
   font-size:1rem;
   line-height:1.45;
-  margin:2px 0 14px;
+  margin:14px 0 14px;
   padding:10px 12px;
   background:rgba(0,0,0,.16);
   border:1px solid rgba(255,184,28,.34);
@@ -1293,6 +1298,10 @@ th{
   .player-profile-copy{
     align-items:flex-start;
   }
+
+  .player-formula-help{
+    white-space:normal;
+  }
 }
 
 @media (max-width:980px){
@@ -1384,5 +1393,9 @@ th{
 
   .events-header-suit{
     font-size:1.9rem;
+  }
+
+  .player-formula-help{
+    white-space:normal;
   }
 }
