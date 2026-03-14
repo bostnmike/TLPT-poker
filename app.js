@@ -176,7 +176,7 @@ function getPlayerQuote(name) {
 
 function ensureQuoted(text) {
   const cleaned = String(text || "").trim();
-  if (!cleaned) return "\"They just haven't said anything funny... yet!\"";
+  if (!cleaned) return "“They just haven't said anything funny... yet!”";
   const unwrapped = cleaned.replace(/^["“”]+|["“”]+$/g, "").trim();
   return `“${unwrapped}”`;
 }
