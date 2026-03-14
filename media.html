@@ -10,50 +10,49 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-
-/* thumbnail play overlay */
-
 .media-thumb-link{
-position:relative;
-display:block;
-border-radius:12px;
-overflow:hidden;
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:12px;
+  overflow:hidden;
 }
 
 .media-thumb{
-width:100%;
-display:block;
-border-radius:12px;
-transition:transform .25s ease;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .25s ease;
 }
 
 .media-play-overlay{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:46px;
-color:white;
-background:rgba(0,0,0,.6);
-width:70px;
-height:70px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-pointer-events:none;
-transition:all .25s ease;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  font-size:46px;
+  color:white;
+  background:rgba(0,0,0,.6);
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  transition:all .25s ease;
 }
 
 .media-thumb-link:hover .media-thumb{
-transform:scale(1.05);
+  transform:scale(1.05);
 }
 
 .media-thumb-link:hover .media-play-overlay{
-background:var(--gold);
-color:#000;
+  background:var(--gold);
+  color:#000;
 }
-
 </style>
 
 </head>
@@ -119,7 +118,6 @@ The Nitro “Origin Story”
 </div>
 
 <div class="media-frame">
-
 <div class="media-embed-wrap">
 <iframe
 src="https://www.youtube.com/embed/TP_ihbI4BkI"
@@ -128,7 +126,6 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 </div>
-
 </div>
 
 </div>
@@ -144,7 +141,6 @@ Return of the Nitro
 </div>
 
 <div class="media-frame">
-
 <div class="media-embed-wrap">
 <iframe
 src="https://www.youtube.com/embed/hVs41qBEIHo"
@@ -153,7 +149,6 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 </div>
-
 </div>
 
 </div>
@@ -169,7 +164,6 @@ TLPT 2025-26 Mid-Season Awards
 </div>
 
 <div class="media-frame">
-
 <div class="media-embed-wrap">
 <iframe
 src="https://www.youtube.com/embed/RPCM5CLNBjk"
@@ -178,13 +172,12 @@ allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; pic
 allowfullscreen>
 </iframe>
 </div>
-
 </div>
 
 </div>
 
 
-<!-- VIDEO 4 (X VIDEO LINK WITH THUMBNAIL) -->
+<!-- VIDEO 4 -->
 <div class="media-card">
 
 <div class="media-copy" style="padding-bottom:0;">
@@ -193,27 +186,26 @@ The Nitro Strikes Back
 </h3>
 </div>
 
-<div class="media-frame media-frame-link">
-
-<a class="media-thumb-link"
+<div class="media-frame">
+<div class="media-embed-wrap">
+<a
+class="media-thumb-link"
 href="https://x.com/i/status/2011230641132835019"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <img
 src="images/TheNitroStrikesBack.png"
 alt="The Nitro Strikes Back"
 class="media-thumb">
 
-<div class="media-play-overlay">
-▶
-</div>
+<div class="media-play-overlay">▶</div>
 
 </a>
-
+</div>
 </div>
 
 </div>
-
 
 </div>
 </section>
