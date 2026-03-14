@@ -29,21 +29,42 @@ const PLAYER_QUOTES = {
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
 
+const STAT_FORMULAS = {
+  profit: "Profit = Total Take − Total Cost",
+  roi: "ROI = Profit ÷ Total Cost",
+  cashRate: "Cash Rate = Times Placed ÷ Buy-ins",
+  bubbleRate: "Bubble Rate = Bubbles ÷ Buy-ins",
+  hitRate: "Hit Rate = Hits ÷ (Buy-ins + Rebuys)",
+  entries: "Entries = Buy-ins + Rebuys",
+  buyIns: "Buy-ins = Total number of initial tournament entries purchased",
+  rebuys: "Rebuys = Total number of re-entry purchases after busting",
+  hits: "Hits = Total number of opponents eliminated by the player",
+  timesPlaced: "Times Placed = Total number of times the player finished in the money",
+  bubbles: "Bubbles = Total number of times the player finished one position outside the money",
+  trueSkillScore: "True Skill = (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
+  luckIndex: "Luck Index = Profit − Expected Profit",
+  clutchIndex: "Clutch Index = (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
+  aggressionIndex: "Aggression Index = Hits ÷ Entries",
+  survivorIndex: "Survivor Index = Cash Rate × (1 − Bubble Rate)",
+  tiltIndex: "Tilt Index = (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
+  expectedProfit: "Expected Profit = Entries × League Average Profit per Entry"
+};
+
 const DASHBOARD_META = {
-  profit: { label: "Profit", icon: "💰" },
-  trueSkillScore: { label: "Power", icon: "🏆", formula: "Power = Composite score" },
-  roi: { label: "ROI", icon: "📈" },
-  hits: { label: "Hits", icon: "💥" },
-  timesPlaced: { label: "Cashes", icon: "💵" },
-  bubbles: { label: "Bubbles", icon: "🫧" },
-  hitRate: { label: "Hit Rate", icon: "💥", formula: "Hit Rate = Hits ÷ Entries" },
-  cashRate: { label: "Cash Rate", icon: "💵", formula: "Cash Rate = Cashes ÷ Entries" },
-  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: "Bubble Rate = Bubbles ÷ Entries" },
-  luckIndex: { label: "Luck", icon: "🍀", formula: "Luck = Result vs expectation" },
-  clutchIndex: { label: "Clutch", icon: "🎯", formula: "Clutch = Late-stage conversion" },
-  aggressionIndex: { label: "Aggression", icon: "⚡", formula: "Aggression = Pressure factor" },
-  survivorIndex: { label: "Survivor", icon: "🛟", formula: "Survivor = Staying power" },
-  tiltIndex: { label: "Tilt", icon: "🫨", formula: "Tilt = Volatility index" }
+  profit: { label: "Profit", icon: "💰", formula: STAT_FORMULAS.profit },
+  trueSkillScore: { label: "Power", icon: "🏆", formula: STAT_FORMULAS.trueSkillScore },
+  roi: { label: "ROI", icon: "📈", formula: STAT_FORMULAS.roi },
+  hits: { label: "Hits", icon: "💥", formula: STAT_FORMULAS.hits },
+  timesPlaced: { label: "Cashes", icon: "💵", formula: STAT_FORMULAS.timesPlaced },
+  bubbles: { label: "Bubbles", icon: "🫧", formula: STAT_FORMULAS.bubbles },
+  hitRate: { label: "Hit Rate", icon: "💥", formula: STAT_FORMULAS.hitRate },
+  cashRate: { label: "Cash Rate", icon: "💵", formula: STAT_FORMULAS.cashRate },
+  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: STAT_FORMULAS.bubbleRate },
+  luckIndex: { label: "Luck", icon: "🍀", formula: STAT_FORMULAS.luckIndex },
+  clutchIndex: { label: "Clutch", icon: "🎯", formula: STAT_FORMULAS.clutchIndex },
+  aggressionIndex: { label: "Aggression", icon: "⚡", formula: STAT_FORMULAS.aggressionIndex },
+  survivorIndex: { label: "Survivor", icon: "🛟", formula: STAT_FORMULAS.survivorIndex },
+  tiltIndex: { label: "Tilt", icon: "🫨", formula: STAT_FORMULAS.tiltIndex }
 };
 
 const CHIP_SET_TEXT = {
@@ -332,13 +353,16 @@ function ensureDashboardHeadline(sortKey) {
     grid.parentNode.insertBefore(headline, grid);
   }
 
-  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey) };
-  const formulaMarkup = meta.formula ? `<span class="dashboard-formula-inline dynamic-dashboard-formula">${meta.formula}</span>` : "";
+  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey), formula: "" };
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
     <span>${meta.label}</span>
-    ${formulaMarkup}
   `;
+
+  const formulaBox = document.getElementById("dashboard-formula-display");
+  if (formulaBox) {
+    formulaBox.textContent = meta.formula || "Click a stat button to reveal the calculation formula.";
+  }
 }
 
 function renderHomeTopTable(data) {
@@ -476,37 +500,48 @@ function renderPlayerProfile(data) {
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
   const next = players[(index + 1) % players.length];
+  const quote = player?.notes || getPlayerQuote(player.name);
 
-  const statsMarkup = `
-    <div class="profile-grid">
-      <div class="profile-stat"><span class="kicker">${statIcon("entries")} Entries</span><div class="metric">${player.entries ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("buyIns")} Buy-ins</span><div class="metric">${player.buyIns ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("rebuys")} Rebuys</span><div class="metric">${player.rebuys ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("hits")} Hits</span><div class="metric">${player.hits ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("timesPlaced")} Cashes</span><div class="metric">${player.timesPlaced ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("bubbles")} Bubbles</span><div class="metric">${player.bubbles ?? "-"}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("profit")} Profit</span><div class="metric ${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("roi")} ROI</span><div class="metric">${fmtPct(player.roi)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("trueSkillScore")} Power</span><div class="metric">${fmtNum(player.trueSkillScore)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("luckIndex")} Luck</span><div class="metric">${fmtNum(player.luckIndex)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("clutchIndex")} Clutch</span><div class="metric">${fmtNum(player.clutchIndex)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("cashRate")} Cash Rate</span><div class="metric">${fmtPct(player.cashRate)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("bubbleRate")} Bubble Rate</span><div class="metric">${fmtPct(player.bubbleRate)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("hitRate")} Hit Rate</span><div class="metric">${fmtPct(player.hitRate)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("aggressionIndex")} Aggression</span><div class="metric">${fmtNum(player.aggressionIndex)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("survivorIndex")} Survivor</span><div class="metric">${fmtNum(player.survivorIndex)}</div></div>
-      <div class="profile-stat"><span class="kicker">${statIcon("tiltIndex")} Tilt</span><div class="metric">${fmtNum(player.tiltIndex)}</div></div>
+  const profileStats = [
+    { key: "profit", label: "Profit", value: fmtMoney(player.profit), valueClass: statValueClass(player, "profit") },
+    { key: "roi", label: "ROI", value: fmtPct(player.roi) },
+    { key: "cashRate", label: "Cash Rate", value: fmtPct(player.cashRate) },
+    { key: "bubbleRate", label: "Bubble Rate", value: fmtPct(player.bubbleRate) },
+    { key: "hitRate", label: "Hit Rate", value: fmtPct(player.hitRate) },
+    { key: "entries", label: "Entries", value: String(player.entries ?? "-") },
+    { key: "buyIns", label: "Buy-ins", value: String(player.buyIns ?? "-") },
+    { key: "rebuys", label: "Rebuys", value: String(player.rebuys ?? "-") },
+    { key: "hits", label: "Hits", value: String(player.hits ?? "-") },
+    { key: "timesPlaced", label: "Times Placed", value: String(player.timesPlaced ?? "-") },
+    { key: "bubbles", label: "Bubbles", value: String(player.bubbles ?? "-") },
+    { key: "trueSkillScore", label: "True Skill", value: fmtNum(player.trueSkillScore) },
+    { key: "luckIndex", label: "Luck Index", value: fmtNum(player.luckIndex) },
+    { key: "clutchIndex", label: "Clutch Index", value: fmtNum(player.clutchIndex) },
+    { key: "aggressionIndex", label: "Aggression Index", value: fmtNum(player.aggressionIndex) },
+    { key: "survivorIndex", label: "Survivor Index", value: fmtNum(player.survivorIndex) },
+    { key: "tiltIndex", label: "Tilt Index", value: fmtNum(player.tiltIndex) },
+    { key: "expectedProfit", label: "Expected Profit", value: fmtMoney(player.expectedProfit), valueClass: statValueClass({ profit: player.expectedProfit }, "profit") }
+  ];
+
+  const statsMarkup = profileStats.map(stat => `
+    <div class="profile-stat player-stat-card" data-stat-formula="${STAT_FORMULAS[stat.key] || ""}" tabindex="0">
+      <span class="kicker player-stat-kicker">${statIcon(stat.key)} ${stat.label}</span>
+      <div class="metric player-stat-metric ${stat.valueClass || ""}">${stat.value}</div>
     </div>
-  `;
+  `).join("");
 
   container.innerHTML = `
-    <div class="profile-shell">
-      <div class="profile-hero profile-hero-wide">
-        ${playerImageMarkup(player, "profile")}
-        <div class="profile-hero-copy">
+    <div class="profile-shell player-profile-shell">
+      <div class="profile-hero profile-hero-wide player-profile-hero">
+        <div class="player-profile-left">
+          ${playerImageMarkup(player, "profile")}
+          <p class="player-formula-help muted">mouse over any stat to reveal the calculation formula.</p>
+        </div>
+        <div class="profile-hero-copy player-profile-copy">
           <div class="kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
-          <p class="profile-quote">${getPlayerQuote(player.name)}</p>
+          <p class="profile-quote">${quote}</p>
+          <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
           ${badgesMarkup(player, data)}
         </div>
       </div>
@@ -517,9 +552,29 @@ function renderPlayerProfile(data) {
         <a class="btn" href="${playerUrl(next)}">Next: ${displayPlayerName(next)} →</a>
       </div>
 
-      ${statsMarkup}
+      <div class="profile-grid player-stat-grid-enhanced">
+        ${statsMarkup}
+      </div>
     </div>
   `;
+
+  const formulaDisplay = document.getElementById("player-formula-display");
+  const statCards = container.querySelectorAll("[data-stat-formula]");
+
+  statCards.forEach(card => {
+    const formula = card.dataset.statFormula || "";
+    const showFormula = () => {
+      if (formulaDisplay) formulaDisplay.textContent = formula || "\u00A0";
+    };
+    const clearFormula = () => {
+      if (formulaDisplay) formulaDisplay.innerHTML = "&nbsp;";
+    };
+
+    card.addEventListener("mouseenter", showFormula);
+    card.addEventListener("focusin", showFormula);
+    card.addEventListener("mouseleave", clearFormula);
+    card.addEventListener("focusout", clearFormula);
+  });
 }
 
 function renderSchedule(data) {
@@ -619,8 +674,6 @@ function renderChampions(data) {
     }).join("");
   }
 }
-
-/* Rules page */
 
 const RULES_FORMATS = {
   "40k": {
