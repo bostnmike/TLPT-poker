@@ -10,12 +10,6 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-.media-video-shell{
-  position:relative;
-  width:100%;
-  height:100%;
-}
-
 .media-thumb-link{
   position:relative;
   display:block;
@@ -23,7 +17,6 @@
   height:100%;
   border-radius:12px;
   overflow:hidden;
-  cursor:pointer;
 }
 
 .media-thumb{
@@ -60,18 +53,6 @@
   background:var(--gold);
   color:#000;
 }
-
-.media-video-shell iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.media-video-shell.is-hidden{
-  display:none;
-}
 </style>
 
 </head>
@@ -100,7 +81,6 @@
 </div>
 </header>
 
-
 <main class="wrap">
 
 <section class="hero-stack">
@@ -112,7 +92,6 @@
 </div>
 </section>
 
-
 <section class="section media-header">
 
 <div class="section-head page-title-row compact-page-title-row">
@@ -122,7 +101,6 @@ alt="T-5000 chip"
 onerror="this.style.display='none';">
 <h2>TLPT Media</h2>
 </div>
-
 
 <div class="media-grid">
 
@@ -135,10 +113,11 @@ onerror="this.style.display='none';">
 
 <div class="media-frame">
 <div class="media-embed-wrap">
-
-<div class="media-video-shell" id="video1-thumb-shell">
-<a class="media-thumb-link"
-onclick="playInlineVideo('video1-thumb-shell','video1-player-shell')">
+<a
+class="media-thumb-link"
+href="https://www.youtube.com/watch?v=TP_ihbI4BkI"
+target="_blank"
+rel="noopener">
 <img
 src="images/site/RiseofTheNitro.png"
 alt="The Nitro Origin Story"
@@ -146,22 +125,9 @@ class="media-thumb">
 <div class="media-play-overlay">▶</div>
 </a>
 </div>
-
-<div class="media-video-shell is-hidden" id="video1-player-shell">
-<iframe
-src=""
-data-src="https://www.youtube.com/embed/TP_ihbI4BkI?autoplay=1"
-title="The Nitro Origin Story"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
 </div>
 
 </div>
-</div>
-
-</div>
-
 
 <!-- VIDEO 2 -->
 <div class="media-card">
@@ -183,7 +149,6 @@ allowfullscreen>
 
 </div>
 
-
 <!-- VIDEO 3 -->
 <div class="media-card">
 
@@ -203,7 +168,6 @@ allowfullscreen>
 </div>
 
 </div>
-
 
 <!-- VIDEO 4 -->
 <div class="media-card">
@@ -230,14 +194,12 @@ class="media-thumb">
 
 </div>
 
-
 </div>
 </section>
 
 </section>
 
 </main>
-
 
 <footer class="site-footer">
 <div class="wrap">
@@ -246,22 +208,6 @@ class="media-thumb">
 </footer>
 
 <script src="app.js"></script>
-
-<script>
-function playInlineVideo(thumbnailId, playerId) {
-  const thumbShell = document.getElementById(thumbnailId);
-  const playerShell = document.getElementById(playerId);
-  if (!thumbShell || !playerShell) return;
-
-  const iframe = playerShell.querySelector('iframe');
-  if (iframe && !iframe.src) {
-    iframe.src = iframe.dataset.src || "";
-  }
-
-  thumbShell.classList.add('is-hidden');
-  playerShell.classList.remove('is-hidden');
-}
-</script>
 
 </body>
 </html>
