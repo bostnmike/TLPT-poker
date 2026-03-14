@@ -10,6 +10,12 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+.media-video-shell{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
 .media-thumb-link{
   position:relative;
   display:block;
@@ -17,6 +23,7 @@
   height:100%;
   border-radius:12px;
   overflow:hidden;
+  cursor:pointer;
 }
 
 .media-thumb{
@@ -33,7 +40,7 @@
   left:50%;
   transform:translate(-50%,-50%);
   font-size:46px;
-  color:white;
+  color:#fff;
   background:rgba(0,0,0,.6);
   width:70px;
   height:70px;
@@ -52,6 +59,18 @@
 .media-thumb-link:hover .media-play-overlay{
   background:var(--gold);
   color:#000;
+}
+
+.media-video-shell iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.media-video-shell.is-hidden{
+  display:none;
 }
 </style>
 
@@ -101,7 +120,6 @@
 src="images/site/chip-T-5000.png"
 alt="T-5000 chip"
 onerror="this.style.display='none';">
-
 <h2>TLPT Media</h2>
 </div>
 
@@ -112,19 +130,33 @@ onerror="this.style.display='none';">
 <div class="media-card">
 
 <div class="media-copy" style="padding-bottom:0;">
-<h3 style="color:var(--gold); margin:0 0 12px 0;">
-The Nitro “Origin Story”
-</h3>
+<h3 style="color:var(--gold); margin:0 0 12px 0;">The Nitro “Origin Story”</h3>
 </div>
 
 <div class="media-frame">
 <div class="media-embed-wrap">
+
+<div class="media-video-shell" id="video1-thumb-shell">
+<a class="media-thumb-link"
+onclick="playInlineVideo('video1-thumb-shell','video1-player-shell')">
+<img
+src="images/site/RiseofTheNitro.png"
+alt="The Nitro Origin Story"
+class="media-thumb">
+<div class="media-play-overlay">▶</div>
+</a>
+</div>
+
+<div class="media-video-shell is-hidden" id="video1-player-shell">
 <iframe
-src="https://www.youtube.com/embed/TP_ihbI4BkI"
+src=""
+data-src="https://www.youtube.com/embed/TP_ihbI4BkI?autoplay=1"
 title="The Nitro Origin Story"
 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen>
 </iframe>
+</div>
+
 </div>
 </div>
 
@@ -135,9 +167,7 @@ allowfullscreen>
 <div class="media-card">
 
 <div class="media-copy" style="padding-bottom:0;">
-<h3 style="color:var(--gold); margin:0 0 12px 0;">
-Return of the Nitro
-</h3>
+<h3 style="color:var(--gold); margin:0 0 12px 0;">Return of the Nitro</h3>
 </div>
 
 <div class="media-frame">
@@ -158,9 +188,7 @@ allowfullscreen>
 <div class="media-card">
 
 <div class="media-copy" style="padding-bottom:0;">
-<h3 style="color:var(--gold); margin:0 0 12px 0;">
-TLPT 2025-26 Mid-Season Awards
-</h3>
+<h3 style="color:var(--gold); margin:0 0 12px 0;">TLPT 2025-26 Mid-Season Awards</h3>
 </div>
 
 <div class="media-frame">
@@ -181,9 +209,7 @@ allowfullscreen>
 <div class="media-card">
 
 <div class="media-copy" style="padding-bottom:0;">
-<h3 style="color:var(--gold); margin:0 0 12px 0;">
-The Nitro Strikes Back
-</h3>
+<h3 style="color:var(--gold); margin:0 0 12px 0;">The Nitro Strikes Back</h3>
 </div>
 
 <div class="media-frame">
@@ -193,19 +219,17 @@ class="media-thumb-link"
 href="https://x.com/i/status/2011230641132835019"
 target="_blank"
 rel="noopener">
-
 <img
-src="images/TheNitroStrikesBack.png"
+src="images/site/TheNitroStrikesBack.png"
 alt="The Nitro Strikes Back"
 class="media-thumb">
-
 <div class="media-play-overlay">▶</div>
-
 </a>
 </div>
 </div>
 
 </div>
+
 
 </div>
 </section>
@@ -222,6 +246,22 @@ class="media-thumb">
 </footer>
 
 <script src="app.js"></script>
+
+<script>
+function playInlineVideo(thumbnailId, playerId) {
+  const thumbShell = document.getElementById(thumbnailId);
+  const playerShell = document.getElementById(playerId);
+  if (!thumbShell || !playerShell) return;
+
+  const iframe = playerShell.querySelector('iframe');
+  if (iframe && !iframe.src) {
+    iframe.src = iframe.dataset.src || "";
+  }
+
+  thumbShell.classList.add('is-hidden');
+  playerShell.classList.remove('is-hidden');
+}
+</script>
 
 </body>
 </html>
