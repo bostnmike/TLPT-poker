@@ -9,10 +9,10 @@
       "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
       "rsvp_counts": {
-        "confirmed": 9,
+        "confirmed": 5,
         "maybe": 0,
-        "tbd": 0,
-        "out": 5
+        "tbd": 3,
+        "out": 4
       }
     },
     {
@@ -24,10 +24,10 @@
       "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/07d_zfiupMrJCAo5iPcrojoDg",
       "rsvp_counts": {
-        "confirmed": 6,
-        "maybe": 1,
-        "tbd": 2,
-        "out": 6
+        "confirmed": 4,
+        "maybe": 2,
+        "tbd": 3,
+        "out": 4
       }
     }
   ],
@@ -44,12 +44,12 @@
     },
     {
       "type": "Clutch Leader",
-      "name": "Yann*",
+      "name": "Yann",
       "note": "Best Clutch Index in the current workbook."
     },
     {
       "type": "Hit King",
-      "name": "BostnMike",
+      "name": "Li-Fo",
       "note": "Most recorded hits / knockouts."
     },
     {
@@ -66,12 +66,12 @@
     },
     {
       "label": "Best ROI",
-      "name": "Big Tim*",
+      "name": "Big Tim",
       "value": "183.3%"
     },
     {
       "label": "Most Hits",
-      "name": "BostnMike",
+      "name": "Li-Fo",
       "value": "23"
     },
     {
@@ -91,7 +91,7 @@
     },
     {
       "label": "Best Clutch Index",
-      "name": "Yann*",
+      "name": "Yann",
       "value": "323.1"
     },
     {
@@ -132,7 +132,8 @@
       "survivorIndex": 32.0,
       "tiltIndex": 10.572030303030278,
       "trueSkillScore": 145.93810883784903,
-      "image": "images/players/bostnmike.jpg"
+      "image": "images/players/bostnmike.jpg",
+      "notes": "Play as tight as you want, Mike"
     },
     {
       "name": "Hiro",
@@ -155,7 +156,8 @@
       "survivorIndex": 34.467120181405896,
       "tiltIndex": 29.523809523809298,
       "trueSkillScore": 114.51523181393516,
-      "image": "images/players/hiro.jpg"
+      "image": "images/players/hiro.jpg",
+      "notes": "Ooooooh, but I have a prime number of outs!"
     },
     {
       "name": "Li-Fo",
@@ -178,7 +180,8 @@
       "survivorIndex": 60.15625,
       "tiltIndex": 35.0,
       "trueSkillScore": 188.67655763655287,
-      "image": "images/players/lifo.jpg"
+      "image": "images/players/lifo.jpg",
+      "notes": "What's the wost that can happen?"
     },
     {
       "name": "A.l. Dave",
@@ -201,7 +204,8 @@
       "survivorIndex": 25.951557093425606,
       "tiltIndex": 16.218991341991337,
       "trueSkillScore": 110.59371654007059,
-      "image": "images/players/al-dave.jpg"
+      "image": "images/players/al-dave.jpg",
+      "notes": "Oh man! I caught some of that $hit!"
     },
     {
       "name": "Cougar",
@@ -224,7 +228,8 @@
       "survivorIndex": 38.46153846153847,
       "tiltIndex": 6.220469696969693,
       "trueSkillScore": 131.094402516141,
-      "image": "images/players/cougar.jpg"
+      "image": "images/players/cougar.jpg",
+      "notes": "Nice hand, you SUCK!"
     },
     {
       "name": "NASA Al",
@@ -247,7 +252,8 @@
       "survivorIndex": 75.0,
       "tiltIndex": 15.0,
       "trueSkillScore": 187.21660562352915,
-      "image": "images/players/nasa-al.jpg"
+      "image": "images/players/nasa-al.jpg",
+      "notes": "I'm running 5 minutes late."
     },
     {
       "name": "ProvidenceMike",
@@ -270,7 +276,8 @@
       "survivorIndex": 45.45454545454545,
       "tiltIndex": 32.727272727272435,
       "trueSkillScore": 124.15054235067512,
-      "image": "images/players/providencemike.jpg"
+      "image": "images/players/providencemike.jpg",
+      "notes": "I definitely should not be in this hand."
     },
     {
       "name": "Ahmed",
@@ -293,7 +300,8 @@
       "survivorIndex": 27.777777777777775,
       "tiltIndex": 12.486590909090927,
       "trueSkillScore": 116.76836792554617,
-      "image": "images/players/ahmed.jpg"
+      "image": "images/players/ahmed.jpg",
+      "notes": "Get in there, Man!"
     },
     {
       "name": "Nitro",
@@ -316,10 +324,11 @@
       "survivorIndex": 7.407407407407408,
       "tiltIndex": 22.441889610389616,
       "trueSkillScore": 31.00933623440846,
-      "image": "images/players/nitro.jpg"
+      "image": "images/players/nitro.jpg",
+      "notes": "I don't believe you, Tony."
     },
     {
-      "name": "Yann*",
+      "name": "Yann",
       "slug": "yann",
       "entries": 1,
       "buyIns": 1,
@@ -339,10 +348,11 @@
       "survivorIndex": 100.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 150.39216767762267,
-      "image": "images/players/yann.jpg"
+      "image": "images/players/yann.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "Fabian*",
+      "name": "Fabian",
       "slug": "fabian",
       "entries": 1,
       "buyIns": 1,
@@ -362,7 +372,8 @@
       "survivorIndex": 0.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 0.0,
-      "image": "images/players/fabian.jpg"
+      "image": "images/players/fabian.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
       "name": "Red",
@@ -385,7 +396,8 @@
       "survivorIndex": 37.5,
       "tiltIndex": 37.7705303030301,
       "trueSkillScore": 122.5152080988029,
-      "image": "images/players/red.jpg"
+      "image": "images/players/red.jpg",
+      "notes": "Glory, Glory, Man United."
     },
     {
       "name": "Vish",
@@ -408,7 +420,8 @@
       "survivorIndex": 24.489795918367346,
       "tiltIndex": 81.60459956709944,
       "trueSkillScore": 92.15961306460309,
-      "image": "images/players/vish.jpg"
+      "image": "images/players/vish.jpg",
+      "notes": "I just want to gamble. Vamos!"
     },
     {
       "name": "Jeff T",
@@ -431,7 +444,8 @@
       "survivorIndex": 12.244897959183673,
       "tiltIndex": 12.857142857142897,
       "trueSkillScore": 40.31457346914286,
-      "image": "images/players/jeff-t.jpg"
+      "image": "images/players/jeff-t.jpg",
+      "notes": "On my big blind?!"
     },
     {
       "name": "The Architect",
@@ -454,7 +468,8 @@
       "survivorIndex": 41.66666666666667,
       "tiltIndex": 26.666666666666508,
       "trueSkillScore": 124.99142792738559,
-      "image": "images/players/billy-b.jpg"
+      "image": "images/players/billy-b.jpg",
+      "notes": "Un-&^%$%-ing Believeable! How do you get there… Every Time!?"
     },
     {
       "name": "Chris O",
@@ -477,7 +492,8 @@
       "survivorIndex": 41.66666666666667,
       "tiltIndex": 76.66666666666673,
       "trueSkillScore": 140.79887290897688,
-      "image": "images/players/chris-o.jpg"
+      "image": "images/players/chris-o.jpg",
+      "notes": "Can I still rebuy?"
     },
     {
       "name": "Wild Bill",
@@ -500,10 +516,11 @@
       "survivorIndex": 20.0,
       "tiltIndex": 12.0,
       "trueSkillScore": 85.2283465824025,
-      "image": "images/players/wild-bill.jpg"
+      "image": "images/players/wild-bill.jpg",
+      "notes": "Yep, it's a skill game."
     },
     {
-      "name": "Hayden D*",
+      "name": "Hayden D",
       "slug": "hayden-d",
       "entries": 3,
       "buyIns": 2,
@@ -523,7 +540,8 @@
       "survivorIndex": 0.0,
       "tiltIndex": 5.0,
       "trueSkillScore": 12.782280701754424,
-      "image": "images/players/hayden-d.jpg"
+      "image": "images/players/hayden-d.jpg",
+      "notes": "Oh man, there's $400 on my table in the kitchen. Time to shove."
     },
     {
       "name": "Vic",
@@ -546,10 +564,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 10.0,
       "trueSkillScore": 9.102272727272668,
-      "image": "images/players/vic.jpg"
+      "image": "images/players/vic.jpg",
+      "notes": "But, I don't like it when you call."
     },
     {
-      "name": "Rob F*",
+      "name": "Rob F",
       "slug": "rob-f",
       "entries": 3,
       "buyIns": 2,
@@ -569,10 +588,11 @@
       "survivorIndex": 50.0,
       "tiltIndex": 30.0,
       "trueSkillScore": 111.81899708088004,
-      "image": "images/players/rob-f.jpg"
+      "image": "images/players/rob-f.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "Brad R*",
+      "name": "Brad R",
       "slug": "brad-r",
       "entries": 4,
       "buyIns": 2,
@@ -592,10 +612,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 47.74547619047625,
       "trueSkillScore": 11.711228706868937,
-      "image": "images/players/brad-r.jpg"
+      "image": "images/players/brad-r.jpg",
+      "notes": "I raise."
     },
     {
-      "name": "phattedcalf*",
+      "name": "phattedcalf",
       "slug": "phattedcalf",
       "entries": 2,
       "buyIns": 2,
@@ -615,10 +636,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 0.0,
-      "image": "images/players/phattedcalf.png"
+      "image": "images/players/phattedcalf.png",
+      "notes": "Doctor. Doctor. Annnnnd..... Doctor."
     },
     {
-      "name": "Big Tim*",
+      "name": "Big Tim",
       "slug": "big-tim",
       "entries": 1,
       "buyIns": 1,
@@ -638,10 +660,11 @@
       "survivorIndex": 100.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 140.93708742753535,
-      "image": "images/players/big-tim.jpg"
+      "image": "images/players/big-tim.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "Gilmore*",
+      "name": "Gilmore",
       "slug": "gilmore",
       "entries": 2,
       "buyIns": 2,
@@ -661,10 +684,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 0.23290909090909093,
       "trueSkillScore": 22.60765715758694,
-      "image": "images/players/gilmore.jpg"
+      "image": "images/players/gilmore.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "Dan K*",
+      "name": "Dan K",
       "slug": "dan-k",
       "entries": 1,
       "buyIns": 1,
@@ -684,10 +708,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 0.0,
-      "image": "images/players/dan-k.jpg"
+      "image": "images/players/dan-k.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "pittsburghbill*",
+      "name": "pittsburghbill",
       "slug": "pittsburghbill",
       "entries": 2,
       "buyIns": 1,
@@ -707,10 +732,11 @@
       "survivorIndex": 0.0,
       "tiltIndex": 44.76178571428577,
       "trueSkillScore": 2.718536463445338,
-      "image": "images/players/pittsburghbill.png"
+      "image": "images/players/pittsburghbill.png",
+      "notes": "They just haven't said anything funny... yet!"
     },
     {
-      "name": "David K*",
+      "name": "David K",
       "slug": "david-k",
       "entries": 1,
       "buyIns": 1,
@@ -730,7 +756,8 @@
       "survivorIndex": 0.0,
       "tiltIndex": 0.0,
       "trueSkillScore": 0.0,
-      "image": "images/players/david-k.jpg"
+      "image": "images/players/david-k.jpg",
+      "notes": "They just haven't said anything funny... yet!"
     }
   ]
 }
