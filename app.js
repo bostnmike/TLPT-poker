@@ -174,6 +174,13 @@ function getPlayerQuote(name) {
   return PLAYER_QUOTES[normalizeQuoteName(name)] || "They just haven't said anything funny... yet!";
 }
 
+function ensureQuoted(text) {
+  const cleaned = String(text || "").trim();
+  if (!cleaned) return "\"They just haven't said anything funny... yet!\"";
+  const unwrapped = cleaned.replace(/^["“”]+|["“”]+$/g, "").trim();
+  return `“${unwrapped}”`;
+}
+
 function fmtMoney(n) {
   const num = Number(n ?? 0);
   const sign = num < 0 ? "-" : "";
@@ -265,6 +272,11 @@ function valueClassFromMoneyString(value) {
   if (num > 0) return "positive";
   if (num < 0) return "negative";
   return "neutral";
+}
+
+function isNumericValueText(value) {
+  const v = String(value || "").trim();
+  return /^-?\$?\d[\d,]*(\.\d+)?%?$/.test(v);
 }
 
 function initialsFromName(name) {
@@ -574,7 +586,7 @@ function renderPlayerProfile(data) {
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
   const next = players[(index + 1) % players.length];
-  const quote = player?.notes || getPlayerQuote(player.name);
+  const quote = ensureQuoted(player?.notes || getPlayerQuote(player.name));
 
   const profileStats = [
     { key: "profit", label: "Profit", value: fmtMoney(player.profit), valueClass: statValueClass(player, "profit") },
@@ -609,13 +621,13 @@ function renderPlayerProfile(data) {
       <div class="profile-hero profile-hero-wide player-profile-hero">
         <div class="player-profile-left">
           ${playerImageMarkup(player, "profile")}
-          <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
         </div>
 
         <div class="profile-hero-copy player-profile-copy">
           <div class="kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
           <p class="profile-quote">${quote}</p>
+          <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
           ${badgesMarkup(player, data)}
         </div>
       </div>
@@ -706,6 +718,7 @@ function recordIcon(label) {
 function honorsCardMarkup(player, category, icon, valueText, isTop = false, valueClass = "") {
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
+  const numericClass = isNumericValueText(valueText) ? " honors-card-value--numeric" : "";
 
   return `
     <a class="champ-card stat-card-visual honors-card ${isTop ? "is-top-rank" : ""}" href="${href}">
@@ -717,7 +730,7 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
           <div class="honors-player-name">${nameMarkup}</div>
         </div>
       </div>
-      <div class="honors-card-value ${valueClass}">${valueText}</div>
+      <div class="honors-card-value ${valueClass}${numericClass}">${valueText}</div>
     </a>
   `;
 }
