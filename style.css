@@ -1,5 +1,4 @@
 /* style.css */
-/* style.css */
 :root{
   --bg:#0a0d12;
   --panel:#11161e;
@@ -771,12 +770,12 @@ th{
   margin:2px 0 14px;
   padding:10px 12px;
   background:rgba(0,0,0,.16);
-  border:1px solid rgba(255,184,28,.28);
+  border:1px solid rgba(255,184,28,.34);
   border-radius:12px;
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.18),
-    0 0 18px rgba(255,184,28,.16),
-    0 0 34px rgba(255,184,28,.10);
+    0 0 0 1px rgba(255,184,28,.22),
+    0 0 24px rgba(255,184,28,.22),
+    0 0 44px rgba(255,184,28,.14);
 }
 
 .player-nav,
@@ -1171,7 +1170,7 @@ th{
 }
 
 .media-thumb-link:hover .media-thumb{
-  transform:scale(1.015);
+  transform:scale(1.005);
 }
 
 .media-thumb-link:hover .media-play-overlay{
