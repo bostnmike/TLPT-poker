@@ -585,7 +585,7 @@ th{
 
 #players-grid{
   display:grid !important;
-  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
   gap:16px !important;
   align-items:start;
 }
@@ -1178,12 +1178,15 @@ th{
 /* responsive */
 
 @media (max-width:1280px){
-  #players-grid,
   #dashboard-grid,
   #champions-list,
   #records-list,
   .rules-grid,
   .rules-chip-grid{
+    grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  }
+
+  #players-grid{
     grid-template-columns:repeat(4, minmax(0,1fr)) !important;
   }
 }
