@@ -117,8 +117,35 @@ a:hover{
 }
 
 .section{
+  position:relative;
+  overflow:hidden;
   margin:22px 0;
   padding:24px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.018) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 80% 35%, rgba(255,255,255,.015) 0 2px, transparent 2px 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(135deg, rgba(15,81,50,.22), rgba(17,22,30,.96));
+  background-size:160px 160px, 220px 220px, auto, auto;
+}
+
+.section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(7,11,16,.08), rgba(7,11,16,.18));
+  pointer-events:none;
+}
+
+.section > *{
+  position:relative;
+  z-index:1;
 }
 
 .section-head{
