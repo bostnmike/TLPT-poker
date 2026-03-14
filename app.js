@@ -624,7 +624,7 @@ function renderPlayerProfile(data) {
         </div>
 
         <div class="profile-hero-copy player-profile-copy">
-          <div class="kicker">Player Profile</div>
+          <div class="kicker player-profile-kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
           <p class="profile-quote">${quote}</p>
           <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
