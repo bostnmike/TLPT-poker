@@ -4,6 +4,24 @@ async function loadSiteData() {
   return await res.json();
 }
 
+function forceCrewNavLabel() {
+  const apply = () => {
+    document.querySelectorAll('a[href="players.html"]').forEach(link => {
+      link.textContent = "The Crew";
+    });
+  };
+
+  apply();
+
+  if (document.body) {
+    const observer = new MutationObserver(() => apply());
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+}
+
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
 
@@ -946,6 +964,8 @@ async function main() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  forceCrewNavLabel();
+
   main().catch(error => {
     console.error("TLPT site load failed:", error);
   });
