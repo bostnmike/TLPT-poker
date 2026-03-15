@@ -4,33 +4,12 @@ async function loadSiteData() {
   return await res.json();
 }
 
-const PLAYER_QUOTES = {
-  "Nitro": "\"I don't believe you, Tony.\"",
-  "Jeff T": "\"On my big blind?\"",
-  "Vish": "\"Vamos!\"",
-  "Vic": "\"I don't like it when you call.\"",
-  "Brad R": "\"I raise.\"",
-  "Red": "\"Variance-free Poker!\"",
-  "Hayden D": "\"There's $400 sitting on my table at home.\"",
-  "Wild Bill": "\"It's a skill game.\"",
-  "Hiro": "\"That's a prime number.\"",
-  "A.I. Dave": "\"Oh man! I caught some of that!\"",
-  "ProvidenceMike": "\"I should'd be in this hand.\"",
-  "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
-  "Ahmed": "\"Get in there, Man!\"",
-  "Chris O": "\"Can I still rebuy?\"",
-  "Cougar": "\"Nice hand, you suck!\"",
-  "NASA Al": "\"I'm running 5 mins late.\"",
-  "BostnMike": "\"Play as tight as you want, Mike\"",
-  "LiFo": "\"What's the worst that can happen?\"",
-  "Li-Fo": "\"What's the worst that can happen?\"",
-  "Nat": "\"Ya Fold\""
-};
-
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
 
 const STAT_FORMULAS = {
+  totalCost: "Total Cost: Buy-ins + Rebuys Cost",
+  totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
   profit: "Profit: Total Take − Total Cost",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
@@ -169,10 +148,6 @@ function normalizeQuoteName(name) {
     return "A.I. Dave";
   }
   return trimmed;
-}
-
-function getPlayerQuote(name) {
-  return PLAYER_QUOTES[normalizeQuoteName(name)] || "They just haven't said anything funny... yet!";
 }
 
 function ensureQuoted(text) {
@@ -587,9 +562,11 @@ function renderPlayerProfile(data) {
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
   const next = players[(index + 1) % players.length];
-  const quote = ensureQuoted(player?.notes || getPlayerQuote(player.name));
+  const quote = ensureQuoted(player?.notes || "");
 
   const profileStats = [
+    { key: "totalCost", label: "Total Cost", value: fmtMoney(player.totalCost) },
+    { key: "totalWinnings", label: "Total Winnings", value: fmtMoney(player.totalWinnings), valueClass: statValueClass({ profit: player.totalWinnings }, "profit") },
     { key: "profit", label: "Profit", value: fmtMoney(player.profit), valueClass: statValueClass(player, "profit") },
     { key: "roi", label: "ROI", value: fmtPct(player.roi) },
     { key: "cashRate", label: "Cash Rate", value: fmtPct(player.cashRate) },
