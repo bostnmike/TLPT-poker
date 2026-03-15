@@ -1,19 +1,35 @@
 {
   "events": [
     {
-      "title": "Time for a Heel Turn | 9-Max",
-      "date": "Saturday, March 21, 2026",
+      "title": "TLPT Friday Game",
+      "date": "Friday, March 13, 2026",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
       "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "https://www.icloud.com/invites/0e6u6DsDLIhEdbqDJ38vOobew",
+      "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
       "rsvp_counts": {
-        "confirmed": 1,
+        "confirmed": 9,
         "maybe": 0,
-        "tbd": 15,
-        "out": 0
+        "tbd": 0,
+        "out": 5
       }
+    },
+    {
+      "title": "TLPT Saturday Game",
+      "date": "Saturday, March 14, 2026",
+      "time": "7:00 PM",
+      "endTime": "11:15 PM",
+      "location": "The Caahhd Room",
+      "address": "430 Otter Cliff Way, Cary, NC 27519",
+      "apple_invite_url": "https://www.icloud.com/invites/07d_zfiupMrJCAo5iPcrojoDg",
+      "rsvp_counts": {
+        "confirmed": 6,
+        "maybe": 1,
+        "tbd": 2,
+        "out": 6
+      }
+    }
   ],
   "honors": [
     {
@@ -188,7 +204,7 @@
       "survivorIndex": 25.951557093425606,
       "tiltIndex": 15.294117647058824,
       "trueSkillScore": 31.431372549019606,
-      "image": "images/players/ai-dave.jpg",
+      "image": "images/players/ai-dave",
       "notes": "Oh man! I caught some of that $hit!"
     },
     {
@@ -380,7 +396,7 @@
       "survivorIndex": 0,
       "tiltIndex": 0,
       "trueSkillScore": -40,
-      "image": "images/players/fabian.jpg",
+      "image": "images/players/fabian-jpg",
       "notes": ""
     },
     {
