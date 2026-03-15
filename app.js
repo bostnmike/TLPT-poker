@@ -993,6 +993,8 @@ async function main() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  forceCrewNavLabel();
+  
   main().catch(error => {
     console.error("TLPT site load failed:", error);
   });
