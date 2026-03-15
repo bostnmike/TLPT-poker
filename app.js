@@ -21,7 +21,7 @@ const STAT_FORMULAS = {
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  trueSkillScore: "True Skill: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
+  trueSkillScore: "Power Index: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
   luckIndex: "Luck Index: Profit − Expected Profit",
   clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   aggressionIndex: "Aggression Index: Hits ÷ Entries",
@@ -47,7 +47,7 @@ const PROFILE_STAT_CONFIG = [
   { key: "timesPlaced", label: "Times Placed", type: "text" },
   { key: "bubbles", label: "Bubbles", type: "text" },
 
-  { key: "trueSkillScore", label: "True Skill", type: "num" },
+  { key: "trueSkillScore", label: "Power Index", type: "num" },
   { key: "luckIndex", label: "Luck Index", type: "num" },
   { key: "clutchIndex", label: "Clutch Index", type: "num" },
   { key: "aggressionIndex", label: "Aggression Index", type: "num" },
