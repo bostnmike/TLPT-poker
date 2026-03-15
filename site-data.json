@@ -14,6 +14,21 @@
         "tbd": 15,
         "out": 0
       }
+    },
+    {
+      "title": "Future Event Date TBD",
+      "date": "TBA",
+      "time": "7:00 PM",
+      "endTime": "11:15 PM",
+      "location": "The Caahhd Room",
+      "address": "430 Otter Cliff Way, Cary, NC 27519",
+      "apple_invite_url": " ",
+      "rsvp_counts": {
+        "confirmed": 0,
+        "maybe": 0,
+        "tbd": 0,
+        "out": 0
+      }
     }
   ],
   "honors": [
