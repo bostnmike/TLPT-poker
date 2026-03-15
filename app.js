@@ -66,7 +66,7 @@ const DASHBOARD_META = {
   hitRate: { label: "Hit Rate", icon: "💥", formula: STAT_FORMULAS.hitRate },
   cashRate: { label: "Cash Rate", icon: "💵", formula: STAT_FORMULAS.cashRate },
   bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: STAT_FORMULAS.bubbleRate },
-  trueSkillScore: { label: "Power", icon: "🏆", formula: STAT_FORMULAS.trueSkillScore },
+  trueSkillScore: { label: "Power", icon: "💪🏼", formula: STAT_FORMULAS.trueSkillScore },
   luckIndex: { label: "Luck", icon: "🍀", formula: STAT_FORMULAS.luckIndex },
   clutchIndex: { label: "Clutch", icon: "🎯", formula: STAT_FORMULAS.clutchIndex },
   aggressionIndex: { label: "Aggression", icon: "⚡", formula: STAT_FORMULAS.aggressionIndex },
@@ -356,7 +356,7 @@ function badgeList(player, data) {
 
   const badges = [];
   if (player.name === topProfit) badges.push("💰 Profit Leader");
-  if (player.name === topPower) badges.push("🏆 Power Leader");
+  if (player.name === topPower) badges.push("💪🏼 Power Leader");
   if (player.name === topClutch) badges.push("🎯 Clutch Leader");
   if (player.name === topLuck) badges.push("🍀 Luck Leader");
   if (player.name === topHits) badges.push("💥 Hit King");
@@ -704,7 +704,7 @@ function renderSchedule(data) {
 function honorIcon(type) {
   const key = String(type || "").toLowerCase();
   if (key.includes("profit")) return "💰";
-  if (key.includes("power")) return "🏆";
+  if (key.includes("power")) return "💪🏼";
   if (key.includes("clutch")) return "🎯";
   if (key.includes("hit")) return "💥";
   if (key.includes("bubble")) return "🫧";
@@ -721,7 +721,7 @@ function recordIcon(label) {
   if (key.includes("hit")) return "💥";
   if (key.includes("cash")) return "💵";
   if (key.includes("bubble")) return "🫧";
-  if (key.includes("power")) return "🏆";
+  if (key.includes("power")) return "💪🏼";
   if (key.includes("clutch")) return "🎯";
   if (key.includes("luck")) return "🍀";
   return "📊";
