@@ -4,6 +4,23 @@ async function loadSiteData() {
   return await res.json();
 }
 
+function forceCrewNavLabel() {
+  const updateLabels = () => {
+    document.querySelectorAll('a[href="players.html"]').forEach(link => {
+      link.textContent = "The Crew";
+    });
+  };
+
+  updateLabels();
+
+  if (document.body) {
+    const observer = new MutationObserver(() => updateLabels());
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+}
 const PLAYER_QUOTES = {
   "Nitro": "\"I don't believe you, Tony.\"",
   "Jeff T": "\"On my big blind?\"",
