@@ -1,33 +1,18 @@
 {
   "events": [
     {
-      "title": "TLPT Friday Game",
-      "date": "Friday, March 13, 2026",
+      "title": "Time for a Heel Turn \ 9-MAx",
+      "date": "Saturday, March 21, 2026",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
       "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "https://www.icloud.com/invites/0a0WmEJmQAVR763y-WPIeUb1w",
+      "apple_invite_url": "https://www.icloud.com/invites/0e6u6DsDLIhEdbqDJ38vOobew",
       "rsvp_counts": {
-        "confirmed": 9,
+        "confirmed": 1,
         "maybe": 0,
-        "tbd": 0,
-        "out": 5
-      }
-    },
-    {
-      "title": "TLPT Saturday Game",
-      "date": "Saturday, March 14, 2026",
-      "time": "7:00 PM",
-      "endTime": "11:15 PM",
-      "location": "The Caahhd Room",
-      "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "https://www.icloud.com/invites/07d_zfiupMrJCAo5iPcrojoDg",
-      "rsvp_counts": {
-        "confirmed": 6,
-        "maybe": 1,
-        "tbd": 2,
-        "out": 6
+        "tbd": 15,
+        "out": 0
       }
     }
   ],
