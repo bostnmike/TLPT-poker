@@ -111,19 +111,19 @@ const RULES_FORMATS = {
       { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB" },
       { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB" },
       { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB" },
-      { type: "level", level: "8", sb: "1,000", bb: "2,000", ante: "1000", eff: "Rebuys Closed" },
       { type: "break", note: "BREAK — Chip up T-100" },
+      { type: "level", level: "8", sb: "1,000", bb: "2,000", ante: "1000", eff: "Rebuys Closed" },
       { type: "level", level: "9", sb: "1,500", bb: "3,000", ante: "1,500", eff: "Rebuys Closed" },
       { type: "level", level: "10", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed" },
-      { type: "level", level: "11", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed" },
       { type: "break", note: "BREAK — Chip up T-500" },
+      { type: "level", level: "11", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed" },
       { type: "level", level: "12", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed" },
       { type: "level", level: "13", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed" },
       { type: "level", level: "14", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed" },
       { type: "break", note: "BREAK — Chip up T-1000 & T-5000" },
       { type: "level", level: "15", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed" },
       { type: "level", level: "16", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed" },
-      { type: "level", level: "17", sb: "60,000", bb: "120,000", ante: "60,000", eff: "Rebuys Closed" }
+      { type: "level", level: "17", sb: "50,000", bb: "100,000", ante: "60,000", eff: "Rebuys Closed" }
     ]
   },
   "500k": {
