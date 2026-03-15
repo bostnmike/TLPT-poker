@@ -30,6 +30,33 @@ const STAT_FORMULAS = {
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
+const PROFILE_STAT_CONFIG = [
+  { key: "totalCost", label: "Total Cost", type: "money" },
+  { key: "totalWinnings", label: "Total Winnings", type: "money", profitClassFromValue: true },
+
+  { key: "profit", label: "Profit", type: "money", profitClass: true },
+  { key: "roi", label: "ROI", type: "pct" },
+  { key: "cashRate", label: "Cash Rate", type: "pct" },
+  { key: "bubbleRate", label: "Bubble Rate", type: "pct" },
+  { key: "hitRate", label: "Hit Rate", type: "pct" },
+
+  { key: "entries", label: "Entries", type: "text" },
+  { key: "buyIns", label: "Buy-ins", type: "text" },
+  { key: "rebuys", label: "Rebuys", type: "text" },
+  { key: "hits", label: "Hits", type: "text" },
+  { key: "timesPlaced", label: "Times Placed", type: "text" },
+  { key: "bubbles", label: "Bubbles", type: "text" },
+
+  { key: "trueSkillScore", label: "True Skill", type: "num" },
+  { key: "luckIndex", label: "Luck Index", type: "num" },
+  { key: "clutchIndex", label: "Clutch Index", type: "num" },
+  { key: "aggressionIndex", label: "Aggression Index", type: "num" },
+  { key: "survivorIndex", label: "Survivor Index", type: "num" },
+  { key: "tiltIndex", label: "Tilt Index", type: "num" },
+
+  { key: "expectedProfit", label: "Expected Profit", type: "money", profitClassFromValue: true }
+];
+
 const DASHBOARD_META = {
   profit: { label: "Profit", icon: "💰", formula: STAT_FORMULAS.profit },
   roi: { label: "ROI", icon: "📈", formula: STAT_FORMULAS.roi },
@@ -169,6 +196,16 @@ function fmtPct(n) {
 
 function fmtNum(n) {
   return Number(n ?? 0).toFixed(1);
+}
+
+function formatProfileStatValue(player, config) {
+  const value = player?.[config.key];
+
+  if (config.type === "money") return fmtMoney(value);
+  if (config.type === "pct") return fmtPct(value);
+  if (config.type === "num") return fmtNum(value);
+
+  return String(value ?? "-");
 }
 
 function sortPlayers(players, key) {
@@ -564,28 +601,25 @@ function renderPlayerProfile(data) {
   const next = players[(index + 1) % players.length];
   const quote = ensureQuoted(player?.notes || "");
 
-  const profileStats = [
-    { key: "totalCost", label: "Total Cost", value: fmtMoney(player.totalCost) },
-    { key: "totalWinnings", label: "Total Winnings", value: fmtMoney(player.totalWinnings), valueClass: statValueClass({ profit: player.totalWinnings }, "profit") },
-    { key: "profit", label: "Profit", value: fmtMoney(player.profit), valueClass: statValueClass(player, "profit") },
-    { key: "roi", label: "ROI", value: fmtPct(player.roi) },
-    { key: "cashRate", label: "Cash Rate", value: fmtPct(player.cashRate) },
-    { key: "bubbleRate", label: "Bubble Rate", value: fmtPct(player.bubbleRate) },
-    { key: "hitRate", label: "Hit Rate", value: fmtPct(player.hitRate) },
-    { key: "entries", label: "Entries", value: String(player.entries ?? "-") },
-    { key: "buyIns", label: "Buy-ins", value: String(player.buyIns ?? "-") },
-    { key: "rebuys", label: "Rebuys", value: String(player.rebuys ?? "-") },
-    { key: "hits", label: "Hits", value: String(player.hits ?? "-") },
-    { key: "timesPlaced", label: "Times Placed", value: String(player.timesPlaced ?? "-") },
-    { key: "bubbles", label: "Bubbles", value: String(player.bubbles ?? "-") },
-    { key: "trueSkillScore", label: "True Skill", value: fmtNum(player.trueSkillScore) },
-    { key: "luckIndex", label: "Luck Index", value: fmtNum(player.luckIndex) },
-    { key: "clutchIndex", label: "Clutch Index", value: fmtNum(player.clutchIndex) },
-    { key: "aggressionIndex", label: "Aggression Index", value: fmtNum(player.aggressionIndex) },
-    { key: "survivorIndex", label: "Survivor Index", value: fmtNum(player.survivorIndex) },
-    { key: "tiltIndex", label: "Tilt Index", value: fmtNum(player.tiltIndex) },
-    { key: "expectedProfit", label: "Expected Profit", value: fmtMoney(player.expectedProfit), valueClass: statValueClass({ profit: player.expectedProfit }, "profit") }
-  ];
+  const profileStats = PROFILE_STAT_CONFIG.map(config => {
+
+  let valueClass = "";
+
+  if (config.profitClass) {
+    valueClass = statValueClass(player, "profit");
+  } 
+  else if (config.profitClassFromValue) {
+    valueClass = statValueClass({ profit: player?.[config.key] }, "profit");
+  }
+
+  return {
+    key: config.key,
+    label: config.label,
+    value: formatProfileStatValue(player, config),
+    valueClass
+  };
+
+});
 
   const statsMarkup = profileStats.map(stat => `
     <div class="profile-stat player-stat-card" data-stat-formula="${STAT_FORMULAS[stat.key] || ""}" tabindex="0">
