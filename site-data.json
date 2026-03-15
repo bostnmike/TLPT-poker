@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "title": "Time for a Heel Turn | 9-Max",
+      "title": "It's Time for the Heel Turn | 9-Max",
       "date": "Saturday, March 21, 2026",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
@@ -11,8 +11,8 @@
       "rsvp_counts": {
         "confirmed": 1,
         "maybe": 0,
-        "tbd": 15,
-        "out": 0
+        "tbd": 13,
+        "out": 2
       }
     },
     {
