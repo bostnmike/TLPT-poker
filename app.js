@@ -244,7 +244,7 @@ function statIcon(key) {
   const icons = {
     profit: "💰",
     roi: "📈",
-    trueSkillScore: "🏆",
+    trueSkillScore: "💪🏼",
     hits: "💥",
     timesPlaced: "💵",
     cashRate: "💵",
