@@ -2,44 +2,7 @@ async function loadSiteData() {
   const res = await fetch("site-data.json");
   return await res.json();
 }
-
-const PLAYER_QUOTES = {
-  "Nitro": "\"I don't believe you, Tony.\"",
-  "Jeff T": "\"On my big blind?\"",
-  "Vish": "\"Vamos!\"",
-  "Vic": "\"I don't like it when you call.\"",
-  "Brad R": "\"I raise.\"",
-  "Red": "\"Variance-free Poker!\"",
-  "Hayden D": "\"There's $400 sitting on my table at home.\"",
-  "Wild Bill": "\"It's a skill game.\"",
-  "Hiro": "\"That's a prime number.\"",
-  "A.I. Dave": "\"Oh man! I caught some of that!\"",
-  "ProvidenceMike": "\"I should'd be in this hand.\"",
-  "The Architect": "\"Un-&^%$%-ing Believeable! How do you get there… Every Time!?\"",
-  "Ahmed": "\"Get in there, Man!\"",
-  "Chris O": "\"Can I still rebuy?\"",
-  "Cougar": "\"Nice hand, you suck!\"",
-  "NASA Al": "\"I'm running 5 mins late.\"",
-  "BostnMike": "\"Play as tight as you want, Mike\"",
-  "LiFo": "\"What's the worst that can happen?\"",
-  "Li-Fo": "\"What's the worst that can happen?\"",
-  "Nat": "\"Ya Fold\""
 };
-
-function normalizeQuoteName(name) {
-  const trimmed = (name || "").trim();
-
-  if (
-    trimmed === "A.I. Dave" ||
-    trimmed === "A.I Dave" ||
-    trimmed === "A.l. Dave" ||
-    trimmed === "A.l Dave"
-  ) {
-    return "A.I. Dave";
-  }
-
-  return trimmed;
-}
 
 function getPlayerQuote(name) {
   const normalized = normalizeQuoteName(name);
