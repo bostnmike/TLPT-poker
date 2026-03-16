@@ -539,13 +539,13 @@ function buildHomeInsightCard(title, icon, player, value, note, valueClass = "")
   `;
 }
 
-function buildHomeMiniRow(rank, player, value){
+function buildHomeMiniRow(rank, player, value) {
   return `
     <div class="home-mini-row">
       <div class="home-mini-rank">#${rank}</div>
       <div class="home-mini-player-wrap">
         <div class="player-avatar-wrap">
-          ${playerAvatarMarkup(player,"table")}
+          ${playerImageMarkup(player, "table")}
         </div>
       </div>
       <div class="home-mini-value">${value}</div>
@@ -553,181 +553,19 @@ function buildHomeMiniRow(rank, player, value){
   `;
 }
 
-function buildHomeBadgeRow(label, player, value, valueClass=""){
+function buildHomeBadgeRow(label, player, value, valueClass = "") {
   return `
     <div class="home-badge-row">
       <div class="home-badge-pill">${label}</div>
       <div class="home-badge-player-wrap">
         <div class="player-avatar-wrap">
-          ${playerAvatarMarkup(player,"table")}
+          ${playerImageMarkup(player, "table")}
         </div>
       </div>
       <div class="home-badge-value ${valueClass}">${value}</div>
     </div>
   `;
 }
-
-function renderHomePage(data) {
-  const eventsEl = document.getElementById("home-events-list");
-  if (eventsEl) {
-    const homeEvents = getCurrentEvents(data);
-    eventsEl.innerHTML = homeEvents.map(event => `
-      <div class="event-card home-event-card compact-event-card">
-        <div class="event-card-topline">
-          <div class="kicker event-title-kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♠</div>
-        </div>
-        <h3>${event.date}</h3>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>
-        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-        <p class="muted"><strong>Location:</strong> ${event.location}</p>
-        <p class="muted">${event.address || ""}</p>
-        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-        ${tableFillMarkup(event.rsvp_counts, 9)}
-        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
-      </div>
-    `).join("");
-  }
-
-  const allPlayers = data?.players || [];
-  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 2);
-
-  const leaderStrip = document.getElementById("home-leader-strip");
-  if (leaderStrip) {
-    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
-    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
-
-    leaderStrip.innerHTML = [
-      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
-      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
-      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
-      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
-    ].join("");
-  }
-
-  const insightsGrid = document.getElementById("home-insights-grid");
-  if (insightsGrid) {
-    const roiLeader = sortPlayers(qualifiedPlayers, "roi")[0];
-    const survivorLeader = sortPlayers(qualifiedPlayers, "survivorIndex")[0];
-    const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
-    const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
-
-    insightsGrid.innerHTML = [
-      buildHomeInsightCard(
-        "ROI Heater",
-        "🔥",
-        roiLeader,
-        roiLeader ? fmtPct(roiLeader.roi) : "",
-        "Best return among qualified players."
-      ),
-      buildHomeInsightCard(
-        "Survivor Spotlight",
-        "🛟",
-        survivorLeader,
-        survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
-        "Best survival profile under current season pressure."
-      ),
-      buildHomeInsightCard(
-        "Run-Good Radar",
-        "🍀",
-        luckLeader,
-        luckLeader ? fmtNum(luckLeader.luckIndex) : "",
-        "Biggest gap between actual and expected profit."
-      ),
-      buildHomeInsightCard(
-        "Bubble Trouble",
-        "🫧",
-        bubbleLeader,
-        bubbleLeader ? String(bubbleLeader.bubbles) : "",
-        "Most near-misses at the edge of the money."
-      )
-    ].join("");
-  }
-
-function renderHomePage(data) {
-  const eventsEl = document.getElementById("home-events-list");
-  if (eventsEl) {
-    const homeEvents = getCurrentEvents(data);
-    eventsEl.innerHTML = homeEvents.map(event => `
-      <div class="event-card home-event-card compact-event-card">
-        <div class="event-card-topline">
-          <div class="kicker event-title-kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♠</div>
-        </div>
-        <h3>${event.date}</h3>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>
-        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-        <p class="muted"><strong>Location:</strong> ${event.location}</p>
-        <p class="muted">${event.address || ""}</p>
-        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-        ${tableFillMarkup(event.rsvp_counts, 9)}
-        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
-      </div>
-    `).join("");
-  }
-
-  const allPlayers = data?.players || [];
-  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 2);
-
-  const leaderStrip = document.getElementById("home-leader-strip");
-  if (leaderStrip) {
-    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
-    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
-
-    leaderStrip.innerHTML = [
-      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
-      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
-      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
-      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
-    ].join("");
-  }
-
-  const insightsGrid = document.getElementById("home-insights-grid");
-  if (insightsGrid) {
-    const roiLeader = sortPlayers(qualifiedPlayers, "roi")[0];
-    const survivorLeader = sortPlayers(qualifiedPlayers, "survivorIndex")[0];
-    const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
-    const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
-
-    insightsGrid.innerHTML = [
-      buildHomeInsightCard(
-        "ROI Heater",
-        "🔥",
-        roiLeader,
-        roiLeader ? fmtPct(roiLeader.roi) : "",
-        "Best return among qualified players."
-      ),
-      buildHomeInsightCard(
-        "Survivor Spotlight",
-        "🛟",
-        survivorLeader,
-        survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
-        "Best survival profile under current season pressure."
-      ),
-      buildHomeInsightCard(
-        "Run-Good Radar",
-        "🍀",
-        luckLeader,
-        luckLeader ? fmtNum(luckLeader.luckIndex) : "",
-        "Biggest gap between actual and expected profit."
-      ),
-      buildHomeInsightCard(
-        "Bubble Trouble",
-        "🫧",
-        bubbleLeader,
-        bubbleLeader ? String(bubbleLeader.bubbles) : "",
-        "Most near-misses at the edge of the money."
-      )
-    ].join("");
-  }
 
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
@@ -893,7 +731,7 @@ function renderHomePage(data) {
     ).join("");
   }
 }
-  
+
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
