@@ -652,14 +652,6 @@ a:hover{
   text-transform:uppercase;
 }
 
-.home-badge-value{
-  color:var(--gold);
-  font-weight:800;
-  font-size:1.3rem;
-  text-align:right;
-  width:100%;
-}
-
 .home-strip-player-row,
 .home-insight-player-row,
 .home-mini-player-wrap,
@@ -1873,10 +1865,14 @@ th{
   }
 
   .home-badge-row{
-    grid-template-columns:1fr;
-    justify-items:start;
-  }
+  align-items:flex-start;
+  text-align:left;
+}
 
+.home-badge-main{
+  justify-content:flex-start;
+}
+  
   .home-mini-name{
     white-space:normal;
   }
