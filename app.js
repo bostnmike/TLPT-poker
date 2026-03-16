@@ -507,7 +507,12 @@ function buildHomeStripCard(title, icon, player, value, valueClass = "") {
   return `
     <a class="home-strip-card" href="${playerUrl(player)}">
       <div class="home-strip-kicker">${icon} ${title}</div>
-      <div class="home-strip-player">${displayPlayerName(player)}</div>
+
+      <div class="home-strip-player-row">
+        ${playerImageMarkup(player, "table")}
+        <div class="home-strip-player">${displayPlayerName(player)}</div>
+      </div>
+
       <div class="home-strip-value ${valueClass}">${value}</div>
     </a>
   `;
@@ -522,7 +527,12 @@ function buildHomeInsightCard(title, icon, player, value, note, valueClass = "")
         <div class="home-insight-icon">${icon}</div>
         <div class="home-insight-kicker">${title}</div>
       </div>
-      <div class="home-insight-player">${displayPlayerName(player)}</div>
+
+      <div class="home-insight-player-row">
+        ${playerImageMarkup(player, "table")}
+        <div class="home-insight-player">${displayPlayerName(player)}</div>
+      </div>
+
       <div class="home-insight-value ${valueClass}">${value}</div>
       <p class="muted">${note}</p>
     </a>
@@ -535,7 +545,12 @@ function buildHomeMiniRow(rank, player, value, valueClass = "") {
   return `
     <a class="home-mini-row" href="${playerUrl(player)}">
       <span class="home-mini-rank">#${rank}</span>
-      <span class="home-mini-name">${displayPlayerName(player)}</span>
+
+      <span class="home-mini-player-wrap">
+        ${playerImageMarkup(player, "table")}
+        <span class="home-mini-name">${displayPlayerName(player)}</span>
+      </span>
+
       <span class="home-mini-value ${valueClass}">${value}</span>
     </a>
   `;
@@ -547,34 +562,48 @@ function buildHomeBadgeRow(label, player, value, valueClass = "") {
   return `
     <a class="home-badge-row" href="${playerUrl(player)}">
       <span class="home-badge-pill">${label}</span>
-      <span class="home-badge-player">${displayPlayerName(player)}</span>
+
+      <span class="home-badge-player-wrap">
+        ${playerImageMarkup(player, "table")}
+        <span class="home-badge-player">${displayPlayerName(player)}</span>
+      </span>
+
       <span class="home-badge-value ${valueClass}">${value}</span>
     </a>
   `;
 }
 
-function renderHomePage(data) {
-  const eventsEl = document.getElementById("home-events-list");
-  if (eventsEl) {
-    const homeEvents = getCurrentEvents(data);
-    eventsEl.innerHTML = homeEvents.map(event => `
-      <div class="event-card home-event-card compact-event-card">
-        <div class="event-card-topline">
-          <div class="kicker event-title-kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♠</div>
-        </div>
-        <h3>${event.date}</h3>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>
-        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-        <p class="muted"><strong>Location:</strong> ${event.location}</p>
-        <p class="muted">${event.address || ""}</p>
-        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-        ${tableFillMarkup(event.rsvp_counts, 9)}
-        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
+const actionCluster = document.getElementById("home-action-cluster");
+if (actionCluster) {
+  const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
+  const aggressionLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 3);
+  const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 3);
+
+  actionCluster.innerHTML = `
+    <div class="home-cluster-stack home-cluster-stack-3">
+      <div class="home-mini-board">
+        <div class="home-mini-board-title">💥 Knockout Board</div>
+        ${hitLeaders.map((player, index) =>
+          buildHomeMiniRow(index + 1, player, String(player.hits))
+        ).join("")}
       </div>
-    `).join("");
-  }
+
+      <div class="home-mini-board">
+        <div class="home-mini-board-title">⚡ Pressure Board</div>
+        ${aggressionLeaders.map((player, index) =>
+          buildHomeMiniRow(index + 1, player, fmtNum(player.aggressionIndex))
+        ).join("")}
+      </div>
+
+      <div class="home-mini-board">
+        <div class="home-mini-board-title">🫧 Bubble Watch</div>
+        ${bubbleLeaders.map((player, index) =>
+          buildHomeMiniRow(index + 1, player, String(player.bubbles))
+        ).join("")}
+      </div>
+    </div>
+  `;
+}
 
   const allPlayers = data?.players || [];
   const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
