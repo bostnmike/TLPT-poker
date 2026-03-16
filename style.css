@@ -731,6 +731,8 @@ th{
   margin-left:2px;
   color:#ffb81c;
   font-weight:700;
+  font-size:.75em;
+  vertical-align:super;
   cursor:help;
 }
 
