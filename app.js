@@ -84,6 +84,10 @@ const STAT_LEADER_CONFIG = [
   { key: "tiltIndex", title: "Tilt Leader" }
 ];
 
+const NAME_FIXES = {
+  "Nasa Al": "NASA Al"
+};
+
 const HONOR_RULES = {
   "Profit Leader": { key: "profit", direction: "desc" },
   "Power Leader": { key: "trueSkillScore", direction: "desc" },
@@ -335,9 +339,9 @@ function displayPlayerName(player) {
 
   let name = player.name || "";
 
-  // Fix capitalization
-  if (name === "Nasa Al") {
-    name = "NASA Al";
+  // Apply name corrections
+  if (NAME_FIXES[name]) {
+    name = NAME_FIXES[name];
   }
 
   const entries = Number(player?.entries ?? 0);
@@ -348,7 +352,6 @@ function displayPlayerName(player) {
 
   return name;
 }
-
 function playerUrl(player) {
   return `player.html?name=${encodeURIComponent(player.name)}`;
 }
