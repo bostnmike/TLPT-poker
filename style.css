@@ -481,6 +481,10 @@ a:hover{
   gap:14px;
 }
 
+.home-cluster-stack-3{
+  grid-template-columns:repeat(3, minmax(0,1fr));
+}
+
 .home-mini-board{
   padding:14px;
   border:1px solid var(--line);
@@ -558,6 +562,40 @@ a:hover{
 .home-badge-value{
   color:var(--gold);
   font-weight:800;
+}
+
+.home-strip-player-row,
+.home-insight-player-row,
+.home-mini-player-wrap,
+.home-badge-player-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+.home-strip-player-row .player-avatar,
+.home-strip-player-row .player-avatar-fallback,
+.home-insight-player-row .player-avatar,
+.home-insight-player-row .player-avatar-fallback,
+.home-mini-player-wrap .player-avatar,
+.home-mini-player-wrap .player-avatar-fallback,
+.home-badge-player-wrap .player-avatar,
+.home-badge-player-wrap .player-avatar-fallback{
+  width:40px;
+  height:40px;
+  font-size:.9rem;
+  border-width:2px;
+}
+
+.home-strip-player,
+.home-insight-player,
+.home-mini-name,
+.home-badge-player{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 /* event cards */
@@ -1706,6 +1744,10 @@ th{
   }
 
   .home-cluster-stack{
+    grid-template-columns:1fr;
+  }
+
+  .home-cluster-stack-3{
     grid-template-columns:1fr;
   }
 }
