@@ -590,12 +590,70 @@ th{
 }
 
 .dashboard-card{
+  position:relative;
   display:flex;
   flex-direction:column;
   align-items:center;
   min-height:220px;
   text-align:center;
   padding:18px;
+  border:2px solid rgba(255,255,255,.85);
+}
+
+.dashboard-rank-medal{
+  position:absolute;
+  top:8px;
+  left:10px;
+  font-size:2.2rem;
+  line-height:1;
+  z-index:2;
+}
+
+.dashboard-rank-gold{
+  border-color:#d4af37 !important;
+  transform:translateY(-12px);
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,.45),
+    0 14px 40px rgba(0,0,0,.35),
+    0 0 26px rgba(212,175,55,.22);
+}
+
+.dashboard-rank-silver{
+  border-color:#c0c0c0 !important;
+  transform:translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(192,192,192,.35),
+    0 12px 34px rgba(0,0,0,.28),
+    0 0 22px rgba(192,192,192,.18);
+}
+
+.dashboard-rank-bronze{
+  border-color:#cd7f32 !important;
+  transform:translateY(-3px);
+  box-shadow:
+    0 0 0 1px rgba(205,127,50,.35),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 20px rgba(205,127,50,.18);
+}
+
+.dashboard-card:hover{
+  transform:translateY(-2px);
+}
+
+.dashboard-rank-gold:hover{
+  transform:translateY(-14px);
+}
+
+.dashboard-rank-silver:hover{
+  transform:translateY(-8px);
+}
+
+.dashboard-rank-bronze:hover{
+  transform:translateY(-5px);
+}
+
+.dashboard-rank-default{
+  border-color:rgba(255,255,255,.85) !important;
 }
 
 .dashboard-card-top{
