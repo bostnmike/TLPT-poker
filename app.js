@@ -715,14 +715,18 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
 
   return `
     <a class="champ-card stat-card-visual honors-card ${isTop ? "is-top-rank" : ""}" href="${href}">
-      <div class="honors-card-top">
+      <div class="leader-banner-top">
+        <div class="leader-banner-crown">${icon}</div>
+        <div class="leader-banner-title">${category}</div>
+      </div>
+
+      <div class="honors-card-top leader-banner-body">
         ${player ? playerImageMarkup(player, "honors") : ""}
         <div class="honors-card-stack">
-          <div class="honors-card-icon">${icon}</div>
-          <div class="honors-card-label">${category}</div>
           <div class="honors-player-name">${nameMarkup}</div>
         </div>
       </div>
+
       <div class="honors-card-value ${valueClass}${numericClass}">${valueText}</div>
     </a>
   `;
@@ -730,28 +734,37 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
 
 function renderChampions(data) {
   const players = data?.players || [];
+  const eligiblePlayers = players.filter(player => Number(player?.entries ?? 0) >= 5);
+
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
-      const player = players.find(p => p.name === honor.name);
+      const player = eligiblePlayers.find(p => p.name === honor.name);
+      if (!player) return "";
+
       const valueClass = String(honor.type || "").toLowerCase().includes("profit")
         ? statValueClass(player || {}, "profit")
         : "";
+
       const valueText = String(honor.type || "").toLowerCase().includes("profit") && player
         ? fmtMoney(player.profit)
         : honor.note;
+
       return honorsCardMarkup(player, honor.type, honorIcon(honor.type), valueText, false, valueClass);
     }).join("");
   }
 
   if (recordsEl && Array.isArray(data?.records)) {
     recordsEl.innerHTML = data.records.map(record => {
-      const player = players.find(p => p.name === record.name);
+      const player = eligiblePlayers.find(p => p.name === record.name);
+      if (!player) return "";
+
       const valueClass = String(record.label || "").toLowerCase().includes("profit")
         ? valueClassFromMoneyString(record.value)
         : "";
+
       return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, false, valueClass);
     }).join("");
   }
