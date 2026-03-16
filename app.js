@@ -783,6 +783,7 @@ if (ticker && allPlayers.length) {
     </span>
   `;
 }
+}
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
