@@ -561,9 +561,24 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   setActiveSortButton("standings", sortKey);
 }
 
-function dashboardCardMarkup(player, sortKey) {
+function dashboardCardMarkup(player, sortKey, rank = null) {
+  let medal = "";
+  let rankClass = "dashboard-rank-default";
+
+  if (rank === 1) {
+    medal = "🥇";
+    rankClass = "dashboard-rank-gold";
+  } else if (rank === 2) {
+    medal = "🥈";
+    rankClass = "dashboard-rank-silver";
+  } else if (rank === 3) {
+    medal = "🥉";
+    rankClass = "dashboard-rank-bronze";
+  }
+
   return `
-    <a class="player-card player-card-rich dashboard-card" href="${playerUrl(player)}">
+    <a class="player-card player-card-rich dashboard-card ${rankClass}" href="${playerUrl(player)}">
+      ${medal ? `<div class="dashboard-rank-medal">${medal}</div>` : ""}
       <div class="dashboard-card-top">
         ${playerImageMarkup(player, "dashboard")}
       </div>
@@ -579,7 +594,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   ensureDashboardHeadline(sortKey);
   const sorted = sortPlayers(window.siteData.players, sortKey);
-  grid.innerHTML = sorted.map(player => dashboardCardMarkup(player, sortKey)).join("");
+  grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
   setActiveSortButton("dashboard", sortKey);
 }
 
