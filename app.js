@@ -84,6 +84,27 @@ const STAT_LEADER_CONFIG = [
   { key: "tiltIndex", title: "Tilt Leader" }
 ];
 
+const HONOR_RULES = {
+  "Profit Leader": { key: "profit", direction: "desc" },
+  "Power Leader": { key: "trueSkillScore", direction: "desc" },
+  "Clutch Leader": { key: "clutchIndex", direction: "desc" },
+  "Hit King": { key: "hits", direction: "desc" },
+  "Bubble King": { key: "bubbles", direction: "desc" }
+};
+
+const RECORD_RULES = {
+  "Highest Profit": { key: "profit", direction: "desc" },
+  "Best ROI": { key: "roi", direction: "desc" },
+  "Most Hits": { key: "hits", direction: "desc" },
+  "Most Cashes": { key: "timesPlaced", direction: "desc" },
+  "Most Bubbles": { key: "bubbles", direction: "desc" },
+  "Top True Skill": { key: "trueSkillScore", direction: "desc" },
+  "Best Clutch Index": { key: "clutchIndex", direction: "desc" },
+  "Best Luck Index": { key: "luckIndex", direction: "desc" },
+  "Worst Luck Index": { key: "luckIndex", direction: "asc" },
+  "Lowest Profit": { key: "profit", direction: "asc" }
+};
+
 const CHIP_SET_TEXT = {
   "40k": {
     "T-25": 20,
@@ -249,6 +270,32 @@ function formatStatValue(player, key) {
   }
 
   return formatProfileStatValue(player, stat);
+}
+
+function getEligiblePlayers(players) {
+  return (players || []).filter(player => Number(player?.entries ?? 0) >= 5);
+}
+
+function getLeaderByRule(players, rule) {
+  if (!rule || !rule.key) return null;
+
+  const eligiblePlayers = getEligiblePlayers(players);
+  if (!eligiblePlayers.length) return null;
+
+  const sorted = [...eligiblePlayers].sort((a, b) => {
+    const aVal = Number(a?.[rule.key] ?? 0);
+    const bVal = Number(b?.[rule.key] ?? 0);
+
+    if (rule.direction === "asc") {
+      if (aVal !== bVal) return aVal - bVal;
+    } else {
+      if (bVal !== aVal) return bVal - aVal;
+    }
+
+    return String(a?.name || "").localeCompare(String(b?.name || ""));
+  });
+
+  return sorted[0] || null;
 }
 
 function statValueClass(player, key) {
@@ -734,38 +781,62 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
 
 function renderChampions(data) {
   const players = data?.players || [];
-  const eligiblePlayers = players.filter(player => Number(player?.entries ?? 0) >= 5);
-
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
-      const player = eligiblePlayers.find(p => p.name === honor.name);
+      const rule = HONOR_RULES[honor.type];
+      const player = getLeaderByRule(players, rule);
       if (!player) return "";
 
-      const valueClass = String(honor.type || "").toLowerCase().includes("profit")
-        ? statValueClass(player || {}, "profit")
+      const valueClass = rule?.key === "profit"
+        ? statValueClass(player, "profit")
         : "";
 
-      const valueText = String(honor.type || "").toLowerCase().includes("profit") && player
-        ? fmtMoney(player.profit)
-        : honor.note;
+      let valueText = honor.note || "";
 
-      return honorsCardMarkup(player, honor.type, honorIcon(honor.type), valueText, false, valueClass);
+      if (rule?.key === "profit") {
+        valueText = fmtMoney(player.profit);
+      } else if (rule?.key) {
+        valueText = formatStatValue(player, rule.key);
+      }
+
+      return honorsCardMarkup(
+        player,
+        honor.type,
+        honorIcon(honor.type),
+        valueText,
+        false,
+        valueClass
+      );
     }).join("");
   }
 
   if (recordsEl && Array.isArray(data?.records)) {
     recordsEl.innerHTML = data.records.map(record => {
-      const player = eligiblePlayers.find(p => p.name === record.name);
+      const rule = RECORD_RULES[record.label];
+      const player = getLeaderByRule(players, rule);
       if (!player) return "";
 
-      const valueClass = String(record.label || "").toLowerCase().includes("profit")
-        ? valueClassFromMoneyString(record.value)
-        : "";
+      const valueClass = rule?.key === "profit"
+        ? statValueClass(player, "profit")
+        : rule?.key === "luckIndex"
+          ? statValueClass({ profit: player?.luckIndex }, "profit")
+          : "";
 
-      return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, false, valueClass);
+      const valueText = rule?.key
+        ? formatStatValue(player, rule.key)
+        : (record.value || "");
+
+      return honorsCardMarkup(
+        player,
+        record.label,
+        recordIcon(record.label),
+        valueText,
+        false,
+        valueClass
+      );
     }).join("");
   }
 }
