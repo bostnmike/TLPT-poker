@@ -362,6 +362,28 @@ a:hover{
   text-align:left;
 }
 
+.league-ticker{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,184,28,.06);
+  color:#fff;
+  font-weight:700;
+  padding:10px 0;
+  overflow:hidden;
+  margin:0 0 8px 0;
+}
+
+#league-ticker-text{
+  white-space:nowrap;
+  display:inline-block;
+  animation:tickerScroll 18s linear infinite;
+}
+
+@keyframes tickerScroll{
+  from{ transform:translateX(100%); }
+  to{ transform:translateX(-100%); }
+}
+
 /* homepage weekly modules */
 
 .home-leader-strip,
