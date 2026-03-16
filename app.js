@@ -769,23 +769,24 @@ if (insightFormula) {
     `;
   }
 
-const ticker = document.getElementById("league-ticker-text");
-if (ticker && allPlayers.length) {
-  const eligiblePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+const tickerItems = STAT_LEADER_CONFIG.map(stat => {
+  const leader = sortPlayers(eligiblePlayers, stat.key)[0];
+  if (!leader) return "";
 
-  ticker.innerHTML = `
-    <span class="league-ticker-run">
-      ${STAT_LEADER_CONFIG.map(stat => {
-        const leader = sortPlayers(eligiblePlayers, stat.key)[0];
-        if (!leader) return "";
+  const statConfig = getStatConfig(stat.key);
+  const icon = statConfig?.icon || "🏅";
 
-        const statConfig = getStatConfig(stat.key);
-        const icon = statConfig?.icon || "🏅";
+  return buildTickerLeader(icon, stat.title, leader);
+}).join("");
 
-        return buildTickerLeader(icon, stat.title, leader);
-      }).join("")}
-    </span>
-  `;
+ticker.innerHTML = `
+  <div class="league-ticker-run">
+    ${tickerItems}
+  </div>
+  <div class="league-ticker-run">
+    ${tickerItems}
+  </div>
+`;
 }
 }
 
