@@ -680,7 +680,7 @@ function renderHomePage(data) {
     `;
   }
 
-  const badgeCluster = document.getElementById("home-badge-cluster");
+    const badgeCluster = document.getElementById("home-badge-cluster");
   if (badgeCluster) {
     const badgeRows = [
       {
@@ -721,16 +721,19 @@ function renderHomePage(data) {
       }
     ];
 
-    badgeCluster.innerHTML = badgeRows.map(item =>
-      buildHomeBadgeRow(
-        item.label,
-        item.player,
-        item.player ? item.value(item.player) : "",
-        item.player ? item.valueClass(item.player) : ""
-      )
-    ).join("");
+    badgeCluster.innerHTML = `
+      <div class="home-badge-cluster">
+        ${badgeRows.map(item =>
+          buildHomeBadgeRow(
+            item.label,
+            item.player,
+            item.player ? item.value(item.player) : "",
+            item.player ? item.valueClass(item.player) : ""
+          )
+        ).join("")}
+      </div>
+    `;
   }
-}
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
