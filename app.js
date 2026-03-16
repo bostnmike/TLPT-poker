@@ -539,37 +539,31 @@ function buildHomeInsightCard(title, icon, player, value, note, valueClass = "")
   `;
 }
 
-function buildHomeMiniRow(rank, player, value, valueClass = "") {
-  if (!player) return "";
-
+function buildHomeMiniRow(rank, player, value){
   return `
-    <a class="home-mini-row" href="${playerUrl(player)}">
-      <span class="home-mini-rank">#${rank}</span>
-
-      <span class="home-mini-player-wrap">
-        ${playerImageMarkup(player, "table")}
-        <span class="home-mini-name">${displayPlayerName(player)}</span>
-      </span>
-
-      <span class="home-mini-value ${valueClass}">${value}</span>
-    </a>
+    <div class="home-mini-row">
+      <div class="home-mini-rank">#${rank}</div>
+      <div class="home-mini-player-wrap">
+        <div class="player-avatar-wrap">
+          ${playerAvatarMarkup(player,"table")}
+        </div>
+      </div>
+      <div class="home-mini-value">${value}</div>
+    </div>
   `;
 }
 
-function buildHomeBadgeRow(label, player, value, valueClass = "") {
-  if (!player) return "";
-
+function buildHomeBadgeRow(label, player, value, valueClass=""){
   return `
-    <a class="home-badge-row" href="${playerUrl(player)}">
-      <span class="home-badge-pill">${label}</span>
-
-      <span class="home-badge-player-wrap">
-        ${playerImageMarkup(player, "table")}
-        <span class="home-badge-player">${displayPlayerName(player)}</span>
-      </span>
-
-      <span class="home-badge-value ${valueClass}">${value}</span>
-    </a>
+    <div class="home-badge-row">
+      <div class="home-badge-pill">${label}</div>
+      <div class="home-badge-player-wrap">
+        <div class="player-avatar-wrap">
+          ${playerAvatarMarkup(player,"table")}
+        </div>
+      </div>
+      <div class="home-badge-value ${valueClass}">${value}</div>
+    </div>
   `;
 }
 
