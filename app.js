@@ -539,6 +539,8 @@ function buildHomeInsightCard(title, icon, player, value, note, formulaKey, valu
 }
 
 function buildHomeMiniRow(rank, player, value) {
+  if (!player) return "";
+
   return `
     <div class="home-mini-row">
       <div class="home-mini-rank">#${rank}</div>
@@ -553,6 +555,8 @@ function buildHomeMiniRow(rank, player, value) {
 }
 
 function buildHomeBadgeRow(label, player, value, valueClass = "") {
+  if (!player) return "";
+
   return `
     <div class="home-badge-row">
       <div class="home-badge-pill">${label}</div>
@@ -668,7 +672,7 @@ function renderHomePage(data) {
   }
 
 const insightFormula = document.getElementById("home-insight-formula");
-if (insightFormula) {
+if (insightFormula && insightsGrid) {
   insightFormula.textContent = "";
 
   insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
