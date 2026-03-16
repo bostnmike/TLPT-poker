@@ -374,9 +374,9 @@ a:hover{
 }
 
 #league-ticker-text{
-  white-space:nowrap;
-  display:inline-block;
-  animation:tickerScroll 38s linear infinite;
+  display:flex;
+  width:max-content;
+  animation:tickerScroll 42s linear infinite;
 }
 
 .league-ticker-run{
@@ -424,8 +424,8 @@ a:hover{
 }
 
 @keyframes tickerScroll{
-  from{ transform:translateX(100%); }
-  to{ transform:translateX(-100%); }
+  from{ transform:translateX(0); }
+  to{ transform:translateX(-50%); }
 }
 
 /* homepage weekly modules */
