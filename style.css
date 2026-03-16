@@ -725,6 +725,19 @@ th{
   font-size:1.1rem;
 }
 
+/* star indicator for players with fewer than 5 entries */
+
+.player-entry-asterisk{
+  margin-left:2px;
+  color:#ffb81c;
+  font-weight:700;
+  cursor:help;
+}
+
+.player-entry-asterisk:hover{
+  color:#ffd76a;
+}
+
 .crew-card{
   min-height:170px;
 }
