@@ -761,14 +761,18 @@ function renderStatLeaders(data) {
   const list = document.getElementById("leaders-list");
   if (!list) return;
 
-  const players = data?.players || [];
-  if (!players.length) {
+  const allPlayers = data?.players || [];
+  const eligiblePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+
+  if (!eligiblePlayers.length) {
     list.innerHTML = "";
     return;
   }
 
   list.innerHTML = STAT_LEADER_CONFIG.map(stat => {
-    const leader = sortPlayers(players, stat.key)[0];
+    const leader = sortPlayers(eligiblePlayers, stat.key)[0];
+    if (!leader) return "";
+
     const statConfig = getStatConfig(stat.key);
     const icon = statConfig?.icon || "🏅";
     const value = formatStatValue(leader, stat.key);
@@ -777,15 +781,20 @@ function renderStatLeaders(data) {
       : "";
 
     return `
-      <a class="champ-card stat-card-visual honors-card" href="${playerUrl(leader)}">
-        <div class="honors-card-top">
+      <a class="champ-card stat-card-visual honors-card leader-banner-card" href="${playerUrl(leader)}">
+        <div class="leader-banner-top">
+          <div class="leader-banner-crown">👑</div>
+          <div class="leader-banner-title">${stat.title}</div>
+        </div>
+
+        <div class="honors-card-top leader-banner-body">
           ${playerImageMarkup(leader, "honors")}
           <div class="honors-card-stack">
             <div class="honors-card-icon">${icon}</div>
-            <div class="honors-card-label">${stat.title}</div>
             <div class="honors-player-name">${displayPlayerName(leader)}</div>
           </div>
         </div>
+
         <div class="honors-card-value ${valueClass}${isNumericValueText(value) ? " honors-card-value--numeric" : ""}">
           ${value}
         </div>
