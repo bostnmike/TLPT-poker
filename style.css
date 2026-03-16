@@ -362,6 +362,204 @@ a:hover{
   text-align:left;
 }
 
+/* homepage weekly modules */
+
+.home-leader-strip,
+.home-insights-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:16px;
+}
+
+.home-strip-card,
+.home-insight-card{
+  display:block;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--panel-3);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.home-strip-card:hover,
+.home-insight-card:hover,
+.home-badge-row:hover,
+.home-mini-row:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.5);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.18),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(255,184,28,.14);
+}
+
+.home-strip-kicker,
+.home-insight-kicker,
+.home-mini-board-title{
+  color:var(--gold);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.home-strip-kicker{
+  margin-bottom:10px;
+}
+
+.home-strip-player,
+.home-insight-player,
+.home-badge-player{
+  color:#fff;
+  font-weight:800;
+  line-height:1.2;
+}
+
+.home-strip-player{
+  font-size:1.08rem;
+  margin-bottom:10px;
+}
+
+.home-strip-value{
+  font-size:1.7rem;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.home-insight-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.home-insight-icon{
+  font-size:1.45rem;
+  line-height:1;
+}
+
+.home-insight-player{
+  font-size:1.1rem;
+  margin-bottom:8px;
+}
+
+.home-insight-value{
+  font-size:1.95rem;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:8px;
+}
+
+.home-feature-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+
+.home-feature-panel{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--panel-3);
+  box-shadow:var(--shadow);
+}
+
+.home-feature-head h3{
+  margin:0 0 6px 0;
+  color:#fff;
+}
+
+.home-feature-head p{
+  margin:0 0 14px 0;
+}
+
+.home-cluster-stack{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:14px;
+}
+
+.home-mini-board{
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.02);
+}
+
+.home-mini-board-title{
+  margin-bottom:10px;
+}
+
+.home-mini-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,.06);
+  color:var(--text);
+}
+
+.home-mini-row:first-of-type{
+  border-top:none;
+  padding-top:0;
+}
+
+.home-mini-rank{
+  color:var(--gold);
+  font-weight:800;
+}
+
+.home-mini-name{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.home-mini-value{
+  font-weight:800;
+  color:#fff;
+}
+
+.home-badge-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+  margin-bottom:10px;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.home-badge-row:last-child{
+  margin-bottom:0;
+}
+
+.home-badge-pill{
+  display:inline-flex;
+  align-items:center;
+  border:1px solid rgba(255,184,28,.28);
+  background:rgba(255,184,28,.08);
+  color:#fff;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:.78rem;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.home-badge-value{
+  color:var(--gold);
+  font-weight:800;
+}
+
 /* event cards */
 
 .home-events-grid,
@@ -1426,6 +1624,15 @@ th{
   #players-grid{
     grid-template-columns:repeat(4, minmax(0,1fr)) !important;
   }
+
+  .home-leader-strip,
+  .home-insights-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+
+  .home-feature-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width:1100px){
@@ -1497,6 +1704,10 @@ th{
   #schedule-list{
     grid-template-columns:1fr !important;
   }
+
+  .home-cluster-stack{
+    grid-template-columns:1fr;
+  }
 }
 
 @media (max-width:640px){
@@ -1510,6 +1721,20 @@ th{
   #schedule-list,
   .media-grid{
     grid-template-columns:1fr !important;
+  }
+
+  .home-leader-strip,
+  .home-insights-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-badge-row{
+    grid-template-columns:1fr;
+    justify-items:start;
+  }
+
+  .home-mini-name{
+    white-space:normal;
   }
 
   table{
