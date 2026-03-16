@@ -333,7 +333,13 @@ function initialsFromName(name) {
 function displayPlayerName(player) {
   if (!player) return "";
 
-  const name = player.name || "";
+  let name = player.name || "";
+
+  // Fix capitalization
+  if (name === "Nasa Al") {
+    name = "NASA Al";
+  }
+
   const entries = Number(player?.entries ?? 0);
 
   if (entries < 5) {
