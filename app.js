@@ -331,7 +331,16 @@ function initialsFromName(name) {
 }
 
 function displayPlayerName(player) {
-  return Number(player?.entries ?? 0) < 5 ? `${player.name}*` : player.name;
+  if (!player) return "";
+
+  const name = player.name || "";
+  const entries = Number(player?.entries ?? 0);
+
+  if (entries < 5) {
+    return `${name}<span class="player-entry-asterisk" title="* fewer than 5 league entries">*</span>`;
+  }
+
+  return name;
 }
 
 function playerUrl(player) {
