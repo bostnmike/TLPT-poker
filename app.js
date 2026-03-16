@@ -567,6 +567,20 @@ function buildHomeBadgeRow(label, player, value, valueClass = "") {
   `;
 }
 
+function buildTickerLeader(icon, label, player) {
+  if (!player) return "";
+
+  return `
+    <span class="league-ticker-item">
+      <span class="league-ticker-label">${icon} ${label}</span>
+      <span class="league-ticker-player">
+        ${playerImageMarkup(player, "table")}
+        <span class="league-ticker-name">${displayPlayerName(player)}</span>
+      </span>
+    </span>
+  `;
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
