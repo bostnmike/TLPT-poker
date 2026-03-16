@@ -721,7 +721,7 @@ function renderHomePage(data) {
       }
     ];
 
-        badgeCluster.innerHTML = `
+    badgeCluster.innerHTML = `
       <div class="home-badge-cluster">
         ${badgeRows.map(item =>
           buildHomeBadgeRow(
@@ -735,8 +735,6 @@ function renderHomePage(data) {
     `;
   }
 }
-
-function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
