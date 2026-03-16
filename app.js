@@ -344,6 +344,104 @@ function displayPlayerName(player) {
     name = NAME_FIXES[name];
   }
 
+function getPlayerArchetype(player) {
+
+  if (!player) return { emoji:"🧍", name:"Unknown", desc:"still figuring out which end of the deck is up." };
+
+  if ((player.aggressionIndex ?? 0) > 1.2 && (player.hits ?? 0) >= 10) {
+    return {
+      emoji:"💥",
+      name:"Hitman",
+      desc:"knocking players out like it's a contact sport"
+    };
+  }
+
+  if ((player.clutchIndex ?? 0) > 1.15) {
+    return {
+      emoji:"🎯",
+      name:"Closer",
+      desc:"somehow always shows up when the chips matter"
+    };
+  }
+
+  if ((player.survivorIndex ?? 0) > 1.1) {
+    return {
+      emoji:"🧊",
+      name:"The Rock",
+      desc:"folds, survives, and bores the table to death"
+    };
+  }
+
+  if ((player.luckIndex ?? 0) > 1.15) {
+    return {
+      emoji:"🍀",
+      name:"Lucky Devil",
+      desc:"running hotter than probability should allow"
+    };
+  }
+
+  if ((player.tiltIndex ?? 0) > 1.15) {
+    return {
+      emoji:"🔥",
+      name:"Wildcard",
+      desc:"capable of brilliance or disaster on any hand"
+    };
+  }
+
+  return {
+    emoji:"🧠",
+    name:"Technician",
+    desc:"playing solid poker without the theatrics"
+  };
+}
+
+  function getPlayerTier(player){
+
+  const score =
+    (player.trueSkillScore ?? 0) +
+    (player.roi ?? 0) * 0.2 +
+    (player.clutchIndex ?? 0) * 0.5;
+
+  if (score > 7){
+    return {
+      emoji:"🦈",
+      name:"S Tier — Shark",
+      desc:"the table suddenly gets very quiet when they sit down"
+    };
+  }
+
+  if (score > 5){
+    return {
+      emoji:"⚔️",
+      name:"A Tier — Crusher",
+      desc:"consistently dangerous and rarely easy money"
+    };
+  }
+
+  if (score > 3){
+    return {
+      emoji:"🎲",
+      name:"B Tier — Regular",
+      desc:"solid league player with occasional heater potential"
+    };
+  }
+
+  if (score > 1){
+    return {
+      emoji:"🍻",
+      name:"C Tier — Degenerate",
+      desc:"here for the gamble, the laughs, and the rebuys"
+    };
+  }
+
+  return {
+    emoji:"💸",
+    name:"D Tier — Donation",
+    desc:"keeping the league economy healthy"
+  };
+
+}
+  
   const entries = Number(player?.entries ?? 0);
 
   if (entries < 5) {
