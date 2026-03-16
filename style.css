@@ -904,6 +904,11 @@ th{
   gap:6px;
 }
 
+.honors-card-icon,
+.honors-card-label{
+  display:none;
+}
+
 .honors-card-icon{
   font-size:1.8rem;
   line-height:1;
