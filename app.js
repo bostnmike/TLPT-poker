@@ -771,7 +771,7 @@ function renderStatLeaders(data) {
     const leader = sortPlayers(players, stat.key)[0];
     const statConfig = getStatConfig(stat.key);
     const icon = statConfig?.icon || "🏅";
-    const value = formatLeaderValue(leader, stat.key);
+    const value = formatStatValue(leader, stat.key);
     const valueClass = stat.key === "profit"
       ? statValueClass(leader, "profit")
       : "";
@@ -1001,6 +1001,7 @@ async function main() {
   renderPlayerProfile(data);
   renderSchedule(data);
   renderChampions(data);
+  renderStatLeaders(data);
   initRulesPage();
   initSorting();
 }
