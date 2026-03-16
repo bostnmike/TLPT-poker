@@ -546,8 +546,10 @@ function renderHomePage(data) {
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
-  const tableBody = document.getElementById("standings-body");
-  if (!tableBody || !window.siteData?.players) return;
+  const tbody = document.querySelector("#standings-table tbody");
+  if (!tbody || !window.siteData?.players) return;
+
+  ensureStandingsHeadline(sortKey);
 
   const eligiblePlayers = window.siteData.players.filter(
     player => Number(player?.entries ?? 0) >= 2
@@ -555,27 +557,23 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
 
-  tableBody.innerHTML = sorted.map((player, index) => `
+  tbody.innerHTML = sorted.map((player, index) => `
     <tr>
       <td>${index + 1}</td>
-      <td>${displayPlayerName(player)}</td>
-      <td>${player.buyIns}</td>
-      <td>${player.rebuys}</td>
-      <td>${player.entries}</td>
-      <td>${player.hits}</td>
-      <td>${player.timesPlaced}</td>
-      <td>${player.bubbles}</td>
+      <td>${playerInlineMarkup(player, "standings")}</td>
       <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
       <td>${fmtPct(player.roi)}</td>
-      <td>${fmtPct(player.cashRate)}</td>
-      <td>${fmtPct(player.bubbleRate)}</td>
-      <td>${fmtPct(player.hitRate)}</td>
+      <td>${fmtNum(player.trueSkillScore)}</td>
+      <td>${player.hits ?? "-"}</td>
+      <td>${player.timesPlaced ?? "-"}</td>
+      <td>${player.bubbles ?? "-"}</td>
+      <td>${fmtNum(player.luckIndex)}</td>
+      <td>${fmtNum(player.clutchIndex)}</td>
     </tr>
   `).join("");
 
   setActiveSortButton("standings", sortKey);
 }
-
 function dashboardCardMarkup(player, sortKey, rank = null) {
   let medal = "";
   let rankClass = "dashboard-rank-default";
