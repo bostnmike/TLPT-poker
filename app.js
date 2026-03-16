@@ -769,27 +769,29 @@ if (insightFormula) {
     `;
   }
 
-const tickerItems = STAT_LEADER_CONFIG.map(stat => {
-  const leader = sortPlayers(eligiblePlayers, stat.key)[0];
-  if (!leader) return "";
+const ticker = document.getElementById("league-ticker-text");
+if (ticker && qualifiedPlayers.length) {
+  const tickerItems = STAT_LEADER_CONFIG.map(stat => {
+    const leader = sortPlayers(qualifiedPlayers, stat.key)[0];
+    if (!leader) return "";
 
-  const statConfig = getStatConfig(stat.key);
-  const icon = statConfig?.icon || "🏅";
+    const statConfig = getStatConfig(stat.key);
+    const icon = statConfig?.icon || "🏅";
 
-  return buildTickerLeader(icon, stat.title, leader);
-}).join("");
+    return buildTickerLeader(icon, stat.title, leader);
+  }).join("");
 
-ticker.innerHTML = `
-  <div class="league-ticker-run">
-    ${tickerItems}
-  </div>
-  <div class="league-ticker-run">
-    ${tickerItems}
-  </div>
-`;
+  ticker.innerHTML = `
+    <div class="league-ticker-run">
+      ${tickerItems}
+    </div>
+    <div class="league-ticker-run">
+      ${tickerItems}
+    </div>
+  `;
+  }
 }
-}
-
+  
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
