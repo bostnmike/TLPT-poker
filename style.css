@@ -582,9 +582,9 @@ a:hover{
 .home-mini-player-wrap .player-avatar-fallback,
 .home-badge-player-wrap .player-avatar,
 .home-badge-player-wrap .player-avatar-fallback{
-  width:40px;
-  height:40px;
-  font-size:.9rem;
+  width:52px;
+  height:52px;
+  font-size:1rem;
   border-width:2px;
 }
 
