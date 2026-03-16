@@ -70,6 +70,20 @@ const DASHBOARD_META = Object.fromEntries(
     ])
 );
 
+const STAT_LEADER_CONFIG = [
+  { key: "profit", title: "Profit Leader" },
+  { key: "roi", title: "ROI Leader" },
+  { key: "hits", title: "Hit King" },
+  { key: "timesPlaced", title: "Cash King" },
+  { key: "bubbles", title: "Bubble King" },
+  { key: "trueSkillScore", title: "Power Leader" },
+  { key: "luckIndex", title: "Luck Leader" },
+  { key: "clutchIndex", title: "Clutch Leader" },
+  { key: "aggressionIndex", title: "Aggression Leader" },
+  { key: "survivorIndex", title: "Survivor Leader" },
+  { key: "tiltIndex", title: "Tilt Leader" }
+];
+
 const CHIP_SET_TEXT = {
   "40k": {
     "T-25": 20,
@@ -741,6 +755,43 @@ function renderChampions(data) {
       return honorsCardMarkup(player, record.label, recordIcon(record.label), record.value, false, valueClass);
     }).join("");
   }
+}
+
+function renderStatLeaders(data) {
+  const list = document.getElementById("leaders-list");
+  if (!list) return;
+
+  const players = data?.players || [];
+  if (!players.length) {
+    list.innerHTML = "";
+    return;
+  }
+
+  list.innerHTML = STAT_LEADER_CONFIG.map(stat => {
+    const leader = sortPlayers(players, stat.key)[0];
+    const statConfig = getStatConfig(stat.key);
+    const icon = statConfig?.icon || "🏅";
+    const value = formatLeaderValue(leader, stat.key);
+    const valueClass = stat.key === "profit"
+      ? statValueClass(leader, "profit")
+      : "";
+
+    return `
+      <a class="champ-card stat-card-visual honors-card" href="${playerUrl(leader)}">
+        <div class="honors-card-top">
+          ${playerImageMarkup(leader, "honors")}
+          <div class="honors-card-stack">
+            <div class="honors-card-icon">${icon}</div>
+            <div class="honors-card-label">${stat.title}</div>
+            <div class="honors-player-name">${displayPlayerName(leader)}</div>
+          </div>
+        </div>
+        <div class="honors-card-value ${valueClass}${isNumericValueText(value) ? " honors-card-value--numeric" : ""}">
+          ${value}
+        </div>
+      </a>
+    `;
+  }).join("");
 }
 
 function buildRulesTimerRail(format) {
