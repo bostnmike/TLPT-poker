@@ -379,6 +379,44 @@ a:hover{
   animation:tickerScroll 18s linear infinite;
 }
 
+.league-ticker-run{
+  display:inline-flex;
+  align-items:center;
+  gap:34px;
+}
+
+.league-ticker-item{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+
+.league-ticker-label{
+  color:var(--gold);
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.league-ticker-player{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+
+.league-ticker-player .player-avatar,
+.league-ticker-player .player-avatar-fallback{
+  width:34px;
+  height:34px;
+  font-size:.82rem;
+  border-width:2px;
+}
+
+.league-ticker-name{
+  color:#fff;
+  font-weight:700;
+  white-space:nowrap;
+}
+
 @keyframes tickerScroll{
   from{ transform:translateX(100%); }
   to{ transform:translateX(-100%); }
@@ -567,12 +605,29 @@ a:hover{
   justify-content:center;
   text-align:center;
   gap:8px;
-  padding:16px 12px;
-  min-height:110px;
+  padding:14px 12px;
+  min-height:96px;
 
   border:1px solid var(--line);
   border-radius:14px;
   background:rgba(255,255,255,.03);
+}
+
+.home-badge-main{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+}
+
+.home-badge-value{
+  color:var(--gold);
+  font-weight:800;
+  font-size:1.2rem;
+  text-align:left;
+  width:auto;
+  white-space:nowrap;
 }
 
 .home-badge-row:last-child{
