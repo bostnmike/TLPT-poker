@@ -734,6 +734,15 @@ function renderHomePage(data) {
       </div>
     `;
   }
+
+  const ticker = document.getElementById("league-ticker-text");
+  if (ticker && allPlayers.length) {
+    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
+    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
+    const bubbleLeader = getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]);
+
+    ticker.textContent = `TLPT Weekly Update — 💰 Profit Leader: ${displayPlayerName(profitLeader)} | 💥 Hit King: ${displayPlayerName(hitLeader)} | 🫧 Bubble King: ${displayPlayerName(bubbleLeader)}`;
+  }
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
