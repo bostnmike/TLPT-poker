@@ -382,7 +382,7 @@ a:hover{
 .league-ticker-run{
   display:inline-flex;
   align-items:center;
-  gap:34px;
+  gap:22px;
 }
 
 .league-ticker-item{
