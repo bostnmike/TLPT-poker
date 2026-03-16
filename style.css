@@ -534,7 +534,7 @@ a:hover{
 
 .home-badge-cluster{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
+  grid-template-columns:repeat(2, minmax(0,1fr));
   gap:12px;
 }
 
@@ -546,13 +546,11 @@ a:hover{
   text-align:center;
   gap:8px;
   padding:16px 12px;
+  min-height:110px;
 
   border:1px solid var(--line);
   border-radius:14px;
   background:rgba(255,255,255,.03);
-  color:var(--text);
-
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .home-badge-row:last-child{
