@@ -518,11 +518,11 @@ function buildHomeStripCard(title, icon, player, value, valueClass = "") {
   `;
 }
 
-function buildHomeInsightCard(title, icon, player, value, note, valueClass = "") {
+function buildHomeInsightCard(title, icon, player, value, note, formulaKey, valueClass = "") {
   if (!player) return "";
 
   return `
-    <a class="home-insight-card" href="${playerUrl(player)}">
+    <a class="home-insight-card" href="${playerUrl(player)}" data-formula="${STAT_FORMULAS[formulaKey] || ""}">
       <div class="home-insight-top">
         <div class="home-insight-icon">${icon}</div>
         <div class="home-insight-kicker">${title}</div>
@@ -534,7 +534,6 @@ function buildHomeInsightCard(title, icon, player, value, note, valueClass = "")
       </div>
 
       <div class="home-insight-value ${valueClass}">${value}</div>
-      <p class="muted">${note}</p>
     </a>
   `;
 }
@@ -557,12 +556,14 @@ function buildHomeBadgeRow(label, player, value, valueClass = "") {
   return `
     <div class="home-badge-row">
       <div class="home-badge-pill">${label}</div>
-      <div class="home-badge-player-wrap">
-        <div class="player-avatar-wrap">
-          ${playerImageMarkup(player, "table")}
+      <div class="home-badge-main">
+        <div class="home-badge-player-wrap">
+          <div class="player-avatar-wrap">
+            ${playerImageMarkup(player, "table")}
+          </div>
         </div>
+        <div class="home-badge-value ${valueClass}">${value}</div>
       </div>
-      <div class="home-badge-value ${valueClass}">${value}</div>
     </div>
   `;
 }
@@ -630,38 +631,57 @@ function renderHomePage(data) {
     const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
     const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
 
-    insightsGrid.innerHTML = [
-      buildHomeInsightCard(
-        "ROI Heater",
-        "🔥",
-        roiLeader,
-        roiLeader ? fmtPct(roiLeader.roi) : "",
-        "Best return among qualified players."
-      ),
-      buildHomeInsightCard(
-        "Survivor Spotlight",
-        "🛟",
-        survivorLeader,
-        survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
-        "Best survival profile under current season pressure."
-      ),
-      buildHomeInsightCard(
-        "Run-Good Radar",
-        "🍀",
-        luckLeader,
-        luckLeader ? fmtNum(luckLeader.luckIndex) : "",
-        "Biggest gap between actual and expected profit."
-      ),
-      buildHomeInsightCard(
-        "Bubble Trouble",
-        "🫧",
-        bubbleLeader,
-        bubbleLeader ? String(bubbleLeader.bubbles) : "",
-        "Most near-misses at the edge of the money."
-      )
-    ].join("");
+      insightsGrid.innerHTML = [
+        buildHomeInsightCard(
+          "ROI Heater",
+          "🔥",
+          roiLeader,
+          roiLeader ? fmtPct(roiLeader.roi) : "",
+          "",
+          "roi"
+        ),
+        buildHomeInsightCard(
+          "Survivor Spotlight",
+          "🛟",
+          survivorLeader,
+          survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
+          "",
+          "survivorIndex"
+        ),
+        buildHomeInsightCard(
+          "Run-Good Radar",
+          "🍀",
+          luckLeader,
+          luckLeader ? fmtNum(luckLeader.luckIndex) : "",
+          "",
+          "luckIndex"
+        ),
+        buildHomeInsightCard(
+          "Bubble Trouble",
+          "🫧",
+          bubbleLeader,
+          bubbleLeader ? String(bubbleLeader.bubbles) : "",
+          "",
+          "bubbles"
+        )
+      ].join("");
   }
 
+const insightFormula = document.getElementById("home-insight-formula");
+if (insightFormula) {
+  insightFormula.textContent = "";
+
+  insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      insightFormula.textContent = card.dataset.formula || "";
+    });
+
+    card.addEventListener("mouseleave", () => {
+      insightFormula.textContent = "";
+    });
+  });
+}
+  
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
     const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
@@ -749,14 +769,19 @@ function renderHomePage(data) {
     `;
   }
 
-  const ticker = document.getElementById("league-ticker-text");
-  if (ticker && allPlayers.length) {
-    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
-    const bubbleLeader = getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]);
+const ticker = document.getElementById("league-ticker-text");
+if (ticker && allPlayers.length) {
+  const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
+  const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
+  const bubbleLeader = getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]);
 
-    ticker.textContent = `TLPT Weekly Update — 💰 Profit Leader: ${displayPlayerName(profitLeader)} | 💥 Hit King: ${displayPlayerName(hitLeader)} | 🫧 Bubble King: ${displayPlayerName(bubbleLeader)}`;
-  }
+  ticker.innerHTML = `
+    <span class="league-ticker-run">
+      ${buildTickerLeader("💰", "Profit Leader", profitLeader)}
+      ${buildTickerLeader("💥", "Hit King", hitLeader)}
+      ${buildTickerLeader("🫧", "Bubble King", bubbleLeader)}
+    </span>
+  `;
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
