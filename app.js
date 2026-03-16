@@ -501,22 +501,56 @@ function ensureDashboardHeadline(sortKey) {
   }
 }
 
-function renderHomeTopTable(data) {
-  const tbody = document.querySelector("#home-standings-table tbody");
-  if (!tbody || !data?.players?.length) return;
+function buildHomeStripCard(title, icon, player, value, valueClass = "") {
+  if (!player) return "";
 
-  tbody.innerHTML = sortPlayers(data.players, "profit").slice(0, 10).map(player => `
-    <tr>
-      <td>${playerInlineMarkup(player, "table")}</td>
-      <td>${player.entries ?? "-"}</td>
-      <td>${player.buyIns ?? "-"}</td>
-      <td>${player.rebuys ?? "-"}</td>
-      <td>${player.timesPlaced ?? "-"}</td>
-      <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
-      <td>${fmtNum(player.trueSkillScore)}</td>
-      <td>${player.hits ?? "-"}</td>
-    </tr>
-  `).join("");
+  return `
+    <a class="home-strip-card" href="${playerUrl(player)}">
+      <div class="home-strip-kicker">${icon} ${title}</div>
+      <div class="home-strip-player">${displayPlayerName(player)}</div>
+      <div class="home-strip-value ${valueClass}">${value}</div>
+    </a>
+  `;
+}
+
+function buildHomeInsightCard(title, icon, player, value, note, valueClass = "") {
+  if (!player) return "";
+
+  return `
+    <a class="home-insight-card" href="${playerUrl(player)}">
+      <div class="home-insight-top">
+        <div class="home-insight-icon">${icon}</div>
+        <div class="home-insight-kicker">${title}</div>
+      </div>
+      <div class="home-insight-player">${displayPlayerName(player)}</div>
+      <div class="home-insight-value ${valueClass}">${value}</div>
+      <p class="muted">${note}</p>
+    </a>
+  `;
+}
+
+function buildHomeMiniRow(rank, player, value, valueClass = "") {
+  if (!player) return "";
+
+  return `
+    <a class="home-mini-row" href="${playerUrl(player)}">
+      <span class="home-mini-rank">#${rank}</span>
+      <span class="home-mini-name">${displayPlayerName(player)}</span>
+      <span class="home-mini-value ${valueClass}">${value}</span>
+    </a>
+  `;
+}
+
+function buildHomeBadgeRow(label, player, value, valueClass = "") {
+  if (!player) return "";
+
+  return `
+    <a class="home-badge-row" href="${playerUrl(player)}">
+      <span class="home-badge-pill">${label}</span>
+      <span class="home-badge-player">${displayPlayerName(player)}</span>
+      <span class="home-badge-value ${valueClass}">${value}</span>
+    </a>
+  `;
 }
 
 function renderHomePage(data) {
@@ -542,7 +576,138 @@ function renderHomePage(data) {
     `).join("");
   }
 
-  renderHomeTopTable(data);
+  const allPlayers = data?.players || [];
+  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 2);
+
+  const leaderStrip = document.getElementById("home-leader-strip");
+  if (leaderStrip) {
+    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
+    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
+    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
+    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
+
+    leaderStrip.innerHTML = [
+      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
+      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
+      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
+      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
+    ].join("");
+  }
+
+  const insightsGrid = document.getElementById("home-insights-grid");
+  if (insightsGrid) {
+    const roiLeader = sortPlayers(qualifiedPlayers, "roi")[0];
+    const survivorLeader = sortPlayers(qualifiedPlayers, "survivorIndex")[0];
+    const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
+    const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
+
+    insightsGrid.innerHTML = [
+      buildHomeInsightCard(
+        "ROI Heater",
+        "🔥",
+        roiLeader,
+        roiLeader ? fmtPct(roiLeader.roi) : "",
+        "Best return among qualified players."
+      ),
+      buildHomeInsightCard(
+        "Survivor Spotlight",
+        "🛟",
+        survivorLeader,
+        survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
+        "Best survival profile under current season pressure."
+      ),
+      buildHomeInsightCard(
+        "Run-Good Radar",
+        "🍀",
+        luckLeader,
+        luckLeader ? fmtNum(luckLeader.luckIndex) : "",
+        "Biggest gap between actual and expected profit."
+      ),
+      buildHomeInsightCard(
+        "Bubble Trouble",
+        "🫧",
+        bubbleLeader,
+        bubbleLeader ? String(bubbleLeader.bubbles) : "",
+        "Most near-misses at the edge of the money."
+      )
+    ].join("");
+  }
+
+  const actionCluster = document.getElementById("home-action-cluster");
+  if (actionCluster) {
+    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
+    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 3);
+
+    actionCluster.innerHTML = `
+      <div class="home-cluster-stack">
+        <div class="home-mini-board">
+          <div class="home-mini-board-title">💥 Knockout Board</div>
+          ${hitLeaders.map((player, index) =>
+            buildHomeMiniRow(index + 1, player, String(player.hits))
+          ).join("")}
+        </div>
+
+        <div class="home-mini-board">
+          <div class="home-mini-board-title">🫧 Bubble Watch</div>
+          ${bubbleLeaders.map((player, index) =>
+            buildHomeMiniRow(index + 1, player, String(player.bubbles))
+          ).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  const badgeCluster = document.getElementById("home-badge-cluster");
+  if (badgeCluster) {
+    const badgeRows = [
+      {
+        label: "💰 Profit Leader",
+        player: getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]),
+        value: player => fmtMoney(player.profit),
+        valueClass: player => statValueClass(player, "profit")
+      },
+      {
+        label: "💪🏼 Power Leader",
+        player: getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]),
+        value: player => fmtNum(player.trueSkillScore),
+        valueClass: () => ""
+      },
+      {
+        label: "🎯 Clutch Leader",
+        player: getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]),
+        value: player => fmtNum(player.clutchIndex),
+        valueClass: () => ""
+      },
+      {
+        label: "🍀 Luck Leader",
+        player: sortPlayers(qualifiedPlayers, "luckIndex")[0],
+        value: player => fmtNum(player.luckIndex),
+        valueClass: () => ""
+      },
+      {
+        label: "💥 Hit King",
+        player: getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]),
+        value: player => String(player.hits),
+        valueClass: () => ""
+      },
+      {
+        label: "🫧 Bubble King",
+        player: getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]),
+        value: player => String(player.bubbles),
+        valueClass: () => ""
+      }
+    ];
+
+    badgeCluster.innerHTML = badgeRows.map(item =>
+      buildHomeBadgeRow(
+        item.label,
+        item.player,
+        item.player ? item.value(item.player) : "",
+        item.player ? item.valueClass(item.player) : ""
+      )
+    ).join("");
+  }
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
