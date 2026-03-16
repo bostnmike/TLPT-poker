@@ -31,48 +31,44 @@ const STAT_FORMULAS = {
 };
 
 const PROFILE_STAT_CONFIG = [
-  { key: "totalCost", label: "Total Cost", type: "money" },
-  { key: "totalWinnings", label: "Total Winnings", type: "money", profitClassFromValue: true },
+  { key: "totalCost", label: "Total Cost", type: "money", icon: "💸", dashboard: false },
+  { key: "totalWinnings", label: "Total Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
 
-  { key: "profit", label: "Profit", type: "money", profitClass: true },
-  { key: "roi", label: "ROI", type: "pct" },
-  { key: "cashRate", label: "Cash Rate", type: "pct" },
-  { key: "bubbleRate", label: "Bubble Rate", type: "pct" },
-  { key: "hitRate", label: "Hit Rate", type: "pct" },
+  { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
+  { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
+  { key: "cashRate", label: "Cash Rate", type: "pct", icon: "💵", dashboard: true },
+  { key: "bubbleRate", label: "Bubble Rate", type: "pct", icon: "🫧", dashboard: true },
+  { key: "hitRate", label: "Hit Rate", type: "pct", icon: "💥", dashboard: true },
 
-  { key: "entries", label: "Entries", type: "text" },
-  { key: "buyIns", label: "Buy-ins", type: "text" },
-  { key: "rebuys", label: "Rebuys", type: "text" },
-  { key: "hits", label: "Hits", type: "text" },
-  { key: "timesPlaced", label: "Times Placed", type: "text" },
-  { key: "bubbles", label: "Bubbles", type: "text" },
+  { key: "entries", label: "Entries", type: "text", icon: "🎟️", dashboard: false },
+  { key: "buyIns", label: "Buy-ins", type: "text", icon: "🎟️", dashboard: false },
+  { key: "rebuys", label: "Rebuys", type: "text", icon: "♻️", dashboard: false },
+  { key: "hits", label: "Hits", type: "text", icon: "💥", dashboard: true },
+  { key: "timesPlaced", label: "Times Placed", dashboardLabel: "Cashes", type: "text", icon: "💵", dashboard: true },
+  { key: "bubbles", label: "Bubbles", type: "text", icon: "🫧", dashboard: true },
 
-  { key: "trueSkillScore", label: "Power Index", type: "num" },
-  { key: "luckIndex", label: "Luck Index", type: "num" },
-  { key: "clutchIndex", label: "Clutch Index", type: "num" },
-  { key: "aggressionIndex", label: "Aggression Index", type: "num" },
-  { key: "survivorIndex", label: "Survivor Index", type: "num" },
-  { key: "tiltIndex", label: "Tilt Index", type: "num" },
+  { key: "trueSkillScore", label: "Power Index", dashboardLabel: "Power", type: "num", icon: "💪🏼", dashboard: true },
+  { key: "luckIndex", label: "Luck Index", dashboardLabel: "Luck", type: "num", icon: "🍀", dashboard: true },
+  { key: "clutchIndex", label: "Clutch Index", dashboardLabel: "Clutch", type: "num", icon: "🎯", dashboard: true },
+  { key: "aggressionIndex", label: "Aggression Index", dashboardLabel: "Aggression", type: "num", icon: "⚡", dashboard: true },
+  { key: "survivorIndex", label: "Survivor Index", dashboardLabel: "Survivor", type: "num", icon: "🛟", dashboard: true },
+  { key: "tiltIndex", label: "Tilt Index", dashboardLabel: "Tilt", type: "num", icon: "🫨", dashboard: true },
 
-  { key: "expectedProfit", label: "Expected Profit", type: "money", profitClassFromValue: true }
+  { key: "expectedProfit", label: "Expected Profit", type: "money", icon: "💰", dashboard: false, profitClassFromValue: true }
 ];
 
-const DASHBOARD_META = {
-  profit: { label: "Profit", icon: "💰", formula: STAT_FORMULAS.profit },
-  roi: { label: "ROI", icon: "📈", formula: STAT_FORMULAS.roi },
-  hits: { label: "Hits", icon: "💥", formula: STAT_FORMULAS.hits },
-  timesPlaced: { label: "Cashes", icon: "💵", formula: STAT_FORMULAS.timesPlaced },
-  bubbles: { label: "Bubbles", icon: "🫧", formula: STAT_FORMULAS.bubbles },
-  hitRate: { label: "Hit Rate", icon: "💥", formula: STAT_FORMULAS.hitRate },
-  cashRate: { label: "Cash Rate", icon: "💵", formula: STAT_FORMULAS.cashRate },
-  bubbleRate: { label: "Bubble Rate", icon: "🫧", formula: STAT_FORMULAS.bubbleRate },
-  trueSkillScore: { label: "Power", icon: "💪🏼", formula: STAT_FORMULAS.trueSkillScore },
-  luckIndex: { label: "Luck", icon: "🍀", formula: STAT_FORMULAS.luckIndex },
-  clutchIndex: { label: "Clutch", icon: "🎯", formula: STAT_FORMULAS.clutchIndex },
-  aggressionIndex: { label: "Aggression", icon: "⚡", formula: STAT_FORMULAS.aggressionIndex },
-  survivorIndex: { label: "Survivor", icon: "🛟", formula: STAT_FORMULAS.survivorIndex },
-  tiltIndex: { label: "Tilt", icon: "🫨", formula: STAT_FORMULAS.tiltIndex }
-};
+const DASHBOARD_META = Object.fromEntries(
+  PROFILE_STAT_CONFIG
+    .filter(stat => stat.dashboard)
+    .map(stat => [
+      stat.key,
+      {
+        label: stat.dashboardLabel || stat.label,
+        icon: stat.icon || "♠",
+        formula: STAT_FORMULAS[stat.key] || ""
+      }
+    ])
+);
 
 const CHIP_SET_TEXT = {
   "40k": {
@@ -208,6 +204,10 @@ function formatProfileStatValue(player, config) {
   return String(value ?? "-");
 }
 
+function getStatConfig(key) {
+  return PROFILE_STAT_CONFIG.find(stat => stat.key === key) || null;
+}
+
 function sortPlayers(players, key) {
   return [...(players || [])].sort((a, b) => {
     const aVal = Number(a?.[key] ?? 0);
@@ -218,56 +218,23 @@ function sortPlayers(players, key) {
 }
 
 function formatStatLabel(key) {
-  const labels = {
-    trueSkillScore: "Power",
-    buyIns: "Buy-ins",
-    rebuys: "Rebuys",
-    entries: "Entries",
-    hits: "Hits",
-    timesPlaced: "Cashes",
-    bubbles: "Bubbles",
-    profit: "Profit",
-    roi: "ROI",
-    cashRate: "Cash Rate",
-    bubbleRate: "Bubble Rate",
-    hitRate: "Hit Rate",
-    luckIndex: "Luck",
-    clutchIndex: "Clutch",
-    aggressionIndex: "Aggression",
-    survivorIndex: "Survivor",
-    tiltIndex: "Tilt"
-  };
-  return labels[key] || key;
+  const stat = getStatConfig(key);
+  return stat?.dashboardLabel || stat?.label || key;
 }
 
 function statIcon(key) {
-  const icons = {
-    profit: "💰",
-    roi: "📈",
-    trueSkillScore: "💪🏼",
-    hits: "💥",
-    timesPlaced: "💵",
-    cashRate: "💵",
-    bubbles: "🫧",
-    bubbleRate: "🫧",
-    hitRate: "💥",
-    luckIndex: "🍀",
-    clutchIndex: "🎯",
-    aggressionIndex: "⚡",
-    survivorIndex: "🛟",
-    tiltIndex: "🫨",
-    entries: "🎟️",
-    buyIns: "🎟️",
-    rebuys: "♻️"
-  };
-  return icons[key] || "♠";
+  const stat = getStatConfig(key);
+  return stat?.icon || "♦️";
 }
 
 function formatStatValue(player, key) {
-  if (key === "profit") return fmtMoney(player[key]);
-  if (["roi", "cashRate", "bubbleRate", "hitRate"].includes(key)) return fmtPct(player[key]);
-  if (["trueSkillScore", "luckIndex", "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex"].includes(key)) return fmtNum(player[key]);
-  return String(player[key] ?? "-");
+  const stat = getStatConfig(key);
+
+  if (!stat) {
+    return String(player?.[key] ?? "-");
+  }
+
+  return formatProfileStatValue(player, stat);
 }
 
 function statValueClass(player, key) {
