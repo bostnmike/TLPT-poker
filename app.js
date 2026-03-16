@@ -721,7 +721,7 @@ function renderHomePage(data) {
       }
     ];
 
-    badgeCluster.innerHTML = `
+        badgeCluster.innerHTML = `
       <div class="home-badge-cluster">
         ${badgeRows.map(item =>
           buildHomeBadgeRow(
@@ -734,6 +734,9 @@ function renderHomePage(data) {
       </div>
     `;
   }
+}
+
+function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
@@ -764,6 +767,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
   setActiveSortButton("standings", sortKey);
 }
+  
 function dashboardCardMarkup(player, sortKey, rank = null) {
   let medal = "";
   let rankClass = "dashboard-rank-default";
