@@ -846,6 +846,7 @@ th{
 /* honors */
 
 #champions-list,
+#leaders-list,
 #records-list{
   display:grid !important;
   grid-template-columns:repeat(5, minmax(0,1fr)) !important;
@@ -1269,6 +1270,7 @@ th{
 @media (max-width:1280px){
   #dashboard-grid,
   #champions-list,
+  #leaders-list,
   #records-list,
   .rules-grid,
   .rules-chip-grid{
@@ -1289,6 +1291,7 @@ th{
   #players-grid,
   #dashboard-grid,
   #champions-list,
+  #leaders-list,
   #records-list,
   .rules-grid,
   .rules-chip-grid{
@@ -1338,6 +1341,7 @@ th{
   #players-grid,
   #dashboard-grid,
   #champions-list,
+  #leaders-list,
   #records-list,
   .rules-grid,
   .rules-chip-grid{
@@ -1353,6 +1357,7 @@ th{
   #players-grid,
   #dashboard-grid,
   #champions-list,
+  #leaders-list,
   #records-list,
   .rules-grid,
   .rules-chip-grid,
