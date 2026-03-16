@@ -593,7 +593,12 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   if (!grid || !window.siteData?.players) return;
 
   ensureDashboardHeadline(sortKey);
-  const sorted = sortPlayers(window.siteData.players, sortKey);
+
+  const eligiblePlayers = window.siteData.players.filter(
+    player => Number(player?.entries ?? 0) >= 2
+  );
+
+  const sorted = sortPlayers(eligiblePlayers, sortKey);
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
   setActiveSortButton("dashboard", sortKey);
 }
