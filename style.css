@@ -916,6 +916,48 @@ th{
   color:var(--gold);
 }
 
+.leader-banner-card{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.14) 0%, rgba(255,184,28,.05) 22%, rgba(17,22,30,1) 22%, rgba(17,22,30,1) 100%);
+  border-color:rgba(255,184,28,.95);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.34),
+    0 12px 34px rgba(0,0,0,.28),
+    0 0 26px rgba(255,184,28,.20);
+}
+
+.leader-banner-top{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:-18px -18px 16px -18px;
+  padding:12px 14px;
+  background:linear-gradient(180deg, rgba(255,184,28,.28), rgba(255,184,28,.14));
+  border-bottom:1px solid rgba(255,184,28,.32);
+  text-align:center;
+}
+
+.leader-banner-crown{
+  font-size:1.1rem;
+  line-height:1;
+}
+
+.leader-banner-title{
+  color:#111;
+  font-weight:900;
+  font-size:.88rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  line-height:1.2;
+}
+
+.leader-banner-body{
+  margin-bottom:16px;
+}
+
 .stat-badge-text{
   display:inline-flex;
   align-items:center;
