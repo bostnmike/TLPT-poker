@@ -771,15 +771,19 @@ if (insightFormula) {
 
 const ticker = document.getElementById("league-ticker-text");
 if (ticker && allPlayers.length) {
-  const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-  const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
-  const bubbleLeader = getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]);
+  const eligiblePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
 
   ticker.innerHTML = `
     <span class="league-ticker-run">
-      ${buildTickerLeader("💰", "Profit Leader", profitLeader)}
-      ${buildTickerLeader("💥", "Hit King", hitLeader)}
-      ${buildTickerLeader("🫧", "Bubble King", bubbleLeader)}
+      ${STAT_LEADER_CONFIG.map(stat => {
+        const leader = sortPlayers(eligiblePlayers, stat.key)[0];
+        if (!leader) return "";
+
+        const statConfig = getStatConfig(stat.key);
+        const icon = statConfig?.icon || "🏅";
+
+        return buildTickerLeader(icon, stat.title, leader);
+      }).join("")}
     </span>
   `;
 }
