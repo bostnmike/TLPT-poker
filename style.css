@@ -376,19 +376,25 @@ a:hover{
 #league-ticker-text{
   white-space:nowrap;
   display:inline-block;
-  animation:tickerScroll 18s linear infinite;
+  animation:tickerScroll 38s linear infinite;
 }
 
 .league-ticker-run{
   display:inline-flex;
   align-items:center;
-  gap:22px;
+  gap:64px;
 }
 
 .league-ticker-item{
   display:inline-flex;
   align-items:center;
   gap:12px;
+  padding-right:36px;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+
+.league-ticker-item:last-child{
+  border-right:none;
 }
 
 .league-ticker-label{
