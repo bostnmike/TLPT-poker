@@ -1277,8 +1277,15 @@ th{
 
 .crew-card-stats p,
 .crew-card-stats strong,
-.crew-help-copy{
+.crew-help-copy,
+.tier-explainer{
   color:var(--muted);
+}
+
+.tier-explainer{
+  margin:8px 0 0;
+  max-width:900px;
+  line-height:1.45;
 }
 
 @media (min-width:800px){
