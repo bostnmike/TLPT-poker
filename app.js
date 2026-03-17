@@ -410,9 +410,9 @@ function getPlayerArchetype(player) {
     },
     {
       emoji: "⚙️",
-      name: "The Grinder",
-      desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring",
-      score: survivor * 1.2 - tilt * 0.25
+      name: "Grinder",
+      desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
+      score: survivor * 1.05 - tilt * 0.45 - aggression * 0.35
     },    
     {
       key: "lucky",
