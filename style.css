@@ -1170,6 +1170,22 @@ th{
   margin:8px 0 10px;
 }
 
+.player-archetype-line,
+.player-tier-line{
+  margin:4px 0;
+  font-size:1.2rem;
+  line-height:1.4;
+  color:#fff;
+}
+
+.player-archetype-line{
+  color:var(--gold);
+}
+
+.player-tier-line{
+  color:#ecf2f8;
+}
+
 .player-profile-left{
   display:flex;
   flex-direction:column;
