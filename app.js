@@ -523,66 +523,6 @@ function getPlayerTier(player, allPlayers = []) {
   };
 }
 
-  /* sample-size adjustment */
-  let sampleBonus = 0;
-  if (entries >= 20) sampleBonus = 1.2;
-  else if (entries >= 15) sampleBonus = 0.9;
-  else if (entries >= 10) sampleBonus = 0.5;
-  else if (entries >= 5) sampleBonus = 0.15;
-  else sampleBonus = -1.75;
-
-  /* rebuy pressure / instability penalty */
-  const rebuyPenalty = rebuys * 0.08;
-
-  /* composite tier score */
-  const tierScore =
-    (trueSkill * 1.35) +
-    (clutch * 1.0) +
-    (aggression * 0.85) +
-    (survivor * 0.9) -
-    (tilt * 1.1) +
-    sampleBonus -
-    rebuyPenalty;
-
-  if (tierScore >= 6.5) {
-    return {
-      emoji: "🦈",
-      name: "S Tier — Apex Predator",
-      desc: "the kind of player who makes a full table suddenly behave"
-    };
-  }
-
-  if (tierScore >= 4.75) {
-    return {
-      emoji: "⚔️",
-      name: "A Tier — Table Crusher",
-      desc: "consistently dangerous and almost never a comfortable draw"
-    };
-  }
-
-  if (tierScore >= 3.1) {
-    return {
-      emoji: "🎯",
-      name: "B Tier — Shot Maker",
-      desc: "capable of real damage when the cards and courage line up"
-    };
-  }
-
-  if (tierScore >= 1.5) {
-    return {
-      emoji: "🎲",
-      name: "C Tier — Gambler",
-      desc: "volatile, entertaining, and always one orbit from chaos"
-    };
-  }
-
-  return {
-    emoji: "💸",
-    name: "D Tier — League Sponsor",
-    desc: "keeping the prize pool healthy one decision at a time"
-  };
-}
-
 function playerUrl(player) {
   return `player.html?name=${encodeURIComponent(player.name)}`;
 }
