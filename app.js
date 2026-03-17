@@ -89,8 +89,8 @@ const NAME_FIXES = {
   "Providencemike": "ProvidenceMike",
   "Bostnmike": "BostnMike",
   "ai-dave": "A.I. Dave",
-  "pfattedcalf": "PfattedCalf",
-  "pittdburhgbill": "PittsburghBill"
+  "Pfattedcalf": "PfattedCalf",
+  "Pittdburhgbill": "PittsburghBill"
 };
 
 const HONOR_RULES = {
