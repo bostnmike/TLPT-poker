@@ -117,8 +117,8 @@ const RECORD_RULES = {
 const ARCHETYPE_GUIDE = [
   { emoji: "💥", name: "Hitman" },
   { emoji: "🎯", name: "Closer" },
-  { emoji: "🧊", name: "The Rock" },
-  { emoji: "🍀", name: "Lucky Devil" },
+  { emoji: "⚙️", name: "Grinder" },
+  { emoji: "😈", name: "Lucky Devil" },
   { emoji: "🔥", name: "Wildcard" },
   { emoji: "🫧", name: "Bubble Magnet" },
   { emoji: "🧠", name: "Technician" }
@@ -127,7 +127,7 @@ const ARCHETYPE_GUIDE = [
 const TIER_GUIDE = [
   { emoji: "🦈", name: "S Tier — Apex Predator" },
   { emoji: "⚔️", name: "A Tier — Table Crusher" },
-  { emoji: "🎯", name: "B Tier — Shot Maker" },
+  { emoji: "☄️", name: "B Tier — Shot Maker" },
   { emoji: "🎲", name: "C Tier — Gambler" },
   { emoji: "💸", name: "D Tier — League Sponsor" }
 ];
@@ -409,15 +409,14 @@ function getPlayerArchetype(player) {
       score: clutch * 1.25
     },
     {
-      key: "rock",
-      emoji: "🧊",
-      name: "The Rock",
-      desc: "folds, survives, and bores the table to death",
+      emoji: "⚙️",
+      name: "Grinder",
+      desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
       score: survivor * 1.2 - tilt * 0.25
-    },
+    },    
     {
       key: "lucky",
-      emoji: "🍀",
+      emoji: "😈",
       name: "Lucky Devil",
       desc: "running hotter than probability should allow",
       score: luck * 1.15
@@ -520,7 +519,7 @@ function getPlayerTier(player, allPlayers = []) {
 
   if (pct <= 0.60) {
     return {
-      emoji: "🎯",
+      emoji: "☄️",
       name: "B Tier — Shot Maker",
       desc: "capable of real damage when the cards and courage line up"
     };
@@ -848,21 +847,6 @@ function renderHomePage(data) {
   const allPlayers = data?.players || [];
   const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
   const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-
-  const leaderStrip = document.getElementById("home-leader-strip");
-  if (leaderStrip) {
-    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
-    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
-
-    leaderStrip.innerHTML = [
-      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
-      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
-      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
-      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
-    ].join("");
-  }
 
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
