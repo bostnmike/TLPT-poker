@@ -120,7 +120,7 @@ const ARCHETYPE_GUIDE = [
   { emoji: "⚙️", name: "The Grinder" },
   { emoji: "😈", name: "The Lucky Devil" },
   { emoji: "🔥", name: "The Wildcard" },
-  { emoji: "🫧", name: "THe Bubble Magnet" },
+  { emoji: "🫧", name: "The Bubble Magnet" },
   { emoji: "🧠", name: "The Technician" }
 ];
 
