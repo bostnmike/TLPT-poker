@@ -115,21 +115,21 @@ const RECORD_RULES = {
 };
 
 const ARCHETYPE_GUIDE = [
-  { emoji: "💥", name: "Hitman" },
-  { emoji: "🎯", name: "Closer" },
-  { emoji: "⚙️", name: "Grinder" },
-  { emoji: "😈", name: "Lucky Devil" },
-  { emoji: "🔥", name: "Wildcard" },
-  { emoji: "🫧", name: "Bubble Magnet" },
-  { emoji: "🧠", name: "Technician" }
+  { emoji: "💥", name: "The Hitman" },
+  { emoji: "🎯", name: "The Closer" },
+  { emoji: "⚙️", name: "The Grinder" },
+  { emoji: "😈", name: "THe Lucky Devil" },
+  { emoji: "🔥", name: "The Wildcard" },
+  { emoji: "🫧", name: "THe Bubble Magnet" },
+  { emoji: "🧠", name: "The Technician" }
 ];
 
 const TIER_GUIDE = [
-  { emoji: "🦈", name: "S Tier — Apex Predator" },
-  { emoji: "⚔️", name: "A Tier — Table Crusher" },
-  { emoji: "☄️", name: "B Tier — Shot Maker" },
-  { emoji: "🎲", name: "C Tier — Gambler" },
-  { emoji: "💸", name: "D Tier — League Sponsor" }
+  { emoji: "🦈", name: "The Apex Predator" },
+  { emoji: "⚔️", name: "The Table Crusher" },
+  { emoji: "☄️", name: "The Shot Maker" },
+  { emoji: "🎲", name: "The Gambler" },
+  { emoji: "🍣", name: "The League Sponsor" }
 ];
 
 const CHIP_SET_TEXT = {
@@ -397,48 +397,48 @@ function getPlayerArchetype(player) {
     {
       key: "hitman",
       emoji: "💥",
-      name: "Hitman",
+      name: "The Hitman",
       desc: "knocking players out like it’s a contact sport",
       score: aggression + hits * 0.8
     },
     {
       key: "closer",
       emoji: "🎯",
-      name: "Closer",
+      name: "The Closer",
       desc: "somehow always shows up when the chips matter",
       score: clutch * 1.25
     },
     {
       emoji: "⚙️",
-      name: "Grinder",
+      name: "The Grinder",
       desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
       score: survivor * 1.2 - tilt * 0.25
     },    
     {
       key: "lucky",
       emoji: "😈",
-      name: "Lucky Devil",
-      desc: "running hotter than probability should allow",
+      name: "The Lucky Devil",
+      desc: "running hotter than probability should allow... and yeah we all know it!",
       score: luck * 1.15
     },
     {
       key: "wildcard",
       emoji: "🔥",
-      name: "Wildcard",
+      name: "The Wildcard",
       desc: "capable of brilliance or disaster on any orbit",
       score: tilt * 1.1 + rebuys * 0.8
     },
     {
       key: "bubblemagnet",
       emoji: "🫧",
-      name: "Bubble Magnet",
+      name: "The Bubble Magnet",
       desc: "always close enough to smell the money",
       score: bubbles * 4 + clutch * 0.15
     },
     {
       key: "technician",
       emoji: "🧠",
-      name: "Technician",
+      name: "The Technician",
       desc: "playing strong poker without needing the drama",
       score: (clutch + survivor + aggression) / 3
     }
@@ -504,7 +504,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.15) {
     return {
       emoji: "🦈",
-      name: "S Tier — Apex Predator",
+      name: "— The Apex Predator",
       desc: "the kind of player who makes a full table suddenly behave"
     };
   }
@@ -512,7 +512,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.35) {
     return {
       emoji: "⚔️",
-      name: "A Tier — Table Crusher",
+      name: "— The Table Crusher",
       desc: "consistently dangerous and almost never a comfortable draw"
     };
   }
@@ -520,7 +520,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.60) {
     return {
       emoji: "☄️",
-      name: "B Tier — Shot Maker",
+      name: "— The Shot Maker",
       desc: "capable of real damage when the cards and courage line up"
     };
   }
@@ -528,14 +528,14 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.80) {
     return {
       emoji: "🎲",
-      name: "C Tier — Gambler",
+      name: "— The Gambler",
       desc: "volatile, entertaining, and always one orbit from chaos"
     };
   }
 
   return {
-    emoji: "💸",
-    name: "D Tier — League Sponsor",
+    emoji: "🍣",
+    name: "— League Sponsor",
     desc: "keeping the prize pool healthy one decision at a time"
   };
 }
