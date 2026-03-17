@@ -114,6 +114,24 @@ const RECORD_RULES = {
   "Lowest Profit": { key: "profit", direction: "asc" }
 };
 
+const ARCHETYPE_GUIDE = [
+  { emoji: "💥", name: "Hitman" },
+  { emoji: "🎯", name: "Closer" },
+  { emoji: "🧊", name: "The Rock" },
+  { emoji: "🍀", name: "Lucky Devil" },
+  { emoji: "🔥", name: "Wildcard" },
+  { emoji: "🫧", name: "Bubble Magnet" },
+  { emoji: "🧠", name: "Technician" }
+];
+
+const TIER_GUIDE = [
+  { emoji: "🦈", name: "S Tier — Apex Predator" },
+  { emoji: "⚔️", name: "A Tier — Table Crusher" },
+  { emoji: "🎯", name: "B Tier — Shot Maker" },
+  { emoji: "🎲", name: "C Tier — Gambler" },
+  { emoji: "💸", name: "D Tier — League Sponsor" }
+];
+
 const CHIP_SET_TEXT = {
   "40k": {
     "T-25": 20,
@@ -769,8 +787,9 @@ function buildTickerLeader(icon, label, player) {
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
-    const homeEvents = getCurrentEvents(data);
-    eventsEl.innerHTML = homeEvents.map(event => `
+    const homeEvent = getCurrentEvents(data).slice(0, 1);
+
+    const eventCards = homeEvent.map(event => `
       <div class="event-card home-event-card compact-event-card">
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
@@ -787,6 +806,43 @@ function renderHomePage(data) {
         <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
     `).join("");
+
+    const guideCard = `
+      <div class="event-card home-guide-card">
+        <div class="home-guide-head">
+          <h3>Learn about your Player Archetype and League Tier!</h3>
+          <p class="muted">Visit your player profile by selecting a player from “The Crew”!</p>
+        </div>
+
+        <div class="home-guide-grid">
+          <div class="home-guide-column">
+            <div class="home-guide-title">Archetypes</div>
+            <div class="home-guide-list">
+              ${ARCHETYPE_GUIDE.map(item => `
+                <div class="home-guide-item">
+                  <span class="home-guide-emoji">${item.emoji}</span>
+                  <span class="home-guide-name">${item.name}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <div class="home-guide-column">
+            <div class="home-guide-title">Tiers</div>
+            <div class="home-guide-list">
+              ${TIER_GUIDE.map(item => `
+                <div class="home-guide-item">
+                  <span class="home-guide-emoji">${item.emoji}</span>
+                  <span class="home-guide-name">${item.name}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    eventsEl.innerHTML = `${eventCards}${guideCard}`;
   }
 
   const allPlayers = data?.players || [];
@@ -815,57 +871,29 @@ function renderHomePage(data) {
     const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
     const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
 
-      insightsGrid.innerHTML = [
-        buildHomeInsightCard(
-          "ROI Heater",
-          "🔥",
-          roiLeader,
-          roiLeader ? fmtPct(roiLeader.roi) : "",
-          "",
-          "roi"
-        ),
-        buildHomeInsightCard(
-          "Survivor Spotlight",
-          "🛟",
-          survivorLeader,
-          survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "",
-          "",
-          "survivorIndex"
-        ),
-        buildHomeInsightCard(
-          "Run-Good Radar",
-          "🍀",
-          luckLeader,
-          luckLeader ? fmtNum(luckLeader.luckIndex) : "",
-          "",
-          "luckIndex"
-        ),
-        buildHomeInsightCard(
-          "Bubble Trouble",
-          "🫧",
-          bubbleLeader,
-          bubbleLeader ? String(bubbleLeader.bubbles) : "",
-          "",
-          "bubbles"
-        )
-      ].join("");
+    insightsGrid.innerHTML = [
+      buildHomeInsightCard("ROI Heater", "🔥", roiLeader, roiLeader ? fmtPct(roiLeader.roi) : "", "", "roi"),
+      buildHomeInsightCard("Survivor Spotlight", "🛟", survivorLeader, survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "", "", "survivorIndex"),
+      buildHomeInsightCard("Run-Good Radar", "🍀", luckLeader, luckLeader ? fmtNum(luckLeader.luckIndex) : "", "", "luckIndex"),
+      buildHomeInsightCard("Bubble Trouble", "🫧", bubbleLeader, bubbleLeader ? String(bubbleLeader.bubbles) : "", "", "bubbles")
+    ].join("");
   }
 
-const insightFormula = document.getElementById("home-insight-formula");
-if (insightFormula && insightsGrid) {
-  insightFormula.textContent = "";
+  const insightFormula = document.getElementById("home-insight-formula");
+  if (insightFormula && insightsGrid) {
+    insightFormula.textContent = "";
 
-  insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
-    card.addEventListener("mouseenter", () => {
-      insightFormula.textContent = card.dataset.formula || "";
-    });
+    insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        insightFormula.textContent = card.dataset.formula || "";
+      });
 
-    card.addEventListener("mouseleave", () => {
-      insightFormula.textContent = "";
+      card.addEventListener("mouseleave", () => {
+        insightFormula.textContent = "";
+      });
     });
-  });
-}
-  
+  }
+
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
     const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
@@ -898,7 +926,7 @@ if (insightFormula && insightsGrid) {
     `;
   }
 
-    const badgeCluster = document.getElementById("home-badge-cluster");
+  const badgeCluster = document.getElementById("home-badge-cluster");
   if (badgeCluster) {
     const badgeRows = [
       {
@@ -953,26 +981,26 @@ if (insightFormula && insightsGrid) {
     `;
   }
 
-const ticker = document.getElementById("league-ticker-text");
-if (ticker && qualifiedPlayers.length) {
-  const tickerItems = STAT_LEADER_CONFIG.map(stat => {
-    const leader = sortPlayers(qualifiedPlayers, stat.key)[0];
-    if (!leader) return "";
+  const ticker = document.getElementById("league-ticker-text");
+  if (ticker && qualifiedPlayers.length) {
+    const tickerItems = STAT_LEADER_CONFIG.map(stat => {
+      const leader = sortPlayers(qualifiedPlayers, stat.key)[0];
+      if (!leader) return "";
 
-    const statConfig = getStatConfig(stat.key);
-    const icon = statConfig?.icon || "🏅";
+      const statConfig = getStatConfig(stat.key);
+      const icon = statConfig?.icon || "🏅";
 
-    return buildTickerLeader(icon, stat.title, leader);
-  }).join("");
+      return buildTickerLeader(icon, stat.title, leader);
+    }).join("");
 
-  ticker.innerHTML = `
-    <div class="league-ticker-run">
-      ${tickerItems}
-    </div>
-    <div class="league-ticker-run">
-      ${tickerItems}
-    </div>
-  `;
+    ticker.innerHTML = `
+      <div class="league-ticker-run">
+        ${tickerItems}
+      </div>
+      <div class="league-ticker-run">
+        ${tickerItems}
+      </div>
+    `;
   }
 }
   
@@ -1177,11 +1205,11 @@ function renderPlayerProfile(data) {
   });
 }
 
-function renderSchedule(data) {
+ffunction renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  const events = getCurrentEvents(data);
+  const events = getCurrentEvents(data).slice(0, 1);
   list.innerHTML = events.map(event => `
     <div class="event-card compact-event-card">
       <div class="event-card-topline">
