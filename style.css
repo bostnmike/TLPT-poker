@@ -1277,10 +1277,17 @@ th{
 
 .player-archetype-line,
 .player-tier-line{
-  margin:4px 0;
-  font-size:1.2rem;
-  line-height:1.4;
-  color:#fff;
+  display:flex;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:8px 0;
+  padding:10px 14px;
+  border:1px solid rgba(255,184,28,.22);
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  font-size:1.08rem;
+  line-height:1.45;
 }
 
 .player-archetype-line{
@@ -1289,6 +1296,25 @@ th{
 
 .player-tier-line{
   color:#ecf2f8;
+}
+
+.profile-line-label{
+  font-weight:800;
+  letter-spacing:.01em;
+}
+
+.profile-line-emoji{
+  font-size:1.45rem;
+  line-height:1;
+  transform:translateY(1px);
+}
+
+.profile-line-name{
+  font-weight:800;
+}
+
+.profile-line-desc{
+  color:var(--muted);
 }
 
 .player-profile-left{
