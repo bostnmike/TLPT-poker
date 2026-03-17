@@ -1129,6 +1129,14 @@ function renderPlayers(data) {
     }
   });
 
+  const tierSort = (a, b) => getPlayerTierScore(b) - getPlayerTierScore(a);
+
+  apexPredators.sort(tierSort);
+  tableCrushers.sort(tierSort);
+  shotMakers.sort(tierSort);
+  gamblers.sort(tierSort);
+  leagueSponsors.sort(tierSort);
+  
   grid.innerHTML = `
     ${tierSectionMarkup("The Apex Predator", "🦈", apexPredators, data)}
     ${tierSectionMarkup("The Table Crusher", "⚔️", tableCrushers, data)}
