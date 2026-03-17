@@ -1060,9 +1060,19 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   setActiveSortButton("dashboard", sortKey);
 }
 
-function crewCardMarkup(player, data) {
+function crewCardMarkup(player, data, tierPlayers = []) {
+  const tier = getPlayerTier(player, data?.players || []);
+  const tierRank = [...tierPlayers]
+    .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
+    .findIndex(p => p.name === player.name) + 1;
+
   return `
     <a class="player-card player-card-rich crew-card" href="${playerUrl(player)}">
+      <div class="crew-card-topline">
+        <span class="crew-tier-badge">${tier.emoji} ${tier.name}</span>
+        <span class="crew-tier-rank">#${tierRank}</span>
+      </div>
+
       <div class="player-card-top crew-card-top">
         ${playerImageMarkup(player, "crew")}
         <div class="player-card-meta crew-card-meta">
@@ -1070,10 +1080,12 @@ function crewCardMarkup(player, data) {
           <h3>${displayPlayerName(player)}</h3>
         </div>
       </div>
+
       <div class="crew-summary-row">
         <span class="crew-profit ${statValueClass(player, "profit")}">Profit ${fmtMoney(player.profit)}</span>
         <span class="crew-power">Power ${fmtNum(player.trueSkillScore)}</span>
       </div>
+
       <div class="player-card-stats crew-card-stats">
         <p class="muted"><strong>Entries:</strong> ${player.entries ?? "-"}</p>
         <p class="muted"><strong>Hits:</strong> ${player.hits ?? "-"}</p>
@@ -1095,7 +1107,7 @@ function tierSectionMarkup(title, emoji, players, data) {
         <p class="muted tier-section-count">${players.length} player${players.length === 1 ? "" : "s"}</p>
       </div>
       <div class="tier-grid">
-        ${players.map(player => crewCardMarkup(player, data)).join("")}
+        ${players.map(player => crewCardMarkup(player, data, players)).join("")}
       </div>
     </div>
   `;
