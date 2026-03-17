@@ -395,11 +395,6 @@ a:hover{
   background:linear-gradient(270deg, rgba(10,13,18,1) 0%, rgba(10,13,18,0) 100%);
 }
 
-#league-ticker-text{
-  display:flex;
-  width:max-content;
-  animation:tickerScroll 42s linear infinite;
-}
 
 #league-ticker-text{
   display:flex;
