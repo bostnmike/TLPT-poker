@@ -414,47 +414,79 @@ function getPlayerArchetype(player) {
 }
 
 function getPlayerTier(player) {
-  const score =
-    (player.trueSkillScore ?? 0) +
-    (player.roi ?? 0) * 0.2 +
-    (player.clutchIndex ?? 0) * 0.5;
+  if (!player) {
+    return {
+      emoji: "🧍",
+      name: "Unknown",
+      desc: "still waiting for enough hands to say anything useful"
+    };
+  }
 
-  if (score > 7) {
+  const entries = Number(player?.entries ?? 0);
+  const rebuys = Number(player?.rebuys ?? 0);
+  const trueSkill = Number(player?.trueSkillScore ?? 0);
+  const clutch = Number(player?.clutchIndex ?? 0);
+  const aggression = Number(player?.aggressionIndex ?? 0);
+  const survivor = Number(player?.survivorIndex ?? 0);
+  const tilt = Number(player?.tiltIndex ?? 0);
+
+  /* sample-size adjustment */
+  let sampleBonus = 0;
+  if (entries >= 20) sampleBonus = 1.2;
+  else if (entries >= 15) sampleBonus = 0.9;
+  else if (entries >= 10) sampleBonus = 0.5;
+  else if (entries >= 5) sampleBonus = 0.15;
+  else sampleBonus = -1.25;
+
+  /* rebuy pressure / instability penalty */
+  const rebuyPenalty = rebuys * 0.08;
+
+  /* composite tier score */
+  const tierScore =
+    (trueSkill * 1.35) +
+    (clutch * 1.0) +
+    (aggression * 0.85) +
+    (survivor * 0.9) -
+    (tilt * 1.1) +
+    sampleBonus -
+    rebuyPenalty;
+
+  if (tierScore >= 6.5) {
     return {
       emoji: "🦈",
-      name: "S Tier — Shark",
-      desc: "the table suddenly gets very quiet when they sit down"
+      name: "S Tier — Apex Predator",
+      desc: "the kind of player who makes a full table suddenly behave"
     };
   }
 
-  if (score > 5) {
+  if (tierScore >= 4.75) {
     return {
       emoji: "⚔️",
-      name: "A Tier — Crusher",
-      desc: "consistently dangerous and rarely easy money"
+      name: "A Tier — Table Crusher",
+      desc: "consistently dangerous and almost never a comfortable draw"
     };
   }
 
-  if (score > 3) {
+  if (tierScore >= 3.1) {
+    return {
+      emoji: "🎯",
+      name: "B Tier — Shot Maker",
+      desc: "capable of real damage when the cards and courage line up"
+    };
+  }
+
+  if (tierScore >= 1.5) {
     return {
       emoji: "🎲",
-      name: "B Tier — Regular",
-      desc: "solid league player with occasional heater potential"
-    };
-  }
-
-  if (score > 1) {
-    return {
-      emoji: "🍻",
-      name: "C Tier — Degenerate",
-      desc: "here for the gamble, the laughs, and the rebuys"
+      name: "C Tier — Gambler",
+      desc: "volatile, entertaining, and always one orbit from chaos"
     };
   }
 
   return {
     emoji: "💸",
-    name: "D Tier — Donation",
-    desc: "keeping the league economy healthy"
+    name: "D Tier — League Sponsor",
+    desc: "keeping the prize pool healthy one decision at a time"
   };
 }
 
