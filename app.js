@@ -85,11 +85,11 @@ const STAT_LEADER_CONFIG = [
 ];
 
 const NAME_FIXES = {
-  "Nasa Al": "NASA Al"
-  "Providencemike": "ProvidenceMike"  
-  "Bostnmike": "BostnMike"
-  "A.i.-Dave": "A.I. Dave"
-  "Pfattedcalf": "PfattedCalf"
+  "Nasa Al": "NASA Al",
+  "Providencemike": "ProvidenceMike",
+  "Bostnmike": "BostnMike",
+  "A.i.-Dave": "A.I. Dave",
+  "Pfattedcalf": "PfattedCalf",
   "Pittdburgbill": "PittsburghBill"
 };
 
