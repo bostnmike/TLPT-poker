@@ -366,61 +366,79 @@ function getPlayerArchetype(player) {
     };
   }
 
-  if ((player.aggressionIndex ?? 0) > 1.2 && (player.hits ?? 0) >= 10) {
-    return {
+  const aggression = Number(player?.aggressionIndex ?? 0);
+  const clutch = Number(player?.clutchIndex ?? 0);
+  const survivor = Number(player?.survivorIndex ?? 0);
+  const luck = Number(player?.luckIndex ?? 0);
+  const tilt = Number(player?.tiltIndex ?? 0);
+  const bubbles = Number(player?.bubbles ?? 0);
+  const rebuys = Number(player?.rebuys ?? 0);
+  const hits = Number(player?.hits ?? 0);
+
+  const archetypes = [
+    {
+      key: "hitman",
       emoji: "💥",
       name: "Hitman",
-      desc: "knocking players out like it's a contact sport"
-    };
-  }
-
-  if ((player.clutchIndex ?? 0) > 1.15) {
-    return {
+      desc: "knocking players out like it’s a contact sport",
+      score: aggression + hits * 0.8
+    },
+    {
+      key: "closer",
       emoji: "🎯",
       name: "Closer",
-      desc: "somehow always shows up when the chips matter"
-    };
-  }
-
-  if ((player.survivorIndex ?? 0) > 1.1) {
-    return {
+      desc: "somehow always shows up when the chips matter",
+      score: clutch * 1.25
+    },
+    {
+      key: "rock",
       emoji: "🧊",
       name: "The Rock",
-      desc: "folds, survives, and bores the table to death"
-    };
-  }
-
-  if ((player.luckIndex ?? 0) > 1.15) {
-    return {
+      desc: "folds, survives, and bores the table to death",
+      score: survivor * 1.2 - tilt * 0.25
+    },
+    {
+      key: "lucky",
       emoji: "🍀",
       name: "Lucky Devil",
-      desc: "running hotter than probability should allow"
-    };
-  }
-
-  if ((player.tiltIndex ?? 0) > 1.15) {
-    return {
+      desc: "running hotter than probability should allow",
+      score: luck * 1.15
+    },
+    {
+      key: "wildcard",
       emoji: "🔥",
       name: "Wildcard",
-      desc: "capable of brilliance or disaster on any hand"
-    };
-  }
+      desc: "capable of brilliance or disaster on any orbit",
+      score: tilt * 1.1 + rebuys * 0.8
+    },
+    {
+      key: "bubblemagnet",
+      emoji: "🫧",
+      name: "Bubble Magnet",
+      desc: "always close enough to smell the money",
+      score: bubbles * 4 + clutch * 0.15
+    },
+    {
+      key: "technician",
+      emoji: "🧠",
+      name: "Technician",
+      desc: "playing strong poker without needing the drama",
+      score: (clutch + survivor + aggression) / 3
+    }
+  ];
+
+  archetypes.sort((a, b) => b.score - a.score);
+  const top = archetypes[0];
 
   return {
-    emoji: "🧠",
-    name: "Technician",
-    desc: "playing solid poker without the theatrics"
+    emoji: top.emoji,
+    name: top.name,
+    desc: top.desc
   };
 }
 
-function getPlayerTier(player) {
-  if (!player) {
-    return {
-      emoji: "🧍",
-      name: "Unknown",
-      desc: "still waiting for enough hands to say anything useful"
-    };
-  }
+function getPlayerTierScore(player) {
+  if (!player) return -999;
 
   const entries = Number(player?.entries ?? 0);
   const rebuys = Number(player?.rebuys ?? 0);
@@ -429,6 +447,81 @@ function getPlayerTier(player) {
   const aggression = Number(player?.aggressionIndex ?? 0);
   const survivor = Number(player?.survivorIndex ?? 0);
   const tilt = Number(player?.tiltIndex ?? 0);
+
+  let sampleBonus = 0;
+  if (entries >= 20) sampleBonus = 1.2;
+  else if (entries >= 15) sampleBonus = 0.9;
+  else if (entries >= 10) sampleBonus = 0.5;
+  else if (entries >= 5) sampleBonus = 0.15;
+  else sampleBonus = -1.25;
+
+  const rebuyPenalty = rebuys * 0.08;
+
+  return (
+    (trueSkill * 1.35) +
+    (clutch * 1.0) +
+    (aggression * 0.85) +
+    (survivor * 0.9) -
+    (tilt * 1.1) +
+    sampleBonus -
+    rebuyPenalty
+  );
+}
+
+function getPlayerTier(player, allPlayers = []) {
+  if (!player) {
+    return {
+      emoji: "🧍",
+      name: "Unknown",
+      desc: "still waiting for enough hands to say anything useful"
+    };
+  }
+
+  const eligiblePlayers = (allPlayers || []).filter(p => Number(p?.entries ?? 0) >= 5);
+  const ranked = [...eligiblePlayers].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  const index = ranked.findIndex(p => p.name === player.name);
+  const rank = index >= 0 ? index + 1 : ranked.length + 1;
+  const total = Math.max(ranked.length, 1);
+  const pct = rank / total;
+
+  if (pct <= 0.15) {
+    return {
+      emoji: "🦈",
+      name: "S Tier — Apex Predator",
+      desc: "the kind of player who makes a full table suddenly behave"
+    };
+  }
+
+  if (pct <= 0.35) {
+    return {
+      emoji: "⚔️",
+      name: "A Tier — Table Crusher",
+      desc: "consistently dangerous and almost never a comfortable draw"
+    };
+  }
+
+  if (pct <= 0.60) {
+    return {
+      emoji: "🎯",
+      name: "B Tier — Shot Maker",
+      desc: "capable of real damage when the cards and courage line up"
+    };
+  }
+
+  if (pct <= 0.80) {
+    return {
+      emoji: "🎲",
+      name: "C Tier — Gambler",
+      desc: "volatile, entertaining, and always one orbit from chaos"
+    };
+  }
+
+  return {
+    emoji: "💸",
+    name: "D Tier — League Sponsor",
+    desc: "keeping the prize pool healthy one decision at a time"
+  };
+}
 
   /* sample-size adjustment */
   let sampleBonus = 0;
