@@ -504,7 +504,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.15) {
     return {
       emoji: "🦈",
-      name: "— The Apex Predator",
+      name: "The Apex Predator",
       desc: "the kind of player who makes a full table suddenly behave... or fold"
     };
   }
@@ -512,7 +512,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.35) {
     return {
       emoji: "⚔️",
-      name: "— The Table Crusher",
+      name: "The Table Crusher",
       desc: "consistently dangerous and almost never a comfortable draw"
     };
   }
@@ -520,7 +520,7 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.60) {
     return {
       emoji: "☄️",
-      name: "— The Shot Maker",
+      name: "The Shot Maker",
       desc: "capable of real damage when the cards and courage line up"
     };
   }
@@ -528,14 +528,14 @@ function getPlayerTier(player, allPlayers = []) {
   if (pct <= 0.80) {
     return {
       emoji: "🎲",
-      name: "— The Gambler",
+      name: "The Gambler",
       desc: "volatile, entertaining, and always one orbit from chaos"
     };
   }
 
   return {
     emoji: "🍣",
-    name: "— League Sponsor",
+    name: "The League Sponsor",
     desc: "keeping the prize pool healthy, one decision at a time"
   };
 }
@@ -1085,11 +1085,57 @@ function crewCardMarkup(player, data) {
   `;
 }
 
+function tierSectionMarkup(title, emoji, players, data) {
+  if (!players.length) return "";
+
+  return `
+    <div class="tier-section">
+      <div class="tier-section-head">
+        <h3>${emoji} ${title}</h3>
+        <p class="muted tier-section-count">${players.length} player${players.length === 1 ? "" : "s"}</p>
+      </div>
+      <div class="tier-grid">
+        ${players.map(player => crewCardMarkup(player, data)).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderPlayers(data) {
   const grid = document.getElementById("players-grid");
   if (!grid || !data?.players) return;
-  const sorted = sortPlayers(data.players, "trueSkillScore");
-  grid.innerHTML = sorted.map(player => crewCardMarkup(player, data)).join("");
+
+  const allPlayers = [...data.players].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+
+  const apexPredators = [];
+  const tableCrushers = [];
+  const shotMakers = [];
+  const gamblers = [];
+  const leagueSponsors = [];
+
+  allPlayers.forEach(player => {
+    const tier = getPlayerTier(player, allPlayers);
+
+    if (tier.name === "The Apex Predator") {
+      apexPredators.push(player);
+    } else if (tier.name === "The Table Crusher") {
+      tableCrushers.push(player);
+    } else if (tier.name === "The Shot Maker") {
+      shotMakers.push(player);
+    } else if (tier.name === "The Gambler") {
+      gamblers.push(player);
+    } else {
+      leagueSponsors.push(player);
+    }
+  });
+
+  grid.innerHTML = `
+    ${tierSectionMarkup("The Apex Predator", "🦈", apexPredators, data)}
+    ${tierSectionMarkup("The Table Crusher", "⚔️", tableCrushers, data)}
+    ${tierSectionMarkup("The Shot Maker", "☄️", shotMakers, data)}
+    ${tierSectionMarkup("The Gambler", "🎲", gamblers, data)}
+    ${tierSectionMarkup("The League Sponsor", "🍣", leagueSponsors, data)}
+  `;
 }
 
 function renderPlayerProfile(data) {
