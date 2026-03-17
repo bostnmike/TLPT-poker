@@ -811,7 +811,7 @@ function renderHomePage(data) {
       <div class="event-card home-guide-card">
         <div class="home-guide-head">
           <h3>Learn about your Player Archetype and League Tier!</h3>
-          <p class="muted">Visit your player profile by selecting a player from “The Crew”!</p>
+          <p class="muted">Visit your profile by selecting a player card from “The Crew” page!</p>
         </div>
 
         <div class="home-guide-grid">
