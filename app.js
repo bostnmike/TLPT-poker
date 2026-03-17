@@ -436,7 +436,7 @@ function getPlayerTier(player) {
   else if (entries >= 15) sampleBonus = 0.9;
   else if (entries >= 10) sampleBonus = 0.5;
   else if (entries >= 5) sampleBonus = 0.15;
-  else sampleBonus = -1.25;
+  else sampleBonus = -1.75;
 
   /* rebuy pressure / instability penalty */
   const rebuyPenalty = rebuys * 0.08;
