@@ -1094,7 +1094,7 @@ function renderPlayerProfile(data) {
   const next = players[(index + 1) % players.length];
   const quote = ensureQuoted(player?.notes || "");
   const archetype = getPlayerArchetype(player);
-  const tier = getPlayerTier(player);
+  const tier = getPlayerTier(player, players);
   
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
 
