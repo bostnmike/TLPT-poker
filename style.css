@@ -1255,7 +1255,48 @@ th{
 }
 
 .crew-card{
+  position:relative;
   min-height:170px;
+}
+
+.crew-card-topline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+
+.crew-tier-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border:1px solid rgba(255,184,28,.22);
+  border-radius:999px;
+  background:rgba(255,184,28,.08);
+  color:#fff;
+  font-size:.76rem;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.crew-tier-rank{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:34px;
+  height:34px;
+  padding:0 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--line);
+  color:var(--gold);
+  font-size:.9rem;
+  font-weight:800;
+  line-height:1;
 }
 
 .crew-summary-row{
@@ -2108,6 +2149,16 @@ th{
     grid-template-columns:1fr;
   }
 
+  .crew-card-topline{
+    align-items:flex-start;
+  }
+
+  .crew-tier-rank{
+    min-width:30px;
+    height:30px;
+    font-size:.85rem;
+  }
+  
   .home-badge-row{
   align-items:flex-start;
   text-align:left;
