@@ -1205,7 +1205,7 @@ function renderPlayerProfile(data) {
   });
 }
 
-ffunction renderSchedule(data) {
+function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
