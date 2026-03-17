@@ -1146,9 +1146,20 @@ function renderPlayerProfile(data) {
           <div class="kicker player-profile-kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
 
-          <p class="player-archetype-line">Archetype: ${archetype.emoji} ${archetype.name} — ${archetype.desc}</p>
-          <p class="player-tier-line">Player Tier: ${tier.emoji} ${tier.name} — ${tier.desc}</p>
-
+        <div class="player-archetype-line">
+          <span class="profile-line-label">Archetype:</span>
+          <span class="profile-line-emoji">${archetype.emoji}</span>
+          <span class="profile-line-name">${archetype.name}</span>
+          <span class="profile-line-desc">— ${archetype.desc}</span>
+        </div>
+        
+        <div class="player-tier-line">
+          <span class="profile-line-label">Player Tier:</span>
+          <span class="profile-line-emoji">${tier.emoji}</span>
+          <span class="profile-line-name">${tier.name}</span>
+          <span class="profile-line-desc">— ${tier.desc}</span>
+        </div>
+        
           <p class="profile-quote">${quote}</p>
           <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
           ${badgesMarkup(player, data)}
