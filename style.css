@@ -1151,9 +1151,41 @@ th{
 /* players grid */
 
 #players-grid{
-  display:grid !important;
-  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
-  gap:16px !important;
+  display:flex !important;
+  flex-direction:column;
+  gap:22px !important;
+}
+
+.tier-section{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.tier-section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:0 2px;
+  flex-wrap:wrap;
+}
+
+.tier-section-head h3{
+  margin:0;
+  color:#fff;
+  font-size:1.25rem;
+  line-height:1.2;
+}
+
+.tier-section-count{
+  margin:0;
+}
+
+.tier-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:16px;
   align-items:start;
 }
 
@@ -1927,10 +1959,10 @@ th{
     grid-template-columns:repeat(4, minmax(0,1fr)) !important;
   }
 
-  #players-grid{
-    grid-template-columns:repeat(4, minmax(0,1fr)) !important;
-  }
-
+ .tier-grid{
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+}
+  
   .home-leader-strip,
   .home-insights-grid{
     grid-template-columns:repeat(2, minmax(0,1fr));
@@ -1947,7 +1979,7 @@ th{
     align-items:flex-start;
   }
 
-  #players-grid,
+  .tier-grid,
   #dashboard-grid,
   #champions-list,
   #leaders-list,
@@ -1997,7 +2029,7 @@ th{
 }
 
 @media (max-width:800px){
-  #players-grid,
+  .tier-grid,
   #dashboard-grid,
   #champions-list,
   #leaders-list,
@@ -2033,7 +2065,7 @@ th{
 }
 
 @media (max-width:640px){
-  #players-grid,
+  .tier-grid,
   #dashboard-grid,
   #champions-list,
   #leaders-list,
@@ -2044,7 +2076,6 @@ th{
   .media-grid{
     grid-template-columns:1fr !important;
   }
-
   .home-leader-strip,
   .home-insights-grid{
     grid-template-columns:1fr;
