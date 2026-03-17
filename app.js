@@ -118,7 +118,7 @@ const ARCHETYPE_GUIDE = [
   { emoji: "💥", name: "The Hitman" },
   { emoji: "🎯", name: "The Closer" },
   { emoji: "⚙️", name: "The Grinder" },
-  { emoji: "😈", name: "THe Lucky Devil" },
+  { emoji: "😈", name: "The Lucky Devil" },
   { emoji: "🔥", name: "The Wildcard" },
   { emoji: "🫧", name: "THe Bubble Magnet" },
   { emoji: "🧠", name: "The Technician" }
@@ -411,35 +411,35 @@ function getPlayerArchetype(player) {
     {
       emoji: "⚙️",
       name: "The Grinder",
-      desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
+      desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring",
       score: survivor * 1.2 - tilt * 0.25
     },    
     {
       key: "lucky",
       emoji: "😈",
       name: "The Lucky Devil",
-      desc: "running hotter than probability should allow... and yeah we all know it!",
+      desc: "running hotter than probability should allow... and yeah the table knows it",
       score: luck * 1.15
     },
     {
       key: "wildcard",
       emoji: "🔥",
       name: "The Wildcard",
-      desc: "capable of brilliance or disaster on any orbit",
+      desc: "agent of chaos capable of brilliance or disaster on any orbit",
       score: tilt * 1.1 + rebuys * 0.8
     },
     {
       key: "bubblemagnet",
       emoji: "🫧",
       name: "The Bubble Magnet",
-      desc: "always close enough to smell the money",
+      desc: "the bridesmaid who's always close enough to smell the money",
       score: bubbles * 4 + clutch * 0.15
     },
     {
       key: "technician",
       emoji: "🧠",
       name: "The Technician",
-      desc: "playing strong poker without needing the drama",
+      desc: "playing strong poker without needing the drama... or the money",
       score: (clutch + survivor + aggression) / 3
     }
   ];
@@ -505,7 +505,7 @@ function getPlayerTier(player, allPlayers = []) {
     return {
       emoji: "🦈",
       name: "— The Apex Predator",
-      desc: "the kind of player who makes a full table suddenly behave"
+      desc: "the kind of player who makes a full table suddenly behave... or fold"
     };
   }
 
@@ -536,7 +536,7 @@ function getPlayerTier(player, allPlayers = []) {
   return {
     emoji: "🍣",
     name: "— League Sponsor",
-    desc: "keeping the prize pool healthy one decision at a time"
+    desc: "keeping the prize pool healthy, one decision at a time"
   };
 }
 
