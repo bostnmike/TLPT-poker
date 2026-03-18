@@ -921,6 +921,8 @@ a:hover{
   animation:snapshotPulse 4s ease-in-out infinite;
 }
 
+.home-snapshot-grid .snapshot-card:hover .snapshot-value{
+  transform:scale(1.08);
   text-shadow:
     0 0 10px rgba(255,184,28,.35),
     0 0 20px rgba(255,184,28,.25),
