@@ -816,6 +816,23 @@ a:hover{
     0 0 14px rgba(255,184,28,.12);
 }
 
+.home-guide-title{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--gold);
+  font-size:.82rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.guide-icon{
+  font-size:.95rem;
+  line-height:1;
+}
+
 .home-commissioner{
   padding:18px 20px;
 }
