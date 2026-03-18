@@ -1038,23 +1038,38 @@ a:hover{
 }
 
 .event-title-kicker{
-  font-size:.78rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  opacity:.9;
+  font-size:1.25rem;
+  font-weight:900;
+  letter-spacing:.02em;
+  line-height:1.2;
+  color:#fff;
 }
 
 .event-format-title{
-  font-size:1.5rem;
-  font-weight:900;
-  letter-spacing:.04em;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:auto;
+  max-width:max-content;
+
+  padding:7px 13px;
+  border-radius:999px;
+
+  font-size:.9rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  line-height:1.1;
+
   color:var(--gold);
-  margin:0 0 8px 0;
-  line-height:1.15;
+  background:rgba(255,184,28,.10);
+  border:1px solid rgba(255,184,28,.28);
+
+  margin:2px 0 10px 0;
+  opacity:1;
 }
 
-.event-details-col h3{
-  margin:0 0 10px 0;
+.event-card-topline{
+  margin-bottom:4px;
 }
 
 .event-structure{
