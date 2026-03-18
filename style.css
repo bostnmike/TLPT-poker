@@ -1083,24 +1083,11 @@ a:hover{
     0 12px 24px rgba(0,0,0,.24);
 }
 
-  width:40px;
-  height:40px;
-  font-size:1.05rem;
-
-.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:9%; }
-.event-rsvp-avatar-row > :nth-child(2){ --seat-x:76%; --seat-y:18%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:91%; --seat-y:39%; }
-.event-rsvp-avatar-row > :nth-child(4){ --seat-x:83%; --seat-y:77%; }
-.event-rsvp-avatar-row > :nth-child(5){ --seat-x:61%; --seat-y:93%; }
-.event-rsvp-avatar-row > :nth-child(6){ --seat-x:39%; --seat-y:93%; }
-.event-rsvp-avatar-row > :nth-child(7){ --seat-x:17%; --seat-y:77%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:9%; --seat-y:39%; }
-.event-rsvp-avatar-row > :nth-child(9){ --seat-x:24%; --seat-y:18%; }
 .event-rsvp-avatar-row > .player-avatar-wrap,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:70px;
-  height:70px;
+  width:78px;
+  height:78px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1112,28 +1099,28 @@ a:hover{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:70px;
-  height:70px;
-  font-size:1.1rem;
+  width:78px;
+  height:78px;
+  font-size:1.15rem;
   border-width:3px;
 }
 
 .event-empty-seat{
-  font-size:4rem;
+  font-size:4.5rem;
   line-height:1;
-  opacity:.75;
+  opacity:.78;
 }
 
 /* 9-seat poker table layout */
-.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:10%; }
-.event-rsvp-avatar-row > :nth-child(2){ --seat-x:74%; --seat-y:20%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:88%; --seat-y:40%; }
-.event-rsvp-avatar-row > :nth-child(4){ --seat-x:80%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(5){ --seat-x:60%; --seat-y:90%; }
-.event-rsvp-avatar-row > :nth-child(6){ --seat-x:40%; --seat-y:90%; }
-.event-rsvp-avatar-row > :nth-child(7){ --seat-x:20%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:12%; --seat-y:40%; }
-.event-rsvp-avatar-row > :nth-child(9){ --seat-x:26%; --seat-y:20%; }
+.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:9%; }
+.event-rsvp-avatar-row > :nth-child(2){ --seat-x:76%; --seat-y:18%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:91%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(4){ --seat-x:83%; --seat-y:77%; }
+.event-rsvp-avatar-row > :nth-child(5){ --seat-x:61%; --seat-y:93%; }
+.event-rsvp-avatar-row > :nth-child(6){ --seat-x:39%; --seat-y:93%; }
+.event-rsvp-avatar-row > :nth-child(7){ --seat-x:17%; --seat-y:77%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:9%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(9){ --seat-x:24%; --seat-y:18%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
@@ -2785,7 +2772,8 @@ th{
   .events-header-suit{
     font-size:1.9rem;
   }
-  .event-rsvp-avatar-row{
+  
+   .event-rsvp-avatar-row{
     position:static;
     width:auto;
     height:auto;
@@ -2793,6 +2781,7 @@ th{
     grid-template-columns:repeat(3, 44px);
     justify-content:center;
     gap:12px 16px;
+    margin:0;
   }
 
   .event-rsvp-avatar-row::before{
@@ -2802,22 +2791,19 @@ th{
   .event-rsvp-avatar-row > .player-avatar-wrap,
   .event-rsvp-avatar-row > .event-empty-seat{
     position:static;
+    width:44px;
+    height:44px;
     transform:none !important;
   }
 
-  .event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:6%; }
-  .event-rsvp-avatar-row > :nth-child(2){ --seat-x:78%; --seat-y:18%; }
-  .event-rsvp-avatar-row > :nth-child(3){ --seat-x:92%; --seat-y:42%; }
-  .event-rsvp-avatar-row > :nth-child(4){ --seat-x:84%; --seat-y:80%; }
-  .event-rsvp-avatar-row > :nth-child(5){ --seat-x:62%; --seat-y:96%; }
-  .event-rsvp-avatar-row > :nth-child(6){ --seat-x:38%; --seat-y:96%; }
-  .event-rsvp-avatar-row > :nth-child(7){ --seat-x:16%; --seat-y:80%; }
-  .event-rsvp-avatar-row > :nth-child(8){ --seat-x:8%; --seat-y:42%; }
-  .event-rsvp-avatar-row > :nth-child(9){ --seat-x:22%; --seat-y:18%; }
-    top:auto;
-    right:auto;
-    bottom:auto;
-    left:auto;
+  .event-rsvp-avatar-row .player-avatar,
+  .event-rsvp-avatar-row .player-avatar-fallback{
+    width:44px;
+    height:44px;
+  }
+
+  .event-empty-seat{
+    font-size:2.4rem;
   }
   
   .player-formula-help{
