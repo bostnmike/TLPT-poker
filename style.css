@@ -1102,14 +1102,9 @@ a:hover{
   position:absolute;
   inset:0;
   border-radius:999px;
-
-  background:
-    linear-gradient(rgba(0,0,0,.10), rgba(0,0,0,.10)),
-    url("images/site/winter-classic.png?v=6") center center / 700px 350px no-repeat;
-
+  background:url("images/site/winter-classic.png?v=6") center center / 700px 350px no-repeat;
   border:none;
-
- box-shadow:none;
+  box-shadow:none;
 }
 
 .event-rsvp-avatar-row > .player-avatar-wrap,
@@ -1162,7 +1157,7 @@ a:hover{
   align-items:center;
   justify-content:center;
   border:2px solid #000;
-  box-shadow:0 4px 10px rgba(0,0,0,.22);
+  box-shadow:none;
   z-index:0;
   transform:translate(-50%, -50%);
 }
@@ -1189,9 +1184,7 @@ a:hover{
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,.10),
-    0 10px 18px rgba(0,0,0,.34);
+  box-shadow:none;
 }
 
 /* avatar system */
