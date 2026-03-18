@@ -1065,11 +1065,16 @@ function crewCardMarkup(player, data, tierPlayers = []) {
   const tierRank = [...tierPlayers]
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
     .findIndex(p => p.name === player.name) + 1;
+  const tierClass = tier.name
+  .toLowerCase()
+  .replace(/^the\s+/i, "")
+  .replace(/[^\w]+/g, "-")
+  .replace(/^-+|-+$/g, "");
 
   return `
     <a class="player-card player-card-rich crew-card" href="${playerUrl(player)}">
       <div class="crew-card-topline">
-        <span class="crew-tier-badge">${tier.emoji} ${tier.name}</span>
+        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}</span>
         <span class="crew-tier-rank">#${tierRank}</span>
       </div>
 
