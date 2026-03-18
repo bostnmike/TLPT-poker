@@ -843,7 +843,10 @@ function renderHomePage(data) {
 
         <div class="home-guide-grid">
           <div class="home-guide-column">
-            <div class="home-guide-title">Archetypes</div>
+            <div class="home-guide-title">
+              <span class="guide-icon">♠</span>
+              <span>Archetypes</span>
+          </div>
             <div class="home-guide-pills">
               ${ARCHETYPE_GUIDE.map(item => `
                 <span class="home-guide-pill">${item.emoji} ${item.name}</span>
@@ -852,7 +855,10 @@ function renderHomePage(data) {
           </div>
 
           <div class="home-guide-column">
-            <div class="home-guide-title">Tiers</div>
+            <div class="home-guide-title">
+              <span class="guide-icon">🏆</span>
+              <span>Tiers</span>
+            </div>
             <div class="home-guide-pills">
               ${TIER_GUIDE.map(item => `
                 <span class="home-guide-pill">${item.emoji} ${item.name}</span>
