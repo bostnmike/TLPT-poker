@@ -621,6 +621,27 @@ function formatRsvpLine(rsvp) {
   return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
 }
 
+function eventRsvpAvatarMarkup(event, data) {
+  const names = event?.rsvp_players || [];
+  const players = data?.players || [];
+
+  if (!names.length || !players.length) return "";
+
+  const matchedPlayers = names
+    .map(name =>
+      players.find(player => String(player.name || "").toLowerCase() === String(name || "").toLowerCase())
+    )
+    .filter(Boolean);
+
+  if (!matchedPlayers.length) return "";
+
+  return `
+    <div class="event-rsvp-avatar-row">
+      ${matchedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+    </div>
+  `;
+}
+
 function projectedTableSize(rsvp, maxSeats = 9) {
   const confirmed = Number(rsvp?.confirmed ?? 0);
   const maybe = Number(rsvp?.maybe ?? 0);
@@ -805,11 +826,8 @@ function renderHomePage(data) {
         <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
         ${tableFillMarkup(event.rsvp_counts, 9)}
         <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-          <div class="event-rsvp-avatars">
-            ${eventRsvpAvatarMarkup(event.rsvp_players)}  
-          </div>
-        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
-      </div>
+        ${eventRsvpAvatarMarkup(event, data)}
+        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>      </div>
     `).join("");
     
     const guideCard = `
