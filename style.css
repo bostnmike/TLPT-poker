@@ -1283,6 +1283,35 @@ th{
   white-space:nowrap;
 }
 
+.crew-tier-badge.apex-predator{
+  border-color:rgba(255,213,108,.45);
+  background:rgba(255,213,108,.14);
+  color:#fff3c4;
+}
+
+.crew-tier-badge.table-crusher{
+  border-color:rgba(255,184,28,.42);
+  background:rgba(255,184,28,.12);
+  color:#ffe29a;
+}
+
+.crew-tier-badge.shot-maker{
+  border-color:rgba(246,198,91,.38);
+  background:rgba(246,198,91,.11);
+  color:#ffe8b5;
+}
+
+.crew-tier-badge.gambler{
+  border-color:rgba(158,176,195,.34);
+  background:rgba(158,176,195,.10);
+  color:#d9e4ef;
+}
+
+.crew-tier-badge.league-sponsor{
+  border-color:rgba(127,138,150,.34);
+  background:rgba(127,138,150,.10);
+  color:#c7d0d8;
+}
 .crew-tier-rank{
   display:inline-flex;
   align-items:center;
