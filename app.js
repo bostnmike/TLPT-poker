@@ -875,7 +875,7 @@ function renderHomePage(data) {
         </div>
 
         <div class="event-rsvp-col">
-          <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event, 9)}</p>
+          <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
           ${tableFillMarkup(event, 9)}
           <p class="muted">${formatRsvpLine(event)}</p>
           ${eventRsvpAvatarMarkup(event, data)}
@@ -1447,7 +1447,7 @@ function renderSchedule(data) {
           </div>
 
           <div class="event-rsvp-col">
-            <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event, 9)}</p>
+            <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
             ${tableFillMarkup(event, 9)}
             <p class="muted">${formatRsvpLine(event)}</p>
             ${eventRsvpAvatarMarkup(event, data)}
