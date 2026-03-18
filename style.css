@@ -1337,6 +1337,80 @@ th{
   margin:0;
 }
 
+.tier-distribution{
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--panel-3);
+  box-shadow:var(--shadow);
+}
+
+.tier-distribution-head h3{
+  margin:0 0 14px 0;
+  color:#fff;
+  font-size:1.15rem;
+  line-height:1.2;
+}
+
+.tier-distribution-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.tier-distribution-row{
+  display:grid;
+  grid-template-columns:minmax(220px, 320px) minmax(0, 1fr) auto;
+  gap:12px;
+  align-items:center;
+}
+
+.tier-distribution-label{
+  color:#fff;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.tier-distribution-bar{
+  height:10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  overflow:hidden;
+  position:relative;
+}
+
+.tier-distribution-fill{
+  height:100%;
+  border-radius:999px;
+}
+
+.tier-distribution-fill.apex-predators{
+  background:linear-gradient(90deg, rgba(255,213,108,.98), rgba(255,213,108,.24));
+}
+
+.tier-distribution-fill.table-crushers{
+  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.22));
+}
+
+.tier-distribution-fill.shot-makers{
+  background:linear-gradient(90deg, rgba(246,198,91,.92), rgba(246,198,91,.20));
+}
+
+.tier-distribution-fill.gamblers{
+  background:linear-gradient(90deg, rgba(158,176,195,.85), rgba(158,176,195,.18));
+}
+
+.tier-distribution-fill.league-sponsors{
+  background:linear-gradient(90deg, rgba(127,138,150,.82), rgba(127,138,150,.16));
+}
+
+.tier-distribution-count{
+  color:var(--gold);
+  font-weight:800;
+  min-width:18px;
+  text-align:right;
+}
+
 .tier-grid{
   display:grid;
   grid-template-columns:repeat(4, minmax(0,1fr));
