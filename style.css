@@ -775,7 +775,7 @@ a:hover{
 .home-guide-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
+  gap:16px;
   margin-top:4px;
 }
 
@@ -799,12 +799,20 @@ a:hover{
 /* column titles */
 
 .home-guide-title{
+  display:flex;
+  align-items:center;
+  gap:6px;
   color:var(--gold);
   font-size:.82rem;
   font-weight:800;
   letter-spacing:.08em;
   text-transform:uppercase;
-  margin-bottom:12px;
+  margin-bottom:10px;
+}
+
+.guide-icon{
+  font-size:.95rem;
+  line-height:1;
 }
 
 /* badge stack */
