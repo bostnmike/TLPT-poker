@@ -1376,24 +1376,25 @@ function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  const events = getCurrentEvents(data).slice(0, 1);
-  list.innerHTML = events.map(event => `
-    <div class="event-card compact-event-card">
-      <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
-        <div class="event-icon event-icon-card">♠</div>
-      </div>
-      <h3>${event.date}</h3>
-      <p class="muted"><strong>Start:</strong> ${event.time}</p>
-      <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-      <p class="muted"><strong>Location:</strong> ${event.location}</p>
-      <p class="muted">${event.address || ""}</p>
-      <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-      ${tableFillMarkup(event.rsvp_counts, 9)}
-      <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-      <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+const events = getCurrentEvents(data).slice(0, 1);
+list.innerHTML = events.map(event => `
+  <div class="event-card compact-event-card">
+    <div class="event-card-topline">
+      <div class="kicker event-title-kicker">${event.title}</div>
+      <div class="event-icon event-icon-card">♠</div>
     </div>
-  `).join("");
+    <div class="event-format-title">${event.format || ""}</div>
+    <h3>${event.date}</h3>
+    <p class="muted"><strong>Start:</strong> ${event.time}</p>
+    <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+    <p class="muted"><strong>Location:</strong> ${event.location}</p>
+    <p class="muted">${event.address || ""}</p>
+    <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
+    ${tableFillMarkup(event.rsvp_counts, 9)}
+    <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
+    <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+  </div>
+`).join("");
 }
 
 function honorIcon(type) {
