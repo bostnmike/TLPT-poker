@@ -989,11 +989,23 @@ a:hover{
   border:none;
 }
 
+.event-rsvp-block{
+  margin:8px 0 10px 0;
+}
+
+.event-rsvp-label{
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 8px 0;
+}
+
 .event-rsvp-avatar-row{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin:8px 0 10px 0;
 }
 
 .event-rsvp-avatar-row .player-avatar,
