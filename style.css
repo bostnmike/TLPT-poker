@@ -855,6 +855,7 @@ a:hover{
     0 6px 16px rgba(0,0,0,.22),
     0 0 14px rgba(255,184,28,.12);
 }
+
 .home-commissioner{
   padding:18px 20px;
 }
@@ -917,10 +918,8 @@ a:hover{
     0 0 14px rgba(255,184,28,.12);
 
   transition:transform .2s ease, text-shadow .2s ease;
+  animation:snapshotPulse 4s ease-in-out infinite;
 }
-
-.home-snapshot-grid .snapshot-card:hover .snapshot-value{
-  transform:scale(1.08);
 
   text-shadow:
     0 0 10px rgba(255,184,28,.35),
@@ -961,21 +960,6 @@ a:hover{
   letter-spacing:.09em;
   color:var(--gold);
   font-weight:800;
-}
-
-@media (max-width:800px){
-  .home-guide-grid{
-    grid-template-columns:1fr;
-  }
-
-  .home-guide-column:first-child{
-    border-right:none;
-    padding-right:0;
-  }
-
-  .home-guide-column:last-child{
-    padding-left:0;
-  }
 }
 
 /* event cards */
@@ -2589,6 +2573,19 @@ th{
 
   .home-cluster-stack-3{
     grid-template-columns:1fr;
+  }
+
+    .home-guide-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-guide-column:first-child{
+    border-right:none;
+    padding-right:0;
+  }
+
+  .home-guide-column:last-child{
+    padding-left:0;
   }
 
   .home-pulse-head{
