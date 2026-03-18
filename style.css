@@ -973,6 +973,13 @@ a:hover{
   margin:0 0 8px 0;
 }
 
+.event-structure{
+  font-size:.92rem;
+  color:var(--muted);
+  margin:0 0 10px 0;
+  line-height:1.4;
+}
+
 .event-icon-card{
   font-size:2rem;
   line-height:1;
