@@ -969,16 +969,15 @@ a:hover{
 
 .event-rsvp-col{
   padding-left:18px;
-  display:grid;
-  align-content:start;
-  justify-items:start;
-  row-gap:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
   align-self:start;
 }
 
 .event-details-col > *,
 .event-rsvp-col > *{
-  margin:0 0 8px 0;
+  margin:0 0 6px 0;
 }
 
 .event-details-col .btn{
@@ -1060,22 +1059,22 @@ a:hover{
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--gold);
-  margin:0 0 10px 0;
+  margin:0 0 6px 0;
   text-align:center;
 }
 
 .event-rsvp-avatar-row{
   position:relative;
   width:300px;
-  height:210px;
-  margin:0 auto 0;
-  align-self:center;
+  height:190px;
+  margin:-2px auto 0;
+  align-self:flex-start;
 }
 
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:22px 18px;
+  inset:18px 16px;
   border-radius:999px;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,.05), transparent 35%),
@@ -2449,7 +2448,7 @@ th{
 /* fill bar */
 
 .fill-widget{
-  margin:10px 0 12px;
+  margin:2px 0 8px;
 }
 
 .fill-header{
