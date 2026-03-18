@@ -965,13 +965,12 @@ a:hover{
   align-self:start;
 }
 
-.event-rsvp-col{
-  padding-left:6px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  align-self:start;
+.event-rsvp-avatar-row{
+  position:relative;
+  width:470px;
+  height:240px;
+  margin:0 auto;
+  align-self:center;
 }
 
 .event-details-col > *{
