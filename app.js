@@ -797,6 +797,7 @@ function renderHomePage(data) {
         </div>
         <div class="event-format-title">${event.format || ""}</div>
         <h3>${event.date}</h3>
+        <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>        
         <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
         <p class="muted"><strong>Location:</strong> ${event.location}</p>
@@ -1762,6 +1763,7 @@ async function main() {
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);
+  initEventCountdowns();
   renderChampions(data);
   renderStatLeaders(data);
   initRulesPage();
@@ -1773,3 +1775,40 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("TLPT site load failed:", error);
   });
 });
+
+function initEventCountdowns() {
+
+  const countdowns = document.querySelectorAll(".event-countdown");
+
+  countdowns.forEach(el => {
+
+    const date = el.dataset.eventDate;
+    const time = el.dataset.eventTime;
+
+    if (!date || !time) return;
+
+    const target = new Date(`${date} ${time}`);
+
+    function updateCountdown() {
+
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        el.textContent = "Cards in the air!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      el.textContent = `Starts in ${days}d ${hours}h ${minutes}m`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+  });
+
+}
