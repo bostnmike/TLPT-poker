@@ -775,12 +775,6 @@ a:hover{
   margin-top:2px;
 }
 
-.home-guide-list{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
 .home-guide-pills{
   display:flex;
   flex-wrap:wrap;
@@ -810,30 +804,6 @@ a:hover{
   letter-spacing:.08em;
   text-transform:uppercase;
   margin-bottom:10px;
-}
-
-.home-guide-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.home-guide-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#fff;
-  line-height:1.25;
-}
-
-.home-guide-emoji{
-  font-size:1.25rem;
-  line-height:1;
-  flex:0 0 auto;
-}
-
-.home-guide-name{
-  min-width:0;
 }
 
 .home-commissioner{
@@ -2532,20 +2502,6 @@ th{
   .home-snapshot-grid .snapshot-card::after{
     display:none;
   }
-
-.home-snapshot-grid .snapshot-card{
-  position:relative;
-}
-
-.home-snapshot-grid .snapshot-card:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  top:16%;
-  right:-7px;
-  width:1px;
-  height:68%;
-  background:rgba(255,255,255,.08);
-}
   
   .home-insight-formula{
     width:100%;
