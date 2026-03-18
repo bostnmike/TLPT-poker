@@ -848,7 +848,7 @@ a:hover{
 
 .home-snapshot-grid{
   display:grid;
-  grid-template-columns:repeat(5, minmax(0,1fr));
+  grid-template-columns:1fr 1fr 1fr 1fr 1.2fr;
   gap:14px;
 }
 
@@ -860,6 +860,20 @@ a:hover{
   text-align:center;
   box-shadow:var(--shadow);
   transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.home-snapshot-grid .snapshot-card{
+  position:relative;
+}
+
+.home-snapshot-grid .snapshot-card:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:16%;
+  right:-7px;
+  width:1px;
+  height:68%;
+  background:rgba(255,255,255,.08);
 }
 
 .snapshot-card:hover{
