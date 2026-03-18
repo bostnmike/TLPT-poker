@@ -969,15 +969,16 @@ a:hover{
 
 .event-rsvp-col{
   padding-left:18px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
+  display:grid;
+  align-content:start;
+  justify-items:start;
+  row-gap:0;
   align-self:start;
 }
 
 .event-details-col > *,
 .event-rsvp-col > *{
-  margin-top:0;
+  margin:0 0 8px 0;
 }
 
 .event-details-col .btn{
@@ -1076,7 +1077,9 @@ a:hover{
   position:absolute;
   inset:22px 18px;
   border-radius:999px;
-  background:url("images/site/large-table.gif?v=7") center/cover no-repeat;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.05), transparent 35%),
+    linear-gradient(135deg, rgba(15,81,50,.55), rgba(9,34,24,.92));
   border:1px solid rgba(255,184,28,.22);
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.05),
