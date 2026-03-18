@@ -1091,8 +1091,8 @@ a:hover{
 
 .event-rsvp-avatar-row{
   position:relative;
-  width:470px;
-  height:240px;
+  width:560px;   /* bigger */
+  height:300px;  /* bigger */
   margin:0 auto;
   align-self:center;
 }
@@ -1100,17 +1100,18 @@ a:hover{
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:0px 6px;
+  inset:0;  /* FULL size now */
   border-radius:999px;
+
   background:
     linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
     url("images/site/winter-classic.png?v=2") center/cover no-repeat;
+
   border:2px solid rgba(255,184,28,.24);
+
   box-shadow:
     inset 0 0 0 2px rgba(255,255,255,.04),
     0 12px 24px rgba(0,0,0,.24);
-  
-  transform:scale(1.08);
 }
 
 .event-rsvp-avatar-row > .player-avatar-wrap,
