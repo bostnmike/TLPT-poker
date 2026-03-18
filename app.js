@@ -998,21 +998,23 @@ function renderLeagueSnapshot(data) {
     Math.max(players.length, 1);
 
   const cards = [
-    { label: "Players", value: players.length },
-    { label: "Entries", value: totalEntries },
-    { label: "Rebuys", value: totalRebuys },
-    { label: "Knockouts", value: totalHits },
-    { label: "Avg ROI", value: fmtPct(avgROI) }
-  ];
-
-  container.innerHTML = cards.map(card => `
-    <div class="snapshot-card">
-      <div class="snapshot-value">${card.value}</div>
-      <div class="snapshot-label">${card.label}</div>
+  { icon:"👥", label:"Players", value:players.length },
+  { icon:"🎟", label:"Entries", value:totalEntries },
+  { icon:"🔁", label:"Rebuys", value:totalRebuys },
+  { icon:"💥", label:"Knockouts", value:totalHits },
+  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI) }
+];
+  
+container.innerHTML = cards.map(card => `
+  <div class="snapshot-card">
+    <div class="snapshot-value">
+      <span class="snapshot-icon">${card.icon}</span>
+      ${card.value}
     </div>
-  `).join("");
-}
-
+    <div class="snapshot-label">${card.label}</div>
+  </div>
+`).join("");
+  
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
