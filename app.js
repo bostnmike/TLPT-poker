@@ -1236,7 +1236,6 @@ grid.innerHTML = `
 `;
 }
 
-function renderPlayerProfile(data) {  
 function renderPlayerProfile(data) {
   const container = document.getElementById("player-profile");
   if (!container || !data?.players?.length) return;
