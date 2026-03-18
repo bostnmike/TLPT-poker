@@ -973,6 +973,7 @@ a:hover{
   flex-direction:column;
   justify-content:flex-start;
   align-self:start;
+  margin-top:-6px;
 }
 
 .event-details-col > *,
@@ -1005,6 +1006,11 @@ a:hover{
 
 .compact-event-card p{
   margin:4px 0;
+}
+
+.event-details-col p,
+.event-rsvp-col p{
+  margin:0 0 4px 0;
 }
 
 .event-card-topline{
@@ -1046,7 +1052,7 @@ a:hover{
 }
 
 .event-rsvp-block{
-  margin:0 0 10px 0;
+  margin:0;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -1066,8 +1072,8 @@ a:hover{
 .event-rsvp-avatar-row{
   position:relative;
   width:300px;
-  height:190px;
-  margin:-2px auto 0;
+  height:176px;
+  margin:-6px auto 0;
   align-self:flex-start;
 }
 
@@ -2448,7 +2454,7 @@ th{
 /* fill bar */
 
 .fill-widget{
-  margin:2px 0 8px;
+  margin:0 0 6px;
 }
 
 .fill-header{
