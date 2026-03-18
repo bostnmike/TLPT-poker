@@ -1061,6 +1061,17 @@ a:hover{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
+  align-items:center;
+}
+
+.event-empty-seat{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:32px;
+  height:32px;
+  font-size:1.05rem;
+  line-height:1;
 }
 
 .event-rsvp-avatar-row .player-avatar,
@@ -2546,10 +2557,23 @@ th{
     grid-template-columns:1fr;
   }
 
+  .event-layout-grid{
+    grid-template-columns:1fr;
+  }
+
+  .event-details-col{
+    padding-right:0;
+    border-right:none;
+  }
+
+  .event-rsvp-col{
+    padding-left:0;
+  }
+
   .dashboard-formula-display{
     min-height:unset;
   }
-
+}
     .event-layout-grid{
     grid-template-columns:1fr;
   }
