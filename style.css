@@ -781,6 +781,30 @@ a:hover{
   gap:8px;
 }
 
+.home-guide-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.home-guide-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  line-height:1.25;
+}
+
+.home-guide-emoji{
+  font-size:1.25rem;
+  line-height:1;
+  flex:0 0 auto;
+}
+
+.home-guide-name{
+  min-width:0;
+}
+
 .home-guide-column{
   min-width:0;
 }
@@ -818,6 +842,47 @@ a:hover{
   min-width:0;
 }
 
+.home-commissioner{
+  padding:18px 20px;
+}
+
+.home-commissioner p{
+  margin:0;
+  line-height:1.55;
+  color:var(--text);
+}
+
+.home-snapshot-grid{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:14px;
+}
+
+.snapshot-card{
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--panel-3);
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.snapshot-value{
+  font-size:1.4rem;
+  font-weight:900;
+  color:#fff;
+  line-height:1.1;
+  margin-bottom:6px;
+}
+
+.snapshot-label{
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--gold);
+  font-weight:800;
+}
+
 @media (max-width:800px){
   .home-guide-grid{
     grid-template-columns:1fr;
@@ -835,6 +900,27 @@ a:hover{
 
 .event-card{
   padding:18px 20px;
+}
+
+.home-event-hero{
+  border:1px solid rgba(255,184,28,.35);
+  background:linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.02));
+}
+
+.home-event-kicker{
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--gold);
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.home-event-title{
+  font-size:1.35rem;
+  font-weight:900;
+  margin-bottom:8px;
+  color:#fff;
 }
 
 .compact-event-card p{
@@ -2274,6 +2360,10 @@ th{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
 
+  .home-snapshot-grid{
+    grid-template-columns:repeat(3, minmax(0,1fr));
+  }
+  
   .home-feature-grid{
     grid-template-columns:1fr;
   }
@@ -2361,6 +2451,10 @@ th{
     flex-wrap:wrap;
   }
 
+  .home-snapshot-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+  
   .home-insight-formula{
     width:100%;
     min-height:28px;
@@ -2387,6 +2481,10 @@ th{
     grid-template-columns:1fr;
   }
 
+  .home-snapshot-grid{
+    grid-template-columns:1fr;
+  }
+  
   .crew-card-topline{
     align-items:flex-start;
   }
