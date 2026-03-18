@@ -1426,7 +1426,7 @@ function renderSchedule(data) {
 
   const events = getCurrentEvents(data).slice(0, 1);
 
-  list.innerHTML = `
+   list.innerHTML = `
     ${events.map(event => `
       <div class="event-card compact-event-card home-event-hero">
         <div class="event-card-topline">
@@ -1451,9 +1451,6 @@ function renderSchedule(data) {
         </div>
       </div>
     `).join("")}
-  `;
-  
-    ${buildEventGuideCard()}
   `;
 }
 
