@@ -1148,16 +1148,18 @@ a:hover{
 .event-rsvp-avatar-row > :nth-child(8){ --seat-x:8%; --seat-y:39%; }
 .event-rsvp-avatar-row > :nth-child(9){ --seat-x:23%; --seat-y:17%; }
 
+
+.event-rsvp-avatar-row[data-dealer-seat="1"]::after{ left:50%; top:18%; }
+.event-rsvp-avatar-row[data-dealer-seat="2"]::after{ left:72%; top:26%; }
+.event-rsvp-avatar-row[data-dealer-seat="3"]::after{ left:84%; top:44%; }
+.event-rsvp-avatar-row[data-dealer-seat="4"]::after{ left:77%; top:72%; }
+.event-rsvp-avatar-row[data-dealer-seat="5"]::after{ left:60%; top:84%; }
+.event-rsvp-avatar-row[data-dealer-seat="6"]::after{ left:40%; top:84%; }
+.event-rsvp-avatar-row[data-dealer-seat="7"]::after{ left:23%; top:72%; }
+.event-rsvp-avatar-row[data-dealer-seat="8"]::after{ left:16%; top:44%; }
+.event-rsvp-avatar-row[data-dealer-seat="9"]::after{ left:28%; top:26%; }
+
 /* 9-seat poker table layout */
-.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:9%; }
-.event-rsvp-avatar-row > :nth-child(2){ --seat-x:76%; --seat-y:18%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:91%; --seat-y:39%; }
-.event-rsvp-avatar-row > :nth-child(4){ --seat-x:83%; --seat-y:77%; }
-.event-rsvp-avatar-row > :nth-child(5){ --seat-x:61%; --seat-y:93%; }
-.event-rsvp-avatar-row > :nth-child(6){ --seat-x:39%; --seat-y:93%; }
-.event-rsvp-avatar-row > :nth-child(7){ --seat-x:17%; --seat-y:77%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:9%; --seat-y:39%; }
-.event-rsvp-avatar-row > :nth-child(9){ --seat-x:24%; --seat-y:18%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
