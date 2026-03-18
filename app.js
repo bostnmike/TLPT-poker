@@ -876,8 +876,8 @@ function renderHomePage(data) {
 
         <div class="event-rsvp-col">
           <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
-          ${tableFillMarkup(event, 9)}
           <p class="muted">${formatRsvpLine(event)}</p>
+          ${tableFillMarkup(event, 9)}
           ${eventRsvpAvatarMarkup(event, data)}
         </div>
       </div>
