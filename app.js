@@ -1838,21 +1838,62 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function initEventCountdowns() {
+function parseEventDateTime(dateText, timeText) {
+  const rawDate = String(dateText || "").trim();
+  const rawTime = String(timeText || "").trim();
 
+  if (!rawDate || !rawTime) return null;
+
+  // Remove weekday prefix like "Saturday, "
+  const cleanedDate = rawDate.replace(/^[A-Za-z]+,\s*/, "").replace(/,/g, "").trim();
+
+  // First try normal parsing
+  let parsed = new Date(`${cleanedDate} ${rawTime}`);
+  if (!Number.isNaN(parsed.getTime())) return parsed;
+
+  // Manual fallback for Safari / iOS
+  const parts = cleanedDate.split(/\s+/);
+  if (parts.length < 3) return null;
+
+  const monthMap = {
+    january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+    july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
+  };
+
+  const month = monthMap[parts[0].toLowerCase()];
+  const day = Number(parts[1]);
+  const year = Number(parts[2]);
+
+  const timeMatch = rawTime.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (month == null || !day || !year || !timeMatch) return null;
+
+  let hour = Number(timeMatch[1]);
+  const minute = Number(timeMatch[2]);
+  const meridiem = timeMatch[3].toUpperCase();
+
+  if (meridiem === "PM" && hour !== 12) hour += 12;
+  if (meridiem === "AM" && hour === 12) hour = 0;
+
+  parsed = new Date(year, month, day, hour, minute, 0, 0);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function initEventCountdowns() {
   const countdowns = document.querySelectorAll(".event-countdown");
 
   countdowns.forEach(el => {
-
     const date = el.dataset.eventDate;
     const time = el.dataset.eventTime;
 
     if (!date || !time) return;
 
-    const target = new Date(`${date} ${time}`);
+    const target = parseEventDateTime(date, time);
+    if (!target) {
+      el.textContent = "";
+      return;
+    }
 
     function updateCountdown() {
-
       const now = new Date();
       const diff = target - now;
 
@@ -1870,7 +1911,6 @@ function initEventCountdowns() {
 
     updateCountdown();
     setInterval(updateCountdown, 60000);
-
   });
-
+}
 }
