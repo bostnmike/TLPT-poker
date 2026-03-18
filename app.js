@@ -1124,11 +1124,12 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
       </div>
 
       <div class="tier-strength">
+        <div class="tier-strength-label">Tier Strength</div>
         <div class="tier-strength-bar">
           <div class="tier-strength-fill" style="width:${strengthPct}%"></div>
         </div>
       </div>
-
+      
       <div class="tier-grid">
         ${players.map(player => crewCardMarkup(player, data, players)).join("")}
       </div>
