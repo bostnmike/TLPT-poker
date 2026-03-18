@@ -972,16 +972,13 @@ a:hover{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  align-items:center;
   align-self:start;
-  margin-top:-2px;
+  margin-top:0;
 }
 
 .event-details-col > *{
   margin:0 0 6px 0;
-}
-
-.event-rsvp-col > *{
-  margin:0 0 2px 0;
 }
 
 .event-details-col .btn{
@@ -1055,36 +1052,26 @@ a:hover{
 }
 
 .event-rsvp-block{
-  margin:-2px 0 0;
+  margin:0;
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:flex-start;
   width:100%;
-}
-
-.event-rsvp-label{
-  width:100%;
-  font-size:.74rem;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin:0 0 2px 0;
-  text-align:center;
 }
 
 .event-rsvp-avatar-row{
   position:relative;
   width:300px;
-  height:158px;
-  margin:-8px auto 0;
+  height:138px;
+  margin:-10px auto 0;
   align-self:center;
 }
 
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:14px 16px;
+  inset:10px 14px;
   border-radius:999px;
   background:
     radial-gradient(circle at 30% 30%, rgba(255,255,255,.05), transparent 35%),
@@ -1124,15 +1111,15 @@ a:hover{
 }
 
 /* 9-seat poker table layout */
-.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:8%; }
-.event-rsvp-avatar-row > :nth-child(2){ --seat-x:74%; --seat-y:18%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:89%; --seat-y:37%; }
-.event-rsvp-avatar-row > :nth-child(4){ --seat-x:84%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(5){ --seat-x:62%; --seat-y:92%; }
-.event-rsvp-avatar-row > :nth-child(6){ --seat-x:38%; --seat-y:92%; }
-.event-rsvp-avatar-row > :nth-child(7){ --seat-x:16%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:11%; --seat-y:37%; }
-.event-rsvp-avatar-row > :nth-child(9){ --seat-x:26%; --seat-y:18%; }
+.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:14%; }
+.event-rsvp-avatar-row > :nth-child(2){ --seat-x:71%; --seat-y:24%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:83%; --seat-y:42%; }
+.event-rsvp-avatar-row > :nth-child(4){ --seat-x:76%; --seat-y:72%; }
+.event-rsvp-avatar-row > :nth-child(5){ --seat-x:58%; --seat-y:86%; }
+.event-rsvp-avatar-row > :nth-child(6){ --seat-x:42%; --seat-y:86%; }
+.event-rsvp-avatar-row > :nth-child(7){ --seat-x:24%; --seat-y:72%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:17%; --seat-y:42%; }
+.event-rsvp-avatar-row > :nth-child(9){ --seat-x:29%; --seat-y:24%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
