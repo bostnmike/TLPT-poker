@@ -972,6 +972,11 @@ a:hover{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
+  align-self:start;
+}
+
+.event-rsvp-col > *{
+  margin-top:0;
 }
 
 .event-details-col > :first-child,
