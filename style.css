@@ -1051,6 +1051,9 @@ a:hover{
 
 .event-rsvp-block{
   margin:8px 0 10px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
 }
 
 .event-rsvp-label{
@@ -1059,36 +1062,65 @@ a:hover{
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--gold);
-  margin:0 0 8px 0;
+  margin:0 0 10px 0;
+  text-align:center;
 }
 
 .event-rsvp-avatar-row{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:nowrap;
+  position:relative;
+  width:260px;
+  height:180px;
+  margin:2px auto 0;
+}
+
+.event-rsvp-avatar-row::before{
+  content:"";
+  position:absolute;
+  inset:34px 26px;
+  border-radius:999px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,.05), transparent 35%),
+    linear-gradient(135deg, rgba(15,81,50,.55), rgba(9,34,24,.92));
+  border:1px solid rgba(255,184,28,.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    0 10px 20px rgba(0,0,0,.22);
+}
+
+.event-rsvp-avatar-row .player-avatar,
+.event-rsvp-avatar-row .player-avatar-fallback,
+.event-empty-seat{
+  position:absolute;
+  width:36px;
+  height:36px;
+}
+
+.event-rsvp-avatar-row .player-avatar,
+.event-rsvp-avatar-row .player-avatar-fallback{
+  font-size:.82rem;
+  border-width:2px;
 }
 
 .event-empty-seat{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:36px;
-  height:36px;
-  font-size:1.9rem;
+  font-size:2rem;
   line-height:1;
   opacity:.65;
 }
 
-.event-rsvp-avatar-row.is-hot-table .player-avatar,
-.event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
-  box-shadow:
-    0 0 0 2px rgba(255,184,28,.22),
-    0 0 12px rgba(255,184,28,.28),
-    0 0 22px rgba(255,184,28,.16),
-    0 10px 18px rgba(0,0,0,.34);
-}
+/* 9-seat poker table layout */
+
+.event-rsvp-avatar-row > :nth-child(1){ top:0; left:50%; transform:translateX(-50%); }
+.event-rsvp-avatar-row > :nth-child(2){ top:14px; right:28px; }
+.event-rsvp-avatar-row > :nth-child(3){ top:50%; right:0; transform:translateY(-50%); }
+.event-rsvp-avatar-row > :nth-child(4){ bottom:14px; right:28px; }
+.event-rsvp-avatar-row > :nth-child(5){ bottom:0; left:50%; transform:translateX(-50%); }
+.event-rsvp-avatar-row > :nth-child(6){ bottom:14px; left:28px; }
+.event-rsvp-avatar-row > :nth-child(7){ top:50%; left:0; transform:translateY(-50%); }
+.event-rsvp-avatar-row > :nth-child(8){ top:14px; left:28px; }
+.event-rsvp-avatar-row > :nth-child(9){ top:8px; left:50%; transform:translateX(-50%) translateY(22px); }
 
 .event-countdown{
   font-size:1rem;
