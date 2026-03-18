@@ -982,6 +982,13 @@ a:hover{
   border:none;
 }
 
+.event-countdown{
+  font-size:1rem;
+  font-weight:800;
+  color:var(--gold);
+  margin:6px 0 10px 0;
+}
+
 /* avatar system */
 
 .player-avatar-wrap{
