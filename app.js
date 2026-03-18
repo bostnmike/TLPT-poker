@@ -816,7 +816,8 @@ function renderHomePage(data) {
           <div class="kicker event-title-kicker">${event.title}</div>
           <div class="event-icon event-icon-card">♠</div>
         </div>
-        <div class="event-format-title">${event.format || ""}</div>
+       <div class="event-format-title">${event.format || ""}</div>
+        <div class="event-structure">${event.structure || ""}</div>
         <h3>${event.date}</h3>
         <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>        
