@@ -791,15 +791,20 @@ a:hover{
 }
 
 .home-guide-pill{
-  display:inline-flex;
+  display:flex;
   align-items:center;
+  gap:8px;
   padding:6px 10px;
-  border-radius:999px;
-  font-size:.76rem;
-  font-weight:800;
-  border:1px solid rgba(255,184,28,.25);
-  background:rgba(255,184,28,.08);
-  color:#fff;
+  border-radius:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  font-size:.82rem;
+  line-height:1.2;
+}
+
+.home-guide-pill:hover{
+  border-color:rgba(255,184,28,.35);
+  background:rgba(255,184,28,.06);
 }
 
 .home-guide-column{
