@@ -1049,11 +1049,12 @@ a:hover{
   border:none;
 }
 
-.event-rsvp-block{
-  margin:4px 0 10px 0;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
+.event-rsvp-avatar-row{
+  position:relative;
+  width:260px;
+  height:180px;
+  margin:2px auto 0;
+  align-self:center;
 }
 
 .event-rsvp-label{
@@ -1102,13 +1103,12 @@ a:hover{
   border-width:2px;
 }
 
-.event-empty-seat{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.35rem;
-  line-height:1;
-  opacity:.65;
+.event-rsvp-avatar-row{
+  position:relative;
+  width:260px;
+  height:180px;
+  margin:2px auto 0;
+  align-self:center;
 }
 
 /* 9-seat poker table layout */
