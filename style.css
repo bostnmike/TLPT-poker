@@ -1060,8 +1060,9 @@ a:hover{
 .event-rsvp-avatar-row{
   display:flex;
   gap:8px;
-  flex-wrap:wrap;
   align-items:center;
+  justify-content:center;
+  flex-wrap:nowrap;
 }
 
 .event-empty-seat{
@@ -1072,6 +1073,7 @@ a:hover{
   height:34px;
   font-size:1.6rem;
   line-height:1;
+  opacity:.65;
 }
 
 .event-rsvp-avatar-row .player-avatar,
