@@ -859,20 +859,31 @@ a:hover{
   background:var(--panel-3);
   text-align:center;
   box-shadow:var(--shadow);
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.snapshot-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.45);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.20),
+    0 10px 28px rgba(0,0,0,.28),
+    0 0 18px rgba(255,184,28,.14);
 }
 
 .snapshot-value{
-  font-size:1.4rem;
+  font-size:1.55rem;
   font-weight:900;
   color:#fff;
   line-height:1.1;
   margin-bottom:6px;
+  letter-spacing:.02em;
 }
 
 .snapshot-label{
-  font-size:.72rem;
+  font-size:.70rem;
   text-transform:uppercase;
-  letter-spacing:.08em;
+  letter-spacing:.09em;
   color:var(--gold);
   font-weight:800;
 }
