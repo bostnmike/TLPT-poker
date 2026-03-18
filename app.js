@@ -1451,7 +1451,8 @@ function renderSchedule(data) {
         </div>
       </div>
     `).join("")}
-    
+  `;
+  
     ${buildEventGuideCard()}
   `;
 }
