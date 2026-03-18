@@ -1074,9 +1074,9 @@ a:hover{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:32px;
-  height:32px;
-  font-size:1.55rem;
+  width:36px;
+  height:36px;
+  font-size:1.9rem;
   line-height:1;
   opacity:.65;
 }
