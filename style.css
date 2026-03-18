@@ -1061,16 +1061,16 @@ a:hover{
 
 .event-rsvp-avatar-row{
   position:relative;
-  width:540px;
-  height:300px;
-  margin:0 0 0 -10px;
+  width:500px;
+  height:260px;
+  margin:0 0 0 -8px;
   align-self:flex-start;
 }
 
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:30px 36px;
+  inset:26px 32px;
   border-radius:999px;
   background:
     radial-gradient(circle at 30% 28%, rgba(255,255,255,.08), transparent 30%),
@@ -1086,8 +1086,8 @@ a:hover{
 .event-rsvp-avatar-row > .player-avatar-wrap,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:92px;
-  height:92px;
+  width:104px;
+  height:104px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1099,14 +1099,14 @@ a:hover{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:92px;
-  height:92px;
+  width:104px;
+  height:104px;
   font-size:1.25rem;
   border-width:3px;
 }
 
 .event-empty-seat{
-  font-size:5.25rem;
+  font-size:4.4rem;
   line-height:1;
   opacity:.78;
 }
