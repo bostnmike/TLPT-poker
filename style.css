@@ -985,14 +985,6 @@ a:hover{
   align-self:start;
 }
 
-.event-rsvp-avatar-row{
-  position:relative;
-  width:470px;
-  height:240px;
-  margin:0 auto;
-  align-self:center;
-}
-
 .event-details-col > *{
   margin:0 0 6px 0;
 }
