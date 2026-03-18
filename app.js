@@ -982,7 +982,36 @@ function renderHomePage(data) {
     `;
   }
 }
-  
+
+function renderLeagueSnapshot(data) {
+  const container = document.getElementById("home-snapshot-grid");
+  if (!container) return;
+
+  const players = data?.players || [];
+
+  const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
+  const totalRebuys = players.reduce((sum, p) => sum + (Number(p.rebuys) || 0), 0);
+  const totalHits = players.reduce((sum, p) => sum + (Number(p.hits) || 0), 0);
+  const avgROI =
+    players.reduce((sum, p) => sum + (Number(p.roi) || 0), 0) /
+    Math.max(players.length, 1);
+
+  const cards = [
+    { label: "Players", value: players.length },
+    { label: "Entries", value: totalEntries },
+    { label: "Rebuys", value: totalRebuys },
+    { label: "Knockouts", value: totalHits },
+    { label: "Avg ROI", value: fmtPct(avgROI) }
+  ];
+
+  container.innerHTML = cards.map(card => `
+    <div class="snapshot-card">
+      <div class="snapshot-value">${card.value}</div>
+      <div class="snapshot-label">${card.label}</div>
+    </div>
+  `).join("");
+}
+
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
