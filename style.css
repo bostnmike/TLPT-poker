@@ -982,6 +982,21 @@ a:hover{
   border:none;
 }
 
+.event-rsvp-avatar-row{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin:8px 0 10px 0;
+}
+
+.event-rsvp-avatar-row .player-avatar,
+.event-rsvp-avatar-row .player-avatar-fallback{
+  width:32px;
+  height:32px;
+  font-size:.8rem;
+  border-width:2px;
+}
+
 .event-countdown{
   font-size:1rem;
   font-weight:800;
