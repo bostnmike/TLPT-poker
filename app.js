@@ -871,8 +871,8 @@ function renderHomePage(data) {
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
           <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
-        </div>
-      
+        </div>    
+        
         <div class="event-rsvp-col">
           <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
           ${tableFillMarkup(event, 9)}
