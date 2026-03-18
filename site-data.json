@@ -2,23 +2,24 @@
   "events": [
     {
       "title": "It's Time for the Heel Turn | 9-Max",
-      "format": "40K Starting Stack", 
+      "format": "40K Starting Stack",
       "date": "Saturday, March 21, 2026",
-      "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event"
+      "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
       "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/0e6u6DsDLIhEdbqDJ38vOobew",
       "rsvp_counts": {
-        "yes": 7,
-        "no": 1,
-        "maybe": 2
+        "confirmed": 7,
+        "maybe": 2,
+        "tbd": 0,
+        "out": 1
       },
       "rsvp_players": [
-        "BostnMike",
-      ],    
-    },
+        "Bostnmike"
+      ]
+    }
     {
       "title": "A, yet to be determined, Friday or Saturday in the future.",
       "date": "See above :)",
