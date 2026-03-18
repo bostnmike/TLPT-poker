@@ -789,7 +789,7 @@ function renderHomePage(data) {
     const homeEvent = getCurrentEvents(data).slice(0, 1);
 
     const eventCards = homeEvent.map(event => `
-      <div class="event-card home-event-card compact-event-card">
+        <div class="event-card home-event-card home-event-hero compact-event-card">
                 <div class="home-event-kicker">This Week’s Main Event</div>
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
