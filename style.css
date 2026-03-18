@@ -958,10 +958,25 @@ a:hover{
   align-items:start;
 }
 
+.event-details-col{
+  padding-right:18px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+
+.event-rsvp-col{
+  padding-left:18px;
+}
+
 .event-details-col,
 .event-rsvp-col{
   display:flex;
   flex-direction:column;
+  justify-content:flex-start;
+}
+
+.event-details-col > :first-child,
+.event-rsvp-col > :first-child{
+  margin-top:0;
 }
 
 .event-rsvp-col .btn{
