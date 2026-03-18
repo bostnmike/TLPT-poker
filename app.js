@@ -795,8 +795,8 @@ function renderHomePage(data) {
           <div class="kicker event-title-kicker">${event.title}</div>
           <div class="event-icon event-icon-card">♠</div>
         </div>
-        <div class="home-event-format">${event.format || ""}</div>
-        <div class="home-event-title">${event.date}</div>
+        <div class="event-format-title">${event.format || ""}</div>
+        <h3>${event.date}</h3>
         <p class="muted"><strong>Start:</strong> ${event.time}</p>        
         <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
         <p class="muted"><strong>Location:</strong> ${event.location}</p>
@@ -807,7 +807,7 @@ function renderHomePage(data) {
         <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
     `).join("");
-
+    
     const guideCard = `
       <div class="event-card home-guide-card">
         <div class="home-guide-head">
