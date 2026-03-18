@@ -1061,16 +1061,16 @@ a:hover{
 
 .event-rsvp-avatar-row{
   position:relative;
-  width:500px;
-  height:270px;
-  margin:0 0 0 -8px;
+  width:540px;
+  height:300px;
+  margin:0 0 0 -10px;
   align-self:flex-start;
 }
 
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:24px 30px;
+  inset:30px 36px;
   border-radius:999px;
   background:
     radial-gradient(circle at 30% 28%, rgba(255,255,255,.08), transparent 30%),
@@ -1099,14 +1099,14 @@ a:hover{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:78px;
-  height:78px;
+  width:92px;
+  height:92px;
   font-size:1.25rem;
   border-width:3px;
 }
 
 .event-empty-seat{
-  font-size:5rem;
+  font-size:5.25rem;
   line-height:1;
   opacity:.78;
 }
