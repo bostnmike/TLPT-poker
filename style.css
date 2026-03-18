@@ -1061,16 +1061,16 @@ a:hover{
 
 .event-rsvp-avatar-row{
   position:relative;
-  width:500px;
-  height:260px;
-  margin:0 0 0 -8px;
+  width:470px;
+  height:240px;
+  margin:0 0 0 -6px;
   align-self:flex-start;
 }
 
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:26px 32px;
+  inset:22px 28px;
   border-radius:999px;
   background:
     radial-gradient(circle at 30% 28%, rgba(255,255,255,.08), transparent 30%),
@@ -1086,8 +1086,8 @@ a:hover{
 .event-rsvp-avatar-row > .player-avatar-wrap,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:104px;
-  height:104px;
+  width:112px;
+  height:112px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1099,14 +1099,14 @@ a:hover{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:104px;
-  height:104px;
-  font-size:1.25rem;
+  width:112px;
+  height:112px;
+  font-size:1.35rem;
   border-width:3px;
 }
 
 .event-empty-seat{
-  font-size:4.4rem;
+  font-size:3.9rem;
   line-height:1;
   opacity:.78;
 }
@@ -1122,31 +1122,31 @@ a:hover{
 .event-rsvp-avatar-row[data-dealer-seat="9"]::after{
   content:"D";
   position:absolute;
-  width:40px;
-  height:40px;
+  width:30px;
+  height:30px;
   border-radius:50%;
   background:#fff;
   color:#111;
   font-weight:900;
-  font-size:1.05rem;
+  font-size:.82rem;
   display:flex;
   align-items:center;
   justify-content:center;
   border:2px solid rgba(0,0,0,.16);
-  box-shadow:0 6px 14px rgba(0,0,0,.24);
+  box-shadow:0 4px 10px rgba(0,0,0,.22);
   z-index:0;
   transform:translate(-50%, -50%);
 }
 
-.event-rsvp-avatar-row[data-dealer-seat="1"]::after{ left:50%; top:18%; }
-.event-rsvp-avatar-row[data-dealer-seat="2"]::after{ left:72%; top:26%; }
-.event-rsvp-avatar-row[data-dealer-seat="3"]::after{ left:84%; top:44%; }
-.event-rsvp-avatar-row[data-dealer-seat="4"]::after{ left:77%; top:72%; }
-.event-rsvp-avatar-row[data-dealer-seat="5"]::after{ left:60%; top:84%; }
-.event-rsvp-avatar-row[data-dealer-seat="6"]::after{ left:40%; top:84%; }
-.event-rsvp-avatar-row[data-dealer-seat="7"]::after{ left:23%; top:72%; }
-.event-rsvp-avatar-row[data-dealer-seat="8"]::after{ left:16%; top:44%; }
-.event-rsvp-avatar-row[data-dealer-seat="9"]::after{ left:28%; top:26%; }
+.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:8%; }
+.event-rsvp-avatar-row > :nth-child(2){ --seat-x:77%; --seat-y:17%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:92%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(4){ --seat-x:84%; --seat-y:79%; }
+.event-rsvp-avatar-row > :nth-child(5){ --seat-x:62%; --seat-y:95%; }
+.event-rsvp-avatar-row > :nth-child(6){ --seat-x:38%; --seat-y:95%; }
+.event-rsvp-avatar-row > :nth-child(7){ --seat-x:16%; --seat-y:79%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:8%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(9){ --seat-x:23%; --seat-y:17%; }
 
 /* 9-seat poker table layout */
 .event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:9%; }
