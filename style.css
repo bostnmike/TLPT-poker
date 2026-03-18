@@ -786,6 +786,10 @@ a:hover{
   gap:8px;
 }
 
+.home-guide-column h4{
+  margin-bottom:6px;
+}
+
 .home-guide-pill{
   display:inline-flex;
   align-items:center;
