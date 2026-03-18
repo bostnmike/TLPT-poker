@@ -2578,19 +2578,6 @@ th{
     grid-template-columns:1fr;
   }
 
-    .home-guide-grid{
-    grid-template-columns:1fr;
-  }
-
-  .home-guide-column:first-child{
-    border-right:none;
-    padding-right:0;
-  }
-
-  .home-guide-column:last-child{
-    padding-left:0;
-  }
-
   .home-pulse-head{
     flex-wrap:wrap;
   }
