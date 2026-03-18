@@ -1105,11 +1105,17 @@ function crewCardMarkup(player, data, tierPlayers = []) {
 function tierSectionMarkup(title, emoji, players, data) {
   if (!players.length) return "";
 
+  const avgPower =
+    players.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) /
+    players.length;
+
   return `
     <div class="tier-section">
       <div class="tier-section-head">
         <h3>${emoji} ${title}</h3>
-        <p class="muted tier-section-count">${players.length} player${players.length === 1 ? "" : "s"}</p>
+        <div class="tier-header-stats">
+          Avg Power ${fmtNum(avgPower)}
+        </div>
       </div>
       <div class="tier-grid">
         ${players.map(player => crewCardMarkup(player, data, players)).join("")}
@@ -1155,11 +1161,11 @@ function renderPlayers(data) {
   leagueSponsors.sort(tierSort);
   
   grid.innerHTML = `
-    ${tierSectionMarkup("The Apex Predator", "🦈", apexPredators, data)}
-    ${tierSectionMarkup("The Table Crusher", "⚔️", tableCrushers, data)}
-    ${tierSectionMarkup("The Shot Maker", "☄️", shotMakers, data)}
-    ${tierSectionMarkup("The Gambler", "🎲", gamblers, data)}
-    ${tierSectionMarkup("The League Sponsor", "🍣", leagueSponsors, data)}
+    ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data)}
+    ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data)}
+    ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data)}
+    ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data)}
+    ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data)}
   `;
 }
 
