@@ -963,37 +963,6 @@ a:hover{
   border-right:1px solid rgba(255,255,255,.08);
 }
 
-.event-rsvp-col{
-  padding-left:18px;
-  justify-content:flex-start;
-}
-
-.event-details-col,
-.event-rsvp-col{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-self:start;
-}
-
-.event-rsvp-col > *{
-  margin-top:0;
-}
-
-.event-rsvp-col p{
-  margin-top:0;
-}
-
-.event-details-col > :first-child,
-.event-rsvp-col > :first-child{
-  margin-top:0;
-}
-
-.event-rsvp-col .btn{
-  margin-top:6px;
-  align-self:flex-start;
-}
-
 .event-card{
   padding:18px 20px;
 }
@@ -1086,8 +1055,7 @@ a:hover{
   inset:26px 24px;
   border-radius:999px;
   background:
-    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
-    url("images/site/large-table.gif") center/cover no-repeat;
+    url("images/site/large-table.gif?v=3") center/cover no-repeat;
   border:1px solid rgba(255,184,28,.22);
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.05),
@@ -1103,6 +1071,9 @@ a:hover{
   align-items:center;
   justify-content:center;
   z-index:1;
+  left:var(--seat-x);
+  top:var(--seat-y);
+  transform:translate(-50%, -50%);
 }
 
 .event-rsvp-avatar-row .player-avatar,
@@ -1114,21 +1085,21 @@ a:hover{
 }
 
 .event-empty-seat{
-  font-size:2.6rem;
+  font-size:2.8rem;
   line-height:1;
-  opacity:.7;
+  opacity:.72;
 }
 
 /* 9-seat poker table layout */
-.event-rsvp-avatar-row > :nth-child(1){ top:0; left:50%; transform:translateX(-50%); }
-.event-rsvp-avatar-row > :nth-child(2){ top:16px; right:30px; }
-.event-rsvp-avatar-row > :nth-child(3){ top:50%; right:0; transform:translateY(-50%); }
-.event-rsvp-avatar-row > :nth-child(4){ bottom:16px; right:30px; }
-.event-rsvp-avatar-row > :nth-child(5){ bottom:0; left:50%; transform:translateX(-50%); }
-.event-rsvp-avatar-row > :nth-child(6){ bottom:16px; left:30px; }
-.event-rsvp-avatar-row > :nth-child(7){ top:50%; left:0; transform:translateY(-50%); }
-.event-rsvp-avatar-row > :nth-child(8){ top:16px; left:30px; }
-.event-rsvp-avatar-row > :nth-child(9){ top:10px; left:50%; transform:translateX(-50%) translateY(26px); }
+.event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:6%; }
+.event-rsvp-avatar-row > :nth-child(2){ --seat-x:79%; --seat-y:18%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:91%; --seat-y:50%; }
+.event-rsvp-avatar-row > :nth-child(4){ --seat-x:79%; --seat-y:82%; }
+.event-rsvp-avatar-row > :nth-child(5){ --seat-x:50%; --seat-y:94%; }
+.event-rsvp-avatar-row > :nth-child(6){ --seat-x:21%; --seat-y:82%; }
+.event-rsvp-avatar-row > :nth-child(7){ --seat-x:9%; --seat-y:50%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:21%; --seat-y:18%; }
+.event-rsvp-avatar-row > :nth-child(9){ --seat-x:50%; --seat-y:24%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
