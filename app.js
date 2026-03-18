@@ -805,6 +805,9 @@ function renderHomePage(data) {
         <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
         ${tableFillMarkup(event.rsvp_counts, 9)}
         <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
+          <div class="event-rsvp-avatars">
+            ${eventRsvpAvatarMarkup(event.rsvp_players)}  
+          </div>
         <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP</a>
       </div>
     `).join("");
