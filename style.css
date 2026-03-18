@@ -2322,15 +2322,24 @@ th{
     height:30px;
     font-size:.85rem;
   }
+
+  .tier-distribution-row{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+
+  .tier-distribution-count{
+    text-align:left;
+  }
   
   .home-badge-row{
-  align-items:flex-start;
-  text-align:left;
-}
+    align-items:flex-start;
+    text-align:left;
+  }
 
-.home-badge-main{
-  justify-content:flex-start;
-}
+  .home-badge-main{
+    justify-content:flex-start;
+  }
   
   .home-mini-name{
     white-space:normal;
