@@ -981,6 +981,7 @@ function renderHomePage(data) {
       </div>
     `;
   }
+  renderLeagueSnapshot(data);
 }
 
 function renderLeagueSnapshot(data) {
