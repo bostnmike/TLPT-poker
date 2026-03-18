@@ -965,6 +965,7 @@ a:hover{
 
 .event-rsvp-col{
   padding-left:18px;
+  justify-content:flex-start;
 }
 
 .event-details-col,
@@ -976,6 +977,10 @@ a:hover{
 }
 
 .event-rsvp-col > *{
+  margin-top:0;
+}
+
+.event-rsvp-col p{
   margin-top:0;
 }
 
@@ -1050,7 +1055,7 @@ a:hover{
 }
 
 .event-rsvp-block{
-  margin:4px 0 10px 0;
+  margin:0 0 10px 0;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -1071,7 +1076,7 @@ a:hover{
   position:relative;
   width:300px;
   height:210px;
-  margin:2px auto 0;
+  margin:0 auto 0;
   align-self:center;
 }
 
@@ -1080,10 +1085,12 @@ a:hover{
   position:absolute;
   inset:26px 24px;
   border-radius:999px;
-  background:url("images/site/large-table.gif") center/cover no-repeat;
-  border:1px solid rgba(255,184,28,.16);
+  background:
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
+    url("images/site/large-table.gif") center/cover no-repeat;
+  border:1px solid rgba(255,184,28,.22);
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 0 1px rgba(255,255,255,.05),
     0 10px 20px rgba(0,0,0,.22);
 }
 
