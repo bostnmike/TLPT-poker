@@ -1159,8 +1159,6 @@ a:hover{
 .event-rsvp-avatar-row[data-dealer-seat="8"]::after{ left:16%; top:44%; }
 .event-rsvp-avatar-row[data-dealer-seat="9"]::after{ left:28%; top:26%; }
 
-/* 9-seat poker table layout */
-
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
   box-shadow:
