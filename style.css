@@ -886,12 +886,27 @@ a:hover{
 }
 
 .snapshot-value{
-  font-size:1.55rem;
+  font-size:1.7rem;
   font-weight:900;
   color:#fff;
   line-height:1.1;
   margin-bottom:6px;
   letter-spacing:.02em;
+
+  text-shadow:
+    0 0 6px rgba(255,184,28,.18),
+    0 0 14px rgba(255,184,28,.12);
+
+  transition:transform .2s ease, text-shadow .2s ease;
+}
+
+.home-snapshot-grid .snapshot-card:hover .snapshot-value{
+  transform:scale(1.08);
+
+  text-shadow:
+    0 0 10px rgba(255,184,28,.35),
+    0 0 20px rgba(255,184,28,.25),
+    0 0 40px rgba(255,184,28,.15);
 }
 
 .snapshot-icon{
@@ -2354,6 +2369,19 @@ th{
   100%{ transform:translateX(130%); }
 }
 
+@keyframes snapshotPulse{
+  0%,100%{
+    filter:brightness(1);
+  }
+  50%{
+    filter:brightness(1.08);
+  }
+}
+
+.snapshot-value{
+  animation:snapshotPulse 4s ease-in-out infinite;
+}
+
 @keyframes barPulse{
   0%,100%{ filter:brightness(1); }
   50%{ filter:brightness(1.12); }
@@ -2500,6 +2528,24 @@ th{
   .home-snapshot-grid{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
+
+  .home-snapshot-grid .snapshot-card::after{
+    display:none;
+  }
+
+.home-snapshot-grid .snapshot-card{
+  position:relative;
+}
+
+.home-snapshot-grid .snapshot-card:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  top:16%;
+  right:-7px;
+  width:1px;
+  height:68%;
+  background:rgba(255,255,255,.08);
+}
   
   .home-insight-formula{
     width:100%;
