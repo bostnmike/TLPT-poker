@@ -11,11 +11,13 @@
       "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/0e6u6DsDLIhEdbqDJ38vOobew",
       "rsvp_counts": {
-        "confirmed": 1,
-        "maybe": 0,
-        "tbd": 13,
-        "out": 2
-      }
+        "yes": 7,
+        "no": 1,
+        "maybe": 2
+      },
+      "rsvp_players": [
+        "BostnMike",
+      ],    
     },
     {
       "title": "A, yet to be determined, Friday or Saturday in the future.",
