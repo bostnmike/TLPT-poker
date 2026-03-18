@@ -641,16 +641,19 @@ function getConfirmedRsvpPlayers(event, data) {
     .filter(Boolean);
 }
 
-function eventRsvpAvatarMarkup(event, data) {
+function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
 
-  if (!confirmedPlayers.length) return "";
+  const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
 
   return `
     <div class="event-rsvp-block">
       <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row">
         ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+        ${Array.from({ length: emptySeats }).map(() => `
+          <span class="event-empty-seat" aria-hidden="true">🪑</span>
+        `).join("")}
       </div>
     </div>
   `;
