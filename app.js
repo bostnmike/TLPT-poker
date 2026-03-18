@@ -864,7 +864,6 @@ function renderHomePage(data) {
       <div class="event-format-title">${event.format || ""}</div>
       <div class="event-structure">${event.structure || ""}</div>
       <h3>${event.date}</h3>
-      <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
 
       <div class="event-layout-grid">
         <div class="event-details-col">
@@ -1436,7 +1435,6 @@ function renderSchedule(data) {
         <div class="event-format-title">${event.format || ""}</div>
         <div class="event-structure">${event.structure || ""}</div>
         <h3>${event.date}</h3>
-        <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
 
         <div class="event-layout-grid">
           <div class="event-details-col">
@@ -1825,7 +1823,6 @@ async function main() {
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);
-  initEventCountdowns();
   renderChampions(data);
   renderStatLeaders(data);
   initRulesPage();
@@ -1876,40 +1873,4 @@ function parseEventDateTime(dateText, timeText) {
 
   parsed = new Date(year, month, day, hour, minute, 0, 0);
   return Number.isNaN(parsed.getTime()) ? null : parsed;
-}
-
-function initEventCountdowns() {
-  const countdowns = document.querySelectorAll(".event-countdown");
-
-  countdowns.forEach(el => {
-    const date = el.dataset.eventDate;
-    const time = el.dataset.eventTime;
-
-    if (!date || !time) return;
-
-    const target = parseEventDateTime(date, time);
-    if (!target) {
-      el.textContent = "";
-      return;
-    }
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = target - now;
-
-      if (diff <= 0) {
-        el.textContent = "Cards in the air!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-
-      el.textContent = `Starts in ${days}d ${hours}h ${minutes}m`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 60000);
-  });
 }
