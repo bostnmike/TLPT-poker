@@ -1014,7 +1014,8 @@ container.innerHTML = cards.map(card => `
     <div class="snapshot-label">${card.label}</div>
   </div>
 `).join("");
-  
+}
+
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const tbody = document.querySelector("#standings-table tbody");
   if (!tbody || !window.siteData?.players) return;
