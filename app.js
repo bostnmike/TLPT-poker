@@ -1102,12 +1102,17 @@ function crewCardMarkup(player, data, tierPlayers = []) {
   `;
 }
 
-function tierSectionMarkup(title, emoji, players, data) {
+function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
   if (!players.length) return "";
 
   const avgPower =
     players.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) /
     players.length;
+
+  const strengthPct = Math.max(
+    12,
+    Math.min(100, (avgPower / Math.max(maxTierPower, 0.1)) * 100)
+  );
 
   return `
     <div class="tier-section">
@@ -1117,6 +1122,13 @@ function tierSectionMarkup(title, emoji, players, data) {
           Avg Power ${fmtNum(avgPower)}
         </div>
       </div>
+
+      <div class="tier-strength">
+        <div class="tier-strength-bar">
+          <div class="tier-strength-fill" style="width:${strengthPct}%"></div>
+        </div>
+      </div>
+
       <div class="tier-grid">
         ${players.map(player => crewCardMarkup(player, data, players)).join("")}
       </div>
@@ -1160,15 +1172,28 @@ function renderPlayers(data) {
   gamblers.sort(tierSort);
   leagueSponsors.sort(tierSort);
   
-  grid.innerHTML = `
-    ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data)}
-    ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data)}
-    ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data)}
-    ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data)}
-    ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data)}
-  `;
-}
+const tierAveragePower = group =>
+  group.length
+    ? group.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) / group.length
+    : 0;
 
+const maxTierPower = Math.max(
+  tierAveragePower(apexPredators),
+  tierAveragePower(tableCrushers),
+  tierAveragePower(shotMakers),
+  tierAveragePower(gamblers),
+  tierAveragePower(leagueSponsors),
+  1
+);
+
+grid.innerHTML = `
+  ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
+  ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
+  ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
+  ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data, maxTierPower)}
+  ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data, maxTierPower)}
+`;
+  
 function renderPlayerProfile(data) {
   const container = document.getElementById("player-profile");
   if (!container || !data?.players?.length) return;
