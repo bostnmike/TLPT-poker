@@ -1108,13 +1108,14 @@ a:hover{
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
-  inset:22px 28px;
+  inset:10px 16px;
   border-radius:999px;
-  background:url("images/site/winter-classic.png") center/cover no-repeat;
+  background:
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
+    url("images/site/winter-classic.png?v=2") center/cover no-repeat;
   border:2px solid rgba(255,184,28,.24);
   box-shadow:
     inset 0 0 0 2px rgba(255,255,255,.04),
-    inset 0 0 30px rgba(0,0,0,.18),
     0 12px 24px rgba(0,0,0,.24);
 }
 
