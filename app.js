@@ -810,38 +810,32 @@ function renderHomePage(data) {
     const guideCard = `
       <div class="event-card home-guide-card">
         <div class="home-guide-head">
-          <h3>Learn about your Player Archetype and League Tier!</h3>
-          <p class="muted">Visit your profile by selecting a player card from “The Crew” page!</p>
+          <h3>Learn your Archetype and Tier</h3>
+          <p class="muted">Visit your profile from “The Crew” page to see where you fit in the TLPT hierarchy.</p>
         </div>
 
         <div class="home-guide-grid">
           <div class="home-guide-column">
             <div class="home-guide-title">Archetypes</div>
-            <div class="home-guide-list">
+            <div class="home-guide-pills">
               ${ARCHETYPE_GUIDE.map(item => `
-                <div class="home-guide-item">
-                  <span class="home-guide-emoji">${item.emoji}</span>
-                  <span class="home-guide-name">${item.name}</span>
-                </div>
+                <span class="home-guide-pill">${item.emoji} ${item.name}</span>
               `).join("")}
             </div>
           </div>
 
           <div class="home-guide-column">
             <div class="home-guide-title">Tiers</div>
-            <div class="home-guide-list">
+            <div class="home-guide-pills">
               ${TIER_GUIDE.map(item => `
-                <div class="home-guide-item">
-                  <span class="home-guide-emoji">${item.emoji}</span>
-                  <span class="home-guide-name">${item.name}</span>
-                </div>
+                <span class="home-guide-pill">${item.emoji} ${item.name}</span>
               `).join("")}
             </div>
           </div>
         </div>
       </div>
     `;
-
+    
     eventsEl.innerHTML = `${eventCards}${guideCard}`;
   }
 
