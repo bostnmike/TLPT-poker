@@ -952,15 +952,15 @@ a:hover{
 
 .event-layout-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) 560px;
-  gap:12px;
+  grid-template-columns:minmax(0, 1fr) 600px;
+  gap:8px;
   margin-top:8px;
   align-items:start;
 }
 
 .event-details-col{
-  padding-right:14px;
-  border-right:1px solid rgba(255,255,255,.08);
+  padding-right:8px;
+  border-right:1px solid rgba(255,255,255,.12);
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
@@ -968,7 +968,7 @@ a:hover{
 }
 
 .event-rsvp-col{
-  padding-left:12px;
+  padding-left:6px;
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
