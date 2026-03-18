@@ -1110,10 +1110,7 @@ a:hover{
   position:absolute;
   inset:22px 28px;
   border-radius:999px;
-  background:
-    radial-gradient(circle at 30% 28%, rgba(255,255,255,.08), transparent 30%),
-    radial-gradient(circle at 70% 72%, rgba(255,255,255,.04), transparent 28%),
-    linear-gradient(135deg, rgba(18,96,58,.72), rgba(8,34,22,.96));
+  background:url("images/site/winter-classsic.png") center/cover no-repeat;
   border:2px solid rgba(255,184,28,.24);
   box-shadow:
     inset 0 0 0 2px rgba(255,255,255,.04),
