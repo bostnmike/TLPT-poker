@@ -954,6 +954,13 @@ a:hover{
   color:#fff;
 }
 
+.home-event-format{
+  font-size:1.08rem;
+  font-weight:800;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+
 .compact-event-card p{
   margin:4px 0;
 }
@@ -970,6 +977,14 @@ a:hover{
   font-size:1.02rem;
   font-weight:800;
   letter-spacing:.08em;
+}
+
+.event-format-title{
+  font-size:1.02rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--gold);
+  margin:0 0 8px 0;
 }
 
 .event-format-title{
