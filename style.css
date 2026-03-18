@@ -972,6 +972,14 @@ a:hover{
   letter-spacing:.08em;
 }
 
+.event-format-title{
+  font-size:1.02rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  color:var(--gold);
+  margin:0 0 8px 0;
+}
+
 .event-icon-card{
   font-size:2rem;
   line-height:1;
