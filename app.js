@@ -874,10 +874,8 @@ function renderHomePage(data) {
           <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
         </div>
 
-        <div class="event-rsvp-col">
+       <div class="event-rsvp-col">
           <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
-          <p class="muted">${formatRsvpLine(event)}</p>
-          ${tableFillMarkup(event, 9)}
           ${eventRsvpAvatarMarkup(event, data)}
         </div>
       </div>
@@ -1447,8 +1445,6 @@ function renderSchedule(data) {
 
           <div class="event-rsvp-col">
             <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
-            <p class="muted">${formatRsvpLine(event)}</p>
-            ${tableFillMarkup(event, 9)}
             ${eventRsvpAvatarMarkup(event, data)}
           </div>
         </div>
