@@ -643,13 +643,13 @@ function getConfirmedRsvpPlayers(event, data) {
 
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
-
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
+  const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
 
   return `
     <div class="event-rsvp-block">
       <div class="event-rsvp-label">Players In Tonight</div>
-      <div class="event-rsvp-avatar-row">
+      <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
