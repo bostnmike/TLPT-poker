@@ -645,30 +645,6 @@ function eventRsvpAvatarMarkup(event, data) {
   `;
 }
 
-function eventRsvpAvatarMarkup(event, data) {
-  const names = event?.rsvp_players || [];
-  const players = data?.players || [];
-
-  if (!names.length || !players.length) return "";
-
-  const matchedPlayers = names
-    .map(name =>
-      players.find(player => String(player.name || "").toLowerCase() === String(name || "").toLowerCase())
-    )
-    .filter(Boolean);
-
-  if (!matchedPlayers.length) return "";
-
-  return `
-    <div class="event-rsvp-block">
-      <div class="event-rsvp-label">Players In Tonight</div>
-      <div class="event-rsvp-avatar-row">
-        ${matchedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
-      </div>
-    </div>
-  `;
-}
-
 function projectedTableSize(rsvp, maxSeats = 9) {
   const confirmed = Number(rsvp?.confirmed ?? 0);
   const maybe = Number(rsvp?.maybe ?? 0);
