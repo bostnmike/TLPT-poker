@@ -1069,9 +1069,9 @@ a:hover{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:34px;
-  height:34px;
-  font-size:1.6rem;
+  width:32px;
+  height:32px;
+  font-size:1.55rem;
   line-height:1;
   opacity:.65;
 }
@@ -2575,11 +2575,6 @@ th{
   .dashboard-formula-display{
     min-height:unset;
   }
-}
-    .event-layout-grid{
-    grid-template-columns:1fr;
-  }
-  
 }
 
 @media (max-width:900px){
