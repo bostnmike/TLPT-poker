@@ -648,7 +648,6 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
 
   return `
     <div class="event-rsvp-block">
-      <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
@@ -875,7 +874,6 @@ function renderHomePage(data) {
         </div>
 
        <div class="event-rsvp-col">
-          <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
           ${eventRsvpAvatarMarkup(event, data)}
         </div>
       </div>
@@ -1444,7 +1442,6 @@ function renderSchedule(data) {
           </div>
 
           <div class="event-rsvp-col">
-            <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
             ${eventRsvpAvatarMarkup(event, data)}
           </div>
         </div>
