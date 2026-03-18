@@ -1038,17 +1038,23 @@ a:hover{
 }
 
 .event-title-kicker{
-  font-size:1.02rem;
-  font-weight:800;
+  font-size:.78rem;
+  font-weight:700;
   letter-spacing:.08em;
+  opacity:.9;
 }
 
 .event-format-title{
-  font-size:1.25rem;
-  font-weight:800;
-  letter-spacing:.08em;
+  font-size:1.5rem;
+  font-weight:900;
+  letter-spacing:.04em;
   color:var(--gold);
   margin:0 0 8px 0;
+  line-height:1.15;
+}
+
+.event-details-col h3{
+  margin:0 0 10px 0;
 }
 
 .event-structure{
