@@ -10,16 +10,35 @@
       "location": "The Caahhd Room",
       "address": "430 Otter Cliff Way, Cary, NC 27519",
       "apple_invite_url": "https://www.icloud.com/invites/0e6u6DsDLIhEdbqDJ38vOobew",
-      "rsvp_counts": {
-        "confirmed": 2,
-        "maybe": 0,
-        "tbd": 13,
-        "out": 3
-      },
-      "rsvp_players": [
-        "Bostnmike",
-        "Ai-Dave"
-      ]
+      "rsvps": {
+        "bostnmike": "yes",
+        "hiro": "tbd",
+        "li-fo": "tbd",
+        "ai-dave": "yes",
+        "cougar": "tbd",
+        "nasa-al": "tbd",
+        "providencemike": "tbd",
+        "ahmed": "tbd",
+        "nitro": "no",
+        "red": "no",
+        "yann": "tbd",
+        "fabian": "tbd",
+        "vish": "tbd",
+        "jeff-t": "tbd",
+        "the-architect": "no",
+        "chris-o": "tbd",
+        "wild-bill": "tbd",
+        "hayden-d": "tbd",
+        "vic": "tbd",
+        "rob-f": "no",
+        "brad-r": "no",
+        "phattedcalf": "no",
+        "big-tim": "no",
+        "gilmore": "no",
+        "dan-k": "tbd",
+        "pittdburghbill": "tbd",
+        "david-k": "tbd"
+      }
     },
     {
       "title": "A, yet to be determined, Friday or Saturday in the future.",
