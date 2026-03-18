@@ -750,66 +750,53 @@ a:hover{
   white-space:nowrap;
 }
 
+/* HOME STRATEGY GUIDE */
+
 .home-guide-card{
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-  padding:16px 18px;
+  padding:18px 20px;
 }
 
 .home-guide-head h3{
   margin:0 0 6px 0;
   color:#fff;
-  font-size:1.12rem;
+  font-size:1.15rem;
   line-height:1.25;
 }
 
 .home-guide-head p{
-  margin:0 0 12px 0;
+  margin:0 0 14px 0;
 }
+
+/* grid layout */
 
 .home-guide-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-  margin-top:2px;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:4px;
 }
 
-.home-guide-column:first-child .home-guide-pills{
-  flex-direction:column;
-  align-items:flex-start;
-}
-
-.home-guide-pills{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
-.home-guide-column h4{
-  margin-bottom:6px;
-}
-
-.home-guide-pill{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:6px 10px;
-  border-radius:10px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.06);
-  font-size:.82rem;
-  line-height:1.2;
-}
-
-.home-guide-pill:hover{
-  border-color:rgba(255,184,28,.35);
-  background:rgba(255,184,28,.06);
-}
+/* column layout */
 
 .home-guide-column{
   min-width:0;
 }
+
+/* vertical divider */
+
+.home-guide-column:first-child{
+  padding-right:18px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+
+.home-guide-column:last-child{
+  padding-left:18px;
+}
+
+/* column titles */
 
 .home-guide-title{
   color:var(--gold);
@@ -817,9 +804,49 @@ a:hover{
   font-weight:800;
   letter-spacing:.08em;
   text-transform:uppercase;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
+/* badge stack */
+
+.home-guide-pills{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+/* strategy badges */
+
+.home-guide-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding:7px 12px;
+
+  border-radius:999px;
+
+  font-size:.78rem;
+  font-weight:800;
+
+  border:1px solid rgba(255,184,28,.25);
+  background:rgba(255,184,28,.08);
+  color:#fff;
+
+  transition:all .18s ease;
+}
+
+/* hover polish */
+
+.home-guide-pill:hover{
+  border-color:rgba(255,184,28,.45);
+  background:rgba(255,184,28,.14);
+
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.20),
+    0 6px 16px rgba(0,0,0,.22),
+    0 0 14px rgba(255,184,28,.12);
+}
 .home-commissioner{
   padding:18px 20px;
 }
@@ -931,6 +958,15 @@ a:hover{
 @media (max-width:800px){
   .home-guide-grid{
     grid-template-columns:1fr;
+  }
+
+  .home-guide-column:first-child{
+    border-right:none;
+    padding-right:0;
+  }
+
+  .home-guide-column:last-child{
+    padding-left:0;
   }
 }
 
