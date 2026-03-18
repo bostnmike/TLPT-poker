@@ -855,10 +855,8 @@ function renderHomePage(data) {
 
   const eventCards = homeEvent.map(event => `
     <div class="event-card home-event-card home-event-hero compact-event-card">
-      <div class="home-event-kicker">This Week’s Main Event</div>
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
-        <div class="event-icon event-icon-card">♠</div>
       </div>
       <div class="event-format-title">${event.format || ""}</div>
       <div class="event-structure">${event.structure || ""}</div>
@@ -1429,10 +1427,8 @@ function renderSchedule(data) {
   list.innerHTML = `
     ${events.map(event => `
       <div class="event-card compact-event-card home-event-hero">
-        <div class="home-event-kicker">This Week’s Main Event</div>
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♠</div>
         </div>
         <div class="event-format-title">${event.format || ""}</div>
         <div class="event-structure">${event.structure || ""}</div>
