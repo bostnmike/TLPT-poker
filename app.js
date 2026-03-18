@@ -1913,4 +1913,3 @@ function initEventCountdowns() {
     setInterval(updateCountdown, 60000);
   });
 }
-}
