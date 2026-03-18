@@ -865,20 +865,19 @@ function renderHomePage(data) {
       <div class="event-structure">${event.structure || ""}</div>
       <h3>${event.date}</h3>
 
-      <div class="event-layout-grid">
         <div class="event-details-col">
           <p class="muted"><strong>Start:</strong> ${event.time}</p>
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
         </div>
-
+      
         <div class="event-rsvp-col">
           <p class="muted"><strong>Player Overview:</strong> ${projectedTableSize(event, 9)}</p>
           ${tableFillMarkup(event, 9)}
           <p class="muted">${formatRsvpLine(event)}</p>
           ${eventRsvpAvatarMarkup(event, data)}
-          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
         </div>
       </div>
     </div>
