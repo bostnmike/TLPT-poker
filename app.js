@@ -646,9 +646,13 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
   const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
 
+  const dealerSeat = confirmedPlayers.length > 0
+    ? ((confirmedPlayers.length - 1) % maxSeats) + 1
+    : 1;
+
   return `
     <div class="event-rsvp-block">
-      <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
+      <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}" data-dealer-seat="${dealerSeat}">
         ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
