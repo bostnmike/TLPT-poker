@@ -613,60 +613,70 @@ function badgesMarkup(player, data) {
   `;
 }
 
-function formatRsvpLine(rsvp) {
-  const confirmed = Number(rsvp?.confirmed ?? 0);
-  const maybe = Number(rsvp?.maybe ?? 0);
-  const tbd = Number(rsvp?.tbd ?? 0);
-  const out = Number(rsvp?.out ?? 0);
-  return `${confirmed} yes • ${maybe} maybe • ${tbd} tbd • ${out} no`;
+function getRsvpCounts(event) {
+  const statuses = Object.values(event?.rsvps || {}).map(value => String(value || "tbd").toLowerCase());
+
+  return {
+    yes: statuses.filter(status => status === "yes").length,
+    maybe: statuses.filter(status => status === "maybe").length,
+    tbd: statuses.filter(status => status === "tbd").length,
+    no: statuses.filter(status => status === "no").length
+  };
+}
+
+function formatRsvpLine(event) {
+  const counts = getRsvpCounts(event);
+  return `${counts.yes} yes • ${counts.maybe} maybe • ${counts.tbd} tbd • ${counts.no} no`;
+}
+
+function getConfirmedRsvpPlayers(event, data) {
+  const players = data?.players || [];
+  const rsvps = event?.rsvps || {};
+
+  return Object.entries(rsvps)
+    .filter(([, status]) => String(status || "").toLowerCase() === "yes")
+    .map(([slug]) =>
+      players.find(player => String(player.slug || "").toLowerCase() === String(slug).toLowerCase())
+    )
+    .filter(Boolean);
 }
 
 function eventRsvpAvatarMarkup(event, data) {
-  const names = event?.rsvp_players || [];
-  const players = data?.players || [];
+  const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
 
-  if (!names.length || !players.length) return "";
-
-  const matchedPlayers = names
-    .map(name =>
-      players.find(player => String(player.name || "").toLowerCase() === String(name || "").toLowerCase())
-    )
-    .filter(Boolean);
-
-  if (!matchedPlayers.length) return "";
+  if (!confirmedPlayers.length) return "";
 
   return `
     <div class="event-rsvp-block">
-      <div class="event-rsvp-label">Current Roster</div>
+      <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row">
-        ${matchedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+        ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
       </div>
     </div>
   `;
 }
 
-function projectedTableSize(rsvp, maxSeats = 9) {
-  const confirmed = Number(rsvp?.confirmed ?? 0);
-  const maybe = Number(rsvp?.maybe ?? 0);
-  const tbd = Number(rsvp?.tbd ?? 0);
-  const minPlayers = Math.min(confirmed, maxSeats);
-  const maxPlayers = Math.min(confirmed + maybe + tbd, maxSeats);
+function projectedTableSize(event, maxSeats = 9) {
+  const counts = getRsvpCounts(event);
+  const minPlayers = Math.min(counts.yes, maxSeats);
+  const maxPlayers = Math.min(counts.yes + counts.maybe + counts.tbd, maxSeats);
   return minPlayers === maxPlayers ? `${minPlayers} players` : `${minPlayers}–${maxPlayers} players`;
 }
 
-function tableFillPercent(rsvp, maxSeats = 9) {
-  const confirmed = Number(rsvp?.confirmed ?? 0);
-  return Math.min((confirmed / maxSeats) * 100, 100);
+function tableFillPercent(event, maxSeats = 9) {
+  const counts = getRsvpCounts(event);
+  return Math.min((counts.yes / maxSeats) * 100, 100);
 }
 
-function tableFillMarkup(rsvp, maxSeats = 9) {
-  const confirmed = Number(rsvp?.confirmed ?? 0);
-  const fillPct = tableFillPercent(rsvp, maxSeats);
+function tableFillMarkup(event, maxSeats = 9) {
+  const counts = getRsvpCounts(event);
+  const fillPct = tableFillPercent(event, maxSeats);
+
   return `
     <div class="fill-widget">
       <div class="fill-header">
         <span class="fill-label">Table Fill</span>
-        <span class="fill-seats">${confirmed} / ${maxSeats} seats locked</span>
+        <span class="fill-seats">${counts.yes} / ${maxSeats} seats locked</span>
       </div>
       <div class="fill-bar"><div class="fill-bar-value" style="width:${fillPct}%"></div></div>
     </div>
@@ -807,69 +817,74 @@ function buildTickerLeader(icon, label, player) {
   `;
 }
 
+function buildEventGuideCard() {
+  return `
+    <div class="event-card home-guide-card">
+      <div class="home-guide-head">
+        <h3>Learn your Archetype and Tier</h3>
+        <p class="muted">Visit your profile from “The Crew” page to see where you fit in the TLPT hierarchy.</p>
+      </div>
+
+      <div class="event-guide-rows">
+        <div class="player-archetype-line event-guide-line">
+          <span class="profile-line-label">♠ Archetypes:</span>
+          <span class="profile-line-desc">
+            ${ARCHETYPE_GUIDE.map(item => `
+              <span class="home-guide-pill">${item.emoji} ${item.name}</span>
+            `).join("")}
+          </span>
+        </div>
+
+        <div class="player-tier-line event-guide-line">
+          <span class="profile-line-label">🏆 Tiers:</span>
+          <span class="profile-line-desc">
+            ${TIER_GUIDE.map(item => `
+              <span class="home-guide-pill">${item.emoji} ${item.name}</span>
+            `).join("")}
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
   if (eventsEl) {
     const homeEvent = getCurrentEvents(data).slice(0, 1);
 
-    const eventCards = homeEvent.map(event => `
-      <div class="event-card home-event-card home-event-hero compact-event-card">
-        <div class="home-event-kicker">This Week’s Main Event</div>
-        <div class="event-card-topline">
-          <div class="kicker event-title-kicker">${event.title}</div>
-          <div class="event-icon event-icon-card">♠</div>
-        </div>
-       <div class="event-format-title">${event.format || ""}</div>
-        <div class="event-structure">${event.structure || ""}</div>
-        <h3>${event.date}</h3>
-        <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>        
-        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-        <p class="muted"><strong>Location:</strong> ${event.location}</p>
-        <p class="muted">${event.address || ""}</p>
-        <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-        ${tableFillMarkup(event.rsvp_counts, 9)}
-        <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-        ${eventRsvpAvatarMarkup(event, data)}
-        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>      </div>
-    `).join("");
-    
-    const guideCard = `
-      <div class="event-card home-guide-card">
-        <div class="home-guide-head">
-          <h3>Learn your Archetype and Tier</h3>
-          <p class="muted">Visit your profile from “The Crew” page to see where you fit in the TLPT hierarchy.</p>
+  const eventCards = homeEvent.map(event => `
+    <div class="event-card home-event-card home-event-hero compact-event-card">
+      <div class="home-event-kicker">This Week’s Main Event</div>
+      <div class="event-card-topline">
+        <div class="kicker event-title-kicker">${event.title}</div>
+        <div class="event-icon event-icon-card">♠</div>
+      </div>
+      <div class="event-format-title">${event.format || ""}</div>
+      <div class="event-structure">${event.structure || ""}</div>
+      <h3>${event.date}</h3>
+      <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
+
+      <div class="event-layout-grid">
+        <div class="event-details-col">
+          <p class="muted"><strong>Start:</strong> ${event.time}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+          <p class="muted"><strong>Location:</strong> ${event.location}</p>
+          <p class="muted">${event.address || ""}</p>
         </div>
 
-        <div class="home-guide-grid">
-          <div class="home-guide-column">
-            <div class="home-guide-title">
-              <span class="guide-icon">♠</span>
-              <span>Archetypes</span>
-          </div>
-            <div class="home-guide-pills">
-              ${ARCHETYPE_GUIDE.map(item => `
-                <span class="home-guide-pill">${item.emoji} ${item.name}</span>
-              `).join("")}
-            </div>
-          </div>
-
-          <div class="home-guide-column">
-            <div class="home-guide-title">
-              <span class="guide-icon">🏆</span>
-              <span>Tiers</span>
-            </div>
-            <div class="home-guide-pills">
-              ${TIER_GUIDE.map(item => `
-                <span class="home-guide-pill">${item.emoji} ${item.name}</span>
-              `).join("")}
-            </div>
-          </div>
+        <div class="event-rsvp-col">
+          <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event, 9)}</p>
+          ${tableFillMarkup(event, 9)}
+          <p class="muted">${formatRsvpLine(event)}</p>
+          ${eventRsvpAvatarMarkup(event, data)}
+          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
         </div>
       </div>
-    `;
-    
-    eventsEl.innerHTML = `${eventCards}${guideCard}`;
+    </div>
+  `).join("");
+        
+    eventsEl.innerHTML = `${eventCards}${buildEventGuideCard()}`;
   }
 
   const allPlayers = data?.players || [];
@@ -1409,29 +1424,43 @@ function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-const events = getCurrentEvents(data).slice(0, 1);
-list.innerHTML = events.map(event => `
-  <div class="event-card compact-event-card">
-    <div class="event-card-topline">
-      <div class="kicker event-title-kicker">${event.title}</div>
-      <div class="event-icon event-icon-card">♠</div>
-    </div>
-    <div class="event-format-title">${event.format || ""}</div>
-    <div class="event-structure">${event.structure || ""}</div>
-    <h3>${event.date}</h3>
-    <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
-    <p class="muted"><strong>Start:</strong> ${event.time}</p>
-    <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-    <p class="muted"><strong>Location:</strong> ${event.location}</p>
-    <p class="muted">${event.address || ""}</p>
-    <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
-    ${tableFillMarkup(event.rsvp_counts, 9)}
-    <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
-    ${eventRsvpAvatarMarkup(event, data)}
-    <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
-  </div>
-`).join("");}
+  const events = getCurrentEvents(data).slice(0, 1);
 
+  list.innerHTML = `
+    ${events.map(event => `
+      <div class="event-card compact-event-card home-event-hero">
+        <div class="home-event-kicker">This Week’s Main Event</div>
+        <div class="event-card-topline">
+          <div class="kicker event-title-kicker">${event.title}</div>
+          <div class="event-icon event-icon-card">♠</div>
+        </div>
+        <div class="event-format-title">${event.format || ""}</div>
+        <div class="event-structure">${event.structure || ""}</div>
+        <h3>${event.date}</h3>
+        <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
+
+        <div class="event-layout-grid">
+          <div class="event-details-col">
+            <p class="muted"><strong>Start:</strong> ${event.time}</p>
+            <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+            <p class="muted"><strong>Location:</strong> ${event.location}</p>
+            <p class="muted">${event.address || ""}</p>
+          </div>
+
+          <div class="event-rsvp-col">
+            <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event, 9)}</p>
+            ${tableFillMarkup(event, 9)}
+            <p class="muted">${formatRsvpLine(event)}</p>
+            ${eventRsvpAvatarMarkup(event, data)}
+            <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+          </div>
+        </div>
+      </div>
+    `).join("")}
+
+    ${buildEventGuideCard()}
+  `;
+  
 function honorIcon(type) {
   const key = String(type || "").toLowerCase();
   if (key.includes("profit")) return "💰";
