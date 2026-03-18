@@ -1050,10 +1050,10 @@ a:hover{
 }
 
 .event-rsvp-block{
-  margin:8px 0 10px 0;
+  margin:4px 0 10px 0;
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:flex-start;
 }
 
 .event-rsvp-label{
@@ -1071,6 +1071,7 @@ a:hover{
   width:260px;
   height:180px;
   margin:2px auto 0;
+  align-self:center;
 }
 
 .event-rsvp-avatar-row::before{
@@ -1105,7 +1106,7 @@ a:hover{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  font-size:2rem;
+  font-size:2.35rem;
   line-height:1;
   opacity:.65;
 }
