@@ -835,13 +835,9 @@ function buildEventGuideCard() {
           </span>
         </div>
 
-        <div class="player-tier-line event-guide-line">
-          <span class="profile-line-label">🏆 Tiers:</span>
-          <span class="profile-line-desc">
-            ${TIER_GUIDE.map(item => `
-              <span class="home-guide-pill">${item.emoji} ${item.name}</span>
-            `).join("")}
-          </span>
+        <div class="home-guide-title">
+          <span class="guide-icon">🏆</span>
+          <span>Tiers</span>
         </div>
       </div>
     </div>
@@ -1366,11 +1362,9 @@ function renderPlayerProfile(data) {
           <div class="kicker player-profile-kicker">Player Profile</div>
           <h2>${displayPlayerName(player)}</h2>
 
-        <div class="player-archetype-line">
-          <span class="profile-line-label">Archetype:</span>
-          <span class="profile-line-emoji">${archetype.emoji}</span>
-          <span class="profile-line-name">${archetype.name}</span>
-          <span class="profile-line-desc">— ${archetype.desc}</span>
+        <div class="home-guide-title">
+          <span class="guide-icon">♠</span>
+          <span>Archetypes</span>
         </div>
         
         <div class="player-tier-line">
