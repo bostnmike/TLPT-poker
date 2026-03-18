@@ -880,6 +880,33 @@ a:hover{
   letter-spacing:.02em;
 }
 
+.snapshot-icon{
+  margin-right:6px;
+  font-size:1.1em;
+}
+
+/* snapshot icon colors */
+
+.snapshot-card:nth-child(1) .snapshot-icon{
+  color:#ffffff; /* Players */
+}
+
+.snapshot-card:nth-child(2) .snapshot-icon{
+  color:#ffb81c; /* Entries */
+}
+
+.snapshot-card:nth-child(3) .snapshot-icon{
+  color:#f59e0b; /* Rebuys */
+}
+
+.snapshot-card:nth-child(4) .snapshot-icon{
+  color:#ef4444; /* Knockouts */
+}
+
+.snapshot-card:nth-child(5) .snapshot-icon{
+  color:#22c55e; /* Avg ROI */
+}
+
 .snapshot-label{
   font-size:.70rem;
   text-transform:uppercase;
