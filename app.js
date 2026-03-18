@@ -860,12 +860,12 @@ function renderHomePage(data) {
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
       </div>
-        <div class="event-format-title">${event.format || ""}</div>
-        <div class="event-structure">${event.structure || ""}</div>
-        <h3>${event.date}</h3>
 
       <div class="event-layout-grid">
         <div class="event-details-col">
+          <div class="event-format-title">${event.format || ""}</div>
+          <div class="event-structure">${event.structure || ""}</div>
+          <h3>${event.date}</h3>
           <p class="muted"><strong>Start:</strong> ${event.time}</p>
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
@@ -873,13 +873,13 @@ function renderHomePage(data) {
           <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
         </div>
 
-       <div class="event-rsvp-col">
+        <div class="event-rsvp-col">
           ${eventRsvpAvatarMarkup(event, data)}
         </div>
       </div>
     </div>
   `).join("");
-        
+    
     eventsEl.innerHTML = `${eventCards}${buildEventGuideCard()}`;
   }
 
@@ -1428,12 +1428,12 @@ function renderSchedule(data) {
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
         </div>
-        <div class="event-format-title">${event.format || ""}</div>
-        <div class="event-structure">${event.structure || ""}</div>
-        <h3>${event.date}</h3>
 
         <div class="event-layout-grid">
           <div class="event-details-col">
+            <div class="event-format-title">${event.format || ""}</div>
+            <div class="event-structure">${event.structure || ""}</div>
+            <h3>${event.date}</h3>
             <p class="muted"><strong>Start:</strong> ${event.time}</p>
             <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
             <p class="muted"><strong>Location:</strong> ${event.location}</p>
@@ -1447,7 +1447,7 @@ function renderSchedule(data) {
         </div>
       </div>
     `).join("")}
-
+    
     ${buildEventGuideCard()}
   `;
 }
