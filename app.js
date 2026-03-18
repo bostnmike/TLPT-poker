@@ -868,7 +868,6 @@ function renderHomePage(data) {
       <div class="event-layout-grid">
         <div class="event-details-col">
           <div class="event-format-title">${event.format || ""}</div>
-          <div class="event-structure">${event.structure || ""}</div>
           <h3>${event.date}</h3>
           <p class="muted"><strong>Start:</strong> ${event.time}</p>
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
@@ -1436,7 +1435,6 @@ function renderSchedule(data) {
         <div class="event-layout-grid">
           <div class="event-details-col">
             <div class="event-format-title">${event.format || ""}</div>
-            <div class="event-structure">${event.structure || ""}</div>
             <h3>${event.date}</h3>
             <p class="muted"><strong>Start:</strong> ${event.time}</p>
             <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
