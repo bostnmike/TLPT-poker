@@ -789,14 +789,15 @@ function renderHomePage(data) {
     const homeEvent = getCurrentEvents(data).slice(0, 1);
 
     const eventCards = homeEvent.map(event => `
-        <div class="event-card home-event-card home-event-hero compact-event-card">
-                <div class="home-event-kicker">This Week’s Main Event</div>
+      <div class="event-card home-event-card home-event-hero compact-event-card">
+        <div class="home-event-kicker">This Week’s Main Event</div>
         <div class="event-card-topline">
           <div class="kicker event-title-kicker">${event.title}</div>
           <div class="event-icon event-icon-card">♠</div>
         </div>
+        <div class="home-event-format">${event.format || ""}</div>
         <div class="home-event-title">${event.date}</div>
-        <p class="muted"><strong>Start:</strong> ${event.time}</p>
+        <p class="muted"><strong>Start:</strong> ${event.time}</p>        
         <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
         <p class="muted"><strong>Location:</strong> ${event.location}</p>
         <p class="muted">${event.address || ""}</p>
