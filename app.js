@@ -1411,7 +1411,9 @@ list.innerHTML = events.map(event => `
       <div class="event-icon event-icon-card">♠</div>
     </div>
     <div class="event-format-title">${event.format || ""}</div>
+    <div class="event-structure">${event.structure || ""}</div>
     <h3>${event.date}</h3>
+    <div class="event-countdown" data-event-date="${event.date}" data-event-time="${event.time}"></div>
     <p class="muted"><strong>Start:</strong> ${event.time}</p>
     <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
     <p class="muted"><strong>Location:</strong> ${event.location}</p>
@@ -1419,10 +1421,10 @@ list.innerHTML = events.map(event => `
     <p class="muted"><strong>Projected Table Size:</strong> ${projectedTableSize(event.rsvp_counts, 9)}</p>
     ${tableFillMarkup(event.rsvp_counts, 9)}
     <p class="muted">${formatRsvpLine(event.rsvp_counts)}</p>
+    ${eventRsvpAvatarMarkup(event, data)}
     <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
   </div>
-`).join("");
-}
+`).join("");}
 
 function honorIcon(type) {
   const key = String(type || "").toLowerCase();
