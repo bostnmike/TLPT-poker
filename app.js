@@ -636,8 +636,11 @@ function eventRsvpAvatarMarkup(event, data) {
   if (!matchedPlayers.length) return "";
 
   return `
-    <div class="event-rsvp-avatar-row">
-      ${matchedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+    <div class="event-rsvp-block">
+      <div class="event-rsvp-label">Players In Tonight</div>
+      <div class="event-rsvp-avatar-row">
+        ${matchedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+      </div>
     </div>
   `;
 }
