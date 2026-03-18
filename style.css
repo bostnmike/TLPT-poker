@@ -1250,6 +1250,46 @@ th{
   white-space:nowrap;
 }
 
+.tier-strength{
+  margin-top:-2px;
+  margin-bottom:2px;
+}
+
+.tier-strength-bar{
+  width:100%;
+  height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  overflow:hidden;
+  position:relative;
+}
+
+.tier-section:nth-of-type(1) .tier-strength-fill{
+  background:linear-gradient(90deg, rgba(255,213,108,.98), rgba(255,213,108,.24));
+}
+
+.tier-section:nth-of-type(2) .tier-strength-fill{
+  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.22));
+}
+
+.tier-section:nth-of-type(3) .tier-strength-fill{
+  background:linear-gradient(90deg, rgba(246,198,91,.92), rgba(246,198,91,.20));
+}
+
+.tier-section:nth-of-type(4) .tier-strength-fill{
+  background:linear-gradient(90deg, rgba(158,176,195,.85), rgba(158,176,195,.18));
+}
+
+.tier-section:nth-of-type(5) .tier-strength-fill{
+  background:linear-gradient(90deg, rgba(127,138,150,.82), rgba(127,138,150,.16));
+}
+
+.tier-strength-fill{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.28));
+}
+
   .tier-section:nth-of-type(1) .tier-header-stats{
     border-color:rgba(255,213,108,.45);
     color:#ffe29a;
