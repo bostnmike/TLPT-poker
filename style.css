@@ -434,12 +434,13 @@ a:hover{
   gap:8px;
 }
 
-.league-ticker-player .player-avatar,
-.league-ticker-player .player-avatar-fallback{
-  width:34px;
-  height:34px;
-  font-size:.82rem;
-  border-width:2px;
+.player-avatar,
+.player-avatar-fallback{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
 }
 
 .league-ticker-name{
