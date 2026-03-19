@@ -1215,12 +1215,12 @@ a:hover{
 
 .event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:6%; }
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:76%; --seat-y:14%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:86%; --seat-y:32%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:87%; --seat-y:32%; }
 .event-rsvp-avatar-row > :nth-child(4){ --seat-x:86%; --seat-y:74%; }
 .event-rsvp-avatar-row > :nth-child(5){ --seat-x:62%; --seat-y:88%; }
 .event-rsvp-avatar-row > :nth-child(6){ --seat-x:38%; --seat-y:88%; }
 .event-rsvp-avatar-row > :nth-child(7){ --seat-x:14%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:14%; --seat-y:32%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:13%; --seat-y:32%; }
 .event-rsvp-avatar-row > :nth-child(9){ --seat-x:24%; --seat-y:14%; }
 
 .event-rsvp-avatar-row[data-dealer-seat="1"]::after{ left:50%; top:16%; }
