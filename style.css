@@ -854,10 +854,11 @@ a:hover{
 
 .snapshot-card{
   position:relative;
-  min-height:142px;
-  padding:20px 16px 18px;
+  min-height:154px;
+  padding:22px 16px 20px;
   display:flex;
   flex-direction:column;
+  align-items:center;
   justify-content:center;
   border:1px solid rgba(255,255,255,.08);
   border-radius:16px;
@@ -873,9 +874,9 @@ a:hover{
 .snapshot-card::before{
   content:"";
   display:block;
-  width:46px;
+  width:52px;
   height:2px;
-  margin:0 auto 12px;
+  margin:0 auto 14px;
   border-radius:999px;
   background:rgba(255,184,28,.35);
 }
@@ -894,7 +895,7 @@ a:hover{
 }
 
 .snapshot-value{
-  font-size:2.15rem;
+  font-size:2.28rem;
   font-weight:900;
   color:#fff;
   line-height:1.02;
@@ -934,8 +935,9 @@ a:hover{
 }
 
 .snapshot-icon{
-  margin-right:6px;
-  font-size:1.1em;
+  margin:0 0 10px 0;
+  font-size:1.65rem;
+  line-height:1;
 }
 
 /* snapshot icon colors */
@@ -965,7 +967,7 @@ a:hover{
 }
 
 .snapshot-label{
-  font-size:.78rem;
+  font-size:.8rem;
   text-transform:uppercase;
   letter-spacing:.12em;
   color:var(--gold);
