@@ -948,13 +948,14 @@ a:hover{
 /* Silver theme for Entries */
 
 .snapshot-silver{
-  border-color:rgba(180,180,180,.34);
+  border-color:rgba(210,210,210,.35);
   background:
-    linear-gradient(180deg, rgba(200,200,200,.18), rgba(200,200,200,.04) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
+    linear-gradient(180deg, rgba(230,230,230,.22), rgba(230,230,230,.06) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
   box-shadow:
-    0 0 0 1px rgba(200,200,200,.10),
-    0 12px 30px rgba(0,0,0,.24),
-    0 0 20px rgba(200,200,200,.12);
+    0 0 0 1px rgba(220,220,220,.12),
+    0 10px 24px rgba(0,0,0,.22),
+    0 0 14px rgba(220,220,220,.10);
+    filter:brightness(1.05);
 }
 
 .snapshot-silver::before{
@@ -962,9 +963,12 @@ a:hover{
 }
 
 .snapshot-silver .snapshot-icon,
-.snapshot-silver .snapshot-value,
+.snapshot-silver .snapshot-value{
+  color:#f3f4f6;
+}
+
 .snapshot-silver .snapshot-label{
-  color:#e5e7eb;
+  color:#d1d5db;
 }
 
 .snapshot-purple{
@@ -1045,26 +1049,6 @@ a:hover{
 .snapshot-yellow .snapshot-value,
 .snapshot-yellow .snapshot-label{
   color:#fde68a;
-}
-
-.snapshot-gold{
-  border-color:rgba(255,184,28,.40);
-  background:
-    linear-gradient(180deg, rgba(255,184,28,.22), rgba(255,184,28,.05) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 12px 30px rgba(0,0,0,.24),
-    0 0 22px rgba(255,184,28,.14);
-}
-
-.snapshot-gold::before{
-  background:rgba(255,184,28,.46);
-}
-
-.snapshot-gold .snapshot-icon,
-.snapshot-gold .snapshot-value,
-.snapshot-gold .snapshot-label{
-  color:#ffd56c;
 }
 
 .snapshot-red{
