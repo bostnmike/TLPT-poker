@@ -648,12 +648,10 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
 
   return `
     <div class="event-rsvp-block">
-      <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${confirmedPlayers.map(player => {
-          const playerData = data.players.find(p => p.ID === player.id) || {};
-          const displayName = playerData.Nickname || player.name || player.id || "";  
+          const displayName = NAME_FIXES[player.name] || player.name || "";
 
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
