@@ -1096,13 +1096,13 @@ function renderLeagueSnapshot(data) {
     Math.max(players.length, 1);
 
     const cards = [
-    { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple" },
-    { icon:"🎟", label:"Entries", value:totalEntries, className:"snapshot-green" },
-    { icon:"🔁", label:"Rebuys", value:totalRebuys, className:"snapshot-blue" },
-    { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow" },
-    { icon:"💸", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-gold" },
-    { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red" }
-  ];
+  { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple" },
+  { icon:"🪙", label:"Entries", value:totalEntries, className:"snapshot-silver" },
+  { icon:"🔁", label:"Rebuys", value:totalRebuys, className:"snapshot-blue" },
+  { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow" },
+  { icon:"💰", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-green" },
+  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red" }
+];
 
     container.innerHTML = cards.map(card => `
     <div class="snapshot-card ${card.className}">
