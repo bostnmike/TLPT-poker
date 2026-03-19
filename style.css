@@ -965,14 +965,14 @@ a:hover{
   flex-direction:column;
   justify-content:flex-start;
   align-self:start;
-  gap:12px;
+  gap:14px;
   padding-bottom:6px;
 }
 
 .event-details-col p{
   margin:0;
-  line-height:1.5;
-  font-size:1.05rem;
+  line-height:1.6;
+  font-size:1.12rem;
 }
 
 .event-details-col .event-title-kicker{
@@ -987,8 +987,10 @@ a:hover{
   margin-bottom:6px;
 }
 
-.event-details-col .btn-rsvp{
-  margin-top:10px;
+.event-details-col p strong{
+  color:#fff;
+  font-weight:800;
+  letter-spacing:.01em;
 }
 
 .event-rsvp-col{
@@ -1057,7 +1059,7 @@ a:hover{
 
 .event-details-col p,
 .event-rsvp-col p{
-  margin:0 0 4px 0;
+  margin:0;
 }
 
 .event-card-topline{
@@ -1069,9 +1071,9 @@ a:hover{
 }
 
 .event-title-kicker{
-  font-size:1.25rem;
+  font-size:1.4rem;
   font-weight:900;
-  letter-spacing:.02em;
+  letter-spacing:.01em;
   line-height:1.2;
   color:#fff;
 }
@@ -1083,12 +1085,12 @@ a:hover{
   width:auto;
   max-width:max-content;
 
-  padding:7px 13px;
+  padding:8px 14px;
   border-radius:999px;
 
-  font-size:.9rem;
+  font-size:1rem;
   font-weight:800;
-  letter-spacing:.06em;
+  letter-spacing:.05em;
   line-height:1.1;
 
   color:var(--gold);
