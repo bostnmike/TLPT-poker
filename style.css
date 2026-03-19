@@ -3024,31 +3024,24 @@ th{
 }
 
 .pulse-icon{
+  display:inline-block;
   margin-right:6px;
-  color:#e6edf3;
-  text-shadow:
-    0 0 4px rgba(255,255,255,.6),
-    0 0 8px rgba(200,220,255,.35);
+  color:#d7263d;
+  transform:translateY(1px);
+  filter:drop-shadow(0 0 4px rgba(215,38,61,.28));
 }
 
-@keyframes pulseGlow{
-  0%{
-    text-shadow:
-      0 0 4px rgba(255,255,255,.6),
-      0 0 8px rgba(200,220,255,.35);
+@keyframes pulseBeat{
+  0%, 100%{
+    transform:translateY(1px) scale(1);
+    filter:drop-shadow(0 0 4px rgba(215,38,61,.28));
   }
   50%{
-    text-shadow:
-      0 0 6px rgba(255,255,255,.9),
-      0 0 12px rgba(200,220,255,.55);
-  }
-  100%{
-    text-shadow:
-      0 0 4px rgba(255,255,255,.6),
-      0 0 8px rgba(200,220,255,.35);
+    transform:translateY(1px) scale(1.12);
+    filter:drop-shadow(0 0 8px rgba(215,38,61,.42));
   }
 }
 
 .pulse-icon{
-  animation:pulseGlow 2.5s ease-in-out infinite;
+  animation:pulseBeat 1.8s ease-in-out infinite;
 }
