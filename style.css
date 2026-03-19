@@ -1151,8 +1151,8 @@ a:hover{
 .event-rsvp-avatar-row > .player-avatar-wrap,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:108px;
-  height:108px;
+  width:116px;
+  height:116px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -1164,9 +1164,9 @@ a:hover{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:108px;
-  height:108px;
-  font-size:1.3rem;
+  width:116px;
+  height:116px;
+  font-size:1.38rem;
   border-width:3px;
 }
 
