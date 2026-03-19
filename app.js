@@ -245,7 +245,10 @@ function ensureQuoted(text) {
 function fmtMoney(n) {
   const num = Number(n ?? 0);
   const sign = num < 0 ? "-" : "";
-  return `${sign}$${Math.abs(num).toFixed(0)}`;
+  return `${sign}$${Math.abs(num).toLocaleString("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  })}`;
 }
 
 function fmtPct(n) {
@@ -370,6 +373,18 @@ function displayPlayerName(player) {
 
   if (entries < 5) {
     return `${name}<span class="player-entry-asterisk" title="* fewer than 5 league entries">*</span>`;
+  }
+
+  return name;
+}
+
+function displayPlayerNamePlain(player) {
+  if (!player) return "";
+
+  let name = player.name || "";
+
+  if (NAME_FIXES[name]) {
+    name = NAME_FIXES[name];
   }
 
   return name;
@@ -1036,8 +1051,81 @@ function renderHomePage(data) {
   renderLeagueSnapshot(data);
 }
 
+function getFeaturedPlayer(data) {
+  const players = (data?.players || []).filter(Boolean);
+  if (!players.length) return null;
+
+  const eligible = players.filter(player => Number(player?.entries ?? 0) >= 5);
+  const pool = eligible.length ? eligible : players;
+
+  const rotationWindowMs = 12 * 60 * 60 * 1000;
+  const rotationIndex = Math.floor(Date.now() / rotationWindowMs) % pool.length;
+
+  return pool[rotationIndex];
+}
+
+function buildFeaturedPlayerCard(player, data) {
+  if (!player) return "";
+
+  const archetype = getPlayerArchetype(player);
+  const tier = getPlayerTier(player, data?.players || []);
+  const quote = ensureQuoted(player?.notes || "");
+  const badges = badgeList(player, data).slice(0, 3);
+
+  return `
+    <a class="featured-player-card" href="${playerUrl(player)}">
+      <div class="featured-player-kicker">🌟 Featured Player</div>
+
+      <div class="featured-player-top">
+        <div class="featured-player-avatar">
+          ${playerImageMarkup(player, "crew")}
+        </div>
+
+        <div class="featured-player-meta">
+          <h3>${displayPlayerNamePlain(player)}</h3>
+          <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
+          <div class="featured-player-archetype">${archetype.emoji} ${archetype.name}</div>
+        </div>
+      </div>
+
+      <p class="featured-player-quote">${quote}</p>
+
+      <div class="featured-player-stats">
+        <div class="featured-player-stat">
+          <span class="featured-player-stat-label">Profit</span>
+          <span class="featured-player-stat-value ${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</span>
+        </div>
+
+        <div class="featured-player-stat">
+          <span class="featured-player-stat-label">Power</span>
+          <span class="featured-player-stat-value">${fmtNum(player.trueSkillScore)}</span>
+        </div>
+
+        <div class="featured-player-stat">
+          <span class="featured-player-stat-label">ROI</span>
+          <span class="featured-player-stat-value">${fmtPct(player.roi)}</span>
+        </div>
+
+        <div class="featured-player-stat">
+          <span class="featured-player-stat-label">Hits</span>
+          <span class="featured-player-stat-value">${player.hits ?? "-"}</span>
+        </div>
+      </div>
+
+      ${badges.length ? `
+        <div class="featured-player-badges">
+          ${badges.map(badge => `<span class="featured-player-badge">${badge}</span>`).join("")}
+        </div>
+      ` : ""}
+
+      <div class="featured-player-link">View full profile →</div>
+    </a>
+  `;
+}
+
 function renderLeagueSnapshot(data) {
   const container = document.getElementById("home-snapshot-grid");
+  const featuredContainer = document.getElementById("home-featured-player");
   if (!container) return;
 
   const players = data?.players || [];
@@ -1058,16 +1146,21 @@ function renderLeagueSnapshot(data) {
     { icon:"💸", label:"Total Entry Fees", value:fmtMoney(totalEntryFees) },
     { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI) }
   ];
-  
+
   container.innerHTML = cards.map(card => `
-  <div class="snapshot-card">
-    <div class="snapshot-value">
-      <span class="snapshot-icon">${card.icon}</span>
-      ${card.value}
+    <div class="snapshot-card">
+      <div class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}">
+        <span class="snapshot-icon">${card.icon}</span>
+        ${card.value}
+      </div>
+      <div class="snapshot-label">${card.label}</div>
     </div>
-    <div class="snapshot-label">${card.label}</div>
-  </div>
-`).join("");
+  `).join("");
+
+  if (featuredContainer) {
+    const featuredPlayer = getFeaturedPlayer(data);
+    featuredContainer.innerHTML = buildFeaturedPlayerCard(featuredPlayer, data);
+  }
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
