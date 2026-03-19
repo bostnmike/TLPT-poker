@@ -546,6 +546,10 @@ a:hover{
   align-items:stretch;
 }
 
+.home-feature-grid-single{
+  grid-template-columns:1fr;
+}
+
 .home-feature-panel{
   display:flex;
   flex-direction:column;
