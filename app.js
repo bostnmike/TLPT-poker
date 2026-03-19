@@ -921,7 +921,7 @@ function renderHomePage(data) {
   
   const allPlayers = data?.players || [];
   const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 2);
+  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 3);
   
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
