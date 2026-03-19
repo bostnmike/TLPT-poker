@@ -1095,17 +1095,17 @@ function renderLeagueSnapshot(data) {
     players.reduce((sum, p) => sum + (Number(p.roi) || 0), 0) /
     Math.max(players.length, 1);
 
-  const cards = [
-    { icon:"👥", label:"Players", value:players.length },
-    { icon:"🎟", label:"Entries", value:totalEntries },
-    { icon:"🔁", label:"Rebuys", value:totalRebuys },
-    { icon:"💥", label:"Knockouts", value:totalHits },
-    { icon:"💸", label:"Total Entry Fees", value:fmtMoney(totalEntryFees) },
-    { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI) }
+    const cards = [
+    { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple" },
+    { icon:"🎟", label:"Entries", value:totalEntries, className:"snapshot-green" },
+    { icon:"🔁", label:"Rebuys", value:totalRebuys, className:"snapshot-blue" },
+    { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow" },
+    { icon:"💸", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-gold" },
+    { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red" }
   ];
 
-  container.innerHTML = cards.map(card => `
-    <div class="snapshot-card">
+    container.innerHTML = cards.map(card => `
+    <div class="snapshot-card ${card.className}">
       <div class="snapshot-icon">${card.icon}</div>
       <div class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}">
         ${card.value}
