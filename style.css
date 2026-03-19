@@ -3027,8 +3027,10 @@ th{
 
 .pulse-icon{
   margin-right:6px;
-  color:#6bbcff;
-  text-shadow:0 0 6px rgba(107,188,255,.5);
+  color:#e6edf3; /* soft white/silver */
+  text-shadow:
+    0 0 4px rgba(255,255,255,.6),
+    0 0 8px rgba(200,220,255,.35);
 }
 
 .report-icon,
