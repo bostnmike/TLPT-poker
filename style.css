@@ -850,7 +850,11 @@ a:hover{
 }
 
 .snapshot-card{
-  padding:16px;
+  min-height:132px;
+  padding:18px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   border:1px solid var(--line);
   border-radius:14px;
   background:var(--panel-3);
@@ -883,16 +887,16 @@ a:hover{
 }
 
 .snapshot-value{
-  font-size:1.7rem;
+  font-size:2rem;
   font-weight:900;
   color:#fff;
-  line-height:1.1;
-  margin-bottom:6px;
+  line-height:1.05;
+  margin-bottom:8px;
   letter-spacing:.02em;
 
   text-shadow:
-    0 0 6px rgba(255,184,28,.18),
-    0 0 14px rgba(255,184,28,.12);
+    0 0 8px rgba(255,184,28,.20),
+    0 0 18px rgba(255,184,28,.14);
 
   transition:transform .2s ease, text-shadow .2s ease;
   animation:snapshotPulse 4s ease-in-out infinite;
@@ -901,6 +905,17 @@ a:hover{
 .snapshot-value.money{
   color:var(--gold);
   letter-spacing:.03em;
+  text-shadow:
+    0 0 10px rgba(255,184,28,.35),
+    0 0 22px rgba(255,184,28,.18);
+}
+
+.snapshot-card:nth-child(5){
+  border-color:rgba(255,184,28,.30);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.10),
+    0 10px 28px rgba(0,0,0,.26),
+    0 0 18px rgba(255,184,28,.10);
 }
 
 .home-snapshot-grid .snapshot-card:hover .snapshot-value{
@@ -935,13 +950,17 @@ a:hover{
 }
 
 .snapshot-card:nth-child(5) .snapshot-icon{
+  color:#ffd56c; /* Total Entry Fees */
+}
+
+.snapshot-card:nth-child(6) .snapshot-icon{
   color:#22c55e; /* Avg ROI */
 }
 
 .snapshot-label{
-  font-size:.70rem;
+  font-size:.76rem;
   text-transform:uppercase;
-  letter-spacing:.09em;
+  letter-spacing:.11em;
   color:var(--gold);
   font-weight:800;
 }
@@ -955,14 +974,15 @@ a:hover{
   display:flex;
   flex-direction:column;
   width:100%;
-  padding:20px;
-  border:1px solid var(--line);
+  padding:22px;
+  border:1px solid rgba(255,184,28,.22);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02) 26%, rgba(15,20,28,1) 26%, rgba(15,20,28,1) 100%);
+    linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.03) 22%, rgba(15,20,28,1) 22%, rgba(15,20,28,1) 100%);
   box-shadow:
     0 0 0 1px rgba(255,184,28,.10),
-    0 10px 30px rgba(0,0,0,.25);
+    0 12px 32px rgba(0,0,0,.28),
+    0 0 22px rgba(255,184,28,.10);
   color:var(--text);
   transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
@@ -1014,8 +1034,8 @@ a:hover{
 .featured-player-meta h3{
   margin:0 0 8px 0;
   color:#fff;
-  font-size:1.35rem;
-  line-height:1.12;
+  font-size:1.55rem;
+  line-height:1.08;
 }
 
 .featured-player-tier,
@@ -1168,6 +1188,31 @@ a:hover{
 
 .event-card{
   padding:18px 20px;
+}
+
+.event-commissioner-inline{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.10);
+}
+
+.event-commissioner-inline-title{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--gold);
+  font-size:.9rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.event-commissioner-inline p{
+  margin:0;
+  line-height:1.6;
+  color:var(--gold);
+  text-shadow:0 0 6px rgba(255,215,100,.22);
 }
 
 .home-event-hero{
@@ -2916,10 +2961,14 @@ th{
     grid-template-columns:1fr;
   }
 
+  .home-snapshot-layout{
+  grid-template-columns:1fr;
+  }
+
   .home-snapshot-grid{
     grid-template-columns:repeat(3, minmax(0,1fr));
   }
-
+  
   .featured-player-top{
     grid-template-columns:1fr;
     text-align:center;
@@ -3082,6 +3131,20 @@ th{
   .home-snapshot-grid{
     grid-template-columns:1fr;
   }
+
+  .featured-player-top{
+  grid-template-columns:1fr;
+  text-align:center;
+  }
+
+  .featured-player-avatar{
+    display:flex;
+    justify-content:center;
+  }
+
+  .featured-player-stats{
+    grid-template-columns:1fr;
+  }
   
   .crew-card-topline{
     align-items:flex-start;
@@ -3168,7 +3231,7 @@ th{
     display:none;
   }
 
- .event-rsvp-avatar-row > .event-rsvp-seat-player,
+  .event-rsvp-avatar-row > .event-rsvp-seat-player,
   .event-rsvp-avatar-row > .event-empty-seat{
     position:static;
     width:44px;
@@ -3209,6 +3272,7 @@ th{
   color:#d7263d;
   transform:translateY(1px);
   filter:drop-shadow(0 0 4px rgba(215,38,61,.28));
+  animation:pulseBeat 1.8s ease-in-out infinite;
 }
 
 @keyframes pulseBeat{
@@ -3220,8 +3284,4 @@ th{
     transform:translateY(1px) scale(1.12);
     filter:drop-shadow(0 0 8px rgba(215,38,61,.42));
   }
-}
-
-.pulse-icon{
-  animation:pulseBeat 1.8s ease-in-out infinite;
 }
