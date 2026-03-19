@@ -1130,6 +1130,42 @@ a:hover{
   align-self:center;
 }
 
+.event-rsvp-center-name{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%) scale(.92);
+  z-index:2;
+
+  min-width:260px;
+  max-width:76%;
+  text-align:center;
+  pointer-events:none;
+
+  font-size:2rem;
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:.02em;
+  color:var(--gold);
+
+  opacity:0;
+  transition:
+    opacity .18s ease,
+    transform .18s ease;
+
+  text-shadow:
+    -2px -2px 0 #000,
+     2px -2px 0 #000,
+    -2px  2px 0 #000,
+     2px  2px 0 #000,
+     0    0    8px rgba(0,0,0,.4);
+}
+
+.event-rsvp-center-name.is-visible{
+  opacity:1;
+  transform:translate(-50%, -50%) scale(1);
+}
+
 .event-rsvp-avatar-row::before{
   content:"";
   position:absolute;
@@ -1146,7 +1182,7 @@ a:hover{
   filter:brightness(1.02);
 }
 
-.event-rsvp-avatar-row > .player-avatar-wrap,
+.event-rsvp-avatar-row > .event-rsvp-seat-player,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
   width:116px;
@@ -1158,6 +1194,14 @@ a:hover{
   left:var(--seat-x);
   top:var(--seat-y);
   transform:translate(-50%, -50%);
+}
+
+.event-rsvp-seat-player .player-avatar-wrap{
+  width:116px;
+  height:116px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .event-rsvp-avatar-row .player-avatar,
@@ -1187,10 +1231,10 @@ a:hover{
     filter .18s ease;
 }
 
-#home-events-list .event-rsvp-avatar-row .player-avatar:hover,
-#home-events-list .event-rsvp-avatar-row .player-avatar-fallback:hover,
-#schedule-list .event-rsvp-avatar-row .player-avatar:hover,
-#schedule-list .event-rsvp-avatar-row .player-avatar-fallback:hover{
+#home-events-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
+#home-events-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar-fallback,
+#schedule-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
+#schedule-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar-fallback{
   transform:scale(1.06);
   box-shadow:
     0 0 0 2px rgba(255,255,255,.18),
