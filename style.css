@@ -836,9 +836,16 @@ a:hover{
   text-shadow:0 0 6px rgba(255,215,100,.25);
 }
 
+.home-snapshot-layout{
+  display:grid;
+  grid-template-columns:minmax(0, 1.08fr) minmax(340px, .92fr);
+  gap:16px;
+  align-items:stretch;
+}
+
 .home-snapshot-grid{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr 1fr 1.2fr;
+  grid-template-columns:repeat(3, minmax(0,1fr));
   gap:14px;
 }
 
@@ -891,6 +898,11 @@ a:hover{
   animation:snapshotPulse 4s ease-in-out infinite;
 }
 
+.snapshot-value.money{
+  color:var(--gold);
+  letter-spacing:.03em;
+}
+
 .home-snapshot-grid .snapshot-card:hover .snapshot-value{
   transform:scale(1.08);
   text-shadow:
@@ -932,6 +944,145 @@ a:hover{
   letter-spacing:.09em;
   color:var(--gold);
   font-weight:800;
+}
+
+.home-featured-player{
+  display:flex;
+  min-height:100%;
+}
+
+.featured-player-card{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02) 26%, rgba(15,20,28,1) 26%, rgba(15,20,28,1) 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.10),
+    0 10px 30px rgba(0,0,0,.25);
+  color:var(--text);
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.featured-player-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.5);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.18),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(255,184,28,.14);
+}
+
+.featured-player-kicker{
+  color:var(--gold);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:14px;
+}
+
+.featured-player-top{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  align-items:center;
+  margin-bottom:14px;
+}
+
+.featured-player-avatar .player-avatar,
+.featured-player-avatar .player-avatar-fallback{
+  width:96px;
+  height:96px;
+  font-size:1.35rem;
+}
+
+.featured-player-meta h3{
+  margin:0 0 8px 0;
+  color:#fff;
+  font-size:1.35rem;
+  line-height:1.12;
+}
+
+.featured-player-tier,
+.featured-player-archetype{
+  font-weight:700;
+  line-height:1.4;
+}
+
+.featured-player-tier{
+  color:var(--gold);
+}
+
+.featured-player-archetype{
+  color:var(--muted);
+}
+
+.featured-player-quote{
+  margin:0 0 14px 0;
+  color:var(--gold);
+  font-style:italic;
+  line-height:1.5;
+}
+
+.featured-player-stats{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.featured-player-stat{
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  background:rgba(255,255,255,.03);
+}
+
+.featured-player-stat-label{
+  display:block;
+  color:var(--muted);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.featured-player-stat-value{
+  color:#fff;
+  font-size:1.15rem;
+  font-weight:800;
+}
+
+.featured-player-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:auto;
+  margin-bottom:12px;
+}
+
+.featured-player-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,184,28,.24);
+  background:rgba(255,184,28,.08);
+  color:#fff;
+  font-size:.74rem;
+  font-weight:700;
+  line-height:1;
+}
+
+.featured-player-link{
+  color:var(--gold);
+  font-weight:800;
+  margin-top:auto;
 }
 
 /* event cards */
@@ -2750,8 +2901,26 @@ th{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
 
+  .home-snapshot-layout{
+    grid-template-columns:1fr;
+  }
+
   .home-snapshot-grid{
     grid-template-columns:repeat(3, minmax(0,1fr));
+  }
+
+  .featured-player-top{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .featured-player-avatar{
+    display:flex;
+    justify-content:center;
+  }
+
+  .featured-player-stats{
+    grid-template-columns:1fr;
   }
   
   .home-feature-grid{
@@ -3018,7 +3187,7 @@ th{
   color:#ffb81c;
 }
 
-.snapshot-icon{
+.snapshot-heading{
   margin-right:6px;
   color:#ffd56c;
 }
