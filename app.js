@@ -802,9 +802,8 @@ function buildHomeMiniRow(rank, player, value) {
     <div class="home-mini-row">
       <div class="home-mini-rank">#${rank}</div>
       <div class="home-mini-player-wrap">
-        <div class="player-avatar-wrap">
-          ${playerImageMarkup(player, "table")}
-        </div>
+        ${playerImageMarkup(player, "table")}
+        <div class="home-mini-name">${displayPlayerName(player)}</div>
       </div>
       <div class="home-mini-value">${value}</div>
     </div>
@@ -922,8 +921,8 @@ function renderHomePage(data) {
   
   const allPlayers = data?.players || [];
   const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-
+  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 2);
+  
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
     const roiLeader = sortPlayers(qualifiedPlayers, "roi")[0];
@@ -956,10 +955,9 @@ function renderHomePage(data) {
 
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
-    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
-    const aggressionLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 3);
-    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 3);
-
+    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 5);
+    const aggressionLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 5);
+    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 5);
     actionCluster.innerHTML = `
       <div class="home-cluster-stack home-cluster-stack-3">
         <div class="home-mini-board">
