@@ -755,15 +755,8 @@ a:hover{
   padding:18px 20px;
 }
 
-.home-guide-head h3{
-  margin:0 0 6px 0;
-  color:#fff;
-  font-size:1.15rem;
-  line-height:1.25;
-}
-
-.home-guide-head p{
-  margin:0 0 14px 0;
+.home-section-helper{
+  margin:-6px 0 14px 0;
 }
 
 .event-guide-rows{
