@@ -1113,14 +1113,14 @@ function renderLeagueSnapshot(data) {
 
   container.innerHTML = cards.map(card => `
     <div class="snapshot-card">
+      <div class="snapshot-icon">${card.icon}</div>
       <div class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}">
-        <span class="snapshot-icon">${card.icon}</span>
         ${card.value}
       </div>
       <div class="snapshot-label">${card.label}</div>
     </div>
   `).join("");
-
+  
   if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
     featuredContainer.innerHTML = buildFeaturedPlayerCard(featuredPlayer, data);
