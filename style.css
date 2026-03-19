@@ -959,12 +959,36 @@ a:hover{
 }
 
 .event-details-col{
-  padding-right:8px;
+  padding-right:12px;
   border-right:1px solid rgba(255,255,255,.12);
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
   align-self:start;
+  gap:12px;
+  padding-bottom:6px;
+}
+
+.event-details-col p{
+  margin:0;
+  line-height:1.5;
+  font-size:1.05rem;
+}
+
+.event-details-col .event-title-kicker{
+  margin-bottom:2px;
+}
+
+.event-details-col .event-format-title{
+  margin-bottom:4px;
+}
+
+.event-details-col .home-event-title{
+  margin-bottom:6px;
+}
+
+.event-details-col .btn-rsvp{
+  margin-top:10px;
 }
 
 .event-rsvp-col{
