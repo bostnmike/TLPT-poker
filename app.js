@@ -991,61 +991,6 @@ function renderHomePage(data) {
     `;
   }
 
-  const badgeCluster = document.getElementById("home-badge-cluster");
-  if (badgeCluster) {
-    const badgeRows = [
-      {
-        label: "💰 Profit Leader",
-        player: getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]),
-        value: player => fmtMoney(player.profit),
-        valueClass: player => statValueClass(player, "profit")
-      },
-      {
-        label: "💪🏼 Power Leader",
-        player: getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]),
-        value: player => fmtNum(player.trueSkillScore),
-        valueClass: () => ""
-      },
-      {
-        label: "🎯 Clutch Leader",
-        player: getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]),
-        value: player => fmtNum(player.clutchIndex),
-        valueClass: () => ""
-      },
-      {
-        label: "🍀 Luck Leader",
-        player: sortPlayers(qualifiedPlayers, "luckIndex")[0],
-        value: player => fmtNum(player.luckIndex),
-        valueClass: () => ""
-      },
-      {
-        label: "💥 Hit King",
-        player: getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]),
-        value: player => String(player.hits),
-        valueClass: () => ""
-      },
-      {
-        label: "🫧 Bubble King",
-        player: getLeaderByRule(allPlayers, HONOR_RULES["Bubble King"]),
-        value: player => String(player.bubbles),
-        valueClass: () => ""
-      }
-    ];
-
-    badgeCluster.innerHTML = `
-      <div class="home-badge-cluster">
-        ${badgeRows.map(item =>
-          buildHomeBadgeRow(
-            item.label,
-            item.player,
-            item.player ? item.value(item.player) : "",
-            item.player ? item.valueClass(item.player) : ""
-          )
-        ).join("")}
-      </div>
-    `;
-  }
-
   const ticker = document.getElementById("league-ticker-text");
   if (ticker && qualifiedPlayers.length) {
     const tickerItems = STAT_LEADER_CONFIG.map(stat => {
