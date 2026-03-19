@@ -1205,34 +1205,6 @@ a:hover{
   opacity:.78;
 }
 
-.event-rsvp-avatar-row[data-dealer-seat="1"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="2"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="3"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="4"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="5"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="6"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="7"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="8"]::after,
-.event-rsvp-avatar-row[data-dealer-seat="9"]::after{
-  content:"D";
-  position:absolute;
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:var(--gold);
-  color:#000;
-  font-weight:900;
-  font-size:.82rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:2px solid #000;
-  box-shadow:none;
-  z-index:0;
-  transform:translate(-50%, -50%);
-  animation:tlptDealerPulse 2.4s ease-in-out infinite;
-}
-
 .event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:6%; }
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:76%; --seat-y:14%; }
 .event-rsvp-avatar-row > :nth-child(3){ --seat-x:87%; --seat-y:32%; }
@@ -1242,16 +1214,6 @@ a:hover{
 .event-rsvp-avatar-row > :nth-child(7){ --seat-x:14%; --seat-y:74%; }
 .event-rsvp-avatar-row > :nth-child(8){ --seat-x:13%; --seat-y:32%; }
 .event-rsvp-avatar-row > :nth-child(9){ --seat-x:24%; --seat-y:14%; }
-
-.event-rsvp-avatar-row[data-dealer-seat="1"]::after{ left:50%; top:16%; }
-.event-rsvp-avatar-row[data-dealer-seat="2"]::after{ left:72%; top:22%; }
-.event-rsvp-avatar-row[data-dealer-seat="3"]::after{ left:86%; top:38%; }
-.event-rsvp-avatar-row[data-dealer-seat="4"]::after{ left:80%; top:70%; }
-.event-rsvp-avatar-row[data-dealer-seat="5"]::after{ left:60%; top:86%; }
-.event-rsvp-avatar-row[data-dealer-seat="6"]::after{ left:40%; top:86%; }
-.event-rsvp-avatar-row[data-dealer-seat="7"]::after{ left:20%; top:70%; }
-.event-rsvp-avatar-row[data-dealer-seat="8"]::after{ left:14%; top:38%; }
-.event-rsvp-avatar-row[data-dealer-seat="9"]::after{ left:28%; top:22%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
@@ -1270,15 +1232,6 @@ a:hover{
   100%{
     opacity:1;
     transform:translate(-50%, -50%) scale(1);
-  }
-}
-
-@keyframes tlptDealerPulse{
-  0%, 100%{
-    transform:translate(-50%, -50%) scale(1);
-  }
-  50%{
-    transform:translate(-50%, -50%) scale(1.08);
   }
 }
 
