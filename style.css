@@ -434,15 +434,6 @@ a:hover{
   gap:8px;
 }
 
-.player-avatar,
-.player-avatar-fallback{
-  width:64px;
-  height:64px;
-  border-radius:50%;
-  object-fit:cover;
-  display:block;
-}
-
 .league-ticker-name{
   color:#fff;
   font-weight:700;
@@ -1177,6 +1168,11 @@ a:hover{
   border-width:3px;
 }
 
+.event-rsvp-avatar-row .player-avatar{
+  object-fit:cover;
+  border-radius:50%;
+}
+
 #home-events-list .event-rsvp-avatar-row .player-avatar,
 #home-events-list .event-rsvp-avatar-row .player-avatar-fallback,
 #schedule-list .event-rsvp-avatar-row .player-avatar,
@@ -1275,6 +1271,7 @@ a:hover{
     opacity:1;
     transform:translate(-50%, -50%) scale(1);
   }
+}
 
 @keyframes tlptDealerPulse{
   0%, 100%{
