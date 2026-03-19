@@ -832,7 +832,8 @@ a:hover{
 .home-commissioner p{
   margin:0;
   line-height:1.55;
-  color:var(--text);
+  color:var(--gold);
+  text-shadow:0 0 6px rgba(255,215,100,.25);
 }
 
 .home-snapshot-grid{
