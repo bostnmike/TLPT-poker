@@ -3219,8 +3219,9 @@ th{
 /* ===== SECTION ICON STYLING ===== */
 
 .report-icon{
-  margin-right:6px;
   color:#ffb81c;
+  font-size:1.05em;
+  line-height:1;
 }
 
 .snapshot-heading{
