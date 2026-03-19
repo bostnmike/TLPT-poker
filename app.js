@@ -651,11 +651,16 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
       <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
-        ${confirmedPlayers.map(player => `
-          <span class="event-rsvp-seat-player" data-player-name="${String(player.name || "").replace(/"/g, "&quot;")}">
-            ${playerImageMarkup(player, "table")}
-          </span>
-        `).join("")}
+        ${confirmedPlayers.map(player => {
+          const playerData = data.players.find(p => p.ID === player.id) || {};
+          const displayName = playerData.Nickname || player.name || player.id || "";  
+
+          return `
+            <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
+              ${playerImageMarkup(player, "table")}
+            </span>
+          `;
+        }).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
         `).join("")}
