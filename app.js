@@ -880,32 +880,45 @@ function renderHomePage(data) {
     const homeEvent = getCurrentEvents(data).slice(0, 1);
 
   const eventCards = homeEvent.map(event => `
-    <div class="event-card home-event-card home-event-hero compact-event-card">
-      <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
+  <div class="event-card home-event-card home-event-hero compact-event-card">
+    <div class="event-card-topline">
+      <div class="kicker event-title-kicker">${event.title}</div>
+    </div>
+
+    <div class="event-layout-grid">
+      <div class="event-details-col">
+        <div class="event-format-title">${event.format || ""}</div>
+        <h3>${event.date}</h3>
+        <p class="muted"><strong>Start:</strong> ${event.time}</p>
+        <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+        <p class="muted"><strong>Location:</strong> ${event.location}</p>
+        <p class="muted">${event.address || ""}</p>
+
+        <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">
+          RSVP on Apple Invites
+        </a>
       </div>
 
-      <div class="event-layout-grid">
-        <div class="event-details-col">
-          <div class="event-format-title">${event.format || ""}</div>
-          <h3>${event.date}</h3>
-          <p class="muted"><strong>Start:</strong> ${event.time}</p>
-          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-          <p class="muted"><strong>Location:</strong> ${event.location}</p>
-          <p class="muted">${event.address || ""}</p>
-          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
-        </div>
-
-        <div class="event-rsvp-col">
-          ${eventRsvpAvatarMarkup(event, data)}
-        </div>
+      <div class="event-rsvp-col">
+        ${eventRsvpAvatarMarkup(event, data)}
       </div>
     </div>
-  `).join("");
-    
-    eventsEl.innerHTML = `${eventCards}${buildEventGuideCard()}`;
-  }
 
+    <div class="event-commissioner-inline">
+      <div class="event-commissioner-inline-title">
+        <span class="report-icon">🎤</span> Commissioner's Report
+      </div>
+      <p>
+        The TLPT is still a shark tank, and the Apex Predators are feeding. 
+        The middle tiers are getting scrappier, which is great — someone has 
+        to donate with confidence. And as always, Bubble Watch remains the 
+        league’s most populated neighborhood, where hope is high and chip 
+        stacks are… not.
+      </p>
+    </div>
+  </div>
+`).join("");
+    
   const allPlayers = data?.players || [];
   const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
   const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
