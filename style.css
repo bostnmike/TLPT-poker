@@ -825,17 +825,6 @@ a:hover{
   line-height:1;
 }
 
-.home-commissioner{
-  padding:18px 20px;
-}
-
-.home-commissioner p{
-  margin:0;
-  line-height:1.55;
-  color:var(--gold);
-  text-shadow:0 0 6px rgba(255,215,100,.25);
-}
-
 .home-snapshot-layout{
   display:grid;
   grid-template-columns:minmax(0, 1.08fr) minmax(340px, .92fr);
@@ -865,16 +854,6 @@ a:hover{
 
 .home-snapshot-grid .snapshot-card{
   position:relative;
-}
-
-.home-snapshot-grid .snapshot-card:not(:last-child)::after{
-  content:"";
-  position:absolute;
-  top:16%;
-  right:-7px;
-  width:1px;
-  height:68%;
-  background:rgba(255,255,255,.08);
 }
 
 .snapshot-card:hover{
@@ -2960,29 +2939,11 @@ th{
   .home-snapshot-layout{
     grid-template-columns:1fr;
   }
-
-  .home-snapshot-layout{
-  grid-template-columns:1fr;
-  }
-
+  
   .home-snapshot-grid{
     grid-template-columns:repeat(3, minmax(0,1fr));
   }
-  
-  .featured-player-top{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .featured-player-avatar{
-    display:flex;
-    justify-content:center;
-  }
-
-  .featured-player-stats{
-    grid-template-columns:1fr;
-  }
-  
+    
   .home-feature-grid{
     grid-template-columns:1fr;
   }
