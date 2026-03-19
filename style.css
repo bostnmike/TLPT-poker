@@ -3012,3 +3012,28 @@ th{
     white-space:normal;
   }
 }
+
+/* ===== SECTION ICON STYLING ===== */
+
+.report-icon{
+  margin-right:6px;
+  color:#ffb81c;
+}
+
+.snapshot-icon{
+  margin-right:6px;
+  color:#ffd56c;
+}
+
+.pulse-icon{
+  margin-right:6px;
+  color:#6bbcff;
+  text-shadow:0 0 6px rgba(107,188,255,.5);
+}
+
+.report-icon,
+.snapshot-icon,
+.pulse-icon{
+  display:inline-block;
+  transform:translateY(1px);
+}
