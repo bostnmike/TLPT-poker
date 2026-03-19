@@ -846,11 +846,6 @@ function buildTickerLeader(icon, label, player) {
 function buildEventGuideCard() {
   return `
     <div class="event-card home-guide-card">
-      <div class="home-guide-head">
-        <h3>Learn your Archetype and Tier</h3>
-        <p class="muted">Visit your profile from “The Crew” page to see where you fit in the TLPT hierarchy.</p>
-      </div>
-
       <div class="event-guide-rows">
         <div class="player-archetype-line event-guide-line">
           <span class="profile-line-label">♠ Archetypes:</span>
