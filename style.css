@@ -1178,13 +1178,14 @@ a:hover{
 .event-commissioner-inline-title{
   display:flex;
   align-items:center;
-  gap:6px;
-  color:var(--gold);
-  font-size:.9rem;
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin-bottom:8px;
+  gap:10px;
+  color:#fff;
+  font-size:1.5rem;
+  font-weight:800;
+  letter-spacing:0;
+  text-transform:none;
+  line-height:1.2;
+  margin-bottom:12px;
 }
 
 .event-commissioner-inline p{
