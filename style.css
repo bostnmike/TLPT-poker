@@ -944,14 +944,14 @@ a:hover{
 
 .event-layout-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) 740px;
+  grid-template-columns:minmax(0, 1fr) 700px;
   gap:8px;
   margin-top:8px;
   align-items:start;
 }
 
 .event-details-col{
-  padding-right:28px;
+  padding-right:18px;
   margin-right:0;
   border-right:1px solid rgba(255,255,255,.12);
   display:flex;
