@@ -1146,6 +1146,12 @@ a:hover{
   background:url("images/site/winter-classic.png?v=6") center center / 700px 350px no-repeat;
   border:none;
   box-shadow:none;
+  transition:transform .22s ease, filter .22s ease;
+}
+
+.event-rsvp-avatar-row:hover::before{
+  transform:scale(1.01);
+  filter:brightness(1.02);
 }
 
 .event-rsvp-avatar-row > .player-avatar-wrap,
@@ -1178,6 +1184,22 @@ a:hover{
     0 0 0 2px rgba(255,255,255,.12),
     0 0 18px rgba(255,255,255,.10),
     0 10px 18px rgba(0,0,0,.18);
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease;
+}
+
+#home-events-list .event-rsvp-avatar-row .player-avatar:hover,
+#home-events-list .event-rsvp-avatar-row .player-avatar-fallback:hover,
+#schedule-list .event-rsvp-avatar-row .player-avatar:hover,
+#schedule-list .event-rsvp-avatar-row .player-avatar-fallback:hover{
+  transform:scale(1.06);
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.18),
+    0 0 22px rgba(255,255,255,.14),
+    0 12px 20px rgba(0,0,0,.22);
+  filter:brightness(1.04);
 }
 
 .event-empty-seat{
@@ -1211,6 +1233,7 @@ a:hover{
   box-shadow:none;
   z-index:0;
   transform:translate(-50%, -50%);
+  animation:tlptDealerPulse 2.4s ease-in-out infinite;
 }
 
 .event-rsvp-avatar-row > :nth-child(1){ --seat-x:50%; --seat-y:6%; }
@@ -1250,6 +1273,14 @@ a:hover{
   100%{
     opacity:1;
     transform:translate(-50%, -50%) scale(1);
+  }
+
+@keyframes tlptDealerPulse{
+  0%, 100%{
+    transform:translate(-50%, -50%) scale(1);
+  }
+  50%{
+    transform:translate(-50%, -50%) scale(1.08);
   }
 }
 
