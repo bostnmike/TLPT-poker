@@ -3020,7 +3020,7 @@ th{
   color:#ffb81c;
 }
 
-.snapshot-icon{
+.snapshot-heading-icon{
   margin-right:6px;
   color:#ffd56c;
 }
@@ -3034,7 +3034,7 @@ th{
 }
 
 .report-icon,
-.snapshot-icon,
+.snapshot-heading-icon,
 .pulse-icon{
   display:inline-block;
   transform:translateY(1px);
