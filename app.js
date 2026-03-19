@@ -1045,19 +1045,21 @@ function renderLeagueSnapshot(data) {
   const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
   const totalRebuys = players.reduce((sum, p) => sum + (Number(p.rebuys) || 0), 0);
   const totalHits = players.reduce((sum, p) => sum + (Number(p.hits) || 0), 0);
+  const totalEntryFees = players.reduce((sum, p) => sum + (Number(p.totalCost) || 0), 0);
   const avgROI =
     players.reduce((sum, p) => sum + (Number(p.roi) || 0), 0) /
     Math.max(players.length, 1);
 
   const cards = [
-  { icon:"👥", label:"Players", value:players.length },
-  { icon:"🎟", label:"Entries", value:totalEntries },
-  { icon:"🔁", label:"Rebuys", value:totalRebuys },
-  { icon:"💥", label:"Knockouts", value:totalHits },
-  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI) }
-];
+    { icon:"👥", label:"Players", value:players.length },
+    { icon:"🎟", label:"Entries", value:totalEntries },
+    { icon:"🔁", label:"Rebuys", value:totalRebuys },
+    { icon:"💥", label:"Knockouts", value:totalHits },
+    { icon:"💸", label:"Total Entry Fees", value:fmtMoney(totalEntryFees) },
+    { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI) }
+  ];
   
-container.innerHTML = cards.map(card => `
+  container.innerHTML = cards.map(card => `
   <div class="snapshot-card">
     <div class="snapshot-value">
       <span class="snapshot-icon">${card.icon}</span>
