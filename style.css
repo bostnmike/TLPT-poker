@@ -3035,13 +3035,6 @@ th{
     0 0 8px rgba(200,220,255,.35);
 }
 
-.report-icon,
-.snapshot-heading-icon,
-.pulse-icon{
-  display:inline-block;
-  transform:translateY(1px);
-}
-
 @keyframes pulseGlow{
   0%{
     text-shadow:
