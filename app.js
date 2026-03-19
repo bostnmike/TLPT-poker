@@ -648,8 +648,14 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
 
   return `
     <div class="event-rsvp-block">
+      <div class="event-rsvp-label">Players In Tonight</div>
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
-        ${confirmedPlayers.map(player => playerImageMarkup(player, "table")).join("")}
+        <div class="event-rsvp-center-name" aria-hidden="true"></div>
+        ${confirmedPlayers.map(player => `
+          <span class="event-rsvp-seat-player" data-player-name="${String(player.name || "").replace(/"/g, "&quot;")}">
+            ${playerImageMarkup(player, "table")}
+          </span>
+        `).join("")}
         ${Array.from({ length: emptySeats }).map(() => `
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
         `).join("")}
@@ -1802,6 +1808,58 @@ window.renderPlayers = renderPlayers;
 window.renderPlayerProfile = renderPlayerProfile;
 window.showFormat = showFormat;
 
+function initEventRsvpNameHover() {
+  document.addEventListener("mouseover", event => {
+    const seat = event.target.closest(".event-rsvp-seat-player");
+    if (!seat) return;
+
+    const row = seat.closest(".event-rsvp-avatar-row");
+    const label = row?.querySelector(".event-rsvp-center-name");
+    if (!label) return;
+
+    label.textContent = seat.dataset.playerName || "";
+    label.classList.add("is-visible");
+  });
+
+  document.addEventListener("mouseout", event => {
+    const seat = event.target.closest(".event-rsvp-seat-player");
+    if (!seat) return;
+
+    if (seat.contains(event.relatedTarget)) return;
+
+    const row = seat.closest(".event-rsvp-avatar-row");
+    const label = row?.querySelector(".event-rsvp-center-name");
+    if (!label) return;
+
+    label.classList.remove("is-visible");
+    label.textContent = "";
+  });
+
+  document.addEventListener("focusin", event => {
+    const seat = event.target.closest(".event-rsvp-seat-player");
+    if (!seat) return;
+
+    const row = seat.closest(".event-rsvp-avatar-row");
+    const label = row?.querySelector(".event-rsvp-center-name");
+    if (!label) return;
+
+    label.textContent = seat.dataset.playerName || "";
+    label.classList.add("is-visible");
+  });
+
+  document.addEventListener("focusout", event => {
+    const seat = event.target.closest(".event-rsvp-seat-player");
+    if (!seat) return;
+
+    const row = seat.closest(".event-rsvp-avatar-row");
+    const label = row?.querySelector(".event-rsvp-center-name");
+    if (!label) return;
+
+    label.classList.remove("is-visible");
+    label.textContent = "";
+  });
+}
+
 async function main() {
   const data = await loadSiteData();
   window.siteData = data;
@@ -1816,6 +1874,7 @@ async function main() {
   renderStatLeaders(data);
   initRulesPage();
   initSorting();
+  initEventRsvpNameHover();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
