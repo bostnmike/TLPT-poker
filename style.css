@@ -945,6 +945,28 @@ a:hover{
 
 /* Snapshot hero color themes */
 
+/* Silver theme for Entries */
+
+.snapshot-silver{
+  border-color:rgba(180,180,180,.34);
+  background:
+    linear-gradient(180deg, rgba(200,200,200,.18), rgba(200,200,200,.04) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
+  box-shadow:
+    0 0 0 1px rgba(200,200,200,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 20px rgba(200,200,200,.12);
+}
+
+.snapshot-silver::before{
+  background:rgba(200,200,200,.45);
+}
+
+.snapshot-silver .snapshot-icon,
+.snapshot-silver .snapshot-value,
+.snapshot-silver .snapshot-label{
+  color:#e5e7eb;
+}
+
 .snapshot-purple{
   border-color:rgba(168,85,247,.34);
   background:
