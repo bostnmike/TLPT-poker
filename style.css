@@ -3248,8 +3248,43 @@ th{
 }
 
 .snapshot-heading{
+  display:inline-block;
   margin-right:6px;
   color:#ffd56c;
+}
+
+.snapshot-flash{
+  animation:cameraFlash 4.8s ease-in-out infinite;
+  transform-origin:center center;
+}
+
+@keyframes cameraFlash{
+  0%, 91%, 100%{
+    transform:scale(1);
+    filter:brightness(1);
+    text-shadow:none;
+  }
+
+  93%{
+    transform:scale(1.28);
+    filter:brightness(2.1);
+    text-shadow:
+      0 0 8px rgba(255,255,255,.55),
+      0 0 18px rgba(255,255,255,.35);
+  }
+
+  95%{
+    transform:scale(.96);
+    filter:brightness(.82);
+    text-shadow:none;
+  }
+
+  97%{
+    transform:scale(1.14);
+    filter:brightness(1.45);
+    text-shadow:
+      0 0 6px rgba(255,255,255,.35);
+  }
 }
 
 .pulse-icon{
