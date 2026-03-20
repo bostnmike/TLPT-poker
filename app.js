@@ -699,13 +699,10 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
       </div>
 
       <div class="event-rsvp-summary" aria-label="RSVP summary">
-        <span class="event-rsvp-summary-item"><strong>Yes =</strong> ${counts.yes}</span>
-        <span class="event-rsvp-summary-sep">|</span>
-        <span class="event-rsvp-summary-item"><strong>No =</strong> ${counts.no}</span>
-        <span class="event-rsvp-summary-sep">|</span>
-        <span class="event-rsvp-summary-item"><strong>Maybe =</strong> ${counts.maybe}</span>
-        <span class="event-rsvp-summary-sep">|</span>
-        <span class="event-rsvp-summary-item"><strong>TBD =</strong> ${counts.tbd}</span>
+        <span class="event-rsvp-pill yes"><strong>Yes</strong> ${counts.yes}</span>
+        <span class="event-rsvp-pill no"><strong>No</strong> ${counts.no}</span>
+        <span class="event-rsvp-pill maybe"><strong>Maybe</strong> ${counts.maybe}</span>
+        <span class="event-rsvp-pill tbd"><strong>TBD</strong> ${counts.tbd}</span>
       </div>
     </div>
   `;
