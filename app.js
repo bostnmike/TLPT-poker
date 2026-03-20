@@ -867,10 +867,19 @@ const COMMISSIONER_REPORTS = [
   "The league as a whole is evolving—better aggression, sharper reads, more pressure—but the same fundamental truth remains: someone’s getting paid… and most of you are funding it."
 ];
 
-function getRotatingCommissionerReport() {
-  const rotationWindowMs = 90 * 1000; // rotate every 90 seconds
-  const reportIndex = Math.floor(Date.now() / rotationWindowMs) % COMMISSIONER_REPORTS.length;
-  return COMMISSIONER_REPORTS[reportIndex];
+function getRandomCommissionerReport(previousIndex = -1) {
+  if (!COMMISSIONER_REPORTS.length) return "";
+
+  let newIndex;
+
+  do {
+    newIndex = Math.floor(Math.random() * COMMISSIONER_REPORTS.length);
+  } while (newIndex === previousIndex && COMMISSIONER_REPORTS.length > 1);
+
+  return {
+    text: COMMISSIONER_REPORTS[newIndex],
+    index: newIndex
+  };
 }
 
 function buildEventGuideCard() {
@@ -1986,28 +1995,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!reportEl) return;
 
+      let currentIndex = -1;
+
       function renderNewReport() {
-        const report = getRotatingCommissionerReport();
+        const result = getRandomCommissionerReport(currentIndex);
+        currentIndex = result.index;
 
         // Fade OUT
         reportEl.classList.add("is-fading");
 
         setTimeout(() => {
-          // Clear + reset typing state
           reportEl.textContent = "";
           reportEl.classList.remove("is-typing-done");
-
-          // Fade IN
           reportEl.classList.remove("is-fading");
 
-          // Start typing
-          typeTextIntoElement(reportEl, report, 10);
+          typeTextIntoElement(reportEl, result.text, 10);
 
-        }, 450); // must match CSS transition
+        }, 450); // match CSS timing
       }
 
-      // Initial render (no fade on first load)
-      typeTextIntoElement(reportEl, getRotatingCommissionerReport(), 10);
+      // Initial load (random, no fade)
+      const initial = getRandomCommissionerReport();
+      currentIndex = initial.index;
+      typeTextIntoElement(reportEl, initial.text, 10);
 
       // Rotate every 90 seconds
       setInterval(renderNewReport, 90 * 1000);
