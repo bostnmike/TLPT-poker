@@ -1092,10 +1092,14 @@ function buildFeaturedPlayerCard(player, data) {
         <div class="featured-player-meta">
           <h3>${displayPlayerNamePlain(player)}</h3>
           <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
-          <div class="featured-player-archetype">${primaryArchetype.emoji} ${primaryArchetype.name}</div>
+          <div class="featured-player-archetype">
+            <strong>Primary:</strong> ${primaryArchetype.emoji} ${primaryArchetype.name}
           </div>
-      </div>
-
+          <div class="featured-player-archetype featured-player-archetype-secondary">
+            <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
+          </div>
+        </div>
+        
       <p class="featured-player-quote">${quote}</p>
 
       <div class="featured-player-stats">
