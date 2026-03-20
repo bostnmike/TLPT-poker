@@ -3389,6 +3389,15 @@ th{
     flex:none;
   }
   
+    .archetype-filter-row{
+    gap:8px;
+  }
+
+  .archetype-filter-pill{
+    width:100%;
+    justify-content:space-between;
+  }
+  
 }
 
 @media (max-width:640px){
