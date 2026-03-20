@@ -1358,6 +1358,36 @@ a:hover{
   color:rgba(255,255,255,.68);
 }
 
+.commissioner-typing-target{
+  display:block;
+  min-height:5.6em;
+  position:relative;
+}
+
+.commissioner-typing-target::after{
+  content:"";
+  display:inline-block;
+  width:2px;
+  height:1em;
+  margin-left:4px;
+  vertical-align:-0.12em;
+  background:rgba(255,255,255,.65);
+  animation:commissionerCaretBlink .8s steps(1, end) infinite;
+}
+
+.commissioner-typing-target.is-typing-done::after{
+  display:none;
+}
+
+@keyframes commissionerCaretBlink{
+  0%, 50%{
+    opacity:1;
+  }
+  50.01%, 100%{
+    opacity:0;
+  }
+}
+
 .home-event-hero{
   border:1px solid rgba(255,184,28,.35);
   background:linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.02));
