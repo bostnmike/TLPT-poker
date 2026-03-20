@@ -1983,9 +1983,34 @@ document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
       const reportEl = document.getElementById("commissioner-report-text");
-      if (reportEl) {
-        typeTextIntoElement(reportEl, getRotatingCommissionerReport(), 14);
+
+      if (!reportEl) return;
+
+      function renderNewReport() {
+        const report = getRotatingCommissionerReport();
+
+        // Fade OUT
+        reportEl.classList.add("is-fading");
+
+        setTimeout(() => {
+          // Clear + reset typing state
+          reportEl.textContent = "";
+          reportEl.classList.remove("is-typing-done");
+
+          // Fade IN
+          reportEl.classList.remove("is-fading");
+
+          // Start typing
+          typeTextIntoElement(reportEl, report, 10);
+
+        }, 350); // must match CSS transition
       }
+
+      // Initial render (no fade on first load)
+      typeTextIntoElement(reportEl, getRotatingCommissionerReport(), 10);
+
+      // Rotate every 90 seconds
+      setInterval(renderNewReport, 90 * 1000);
     })
     .catch(error => {
       console.error("TLPT site load failed:", error);
