@@ -2016,7 +2016,17 @@ th{
   min-height:220px;
   text-align:center;
   padding:18px;
-  border:2px solid rgba(255,255,255,.85);
+
+  border:1px solid rgba(30,34,40,.85); /* charcoal edge */
+  background:
+    linear-gradient(180deg, rgba(18,22,28,.92), rgba(12,15,20,.95)),
+    url('/assets/poker-felt.png');
+  background-size:cover;
+  background-blend-mode:overlay;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,184,28,.04), /* faint gold inner edge */
+    0 10px 26px rgba(0,0,0,.28);
 }
 
 .dashboard-rank-medal{
@@ -2030,7 +2040,7 @@ th{
 
 .dashboard-rank-gold{
   border-color:#d4af37 !important;
-  transform:translateY(-12px);
+  transform:translateY(-12px) scale(1.02);
   box-shadow:
     0 0 0 1px rgba(212,175,55,.45),
     0 14px 40px rgba(0,0,0,.35),
@@ -2039,7 +2049,7 @@ th{
 
 .dashboard-rank-silver{
   border-color:#c0c0c0 !important;
-  transform:translateY(-6px);
+  transform:translateY(-6px) scale(1.01);
   box-shadow:
     0 0 0 1px rgba(192,192,192,.35),
     0 12px 34px rgba(0,0,0,.28),
@@ -2048,7 +2058,7 @@ th{
 
 .dashboard-rank-bronze{
   border-color:#cd7f32 !important;
-  transform:translateY(-3px);
+  transform:translateY(-3px) scale(1.005);
   box-shadow:
     0 0 0 1px rgba(205,127,50,.35),
     0 10px 30px rgba(0,0,0,.25),
@@ -2057,6 +2067,12 @@ th{
 
 .dashboard-card:hover{
   transform:translateY(-2px);
+
+  border-color:rgba(255,184,28,.28); /* faint gold highlight */
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,184,28,.08),
+    0 14px 34px rgba(0,0,0,.32);
 }
 
 .dashboard-rank-gold:hover{
