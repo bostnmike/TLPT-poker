@@ -2652,6 +2652,20 @@ th{
   line-height:1.45;
 }
 
+.player-archetype-line,
+.player-tier-line{
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.player-archetype-line:hover,
+.player-tier-line:hover{
+  transform:translateY(-1px);
+}
+
 .player-archetype-line{
   color:#dce8ff;
   border-color:rgba(93,156,255,.30);
