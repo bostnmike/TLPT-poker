@@ -2048,29 +2048,6 @@ function initCrewViewToggle() {
   });
 }
 
-function initCrewViewToggle() {
-  const tierBtn = document.getElementById("crew-view-tier");
-  const archetypeBtn = document.getElementById("crew-view-archetype");
-
-  if (!tierBtn || !archetypeBtn) return;
-
-  tierBtn.addEventListener("click", () => {
-    currentCrewView = "tier";
-    currentArchetypeFilter = "all";
-    tierBtn.classList.add("active");
-    archetypeBtn.classList.remove("active");
-    renderPlayers(window.siteData);
-  });
-
-  archetypeBtn.addEventListener("click", () => {
-    currentCrewView = "archetype";
-    currentArchetypeFilter = "all";
-    archetypeBtn.classList.add("active");
-    tierBtn.classList.remove("active");
-    renderPlayers(window.siteData);
-  });
-}
-
 function initSorting() {
   document.querySelectorAll(`[data-sort-scope="standings"] [data-sort], [data-standings-sort]`).forEach(btn => {
     btn.addEventListener("click", () => renderStandings(btn.dataset.sort || btn.dataset.standingsSort || DEFAULT_STANDINGS_SORT));
