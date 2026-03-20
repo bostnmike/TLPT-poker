@@ -1433,9 +1433,45 @@ function tierDistributionMarkup(groups) {
 
 function renderPlayers(data) {
   const grid = document.getElementById("players-grid");
+  const visual = document.getElementById("players-visual");
+  const helpCopy = document.getElementById("players-help-copy");
+  const explainer = document.getElementById("players-explainer");
+
   if (!grid || !data?.players) return;
 
-  const allPlayers = [...data.players].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  const eligiblePlayers = [...data.players]
+    .filter(player => Number(player?.entries ?? 0) >= 5)
+    .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+
+  if (currentCrewView === "archetype") {
+    const archetypeGroups = groupPlayersByArchetype(eligiblePlayers);
+    const filteredGroups = currentArchetypeFilter === "all"
+      ? archetypeGroups
+      : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
+
+    if (helpCopy) {
+      helpCopy.textContent = "The Crew is now grouped by archetype. Click an archetype above to filter the player grid and isolate the league’s styles.";
+    }
+
+    if (explainer) {
+      explainer.textContent = "Archetypes reflect how each player actually plays: pressure, survival, luck, bubbles, volatility, and closing ability all shape the grouping.";
+    }
+
+    if (visual) {
+      visual.innerHTML = archetypeFilterMarkup(archetypeGroups, currentArchetypeFilter);
+    }
+
+    grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
+
+    document.querySelectorAll("[data-archetype-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        currentArchetypeFilter = button.dataset.archetypeFilter || "all";
+        renderPlayers(data);
+      });
+    });
+
+    return;
+  }
 
   const apexPredators = [];
   const tableCrushers = [];
@@ -1443,8 +1479,8 @@ function renderPlayers(data) {
   const gamblers = [];
   const leagueSponsors = [];
 
-  allPlayers.forEach(player => {
-    const tier = getPlayerTier(player, allPlayers);
+  eligiblePlayers.forEach(player => {
+    const tier = getPlayerTier(player, eligiblePlayers);
 
     if (tier.name === "The Apex Predator") {
       apexPredators.push(player);
@@ -1466,38 +1502,48 @@ function renderPlayers(data) {
   shotMakers.sort(tierSort);
   gamblers.sort(tierSort);
   leagueSponsors.sort(tierSort);
-  
-const tierAveragePower = group =>
-  group.length
-    ? group.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) / group.length
-    : 0;
 
-const maxTierPower = Math.max(
-  tierAveragePower(apexPredators),
-  tierAveragePower(tableCrushers),
-  tierAveragePower(shotMakers),
-  tierAveragePower(gamblers),
-  tierAveragePower(leagueSponsors),
-  1
-);
+  const tierAveragePower = group =>
+    group.length
+      ? group.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) / group.length
+      : 0;
 
-const tierGroups = [
-  { title: "The Apex Predators", emoji: "🦈", players: apexPredators, className: "apex-predators" },
-  { title: "The Table Crushers", emoji: "⚔️", players: tableCrushers, className: "table-crushers" },
-  { title: "The Shot Makers", emoji: "☄️", players: shotMakers, className: "shot-makers" },
-  { title: "The Gamblers", emoji: "🎲", players: gamblers, className: "gamblers" },
-  { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
-];
-  
-grid.innerHTML = `
-  ${tierDistributionMarkup(tierGroups)}
+  const maxTierPower = Math.max(
+    tierAveragePower(apexPredators),
+    tierAveragePower(tableCrushers),
+    tierAveragePower(shotMakers),
+    tierAveragePower(gamblers),
+    tierAveragePower(leagueSponsors),
+    1
+  );
 
-  ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
-  ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
-  ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
-  ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data, maxTierPower)}
-  ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data, maxTierPower)}
-`;
+  const tierGroups = [
+    { title: "The Apex Predators", emoji: "🦈", players: apexPredators, className: "apex-predators" },
+    { title: "The Table Crushers", emoji: "⚔️", players: tableCrushers, className: "table-crushers" },
+    { title: "The Shot Makers", emoji: "☄️", players: shotMakers, className: "shot-makers" },
+    { title: "The Gamblers", emoji: "🎲", players: gamblers, className: "gamblers" },
+    { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
+  ];
+
+  if (helpCopy) {
+    helpCopy.textContent = "The Crew is grouped by league tier. Mouse over a player for a quick view of key stats, or click a player’s name for a super deep dive.";
+  }
+
+  if (explainer) {
+    explainer.textContent = "Tier placement reflects long-term performance using true skill, pressure play, survival ability, aggression, tilt resistance, and sample size.";
+  }
+
+  if (visual) {
+    visual.innerHTML = tierDistributionMarkup(tierGroups);
+  }
+
+  grid.innerHTML = `
+    ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
+    ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
+    ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
+    ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data, maxTierPower)}
+    ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data, maxTierPower)}
+  `;
 }
 
 function renderPlayerProfile(data) {
@@ -1976,6 +2022,29 @@ function setActiveSortButton(scope, sortKey) {
   document.querySelectorAll(`[data-sort-scope="${scope}"] [data-sort], [data-${scope}-sort]`).forEach(btn => {
     const key = btn.dataset.sort || btn.dataset[`${scope}Sort`];
     btn.classList.toggle("active", key === sortKey);
+  });
+}
+
+function initCrewViewToggle() {
+  const tierBtn = document.getElementById("crew-view-tier");
+  const archetypeBtn = document.getElementById("crew-view-archetype");
+
+  if (!tierBtn || !archetypeBtn) return;
+
+  tierBtn.addEventListener("click", () => {
+    currentCrewView = "tier";
+    currentArchetypeFilter = "all";
+    tierBtn.classList.add("active");
+    archetypeBtn.classList.remove("active");
+    renderPlayers(window.siteData);
+  });
+
+  archetypeBtn.addEventListener("click", () => {
+    currentCrewView = "archetype";
+    currentArchetypeFilter = "all";
+    archetypeBtn.classList.add("active");
+    tierBtn.classList.remove("active");
+    renderPlayers(window.siteData);
   });
 }
 
