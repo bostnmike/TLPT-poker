@@ -1363,7 +1363,7 @@ a:hover{
   min-height:5.6em;
   position:relative;
   opacity:1;
-  transition:opacity .35s ease;
+  transition:opacity .45s ease;
 }
 
 .commissioner-typing-target.is-fading{
