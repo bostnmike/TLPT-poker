@@ -868,7 +868,7 @@ const COMMISSIONER_REPORTS = [
 ];
 
 function getRotatingCommissionerReport() {
-  const rotationWindowMs = 12 * 60 * 60 * 1000; // rotate every 12 hours
+  const rotationWindowMs = 90 * 1000; // rotate every 90 seconds
   const reportIndex = Math.floor(Date.now() / rotationWindowMs) % COMMISSIONER_REPORTS.length;
   return COMMISSIONER_REPORTS[reportIndex];
 }
