@@ -1514,6 +1514,7 @@ a:hover{
   align-items:center;
   justify-content:flex-start;
   width:100%;
+  gap:10px;
 }
 
 .event-rsvp-avatar-row{
@@ -1641,6 +1642,45 @@ a:hover{
   font-size:3rem;
   line-height:1;
   opacity:.78;
+}
+
+.event-rsvp-summary{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:2px;
+  padding:4px 10px 0;
+  text-align:center;
+
+  color:var(--gold);
+  font-size:1.02rem;
+  font-weight:900;
+  line-height:1.35;
+  letter-spacing:.02em;
+
+  text-shadow:
+    0 0 8px rgba(255,184,28,.18),
+    0 0 16px rgba(255,184,28,.10);
+}
+
+.event-rsvp-summary-item{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  color:var(--gold);
+}
+
+.event-rsvp-summary-item strong{
+  color:#ffe29a;
+  font-weight:900;
+}
+
+.event-rsvp-summary-sep{
+  color:rgba(255,184,28,.72);
+  font-weight:800;
 }
 
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
@@ -3573,6 +3613,11 @@ th{
   .archetype-mode-btn{
     width:100%;
     justify-content:center;
+  }
+
+  .event-rsvp-summary{
+    gap:8px;
+    font-size:.95rem;
   }
   
 }
