@@ -844,6 +844,35 @@ function buildTickerLeader(icon, label, player) {
   `;
 }
 
+const COMMISSIONER_REPORTS = [
+  "Li-Fo continues to run the cleanest operation in the league—top profit, elite cash rate, and a hit rate that suggests he’s seeing everyone’s cards. Meanwhile BostnMike is playing whack-a-mole with the field—racking up knockouts at a historic pace, but still managing to bubble like it’s part of the brand.",
+  "NASA Al has entered the chat and immediately started breaking spreadsheets—massive ROI, elite efficiency—but the sample size is still under review. If this pace holds, we’re either witnessing dominance… or the greatest heater since online poker had usernames.",
+  "Ahmed is playing like every pot owes him money—sky-high aggression, strong returns, and just enough chaos to keep it interesting. The upside is real, but so is the risk of lighting chips on fire just to prove a point.",
+  "Hiro continues to be the league’s most committed investor—heavy rebuy volume, solid engagement, and returns that currently resemble a long-term growth stock. The math checks out… the timing, not always.",
+  "A.I. Dave is quietly building one of the most balanced profiles in the league—high hit rate, low tilt, steady results—but hasn’t quite turned the corner into true profit territory. He’s playing well… just not getting paid enough for it yet.",
+  "Cougar might be the most under-the-radar problem in the league—positive returns, zero bubbles, and a tilt index that suggests he actually enjoys this. No drama, no blowups… just quietly stacking chips while everyone else self-destructs.",
+  "ProvidenceMike is running one of the more confusing stat lines—decent survival, solid instincts, but results that don’t match the effort. It’s like watching a good movie with a terrible ending… repeatedly.",
+  "Chris O brings maximum action every night—high aggression, strong hit rate, and a willingness to rebuy like it’s part of the strategy. The results are solid, but the emotional swings might need their own stat category.",
+  "Red is playing aggressive, productive poker—high hit rate, strong pressure—but somehow hovering around break-even. It’s the statistical equivalent of doing everything right and still splitting the pot.",
+  "Vish is fully committed to the gamble—high rebuy rate, aggressive play—but the results suggest the house might currently have the edge. Entertaining? Absolutely. Profitable? Not yet.",
+  "Jeff T is grinding through a tough stretch—low hit rate, negative returns—but still showing up and firing. The effort is there, the results are pending, and the variance is doing absolutely no favors.",
+  "Nitro continues to live up to the name—fast starts, explosive finishes… usually in the wrong direction. Low cash rate, high bubble rate, and a luck index that suggests the deck has a personal issue.",
+  "Wild Bill is playing a steady, controlled game—moderate aggression, decent fundamentals—but the returns haven’t followed yet. It’s solid poker that just hasn’t been rewarded.",
+  "Vic is having a brutal run—high bubble rate, zero cashes—but still finding ways to stay aggressive. It’s the kind of stretch where every decision feels right… until the river.",
+  "The Architect is quietly one of the more efficient players—strong hit rate, solid placements—but hasn’t fully converted it into profit yet. The blueprint is there… the results are still under construction.",
+  "Across the league, aggression is trending up—but so is the gap between good aggression and “what was that?” Some players are applying pressure… others are applying donations.",
+  "The middle tier is tightening fast—solid survival numbers, improving decision-making—but still struggling to break through. It’s competitive… just not profitable yet.",
+  "Bubble dynamics continue to define the league—some players are learning to navigate it, others are collecting appearances like it’s a frequent flyer program.",
+  "Clutch performance is becoming the separator—late-stage execution is where the money is made, and where most of it is currently being left on the table.",
+  "The league as a whole is evolving—better aggression, sharper reads, more pressure—but the same fundamental truth remains: someone’s getting paid… and most of you are funding it."
+];
+
+function getRotatingCommissionerReport() {
+  const rotationWindowMs = 12 * 60 * 60 * 1000; // rotate every 12 hours
+  const reportIndex = Math.floor(Date.now() / rotationWindowMs) % COMMISSIONER_REPORTS.length;
+  return COMMISSIONER_REPORTS[reportIndex];
+}
+
 function buildEventGuideCard() {
   return `
     <div class="event-card home-guide-card">
@@ -902,13 +931,7 @@ function renderHomePage(data) {
         <div class="event-commissioner-inline-title">
           <span class="report-icon">🎤</span> Commissioner's Report
         </div>
-        <p>
-          The TLPT is still a shark tank, and the Apex Predators are feeding.
-          The middle tiers are getting scrappier, which is great — someone has
-          to donate with confidence. And as always, Bubble Watch remains the
-          league’s most populated neighborhood, where hope is high and chip
-          stacks are… not.
-        </p>
+        <p id="commissioner-report-text" class="commissioner-typing-target"></p>
       </div>
     </div>
   `).join("");
@@ -1865,6 +1888,28 @@ window.renderPlayers = renderPlayers;
 window.renderPlayerProfile = renderPlayerProfile;
 window.showFormat = showFormat;
 
+function typeTextIntoElement(element, text, speed = 18) {
+  if (!element) return;
+
+  element.textContent = "";
+  element.classList.remove("is-typing-done");
+
+  let index = 0;
+
+  function tick() {
+    element.textContent = text.slice(0, index);
+    index += 1;
+
+    if (index <= text.length) {
+      window.setTimeout(tick, speed);
+    } else {
+      element.classList.add("is-typing-done");
+    }
+  }
+
+  tick();
+}
+
 function initEventRsvpNameHover() {
   document.addEventListener("mouseover", event => {
     const seat = event.target.closest(".event-rsvp-seat-player");
@@ -1935,7 +1980,14 @@ async function main() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  main().catch(error => {
-    console.error("TLPT site load failed:", error);
-  });
+  main()
+    .then(() => {
+      const reportEl = document.getElementById("commissioner-report-text");
+      if (reportEl) {
+        typeTextIntoElement(reportEl, getRotatingCommissionerReport(), 14);
+      }
+    })
+    .catch(error => {
+      console.error("TLPT site load failed:", error);
+    });
 });
