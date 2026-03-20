@@ -2639,19 +2639,23 @@ th{
 
 .player-profile-title-row{
   width:100%;
-  display:grid;
-  grid-template-columns:minmax(0, auto) minmax(0, 1fr);
+  display:flex;
+  align-items:baseline;
   gap:18px;
-  align-items:start;
   margin:0 0 12px 0;
 }
 
+.player-profile-title-row h2{
+  flex:0 0 auto;
+}
+
 .player-profile-quote-inline{
-  justify-self:start;
+  flex:1 1 auto;
+  min-width:0;
   align-self:center;
-  max-width:100%;
   color:var(--gold);
   text-align:left;
+  margin:0;
 }
 
 .player-archetype-line,
