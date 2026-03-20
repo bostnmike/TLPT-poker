@@ -2076,19 +2076,19 @@ th{
 }
 
 .dashboard-rank-gold:hover{
-  transform:translateY(-14px);
+  transform:translateY(-14px) scale(1.02);
 }
 
 .dashboard-rank-silver:hover{
-  transform:translateY(-8px);
+  transform:translateY(-8px) scale(1.01);
 }
 
 .dashboard-rank-bronze:hover{
-  transform:translateY(-5px);
+  transform:translateY(-5px) scale(1.005);
 }
 
 .dashboard-rank-default{
-  border-color:rgba(255,255,255,.85) !important;
+  border-color:rgba(30,34,40,.85) !important;
 }
 
 .dashboard-card-top{
