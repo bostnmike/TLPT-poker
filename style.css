@@ -880,11 +880,6 @@ a:hover{
 
 .snapshot-card:hover{
   transform:translateY(-3px);
-  border-color:rgba(255,184,28,.45);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.20),
-    0 12px 30px rgba(0,0,0,.28),
-    0 0 20px rgba(255,184,28,.16);
 }
 
 .snapshot-value{
@@ -1060,6 +1055,56 @@ a:hover{
 .snapshot-red .snapshot-value,
 .snapshot-red .snapshot-label{
   color:#fca5a5;
+}
+
+/* Snapshot theme-specific hover borders */
+
+.snapshot-purple:hover{
+  border-color:rgba(132,56,206,.52);
+  box-shadow:
+    0 0 0 1px rgba(132,56,206,.20),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(132,56,206,.14);
+}
+
+.snapshot-silver:hover{
+  border-color:rgba(176,176,176,.48);
+  box-shadow:
+    0 0 0 1px rgba(176,176,176,.18),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(176,176,176,.12);
+}
+
+.snapshot-blue:hover{
+  border-color:rgba(37,99,235,.52);
+  box-shadow:
+    0 0 0 1px rgba(37,99,235,.20),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(37,99,235,.14);
+}
+
+.snapshot-yellow:hover{
+  border-color:rgba(202,138,4,.52);
+  box-shadow:
+    0 0 0 1px rgba(202,138,4,.20),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(202,138,4,.14);
+}
+
+.snapshot-green:hover{
+  border-color:rgba(22,163,74,.52);
+  box-shadow:
+    0 0 0 1px rgba(22,163,74,.20),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(22,163,74,.14);
+}
+
+.snapshot-red:hover{
+  border-color:rgba(220,38,38,.52);
+  box-shadow:
+    0 0 0 1px rgba(220,38,38,.20),
+    0 12px 30px rgba(0,0,0,.28),
+    0 0 20px rgba(220,38,38,.14);
 }
 
 .home-featured-player{
