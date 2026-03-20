@@ -7,6 +7,7 @@ async function loadSiteData() {
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
   let currentCrewView = "tier";
+  let currentArchetypeMode = "primary";
   let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
@@ -394,14 +395,8 @@ function displayPlayerNamePlain(player) {
   return name;
 }
 
-function getPlayerArchetype(player) {
-  if (!player) {
-    return {
-      emoji: "🧍",
-      name: "Unknown",
-      desc: "still figuring out which end of the deck is up."
-    };
-  }
+function getPlayerArchetypeScores(player) {
+  if (!player) return [];
 
   const aggression = Number(player?.aggressionIndex ?? 0);
   const clutch = Number(player?.clutchIndex ?? 0);
@@ -428,11 +423,12 @@ function getPlayerArchetype(player) {
       score: clutch * 1.25
     },
     {
+      key: "grinder",
       emoji: "⚙️",
       name: "The Grinder",
       desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
       score: survivor * 1.05 - tilt * 0.45 - aggression * 0.35
-    },    
+    },
     {
       key: "lucky",
       emoji: "😈",
@@ -463,14 +459,31 @@ function getPlayerArchetype(player) {
     }
   ];
 
-  archetypes.sort((a, b) => b.score - a.score);
-  const top = archetypes[0];
+  return archetypes.sort((a, b) => b.score - a.score);
+}
+
+function getPlayerArchetypes(player) {
+  const ranked = getPlayerArchetypeScores(player);
+
+  const primary = ranked[0] || {
+    key: "unknown",
+    emoji: "🧍",
+    name: "Unknown",
+    desc: "still figuring out which end of the deck is up.",
+    score: 0
+  };
+
+  const secondary = ranked[1] || primary;
 
   return {
-    emoji: top.emoji,
-    name: top.name,
-    desc: top.desc
+    primary,
+    secondary,
+    ranked
   };
+}
+
+function getPlayerArchetype(player) {
+  return getPlayerArchetypes(player).primary;
 }
 
 function getPlayerTierScore(player) {
@@ -1060,9 +1073,10 @@ function getFeaturedPlayer(data) {
 function buildFeaturedPlayerCard(player, data) {
   if (!player) return "";
 
-  const archetype = getPlayerArchetype(player);
-  const tier = getPlayerTier(player, data?.players || []);
-  const quote = ensureQuoted(player?.notes || "");
+  const archetypes = getPlayerArchetypes(player);
+  const primaryArchetype = archetypes.primary;
+  const secondaryArchetype = archetypes.secondary;
+  const tier = getPlayerTier(player, players);
   const badges = badgeList(player, data).slice(0, 3);
 
   return `
@@ -1320,24 +1334,25 @@ function archetypeMeta(name) {
   return map[name] || { emoji: "🧍", className: "archetype-unknown" };
 }
 
-function groupPlayersByArchetype(players) {
+function groupPlayersByArchetype(players, mode = "primary") {
   const groups = new Map();
 
   players.forEach(player => {
-    const archetype = getPlayerArchetype(player);
-    const meta = archetypeMeta(archetype.name);
+    const archetypes = getPlayerArchetypes(player);
+    const selected = mode === "secondary" ? archetypes.secondary : archetypes.primary;
+    const meta = archetypeMeta(selected.name);
 
-    if (!groups.has(archetype.name)) {
-      groups.set(archetype.name, {
-        title: archetype.name,
-        emoji: meta.emoji,
+    if (!groups.has(selected.name)) {
+      groups.set(selected.name, {
+        title: selected.name,
+        emoji: meta.emoji || selected.emoji,
         className: meta.className,
-        desc: archetype.desc,
+        desc: selected.desc,
         players: []
       });
     }
 
-    groups.get(archetype.name).players.push(player);
+    groups.get(selected.name).players.push(player);
   });
 
   return [...groups.values()]
@@ -1348,14 +1363,32 @@ function groupPlayersByArchetype(players) {
     .sort((a, b) => b.players.length - a.players.length || a.title.localeCompare(b.title));
 }
 
-function archetypeFilterMarkup(groups, activeFilter = "all") {
+function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
 
   return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
         <h3>Archetype Radar</h3>
-        <p class="muted">Click an archetype to filter the player grid.</p>
+        <p class="muted">Choose Primary or Secondary Archetype, then click an archetype to filter the player grid.</p>
+      </div>
+
+      <div class="archetype-mode-toggle">
+        <button
+          type="button"
+          class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
+          data-archetype-mode="primary"
+        >
+          🥇 Primary Archetype
+        </button>
+
+        <button
+          type="button"
+          class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
+          data-archetype-mode="secondary"
+        >
+          🥈 Secondary Archetype
+        </button>
       </div>
 
       <div class="archetype-filter-row">
@@ -1449,28 +1482,41 @@ function renderPlayers(data) {
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
 
   if (currentCrewView === "archetype") {
-    const archetypeGroups = groupPlayersByArchetype(eligiblePlayers);
+    const archetypeGroups = groupPlayersByArchetype(eligiblePlayers, currentArchetypeMode);
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
-
+    
     if (helpCopy) {
-      helpCopy.textContent = "The Crew is now grouped by archetype. Click an archetype above to filter the player grid and isolate the league’s styles.";
+      helpCopy.textContent = "The Crew can now be filtered by Primary or Secondary Archetype. Choose a mode, then click an archetype to isolate that player type.";
     }
 
     if (explainer) {
-      explainer.textContent = "Archetypes reflect how each player actually plays: pressure, survival, luck, bubbles, volatility, and closing ability all shape the grouping.";
+      explainer.textContent = currentArchetypeMode === "primary"
+        ? "Primary Archetype reflects the strongest stylistic signal in a player’s profile."
+        : "Secondary Archetype reflects the next-strongest stylistic signal — the backup flavor that still shows up in how they play.";
     }
-
+    
     if (visual) {
-      visual.innerHTML = archetypeFilterMarkup(archetypeGroups, currentArchetypeFilter);
-    }
-
+      visual.innerHTML = archetypeFilterMarkup(
+        archetypeGroups,
+        currentArchetypeFilter,
+        currentArchetypeMode
+      );
+      
     grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
       button.addEventListener("click", () => {
         currentArchetypeFilter = button.dataset.archetypeFilter || "all";
+        renderPlayers(data);
+      });
+    });
+
+    document.querySelectorAll("[data-archetype-mode]").forEach(button => {
+      button.addEventListener("click", () => {
+        currentArchetypeMode = button.dataset.archetypeMode || "primary";
+        currentArchetypeFilter = "all";
         renderPlayers(data);
       });
     });
@@ -1606,12 +1652,19 @@ function renderPlayerProfile(data) {
           <h2>${displayPlayerName(player)}</h2>
 
         <div class="player-archetype-line">
-          <span class="profile-line-label">Archetype:</span>
-          <span class="profile-line-emoji">${archetype.emoji}</span>
-          <span class="profile-line-name">${archetype.name}</span>
-          <span class="profile-line-desc">— ${archetype.desc}</span>
+          <span class="profile-line-label">Primary Archetype:</span>
+          <span class="profile-line-emoji">${primaryArchetype.emoji}</span>
+          <span class="profile-line-name">${primaryArchetype.name}</span>
+          <span class="profile-line-desc">— ${primaryArchetype.desc}</span>
         </div>
 
+        <div class="player-archetype-line secondary-archetype-line">
+          <span class="profile-line-label">Secondary Archetype:</span>
+          <span class="profile-line-emoji">${secondaryArchetype.emoji}</span>
+          <span class="profile-line-name">${secondaryArchetype.name}</span>
+          <span class="profile-line-desc">— ${secondaryArchetype.desc}</span>
+        </div>
+        
         <div class="player-tier-line">
           <span class="profile-line-label">Player Tier:</span>
           <span class="profile-line-emoji">${tier.emoji}</span>
@@ -2038,6 +2091,7 @@ function initCrewViewToggle() {
 
   tierBtn.addEventListener("click", () => {
     currentCrewView = "tier";
+    currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
     tierBtn.classList.add("active");
     archetypeBtn.classList.remove("active");
@@ -2046,6 +2100,7 @@ function initCrewViewToggle() {
 
   archetypeBtn.addEventListener("click", () => {
     currentCrewView = "archetype";
+    currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
     archetypeBtn.classList.add("active");
     tierBtn.classList.remove("active");
