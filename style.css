@@ -2420,6 +2420,129 @@ th{
   line-height:1.45;
 }
 
+.crew-view-toolbar{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:18px 0 18px;
+}
+
+#players-visual{
+  margin:0 0 22px 0;
+}
+
+.archetype-visual-card{
+  padding:16px 18px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--panel-3);
+  box-shadow:var(--shadow);
+}
+
+.archetype-visual-head h3{
+  margin:0 0 6px 0;
+  color:#fff;
+  font-size:1.15rem;
+  line-height:1.2;
+}
+
+.archetype-visual-head p{
+  margin:0 0 14px 0;
+}
+
+.archetype-filter-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.archetype-filter-pill{
+  appearance:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,184,28,.24);
+  background:rgba(255,255,255,.03);
+  color:#fff;
+  font-weight:800;
+  font-size:.84rem;
+  line-height:1;
+  cursor:pointer;
+  transition:transform .16s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.archetype-filter-pill span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:24px;
+  height:24px;
+  padding:0 8px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:var(--gold);
+  font-size:.78rem;
+}
+
+.archetype-filter-pill:hover{
+  transform:translateY(-1px);
+  border-color:rgba(255,184,28,.45);
+  background:rgba(255,184,28,.08);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.16),
+    0 8px 20px rgba(0,0,0,.22);
+}
+
+.archetype-filter-pill.active{
+  color:#111;
+  background:linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
+  border-color:var(--gold);
+  box-shadow:0 8px 18px rgba(0,0,0,.24), 0 0 0 1px rgba(255,184,28,.20);
+}
+
+.archetype-filter-pill.active span{
+  background:rgba(17,22,30,.14);
+  color:#111;
+}
+
+.archetype-section-copy{
+  margin:0 0 2px 0;
+  color:var(--muted);
+  line-height:1.45;
+}
+
+.archetype-hitman .tier-section-head h3{ color:#ff8a80; }
+.archetype-closer .tier-section-head h3{ color:#ffd56c; }
+.archetype-grinder .tier-section-head h3{ color:#b9fbc0; }
+.archetype-lucky-devil .tier-section-head h3{ color:#c4b5fd; }
+.archetype-wildcard .tier-section-head h3{ color:#ffb86b; }
+.archetype-bubble-magnet .tier-section-head h3{ color:#8bd3ff; }
+.archetype-technician .tier-section-head h3{ color:#9be7ff; }
+
+.archetype-hitman .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(255,138,128,.85), rgba(255,138,128,.14));
+}
+.archetype-closer .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(255,213,108,.85), rgba(255,213,108,.14));
+}
+.archetype-grinder .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(185,251,192,.85), rgba(185,251,192,.14));
+}
+.archetype-lucky-devil .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(196,181,253,.85), rgba(196,181,253,.14));
+}
+.archetype-wildcard .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(255,184,107,.85), rgba(255,184,107,.14));
+}
+.archetype-bubble-magnet .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(139,211,255,.85), rgba(139,211,255,.14));
+}
+.archetype-technician .tier-section-head::after{
+  background:linear-gradient(90deg, rgba(155,231,255,.85), rgba(155,231,255,.14));
+}
+
 @media (min-width:800px){
   #players-grid .crew-card .crew-card-stats{
     max-height:0;
