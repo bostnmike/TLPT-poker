@@ -33,10 +33,18 @@
         <h2>Meet the Crew</h2>
       </div>
 
-      <p class="crew-help-copy">The Crew is grouped by league tier. Mouse over a player for a quick view of key stats, or click a player’s name for a super deep dive.</p>
-      <p class="muted tier-explainer">
+      <p id="players-help-copy" class="crew-help-copy">The Crew is grouped by league tier. Mouse over a player for a quick view of key stats, or click a player’s name for a super deep dive.</p>
+
+      <p id="players-explainer" class="muted tier-explainer">
         Tier placement reflects long-term performance using true skill, pressure play, survival ability, aggression, tilt resistance, and sample size.
       </p>
+
+      <div class="crew-view-toolbar" data-sort-scope="crew-view">
+        <button id="crew-view-tier" class="btn active" type="button">🏆 Tier View</button>
+        <button id="crew-view-archetype" class="btn" type="button">🧠 Archetype View</button>
+      </div>
+
+      <div id="players-visual"></div>
       <div id="players-grid"></div>
     </section>
   </main>
