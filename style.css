@@ -1651,26 +1651,74 @@ a:hover{
   justify-content:center;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:2px;
-  padding:4px 10px 0;
-  text-align:center;
+  margin-top:6px;
+  padding:8px 10px;
 
-  color:var(--gold);
-  font-size:1.02rem;
-  font-weight:900;
-  line-height:1.35;
-  letter-spacing:.02em;
+  border-radius:999px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.08);
 
-  text-shadow:
-    0 0 8px rgba(255,184,28,.18),
-    0 0 16px rgba(255,184,28,.10);
+  box-shadow:
+    inset 0 0 12px rgba(0,0,0,.4),
+    0 6px 18px rgba(0,0,0,.25);
 }
 
-.event-rsvp-summary-item{
+.event-rsvp-pill{
   display:inline-flex;
   align-items:center;
-  gap:4px;
-  color:var(--gold);
+  gap:6px;
+
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.95rem;
+  font-weight:900;
+
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.12);
+
+  transition:.2s ease;
+}
+
+.event-rsvp-pill strong{
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+/* YES - GREEN */
+.event-rsvp-pill.yes{
+  color:#7ef29a;
+  border-color:rgba(80,220,140,.45);
+  background:linear-gradient(135deg, rgba(40,120,70,.35), rgba(10,20,15,.9));
+  box-shadow:0 0 10px rgba(80,220,140,.15);
+}
+
+/* NO - RED */
+.event-rsvp-pill.no{
+  color:#ff8a8a;
+  border-color:rgba(255,100,100,.45);
+  background:linear-gradient(135deg, rgba(120,40,40,.35), rgba(20,10,10,.9));
+  box-shadow:0 0 10px rgba(255,100,100,.15);
+}
+
+/* MAYBE - YELLOW */
+.event-rsvp-pill.maybe{
+  color:#ffe27a;
+  border-color:rgba(255,200,80,.45);
+  background:linear-gradient(135deg, rgba(120,95,30,.35), rgba(20,18,10,.9));
+  box-shadow:0 0 10px rgba(255,200,80,.15);
+}
+
+/* TBD - PURPLE */
+.event-rsvp-pill.tbd{
+  color:#cfa8ff;
+  border-color:rgba(160,120,255,.45);
+  background:linear-gradient(135deg, rgba(70,50,120,.35), rgba(15,10,20,.9));
+  box-shadow:0 0 10px rgba(160,120,255,.15);
+}
+
+.event-rsvp-pill:hover{
+  transform:translateY(-1px);
+  box-shadow:0 6px 14px rgba(0,0,0,.35);
 }
 
 .event-rsvp-summary-item strong{
