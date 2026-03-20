@@ -2622,7 +2622,7 @@ th{
 }
 
 .profile-hero-copy h2{
-  margin:0 0 12px 0;
+  margin:0;
   font-size:2.5rem;
   line-height:1.05;
   color:#fff;
@@ -2634,7 +2634,24 @@ th{
   font-weight:700;
   font-size:1.25rem;
   line-height:1.5;
-  margin:8px 0 10px;
+  margin:0;
+}
+
+.player-profile-title-row{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0, auto) minmax(0, 1fr);
+  gap:18px;
+  align-items:start;
+  margin:0 0 12px 0;
+}
+
+.player-profile-quote-inline{
+  justify-self:start;
+  align-self:center;
+  max-width:100%;
+  color:var(--gold);
+  text-align:left;
 }
 
 .player-archetype-line,
@@ -3434,6 +3451,15 @@ th{
     white-space:normal;
   }
 }
+
+  .player-profile-title-row{
+    grid-template-columns:1fr;
+    gap:8px;
+  }
+
+  .player-profile-quote-inline{
+    justify-self:start;
+  }
 
 @media (max-width:980px){
   .home-events-grid,
