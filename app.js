@@ -6,9 +6,9 @@ async function loadSiteData() {
 
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
-  let currentCrewView = "tier";
-  let currentArchetypeMode = "primary";
-  let currentArchetypeFilter = "all";
+let currentCrewView = "tier";
+let currentArchetypeMode = "primary";
+let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
   totalCost: "Total Cost: Buy-ins + Rebuys Cost",
@@ -1076,9 +1076,10 @@ function buildFeaturedPlayerCard(player, data) {
   const archetypes = getPlayerArchetypes(player);
   const primaryArchetype = archetypes.primary;
   const secondaryArchetype = archetypes.secondary;
-  const tier = getPlayerTier(player, players);
+  const tier = getPlayerTier(player, data?.players || []);
   const badges = badgeList(player, data).slice(0, 3);
-
+  const quote = ensureQuoted(player?.notes || "");
+  
   return `
     <a class="featured-player-card" href="${playerUrl(player)}">
       <div class="featured-player-kicker">🌟 Featured Player</div>
@@ -1091,8 +1092,8 @@ function buildFeaturedPlayerCard(player, data) {
         <div class="featured-player-meta">
           <h3>${displayPlayerNamePlain(player)}</h3>
           <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
-          <div class="featured-player-archetype">${archetype.emoji} ${archetype.name}</div>
-        </div>
+          <div class="featured-player-archetype">${primaryArchetype.emoji} ${primaryArchetype.name}</div>
+          </div>
       </div>
 
       <p class="featured-player-quote">${quote}</p>
@@ -1503,7 +1504,8 @@ function renderPlayers(data) {
         currentArchetypeFilter,
         currentArchetypeMode
       );
-      
+    }
+
     grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
@@ -1610,7 +1612,9 @@ function renderPlayerProfile(data) {
   const prev = players[(index - 1 + players.length) % players.length];
   const next = players[(index + 1) % players.length];
   const quote = ensureQuoted(player?.notes || "");
-  const archetype = getPlayerArchetype(player);
+  const archetypes = getPlayerArchetypes(player);
+  const primaryArchetype = archetypes.primary;
+  const secondaryArchetype = archetypes.secondary;
   const tier = getPlayerTier(player, players);
   
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
