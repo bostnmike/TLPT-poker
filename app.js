@@ -678,6 +678,8 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
   const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
 
+  const counts = getRsvpCounts(event);
+
   return `
     <div class="event-rsvp-block">
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
@@ -694,6 +696,16 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
         ${Array.from({ length: emptySeats }).map(() => `
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
         `).join("")}
+      </div>
+
+      <div class="event-rsvp-summary" aria-label="RSVP summary">
+        <span class="event-rsvp-summary-item"><strong>Yes =</strong> ${counts.yes}</span>
+        <span class="event-rsvp-summary-sep">|</span>
+        <span class="event-rsvp-summary-item"><strong>No =</strong> ${counts.no}</span>
+        <span class="event-rsvp-summary-sep">|</span>
+        <span class="event-rsvp-summary-item"><strong>Maybe =</strong> ${counts.maybe}</span>
+        <span class="event-rsvp-summary-sep">|</span>
+        <span class="event-rsvp-summary-item"><strong>TBD =</strong> ${counts.tbd}</span>
       </div>
     </div>
   `;
