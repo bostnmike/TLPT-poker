@@ -1338,7 +1338,7 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
 function archetypeMeta(name) {
   const map = {
     "The Hitman": { emoji: "💥", className: "archetype-hitman" },
-    "The Closer": { emoji: "🎯", className: "archetype-closer" },
+    "The Closer": { emoji: "🔒", className: "archetype-closer" },
     "The Grinder": { emoji: "⚙️", className: "archetype-grinder" },
     "The Lucky Devil": { emoji: "😈", className: "archetype-lucky-devil" },
     "The Wildcard": { emoji: "🔥", className: "archetype-wildcard" },
