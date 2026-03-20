@@ -121,7 +121,7 @@ const RECORD_RULES = {
 
 const ARCHETYPE_GUIDE = [
   { emoji: "💥", name: "The Hitman" },
-  { emoji: "🎯", name: "The Closer" },
+  { emoji: "🔒", name: "The Closer" },
   { emoji: "⚙️", name: "The Grinder" },
   { emoji: "😈", name: "The Lucky Devil" },
   { emoji: "🔥", name: "The Wildcard" },
@@ -417,7 +417,7 @@ function getPlayerArchetypeScores(player) {
     },
     {
       key: "closer",
-      emoji: "🎯",
+      emoji: "🔒",
       name: "The Closer",
       desc: "somehow always shows up when the chips matter",
       score: clutch * 1.25
