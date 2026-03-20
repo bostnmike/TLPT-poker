@@ -1353,9 +1353,9 @@ a:hover{
 
 .event-commissioner-inline p{
   margin:0;
-  line-height:1.6;
-  color:var(--gold);
-  text-shadow:0 0 6px rgba(255,215,100,.22);
+  line-height:1.7;
+  letter-spacing:.2px;
+  color:rgba(255,255,255,.68);
 }
 
 .home-event-hero{
