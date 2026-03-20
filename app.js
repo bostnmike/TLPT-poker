@@ -1396,8 +1396,8 @@ function archetypeSectionMarkup(group, data) {
       <p class="muted archetype-section-copy">${group.desc}</p>
 
       <div class="tier-grid">
-        ${group.players.map(player => crewCardMarkup(player, data)).join("")}
-      </div>
+        ${group.players.map(player => crewCardMarkup(player, data, group.players)).join("")}
+        </div>
     </div>
   `;
 }
@@ -1436,6 +1436,11 @@ function renderPlayers(data) {
   const visual = document.getElementById("players-visual");
   const helpCopy = document.getElementById("players-help-copy");
   const explainer = document.getElementById("players-explainer");
+  const tierBtn = document.getElementById("crew-view-tier");
+  const archetypeBtn = document.getElementById("crew-view-archetype");
+
+  if (tierBtn) tierBtn.classList.toggle("active", currentCrewView === "tier");
+  if (archetypeBtn) archetypeBtn.classList.toggle("active", currentCrewView === "archetype");
 
   if (!grid || !data?.players) return;
 
