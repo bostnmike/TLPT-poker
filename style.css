@@ -2068,7 +2068,7 @@ th{
 .dashboard-card:hover{
   transform:translateY(-2px);
 
-  border-color:rgba(255,184,28,.28); /* faint gold highlight */
+  border-color:rgba(255,184,28,.28);
 
   box-shadow:
     inset 0 0 0 1px rgba(255,184,28,.08),
