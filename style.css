@@ -1180,6 +1180,13 @@ a:hover{
   line-height:1.08;
 }
 
+.featured-player-meta{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
 .featured-player-tier,
 .featured-player-archetype{
   font-weight:700;
