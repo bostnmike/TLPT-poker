@@ -6,13 +6,15 @@ async function loadSiteData() {
 
 const DEFAULT_STANDINGS_SORT = "profit";
 const DEFAULT_DASHBOARD_SORT = "profit";
+  let currentCrewView = "tier";
+  let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
   totalCost: "Total Cost: Buy-ins + Rebuys Cost",
   totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
   profit: "Profit: Total Take − Total Cost",
   roi: "ROI: Profit ÷ Total Cost",
-  cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
+  cashRate: "Cash Rate: Timres Placed ÷ Buy-ins",
   bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
   hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
@@ -427,7 +429,7 @@ function getPlayerArchetype(player) {
     },
     {
       emoji: "⚙️",
-      name: "Grinder",
+      name: "The Grinder",
       desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
       score: survivor * 1.05 - tilt * 0.45 - aggression * 0.35
     },    
@@ -1304,6 +1306,102 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
   `;
 }
 
+function archetypeMeta(name) {
+  const map = {
+    "The Hitman": { emoji: "💥", className: "archetype-hitman" },
+    "The Closer": { emoji: "🎯", className: "archetype-closer" },
+    "The Grinder": { emoji: "⚙️", className: "archetype-grinder" },
+    "The Lucky Devil": { emoji: "😈", className: "archetype-lucky-devil" },
+    "The Wildcard": { emoji: "🔥", className: "archetype-wildcard" },
+    "The Bubble Magnet": { emoji: "🫧", className: "archetype-bubble-magnet" },
+    "The Technician": { emoji: "🧠", className: "archetype-technician" }
+  };
+
+  return map[name] || { emoji: "🧍", className: "archetype-unknown" };
+}
+
+function groupPlayersByArchetype(players) {
+  const groups = new Map();
+
+  players.forEach(player => {
+    const archetype = getPlayerArchetype(player);
+    const meta = archetypeMeta(archetype.name);
+
+    if (!groups.has(archetype.name)) {
+      groups.set(archetype.name, {
+        title: archetype.name,
+        emoji: meta.emoji,
+        className: meta.className,
+        desc: archetype.desc,
+        players: []
+      });
+    }
+
+    groups.get(archetype.name).players.push(player);
+  });
+
+  return [...groups.values()]
+    .map(group => ({
+      ...group,
+      players: group.players.sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
+    }))
+    .sort((a, b) => b.players.length - a.players.length || a.title.localeCompare(b.title));
+}
+
+function archetypeFilterMarkup(groups, activeFilter = "all") {
+  const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
+
+  return `
+    <div class="archetype-visual-card">
+      <div class="archetype-visual-head">
+        <h3>Archetype Radar</h3>
+        <p class="muted">Click an archetype to filter the player grid.</p>
+      </div>
+
+      <div class="archetype-filter-row">
+        <button
+          type="button"
+          class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
+          data-archetype-filter="all"
+        >
+          🌐 All Archetypes
+          <span>${totalPlayers}</span>
+        </button>
+
+        ${groups.map(group => `
+          <button
+            type="button"
+            class="archetype-filter-pill ${activeFilter === group.title ? "active" : ""} ${group.className}"
+            data-archetype-filter="${group.title}"
+          >
+            ${group.emoji} ${group.title}
+            <span>${group.players.length}</span>
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function archetypeSectionMarkup(group, data) {
+  if (!group.players.length) return "";
+
+  return `
+    <div class="tier-section archetype-section ${group.className}">
+      <div class="tier-section-head">
+        <h3>${group.emoji} ${group.title}</h3>
+        <div class="tier-header-stats">${group.players.length} player${group.players.length === 1 ? "" : "s"}</div>
+      </div>
+
+      <p class="muted archetype-section-copy">${group.desc}</p>
+
+      <div class="tier-grid">
+        ${group.players.map(player => crewCardMarkup(player, data)).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function tierDistributionMarkup(groups) {
   const maxCount = Math.max(...groups.map(group => group.players.length), 1);
 
@@ -1878,6 +1976,29 @@ function setActiveSortButton(scope, sortKey) {
   document.querySelectorAll(`[data-sort-scope="${scope}"] [data-sort], [data-${scope}-sort]`).forEach(btn => {
     const key = btn.dataset.sort || btn.dataset[`${scope}Sort`];
     btn.classList.toggle("active", key === sortKey);
+  });
+}
+
+function initCrewViewToggle() {
+  const tierBtn = document.getElementById("crew-view-tier");
+  const archetypeBtn = document.getElementById("crew-view-archetype");
+
+  if (!tierBtn || !archetypeBtn) return;
+
+  tierBtn.addEventListener("click", () => {
+    currentCrewView = "tier";
+    currentArchetypeFilter = "all";
+    tierBtn.classList.add("active");
+    archetypeBtn.classList.remove("active");
+    renderPlayers(window.siteData);
+  });
+
+  archetypeBtn.addEventListener("click", () => {
+    currentCrewView = "archetype";
+    currentArchetypeFilter = "all";
+    archetypeBtn.classList.add("active");
+    tierBtn.classList.remove("active");
+    renderPlayers(window.siteData);
   });
 }
 
