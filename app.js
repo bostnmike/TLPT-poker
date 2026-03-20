@@ -1079,7 +1079,7 @@ function buildFeaturedPlayerCard(player, data) {
   const tier = getPlayerTier(player, data?.players || []);
   const badges = badgeList(player, data).slice(0, 3);
   const quote = ensureQuoted(player?.notes || "");
-  
+
   return `
     <a class="featured-player-card" href="${playerUrl(player)}">
       <div class="featured-player-kicker">🌟 Featured Player</div>
@@ -1099,7 +1099,8 @@ function buildFeaturedPlayerCard(player, data) {
             <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
           </div>
         </div>
-        
+      </div>
+
       <p class="featured-player-quote">${quote}</p>
 
       <div class="featured-player-stats">
