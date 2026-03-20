@@ -2175,6 +2175,7 @@ async function main() {
   renderStatLeaders(data);
   initRulesPage();
   initSorting();
+  initCrewViewToggle();
   initEventRsvpNameHover();
 }
 
