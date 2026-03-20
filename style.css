@@ -2652,10 +2652,84 @@ th{
   line-height:1.45;
 }
 
+.player-archetype-line{
+  color:#dce8ff;
+  border-color:rgba(93,156,255,.30);
+  background:
+    linear-gradient(135deg, rgba(42,72,122,.28), rgba(17,22,30,.92));
+  box-shadow:
+    0 0 0 1px rgba(93,156,255,.10),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(93,156,255,.08);
+}
+
+.player-archetype-line .profile-line-label{
+  color:#9fc4ff;
+}
+
+.player-archetype-line .profile-line-emoji{
+  filter:drop-shadow(0 0 6px rgba(93,156,255,.22));
+}
+
+.player-archetype-line .profile-line-name{
+  color:#eef5ff;
+}
+
+.player-archetype-line .profile-line-desc{
+  color:#bfd2ea;
+}
+
 .secondary-archetype-line{
   color:#d8dadd;
-  border-color:rgba(158,176,195,.24);
-  background:rgba(255,255,255,.025);
+  border-color:rgba(158,176,195,.26);
+  background:
+    linear-gradient(135deg, rgba(73,83,96,.24), rgba(17,22,30,.90));
+  box-shadow:
+    0 0 0 1px rgba(158,176,195,.08),
+    0 10px 24px rgba(0,0,0,.16);
+}
+
+.secondary-archetype-line .profile-line-label{
+  color:#d6dee7;
+}
+
+.secondary-archetype-line .profile-line-emoji{
+  filter:drop-shadow(0 0 6px rgba(158,176,195,.18));
+}
+
+.secondary-archetype-line .profile-line-name{
+  color:#f2f5f8;
+}
+
+.secondary-archetype-line .profile-line-desc{
+  color:#b8c3cf;
+}
+
+.player-tier-line{
+  color:#fff4cf;
+  border-color:rgba(255,184,28,.36);
+  background:
+    linear-gradient(135deg, rgba(91,63,7,.30), rgba(17,22,30,.92));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(255,184,28,.10);
+}
+
+.player-tier-line .profile-line-label{
+  color:#ffd56c;
+}
+
+.player-tier-line .profile-line-emoji{
+  filter:drop-shadow(0 0 6px rgba(255,184,28,.24));
+}
+
+.player-tier-line .profile-line-name{
+  color:#fff7df;
+}
+
+.player-tier-line .profile-line-desc{
+  color:#e4d4a6;
 }
 
 .player-tier-line{
