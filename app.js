@@ -2003,7 +2003,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Start typing
           typeTextIntoElement(reportEl, report, 10);
 
-        }, 350); // must match CSS transition
+        }, 450); // must match CSS transition
       }
 
       // Initial render (no fade on first load)
