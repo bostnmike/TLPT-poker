@@ -231,6 +231,15 @@ a:hover{
   font-size:2rem;
 }
 
+.home-hero-copy{
+  color:var(--gold);
+  font-weight:700;
+  font-size:1.05rem;
+  text-shadow:
+    0 0 10px rgba(255,184,28,.25),
+    0 0 22px rgba(255,184,28,.12);
+}
+
 .hero-sub,
 .muted-copy,
 .muted{
