@@ -88,6 +88,8 @@ const NAME_FIXES = {
   "Nasa Al": "NASA Al",
   "Providencemike": "ProvidenceMike",
   "Bostnmike": "BostnMike",
+  "Ai-Dave": "A.I. Dave",
+  "A.I. Dave": "A.I. Dave",
   "ai-dave": "A.I. Dave",
   "Phattedcalf": "PhattedCalf",
   "Pittdburghbill": "PittsburghBill"
@@ -666,7 +668,7 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${confirmedPlayers.map(player => {
-          const displayName = NAME_FIXES[player.name] || player.name || "";
+          const displayName = displayPlayerNamePlain(player);
 
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
