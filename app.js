@@ -2212,6 +2212,29 @@ function buildRulesChipPanel(format, formatKey) {
   `;
 }
 
+function buildRulesTimerRail(format) {
+  const runtime = Number(format?.runtimeMinutes ?? 300);
+  const levelMinutes = 20;
+  const breakMinutes = 10;
+
+  const breaks = Array.isArray(format?.levels)
+    ? format.levels.filter(row => row.type === "break").length
+    : 0;
+
+  const playableLevels = Array.isArray(format?.levels)
+    ? format.levels.filter(row => row.type === "level").length
+    : 0;
+
+  return `
+    <div class="timer-rail">
+      <div class="timer-pill"><strong>Levels:</strong> ${playableLevels}</div>
+      <div class="timer-pill"><strong>Level Length:</strong> ${levelMinutes} min</div>
+      <div class="timer-pill"><strong>Breaks:</strong> ${breaks} × ${breakMinutes} min</div>
+      <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtime} min</div>
+    </div>
+  `;
+}
+
 function buildRulesBlindTable(format) {
   let rowIndex = 0;
   const rows = format.levels.map(row => {
