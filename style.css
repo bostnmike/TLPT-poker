@@ -1216,7 +1216,6 @@ a:hover{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  width:max-content;
   padding:6px 10px;
   border-radius:10px;
   border:1px solid rgba(255,184,28,.26);
@@ -2037,7 +2036,7 @@ td{
 
 #standings-table tbody tr:nth-child(n+4):hover{
   background:
-    linear-gradient(90deg, rgba(255,184,28,.11), rgba(255,184,28,.03) 40%, transparent 100%);
+    linear-gradient(90deg, rgba(255,184,28,.09), rgba(255,184,28,.025) 40%, transparent 100%);
 }
 
 #standings-table tbody tr:nth-child(1):hover{
@@ -3025,10 +3024,10 @@ td{
 
 .archetype-filter-pill:hover{
   transform:translateY(-1px);
-  border-color:rgba(255,184,28,.34);
-  background:rgba(255,184,28,.06);
+  border-color:rgba(255,184,28,.28);
+  background:rgba(255,184,28,.04);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
+    0 0 0 1px rgba(255,184,28,.10),
     0 8px 20px rgba(0,0,0,.22);
 }
 
@@ -4300,17 +4299,14 @@ td{
   align-items:center;
   justify-content:center;
   gap:6px;
-  border:1px solid rgba(255,184,28,.28);
+  border:1px solid rgba(255,255,255,.14);
   border-radius:999px;
   padding:10px 14px;
-  background:
-    linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.05)),
-    linear-gradient(90deg, rgba(59,130,246,.04), transparent 50%);
+  background:rgba(255,255,255,.04);
   color:#fff;
   box-shadow:
     0 6px 16px rgba(0,0,0,.18),
-    0 0 0 1px rgba(255,184,28,.08),
-    0 0 16px rgba(255,184,28,.08);
+    0 0 0 1px rgba(255,255,255,.04);
   line-height:1;
 }
 
