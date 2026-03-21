@@ -1769,7 +1769,7 @@ function playerDnaMarkup(player) {
   const metrics = playerDnaMetrics(player);
 
   return `
-    <div class="player-dna-card">
+    <div class="player-dna-row dna-row-${metric.tone}">
       <div class="player-dna-head">
         <h3>🧬 Player DNA</h3>
         <p class="muted">A visual snapshot of how this player tends to win, wobble, and survive.</p>
