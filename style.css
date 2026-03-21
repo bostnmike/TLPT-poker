@@ -2214,8 +2214,8 @@ td{
   padding:18px;
   border:1px solid rgba(52,64,82,.72);
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.05), transparent 34%),
-    radial-gradient(circle at left center, rgba(59,130,246,.035), transparent 30%),
+    radial-gradient(circle at top right, rgba(255,184,28,.045), transparent 36%),
+    radial-gradient(circle at left center, rgba(59,130,246,.03), transparent 32%),
     linear-gradient(180deg, rgba(18,22,28,.95), rgba(12,15,20,.98)),
     url('/assets/poker-felt.png');
   background-size:auto, auto, auto, cover;
