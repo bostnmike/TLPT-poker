@@ -1210,7 +1210,6 @@ a:hover{
 .featured-player-archetype{
   font-weight:700;
   line-height:1.35;
-  width:max-content;
 }
 
 .featured-player-tier{
@@ -2209,8 +2208,8 @@ td{
   padding:18px;
   border:1px solid rgba(52,64,82,.72);
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.07), transparent 30%),
-    radial-gradient(circle at left center, rgba(59,130,246,.05), transparent 26%),
+    radial-gradient(circle at top right, rgba(255,184,28,.06), transparent 32%),
+    radial-gradient(circle at left center, rgba(59,130,246,.04), transparent 28%),
     linear-gradient(180deg, rgba(18,22,28,.95), rgba(12,15,20,.98)),
     url('/assets/poker-felt.png');
   background-size:auto, auto, auto, cover;
@@ -3026,10 +3025,10 @@ td{
 
 .archetype-filter-pill:hover{
   transform:translateY(-1px);
-  border-color:rgba(255,184,28,.45);
-  background:rgba(255,184,28,.08);
+  border-color:rgba(255,184,28,.34);
+  background:rgba(255,184,28,.06);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.16),
+    0 0 0 1px rgba(255,184,28,.12),
     0 8px 20px rgba(0,0,0,.22);
 }
 
@@ -4519,13 +4518,13 @@ td{
   width:76px;
   height:76px;
   border-radius:50%;
-  border:3px solid var(--gold);
+  border:3px solid rgba(255,255,255,.24);
   display:none;
   align-items:center;
   justify-content:center;
   text-align:center;
   font-weight:800;
-  color:var(--gold);
+  color:#dfe7ef;
   background:linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,0)), linear-gradient(135deg,#1b2530 0%,#10161d 100%);
 }
 
@@ -5086,14 +5085,14 @@ td{
     white-space:normal;
   }
 
-  table{
+  #standings-table{
     min-width:640px;
   }
 
   .blind-table{
     min-width:640px;
   }
-
+  
   .player-avatar.profile,
   .player-avatar-fallback.profile{
     width:230px;
