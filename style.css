@@ -3333,14 +3333,60 @@ th{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  border:1px solid rgba(255,184,28,.28);
-  background:rgba(255,184,28,.08);
+  border:1px solid rgba(255,184,28,.22);
+  background:rgba(255,184,28,.07);
   color:#fff;
   border-radius:999px;
   padding:8px 12px;
   font-size:.82rem;
-  font-weight:700;
+  font-weight:800;
+  letter-spacing:.01em;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
+
+.stat-badge-text:hover{
+  transform:translateY(-1px);
+}
+
+.badge-rarity-common{
+  border-color:rgba(158,176,195,.22);
+  background:rgba(158,176,195,.08);
+  color:#dce4ec;
+}
+
+.badge-rarity-uncommon{
+  border-color:rgba(139,211,255,.28);
+  background:rgba(139,211,255,.10);
+  box-shadow:0 0 12px rgba(139,211,255,.10);
+}
+
+.badge-rarity-rare{
+  border-color:rgba(255,213,108,.32);
+  background:rgba(255,213,108,.10);
+  box-shadow:0 0 14px rgba(255,213,108,.12);
+}
+
+.badge-rarity-epic{
+  border-color:rgba(196,181,253,.34);
+  background:rgba(196,181,253,.11);
+  box-shadow:0 0 16px rgba(196,181,253,.14);
+}
+
+.badge-rarity-legendary{
+  border-color:rgba(255,184,28,.44);
+  background:linear-gradient(135deg, rgba(255,184,28,.16), rgba(255,184,28,.06));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.14),
+    0 0 18px rgba(255,184,28,.16);
+}
+
+.badge-tone-gold{ color:#ffe29a; }
+.badge-tone-violet{ color:#ddd2ff; }
+.badge-tone-amber{ color:#ffe4a1; }
+.badge-tone-green{ color:#c8ffd8; }
+.badge-tone-red{ color:#ffc1bb; }
+.badge-tone-blue{ color:#c7ebff; }
+.badge-tone-slate{ color:#dce4ec; }
 
 .stat-badge-icon{
   font-size:1rem;
