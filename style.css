@@ -4151,7 +4151,21 @@ th{
   }
   
   .player-formula-help{
-    white-space:normal;
+  text-align:center;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin:4px 0 14px;
+  opacity:.75;
+  }
+
+  .player-formula-help::after{
+    content:"";
+    display:block;
+    width:40px;
+    height:1px;
+    margin:8px auto 0;
+    background:rgba(255,184,28,.35);
   }
   
   .player-dna-grid{
