@@ -2062,6 +2062,11 @@ th{
 .dashboard-rank-gold{
   border-color:#d4af37 !important;
   transform:translateY(-12px) scale(1.02);
+  background:
+    linear-gradient(180deg, rgba(212,175,55,.16), rgba(212,175,55,.05) 24%, rgba(18,22,28,.92) 24%, rgba(12,15,20,.95) 100%),
+    url('/assets/poker-felt.png');
+  background-size:cover;
+  background-blend-mode:overlay;
   box-shadow:
     0 0 0 1px rgba(212,175,55,.45),
     0 14px 40px rgba(0,0,0,.35),
@@ -2071,6 +2076,11 @@ th{
 .dashboard-rank-silver{
   border-color:#c0c0c0 !important;
   transform:translateY(-6px) scale(1.01);
+  background:
+    linear-gradient(180deg, rgba(192,192,192,.14), rgba(192,192,192,.04) 24%, rgba(18,22,28,.92) 24%, rgba(12,15,20,.95) 100%),
+    url('/assets/poker-felt.png');
+  background-size:cover;
+  background-blend-mode:overlay;
   box-shadow:
     0 0 0 1px rgba(192,192,192,.35),
     0 12px 34px rgba(0,0,0,.28),
@@ -2080,6 +2090,11 @@ th{
 .dashboard-rank-bronze{
   border-color:#cd7f32 !important;
   transform:translateY(-3px) scale(1.005);
+  background:
+    linear-gradient(180deg, rgba(205,127,50,.14), rgba(205,127,50,.04) 24%, rgba(18,22,28,.92) 24%, rgba(12,15,20,.95) 100%),
+    url('/assets/poker-felt.png');
+  background-size:cover;
+  background-blend-mode:overlay;
   box-shadow:
     0 0 0 1px rgba(205,127,50,.35),
     0 10px 30px rgba(0,0,0,.25),
@@ -2098,14 +2113,26 @@ th{
 
 .dashboard-rank-gold:hover{
   transform:translateY(-14px) scale(1.02);
+  box-shadow:
+    0 0 0 1px rgba(212,175,55,.50),
+    0 16px 42px rgba(0,0,0,.36),
+    0 0 30px rgba(212,175,55,.24);
 }
 
 .dashboard-rank-silver:hover{
   transform:translateY(-8px) scale(1.01);
+  box-shadow:
+    0 0 0 1px rgba(192,192,192,.40),
+    0 14px 36px rgba(0,0,0,.30),
+    0 0 24px rgba(192,192,192,.20);
 }
 
 .dashboard-rank-bronze:hover{
   transform:translateY(-5px) scale(1.005);
+  box-shadow:
+    0 0 0 1px rgba(205,127,50,.40),
+    0 12px 32px rgba(0,0,0,.27),
+    0 0 22px rgba(205,127,50,.20);
 }
 
 .dashboard-rank-default{
@@ -3275,33 +3302,33 @@ th{
   transition:width .4s ease;
 }
 
-.player-dna-row:has(.dna-red) .player-dna-label,
-.player-dna-row:has(.dna-red) .player-dna-value{
+.player-dna-row.dna-row-red .player-dna-label,
+.player-dna-row.dna-row-red .player-dna-value{
   color:#ffb5ae;
 }
 
-.player-dna-row:has(.dna-gold) .player-dna-label,
-.player-dna-row:has(.dna-gold) .player-dna-value{
+.player-dna-row.dna-row-gold .player-dna-label,
+.player-dna-row.dna-row-gold .player-dna-value{
   color:#ffe29a;
 }
 
-.player-dna-row:has(.dna-green) .player-dna-label,
-.player-dna-row:has(.dna-green) .player-dna-value{
+.player-dna-row.dna-row-green .player-dna-label,
+.player-dna-row.dna-row-green .player-dna-value{
   color:#d8ffe0;
 }
 
-.player-dna-row:has(.dna-violet) .player-dna-label,
-.player-dna-row:has(.dna-violet) .player-dna-value{
+.player-dna-row.dna-row-violet .player-dna-label,
+.player-dna-row.dna-row-violet .player-dna-value{
   color:#ddd2ff;
 }
 
-.player-dna-row:has(.dna-blue) .player-dna-label,
-.player-dna-row:has(.dna-blue) .player-dna-value{
+.player-dna-row.dna-row-blue .player-dna-label,
+.player-dna-row.dna-row-blue .player-dna-value{
   color:#c8ecff;
 }
 
-.player-dna-row:has(.dna-slate) .player-dna-label,
-.player-dna-row:has(.dna-slate) .player-dna-value{
+.player-dna-row.dna-row-slate .player-dna-label,
+.player-dna-row.dna-row-slate .player-dna-value{
   color:#d6dee7;
 }
 
