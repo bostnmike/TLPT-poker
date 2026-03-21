@@ -264,6 +264,77 @@ function fmtNum(n) {
   return Number(n ?? 0).toFixed(1);
 }
 
+function parseAnimatedValue(text) {
+  const raw = String(text ?? "").trim();
+
+  if (!raw) return null;
+
+  const isMoney = raw.includes("$");
+  const isPct = raw.includes("%");
+  const negative = raw.startsWith("-");
+
+  const numeric = Number(raw.replace(/[^0-9.]/g, ""));
+  if (Number.isNaN(numeric)) return null;
+
+  return {
+    raw,
+    numeric,
+    isMoney,
+    isPct,
+    negative
+  };
+}
+
+function formatAnimatedValue(value, meta) {
+  const safeValue = Math.max(0, Number(value) || 0);
+  const sign = meta.negative ? "-" : "";
+
+  if (meta.isMoney) {
+    return `${sign}$${Math.round(safeValue).toLocaleString("en-US")}`;
+  }
+
+  if (meta.isPct) {
+    return `${sign}${safeValue.toFixed(1)}%`;
+  }
+
+  if (meta.raw.includes(".")) {
+    return `${sign}${safeValue.toFixed(1)}`;
+  }
+
+  return `${sign}${Math.round(safeValue).toLocaleString("en-US")}`;
+}
+
+function animateCountUp(el, duration = 1100) {
+  if (!el || el.dataset.countAnimated === "true") return;
+
+  const meta = parseAnimatedValue(el.dataset.targetValue || el.textContent);
+  if (!meta) return;
+
+  el.dataset.countAnimated = "true";
+
+  const startTime = performance.now();
+
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = meta.numeric * eased;
+
+    el.textContent = formatAnimatedValue(current, meta);
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      el.textContent = meta.raw;
+    }
+  }
+
+  requestAnimationFrame(tick);
+}
+
+function initAnimatedCounters(scope = document) {
+  scope.querySelectorAll("[data-animate-count]").forEach(el => animateCountUp(el));
+}
+
 function formatProfileStatValue(player, config) {
   const value = player?.[config.key];
 
@@ -609,6 +680,20 @@ function playerInlineMarkup(player, size = "small") {
   `;
 }
 
+function badgeMetaFromLabel(label) {
+  const text = String(label || "");
+
+  if (text.includes("Profit Leader")) return { rarity: "legendary", tone: "gold" };
+  if (text.includes("Power Leader")) return { rarity: "epic", tone: "violet" };
+  if (text.includes("Clutch Leader")) return { rarity: "rare", tone: "amber" };
+  if (text.includes("Luck Leader")) return { rarity: "rare", tone: "green" };
+  if (text.includes("Hit King")) return { rarity: "epic", tone: "red" };
+  if (text.includes("Bubble King")) return { rarity: "uncommon", tone: "blue" };
+  if (text.includes("Small Sample")) return { rarity: "common", tone: "slate" };
+
+  return { rarity: "common", tone: "slate" };
+}
+
 function badgeList(player, data) {
   const players = data?.players || [];
   if (!players.length) return [];
@@ -634,12 +719,20 @@ function badgeList(player, data) {
 function badgesMarkup(player, data) {
   const badges = badgeList(player, data);
   if (!badges.length) return "";
+
   return `
     <div class="button-row stat-leader-badges">
       ${badges.map(badge => {
         const icon = badge.split(" ")[0];
         const text = badge.slice(icon.length).trim();
-        return `<span class="stat-badge-text"><span class="stat-badge-icon">${icon}</span><span class="stat-badge-label">${text}</span></span>`;
+        const meta = badgeMetaFromLabel(text);
+
+        return `
+          <span class="stat-badge-text badge-rarity-${meta.rarity} badge-tone-${meta.tone}">
+            <span class="stat-badge-icon">${icon}</span>
+            <span class="stat-badge-label">${text}</span>
+          </span>
+        `;
       }).join("")}
     </div>
   `;
@@ -1178,9 +1271,13 @@ function renderLeagueSnapshot(data) {
     container.innerHTML = cards.map(card => `
     <div class="snapshot-card ${card.className}">
       <div class="snapshot-icon">${card.icon}</div>
-      <div class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}">
-        ${card.value}
-      </div>
+        <div
+          class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}"
+          data-animate-count="true"
+          data-target-value="${card.value}"
+        >
+          ${card.value}
+        </div>
       <div class="snapshot-label">${card.label}</div>
     </div>
   `).join("");
@@ -1188,6 +1285,8 @@ function renderLeagueSnapshot(data) {
   if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
     featuredContainer.innerHTML = buildFeaturedPlayerCard(featuredPlayer, data);
+
+  initAnimatedCounters(container.parentElement || document); 
   }
 }
 
@@ -1243,7 +1342,11 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
         ${playerImageMarkup(player, "dashboard")}
       </div>
       <div class="dashboard-player-name dashboard-player-name-below">${displayPlayerName(player)}</div>
-      <div class="dashboard-card-value dashboard-stat-gold ${statValueClass(player, sortKey)}">${formatStatValue(player, sortKey)}</div>
+      <div
+        class="dashboard-card-value dashboard-stat-gold ${statValueClass(player, sortKey)}"
+        data-animate-count="true"
+        data-target-value="${formatStatValue(player, sortKey)}"
+      >${formatStatValue(player, sortKey)}</div>
     </a>
   `;
 }
@@ -1260,6 +1363,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
+    initAnimatedCounters(grid);
   setActiveSortButton("dashboard", sortKey);
 }
 
@@ -1660,7 +1764,11 @@ function renderPlayerProfile(data) {
   const statsMarkup = profileStats.map(stat => `
     <div class="profile-stat player-stat-card" data-stat-formula="${STAT_FORMULAS[stat.key] || ""}" tabindex="0">
       <span class="kicker player-stat-kicker">${statIcon(stat.key)} ${stat.label}</span>
-      <div class="metric player-stat-metric ${stat.valueClass || ""}">${stat.value}</div>
+      <div
+        class="metric player-stat-metric ${stat.valueClass || ""}"
+        data-animate-count="true"
+        data-target-value="${stat.value}"
+      >${stat.value}</div>
     </div>
   `).join("");
 
@@ -1702,6 +1810,7 @@ function renderPlayerProfile(data) {
           
           <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
           ${badgesMarkup(player, data)}
+          initAnimatedCounters(container);
           
         </div>
       </div>
@@ -1817,7 +1926,11 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
         </div>
       </div>
 
-      <div class="honors-card-value ${valueClass}${numericClass}">${valueText}</div>
+      <div
+        class="honors-card-value ${valueClass}${numericClass}"
+        data-animate-count="${isNumericValueText(valueText) ? "true" : "false"}"
+        data-target-value="${valueText}"
+      >${valueText}</div>
     </a>
   `;
 }
@@ -1829,6 +1942,7 @@ function renderChampions(data) {
 
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
+      initAnimatedCounters(honorsEl);
       const rule = HONOR_RULES[honor.type];
       const player = getLeaderByRule(players, rule);
       if (!player) return "";
@@ -1893,6 +2007,7 @@ function renderStatLeaders(data) {
 
   if (!eligiblePlayers.length) {
     list.innerHTML = "";
+      initAnimatedCounters(list);
     return;
   }
 
