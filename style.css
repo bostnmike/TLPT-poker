@@ -1193,7 +1193,7 @@ a:hover{
   min-width:0;
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:5px;
 }
 
 .featured-player-tier,
@@ -1214,7 +1214,9 @@ a:hover{
   border:1px solid rgba(255,184,28,.26);
   background:rgba(255,184,28,.10);
   color:#ffe29a;
-  box-shadow:0 0 0 1px rgba(255,184,28,.08);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.08),
+    0 0 14px rgba(255,184,28,.10);
 }
 
 .featured-player-archetype{
@@ -3130,12 +3132,15 @@ th{
 }
 
 .player-formula-help{
-  margin:0 0 10px 0;
-  text-align:left;
+  margin:0 0 12px 0;
+  text-align:center;
   max-width:none;
-  white-space:nowrap;
-  font-size:.95rem;
+  white-space:normal;
+  font-size:.85rem;
   line-height:1.45;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  opacity:.82;
 }
 
 .player-formula-display{
