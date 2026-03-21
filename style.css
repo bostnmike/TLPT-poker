@@ -2036,7 +2036,7 @@ td{
 
 #standings-table tbody tr:nth-child(n+4):hover{
   background:
-    linear-gradient(90deg, rgba(255,184,28,.14), rgba(255,184,28,.04) 40%, transparent 100%);
+    linear-gradient(90deg, rgba(255,184,28,.11), rgba(255,184,28,.03) 40%, transparent 100%);
 }
 
 #standings-table tbody tr:nth-child(1):hover{
@@ -4381,8 +4381,7 @@ td{
   transform:translateY(-1px);
   box-shadow:
     0 8px 18px rgba(0,0,0,.22),
-    0 0 0 1px rgba(255,184,28,.14),
-    0 0 18px rgba(255,184,28,.12);
+    0 0 14px rgba(255,255,255,.06);
 }
 
 .rules-chip-panel{
