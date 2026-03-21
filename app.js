@@ -1196,8 +1196,8 @@ function buildFeaturedPlayerCard(player, data) {
         <div class="featured-player-meta">
           <h3>${displayPlayerNamePlain(player)}</h3>
           <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
-            <div class="featured-player-archetype featured-player-archetype-primary ${primaryArchetype.key}">
-              <strong>Primary:</strong> ${primaryArchetype.emoji} ${primaryArchetype.name}
+            <div class="featured-player-archetype featured-player-archetype-secondary ${secondaryArchetype.key}">
+              <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
             </div>
           <div class="featured-player-archetype featured-player-archetype-secondary">
             <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
@@ -1881,8 +1881,6 @@ function renderPlayerProfile(data) {
         </div>
       </div>
 
-      <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
-
       ${playerDnaMarkup(player)}
 
       <div id="player-nav" class="player-nav">
@@ -1890,6 +1888,8 @@ function renderPlayerProfile(data) {
         <a class="btn" href="players.html">The Crew</a>
         <a class="btn" href="${playerUrl(next)}">Next: ${displayPlayerName(next)} →</a>
       </div>
+
+      <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
 
       <div class="profile-grid player-stat-grid-enhanced">
         ${statsMarkup}
