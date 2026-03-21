@@ -2704,6 +2704,183 @@ th{
   background:linear-gradient(90deg, rgba(155,231,255,.85), rgba(155,231,255,.14));
 }
 
+/* ===== Dynamic Archetype Color System ===== */
+
+.archetype-hitman{
+  --archetype-color:#ff8a80;
+  --archetype-bg:rgba(255,138,128,.14);
+  --archetype-line:rgba(255,138,128,.34);
+  --archetype-glow:rgba(255,138,128,.18);
+}
+
+.archetype-closer{
+  --archetype-color:#ffd56c;
+  --archetype-bg:rgba(255,213,108,.14);
+  --archetype-line:rgba(255,213,108,.34);
+  --archetype-glow:rgba(255,213,108,.16);
+}
+
+.archetype-grinder{
+  --archetype-color:#b9fbc0;
+  --archetype-bg:rgba(185,251,192,.12);
+  --archetype-line:rgba(185,251,192,.30);
+  --archetype-glow:rgba(185,251,192,.14);
+}
+
+.archetype-lucky-devil{
+  --archetype-color:#c4b5fd;
+  --archetype-bg:rgba(196,181,253,.14);
+  --archetype-line:rgba(196,181,253,.32);
+  --archetype-glow:rgba(196,181,253,.16);
+}
+
+.archetype-wildcard{
+  --archetype-color:#ffb86b;
+  --archetype-bg:rgba(255,184,107,.14);
+  --archetype-line:rgba(255,184,107,.34);
+  --archetype-glow:rgba(255,184,107,.16);
+}
+
+.archetype-bubble-magnet{
+  --archetype-color:#8bd3ff;
+  --archetype-bg:rgba(139,211,255,.14);
+  --archetype-line:rgba(139,211,255,.34);
+  --archetype-glow:rgba(139,211,255,.16);
+}
+
+.archetype-technician{
+  --archetype-color:#9be7ff;
+  --archetype-bg:rgba(155,231,255,.14);
+  --archetype-line:rgba(155,231,255,.34);
+  --archetype-glow:rgba(155,231,255,.16);
+}
+
+.archetype-filter-pill.archetype-hitman,
+.archetype-filter-pill.archetype-closer,
+.archetype-filter-pill.archetype-grinder,
+.archetype-filter-pill.archetype-lucky-devil,
+.archetype-filter-pill.archetype-wildcard,
+.archetype-filter-pill.archetype-bubble-magnet,
+.archetype-filter-pill.archetype-technician{
+  color:var(--archetype-color);
+  border-color:var(--archetype-line);
+  background:var(--archetype-bg);
+  box-shadow:0 0 0 1px rgba(255,255,255,.02), 0 0 16px var(--archetype-glow);
+}
+
+.archetype-filter-pill.archetype-hitman span,
+.archetype-filter-pill.archetype-closer span,
+.archetype-filter-pill.archetype-grinder span,
+.archetype-filter-pill.archetype-lucky-devil span,
+.archetype-filter-pill.archetype-wildcard span,
+.archetype-filter-pill.archetype-bubble-magnet span,
+.archetype-filter-pill.archetype-technician span{
+  color:var(--archetype-color);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.archetype-filter-pill.archetype-hitman:hover,
+.archetype-filter-pill.archetype-closer:hover,
+.archetype-filter-pill.archetype-grinder:hover,
+.archetype-filter-pill.archetype-lucky-devil:hover,
+.archetype-filter-pill.archetype-wildcard:hover,
+.archetype-filter-pill.archetype-bubble-magnet:hover,
+.archetype-filter-pill.archetype-technician:hover{
+  border-color:var(--archetype-color);
+  box-shadow:
+    0 0 0 1px var(--archetype-line),
+    0 8px 20px rgba(0,0,0,.22),
+    0 0 20px var(--archetype-glow);
+}
+
+.home-guide-pill{
+  transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
+}
+
+.home-guide-pill[data-archetype-tone="hitman"]{
+  color:#ffb5ae;
+  border-color:rgba(255,138,128,.30);
+  background:rgba(255,138,128,.10);
+}
+.home-guide-pill[data-archetype-tone="closer"]{
+  color:#ffe29a;
+  border-color:rgba(255,213,108,.30);
+  background:rgba(255,213,108,.10);
+}
+.home-guide-pill[data-archetype-tone="grinder"]{
+  color:#d8ffe0;
+  border-color:rgba(185,251,192,.28);
+  background:rgba(185,251,192,.09);
+}
+.home-guide-pill[data-archetype-tone="lucky"]{
+  color:#ddd2ff;
+  border-color:rgba(196,181,253,.30);
+  background:rgba(196,181,253,.10);
+}
+.home-guide-pill[data-archetype-tone="wildcard"]{
+  color:#ffd3a2;
+  border-color:rgba(255,184,107,.30);
+  background:rgba(255,184,107,.10);
+}
+.home-guide-pill[data-archetype-tone="bubblemagnet"]{
+  color:#c8ecff;
+  border-color:rgba(139,211,255,.30);
+  background:rgba(139,211,255,.10);
+}
+.home-guide-pill[data-archetype-tone="technician"]{
+  color:#d1f4ff;
+  border-color:rgba(155,231,255,.30);
+  background:rgba(155,231,255,.10);
+}
+
+.featured-player-archetype-primary.hitman,
+.featured-player-archetype-primary.closer,
+.featured-player-archetype-primary.grinder,
+.featured-player-archetype-primary.lucky,
+.featured-player-archetype-primary.wildcard,
+.featured-player-archetype-primary.bubblemagnet,
+.featured-player-archetype-primary.technician{
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.featured-player-archetype-primary.hitman{
+  color:#ffb5ae;
+  background:rgba(255,138,128,.10);
+  border-color:rgba(255,138,128,.28);
+}
+.featured-player-archetype-primary.closer{
+  color:#ffe29a;
+  background:rgba(255,213,108,.10);
+  border-color:rgba(255,213,108,.28);
+}
+.featured-player-archetype-primary.grinder{
+  color:#d8ffe0;
+  background:rgba(185,251,192,.08);
+  border-color:rgba(185,251,192,.26);
+}
+.featured-player-archetype-primary.lucky{
+  color:#ddd2ff;
+  background:rgba(196,181,253,.10);
+  border-color:rgba(196,181,253,.28);
+}
+.featured-player-archetype-primary.wildcard{
+  color:#ffd3a2;
+  background:rgba(255,184,107,.10);
+  border-color:rgba(255,184,107,.28);
+}
+.featured-player-archetype-primary.bubblemagnet{
+  color:#c8ecff;
+  background:rgba(139,211,255,.10);
+  border-color:rgba(139,211,255,.28);
+}
+.featured-player-archetype-primary.technician{
+  color:#d1f4ff;
+  background:rgba(155,231,255,.10);
+  border-color:rgba(155,231,255,.28);
+}
+
 @media (min-width:800px){
   #players-grid .crew-card .crew-card-stats{
     max-height:0;
