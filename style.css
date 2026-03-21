@@ -2860,14 +2860,81 @@ th{
     0 0 24px rgba(120,255,255,.18);
 }
 
+.archetype-section.archetype-hitman{
+  border:1px solid rgba(255,138,128,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(255,138,128,.06), rgba(17,22,30,0) 30%);
+}
+
+.archetype-section.archetype-closer{
+  border:1px solid rgba(255,213,108,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(255,213,108,.06), rgba(17,22,30,0) 30%);
+}
+
+.archetype-section.archetype-grinder{
+  border:1px solid rgba(185,251,192,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(185,251,192,.06), rgba(17,22,30,0) 30%);
+}
+
+.archetype-section.archetype-lucky-devil{
+  border:1px solid rgba(196,181,253,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(196,181,253,.06), rgba(17,22,30,0) 30%);
+}
+
 .archetype-section.archetype-wildcard{
   border:1px solid rgba(120,255,255,.22);
   border-radius:16px;
   padding:16px;
   background:linear-gradient(180deg, rgba(120,255,255,.06), rgba(17,22,30,0) 30%);
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.08),
-    0 0 18px rgba(120,255,255,.08);
+}
+
+.archetype-section.archetype-bubble-magnet{
+  border:1px solid rgba(139,211,255,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(139,211,255,.06), rgba(17,22,30,0) 30%);
+}
+
+.archetype-section.archetype-technician{
+  border:1px solid rgba(155,231,255,.22);
+  border-radius:16px;
+  padding:16px;
+  background:linear-gradient(180deg, rgba(155,231,255,.06), rgba(17,22,30,0) 30%);
+}
+
+.archetype-section.archetype-hitman{
+  box-shadow:0 0 0 1px rgba(255,138,128,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(255,138,128,.08);
+}
+
+.archetype-section.archetype-closer{
+  box-shadow:0 0 0 1px rgba(255,213,108,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(255,213,108,.08);
+}
+
+.archetype-section.archetype-grinder{
+  box-shadow:0 0 0 1px rgba(185,251,192,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(185,251,192,.08);
+}
+
+.archetype-section.archetype-lucky-devil{
+  box-shadow:0 0 0 1px rgba(196,181,253,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(196,181,253,.08);
+}
+
+.archetype-section.archetype-wildcard{
+  box-shadow:0 0 0 1px rgba(120,255,255,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 18px rgba(120,255,255,.08);
+}
+
+.archetype-section.archetype-bubble-magnet{
+  box-shadow:0 0 0 1px rgba(139,211,255,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(139,211,255,.08);
+}
+
+.archetype-section.archetype-technician{
+  box-shadow:0 0 0 1px rgba(155,231,255,.08), 0 10px 24px rgba(0,0,0,.18), 0 0 16px rgba(155,231,255,.08);
 }
 
 .home-guide-pill{
