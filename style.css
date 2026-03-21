@@ -1972,8 +1972,14 @@ td{
   padding:12px 10px;
   border-bottom:1px solid var(--line);
   text-align:left;
-  white-space:nowrap;
   vertical-align:middle;
+}
+
+#standings-table th,
+#standings-table td,
+.blind-table th,
+.blind-table td{
+  white-space:nowrap;
 }
 
 #standings-table th{
@@ -2304,7 +2310,7 @@ td{
 }
 
 .dashboard-rank-default{
-  border-color:rgba(30,34,40,.85) !important;
+  border-color:rgba(52,64,82,.72) !important;
 }
 
 .dashboard-card-top{
@@ -3080,6 +3086,13 @@ td{
   text-transform:uppercase;
 }
 
+.archetype-section .archetype-active-summary-count{
+  border:1px solid color-mix(in srgb, var(--archetype-line) 72%, transparent);
+  background:color-mix(in srgb, var(--archetype-bg) 82%, transparent);
+  color:var(--archetype-color);
+  box-shadow:0 0 0 1px color-mix(in srgb, var(--archetype-line) 18%, transparent);
+}
+
 .archetype-section::before{
   content:"";
   position:absolute;
@@ -3109,15 +3122,10 @@ td{
   backdrop-filter:blur(2px);
 }
 
-.archetype-hitman .tier-section-head h3{ color:#ff8a80; }
-.archetype-closer .tier-section-head h3{ color:#ffd56c; }
-.archetype-grinder .tier-section-head h3{ color:#b9fbc0; }
-.archetype-lucky-devil .tier-section-head h3{ color:#c4b5fd; }
-.archetype-wildcard .tier-section-head h3{ color:#9efcff; }
-.archetype-bubble-magnet .tier-section-head h3{ color:#8bd3ff; }
-.archetype-technician .tier-section-head h3{ color:#9be7ff; }
-
 /* ===== Dynamic Archetype Color System ===== */
+.tier-section-head h3{
+  color:inherit;
+}
 
 .archetype-hitman{
   --archetype-color:#ff8a80;
