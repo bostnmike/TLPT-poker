@@ -706,13 +706,15 @@ function badgeList(player, data) {
   const topBubbles = sortPlayers(players, "bubbles")[0]?.name;
 
   const badges = [];
-  if (player.name === topProfit) badges.push("💰 Profit Leader");
-  if (player.name === topPower) badges.push("💪🏼 Power Leader");
-  if (player.name === topClutch) badges.push("🎯 Clutch Leader");
-  if (player.name === topLuck) badges.push("🍀 Luck Leader");
-  if (player.name === topHits) badges.push("💥 Hit King");
-  if (player.name === topBubbles) badges.push("🫧 Bubble King");
-  if (Number(player.entries ?? 0) < 5) badges.push("✳️ Small Sample");
+
+  if (player.name === topProfit) badges.push({ icon: "💰", label: "Profit Leader", rarity: "legendary", tone: "gold" });
+  if (player.name === topPower) badges.push({ icon: "💪🏼", label: "Power Leader", rarity: "epic", tone: "violet" });
+  if (player.name === topClutch) badges.push({ icon: "🎯", label: "Clutch Leader", rarity: "rare", tone: "amber" });
+  if (player.name === topLuck) badges.push({ icon: "🍀", label: "Luck Leader", rarity: "rare", tone: "green" });
+  if (player.name === topHits) badges.push({ icon: "💥", label: "Hit King", rarity: "epic", tone: "red" });
+  if (player.name === topBubbles) badges.push({ icon: "🫧", label: "Bubble King", rarity: "uncommon", tone: "blue" });
+  if (Number(player.entries ?? 0) < 5) badges.push({ icon: "✳️", label: "Small Sample", rarity: "common", tone: "slate" });
+
   return badges;
 }
 
@@ -722,18 +724,12 @@ function badgesMarkup(player, data) {
 
   return `
     <div class="button-row stat-leader-badges">
-      ${badges.map(badge => {
-        const icon = badge.split(" ")[0];
-        const text = badge.slice(icon.length).trim();
-        const meta = badgeMetaFromLabel(text);
-
-        return `
-          <span class="stat-badge-text badge-rarity-${meta.rarity} badge-tone-${meta.tone}">
-            <span class="stat-badge-icon">${icon}</span>
-            <span class="stat-badge-label">${text}</span>
-          </span>
-        `;
-      }).join("")}
+      ${badges.map(badge => `
+        <span class="stat-badge-text badge-rarity-${badge.rarity} badge-tone-${badge.tone}">
+          <span class="stat-badge-icon">${badge.icon}</span>
+          <span class="stat-badge-label">${badge.label}</span>
+        </span>
+      `).join("")}
     </div>
   `;
 }
@@ -1235,7 +1231,12 @@ function buildFeaturedPlayerCard(player, data) {
 
       ${badges.length ? `
         <div class="featured-player-badges">
-          ${badges.map(badge => `<span class="featured-player-badge">${badge}</span>`).join("")}
+          ${badges.map(badge => `
+            <span class="featured-player-badge stat-badge-text badge-rarity-${badge.rarity} badge-tone-${badge.tone}">
+              <span class="stat-badge-icon">${badge.icon}</span>
+              <span class="stat-badge-label">${badge.label}</span>
+            </span>
+          `).join("")}
         </div>
       ` : ""}
 
@@ -1282,12 +1283,12 @@ function renderLeagueSnapshot(data) {
     </div>
   `).join("");
   
-  if (featuredContainer) {
+    if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
     featuredContainer.innerHTML = buildFeaturedPlayerCard(featuredPlayer, data);
-
-  initAnimatedCounters(container.parentElement || document); 
   }
+
+  initAnimatedCounters(container.parentElement || document);
 }
 
 function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
@@ -2010,11 +2011,11 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl && Array.isArray(data?.honors)) {
-  honorsEl.innerHTML = data.honors.map(honor => {
-    const rule = HONOR_RULES[honor.type];
-    const player = getLeaderByRule(players, rule);
-    if (!player) return "";
-      
+    honorsEl.innerHTML = data.honors.map(honor => {
+      const rule = HONOR_RULES[honor.type];
+      const player = getLeaderByRule(players, rule);
+      if (!player) return "";
+
       const valueClass = rule?.key === "profit"
         ? statValueClass(player, "profit")
         : "";
@@ -2040,6 +2041,22 @@ function renderChampions(data) {
     initAnimatedCounters(honorsEl);
   }
 
+  if (recordsEl && Array.isArray(data?.records)) {
+    recordsEl.innerHTML = data.records.map(record => {
+      const rule = RECORD_RULES[record.label];
+      const player = getLeaderByRule(players, rule);
+      if (!player) return "";
+
+      const valueClass = rule?.key === "profit"
+        ? statValueClass(player, "profit")
+        : rule?.key === "luckIndex"
+          ? statValueClass({ profit: player?.luckIndex }, "profit")
+          : "";
+
+      const valueText = rule?.key
+        ? formatStatValue(player, rule.key)
+        : (record.value || "");
+
       return honorsCardMarkup(
         player,
         record.label,
@@ -2063,25 +2080,47 @@ function renderStatLeaders(data) {
 
   if (!eligiblePlayers.length) {
     list.innerHTML = "";
-      initAnimatedCounters(list);
     return;
   }
 
   list.innerHTML = STAT_LEADER_CONFIG.map(stat => {
-    ...
+    const leader = sortPlayers(eligiblePlayers, stat.key)[0];
+    if (!leader) return "";
+
+    const statConfig = getStatConfig(stat.key);
+    const icon = statConfig?.icon || "🏅";
+    const value = formatStatValue(leader, stat.key);
+    const valueClass = stat.key === "profit"
+      ? statValueClass(leader, "profit")
+      : "";
+
+    return `
+      <a class="champ-card stat-card-visual honors-card leader-banner-card" href="${playerUrl(leader)}">
+        <div class="leader-banner-top">
+          <div class="leader-banner-crown">👑</div>
+          <div class="leader-banner-title">${stat.title}</div>
+        </div>
+
+        <div class="honors-card-top leader-banner-body">
+          ${playerImageMarkup(leader, "honors")}
+          <div class="honors-card-stack">
+            <div class="honors-card-icon">${icon}</div>
+            <div class="honors-player-name">${displayPlayerName(leader)}</div>
+          </div>
+        </div>
+
+        <div
+          class="honors-card-value ${valueClass}${isNumericValueText(value) ? " honors-card-value--numeric" : ""}"
+          data-animate-count="${isNumericValueText(value) ? "true" : "false"}"
+          data-target-value="${value}"
+        >
+          ${value}
+        </div>
+      </a>
+    `;
   }).join("");
 
   initAnimatedCounters(list);
-}
-
-function buildRulesTimerRail(format) {
-  return `
-    <div class="timer-rail">
-      <div class="timer-pill">🕒 <strong>Levels:</strong> 20 min</div>
-      <div class="timer-pill">☕ <strong>Breaks:</strong> 10 min</div>
-      <div class="timer-pill">⏱ <strong>Estimated Runtime:</strong> ${Number(format.runtimeMinutes || 300)} min</div>
-    </div>
-  `;
 }
 
 function escapeHtmlAttr(value) {
