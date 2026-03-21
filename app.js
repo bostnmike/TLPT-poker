@@ -914,7 +914,13 @@ function buildEventGuideCard() {
           <span class="profile-line-label">♠ Archetypes:</span>
           <span class="profile-line-desc">
             ${ARCHETYPE_GUIDE.map(item => `
-              <span class="home-guide-pill">${item.emoji} ${item.name}</span>
+              <span class="home-guide-pill" data-archetype-tone="${item.name
+                .replace(/^The\s+/i, "")
+                .toLowerCase()
+                .replace(/\s+/g, "")
+                .replace("bubblemagnet", "bubblemagnet")
+                .replace("luckydevil", "lucky")
+              }">${item.emoji} ${item.name}</span>
             `).join("")}
           </span>
         </div>
@@ -1101,9 +1107,9 @@ function buildFeaturedPlayerCard(player, data) {
         <div class="featured-player-meta">
           <h3>${displayPlayerNamePlain(player)}</h3>
           <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
-          <div class="featured-player-archetype">
-            <strong>Primary:</strong> ${primaryArchetype.emoji} ${primaryArchetype.name}
-          </div>
+            <div class="featured-player-archetype featured-player-archetype-primary ${primaryArchetype.key}">
+              <strong>Primary:</strong> ${primaryArchetype.emoji} ${primaryArchetype.name}
+            </div>
           <div class="featured-player-archetype featured-player-archetype-secondary">
             <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
           </div>
