@@ -2202,7 +2202,8 @@ th{
   bottom:0;
   height:3px;
   border-radius:999px;
-  background:rgba(255,255,255,.12);
+  background:linear-gradient(90deg, var(--archetype-line), transparent 85%);
+  box-shadow:0 0 10px var(--archetype-glow);
 }
 
 .tier-section-head h3{
@@ -2257,19 +2258,16 @@ th{
   align-items:center;
   justify-content:center;
   gap:6px;
-
   padding:6px 10px;
   border-radius:999px;
-
-  border:1px solid rgba(255,184,28,.28);
-  background:rgba(255,184,28,.08);
-
-  color:var(--gold);
+  border:1px solid color-mix(in srgb, var(--archetype-line) 70%, transparent);
+  background:color-mix(in srgb, var(--archetype-bg) 80%, transparent);
+  color:var(--archetype-color);
   font-weight:800;
   font-size:.85rem;
   line-height:1;
-
   white-space:nowrap;
+  box-shadow:0 0 0 1px color-mix(in srgb, var(--archetype-line) 18%, transparent);
 }
 
 .tier-strength{
@@ -2331,29 +2329,6 @@ th{
   border-radius:999px;
   background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.28));
 }
-
-  .tier-section:nth-of-type(1) .tier-header-stats{
-    border-color:rgba(255,213,108,.45);
-    color:#ffe29a;
-  }
-
-  .tier-section:nth-of-type(2) .tier-header-stats{
-    border-color:rgba(255,184,28,.42);
-  }
-
-  .tier-section:nth-of-type(3) .tier-header-stats{
-    border-color:rgba(246,198,91,.38);
-  }
-
-  .tier-section:nth-of-type(4) .tier-header-stats{
-    border-color:rgba(158,176,195,.38);
-    color:#d9e4ef;
-  }
-
-  .tier-section:nth-of-type(5) .tier-header-stats{
-    border-color:rgba(127,138,150,.38);
-    color:#c7d0d8;
-  }
 
 .tier-section-count{
   margin:0;
@@ -2443,43 +2418,11 @@ th{
 .archetype-section .tier-grid{
   padding:12px;
   border-radius:16px;
-  border:1px solid rgba(255,255,255,.05);
-  background:rgba(255,255,255,.02);
-}
-
-.archetype-section.archetype-hitman .tier-grid{
-  background:linear-gradient(180deg, rgba(255,138,128,.06), rgba(255,138,128,.02));
-  border-color:rgba(255,138,128,.10);
-}
-
-.archetype-section.archetype-closer .tier-grid{
-  background:linear-gradient(180deg, rgba(255,213,108,.06), rgba(255,213,108,.02));
-  border-color:rgba(255,213,108,.10);
-}
-
-.archetype-section.archetype-grinder .tier-grid{
-  background:linear-gradient(180deg, rgba(185,251,192,.06), rgba(185,251,192,.02));
-  border-color:rgba(185,251,192,.10);
-}
-
-.archetype-section.archetype-lucky-devil .tier-grid{
-  background:linear-gradient(180deg, rgba(196,181,253,.06), rgba(196,181,253,.02));
-  border-color:rgba(196,181,253,.10);
-}
-
-.archetype-section.archetype-wildcard .tier-grid{
-  background:linear-gradient(180deg, rgba(120,255,255,.07), rgba(120,255,255,.02));
-  border-color:rgba(120,255,255,.12);
-}
-
-.archetype-section.archetype-bubble-magnet .tier-grid{
-  background:linear-gradient(180deg, rgba(139,211,255,.06), rgba(139,211,255,.02));
-  border-color:rgba(139,211,255,.10);
-}
-
-.archetype-section.archetype-technician .tier-grid{
-  background:linear-gradient(180deg, rgba(155,231,255,.06), rgba(155,231,255,.02));
-  border-color:rgba(155,231,255,.10);
+  border:1px solid color-mix(in srgb, var(--archetype-line) 22%, transparent);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--archetype-bg) 70%, transparent) 0%, rgba(255,255,255,.015) 100%);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--archetype-line) 10%, transparent);
 }
 
 .player-card{
@@ -2789,9 +2732,9 @@ th{
 }
 
 .archetype-section-copy{
-  margin:6px 0 12px 0;
+  margin:6px 0 14px 0;
   color:var(--muted);
-  line-height:1.45;
+  line-height:1.5;
 }
 
 .archetype-active-summary{
@@ -2842,111 +2785,24 @@ th{
   height:3px;
   border-radius:999px;
   opacity:.95;
+  background:linear-gradient(90deg, var(--archetype-line), transparent 85%);
+  box-shadow:0 0 12px var(--archetype-glow);
 }
 
-.archetype-section.archetype-hitman::before{
-  background:linear-gradient(90deg, rgba(255,138,128,.92), rgba(255,138,128,.16));
-}
-
-.archetype-section.archetype-closer::before{
-  background:linear-gradient(90deg, rgba(255,213,108,.92), rgba(255,213,108,.16));
-}
-
-.archetype-section.archetype-grinder::before{
-  background:linear-gradient(90deg, rgba(185,251,192,.92), rgba(185,251,192,.16));
-}
-
-.archetype-section.archetype-lucky-devil::before{
-  background:linear-gradient(90deg, rgba(196,181,253,.92), rgba(196,181,253,.16));
-}
-
-.archetype-section.archetype-wildcard::before{
-  background:linear-gradient(90deg, rgba(120,255,255,.92), rgba(120,255,255,.16));
-}
-
-.archetype-section.archetype-bubble-magnet::before{
-  background:linear-gradient(90deg, rgba(139,211,255,.92), rgba(139,211,255,.16));
-}
-
-.archetype-section.archetype-technician::before{
-  background:linear-gradient(90deg, rgba(155,231,255,.92), rgba(155,231,255,.16));
-}
-
-.archetype-section.archetype-hitman{
-  border:1px solid rgba(255,138,128,.30);
+.archetype-section{
+  position:relative;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb, var(--archetype-line) 75%, transparent);
   border-radius:18px;
   padding:16px;
-  background:linear-gradient(180deg, rgba(255,138,128,.10), rgba(17,22,30,0) 34%);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--archetype-bg) 95%, transparent) 0%, transparent 42%),
+    linear-gradient(180deg, color-mix(in srgb, var(--archetype-bg) 85%, transparent) 0%, rgba(17,22,30,0) 38%);
   box-shadow:
-    0 0 0 1px rgba(255,138,128,.10),
+    0 0 0 1px color-mix(in srgb, var(--archetype-line) 28%, transparent),
     0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(255,138,128,.08);
-}
-
-.archetype-section.archetype-closer{
-  border:1px solid rgba(255,213,108,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(255,213,108,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(255,213,108,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(255,213,108,.08);
-}
-
-.archetype-section.archetype-grinder{
-  border:1px solid rgba(185,251,192,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(185,251,192,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(185,251,192,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(185,251,192,.08);
-}
-
-.archetype-section.archetype-lucky-devil{
-  border:1px solid rgba(196,181,253,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(196,181,253,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(196,181,253,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(196,181,253,.08);
-}
-
-.archetype-section.archetype-wildcard{
-  border:1px solid rgba(120,255,255,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(120,255,255,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(120,255,255,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 20px rgba(120,255,255,.10);
-}
-
-.archetype-section.archetype-bubble-magnet{
-  border:1px solid rgba(139,211,255,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(139,211,255,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(139,211,255,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(139,211,255,.08);
-}
-
-.archetype-section.archetype-technician{
-  border:1px solid rgba(155,231,255,.30);
-  border-radius:18px;
-  padding:16px;
-  background:linear-gradient(180deg, rgba(155,231,255,.10), rgba(17,22,30,0) 34%);
-  box-shadow:
-    0 0 0 1px rgba(155,231,255,.10),
-    0 10px 24px rgba(0,0,0,.18),
-    0 0 18px rgba(155,231,255,.08);
+    0 0 18px color-mix(in srgb, var(--archetype-glow) 70%, transparent);
+  backdrop-filter:blur(2px);
 }
 
 .archetype-section{
@@ -2960,34 +2816,6 @@ th{
 .archetype-wildcard .tier-section-head h3{ color:#9efcff; }
 .archetype-bubble-magnet .tier-section-head h3{ color:#8bd3ff; }
 .archetype-technician .tier-section-head h3{ color:#9be7ff; }
-
-.archetype-hitman .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(255,138,128,.92), rgba(255,138,128,.16));
-}
-
-.archetype-closer .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(255,213,108,.92), rgba(255,213,108,.16));
-}
-
-.archetype-grinder .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(185,251,192,.92), rgba(185,251,192,.16));
-}
-
-.archetype-lucky-devil .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(196,181,253,.92), rgba(196,181,253,.16));
-}
-
-.archetype-wildcard .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(120,255,255,.92), rgba(120,255,255,.16));
-}
-
-.archetype-bubble-magnet .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(139,211,255,.92), rgba(139,211,255,.16));
-}
-
-.archetype-technician .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(155,231,255,.92), rgba(155,231,255,.16));
-}
 
 /* ===== Dynamic Archetype Color System ===== */
 
