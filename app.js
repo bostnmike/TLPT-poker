@@ -1723,6 +1723,72 @@ function renderPlayers(data) {
   `;
 }
 
+function clampPct(value) {
+  return Math.max(0, Math.min(100, Number(value) || 0));
+}
+
+function playerDnaMetrics(player) {
+  return [
+    {
+      label: "Aggression",
+      value: clampPct(player?.aggressionIndex),
+      tone: "red"
+    },
+    {
+      label: "Clutch",
+      value: clampPct(player?.clutchIndex),
+      tone: "gold"
+    },
+    {
+      label: "Survival",
+      value: clampPct(player?.survivorIndex),
+      tone: "green"
+    },
+    {
+      label: "Tilt Risk",
+      value: clampPct(player?.tiltIndex),
+      tone: "violet"
+    },
+    {
+      label: "Finish Rate",
+      value: clampPct(Number(player?.hitRate ?? 0) * 100),
+      tone: "blue"
+    },
+    {
+      label: "Bubble Risk",
+      value: clampPct(Number(player?.bubbleRate ?? 0) * 100),
+      tone: "slate"
+    }
+  ];
+}
+
+function playerDnaMarkup(player) {
+  const metrics = playerDnaMetrics(player);
+
+  return `
+    <div class="player-dna-card">
+      <div class="player-dna-head">
+        <h3>🧬 Player DNA</h3>
+        <p class="muted">A visual snapshot of how this player tends to win, wobble, and survive.</p>
+      </div>
+
+      <div class="player-dna-grid">
+        ${metrics.map(metric => `
+          <div class="player-dna-row">
+            <div class="player-dna-label-wrap">
+              <span class="player-dna-label">${metric.label}</span>
+              <span class="player-dna-value">${Math.round(metric.value)}%</span>
+            </div>
+            <div class="player-dna-bar">
+              <div class="player-dna-fill dna-${metric.tone}" style="width:${metric.value}%"></div>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function renderPlayerProfile(data) {
   const container = document.getElementById("player-profile");
   if (!container || !data?.players?.length) return;
@@ -1816,6 +1882,8 @@ function renderPlayerProfile(data) {
       </div>
 
       <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
+
+      ${playerDnaMarkup(player)}
 
       <div id="player-nav" class="player-nav">
         <a class="btn" href="${playerUrl(prev)}">← Previous: ${displayPlayerName(prev)}</a>
