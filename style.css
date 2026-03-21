@@ -1217,8 +1217,6 @@ a:hover{
 }
 
 .featured-player-tier{
-  display:inline-flex;
-  align-items:center;
   gap:6px;
   padding:6px 10px;
   border-radius:10px;
@@ -2040,7 +2038,7 @@ td{
 
 #standings-table tbody tr:nth-child(n+4):hover{
   background:
-    linear-gradient(90deg, rgba(255,184,28,.09), rgba(255,184,28,.025) 40%, transparent 100%);
+    linear-gradient(90deg, rgba(255,184,28,.075), rgba(255,184,28,.02) 40%, transparent 100%);
 }
 
 #standings-table tbody tr:nth-child(1):hover{
@@ -2275,11 +2273,11 @@ td{
 
 .dashboard-card:hover{
   transform:translateY(-2px);
-  border-color:rgba(255,184,28,.34);
+  border-color:rgba(255,184,28,.30);
   box-shadow:
-    inset 0 0 0 1px rgba(255,184,28,.08),
+    inset 0 0 0 1px rgba(255,184,28,.07),
     0 14px 34px rgba(0,0,0,.32),
-    0 0 18px rgba(255,184,28,.10);
+    0 0 14px rgba(255,184,28,.08);
 }
 
 .dashboard-rank-gold:hover{
@@ -2508,6 +2506,26 @@ td{
 .tier-section:nth-of-type(5) .tier-section-head h3{
   color:#a7b4c0;
   text-shadow:0 0 10px rgba(127,138,150,.10);
+}
+
+.tier-section:nth-of-type(1) .tier-section-head{
+  color:#ffe7a3;
+}
+
+.tier-section:nth-of-type(2) .tier-section-head{
+  color:#ffd15a;
+}
+
+.tier-section:nth-of-type(3) .tier-section-head{
+  color:#ffd98a;
+}
+
+.tier-section:nth-of-type(4) .tier-section-head{
+  color:#c8d7e6;
+}
+
+.tier-section:nth-of-type(5) .tier-section-head{
+  color:#a7b4c0;
 }
 
 .tier-header-stats{
@@ -4262,7 +4280,6 @@ td{
 
 .rule-card-title-wrap h3{
   margin:0;
-  color:#fff;
   transition:color .18s ease, text-shadow .18s ease;
 }
 
