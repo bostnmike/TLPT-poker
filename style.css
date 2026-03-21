@@ -1193,7 +1193,7 @@ a:hover{
   min-width:0;
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:5px;
 }
 
 .featured-player-tier,
@@ -2903,6 +2903,7 @@ th{
 
 .featured-player-archetype-secondary{
   opacity:.88;
+  font-weight:650;
 }
 
 @media (min-width:800px){
