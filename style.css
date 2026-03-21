@@ -2034,11 +2034,6 @@ td{
     linear-gradient(90deg, rgba(255,184,28,.10), rgba(255,184,28,.03) 36%, transparent 100%);
 }
 
-tbody tr:hover{
-  background:
-    linear-gradient(90deg, rgba(255,184,28,.10), rgba(255,184,28,.03) 36%, transparent 100%);
-}
-
 /* dashboard */
 
 .dashboard-sort-shell{
@@ -4106,6 +4101,66 @@ tbody tr:hover{
   line-height:1;
 }
 
+.timer-rail .timer-pill:nth-child(1){
+  border-color:rgba(59,130,246,.34);
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(59,130,246,.10),
+    0 0 16px rgba(59,130,246,.10);
+}
+
+.timer-rail .timer-pill:nth-child(1) strong{
+  color:#93c5fd;
+}
+
+.timer-rail .timer-pill:nth-child(2){
+  border-color:rgba(255,213,108,.36);
+  background:
+    linear-gradient(180deg, rgba(255,213,108,.18), rgba(255,213,108,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(255,213,108,.10),
+    0 0 16px rgba(255,213,108,.10);
+}
+
+.timer-rail .timer-pill:nth-child(2) strong{
+  color:#ffe29a;
+}
+
+.timer-rail .timer-pill:nth-child(3){
+  border-color:rgba(168,85,247,.34);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(168,85,247,.10),
+    0 0 16px rgba(168,85,247,.10);
+}
+
+.timer-rail .timer-pill:nth-child(3) strong{
+  color:#d8b4fe;
+}
+
+.timer-rail .timer-pill:nth-child(4){
+  border-color:rgba(34,197,94,.34);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(34,197,94,.10),
+    0 0 16px rgba(34,197,94,.10);
+}
+
+.timer-rail .timer-pill:nth-child(4) strong{
+  color:#86efac;
+}
+
 .timer-pill:hover{
   transform:translateY(-1px);
   box-shadow:
@@ -4148,6 +4203,66 @@ tbody tr:hover{
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 
+.timer-rail .timer-pill:nth-child(1){
+  border-color:rgba(59,130,246,.34);
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(59,130,246,.10),
+    0 0 16px rgba(59,130,246,.10);
+}
+
+.timer-rail .timer-pill:nth-child(1) strong{
+  color:#93c5fd;
+}
+
+.timer-rail .timer-pill:nth-child(2){
+  border-color:rgba(255,213,108,.36);
+  background:
+    linear-gradient(180deg, rgba(255,213,108,.18), rgba(255,213,108,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(255,213,108,.10),
+    0 0 16px rgba(255,213,108,.10);
+}
+
+.timer-rail .timer-pill:nth-child(2) strong{
+  color:#ffe29a;
+}
+
+.timer-rail .timer-pill:nth-child(3){
+  border-color:rgba(168,85,247,.34);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(168,85,247,.10),
+    0 0 16px rgba(168,85,247,.10);
+}
+
+.timer-rail .timer-pill:nth-child(3) strong{
+  color:#d8b4fe;
+}
+
+.timer-rail .timer-pill:nth-child(4){
+  border-color:rgba(34,197,94,.34);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.06)),
+    linear-gradient(90deg, rgba(255,255,255,.03), transparent 60%);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(34,197,94,.10),
+    0 0 16px rgba(34,197,94,.10);
+}
+
+.timer-rail .timer-pill:nth-child(4) strong{
+  color:#86efac;
+}
+
 .rules-chip-card:hover{
   transform:translateY(-2px);
   border-color:rgba(255,184,28,.28);
@@ -4162,7 +4277,22 @@ tbody tr:hover{
   height:76px;
   object-fit:contain;
   filter:drop-shadow(0 8px 12px rgba(0,0,0,.35));
+  transition:filter .18s ease, transform .18s ease;
 }
+
+.rules-chip-card:hover .rules-chip-image{
+  transform:translateY(-1px) scale(1.03);
+}
+
+.rules-chip-card.chip-25 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(34,197,94,.20)); }
+.rules-chip-card.chip-100 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(148,163,184,.16)); }
+.rules-chip-card.chip-500 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(168,85,247,.20)); }
+.rules-chip-card.chip-1000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(250,204,21,.20)); }
+.rules-chip-card.chip-5000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(255,255,255,.18)); }
+.rules-chip-card.chip-10000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(249,115,22,.20)); }
+.rules-chip-card.chip-25000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(239,68,68,.20)); }
+.rules-chip-card.chip-100000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(244,114,182,.20)); }
+.rules-chip-card.chip-250000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(59,130,246,.20)); }
 
 .rules-chip-image.is-missing{
   display:none;
@@ -4196,6 +4326,51 @@ tbody tr:hover{
   font-size:.88rem;
   line-height:1.35;
   font-weight:400;
+}
+
+.rules-chip-card.chip-25 .rules-chip-label,
+.rules-chip-card.chip-25 .rules-chip-count{
+  color:#86efac;
+}
+
+.rules-chip-card.chip-100 .rules-chip-label,
+.rules-chip-card.chip-100 .rules-chip-count{
+  color:#d1d5db;
+}
+
+.rules-chip-card.chip-500 .rules-chip-label,
+.rules-chip-card.chip-500 .rules-chip-count{
+  color:#d8b4fe;
+}
+
+.rules-chip-card.chip-1000 .rules-chip-label,
+.rules-chip-card.chip-1000 .rules-chip-count{
+  color:#fde68a;
+}
+
+.rules-chip-card.chip-5000 .rules-chip-label,
+.rules-chip-card.chip-5000 .rules-chip-count{
+  color:#ffffff;
+}
+
+.rules-chip-card.chip-10000 .rules-chip-label,
+.rules-chip-card.chip-10000 .rules-chip-count{
+  color:#fdba74;
+}
+
+.rules-chip-card.chip-25000 .rules-chip-label,
+.rules-chip-card.chip-25000 .rules-chip-count{
+  color:#fca5a5;
+}
+
+.rules-chip-card.chip-100000 .rules-chip-label,
+.rules-chip-card.chip-100000 .rules-chip-count{
+  color:#f9a8d4;
+}
+
+.rules-chip-card.chip-250000 .rules-chip-label,
+.rules-chip-card.chip-250000 .rules-chip-count{
+  color:#93c5fd;
 }
 
 .blind-sheet{
