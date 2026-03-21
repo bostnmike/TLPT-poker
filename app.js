@@ -124,7 +124,7 @@ const ARCHETYPE_GUIDE = [
   { emoji: "🔒", name: "The Closer" },
   { emoji: "⚙️", name: "The Grinder" },
   { emoji: "😈", name: "The Lucky Devil" },
-  { emoji: "🔥", name: "The Wildcard" },
+  { emoji: "🌀", name: "The Wildcard" },
   { emoji: "🫧", name: "The Bubble Magnet" },
   { emoji: "🧠", name: "The Technician" }
 ];
@@ -509,7 +509,7 @@ function getPlayerArchetypeScores(player) {
     },
     {
       key: "wildcard",
-      emoji: "🔥",
+      emoji: "🌀",
       name: "The Wildcard",
       desc: "agent of chaos capable of brilliance or disaster on any orbit",
       score: tilt * 1.1 + rebuys * 0.8
@@ -1454,7 +1454,7 @@ function archetypeMeta(name) {
     "The Closer": { emoji: "🔒", className: "archetype-closer" },
     "The Grinder": { emoji: "⚙️", className: "archetype-grinder" },
     "The Lucky Devil": { emoji: "😈", className: "archetype-lucky-devil" },
-    "The Wildcard": { emoji: "🔥", className: "archetype-wildcard" },
+    "The Wildcard": { emoji: "🌀", className: "archetype-wildcard" },
     "The Bubble Magnet": { emoji: "🫧", className: "archetype-bubble-magnet" },
     "The Technician": { emoji: "🧠", className: "archetype-technician" }
   };
