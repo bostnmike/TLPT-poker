@@ -2200,7 +2200,7 @@ th{
   left:2px;
   right:2px;
   bottom:0;
-  height:2px;
+  height:3px;
   border-radius:999px;
   background:rgba(255,255,255,.12);
 }
@@ -2845,32 +2845,33 @@ th{
 }
 
 .archetype-section.archetype-hitman::before{
-  background:linear-gradient(90deg, rgba(255,138,128,.95), rgba(255,138,128,.16));
+  background:linear-gradient(90deg, rgba(255,138,128,.92), rgba(255,138,128,.16));
 }
 
 .archetype-section.archetype-closer::before{
-  background:linear-gradient(90deg, rgba(255,213,108,.95), rgba(255,213,108,.16));
+  background:linear-gradient(90deg, rgba(255,213,108,.92), rgba(255,213,108,.16));
 }
 
 .archetype-section.archetype-grinder::before{
-  background:linear-gradient(90deg, rgba(185,251,192,.95), rgba(185,251,192,.16));
+  background:linear-gradient(90deg, rgba(185,251,192,.92), rgba(185,251,192,.16));
 }
 
 .archetype-section.archetype-lucky-devil::before{
-  background:linear-gradient(90deg, rgba(196,181,253,.95), rgba(196,181,253,.16));
+  background:linear-gradient(90deg, rgba(196,181,253,.92), rgba(196,181,253,.16));
 }
 
 .archetype-section.archetype-wildcard::before{
-  background:linear-gradient(90deg, rgba(120,255,255,.98), rgba(120,255,255,.18));
+  background:linear-gradient(90deg, rgba(120,255,255,.92), rgba(120,255,255,.16));
 }
 
 .archetype-section.archetype-bubble-magnet::before{
-  background:linear-gradient(90deg, rgba(139,211,255,.95), rgba(139,211,255,.16));
+  background:linear-gradient(90deg, rgba(139,211,255,.92), rgba(139,211,255,.16));
 }
 
 .archetype-section.archetype-technician::before{
-  background:linear-gradient(90deg, rgba(155,231,255,.95), rgba(155,231,255,.16));
+  background:linear-gradient(90deg, rgba(155,231,255,.92), rgba(155,231,255,.16));
 }
+
 .archetype-section.archetype-hitman{
   border:1px solid rgba(255,138,128,.30);
   border-radius:18px;
@@ -2961,25 +2962,31 @@ th{
 .archetype-technician .tier-section-head h3{ color:#9be7ff; }
 
 .archetype-hitman .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(255,138,128,.85), rgba(255,138,128,.14));
+  background:linear-gradient(90deg, rgba(255,138,128,.92), rgba(255,138,128,.16));
 }
+
 .archetype-closer .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(255,213,108,.85), rgba(255,213,108,.14));
+  background:linear-gradient(90deg, rgba(255,213,108,.92), rgba(255,213,108,.16));
 }
+
 .archetype-grinder .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(185,251,192,.85), rgba(185,251,192,.14));
+  background:linear-gradient(90deg, rgba(185,251,192,.92), rgba(185,251,192,.16));
 }
+
 .archetype-lucky-devil .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(196,181,253,.85), rgba(196,181,253,.14));
+  background:linear-gradient(90deg, rgba(196,181,253,.92), rgba(196,181,253,.16));
 }
+
 .archetype-wildcard .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(120,255,255,.88), rgba(120,255,255,.16));
+  background:linear-gradient(90deg, rgba(120,255,255,.92), rgba(120,255,255,.16));
 }
+
 .archetype-bubble-magnet .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(139,211,255,.85), rgba(139,211,255,.14));
+  background:linear-gradient(90deg, rgba(139,211,255,.92), rgba(139,211,255,.16));
 }
+
 .archetype-technician .tier-section-head::after{
-  background:linear-gradient(90deg, rgba(155,231,255,.85), rgba(155,231,255,.14));
+  background:linear-gradient(90deg, rgba(155,231,255,.92), rgba(155,231,255,.16));
 }
 
 /* ===== Dynamic Archetype Color System ===== */
