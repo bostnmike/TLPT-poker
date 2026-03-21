@@ -286,7 +286,7 @@ function parseAnimatedValue(text) {
 }
 
 function formatAnimatedValue(value, meta) {
-  const safeValue = Math.max(0, Number(value) || 0);
+  const safeValue = Number(value) || 0;
   const sign = meta.negative ? "-" : "";
 
   if (meta.isMoney) {
@@ -1876,7 +1876,6 @@ function renderPlayerProfile(data) {
           
           <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
           ${badgesMarkup(player, data)}
-          initAnimatedCounters(container);
           
         </div>
       </div>
@@ -1900,7 +1899,7 @@ function renderPlayerProfile(data) {
   const formulaDisplay = document.getElementById("player-formula-display");
   const statCards = container.querySelectorAll("[data-stat-formula]");
 
-  statCards.forEach(card => {
+    statCards.forEach(card => {
     const formula = card.dataset.statFormula || "";
     const showFormula = () => {
       if (formulaDisplay) formulaDisplay.textContent = formula || "\u00A0";
@@ -1914,6 +1913,8 @@ function renderPlayerProfile(data) {
     card.addEventListener("mouseleave", clearFormula);
     card.addEventListener("focusout", clearFormula);
   });
+
+  initAnimatedCounters(container);
 }
 
 function renderSchedule(data) {
@@ -2009,12 +2010,11 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
 
   if (honorsEl && Array.isArray(data?.honors)) {
-    honorsEl.innerHTML = data.honors.map(honor => {
-      initAnimatedCounters(honorsEl);
-      const rule = HONOR_RULES[honor.type];
-      const player = getLeaderByRule(players, rule);
-      if (!player) return "";
-
+  honorsEl.innerHTML = data.honors.map(honor => {
+    const rule = HONOR_RULES[honor.type];
+    const player = getLeaderByRule(players, rule);
+    if (!player) return "";
+      
       const valueClass = rule?.key === "profit"
         ? statValueClass(player, "profit")
         : "";
@@ -2036,23 +2036,9 @@ function renderChampions(data) {
         valueClass
       );
     }).join("");
+
+    initAnimatedCounters(honorsEl);
   }
-
-  if (recordsEl && Array.isArray(data?.records)) {
-    recordsEl.innerHTML = data.records.map(record => {
-      const rule = RECORD_RULES[record.label];
-      const player = getLeaderByRule(players, rule);
-      if (!player) return "";
-
-      const valueClass = rule?.key === "profit"
-        ? statValueClass(player, "profit")
-        : rule?.key === "luckIndex"
-          ? statValueClass({ profit: player?.luckIndex }, "profit")
-          : "";
-
-      const valueText = rule?.key
-        ? formatStatValue(player, rule.key)
-        : (record.value || "");
 
       return honorsCardMarkup(
         player,
@@ -2063,6 +2049,8 @@ function renderChampions(data) {
         valueClass
       );
     }).join("");
+
+    initAnimatedCounters(recordsEl);
   }
 }
 
@@ -2080,37 +2068,10 @@ function renderStatLeaders(data) {
   }
 
   list.innerHTML = STAT_LEADER_CONFIG.map(stat => {
-    const leader = sortPlayers(eligiblePlayers, stat.key)[0];
-    if (!leader) return "";
-
-    const statConfig = getStatConfig(stat.key);
-    const icon = statConfig?.icon || "🏅";
-    const value = formatStatValue(leader, stat.key);
-    const valueClass = stat.key === "profit"
-      ? statValueClass(leader, "profit")
-      : "";
-
-    return `
-      <a class="champ-card stat-card-visual honors-card leader-banner-card" href="${playerUrl(leader)}">
-        <div class="leader-banner-top">
-          <div class="leader-banner-crown">👑</div>
-          <div class="leader-banner-title">${stat.title}</div>
-        </div>
-
-        <div class="honors-card-top leader-banner-body">
-          ${playerImageMarkup(leader, "honors")}
-          <div class="honors-card-stack">
-            <div class="honors-card-icon">${icon}</div>
-            <div class="honors-player-name">${displayPlayerName(leader)}</div>
-          </div>
-        </div>
-
-        <div class="honors-card-value ${valueClass}${isNumericValueText(value) ? " honors-card-value--numeric" : ""}">
-          ${value}
-        </div>
-      </a>
-    `;
+    ...
   }).join("");
+
+  initAnimatedCounters(list);
 }
 
 function buildRulesTimerRail(format) {
