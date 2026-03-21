@@ -2440,6 +2440,48 @@ th{
   align-items:start;
 }
 
+.archetype-section .tier-grid{
+  padding:12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.05);
+  background:rgba(255,255,255,.02);
+}
+
+.archetype-section.archetype-hitman .tier-grid{
+  background:linear-gradient(180deg, rgba(255,138,128,.06), rgba(255,138,128,.02));
+  border-color:rgba(255,138,128,.10);
+}
+
+.archetype-section.archetype-closer .tier-grid{
+  background:linear-gradient(180deg, rgba(255,213,108,.06), rgba(255,213,108,.02));
+  border-color:rgba(255,213,108,.10);
+}
+
+.archetype-section.archetype-grinder .tier-grid{
+  background:linear-gradient(180deg, rgba(185,251,192,.06), rgba(185,251,192,.02));
+  border-color:rgba(185,251,192,.10);
+}
+
+.archetype-section.archetype-lucky-devil .tier-grid{
+  background:linear-gradient(180deg, rgba(196,181,253,.06), rgba(196,181,253,.02));
+  border-color:rgba(196,181,253,.10);
+}
+
+.archetype-section.archetype-wildcard .tier-grid{
+  background:linear-gradient(180deg, rgba(120,255,255,.07), rgba(120,255,255,.02));
+  border-color:rgba(120,255,255,.12);
+}
+
+.archetype-section.archetype-bubble-magnet .tier-grid{
+  background:linear-gradient(180deg, rgba(139,211,255,.06), rgba(139,211,255,.02));
+  border-color:rgba(139,211,255,.10);
+}
+
+.archetype-section.archetype-technician .tier-grid{
+  background:linear-gradient(180deg, rgba(155,231,255,.06), rgba(155,231,255,.02));
+  border-color:rgba(155,231,255,.10);
+}
+
 .player-card{
   padding:18px;
 }
@@ -2718,11 +2760,54 @@ th{
 }
 
 .archetype-section-copy{
-  margin:2px 0 6px 0;
+  margin:4px 0 10px 0;
   color:var(--muted);
   line-height:1.45;
 }
 
+.archetype-section{
+  position:relative;
+  overflow:hidden;
+}
+
+.archetype-section::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  opacity:.95;
+}
+
+.archetype-section.archetype-hitman::before{
+  background:linear-gradient(90deg, rgba(255,138,128,.95), rgba(255,138,128,.16));
+}
+
+.archetype-section.archetype-closer::before{
+  background:linear-gradient(90deg, rgba(255,213,108,.95), rgba(255,213,108,.16));
+}
+
+.archetype-section.archetype-grinder::before{
+  background:linear-gradient(90deg, rgba(185,251,192,.95), rgba(185,251,192,.16));
+}
+
+.archetype-section.archetype-lucky-devil::before{
+  background:linear-gradient(90deg, rgba(196,181,253,.95), rgba(196,181,253,.16));
+}
+
+.archetype-section.archetype-wildcard::before{
+  background:linear-gradient(90deg, rgba(120,255,255,.98), rgba(120,255,255,.18));
+}
+
+.archetype-section.archetype-bubble-magnet::before{
+  background:linear-gradient(90deg, rgba(139,211,255,.95), rgba(139,211,255,.16));
+}
+
+.archetype-section.archetype-technician::before{
+  background:linear-gradient(90deg, rgba(155,231,255,.95), rgba(155,231,255,.16));
+}
 .archetype-section.archetype-hitman{
   border:1px solid rgba(255,138,128,.30);
   border-radius:18px;
@@ -2798,6 +2883,10 @@ th{
     0 0 0 1px rgba(155,231,255,.10),
     0 10px 24px rgba(0,0,0,.18),
     0 0 18px rgba(155,231,255,.08);
+}
+
+.archetype-section{
+  backdrop-filter:blur(2px);
 }
 
 .archetype-hitman .tier-section-head h3{ color:#ff8a80; }
