@@ -338,6 +338,16 @@ a:hover{
 .btn-format{
   min-width:210px;
   font-size:1.06rem;
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255,184,28,.08);
+}
+
+.btn-format:hover{
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.28),
+    0 0 0 1px rgba(255,184,28,.18),
+    0 0 18px rgba(255,184,28,.12);
 }
 
 /* home events header */
@@ -1965,7 +1975,7 @@ td{
   vertical-align:middle;
 }
 
-th{
+#standings-table th{
   color:#e6eef7;
   font-weight:800;
   letter-spacing:.02em;
@@ -1975,7 +1985,7 @@ th{
   box-shadow:inset 0 -1px 0 rgba(255,184,28,.12);
 }
 
-tbody tr:nth-child(1){
+#standings-table tbody tr:nth-child(1){
   background:
     linear-gradient(90deg, rgba(255,213,108,.12), rgba(255,213,108,.03) 34%, transparent 100%);
   box-shadow:
@@ -1983,7 +1993,7 @@ tbody tr:nth-child(1){
     inset 0 1px 0 rgba(255,213,108,.08);
 }
 
-tbody tr:nth-child(2){
+#standings-table tbody tr:nth-child(2){
   background:
     linear-gradient(90deg, rgba(192,192,192,.10), rgba(192,192,192,.03) 34%, transparent 100%);
   box-shadow:
@@ -1991,7 +2001,7 @@ tbody tr:nth-child(2){
     inset 0 1px 0 rgba(192,192,192,.06);
 }
 
-tbody tr:nth-child(3){
+#standings-table tbody tr:nth-child(3){
   background:
     linear-gradient(90deg, rgba(205,127,50,.10), rgba(205,127,50,.03) 34%, transparent 100%);
   box-shadow:
@@ -1999,24 +2009,29 @@ tbody tr:nth-child(3){
     inset 0 1px 0 rgba(205,127,50,.06);
 }
 
-tbody tr:nth-child(1) td{
+#standings-table tbody tr:nth-child(1) td{
   color:#fff3cc;
 }
 
-tbody tr:nth-child(2) td{
+#standings-table tbody tr:nth-child(2) td{
   color:#e7edf3;
 }
 
-tbody tr:nth-child(3) td{
+#standings-table tbody tr:nth-child(3) td{
   color:#f0d4bf;
 }
 
-tbody tr:nth-child(odd){
+#standings-table tbody tr:nth-child(odd){
   background-color:rgba(255,255,255,.018);
 }
 
-tbody tr:nth-child(even){
+#standings-table tbody tr:nth-child(even){
   background-color:rgba(255,255,255,.032);
+}
+
+#standings-table tbody tr:hover{
+  background:
+    linear-gradient(90deg, rgba(255,184,28,.10), rgba(255,184,28,.03) 36%, transparent 100%);
 }
 
 tbody tr:hover{
@@ -2108,6 +2123,20 @@ tbody tr:hover{
     0 0 0 1px rgba(255,184,28,.10),
     0 12px 30px rgba(0,0,0,.24),
     0 0 28px rgba(255,184,28,.10);
+}
+
+#rules .section,
+.section.rules-section{
+  border-color:rgba(255,184,28,.22);
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.12), transparent 30%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(34,197,94,.06), transparent 24%),
+    linear-gradient(180deg, rgba(20,26,34,.96), rgba(12,15,20,.98));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.08),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 24px rgba(255,184,28,.08);
 }
 
 #dashboard-grid{
@@ -4002,6 +4031,22 @@ tbody tr:hover{
 
 .rule-card{
   padding:18px;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.06), rgba(255,184,28,.015) 22%, rgba(255,255,255,.01) 100%);
+  border-color:rgba(255,184,28,.12);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.05),
+    0 10px 24px rgba(0,0,0,.18);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.rule-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.24);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.09),
+    0 12px 26px rgba(0,0,0,.22),
+    0 0 18px rgba(255,184,28,.08);
 }
 
 .rule-card-head{
@@ -4047,13 +4092,26 @@ tbody tr:hover{
   align-items:center;
   justify-content:center;
   gap:6px;
-  border:1px solid rgba(255,184,28,.26);
+  border:1px solid rgba(255,184,28,.28);
   border-radius:999px;
   padding:10px 14px;
-  background:linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.04));
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.05)),
+    linear-gradient(90deg, rgba(59,130,246,.04), transparent 50%);
   color:#fff;
-  box-shadow:0 6px 16px rgba(0,0,0,.18);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 0 1px rgba(255,184,28,.08),
+    0 0 16px rgba(255,184,28,.08);
   line-height:1;
+}
+
+.timer-pill:hover{
+  transform:translateY(-1px);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.22),
+    0 0 0 1px rgba(255,184,28,.14),
+    0 0 18px rgba(255,184,28,.12);
 }
 
 .timer-pill strong{
@@ -4072,17 +4130,31 @@ tbody tr:hover{
 }
 
 .rules-chip-card{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,184,28,.12);
   border-radius:14px;
   padding:14px 10px;
   text-align:center;
-  background:rgba(255,255,255,.02);
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.07), rgba(255,184,28,.02) 28%, rgba(255,255,255,.02) 100%);
   min-height:170px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
   gap:10px;
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.05),
+    0 8px 20px rgba(0,0,0,.16);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.rules-chip-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.28);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.10),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 18px rgba(255,184,28,.10);
 }
 
 .rules-chip-image{
@@ -4128,6 +4200,12 @@ tbody tr:hover{
 
 .blind-sheet{
   padding:16px;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.06), rgba(255,184,28,.015) 24%, rgba(255,255,255,.01) 100%);
+  border-color:rgba(255,184,28,.14);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.06),
+    0 10px 24px rgba(0,0,0,.18);
 }
 
 .blind-table{
@@ -4139,7 +4217,21 @@ tbody tr:hover{
 .blind-table th,
 .blind-table td{
   padding:12px 12px;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.blind-table th{
+  color:#ffe7b0;
+  font-weight:800;
+  letter-spacing:.03em;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.14), rgba(255,184,28,.05)),
+    linear-gradient(90deg, rgba(59,130,246,.03), transparent 35%);
+  box-shadow:inset 0 -1px 0 rgba(255,184,28,.12);
+}
+
+.blind-table td{
+  color:#eef3f8;
 }
 
 .blind-row-dark{
@@ -4147,7 +4239,7 @@ tbody tr:hover{
 }
 
 .blind-row-light{
-  background:rgba(255,255,255,.05);
+  background:rgba(255,184,28,.05);
 }
 
 .blind-break td{
