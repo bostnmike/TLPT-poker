@@ -1877,7 +1877,6 @@ function renderPlayerProfile(data) {
             <span class="profile-line-desc">— ${tier.desc}</span>
           </div>
           
-          <p class="player-formula-help muted">Mouse over any stat to reveal the calculation formula.</p>
           ${badgesMarkup(player, data)}
           
         </div>
@@ -1892,6 +1891,8 @@ function renderPlayerProfile(data) {
       </div>
 
       <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
+
+      <p class="player-formula-help muted">Mouse over any stat to reveal the calculation.</p>
 
       <div class="profile-grid player-stat-grid-enhanced">
         ${statsMarkup}
