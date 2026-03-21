@@ -2182,10 +2182,11 @@ function buildRulesChipCard(chip, formatKey) {
   const candidateAttr = escapeHtmlAttr(candidates.join("|"));
   const label = escapeHtmlAttr(chip.label);
   const chipCount = CHIP_SET_TEXT[formatKey]?.[chip.label] ?? 0;
+  const chipClass = `chip-${String(chip.label).replace(/[^0-9]/g, "")}`;
 
   return `
-    <div class="rules-chip-card" title="${label} • Set per player = ${chipCount}">
-      <img
+    <div class="rules-chip-card ${chipClass}" title="${label} • Set per player = ${chipCount}">
+    <img
         class="rules-chip-image"
         src="${firstCandidate}"
         alt="${label}"
