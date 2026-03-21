@@ -1193,17 +1193,28 @@ a:hover{
   min-width:0;
   display:flex;
   flex-direction:column;
-  gap:5px;
+  gap:6px;
 }
 
 .featured-player-tier,
 .featured-player-archetype{
   font-weight:700;
-  line-height:1.4;
+  line-height:1.35;
+  width:max-content;
 }
 
 .featured-player-tier{
-  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  width:max-content;
+  max-width:100%;
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,184,28,.26);
+  background:rgba(255,184,28,.10);
+  color:#ffe29a;
+  box-shadow:0 0 0 1px rgba(255,184,28,.08);
 }
 
 .featured-player-archetype{
