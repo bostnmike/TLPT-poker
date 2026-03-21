@@ -1210,7 +1210,6 @@ a:hover{
 .featured-player-archetype{
   display:inline-flex;
   align-items:center;
-  width:max-content;
   max-width:100%;
   font-weight:700;
   line-height:1.35;
@@ -2273,11 +2272,11 @@ td{
 
 .dashboard-card:hover{
   transform:translateY(-2px);
-  border-color:rgba(255,184,28,.30);
+  border-color:rgba(255,184,28,.28);
   box-shadow:
-    inset 0 0 0 1px rgba(255,184,28,.07),
+    inset 0 0 0 1px rgba(255,184,28,.06),
     0 14px 34px rgba(0,0,0,.32),
-    0 0 14px rgba(255,184,28,.08);
+    0 0 12px rgba(255,184,28,.07);
 }
 
 .dashboard-rank-gold:hover{
@@ -4302,6 +4301,7 @@ td{
   background:rgba(255,255,255,.04);
   color:#fff;
   box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.03),
     0 6px 16px rgba(0,0,0,.18),
     0 0 0 1px rgba(255,255,255,.04);
   line-height:1;
@@ -4385,12 +4385,12 @@ td{
 }
 
 .rules-chip-card{
-  border:1px solid rgba(255,184,28,.12);
+  border:1px solid rgba(255,255,255,.10);
   border-radius:14px;
   padding:14px 10px;
   text-align:center;
   background:
-    linear-gradient(180deg, rgba(255,184,28,.07), rgba(255,184,28,.02) 28%, rgba(255,255,255,.02) 100%);
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015) 28%, rgba(255,255,255,.02) 100%);
   min-height:170px;
   display:flex;
   flex-direction:column;
@@ -4398,7 +4398,7 @@ td{
   justify-content:flex-start;
   gap:10px;
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.05),
+    0 0 0 1px rgba(255,255,255,.04),
     0 8px 20px rgba(0,0,0,.16);
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
@@ -5180,7 +5180,6 @@ td{
     margin-left:auto;
     margin-right:auto;
   }
-  
 }
 
 /* ===== SECTION ICON STYLING ===== */
