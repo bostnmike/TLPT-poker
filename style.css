@@ -1743,16 +1743,6 @@ a:hover{
   box-shadow:0 6px 14px rgba(0,0,0,.35);
 }
 
-.event-rsvp-summary-item strong{
-  color:#ffe29a;
-  font-weight:900;
-}
-
-.event-rsvp-summary-sep{
-  color:rgba(255,184,28,.72);
-  font-weight:800;
-}
-
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
 .event-rsvp-avatar-row > :nth-child(3){ --seat-x:76%; --seat-y:14%; }
 .event-rsvp-avatar-row > :nth-child(4){ --seat-x:87%; --seat-y:32%; }
@@ -2830,6 +2820,9 @@ th{
   border-radius:16px;
   padding:16px;
   background:linear-gradient(180deg, rgba(120,255,255,.06), rgba(17,22,30,0) 30%);
+  box-shadow:
+    0 0 0 1px rgba(120,255,255,.08),
+    0 0 18px rgba(120,255,255,.08);
 }
 
 .home-guide-pill{
@@ -4224,6 +4217,16 @@ th{
   
   .player-dna-grid{
     grid-template-columns:1fr;
+  }
+
+  .featured-player-meta{
+  align-items:center;
+  }
+
+  .featured-player-tier,
+  .featured-player-archetype{
+    margin-left:auto;
+    margin-right:auto;
   }
   
 }
