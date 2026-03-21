@@ -2601,6 +2601,35 @@ th{
   line-height:1;
 }
 
+.crew-archetype-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:26px;
+  padding:5px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  line-height:1;
+}
+
+.crew-archetype-chip.primary{
+  border-color:rgba(255,184,28,.28);
+  background:rgba(255,184,28,.10);
+  color:#ffe29a;
+}
+
+.crew-archetype-chip.secondary{
+  border-color:rgba(158,176,195,.24);
+  background:rgba(158,176,195,.10);
+  color:#dce4ec;
+}
+
 .crew-summary-row{
   display:flex;
   justify-content:space-between;
@@ -2760,9 +2789,43 @@ th{
 }
 
 .archetype-section-copy{
-  margin:4px 0 10px 0;
+  margin:6px 0 12px 0;
   color:var(--muted);
   line-height:1.45;
+}
+
+.archetype-active-summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:0 0 12px 0;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  box-shadow:0 8px 20px rgba(0,0,0,.14);
+}
+
+.archetype-active-summary-label{
+  color:#fff;
+  font-weight:800;
+  line-height:1.3;
+}
+
+.archetype-active-summary-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:34px;
+  height:34px;
+  padding:0 12px;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-transform:uppercase;
 }
 
 .archetype-section{
@@ -4393,6 +4456,38 @@ th{
     grid-template-columns:1fr;
   }
 
+  .archetype-section.archetype-hitman,
+  .archetype-section.archetype-closer,
+  .archetype-section.archetype-grinder,
+  .archetype-section.archetype-lucky-devil,
+  .archetype-section.archetype-wildcard,
+  .archetype-section.archetype-bubble-magnet,
+  .archetype-section.archetype-technician{
+    padding:12px;
+    border-radius:16px;
+  }
+
+  .archetype-section .tier-grid{
+    padding:10px;
+    border-radius:14px;
+  }
+
+  .archetype-section::before{
+    left:12px;
+    right:12px;
+  }
+
+  .archetype-active-summary{
+    padding:10px 12px;
+    border-radius:12px;
+  }
+
+  .archetype-active-summary-count{
+    min-width:30px;
+    height:30px;
+    font-size:.76rem;
+  }
+  
   .home-snapshot-grid{
     grid-template-columns:1fr;
   }
