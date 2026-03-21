@@ -1224,10 +1224,26 @@ a:hover{
 }
 
 .featured-player-quote{
-  margin:0 0 14px 0;
-  color:var(--gold);
+  position:relative;
+  margin:2px 0 16px 0;
+  padding:0 0 0 16px;
+  color:#ffe7b0;
   font-style:italic;
-  line-height:1.5;
+  font-weight:700;
+  line-height:1.6;
+  max-width:52ch;
+  text-shadow:0 0 8px rgba(255,184,28,.08);
+}
+
+.featured-player-quote::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.2em;
+  bottom:.2em;
+  width:3px;
+  border-radius:999px;
+  background:linear-gradient(180deg, rgba(255,184,28,.85), rgba(255,184,28,.18));
 }
 
 .featured-player-stats{
@@ -1265,7 +1281,9 @@ a:hover{
   flex-wrap:wrap;
   gap:8px;
   margin-top:auto;
-  margin-bottom:12px;
+  margin-bottom:14px;
+  padding-top:4px;
+  border-top:1px solid rgba(255,255,255,.06);
 }
 
 .featured-player-badge{
@@ -3240,7 +3258,6 @@ th{
 }
 
 .player-dna-value{
-  color:var(--gold);
   font-weight:800;
 }
 
@@ -3258,23 +3275,34 @@ th{
   transition:width .4s ease;
 }
 
-.player-dna-fill.dna-red{
-  background:linear-gradient(90deg, rgba(255,138,128,.95), rgba(255,138,128,.22));
+.player-dna-row:has(.dna-red) .player-dna-label,
+.player-dna-row:has(.dna-red) .player-dna-value{
+  color:#ffb5ae;
 }
-.player-dna-fill.dna-gold{
-  background:linear-gradient(90deg, rgba(255,213,108,.95), rgba(255,213,108,.22));
+
+.player-dna-row:has(.dna-gold) .player-dna-label,
+.player-dna-row:has(.dna-gold) .player-dna-value{
+  color:#ffe29a;
 }
-.player-dna-fill.dna-green{
-  background:linear-gradient(90deg, rgba(185,251,192,.92), rgba(185,251,192,.18));
+
+.player-dna-row:has(.dna-green) .player-dna-label,
+.player-dna-row:has(.dna-green) .player-dna-value{
+  color:#d8ffe0;
 }
-.player-dna-fill.dna-violet{
-  background:linear-gradient(90deg, rgba(196,181,253,.92), rgba(196,181,253,.18));
+
+.player-dna-row:has(.dna-violet) .player-dna-label,
+.player-dna-row:has(.dna-violet) .player-dna-value{
+  color:#ddd2ff;
 }
-.player-dna-fill.dna-blue{
-  background:linear-gradient(90deg, rgba(139,211,255,.92), rgba(139,211,255,.18));
+
+.player-dna-row:has(.dna-blue) .player-dna-label,
+.player-dna-row:has(.dna-blue) .player-dna-value{
+  color:#c8ecff;
 }
-.player-dna-fill.dna-slate{
-  background:linear-gradient(90deg, rgba(158,176,195,.88), rgba(158,176,195,.18));
+
+.player-dna-row:has(.dna-slate) .player-dna-label,
+.player-dna-row:has(.dna-slate) .player-dna-value{
+  color:#d6dee7;
 }
 
 .player-nav,
