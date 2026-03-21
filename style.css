@@ -1218,7 +1218,6 @@ a:hover{
   align-items:center;
   gap:6px;
   width:max-content;
-  max-width:100%;
   padding:6px 10px;
   border-radius:10px;
   border:1px solid rgba(255,184,28,.26);
@@ -1962,8 +1961,11 @@ a:hover{
 
 table{
   width:100%;
-  min-width:820px;
   border-collapse:collapse;
+}
+
+#standings-table{
+  min-width:820px;
 }
 
 th,
@@ -3333,10 +3335,6 @@ td{
   color:#e2fbff;
 }
 
-.home-guide-pill{
-  transition:transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
-}
-
 .home-guide-pill[data-archetype-tone="hitman"]{
   color:#ffb5ae;
   border-color:rgba(255,138,128,.30);
@@ -4380,8 +4378,7 @@ td{
 .timer-pill:hover{
   transform:translateY(-1px);
   box-shadow:
-    0 8px 18px rgba(0,0,0,.22),
-    0 0 14px rgba(255,255,255,.06);
+    0 8px 18px rgba(0,0,0,.22);
 }
 
 .rules-chip-panel{
@@ -4542,7 +4539,7 @@ td{
 }
 
 .rules-chip-count{
-  color:var(--gold);
+  color:var(--muted);
   font-size:.88rem;
   line-height:1.35;
   font-weight:400;
