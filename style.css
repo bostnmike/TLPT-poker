@@ -4044,6 +4044,118 @@ td{
     0 0 18px rgba(255,184,28,.08);
 }
 
+.rules-grid .rule-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.rules-grid .rule-card::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  opacity:.95;
+}
+
+.rules-grid .rule-card:nth-child(1){
+  border-color:rgba(59,130,246,.18);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.16), transparent 34%),
+    linear-gradient(180deg, rgba(59,130,246,.09), rgba(59,130,246,.02) 22%, rgba(255,255,255,.01) 100%);
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.06),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(59,130,246,.08);
+}
+
+.rules-grid .rule-card:nth-child(1)::before{
+  background:linear-gradient(90deg, rgba(59,130,246,.95), rgba(59,130,246,.15));
+  box-shadow:0 0 10px rgba(59,130,246,.16);
+}
+
+.rules-grid .rule-card:nth-child(1):hover{
+  border-color:rgba(59,130,246,.32);
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.10),
+    0 12px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(59,130,246,.12);
+}
+
+.rules-grid .rule-card:nth-child(2){
+  border-color:rgba(34,197,94,.18);
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.15), transparent 34%),
+    linear-gradient(180deg, rgba(34,197,94,.08), rgba(34,197,94,.02) 22%, rgba(255,255,255,.01) 100%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.06),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(34,197,94,.08);
+}
+
+.rules-grid .rule-card:nth-child(2)::before{
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(34,197,94,.15));
+  box-shadow:0 0 10px rgba(34,197,94,.16);
+}
+
+.rules-grid .rule-card:nth-child(2):hover{
+  border-color:rgba(34,197,94,.30);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.10),
+    0 12px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(34,197,94,.12);
+}
+
+.rules-grid .rule-card:nth-child(3){
+  border-color:rgba(168,85,247,.18);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.16), transparent 34%),
+    linear-gradient(180deg, rgba(168,85,247,.08), rgba(168,85,247,.02) 22%, rgba(255,255,255,.01) 100%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.06),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(168,85,247,.08);
+}
+
+.rules-grid .rule-card:nth-child(3)::before{
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(168,85,247,.15));
+  box-shadow:0 0 10px rgba(168,85,247,.16);
+}
+
+.rules-grid .rule-card:nth-child(3):hover{
+  border-color:rgba(168,85,247,.30);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.10),
+    0 12px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(168,85,247,.12);
+}
+
+.rules-grid .rule-card:nth-child(4){
+  border-color:rgba(239,68,68,.18);
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.15), transparent 34%),
+    linear-gradient(180deg, rgba(239,68,68,.08), rgba(239,68,68,.02) 22%, rgba(255,255,255,.01) 100%);
+  box-shadow:
+    0 0 0 1px rgba(239,68,68,.06),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(239,68,68,.08);
+}
+
+.rules-grid .rule-card:nth-child(4)::before{
+  background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(239,68,68,.15));
+  box-shadow:0 0 10px rgba(239,68,68,.16);
+}
+
+.rules-grid .rule-card:nth-child(4):hover{
+  border-color:rgba(239,68,68,.30);
+  box-shadow:
+    0 0 0 1px rgba(239,68,68,.10),
+    0 12px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(239,68,68,.12);
+}
+
 .rules-grid .rule-card:nth-child(1){
   border-color:rgba(59,130,246,.18);
   background:
