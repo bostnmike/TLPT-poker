@@ -942,7 +942,6 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
   return `
     <div
       class="event-card compact-event-card home-event-hero schedule-event-card ${themeClass} home-rotating-event-card"
-      data-home-event-panel="${index}"
       data-event-day="${dayLabel}"
     >
       <div class="event-card-topline">
@@ -1290,7 +1289,10 @@ function renderHomePage(data) {
         <div class="home-event-rotator-shell dual-event-week">
           <div class="home-event-rotator-stage">
             ${homeEvents.map((event, index) => `
-              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}">
+              <div
+                class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}"
+                data-home-event-panel="${index}"
+              >
                 ${buildHomeEventCard(event, data, homeEvents, activeIndex, index)}
               </div>
             `).join("")}
