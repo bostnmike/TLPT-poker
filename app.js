@@ -780,7 +780,6 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${confirmedPlayers.map(player => {
           const displayName = displayPlayerNamePlain(player);
-
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
               ${playerImageMarkup(player, "table")}
@@ -845,6 +844,11 @@ function getEventDayLabel(event) {
   if (/friday/i.test(rawDate)) return "Friday";
   if (/saturday/i.test(rawDate)) return "Saturday";
 
+  const parsed = new Date(rawDate);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
   return "Event";
 }
 
@@ -879,7 +883,8 @@ function getCurrentEvents(data) {
 
 function getHomeEventRotationIndex(events) {
   if (!events.length) return 0;
-  return 0;
+  const rotationWindowMs = 7000;
+  return Math.floor(Date.now() / rotationWindowMs) % events.length;
 }
 
 function getHomeEventRotationIndex(events) {
@@ -1183,6 +1188,8 @@ function renderHomePage(data) {
         </div>
       `;
     } else {
+      const activeIndex = getHomeEventRotationIndex(homeEvents);
+
       const fixedButtonsMarkup = `
         <div class="home-event-fixed-buttons">
           ${homeEvents.map(event => `
@@ -1197,18 +1204,18 @@ function renderHomePage(data) {
         <div class="home-event-rotator-shell dual-event-week">
           <div class="home-event-rotator-stage">
             ${homeEvents.map((event, index) => `
-              <div class="home-event-rotator-panel${index === 0 ? " is-active" : ""}" data-home-event-panel="${index}">
+              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
                 ${buildEventCard(event, data, {
                   homeMode: true,
                   includeCommissioner: true,
-                  isActive: index === 0,
+                  isActive: index === activeIndex,
                   rsvpButtonsMarkup: fixedButtonsMarkup,
                   eventRsvpOptions: {
                     showRotatorNav: true,
-                    rotatorDay: getEventDayLabel(homeEvents[0]),
+                    rotatorDay: getEventDayLabel(homeEvents[activeIndex]),
                     rotatorDotsMarkup: homeEvents.map((dotEvent, dotIndex) => `
                       <button
-                        class="home-event-dot${dotIndex === 0 ? " is-active" : ""}"
+                        class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
                         type="button"
                         data-home-event-index="${dotIndex}"
                         aria-label="Show ${getEventDayLabel(dotEvent)} event"
@@ -1226,7 +1233,7 @@ function renderHomePage(data) {
       const rotatorDots = document.querySelectorAll("[data-home-event-index]");
       const rotatorDays = document.querySelectorAll(".home-event-rotator-day");
 
-      let currentIndex = 0;
+      let currentIndex = activeIndex;
 
       function setHomeEventSlide(index) {
         currentIndex = index;
@@ -1277,111 +1284,13 @@ function renderHomePage(data) {
     ].join("");
   }
 
-  const rotatorPanels = document.querySelectorAll("[data-home-event-panel]");
-  const rotatorDots = document.querySelectorAll("[data-home-event-index]");
-  const rotatorDay = document.querySelector(".home-event-rotator-day");
-
-  if (rotatorPanels.length > 1) {
-    let currentIndex = [...rotatorPanels].findIndex(panel => panel.classList.contains("is-active"));
-    if (currentIndex < 0) currentIndex = 0;
-
-    function setHomeEventSlide(index) {
-      rotatorPanels.forEach((panel, panelIndex) => {
-        panel.classList.toggle("is-active", panelIndex === index);
-      });
-
-      rotatorDots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("is-active", dotIndex === index);
-      });
-
-      const activePanel = rotatorPanels[index];
-      const activeCard = activePanel?.querySelector(".rotating-home-event-card");
-      const day = activeCard?.dataset?.eventDay || "";
-      if (rotatorDay) rotatorDay.textContent = day;
-    }
-
-    rotatorDots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      const nextIndex = Number(dot.dataset.homeEventIndex || 0);
-      currentIndex = nextIndex;
-      setHomeEventSlide(currentIndex);
-    });
-  });
-
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % rotatorPanels.length;
-    setHomeEventSlide(currentIndex);
-  }, 7000);
-}
-  
-  const archetypeGuideEl = document.getElementById("home-archetype-guide");
-  if (archetypeGuideEl) {
-    archetypeGuideEl.innerHTML = buildEventGuideCard();
-  }
-  
-  const allPlayers = data?.players || [];
-  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
-  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 4);
-  
-  const insightsGrid = document.getElementById("home-insights-grid");
-  if (insightsGrid) {
-    const roiLeader = sortPlayers(qualifiedPlayers, "roi")[0];
-    const survivorLeader = sortPlayers(qualifiedPlayers, "survivorIndex")[0];
-    const luckLeader = sortPlayers(qualifiedPlayers, "luckIndex")[0];
-    const bubbleLeader = sortPlayers(qualifiedPlayers, "bubbles")[0];
-
-    insightsGrid.innerHTML = [
-      buildHomeInsightCard("ROI Heater", "🔥", roiLeader, roiLeader ? fmtPct(roiLeader.roi) : "", "", "roi"),
-      buildHomeInsightCard("Survivor Spotlight", "🛟", survivorLeader, survivorLeader ? fmtNum(survivorLeader.survivorIndex) : "", "", "survivorIndex"),
-      buildHomeInsightCard("Run-Good Radar", "🍀", luckLeader, luckLeader ? fmtNum(luckLeader.luckIndex) : "", "", "luckIndex"),
-      buildHomeInsightCard("Bubble Trouble", "🫧", bubbleLeader, bubbleLeader ? String(bubbleLeader.bubbles) : "", "", "bubbles")
-    ].join("");
-  }
-
-  const insightFormula = document.getElementById("home-insight-formula");
-  if (insightFormula && insightsGrid) {
-    insightFormula.textContent = "";
-
-    insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
-      card.addEventListener("mouseenter", () => {
-        insightFormula.textContent = card.dataset.formula || "";
-      });
-
-      card.addEventListener("mouseleave", () => {
-        insightFormula.textContent = "";
-      });
-    });
-  }
-
-  const actionCluster = document.getElementById("home-action-cluster");
-  if (actionCluster) {
-    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 5);
-    const aggressionLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 5);
-    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 5);
-    actionCluster.innerHTML = `
-      <div class="home-cluster-stack home-cluster-stack-3">
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">💥 Knockout Board</div>
-          ${hitLeaders.map((player, index) =>
-            buildHomeMiniRow(index + 1, player, String(player.hits))
-          ).join("")}
-        </div>
-
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">⚡ Pressure Board</div>
-          ${aggressionLeaders.map((player, index) =>
-            buildHomeMiniRow(index + 1, player, fmtNum(player.aggressionIndex))
-          ).join("")}
-        </div>
-
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">🫧 Bubble Watch</div>
-          ${bubbleLeaders.map((player, index) =>
-            buildHomeMiniRow(index + 1, player, String(player.bubbles))
-          ).join("")}
-        </div>
-      </div>
-    `;
+  const badgeCluster = document.getElementById("home-badge-cluster");
+  if (badgeCluster) {
+    const badges = HOME_BADGE_CONFIG.map(config => {
+      const leader = getLeaderByRule(qualifiedPlayers, HONOR_RULES[config.rule]);
+      return leader ? buildHomeBadgeCard(config, leader) : "";
+    }).join("");
+    badgeCluster.innerHTML = badges;
   }
 
   const ticker = document.getElementById("league-ticker-text");
@@ -1389,10 +1298,8 @@ function renderHomePage(data) {
     const tickerItems = STAT_LEADER_CONFIG.map(stat => {
       const leader = sortPlayers(qualifiedPlayers, stat.key)[0];
       if (!leader) return "";
-
       const statConfig = getStatConfig(stat.key);
       const icon = statConfig?.icon || "🏅";
-
       return buildTickerLeader(icon, stat.title, leader);
     }).join("");
 
@@ -1405,7 +1312,6 @@ function renderHomePage(data) {
       </div>
     `;
   }
-  renderLeagueSnapshot(data);
 }
 
 function getFeaturedPlayer(data) {
