@@ -1611,16 +1611,17 @@ a:hover{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(215,38,61,.26);
+  border:1px solid rgba(215,38,61,.30);
   border-radius:18px;
   padding:20px 22px;
   background:
-    radial-gradient(circle at top right, rgba(215,38,61,.14), transparent 32%),
-    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    radial-gradient(circle at top right, rgba(255,120,120,.10), transparent 34%),
+    linear-gradient(180deg, rgba(215,38,61,.22), rgba(120,12,24,.22)),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
   box-shadow:
-    0 0 0 1px rgba(215,38,61,.10),
+    0 0 0 1px rgba(215,38,61,.12),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 16px rgba(215,38,61,.08);
+    0 0 18px rgba(215,38,61,.10);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -1698,15 +1699,17 @@ a:hover{
 }
 
 #home-events-list .schedule-event-card-top .event-format-title{
-  border-color:rgba(168,85,247,.28);
-  background:rgba(168,85,247,.12);
-  color:#ead7ff;
+  border-color:rgba(255,184,28,.52);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 0 12px rgba(255,184,28,.10);
 }
 
 #home-events-list .schedule-event-card-bottom .event-format-title{
-  border-color:rgba(34,197,94,.28);
-  background:rgba(34,197,94,.12);
-  color:#c9ffd9;
+  border-color:rgba(255,184,28,.52);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 0 12px rgba(255,184,28,.10);
 }
 
 #schedule-list .schedule-event-card-top{
@@ -1730,15 +1733,17 @@ a:hover{
 }
 
 #schedule-list .schedule-event-card-top .event-format-title{
-  border-color:rgba(168,85,247,.28);
-  background:rgba(168,85,247,.12);
-  color:#ead7ff;
+  border-color:rgba(255,184,28,.52);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 0 12px rgba(255,184,28,.10);
 }
 
 #schedule-list .schedule-event-card-bottom .event-format-title{
-  border-color:rgba(34,197,94,.28);
-  background:rgba(34,197,94,.12);
-  color:#c9ffd9;
+  border-color:rgba(255,184,28,.52);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 0 12px rgba(255,184,28,.10);
 }
 
 #champions-list .honors-card{
@@ -1922,21 +1927,22 @@ a:hover{
   inset:0;
   border-radius:999px;
   background:url("images/site/winter-classic.png?v=6") center center / 700px 350px no-repeat;
-  border:2px solid rgba(255,184,28,.72);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.22),
-    0 0 18px rgba(255,184,28,.18),
-    0 10px 20px rgba(0,0,0,.18);
-  transition:transform .22s ease, filter .22s ease, box-shadow .22s ease, border-color .22s ease;
+  border:none;
+  box-shadow:none;
+  filter:
+    drop-shadow(0 0 2px rgba(255,184,28,.55))
+    drop-shadow(0 0 8px rgba(255,184,28,.28))
+    drop-shadow(0 8px 16px rgba(0,0,0,.18));
+  transition:transform .22s ease, filter .22s ease;
 }
 
 .event-rsvp-avatar-row:hover::before{
   transform:scale(1.01);
-  filter:brightness(1.02);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.26),
-    0 0 24px rgba(255,184,28,.22),
-    0 10px 20px rgba(0,0,0,.18);
+  filter:
+    brightness(1.02)
+    drop-shadow(0 0 3px rgba(255,184,28,.62))
+    drop-shadow(0 0 12px rgba(255,184,28,.34))
+    drop-shadow(0 8px 16px rgba(0,0,0,.18));
 }
 
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
