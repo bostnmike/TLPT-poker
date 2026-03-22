@@ -1388,10 +1388,6 @@ a:hover{
   position:relative;
 }
 
-.home-event-rotator-header{
-  display:none;
-}
-
 .home-event-button-row{
   display:none;
 }
@@ -4101,6 +4097,21 @@ td{
   background:linear-gradient(180deg, rgba(255,184,28,.28), rgba(255,184,28,.14));
   border-bottom:1px solid rgba(255,184,28,.32);
   z-index:0;
+}
+
+#champions-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
+}
+
+#leaders-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
+  border-bottom:1px solid rgba(59,130,246,.32);
+}
+
+#records-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(255,184,28,.28), rgba(255,184,28,.14));
+  border-bottom:1px solid rgba(255,184,28,.32);
 }
 
 .honors-card > *{
