@@ -768,6 +768,7 @@ function getConfirmedRsvpPlayers(event, data) {
     )
     .filter(Boolean);
 }
+
 function buildRsvpSummaryMarkup(event, extraClass = "") {
   const counts = getRsvpCounts(event);
   const summaryClass = ["event-rsvp-summary", extraClass].filter(Boolean).join(" ");
