@@ -1774,12 +1774,6 @@ a:hover{
     0 0 20px rgba(255,184,28,.10);
 }
 
-#schedule-list .event-format-title{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.14);
-  color:#fff;
-}
-
 .home-event-kicker{
   font-size:.75rem;
   text-transform:uppercase;
@@ -1846,6 +1840,7 @@ a:hover{
   box-shadow:
     0 0 0 1px rgba(255,184,28,.12),
     0 0 12px rgba(255,184,28,.10);
+  text-shadow:0 0 6px rgba(255,184,28,.14);
 
   margin:2px 0 10px 0;
   opacity:1;
@@ -1938,6 +1933,10 @@ a:hover{
 .event-rsvp-avatar-row:hover::before{
   transform:scale(1.01);
   filter:brightness(1.02);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.26),
+    0 0 24px rgba(255,184,28,.22),
+    0 10px 20px rgba(0,0,0,.18);
 }
 
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
@@ -1997,7 +1996,8 @@ a:hover{
   transform:scale(1.06);
   box-shadow:
     0 0 0 2px rgba(255,255,255,.18),
-    0 0 22px rgba(255,255,255,.14),
+    0 0 16px rgba(255,184,28,.12),
+    0 0 22px rgba(255,255,255,.12),
     0 12px 20px rgba(0,0,0,.22);
   filter:brightness(1.04);
 }
