@@ -3673,45 +3673,52 @@ td{
   align-items:center;
   justify-content:center;
   width:100%;
-  min-height:46px;
-  padding:11px 14px;
-  border-radius:12px;
-  border:1px solid rgba(59,130,246,.34);
+  min-height:40px;
+  padding:9px 12px;
+  border-radius:11px;
+  border:1px solid rgba(255,160,160,.34);
   background:
-    linear-gradient(180deg, rgba(191,219,254,.10), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.26), rgba(25,49,94,.92));
-  color:#dbeafe;
+    linear-gradient(180deg, rgba(255,220,220,.10), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(255,140,140,.24), rgba(92,24,24,.90));
+  color:#ffe3e3;
   font-weight:800;
-  font-size:.84rem;
+  font-size:.78rem;
   line-height:1;
   cursor:pointer;
   box-shadow:
-    inset 0 1px 0 rgba(219,234,254,.12),
-    inset 0 -2px 4px rgba(10,22,44,.48),
+    inset 0 1px 0 rgba(255,235,235,.12),
+    inset 0 -2px 4px rgba(48,10,10,.44),
     0 8px 18px rgba(0,0,0,.22);
   transition:transform .16s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease, color .18s ease;
 }
 
+.archetype-mode-btn .emoji,
+.archetype-mode-btn .mode-emoji,
+.archetype-mode-btn i,
+.archetype-mode-btn .icon{
+  display:none !important;
+}
+
 .archetype-mode-btn:hover{
   transform:translateY(-1px);
-  border-color:rgba(96,165,250,.48);
+  border-color:rgba(255,176,176,.48);
   box-shadow:
-    inset 0 1px 0 rgba(219,234,254,.16),
-    inset 0 -2px 4px rgba(10,22,44,.52),
+    inset 0 1px 0 rgba(255,235,235,.16),
+    inset 0 -2px 4px rgba(48,10,10,.48),
     0 10px 22px rgba(0,0,0,.24);
 }
 
 .archetype-mode-btn.active{
   color:#fff5f5;
-  border-color:rgba(255,122,122,.52);
+  border-color:rgba(215,70,70,.58);
   background:
-    linear-gradient(180deg, rgba(255,210,210,.12), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,122,122,.30), rgba(120,22,22,.92));
+    linear-gradient(180deg, rgba(255,205,205,.10), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(215,70,70,.34), rgba(92,14,14,.96));
   box-shadow:
     inset 0 1px 0 rgba(255,220,220,.14),
-    inset 0 -2px 4px rgba(52,8,8,.50),
+    inset 0 -2px 4px rgba(44,6,6,.52),
     0 10px 22px rgba(0,0,0,.24),
-    0 0 0 1px rgba(255,122,122,.14);
+    0 0 0 1px rgba(215,70,70,.16);
 }
 
 .archetype-filter-row{
