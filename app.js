@@ -74,14 +74,8 @@ const DASHBOARD_META = Object.fromEntries(
 );
 
 const STAT_LEADER_CONFIG = [
-  { key: "profit", title: "Profit Leader" },
   { key: "roi", title: "ROI Leader" },
-  { key: "hits", title: "Hit King" },
-  { key: "timesPlaced", title: "Cash King" },
-  { key: "bubbles", title: "Bubble King" },
-  { key: "trueSkillScore", title: "Power Leader" },
   { key: "luckIndex", title: "Luck Leader" },
-  { key: "clutchIndex", title: "Clutch Leader" },
   { key: "aggressionIndex", title: "Aggression Leader" },
   { key: "survivorIndex", title: "Survivor Leader" },
   { key: "tiltIndex", title: "Tilt Leader" }
@@ -114,16 +108,11 @@ const HONOR_RULES = {
 };
 
 const RECORD_RULES = {
-  "Highest Profit": { key: "profit", direction: "desc" },
-  "Best ROI": { key: "roi", direction: "desc" },
-  "Most Hits": { key: "hits", direction: "desc" },
   "Most Cashes": { key: "timesPlaced", direction: "desc" },
-  "Most Bubbles": { key: "bubbles", direction: "desc" },
-  "Top True Skill": { key: "trueSkillScore", direction: "desc" },
-  "Best Clutch Index": { key: "clutchIndex", direction: "desc" },
-  "Best Luck Index": { key: "luckIndex", direction: "desc" },
   "Worst Luck Index": { key: "luckIndex", direction: "asc" },
-  "Lowest Profit": { key: "profit", direction: "asc" }
+  "Lowest Profit": { key: "profit", direction: "asc" },
+  "Most Rebuys": { key: "rebuys", direction: "desc" },
+  "Most Entries": { key: "entries", direction: "desc" }
 };
 
 const ARCHETYPE_GUIDE = [
