@@ -1497,6 +1497,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-top .schedule-day-pill,
 #schedule-list .schedule-event-card-top .schedule-day-pill{
+  color:#f1e8ff;
   border-color:rgba(196,181,253,.48);
   background:
     linear-gradient(180deg, rgba(220,210,255,.10), rgba(255,255,255,.02)),
@@ -1510,6 +1511,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-bottom .schedule-day-pill,
 #schedule-list .schedule-event-card-bottom .schedule-day-pill{
+  color:#e7ffeF;
   border-color:rgba(134,239,172,.48);
   background:
     linear-gradient(180deg, rgba(210,255,224,.10), rgba(255,255,255,.02)),
@@ -1558,25 +1560,43 @@ a:hover{
 }
 
 .home-dual-rsvp-btn-friday:hover{
-  border-color:rgba(168,85,247,.48);
-  box-shadow:0 0 0 1px rgba(168,85,247,.12), 0 10px 24px rgba(0,0,0,.20);
-}
-
-.home-dual-rsvp-btn-saturday{
-  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
-  border-color:rgba(34,197,94,.34);
-  color:#dcfce7;
+  background:linear-gradient(180deg, #ddd6fe 0%, #c4b5fd 100%);
+  border-color:#c4b5fd;
+  color:#24123d;
+  box-shadow:
+    0 0 0 1px rgba(196,181,253,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(168,85,247,.12);
 }
 
 .home-dual-rsvp-btn-saturday:hover{
-  border-color:rgba(34,197,94,.48);
-  box-shadow:0 0 0 1px rgba(34,197,94,.12), 0 10px 24px rgba(0,0,0,.20);
+  background:linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
+  border-color:#86efac;
+  color:#0f2d18;
+  box-shadow:
+    0 0 0 1px rgba(134,239,172,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(34,197,94,.12);
 }
 
-#schedule-list .schedule-event-card-top .btn-rsvp{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-color:rgba(168,85,247,.34);
-  color:#f3e8ff;
+#schedule-list .schedule-event-card-top .btn-rsvp:hover{
+  background:linear-gradient(180deg, #ddd6fe 0%, #c4b5fd 100%);
+  border-color:#c4b5fd;
+  color:#24123d;
+  box-shadow:
+    0 0 0 1px rgba(196,181,253,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(168,85,247,.12);
+}
+
+#schedule-list .schedule-event-card-bottom .btn-rsvp:hover{
+  background:linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
+  border-color:#86efac;
+  color:#0f2d18;
+  box-shadow:
+    0 0 0 1px rgba(134,239,172,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(34,197,94,.12);
 }
 
 #schedule-list .schedule-event-card-top .btn-rsvp:hover{
@@ -1653,7 +1673,7 @@ a:hover{
   margin:0;
   line-height:1.6;
   font-size:1.12rem;
-  color:var(--gold);
+  color:#ffffff;
 }
 
 .event-details-col .event-title-kicker{
@@ -1719,7 +1739,7 @@ a:hover{
   margin:0;
   line-height:1.7;
   letter-spacing:.2px;
-  color:rgba(255,255,255,.68);
+  color:#ffffff;
 }
 
 .home-commissioner-section{
@@ -1742,10 +1762,6 @@ a:hover{
 
 .home-commissioner-shell .commissioner-typing-target{
   min-height:3.4em;
-}
-
-.home-commissioner-shell .commissioner-typing-target{
-  min-height:5.6em;
 }
 
 #home-commissioner-section .section-head{
@@ -1820,7 +1836,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-top .event-format-title,
 #schedule-list .schedule-event-card-top .event-format-title{
-  color:#ffffff;
+  color:#e9ddff;
   border-color:rgba(196,181,253,.50);
   box-shadow:
     0 0 0 1px rgba(196,181,253,.10),
@@ -1829,7 +1845,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-bottom .event-format-title,
 #schedule-list .schedule-event-card-bottom .event-format-title{
-  color:#ffffff;
+  color:#d8ffe0;
   border-color:rgba(134,239,172,.50);
   box-shadow:
     0 0 0 1px rgba(134,239,172,.10),
@@ -1932,6 +1948,22 @@ a:hover{
   letter-spacing:.01em;
   line-height:1.15;
   color:#fff;
+}
+
+#home-events-list .schedule-event-card-top .event-title-kicker,
+#schedule-list .schedule-event-card-top .event-title-kicker{
+  color:#ddd6fe;
+  text-shadow:
+    0 0 10px rgba(196,181,253,.18),
+    0 0 20px rgba(109,40,217,.12);
+}
+
+#home-events-list .schedule-event-card-bottom .event-title-kicker,
+#schedule-list .schedule-event-card-bottom .event-title-kicker{
+  color:#bbf7d0;
+  text-shadow:
+    0 0 10px rgba(134,239,172,.18),
+    0 0 20px rgba(22,163,74,.12);
 }
 
 .event-format-title{
