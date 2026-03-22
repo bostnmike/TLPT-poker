@@ -939,18 +939,6 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
     ? buildHomeRotatorDotsMarkup(allEvents, activeIndex)
     : "";
 
-function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
-  const dayLabel = getEventDayLabel(event);
-  const dayKey = dayLabel.toLowerCase();
-  const themeClass = dayKey === "friday"
-    ? "schedule-event-card-top"
-    : "schedule-event-card-bottom";
-
-  const buttonsMarkup = buildHomeEventButtonsMarkup(allEvents);
-  const dotsMarkup = allEvents.length > 1
-    ? buildHomeRotatorDotsMarkup(allEvents, activeIndex)
-    : "";
-
   return `
     <div
       class="event-card compact-event-card home-event-hero schedule-event-card ${themeClass} home-rotating-event-card"
