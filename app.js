@@ -82,9 +82,9 @@ const STAT_LEADER_CONFIG = [
 ];
 
 const HOME_BADGE_CONFIG = [
-  { rule: "Profit Leader", icon: "💰", label: "Profit Leader" },
-  { rule: "Power Leader", icon: "💪🏼", label: "Power Leader" },
-  { rule: "Clutch Leader", icon: "🎯", label: "Clutch Leader" },
+  { rule: "Profit Leader", icon: "💰", label: "Show Me Da $" },
+  { rule: "Power Leader", icon: "💪🏼", label: "Power Flex" },
+  { rule: "Clutch Leader", icon: "🎯", label: "Cap'n Clutch" },
   { rule: "Hit King", icon: "💥", label: "Knockout King" }
 ];
 
