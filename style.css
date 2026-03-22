@@ -1699,17 +1699,17 @@ a:hover{
 }
 
 #home-events-list .schedule-event-card-top .event-format-title{
-  border-color:rgba(255,184,28,.52);
+  border-color:rgba(255,255,255,.55);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
 }
 
 #home-events-list .schedule-event-card-bottom .event-format-title{
-  border-color:rgba(255,184,28,.52);
+  border-color:rgba(255,255,255,.55);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
+  0 0 0 1px rgba(255,255,255,.10),
+  0 0 10px rgba(255,255,255,.08);
 }
 
 #schedule-list .schedule-event-card-top{
@@ -1733,17 +1733,17 @@ a:hover{
 }
 
 #schedule-list .schedule-event-card-top .event-format-title{
-  border-color:rgba(255,184,28,.52);
+  border-color:rgba(255,255,255,.55);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
 }
 
 #schedule-list .schedule-event-card-bottom .event-format-title{
-  border-color:rgba(255,184,28,.52);
+  border-color:rgba(255,255,255,.55);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
 }
 
 #champions-list .honors-card{
@@ -1841,7 +1841,7 @@ a:hover{
 
   color:var(--gold);
   background:rgba(255,184,28,.10);
-  border:1px solid rgba(255,184,28,.52);
+  border:1px solid rgba(255,255,255,.35);
   box-shadow:
     0 0 0 1px rgba(255,184,28,.12),
     0 0 12px rgba(255,184,28,.10);
@@ -1930,8 +1930,8 @@ a:hover{
   border:none;
   box-shadow:none;
   filter:
-    drop-shadow(0 0 2px rgba(255,184,28,.55))
-    drop-shadow(0 0 8px rgba(255,184,28,.28))
+    drop-shadow(0 0 2px rgba(255,255,255,.45))
+    drop-shadow(0 0 8px rgba(255,255,255,.18))
     drop-shadow(0 8px 16px rgba(0,0,0,.18));
   transition:transform .22s ease, filter .22s ease;
 }
@@ -1940,8 +1940,8 @@ a:hover{
   transform:scale(1.01);
   filter:
     brightness(1.02)
-    drop-shadow(0 0 3px rgba(255,184,28,.62))
-    drop-shadow(0 0 12px rgba(255,184,28,.34))
+    drop-shadow(0 0 3px rgba(255,255,255,.55))
+    drop-shadow(0 0 12px rgba(255,255,255,.22))    
     drop-shadow(0 8px 16px rgba(0,0,0,.18));
 }
 
