@@ -1591,12 +1591,12 @@ a:hover{
   border-radius:18px;
   padding:20px 22px;
   background:
-    radial-gradient(circle at top right, rgba(215,38,61,.16), transparent 32%),
+    radial-gradient(circle at top right, rgba(215,38,61,.14), transparent 32%),
     linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
   box-shadow:
     0 0 0 1px rgba(215,38,61,.10),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 22px rgba(215,38,61,.10);
+    0 0 16px rgba(215,38,61,.08);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -1646,14 +1646,6 @@ a:hover{
 .home-event-hero{
   border:1px solid rgba(255,255,255,.10);
   background:var(--panel);
-}
-
-#schedule-list .home-event-hero,
-#home-events-list .home-event-hero{
-  box-shadow:var(--shadow);
-}
-
-#home-events-list .home-event-hero{
   box-shadow:var(--shadow);
 }
 
@@ -1691,6 +1683,26 @@ a:hover{
   border-color:rgba(34,197,94,.28);
   background:rgba(34,197,94,.12);
   color:#c9ffd9;
+}
+
+#schedule-list .schedule-event-card-top{
+  border:1px solid rgba(168,85,247,.24);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.05)),
+    radial-gradient(circle at top right, rgba(233,213,255,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#schedule-list .schedule-event-card-bottom{
+  border:1px solid rgba(34,197,94,.24);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.05)),
+    radial-gradient(circle at top right, rgba(134,239,172,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 24px rgba(0,0,0,.18);
 }
 
 #schedule-list .schedule-event-card-top .event-format-title{
@@ -1778,7 +1790,7 @@ a:hover{
 #home-events-list .schedule-day-pill,
 #schedule-list .schedule-day-pill{
   align-self:flex-start;
-  margin-top:2px;
+  margin-top:0;
 }
 
 .event-title-kicker{
