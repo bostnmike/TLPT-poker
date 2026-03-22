@@ -1290,6 +1290,11 @@ function renderHomePage(data) {
       </div>
     `;
   }
+
+  const archetypeGuide = document.getElementById("home-archetype-guide");
+  if (archetypeGuide) {
+    archetypeGuide.innerHTML = buildEventGuideCard();
+  }
 }
 
 function getFeaturedPlayer(data) {
