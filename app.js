@@ -908,6 +908,7 @@ function buildHomeEventButtonsMarkup(events) {
 function buildHomeRotatorDotsMarkup(events, activeIndex) {
   return events.map((dotEvent, dotIndex) => {
     const dayLabel = getEventDayLabel(dotEvent);
+    const dayKey = dayLabel.toLowerCase();
     const isActive = dotIndex === activeIndex;
 
     return `
@@ -915,7 +916,7 @@ function buildHomeRotatorDotsMarkup(events, activeIndex) {
         class="home-event-dot${isActive ? " is-active" : ""}"
         type="button"
         data-home-event-index="${dotIndex}"
-        data-home-event-day="${dayLabel}"
+        data-home-event-day="${dayKey}"
         aria-label="Show ${dayLabel} event"
         aria-pressed="${isActive ? "true" : "false"}"
       ></button>
