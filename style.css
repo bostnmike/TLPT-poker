@@ -1393,9 +1393,9 @@ a:hover{
 }
 
 .home-event-dot.is-active{
-  background:var(--gold);
-  border-color:var(--gold);
-  box-shadow:0 0 12px rgba(255,184,28,.20);
+  background:#ffffff;
+  border-color:#ffffff;
+  box-shadow:0 0 10px rgba(255,255,255,.18);
 }
 
 .home-rotating-event-card{
@@ -1418,7 +1418,7 @@ a:hover{
   align-self:flex-start;
   padding:8px 16px;
   border-radius:999px;
-  border:1px solid rgba(255,184,28,.52);
+  border:1px solid rgba(255,255,255,.55);
   background:rgba(255,255,255,.07);
   color:#fff;
   font-size:1.22rem;
@@ -1428,8 +1428,8 @@ a:hover{
   text-transform:none;
   white-space:nowrap;
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
 }
 
 .home-event-top-right .schedule-day-pill{
@@ -1699,6 +1699,7 @@ a:hover{
 }
 
 #home-events-list .schedule-event-card-top .event-format-title{
+  color:#ffffff;
   border-color:rgba(255,255,255,.55);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.10),
@@ -1706,10 +1707,11 @@ a:hover{
 }
 
 #home-events-list .schedule-event-card-bottom .event-format-title{
+  color:#ffffff;
   border-color:rgba(255,255,255,.55);
   box-shadow:
-  0 0 0 1px rgba(255,255,255,.10),
-  0 0 10px rgba(255,255,255,.08);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
 }
 
 #schedule-list .schedule-event-card-top{
@@ -1733,6 +1735,7 @@ a:hover{
 }
 
 #schedule-list .schedule-event-card-top .event-format-title{
+  color:#ffffff;
   border-color:rgba(255,255,255,.55);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.10),
@@ -1740,6 +1743,7 @@ a:hover{
 }
 
 #schedule-list .schedule-event-card-bottom .event-format-title{
+  color:#ffffff;
   border-color:rgba(255,255,255,.55);
   box-shadow:
     0 0 0 1px rgba(255,255,255,.10),
@@ -1839,13 +1843,13 @@ a:hover{
   letter-spacing:.05em;
   line-height:1.1;
 
-  color:var(--gold);
+  color:#ffffff;
   background:rgba(255,184,28,.10);
   border:1px solid rgba(255,255,255,.35);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
-    0 0 12px rgba(255,184,28,.10);
-  text-shadow:0 0 6px rgba(255,184,28,.14);
+    0 0 0 1px rgba(255,255,255,.10),
+    0 0 10px rgba(255,255,255,.08);
+  text-shadow:0 0 6px rgba(255,255,255,.10);
 
   margin:2px 0 10px 0;
   opacity:1;
@@ -1853,7 +1857,7 @@ a:hover{
 
 .event-structure{
   font-size:.95rem;
-  color:var(--muted);
+  color:var(--gold);
   margin:0 0 10px 0;
   line-height:1.4;
 }
