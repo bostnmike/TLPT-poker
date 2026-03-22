@@ -1322,6 +1322,82 @@ a:hover{
   gap:16px;
 }
 
+.home-event-rotator-shell{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.home-event-rotator-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.home-event-rotator-label{
+  color:#fff;
+  font-weight:800;
+  font-size:1rem;
+}
+
+.home-event-rotator-day{
+  color:var(--gold);
+}
+
+.home-event-rotator-dots{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.home-event-dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(255,255,255,.14);
+  cursor:pointer;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.home-event-dot.is-active{
+  background:var(--gold);
+  border-color:var(--gold);
+  box-shadow:0 0 12px rgba(255,184,28,.20);
+}
+
+.home-event-rotator-stage{
+  position:relative;
+}
+
+.home-event-rotator-panel{
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(10px);
+  transition:opacity .4s ease, transform .4s ease;
+  position:absolute;
+  inset:0;
+}
+
+.home-event-rotator-panel.is-active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0);
+  position:relative;
+}
+
+.home-event-button-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.home-dual-rsvp-btn{
+  min-width:210px;
+}
+
 .event-layout-grid{
   display:grid;
   grid-template-columns:minmax(0, 1fr) 680px;  gap:8px;
@@ -1470,6 +1546,39 @@ a:hover{
   border:1px solid rgba(255,255,255,.10);
   background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
   box-shadow:var(--shadow);
+}
+
+#champions-list .honors-card{
+  border-color:rgba(168,85,247,.26);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.16), rgba(168,85,247,.05)),
+    linear-gradient(135deg, rgba(44,20,72,.24), rgba(17,22,30,.96));
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.10),
+    0 10px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(168,85,247,.10);
+}
+
+#leaders-list .honors-card{
+  border-color:rgba(59,130,246,.26);
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.16), rgba(59,130,246,.05)),
+    linear-gradient(135deg, rgba(18,42,78,.24), rgba(17,22,30,.96));
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.10),
+    0 10px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(59,130,246,.10);
+}
+
+#records-list .honors-card{
+  border-color:rgba(255,184,28,.26);
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.16), rgba(255,184,28,.05)),
+    linear-gradient(135deg, rgba(78,52,18,.24), rgba(17,22,30,.96));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.10),
+    0 10px 26px rgba(0,0,0,.22),
+    0 0 20px rgba(255,184,28,.10);
 }
 
 #schedule-list .event-format-title{
@@ -2697,23 +2806,28 @@ td{
 }
 
 .tier-distribution-fill.apex-predators{
-  background:linear-gradient(90deg, rgba(255,213,108,.98), rgba(255,213,108,.24));
+  background:linear-gradient(90deg, rgba(168,85,247,.98), rgba(168,85,247,.30));
+  box-shadow:0 0 12px rgba(168,85,247,.18);
 }
 
 .tier-distribution-fill.table-crushers{
-  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.22));
+  background:linear-gradient(90deg, rgba(59,130,246,.98), rgba(59,130,246,.30));
+  box-shadow:0 0 12px rgba(59,130,246,.18);
 }
 
 .tier-distribution-fill.shot-makers{
-  background:linear-gradient(90deg, rgba(246,198,91,.92), rgba(246,198,91,.20));
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(34,197,94,.28));
+  box-shadow:0 0 12px rgba(34,197,94,.16);
 }
 
 .tier-distribution-fill.gamblers{
-  background:linear-gradient(90deg, rgba(158,176,195,.85), rgba(158,176,195,.18));
+  background:linear-gradient(90deg, rgba(250,204,21,.95), rgba(250,204,21,.26));
+  box-shadow:0 0 10px rgba(250,204,21,.14);
 }
 
 .tier-distribution-fill.league-sponsors{
-  background:linear-gradient(90deg, rgba(127,138,150,.82), rgba(127,138,150,.16));
+  background:linear-gradient(90deg, rgba(239,68,68,.90), rgba(239,68,68,.24));
+  box-shadow:0 0 10px rgba(239,68,68,.12);
 }
 
 .tier-distribution-count{
@@ -4440,75 +4554,75 @@ td{
 .rules-chip-card.chip-250000 .rules-chip-image{ filter:drop-shadow(0 8px 12px rgba(0,0,0,.35)) drop-shadow(0 0 10px rgba(59,130,246,.20)); }
 
 .rules-chip-card.chip-25:hover{
-  border-color:rgba(34,197,94,.40);
+  border-color:rgba(22,163,74,.78);
   box-shadow:
-    0 0 0 1px rgba(34,197,94,.10),
+    0 0 0 1px rgba(22,163,74,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(34,197,94,.14);
+    0 0 18px rgba(22,163,74,.18);
 }
 
 .rules-chip-card.chip-100:hover{
-  border-color:rgba(148,163,184,.40);
+  border-color:rgba(71,85,105,.82);
   box-shadow:
-    0 0 0 1px rgba(148,163,184,.10),
+    0 0 0 1px rgba(71,85,105,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(148,163,184,.12);
+    0 0 18px rgba(71,85,105,.16);
 }
 
 .rules-chip-card.chip-500:hover{
-  border-color:rgba(168,85,247,.40);
+  border-color:rgba(126,34,206,.80);
   box-shadow:
-    0 0 0 1px rgba(168,85,247,.10),
+    0 0 0 1px rgba(126,34,206,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(168,85,247,.14);
+    0 0 18px rgba(126,34,206,.18);
 }
 
 .rules-chip-card.chip-1000:hover{
-  border-color:rgba(250,204,21,.42);
+  border-color:rgba(202,138,4,.82);
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.10),
+    0 0 0 1px rgba(202,138,4,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(250,204,21,.14);
+    0 0 18px rgba(202,138,4,.18);
 }
 
 .rules-chip-card.chip-5000:hover{
-  border-color:rgba(255,255,255,.42);
+  border-color:rgba(203,213,225,.78);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.10),
+    0 0 0 1px rgba(203,213,225,.16),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(255,255,255,.12);
+    0 0 18px rgba(203,213,225,.14);
 }
 
 .rules-chip-card.chip-10000:hover{
-  border-color:rgba(249,115,22,.42);
+  border-color:rgba(194,65,12,.82);
   box-shadow:
-    0 0 0 1px rgba(249,115,22,.10),
+    0 0 0 1px rgba(194,65,12,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(249,115,22,.14);
+    0 0 18px rgba(194,65,12,.18);
 }
 
 .rules-chip-card.chip-25000:hover{
-  border-color:rgba(239,68,68,.42);
+  border-color:rgba(185,28,28,.82);
   box-shadow:
-    0 0 0 1px rgba(239,68,68,.10),
+    0 0 0 1px rgba(185,28,28,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(239,68,68,.14);
+    0 0 18px rgba(185,28,28,.18);
 }
 
 .rules-chip-card.chip-100000:hover{
-  border-color:rgba(244,114,182,.42);
+  border-color:rgba(190,24,93,.82);
   box-shadow:
-    0 0 0 1px rgba(244,114,182,.10),
+    0 0 0 1px rgba(190,24,93,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(244,114,182,.14);
+    0 0 18px rgba(190,24,93,.18);
 }
 
 .rules-chip-card.chip-250000:hover{
-  border-color:rgba(59,130,246,.42);
+  border-color:rgba(29,78,216,.82);
   box-shadow:
-    0 0 0 1px rgba(59,130,246,.10),
+    0 0 0 1px rgba(29,78,216,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(59,130,246,.14);
+    0 0 18px rgba(29,78,216,.18);
 }
 
 .rules-chip-image.is-missing{
