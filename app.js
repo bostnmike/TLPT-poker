@@ -1342,6 +1342,21 @@ function renderHomePage(data) {
       ) : ""
     ].join("");
   }
+
+  const insightFormula = document.getElementById("home-insight-formula");
+  if (insightFormula && insightsGrid) {
+    insightFormula.textContent = "";
+
+    insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        insightFormula.textContent = card.dataset.formula || "";
+      });
+
+      card.addEventListener("mouseleave", () => {
+        insightFormula.textContent = "";
+      });
+    });
+  }
   
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
