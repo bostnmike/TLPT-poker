@@ -2100,10 +2100,22 @@ a:hover{
   transition:transform .22s ease, box-shadow .22s ease;
 }
 
+.event-rsvp-avatar-row::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:999px;
+  background:url("images/site/winter-classic.png?v=6") center center / 700px 350px no-repeat;
+  border:none;
+  box-shadow:0 8px 16px rgba(0,0,0,.18);
+  filter:none;
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+
 .event-rsvp-avatar-row::after{
   content:"";
   position:absolute;
-  inset:26px 54px 28px 54px;
+  inset:34px 84px 36px 84px;
   border-radius:999px;
   pointer-events:none;
   box-shadow:inset 0 0 0 2px rgba(88,100,118,.42);
@@ -2121,9 +2133,14 @@ a:hover{
   box-shadow:inset 0 0 0 2px rgba(88,100,118,.52);
 }
 
+.event-rsvp-avatar-row:hover::after{
+  transform:scale(1.01);
+  box-shadow:inset 0 0 0 2px rgba(88,100,118,.52);
+}
+
 #home-events-list .schedule-event-card-top .event-rsvp-avatar-row::after,
 #schedule-list .schedule-event-card-top .event-rsvp-avatar-row::after{
-  box-shadow:inset 0 0 0 2px rgba(109,40,217,.86);
+  box-shadow:inset 0 0 0 2px rgba(109,40,217,.88);
 }
 
 #home-events-list .schedule-event-card-top .event-rsvp-avatar-row:hover::after,
@@ -2133,7 +2150,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-bottom .event-rsvp-avatar-row::after,
 #schedule-list .schedule-event-card-bottom .event-rsvp-avatar-row::after{
-  box-shadow:inset 0 0 0 2px rgba(22,163,74,.86);
+  box-shadow:inset 0 0 0 2px rgba(22,163,74,.88);
 }
 
 #home-events-list .schedule-event-card-bottom .event-rsvp-avatar-row:hover::after,
