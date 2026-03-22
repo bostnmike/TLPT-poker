@@ -2548,7 +2548,7 @@ async function main() {
 document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
-      const reportEl = document.getElementById("commissioner-report-text");
+      const reportEl = document.querySelector("[data-commissioner-report]");
 
       if (!reportEl) return;
 
