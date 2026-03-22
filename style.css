@@ -1404,13 +1404,13 @@ a:hover{
   box-shadow:0 0 10px rgba(255,255,255,.18);
 }
 
-.home-event-dot[data-home-event-day="Friday"].is-active{
+.home-event-dot[data-home-event-day="friday"].is-active{
   background:#c4b5fd;
   border-color:#c4b5fd;
   box-shadow:0 0 10px rgba(196,181,253,.28);
 }
 
-.home-event-dot[data-home-event-day="Saturday"].is-active{
+.home-event-dot[data-home-event-day="saturday"].is-active{
   background:#4ade80;
   border-color:#4ade80;
   box-shadow:0 0 10px rgba(74,222,128,.28);
