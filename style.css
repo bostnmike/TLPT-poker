@@ -1822,14 +1822,14 @@ a:hover{
 }
 
 #records-list .honors-card{
-  border-color:rgba(255,184,28,.26);
+  border-color:rgba(236,72,153,.26);
   background:
-    linear-gradient(180deg, rgba(255,184,28,.16), rgba(255,184,28,.05)),
-    linear-gradient(135deg, rgba(78,52,18,.24), rgba(17,22,30,.96));
+    linear-gradient(180deg, rgba(236,72,153,.16), rgba(236,72,153,.05)),
+    linear-gradient(135deg, rgba(78,24,56,.24), rgba(17,22,30,.96));
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.10),
+    0 0 0 1px rgba(236,72,153,.10),
     0 10px 26px rgba(0,0,0,.22),
-    0 0 20px rgba(255,184,28,.10);
+    0 0 20px rgba(236,72,153,.10);
 }
 
 .home-event-kicker{
