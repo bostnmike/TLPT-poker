@@ -2858,7 +2858,7 @@ document.addEventListener("DOMContentLoaded", () => {
         typeTextIntoElement(reportEl, initial.text, 10);
       });
 
-      setInterval(renderNewReport, 90 * 1000);
+      setInterval(renderNewReport, 45 * 1000);
     })
     .catch(error => {
       console.error("TLPT site load failed:", error);
