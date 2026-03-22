@@ -1729,7 +1729,7 @@ a:hover{
 .home-commissioner-shell{
   border:1px solid rgba(215,38,61,.30);
   border-radius:18px;
-  padding:20px 22px;
+  padding:14px 18px;
   background:
     radial-gradient(circle at top right, rgba(255,120,120,.10), transparent 34%),
     linear-gradient(180deg, rgba(215,38,61,.22), rgba(120,12,24,.22)),
@@ -1738,6 +1738,10 @@ a:hover{
     0 0 0 1px rgba(215,38,61,.12),
     0 10px 30px rgba(0,0,0,.24),
     0 0 18px rgba(215,38,61,.10);
+}
+
+.home-commissioner-shell .commissioner-typing-target{
+  min-height:3.4em;
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -1750,7 +1754,7 @@ a:hover{
 
 .commissioner-typing-target{
   display:block;
-  min-height:5.6em;
+  min-height:3.4em;
   position:relative;
   opacity:1;
   transition:opacity .45s ease;
@@ -2051,7 +2055,8 @@ a:hover{
 #home-events-list .schedule-event-card-top .event-rsvp-avatar-row::before,
 #schedule-list .schedule-event-card-top .event-rsvp-avatar-row::before{
   filter:
-    drop-shadow(0 0 8px rgba(196,181,253,.18))
+    drop-shadow(0 0 10px rgba(109,40,217,.28))
+    drop-shadow(0 0 18px rgba(109,40,217,.14))
     drop-shadow(0 8px 16px rgba(0,0,0,.18));
 }
 
@@ -2059,14 +2064,16 @@ a:hover{
 #schedule-list .schedule-event-card-top .event-rsvp-avatar-row:hover::before{
   filter:
     brightness(1.02)
-    drop-shadow(0 0 12px rgba(196,181,253,.24))
+    drop-shadow(0 0 14px rgba(109,40,217,.34))
+    drop-shadow(0 0 22px rgba(109,40,217,.18))
     drop-shadow(0 10px 18px rgba(0,0,0,.20));
 }
 
 #home-events-list .schedule-event-card-bottom .event-rsvp-avatar-row::before,
 #schedule-list .schedule-event-card-bottom .event-rsvp-avatar-row::before{
   filter:
-    drop-shadow(0 0 8px rgba(134,239,172,.18))
+    drop-shadow(0 0 10px rgba(22,163,74,.28))
+    drop-shadow(0 0 18px rgba(22,163,74,.14))
     drop-shadow(0 8px 16px rgba(0,0,0,.18));
 }
 
@@ -2074,7 +2081,8 @@ a:hover{
 #schedule-list .schedule-event-card-bottom .event-rsvp-avatar-row:hover::before{
   filter:
     brightness(1.02)
-    drop-shadow(0 0 12px rgba(134,239,172,.24))
+    drop-shadow(0 0 14px rgba(22,163,74,.34))
+    drop-shadow(0 0 22px rgba(22,163,74,.18))
     drop-shadow(0 10px 18px rgba(0,0,0,.20));
 }
 
