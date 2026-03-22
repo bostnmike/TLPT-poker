@@ -87,6 +87,13 @@ const STAT_LEADER_CONFIG = [
   { key: "tiltIndex", title: "Tilt Leader" }
 ];
 
+const HOME_BADGE_CONFIG = [
+  { rule: "Profit Leader", icon: "💰", label: "Profit Leader" },
+  { rule: "Power Leader", icon: "💪🏼", label: "Power Leader" },
+  { rule: "Clutch Leader", icon: "🎯", label: "Clutch Leader" },
+  { rule: "Hit King", icon: "💥", label: "Knockout King" }
+];
+
 const NAME_FIXES = {
   "Nasa Al": "NASA Al",
   "Providencemike": "ProvidenceMike",
