@@ -995,6 +995,19 @@ function buildHomeBadgeRow(label, player, value, valueClass = "") {
   `;
 }
 
+function buildHomeBadgeCard(config, player) {
+  if (!player) return "";
+
+  const rule = HONOR_RULES[config.rule];
+  const key = rule?.key || "profit";
+  const value = formatStatValue(player, key);
+  const valueClass = key === "profit"
+    ? statValueClass(player, "profit")
+    : "";
+
+  return buildHomeBadgeRow(config.label, player, value, valueClass);
+}
+
 function buildTickerLeader(icon, label, player) {
   if (!player) return "";
 
