@@ -837,6 +837,25 @@ function tableFillMarkup(event, maxSeats = 9) {
   `;
 }
 
+function getEventDayLabel(event) {
+  if (event?.day) return String(event.day).trim();
+
+  const rawDate = String(event?.date || "").trim();
+  if (/friday/i.test(rawDate)) return "Friday";
+  if (/saturday/i.test(rawDate)) return "Saturday";
+
+  const parsed = new Date(rawDate);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
+  return "Event";
+}
+
+function getEventButtonLabel(event) {
+  return `RSVP for ${getEventDayLabel(event)}`;
+}
+
 function getCurrentEvents(data) {
   return [...(data?.events || [])]
     .filter(Boolean)
