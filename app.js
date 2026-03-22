@@ -1309,7 +1309,8 @@ function renderHomePage(data) {
           panel.classList.toggle("is-active", panelIndex === index);
         });
 
-        rotatorDots.forEach((dot, dotIndex) => {
+        rotatorDots.forEach(dot => {
+          const dotIndex = Number(dot.dataset.homeEventIndex || 0);
           const isActive = dotIndex === index;
           dot.classList.toggle("is-active", isActive);
           dot.setAttribute("aria-pressed", isActive ? "true" : "false");
