@@ -940,7 +940,6 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
       class="event-card compact-event-card home-event-hero schedule-event-card ${themeClass} home-rotating-event-card"
       data-home-event-panel="${index}"
       data-event-day="${dayLabel}"
-    >
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
 
