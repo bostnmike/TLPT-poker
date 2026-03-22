@@ -2322,21 +2322,19 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
-function getBalancedHonorsSections(data) {
-  return {
     statLeaders: [
-      { key: "roi", title: "ROI Leader" },
-      { key: "luckIndex", title: "Luck Leader" },
-      { key: "aggressionIndex", title: "Aggression Leader" },
-      { key: "survivorIndex", title: "Survivor Leader" },
-      { key: "tiltIndex", title: "Tilt Leader" }
+      { key: "roi", title: "Mr. ROI", icon: "🪎" },
+      { key: "luckIndex", title: "Lucky Duck", icon: "🐥" },
+      { key: "aggressionIndex", title: "Mr. Aggro", icon: "😤" },
+      { key: "survivorIndex", title: "The Survivor", icon: "🛟" },
+      { key: "tiltIndex", title: "On Tilt", icon: "😵‍💫" }
     ],
     recordItems: [
-      { label: "Most Cashes" },
-      { label: "Worst Luck Index" },
-      { label: "Lowest Profit" },
-      { label: "Most Rebuys" },
-      { label: "Most Entries" }
+      { label: "Most Cashes", title: "Cash Cow", icon: "🐮" },
+      { label: "Worst Luck Index", title: "Unlucky Duck", icon: "🦤" },
+      { label: "Lowest Profit", title: "The Donor", icon: "🩸" },
+      { label: "Most Rebuys", title: "Mr. Rebuy", icon: "♻️" },
+      { label: "Most Entries", title: "Entry King", icon: "🎟️" }
     ]
   };
 }
@@ -2367,8 +2365,8 @@ function renderChampions(data) {
 
       return honorsCardMarkup(
         player,
-        honor.type,
-        honorIcon(honor.type),
+        record.title || record.label,
+        record.icon || recordIcon(record.label),
         valueText,
         false,
         valueClass
@@ -2426,7 +2424,7 @@ function renderStatLeaders(data) {
     if (!leader) return "";
 
     const statConfig = getStatConfig(stat.key);
-    const icon = statConfig?.icon || "🏅";
+    const icon = stat.icon || statConfig?.icon || "🏅";
     const value = formatStatValue(leader, stat.key);
     const valueClass = stat.key === "profit"
       ? statValueClass(leader, "profit")
