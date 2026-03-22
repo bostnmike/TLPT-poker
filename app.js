@@ -825,7 +825,35 @@ function tableFillMarkup(event, maxSeats = 9) {
 }
 
 function getCurrentEvents(data) {
-  return [...(data?.events || [])];
+  return [...(data?.events || [])].filter(event => {
+    const hasTitle = String(event?.title || "").trim() !== "";
+    const hasDate = String(event?.date || "").trim() !== "";
+    const hasInvite = String(event?.apple_invite_url || "").trim() !== "";
+    return hasTitle && hasDate && hasInvite;
+  });
+}
+
+function getEventDayLabel(event) {
+  const rawDate = String(event?.date || "").trim();
+  if (/friday/i.test(rawDate)) return "Friday";
+  if (/saturday/i.test(rawDate)) return "Saturday";
+
+  const parsed = new Date(rawDate);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
+  return "Event";
+}
+
+function getEventButtonLabel(event) {
+  return `RSVP for ${getEventDayLabel(event)}`;
+}
+
+function getHomeEventRotationIndex(events) {
+  if (!events.length) return 0;
+  const rotationWindowMs = 7000;
+  return Math.floor(Date.now() / rotationWindowMs) % events.length;
 }
 
 function ensureStandingsHeadline(sortKey) {
@@ -1027,13 +1055,18 @@ function buildEventGuideCard() {
   `;
 }
 
-function renderHomePage(data) {
-  const eventsEl = document.getElementById("home-events-list");
-  if (eventsEl) {
-    const homeEvent = getCurrentEvents(data).slice(0, 1);
+function buildEventCard(event, data, options = {}) {
+  const {
+    homeMode = false,
+    includeCommissioner = false,
+    isActive = true
+  } = options;
 
-    const eventCards = homeEvent.map(event => `
-    <div class="event-card home-event-card home-event-hero compact-event-card">
+  const dayLabel = getEventDayLabel(event);
+  const buttonLabel = getEventButtonLabel(event);
+
+  return `
+    <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${dayLabel}">
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
       </div>
@@ -1047,7 +1080,7 @@ function renderHomePage(data) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
-          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
+          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>
         </div>
 
         <div class="event-rsvp-col">
@@ -1055,18 +1088,114 @@ function renderHomePage(data) {
         </div>
       </div>
 
-      <div class="event-commissioner-inline">
-        <div class="event-commissioner-inline-title">
-          <span class="report-icon">🎤</span> Commissioner's Report
+      ${includeCommissioner ? `
+        <div class="event-commissioner-inline">
+          <div class="event-commissioner-inline-title">
+            <span class="report-icon">🎤</span> Commissioner's Report
+          </div>
+          <p id="commissioner-report-text" class="commissioner-typing-target"></p>
         </div>
-        <p id="commissioner-report-text" class="commissioner-typing-target"></p>
-      </div>
+      ` : ""}
     </div>
-  `).join("");
+  `;
+}
 
-  eventsEl.innerHTML = eventCards;
+function renderHomePage(data) {
+  const eventsEl = document.getElementById("home-events-list");
+if (eventsEl) {
+  const homeEvents = getCurrentEvents(data).slice(0, 2);
+
+  if (!homeEvents.length) {
+    eventsEl.innerHTML = "";
+  } else if (homeEvents.length === 1) {
+    eventsEl.innerHTML = `
+      <div class="home-event-rotator-shell single-event-week">
+        <div class="home-event-rotator-stage">
+          ${buildEventCard(homeEvents[0], data, { homeMode: true, includeCommissioner: true, isActive: true })}
+        </div>
+        <div class="home-event-button-row">
+          <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
+            ${getEventButtonLabel(homeEvents[0])}
+          </a>
+        </div>
+      </div>
+    `;
+  } else {
+    const activeIndex = getHomeEventRotationIndex(homeEvents);
+
+    eventsEl.innerHTML = `
+      <div class="home-event-rotator-shell dual-event-week">
+        <div class="home-event-rotator-header">
+          <div class="home-event-rotator-label">Now Showing: <span class="home-event-rotator-day">${getEventDayLabel(homeEvents[activeIndex])}</span></div>
+          <div class="home-event-rotator-dots">
+            ${homeEvents.map((event, index) => `
+              <button
+                class="home-event-dot${index === activeIndex ? " is-active" : ""}"
+                type="button"
+                data-home-event-index="${index}"
+                aria-label="Show ${getEventDayLabel(event)} event"
+              ></button>
+            `).join("")}
+          </div>
+        </div>
+
+        <div class="home-event-rotator-stage">
+          ${homeEvents.map((event, index) => `
+            <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
+              ${buildEventCard(event, data, { homeMode: true, includeCommissioner: index === activeIndex, isActive: index === activeIndex })}
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="home-event-button-row">
+          ${homeEvents.map(event => `
+            <a class="btn btn-rsvp home-dual-rsvp-btn" href="${event.apple_invite_url}" target="_blank" rel="noopener">
+              ${getEventButtonLabel(event)}
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
   }
+}
 
+  const rotatorPanels = document.querySelectorAll("[data-home-event-panel]");
+  const rotatorDots = document.querySelectorAll("[data-home-event-index]");
+  const rotatorDay = document.querySelector(".home-event-rotator-day");
+
+  if (rotatorPanels.length > 1) {
+    let currentIndex = [...rotatorPanels].findIndex(panel => panel.classList.contains("is-active"));
+    if (currentIndex < 0) currentIndex = 0;
+
+    function setHomeEventSlide(index) {
+      rotatorPanels.forEach((panel, panelIndex) => {
+        panel.classList.toggle("is-active", panelIndex === index);
+      });
+
+      rotatorDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === index);
+      });
+
+      const activePanel = rotatorPanels[index];
+      const activeCard = activePanel?.querySelector(".rotating-home-event-card");
+      const day = activeCard?.dataset?.eventDay || "";
+      if (rotatorDay) rotatorDay.textContent = day;
+    }
+
+    rotatorDots.forEach(dot => {
+    dot.addEventListener("click", () => {
+      const nextIndex = Number(dot.dataset.homeEventIndex || 0);
+      currentIndex = nextIndex;
+      setHomeEventSlide(currentIndex);
+    });
+  });
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % rotatorPanels.length;
+    setHomeEventSlide(currentIndex);
+  }, 7000);
+}
+  
   const archetypeGuideEl = document.getElementById("home-archetype-guide");
   if (archetypeGuideEl) {
     archetypeGuideEl.innerHTML = buildEventGuideCard();
@@ -1925,33 +2054,13 @@ function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  const events = getCurrentEvents(data).slice(0, 1);
+  const events = getCurrentEvents(data);
 
-   list.innerHTML = `
-    ${events.map(event => `
-      <div class="event-card compact-event-card home-event-hero">
-        <div class="event-card-topline">
-          <div class="kicker event-title-kicker">${event.title}</div>
-        </div>
-
-        <div class="event-layout-grid">
-          <div class="event-details-col">
-            <div class="event-format-title">${event.format || ""}</div>
-            <h3>${event.date}</h3>
-            <p class="muted"><strong>Start:</strong> ${event.time}</p>
-            <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-            <p class="muted"><strong>Location:</strong> ${event.location}</p>
-            <p class="muted">${event.address || ""}</p>
-            <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">RSVP on Apple Invites</a>
-          </div>
-
-          <div class="event-rsvp-col">
-            ${eventRsvpAvatarMarkup(event, data)}
-          </div>
-        </div>
-      </div>
-    `).join("")}
-  `;
+  list.innerHTML = events.map(event => `
+    <div class="schedule-event-wrap">
+      ${buildEventCard(event, data, { homeMode: false, includeCommissioner: false, isActive: true })}
+    </div>
+  `).join("");
 }
 
 function honorIcon(type) {
