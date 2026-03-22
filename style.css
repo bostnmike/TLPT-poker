@@ -4629,6 +4629,51 @@ td{
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 
+.rules-chip-card.chip-25{
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-100{
+  background:
+    linear-gradient(180deg, rgba(148,163,184,.18), rgba(148,163,184,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-500{
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-1000{
+  background:
+    linear-gradient(180deg, rgba(250,204,21,.18), rgba(250,204,21,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-5000{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.05) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-10000{
+  background:
+    linear-gradient(180deg, rgba(249,115,22,.18), rgba(249,115,22,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-25000{
+  background:
+    linear-gradient(180deg, rgba(239,68,68,.18), rgba(239,68,68,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-100000{
+  background:
+    linear-gradient(180deg, rgba(244,114,182,.18), rgba(244,114,182,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
+.rules-chip-card.chip-250000{
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.06) 28%, rgba(255,255,255,.02) 100%);
+}
+
 .rules-chip-card:hover{
   transform:translateY(-2px);
   box-shadow:
