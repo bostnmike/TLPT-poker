@@ -1387,6 +1387,16 @@ a:hover{
   align-items:flex-start;
   justify-content:flex-end;
   flex:0 0 auto;
+  min-width:max-content;
+}
+
+#schedule-list .event-card-topline{
+  align-items:flex-start;
+}
+
+#schedule-list .schedule-day-pill,
+#home-events-list .schedule-day-pill{
+  margin-top:0;
 }
 
 .home-event-top-right .schedule-day-pill{
@@ -1413,11 +1423,11 @@ a:hover{
 
 .home-fixed-rsvp-btn,
 .home-dual-rsvp-btn{
-  min-width:156px;
+  min-width:148px;
 }
 
 .home-dual-rsvp-btn{
-  min-width:156px;
+  min-width:148px;
   justify-content:center;
   text-align:center;
   white-space:nowrap;
@@ -1465,7 +1475,7 @@ a:hover{
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:4px;
+  margin-top:2px;
 }
 
 .event-rsvp-summary{
@@ -1632,8 +1642,8 @@ a:hover{
 }
 
 .home-event-hero{
-  border:1px solid rgba(255,184,28,.35);
-  background:linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.02));
+  border:1px solid rgba(255,255,255,.10);
+  background:var(--panel);
 }
 
 #home-events-list .home-event-hero{
@@ -1684,15 +1694,18 @@ a:hover{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  padding:6px 12px;
+  align-self:flex-start;
+  padding:8px 16px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
   color:#fff;
-  font-size:.78rem;
+  font-size:1.12rem;
   font-weight:900;
-  letter-spacing:.06em;
-  text-transform:uppercase;
+  letter-spacing:.02em;
+  line-height:1.1;
+  text-transform:none;
+  white-space:nowrap;
 }
 
 #schedule-list .schedule-event-card-top .event-format-title{
@@ -1770,13 +1783,14 @@ a:hover{
   align-items:flex-start;
   gap:14px;
   margin-bottom:8px;
+  flex-wrap:nowrap;
 }
 
 .event-title-kicker{
-  font-size:1.4rem;
+  font-size:1.48rem;
   font-weight:900;
   letter-spacing:.01em;
-  line-height:1.2;
+  line-height:1.15;
   color:#fff;
 }
 
@@ -1801,10 +1815,6 @@ a:hover{
 
   margin:2px 0 10px 0;
   opacity:1;
-}
-
-.event-card-topline{
-  margin-bottom:4px;
 }
 
 .event-structure{
@@ -4171,29 +4181,6 @@ td{
   z-index:0;
 }
 
-.home-event-fixed-buttons,
-.home-event-fixed-buttons-inline{
-  width:100%;
-  flex-wrap:wrap;
-}
-
-.home-dual-rsvp-btn,
-.home-fixed-rsvp-btn{
-  min-width:0;
-  flex:1 1 220px;
-}
-
-.home-event-top-right{
-  width:100%;
-  justify-content:flex-start;
-  margin-top:8px;
-}
-
-.event-card-topline{
-  flex-direction:column;
-  align-items:flex-start;
-}
-
 #champions-list .honors-card::before{
   background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
   border-bottom:1px solid rgba(168,85,247,.32);
@@ -5322,6 +5309,34 @@ td{
     padding:0;
   }
 
+  .home-event-fixed-buttons,
+  .home-event-fixed-buttons-inline{
+    width:100%;
+    flex-wrap:wrap;
+  }
+
+  .home-dual-rsvp-btn,
+  .home-fixed-rsvp-btn{
+    min-width:0;
+    flex:1 1 220px;
+  }
+
+  .home-event-top-right{
+    width:100%;
+    justify-content:flex-start;
+    margin-top:8px;
+  }
+
+  .event-card-topline{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .schedule-day-pill{
+    font-size:1rem;
+    padding:7px 14px;
+  }
+  
     .event-guide-line{
     flex-direction:column;
   }
