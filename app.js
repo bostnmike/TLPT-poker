@@ -906,14 +906,21 @@ function buildHomeEventButtonsMarkup(events) {
 }
 
 function buildHomeRotatorDotsMarkup(events, activeIndex) {
-  return events.map((dotEvent, dotIndex) => `
-    <button
-      class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
-      type="button"
-      data-home-event-index="${dotIndex}"
-      aria-label="Show ${getEventDayLabel(dotEvent)} event"
-    ></button>
-  `).join("");
+  return events.map((dotEvent, dotIndex) => {
+    const dayLabel = getEventDayLabel(dotEvent);
+    const isActive = dotIndex === activeIndex;
+
+    return `
+      <button
+        class="home-event-dot${isActive ? " is-active" : ""}"
+        type="button"
+        data-home-event-index="${dotIndex}"
+        data-home-event-day="${dayLabel}"
+        aria-label="Show ${dayLabel} event"
+        aria-pressed="${isActive ? "true" : "false"}"
+      ></button>
+    `;
+  }).join("");
 }
 
 function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
@@ -1302,7 +1309,9 @@ function renderHomePage(data) {
         });
 
         rotatorDots.forEach((dot, dotIndex) => {
-          dot.classList.toggle("is-active", dotIndex === index);
+          const isActive = dotIndex === index;
+          dot.classList.toggle("is-active", isActive);
+          dot.setAttribute("aria-pressed", isActive ? "true" : "false");
         });
       }
 
