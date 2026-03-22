@@ -2223,10 +2223,22 @@ a:hover{
   font-size:.95rem;
   font-weight:900;
 
-  background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, rgba(34,40,52,.55), rgba(10,14,20,.92));
 
-  transition:.2s ease;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -2px 4px rgba(0,0,0,.45),
+    0 6px 14px rgba(0,0,0,.28);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    filter .18s ease,
+    background .18s ease;
 }
 
 .event-rsvp-pill strong{
@@ -2238,37 +2250,65 @@ a:hover{
 .event-rsvp-pill.yes{
   color:#7ef29a;
   border-color:rgba(80,220,140,.45);
-  background:linear-gradient(135deg, rgba(40,120,70,.35), rgba(10,20,15,.9));
-  box-shadow:0 0 10px rgba(80,220,140,.15);
+  background:
+    linear-gradient(180deg, rgba(186,255,214,.12), rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, rgba(40,120,70,.42), rgba(10,20,15,.92));
+  box-shadow:
+    inset 0 1px 0 rgba(186,255,214,.14),
+    inset 0 -2px 4px rgba(6,28,14,.46),
+    0 0 10px rgba(80,220,140,.15),
+    0 6px 14px rgba(0,0,0,.28);
 }
 
 /* NO - RED */
 .event-rsvp-pill.no{
   color:#ff8a8a;
   border-color:rgba(255,100,100,.45);
-  background:linear-gradient(135deg, rgba(120,40,40,.35), rgba(20,10,10,.9));
-  box-shadow:0 0 10px rgba(255,100,100,.15);
+  background:
+    linear-gradient(180deg, rgba(255,210,210,.10), rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, rgba(120,40,40,.42), rgba(20,10,10,.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255,210,210,.12),
+    inset 0 -2px 4px rgba(30,8,8,.46),
+    0 0 10px rgba(255,100,100,.15),
+    0 6px 14px rgba(0,0,0,.28);
 }
 
 /* MAYBE - YELLOW */
 .event-rsvp-pill.maybe{
   color:#ffe27a;
   border-color:rgba(255,200,80,.45);
-  background:linear-gradient(135deg, rgba(120,95,30,.35), rgba(20,18,10,.9));
-  box-shadow:0 0 10px rgba(255,200,80,.15);
+  background:
+    linear-gradient(180deg, rgba(255,239,186,.12), rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, rgba(120,95,30,.42), rgba(20,18,10,.92));
+  box-shadow:
+    inset 0 1px 0 rgba(255,239,186,.14),
+    inset 0 -2px 4px rgba(30,24,8,.46),
+    0 0 10px rgba(255,200,80,.15),
+    0 6px 14px rgba(0,0,0,.28);
 }
 
 /* TBD - PURPLE */
 .event-rsvp-pill.tbd{
   color:#cfa8ff;
   border-color:rgba(160,120,255,.45);
-  background:linear-gradient(135deg, rgba(70,50,120,.35), rgba(15,10,20,.9));
-  box-shadow:0 0 10px rgba(160,120,255,.15);
+  background:
+    linear-gradient(180deg, rgba(231,220,255,.12), rgba(255,255,255,0) 38%),
+    linear-gradient(135deg, rgba(70,50,120,.42), rgba(15,10,20,.92));
+  box-shadow:
+    inset 0 1px 0 rgba(231,220,255,.14),
+    inset 0 -2px 4px rgba(18,10,34,.46),
+    0 0 10px rgba(160,120,255,.15),
+    0 6px 14px rgba(0,0,0,.28);
 }
 
 .event-rsvp-pill:hover{
   transform:translateY(-1px);
-  box-shadow:0 6px 14px rgba(0,0,0,.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -2px 4px rgba(0,0,0,.48),
+    0 8px 18px rgba(0,0,0,.34);
+  filter:brightness(1.03);
 }
 
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
