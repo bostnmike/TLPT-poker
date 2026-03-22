@@ -1342,6 +1342,7 @@ function renderHomePage(data) {
       ) : ""
     ].join("");
   }
+}
 
 function getFeaturedPlayer(data) {
   const players = (data?.players || []).filter(Boolean);
