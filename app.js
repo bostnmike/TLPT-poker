@@ -1360,10 +1360,10 @@ function renderHomePage(data) {
   
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
-    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
-    const pressureLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 3);
-    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 3);
-
+    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 5);
+    const pressureLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 5);
+    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 5);
+    
     actionCluster.innerHTML = `
       <div class="home-cluster-stack home-cluster-stack-3">
         <div class="home-mini-board">
