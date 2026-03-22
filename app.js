@@ -1295,6 +1295,53 @@ function renderHomePage(data) {
   if (archetypeGuide) {
     archetypeGuide.innerHTML = buildEventGuideCard();
   }
+
+  const insightsGrid = document.getElementById("home-insights-grid");
+  if (insightsGrid) {
+    const profitLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Profit Leader"]);
+    const powerLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Power Leader"]);
+    const clutchLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Clutch Leader"]);
+    const hitLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Hit King"]);
+
+    insightsGrid.innerHTML = [
+      profitLeader ? buildHomeInsightCard(
+        "Profit Leader",
+        "💰",
+        profitLeader,
+        fmtMoney(profitLeader.profit),
+        "",
+        "profit",
+        statValueClass(profitLeader, "profit")
+      ) : "",
+      powerLeader ? buildHomeInsightCard(
+        "Power Leader",
+        "💪🏼",
+        powerLeader,
+        fmtNum(powerLeader.trueSkillScore),
+        "",
+        "trueSkillScore",
+        ""
+      ) : "",
+      clutchLeader ? buildHomeInsightCard(
+        "Clutch Leader",
+        "🎯",
+        clutchLeader,
+        fmtNum(clutchLeader.clutchIndex),
+        "",
+        "clutchIndex",
+        ""
+      ) : "",
+      hitLeader ? buildHomeInsightCard(
+        "Knockout King",
+        "💥",
+        hitLeader,
+        String(hitLeader.hits ?? 0),
+        "",
+        "hits",
+        ""
+      ) : ""
+    ].join("");
+  }
 }
 
 function getFeaturedPlayer(data) {
