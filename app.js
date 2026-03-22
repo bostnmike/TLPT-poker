@@ -892,7 +892,7 @@ function getCurrentEvents(data) {
 
 function getHomeEventRotationIndex(events) {
   if (!events.length) return 0;
-  const rotationWindowMs = 45000;
+  const rotationWindowMs = 10000;
   return Math.floor(Date.now() / rotationWindowMs) % events.length;
 }
 
