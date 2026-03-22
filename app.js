@@ -2314,37 +2314,22 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
 }
 
 function getBalancedHonorsSections(data) {
-  const honorReservedKeys = new Set(
-    (data?.honors || [])
-      .map(honor => HONOR_RULES[honor.type]?.key)
-      .filter(Boolean)
-  );
-
-  let statLeaders = STAT_LEADER_CONFIG.filter(stat => !honorReservedKeys.has(stat.key));
-
-  let recordItems = (data?.records || []).filter(record => {
-    const rule = RECORD_RULES[record.label];
-    return rule?.key && !honorReservedKeys.has(rule.key);
-  });
-
-  const overlappingKeys = [...new Set(
-    statLeaders
-      .map(stat => stat.key)
-      .filter(key => recordItems.some(record => RECORD_RULES[record.label]?.key === key))
-  )];
-
-  overlappingKeys.forEach(key => {
-    if (statLeaders.length >= recordItems.length) {
-      statLeaders = statLeaders.filter(stat => stat.key !== key);
-    } else {
-      const recordIndex = recordItems.findIndex(record => RECORD_RULES[record.label]?.key === key);
-      if (recordIndex !== -1) {
-        recordItems.splice(recordIndex, 1);
-      }
-    }
-  });
-
-  return { statLeaders, recordItems };
+  return {
+    statLeaders: [
+      { key: "roi", title: "ROI Leader" },
+      { key: "luckIndex", title: "Luck Leader" },
+      { key: "aggressionIndex", title: "Aggression Leader" },
+      { key: "survivorIndex", title: "Survivor Leader" },
+      { key: "tiltIndex", title: "Tilt Leader" }
+    ],
+    recordItems: [
+      { label: "Most Cashes" },
+      { label: "Worst Luck Index" },
+      { label: "Lowest Profit" },
+      { label: "Most Rebuys" },
+      { label: "Most Entries" }
+    ]
+  };
 }
 
 function renderChampions(data) {
