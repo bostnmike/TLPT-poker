@@ -1300,6 +1300,7 @@ function renderHomePage(data) {
 
       const rotatorPanels = eventsEl.querySelectorAll("[data-home-event-panel]");
       const rotatorDots = eventsEl.querySelectorAll("[data-home-event-index]");
+
       let currentIndex = activeIndex;
 
       function setHomeEventSlide(index) {
@@ -1321,7 +1322,11 @@ function renderHomePage(data) {
         });
       });
 
-      window.setInterval(() => {
+      if (window.homeEventRotatorTimer) {
+        window.clearInterval(window.homeEventRotatorTimer);
+      }
+
+      window.homeEventRotatorTimer = window.setInterval(() => {
         const nextIndex = (currentIndex + 1) % homeEvents.length;
         setHomeEventSlide(nextIndex);
       }, 10000);
