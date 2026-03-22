@@ -1335,8 +1335,8 @@ function renderHomePage(data) {
   const leaderStrip = document.getElementById("home-leader-strip");
   if (leaderStrip) {
     const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Flex"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Cap'n Clutch"]);
+    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
+    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
     const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
 
     leaderStrip.innerHTML = [
