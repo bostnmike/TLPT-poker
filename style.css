@@ -4372,6 +4372,27 @@ td{
   border-bottom:1px solid rgba(255,184,28,.32);
 }
 
+.champions-section-title{
+  margin:0;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.champions-section-title-purple{
+  color:#d8b4fe;
+  text-shadow:0 0 10px rgba(168,85,247,.16);
+}
+
+.champions-section-title-blue{
+  color:#93c5fd;
+  text-shadow:0 0 10px rgba(59,130,246,.16);
+}
+
+.champions-section-title-gold{
+  color:#ffe29a;
+  text-shadow:0 0 10px rgba(255,184,28,.16);
+}
+
 .leader-banner-crown{
   font-size:1.1rem;
   line-height:1;
