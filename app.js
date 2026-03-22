@@ -2319,7 +2319,7 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
 function getBalancedHonorsSections(data) {
   return {
     statLeaders: [
-      { key: "roi", title: "Mr. ROI", icon: "🪎" },
+      { key: "roi", title: "Mr. ROI", icon: "🤑" },
       { key: "luckIndex", title: "Lucky Duck", icon: "🐥" },
       { key: "aggressionIndex", title: "Mr. Aggro", icon: "😤" },
       { key: "survivorIndex", title: "The Survivor", icon: "🛟" },
