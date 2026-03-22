@@ -2411,6 +2411,7 @@ function buildRulesChipCard(chip, formatKey) {
   const chipCount = CHIP_SET_TEXT[formatKey]?.[chip.label] ?? 0;
   const chipClass = `chip-${String(chip.label).replace(/[^0-9]/g, "")}`;
   const chipClass = `chip-${String(chip.label).replace(/[^0-9]/g, "")}`;
+  const chipClass = `chip-${String(chip.label).replace(/[^0-9]/g, "")}`;
 
   return `
     <div class="rules-chip-card ${chipClass}" title="${label} • Set per player = ${chipCount}">
