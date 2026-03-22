@@ -680,8 +680,8 @@ function badgeMetaFromLabel(label) {
   const text = String(label || "");
 
   if (text.includes("Profit Leader")) return { rarity: "legendary", tone: "gold" };
-  if (text.includes("Power Leader")) return { rarity: "epic", tone: "violet" };
-  if (text.includes("Clutch Leader")) return { rarity: "rare", tone: "amber" };
+  if (text.includes("Power Flex")) return { rarity: "epic", tone: "violet" };
+  if (text.includes("Cap'n Clutch")) return { rarity: "rare", tone: "amber" };
   if (text.includes("Luck Leader")) return { rarity: "rare", tone: "green" };
   if (text.includes("Hit King")) return { rarity: "epic", tone: "red" };
   if (text.includes("Bubble King")) return { rarity: "uncommon", tone: "blue" };
@@ -1334,8 +1334,8 @@ function renderHomePage(data) {
   const leaderStrip = document.getElementById("home-leader-strip");
   if (leaderStrip) {
     const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
+    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Flex"]);
+    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Cap'n Clutch"]);
     const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
 
     leaderStrip.innerHTML = [
