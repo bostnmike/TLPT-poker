@@ -1387,33 +1387,55 @@ a:hover{
   appearance:none;
   -webkit-appearance:none;
   display:inline-block;
-  flex:0 0 12px;
-  width:12px;
-  height:12px;
+  flex:0 0 14px;
+  width:14px;
+  height:14px;
   padding:0;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.24);
-  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.26);
+  background:rgba(255,255,255,.08);
   cursor:pointer;
-  transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+  position:relative;
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.home-event-dot::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:50%;
+  background:transparent;
+  transition:
+    background .18s ease,
+    box-shadow .18s ease,
+    opacity .18s ease;
+  opacity:1;
+}
+
+.home-event-dot:hover{
+  transform:scale(1.06);
 }
 
 .home-event-dot.is-active{
-  background:#ffffff;
-  border-color:#ffffff;
-  box-shadow:0 0 10px rgba(255,255,255,.18);
+  border-color:rgba(255,255,255,.72);
+  background:rgba(255,255,255,.10);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 0 10px rgba(255,255,255,.16);
 }
 
-.home-event-dot[data-home-event-day="friday"].is-active{
+.home-event-dot[data-home-event-day="friday"].is-active::after{
   background:#c4b5fd;
-  border-color:#c4b5fd;
-  box-shadow:0 0 10px rgba(196,181,253,.28);
+  box-shadow:0 0 8px rgba(196,181,253,.42);
 }
 
-.home-event-dot[data-home-event-day="saturday"].is-active{
+.home-event-dot[data-home-event-day="saturday"].is-active::after{
   background:#4ade80;
-  border-color:#4ade80;
-  box-shadow:0 0 10px rgba(74,222,128,.28);
+  box-shadow:0 0 8px rgba(74,222,128,.42);
 }
 
 .home-rotating-event-card{
