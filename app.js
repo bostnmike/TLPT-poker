@@ -863,6 +863,11 @@ function getEventDayLabel(event) {
   if (/friday/i.test(rawDate)) return "Friday";
   if (/saturday/i.test(rawDate)) return "Saturday";
 
+  const parsed = new Date(rawDate);
+  if (!Number.isNaN(parsed.getTime())) {
+    return parsed.toLocaleDateString("en-US", { weekday: "long" });
+  }
+
   return "Event";
 }
 
@@ -879,34 +884,6 @@ function getCurrentEvents(data) {
       ...event,
       day: getEventDayLabel(event)
     }));
-}
-
-function getHomeEventRotationIndex(events) {
-  if (!events.length) return 0;
-  const rotationWindowMs = 7000;
-  return Math.floor(Date.now() / rotationWindowMs) % events.length;
-}
-
-function getHomeEventRotationIndex(events) {
-  if (!events.length) return 0;
-  return 0;
-}
-
-function getEventDayLabel(event) {
-  const rawDate = String(event?.date || "").trim();
-  if (/friday/i.test(rawDate)) return "Friday";
-  if (/saturday/i.test(rawDate)) return "Saturday";
-
-  const parsed = new Date(rawDate);
-  if (!Number.isNaN(parsed.getTime())) {
-    return parsed.toLocaleDateString("en-US", { weekday: "long" });
-  }
-
-  return "Event";
-}
-
-function getEventButtonLabel(event) {
-  return `RSVP for ${getEventDayLabel(event)}`;
 }
 
 function getHomeEventRotationIndex(events) {
