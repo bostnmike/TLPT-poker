@@ -1207,10 +1207,10 @@ function renderHomePage(data) {
         </div>
       `;
 
-      const rotatorPanels = document.querySelectorAll("[data-home-event-panel]");
-      const rotatorDots = document.querySelectorAll("[data-home-event-index]");
-      const rotatorDays = document.querySelectorAll(".home-event-rotator-day");
-
+      const rotatorPanels = eventsEl.querySelectorAll("[data-home-event-panel]");
+      const rotatorDots = eventsEl.querySelectorAll("[data-home-event-index]");
+      const rotatorDays = eventsEl.querySelectorAll(".home-event-rotator-day");
+      
       let currentIndex = activeIndex;
 
       function setHomeEventSlide(index) {
