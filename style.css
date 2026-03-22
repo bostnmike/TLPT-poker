@@ -1852,24 +1852,6 @@ a:hover{
     0 10px 24px rgba(0,0,0,.18);
 }
 
-#home-events-list .schedule-event-card-top .event-format-title,
-#schedule-list .schedule-event-card-top .event-format-title{
-  color:#ffffff;
-  border-color:rgba(196,181,253,.50);
-  box-shadow:
-    0 0 0 1px rgba(196,181,253,.10),
-    0 0 10px rgba(196,181,253,.10);
-}
-
-#home-events-list .schedule-event-card-bottom .event-format-title,
-#schedule-list .schedule-event-card-bottom .event-format-title{
-  color:#ffffff;
-  border-color:rgba(134,239,172,.50);
-  box-shadow:
-    0 0 0 1px rgba(134,239,172,.10),
-    0 0 10px rgba(134,239,172,.10);
-}
-
 #champions-list .honors-card{
   border-color:rgba(168,85,247,.26);
   background:
@@ -1965,10 +1947,9 @@ a:hover{
 
   color:#ffffff;
   background:rgba(255,184,28,.10);
-  border:1px solid rgba(255,255,255,.35);
+  border:1px solid rgba(88,100,118,.36);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.10),
-    0 0 10px rgba(255,255,255,.08);
+    0 8px 14px rgba(0,0,0,.22);
   text-shadow:0 0 6px rgba(255,255,255,.10);
 
   margin:2px 0 10px 0;
