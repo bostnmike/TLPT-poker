@@ -780,6 +780,7 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${confirmedPlayers.map(player => {
           const displayName = displayPlayerNamePlain(player);
+
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
               ${playerImageMarkup(player, "table")}
@@ -851,6 +852,20 @@ function getEventButtonLabel(event) {
   return `RSVP for ${getEventDayLabel(event)}`;
 }
 
+function getEventDayLabel(event) {
+  if (event?.day) return String(event.day).trim();
+
+  const rawDate = String(event?.date || "").trim();
+  if (/friday/i.test(rawDate)) return "Friday";
+  if (/saturday/i.test(rawDate)) return "Saturday";
+
+  return "Event";
+}
+
+function getEventButtonLabel(event) {
+  return `RSVP for ${getEventDayLabel(event)}`;
+}
+
 function getCurrentEvents(data) {
   return [...(data?.events || [])]
     .filter(Boolean)
@@ -860,6 +875,11 @@ function getCurrentEvents(data) {
       ...event,
       day: getEventDayLabel(event)
     }));
+}
+
+function getHomeEventRotationIndex(events) {
+  if (!events.length) return 0;
+  return 0;
 }
 
 function getHomeEventRotationIndex(events) {
