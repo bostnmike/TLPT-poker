@@ -1399,6 +1399,24 @@ a:hover{
   margin-top:0;
 }
 
+.schedule-day-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  align-self:flex-start;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.07);
+  color:#fff;
+  font-size:1.22rem;
+  font-weight:900;
+  letter-spacing:.01em;
+  line-height:1.08;
+  text-transform:none;
+  white-space:nowrap;
+}
+
 .home-event-top-right .schedule-day-pill{
   margin-left:auto;
 }
