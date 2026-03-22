@@ -324,18 +324,18 @@ a:hover{
 }
 
 .btn-rsvp{
-  background:linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
-  border-color:var(--gold);
-  color:#000;
+  background:linear-gradient(180deg, rgba(31,39,51,.98) 0%, rgba(20,26,34,.98) 100%);
+  border-color:rgba(88,100,118,.36);
+  color:#ffffff;
 }
 
 .btn-rsvp:hover{
-  background:linear-gradient(180deg, #ffffff 0%, #f2f2f2 100%);
-  border-color:#ffffff;
-  color:#000;
+  background:linear-gradient(180deg, rgba(44,52,66,.98) 0%, rgba(24,30,38,.98) 100%);
+  border-color:rgba(120,134,154,.42);
+  color:#ffffff;
   box-shadow:
     0 8px 18px rgba(0,0,0,.28),
-    0 0 0 1px rgba(255,255,255,.18);
+    0 0 0 1px rgba(255,255,255,.06);
 }
 
 .btn-format{
@@ -1511,7 +1511,7 @@ a:hover{
 
 #home-events-list .schedule-event-card-bottom .schedule-day-pill,
 #schedule-list .schedule-event-card-bottom .schedule-day-pill{
-  color:#e7ffeF;
+  color:#e7ffef;
   border-color:rgba(134,239,172,.48);
   background:
     linear-gradient(180deg, rgba(210,255,224,.10), rgba(255,255,255,.02)),
@@ -1611,6 +1611,12 @@ a:hover{
     0 0 0 1px rgba(134,239,172,.16),
     0 10px 24px rgba(0,0,0,.20),
     0 0 16px rgba(34,197,94,.12);
+}
+
+#schedule-list .schedule-event-card-top .btn-rsvp{
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-color:rgba(168,85,247,.34);
+  color:#f3e8ff;
 }
 
 #schedule-list .schedule-event-card-bottom .btn-rsvp{
@@ -1824,10 +1830,6 @@ a:hover{
   border:1px solid rgba(255,255,255,.10);
   background:var(--panel);
   box-shadow:var(--shadow);
-}
-
-#home-events-list .event-title-kicker{
-  text-shadow:0 0 12px rgba(255,255,255,.08);
 }
 
 #home-events-list .schedule-event-card-top{
