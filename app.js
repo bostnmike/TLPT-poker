@@ -2322,6 +2322,8 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
+function getBalancedHonorsSections(data) {
+  return {
     statLeaders: [
       { key: "roi", title: "Mr. ROI", icon: "🪎" },
       { key: "luckIndex", title: "Lucky Duck", icon: "🐥" },
@@ -2365,8 +2367,8 @@ function renderChampions(data) {
 
       return honorsCardMarkup(
         player,
-        record.title || record.label,
-        record.icon || recordIcon(record.label),
+        honor.type,
+        honorIcon(honor.type),
         valueText,
         false,
         valueClass
@@ -2394,8 +2396,8 @@ function renderChampions(data) {
 
       return honorsCardMarkup(
         player,
-        record.label,
-        recordIcon(record.label),
+        record.title || record.label,
+        record.icon || recordIcon(record.label),
         valueText,
         false,
         valueClass
