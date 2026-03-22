@@ -2587,9 +2587,9 @@ async function main() {
 document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
-      const reportEl = document.querySelector("[data-commissioner-report]");
+      const reportEls = document.querySelectorAll("[data-commissioner-report]");
 
-      if (!reportEl) return;
+      if (!reportEls.length) return;
 
       let currentIndex = -1;
 
@@ -2597,25 +2597,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const result = getRandomCommissionerReport(currentIndex);
         currentIndex = result.index;
 
-        // Fade OUT
-        reportEl.classList.add("is-fading");
+        reportEls.forEach(reportEl => {
+          reportEl.classList.add("is-fading");
+        });
 
         setTimeout(() => {
-          reportEl.textContent = "";
-          reportEl.classList.remove("is-typing-done");
-          reportEl.classList.remove("is-fading");
-
-          typeTextIntoElement(reportEl, result.text, 10);
-
-        }, 450); // match CSS timing
+          reportEls.forEach(reportEl => {
+            reportEl.textContent = "";
+            reportEl.classList.remove("is-typing-done");
+            reportEl.classList.remove("is-fading");
+            typeTextIntoElement(reportEl, result.text, 10);
+          });
+        }, 450);
       }
 
-      // Initial load (random, no fade)
       const initial = getRandomCommissionerReport();
       currentIndex = initial.index;
-      typeTextIntoElement(reportEl, initial.text, 10);
 
-      // Rotate every 90 seconds
+      reportEls.forEach(reportEl => {
+        typeTextIntoElement(reportEl, initial.text, 10);
+      });
+
       setInterval(renderNewReport, 90 * 1000);
     })
     .catch(error => {
