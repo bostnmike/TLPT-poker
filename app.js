@@ -2571,6 +2571,7 @@ async function main() {
   window.siteData = data;
 
   renderHomePage(data);
+  renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
   renderDashboard(DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
