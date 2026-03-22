@@ -2276,6 +2276,7 @@ function honorIcon(type) {
 }
 
 function honorsPageLabel(type) {
+  if (type === "Profit Leader") return "Show Me Da $";
   if (type === "Power Leader") return "Power Flex";
   if (type === "Clutch Leader") return "Cap'n Clutch";
   return type;
