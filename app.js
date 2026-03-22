@@ -2275,6 +2275,12 @@ function honorIcon(type) {
   return "🏅";
 }
 
+function honorsPageLabel(type) {
+  if (type === "Power Leader") return "Power Flex";
+  if (type === "Clutch Leader") return "Cap'n Clutch";
+  return type;
+}
+
 function recordIcon(label) {
   const key = String(label || "").toLowerCase();
   if (key.includes("profit")) return "💰";
@@ -2361,7 +2367,7 @@ function renderChampions(data) {
 
       return honorsCardMarkup(
         player,
-        honor.type,
+        honorsPageLabel(honor.type),
         honorIcon(honor.type),
         valueText,
         false,
