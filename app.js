@@ -946,7 +946,6 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
 
         <div class="home-event-top-right">
           <div class="schedule-day-pill">${dayLabel}</div>
-          ${buildRsvpSummaryMarkup(event, "home-rsvp-summary-header")}
         </div>
       </div>
 
@@ -967,11 +966,10 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
             showRotatorNav: allEvents.length > 1,
             showRotatorLabel: false,
             rotatorDotsMarkup: dotsMarkup,
-            summaryPlacement: "none"
+            summaryPlacement: "bottom"
           })}
         </div>
       </div>
-    </div>
   `;
 }
 
