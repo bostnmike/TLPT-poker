@@ -768,17 +768,30 @@ function getConfirmedRsvpPlayers(event, data) {
     )
     .filter(Boolean);
 }
+function buildRsvpSummaryMarkup(event, extraClass = "") {
+  const counts = getRsvpCounts(event);
+
+  return `
+    <div class="event-rsvp-summary ${extraClass}".trim() aria-label="RSVP summary">
+      <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
+      <span class="event-rsvp-pill no">No = ${counts.no}</span>
+      <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
+      <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
+    </div>
+  `;
+}
 
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
   const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
-  const counts = getRsvpCounts(event);
 
   const {
     showRotatorNav = false,
+    showRotatorLabel = true,
     rotatorDay = "",
-    rotatorDotsMarkup = ""
+    rotatorDotsMarkup = "",
+    summaryPlacement = "bottom"
   } = options;
 
   return `
@@ -800,19 +813,18 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
 
       ${showRotatorNav ? `
         <div class="home-rotator-nav-inline">
-          <div class="home-rotator-nav-label">Now Showing: <span class="home-event-rotator-day">${rotatorDay}</span></div>
+          ${showRotatorLabel ? `
+            <div class="home-rotator-nav-label">
+              Now Showing: <span class="home-event-rotator-day">${rotatorDay}</span>
+            </div>
+          ` : ""}
           <div class="home-event-rotator-dots home-event-rotator-dots-inline">
             ${rotatorDotsMarkup}
           </div>
         </div>
       ` : ""}
 
-      <div class="event-rsvp-summary" aria-label="RSVP summary">
-        <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
-        <span class="event-rsvp-pill no">No = ${counts.no}</span>
-        <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
-        <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
-      </div>
+      ${summaryPlacement === "bottom" ? buildRsvpSummaryMarkup(event) : ""}
     </div>
   `;
 }
@@ -876,8 +888,119 @@ function getCurrentEvents(data) {
 
 function getHomeEventRotationIndex(events) {
   if (!events.length) return 0;
-  const rotationWindowMs = 7000;
+  const rotationWindowMs = 45000;
   return Math.floor(Date.now() / rotationWindowMs) % events.length;
+}
+
+function buildHomeEventButtonsMarkup(events) {
+  return `
+    <div class="home-event-fixed-buttons home-event-fixed-buttons-inline">
+      ${events.map(event => {
+        const day = getEventDayLabel(event).toLowerCase();
+        return `
+          <a
+            class="btn btn-rsvp home-dual-rsvp-btn home-dual-rsvp-btn-${day}"
+            href="${event.apple_invite_url}"
+            target="_blank"
+            rel="noopener"
+          >
+            ${getEventButtonLabel(event)}
+          </a>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
+
+function buildHomeRotatorDotsMarkup(events, activeIndex) {
+  return events.map((dotEvent, dotIndex) => `
+    <button
+      class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
+      type="button"
+      data-home-event-index="${dotIndex}"
+      aria-label="Show ${getEventDayLabel(dotEvent)} event"
+    ></button>
+  `).join("");
+}
+
+function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
+  const dayLabel = getEventDayLabel(event);
+  const dayKey = dayLabel.toLowerCase();
+  const themeClass = dayKey === "friday"
+    ? "schedule-event-card-top"
+    : "schedule-event-card-bottom";
+
+  const buttonsMarkup = buildHomeEventButtonsMarkup(allEvents);
+  const dotsMarkup = allEvents.length > 1
+    ? buildHomeRotatorDotsMarkup(allEvents, activeIndex)
+    : "";
+
+  return `
+    <div
+      class="event-card compact-event-card home-event-hero schedule-event-card ${themeClass} home-rotating-event-card"
+      data-home-event-panel="${index}"
+      data-event-day="${dayLabel}"
+    >
+      <div class="event-card-topline">
+        <div class="kicker event-title-kicker">${event.title}</div>
+
+        <div class="home-event-top-right">
+          <div class="schedule-day-pill">${dayLabel}</div>
+          ${buildRsvpSummaryMarkup(event, "home-rsvp-summary-header")}
+        </div>
+      </div>
+
+      <div class="event-layout-grid">
+        <div class="event-details-col">
+          <div class="event-format-title">${event.format || ""}</div>
+          <div class="event-structure">${event.structure || ""}</div>
+          <h3>${event.date}</h3>
+          <p class="muted"><strong>Start:</strong> ${event.time}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+          <p class="muted"><strong>Location:</strong> ${event.location}</p>
+          <p class="muted">${event.address || ""}</p>
+          ${buttonsMarkup}
+        </div>
+
+        <div class="event-rsvp-col">
+          ${eventRsvpAvatarMarkup(event, data, 9, {
+            showRotatorNav: allEvents.length > 1,
+            showRotatorLabel: false,
+            rotatorDotsMarkup: dotsMarkup,
+            summaryPlacement: "none"
+          })}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function ensureHomeCommissionerSection() {
+  const eventsList = document.getElementById("home-events-list");
+  if (!eventsList) return null;
+
+  const eventsSection = eventsList.closest(".section");
+  if (!eventsSection) return null;
+
+  let commissionerSection = document.getElementById("home-commissioner-section");
+
+  if (!commissionerSection) {
+    commissionerSection = document.createElement("section");
+    commissionerSection.id = "home-commissioner-section";
+    commissionerSection.className = "section home-commissioner-section";
+    eventsSection.insertAdjacentElement("afterend", commissionerSection);
+  }
+
+  commissionerSection.innerHTML = `
+    <div class="section-head page-title-row">
+      <h2>🎤 Commissioner’s Report</h2>
+    </div>
+    <div class="home-commissioner-shell">
+      <p class="commissioner-typing-target" data-commissioner-report></p>
+    </div>
+  `;
+
+  return commissionerSection;
 }
 
 function ensureStandingsHeadline(sortKey) {
@@ -1143,6 +1266,7 @@ function renderHomePage(data) {
 
   if (eventsEl) {
     const homeEvents = getCurrentEvents(data).slice(0, 2);
+    ensureHomeCommissionerSection();
 
     if (!homeEvents.length) {
       eventsEl.innerHTML = "";
@@ -1150,57 +1274,21 @@ function renderHomePage(data) {
       eventsEl.innerHTML = `
         <div class="home-event-rotator-shell single-event-week">
           <div class="home-event-rotator-stage">
-            ${buildEventCard(homeEvents[0], data, {
-              homeMode: true,
-              includeCommissioner: true,
-              isActive: true,
-              rsvpButtonsMarkup: `
-                <div class="home-event-fixed-buttons">
-                  <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
-                    ${getEventButtonLabel(homeEvents[0])}
-                  </a>
-                </div>
-              `
-            })}
+            <div class="home-event-rotator-panel is-active">
+              ${buildHomeEventCard(homeEvents[0], data, homeEvents, 0, 0)}
+            </div>
           </div>
         </div>
       `;
     } else {
       const activeIndex = getHomeEventRotationIndex(homeEvents);
 
-      const fixedButtonsMarkup = `
-        <div class="home-event-fixed-buttons">
-          ${homeEvents.map(event => `
-            <a class="btn btn-rsvp home-dual-rsvp-btn" href="${event.apple_invite_url}" target="_blank" rel="noopener">
-              ${getEventButtonLabel(event)}
-            </a>
-          `).join("")}
-        </div>
-      `;
-
       eventsEl.innerHTML = `
         <div class="home-event-rotator-shell dual-event-week">
           <div class="home-event-rotator-stage">
             ${homeEvents.map((event, index) => `
-              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
-                ${buildEventCard(event, data, {
-                  homeMode: true,
-                  includeCommissioner: true,
-                  isActive: index === activeIndex,
-                  rsvpButtonsMarkup: fixedButtonsMarkup,
-                  eventRsvpOptions: {
-                    showRotatorNav: true,
-                    rotatorDay: getEventDayLabel(homeEvents[activeIndex]),
-                    rotatorDotsMarkup: homeEvents.map((dotEvent, dotIndex) => `
-                      <button
-                        class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
-                        type="button"
-                        data-home-event-index="${dotIndex}"
-                        aria-label="Show ${getEventDayLabel(dotEvent)} event"
-                      ></button>
-                    `).join("")
-                  }
-                })}
+              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}">
+                ${buildHomeEventCard(event, data, homeEvents, activeIndex, index)}
               </div>
             `).join("")}
           </div>
@@ -1209,8 +1297,6 @@ function renderHomePage(data) {
 
       const rotatorPanels = eventsEl.querySelectorAll("[data-home-event-panel]");
       const rotatorDots = eventsEl.querySelectorAll("[data-home-event-index]");
-      const rotatorDays = eventsEl.querySelectorAll(".home-event-rotator-day");
-      
       let currentIndex = activeIndex;
 
       function setHomeEventSlide(index) {
@@ -1222,10 +1308,6 @@ function renderHomePage(data) {
 
         rotatorDots.forEach((dot, dotIndex) => {
           dot.classList.toggle("is-active", dotIndex === index);
-        });
-
-        rotatorDays.forEach(dayEl => {
-          dayEl.textContent = getEventDayLabel(homeEvents[index]);
         });
       }
 
@@ -1239,7 +1321,7 @@ function renderHomePage(data) {
       window.setInterval(() => {
         const nextIndex = (currentIndex + 1) % homeEvents.length;
         setHomeEventSlide(nextIndex);
-      }, 7000);
+      }, 45000);
     }
   }
 
@@ -1357,13 +1439,13 @@ function renderHomePage(data) {
       });
     });
   }
-  
+
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
     const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 5);
     const pressureLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 5);
     const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 5);
-    
+
     actionCluster.innerHTML = `
       <div class="home-cluster-stack home-cluster-stack-3">
         <div class="home-mini-board">
@@ -2232,10 +2314,45 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
+function getBalancedHonorsSections(data) {
+  const honorReservedKeys = new Set(
+    (data?.honors || [])
+      .map(honor => HONOR_RULES[honor.type]?.key)
+      .filter(Boolean)
+  );
+
+  let statLeaders = STAT_LEADER_CONFIG.filter(stat => !honorReservedKeys.has(stat.key));
+
+  let recordItems = (data?.records || []).filter(record => {
+    const rule = RECORD_RULES[record.label];
+    return rule?.key && !honorReservedKeys.has(rule.key);
+  });
+
+  const overlappingKeys = [...new Set(
+    statLeaders
+      .map(stat => stat.key)
+      .filter(key => recordItems.some(record => RECORD_RULES[record.label]?.key === key))
+  )];
+
+  overlappingKeys.forEach(key => {
+    if (statLeaders.length >= recordItems.length) {
+      statLeaders = statLeaders.filter(stat => stat.key !== key);
+    } else {
+      const recordIndex = recordItems.findIndex(record => RECORD_RULES[record.label]?.key === key);
+      if (recordIndex !== -1) {
+        recordItems.splice(recordIndex, 1);
+      }
+    }
+  });
+
+  return { statLeaders, recordItems };
+}
+
 function renderChampions(data) {
   const players = data?.players || [];
   const honorsEl = document.getElementById("champions-list");
   const recordsEl = document.getElementById("records-list");
+  const { recordItems } = getBalancedHonorsSections(data);
 
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
@@ -2268,8 +2385,8 @@ function renderChampions(data) {
     initAnimatedCounters(honorsEl);
   }
 
-  if (recordsEl && Array.isArray(data?.records)) {
-    recordsEl.innerHTML = data.records.map(record => {
+  if (recordsEl) {
+    recordsEl.innerHTML = recordItems.map(record => {
       const rule = RECORD_RULES[record.label];
       const player = getLeaderByRule(players, rule);
       if (!player) return "";
@@ -2304,13 +2421,14 @@ function renderStatLeaders(data) {
 
   const allPlayers = data?.players || [];
   const eligiblePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+  const { statLeaders } = getBalancedHonorsSections(data);
 
   if (!eligiblePlayers.length) {
     list.innerHTML = "";
     return;
   }
 
-  list.innerHTML = STAT_LEADER_CONFIG.map(stat => {
+  list.innerHTML = statLeaders.map(stat => {
     const leader = sortPlayers(eligiblePlayers, stat.key)[0];
     if (!leader) return "";
 
