@@ -4330,15 +4330,16 @@ td{
 }
 
 .honors-player-name{
-  font-size:1.12rem;
+  font-size:1.18rem;
   font-weight:800;
   line-height:1.2;
 }
 
 .honors-card-value{
   color:var(--muted);
-  font-size:.98rem;
+  font-size:1.05rem;
   line-height:1.45;
+  font-weight:800;
 }
 
 .honors-card-value--numeric{
@@ -4347,10 +4348,46 @@ td{
   justify-content:center;
   min-height:58px;
   text-align:center;
-  font-size:2rem;
-  font-weight:800;
+  font-size:2.18rem;
+  font-weight:900;
   line-height:1.1;
   color:var(--gold);
+}
+
+#champions-list .honors-card-value{
+  color:#d8b4fe;
+  text-shadow:0 0 10px rgba(168,85,247,.14);
+}
+
+#champions-list .honors-card-value--numeric{
+  color:#d8b4fe;
+  text-shadow:
+    0 0 10px rgba(168,85,247,.20),
+    0 0 20px rgba(168,85,247,.12);
+}
+
+#leaders-list .honors-card-value{
+  color:#93c5fd;
+  text-shadow:0 0 10px rgba(59,130,246,.14);
+}
+
+#leaders-list .honors-card-value--numeric{
+  color:#93c5fd;
+  text-shadow:
+    0 0 10px rgba(59,130,246,.20),
+    0 0 20px rgba(59,130,246,.12);
+}
+
+#records-list .honors-card-value{
+  color:#f9a8d4;
+  text-shadow:0 0 10px rgba(236,72,153,.14);
+}
+
+#records-list .honors-card-value--numeric{
+  color:#f9a8d4;
+  text-shadow:
+    0 0 10px rgba(236,72,153,.20),
+    0 0 20px rgba(236,72,153,.12);
 }
 
 .leader-banner-card{
@@ -4369,9 +4406,9 @@ td{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:12px;
   margin:-18px -18px 16px -18px;
-  padding:12px 14px;
+  padding:13px 15px;
   text-align:center;
 }
 
@@ -4412,14 +4449,14 @@ td{
 }
 
 .leader-banner-crown{
-  font-size:1.1rem;
+  font-size:1.38rem;
   line-height:1;
 }
 
 .leader-banner-title{
   color:#fff;
   font-weight:900;
-  font-size:.88rem;
+  font-size:1rem;
   letter-spacing:.08em;
   text-transform:uppercase;
   line-height:1.2;
