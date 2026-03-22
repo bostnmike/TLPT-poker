@@ -2299,9 +2299,13 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
   const numericClass = isNumericValueText(valueText) ? " honors-card-value--numeric" : "";
+  const cardSlug = String(category || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
   return `
-    <a class="champ-card stat-card-visual honors-card ${isTop ? "is-top-rank" : ""}" href="${href}">
+    <a class="champ-card stat-card-visual honors-card honors-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
       <div class="leader-banner-top">
         <div class="leader-banner-crown">${icon}</div>
         <div class="leader-banner-title">${category}</div>
