@@ -770,13 +770,16 @@ function getConfirmedRsvpPlayers(event, data) {
 }
 function buildRsvpSummaryMarkup(event, extraClass = "") {
   const counts = getRsvpCounts(event);
+  const summaryClass = ["event-rsvp-summary", extraClass].filter(Boolean).join(" ");
 
   return `
-    <div class="event-rsvp-summary ${extraClass}".trim() aria-label="RSVP summary">
-      <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
-      <span class="event-rsvp-pill no">No = ${counts.no}</span>
-      <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
-      <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
+    <div class="event-rsvp-summary-wrap">
+      <div class="${summaryClass}" aria-label="RSVP summary">
+        <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
+        <span class="event-rsvp-pill no">No = ${counts.no}</span>
+        <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
+        <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
+      </div>
     </div>
   `;
 }
