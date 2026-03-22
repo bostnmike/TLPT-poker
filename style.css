@@ -3785,6 +3785,22 @@ td{
   color:inherit;
 }
 
+.archetype-filter-pill[data-archetype-filter="all"]{
+  border-color:rgba(59,130,246,.34);
+  background:
+    linear-gradient(180deg, rgba(191,219,254,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.22), rgba(22,34,58,.94));
+  color:#dbeafe;
+}
+
+.archetype-filter-pill[data-archetype-filter="all"].active{
+  border-color:rgba(255,122,122,.48);
+  background:
+    linear-gradient(180deg, rgba(255,220,220,.10), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(255,122,122,.28), rgba(76,18,18,.94));
+  color:#fff1f1;
+}
+
 .archetype-filter-pill.archetype-hitman,
 .archetype-filter-pill.archetype-closer,
 .archetype-filter-pill.archetype-grinder,
@@ -4623,6 +4639,24 @@ td{
 
 .player-sample-note{
   margin-top:10px;
+}
+
+@media (max-width:900px){
+  .archetype-visual-card{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "head"
+      "mode"
+      "filters";
+  }
+
+  .archetype-mode-toggle{
+    width:100%;
+  }
+
+  .archetype-filter-row{
+    width:100%;
+  }
 }
 
 /* honors */
