@@ -1478,14 +1478,6 @@ a:hover{
   margin-top:2px;
 }
 
-.event-rsvp-summary{
-  display:inline-flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  width:auto;
-}
-
 .home-rsvp-summary-header{
   margin-top:0;
 }
@@ -1654,10 +1646,6 @@ a:hover{
   text-shadow:0 0 12px rgba(255,255,255,.08);
 }
 
-#schedule-list .home-event-hero{
-  box-shadow:var(--shadow);
-}
-
 #home-events-list .schedule-event-card-top{
   border:1px solid rgba(168,85,247,.24);
   background:
@@ -1700,10 +1688,10 @@ a:hover{
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.07);
   color:#fff;
-  font-size:1.12rem;
+  font-size:1.22rem;
   font-weight:900;
-  letter-spacing:.02em;
-  line-height:1.1;
+  letter-spacing:.01em;
+  line-height:1.08;
   text-transform:none;
   white-space:nowrap;
 }
@@ -1772,7 +1760,6 @@ a:hover{
   margin:4px 0;
 }
 
-.event-details-col p,
 .event-rsvp-col p{
   margin:0;
 }
@@ -1784,6 +1771,17 @@ a:hover{
   gap:14px;
   margin-bottom:8px;
   flex-wrap:nowrap;
+}
+
+#home-events-list .event-card-topline,
+#schedule-list .event-card-topline{
+  align-items:flex-start;
+}
+
+#home-events-list .schedule-day-pill,
+#schedule-list .schedule-day-pill{
+  align-self:flex-start;
+  margin-top:2px;
 }
 
 .event-title-kicker{
