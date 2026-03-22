@@ -2115,7 +2115,7 @@ a:hover{
 .event-rsvp-avatar-row::after{
   content:"";
   position:absolute;
-  inset:34px 84px 36px 84px;
+  inset:48px 84px 50px 84px;
   border-radius:999px;
   pointer-events:none;
   box-shadow:inset 0 0 0 2px rgba(88,100,118,.42);
