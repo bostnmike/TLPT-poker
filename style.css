@@ -181,6 +181,26 @@ a:hover{
   text-align:left;
 }
 
+.page-title-orange{
+  color:#ffb15a;
+}
+
+.page-title-red{
+  color:#ff7a7a;
+}
+
+.page-title-pink{
+  color:#f9a8d4;
+}
+
+.page-title-green{
+  color:#86efac;
+}
+
+.page-title-purple{
+  color:#d8b4fe;
+}
+
 .hero-stack{
   display:flex;
   flex-direction:column;
