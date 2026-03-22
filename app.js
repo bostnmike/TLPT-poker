@@ -1279,7 +1279,7 @@ function renderHomePage(data) {
         </div>
       `;
     } else {
-      const activeIndex = getHomeEventRotationIndex(homeEvents);
+      const activeIndex = 0;
 
       eventsEl.innerHTML = `
         <div class="home-event-rotator-shell dual-event-week">
@@ -1322,14 +1322,7 @@ function renderHomePage(data) {
         });
       });
 
-      if (window.homeEventRotatorTimer) {
-        window.clearInterval(window.homeEventRotatorTimer);
-      }
-
-      window.homeEventRotatorTimer = window.setInterval(() => {
-        const nextIndex = (currentIndex + 1) % homeEvents.length;
-        setHomeEventSlide(nextIndex);
-      }, 10000);
+      setHomeEventSlide(activeIndex);
     }
   }
 
