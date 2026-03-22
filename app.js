@@ -1181,7 +1181,7 @@ const COMMISSIONER_REPORTS = [
   "Wild Bill looks like the sort of player you ignore until he’s somehow still there at the end. It’s not flashy, it’s not cinematic, but it’s a useful reminder that chaos is not a strategy.",
   "Jeff T and Nitro are currently fighting over who has suffered more while remaining publicly available for more suffering. It’s a close race, and the deck remains undefeated.",
   "Chris O and BostnMike both enjoy busting people, but one of them seems to enjoy staying solvent too. That extra step turns out to matter.",
-  "NASA Al, Li-Fo, and Cougar are starting to form the kind of trio the rest of the league should discuss only in whispers. One prints, one crushes, one quietly survives—and together they make everybody else look recreational."
+  "NASA Al, Li-Fo, and Cougar are starting to form the kind of trio the rest of the league should discuss only in whispers. One prints, one crushes, one quietly survives—and together they make everybody else look recreational.",
   "Chris O brings maximum action every night—high aggression, strong hit rate, and a willingness to rebuy like it’s part of the strategy. The results are solid, but the emotional swings might need their own stat category.",
   "Red is playing aggressive, productive poker—high hit rate, strong pressure—but somehow hovering around break-even. It’s the statistical equivalent of doing everything right and still splitting the pot.",
   "Vish is fully committed to the gamble—high rebuy rate, aggressive play—but the results suggest the house might currently have the edge. Entertaining? Absolutely. Profitable? Not yet.",
