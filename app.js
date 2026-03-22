@@ -766,21 +766,20 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
   const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
-
   const counts = getRsvpCounts(event);
+
   const {
     showRotatorNav = false,
     rotatorDay = "",
     rotatorDotsMarkup = ""
   } = options;
-  
+
   return `
     <div class="event-rsvp-block">
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${confirmedPlayers.map(player => {
           const displayName = displayPlayerNamePlain(player);
-
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
               ${playerImageMarkup(player, "table")}
@@ -802,6 +801,13 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
       ` : ""}
 
       <div class="event-rsvp-summary" aria-label="RSVP summary">
+        <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
+        <span class="event-rsvp-pill no">No = ${counts.no}</span>
+        <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
+        <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
+      </div>
+    </div>
+  `;
 }
 
 function projectedTableSize(event, maxSeats = 9) {
@@ -831,13 +837,34 @@ function tableFillMarkup(event, maxSeats = 9) {
   `;
 }
 
+function getEventDayLabel(event) {
+  if (event?.day) return String(event.day).trim();
+
+  const rawDate = String(event?.date || "").trim();
+  if (/friday/i.test(rawDate)) return "Friday";
+  if (/saturday/i.test(rawDate)) return "Saturday";
+
+  return "Event";
+}
+
+function getEventButtonLabel(event) {
+  return `RSVP for ${getEventDayLabel(event)}`;
+}
+
 function getCurrentEvents(data) {
-  return [...(data?.events || [])].filter(event => {
-    const hasTitle = String(event?.title || "").trim() !== "";
-    const hasDate = String(event?.date || "").trim() !== "";
-    const hasInvite = String(event?.apple_invite_url || "").trim() !== "";
-    return hasTitle && hasDate && hasInvite;
-  });
+  return [...(data?.events || [])]
+    .filter(Boolean)
+    .filter(event => String(event?.title || "").trim() !== "")
+    .filter(event => String(event?.apple_invite_url || "").trim() !== "")
+    .map(event => ({
+      ...event,
+      day: getEventDayLabel(event)
+    }));
+}
+
+function getHomeEventRotationIndex(events) {
+  if (!events.length) return 0;
+  return 0;
 }
 
 function getEventDayLabel(event) {
@@ -1071,11 +1098,10 @@ function buildEventCard(event, data, options = {}) {
     eventRsvpOptions = {}
   } = options;
 
-  const dayLabel = getEventDayLabel(event);
   const buttonLabel = getEventButtonLabel(event);
 
   return `
-    <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${dayLabel}">
+    <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${getEventDayLabel(event)}">
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
       </div>
@@ -1111,34 +1137,33 @@ function buildEventCard(event, data, options = {}) {
 
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
-if (eventsEl) {
-  const homeEvents = getCurrentEvents(data).slice(0, 2);
 
-  if (!homeEvents.length) {
-    eventsEl.innerHTML = "";
-  } else if (homeEvents.length === 1) {
-    eventsEl.innerHTML = `
-      <div class="home-event-rotator-shell single-event-week">
-        <div class="home-event-rotator-stage">
-          ${buildEventCard(homeEvents[0], data, {
-            homeMode: true,
-            includeCommissioner: true,
-            isActive: true,
-            rsvpButtonsMarkup: `
-              <div class="home-event-fixed-buttons">
-                <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
-                  ${getEventButtonLabel(homeEvents[0])}
-                </a>
-              </div>
-            `
-          })}
+  if (eventsEl) {
+    const homeEvents = getCurrentEvents(data).slice(0, 2);
+
+    if (!homeEvents.length) {
+      eventsEl.innerHTML = "";
+    } else if (homeEvents.length === 1) {
+      eventsEl.innerHTML = `
+        <div class="home-event-rotator-shell single-event-week">
+          <div class="home-event-rotator-stage">
+            ${buildEventCard(homeEvents[0], data, {
+              homeMode: true,
+              includeCommissioner: true,
+              isActive: true,
+              rsvpButtonsMarkup: `
+                <div class="home-event-fixed-buttons">
+                  <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
+                    ${getEventButtonLabel(homeEvents[0])}
+                  </a>
+                </div>
+              `
+            })}
+          </div>
         </div>
-      </div>
-    `;
-  } else {
-    const activeIndex = getHomeEventRotationIndex(homeEvents);
-
-          const fixedButtonsMarkup = `
+      `;
+    } else {
+      const fixedButtonsMarkup = `
         <div class="home-event-fixed-buttons">
           ${homeEvents.map(event => `
             <a class="btn btn-rsvp home-dual-rsvp-btn" href="${event.apple_invite_url}" target="_blank" rel="noopener">
@@ -1152,18 +1177,18 @@ if (eventsEl) {
         <div class="home-event-rotator-shell dual-event-week">
           <div class="home-event-rotator-stage">
             ${homeEvents.map((event, index) => `
-              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
+              <div class="home-event-rotator-panel${index === 0 ? " is-active" : ""}" data-home-event-panel="${index}">
                 ${buildEventCard(event, data, {
                   homeMode: true,
                   includeCommissioner: true,
-                  isActive: index === activeIndex,
+                  isActive: index === 0,
                   rsvpButtonsMarkup: fixedButtonsMarkup,
                   eventRsvpOptions: {
                     showRotatorNav: true,
-                    rotatorDay: getEventDayLabel(homeEvents[activeIndex]),
+                    rotatorDay: getEventDayLabel(homeEvents[0]),
                     rotatorDotsMarkup: homeEvents.map((dotEvent, dotIndex) => `
                       <button
-                        class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
+                        class="home-event-dot${dotIndex === 0 ? " is-active" : ""}"
                         type="button"
                         data-home-event-index="${dotIndex}"
                         aria-label="Show ${getEventDayLabel(dotEvent)} event"
@@ -1176,8 +1201,61 @@ if (eventsEl) {
           </div>
         </div>
       `;
+
+      const rotatorPanels = document.querySelectorAll("[data-home-event-panel]");
+      const rotatorDots = document.querySelectorAll("[data-home-event-index]");
+      const rotatorDays = document.querySelectorAll(".home-event-rotator-day");
+
+      let currentIndex = 0;
+
+      function setHomeEventSlide(index) {
+        currentIndex = index;
+
+        rotatorPanels.forEach((panel, panelIndex) => {
+          panel.classList.toggle("is-active", panelIndex === index);
+        });
+
+        rotatorDots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === index);
+        });
+
+        rotatorDays.forEach(dayEl => {
+          dayEl.textContent = getEventDayLabel(homeEvents[index]);
+        });
+      }
+
+      rotatorDots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          const nextIndex = Number(dot.dataset.homeEventIndex || 0);
+          setHomeEventSlide(nextIndex);
+        });
+      });
+
+      window.setInterval(() => {
+        const nextIndex = (currentIndex + 1) % homeEvents.length;
+        setHomeEventSlide(nextIndex);
+      }, 7000);
+    }
   }
-}
+
+  const allPlayers = data?.players || [];
+  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+  const activePlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+
+  const leaderStrip = document.getElementById("home-leader-strip");
+  if (leaderStrip) {
+    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
+    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
+    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
+    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
+
+    leaderStrip.innerHTML = [
+      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
+      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
+      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
+      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
+    ].join("");
+  }
 
   const rotatorPanels = document.querySelectorAll("[data-home-event-panel]");
   const rotatorDots = document.querySelectorAll("[data-home-event-index]");
@@ -2074,11 +2152,31 @@ function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
 
-  const events = getCurrentEvents(data);
+  const events = getCurrentEvents(data).slice(0, 2);
 
-  list.innerHTML = events.map(event => `
-    <div class="schedule-event-wrap">
-      ${buildEventCard(event, data, { homeMode: false, includeCommissioner: false, isActive: true })}
+  list.innerHTML = events.map((event, index) => `
+    <div class="event-card compact-event-card home-event-hero schedule-event-card schedule-event-card-${index === 0 ? "top" : "bottom"}">
+      <div class="event-card-topline">
+        <div class="kicker event-title-kicker">${event.title}</div>
+        <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
+      </div>
+
+      <div class="event-layout-grid">
+        <div class="event-details-col">
+          <div class="event-format-title">${event.format || ""}</div>
+          <div class="event-structure">${event.structure || ""}</div>
+          <h3>${event.date}</h3>
+          <p class="muted"><strong>Start:</strong> ${event.time}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+          <p class="muted"><strong>Location:</strong> ${event.location}</p>
+          <p class="muted">${event.address || ""}</p>
+          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${getEventButtonLabel(event)}</a>
+        </div>
+
+        <div class="event-rsvp-col">
+          ${eventRsvpAvatarMarkup(event, data)}
+        </div>
+      </div>
     </div>
   `).join("");
 }
