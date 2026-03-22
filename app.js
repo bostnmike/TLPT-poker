@@ -1345,25 +1345,25 @@ function renderHomePage(data) {
   
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
-    const aggressionLeaders = sortPlayers(qualifiedPlayers, "aggressionIndex").slice(0, 3);
-    const hitLeaders = sortPlayers(qualifiedPlayers, "hits").slice(0, 3);
-    const clutchLeaders = sortPlayers(qualifiedPlayers, "clutchIndex").slice(0, 3);
+    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 3);
+    const pressureLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 3);
+    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 3);
 
     actionCluster.innerHTML = `
       <div class="home-cluster-stack home-cluster-stack-3">
-        <div class="home-mini-card">
-          <div class="home-mini-kicker">⚡ Aggression Index</div>
-          ${aggressionLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, fmtNum(player.aggressionIndex))).join("")}
-        </div>
-
-        <div class="home-mini-card">
-          <div class="home-mini-kicker">💥 Knockout Leaders</div>
+        <div class="home-mini-board">
+          <div class="home-mini-board-title">💥 Knockout Board</div>
           ${hitLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, String(player.hits ?? 0))).join("")}
         </div>
 
-        <div class="home-mini-card">
-          <div class="home-mini-kicker">🎯 Clutch Index</div>
-          ${clutchLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, fmtNum(player.clutchIndex))).join("")}
+        <div class="home-mini-board">
+          <div class="home-mini-board-title">⚡ Pressure Board</div>
+          ${pressureLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, fmtNum(player.aggressionIndex))).join("")}
+        </div>
+
+        <div class="home-mini-board">
+          <div class="home-mini-board-title">🫧 Bubble Watch</div>
+          ${bubbleLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, String(player.bubbles ?? 0))).join("")}
         </div>
       </div>
     `;
