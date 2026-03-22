@@ -2429,14 +2429,13 @@ function renderStatLeaders(data) {
     return `
       <a class="champ-card stat-card-visual honors-card leader-banner-card" href="${playerUrl(leader)}">
         <div class="leader-banner-top">
-          <div class="leader-banner-crown">👑</div>
+          <div class="leader-banner-crown">${icon}</div>
           <div class="leader-banner-title">${stat.title}</div>
         </div>
 
         <div class="honors-card-top leader-banner-body">
           ${playerImageMarkup(leader, "honors")}
           <div class="honors-card-stack">
-            <div class="honors-card-icon">${icon}</div>
             <div class="honors-player-name">${displayPlayerName(leader)}</div>
           </div>
         </div>
