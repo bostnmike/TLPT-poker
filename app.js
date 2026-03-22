@@ -762,13 +762,18 @@ function getConfirmedRsvpPlayers(event, data) {
     .filter(Boolean);
 }
 
-function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
+function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
   const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
   const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
 
   const counts = getRsvpCounts(event);
-
+  const {
+    showRotatorNav = false,
+    rotatorDay = "",
+    rotatorDotsMarkup = ""
+  } = options;
+  
   return `
     <div class="event-rsvp-block">
       <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
@@ -787,14 +792,16 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9) {
         `).join("")}
       </div>
 
+      ${showRotatorNav ? `
+        <div class="home-rotator-nav-inline">
+          <div class="home-rotator-nav-label">Now Showing: <span class="home-event-rotator-day">${rotatorDay}</span></div>
+          <div class="home-event-rotator-dots home-event-rotator-dots-inline">
+            ${rotatorDotsMarkup}
+          </div>
+        </div>
+      ` : ""}
+
       <div class="event-rsvp-summary" aria-label="RSVP summary">
-        <span class="event-rsvp-pill yes"><strong>Yes</strong> ${counts.yes}</span>
-        <span class="event-rsvp-pill no"><strong>No</strong> ${counts.no}</span>
-        <span class="event-rsvp-pill maybe"><strong>Maybe</strong> ${counts.maybe}</span>
-        <span class="event-rsvp-pill tbd"><strong>TBD</strong> ${counts.tbd}</span>
-      </div>
-    </div>
-  `;
 }
 
 function projectedTableSize(event, maxSeats = 9) {
@@ -1059,7 +1066,9 @@ function buildEventCard(event, data, options = {}) {
   const {
     homeMode = false,
     includeCommissioner = false,
-    isActive = true
+    isActive = true,
+    rsvpButtonsMarkup = "",
+    eventRsvpOptions = {}
   } = options;
 
   const dayLabel = getEventDayLabel(event);
@@ -1080,11 +1089,11 @@ function buildEventCard(event, data, options = {}) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
-          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>
+          ${rsvpButtonsMarkup || `<a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>`}
         </div>
 
         <div class="event-rsvp-col">
-          ${eventRsvpAvatarMarkup(event, data)}
+          ${eventRsvpAvatarMarkup(event, data, 9, eventRsvpOptions)}
         </div>
       </div>
 
@@ -1111,51 +1120,62 @@ if (eventsEl) {
     eventsEl.innerHTML = `
       <div class="home-event-rotator-shell single-event-week">
         <div class="home-event-rotator-stage">
-          ${buildEventCard(homeEvents[0], data, { homeMode: true, includeCommissioner: true, isActive: true })}
-        </div>
-        <div class="home-event-button-row">
-          <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
-            ${getEventButtonLabel(homeEvents[0])}
-          </a>
+          ${buildEventCard(homeEvents[0], data, {
+            homeMode: true,
+            includeCommissioner: true,
+            isActive: true,
+            rsvpButtonsMarkup: `
+              <div class="home-event-fixed-buttons">
+                <a class="btn btn-rsvp home-dual-rsvp-btn" href="${homeEvents[0].apple_invite_url}" target="_blank" rel="noopener">
+                  ${getEventButtonLabel(homeEvents[0])}
+                </a>
+              </div>
+            `
+          })}
         </div>
       </div>
     `;
   } else {
     const activeIndex = getHomeEventRotationIndex(homeEvents);
 
-    eventsEl.innerHTML = `
-      <div class="home-event-rotator-shell dual-event-week">
-        <div class="home-event-rotator-header">
-          <div class="home-event-rotator-label">Now Showing: <span class="home-event-rotator-day">${getEventDayLabel(homeEvents[activeIndex])}</span></div>
-          <div class="home-event-rotator-dots">
-            ${homeEvents.map((event, index) => `
-              <button
-                class="home-event-dot${index === activeIndex ? " is-active" : ""}"
-                type="button"
-                data-home-event-index="${index}"
-                aria-label="Show ${getEventDayLabel(event)} event"
-              ></button>
-            `).join("")}
-          </div>
-        </div>
-
-        <div class="home-event-rotator-stage">
-          ${homeEvents.map((event, index) => `
-            <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
-              ${buildEventCard(event, data, { homeMode: true, includeCommissioner: index === activeIndex, isActive: index === activeIndex })}
-            </div>
-          `).join("")}
-        </div>
-
-        <div class="home-event-button-row">
+          const fixedButtonsMarkup = `
+        <div class="home-event-fixed-buttons">
           ${homeEvents.map(event => `
             <a class="btn btn-rsvp home-dual-rsvp-btn" href="${event.apple_invite_url}" target="_blank" rel="noopener">
               ${getEventButtonLabel(event)}
             </a>
           `).join("")}
         </div>
-      </div>
-    `;
+      `;
+
+      eventsEl.innerHTML = `
+        <div class="home-event-rotator-shell dual-event-week">
+          <div class="home-event-rotator-stage">
+            ${homeEvents.map((event, index) => `
+              <div class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}" data-home-event-panel="${index}">
+                ${buildEventCard(event, data, {
+                  homeMode: true,
+                  includeCommissioner: true,
+                  isActive: index === activeIndex,
+                  rsvpButtonsMarkup: fixedButtonsMarkup,
+                  eventRsvpOptions: {
+                    showRotatorNav: true,
+                    rotatorDay: getEventDayLabel(homeEvents[activeIndex]),
+                    rotatorDotsMarkup: homeEvents.map((dotEvent, dotIndex) => `
+                      <button
+                        class="home-event-dot${dotIndex === activeIndex ? " is-active" : ""}"
+                        type="button"
+                        data-home-event-index="${dotIndex}"
+                        aria-label="Show ${getEventDayLabel(dotEvent)} event"
+                      ></button>
+                    `).join("")
+                  }
+                })}
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
   }
 }
 
