@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "title": "March Sadness - Bustin' Brackets | 9-Max",
+      "title": "March Sadness: Busted Brackets Part I | 9-Max",
       "format": "40K Starting Stack",
       "date": "Friday, March 27, 2026",
       "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
@@ -41,18 +41,43 @@
       }
     },
     {
-      "title": "A, yet to be determined, Friday or Saturday in the future.",
-      "date": "See above :)",
+      "title": "March Sadness: Busted Brackets Part II | 9-Max",
+      "format": "40K Starting Stack",
+      "date": "Saturday, March 28, 2026",
+      "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
       "address": "430 Otter Cliff Way, Cary, NC 27519",
-      "apple_invite_url": "",
-      "rsvp_counts": {
-        "confirmed": 0,
-        "maybe": 0,
-        "tbd": 0,
-        "out": 0
+      "apple_invite_url": "https://www.icloud.com/invites/09fGhqFcdYp_A_HzliVLhIrlw",
+      "rsvps": {
+        "bostnmike": "yes",
+        "hiro": "tbd",
+        "li-fo": "tbd",
+        "ai-dave": "tbd",
+        "cougar": "tbd",
+        "nasa-al": "tbd",
+        "providencemike": "tbd",
+        "ahmed": "tbd",
+        "nitro": "tbd",
+        "red": "tbd",
+        "yann": "no",
+        "fabian": "no",
+        "vish": "tbd",
+        "jeff-t": "tbd",
+        "the-architect": "no",
+        "chris-o": "tbd",
+        "wild-bill": "tbd",
+        "hayden-d": "no",
+        "vic": "tbd",
+        "rob-f": "no",
+        "brad-r": "no",
+        "phattedcalf": "tbd",
+        "big-tim": "no",
+        "gilmore": "no",
+        "dan-k": "no",
+        "pittdburghbill": "tbd",
+        "david-k": "tbd"
       }
     }
 ],
