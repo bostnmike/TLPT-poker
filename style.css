@@ -3879,7 +3879,6 @@ td{
 }
 
 .archetype-filter-pill.active span{
-  background:rgba(17,22,30,.18);
   color:inherit;
 }
 
@@ -3920,18 +3919,6 @@ td{
   box-shadow:
     inset 0 1px 0 rgba(255,239,186,.16),
     inset 0 -2px 4px rgba(64,38,8,.42),
-    0 2px 8px rgba(0,0,0,.22);
-}
-
-.archetype-filter-pill[data-archetype-filter="all"].active span{
-  border-color:rgba(236,72,153,.72);
-  background:
-    linear-gradient(180deg, rgba(251,207,232,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(236,72,153,.30), rgba(120,18,72,.94));
-  color:#fff6fa;
-  box-shadow:
-    inset 0 1px 0 rgba(251,207,232,.16),
-    inset 0 -2px 4px rgba(56,10,38,.42),
     0 2px 8px rgba(0,0,0,.22);
 }
 
