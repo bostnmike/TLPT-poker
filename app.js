@@ -1285,7 +1285,10 @@ function buildEventGuideCard() {
     <div class="event-card home-guide-card">
       <div class="event-guide-rows">
         <div class="player-archetype-line event-guide-line">
-          <span class="profile-line-label">🫟 Archetypes:</span>
+          <span class="profile-line-label profile-line-label-archetypes">
+            <span class="profile-line-label-emoji">🫟</span>
+            <span class="profile-line-label-text">Archetypes:</span>
+          </span>
           <span class="profile-line-desc">
             ${ARCHETYPE_GUIDE.map(item => `
               <span class="home-guide-pill" data-archetype-tone="${item.name
