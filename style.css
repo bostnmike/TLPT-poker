@@ -3724,11 +3724,11 @@ td{
   justify-content:center;
   width:auto;
   max-width:max-content;
-  min-height:46px;
-  padding:11px 18px;
+  min-height:48px;
+  padding:12px 20px;
   border-radius:11px;
   font-weight:800;
-  font-size:1rem;
+  font-size:1.06rem;
   line-height:1;
   white-space:nowrap;
   cursor:pointer;
@@ -4007,26 +4007,26 @@ td{
 }
 
 .archetype-filter-pill.archetype-wildcard span{
-  border:1px solid rgba(120,255,255,.76) !important;
+  border:1px solid rgba(147,197,253,.76) !important;
   background:
-    linear-gradient(180deg, rgba(214,255,255,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(120,255,255,.22), rgba(16,74,88,.92)) !important;
-  color:#eaffff !important;
+    linear-gradient(180deg, rgba(219,234,254,.14), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.22), rgba(18,42,78,.92)) !important;
+  color:#eff6ff !important;
   box-shadow:
-    inset 0 1px 0 rgba(220,255,255,.14),
-    inset 0 -2px 4px rgba(8,28,34,.40),
+    inset 0 1px 0 rgba(219,234,254,.14),
+    inset 0 -2px 4px rgba(10,22,44,.40),
     0 2px 6px rgba(0,0,0,.20) !important;
 }
 
 .archetype-filter-pill.archetype-wildcard.active span{
-  border-color:rgba(120,255,255,.92) !important;
+  border-color:rgba(147,197,253,.92) !important;
   background:
-    linear-gradient(180deg, rgba(224,255,255,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(120,255,255,.30), rgba(12,88,96,.94)) !important;
-  color:#f4ffff !important;
+    linear-gradient(180deg, rgba(219,234,254,.18), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.30), rgba(18,42,78,.94)) !important;
+  color:#f8fbff !important;
   box-shadow:
-    inset 0 1px 0 rgba(230,255,255,.16),
-    inset 0 -2px 4px rgba(8,34,40,.42),
+    inset 0 1px 0 rgba(219,234,254,.16),
+    inset 0 -2px 4px rgba(10,22,44,.42),
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
@@ -4247,7 +4247,7 @@ td{
 }
 
 /* FINAL AUTHORITATIVE PLAYER-COUNT PILL OVERRIDES */
-.archetype-filter-pill[data-archetype-filter="hitman"] > span{
+.archetype-filter-pill[data-archetype-filter="Hitman"] > span{
   border:1px solid #ff6b6b !important;
   background:
     linear-gradient(180deg, rgba(255,214,214,.18), rgba(255,255,255,0) 42%),
@@ -4259,7 +4259,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="closer"] > span{
+.archetype-filter-pill[data-archetype-filter="Closer"] > span{
   border:1px solid #ffd56c !important;
   background:
     linear-gradient(180deg, rgba(255,244,210,.18), rgba(255,255,255,0) 42%),
@@ -4271,7 +4271,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="grinder"] > span{
+.archetype-filter-pill[data-archetype-filter="Grinder"] > span{
   border:1px solid #b9fbc0 !important;
   background:
     linear-gradient(180deg, rgba(230,255,236,.18), rgba(255,255,255,0) 42%),
@@ -4283,7 +4283,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="lucky-devil"] > span{
+.archetype-filter-pill[data-archetype-filter="Lucky Devil"] > span{
   border:1px solid #c4b5fd !important;
   background:
     linear-gradient(180deg, rgba(239,232,255,.18), rgba(255,255,255,0) 42%),
@@ -4295,7 +4295,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="wildcard"] > span{
+.archetype-filter-pill[data-archetype-filter="Wildcard"] > span{
   border:1px solid #93c5fd !important;
   background:
     linear-gradient(180deg, rgba(219,234,254,.18), rgba(255,255,255,0) 42%),
@@ -4307,7 +4307,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="bubble-magnet"] > span{
+.archetype-filter-pill[data-archetype-filter="Bubble Magnet"] > span{
   border:1px solid #8bd3ff !important;
   background:
     linear-gradient(180deg, rgba(230,247,255,.18), rgba(255,255,255,0) 42%),
@@ -4319,7 +4319,7 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill[data-archetype-filter="technician"] > span{
+.archetype-filter-pill[data-archetype-filter="Technician"] > span{
   border:1px solid #9be7ff !important;
   background:
     linear-gradient(180deg, rgba(235,251,255,.18), rgba(255,255,255,0) 42%),
