@@ -1262,6 +1262,25 @@ a:hover{
 .event-guide-line .profile-line-label{
   min-width:118px;
   flex:0 0 118px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:nowrap;
+  white-space:nowrap;
+  line-height:1.1;
+}
+
+.player-archetype-line .profile-line-label-archetypes{
+  color:#7ecbff;
+}
+
+.player-archetype-line .profile-line-label-archetypes .profile-line-label-emoji{
+  line-height:1;
+  flex:0 0 auto;
+}
+
+.player-archetype-line .profile-line-label-archetypes .profile-line-label-text{
+  color:#7ecbff;
 }
 
 .event-guide-line .profile-line-desc{
