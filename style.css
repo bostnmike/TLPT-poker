@@ -265,6 +265,7 @@ a:hover{
   flex-wrap:wrap;
   gap:10px;
   margin-top:16px;
+  margin-bottom:4px;
 }
 
 .home-jump-pill{
@@ -652,7 +653,7 @@ a:hover{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  margin:0 0 10px 0;
+  margin:4px 0 10px 0;
   padding:10px 0;
   border:1px solid rgba(255,184,28,.22);
   border-radius:16px;
