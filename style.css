@@ -4593,14 +4593,6 @@ td{
   }
 }
 
-.dashboard-sort-shell{
-  grid-template-columns:1fr;
-}
-
-.dashboard-formula-panel{
-  width:100%;
-}
-
 /* player profile */
 
 .profile-shell{
@@ -6205,21 +6197,9 @@ td{
     padding-left:0;
     align-items:center;
   }
-
-  .dashboard-formula-display{
-    min-height:unset;
-  }
 }
 
 @media (max-width:900px){
-  .dashboard-current-stat{
-    font-size:2rem;
-  }
-
-  .dashboard-current-icon{
-    font-size:2rem;
-  }
-
   #schedule-list{
     grid-template-columns:repeat(2, minmax(0,1fr)) !important;
   }
@@ -6327,8 +6307,7 @@ td{
   .event-rsvp-summary{
     gap:8px;
     font-size:.95rem;
-  }
-  
+  }  
 }
 
 @media (max-width:640px){
