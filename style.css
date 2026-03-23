@@ -3473,7 +3473,7 @@ td{
 #players-grid{
   display:flex !important;
   flex-direction:column;
-  gap:22px !important;
+  gap:18px !important;
 }
 
 .tier-section{
@@ -5529,6 +5529,17 @@ td{
   box-shadow:
     0 0 0 1px rgba(255,255,255,.06),
     0 12px 34px rgba(0,0,0,.28);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.leader-banner-card:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 14px 38px rgba(0,0,0,.30);
+}
+
+.leader-banner-card{
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
 
