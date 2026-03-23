@@ -3267,8 +3267,8 @@ td{
 .section.rules-header .page-title-row::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
@@ -5557,8 +5557,8 @@ td{
 .page-title-row:has(.champions-title-purple)::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
@@ -5582,8 +5582,8 @@ td{
 .page-title-row:has(.champions-title-blue)::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
@@ -5607,8 +5607,8 @@ td{
 .page-title-row:has(.champions-title-green)::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
@@ -7518,8 +7518,8 @@ td{
 .section.schedule-hero .page-title-row::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
