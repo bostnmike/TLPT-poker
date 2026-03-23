@@ -3857,6 +3857,7 @@ td{
   height:24px;
   padding:0 8px;
   border-radius:999px;
+  border:1px solid rgba(88,100,118,.42);
   background:
     linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0) 42%),
     linear-gradient(180deg, rgba(28,36,48,.96), rgba(12,16,22,.96));
