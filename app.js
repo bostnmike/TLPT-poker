@@ -1027,25 +1027,42 @@ function ensureDashboardHeadline(sortKey) {
   const grid = document.getElementById("dashboard-grid");
   if (!grid) return;
 
-let headline = document.getElementById("dashboard-current-stat");
-if (!headline) {
-  headline = document.createElement("div");
-  headline.id = "dashboard-current-stat";
-  headline.className = "dashboard-current-stat";
-}
+  const sortShell = document.querySelector(".dashboard-sort-shell");
+  const formulaPanel = document.querySelector(".dashboard-formula-panel");
+  let metaShell = document.getElementById("dashboard-meta-shell");
 
-const shell = document.querySelector(".dashboard-sort-shell");
-const formulaPanel = document.querySelector(".dashboard-formula-panel");
-
-if (shell && formulaPanel) {
-  if (headline.parentNode !== shell) {
-    shell.insertBefore(headline, formulaPanel);
+  let headline = document.getElementById("dashboard-current-stat");
+  if (!headline) {
+    headline = document.createElement("div");
+    headline.id = "dashboard-current-stat";
+    headline.className = "dashboard-current-stat";
   }
-} else if (headline.parentNode !== grid.parentNode) {
-  grid.parentNode.insertBefore(headline, grid);
-}
 
-  const meta = DASHBOARD_META[sortKey] || { label: formatStatLabel(sortKey), icon: statIcon(sortKey), formula: "" };
+  if (sortShell && formulaPanel) {
+    if (!metaShell) {
+      metaShell = document.createElement("div");
+      metaShell.id = "dashboard-meta-shell";
+      metaShell.className = "dashboard-meta-shell";
+      sortShell.insertBefore(metaShell, formulaPanel);
+    }
+
+    if (headline.parentNode !== metaShell) {
+      metaShell.appendChild(headline);
+    }
+
+    if (formulaPanel.parentNode !== metaShell) {
+      metaShell.appendChild(formulaPanel);
+    }
+  } else if (headline.parentNode !== grid.parentNode) {
+    grid.parentNode.insertBefore(headline, grid);
+  }
+
+  const meta = DASHBOARD_META[sortKey] || {
+    label: formatStatLabel(sortKey),
+    icon: statIcon(sortKey),
+    formula: ""
+  };
+
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
     <span>${meta.label}</span>
