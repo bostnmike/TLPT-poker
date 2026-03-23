@@ -372,6 +372,22 @@ a:hover{
   box-shadow:0 6px 16px rgba(0,0,0,.22);
 }
 
+.btn-emoji{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:8px;
+  font-size:1.02em;
+  line-height:1;
+  flex:0 0 auto;
+}
+
+.btn-label{
+  display:inline-flex;
+  align-items:center;
+  line-height:1;
+}
+
 .btn:hover{
   transform:translateY(-1px);
   box-shadow:0 8px 18px rgba(0,0,0,.28);
