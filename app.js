@@ -1349,7 +1349,7 @@ function buildEventCard(event, data, options = {}) {
       ${includeCommissioner ? `
         <div class="event-commissioner-inline">
           <div class="event-commissioner-inline-title">
-            <span class="report-icon">🎤</span> Commissioner's Report
+            <span class="report-icon">🎤</span> Hot Takes: The Commissioner's Report
           </div>
           <p class="commissioner-typing-target" data-commissioner-report></p>
         </div>
