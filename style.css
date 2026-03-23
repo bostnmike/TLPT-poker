@@ -5243,12 +5243,12 @@ td{
   text-shadow:none !important;
 }
 
-#leaders-list .honors-card.honors-card-unlucky-duck .money,
-#leaders-list .honors-card.honors-card-unlucky-duck [class*="money"],
-#leaders-list .honors-card.honors-card-unlucky-duck [class*="currency"],
-#leaders-list .honors-card.honors-card-unlucky-duck .honors-card-value,
-#leaders-list .honors-card.honors-card-unlucky-duck .honors-card-value--numeric{
-  color:#93c5fd !important;
+#records-list .honors-card.honors-card-unlucky-duck .money,
+#records-list .honors-card.honors-card-unlucky-duck [class*="money"],
+#records-list .honors-card.honors-card-unlucky-duck [class*="currency"],
+#records-list .honors-card.honors-card-unlucky-duck .honors-card-value,
+#records-list .honors-card.honors-card-unlucky-duck .honors-card-value--numeric{
+  color:#86efac !important;
   text-shadow:none !important;
 }
 
