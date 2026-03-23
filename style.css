@@ -5185,60 +5185,86 @@ td{
 
 #champions-list .honors-card-value{
   color:#d8b4fe;
-  text-shadow:0 0 10px rgba(168,85,247,.14);
+  text-shadow:none;
 }
 
 #champions-list .honors-card-value--numeric{
   color:#d8b4fe;
-  text-shadow:
-    0 0 10px rgba(168,85,247,.20),
-    0 0 20px rgba(168,85,247,.12);
+  text-shadow:none;
 }
 
 #leaders-list .honors-card-value{
   color:#93c5fd;
-  text-shadow:0 0 10px rgba(59,130,246,.14);
+  text-shadow:none;
 }
 
 #leaders-list .honors-card-value--numeric{
   color:#93c5fd;
-  text-shadow:
-    0 0 10px rgba(59,130,246,.20),
-    0 0 20px rgba(59,130,246,.12);
+  text-shadow:none;
 }
 
 #records-list .honors-card-value{
   color:#86efac;
-  text-shadow:0 0 10px rgba(34,197,94,.18);
+  text-shadow:none;
+}
+
+#records-list .honors-card-value--numeric{
+  color:#86efac;
+  text-shadow:none;
 }
 
 #champions-list .honors-card.honors-card-profit-leader{
-  border-color:rgba(59,130,246,.26);
+  border-color:rgba(168,85,247,.26);
   background:
-    linear-gradient(180deg, rgba(59,130,246,.16), rgba(59,130,246,.05)),
-    linear-gradient(135deg, rgba(18,42,78,.24), rgba(17,22,30,.96));
+    linear-gradient(180deg, rgba(168,85,247,.16), rgba(168,85,247,.05)),
+    linear-gradient(135deg, rgba(44,20,72,.24), rgba(17,22,30,.96));
   box-shadow:
-    0 0 0 1px rgba(59,130,246,.10),
+    0 0 0 1px rgba(168,85,247,.10),
     0 10px 26px rgba(0,0,0,.22),
-    0 0 20px rgba(59,130,246,.10);
+    0 0 20px rgba(168,85,247,.10);
 }
 
 #champions-list .honors-card.honors-card-profit-leader::before{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
-  border-bottom:1px solid rgba(59,130,246,.32);
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
 }
 
 #champions-list .honors-card.honors-card-profit-leader .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
-  border-bottom:1px solid rgba(59,130,246,.32);
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
+}
+
+#champions-list .honors-card.honors-card-profit-leader .money,
+#champions-list .honors-card.honors-card-profit-leader [class*="money"],
+#champions-list .honors-card.honors-card-profit-leader [class*="currency"],
+#champions-list .honors-card.honors-card-profit-leader .honors-card-value,
+#champions-list .honors-card.honors-card-profit-leader .honors-card-value--numeric{
+  color:#d8b4fe !important;
+  text-shadow:none !important;
+}
+
+#leaders-list .honors-card.honors-card-lucky-duck .money,
+#leaders-list .honors-card.honors-card-lucky-duck [class*="money"],
+#leaders-list .honors-card.honors-card-lucky-duck [class*="currency"],
+#leaders-list .honors-card.honors-card-lucky-duck .honors-card-value,
+#leaders-list .honors-card.honors-card-lucky-duck .honors-card-value--numeric{
+  color:#93c5fd !important;
+  text-shadow:none !important;
+}
+
+#records-list .honors-card.honors-card-donor .money,
+#records-list .honors-card.honors-card-donor [class*="money"],
+#records-list .honors-card.honors-card-donor [class*="currency"],
+#records-list .honors-card.honors-card-donor .honors-card-value,
+#records-list .honors-card.honors-card-donor .honors-card-value--numeric{
+  color:#86efac !important;
+  text-shadow:none !important;
 }
 
 #champions-list .honors-card.honors-card-profit-leader .honors-card-value,
 #champions-list .honors-card.honors-card-profit-leader .honors-card-value--numeric{
-  color:#93c5fd;
-  text-shadow:
-    0 0 10px rgba(59,130,246,.20),
-    0 0 20px rgba(59,130,246,.12);
+  color:#d8b4fe;
+  text-shadow:none;
 }
 
 #records-list .honors-card-value--numeric{
