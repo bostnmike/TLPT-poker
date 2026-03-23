@@ -2923,19 +2923,19 @@ td{
 .dashboard-meta-shell{
   display:grid;
   grid-template-columns:max-content minmax(0, 1fr);
-  gap:12px;
+  gap:18px;
   align-items:center;
-  padding:12px 14px;
-  border:1px solid rgba(34,197,94,.26);
+  padding:14px 18px;
+  border:1px solid rgba(34,197,94,.34);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.07)),
-    linear-gradient(90deg, rgba(59,130,246,.08), transparent 48%),
+    linear-gradient(180deg, rgba(34,197,94,.26), rgba(34,197,94,.10)),
+    linear-gradient(90deg, rgba(59,130,246,.10), transparent 48%),
     linear-gradient(180deg, rgba(14,18,24,.98), rgba(10,12,18,1));
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 1px 0 rgba(255,255,255,.05),
     0 10px 22px rgba(0,0,0,.20),
-    0 0 18px rgba(34,197,94,.08);
+    0 0 22px rgba(34,197,94,.12);
 }
 
 .dashboard-meta-shell > #dashboard-current-stat,
@@ -2949,9 +2949,9 @@ td{
 .dashboard-meta-shell > #dashboard-current-stat{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   color:#d8ffe0;
-  font-size:1.45rem;
+  font-size:1.72rem;
   font-weight:800;
   line-height:1.05;
   margin:0;
@@ -2966,7 +2966,6 @@ td{
   width:auto;
   justify-self:start;
 }
-
 .dashboard-meta-shell > .dashboard-formula-panel{
   display:flex;
   align-items:stretch;
@@ -2985,8 +2984,8 @@ td{
   border:none;
   border-radius:0;
   color:#fff;
-  font-size:.88rem;
-  line-height:1.34;
+  font-size:1rem;
+  line-height:1.4;
   box-shadow:none;
 }
 
@@ -3002,8 +3001,8 @@ td{
   border:none;
   border-radius:0;
   color:#fff;
-  font-size:.88rem;
-  line-height:1.34;
+  font-size:1rem;
+  line-height:1.4;
   box-shadow:none;
 }
 
@@ -3033,7 +3032,7 @@ td{
 }
 
 .dashboard-current-icon{
-  font-size:1.9rem;
+  font-size:2.25rem;
   line-height:1;
   color:#bbf7d0;
   flex:0 0 auto;
@@ -3055,6 +3054,13 @@ td{
     0 0 0 1px rgba(255,184,28,.12),
     0 8px 18px rgba(0,0,0,.20),
     0 0 22px rgba(255,184,28,.10);
+}
+
+.dashboard-meta-shell > #dashboard-current-stat span:last-child::after{
+  content:":";
+  display:inline-block;
+  margin-left:8px;
+  color:#bbf7d0;
 }
 
 #standings .section,
