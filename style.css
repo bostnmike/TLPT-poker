@@ -6299,12 +6299,21 @@ td{
   .standings-formula-display{
     width:100%;
   }
+  .crew-view-toolbar,
+  #players-visual,
+  .home-snapshot-layout,
+  .home-cluster-stack,
+  .home-cluster-stack-3,
+  .format-toggle{
+    padding-left:12px;
+    padding-right:12px;
+  }
 }
 
 @media (max-width:900px){
   #schedule-list{
     grid-template-columns:repeat(2, minmax(0,1fr)) !important;
-  }
+  }  
 }
 
 @media (max-width:800px){
@@ -6894,4 +6903,352 @@ td{
     linear-gradient(180deg, rgba(235,251,255,.18), rgba(255,255,255,0) 42%),
     linear-gradient(180deg, rgba(155,231,255,.30), rgba(20,72,98,.96)) !important;
   color:#f6fdff !important;
+}
+
+/* =========================================================
+   SITE-WIDE POLISH PASS
+   Players / Home / Rules / Schedule / Media
+   ========================================================= */
+
+/* -------------------------
+   1) Page-title accent bars
+   ------------------------- */
+.page-title-row{
+  position:relative;
+}
+
+.page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-10px;
+  height:2px;
+  border-radius:999px;
+  opacity:.9;
+  background:linear-gradient(90deg, rgba(255,255,255,.18), transparent 100%);
+}
+
+.page-title-row:has(.page-title-orange)::after{
+  background:linear-gradient(90deg, rgba(255,184,28,.9), rgba(255,184,28,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.page-title-red)::after{
+  background:linear-gradient(90deg, rgba(239,68,68,.9), rgba(239,68,68,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.page-title-pink),
+.page-title-row:has(.schedule-page-title)::after{
+  background:linear-gradient(90deg, rgba(244,114,182,.9), rgba(244,114,182,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.page-title-green)::after{
+  background:linear-gradient(90deg, rgba(34,197,94,.9), rgba(34,197,94,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.page-title-purple)::after{
+  background:linear-gradient(90deg, rgba(168,85,247,.9), rgba(168,85,247,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.champions-title-purple)::after{
+  background:linear-gradient(90deg, rgba(168,85,247,.9), rgba(168,85,247,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.champions-title-blue)::after{
+  background:linear-gradient(90deg, rgba(59,130,246,.9), rgba(59,130,246,.18) 58%, transparent 100%);
+}
+
+.page-title-row:has(.champions-title-pink)::after{
+  background:linear-gradient(90deg, rgba(34,197,94,.9), rgba(34,197,94,.18) 58%, transparent 100%);
+}
+
+/* -------------------------
+   2) Players page shell polish
+   ------------------------- */
+.crew-view-toolbar{
+  position:relative;
+  padding:14px 16px;
+  border:1px solid rgba(239,68,68,.22);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 28%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 18px rgba(239,68,68,.08);
+}
+
+.crew-view-toolbar::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(59,130,246,.45) 56%, rgba(255,184,28,.22) 100%);
+}
+
+#players-visual{
+  margin-top:16px;
+  padding:16px 18px;
+  border:1px solid rgba(239,68,68,.18);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.10), transparent 32%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 26%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.22),
+    0 0 18px rgba(239,68,68,.08);
+}
+
+/* -------------------------
+   3) Home page polish
+   ------------------------- */
+.league-ticker{
+  position:relative;
+  border:1px solid rgba(255,184,28,.22);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 18px rgba(255,184,28,.08);
+  overflow:hidden;
+}
+
+.league-ticker::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.40) 55%, transparent 100%);
+}
+
+.events-header-stack{
+  position:relative;
+  padding:14px 16px;
+  border:1px solid rgba(244,114,182,.22);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(244,114,182,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 26%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 18px rgba(244,114,182,.08);
+}
+
+.events-header-stack::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(244,114,182,.95), rgba(255,184,28,.30) 55%, transparent 100%);
+}
+
+.home-snapshot-layout{
+  position:relative;
+  padding:16px;
+  border:1px solid rgba(255,184,28,.18);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 32%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 18px rgba(255,184,28,.08);
+}
+
+.home-cluster-stack,
+.home-cluster-stack-3{
+  padding:16px;
+  border:1px solid rgba(255,184,28,.16);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+/* -------------------------
+   4) Rules page polish
+   ------------------------- */
+.format-toggle{
+  position:relative;
+  margin-bottom:14px;
+  padding:12px 14px;
+  border:1px solid rgba(34,197,94,.22);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(168,85,247,.10), transparent 28%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 16px rgba(34,197,94,.08);
+}
+
+.format-toggle::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.50) 56%, transparent 100%);
+}
+
+.format-content-shell{
+  border-color:rgba(34,197,94,.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 18px rgba(34,197,94,.08);
+}
+
+/* -------------------------
+   5) Schedule page polish
+   ------------------------- */
+.section.schedule-hero{
+  border-color:rgba(244,114,182,.22);
+  background:
+    radial-gradient(circle at top right, rgba(244,114,182,.14), transparent 32%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(255,184,28,.06), transparent 24%),
+    linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
+  box-shadow:
+    0 0 0 1px rgba(244,114,182,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 24px rgba(244,114,182,.10);
+}
+
+.section.schedule-hero .page-title-row{
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(244,114,182,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(244,114,182,.10), rgba(244,114,182,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+/* -------------------------
+   6) Media / Film page polish
+   ------------------------- */
+.section.media-header{
+  border-color:rgba(168,85,247,.24);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.18), transparent 32%),
+    radial-gradient(circle at left center, rgba(239,68,68,.10), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(59,130,246,.08), transparent 24%),
+    linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 28px rgba(168,85,247,.10);
+}
+
+.section.media-header .page-title-row{
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(168,85,247,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.12), rgba(168,85,247,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.media-grid{
+  gap:18px;
+}
+
+.media-card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(168,85,247,.20);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.10), rgba(168,85,247,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 24px rgba(0,0,0,.22),
+    0 0 18px rgba(168,85,247,.08);
+}
+
+.media-card::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(239,68,68,.40) 58%, transparent 100%);
+}
+
+.media-card .media-copy{
+  position:relative;
+  z-index:1;
+}
+
+.media-card h3{
+  color:#e9d5ff !important;
+  text-shadow:none !important;
+}
+
+.media-play-overlay{
+  background:rgba(0,0,0,.58);
+  border:1px solid rgba(168,85,247,.28);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.28),
+    0 0 18px rgba(168,85,247,.14);
+}
+
+.media-thumb-link:hover .media-play-overlay{
+  background:linear-gradient(180deg, rgba(168,85,247,.92), rgba(239,68,68,.84));
+  color:#fff;
+  border-color:rgba(239,68,68,.40);
+}
+
+/* -------------------------
+   7) Unify stronger “featured / control shell” feel
+   ------------------------- */
+.dashboard-sort-shell,
+.standings-sort-shell,
+.crew-view-toolbar,
+.format-toggle,
+.league-ticker,
+.events-header-stack,
+.home-snapshot-layout,
+.section.schedule-hero .page-title-row,
+.section.media-header .page-title-row{
+  backdrop-filter:blur(2px);
 }
