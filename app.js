@@ -2437,7 +2437,7 @@ function getBalancedHonorsSections(data) {
     ],
     recordItems: [
       { label: "Most Cashes", title: "Cash Cow", icon: "🐮" },
-      { label: "Worst Luck Index", title: "Unlucky Duck", icon: "🦤" },
+      { label: "Worst Luck Index", title: "Cursed Duck", icon: "🦤" },
       { label: "Lowest Profit", title: "The Donor", icon: "🩸" },
       { label: "Most Rebuys", title: "Mr. Rebuy", icon: "♻️" },
       { label: "Most Entries", title: "Entry King", icon: "🎟️" }
