@@ -26,12 +26,12 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero-stack">
-      <section class="hero">
-        <div class="hero-copy hero-copy-enhanced hero-home-copy">
-          <div class="page-title-row home-welcome-row">
-            <img class="page-chip page-chip-dashboard" src="images/site/chip-T-1000.png" alt="T-1000 chip" onerror="this.style.display='none';" />
+<main class="wrap">
+  <section class="hero-stack">
+    <section class="hero">
+      <div class="hero-copy hero-copy-enhanced hero-home-copy">
+        <div class="page-title-row home-welcome-row">
+          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-1000.png" alt="T-1000 chip" onerror="this.style.display='none';" />
           <div class="home-welcome-copy">
             <h2 class="hero-title">Welcome to TLPT Poker League</h2>
             <p class="hosts-copy home-hero-copy">Where the cards run cold, the takes run hot, and the stats never forget.</p>
@@ -44,65 +44,65 @@
               <a class="home-jump-pill" href="#home-action">⚡ Pressure</a>
             </div>
           </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="league-ticker">
-        <div class="wrap league-ticker-wrap">
-          <div class="league-ticker-head">
-            <span class="league-ticker-kicker">League Leaders</span>
-            <span class="league-ticker-hint">Hover to pause</span>
-          </div>
-          <span id="league-ticker-text"></span>
         </div>
       </div>
-           
+    </section>
+
+    <div class="league-ticker">
+      <div class="wrap league-ticker-wrap">
+        <div class="league-ticker-head">
+          <span class="league-ticker-kicker">League Leaders</span>
+          <span class="league-ticker-hint">Hover to pause</span>
+        </div>
+        <span id="league-ticker-text"></span>
+      </div>
+    </div>
+
+    <section class="section" id="home-games">
+      <div class="section-head events-header-stack">
+        <div class="events-header-suits" aria-hidden="true">
+          <span class="events-header-suit">♠</span>
+          <span class="events-header-suit">♥</span>
+          <span class="events-header-suit">♦</span>
+          <span class="events-header-suit">♣</span>
+        </div>
+        <h2 class="events-header-title">This Week's Games</h2>
+      </div>
       <div class="home-events-grid" id="home-events-list"></div>
       <div class="home-module-cta-row">
-          <a class="home-module-cta" href="schedule.html">View Full Schedule →</a>
-        </div>
-        <div class="section-head events-header-stack">
-          <div class="events-header-suits" aria-hidden="true">
-            <span class="events-header-suit">♠</span>
-            <span class="events-header-suit">♥</span>
-            <span class="events-header-suit">♦</span>
-            <span class="events-header-suit">♣</span>
-          </div>
-          <h2 class="events-header-title">This Week's Games</h2>
-        </div>
-        <div class="home-events-grid" id="home-events-list"></div>
-      </section>
+        <a class="home-module-cta" href="schedule.html">View Full Schedule →</a>
+      </div>
+    </section>
 
-      <section class="section" id="home-snapshot">
-        <div class="home-snapshot-layout">
-          <div class="home-snapshot-grid" id="home-snapshot-grid"></div>
-          <div class="home-featured-player" id="home-featured-player"></div>
-        </div>
-        <div class="section-head page-title-row">
-          <h2><span class="snapshot-heading snapshot-flash">📸</span> League Snapshot</h2>
-        </div>
+    <section class="section" id="home-snapshot">
+      <div class="section-head page-title-row">
+        <h2><span class="snapshot-heading snapshot-flash">📸</span> League Snapshot</h2>
+      </div>
 
-        <div class="home-snapshot-layout">
-          <div class="home-snapshot-grid" id="home-snapshot-grid"></div>
-          <div class="home-featured-player" id="home-featured-player"></div>
-        </div>
-      </section>
+      <div class="home-snapshot-layout">
+        <div class="home-snapshot-grid" id="home-snapshot-grid"></div>
+        <div class="home-featured-player" id="home-featured-player"></div>
+      </div>
 
-     <section class="section" id="home-pulse">
-       <p class="muted home-pulse-helper">Hover or tap a pulse card to reveal the formula.</p>
-       <div id="home-insights-grid" class="home-insights-grid"></div>
-       <div class="home-module-cta-row">
-          <a class="home-module-cta" href="standings.html">See Full Standings →</a>
-       </div>
-        <div class="section-head page-title-row home-pulse-head">
-          <h2><span class="pulse-icon">🫀</span> League Pulse</h2>
-          <div id="home-insight-formula" class="home-insight-formula"></div>
-        </div>
-        <div id="home-insights-grid" class="home-insights-grid"></div>
-      </section>
+      <div class="home-module-cta-row">
+        <a class="home-module-cta" href="dashboard.html">Open Dashboard →</a>
+      </div>
+    </section>
 
-      <section class="section home-analysis-lane">
+    <section class="section" id="home-pulse">
+      <div class="section-head page-title-row home-pulse-head">
+        <h2><span class="pulse-icon">🫀</span> League Pulse</h2>
+        <div id="home-insight-formula" class="home-insight-formula"></div>
+      </div>
+      <p class="muted home-pulse-helper">Hover or tap a pulse card to reveal the formula.</p>
+      <div id="home-insights-grid" class="home-insights-grid"></div>
+      <div class="home-module-cta-row">
+        <a class="home-module-cta" href="standings.html">See Full Standings →</a>
+      </div>
+    </section>
+
+    <section class="section home-analysis-lane">
+      <div class="home-analysis-grid">
         <div class="home-analysis-col" id="home-archetypes">
           <div class="home-analysis-kicker">Know Your Game</div>
           <div class="section-head page-title-row">
@@ -126,9 +126,10 @@
             <a class="home-module-cta" href="champions.html">View All Honors →</a>
           </div>
         </div>
-      </section>
+      </div>
     </section>
-  </main>
+  </section>
+</main>
 
   <footer class="site-footer">
     <div class="wrap">
