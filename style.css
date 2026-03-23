@@ -5539,6 +5539,52 @@ td{
   box-shadow:
     0 0 0 1px rgba(255,255,255,.06),
     0 12px 34px rgba(0,0,0,.28);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.leader-banner-card:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08),
+    0 14px 38px rgba(0,0,0,.30);
+}
+
+#champions-list,
+#leaders-list,
+#records-list{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:18px;
+  padding:16px;
+  border-radius:18px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.18);
+}
+
+#champions-list{
+  border:1px solid rgba(168,85,247,.18);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.10), transparent 32%),
+    linear-gradient(180deg, rgba(168,85,247,.06), rgba(168,85,247,.02)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+}
+
+#leaders-list{
+  border:1px solid rgba(59,130,246,.18);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 32%),
+    linear-gradient(180deg, rgba(59,130,246,.06), rgba(59,130,246,.02)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+}
+
+#records-list{
+  border:1px solid rgba(34,197,94,.18);
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.10), transparent 32%),
+    linear-gradient(180deg, rgba(34,197,94,.06), rgba(34,197,94,.02)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
 }
 
 .leader-banner-top{
@@ -5546,7 +5592,7 @@ td{
   align-items:center;
   justify-content:center;
   gap:12px;
-  margin:-18px -18px 16px -18px;
+  margin:-18px -18px 14px -18px;
   padding:13px 15px;
   text-align:center;
 }
@@ -5574,17 +5620,101 @@ td{
 
 .champions-title-purple{
   color:#d8b4fe;
-  text-shadow:0 0 10px rgba(168,85,247,.16);
+  text-shadow:0 0 8px rgba(168,85,247,.12);
 }
 
 .champions-title-blue{
   color:#93c5fd;
-  text-shadow:0 0 10px rgba(59,130,246,.16);
+  text-shadow:0 0 8px rgba(59,130,246,.12);
 }
 
 .champions-title-green{
   color:#86efac;
-  text-shadow:0 0 10px rgba(34,197,94,.18);
+  text-shadow:0 0 8px rgba(34,197,94,.12);
+}
+
+#champions-list .honors-card-value,
+#champions-list .honors-card-value--numeric,
+#leaders-list .honors-card-value,
+#leaders-list .honors-card-value--numeric,
+#records-list .honors-card-value,
+#records-list .honors-card-value--numeric{
+  line-height:1.15;
+}
+
+.page-title-row:has(.champions-title-purple){
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(168,85,247,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.12), rgba(168,85,247,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.page-title-row:has(.champions-title-purple)::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
+.page-title-row:has(.champions-title-blue){
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(59,130,246,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(59,130,246,.12), rgba(59,130,246,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.page-title-row:has(.champions-title-blue)::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(59,130,246,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
+.page-title-row:has(.champions-title-green){
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(34,197,94,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.page-title-row:has(.champions-title-green)::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(255,255,255,.12) 58%, transparent 100%);
 }
 
 .leader-banner-crown{
