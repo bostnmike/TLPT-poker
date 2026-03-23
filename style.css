@@ -3011,8 +3011,8 @@ td{
 .dashboard-sort-shell::before{
   content:"";
   position:absolute;
-  left:18px;
-  right:18px;
+  left:16px;
+  right:16px;
   top:0;
   height:3px;
   border-radius:999px;
@@ -3026,9 +3026,9 @@ td{
 .dashboard-meta-shell{
   display:grid;
   grid-template-columns:max-content minmax(0, 1fr);
-  gap:18px;
+  gap:16px;
   align-items:center;
-  padding:14px 18px;
+  padding:13px 16px;
   border:1px solid rgba(34,197,94,.34);
   border-radius:16px;
   background:
@@ -3223,16 +3223,16 @@ td{
 
 #standings .section,
 .section.standings-section{
-  border-color:rgba(255,184,28,.28);
+  border-color:rgba(59,130,246,.24);
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.18), transparent 32%),
-    radial-gradient(circle at left center, rgba(59,130,246,.13), transparent 28%),
-    radial-gradient(circle at bottom left, rgba(168,85,247,.09), transparent 26%),
+    radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 32%),
+    radial-gradient(circle at left center, rgba(168,85,247,.10), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(255,184,28,.06), transparent 26%),
     linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.12),
+    0 0 0 1px rgba(59,130,246,.12),
     0 12px 30px rgba(0,0,0,.24),
-    0 0 34px rgba(255,184,28,.12);
+    0 0 34px rgba(59,130,246,.12);
 }
 
 #rules .section,
@@ -4116,14 +4116,6 @@ td{
     0 0 0 1px rgba(215,70,70,.16);
 }
 
-.crew-view-toolbar .btn:hover{
-  transform:translateY(-1px);
-}
-
-.crew-view-toolbar .btn.active{
-  transform:translateY(-1px);
-}
-
 #players-visual{
   position:relative;
   margin:0 0 22px 0;
@@ -4149,14 +4141,6 @@ td{
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(59,130,246,.42) 56%, rgba(255,184,28,.22) 100%);
-}
-
-.tier-section-head h3{
-  letter-spacing:.01em;
-}
-
-.tier-section-head::after{
-  opacity:.62;
 }
 
 .archetype-visual-card{
