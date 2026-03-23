@@ -2887,8 +2887,11 @@ td{
   position:relative;
   overflow:hidden;
   display:grid;
-  grid-template-columns:minmax(0, 1.15fr) minmax(0, .95fr);
-  gap:20px;
+  grid-template-columns:minmax(0, 1fr);
+  grid-template-areas:
+    "filters"
+    "meta";
+  gap:16px;
   align-items:stretch;
   margin-bottom:14px;
   padding:18px 18px 16px;
@@ -2916,35 +2919,47 @@ td{
   background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.55) 55%, rgba(239,68,68,.35) 100%);
 }
 
+.dashboard-button-groups{
+  grid-area:filters;
+}
+
 .dashboard-current-stat,
 .dashboard-formula-panel{
   position:relative;
   z-index:1;
 }
 
-.dashboard-current-stat{
-  grid-column:2;
-  grid-row:1;
+.dashboard-sort-shell > #dashboard-current-stat{
+  grid-area:meta;
+  margin:0;
+  width:100%;
 }
 
 .dashboard-formula-panel{
-  grid-column:2;
-  grid-row:1;
+  grid-area:meta;
+  min-height:auto;
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+}
+
+.dashboard-sort-shell > #dashboard-current-stat,
+.dashboard-sort-shell > .dashboard-formula-panel{
   align-self:stretch;
 }
 
 .dashboard-sort-shell > #dashboard-current-stat + .dashboard-formula-panel{
   display:grid;
-  grid-template-columns:minmax(220px, .72fr) minmax(240px, 1fr);
+  grid-template-columns:minmax(240px, .78fr) minmax(260px, 1fr);
   gap:14px;
   align-items:stretch;
   padding:14px;
-  border:1px solid rgba(255,184,28,.22);
+  border:1px solid rgba(255,184,28,.24);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.03)),
-    linear-gradient(90deg, rgba(59,130,246,.07), transparent 46%),
-    linear-gradient(90deg, transparent 72%, rgba(239,68,68,.06) 100%),
+    linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),
+    linear-gradient(90deg, rgba(59,130,246,.08), transparent 46%),
+    linear-gradient(90deg, transparent 72%, rgba(239,68,68,.07) 100%),
     rgba(255,255,255,.02);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
@@ -2953,13 +2968,11 @@ td{
 }
 
 .dashboard-sort-shell > #dashboard-current-stat{
-  margin:0;
-  min-height:92px;
-  width:100%;
+  min-height:86px;
 }
 
 .dashboard-sort-shell > #dashboard-current-stat + .dashboard-formula-panel .dashboard-formula-display{
-  min-height:92px;
+  min-height:86px;
 }
 
 .dashboard-formula-panel{
@@ -2976,15 +2989,15 @@ td{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:12px 14px;
+  padding:11px 13px;
   background:
     linear-gradient(180deg, rgba(255,184,28,.12), rgba(255,184,28,.04)),
     linear-gradient(180deg, rgba(14,18,24,.99), rgba(10,12,18,1));
   border:1px solid rgba(255,184,28,.40);
   border-radius:14px;
   color:#fff;
-  font-size:.9rem;
-  line-height:1.38;
+  font-size:.88rem;
+  line-height:1.34;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.05),
     0 10px 20px rgba(0,0,0,.24),
@@ -2996,7 +3009,7 @@ td{
   align-items:center;
   gap:10px;
   color:#ffe7b0;
-  font-size:1.55rem;
+  font-size:1.45rem;
   font-weight:800;
   line-height:1.05;
   margin:0;
@@ -3016,22 +3029,7 @@ td{
 }
 
 .dashboard-current-icon{
-  font-size:1.82rem;
-  line-height:1;
-}
-
-.dashboard-current-icon{
-  font-size:2rem;
-  line-height:1;
-}
-
-.dashboard-current-icon{
-  font-size:2.35rem;
-  line-height:1;
-}
-
-.dashboard-current-icon{
-  font-size:2.3rem;
+  font-size:1.9rem;
   line-height:1;
 }
 
@@ -6195,31 +6193,6 @@ td{
   }
 }
 
-.dashboard-sort-shell{
-  grid-template-columns:1fr;
-}
-
-.dashboard-current-stat{
-  min-height:auto;
-  flex-wrap:wrap;
-}
-
-.dashboard-formula-panel{
-  width:100%;
-}
-
-.dashboard-sort-shell{
-  grid-template-columns:1fr;
-}
-
-.dashboard-sort-shell > #dashboard-current-stat + .dashboard-formula-panel{
-  grid-template-columns:1fr;
-}
-
-.dashboard-current-stat{
-  flex-wrap:wrap;
-}
-
 @media (max-width:900px){
   .dashboard-current-stat{
     font-size:2rem;
@@ -6232,6 +6205,23 @@ td{
   #schedule-list{
     grid-template-columns:repeat(2, minmax(0,1fr)) !important;
   }
+}
+
+.dashboard-sort-shell{
+  grid-template-columns:1fr;
+}
+
+.dashboard-sort-shell > #dashboard-current-stat + .dashboard-formula-panel{
+  grid-template-columns:1fr;
+}
+
+.dashboard-current-stat{
+  min-height:auto;
+  flex-wrap:wrap;
+}
+
+.dashboard-formula-panel{
+  width:100%;
 }
 
 @media (max-width:800px){
