@@ -3281,17 +3281,43 @@ td{
 }
 
 #rules .section,
-.section.rules-section{
-  border-color:rgba(255,184,28,.22);
+.section.rules-section,
+.section.rules-header{
+  border-color:rgba(34,197,94,.22);
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.12), transparent 30%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(34,197,94,.06), transparent 24%),
+    radial-gradient(circle at top right, rgba(34,197,94,.14), transparent 30%),
+    radial-gradient(circle at left center, rgba(168,85,247,.10), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(255,184,28,.06), transparent 24%),
     linear-gradient(180deg, rgba(20,26,34,.96), rgba(12,15,20,.98));
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.08),
+    0 0 0 1px rgba(34,197,94,.08),
     0 12px 30px rgba(0,0,0,.24),
-    0 0 24px rgba(255,184,28,.08);
+    0 0 24px rgba(34,197,94,.08);
+}
+
+.section.rules-header .page-title-row{
+  position:relative;
+  margin-bottom:18px;
+  padding:12px 14px;
+  border:1px solid rgba(34,197,94,.18);
+  border-radius:16px;
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.section.rules-header .page-title-row::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.45) 58%, transparent 100%);
 }
 
 #dashboard-grid{
@@ -5548,12 +5574,16 @@ td{
 .rule-card{
   padding:18px;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012) 22%, rgba(255,255,255,.01) 100%);
-  border-color:rgba(255,255,255,.10);
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.014) 22%, rgba(255,255,255,.01) 100%);
+  border-color:rgba(255,255,255,.11);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,.04),
+    0 0 0 1px rgba(255,255,255,.05),
     0 10px 24px rgba(0,0,0,.18);
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.rule-card:hover{
+  transform:translateY(-2px);
 }
 
 .rule-card:hover{
@@ -7293,40 +7323,84 @@ td{
 }
 
 .format-content-shell{
-  border-color:rgba(34,197,94,.18);
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(34,197,94,.20);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 30%),
+    radial-gradient(circle at left center, rgba(168,85,247,.08), transparent 26%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 12px 28px rgba(0,0,0,.20),
     0 0 18px rgba(34,197,94,.08);
 }
 
+.format-content-shell::before{
+  content:"";
+  position:absolute;
+  left:16px;
+  right:16px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.40) 58%, transparent 100%);
+}
+
 /* -------------------------
    5) Schedule page polish
    ------------------------- */
 .section.schedule-hero{
-  border-color:rgba(244,114,182,.22);
+  border-color:rgba(244,114,182,.24);
   background:
-    radial-gradient(circle at top right, rgba(244,114,182,.14), transparent 32%),
+    radial-gradient(circle at top right, rgba(244,114,182,.16), transparent 32%),
     radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
     radial-gradient(circle at bottom right, rgba(255,184,28,.06), transparent 24%),
     linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
   box-shadow:
-    0 0 0 1px rgba(244,114,182,.10),
+    0 0 0 1px rgba(244,114,182,.12),
     0 12px 30px rgba(0,0,0,.24),
-    0 0 24px rgba(244,114,182,.10);
+    0 0 26px rgba(244,114,182,.12);
 }
 
 .section.schedule-hero .page-title-row{
+  position:relative;
   margin-bottom:18px;
   padding:12px 14px;
-  border:1px solid rgba(244,114,182,.18);
+  border:1px solid rgba(244,114,182,.20);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(244,114,182,.10), rgba(244,114,182,.03)),
+    linear-gradient(180deg, rgba(244,114,182,.12), rgba(244,114,182,.03)),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.18);
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 16px rgba(244,114,182,.06);
+}
+
+.section.schedule-hero .page-title-row::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(244,114,182,.95), rgba(255,184,28,.28) 58%, transparent 100%);
+}
+
+.section.schedule-hero #schedule-list{
+  position:relative;
+  padding:14px;
+  border:1px solid rgba(244,114,182,.16);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(244,114,182,.08), rgba(244,114,182,.02)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 24px rgba(0,0,0,.18);
 }
 
 /* -------------------------
