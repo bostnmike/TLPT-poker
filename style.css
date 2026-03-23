@@ -3724,11 +3724,11 @@ td{
   justify-content:center;
   width:auto;
   max-width:max-content;
-  min-height:50px;
-  padding:13px 22px;
+  min-height:52px;
+  padding:14px 24px;
   border-radius:11px;
   font-weight:800;
-  font-size:1.12rem;
+  font-size:1.18rem;
   line-height:1;
   white-space:nowrap;
   cursor:pointer;
@@ -3910,47 +3910,26 @@ td{
     0 2px 6px rgba(0,0,0,.20);
 }
 
-.archetype-filter-pill.archetype-hitman span{
-  border:1px solid rgba(255,92,92,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(255,196,196,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,92,92,.26), rgba(96,20,20,.92)) !important;
-  color:#ffe1e1 !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,210,210,.14),
-    inset 0 -2px 4px rgba(48,10,10,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
 
-.archetype-filter-pill.archetype-hitman.active span{
-  border-color:rgba(255,92,92,.88) !important;
+
+/* FINAL FIX — PLAYER COUNT PILLS BY ACTUAL FILTER VALUE */
+.archetype-filter-pill[data-archetype-filter="Hitman" i] > span{
+  border:1px solid #ff6b6b !important;
   background:
-    linear-gradient(180deg, rgba(255,210,210,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,92,92,.34), rgba(120,18,18,.94)) !important;
-  color:#fff0f0 !important;
+    linear-gradient(180deg, rgba(255,214,214,.18), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(255,107,107,.34), rgba(120,22,22,.96)) !important;
+  color:#fff1f1 !important;
   box-shadow:
-    inset 0 1px 0 rgba(255,220,220,.16),
+    inset 0 1px 0 rgba(255,226,226,.16),
     inset 0 -2px 4px rgba(56,10,10,.42),
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-closer span{
-  border:1px solid rgba(255,213,108,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(255,239,186,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,213,108,.24), rgba(96,68,10,.92)) !important;
-  color:#fff0c9 !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255,239,186,.14),
-    inset 0 -2px 4px rgba(56,38,8,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-closer.active span{
-  border-color:rgba(255,213,108,.88) !important;
+.archetype-filter-pill[data-archetype-filter="Closer" i] > span{
+  border:1px solid #ffd56c !important;
   background:
     linear-gradient(180deg, rgba(255,244,210,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,213,108,.32), rgba(120,82,10,.94)) !important;
+    linear-gradient(180deg, rgba(255,213,108,.34), rgba(120,82,10,.96)) !important;
   color:#fff7df !important;
   box-shadow:
     inset 0 1px 0 rgba(255,244,210,.16),
@@ -3958,23 +3937,11 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-grinder span{
-  border:1px solid rgba(185,251,192,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(220,255,225,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(185,251,192,.22), rgba(18,78,32,.92)) !important;
-  color:#ecfff0 !important;
-  box-shadow:
-    inset 0 1px 0 rgba(220,255,225,.14),
-    inset 0 -2px 4px rgba(8,34,14,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-grinder.active span{
-  border-color:rgba(185,251,192,.88) !important;
+.archetype-filter-pill[data-archetype-filter="Grinder" i] > span{
+  border:1px solid #b9fbc0 !important;
   background:
     linear-gradient(180deg, rgba(230,255,236,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(185,251,192,.30), rgba(12,92,30,.94)) !important;
+    linear-gradient(180deg, rgba(185,251,192,.32), rgba(12,92,30,.96)) !important;
   color:#f4fff6 !important;
   box-shadow:
     inset 0 1px 0 rgba(230,255,236,.16),
@@ -3982,23 +3949,11 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-lucky-devil span{
-  border:1px solid rgba(196,181,253,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(231,221,255,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(196,181,253,.24), rgba(56,26,96,.92)) !important;
-  color:#f3edff !important;
-  box-shadow:
-    inset 0 1px 0 rgba(231,221,255,.14),
-    inset 0 -2px 4px rgba(20,10,44,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-lucky-devil.active span{
-  border-color:rgba(196,181,253,.88) !important;
+.archetype-filter-pill[data-archetype-filter="Lucky Devil" i] > span{
+  border:1px solid #c4b5fd !important;
   background:
     linear-gradient(180deg, rgba(239,232,255,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(196,181,253,.32), rgba(68,30,118,.94)) !important;
+    linear-gradient(180deg, rgba(196,181,253,.34), rgba(68,30,118,.96)) !important;
   color:#faf7ff !important;
   box-shadow:
     inset 0 1px 0 rgba(239,232,255,.16),
@@ -4006,47 +3961,23 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-wildcard span{
-  border:1px solid rgba(147,197,253,.76) !important;
-  background:
-    linear-gradient(180deg, rgba(219,234,254,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.22), rgba(18,42,78,.92)) !important;
-  color:#eff6ff !important;
-  box-shadow:
-    inset 0 1px 0 rgba(219,234,254,.14),
-    inset 0 -2px 4px rgba(10,22,44,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-wildcard.active span{
-  border-color:rgba(147,197,253,.92) !important;
+.archetype-filter-pill[data-archetype-filter="Wildcard" i] > span{
+  border:1px solid #93c5fd !important;
   background:
     linear-gradient(180deg, rgba(219,234,254,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.30), rgba(18,42,78,.94)) !important;
-  color:#f8fbff !important;
+    linear-gradient(180deg, rgba(59,130,246,.34), rgba(18,42,78,.96)) !important;
+  color:#eff6ff !important;
   box-shadow:
     inset 0 1px 0 rgba(219,234,254,.16),
     inset 0 -2px 4px rgba(10,22,44,.42),
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-bubble-magnet span{
-  border:1px solid rgba(139,211,255,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(220,242,255,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(139,211,255,.22), rgba(18,54,92,.92)) !important;
-  color:#edf8ff !important;
-  box-shadow:
-    inset 0 1px 0 rgba(220,242,255,.14),
-    inset 0 -2px 4px rgba(10,22,40,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-bubble-magnet.active span{
-  border-color:rgba(139,211,255,.88) !important;
+.archetype-filter-pill[data-archetype-filter="Bubble Magnet" i] > span{
+  border:1px solid #8bd3ff !important;
   background:
     linear-gradient(180deg, rgba(230,247,255,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(139,211,255,.30), rgba(20,64,110,.94)) !important;
+    linear-gradient(180deg, rgba(139,211,255,.34), rgba(20,64,110,.96)) !important;
   color:#f4fbff !important;
   box-shadow:
     inset 0 1px 0 rgba(230,247,255,.16),
@@ -4054,23 +3985,11 @@ td{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-.archetype-filter-pill.archetype-technician span{
-  border:1px solid rgba(155,231,255,.74) !important;
-  background:
-    linear-gradient(180deg, rgba(225,248,255,.14), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(155,231,255,.22), rgba(18,62,88,.92)) !important;
-  color:#eefbff !important;
-  box-shadow:
-    inset 0 1px 0 rgba(225,248,255,.14),
-    inset 0 -2px 4px rgba(10,24,38,.40),
-    0 2px 6px rgba(0,0,0,.20) !important;
-}
-
-.archetype-filter-pill.archetype-technician.active span{
-  border-color:rgba(155,231,255,.88) !important;
+.archetype-filter-pill[data-archetype-filter="Technician" i] > span{
+  border:1px solid #9be7ff !important;
   background:
     linear-gradient(180deg, rgba(235,251,255,.18), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(155,231,255,.30), rgba(20,72,98,.94)) !important;
+    linear-gradient(180deg, rgba(155,231,255,.34), rgba(20,72,98,.96)) !important;
   color:#f6fdff !important;
   box-shadow:
     inset 0 1px 0 rgba(235,251,255,.16),
