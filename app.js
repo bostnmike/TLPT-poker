@@ -1846,7 +1846,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
           data-archetype-mode="primary"
         >
-          🥇 Primary Archetype
+          Primary Archetype
         </button>
 
         <button
@@ -1854,7 +1854,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
           data-archetype-mode="secondary"
         >
-          🥈 Secondary Archetype
+          Secondary Archetype
         </button>
       </div>
 
@@ -1864,7 +1864,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
           data-archetype-filter="all"
         >
-          🌐 All Archetypes
+          View All
           <span>${totalPlayers}</span>
         </button>
 
