@@ -2922,14 +2922,14 @@ td{
 
 .dashboard-meta-shell{
   display:grid;
-  grid-template-columns:minmax(240px, .78fr) minmax(260px, 1fr);
-  gap:14px;
-  align-items:stretch;
-  padding:14px;
+  grid-template-columns:max-content minmax(0, 1fr);
+  gap:12px;
+  align-items:center;
+  padding:12px 14px;
   border:1px solid rgba(34,197,94,.26);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.04)),
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.07)),
     linear-gradient(90deg, rgba(59,130,246,.08), transparent 48%),
     linear-gradient(180deg, rgba(14,18,24,.98), rgba(10,12,18,1));
   box-shadow:
@@ -2947,7 +2947,7 @@ td{
 }
 
 .dashboard-meta-shell > #dashboard-current-stat{
-  display:flex;
+  display:inline-flex;
   align-items:center;
   gap:10px;
   color:#d8ffe0;
@@ -2955,19 +2955,16 @@ td{
   font-weight:800;
   line-height:1.05;
   margin:0;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid rgba(34,197,94,.42);
-  background:
-    linear-gradient(180deg, rgba(34,197,94,.22), rgba(34,197,94,.08)),
-    linear-gradient(90deg, rgba(59,130,246,.10), transparent 44%),
-    linear-gradient(90deg, transparent 68%, rgba(255,184,28,.08) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
-    0 10px 22px rgba(0,0,0,.22),
-    0 0 22px rgba(34,197,94,.12);
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
   flex-wrap:nowrap;
-  min-height:88px;
+  white-space:nowrap;
+  min-height:auto;
+  width:auto;
+  justify-self:start;
 }
 
 .dashboard-meta-shell > .dashboard-formula-panel{
@@ -2978,46 +2975,36 @@ td{
 
 .dashboard-meta-shell > .dashboard-formula-panel .dashboard-formula-display{
   width:100%;
-  min-height:88px;
+  min-height:auto;
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:11px 13px;
-  background:
-    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.04)),
-    linear-gradient(180deg, rgba(14,18,24,.99), rgba(10,12,18,1));
-  border:1px solid rgba(34,197,94,.38);
-  border-radius:14px;
+  justify-content:flex-start;
+  text-align:left;
+  padding:0;
+  background:transparent;
+  border:none;
+  border-radius:0;
   color:#fff;
   font-size:.88rem;
   line-height:1.34;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 10px 20px rgba(0,0,0,.24),
-    0 0 16px rgba(34,197,94,.10);
+  box-shadow:none;
 }
 
 .dashboard-formula-display{
   width:100%;
-  min-height:88px;
+  min-height:auto;
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:11px 13px;
-  background:
-    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.04)),
-    linear-gradient(180deg, rgba(14,18,24,.99), rgba(10,12,18,1));
-  border:1px solid rgba(34,197,94,.38);
-  border-radius:14px;
+  justify-content:flex-start;
+  text-align:left;
+  padding:0;
+  background:transparent;
+  border:none;
+  border-radius:0;
   color:#fff;
   font-size:.88rem;
   line-height:1.34;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 10px 20px rgba(0,0,0,.24),
-    0 0 16px rgba(34,197,94,.10);
+  box-shadow:none;
 }
 
 .dashboard-current-stat{
@@ -3046,9 +3033,10 @@ td{
 }
 
 .dashboard-current-icon{
-  font-size:2rem;
+  font-size:1.9rem;
   line-height:1;
   color:#bbf7d0;
+  flex:0 0 auto;
 }
 
 .standings-current-stat{
