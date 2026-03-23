@@ -4796,6 +4796,9 @@ td{
   .home-cluster-stack-3{
     grid-template-columns:1fr;
   }  
+  .media-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 /* player profile */
@@ -6163,15 +6166,58 @@ td{
 .media-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:16px;
+  gap:20px;
 }
 
 .media-card{
+  position:relative;
+  overflow:hidden;
   padding:18px;
+  border:1px solid rgba(168,85,247,.20);
+  border-radius:18px;
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.10), rgba(168,85,247,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 24px rgba(0,0,0,.22),
+    0 0 18px rgba(168,85,247,.08);
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.media-card::before{
+  content:"";
+  position:absolute;
+  left:14px;
+  right:14px;
+  top:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(239,68,68,.40) 58%, transparent 100%);
+}
+
+.media-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(168,85,247,.30);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 14px 30px rgba(0,0,0,.26),
+    0 0 22px rgba(168,85,247,.12);
 }
 
 .media-copy{
+  position:relative;
+  z-index:1;
   padding:0 0 12px 0;
+}
+
+.media-card h3{
+  margin:0 0 12px 0;
+  color:#e9d5ff;
+  font-size:1.08rem;
+  font-weight:800;
+  line-height:1.2;
+  text-shadow:none;
 }
 
 .media-frame{
@@ -6180,6 +6226,9 @@ td{
   border-radius:14px;
   overflow:hidden;
   background:#05080c;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 10px 18px rgba(0,0,0,.20);
 }
 
 .media-thumb-link,
@@ -6196,11 +6245,11 @@ td{
 .media-thumb{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   object-position:center center;
   display:block;
   background:#000;
-  transition:transform .25s ease;
+  transition:transform .25s ease, filter .25s ease;
 }
 
 .media-embed-wrap iframe{
@@ -6215,26 +6264,35 @@ td{
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
-  font-size:46px;
+  font-size:42px;
   color:#fff;
-  background:rgba(0,0,0,.6);
-  width:70px;
-  height:70px;
+  background:rgba(0,0,0,.58);
+  width:72px;
+  height:72px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   pointer-events:none;
   transition:all .25s ease;
+  border:1px solid rgba(168,85,247,.28);
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.28),
+    0 0 18px rgba(168,85,247,.14);
 }
 
 .media-thumb-link:hover .media-thumb{
-  transform:scale(1.005);
+  transform:scale(1.05);
+  filter:brightness(1.04);
 }
 
 .media-thumb-link:hover .media-play-overlay{
-  background:var(--gold);
-  color:#000;
+  background:linear-gradient(180deg, rgba(168,85,247,.92), rgba(239,68,68,.84));
+  color:#fff;
+  border-color:rgba(239,68,68,.40);
+  box-shadow:
+    0 10px 22px rgba(0,0,0,.30),
+    0 0 22px rgba(168,85,247,.18);
 }
 
 /* fill bar */
@@ -7275,29 +7333,30 @@ td{
    6) Media / Film page polish
    ------------------------- */
 .section.media-header{
-  border-color:rgba(168,85,247,.24);
+  border-color:rgba(168,85,247,.26);
   background:
-    radial-gradient(circle at top right, rgba(168,85,247,.18), transparent 32%),
-    radial-gradient(circle at left center, rgba(239,68,68,.10), transparent 26%),
+    radial-gradient(circle at top right, rgba(168,85,247,.20), transparent 32%),
+    radial-gradient(circle at left center, rgba(239,68,68,.12), transparent 26%),
     radial-gradient(circle at bottom right, rgba(59,130,246,.08), transparent 24%),
     linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
   box-shadow:
-    0 0 0 1px rgba(168,85,247,.10),
+    0 0 0 1px rgba(168,85,247,.12),
     0 12px 30px rgba(0,0,0,.24),
-    0 0 28px rgba(168,85,247,.10);
+    0 0 32px rgba(168,85,247,.12);
 }
 
 .section.media-header .page-title-row{
   margin-bottom:18px;
   padding:12px 14px;
-  border:1px solid rgba(168,85,247,.18);
+  border:1px solid rgba(168,85,247,.20);
   border-radius:16px;
   background:
-    linear-gradient(180deg, rgba(168,85,247,.12), rgba(168,85,247,.03)),
+    linear-gradient(180deg, rgba(168,85,247,.14), rgba(168,85,247,.03)),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.18);
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 16px rgba(168,85,247,.06);
 }
 
 .media-grid{
