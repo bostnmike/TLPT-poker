@@ -5512,11 +5512,11 @@ td{
   text-shadow:none !important;
 }
 
-#records-list .honors-card.honors-card-unlucky-duck .money,
-#records-list .honors-card.honors-card-unlucky-duck [class*="money"],
-#records-list .honors-card.honors-card-unlucky-duck [class*="currency"],
-#records-list .honors-card.honors-card-unlucky-duck .honors-card-value,
-#records-list .honors-card.honors-card-unlucky-duck .honors-card-value--numeric{
+#records-list .honors-card.honors-card-cursed-duck .money,
+#records-list .honors-card.honors-card-cursed-duck [class*="money"],
+#records-list .honors-card.honors-card-cursed-duck [class*="currency"],
+#records-list .honors-card.honors-card-cursed-duck .honors-card-value,
+#records-list .honors-card.honors-card-cursed-duck .honors-card-value--numeric{
   color:#86efac !important;
   text-shadow:none !important;
 }
