@@ -2938,32 +2938,64 @@ td{
     0 0 18px rgba(34,197,94,.08);
 }
 
-.dashboard-current-stat,
-.dashboard-formula-panel{
+.dashboard-meta-shell > #dashboard-current-stat,
+.dashboard-meta-shell > .dashboard-formula-panel{
   position:relative;
   z-index:1;
   min-height:auto;
+  width:100%;
 }
 
-.dashboard-formula-panel{
+.dashboard-meta-shell > #dashboard-current-stat{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#d8ffe0;
+  font-size:1.45rem;
+  font-weight:800;
+  line-height:1.05;
+  margin:0;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(34,197,94,.42);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.22), rgba(34,197,94,.08)),
+    linear-gradient(90deg, rgba(59,130,246,.10), transparent 44%),
+    linear-gradient(90deg, transparent 68%, rgba(255,184,28,.08) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 10px 22px rgba(0,0,0,.22),
+    0 0 22px rgba(34,197,94,.12);
+  flex-wrap:nowrap;
+  min-height:88px;
+}
+
+.dashboard-meta-shell > .dashboard-formula-panel{
   display:flex;
   align-items:stretch;
   justify-content:center;
 }
 
-.dashboard-sort-shell > #dashboard-current-stat,
-.dashboard-sort-shell > .dashboard-formula-panel{
-  padding:12px 14px;
-  border:1px solid rgba(34,197,94,.26);
-  border-radius:16px;
+.dashboard-meta-shell > .dashboard-formula-panel .dashboard-formula-display{
+  width:100%;
+  min-height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:11px 13px;
   background:
     linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.04)),
-    linear-gradient(90deg, rgba(59,130,246,.08), transparent 48%),
-    linear-gradient(180deg, rgba(14,18,24,.98), rgba(10,12,18,1));
+    linear-gradient(180deg, rgba(14,18,24,.99), rgba(10,12,18,1));
+  border:1px solid rgba(34,197,94,.38);
+  border-radius:14px;
+  color:#fff;
+  font-size:.88rem;
+  line-height:1.34;
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.20),
-    0 0 18px rgba(34,197,94,.08);
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 10px 20px rgba(0,0,0,.24),
+    0 0 16px rgba(34,197,94,.10);
 }
 
 .dashboard-formula-display{
