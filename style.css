@@ -3417,13 +3417,6 @@ td{
     0 8px 20px rgba(0,0,0,.18);
 }
 
-.archetype-section .player-card.player-card-rich:hover{
-  border-color:color-mix(in srgb, var(--archetype-line) 72%, transparent);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, var(--archetype-color) 14%, transparent),
-    0 10px 24px rgba(0,0,0,.22);
-}
-
 .player-card{
   padding:18px;
 }
