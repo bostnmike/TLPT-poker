@@ -6211,28 +6211,6 @@ td{
   }
 }
 
-.dashboard-sort-shell{
-  grid-template-columns:1fr;
-  grid-template-areas:
-    "filters"
-    "title"
-    "formula";
-}
-
-.dashboard-current-stat,
-.dashboard-formula-panel{
-  width:100%;
-}
-
-.dashboard-meta-shell{
-  grid-template-columns:1fr;
-}
-
-.dashboard-current-stat,
-.dashboard-formula-panel{
-  width:100%;
-}
-
 @media (max-width:900px){
   .dashboard-current-stat{
     font-size:2rem;
@@ -6245,23 +6223,6 @@ td{
   #schedule-list{
     grid-template-columns:repeat(2, minmax(0,1fr)) !important;
   }
-}
-
-.dashboard-sort-shell{
-  grid-template-columns:1fr;
-}
-
-.dashboard-sort-shell > #dashboard-current-stat + .dashboard-formula-panel{
-  grid-template-columns:1fr;
-}
-
-.dashboard-current-stat{
-  min-height:auto;
-  flex-wrap:wrap;
-}
-
-.dashboard-formula-panel{
-  width:100%;
 }
 
 @media (max-width:800px){
