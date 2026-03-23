@@ -1009,18 +1009,59 @@ function ensureStandingsHeadline(sortKey) {
   const parent = table.parentElement;
   if (!parent) return;
 
+  const section = table.closest(".section");
+
+  let sortShell = document.getElementById("standings-sort-shell");
+  let metaShell = document.getElementById("standings-meta-shell");
   let headline = document.getElementById("standings-current-stat");
+  let formula = document.getElementById("standings-formula-display");
+
+  const sortControls =
+    section?.querySelector('[data-sort-scope="standings"]') ||
+    section?.querySelector('.button-row');
+
+  if (sortControls && !sortShell) {
+    sortShell = document.createElement("div");
+    sortShell.id = "standings-sort-shell";
+    sortShell.className = "standings-sort-shell";
+    sortControls.parentNode.insertBefore(sortShell, sortControls);
+    sortShell.appendChild(sortControls);
+  }
+
+  if (!metaShell) {
+    metaShell = document.createElement("div");
+    metaShell.id = "standings-meta-shell";
+    metaShell.className = "standings-meta-shell";
+    parent.insertBefore(metaShell, table);
+  }
+
   if (!headline) {
     headline = document.createElement("div");
     headline.id = "standings-current-stat";
-    headline.className = "dashboard-current-stat standings-current-stat";
-    parent.insertBefore(headline, table);
+    headline.className = "standings-current-stat";
+  }
+
+  if (!formula) {
+    formula = document.createElement("div");
+    formula.id = "standings-formula-display";
+    formula.className = "standings-formula-display";
+  }
+
+  if (headline.parentNode !== metaShell) {
+    metaShell.appendChild(headline);
+  }
+
+  if (formula.parentNode !== metaShell) {
+    metaShell.appendChild(formula);
   }
 
   headline.innerHTML = `
     <span class="dashboard-current-icon">${statIcon(sortKey)}</span>
-    <span>${formatStatLabel(sortKey)}</span>
+    <span class="standings-current-label">${formatStatLabel(sortKey)}</span>
   `;
+
+  formula.textContent =
+    STAT_FORMULAS[sortKey] || "Click a standings stat button to reveal the calculation formula.";
 }
 
 function ensureDashboardHeadline(sortKey) {
