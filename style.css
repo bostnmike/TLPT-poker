@@ -3069,6 +3069,7 @@ td{
   width:auto;
   justify-self:start;
 }
+
 .dashboard-meta-shell > .dashboard-formula-panel{
   display:flex;
   align-items:stretch;
@@ -4193,16 +4194,8 @@ td{
   background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(59,130,246,.42) 56%, rgba(255,184,28,.22) 100%);
 }
 
-#players-grid{
-  gap:18px !important;
-}
-
 .tier-grid{
   gap:18px;
-}
-
-.player-card{
-  border-radius:18px;
 }
 
 .player-card-top{
@@ -5325,15 +5318,6 @@ td{
 
 /* honors */
 
-#champions-list,
-#leaders-list,
-#records-list{
-  display:grid !important;
-  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
-  gap:16px !important;
-  align-items:stretch !important;
-}
-
 .honors-card{
   position:relative;
   overflow:hidden;
@@ -5541,13 +5525,6 @@ td{
 
 .leader-banner-card{
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-
-.leader-banner-card:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.08),
-    0 14px 38px rgba(0,0,0,.30);
 }
 
 #champions-list,
@@ -5823,10 +5800,6 @@ td{
     0 0 0 1px rgba(255,255,255,.05),
     0 10px 24px rgba(0,0,0,.18);
   transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-
-.rule-card:hover{
-  transform:translateY(-2px);
 }
 
 .rule-card:hover{
