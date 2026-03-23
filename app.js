@@ -1202,13 +1202,13 @@ function buildTickerLeader(icon, label, player) {
   if (!player) return "";
 
   return `
-    <span class="league-ticker-item">
+    <a class="league-ticker-item" href="${playerUrl(player)}">
       <span class="league-ticker-label">${icon} ${label}</span>
       <span class="league-ticker-player">
         ${playerImageMarkup(player, "table")}
         <span class="league-ticker-name">${displayPlayerName(player)}</span>
       </span>
-    </span>
+    </a>
   `;
 }
 
@@ -1527,19 +1527,27 @@ function renderHomePage(data) {
   }
 
   const insightFormula = document.getElementById("home-insight-formula");
-  if (insightFormula && insightsGrid) {
-    insightFormula.textContent = "";
+if (insightFormula && insightsGrid) {
+  const insightCards = [...insightsGrid.querySelectorAll(".home-insight-card")];
 
-    insightsGrid.querySelectorAll(".home-insight-card").forEach(card => {
-      card.addEventListener("mouseenter", () => {
-        insightFormula.textContent = card.dataset.formula || "";
-      });
-
-      card.addEventListener("mouseleave", () => {
-        insightFormula.textContent = "";
-      });
-    });
+  function setInsightState(card) {
+    insightCards.forEach(item => item.classList.remove("is-active"));
+    if (!card) {
+      insightFormula.textContent = "";
+      return;
+    }
+    card.classList.add("is-active");
+    insightFormula.textContent = card.dataset.formula || "";
   }
+
+  insightCards.forEach(card => {
+    card.addEventListener("mouseenter", () => setInsightState(card));
+    card.addEventListener("focus", () => setInsightState(card));
+    card.addEventListener("click", () => setInsightState(card));
+    card.addEventListener("mouseleave", () => setInsightState(null));
+    card.addEventListener("blur", () => setInsightState(null));
+  });
+}
 
   const actionCluster = document.getElementById("home-action-cluster");
   if (actionCluster) {
@@ -1670,27 +1678,28 @@ function renderLeagueSnapshot(data) {
     Math.max(players.length, 1);
 
     const cards = [
-  { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple" },
-  { icon:"🪙", label:"Entries", value:totalEntries, className:"snapshot-silver" },
-  { icon:"🔁", label:"Rebuys", value:totalRebuys, className:"snapshot-blue" },
-  { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow" },
-  { icon:"💰", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-green" },
-  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red" }
+  { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple", href:"players.html" },
+  { icon:"🪙", label:"Entries", value:totalEntries, className:"snapshot-silver", href:"dashboard.html" },
+  { icon:"🔁", label:"Rebuys", value:totalRebuys, className:"snapshot-blue", href:"dashboard.html" },
+  { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow", href:"dashboard.html" },
+  { icon:"💰", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-green", href:"dashboard.html" },
+  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red", href:"standings.html" }
 ];
 
-    container.innerHTML = cards.map(card => `
-    <div class="snapshot-card ${card.className}">
-      <div class="snapshot-icon">${card.icon}</div>
-        <div
-          class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}"
-          data-animate-count="true"
-          data-target-value="${card.value}"
-        >
-          ${card.value}
-        </div>
-      <div class="snapshot-label">${card.label}</div>
+container.innerHTML = cards.map(card => `
+  <a class="snapshot-card ${card.className}" href="${card.href}">
+    <div class="snapshot-icon">${card.icon}</div>
+    <div
+      class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}"
+      data-animate-count="true"
+      data-target-value="${card.value}"
+    >
+      ${card.value}
     </div>
-  `).join("");
+    <div class="snapshot-label">${card.label}</div>
+    <div class="snapshot-cta">Go deeper →</div>
+  </a>
+`).join("");
   
     if (featuredContainer) {
     const featuredPlayer = getFeaturedPlayer(data);
