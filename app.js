@@ -2704,6 +2704,7 @@ function renderStatLeaders(data) {
 
 function renderHonorsSummary(data) {
   const strip = document.getElementById("honors-summary-strip");
+  const comment = document.getElementById("honors-summary-comment");
   if (!strip) return;
 
   const players = data?.players || [];
@@ -2711,11 +2712,12 @@ function renderHonorsSummary(data) {
 
   const profitLeader = getLeaderByRule(players, HONOR_RULES["Profit Leader"]);
   const powerLeader = getLeaderByRule(players, HONOR_RULES["Power Leader"]);
+  const cashLeader = sortPlayers(eligiblePlayers, "cashRate")[0];
   const worstLuck = getLeaderByRule(players, RECORD_RULES["Worst Luck Index"]);
   const rebuyLeader = getLeaderByRule(players, RECORD_RULES["Most Rebuys"]);
 
   strip.innerHTML = `
-    <div class="honors-summary-card honors-summary-card-gold">
+    <div class="honors-summary-card honors-summary-card-purple">
       <div class="honors-summary-kicker">💰 Profit Leader</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
@@ -2741,9 +2743,22 @@ function renderHonorsSummary(data) {
       </div>
     </div>
 
+    <div class="honors-summary-card honors-summary-card-blue">
+      <div class="honors-summary-kicker">💵 Cash Cow</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-player-row">
+          ${cashLeader ? playerImageMarkup(cashLeader, "table") : ""}
+          <div class="honors-summary-name">${cashLeader ? displayPlayerName(cashLeader) : "—"}</div>
+        </div>
+        <div class="honors-summary-value">
+          ${cashLeader ? fmtPct(cashLeader.cashRate) : "—"}
+        </div>
+      </div>
+    </div>
+
     <div class="honors-summary-card honors-summary-card-green">
       <div class="honors-summary-kicker">🦤 Cursed Duck</div>
-        <div class="honors-summary-main">
+      <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${worstLuck ? playerImageMarkup(worstLuck, "table") : ""}
           <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
@@ -2766,14 +2781,14 @@ function renderHonorsSummary(data) {
         </div>
       </div>
     </div>
-    <div class="honors-summary-card honors-summary-card-slate">
-      <div class="honors-summary-kicker">🧾 Qualified Field</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-name">Players with 5+ entries</div>
-        <div class="honors-summary-value">${eligiblePlayers.length}</div>
-      </div>
-    </div>
   `;
+
+  if (comment) {
+    comment.innerHTML = `
+      <span class="honors-summary-comment-label">Qualified Field:</span>
+      <span class="honors-summary-comment-value">${eligiblePlayers.length} players with 5+ entries</span>
+    `;
+  }
 }
 
 function escapeHtmlAttr(value) {
