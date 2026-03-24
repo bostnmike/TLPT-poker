@@ -356,7 +356,7 @@ a:hover{
 }
 
 .dashboard-studio-strip{
-  grid-template-columns:minmax(0, 1fr) minmax(300px, .9fr);
+  grid-template-columns:1fr;
   align-items:start;
   border:1px solid rgba(255,184,28,.18);
   background:
@@ -381,7 +381,7 @@ a:hover{
 .dashboard-studio-strip > .cockpit-kicker,
 .dashboard-studio-strip > .dashboard-studio-copy,
 .dashboard-studio-strip > .dashboard-studio-context{
-  grid-column:1;
+  grid-column:auto;
 }
 
 .dashboard-studio-strip > .dashboard-studio-leader{
