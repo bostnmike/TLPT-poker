@@ -2741,9 +2741,9 @@ function renderHonorsSummary(data) {
       </div>
     </div>
 
-    <div class="honors-summary-card honors-summary-card-blue">
-      <div class="honors-summary-kicker">😵 Worst Luck</div>
-      <div class="honors-summary-main">
+    <div class="honors-summary-card honors-summary-card-green">
+      <div class="honors-summary-kicker">🦤 Cursed Duck</div>
+        <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${worstLuck ? playerImageMarkup(worstLuck, "table") : ""}
           <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
@@ -2755,7 +2755,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">♻️ Rebuy Leader</div>
+      <div class="honors-summary-kicker">♻️ Mr. Rebuy</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${rebuyLeader ? playerImageMarkup(rebuyLeader, "table") : ""}
@@ -2766,7 +2766,6 @@ function renderHonorsSummary(data) {
         </div>
       </div>
     </div>
-
     <div class="honors-summary-card honors-summary-card-slate">
       <div class="honors-summary-kicker">🧾 Qualified Field</div>
       <div class="honors-summary-main">
