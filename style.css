@@ -6498,8 +6498,16 @@ td{
   overflow:hidden;
   display:block;
   min-height:unset;
-  padding:4px;
-  border-radius:10px;
+  padding:8px;
+  border-radius:13px;
+}
+
+.honors-card-top{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:6px;
+  align-items:center;
+  margin-bottom:6px;
 }
 
 .honors-card::before{
@@ -6508,7 +6516,7 @@ td{
   top:0;
   left:0;
   right:0;
-  height:16px;
+  height:24px;
   z-index:0;
 }
 
@@ -6532,22 +6540,14 @@ td{
   z-index:1;
 }
 
-.honors-card-top{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:4px;
-  align-items:center;
-  margin-bottom:2px;
-}
-
 .honors-card .honors-card-top{
-  margin-top:4px;
+  margin-top:6px;
 }
 
 .honors-card-stack{
   display:flex;
   flex-direction:column;
-  gap:2px;
+  gap:4px;
 }
 
 .honors-card-icon,
@@ -6556,15 +6556,15 @@ td{
 }
 
 .honors-player-name{
-  font-size:.64rem;
+  font-size:.82rem;
   font-weight:800;
-  line-height:1;
+  line-height:1.05;
 }
 
 .honors-card-value{
   color:var(--muted);
-  font-size:.70rem;
-  line-height:1;
+  font-size:.86rem;
+  line-height:1.15;
   font-weight:800;
 }
 
@@ -6574,9 +6574,9 @@ td{
   justify-content:flex-start;
   min-height:auto;
   text-align:left;
-  font-size:.86rem;
+  font-size:.98rem;
   font-weight:900;
-  line-height:1;
+  line-height:1.05;
   color:var(--gold);
 }
 
@@ -6608,6 +6608,43 @@ td{
 #records-list .honors-card-value--numeric{
   color:#86efac;
   text-shadow:none;
+}
+
+#champions-list,
+#leaders-list,
+#records-list{
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:8px;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.leader-banner-top{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin:-8px -8px 8px -8px;
+  padding:6px 8px;
+  text-align:center;
+}
+
+#champions-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
+}
+
+#leaders-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
+  border-bottom:1px solid rgba(59,130,246,.32);
+}
+
+#records-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
+  border-bottom:1px solid rgba(34,197,94,.32);
 }
 
 #champions-list,
