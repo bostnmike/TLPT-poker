@@ -1113,7 +1113,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   strip.innerHTML = `
     <div class="standings-race-chip">
       <span class="standings-race-chip-icon">${meta.icon}</span>
-      <span class="standings-race-chip-text">League Table · Sorted by ${meta.label}</span>
+      <span class="standings-race-chip-text">Sorted by ${meta.label}</span>
     </div>
 
     <div class="standings-race-top3">
@@ -1146,7 +1146,7 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   strip.innerHTML = `
     <div class="dashboard-studio-chip">
       <span class="dashboard-studio-chip-icon">${meta.icon}</span>
-      <span class="dashboard-studio-chip-text">Now Discussing: ${meta.label} Board</span>
+      <span class="dashboard-studio-chip-text">${meta.label} Board</span>
     </div>
 
     <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
