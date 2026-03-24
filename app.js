@@ -1113,7 +1113,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
 
   strip.innerHTML = `
     <div class="standings-race-context">
-      <strong>Qualified Entries:</strong> ${sortedPlayers.length} players with 2+ entries
+      <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
     </div>
   `;
 }
