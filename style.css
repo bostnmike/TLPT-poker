@@ -2881,8 +2881,8 @@ a:hover{
 
 .honors-hub{
   display:grid;
-  gap:8px;
-  padding:8px;
+  gap:6px;
+  padding:6px;
   border-color:rgba(255,255,255,.08);
   background:
     radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 34%),
@@ -2890,8 +2890,8 @@ a:hover{
 }
 
 .honors-module{
-  padding:8px;
-  border-radius:14px;
+  padding:6px;
+  border-radius:13px;
   border:1px solid rgba(255,255,255,.08);
   background:
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
@@ -2930,18 +2930,17 @@ a:hover{
 }
 
 .honors-module-kicker{
-  margin:0 0 12px 2px;
+  margin:0 0 8px 2px;
   color:var(--muted);
   font-size:.72rem;
   letter-spacing:.08em;
 }
-
 #champions-list,
 #leaders-list,
 #records-list{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:5px;
+  gap:4px;
   margin:0;
   padding:0;
   border:none;
@@ -2951,51 +2950,51 @@ a:hover{
 
 .honors-card{
   min-height:unset;
-  padding:6px;
-  border-radius:11px;
+  padding:5px;
+  border-radius:10px;
 }
 
 .leader-banner-top{
   gap:4px;
-  margin:-6px -6px 5px -6px;
-  padding:5px 6px;
+  margin:-5px -5px 4px -5px;
+  padding:4px 5px;
 }
 
 .leader-banner-crown{
-  font-size:.86rem;
+  font-size:.82rem;
   line-height:1;
 }
 
 .leader-banner-title{
-  font-size:.64rem;
-  line-height:1;
+  font-size:.72rem;
+  line-height:1.02;
   letter-spacing:.015em;
 }
 
 .leader-banner-body{
-  gap:5px;
+  gap:4px;
   align-items:center;
 }
 
 .honors-card-top{
-  margin-bottom:5px;
+  margin-bottom:4px;
 }
 
 .honors-card-top .player-avatar,
 .honors-card-top .player-avatar-fallback{
-  width:36px;
-  height:36px;
-  font-size:.74rem;
+  width:32px;
+  height:32px;
+  font-size:.68rem;
   border-width:2px;
 }
 
 .honors-player-name{
-  font-size:.74rem;
+  font-size:.72rem;
   line-height:1;
 }
 
 .honors-card-value{
-  font-size:.82rem;
+  font-size:.78rem;
   line-height:1;
 }
 
@@ -3005,7 +3004,7 @@ a:hover{
   text-align:left;
 }
 
-@media (max-width:900px){
+@media (max-width:820px){
   .honors-summary-strip{
     grid-template-columns:repeat(3, minmax(0,1fr));
   }
