@@ -1119,6 +1119,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   const topThree = sortedPlayers.slice(0, 3);
 
   strip.innerHTML = `
+    <div class="cockpit-kicker">Race View</div>
     <div class="standings-race-chip">
       <span class="standings-race-chip-icon">${meta.icon}</span>
       <span class="standings-race-chip-text">Sorted by ${meta.label}</span>
@@ -1154,6 +1155,7 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   }
 
   strip.innerHTML = `
+    <div class="cockpit-kicker">Studio Readout</div>
     <div class="dashboard-studio-chip">
       <span class="dashboard-studio-chip-icon">${meta.icon}</span>
       <span class="dashboard-studio-chip-text">${meta.label} Board</span>
