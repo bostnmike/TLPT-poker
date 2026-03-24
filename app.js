@@ -2714,11 +2714,11 @@ function renderHonorsSummary(data) {
   const profitLeader = getLeaderByRule(players, HONOR_RULES["Profit Leader"]);
   const powerLeader = getLeaderByRule(players, HONOR_RULES["Power Leader"]);
 
-  const cashLeaderConfig = statLeaders.find(item => item.key === "cashRate") || null;
-  const cashLeader = cashLeaderConfig
-    ? sortPlayers(eligiblePlayers, cashLeaderConfig.key)[0]
-    : sortPlayers(eligiblePlayers, "cashRate")[0];
-
+  const aggressionLeaderConfig = statLeaders.find(item => item.key === "aggressionIndex") || null;
+  const aggressionLeader = aggressionLeaderConfig
+  ? sortPlayers(eligiblePlayers, aggressionLeaderConfig.key)[0]
+  : sortPlayers(eligiblePlayers, "aggressionIndex")[0];
+  
   const worstLuckConfig = recordItems.find(item => item.label === "Worst Luck Index");
   const rebuyConfig = recordItems.find(item => item.label === "Most Rebuys");
 
@@ -2731,8 +2731,8 @@ function renderHonorsSummary(data) {
   const powerLabel = honorsPageLabel("Power Leader");
   const powerIcon = honorIcon("Power Leader");
 
-  const blueLabel = cashLeaderConfig?.title || "Cash Rate Leader";
-  const blueIcon = cashLeaderConfig?.icon || statIcon("cashRate");
+  const blueLabel = aggressionLeaderConfig?.title || "Mr. Aggro";
+  const blueIcon = aggressionLeaderConfig?.icon || statIcon("aggressionIndex");
 
   const worstLuckLabel = worstLuckConfig?.title || worstLuckConfig?.label || "Worst Luck Index";
   const worstLuckIcon = worstLuckConfig?.icon || recordIcon(worstLuckConfig?.label || "Worst Luck Index");
@@ -2771,11 +2771,11 @@ function renderHonorsSummary(data) {
       <div class="honors-summary-kicker">${blueIcon} ${blueLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
-          ${cashLeader ? playerImageMarkup(cashLeader, "table") : ""}
-          <div class="honors-summary-name">${cashLeader ? displayPlayerName(cashLeader) : "—"}</div>
+          ${aggressionLeader ? playerImageMarkup(aggressionLeader, "table") : ""}
+          <div class="honors-summary-name">${aggressionLeader ? displayPlayerName(aggressionLeader) : "—"}</div>
         </div>
         <div class="honors-summary-value">
-          ${cashLeader ? fmtPct(cashLeader.cashRate) : "—"}
+          ${aggressionLeader ? fmtNum(aggressionLeader.aggressionIndex) : "—"}
         </div>
       </div>
     </div>
