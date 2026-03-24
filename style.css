@@ -2881,8 +2881,8 @@ a:hover{
 
 .honors-hub{
   display:grid;
-  gap:6px;
-  padding:6px;
+  gap:4px;
+  padding:4px;
   border-color:rgba(255,255,255,.08);
   background:
     radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 34%),
@@ -2890,7 +2890,7 @@ a:hover{
 }
 
 .honors-module{
-  padding:6px;
+  padding:5px;
   border-radius:13px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -2929,18 +2929,25 @@ a:hover{
   margin-bottom:8px;
 }
 
+.honors-module .champions-title{
+  font-size:1.28rem;
+  line-height:1.06;
+  letter-spacing:.01em;
+}
+
 .honors-module-kicker{
   margin:0 0 8px 2px;
   color:var(--muted);
   font-size:.72rem;
   letter-spacing:.08em;
 }
+
 #champions-list,
 #leaders-list,
 #records-list{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:4px;
+  gap:3px;
   margin:0;
   padding:0;
   border:none;
@@ -2950,51 +2957,51 @@ a:hover{
 
 .honors-card{
   min-height:unset;
-  padding:5px;
+  padding:4px;
   border-radius:10px;
 }
 
 .leader-banner-top{
-  gap:4px;
-  margin:-5px -5px 4px -5px;
-  padding:4px 5px;
+  gap:3px;
+  margin:-4px -4px 3px -4px;
+  padding:3px 4px;
 }
 
 .leader-banner-crown{
-  font-size:.82rem;
+  font-size:.74rem;
   line-height:1;
 }
 
 .leader-banner-title{
-  font-size:.72rem;
+  font-size:.76rem;
   line-height:1.02;
-  letter-spacing:.015em;
+  letter-spacing:.01em;
 }
 
 .leader-banner-body{
-  gap:4px;
+  gap:3px;
   align-items:center;
 }
 
 .honors-card-top{
-  margin-bottom:4px;
+  margin-bottom:3px;
 }
 
 .honors-card-top .player-avatar,
 .honors-card-top .player-avatar-fallback{
-  width:32px;
-  height:32px;
-  font-size:.68rem;
+  width:28px;
+  height:28px;
+  font-size:.62rem;
   border-width:2px;
 }
 
 .honors-player-name{
-  font-size:.72rem;
+  font-size:.68rem;
   line-height:1;
 }
 
 .honors-card-value{
-  font-size:.78rem;
+  font-size:.74rem;
   line-height:1;
 }
 
