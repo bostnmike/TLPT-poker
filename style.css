@@ -5199,6 +5199,23 @@ td{
   font-weight:650;
 }
 
+@media (min-width:801px){
+  #players-grid .crew-card .crew-card-stats{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    margin-top:0;
+    transition:max-height .24s ease, opacity .24s ease, margin-top .24s ease;
+  }
+
+  #players-grid .crew-card:hover .crew-card-stats{
+    max-height:260px;
+    opacity:1;
+    overflow:visible;
+    margin-top:10px;
+  }
+}
+
 @media (max-width:800px){
   #players-grid .crew-card .crew-card-stats{
     max-height:none;
