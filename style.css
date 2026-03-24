@@ -2881,8 +2881,8 @@ a:hover{
 
 .honors-hub{
   display:grid;
-  gap:3px;
-  padding:3px;
+  gap:12px;
+  padding:12px;
   border-color:rgba(255,255,255,.08);
   background:
     radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 34%),
@@ -2890,8 +2890,8 @@ a:hover{
 }
 
 .honors-module{
-  padding:4px;
-  border-radius:12px;
+  padding:14px;
+  border-radius:16px;
   border:1px solid rgba(255,255,255,.08);
   background:
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
@@ -2926,28 +2926,12 @@ a:hover{
 }
 
 .honors-module .page-title-row{
-  margin-bottom:6px;
+  margin-bottom:8px;
   gap:10px;
 }
 
-.honors-module .champions-title{
-  font-size:1.42rem;
-  line-height:1.04;
-  letter-spacing:.01em;
-}
-
-.honors-module .page-chip-dashboard{
-  width:54px;
-  height:54px;
-}
-
-.honors-page-head .page-chip-dashboard{
-  width:72px;
-  height:72px;
-}
-
 .honors-module-kicker{
-  margin:0 0 4px 2px;
+  margin:0 0 12px 2px;
   color:var(--muted);
   font-size:.72rem;
   letter-spacing:.08em;
@@ -2958,44 +2942,57 @@ a:hover{
 #records-list{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:8px;
+  gap:12px;
   margin:0;
   padding:0;
   border:none;
   background:transparent;
   box-shadow:none;
+  align-items:stretch;
 }
 
 .honors-card{
-  min-height:unset;
-  padding:10px;
-  border-radius:14px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  min-height:190px;
+  height:100%;
+  padding:14px;
+  border-radius:16px;
 }
 
 .leader-banner-top{
-  gap:8px;
-  margin:-10px -10px 10px -10px;
-  padding:8px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:-14px -14px 12px -14px;
+  padding:10px 12px;
+  text-align:center;
 }
 
 .leader-banner-crown{
-  font-size:1rem;
+  font-size:1.12rem;
   line-height:1;
 }
 
 .leader-banner-title{
-  font-size:.84rem;
-  line-height:1.08;
+  font-size:.92rem;
+  line-height:1.1;
   letter-spacing:.02em;
 }
 
 .leader-banner-body{
-  gap:8px;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
   align-items:center;
 }
 
 .honors-card-top{
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .honors-card-top .player-avatar,
@@ -3007,13 +3004,30 @@ a:hover{
 }
 
 .honors-player-name{
-  font-size:.86rem;
-  line-height:1.06;
+  font-size:.92rem;
+  line-height:1.12;
+  font-weight:800;
+}
+
+.honors-card-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:0;
 }
 
 .honors-card-value{
-  font-size:.92rem;
+  margin-top:auto;
+  font-size:1rem;
+  line-height:1.15;
+  font-weight:800;
+}
+
+.honors-card-value--numeric{
+  margin-top:auto;
+  font-size:1.08rem;
   line-height:1.08;
+  font-weight:900;
 }
 
 #champions-list .honors-card-value,
@@ -3022,7 +3036,7 @@ a:hover{
   text-align:left;
 }
 
-@media (max-width:820px){
+@media (max-width:1100px){
   .honors-summary-strip{
     grid-template-columns:repeat(3, minmax(0,1fr));
   }
