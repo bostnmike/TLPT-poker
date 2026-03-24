@@ -5366,7 +5366,7 @@ td{
 
   .home-jump-nav{
   gap:8px;
-}
+  }
 
   .home-jump-pill,
   .home-module-cta{
@@ -5388,6 +5388,80 @@ td{
   .home-module-cta-row{
     margin-top:12px;
   }
+
+  .site-header .header-inner{
+  align-items:flex-start;
+}
+
+.nav{
+  gap:8px;
+}
+
+.nav a{
+  padding:7px 9px;
+  font-size:.86rem;
+}
+
+.page-title-row{
+  gap:10px;
+}
+
+.page-chip-dashboard{
+  width:64px;
+  height:64px;
+}
+
+.section{
+  padding:20px 18px;
+}
+
+.section-head{
+  margin-bottom:14px;
+}
+
+.dashboard-sort-shell,
+.standings-sort-shell,
+.crew-view-toolbar,
+.format-toggle,
+.home-snapshot-layout,
+.home-pulse-head,
+.home-analysis-lane{
+  padding-left:12px;
+  padding-right:12px;
+}
+
+.dashboard-button-groups .dashboard-buttons,
+.standings-sort-shell .button-row{
+  padding:10px;
+}
+
+.dashboard-meta-shell,
+.standings-meta-shell{
+  grid-template-columns:1fr;
+  gap:10px;
+  padding:12px;
+}
+
+.dashboard-meta-shell > #dashboard-current-stat,
+.standings-current-stat{
+  white-space:normal;
+  font-size:1.4rem;
+}
+
+#players-help-copy,
+#players-explainer,
+.page-helper-copy{
+  font-size:.9rem;
+  line-height:1.45;
+}
+
+.hero-title{
+  font-size:1.7rem;
+}
+
+.home-hero-copy{
+  font-size:.96rem;
+}
 }
 
 /* player profile */
@@ -7520,10 +7594,10 @@ td{
     margin:0;
   }
 
-.event-rsvp-avatar-row::before,
-.event-rsvp-avatar-row::after{
-  display:none;
-}
+  .event-rsvp-avatar-row::before,
+  .event-rsvp-avatar-row::after{
+    display:none;
+  }
 
   .event-rsvp-avatar-row > .event-rsvp-seat-player,
   .event-rsvp-avatar-row > .event-empty-seat{
@@ -7544,12 +7618,12 @@ td{
   }
   
   .player-formula-help{
-  text-align:center;
-  font-size:.78rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  margin:4px 0 14px;
-  opacity:.75;
+    text-align:center;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin:4px 0 14px;
+    opacity:.75;
   }
 
   .player-formula-help::after{
@@ -7566,13 +7640,86 @@ td{
   }
 
   .featured-player-meta{
-  align-items:center;
+    align-items:center;
   }
 
   .featured-player-tier,
   .featured-player-archetype{
     margin-left:auto;
     margin-right:auto;
+  }
+  .site-header .header-inner{
+    align-items:flex-start;
+  }
+
+  .nav{
+    gap:8px;
+  }
+
+  .nav a{
+    padding:7px 9px;
+    font-size:.86rem;
+  }
+
+  .page-title-row{
+    gap:10px;
+  }
+
+  .page-chip-dashboard{
+    width:64px;
+    height:64px;
+  }
+
+  .section{
+    padding:20px 18px;
+  }
+
+  .section-head{
+    margin-bottom:14px;
+  }
+
+  .dashboard-sort-shell,
+  .standings-sort-shell,
+  .crew-view-toolbar,
+  .format-toggle,
+  .home-snapshot-layout,
+  .home-pulse-head,
+  .home-analysis-lane{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .dashboard-button-groups .dashboard-buttons,
+  .standings-sort-shell .button-row{
+    padding:10px;
+  }
+
+  .dashboard-meta-shell,
+  .standings-meta-shell{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:12px;
+  }
+
+  .dashboard-meta-shell > #dashboard-current-stat,
+  .standings-current-stat{
+    white-space:normal;
+    font-size:1.4rem;
+  }
+
+  #players-help-copy,
+  #players-explainer,
+  .page-helper-copy{
+    font-size:.9rem;
+    line-height:1.45;
+  }
+
+  .hero-title{
+    font-size:1.7rem;
+  }
+
+  .home-hero-copy{
+    font-size:.96rem;
   }
 }
 
