@@ -373,6 +373,15 @@ a:hover{
 
 /* page chip headings */
 
+.page-kicker{
+  margin:0 0 10px 2px;
+  color:var(--gold);
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
 .page-title-row{
   display:flex;
   align-items:center;
