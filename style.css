@@ -2826,6 +2826,10 @@ a:hover{
   gap:5px;
 }
 
+.honors-summary-main > .honors-summary-value{
+  justify-self:end;
+}
+
 .honors-summary-player-row{
   display:flex;
   align-items:center;
@@ -2857,6 +2861,8 @@ a:hover{
   font-size:.94rem;
   font-weight:900;
   line-height:1.02;
+  width:100%;
+  text-align:right;
 }
 
 .honors-summary-comment{
