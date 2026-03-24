@@ -73,6 +73,23 @@ const DASHBOARD_META = Object.fromEntries(
     ])
 );
 
+const DASHBOARD_EDITORIAL = {
+  profit: "Who’s actually turning bullets into bankroll.",
+  roi: "Efficiency over volume. The cleanest results rise fastest.",
+  hits: "Who’s ending hands — and nights — with force.",
+  timesPlaced: "The most reliable cashing resumes in the room.",
+  bubbles: "Who keeps drifting painfully close without sealing the deal.",
+  hitRate: "Who converts entries into knockouts most often.",
+  cashRate: "Who finds the money most consistently.",
+  bubbleRate: "Who lives closest to the danger line.",
+  trueSkillScore: "The strongest all-around résumés in the room.",
+  luckIndex: "Who’s running purer than the rest of the table.",
+  clutchIndex: "Who closes when the pressure spikes.",
+  aggressionIndex: "Who pushes the pace and forces the action.",
+  survivorIndex: "Who outlasts the field when stacks get shallow.",
+  tiltIndex: "The league’s emotional volatility index."
+};
+
 const STAT_LEADER_CONFIG = [
   { key: "roi", title: "ROI Leader" },
   { key: "luckIndex", title: "Luck Leader" },
@@ -1082,6 +1099,69 @@ function ensureStandingsHeadline(sortKey) {
     STAT_FORMULAS[sortKey] || "Click a standings stat button to reveal the calculation formula.";
 }
 
+function renderStandingsRaceStrip(sortKey, sortedPlayers) {
+  const strip = document.getElementById("standings-race-strip");
+  if (!strip) return;
+
+  const meta = DASHBOARD_META[sortKey] || {
+    label: formatStatLabel(sortKey),
+    icon: statIcon(sortKey)
+  };
+
+  const topThree = sortedPlayers.slice(0, 3);
+
+  strip.innerHTML = `
+    <div class="standings-race-chip">
+      <span class="standings-race-chip-icon">${meta.icon}</span>
+      <span class="standings-race-chip-text">League Table · Sorted by ${meta.label}</span>
+    </div>
+
+    <div class="standings-race-top3">
+      ${topThree.map((player, index) => `
+        <a class="standings-race-item" href="${playerUrl(player)}">
+          <span class="standings-race-rank">${index + 1}</span>
+          <span class="standings-race-name">${displayPlayerName(player)}</span>
+        </a>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderDashboardStudioStrip(sortKey, sortedPlayers) {
+  const strip = document.getElementById("dashboard-studio-strip");
+  if (!strip) return;
+
+  const meta = DASHBOARD_META[sortKey] || {
+    label: formatStatLabel(sortKey),
+    icon: statIcon(sortKey),
+    formula: ""
+  };
+
+  const leader = sortedPlayers[0];
+  if (!leader) {
+    strip.innerHTML = "";
+    return;
+  }
+
+  strip.innerHTML = `
+    <div class="dashboard-studio-chip">
+      <span class="dashboard-studio-chip-icon">${meta.icon}</span>
+      <span class="dashboard-studio-chip-text">Now Discussing: ${meta.label} Board</span>
+    </div>
+
+    <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
+
+    <a class="dashboard-studio-leader" href="${playerUrl(leader)}">
+      ${playerImageMarkup(leader, "table")}
+      <div class="dashboard-studio-leader-meta">
+        <div class="dashboard-studio-leader-kicker">${meta.label} Leader</div>
+        <div class="dashboard-studio-leader-name">${displayPlayerName(leader)}</div>
+      </div>
+      <div class="dashboard-studio-leader-value ${statValueClass(leader, sortKey)}">${formatStatValue(leader, sortKey)}</div>
+    </a>
+  `;
+}
+
 function ensureDashboardHeadline(sortKey) {
   const grid = document.getElementById("dashboard-grid");
   if (!grid) return;
@@ -1742,6 +1822,8 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
 
+  renderStandingsRaceStrip(sortKey, sorted);
+
   tbody.innerHTML = sorted.map((player, index) => `
   <tr
     class="standings-row-link"
@@ -1826,8 +1908,11 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   );
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
+
+  renderDashboardStudioStrip(sortKey, sorted);
+
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
-    initAnimatedCounters(grid);
+  initAnimatedCounters(grid);
   setActiveSortButton("dashboard", sortKey);
 }
 
