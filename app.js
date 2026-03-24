@@ -1725,22 +1725,45 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const sorted = sortPlayers(eligiblePlayers, sortKey);
 
   tbody.innerHTML = sorted.map((player, index) => `
-    <tr>
-      <td>${index + 1}</td>
-      <td>${playerInlineMarkup(player, "standings")}</td>
-      <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
-      <td>${fmtPct(player.roi)}</td>
-      <td>${fmtNum(player.trueSkillScore)}</td>
-      <td>${player.hits ?? "-"}</td>
-      <td>${player.timesPlaced ?? "-"}</td>
-      <td>${player.bubbles ?? "-"}</td>
-      <td>${fmtNum(player.luckIndex)}</td>
-      <td>${fmtNum(player.clutchIndex)}</td>
-    </tr>
-  `).join("");
+  <tr
+    class="standings-row-link"
+    data-href="${playerUrl(player)}"
+    tabindex="0"
+    role="link"
+    aria-label="Open ${displayPlayerNamePlain(player)} profile"
+  >
+    <td>${index + 1}</td>
+    <td>${playerInlineMarkup(player, "standings")}</td>
+    <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
+    <td>${fmtPct(player.roi)}</td>
+    <td>${fmtNum(player.trueSkillScore)}</td>
+    <td>${player.hits ?? "-"}</td>
+    <td>${player.timesPlaced ?? "-"}</td>
+    <td>${player.bubbles ?? "-"}</td>
+    <td>${fmtNum(player.luckIndex)}</td>
+    <td>${fmtNum(player.clutchIndex)}</td>
+  </tr>
+`).join("");
 
   setActiveSortButton("standings", sortKey);
-}
+
+tbody.querySelectorAll(".standings-row-link").forEach(row => {
+  const href = row.dataset.href;
+  if (!href) return;
+
+  row.addEventListener("click", event => {
+    const link = event.target.closest("a");
+    if (link) return;
+    window.location.href = href;
+  });
+
+  row.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      window.location.href = href;
+    }
+  });
+});
   
 function dashboardCardMarkup(player, sortKey, rank = null) {
   let medal = "";
