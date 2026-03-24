@@ -1113,7 +1113,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
 
   strip.innerHTML = `
     <div class="standings-race-context">
-      Qualified Player Pool: ${sortedPlayers.length}
+      <strong>Qualified Entries:</strong> ${sortedPlayers.length} players with 2+ entries
     </div>
   `;
 }
@@ -1134,7 +1134,7 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
     return;
   }
 
-  strip.innerHTML = `
+strip.innerHTML = `
   <div class="cockpit-kicker">Studio Readout</div>
 
   <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
