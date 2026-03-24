@@ -8932,3 +8932,182 @@ td{
 .section.media-header .page-title-row{
   backdrop-filter:blur(2px);
 }
+
+/* ===== HONORS BODY LAYOUT LOCK ===== */
+
+#champions-list,
+#leaders-list,
+#records-list{
+  display:grid !important;
+  grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  gap:12px !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  align-items:stretch !important;
+}
+
+#champions-list .honors-card,
+#leaders-list .honors-card,
+#records-list .honors-card{
+  position:relative !important;
+  overflow:hidden !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  min-height:190px !important;
+  height:100% !important;
+  padding:14px !important;
+  border-radius:16px !important;
+}
+
+#champions-list .leader-banner-card,
+#leaders-list .leader-banner-card,
+#records-list .leader-banner-card{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 22%, rgba(17,22,30,1) 22%, rgba(17,22,30,1) 100%) !important;
+  border-color:rgba(255,255,255,.12) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 12px 28px rgba(0,0,0,.22) !important;
+}
+
+#champions-list .leader-banner-top,
+#leaders-list .leader-banner-top,
+#records-list .leader-banner-top{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  margin:-14px -14px 12px -14px !important;
+  padding:10px 12px !important;
+  text-align:center !important;
+}
+
+#champions-list .leader-banner-crown,
+#leaders-list .leader-banner-crown,
+#records-list .leader-banner-crown{
+  font-size:1.12rem !important;
+  line-height:1 !important;
+}
+
+#champions-list .leader-banner-title,
+#leaders-list .leader-banner-title,
+#records-list .leader-banner-title{
+  font-size:.92rem !important;
+  line-height:1.1 !important;
+  letter-spacing:.02em !important;
+}
+
+#champions-list .leader-banner-body,
+#leaders-list .leader-banner-body,
+#records-list .leader-banner-body{
+  display:grid !important;
+  grid-template-columns:auto 1fr !important;
+  gap:10px !important;
+  align-items:center !important;
+}
+
+#champions-list .honors-card-top,
+#leaders-list .honors-card-top,
+#records-list .honors-card-top{
+  margin-bottom:10px !important;
+}
+
+#champions-list .honors-card-top .player-avatar,
+#champions-list .honors-card-top .player-avatar-fallback,
+#leaders-list .honors-card-top .player-avatar,
+#leaders-list .honors-card-top .player-avatar-fallback,
+#records-list .honors-card-top .player-avatar,
+#records-list .honors-card-top .player-avatar-fallback{
+  width:44px !important;
+  height:44px !important;
+  font-size:.86rem !important;
+  border-width:2px !important;
+}
+
+#champions-list .honors-card-stack,
+#leaders-list .honors-card-stack,
+#records-list .honors-card-stack{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:4px !important;
+  min-width:0 !important;
+}
+
+#champions-list .honors-player-name,
+#leaders-list .honors-player-name,
+#records-list .honors-player-name{
+  font-size:.92rem !important;
+  line-height:1.12 !important;
+  font-weight:800 !important;
+}
+
+#champions-list .honors-card-value,
+#leaders-list .honors-card-value,
+#records-list .honors-card-value{
+  margin-top:auto !important;
+  font-size:1rem !important;
+  line-height:1.15 !important;
+  font-weight:800 !important;
+  text-align:left !important;
+}
+
+#champions-list .honors-card-value--numeric,
+#leaders-list .honors-card-value--numeric,
+#records-list .honors-card-value--numeric{
+  margin-top:auto !important;
+  min-height:auto !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  text-align:left !important;
+  font-size:1.08rem !important;
+  line-height:1.08 !important;
+  font-weight:900 !important;
+}
+
+/* keep the existing section colors, just lock the size/layout */
+#champions-list .honors-card-value,
+#champions-list .honors-card-value--numeric{
+  color:#d8b4fe !important;
+  text-shadow:none !important;
+}
+
+#leaders-list .honors-card-value,
+#leaders-list .honors-card-value--numeric{
+  color:#93c5fd !important;
+  text-shadow:none !important;
+}
+
+#records-list .honors-card-value,
+#records-list .honors-card-value--numeric{
+  color:#86efac !important;
+  text-shadow:none !important;
+}
+
+@media (max-width:1100px){
+  #champions-list,
+  #leaders-list,
+  #records-list{
+    grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:800px){
+  #champions-list,
+  #leaders-list,
+  #records-list{
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width:640px){
+  #champions-list,
+  #leaders-list,
+  #records-list{
+    grid-template-columns:1fr !important;
+  }
+}
