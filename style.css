@@ -343,10 +343,10 @@ a:hover{
 .dashboard-studio-strip,
 .standings-race-strip{
   display:grid;
-  gap:8px;
-  margin:10px 0 12px 0;
-  padding:11px 13px;
-  border-radius:14px;
+  gap:6px;
+  margin:8px 0 12px 0;
+  padding:10px 12px;
+  border-radius:13px;
   background:
     linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
     rgba(255,255,255,.02);
@@ -398,12 +398,6 @@ a:hover{
     0 5px 12px rgba(0,0,0,.14);
 }
 
-.dashboard-studio-copy{
-  color:#d9e2ec;
-  line-height:1.5;
-  max-width:72ch;
-}
-
 .dashboard-studio-strip > .dashboard-studio-chip,
 .dashboard-studio-strip > .dashboard-studio-copy{
   grid-column:1;
@@ -439,9 +433,9 @@ a:hover{
   display:grid;
   grid-template-columns:auto minmax(0,1fr) auto;
   align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:12px;
+  gap:8px;
+  padding:9px 11px;
+  border-radius:11px;
   border:1px solid rgba(255,184,28,.16);
   background:
     linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02)),
@@ -463,7 +457,7 @@ a:hover{
 
 .dashboard-studio-leader-kicker{
   color:var(--gold);
-  font-size:.72rem;
+  font-size:.68rem;
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -471,13 +465,13 @@ a:hover{
 
 .dashboard-studio-leader-name{
   color:#fff;
-  font-size:1rem;
+  font-size:.96rem;
   font-weight:800;
   line-height:1.12;
 }
 
 .dashboard-studio-leader-value{
-  font-size:1rem;
+  font-size:.96rem;
   font-weight:900;
   white-space:nowrap;
 }
@@ -485,15 +479,15 @@ a:hover{
 .standings-race-top3{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:8px;
+  gap:6px;
 }
 
 .standings-race-item{
   display:flex;
   align-items:center;
-  gap:10px;
-  padding:9px 11px;
-  border-radius:12px;
+  gap:8px;
+  padding:7px 9px;
+  border-radius:10px;
   border:1px solid rgba(59,130,246,.14);
   background:
     linear-gradient(180deg, rgba(59,130,246,.08), rgba(59,130,246,.02)),
@@ -517,8 +511,8 @@ a:hover{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:24px;
-  height:24px;
+  width:20px;
+  height:20px;
   border-radius:999px;
   background:rgba(59,130,246,.18);
   color:#dbeafe;
@@ -529,7 +523,8 @@ a:hover{
 .standings-race-name{
   color:#fff;
   font-weight:800;
-  line-height:1.15;
+  line-height:1.1;
+  font-size:.92rem;
 }
 
 /* page chip headings */
@@ -3428,6 +3423,12 @@ td{
     inset 0 1px 0 rgba(255,255,255,.03);
 }
 
+#standings-table thead th{
+  position:sticky;
+  top:92px;
+  z-index:6;
+}
+
 #standings-table tbody tr:nth-child(1){
   background:
     linear-gradient(90deg, rgba(255,213,108,.18), rgba(255,213,108,.05) 38%, transparent 100%);
@@ -3570,6 +3571,12 @@ td{
     0 0 0 1px rgba(34,197,94,.10),
     0 14px 32px rgba(0,0,0,.26),
     0 0 28px rgba(34,197,94,.10);
+}
+
+.dashboard-sort-shell{
+  position:sticky;
+  top:92px;
+  z-index:8;
 }
 
 .dashboard-sort-shell::before{
@@ -5556,6 +5563,14 @@ td{
 
   .standings-race-top3{
     grid-template-columns:1fr;
+  }
+
+  .dashboard-sort-shell{
+    position:static;
+  }
+
+  #standings-table thead th{
+    position:static;
   }
 }
 
