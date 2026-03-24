@@ -1747,27 +1747,25 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
   setActiveSortButton("standings", sortKey);
 
-tbody.querySelectorAll(".standings-row-link").forEach(row => {
-  const href = row.dataset.href;
-  if (!href) return;
+  tbody.querySelectorAll(".standings-row-link").forEach(row => {
+    const href = row.dataset.href;
+    if (!href) return;
 
-  row.addEventListener("click", event => {
-    const link = event.target.closest("a");
-    if (link) return;
-    window.location.href = href;
-  });
-
-  row.addEventListener("keydown", event => {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
+    row.addEventListener("click", event => {
+      const link = event.target.closest("a");
+      if (link) return;
       window.location.href = href;
-    }
+    });
+
+    row.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        window.location.href = href;
+      }
+    });
   });
-});
 }
 
-function dashboardCardMarkup(player, sortKey, rank = null) {
-  
 function dashboardCardMarkup(player, sortKey, rank = null) {
   let medal = "";
   let rankClass = "dashboard-rank-default";
