@@ -3728,7 +3728,7 @@ td{
   position:relative;
   overflow:hidden;
   display:grid;
-  gap:4px;
+  gap:3px;
   margin:10px 0 14px 0;
   padding:8px;
   border:1px solid rgba(59,130,246,.28);
@@ -3762,7 +3762,7 @@ td{
   position:relative;
   z-index:1;
   margin:0;
-  padding:7px 8px;
+  padding:6px 7px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3782,7 +3782,7 @@ td{
 }
 
 .standings-datawall > #standings-meta-shell{
-  border-color:rgba(239,68,68,.18);
+  border-color:rgba(59,130,246,.18);
 }
 
 .standings-datawall > .table-wrap{
@@ -3801,7 +3801,7 @@ td{
     inset 0 1px 0 rgba(255,255,255,.03);
 }
 
-.standings-sort-shell .button-row{
+.standings-datawall > .button-row[data-sort-scope="standings"]{
   margin:0;
 }
 
@@ -3841,6 +3841,10 @@ td{
   white-space:nowrap;
 }
 
+.standings-current-stat .dashboard-current-icon{
+  color:#93c5fd;
+}
+
 .standings-current-label::after{
   content:":";
   display:inline-block;
@@ -3866,7 +3870,7 @@ td{
   color:#eff6ff;
 }
 
-.standings-sort-shell .btn{
+.standings-datawall > .button-row[data-sort-scope="standings"] .btn{
   border-color:rgba(59,130,246,.34);
   background:
     linear-gradient(180deg, rgba(219,234,254,.10), rgba(255,255,255,0) 42%),
@@ -3878,7 +3882,7 @@ td{
     0 8px 18px rgba(0,0,0,.22);
 }
 
-.standings-sort-shell .btn:hover{
+.standings-datawall > .button-row[data-sort-scope="standings"] .btn:hover{
   border-color:rgba(59,130,246,.48);
   background:
     linear-gradient(180deg, rgba(219,234,254,.16), rgba(255,255,255,0) 42%),
@@ -3890,7 +3894,7 @@ td{
     0 0 18px rgba(59,130,246,.10);
 }
 
-.standings-sort-shell .btn.active{
+.standings-datawall > .button-row[data-sort-scope="standings"] .btn.active{
   border-color:rgba(59,130,246,.54);
   background:
     linear-gradient(180deg, rgba(219,234,254,.14), rgba(255,255,255,0) 42%),
