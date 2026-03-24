@@ -2716,9 +2716,12 @@ function renderHonorsSummary(data) {
 
   strip.innerHTML = `
     <div class="honors-summary-card honors-summary-card-gold">
-      <div class="honors-summary-kicker">Profit Leader</div>
+      <div class="honors-summary-kicker">💰 Profit Leader</div>
       <div class="honors-summary-main">
-        <div class="honors-summary-name">${profitLeader ? displayPlayerName(profitLeader) : "—"}</div>
+        <div class="honors-summary-player-row">
+          ${profitLeader ? playerImageMarkup(profitLeader, "table") : ""}
+          <div class="honors-summary-name">${profitLeader ? displayPlayerName(profitLeader) : "—"}</div>
+        </div>
         <div class="honors-summary-value ${profitLeader ? statValueClass(profitLeader, "profit") : ""}">
           ${profitLeader ? fmtMoney(profitLeader.profit) : "—"}
         </div>
@@ -2726,9 +2729,12 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-purple">
-      <div class="honors-summary-kicker">Power Leader</div>
+      <div class="honors-summary-kicker">💪🏼 Power Leader</div>
       <div class="honors-summary-main">
-        <div class="honors-summary-name">${powerLeader ? displayPlayerName(powerLeader) : "—"}</div>
+        <div class="honors-summary-player-row">
+          ${powerLeader ? playerImageMarkup(powerLeader, "table") : ""}
+          <div class="honors-summary-name">${powerLeader ? displayPlayerName(powerLeader) : "—"}</div>
+        </div>
         <div class="honors-summary-value">
           ${powerLeader ? fmtNum(powerLeader.trueSkillScore) : "—"}
         </div>
@@ -2736,19 +2742,25 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-blue">
-      <div class="honors-summary-kicker">Worst Luck</div>
+      <div class="honors-summary-kicker">😵 Worst Luck</div>
       <div class="honors-summary-main">
-        <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
-        <div class="honors-summary-value ${worstLuck ? statValueClass({ profit: worstLuck.luckIndex }, "profit") : ""}">
+        <div class="honors-summary-player-row">
+          ${worstLuck ? playerImageMarkup(worstLuck, "table") : ""}
+          <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
+        </div>
+        <div class="honors-summary-value negative">
           ${worstLuck ? fmtNum(worstLuck.luckIndex) : "—"}
         </div>
       </div>
     </div>
 
     <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">Rebuy Leader</div>
+      <div class="honors-summary-kicker">♻️ Rebuy Leader</div>
       <div class="honors-summary-main">
-        <div class="honors-summary-name">${rebuyLeader ? displayPlayerName(rebuyLeader) : "—"}</div>
+        <div class="honors-summary-player-row">
+          ${rebuyLeader ? playerImageMarkup(rebuyLeader, "table") : ""}
+          <div class="honors-summary-name">${rebuyLeader ? displayPlayerName(rebuyLeader) : "—"}</div>
+        </div>
         <div class="honors-summary-value">
           ${rebuyLeader ? String(rebuyLeader.rebuys ?? "—") : "—"}
         </div>
@@ -2756,7 +2768,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-slate">
-      <div class="honors-summary-kicker">Qualified Field</div>
+      <div class="honors-summary-kicker">🧾 Qualified Field</div>
       <div class="honors-summary-main">
         <div class="honors-summary-name">Players with 5+ entries</div>
         <div class="honors-summary-value">${eligiblePlayers.length}</div>
