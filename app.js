@@ -1764,6 +1764,9 @@ tbody.querySelectorAll(".standings-row-link").forEach(row => {
     }
   });
 });
+}
+
+function dashboardCardMarkup(player, sortKey, rank = null) {
   
 function dashboardCardMarkup(player, sortKey, rank = null) {
   let medal = "";
