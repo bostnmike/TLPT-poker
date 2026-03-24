@@ -2749,15 +2749,15 @@ a:hover{
 .honors-summary-strip{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:8px;
+  gap:7px;
   margin-top:12px;
 }
 
 .honors-summary-card{
   position:relative;
   overflow:hidden;
-  padding:11px 12px;
-  border-radius:13px;
+  padding:10px 11px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.08);
   background:
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)),
@@ -2778,15 +2778,6 @@ a:hover{
   opacity:.95;
 }
 
-.honors-summary-card-gold{
-  border-color:rgba(168,85,247,.26);
-  background:
-    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 30%),
-    linear-gradient(180deg, rgba(168,85,247,.08), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
-}
-.honors-summary-card-gold::before{ background:linear-gradient(90deg, rgba(168,85,247,.95), transparent); }
-
 .honors-summary-card-purple{
   border-color:rgba(168,85,247,.26);
   background:
@@ -2794,16 +2785,20 @@ a:hover{
     linear-gradient(180deg, rgba(168,85,247,.08), rgba(255,255,255,.01)),
     rgba(255,255,255,.02);
 }
-.honors-summary-card-purple::before{ background:linear-gradient(90deg, rgba(168,85,247,.95), transparent); }
+.honors-summary-card-purple::before{
+  background:linear-gradient(90deg, rgba(168,85,247,.95), transparent);
+}
 
 .honors-summary-card-blue{
-  border-color:rgba(34,197,94,.26);
+  border-color:rgba(59,130,246,.26);
   background:
-    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 30%),
-    linear-gradient(180deg, rgba(34,197,94,.08), rgba(255,255,255,.01)),
+    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 30%),
+    linear-gradient(180deg, rgba(59,130,246,.08), rgba(255,255,255,.01)),
     rgba(255,255,255,.02);
 }
-.honors-summary-card-blue::before{ background:linear-gradient(90deg, rgba(34,197,94,.95), transparent); }
+.honors-summary-card-blue::before{
+  background:linear-gradient(90deg, rgba(59,130,246,.95), transparent);
+}
 
 .honors-summary-card-green{
   border-color:rgba(34,197,94,.26);
@@ -2812,52 +2807,45 @@ a:hover{
     linear-gradient(180deg, rgba(34,197,94,.08), rgba(255,255,255,.01)),
     rgba(255,255,255,.02);
 }
-.honors-summary-card-green::before{ background:linear-gradient(90deg, rgba(34,197,94,.95), transparent); }
-
-.honors-summary-card-slate{
-  border-color:rgba(148,163,184,.22);
-  background:
-    radial-gradient(circle at top right, rgba(148,163,184,.10), transparent 30%),
-    linear-gradient(180deg, rgba(148,163,184,.06), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
+.honors-summary-card-green::before{
+  background:linear-gradient(90deg, rgba(34,197,94,.95), transparent);
 }
-.honors-summary-card-slate::before{ background:linear-gradient(90deg, rgba(148,163,184,.9), transparent); }
 
 .honors-summary-kicker{
   color:var(--muted);
-  font-size:.66rem;
+  font-size:.64rem;
   font-weight:900;
-  letter-spacing:.10em;
+  letter-spacing:.09em;
   text-transform:uppercase;
   line-height:1;
-  margin-bottom:8px;
+  margin-bottom:7px;
 }
 
 .honors-summary-main{
   display:grid;
-  gap:6px;
+  gap:5px;
 }
 
 .honors-summary-player-row{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:7px;
   min-width:0;
 }
 
 .honors-summary-player-row .player-avatar,
 .honors-summary-player-row .player-avatar-fallback{
-  width:38px;
-  height:38px;
-  font-size:.82rem;
+  width:34px;
+  height:34px;
+  font-size:.78rem;
   border-width:2px;
 }
 
 .honors-summary-name{
   color:#fff;
-  font-size:.88rem;
+  font-size:.84rem;
   font-weight:800;
-  line-height:1.15;
+  line-height:1.08;
   min-width:0;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -2866,9 +2854,29 @@ a:hover{
 
 .honors-summary-value{
   color:var(--gold);
-  font-size:1rem;
+  font-size:.94rem;
   font-weight:900;
-  line-height:1.05;
+  line-height:1.02;
+}
+
+.honors-summary-comment{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+  padding:8px 10px 0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.35;
+}
+
+.honors-summary-comment-label{
+  color:#fff;
+  font-weight:800;
+}
+
+.honors-summary-comment-value{
+  color:var(--muted);
 }
 
 .honors-hub{
@@ -2933,7 +2941,7 @@ a:hover{
 #records-list{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:7px;
+  gap:6px;
   margin:0;
   padding:0;
   border:none;
@@ -2943,52 +2951,52 @@ a:hover{
 
 .honors-card{
   min-height:unset;
-  padding:9px;
-  border-radius:13px;
+  padding:8px;
+  border-radius:12px;
 }
 
 .leader-banner-top{
-  gap:6px;
-  margin:-9px -9px 7px -9px;
-  padding:7px 8px;
+  gap:5px;
+  margin:-8px -8px 6px -8px;
+  padding:6px 7px;
 }
 
 .leader-banner-crown{
-  font-size:1rem;
+  font-size:.94rem;
   line-height:1;
 }
 
 .leader-banner-title{
-  font-size:.72rem;
-  line-height:1.02;
+  font-size:.68rem;
+  line-height:1;
   letter-spacing:.02em;
 }
 
 .leader-banner-body{
-  gap:7px;
+  gap:6px;
   align-items:center;
 }
 
 .honors-card-top{
-  margin-bottom:7px;
+  margin-bottom:6px;
 }
 
 .honors-card-top .player-avatar,
 .honors-card-top .player-avatar-fallback{
-  width:46px;
-  height:46px;
-  font-size:.88rem;
+  width:42px;
+  height:42px;
+  font-size:.82rem;
   border-width:2px;
 }
 
 .honors-player-name{
-  font-size:.86rem;
-  line-height:1.04;
+  font-size:.8rem;
+  line-height:1.02;
 }
 
 .honors-card-value{
-  font-size:.94rem;
-  line-height:1.02;
+  font-size:.88rem;
+  line-height:1;
 }
 
 #champions-list .honors-card-value,
