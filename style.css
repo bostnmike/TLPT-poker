@@ -429,6 +429,23 @@ a:hover{
   max-width:64ch;
 }
 
+.dashboard-studio-context,
+.standings-race-context{
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.3;
+}
+
+.dashboard-studio-context{
+  grid-column:1;
+}
+
+.standings-race-context{
+  align-self:center;
+}
+
 .dashboard-studio-leader{
   display:grid;
   grid-template-columns:auto minmax(0,1fr) auto;
