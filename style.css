@@ -343,9 +343,9 @@ a:hover{
 .dashboard-studio-strip,
 .standings-race-strip{
   display:grid;
-  gap:10px;
-  margin:12px 0 14px 0;
-  padding:12px 14px;
+  gap:8px;
+  margin:10px 0 12px 0;
+  padding:11px 13px;
   border-radius:14px;
   background:
     linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
@@ -439,9 +439,9 @@ a:hover{
   display:grid;
   grid-template-columns:auto minmax(0,1fr) auto;
   align-items:center;
-  gap:12px;
-  padding:11px 13px;
-  border-radius:13px;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:12px;
   border:1px solid rgba(255,184,28,.16);
   background:
     linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02)),
@@ -463,7 +463,7 @@ a:hover{
 
 .dashboard-studio-leader-kicker{
   color:var(--gold);
-  font-size:.76rem;
+  font-size:.72rem;
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
