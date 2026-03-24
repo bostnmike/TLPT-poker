@@ -2881,8 +2881,8 @@ a:hover{
 
 .honors-hub{
   display:grid;
-  gap:4px;
-  padding:4px;
+  gap:3px;
+  padding:3px;
   border-color:rgba(255,255,255,.08);
   background:
     radial-gradient(circle at top right, rgba(255,255,255,.04), transparent 34%),
@@ -2890,8 +2890,8 @@ a:hover{
 }
 
 .honors-module{
-  padding:5px;
-  border-radius:13px;
+  padding:4px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.08);
   background:
     linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
@@ -2926,17 +2926,28 @@ a:hover{
 }
 
 .honors-module .page-title-row{
-  margin-bottom:8px;
+  margin-bottom:6px;
+  gap:10px;
 }
 
 .honors-module .champions-title{
-  font-size:1.28rem;
-  line-height:1.06;
+  font-size:1.42rem;
+  line-height:1.04;
   letter-spacing:.01em;
 }
 
+.honors-module .page-chip-dashboard{
+  width:54px;
+  height:54px;
+}
+
+.honors-page-head .page-chip-dashboard{
+  width:72px;
+  height:72px;
+}
+
 .honors-module-kicker{
-  margin:0 0 6px 2px;
+  margin:0 0 4px 2px;
   color:var(--muted);
   font-size:.72rem;
   letter-spacing:.08em;
@@ -2947,7 +2958,7 @@ a:hover{
 #records-list{
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:3px;
+  gap:2px;
   margin:0;
   padding:0;
   border:none;
@@ -2957,51 +2968,51 @@ a:hover{
 
 .honors-card{
   min-height:unset;
-  padding:4px;
-  border-radius:10px;
+  padding:3px;
+  border-radius:9px;
 }
 
 .leader-banner-top{
-  gap:3px;
-  margin:-4px -4px 3px -4px;
-  padding:3px 4px;
+  gap:2px;
+  margin:-3px -3px 2px -3px;
+  padding:2px 3px;
 }
 
 .leader-banner-crown{
-  font-size:.74rem;
+  font-size:.68rem;
   line-height:1;
 }
 
 .leader-banner-title{
-  font-size:.76rem;
+  font-size:.78rem;
   line-height:1.02;
   letter-spacing:.01em;
 }
 
 .leader-banner-body{
-  gap:3px;
+  gap:2px;
   align-items:center;
 }
 
 .honors-card-top{
-  margin-bottom:3px;
+  margin-bottom:2px;
 }
 
 .honors-card-top .player-avatar,
 .honors-card-top .player-avatar-fallback{
-  width:28px;
-  height:28px;
-  font-size:.62rem;
+  width:24px;
+  height:24px;
+  font-size:.56rem;
   border-width:2px;
 }
 
 .honors-player-name{
-  font-size:.68rem;
+  font-size:.64rem;
   line-height:1;
 }
 
 .honors-card-value{
-  font-size:.74rem;
+  font-size:.70rem;
   line-height:1;
 }
 
