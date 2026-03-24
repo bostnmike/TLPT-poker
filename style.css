@@ -556,6 +556,16 @@ a:hover{
   text-transform:uppercase;
 }
 
+.cockpit-kicker{
+  color:var(--muted);
+  font-size:.66rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  line-height:1;
+  margin-bottom:2px;
+}
+
 .page-title-row{
   display:flex;
   align-items:center;
