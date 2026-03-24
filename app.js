@@ -1116,6 +1116,8 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
       <span class="standings-race-chip-text">Sorted by ${meta.label}</span>
     </div>
 
+    <div class="standings-race-context">Top 3 of ${sortedPlayers.length} qualified players</div>
+
     <div class="standings-race-top3">
       ${topThree.map((player, index) => `
         <a class="standings-race-item" href="${playerUrl(player)}">
@@ -1150,6 +1152,8 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
     </div>
 
     <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
+
+    <div class="dashboard-studio-context">${sortedPlayers.length} qualified players on this board</div>
 
     <a class="dashboard-studio-leader" href="${playerUrl(leader)}">
       ${playerImageMarkup(leader, "table")}
