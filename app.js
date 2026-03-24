@@ -1111,11 +1111,6 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   const strip = document.getElementById("standings-race-strip");
   if (!strip) return;
 
-  const meta = DASHBOARD_META[sortKey] || {
-    label: formatStatLabel(sortKey),
-    icon: statIcon(sortKey)
-  };
-
   const topThree = sortedPlayers.slice(0, 3);
 
   strip.innerHTML = `
