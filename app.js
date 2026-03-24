@@ -2709,16 +2709,40 @@ function renderHonorsSummary(data) {
 
   const players = data?.players || [];
   const eligiblePlayers = getEligiblePlayers(players);
+  const { statLeaders, recordItems } = getBalancedHonorsSections(data);
 
   const profitLeader = getLeaderByRule(players, HONOR_RULES["Profit Leader"]);
   const powerLeader = getLeaderByRule(players, HONOR_RULES["Power Leader"]);
-  const cashLeader = sortPlayers(eligiblePlayers, "cashRate")[0];
+
+  const cashLeaderConfig = statLeaders.find(item => item.key === "cashRate") || null;
+  const cashLeader = cashLeaderConfig
+    ? sortPlayers(eligiblePlayers, cashLeaderConfig.key)[0]
+    : sortPlayers(eligiblePlayers, "cashRate")[0];
+
+  const worstLuckConfig = recordItems.find(item => item.label === "Worst Luck Index");
+  const rebuyConfig = recordItems.find(item => item.label === "Most Rebuys");
+
   const worstLuck = getLeaderByRule(players, RECORD_RULES["Worst Luck Index"]);
   const rebuyLeader = getLeaderByRule(players, RECORD_RULES["Most Rebuys"]);
 
+  const profitLabel = honorsPageLabel("Profit Leader");
+  const profitIcon = honorIcon("Profit Leader");
+
+  const powerLabel = honorsPageLabel("Power Leader");
+  const powerIcon = honorIcon("Power Leader");
+
+  const blueLabel = cashLeaderConfig?.title || "Cash Rate Leader";
+  const blueIcon = cashLeaderConfig?.icon || statIcon("cashRate");
+
+  const worstLuckLabel = worstLuckConfig?.title || worstLuckConfig?.label || "Worst Luck Index";
+  const worstLuckIcon = worstLuckConfig?.icon || recordIcon(worstLuckConfig?.label || "Worst Luck Index");
+
+  const rebuyLabel = rebuyConfig?.title || rebuyConfig?.label || "Most Rebuys";
+  const rebuyIcon = rebuyConfig?.icon || recordIcon(rebuyConfig?.label || "Most Rebuys");
+
   strip.innerHTML = `
     <div class="honors-summary-card honors-summary-card-purple">
-      <div class="honors-summary-kicker">💰 Profit Leader</div>
+      <div class="honors-summary-kicker">${profitIcon} ${profitLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${profitLeader ? playerImageMarkup(profitLeader, "table") : ""}
@@ -2731,7 +2755,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-purple">
-      <div class="honors-summary-kicker">💪🏼 Power Leader</div>
+      <div class="honors-summary-kicker">${powerIcon} ${powerLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${powerLeader ? playerImageMarkup(powerLeader, "table") : ""}
@@ -2744,7 +2768,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-blue">
-      <div class="honors-summary-kicker">💵 Cash Cow</div>
+      <div class="honors-summary-kicker">${blueIcon} ${blueLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${cashLeader ? playerImageMarkup(cashLeader, "table") : ""}
@@ -2757,7 +2781,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">🦤 Cursed Duck</div>
+      <div class="honors-summary-kicker">${worstLuckIcon} ${worstLuckLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${worstLuck ? playerImageMarkup(worstLuck, "table") : ""}
@@ -2770,7 +2794,7 @@ function renderHonorsSummary(data) {
     </div>
 
     <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">♻️ Mr. Rebuy</div>
+      <div class="honors-summary-kicker">${rebuyIcon} ${rebuyLabel}</div>
       <div class="honors-summary-main">
         <div class="honors-summary-player-row">
           ${rebuyLeader ? playerImageMarkup(rebuyLeader, "table") : ""}
