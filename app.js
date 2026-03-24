@@ -2702,6 +2702,69 @@ function renderStatLeaders(data) {
   initAnimatedCounters(list);
 }
 
+function renderHonorsSummary(data) {
+  const strip = document.getElementById("honors-summary-strip");
+  if (!strip) return;
+
+  const players = data?.players || [];
+  const eligiblePlayers = getEligiblePlayers(players);
+
+  const profitLeader = getLeaderByRule(players, HONOR_RULES["Profit Leader"]);
+  const powerLeader = getLeaderByRule(players, HONOR_RULES["Power Leader"]);
+  const worstLuck = getLeaderByRule(players, RECORD_RULES["Worst Luck Index"]);
+  const rebuyLeader = getLeaderByRule(players, RECORD_RULES["Most Rebuys"]);
+
+  strip.innerHTML = `
+    <div class="honors-summary-card honors-summary-card-gold">
+      <div class="honors-summary-kicker">Profit Leader</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-name">${profitLeader ? displayPlayerName(profitLeader) : "—"}</div>
+        <div class="honors-summary-value ${profitLeader ? statValueClass(profitLeader, "profit") : ""}">
+          ${profitLeader ? fmtMoney(profitLeader.profit) : "—"}
+        </div>
+      </div>
+    </div>
+
+    <div class="honors-summary-card honors-summary-card-purple">
+      <div class="honors-summary-kicker">Power Leader</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-name">${powerLeader ? displayPlayerName(powerLeader) : "—"}</div>
+        <div class="honors-summary-value">
+          ${powerLeader ? fmtNum(powerLeader.trueSkillScore) : "—"}
+        </div>
+      </div>
+    </div>
+
+    <div class="honors-summary-card honors-summary-card-blue">
+      <div class="honors-summary-kicker">Worst Luck</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
+        <div class="honors-summary-value ${worstLuck ? statValueClass({ profit: worstLuck.luckIndex }, "profit") : ""}">
+          ${worstLuck ? fmtNum(worstLuck.luckIndex) : "—"}
+        </div>
+      </div>
+    </div>
+
+    <div class="honors-summary-card honors-summary-card-green">
+      <div class="honors-summary-kicker">Rebuy Leader</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-name">${rebuyLeader ? displayPlayerName(rebuyLeader) : "—"}</div>
+        <div class="honors-summary-value">
+          ${rebuyLeader ? String(rebuyLeader.rebuys ?? "—") : "—"}
+        </div>
+      </div>
+    </div>
+
+    <div class="honors-summary-card honors-summary-card-slate">
+      <div class="honors-summary-kicker">Qualified Field</div>
+      <div class="honors-summary-main">
+        <div class="honors-summary-name">Players with 5+ entries</div>
+        <div class="honors-summary-value">${eligiblePlayers.length}</div>
+      </div>
+    </div>
+  `;
+}
+
 function escapeHtmlAttr(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -3024,6 +3087,7 @@ async function main() {
   renderSchedule(data);
   renderChampions(data);
   renderStatLeaders(data);
+  renderHonorsSummary(data);
   initRulesPage();
   initSorting();
   initCrewViewToggle();
