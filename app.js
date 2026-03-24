@@ -1119,23 +1119,19 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   const topThree = sortedPlayers.slice(0, 3);
 
   strip.innerHTML = `
-    <div class="cockpit-kicker">Race View</div>
-    <div class="standings-race-chip">
-      <span class="standings-race-chip-icon">${meta.icon}</span>
-      <span class="standings-race-chip-text">Sorted by ${meta.label}</span>
-    </div>
+  <div class="cockpit-kicker">Race View</div>
 
-    <div class="standings-race-context">Top 3 of ${sortedPlayers.length} qualified players</div>
+  <div class="standings-race-context">Top 3 of ${sortedPlayers.length} qualified players</div>
 
-    <div class="standings-race-top3">
-      ${topThree.map((player, index) => `
-        <a class="standings-race-item" href="${playerUrl(player)}">
-          <span class="standings-race-rank">${index + 1}</span>
-          <span class="standings-race-name">${displayPlayerName(player)}</span>
-        </a>
-      `).join("")}
-    </div>
-  `;
+  <div class="standings-race-top3">
+    ${topThree.map((player, index) => `
+      <a class="standings-race-item" href="${playerUrl(player)}">
+        <span class="standings-race-rank">${index + 1}</span>
+        <span class="standings-race-name">${displayPlayerName(player)}</span>
+      </a>
+    `).join("")}
+  </div>
+`;
 }
 
 function renderDashboardStudioStrip(sortKey, sortedPlayers) {
@@ -1155,25 +1151,21 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   }
 
   strip.innerHTML = `
-    <div class="cockpit-kicker">Studio Readout</div>
-    <div class="dashboard-studio-chip">
-      <span class="dashboard-studio-chip-icon">${meta.icon}</span>
-      <span class="dashboard-studio-chip-text">${meta.label} Board</span>
+  <div class="cockpit-kicker">Studio Readout</div>
+
+  <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
+
+  <div class="dashboard-studio-context">${sortedPlayers.length} qualified players on this board</div>
+
+  <a class="dashboard-studio-leader" href="${playerUrl(leader)}">
+    ${playerImageMarkup(leader, "table")}
+    <div class="dashboard-studio-leader-meta">
+      <div class="dashboard-studio-leader-kicker">${meta.label} Leader</div>
+      <div class="dashboard-studio-leader-name">${displayPlayerName(leader)}</div>
     </div>
-
-    <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
-
-    <div class="dashboard-studio-context">${sortedPlayers.length} qualified players on this board</div>
-
-    <a class="dashboard-studio-leader" href="${playerUrl(leader)}">
-      ${playerImageMarkup(leader, "table")}
-      <div class="dashboard-studio-leader-meta">
-        <div class="dashboard-studio-leader-kicker">${meta.label} Leader</div>
-        <div class="dashboard-studio-leader-name">${displayPlayerName(leader)}</div>
-      </div>
-      <div class="dashboard-studio-leader-value ${statValueClass(leader, sortKey)}">${formatStatValue(leader, sortKey)}</div>
-    </a>
-  `;
+    <div class="dashboard-studio-leader-value ${statValueClass(leader, sortKey)}">${formatStatValue(leader, sortKey)}</div>
+  </a>
+`;
 }
 
 function ensureDashboardHeadline(sortKey) {
