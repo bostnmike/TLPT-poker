@@ -8947,7 +8947,7 @@ td{
   backdrop-filter:blur(2px);
 }
 
-/* ===== HONORS BODY LAYOUT LOCK ===== */
+/* ===== HONORS BODY FINAL LAYOUT LOCK ===== */
 
 #champions-list,
 #leaders-list,
@@ -8971,21 +8971,10 @@ td{
   display:flex !important;
   flex-direction:column !important;
   justify-content:flex-start !important;
-  min-height:190px !important;
+  min-height:220px !important;
   height:100% !important;
-  padding:14px !important;
+  padding:16px !important;
   border-radius:16px !important;
-}
-
-#champions-list .leader-banner-card,
-#leaders-list .leader-banner-card,
-#records-list .leader-banner-card{
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 22%, rgba(17,22,30,1) 22%, rgba(17,22,30,1) 100%) !important;
-  border-color:rgba(255,255,255,.12) !important;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06),
-    0 12px 28px rgba(0,0,0,.22) !important;
 }
 
 #champions-list .leader-banner-top,
@@ -8995,24 +8984,28 @@ td{
   align-items:center !important;
   justify-content:center !important;
   gap:10px !important;
-  margin:-14px -14px 12px -14px !important;
-  padding:10px 12px !important;
+  margin:-16px -16px 14px -16px !important;
+  padding:12px 14px 13px !important;
   text-align:center !important;
+  position:relative !important;
+  z-index:2 !important;
 }
 
 #champions-list .leader-banner-crown,
 #leaders-list .leader-banner-crown,
 #records-list .leader-banner-crown{
-  font-size:1.12rem !important;
+  font-size:1.22rem !important;
   line-height:1 !important;
+  flex:0 0 auto !important;
 }
 
 #champions-list .leader-banner-title,
 #leaders-list .leader-banner-title,
 #records-list .leader-banner-title{
-  font-size:.92rem !important;
-  line-height:1.1 !important;
+  font-size:1rem !important;
+  line-height:1.14 !important;
   letter-spacing:.02em !important;
+  font-weight:900 !important;
 }
 
 #champions-list .leader-banner-body,
@@ -9020,14 +9013,14 @@ td{
 #records-list .leader-banner-body{
   display:grid !important;
   grid-template-columns:auto 1fr !important;
-  gap:10px !important;
+  gap:12px !important;
   align-items:center !important;
 }
 
 #champions-list .honors-card-top,
 #leaders-list .honors-card-top,
 #records-list .honors-card-top{
-  margin-bottom:10px !important;
+  margin-bottom:12px !important;
 }
 
 #champions-list .honors-card-top .player-avatar,
@@ -9047,15 +9040,15 @@ td{
 #records-list .honors-card-stack{
   display:flex !important;
   flex-direction:column !important;
-  gap:4px !important;
+  gap:6px !important;
   min-width:0 !important;
 }
 
 #champions-list .honors-player-name,
 #leaders-list .honors-player-name,
 #records-list .honors-player-name{
-  font-size:.92rem !important;
-  line-height:1.12 !important;
+  font-size:1rem !important;
+  line-height:1.14 !important;
   font-weight:800 !important;
 }
 
@@ -9063,8 +9056,8 @@ td{
 #leaders-list .honors-card-value,
 #records-list .honors-card-value{
   margin-top:auto !important;
-  font-size:1rem !important;
-  line-height:1.15 !important;
+  font-size:1.08rem !important;
+  line-height:1.18 !important;
   font-weight:800 !important;
   text-align:left !important;
 }
@@ -9073,33 +9066,27 @@ td{
 #leaders-list .honors-card-value--numeric,
 #records-list .honors-card-value--numeric{
   margin-top:auto !important;
-  min-height:auto !important;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:flex-start !important;
-  text-align:left !important;
-  font-size:1.08rem !important;
-  line-height:1.08 !important;
+  font-size:1.18rem !important;
+  line-height:1.1 !important;
   font-weight:900 !important;
 }
 
-/* keep the existing section colors, just lock the size/layout */
-#champions-list .honors-card-value,
-#champions-list .honors-card-value--numeric{
-  color:#d8b4fe !important;
-  text-shadow:none !important;
+#champions-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
+  border-bottom:1px solid rgba(168,85,247,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18) !important;
 }
 
-#leaders-list .honors-card-value,
-#leaders-list .honors-card-value--numeric{
-  color:#93c5fd !important;
-  text-shadow:none !important;
+#leaders-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16)) !important;
+  border-bottom:1px solid rgba(59,130,246,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18) !important;
 }
 
-#records-list .honors-card-value,
-#records-list .honors-card-value--numeric{
-  color:#86efac !important;
-  text-shadow:none !important;
+#records-list .leader-banner-top{
+  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
+  border-bottom:1px solid rgba(34,197,94,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18) !important;
 }
 
 @media (max-width:1100px){
