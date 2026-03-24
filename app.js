@@ -694,21 +694,39 @@ function badgeList(player, data) {
   const players = data?.players || [];
   if (!players.length) return [];
 
-  const topProfit = sortPlayers(players, "profit")[0]?.name;
-  const topPower = sortPlayers(players, "trueSkillScore")[0]?.name;
-  const topClutch = sortPlayers(players, "clutchIndex")[0]?.name;
-  const topLuck = sortPlayers(players, "luckIndex")[0]?.name;
-  const topHits = sortPlayers(players, "hits")[0]?.name;
-  const topBubbles = sortPlayers(players, "bubbles")[0]?.name;
+  const eligiblePlayers = getEligiblePlayers(players);
+  const badgePool = eligiblePlayers.length ? eligiblePlayers : players;
+
+  const topProfit = sortPlayers(badgePool, "profit")[0]?.name;
+  const topPower = sortPlayers(badgePool, "trueSkillScore")[0]?.name;
+  const topClutch = sortPlayers(badgePool, "clutchIndex")[0]?.name;
+  const topHits = sortPlayers(badgePool, "hits")[0]?.name;
+
+  const topROI = sortPlayers(badgePool, "roi")[0]?.name;
+  const topCashRate = sortPlayers(badgePool, "cashRate")[0]?.name;
+  const topLuck = sortPlayers(badgePool, "luckIndex")[0]?.name;
+  const topAggro = sortPlayers(badgePool, "aggressionIndex")[0]?.name;
+  const topSurvivor = sortPlayers(badgePool, "survivorIndex")[0]?.name;
+  const topTilt = sortPlayers(badgePool, "tiltIndex")[0]?.name;
+  const topBubbleRate = sortPlayers(badgePool, "bubbleRate")[0]?.name;
+  const topRebuys = sortPlayers(badgePool, "rebuys")[0]?.name;
 
   const badges = [];
 
   if (player.name === topProfit) badges.push({ icon: "💰", label: "Profit Leader", rarity: "legendary", tone: "gold" });
   if (player.name === topPower) badges.push({ icon: "💪🏼", label: "Power Leader", rarity: "epic", tone: "violet" });
   if (player.name === topClutch) badges.push({ icon: "🎯", label: "Clutch Leader", rarity: "rare", tone: "amber" });
-  if (player.name === topLuck) badges.push({ icon: "🍀", label: "Luck Leader", rarity: "rare", tone: "green" });
   if (player.name === topHits) badges.push({ icon: "💥", label: "Hit King", rarity: "epic", tone: "red" });
-  if (player.name === topBubbles) badges.push({ icon: "🫧", label: "Bubble King", rarity: "uncommon", tone: "blue" });
+
+  if (player.name === topROI) badges.push({ icon: "📈", label: "ROI Boss", rarity: "rare", tone: "amber" });
+  if (player.name === topCashRate) badges.push({ icon: "🏧", label: "Cash Machine", rarity: "rare", tone: "green" });
+  if (player.name === topLuck) badges.push({ icon: "😈", label: "Lucky Devil", rarity: "epic", tone: "violet" });
+  if (player.name === topAggro) badges.push({ icon: "🦁", label: "Aggro Animal", rarity: "epic", tone: "red" });
+  if (player.name === topSurvivor) badges.push({ icon: "🛟", label: "Survivor", rarity: "uncommon", tone: "blue" });
+  if (player.name === topTilt) badges.push({ icon: "🫨", label: "Tilt Meter", rarity: "common", tone: "slate" });
+  if (player.name === topBubbleRate) badges.push({ icon: "🫧", label: "Bubble Trouble", rarity: "uncommon", tone: "blue" });
+  if (player.name === topRebuys) badges.push({ icon: "♻️", label: "Rebuy King", rarity: "rare", tone: "amber" });
+
   if (Number(player.entries ?? 0) < 5) badges.push({ icon: "✳️", label: "Small Sample", rarity: "common", tone: "slate" });
 
   return badges;
