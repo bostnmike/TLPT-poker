@@ -360,6 +360,17 @@ a:hover{
   color:var(--muted);
 }
 
+.page-helper-copy{
+  margin:-4px 0 14px 0;
+  color:#cfd8e3;
+  line-height:1.5;
+  max-width:78ch;
+}
+
+.standings-helper-copy{
+  margin-top:-2px;
+}
+
 /* page chip headings */
 
 .page-title-row{
