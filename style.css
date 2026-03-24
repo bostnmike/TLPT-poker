@@ -587,53 +587,33 @@ a:hover{
 }
 
 .dashboard-button-groups{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  display:grid;
+  gap:8px;
 }
 
 .dashboard-buttons{
   margin:0;
-  padding:10px;
-  border-radius:14px;
-  border:1px solid rgba(255,184,28,.18);
-  background:rgba(255,255,255,.025);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 8px 18px rgba(0,0,0,.18);
+  padding:0;
+  border:none;
+  background:transparent;
+  box-shadow:none;
+}
+
+.dashboard-button-groups .dashboard-buttons{
+  display:grid;
+  gap:8px;
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(1){
-  border-color:rgba(255,184,28,.34);
-  background:
-    linear-gradient(180deg, rgba(255,184,28,.18), rgba(255,184,28,.04)),
-    rgba(255,255,255,.03);
-  box-shadow:
-    inset 0 1px 0 rgba(255,239,186,.06),
-    0 8px 18px rgba(0,0,0,.18),
-    0 0 20px rgba(255,184,28,.10);
+  grid-template-columns:repeat(5, minmax(0,1fr));
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(2){
-  border-color:rgba(59,130,246,.34);
-  background:
-    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.04)),
-    rgba(255,255,255,.03);
-  box-shadow:
-    inset 0 1px 0 rgba(219,234,254,.06),
-    0 8px 18px rgba(0,0,0,.18),
-    0 0 20px rgba(59,130,246,.10);
+  grid-template-columns:repeat(3, minmax(0,1fr));
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(3){
-  border-color:rgba(239,68,68,.32);
-  background:
-    linear-gradient(180deg, rgba(239,68,68,.16), rgba(239,68,68,.04)),
-    rgba(255,255,255,.03);
-  box-shadow:
-    inset 0 1px 0 rgba(254,202,202,.06),
-    0 8px 18px rgba(0,0,0,.18),
-    0 0 20px rgba(239,68,68,.09);
+  grid-template-columns:repeat(6, minmax(0,1fr));
 }
 
 .dashboard-buttons{
@@ -658,6 +638,30 @@ a:hover{
   transition:transform .16s ease, background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
   cursor:pointer;
   box-shadow:0 6px 16px rgba(0,0,0,.22);
+}
+
+.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn{
+  border-color:rgba(255,184,28,.26);
+  background:
+    linear-gradient(180deg, rgba(255,239,186,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(255,184,28,.14), rgba(56,40,10,.96));
+  color:#fff1c4;
+}
+
+.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn{
+  border-color:rgba(59,130,246,.26);
+  background:
+    linear-gradient(180deg, rgba(219,234,254,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.14), rgba(18,34,66,.96));
+  color:#dbeafe;
+}
+
+.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn{
+  border-color:rgba(239,68,68,.24);
+  background:
+    linear-gradient(180deg, rgba(254,202,202,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(239,68,68,.13), rgba(56,18,18,.96));
+  color:#fee2e2;
 }
 
 .btn-emoji{
@@ -686,6 +690,29 @@ a:hover{
   background:linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
   border-color:var(--gold);
   box-shadow:0 8px 18px rgba(0,0,0,.28), 0 0 0 1px rgba(255,184,28,.22);
+}
+.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn{
+  border-color:rgba(255,184,28,.26);
+  background:
+    linear-gradient(180deg, rgba(255,239,186,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(255,184,28,.14), rgba(56,40,10,.96));
+  color:#fff1c4;
+}
+
+.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn{
+  border-color:rgba(59,130,246,.26);
+  background:
+    linear-gradient(180deg, rgba(219,234,254,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.14), rgba(18,34,66,.96));
+  color:#dbeafe;
+}
+
+.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn{
+  border-color:rgba(239,68,68,.24);
+  background:
+    linear-gradient(180deg, rgba(254,202,202,.08), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(239,68,68,.13), rgba(56,18,18,.96));
+  color:#fee2e2;
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(1) .btn:hover{
@@ -3574,10 +3601,10 @@ td{
   overflow:hidden;
   display:grid;
   grid-template-columns:minmax(0, 1fr);
-  gap:16px;
+  gap:8px;
   align-items:stretch;
   margin-bottom:14px;
-  padding:18px 18px 16px;
+  padding:12px;
   border:1px solid rgba(34,197,94,.30);
   border-radius:18px;
   background:
@@ -3601,7 +3628,7 @@ td{
 .dashboard-sort-shell > #dashboard-meta-shell,
 .dashboard-sort-shell > #dashboard-studio-strip{
   margin:0;
-  padding:12px 13px;
+  padding:10px 11px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3730,13 +3757,24 @@ td{
     0 0 18px rgba(59,130,246,.10);
 }
 
+.standings-datawall > .button-row[data-sort-scope="standings"]{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:8px;
+  margin:0;
+}
+
+.standings-datawall > .button-row[data-sort-scope="standings"] .btn{
+  width:100%;
+}
+
 .standings-datawall{
   position:relative;
   overflow:hidden;
   display:grid;
-  gap:10px;
+  gap:8px;
   margin:10px 0 14px 0;
-  padding:14px;
+  padding:12px;
   border:1px solid rgba(59,130,246,.28);
   border-radius:18px;
   background:
@@ -3768,7 +3806,7 @@ td{
   position:relative;
   z-index:1;
   margin:0;
-  padding:12px 13px;
+  padding:10px 11px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3804,22 +3842,22 @@ td{
 .standings-meta-shell{
   display:grid;
   grid-template-columns:max-content minmax(0, 1fr);
-  gap:12px;
+  gap:10px;
   align-items:center;
-  margin:0 0 14px 0;
-  padding:14px 18px;
-  border:1px solid rgba(239,68,68,.30);
-  border-radius:16px;
+  margin:0;
+  padding:11px 13px;
+  border:1px solid rgba(59,130,246,.24);
+  border-radius:13px;
   background:
-    linear-gradient(180deg, rgba(239,68,68,.20), rgba(239,68,68,.08)),
-    linear-gradient(90deg, rgba(59,130,246,.08), transparent 42%),
+    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.06)),
+    linear-gradient(90deg, rgba(168,85,247,.08), transparent 44%),
     linear-gradient(180deg, rgba(14,18,24,.98), rgba(10,12,18,1));
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.20),
-    0 0 20px rgba(239,68,68,.10);
+    0 8px 18px rgba(0,0,0,.18),
+    0 0 16px rgba(59,130,246,.10);
 }
-
+I
 .standings-current-stat{
   display:inline-flex;
   align-items:center;
@@ -3830,8 +3868,8 @@ td{
   border-radius:0;
   background:transparent;
   box-shadow:none;
-  color:#ffd3d3;
-  font-size:1.38rem;
+  color:#dbeafe;
+  font-size:1.26rem;
   font-weight:800;
   line-height:1.05;
   white-space:nowrap;
@@ -3841,7 +3879,7 @@ td{
   content:":";
   display:inline-block;
   margin-left:8px;
-  color:#ffc1c1;
+  color:#93c5fd;
 }
 
 .standings-formula-display{
@@ -3857,8 +3895,9 @@ td{
   border-radius:0;
   box-shadow:none;
   color:#fff;
-  font-size:.96rem;
-  line-height:1.36;
+  font-size:.92rem;
+  line-height:1.32;
+  color:#eff6ff;
 }
 
 .standings-sort-shell .btn{
