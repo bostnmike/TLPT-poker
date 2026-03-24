@@ -188,8 +188,10 @@ a:hover{
 .section-head.page-title-row,
 .page-title-row,
 .compact-page-title-row{
+  display:flex;
   justify-content:flex-start !important;
   align-items:center;
+  gap:12px;
   text-align:left;
 }
 
@@ -384,12 +386,6 @@ a:hover{
   grid-column:auto;
 }
 
-.dashboard-studio-strip > .dashboard-studio-leader{
-  grid-column:2;
-  grid-row:1 / span 3;
-  align-self:stretch;
-}
-
 .dashboard-studio-copy{
   color:var(--gold);
   font-size:.78rem;
@@ -406,20 +402,24 @@ a:hover{
   line-height:1.35;
 }
 
-.dashboard-studio-context{
+.dashboard-studio-context,
+.standings-race-context{
+  font-size:.82rem;
+  line-height:1.35;
   color:var(--muted);
   font-weight:400;
   letter-spacing:0;
   white-space:nowrap;
 }
 
-.dashboard-studio-context strong{
+.dashboard-studio-context strong,
+.standings-race-context strong{
   color:#fff;
   font-weight:800;
 }
 
-.dashboard-studio-context{
-  grid-column:1;
+.standings-race-context{
+  align-self:center;
 }
 
 .standings-race-context{
@@ -555,12 +555,6 @@ a:hover{
   text-transform:uppercase;
   line-height:1;
   margin-bottom:2px;
-}
-
-.page-title-row{
-  display:flex;
-  align-items:center;
-  gap:12px;
 }
 
 .page-chip{
@@ -2770,10 +2764,6 @@ a:hover{
     0 0 0 1px rgba(168,85,247,.10),
     0 12px 28px rgba(0,0,0,.22),
     0 0 24px rgba(168,85,247,.10);
-}
-
-.honors-summary-strip{
-  display:none;
 }
 
 .honors-summary-card{
