@@ -1140,15 +1140,6 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
 
   <div class="dashboard-studio-context">${sortedPlayers.length} qualified players on this board</div>
-
-  <a class="dashboard-studio-leader" href="${playerUrl(leader)}">
-    ${playerImageMarkup(leader, "table")}
-    <div class="dashboard-studio-leader-meta">
-      <div class="dashboard-studio-leader-kicker">${meta.label} Leader</div>
-      <div class="dashboard-studio-leader-name">${displayPlayerName(leader)}</div>
-    </div>
-    <div class="dashboard-studio-leader-value ${statValueClass(leader, sortKey)}">${formatStatValue(leader, sortKey)}</div>
-  </a>
 `;
 }
 
