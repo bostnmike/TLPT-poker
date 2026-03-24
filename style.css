@@ -601,7 +601,7 @@ a:hover{
 
 .dashboard-button-groups .dashboard-buttons{
   display:grid;
-  gap:8px;
+  gap:6px;
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(1){
@@ -614,10 +614,6 @@ a:hover{
 
 .dashboard-button-groups .dashboard-buttons:nth-child(3){
   grid-template-columns:repeat(6, minmax(0,1fr));
-}
-
-.dashboard-buttons{
-  margin:0 0 12px 0;
 }
 
 .btn{
@@ -690,29 +686,6 @@ a:hover{
   background:linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
   border-color:var(--gold);
   box-shadow:0 8px 18px rgba(0,0,0,.28), 0 0 0 1px rgba(255,184,28,.22);
-}
-.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn{
-  border-color:rgba(255,184,28,.26);
-  background:
-    linear-gradient(180deg, rgba(255,239,186,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,184,28,.14), rgba(56,40,10,.96));
-  color:#fff1c4;
-}
-
-.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn{
-  border-color:rgba(59,130,246,.26);
-  background:
-    linear-gradient(180deg, rgba(219,234,254,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.14), rgba(18,34,66,.96));
-  color:#dbeafe;
-}
-
-.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn{
-  border-color:rgba(239,68,68,.24);
-  background:
-    linear-gradient(180deg, rgba(254,202,202,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(239,68,68,.13), rgba(56,18,18,.96));
-  color:#fee2e2;
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(1) .btn:hover{
@@ -3601,10 +3574,10 @@ td{
   overflow:hidden;
   display:grid;
   grid-template-columns:minmax(0, 1fr);
-  gap:8px;
+  gap:6px;
   align-items:stretch;
   margin-bottom:14px;
-  padding:12px;
+  padding:10px;
   border:1px solid rgba(34,197,94,.30);
   border-radius:18px;
   background:
@@ -3628,7 +3601,7 @@ td{
 .dashboard-sort-shell > #dashboard-meta-shell,
 .dashboard-sort-shell > #dashboard-studio-strip{
   margin:0;
-  padding:10px 11px;
+  padding:9px 10px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3760,7 +3733,7 @@ td{
 .standings-datawall > .button-row[data-sort-scope="standings"]{
   display:grid;
   grid-template-columns:repeat(4, minmax(0,1fr));
-  gap:8px;
+  gap:6px;
   margin:0;
 }
 
@@ -3772,9 +3745,9 @@ td{
   position:relative;
   overflow:hidden;
   display:grid;
-  gap:8px;
+  gap:6px;
   margin:10px 0 14px 0;
-  padding:12px;
+  padding:10px;
   border:1px solid rgba(59,130,246,.28);
   border-radius:18px;
   background:
@@ -3806,7 +3779,7 @@ td{
   position:relative;
   z-index:1;
   margin:0;
-  padding:10px 11px;
+  padding:9px 10px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3833,6 +3806,16 @@ td{
   border-color:rgba(59,130,246,.14);
   padding:0;
   overflow:hidden;
+}
+
+.standings-datawall > .table-wrap table{
+  margin-top:0;
+}
+
+.standings-datawall > .table-wrap #standings-table thead th{
+  box-shadow:
+    inset 0 -1px 0 rgba(59,130,246,.18),
+    inset 0 1px 0 rgba(255,255,255,.03);
 }
 
 .standings-sort-shell .button-row{
