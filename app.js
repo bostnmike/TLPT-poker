@@ -1135,11 +1135,9 @@ function renderDashboardStudioStrip(sortKey, sortedPlayers) {
   }
 
 strip.innerHTML = `
-  <div class="cockpit-kicker">Studio Readout</div>
-
   <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
 
-  <div class="dashboard-studio-context">${sortedPlayers.length} qualified players on this board</div>
+  <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
 `;
 }
 
