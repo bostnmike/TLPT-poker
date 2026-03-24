@@ -6497,50 +6497,6 @@ td{
   position:relative;
   overflow:hidden;
   display:block;
-  min-height:185px;
-  padding:18px;
-  border-color:rgba(255,184,28,.95);
-  background:
-    linear-gradient(180deg, rgba(255,184,28,.14) 0%, rgba(255,184,28,.05) 22%, rgba(17,22,30,1) 22%, rgba(17,22,30,1) 100%);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.34),
-    0 12px 34px rgba(0,0,0,.28),
-    0 0 26px rgba(255,184,28,.20);
-}
-
-.honors-card-top{
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:14px;
-  align-items:center;
-  margin-bottom:14px;
-}
-
-.honors-card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:52px;
-  background:linear-gradient(180deg, rgba(255,184,28,.28), rgba(255,184,28,.14));
-  border-bottom:1px solid rgba(255,184,28,.32);
-  z-index:0;
-}
-
-#champions-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
-}
-
-#leaders-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
-  border-bottom:1px solid rgba(59,130,246,.32);
-}
-
-#records-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.14));
-  border-bottom:1px solid rgba(34,197,94,.34);
 }
 
 .honors-card > *{
@@ -6548,14 +6504,10 @@ td{
   z-index:1;
 }
 
-.honors-card .honors-card-top{
-  margin-top:18px;
-}
-
 .honors-card-stack{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:4px;
 }
 
 .honors-card-icon,
