@@ -3005,7 +3005,7 @@ a:hover{
   text-align:left;
 }
 
-@media (max-width:1100px){
+@media (max-width:900px){
   .honors-summary-strip{
     grid-template-columns:repeat(3, minmax(0,1fr));
   }
