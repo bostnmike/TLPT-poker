@@ -5657,6 +5657,18 @@ I
     padding-right:12px;
   }
 
+  .dashboard-button-groups .dashboard-buttons:nth-child(1),
+  .dashboard-button-groups .dashboard-buttons:nth-child(2),
+  .dashboard-button-groups .dashboard-buttons:nth-child(3),
+  .standings-datawall > .button-row[data-sort-scope="standings"]{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+
+  .dashboard-sort-shell,
+  .standings-datawall{
+    padding:10px;
+  }
+  
   .dashboard-button-groups .dashboard-buttons,
   .standings-sort-shell .button-row{
     padding:10px;
