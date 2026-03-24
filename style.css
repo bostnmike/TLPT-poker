@@ -563,7 +563,7 @@ a:hover{
 
 .dashboard-button-groups{
   display:grid;
-  gap:8px;
+  gap:6px;
 }
 
 .dashboard-buttons{
@@ -576,7 +576,7 @@ a:hover{
 
 .dashboard-button-groups .dashboard-buttons{
   display:grid;
-  gap:6px;
+  gap:5px;
 }
 
 .dashboard-button-groups .dashboard-buttons:nth-child(1){
@@ -3557,10 +3557,10 @@ td{
   overflow:hidden;
   display:grid;
   grid-template-columns:minmax(0, 1fr);
-  gap:5px;
+  gap:4px;
   align-items:stretch;
   margin-bottom:14px;
-  padding:9px;
+  padding:8px;
   border:1px solid rgba(34,197,94,.30);
   border-radius:18px;
   background:
@@ -3584,7 +3584,7 @@ td{
 .dashboard-sort-shell > #dashboard-meta-shell,
 .dashboard-sort-shell > #dashboard-studio-strip{
   margin:0;
-  padding:8px 9px;
+  padding:7px 8px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
@@ -3716,7 +3716,7 @@ td{
 .standings-datawall > .button-row[data-sort-scope="standings"]{
   display:grid;
   grid-template-columns:repeat(4, minmax(0,1fr));
-  gap:6px;
+  gap:5px;
   margin:0;
 }
 
@@ -3728,9 +3728,9 @@ td{
   position:relative;
   overflow:hidden;
   display:grid;
-  gap:5px;
+  gap:4px;
   margin:10px 0 14px 0;
-  padding:9px;
+  padding:8px;
   border:1px solid rgba(59,130,246,.28);
   border-radius:18px;
   background:
@@ -3762,7 +3762,7 @@ td{
   position:relative;
   z-index:1;
   margin:0;
-  padding:8px 9px;
+  padding:7px 8px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.08);
   background:
