@@ -1041,19 +1041,21 @@ function ensureStandingsHeadline(sortKey) {
   const table = document.getElementById("standings-table");
   if (!table) return;
 
-  const parent = table.parentElement;
-  if (!parent) return;
+  const tableWrap = table.parentElement;
+  if (!tableWrap) return;
 
   const section = table.closest(".section");
+  const datawall = section?.querySelector(".standings-datawall");
 
   let sortShell = document.getElementById("standings-sort-shell");
   let metaShell = document.getElementById("standings-meta-shell");
   let headline = document.getElementById("standings-current-stat");
   let formula = document.getElementById("standings-formula-display");
 
-  const sortControls =
-    section?.querySelector('[data-sort-scope="standings"]') ||
-    section?.querySelector('.button-row');
+const sortControls =
+  datawall?.querySelector('[data-sort-scope="standings"]') ||
+  section?.querySelector('[data-sort-scope="standings"]') ||
+  section?.querySelector('.button-row');
 
   if (sortControls && !sortShell) {
     sortShell = document.createElement("div");
@@ -1067,7 +1069,13 @@ function ensureStandingsHeadline(sortKey) {
     metaShell = document.createElement("div");
     metaShell.id = "standings-meta-shell";
     metaShell.className = "standings-meta-shell";
-    parent.insertBefore(metaShell, table);
+  }
+
+  const metaParent = datawall || tableWrap;
+  const metaAnchor = datawall?.querySelector(".table-wrap") || table;
+
+  if (metaShell.parentNode !== metaParent || metaShell.nextElementSibling !== metaAnchor) {
+    metaParent.insertBefore(metaShell, metaAnchor);
   }
 
   if (!headline) {
