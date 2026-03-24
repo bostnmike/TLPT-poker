@@ -6497,6 +6497,34 @@ td{
   position:relative;
   overflow:hidden;
   display:block;
+  min-height:unset;
+  padding:4px;
+  border-radius:10px;
+}
+
+.honors-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:16px;
+  z-index:0;
+}
+
+#champions-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
+}
+
+#leaders-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
+  border-bottom:1px solid rgba(59,130,246,.32);
+}
+
+#records-list .honors-card::before{
+  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.14));
+  border-bottom:1px solid rgba(34,197,94,.34);
 }
 
 .honors-card > *{
@@ -6504,10 +6532,22 @@ td{
   z-index:1;
 }
 
+.honors-card-top{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:4px;
+  align-items:center;
+  margin-bottom:2px;
+}
+
+.honors-card .honors-card-top{
+  margin-top:4px;
+}
+
 .honors-card-stack{
   display:flex;
   flex-direction:column;
-  gap:4px;
+  gap:2px;
 }
 
 .honors-card-icon,
@@ -6515,41 +6555,28 @@ td{
   display:none;
 }
 
-.honors-card-icon{
-  font-size:1.8rem;
-  line-height:1;
-}
-
-.honors-card-label{
-  color:var(--gold);
-  font-size:.75rem;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
 .honors-player-name{
-  font-size:1.18rem;
+  font-size:.64rem;
   font-weight:800;
-  line-height:1.2;
+  line-height:1;
 }
 
 .honors-card-value{
   color:var(--muted);
-  font-size:1.05rem;
-  line-height:1.45;
+  font-size:.70rem;
+  line-height:1;
   font-weight:800;
 }
 
 .honors-card-value--numeric{
   display:flex;
   align-items:center;
-  justify-content:center;
-  min-height:58px;
-  text-align:center;
-  font-size:2.18rem;
+  justify-content:flex-start;
+  min-height:auto;
+  text-align:left;
+  font-size:.86rem;
   font-weight:900;
-  line-height:1.1;
+  line-height:1;
   color:var(--gold);
 }
 
@@ -6583,118 +6610,27 @@ td{
   text-shadow:none;
 }
 
-#champions-list .honors-card.honors-card-show-me-da{
-  border-color:rgba(168,85,247,.26);
-  background:
-    linear-gradient(180deg, rgba(168,85,247,.16), rgba(168,85,247,.05)),
-    linear-gradient(135deg, rgba(44,20,72,.24), rgba(17,22,30,.96));
-  box-shadow:
-    0 0 0 1px rgba(168,85,247,.10),
-    0 10px 26px rgba(0,0,0,.22),
-    0 0 20px rgba(168,85,247,.10);
-}
-
-#champions-list .honors-card.honors-card-show-me-da::before{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
-}
-
-#champions-list .honors-card.honors-card-show-me-da .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
-}
-
-#champions-list .honors-card.honors-card-show-me-da .money,
-#champions-list .honors-card.honors-card-show-me-da [class*="money"],
-#champions-list .honors-card.honors-card-show-me-da [class*="currency"],
-#champions-list .honors-card.honors-card-show-me-da .honors-card-value,
-#champions-list .honors-card.honors-card-show-me-da .honors-card-value--numeric{
-  color:#d8b4fe !important;
-  text-shadow:none !important;
-}
-
-#records-list .honors-card.honors-card-cursed-duck .money,
-#records-list .honors-card.honors-card-cursed-duck [class*="money"],
-#records-list .honors-card.honors-card-cursed-duck [class*="currency"],
-#records-list .honors-card.honors-card-cursed-duck .honors-card-value,
-#records-list .honors-card.honors-card-cursed-duck .honors-card-value--numeric{
-  color:#86efac !important;
-  text-shadow:none !important;
-}
-
-#records-list .honors-card.honors-card-the-donor .money,
-#records-list .honors-card.honors-card-the-donor [class*="money"],
-#records-list .honors-card.honors-card-the-donor [class*="currency"],
-#records-list .honors-card.honors-card-the-donor .honors-card-value,
-#records-list .honors-card.honors-card-the-donor .honors-card-value--numeric{
-  color:#86efac !important;
-  text-shadow:none !important;
-}
-
-.leader-banner-card{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 22%, rgba(17,22,30,1) 22%, rgba(17,22,30,1) 100%);
-  border-color:rgba(255,255,255,.12);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06),
-    0 12px 34px rgba(0,0,0,.28);
-  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-
-.leader-banner-card:hover{
-  transform:translateY(-2px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.08),
-    0 14px 38px rgba(0,0,0,.30);
-}
-
 #champions-list,
 #leaders-list,
 #records-list{
   position:relative;
   display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:18px;
-  padding:16px;
-  border-radius:18px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 12px 28px rgba(0,0,0,.18);
-}
-
-#champions-list{
-  border:1px solid rgba(168,85,247,.18);
-  background:
-    radial-gradient(circle at top right, rgba(168,85,247,.10), transparent 32%),
-    linear-gradient(180deg, rgba(168,85,247,.06), rgba(168,85,247,.02)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-}
-
-#leaders-list{
-  border:1px solid rgba(59,130,246,.18);
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 32%),
-    linear-gradient(180deg, rgba(59,130,246,.06), rgba(59,130,246,.02)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-}
-
-#records-list{
-  border:1px solid rgba(34,197,94,.18);
-  background:
-    radial-gradient(circle at top right, rgba(34,197,94,.10), transparent 32%),
-    linear-gradient(180deg, rgba(34,197,94,.06), rgba(34,197,94,.02)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  gap:2px;
+  margin:0;
+  padding:0;
+  border:none;
+  background:transparent;
+  box-shadow:none;
 }
 
 .leader-banner-top{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  margin:-18px -18px 14px -18px;
-  padding:13px 15px;
+  gap:2px;
+  margin:-4px -4px 3px -4px;
+  padding:3px 4px;
   text-align:center;
 }
 
