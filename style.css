@@ -9067,19 +9067,20 @@ td{
 #champions-list .honors-player-name,
 #leaders-list .honors-player-name,
 #records-list .honors-player-name{
-  font-size:1.02rem !important;
-  line-height:1.2 !important;
-  font-weight:700 !important;
+  font-size:1.32rem !important;
+  line-height:1.14 !important;
+  font-weight:800 !important;
 }
 
 #champions-list .honors-card-value,
 #leaders-list .honors-card-value,
 #records-list .honors-card-value{
   margin-top:auto !important;
+  width:100% !important;
   font-size:1.25rem !important;
   line-height:1.15 !important;
   font-weight:800 !important;
-  text-align:left !important;
+  text-align:center !important;
 }
 
 #champions-list .honors-card-value--numeric,
@@ -9087,10 +9088,11 @@ td{
 #records-list .honors-card-value--numeric{
   margin-top:auto !important;
   min-height:auto !important;
+  width:100% !important;
   display:flex !important;
   align-items:center !important;
-  justify-content:flex-start !important;
-  text-align:left !important;
+  justify-content:center !important;
+  text-align:center !important;
   font-size:2.1rem !important;
   line-height:1.1 !important;
   font-weight:800 !important;
