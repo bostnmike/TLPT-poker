@@ -15,7 +15,7 @@ const STAT_FORMULAS = {
   totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
   profit: "Profit: Total Take − Total Cost",
   roi: "ROI: Profit ÷ Total Cost",
-  cashRate: "Cash Rate: Timres Placed ÷ Buy-ins",
+  cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
   bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
   hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
