@@ -1111,22 +1111,11 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   const strip = document.getElementById("standings-race-strip");
   if (!strip) return;
 
-  const topThree = sortedPlayers.slice(0, 3);
-
   strip.innerHTML = `
-  <div class="cockpit-kicker">Race View</div>
-
-  <div class="standings-race-context">Top 3 of ${sortedPlayers.length} qualified players</div>
-
-  <div class="standings-race-top3">
-    ${topThree.map((player, index) => `
-      <a class="standings-race-item" href="${playerUrl(player)}">
-        <span class="standings-race-rank">${index + 1}</span>
-        <span class="standings-race-name">${displayPlayerName(player)}</span>
-      </a>
-    `).join("")}
-  </div>
-`;
+    <div class="standings-race-context">
+      Qualified Player Pool: ${sortedPlayers.length}
+    </div>
+  `;
 }
 
 function renderDashboardStudioStrip(sortKey, sortedPlayers) {
