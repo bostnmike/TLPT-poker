@@ -8971,9 +8971,9 @@ td{
   display:flex !important;
   flex-direction:column !important;
   justify-content:flex-start !important;
-  min-height:280px !important;
+  min-height:236px !important;
   height:100% !important;
-  padding:18px !important;
+  padding:14px !important;
   border-radius:16px !important;
 }
 
@@ -8995,11 +8995,20 @@ td{
   align-items:center !important;
   justify-content:center !important;
   gap:10px !important;
-  margin:-18px -18px 14px -18px !important;
-  padding:12px 14px 14px !important;
+  margin:-14px -14px 12px -14px !important;
+  padding:10px 12px 12px !important;
   text-align:center !important;
   position:relative !important;
   z-index:2 !important;
+}
+
+#champions-list .honors-card::before,
+#leaders-list .honors-card::before,
+#records-list .honors-card::before{
+  content:none !important;
+  display:none !important;
+  border:none !important;
+  background:none !important;
 }
 
 #champions-list .leader-banner-crown,
