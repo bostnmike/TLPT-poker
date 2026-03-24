@@ -5201,7 +5201,7 @@ td{
 
   #players-grid .crew-card:hover .crew-card-stats,
   #players-grid .crew-card:focus-within .crew-card-stats{
-    max-height:260px;
+    max-height:360px;
     opacity:1;
     overflow:visible;
     margin-top:10px;
