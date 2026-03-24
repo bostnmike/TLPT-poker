@@ -334,6 +334,12 @@ a:hover{
   margin-top:-2px;
 }
 
+.dashboard-helper-copy{
+  margin-top:-2px;
+  margin-bottom:14px;
+  max-width:72ch;
+}
+
 /* page chip headings */
 
 .page-kicker{
