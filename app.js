@@ -1273,9 +1273,7 @@ function buildHomeBadgeRow(label, player, value, valueClass = "") {
       <div class="home-badge-pill">${label}</div>
       <div class="home-badge-main">
         <div class="home-badge-player-wrap">
-          <div class="player-avatar-wrap">
-            ${playerImageMarkup(player, "table")}
-          </div>
+          ${playerImageMarkup(player, "table")}
         </div>
         <div class="home-badge-value ${valueClass}">${value}</div>
       </div>
