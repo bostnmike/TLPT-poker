@@ -3845,7 +3845,7 @@ td{
   gap:10px;
   align-items:center;
   margin:0;
-  padding:11px 13px;
+  padding:10px 11px;
   border:1px solid rgba(59,130,246,.24);
   border-radius:13px;
   background:
@@ -3857,7 +3857,7 @@ td{
     0 8px 18px rgba(0,0,0,.18),
     0 0 16px rgba(59,130,246,.10);
 }
-I
+
 .standings-current-stat{
   display:inline-flex;
   align-items:center;
