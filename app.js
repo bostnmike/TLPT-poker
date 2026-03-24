@@ -1682,7 +1682,7 @@ function renderLeagueSnapshot(data) {
 
     const cards = [
   { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple", href:"players.html" },
-  { icon:"🪙", label:"Entries", value:totalEntries, className:"snapshot-silver", href:"dashboard.html" },
+  { icon:"🎟️", label:"Entries", value:totalEntries, className:"snapshot-silver", href:"dashboard.html" },
   { icon:"♻️", label:"Rebuys", value:totalRebuys, className:"snapshot-blue", href:"dashboard.html" },
   { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow", href:"dashboard.html" },
   { icon:"💰", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-green", href:"dashboard.html" },
