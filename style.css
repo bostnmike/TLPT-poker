@@ -423,6 +423,18 @@ a:hover{
 }
 
 .standings-race-context{
+  color:var(--muted);
+  font-weight:400;
+  letter-spacing:0;
+  white-space:nowrap;
+}
+
+.standings-race-context strong{
+  color:#fff;
+  font-weight:800;
+}
+
+.standings-race-context{
   align-self:center;
 }
 
