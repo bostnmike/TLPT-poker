@@ -106,6 +106,25 @@ a:hover{
   color:var(--gold);
 }
 
+.nav a.is-active{
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.14), rgba(255,184,28,.04)),
+    rgba(255,255,255,.02);
+  color:#fff2c8;
+  border:1px solid rgba(255,184,28,.26);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 6px 16px rgba(0,0,0,.18),
+    0 0 12px rgba(255,184,28,.08);
+}
+
+.nav a.is-active:hover{
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.18), rgba(255,184,28,.05)),
+    rgba(255,255,255,.03);
+  color:#fff6dd;
+}
+
 /* layout panels */
 
 .hero-copy,
