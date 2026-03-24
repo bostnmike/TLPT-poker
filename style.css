@@ -366,9 +366,11 @@ a:hover{
 }
 
 .standings-race-strip{
-  grid-template-columns:1fr;
-  align-items:start;
-  gap:6px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:0;
+  min-height:auto;
   border:1px solid rgba(59,130,246,.18);
   background:
     radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 30%),
@@ -397,11 +399,11 @@ a:hover{
 
 .dashboard-studio-context,
 .standings-race-context{
-  color:var(--muted);
-  font-size:.74rem;
-  font-weight:700;
-  letter-spacing:.03em;
-  line-height:1.24;
+  color:#dbeafe;
+  font-size:.86rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  line-height:1.2;
 }
 
 .dashboard-studio-context{
@@ -4160,10 +4162,10 @@ td{
 .standings-meta-shell{
   display:grid;
   grid-template-columns:max-content minmax(0, 1fr);
-  gap:10px;
+  gap:12px;
   align-items:center;
   margin:0;
-  padding:10px 11px;
+  padding:12px 13px;
   border:1px solid rgba(59,130,246,.24);
   border-radius:13px;
   background:
@@ -4187,7 +4189,7 @@ td{
   background:transparent;
   box-shadow:none;
   color:#dbeafe;
-  font-size:1.26rem;
+  font-size:1.34rem;
   font-weight:800;
   line-height:1.05;
   white-space:nowrap;
@@ -4216,10 +4218,9 @@ td{
   border:none;
   border-radius:0;
   box-shadow:none;
-  color:#fff;
-  font-size:.92rem;
-  line-height:1.32;
   color:#eff6ff;
+  font-size:.96rem;
+  line-height:1.36;
 }
 
 .standings-datawall > .button-row[data-sort-scope="standings"] .btn{
