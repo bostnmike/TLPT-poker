@@ -27,15 +27,15 @@
   </header>
 
   <main class="wrap">
-    <section class="section standings-section-shell">
-      <div class="section-head page-title-row standings-header-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-5000.png" alt="T-5000 chip" onerror="this.style.display='none';" />
-        <h2 class="page-title-blue">Sortable League Standings</h2>
-      </div>
-      <div class="page-kicker standings-page-kicker">League Table</div>
+    <section class="standings-page-stack">
+      <section class="section standings-top-shell">
+        <div class="section-head page-title-row standings-header-row">
+          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-5000.png" alt="T-5000 chip" onerror="this.style.display='none';" />
+          <h2 class="page-title-blue">Sortable League Standings</h2>
+        </div>
+        <div class="page-kicker standings-page-kicker">League Table</div>
 
-      <div class="standings-datawall">    
-        <div class="standings-controls-shell">
+        <div class="standings-buttons-shell">
           <div class="button-row" data-sort-scope="standings">
             <button class="btn active" data-standings-sort="profit" type="button"><span class="btn-emoji">💰</span><span class="btn-label">Profit</span></button>
             <button class="btn" data-standings-sort="roi" type="button"><span class="btn-emoji">📈</span><span class="btn-label">ROI</span></button>
@@ -46,30 +46,32 @@
             <button class="btn" data-standings-sort="luckIndex" type="button"><span class="btn-emoji">🍀</span><span class="btn-label">Luck</span></button>
             <button class="btn" data-standings-sort="clutchIndex" type="button"><span class="btn-emoji">🎯</span><span class="btn-label">Clutch</span></button>
           </div>
-
-          <div id="standings-race-strip" class="standings-race-strip"></div>
         </div>
 
+        <div id="standings-race-strip" class="standings-race-strip standings-race-strip-inline"></div>
+      </section>
+
+      <section class="section standings-table-shell">
         <div class="table-wrap">
           <table id="standings-table">
-          <thead>
-            <tr>
-          <th>#</th>
-              <th>Player</th>
-              <th>Profit</th>
-              <th>ROI</th>
-              <th>Power</th>
-              <th>Hits</th>
-              <th>Cashes</th>
-              <th>Bubbles</th>
-              <th>Luck</th>
-              <th>Clutch</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Player</th>
+                <th>Profit</th>
+                <th>ROI</th>
+                <th>Power</th>
+                <th>Hits</th>
+                <th>Cashes</th>
+                <th>Bubbles</th>
+                <th>Luck</th>
+                <th>Clutch</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
     </section>
   </main>
 
