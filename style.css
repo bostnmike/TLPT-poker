@@ -1551,8 +1551,11 @@ a:hover{
 .home-snapshot-layout .page-title-row,
 .home-snapshot-layout .compact-page-title-row{
   position:relative;
-  padding-top:8px;
+  padding-top:10px;
+  padding-bottom:0;
+  margin-bottom:10px;
   border:none !important;
+  border-bottom:none !important;
   box-shadow:none !important;
   background:transparent !important;
 }
@@ -1567,7 +1570,7 @@ a:hover{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.35) 58%, transparent 100%);
+  background:linear-gradient(90deg, rgba(59,130,246,.95), rgba(147,197,253,.48) 58%, transparent 100%);
 }
 
 .home-snapshot-layout .section-head::after,
@@ -1575,6 +1578,9 @@ a:hover{
 .home-snapshot-layout .compact-page-title-row::after{
   content:none !important;
   display:none !important;
+  border:none !important;
+  box-shadow:none !important;
+  background:none !important;
 }
 
 .home-snapshot-grid{
@@ -1603,8 +1609,13 @@ a:hover{
 }
 
 .snapshot-card::before{
-  content:none;
-  display:none;
+  content:"";
+  display:block;
+  width:52px;
+  height:2px;
+  margin:0 auto 14px;
+  border-radius:999px;
+  background:rgba(255,184,28,.35);
 }
 
 .home-snapshot-grid .snapshot-card{
