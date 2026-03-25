@@ -6376,8 +6376,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #champions-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
+  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.14));
+  border-bottom:1px solid rgba(34,197,94,.34);
 }
 
 #leaders-list .honors-card::before{
@@ -6386,8 +6386,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #records-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.14));
-  border-bottom:1px solid rgba(34,197,94,.34);
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
 }
 
 .honors-card > *{
@@ -6436,12 +6436,12 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #champions-list .honors-card-value{
-  color:#d8b4fe;
+  color:#86efac;
   text-shadow:none;
 }
 
 #champions-list .honors-card-value--numeric{
-  color:#d8b4fe;
+  color:#86efac;
   text-shadow:none;
 }
 
@@ -6456,12 +6456,12 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #records-list .honors-card-value{
-  color:#86efac;
+  color:#d8b4fe;
   text-shadow:none;
 }
 
 #records-list .honors-card-value--numeric{
-  color:#86efac;
+  color:#d8b4fe;
   text-shadow:none;
 }
 
@@ -6488,21 +6488,21 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #champions-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16));
-  border-bottom:1px solid rgba(168,85,247,.32);
-  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18);
+  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
+  border-bottom:1px solid rgba(34,197,94,.32) !important;
+  box-shadow:none !important;
 }
 
 #leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16));
-  border-bottom:1px solid rgba(59,130,246,.32);
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18);
+  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16)) !important;
+  border-bottom:1px solid rgba(59,130,246,.32) !important;
+  box-shadow:none !important;
 }
 
 #records-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16));
-  border-bottom:1px solid rgba(34,197,94,.32);
-  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18);
+  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
+  border-bottom:1px solid rgba(168,85,247,.32) !important;
+  box-shadow:none !important;
 }
 
 #champions-list,
@@ -9101,7 +9101,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 /* keep section color values without glow clutter */
 #champions-list .honors-card-value,
 #champions-list .honors-card-value--numeric{
-  color:#d8b4fe !important;
+  color:#86efac !important;
   text-shadow:none !important;
 }
 
@@ -9113,7 +9113,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 #records-list .honors-card-value,
 #records-list .honors-card-value--numeric{
-  color:#86efac !important;
+  color:#d8b4fe !important;
   text-shadow:none !important;
 }
 
