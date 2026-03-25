@@ -2650,118 +2650,6 @@ a:hover{
   display:none !important;
 }
 
-.honors-summary-card{
-  position:relative;
-  overflow:hidden;
-  padding:10px 11px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 8px 18px rgba(0,0,0,.16);
-}
-
-.honors-summary-card::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  opacity:.95;
-}
-
-.honors-summary-card-purple{
-  border-color:rgba(168,85,247,.26);
-  background:
-    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 30%),
-    linear-gradient(180deg, rgba(168,85,247,.08), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
-}
-.honors-summary-card-purple::before{
-  background:linear-gradient(90deg, rgba(168,85,247,.95), transparent);
-}
-
-.honors-summary-card-blue{
-  border-color:rgba(59,130,246,.26);
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 30%),
-    linear-gradient(180deg, rgba(59,130,246,.08), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
-}
-.honors-summary-card-blue::before{
-  background:linear-gradient(90deg, rgba(59,130,246,.95), transparent);
-}
-
-.honors-summary-card-green{
-  border-color:rgba(34,197,94,.26);
-  background:
-    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 30%),
-    linear-gradient(180deg, rgba(34,197,94,.08), rgba(255,255,255,.01)),
-    rgba(255,255,255,.02);
-}
-.honors-summary-card-green::before{
-  background:linear-gradient(90deg, rgba(34,197,94,.95), transparent);
-}
-
-.honors-summary-kicker{
-  color:var(--muted);
-  font-size:.64rem;
-  font-weight:900;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-  line-height:1;
-  margin-bottom:7px;
-}
-
-.honors-summary-main{
-  display:grid;
-  gap:5px;
-}
-
-.honors-summary-main > .honors-summary-value{
-  justify-self:end;
-}
-
-.honors-summary-player-row{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  min-width:0;
-}
-
-.honors-summary-player-row .player-avatar,
-.honors-summary-player-row .player-avatar-fallback{
-  width:34px;
-  height:34px;
-  font-size:.78rem;
-  border-width:2px;
-}
-
-.honors-summary-name{
-  color:#fff;
-  font-size:.84rem;
-  font-weight:800;
-  line-height:1.08;
-  min-width:0;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.honors-summary-value{
-  color:var(--gold);
-  font-size:.94rem;
-  font-weight:900;
-  line-height:1.02;
-  width:100%;
-  text-align:right;
-}
-
 .honors-summary-comment{
   display:flex;
   align-items:center;
@@ -5945,11 +5833,7 @@ td{
     white-space:normal;
   }
 
-  .standings-race-top3{
-    grid-template-columns:1fr;
-  }
-
-  .dashboard-sort-shell{
+    .dashboard-sort-shell{
     position:static;
   }
 
