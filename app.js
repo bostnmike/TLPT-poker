@@ -1705,24 +1705,34 @@ function buildFeaturedPlayerCard(player, data) {
       <p class="featured-player-quote">${quote}</p>
 
       <div class="featured-player-stats">
-        <div class="featured-player-stat">
-          <span class="featured-player-stat-label">Profit</span>
-          <span class="featured-player-stat-value ${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</span>
+        <div class="featured-player-stat featured-player-stat-green">
+          <span class="featured-player-stat-label">Entries</span>
+          <span class="featured-player-stat-value">${player.entries ?? "-"}</span>
         </div>
 
-        <div class="featured-player-stat">
-          <span class="featured-player-stat-label">Power</span>
-          <span class="featured-player-stat-value">${fmtNum(player.trueSkillScore)}</span>
+        <div class="featured-player-stat featured-player-stat-purple">
+          <span class="featured-player-stat-label">Cashes</span>
+          <span class="featured-player-stat-value">${player.timesPlaced ?? "-"}</span>
         </div>
 
-        <div class="featured-player-stat">
-          <span class="featured-player-stat-label">ROI</span>
-          <span class="featured-player-stat-value">${fmtPct(player.roi)}</span>
+        <div class="featured-player-stat featured-player-stat-yellow">
+          <span class="featured-player-stat-label">Bubbles</span>
+          <span class="featured-player-stat-value">${player.bubbles ?? "-"}</span>
         </div>
 
-        <div class="featured-player-stat">
+        <div class="featured-player-stat featured-player-stat-red">
           <span class="featured-player-stat-label">Hits</span>
           <span class="featured-player-stat-value">${player.hits ?? "-"}</span>
+        </div>
+
+        <div class="featured-player-stat featured-player-stat-blue">
+          <span class="featured-player-stat-label">Winnings</span>
+          <span class="featured-player-stat-value">${fmtMoney(player.totalWinnings)}</span>
+        </div>
+
+        <div class="featured-player-stat featured-player-stat-pink">
+          <span class="featured-player-stat-label">ROI</span>
+          <span class="featured-player-stat-value">${fmtPct(player.roi)}</span>
         </div>
       </div>
 
