@@ -6142,15 +6142,47 @@ td{
 .player-dna-bar{
   height:10px;
   border-radius:999px;
-  background:rgba(255,255,255,.08);
+  background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
   overflow:hidden;
   position:relative;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.28);
 }
 
 .player-dna-fill{
   height:100%;
   border-radius:999px;
   transition:width .4s ease;
+  box-shadow:0 0 10px rgba(255,255,255,.08);
+}
+
+.player-dna-row.dna-row-red .player-dna-fill{
+  background:linear-gradient(90deg, rgba(255,107,107,.96), rgba(255,107,107,.26));
+  box-shadow:0 0 10px rgba(255,107,107,.18);
+}
+
+.player-dna-row.dna-row-gold .player-dna-fill{
+  background:linear-gradient(90deg, rgba(255,184,28,.96), rgba(255,184,28,.28));
+  box-shadow:0 0 10px rgba(255,184,28,.18);
+}
+
+.player-dna-row.dna-row-green .player-dna-fill{
+  background:linear-gradient(90deg, rgba(61,220,132,.96), rgba(61,220,132,.26));
+  box-shadow:0 0 10px rgba(61,220,132,.18);
+}
+
+.player-dna-row.dna-row-violet .player-dna-fill{
+  background:linear-gradient(90deg, rgba(196,181,253,.96), rgba(196,181,253,.26));
+  box-shadow:0 0 10px rgba(196,181,253,.18);
+}
+
+.player-dna-row.dna-row-blue .player-dna-fill{
+  background:linear-gradient(90deg, rgba(139,211,255,.96), rgba(139,211,255,.26));
+  box-shadow:0 0 10px rgba(139,211,255,.18);
+}
+
+.player-dna-row.dna-row-slate .player-dna-fill{
+  background:linear-gradient(90deg, rgba(214,222,231,.92), rgba(214,222,231,.24));
+  box-shadow:0 0 8px rgba(214,222,231,.14);
 }
 
 .player-dna-row.dna-row-red .player-dna-label,
