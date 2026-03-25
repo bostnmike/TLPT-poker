@@ -411,6 +411,10 @@ a:hover{
   font-weight:800;
 }
 
+.dashboard-studio-context{
+  grid-column:1;
+}
+
 .standings-race-context{
   align-self:center;
 }
