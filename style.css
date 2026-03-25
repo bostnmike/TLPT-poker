@@ -1604,29 +1604,20 @@ a:hover{
   line-height:1.02;
   margin-bottom:10px;
   letter-spacing:.02em;
-
-  text-shadow:
-    0 0 8px rgba(255,184,28,.20),
-    0 0 18px rgba(255,184,28,.14);
-
-  transition:transform .2s ease, text-shadow .2s ease;
+  text-shadow:none;
+  transition:transform .2s ease;
   animation:snapshotPulse 4s ease-in-out infinite;
 }
 
 .snapshot-value.money{
   color:var(--gold);
   letter-spacing:.03em;
-  text-shadow:
-    0 0 10px rgba(255,184,28,.35),
-    0 0 22px rgba(255,184,28,.18);
+  text-shadow:none;
 }
 
 .home-snapshot-grid .snapshot-card:hover .snapshot-value{
   transform:scale(1.08);
-  text-shadow:
-    0 0 10px rgba(255,184,28,.35),
-    0 0 20px rgba(255,184,28,.25),
-    0 0 40px rgba(255,184,28,.15);
+  text-shadow:none;
 }
 
 .snapshot-icon{
@@ -5902,6 +5893,17 @@ td{
 
 .player-profile-title-row h2{
   flex:0 0 auto;
+}
+
+.player-stat-card .player-stat-kicker{
+  display:block;
+  text-align:left;
+}
+
+.player-stat-card .player-stat-metric{
+  display:block;
+  width:100%;
+  text-align:right;
 }
 
 .player-profile-quote-inline{
