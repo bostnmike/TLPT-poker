@@ -3122,6 +3122,24 @@ a:hover{
     0 0 0 1px rgba(134,239,172,.10),
     0 0 10px rgba(134,239,172,.10),
     0 8px 14px rgba(0,0,0,.22);
+
+  .event-title-kicker{
+    font-size:1.72rem;
+    font-weight:900;
+    letter-spacing:.01em;
+    line-height:1.1;
+  }
+
+  .event-details-col .event-title-kicker{
+    margin-bottom:2px;
+  }
+
+  .event-structure{
+    font-size:.82rem;
+    color:#ffffff;
+    margin:0 0 8px 0;
+    line-height:1.25;
+  }
 }
 
 /* restore themed text accents on left-side details + commissioner title */
