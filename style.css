@@ -3109,19 +3109,20 @@ a:hover{
     0 8px 14px rgba(0,0,0,.22);
 }
 
-#home-events-list .schedule-event-card-bottom .event-format-title,
-#schedule-list .schedule-event-card-bottom .event-format-title{
-  color:#d8ffe0;
-  border-color:rgba(134,239,172,.50);
-  background:
-    linear-gradient(180deg, rgba(216,255,224,.12), rgba(255,255,255,0) 40%),
-    linear-gradient(180deg, rgba(30,104,58,.95), rgba(15,52,31,.96));
-  box-shadow:
-    inset 0 1px 0 rgba(216,255,224,.12),
-    inset 0 -2px 4px rgba(8,36,18,.52),
-    0 0 0 1px rgba(134,239,172,.10),
-    0 0 10px rgba(134,239,172,.10),
-    0 8px 14px rgba(0,0,0,.22);
+  #home-events-list .schedule-event-card-bottom .event-format-title,
+  #schedule-list .schedule-event-card-bottom .event-format-title{
+    color:#d8ffe0;
+    border-color:rgba(134,239,172,.50);
+    background:
+      linear-gradient(180deg, rgba(216,255,224,.12), rgba(255,255,255,0) 40%),
+      linear-gradient(180deg, rgba(30,104,58,.95), rgba(15,52,31,.96));
+    box-shadow:
+      inset 0 1px 0 rgba(216,255,224,.12),
+      inset 0 -2px 4px rgba(8,36,18,.52),
+      0 0 0 1px rgba(134,239,172,.10),
+      0 0 10px rgba(134,239,172,.10),
+      0 8px 14px rgba(0,0,0,.22);
+  }
 
   .event-title-kicker{
     font-size:1.72rem;
