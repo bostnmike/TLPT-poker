@@ -2698,117 +2698,12 @@ function renderStatLeaders(data) {
   initAnimatedCounters(list);
 }
 
-function renderHonorsSummary(data) {
+function renderHonorsSummary() {
   const strip = document.getElementById("honors-summary-strip");
   const comment = document.getElementById("honors-summary-comment");
-  if (!strip) return;
 
-  const players = data?.players || [];
-  const eligiblePlayers = getEligiblePlayers(players);
-  const { statLeaders, recordItems } = getBalancedHonorsSections(data);
-
-  const profitLeader = getLeaderByRule(players, HONOR_RULES["Profit Leader"]);
-  const powerLeader = getLeaderByRule(players, HONOR_RULES["Power Leader"]);
-
-  const aggressionLeaderConfig = statLeaders.find(item => item.key === "aggressionIndex") || null;
-  const aggressionLeader = aggressionLeaderConfig
-  ? sortPlayers(eligiblePlayers, aggressionLeaderConfig.key)[0]
-  : sortPlayers(eligiblePlayers, "aggressionIndex")[0];
-  
-  const worstLuckConfig = recordItems.find(item => item.label === "Worst Luck Index");
-  const rebuyConfig = recordItems.find(item => item.label === "Most Rebuys");
-
-  const worstLuck = getLeaderByRule(players, RECORD_RULES["Worst Luck Index"]);
-  const rebuyLeader = getLeaderByRule(players, RECORD_RULES["Most Rebuys"]);
-
-  const profitLabel = honorsPageLabel("Profit Leader");
-  const profitIcon = honorIcon("Profit Leader");
-
-  const powerLabel = honorsPageLabel("Power Leader");
-  const powerIcon = honorIcon("Power Leader");
-
-  const blueLabel = aggressionLeaderConfig?.title || "Mr. Aggro";
-  const blueIcon = aggressionLeaderConfig?.icon || statIcon("aggressionIndex");
-
-  const worstLuckLabel = worstLuckConfig?.title || worstLuckConfig?.label || "Worst Luck Index";
-  const worstLuckIcon = worstLuckConfig?.icon || recordIcon(worstLuckConfig?.label || "Worst Luck Index");
-
-  const rebuyLabel = rebuyConfig?.title || rebuyConfig?.label || "Most Rebuys";
-  const rebuyIcon = rebuyConfig?.icon || recordIcon(rebuyConfig?.label || "Most Rebuys");
-
-  strip.innerHTML = `
-    <div class="honors-summary-card honors-summary-card-purple">
-      <div class="honors-summary-kicker">${profitIcon} ${profitLabel}</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-player-row">
-          ${profitLeader ? playerImageMarkup(profitLeader, "table") : ""}
-          <div class="honors-summary-name">${profitLeader ? displayPlayerName(profitLeader) : "—"}</div>
-        </div>
-        <div class="honors-summary-value ${profitLeader ? statValueClass(profitLeader, "profit") : ""}">
-          ${profitLeader ? fmtMoney(profitLeader.profit) : "—"}
-        </div>
-      </div>
-    </div>
-
-    <div class="honors-summary-card honors-summary-card-purple">
-      <div class="honors-summary-kicker">${powerIcon} ${powerLabel}</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-player-row">
-          ${powerLeader ? playerImageMarkup(powerLeader, "table") : ""}
-          <div class="honors-summary-name">${powerLeader ? displayPlayerName(powerLeader) : "—"}</div>
-        </div>
-        <div class="honors-summary-value">
-          ${powerLeader ? fmtNum(powerLeader.trueSkillScore) : "—"}
-        </div>
-      </div>
-    </div>
-
-    <div class="honors-summary-card honors-summary-card-blue">
-      <div class="honors-summary-kicker">${blueIcon} ${blueLabel}</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-player-row">
-          ${aggressionLeader ? playerImageMarkup(aggressionLeader, "table") : ""}
-          <div class="honors-summary-name">${aggressionLeader ? displayPlayerName(aggressionLeader) : "—"}</div>
-        </div>
-        <div class="honors-summary-value">
-          ${aggressionLeader ? fmtNum(aggressionLeader.aggressionIndex) : "—"}
-        </div>
-      </div>
-    </div>
-
-    <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">${worstLuckIcon} ${worstLuckLabel}</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-player-row">
-          ${worstLuck ? playerImageMarkup(worstLuck, "table") : ""}
-          <div class="honors-summary-name">${worstLuck ? displayPlayerName(worstLuck) : "—"}</div>
-        </div>
-        <div class="honors-summary-value negative">
-          ${worstLuck ? fmtNum(worstLuck.luckIndex) : "—"}
-        </div>
-      </div>
-    </div>
-
-    <div class="honors-summary-card honors-summary-card-green">
-      <div class="honors-summary-kicker">${rebuyIcon} ${rebuyLabel}</div>
-      <div class="honors-summary-main">
-        <div class="honors-summary-player-row">
-          ${rebuyLeader ? playerImageMarkup(rebuyLeader, "table") : ""}
-          <div class="honors-summary-name">${rebuyLeader ? displayPlayerName(rebuyLeader) : "—"}</div>
-        </div>
-        <div class="honors-summary-value">
-          ${rebuyLeader ? String(rebuyLeader.rebuys ?? "—") : "—"}
-        </div>
-      </div>
-    </div>
-  `;
-
-  if (comment) {
-    comment.innerHTML = `
-      <span class="honors-summary-comment-label">Qualified Field:</span>
-      <span class="honors-summary-comment-value">${eligiblePlayers.length} players with 5+ entries</span>
-    `;
-  }
+  if (strip) strip.remove();
+  if (comment) comment.remove();
 }
 
 function escapeHtmlAttr(value) {
