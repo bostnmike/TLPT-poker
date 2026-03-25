@@ -3529,6 +3529,11 @@ td{
   white-space:nowrap;
 }
 
+#standings-table th:nth-child(n+3),
+#standings-table td:nth-child(n+3){
+  text-align:center;
+}
+
 #standings-table th{
   color:#eef5fc;
   font-weight:800;
