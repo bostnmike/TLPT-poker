@@ -366,6 +366,8 @@ a:hover{
   justify-content:flex-start;
   gap:0;
   min-height:auto;
+  padding-left:58px;
+  margin-bottom:14px;
   border:1px solid rgba(59,130,246,.18);
   background:
     radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 30%),
@@ -377,6 +379,9 @@ a:hover{
   display:grid;
   grid-template-columns:1fr;
   align-items:start;
+  justify-items:start;
+  text-align:left;
+  padding-left:58px;
   border:1px solid rgba(255,184,28,.18);
   background:
     radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
@@ -3696,7 +3701,7 @@ td{
 }
 
 .dashboard-studio-strip-inline{
-  margin:0 0 10px 0;
+  margin:0 0 14px 0;
   padding:0;
   border:none;
   border-radius:0;
@@ -3726,7 +3731,7 @@ td{
   gap:12px;
   align-items:center;
   margin:0;
-  padding:0;
+  padding:0 0 0 58px;
   border:none;
   border-radius:0;
   background:none;
