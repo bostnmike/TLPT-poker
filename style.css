@@ -59,6 +59,14 @@ a:hover{
   padding:0 20px;
 }
 
+main.wrap > .section:first-child,
+main.wrap > .crew-header-shell:first-child,
+main.wrap > .standings-page-stack:first-child,
+main.wrap > .dashboard-page-stack:first-child,
+main.wrap > .hero-stack:first-child{
+  margin-top:0;
+}
+
 /* header */
 
 .site-header{
@@ -230,7 +238,7 @@ a:hover{
   display:flex;
   flex-direction:column;
   gap:22px;
-  padding:36px 0 0;
+  padding:0;
 }
 
 .hero{
@@ -3669,7 +3677,7 @@ td{
 .dashboard-page-stack{
   display:grid;
   gap:16px;
-  margin:22px 0;
+  margin:0 0 22px 0;
 }
 
 .dashboard-top-shell{
@@ -3798,7 +3806,7 @@ td{
 .standings-page-stack{
   display:grid;
   gap:16px;
-  margin:22px 0;
+  margin:0 0 22px 0;
 }
 
 .standings-top-shell{
