@@ -2902,6 +2902,213 @@ a:hover{
   filter:brightness(1.03);
 }
 
+/* ===== EVENT THEME RESTORE + HOME BUTTON ANCHOR ===== */
+
+/* make the left event column actually push the RSVP buttons to the bottom on home */
+.event-details-col .home-event-fixed-buttons,
+.event-details-col .home-event-fixed-buttons-inline{
+  margin-top:auto;
+  align-self:flex-start;
+}
+
+/* keep the individual buttons flush once the wrapper is pushed down */
+.event-details-col .home-event-fixed-buttons .btn,
+.event-details-col .home-event-fixed-buttons-inline .btn{
+  margin-top:0;
+}
+
+/* restore home-page event card shell colors */
+#home-events-list .schedule-event-card-top{
+  border:1px solid rgba(168,85,247,.24);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.05)),
+    radial-gradient(circle at top right, rgba(233,213,255,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#home-events-list .schedule-event-card-bottom{
+  border:1px solid rgba(34,197,94,.24);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.05)),
+    radial-gradient(circle at top right, rgba(134,239,172,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+/* restore schedule-page event card shell colors */
+#schedule-list .schedule-event-card-top{
+  border:1px solid rgba(168,85,247,.24);
+  background:
+    linear-gradient(180deg, rgba(168,85,247,.18), rgba(168,85,247,.05)),
+    radial-gradient(circle at top right, rgba(233,213,255,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+#schedule-list .schedule-event-card-bottom{
+  border:1px solid rgba(34,197,94,.24);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.05)),
+    radial-gradient(circle at top right, rgba(134,239,172,.08), transparent 30%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 24px rgba(0,0,0,.18);
+}
+
+/* restore day-pill themes */
+#home-events-list .schedule-event-card-top .schedule-day-pill,
+#schedule-list .schedule-event-card-top .schedule-day-pill{
+  color:#f1e8ff;
+  border-color:rgba(196,181,253,.48);
+  background:
+    linear-gradient(180deg, rgba(220,210,255,.10), rgba(255,255,255,.02)),
+    linear-gradient(180deg, rgba(98,68,160,.95), rgba(44,26,84,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(220,210,255,.10),
+    inset 0 -2px 4px rgba(32,16,60,.55),
+    0 0 10px rgba(196,181,253,.14),
+    0 8px 14px rgba(0,0,0,.26);
+}
+
+#home-events-list .schedule-event-card-bottom .schedule-day-pill,
+#schedule-list .schedule-event-card-bottom .schedule-day-pill{
+  color:#e7ffef;
+  border-color:rgba(134,239,172,.48);
+  background:
+    linear-gradient(180deg, rgba(210,255,224,.10), rgba(255,255,255,.02)),
+    linear-gradient(180deg, rgba(30,104,58,.95), rgba(15,52,31,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(210,255,224,.10),
+    inset 0 -2px 4px rgba(8,36,18,.55),
+    0 0 10px rgba(134,239,172,.14),
+    0 8px 14px rgba(0,0,0,.26);
+}
+
+/* restore event title colors */
+#home-events-list .schedule-event-card-top .event-title-kicker,
+#schedule-list .schedule-event-card-top .event-title-kicker{
+  color:#ddd6fe;
+  text-shadow:none;
+}
+
+#home-events-list .schedule-event-card-bottom .event-title-kicker,
+#schedule-list .schedule-event-card-bottom .event-title-kicker{
+  color:#bbf7d0;
+  text-shadow:none;
+}
+
+/* restore structure / format pill themes */
+#home-events-list .schedule-event-card-top .event-format-title,
+#schedule-list .schedule-event-card-top .event-format-title{
+  color:#e9ddff;
+  border-color:rgba(196,181,253,.50);
+  background:
+    linear-gradient(180deg, rgba(231,221,255,.12), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg, rgba(98,68,160,.95), rgba(44,26,84,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(231,221,255,.12),
+    inset 0 -2px 4px rgba(32,16,60,.52),
+    0 0 0 1px rgba(196,181,253,.10),
+    0 0 10px rgba(196,181,253,.10),
+    0 8px 14px rgba(0,0,0,.22);
+}
+
+#home-events-list .schedule-event-card-bottom .event-format-title,
+#schedule-list .schedule-event-card-bottom .event-format-title{
+  color:#d8ffe0;
+  border-color:rgba(134,239,172,.50);
+  background:
+    linear-gradient(180deg, rgba(216,255,224,.12), rgba(255,255,255,0) 40%),
+    linear-gradient(180deg, rgba(30,104,58,.95), rgba(15,52,31,.96));
+  box-shadow:
+    inset 0 1px 0 rgba(216,255,224,.12),
+    inset 0 -2px 4px rgba(8,36,18,.52),
+    0 0 0 1px rgba(134,239,172,.10),
+    0 0 10px rgba(134,239,172,.10),
+    0 8px 14px rgba(0,0,0,.22);
+}
+
+/* restore themed text accents on left-side details + commissioner title */
+#home-events-list .schedule-event-card-top .event-details-col p strong,
+#schedule-list .schedule-event-card-top .event-details-col p strong,
+#home-events-list .schedule-event-card-top .event-commissioner-inline-title,
+#schedule-list .schedule-event-card-top .event-commissioner-inline-title{
+  color:#ddd6fe;
+  text-shadow:none;
+}
+
+#home-events-list .schedule-event-card-bottom .event-details-col p strong,
+#schedule-list .schedule-event-card-bottom .event-details-col p strong,
+#home-events-list .schedule-event-card-bottom .event-commissioner-inline-title,
+#schedule-list .schedule-event-card-bottom .event-commissioner-inline-title{
+  color:#bbf7d0;
+  text-shadow:none;
+}
+
+/* restore schedule-page RSVP button themes */
+#schedule-list .schedule-event-card-top .btn-rsvp{
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-color:rgba(168,85,247,.34);
+  color:#f3e8ff;
+}
+
+#schedule-list .schedule-event-card-top .btn-rsvp:hover{
+  background:linear-gradient(180deg, #ddd6fe 0%, #c4b5fd 100%);
+  border-color:#c4b5fd;
+  color:#24123d;
+  box-shadow:
+    0 0 0 1px rgba(196,181,253,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(168,85,247,.12);
+}
+
+#schedule-list .schedule-event-card-bottom .btn-rsvp{
+  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
+  border-color:rgba(34,197,94,.34);
+  color:#dcfce7;
+}
+
+#schedule-list .schedule-event-card-bottom .btn-rsvp:hover{
+  background:linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
+  border-color:#86efac;
+  color:#0f2d18;
+  box-shadow:
+    0 0 0 1px rgba(134,239,172,.16),
+    0 10px 24px rgba(0,0,0,.20),
+    0 0 16px rgba(34,197,94,.12);
+}
+
+/* restore home commissioner red theme */
+.home-commissioner-section{
+  margin-top:8px;
+}
+
+.home-commissioner-shell{
+  border:1px solid rgba(215,38,61,.30);
+  border-radius:18px;
+  padding:14px 18px;
+  background:
+    radial-gradient(circle at top right, rgba(255,120,120,.10), transparent 34%),
+    linear-gradient(180deg, rgba(215,38,61,.22), rgba(120,12,24,.22)),
+    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  box-shadow:
+    0 0 0 1px rgba(215,38,61,.12),
+    0 10px 30px rgba(0,0,0,.24),
+    0 0 18px rgba(215,38,61,.10);
+}
+
+.home-commissioner-shell .commissioner-typing-target{
+  min-height:3.4em;
+}
+
+#home-commissioner-section .section-head{
+  margin-bottom:12px;
+}
+
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
 .event-rsvp-avatar-row > :nth-child(3){ --seat-x:76%; --seat-y:14%; }
 .event-rsvp-avatar-row > :nth-child(4){ --seat-x:87%; --seat-y:32%; }
