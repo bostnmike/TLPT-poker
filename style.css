@@ -4026,7 +4026,7 @@ td{
   line-height:1.36;
 }
 
-.standings-datawall > .button-row[data-sort-scope="standings"] .btn{
+.button-row[data-sort-scope="standings"] .btn{
   border-color:rgba(59,130,246,.34);
   background:
     linear-gradient(180deg, rgba(219,234,254,.10), rgba(255,255,255,0) 42%),
@@ -4038,7 +4038,7 @@ td{
     0 8px 18px rgba(0,0,0,.22);
 }
 
-.standings-datawall > .button-row[data-sort-scope="standings"] .btn:hover{
+.button-row[data-sort-scope="standings"] .btn:hover{
   border-color:rgba(168,85,247,.50);
   background:
     linear-gradient(180deg, rgba(233,213,255,.16), rgba(255,255,255,0) 42%),
@@ -4050,7 +4050,7 @@ td{
     0 0 18px rgba(168,85,247,.10);
 }
 
-.standings-datawall > .button-row[data-sort-scope="standings"] .btn.active{
+.button-row[data-sort-scope="standings"] .btn.active{
   border-color:rgba(34,197,94,.54);
   background:
     linear-gradient(180deg, rgba(220,252,231,.16), rgba(255,255,255,0) 42%),
