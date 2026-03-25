@@ -1789,9 +1789,10 @@ container.innerHTML = cards.map(card => `
   initAnimatedCounters(container.parentElement || document);
 }
 
-const table = document.getElementById("standings-table");
-const tbody = table?.querySelector("tbody");
-if (!table || !tbody || !window.siteData?.players) return;
+function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
+  const table = document.getElementById("standings-table");
+  const tbody = table?.querySelector("tbody");
+  if (!table || !tbody || !window.siteData?.players) return;
 
   ensureStandingsHeadline(sortKey);
 
@@ -1805,25 +1806,25 @@ if (!table || !tbody || !window.siteData?.players) return;
   renderStandingsRaceStrip(sortKey, sorted);
 
   tbody.innerHTML = sorted.map((player, index) => `
-  <tr
-    class="standings-row-link"
-    data-href="${playerUrl(player)}"
-    tabindex="0"
-    role="link"
-    aria-label="Open ${displayPlayerNamePlain(player)} profile"
-  >
-    <td>${index + 1}</td>
-    <td>${playerInlineMarkup(player, "standings")}</td>
-    <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
-    <td>${fmtPct(player.roi)}</td>
-    <td>${fmtNum(player.trueSkillScore)}</td>
-    <td>${player.hits ?? "-"}</td>
-    <td>${player.timesPlaced ?? "-"}</td>
-    <td>${player.bubbles ?? "-"}</td>
-    <td>${fmtNum(player.luckIndex)}</td>
-    <td>${fmtNum(player.clutchIndex)}</td>
-  </tr>
-`).join("");
+    <tr
+      class="standings-row-link"
+      data-href="${playerUrl(player)}"
+      tabindex="0"
+      role="link"
+      aria-label="Open ${displayPlayerNamePlain(player)} profile"
+    >
+      <td>${index + 1}</td>
+      <td>${playerInlineMarkup(player, "standings")}</td>
+      <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
+      <td>${fmtPct(player.roi)}</td>
+      <td>${fmtNum(player.trueSkillScore)}</td>
+      <td>${player.hits ?? "-"}</td>
+      <td>${player.timesPlaced ?? "-"}</td>
+      <td>${player.bubbles ?? "-"}</td>
+      <td>${fmtNum(player.luckIndex)}</td>
+      <td>${fmtNum(player.clutchIndex)}</td>
+    </tr>
+  `).join("");
 
   setActiveSortButton("standings", sortKey);
 
