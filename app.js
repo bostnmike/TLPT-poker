@@ -1407,6 +1407,10 @@ function buildEventCard(event, data, options = {}) {
     <div class="event-card home-event-card home-event-hero compact-event-card${homeMode ? " rotating-home-event-card" : ""}${isActive ? " is-active" : ""}" data-event-day="${getEventDayLabel(event)}">
       <div class="event-card-topline">
         <div class="kicker event-title-kicker">${event.title}</div>
+
+        <div class="home-event-top-right">
+          <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
+        </div>
       </div>
 
       <div class="event-layout-grid">
