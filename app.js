@@ -1789,9 +1789,9 @@ container.innerHTML = cards.map(card => `
   initAnimatedCounters(container.parentElement || document);
 }
 
-function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
-  const tbody = document.querySelector("#standings-table tbody");
-  if (!tbody || !window.siteData?.players) return;
+const table = document.getElementById("standings-table");
+const tbody = table?.querySelector("tbody");
+if (!table || !tbody || !window.siteData?.players) return;
 
   ensureStandingsHeadline(sortKey);
 
@@ -1800,6 +1800,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   );
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
+  table.dataset.activeStat = sortKey;
 
   renderStandingsRaceStrip(sortKey, sorted);
 
