@@ -2947,8 +2947,7 @@ a:hover{
   #records-list{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
-  
-  @media (max-width:800px){
+
   .featured-player-stats{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
@@ -2960,8 +2959,7 @@ a:hover{
   #records-list{
     grid-template-columns:1fr;
   }
-  
-  @media (max-width:640px){
+
   .featured-player-stats{
     grid-template-columns:1fr;
   }
