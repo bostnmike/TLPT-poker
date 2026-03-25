@@ -3720,12 +3720,12 @@ td{
   padding:18px;
 }
 
-.dashboard-meta-shell{
+.dashboard-meta-shell-inline{
   display:grid;
   grid-template-columns:max-content minmax(0, 1fr);
   gap:12px;
   align-items:center;
-  margin:0 0 8px 0;
+  margin:0;
   padding:0;
   border:none;
   border-radius:0;
@@ -3733,15 +3733,7 @@ td{
   box-shadow:none;
 }
 
-.dashboard-meta-shell > #dashboard-current-stat,
-.dashboard-meta-shell > .dashboard-formula-panel{
-  position:relative;
-  z-index:1;
-  min-height:auto;
-  width:100%;
-}
-
-.dashboard-meta-shell > #dashboard-current-stat{
+.dashboard-meta-shell-inline > #dashboard-current-stat{
   display:inline-flex;
   align-items:center;
   gap:12px;
@@ -3762,10 +3754,15 @@ td{
   justify-self:start;
 }
 
-.dashboard-meta-shell > .dashboard-formula-panel{
+.dashboard-formula-panel-inline{
   display:flex;
-  align-items:stretch;
+  align-items:flex-start;
   justify-content:flex-start;
+  margin:0;
+  padding:0;
+  border:none;
+  background:none;
+  box-shadow:none;
 }
 
 .dashboard-formula-display{
@@ -3788,7 +3785,7 @@ td{
 .dashboard-current-icon{
   font-size:2.25rem;
   line-height:1;
-  color:#bbf7d0;
+  color:#ffd9a3;
   flex:0 0 auto;
 }
 
