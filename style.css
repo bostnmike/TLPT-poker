@@ -3737,21 +3737,17 @@ td{
   display:inline-flex;
   align-items:center;
   gap:12px;
-  color:#ffd9a3;
-  font-size:1.6rem;
-  font-weight:800;
-  line-height:1.05;
   margin:0;
   padding:0;
   border:none;
   border-radius:0;
   background:transparent;
   box-shadow:none;
-  flex-wrap:nowrap;
+  color:#dbeafe;
+  font-size:1.34rem;
+  font-weight:800;
+  line-height:1.05;
   white-space:nowrap;
-  min-height:auto;
-  width:auto;
-  justify-self:start;
 }
 
 .dashboard-formula-panel-inline{
@@ -3776,16 +3772,16 @@ td{
   background:transparent;
   border:none;
   border-radius:0;
-  color:#fff;
-  font-size:1rem;
-  line-height:1.4;
   box-shadow:none;
+  color:#eff6ff;
+  font-size:.96rem;
+  line-height:1.36;
 }
 
 .dashboard-current-icon{
   font-size:2.25rem;
   line-height:1;
-  color:#ffd9a3;
+  color:#93c5fd;
   flex:0 0 auto;
 }
 
