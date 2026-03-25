@@ -29,6 +29,7 @@ body{
 
 body{
   margin:0;
+  padding-top:110px;
   font-family:Arial, Helvetica, sans-serif;
   background:
     radial-gradient(circle at top right, rgba(255,184,28,.07), transparent 25%),
@@ -63,9 +64,12 @@ a:hover{
 .site-header{
   border-bottom:1px solid var(--line);
   background:rgba(9,13,18,.95);
-  position:sticky;
+  position:fixed;
   top:0;
-  z-index:20;
+  left:0;
+  right:0;
+  width:100%;
+  z-index:9999;
   backdrop-filter:blur(8px);
 }
 
@@ -5616,6 +5620,12 @@ td{
     opacity:1;
     overflow:visible;
     margin-top:10px;
+  }
+}
+
+@media (max-width:800px){
+  body{
+    padding-top:126px;
   }
 }
 
