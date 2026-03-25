@@ -396,26 +396,14 @@ a:hover{
   max-width:none;
 }
 
-.dashboard-studio-context,
-.standings-race-context{
-  font-size:.82rem;
-  line-height:1.35;
-}
-
-.dashboard-studio-context,
-.standings-race-context{
-  font-size:.82rem;
-  line-height:1.35;
-  color:var(--muted);
-  font-weight:400;
-  letter-spacing:0;
-  white-space:nowrap;
-}
-
-.dashboard-studio-context strong,
-.standings-race-context strong{
-  color:#fff;
-  font-weight:800;
+.section-head.page-title-row,
+.page-title-row,
+.compact-page-title-row{
+  display:flex;
+  justify-content:flex-start !important;
+  align-items:center;
+  gap:12px;
+  text-align:left;
 }
 
 .standings-race-context{
