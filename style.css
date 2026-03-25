@@ -2455,9 +2455,9 @@ a:hover{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:14px;
-  margin:6px 0 4px 0;
-  padding:0 12px;
+  gap:10px;
+  margin:2px 0 2px 0;
+  padding:0 8px;
 }
 
 .home-event-rotator-dots-inline{
@@ -2470,7 +2470,7 @@ a:hover{
   display:flex;
   justify-content:center;
   align-items:center;
-  margin-top:2px;
+  margin-top:0;
 }
 
 .home-rsvp-summary-header{
@@ -2479,26 +2479,27 @@ a:hover{
 
 .event-layout-grid{
   display:grid;
-  grid-template-columns:minmax(0, 1fr) 680px;  gap:8px;
-  margin-top:8px;
+  grid-template-columns:minmax(0, 1fr) 680px;
+  gap:6px;
+  margin-top:4px;
   align-items:start;
 }
 
 .event-details-col{
-  padding-right:18px;
+  padding-right:14px;
   border-right:1px solid rgba(255,255,255,.12);
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
   align-self:start;
-  gap:14px;
-  padding-bottom:6px;
+  gap:8px;
+  padding-bottom:2px;
 }
 
 .event-details-col p{
   margin:0;
-  line-height:1.6;
-  font-size:1.12rem;
+  line-height:1.34;
+  font-size:1.02rem;
   color:#ffffff;
 }
 
@@ -2546,21 +2547,21 @@ a:hover{
 }
 
 .event-details-col > *{
-  margin:0 0 6px 0;
+  margin:0 0 2px 0;
 }
 
 .event-details-col .btn{
-  margin-top:8px;
+  margin-top:auto;
   align-self:flex-start;
 }
 
 .event-card{
-  padding:18px 20px;
+  padding:16px 18px;
 }
 
 .event-commissioner-inline{
-  margin-top:16px;
-  padding-top:16px;
+  margin-top:12px;
+  padding-top:12px;
   border-top:1px solid rgba(255,255,255,.10);
 }
 
@@ -3101,15 +3102,16 @@ a:hover{
   align-items:center;
   justify-content:flex-start;
   width:100%;
-  gap:10px;
+  gap:6px;
 }
 
-.event-rsvp-avatar-row{
-  position:relative;
-  width:700px;
-  height:350px;
-  margin:0 auto;
-  align-self:center;
+.event-rsvp-col{
+  padding-left:4px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  align-self:start;
 }
 
 .event-rsvp-center-name{
