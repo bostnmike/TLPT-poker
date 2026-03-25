@@ -6611,45 +6611,68 @@ body:has(#standings-table) .page-title-row::after{
   background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(255,255,255,.12) 58%, transparent 100%);
 }
 
-.honors-page-head{
-  padding:0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
-  overflow:visible;
-}
-
-.honors-page-head::before,
-.honors-page-head::after{
-  content:none;
-  display:none;
-}
-
-.honors-page-head .page-title-row{
+.honors-page-shell{
   position:relative;
+  overflow:hidden;
+}
+
+.honors-page-shell .page-title-row{
   margin-bottom:10px;
-  padding:0 0 12px 0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
 }
 
-.honors-page-head .page-title-row::before{
-  content:none;
-  display:none;
+.honors-page-shell-kicker{
+  margin-bottom:0;
 }
 
-.honors-page-head .page-title-row::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+.honors-page-shell-purple{
+  border-color:rgba(168,85,247,.22);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+}
+
+.honors-hub{
+  display:grid;
+  gap:22px;
+  margin:22px 0;
+}
+
+.honors-module{
+  position:relative;
+  overflow:hidden;
+}
+
+.honors-module .page-title-row{
+  margin-bottom:10px;
+}
+
+.honors-module-kicker{
+  margin-bottom:14px;
+}
+
+.honors-module-purple{
+  border-color:rgba(168,85,247,.22);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+}
+
+.honors-module-blue{
+  border-color:rgba(59,130,246,.22);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+}
+
+.honors-module-green{
+  border-color:rgba(34,197,94,.22);
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
 }
 
 .leader-banner-crown{
