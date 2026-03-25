@@ -5747,8 +5747,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     margin-bottom:14px;
   }
 
-  .dashboard-sort-shell,
-  .standings-sort-shell,
   .crew-view-toolbar,
   .format-toggle,
   .home-snapshot-layout,
@@ -5757,7 +5755,7 @@ body:has(#dashboard-grid) .page-title-row::after{
     padding-left:12px;
     padding-right:12px;
   }
-
+  
   .dashboard-buttons-shell .dashboard-buttons:nth-child(1),
   .dashboard-buttons-shell .dashboard-buttons:nth-child(2),
   .dashboard-buttons-shell .dashboard-buttons:nth-child(3),
@@ -5765,13 +5763,11 @@ body:has(#dashboard-grid) .page-title-row::after{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
   
-  .dashboard-buttons-shell,
-  .standings-datawall{
+  .dashboard-buttons-shell{
     padding:10px;
   }
   
-  .dashboard-buttons-shell .dashboard-buttons,
-  .standings-sort-shell .button-row{
+  .dashboard-buttons-shell .dashboard-buttons{
     padding:10px;
   }
   
@@ -5810,14 +5806,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   .dashboard-buttons-shell{
     position:static;
     padding:12px;
-  }
-
-  .standings-datawall{
-    padding:12px;
-  }
-
-  .dashboard-buttons-shell > .dashboard-button-groups{
-    padding:10px 11px;
   }
 
   .standings-datawall > .table-wrap{
