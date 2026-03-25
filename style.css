@@ -1603,13 +1603,8 @@ a:hover{
 }
 
 .snapshot-card::before{
-  content:"";
-  display:block;
-  width:52px;
-  height:2px;
-  margin:0 auto 14px;
-  border-radius:999px;
-  background:rgba(255,184,28,.35);
+  content:none;
+  display:none;
 }
 
 .home-snapshot-grid .snapshot-card{
@@ -2312,7 +2307,28 @@ a:hover{
   justify-content:flex-end;
   flex:0 0 auto;
   min-width:max-content;
-  width:100%;
+  width:auto;
+}
+
+#home-events-list .event-card-topline,
+#schedule-list .event-card-topline{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:nowrap;
+}
+
+#home-events-list .event-card-topline .home-event-top-right,
+#schedule-list .event-card-topline .home-event-top-right{
+  margin-left:auto;
+  justify-content:flex-end;
+  width:auto;
+}
+
+#home-events-list .event-card-topline .schedule-day-pill,
+#schedule-list .event-card-topline .schedule-day-pill{
+  margin-left:auto;
 }
 
 #schedule-list .home-event-top-right,
@@ -2389,6 +2405,7 @@ a:hover{
   flex-wrap:nowrap;
   margin-top:auto !important;
   align-self:flex-start;
+  padding-top:8px;
 }
 
 .home-event-fixed-buttons .btn{
@@ -2402,6 +2419,7 @@ a:hover{
   max-width:100%;
   margin-top:auto !important;
   align-self:flex-start;
+  padding-top:8px;
 }
 
 .event-details-col > .btn-rsvp,
@@ -2409,6 +2427,10 @@ a:hover{
 .event-details-col > .home-event-fixed-buttons-inline{
   margin-top:auto !important;
   align-self:flex-start;
+}
+
+.event-details-col > .btn-rsvp{
+  padding-top:8px;
 }
 
 .home-fixed-rsvp-btn,
@@ -2541,6 +2563,10 @@ a:hover{
   min-height:100%;
   gap:8px;
   padding-bottom:2px;
+}
+
+.event-details-col > .event-commissioner-inline{
+  margin-top:12px;
 }
 
 .event-details-col p{
