@@ -1657,29 +1657,26 @@ a:hover{
 
 /* Snapshot hero color themes */
 
-/* Silver theme for Entries */
+/* Pink theme for Entries */
 
 .snapshot-silver{
-  border-color:rgba(210,210,210,.35);
+  border-color:rgba(244,114,182,.35);
   background:
-    linear-gradient(180deg, rgba(230,230,230,.22), rgba(230,230,230,.06) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
+    linear-gradient(180deg, rgba(244,114,182,.18), rgba(244,114,182,.04) 24%, rgba(15,20,28,1) 24%, rgba(15,20,28,1) 100%);
   box-shadow:
-    0 0 0 1px rgba(220,220,220,.12),
+    0 0 0 1px rgba(244,114,182,.10),
     0 10px 24px rgba(0,0,0,.22),
-    0 0 14px rgba(220,220,220,.10);
+    0 0 14px rgba(244,114,182,.10);
 }
 
 .snapshot-silver::before{
-  background:rgba(214,214,214,.42);
+  background:rgba(244,114,182,.42);
 }
 
 .snapshot-silver .snapshot-icon,
-.snapshot-silver .snapshot-value{
-  color:#f5f5f5;
-}
-
+.snapshot-silver .snapshot-value,
 .snapshot-silver .snapshot-label{
-  color:#d8dadd;
+  color:#f9a8d4;
 }
 
 .snapshot-purple{
@@ -1793,11 +1790,11 @@ a:hover{
 }
 
 .snapshot-silver:hover{
-  border-color:rgba(176,176,176,.48);
+  border-color:rgba(244,114,182,.50);
   box-shadow:
-    0 0 0 1px rgba(176,176,176,.18),
+    0 0 0 1px rgba(244,114,182,.18),
     0 12px 30px rgba(0,0,0,.28),
-    0 0 20px rgba(176,176,176,.12);
+    0 0 20px rgba(244,114,182,.12);
 }
 
 .snapshot-blue:hover{
@@ -2371,7 +2368,6 @@ a:hover{
 
 .event-details-col{
   padding-right:18px;
-  margin-right:0;
   border-right:1px solid rgba(255,255,255,.12);
   display:flex;
   flex-direction:column;
@@ -2824,7 +2820,6 @@ a:hover{
 }
 
 @media (max-width:1100px){
-  
   #champions-list,
   #leaders-list,
   #records-list{
@@ -2833,7 +2828,6 @@ a:hover{
 }
 
 @media (max-width:800px){
-  
   #champions-list,
   #leaders-list,
   #records-list{
@@ -2842,7 +2836,6 @@ a:hover{
 }
 
 @media (max-width:640px){
-  
   #champions-list,
   #leaders-list,
   #records-list{
@@ -3541,14 +3534,11 @@ td{
   position:sticky;
   top:0;
   z-index:6;
+  background-clip:padding-box;
 }
 
 .standings-datawall > .table-wrap{
   border-top:1px solid rgba(59,130,246,.10);
-}
-
-#standings-table thead th{
-  background-clip:padding-box;
 }
 
 #standings-table tbody tr:nth-child(1){
@@ -3670,10 +3660,12 @@ td{
 #standings-table[data-active-stat="clutchIndex"] th:nth-child(10),
 #standings-table[data-active-stat="clutchIndex"] td:nth-child(10){
   background:
-    linear-gradient(180deg, rgba(34,197,94,.16), rgba(34,197,94,.08));
+    linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.10));
   box-shadow:
     inset 2px 0 0 rgba(34,197,94,.32),
     inset -2px 0 0 rgba(34,197,94,.32);
+  position:relative;
+  z-index:1;
 }
 
 #standings-table[data-active-stat="profit"] th:nth-child(3),
@@ -8963,7 +8955,7 @@ td{
   #champions-list,
   #leaders-list,
   #records-list{
-    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    grid-template-columns:repeat(2, minmax(0,1fr));
   }
 }
 
@@ -8971,6 +8963,6 @@ td{
   #champions-list,
   #leaders-list,
   #records-list{
-    grid-template-columns:1fr !important;
+    grid-template-columns:1fr;
   }
 }
