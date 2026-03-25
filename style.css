@@ -4089,17 +4089,6 @@ body:has(#standings-table) .page-title-row::after{
   background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.45) 58%, transparent 100%);
 }
 
-.section.rules-header .page-title-row::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.45) 58%, transparent 100%);
-}
-
 #dashboard-grid{
   display:grid !important;
   grid-template-columns:repeat(5, minmax(0,1fr)) !important;
@@ -6538,47 +6527,6 @@ body:has(#standings-table) .page-title-row::after{
   text-shadow:0 0 8px rgba(34,197,94,.12);
 }
 
-.honors-page-head{
-  padding:0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
-  overflow:visible;
-}
-
-.honors-page-head::before,
-.honors-page-head::after{
-  content:none;
-  display:none;
-}
-
-.honors-page-head .page-title-row{
-  position:relative;
-  margin-bottom:10px;
-  padding:0 0 12px 0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
-}
-
-.honors-page-head .page-title-row::before{
-  content:none;
-  display:none;
-}
-
-.honors-page-head .page-title-row::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
-}
-
 #champions-list .honors-card-value,
 #champions-list .honors-card-value--numeric,
 #leaders-list .honors-card-value,
@@ -6661,6 +6609,47 @@ body:has(#standings-table) .page-title-row::after{
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
+.honors-page-head{
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  overflow:visible;
+}
+
+.honors-page-head::before,
+.honors-page-head::after{
+  content:none;
+  display:none;
+}
+
+.honors-page-head .page-title-row{
+  position:relative;
+  margin-bottom:10px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+.honors-page-head .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+.honors-page-head .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
 }
 
 .leader-banner-crown{
