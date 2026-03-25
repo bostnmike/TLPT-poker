@@ -7728,8 +7728,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 @media (max-width:980px){
   .home-events-grid,
-  .media-grid,
-  .dashboard-sort-shell{
+  .media-grid{
     grid-template-columns:1fr;
   }
 
@@ -8145,8 +8144,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     margin-bottom:14px;
   }
 
-  .dashboard-sort-shell,
-  .standings-sort-shell,
   .crew-view-toolbar,
   .format-toggle,
   .home-snapshot-layout,
@@ -8156,19 +8153,18 @@ body:has(#dashboard-grid) .page-title-row::after{
     padding-right:12px;
   }
 
-  .dashboard-button-groups .dashboard-buttons,
-  .standings-sort-shell .button-row{
+  .dashboard-buttons-shell .dashboard-buttons{
     padding:10px;
   }
 
-  .dashboard-meta-shell,
+  .dashboard-meta-shell-inline,
   .standings-meta-shell{
     grid-template-columns:1fr;
     gap:10px;
-    padding:12px;
+    padding:0;
   }
 
-  .dashboard-meta-shell > #dashboard-current-stat,
+  .dashboard-meta-shell-inline > #dashboard-current-stat,
   .standings-current-stat{
     white-space:normal;
     font-size:1.4rem;
