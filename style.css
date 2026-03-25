@@ -67,11 +67,6 @@ main.wrap > .hero-stack:first-child{
   margin-top:5;
 }
 
-main.wrap > .standings-page-stack:first-child > .section:first-child,
-main.wrap > .dashboard-page-stack:first-child > .section:first-child{
-  margin-top:5;
-}
-
 /* header */
 
 .site-header{
