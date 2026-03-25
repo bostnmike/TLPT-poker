@@ -1041,41 +1041,16 @@ function ensureStandingsHeadline(sortKey) {
   const table = document.getElementById("standings-table");
   if (!table) return;
 
-  const tableWrap = table.parentElement;
-  if (!tableWrap) return;
-
-  const section = table.closest(".section");
-  const datawall = section?.querySelector(".standings-datawall");
-
-  let sortShell = document.getElementById("standings-sort-shell");
+  const topShell = document.querySelector(".standings-top-shell");
+  const raceStrip = document.getElementById("standings-race-strip");
   let metaShell = document.getElementById("standings-meta-shell");
   let headline = document.getElementById("standings-current-stat");
   let formula = document.getElementById("standings-formula-display");
-
-const sortControls =
-  datawall?.querySelector('[data-sort-scope="standings"]') ||
-  section?.querySelector('[data-sort-scope="standings"]') ||
-  section?.querySelector('.button-row');
-
-  if (sortControls && !sortShell) {
-    sortShell = document.createElement("div");
-    sortShell.id = "standings-sort-shell";
-    sortShell.className = "standings-sort-shell";
-    sortControls.parentNode.insertBefore(sortShell, sortControls);
-    sortShell.appendChild(sortControls);
-  }
 
   if (!metaShell) {
     metaShell = document.createElement("div");
     metaShell.id = "standings-meta-shell";
     metaShell.className = "standings-meta-shell";
-  }
-
-  const metaParent = datawall || tableWrap;
-  const metaAnchor = datawall?.querySelector(".table-wrap") || table;
-
-  if (metaShell.parentNode !== metaParent || metaShell.nextElementSibling !== metaAnchor) {
-    metaParent.insertBefore(metaShell, metaAnchor);
   }
 
   if (!headline) {
@@ -1096,6 +1071,16 @@ const sortControls =
 
   if (formula.parentNode !== metaShell) {
     metaShell.appendChild(formula);
+  }
+
+  if (topShell) {
+    if (raceStrip && raceStrip.parentNode === topShell) {
+      if (metaShell.parentNode !== topShell || metaShell.previousElementSibling !== raceStrip) {
+        topShell.insertBefore(metaShell, raceStrip.nextSibling);
+      }
+    } else if (metaShell.parentNode !== topShell) {
+      topShell.appendChild(metaShell);
+    }
   }
 
   headline.innerHTML = `
@@ -1144,37 +1129,20 @@ strip.innerHTML = `
 }
 
 function ensureDashboardHeadline(sortKey) {
-  const grid = document.getElementById("dashboard-grid");
-  if (!grid) return;
+  const topShell = document.querySelector(".dashboard-top-shell");
+  const studioStrip = document.getElementById("dashboard-studio-strip");
+  const metaShell = document.getElementById("dashboard-meta-shell");
+  const headline = document.getElementById("dashboard-current-stat");
+  const formulaBox = document.getElementById("dashboard-formula-display");
 
-  const sortShell = document.querySelector(".dashboard-sort-shell");
-  const formulaPanel = document.querySelector(".dashboard-formula-panel");
-  let metaShell = document.getElementById("dashboard-meta-shell");
+  if (!topShell || !metaShell || !headline) return;
 
-  let headline = document.getElementById("dashboard-current-stat");
-  if (!headline) {
-    headline = document.createElement("div");
-    headline.id = "dashboard-current-stat";
-    headline.className = "dashboard-current-stat";
-  }
-
-  if (sortShell && formulaPanel) {
-    if (!metaShell) {
-      metaShell = document.createElement("div");
-      metaShell.id = "dashboard-meta-shell";
-      metaShell.className = "dashboard-meta-shell";
-      sortShell.insertBefore(metaShell, formulaPanel);
+  if (studioStrip && studioStrip.parentNode === topShell) {
+    if (metaShell.parentNode !== topShell || metaShell.previousElementSibling !== studioStrip) {
+      topShell.insertBefore(metaShell, studioStrip.nextSibling);
     }
-
-    if (headline.parentNode !== metaShell) {
-      metaShell.appendChild(headline);
-    }
-
-    if (formulaPanel.parentNode !== metaShell) {
-      metaShell.appendChild(formulaPanel);
-    }
-  } else if (headline.parentNode !== grid.parentNode) {
-    grid.parentNode.insertBefore(headline, grid);
+  } else if (metaShell.parentNode !== topShell) {
+    topShell.appendChild(metaShell);
   }
 
   const meta = DASHBOARD_META[sortKey] || {
@@ -1185,10 +1153,9 @@ function ensureDashboardHeadline(sortKey) {
 
   headline.innerHTML = `
     <span class="dashboard-current-icon">${meta.icon}</span>
-    <span>${meta.label}</span>
+    <span class="standings-current-label">${meta.label}</span>
   `;
 
-  const formulaBox = document.getElementById("dashboard-formula-display");
   if (formulaBox) {
     formulaBox.textContent = meta.formula || "Click a stat button to reveal the calculation formula.";
   }
