@@ -4022,6 +4022,32 @@ td{
     0 0 34px rgba(59,130,246,.12);
 }
 
+body:has(#standings-table) .page-title-row{
+  position:relative;
+  padding:0 0 12px 0;
+  margin-bottom:10px;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+body:has(#standings-table) .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+body:has(#standings-table) .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.32) 58%, transparent 100%);
+}
+
 #rules .section,
 .section.rules-section,
 .section.rules-header{
@@ -4039,16 +4065,28 @@ td{
 
 .section.rules-header .page-title-row{
   position:relative;
-  margin-bottom:18px;
-  padding:12px 14px;
-  border:1px solid rgba(34,197,94,.18);
-  border-radius:16px;
-  background:
-    linear-gradient(180deg, rgba(34,197,94,.12), rgba(34,197,94,.03)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.18);
+  margin-bottom:14px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+.section.rules-header .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+.section.rules-header .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.45) 58%, transparent 100%);
 }
 
 .section.rules-header .page-title-row::before{
@@ -6500,6 +6538,47 @@ td{
   text-shadow:0 0 8px rgba(34,197,94,.12);
 }
 
+.honors-page-head{
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  overflow:visible;
+}
+
+.honors-page-head::before,
+.honors-page-head::after{
+  content:none;
+  display:none;
+}
+
+.honors-page-head .page-title-row{
+  position:relative;
+  margin-bottom:10px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+.honors-page-head .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+.honors-page-head .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
 #champions-list .honors-card-value,
 #champions-list .honors-card-value--numeric,
 #leaders-list .honors-card-value,
@@ -8588,25 +8667,25 @@ td{
 
 .section.schedule-hero .page-title-row{
   position:relative;
-  margin-bottom:18px;
-  padding:12px 14px;
-  border:1px solid rgba(244,114,182,.20);
-  border-radius:16px;
-  background:
-    linear-gradient(180deg, rgba(244,114,182,.12), rgba(244,114,182,.03)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.18),
-    0 0 16px rgba(244,114,182,.06);
+  margin-bottom:14px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
 }
 
 .section.schedule-hero .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+.section.schedule-hero .page-title-row::after{
   content:"";
   position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
+  left:0;
+  right:0;
+  bottom:0;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(244,114,182,.95), rgba(255,184,28,.28) 58%, transparent 100%);
@@ -8642,17 +8721,29 @@ td{
 }
 
 .section.media-header .page-title-row{
-  margin-bottom:18px;
-  padding:12px 14px;
-  border:1px solid rgba(168,85,247,.20);
-  border-radius:16px;
-  background:
-    linear-gradient(180deg, rgba(168,85,247,.14), rgba(168,85,247,.03)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.18),
-    0 0 16px rgba(168,85,247,.06);
+  position:relative;
+  margin-bottom:14px;
+  padding:0 0 12px 0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+}
+
+.section.media-header .page-title-row::before{
+  content:none;
+  display:none;
+}
+
+.section.media-header .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
 }
 
 .media-grid{
