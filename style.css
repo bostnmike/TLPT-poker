@@ -379,10 +379,15 @@ a:hover{
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
 }
 
-.dashboard-studio-strip > .cockpit-kicker,
-.dashboard-studio-strip > .dashboard-studio-copy,
-.dashboard-studio-strip > .dashboard-studio-context{
-  grid-column:auto;
+.dashboard-studio-strip{
+  display:grid;
+  grid-template-columns:1fr;
+  align-items:start;
+  border:1px solid rgba(255,184,28,.18);
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
+    radial-gradient(circle at left center, rgba(59,130,246,.06), transparent 24%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
 }
 
 .dashboard-studio-copy{
@@ -5805,22 +5810,6 @@ td{
   .standings-race-strip{
     grid-template-columns:1fr;
     padding:12px;
-  }
-
-  .dashboard-studio-strip > .dashboard-studio-chip,
-  .dashboard-studio-strip > .dashboard-studio-copy,
-  .dashboard-studio-strip > .dashboard-studio-leader{
-    grid-column:auto;
-    grid-row:auto;
-  }
-
-  .dashboard-studio-leader{
-    grid-template-columns:1fr;
-    justify-items:start;
-  }
-
-  .dashboard-studio-leader-value{
-    white-space:normal;
   }
 
     .dashboard-sort-shell{
