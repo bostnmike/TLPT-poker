@@ -3799,50 +3799,26 @@ td{
   flex:0 0 auto;
 }
 
-.standings-sort-shell{
-  margin:10px 0 14px 0;
-  padding:12px 14px;
-  border:1px solid rgba(59,130,246,.32);
-  border-radius:16px;
-  background:
-    linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.06)),
-    linear-gradient(180deg, rgba(14,18,24,.98), rgba(10,12,18,1));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 22px rgba(0,0,0,.20),
-    0 0 18px rgba(59,130,246,.10);
-}
-
-.standings-controls-shell > .button-row[data-sort-scope="standings"]{
+.standings-page-stack{
   display:grid;
-  grid-template-columns:repeat(4, minmax(0,1fr));
-  gap:5px;
-  margin:0;
+  gap:16px;
+  margin:22px 0;
 }
 
-.standings-controls-shell > .button-row[data-sort-scope="standings"] .btn{
-  width:100%;
+.standings-top-shell{
+  padding-top:20px;
 }
 
-.standings-datawall{
-  position:relative;
-  overflow:hidden;
-  display:grid;
-  gap:8px;
-  margin:0;
-  padding:0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
+.standings-header-row{
+  margin-bottom:8px;
 }
 
-.standings-controls-shell{
-  position:relative;
-  z-index:1;
-  display:grid;
-  gap:6px;
-  margin:0;
+.standings-page-kicker{
+  margin:0 0 12px 2px;
+}
+
+.standings-buttons-shell{
+  margin:0 0 10px 0;
   padding:8px;
   border:1px solid rgba(59,130,246,.28);
   border-radius:18px;
@@ -3857,52 +3833,50 @@ td{
     0 0 24px rgba(59,130,246,.10);
 }
 
-.standings-datawall::before{
-  content:none;
-  display:none;
-}
-
-.standings-controls-shell > #standings-sort-shell,
-.standings-controls-shell > #standings-race-strip,
-.standings-controls-shell > #standings-meta-shell,
-.standings-datawall > .table-wrap{
-  position:relative;
-  z-index:1;
+.standings-buttons-shell > .button-row[data-sort-scope="standings"]{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:5px;
   margin:0;
-  padding:6px 7px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01)),
-    rgba(255,255,255,.015);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 8px 18px rgba(0,0,0,.14);
 }
 
-.standings-controls-shell > #standings-sort-shell{
-  border-color:rgba(59,130,246,.18);
+.standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn{
+  width:100%;
 }
 
-.standings-controls-shell > #standings-race-strip{
-  border-color:rgba(59,130,246,.16);
+.standings-race-strip-inline{
+  margin:0;
+  padding:0;
+  border:none;
+  border-radius:0;
+  background:none;
+  box-shadow:none;
+  min-height:auto;
 }
 
-.standings-controls-shell > #standings-meta-shell{
-  border-color:rgba(59,130,246,.18);
+.standings-race-strip-inline .standings-race-context,
+.standings-race-strip-inline .dashboard-studio-copy,
+.standings-race-strip-inline .standings-current-stat,
+.standings-race-strip-inline .standings-formula-display{
+  white-space:normal;
 }
 
-.standings-datawall > .table-wrap{
-  border-color:rgba(59,130,246,.14);
+.standings-table-shell{
   padding:0;
   overflow:hidden;
 }
 
-.standings-datawall > .table-wrap table{
+.standings-table-shell .table-wrap{
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+
+.standings-table-shell #standings-table{
   margin-top:0;
 }
 
-.standings-datawall > .table-wrap #standings-table thead th{
+.standings-table-shell #standings-table thead th{
   box-shadow:
     inset 0 -1px 0 rgba(59,130,246,.18),
     inset 0 1px 0 rgba(255,255,255,.03);
@@ -5777,10 +5751,9 @@ body:has(#standings-table) .page-title-row::after{
   .dashboard-button-groups .dashboard-buttons:nth-child(1),
   .dashboard-button-groups .dashboard-buttons:nth-child(2),
   .dashboard-button-groups .dashboard-buttons:nth-child(3),
-  .standings-controls-shell > .button-row[data-sort-scope="standings"]{
+  .standings-buttons-shell > .button-row[data-sort-scope="standings"]{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
-
   .dashboard-sort-shell,
   .standings-datawall{
     padding:10px;
@@ -5833,10 +5806,7 @@ body:has(#standings-table) .page-title-row::after{
 
   .dashboard-sort-shell > .dashboard-button-groups,
   .dashboard-sort-shell > #dashboard-meta-shell,
-  .dashboard-sort-shell > #dashboard-studio-strip,
-  .standings-controls-shell > #standings-sort-shell,
-  .standings-controls-shell > #standings-race-strip,
-  .standings-controls-shell > #standings-meta-shell{
+  .dashboard-sort-shell > #dashboard-studio-strip{
     padding:10px 11px;
   }
 
