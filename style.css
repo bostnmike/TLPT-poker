@@ -406,10 +406,6 @@ a:hover{
   font-weight:800;
 }
 
-.dashboard-studio-context{
-  grid-column:1;
-}
-
 .standings-race-context{
   align-self:center;
 }
@@ -3682,7 +3678,9 @@ td{
 }
 
 .dashboard-sort-shell{
-  position:relative;
+  position:sticky;
+  top:92px;
+  z-index:8;
   overflow:hidden;
   display:grid;
   grid-template-columns:minmax(0, 1fr);
@@ -3701,12 +3699,6 @@ td{
     0 0 0 1px rgba(34,197,94,.10),
     0 14px 32px rgba(0,0,0,.26),
     0 0 28px rgba(34,197,94,.10);
-}
-
-.dashboard-sort-shell{
-  position:sticky;
-  top:92px;
-  z-index:8;
 }
 
 .dashboard-sort-shell > .dashboard-button-groups,
@@ -5794,10 +5786,6 @@ td{
 
   .home-hero-copy{
     font-size:.96rem;
-  }
-
-  .dashboard-sort-shell{
-    position:static;
   }
 
   #standings-table thead th{
