@@ -6510,6 +6510,11 @@ body:has(#standings-table) .page-title-row::after{
   margin:0;
   font-weight:900;
   line-height:1.1;
+  font-size:1.52rem;
+}
+
+.honors-page-shell .champions-title{
+  font-size:1.72rem;
 }
 
 .champions-title-purple{
@@ -6551,14 +6556,8 @@ body:has(#standings-table) .page-title-row::after{
 }
 
 .page-title-row:has(.champions-title-purple)::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+  content:none;
+  display:none;
 }
 
 .page-title-row:has(.champions-title-blue){
@@ -6576,14 +6575,8 @@ body:has(#standings-table) .page-title-row::after{
 }
 
 .page-title-row:has(.champions-title-blue)::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(59,130,246,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+  content:none;
+  display:none;
 }
 
 .page-title-row:has(.champions-title-green){
@@ -6601,35 +6594,34 @@ body:has(#standings-table) .page-title-row::after{
 }
 
 .page-title-row:has(.champions-title-green)::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+  content:none;
+  display:none;
 }
 
-.honors-page-shell{
+..honors-page-shell{
   position:relative;
   overflow:hidden;
 }
 
 .honors-page-shell .page-title-row{
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
 
 .honors-page-shell-kicker{
+  margin-top:8px;
   margin-bottom:0;
 }
 
 .honors-page-shell-purple{
-  border-color:rgba(168,85,247,.22);
+  border-color:rgba(168,85,247,.30);
   background:
-    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 32%),
-    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at top right, rgba(168,85,247,.18), transparent 34%),
+    radial-gradient(circle at left center, rgba(216,180,254,.08), transparent 28%),
+    linear-gradient(180deg, rgba(44,20,64,.96), rgba(18,14,28,.99));
+}
+
+.honors-page-shell .page-title-row::after{
+  bottom:-12px;
 }
 
 .honors-hub{
@@ -6644,35 +6636,83 @@ body:has(#standings-table) .page-title-row::after{
 }
 
 .honors-module .page-title-row{
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .honors-module-kicker{
-  margin-bottom:14px;
+  position:relative;
+  margin-top:2px;
+  margin-bottom:18px;
+  padding-bottom:14px;
 }
 
 .honors-module-purple{
-  border-color:rgba(168,85,247,.22);
+  border-color:rgba(168,85,247,.34);
   background:
-    radial-gradient(circle at top right, rgba(168,85,247,.12), transparent 32%),
-    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at top right, rgba(168,85,247,.20), transparent 34%),
+    radial-gradient(circle at left center, rgba(216,180,254,.08), transparent 28%),
+    linear-gradient(180deg, rgba(44,20,64,.96), rgba(18,14,28,.99));
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 24px rgba(168,85,247,.10);
 }
 
 .honors-module-blue{
-  border-color:rgba(59,130,246,.22);
+  border-color:rgba(59,130,246,.34);
   background:
-    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 32%),
-    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at top right, rgba(59,130,246,.20), transparent 34%),
+    radial-gradient(circle at left center, rgba(147,197,253,.08), transparent 28%),
+    linear-gradient(180deg, rgba(14,32,60,.96), rgba(11,18,34,.99));
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 24px rgba(59,130,246,.10);
 }
 
 .honors-module-green{
-  border-color:rgba(34,197,94,.22);
+  border-color:rgba(34,197,94,.34);
   background:
-    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 32%),
-    radial-gradient(circle at left center, rgba(255,255,255,.03), transparent 26%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at top right, rgba(34,197,94,.20), transparent 34%),
+    radial-gradient(circle at left center, rgba(134,239,172,.08), transparent 28%),
+    linear-gradient(180deg, rgba(12,44,28,.96), rgba(10,24,18,.99));
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.10),
+    0 12px 30px rgba(0,0,0,.24),
+    0 0 24px rgba(34,197,94,.10);
+}
+
+.honors-module-purple .honors-module-kicker::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
+.honors-module-blue .honors-module-kicker::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(59,130,246,.95), rgba(255,255,255,.12) 58%, transparent 100%);
+}
+
+.honors-module-green .honors-module-kicker::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(255,255,255,.12) 58%, transparent 100%);
 }
 
 .leader-banner-crown{
