@@ -6544,9 +6544,9 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16));
-  border-bottom:1px solid rgba(59,130,246,.32);
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18);
+  background:linear-gradient(180deg, rgba(59,130,246,.38), rgba(59,130,246,.22));
+  border-bottom:1px solid rgba(59,130,246,.38);
+  box-shadow:inset 0 -1px 0 rgba(59,130,246,.22);
 }
 
 #records-list .leader-banner-top{
