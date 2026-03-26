@@ -8723,6 +8723,10 @@ body:has(#dashboard-grid) .page-title-row::after{
    ------------------------- */
 .crew-view-toolbar{
   position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:nowrap;
   padding:14px 16px;
   border:1px solid rgba(239,68,68,.22);
   border-radius:16px;
@@ -8734,6 +8738,25 @@ body:has(#dashboard-grid) .page-title-row::after{
     inset 0 1px 0 rgba(255,255,255,.04),
     0 10px 24px rgba(0,0,0,.20),
     0 0 18px rgba(239,68,68,.08);
+}
+
+.crew-view-toolbar #players-help-copy{
+  margin-left:18px;
+  padding-left:4px;
+  color:#dfe7ef;
+  font-size:.92rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:normal;
+  flex:0 1 420px;
+  min-width:260px;
+  align-self:center;
+}
+
+.crew-view-toolbar #players-help-copy[style*="display:none"]{
+  margin-left:0;
+  padding-left:0;
 }
 
 .crew-view-toolbar::before{
