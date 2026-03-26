@@ -5096,11 +5096,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   overflow:hidden;
   display:grid;
-  grid-template-columns:220px minmax(0,1fr);
+  grid-template-columns:1fr;
   grid-template-areas:
-    "head head"
-    "mode filters";
-  gap:14px 18px;
+    "head"
+    "mode"
+    "filters";
+  gap:14px;
   padding:18px 20px;
   border:1px solid rgba(255,122,122,.20);
   border-radius:16px;
@@ -5186,9 +5187,10 @@ body:has(#dashboard-grid) .page-title-row::after{
 .archetype-mode-toggle{
   grid-area:mode;
   display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:8px;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
   margin:0;
   position:relative;
   z-index:1;
@@ -5287,10 +5289,12 @@ body:has(#dashboard-grid) .page-title-row::after{
 .archetype-filter-row{
   display:flex;
   flex-wrap:wrap;
+  justify-content:flex-start;
   align-content:flex-start;
   align-items:flex-start;
   gap:10px;
   min-width:0;
+  width:100%;
   position:relative;
   z-index:1;
 }
