@@ -2124,13 +2124,13 @@ function renderPlayers(data) {
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
     
     if (helpCopy) {
-      helpCopy.textContent = "Archetype view: pick Primary or Secondary, then click a style to find your particular brand of trouble.";
+      helpCopy.textContent = "Archetype: Learn all about your primary & secondary brands of trouble.";
   }
 
     if (explainer) {
       explainer.textContent = currentArchetypeMode === "primary"
-      ? "Primary Archetype = the loudest signal in the file."
-      : "Secondary Archetype = the backup chaos hiding underneath.";
+      ? "Primary Archetype = the loudest (perhaps most annoying) signal in the file."
+      : "Secondary Archetype = the backup chaos hiding underneath - mostly when you're bluffing.";
   }
     
     if (visual) {
