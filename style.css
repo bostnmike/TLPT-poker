@@ -9111,24 +9111,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   font-weight:800 !important;
 }
 
-#champions-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
-  border-bottom:1px solid rgba(34,197,94,.32) !important;
-  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18) !important;
-}
-
-#leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16)) !important;
-  border-bottom:1px solid rgba(59,130,246,.32) !important;
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18) !important;
-}
-
-#records-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
-  border-bottom:1px solid rgba(168,85,247,.32) !important;
-  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18) !important;
-}
-
 #champions-list .honors-card-value,
 #leaders-list .honors-card-value,
 #records-list .honors-card-value{
@@ -9155,19 +9137,23 @@ body:has(#dashboard-grid) .page-title-row::after{
   font-weight:800 !important;
 }
 
+/* final banner fills — same geometry, only color changes */
 #champions-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
-  border-bottom:1px solid rgba(34,197,94,.32);
+  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
+  border-bottom:1px solid rgba(34,197,94,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18) !important;
 }
 
 #leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
-  border-bottom:1px solid rgba(59,130,246,.32);
+  background:linear-gradient(180deg, rgba(59,130,246,.46), rgba(59,130,246,.28)) !important;
+  border-bottom:1px solid rgba(59,130,246,.42) !important;
+  box-shadow:inset 0 -1px 0 rgba(59,130,246,.26) !important;
 }
 
 #records-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
+  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
+  border-bottom:1px solid rgba(168,85,247,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18) !important;
 }
 
 /* keep section color values without glow clutter */
