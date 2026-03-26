@@ -6718,7 +6718,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .honors-page-shell-gray .page-title-row::after{
-  background:linear-gradient(90deg, rgba(226,232,240,.96), rgba(255,255,255,.36) 58%, transparent 100%);
+  background:linear-gradient(90deg, rgba(255,255,255,.98), rgba(226,232,240,.62) 52%, transparent 100%);
 }
 
 .honors-page-shell-gray .champions-title{
