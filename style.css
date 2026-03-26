@@ -4969,23 +4969,26 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:0;
   max-width:none;
   color:#dfe7ef;
-  line-height:1.4;
+  line-height:1.35;
 }
 
 .crew-view-toolbar #players-help-copy{
-  margin-left:14px;
+  margin-left:18px;
+  padding-left:4px;
   color:#dfe7ef;
   font-size:.92rem;
   font-weight:700;
   letter-spacing:0;
   text-transform:none;
   white-space:normal;
-  flex:1 1 280px;
+  flex:0 1 420px;
+  min-width:260px;
   align-self:center;
 }
 
 .crew-view-toolbar #players-help-copy[style*="display:none"]{
   margin-left:0;
+  padding-left:0;
 }
 
 #players-explainer{
