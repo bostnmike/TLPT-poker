@@ -4981,6 +4981,11 @@ body:has(#dashboard-grid) .page-title-row::after{
   text-transform:none;
   white-space:normal;
   flex:1 1 280px;
+  align-self:center;
+}
+
+.crew-view-toolbar #players-help-copy[style*="display:none"]{
+  margin-left:0;
 }
 
 #players-explainer{
