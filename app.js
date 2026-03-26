@@ -2029,10 +2029,8 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
         </button>
       </div>
 
-      <div class="archetype-filters-stack">
-        <div class="archetype-helper-copy">
-          <p class="archetype-helper-bottom">${explainer}</p>
-        </div>
+        <div class="archetype-filters-stack">
+          <div class="archetype-filter-row">
 
         <div class="archetype-filter-row">
           <button
@@ -2142,13 +2140,22 @@ function renderPlayers(data) {
     }
     
     if (visual) {
-      visual.innerHTML = archetypeFilterMarkup(
-        archetypeGroups,
-        currentArchetypeFilter,
-        currentArchetypeMode
-      );
-    }
+      const archetypeExplainer = currentArchetypeMode === "primary"
+        ? "Primary Archetype = Your loudest (perhaps most annoying) table style."
+        : "Secondary Archetype = Your backup chaos, hiding underneath, - mostly when you're bluffing.";
 
+      visual.innerHTML = `
+        <div class="archetype-helper-copy archetype-helper-copy-outside">
+          <p class="archetype-helper-bottom">${archetypeExplainer}</p>
+        </div>
+        ${archetypeFilterMarkup(
+          archetypeGroups,
+          currentArchetypeFilter,
+          currentArchetypeMode
+        )}
+      `;
+    }
+    
     grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
