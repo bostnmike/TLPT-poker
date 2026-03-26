@@ -7255,11 +7255,16 @@ body:has(#dashboard-grid) .page-title-row::after{
   line-height:1.5;
 }
 
-.timer-rail{
+.rules-table-bg .rules-format .format-head{
+  padding:0 12px;
+}
+
+.rules-table-bg .rules-format .timer-rail{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
   margin:14px 0 18px;
+  padding:0 12px;
 }
 
 .timer-pill{
