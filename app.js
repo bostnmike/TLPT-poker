@@ -2233,12 +2233,13 @@ function renderPlayers(data) {
   }
 
   if (visual) {
-    visual.innerHTML = tierDistributionMarkup(tierGroups);
-  }
+  visual.innerHTML = `
+    <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
+    ${tierDistributionMarkup(tierGroups)}
+  `;
+}
 
   grid.innerHTML = `
-    <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
-
     ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
     ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
     ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
