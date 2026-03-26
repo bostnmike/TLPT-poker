@@ -4617,6 +4617,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   box-shadow:var(--shadow);
 }
 
+.players-visual-gold-copy{
+  margin:0 0 12px 0;
+  color:var(--gold);
+  line-height:1.5;
+}
+
 .tier-distribution-head h3{
   margin:0 0 14px 0;
   color:#fff;
@@ -5124,6 +5130,31 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:0;
 }
 
+.archetype-filters-stack{
+  grid-area:filters;
+  display:grid;
+  gap:10px;
+  min-width:0;
+  align-content:start;
+}
+
+.archetype-helper-copy{
+  display:grid;
+  gap:6px;
+}
+
+.archetype-helper-top{
+  margin:0;
+  color:#dfe7ef;
+  line-height:1.5;
+}
+
+.archetype-helper-bottom{
+  margin:0;
+  color:var(--gold);
+  line-height:1.5;
+}
+
 .archetype-mode-toggle{
   grid-area:mode;
   display:flex;
@@ -5226,7 +5257,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .archetype-filter-row{
-  grid-area:filters;
   display:flex;
   flex-wrap:wrap;
   align-content:flex-start;
