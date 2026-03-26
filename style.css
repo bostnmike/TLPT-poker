@@ -44,7 +44,7 @@ img{
   display:block;
 }
 
-a{
+{
   color:var(--gold);
   text-decoration:none;
 }
@@ -64,7 +64,12 @@ main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
 main.wrap > .dashboard-page-stack:first-child,
 main.wrap > .hero-stack:first-child{
-  margin-top:5;
+  margin-top:5px;
+}
+
+main.wrap > .standings-page-stack:first-child > .section:first-child,
+main.wrap > .dashboard-page-stack:first-child > .section:first-child{
+  margin-top:5px;
 }
 
 /* header */
@@ -6488,21 +6493,18 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #champions-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
-  border-bottom:1px solid rgba(34,197,94,.32) !important;
-  box-shadow:none !important;
+  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
+  border-bottom:1px solid rgba(34,197,94,.32);
 }
 
 #leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16)) !important;
-  border-bottom:1px solid rgba(59,130,246,.32) !important;
-  box-shadow:none !important;
+  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
+  border-bottom:1px solid rgba(59,130,246,.32);
 }
 
 #records-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
-  border-bottom:1px solid rgba(168,85,247,.32) !important;
-  box-shadow:none !important;
+  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
+  border-bottom:1px solid rgba(168,85,247,.32);
 }
 
 #champions-list,
@@ -6579,7 +6581,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   line-height:1.15;
 }
 
-.page-title-row:has(.champions-title-purple){
+.honors-page-shell > .page-title-row:has(.champions-title-purple){
   position:relative;
   margin-bottom:18px;
   padding:0 0 12px 0;
@@ -6680,10 +6682,17 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .honors-module-purple .page-title-row{
-  border-color:rgba(168,85,247,.26);
+  position:relative;
+  margin-bottom:8px;
+  padding:12px 14px;
+  border:1px solid rgba(168,85,247,.26);
+  border-radius:16px;
   background:
     linear-gradient(180deg, rgba(168,85,247,.22), rgba(168,85,247,.08)),
     linear-gradient(180deg, rgba(54,24,78,.98), rgba(24,16,36,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 10px 22px rgba(0,0,0,.18);
 }
 
 .honors-module-blue .page-title-row{
