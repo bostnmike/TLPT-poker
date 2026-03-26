@@ -4623,6 +4623,10 @@ body:has(#dashboard-grid) .page-title-row::after{
   line-height:1.5;
 }
 
+.players-visual-gold-copy-centered{
+  text-align:center;
+}
+
 .tier-distribution-head h3{
   margin:0 0 14px 0;
   color:#fff;
