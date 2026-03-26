@@ -2133,7 +2133,7 @@ function renderPlayers(data) {
   
     if (helpCopy) {
       helpCopy.style.display = "";
-      helpCopy.textContent = "Learn all about your primary & secondary brands of trouble.";
+      helpCopy.textContent = "Your primary & secondary brands of trouble.";
     }
 
     if (explainer) {
