@@ -6582,16 +6582,19 @@ body:has(#dashboard-grid) .page-title-row::after{
 #champions-list .leader-banner-top{
   background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
   border-bottom:1px solid rgba(34,197,94,.32);
+  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18);
 }
 
 #leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
+  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16));
   border-bottom:1px solid rgba(59,130,246,.32);
+  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18);
 }
 
 #records-list .leader-banner-top{
   background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
   border-bottom:1px solid rgba(168,85,247,.32);
+  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18);
 }
 
 .champions-title{
