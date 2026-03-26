@@ -5096,12 +5096,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   overflow:hidden;
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:minmax(0,1fr) auto;
   grid-template-areas:
-    "head"
-    "mode"
-    "filters";
-  gap:14px;
+    "head mode"
+    "filters filters";
+  gap:14px 18px;
+  align-items:start;
   padding:18px 20px;
   border:1px solid rgba(255,122,122,.20);
   border-radius:16px;
@@ -5149,6 +5149,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   grid-area:head;
   position:relative;
   z-index:1;
+  align-self:start;
 }
 
 .archetype-visual-head p{
@@ -5189,11 +5190,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   display:flex;
   flex-direction:row;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
   gap:12px;
   margin:0;
   position:relative;
   z-index:1;
+  align-self:start;
 }
 
 .archetype-mode-btn{
