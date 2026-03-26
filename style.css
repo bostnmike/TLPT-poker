@@ -4966,10 +4966,21 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #players-help-copy{
-  margin:0 0 10px 0;
-  max-width:980px;
+  margin:0;
+  max-width:none;
   color:#dfe7ef;
-  line-height:1.5;
+  line-height:1.4;
+}
+
+.crew-view-toolbar #players-help-copy{
+  margin-left:14px;
+  color:#dfe7ef;
+  font-size:.92rem;
+  font-weight:700;
+  letter-spacing:0;
+  text-transform:none;
+  white-space:normal;
+  flex:1 1 280px;
 }
 
 #players-explainer{
