@@ -716,12 +716,25 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #format-btn-500k.active{
-  color:#faf5ff;
-  background:linear-gradient(180deg, rgba(126,34,206,.36) 0%, rgba(76,29,149,.96) 100%);
-  border-color:#6b21a8;
+  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.14));
+  border-color:rgba(168,85,247,.32);
+  color:#f3e8ff;
   box-shadow:
-    0 8px 18px rgba(0,0,0,.28),
-    0 0 0 1px rgba(107,33,168,.22);
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 0 0 1px rgba(168,85,247,.08),
+    0 10px 22px rgba(0,0,0,.18);
+}
+
+.format-title-40k{
+  color:#86efac;
+}
+
+.format-title-500k{
+  color:#d8b4fe;
+}
+
+.rules-table-bg .rules-format .format-head{
+  padding:0 18px;
 }
 
 /* home events header */
