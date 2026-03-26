@@ -3889,13 +3889,25 @@ td{
 
 .standings-buttons-shell > .button-row[data-sort-scope="standings"]{
   display:grid;
-  grid-template-columns:repeat(4, minmax(0,1fr));
-  gap:5px;
+  grid-template-columns:repeat(8, minmax(0,1fr));
+  gap:4px;
   margin:0;
 }
 
 .standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn{
   width:100%;
+  min-height:36px;
+  padding:7px 10px;
+  font-size:.82rem;
+}
+
+.standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn-emoji{
+  margin-right:6px;
+  font-size:.95em;
+}
+
+.standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn-label{
+  font-size:.82rem;
 }
 
 .standings-race-strip-inline{
