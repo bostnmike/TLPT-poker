@@ -8626,6 +8626,11 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:linear-gradient(90deg, rgba(255,255,255,.18), transparent 100%);
 }
 
+.home-welcome-row::after{
+  background:linear-gradient(90deg, rgba(255,255,255,.98), rgba(226,232,240,.62) 52%, transparent 100%);
+  box-shadow:0 0 10px rgba(226,232,240,.18);
+}
+
 .page-title-row:has(.page-title-orange)::after{
   background:linear-gradient(90deg, rgba(255,184,28,.9), rgba(255,184,28,.18) 58%, transparent 100%);
 }
