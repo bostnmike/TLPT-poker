@@ -2085,8 +2085,6 @@ function tierDistributionMarkup(groups) {
 
   return `
     <div class="tier-distribution">
-      <p class="players-visual-gold-copy players-visual-gold-copy-centered">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
-
       <div class="tier-distribution-head">
         <h3>Tier Distribution</h3>
       </div>
@@ -2239,6 +2237,8 @@ function renderPlayers(data) {
   }
 
   grid.innerHTML = `
+    <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
+
     ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
     ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
     ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
