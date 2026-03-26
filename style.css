@@ -4955,16 +4955,14 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(255,255,255,.18) 58%, transparent 100%);
 }
 
-#players-help-copy,
-#players-archetype-help{
+#players-help-copy{
   margin:0 0 10px 0;
   max-width:980px;
   color:#dfe7ef;
   line-height:1.5;
 }
 
-#players-explainer,
-#players-archetype-note{
+#players-explainer{
   margin:0 0 14px 0;
   color:var(--gold);
   line-height:1.5;
