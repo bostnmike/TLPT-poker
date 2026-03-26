@@ -5179,6 +5179,10 @@ body:has(#dashboard-grid) .page-title-row::after{
   line-height:1.5;
 }
 
+.archetype-helper-copy-outside{
+  margin:10px 0 14px 0;
+}
+
 .archetype-mode-toggle{
   grid-area:mode;
   display:flex;
