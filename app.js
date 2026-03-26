@@ -2017,7 +2017,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
           data-archetype-mode="primary"
         >
-          Primary Archetype
+          Primary
         </button>
 
         <button
@@ -2025,10 +2025,10 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
           data-archetype-mode="secondary"
         >
-          Secondary Archetype
+          Secondary
         </button>
       </div>
-
+      
         <div class="archetype-filters-stack">
           <div class="archetype-filter-row">
 
