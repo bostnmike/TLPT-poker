@@ -2001,12 +2001,14 @@ function groupPlayersByArchetype(players, mode = "primary") {
 
 function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
+  const explainer = mode === "primary"
+    ? "Primary Archetype = Your loudest (perhaps most annoying) table style."
+    : "Secondary Archetype = Your backup chaos, hiding underneath, - mostly when you're bluffing.";
 
   return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
         <h3>Archetype Radar</h3>
-        <p class="muted">Choose Primary or Secondary Archetype, then click an archetype to filter the player grid.</p>
       </div>
 
       <div class="archetype-mode-toggle">
@@ -2027,26 +2029,33 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
         </button>
       </div>
 
-      <div class="archetype-filter-row">
-        <button
-          type="button"
-          class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
-          data-archetype-filter="all"
-        >
-          View All
-          <span>${totalPlayers}</span>
-        </button>
+      <div class="archetype-filters-stack">
+        <div class="archetype-helper-copy">
+          <p class="archetype-helper-top">Learn all about your primary & secondary brands of trouble.</p>
+          <p class="archetype-helper-bottom">${explainer}</p>
+        </div>
 
-        ${groups.map(group => `
+        <div class="archetype-filter-row">
           <button
             type="button"
-            class="archetype-filter-pill ${activeFilter === group.title ? "active" : ""} ${group.className}"
-            data-archetype-filter="${group.title}"
+            class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
+            data-archetype-filter="all"
           >
-            ${group.emoji} ${group.title}
-            <span>${group.players.length}</span>
+            View All
+            <span>${totalPlayers}</span>
           </button>
-        `).join("")}
+
+          ${groups.map(group => `
+            <button
+              type="button"
+              class="archetype-filter-pill ${activeFilter === group.title ? "active" : ""} ${group.className}"
+              data-archetype-filter="${group.title}"
+            >
+              ${group.emoji} ${group.title}
+              <span>${group.players.length}</span>
+            </button>
+          `).join("")}
+        </div>
       </div>
     </div>
   `;
@@ -2076,6 +2085,8 @@ function tierDistributionMarkup(groups) {
 
   return `
     <div class="tier-distribution">
+      <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
+
       <div class="tier-distribution-head">
         <h3>Tier Distribution</h3>
       </div>
@@ -2123,14 +2134,14 @@ function renderPlayers(data) {
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
     
-    if (helpCopy) {
-      helpCopy.textContent = "Learn all about your primary & secondary brands of trouble.";
+     if (helpCopy) {
+      helpCopy.style.display = "none";
+      helpCopy.textContent = "";
     }
 
     if (explainer) {
-      explainer.textContent = currentArchetypeMode === "primary"
-        ? "Primary Archetype = your loudest (and maybe most annoying) table style."
-        : "Secondary Archetype = your backup chaos, usually hiding under a bluff.";
+      explainer.style.display = "none";
+      explainer.textContent = "";
     }
     
     if (visual) {
