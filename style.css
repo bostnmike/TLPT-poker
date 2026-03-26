@@ -5000,8 +5000,9 @@ body:has(#dashboard-grid) .page-title-row::after{
 .crew-view-toolbar{
   position:relative;
   display:flex;
+  align-items:center;
   gap:12px;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
   margin:0;
   padding:14px 16px;
   border:1px solid rgba(239,68,68,.22);
