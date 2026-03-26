@@ -2213,12 +2213,12 @@ function renderPlayers(data) {
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
   ];
 
-  if (helpCopy) {
-    helpCopy.textContent = "The Crew is grouped by league tier. Mouse over a player for a quick view of key stats, or click a player’s name for a super deep dive.";
+   if (helpCopy) {
+    helpCopy.textContent = "Tier view: hover for the quick read, click for the full file.";
   }
 
   if (explainer) {
-    explainer.textContent = "Tier placement reflects long-term performance using true skill, pressure play, survival ability, aggression, tilt resistance, and sample size.";
+    explainer.textContent = "Tiers sort the killers, the triers, and the occasional spreadsheet fraud.";
   }
 
   if (visual) {
