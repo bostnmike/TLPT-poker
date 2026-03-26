@@ -6705,20 +6705,20 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-bottom:0;
 }
 
-.honors-page-shell-gray{
-  border-color:rgba(192,192,192,.34);
+.honors-page-shell-yellow{
+  border-color:rgba(250,204,21,.34);
   background:
-    radial-gradient(circle at top right, rgba(226,232,240,.18), transparent 34%),
-    radial-gradient(circle at left center, rgba(255,255,255,.08), transparent 28%),
-    linear-gradient(180deg, rgba(58,64,74,.96), rgba(24,28,34,.99));
+    radial-gradient(circle at top right, rgba(250,204,21,.18), transparent 34%),
+    radial-gradient(circle at left center, rgba(255,239,186,.08), transparent 28%),
+    linear-gradient(180deg, rgba(66,50,12,.96), rgba(24,20,10,.99));
 }
 
 .honors-page-shell .page-title-row::after{
   bottom:-12px;
 }
 
-.honors-page-shell-gray .page-title-row::after,
-.honors-page-shell-gray .page-title-row:has(.champions-title-purple)::after{
+.honors-page-shell-yellow .page-title-row::after,
+.honors-page-shell-yellow .page-title-row:has(.champions-title-purple)::after{
   content:"" !important;
   position:absolute !important;
   left:0 !important;
@@ -6726,12 +6726,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   bottom:-12px !important;
   height:3px !important;
   border-radius:999px !important;
-  background:linear-gradient(90deg, rgba(255,255,255,.98), rgba(226,232,240,.62) 52%, transparent 100%) !important;
+  background:linear-gradient(90deg, rgba(250,204,21,.98), rgba(255,239,186,.62) 52%, transparent 100%) !important;
   box-shadow:none !important;
 }
 
-.honors-page-shell-gray .champions-title{
-  color:#f1f5f9;
+.honors-page-shell-yellow .champions-title{
+  color:#fde68a;
 }
 
 .honors-hub{
