@@ -9194,3 +9194,20 @@ body:has(#dashboard-grid) .page-title-row::after{
     grid-template-columns:1fr;
   }
 }
+
+/* honors page — normalize the middle blue card header band */
+#leaders-list .leader-banner-top{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+  margin:-14px -14px 12px -14px !important;
+  padding:10px 12px 12px !important;
+  min-height:58px !important;
+  text-align:center !important;
+  position:relative !important;
+  z-index:2 !important;
+  background:linear-gradient(180deg, rgba(59,130,246,.30), rgba(59,130,246,.16)) !important;
+  border-bottom:1px solid rgba(59,130,246,.32) !important;
+  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18) !important;
+}
