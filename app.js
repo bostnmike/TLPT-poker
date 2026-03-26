@@ -2224,12 +2224,14 @@ function renderPlayers(data) {
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
   ];
 
-   if (helpCopy) {
-    helpCopy.textContent = "Tier view: hover for the quick read, click for the full file.";
+     if (helpCopy) {
+    helpCopy.textContent = "";
+    helpCopy.style.display = "none";
   }
 
   if (explainer) {
-    explainer.textContent = "Tiers sort the killers, the triers, and the occasional spreadsheet fraud.";
+    explainer.textContent = "";
+    explainer.style.display = "none";
   }
 
   if (visual) {
