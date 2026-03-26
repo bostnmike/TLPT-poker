@@ -5138,8 +5138,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .archetype-visual-head h3{
-  margin:0 0 6px 0;
-  color:#ff7a7a;
+  margin:0 0 14px 0;
+  color:#fff;
   font-size:1.15rem;
   line-height:1.2;
 }
