@@ -2008,7 +2008,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
-        <h3>Archetype Radar</h3>
+        <h3>Archetype Radar:</h3>
       </div>
 
       <div class="archetype-mode-toggle">
