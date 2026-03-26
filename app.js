@@ -2855,17 +2855,17 @@ function showFormat(formatKey) {
 
   setActiveFormatButton(formatKey);
   host.innerHTML = `
-    <div class="rules-format">
-      <div class="format-head">
-        <div>
-          <h3 class="format-title">${format.title}</h3>
-        </div>
+  <div class="rules-format">
+    <div class="format-head">
+      <div>
+        <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
       </div>
-      ${buildRulesTimerRail(format)}
-      ${buildRulesChipPanel(format, formatKey)}
-      ${buildRulesBlindTable(format)}
     </div>
-  `;
+    ${buildRulesTimerRail(format)}
+    ${buildRulesChipPanel(format, formatKey)}
+    ${buildRulesBlindTable(format)}
+  </div>
+`;
 }
 
 function initRulesPage() {
