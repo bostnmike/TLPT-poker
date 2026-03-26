@@ -9146,45 +9146,45 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:
     linear-gradient(
       180deg,
-      rgba(34,197,94,.10) 0%,
-      rgba(34,197,94,.10) 68%,
-      rgba(34,197,94,.28) 86%,
-      rgba(34,197,94,.40) 100%
+      rgba(34,197,94,.40) 0%,
+      rgba(34,197,94,.28) 14%,
+      rgba(34,197,94,.10) 32%,
+      rgba(34,197,94,.10) 100%
     ) !important;
-  border-bottom:1px solid rgba(34,197,94,.34) !important;
+  border-bottom:1px solid rgba(34,197,94,.18) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(34,197,94,.22),
-    inset 0 -8px 12px rgba(34,197,94,.10) !important;
+    inset 0 1px 0 rgba(34,197,94,.22),
+    inset 0 8px 12px rgba(34,197,94,.10) !important;
 }
 
 #leaders-list .leader-banner-top{
   background:
     linear-gradient(
       180deg,
-      rgba(59,130,246,.10) 0%,
-      rgba(59,130,246,.10) 68%,
-      rgba(59,130,246,.30) 86%,
-      rgba(59,130,246,.42) 100%
+      rgba(59,130,246,.42) 0%,
+      rgba(59,130,246,.30) 14%,
+      rgba(59,130,246,.10) 32%,
+      rgba(59,130,246,.10) 100%
     ) !important;
-  border-bottom:1px solid rgba(59,130,246,.36) !important;
+  border-bottom:1px solid rgba(59,130,246,.18) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(59,130,246,.24),
-    inset 0 -8px 12px rgba(59,130,246,.12) !important;
+    inset 0 1px 0 rgba(59,130,246,.24),
+    inset 0 8px 12px rgba(59,130,246,.12) !important;
 }
 
 #records-list .leader-banner-top{
   background:
     linear-gradient(
       180deg,
-      rgba(168,85,247,.10) 0%,
-      rgba(168,85,247,.10) 68%,
-      rgba(168,85,247,.28) 86%,
-      rgba(168,85,247,.40) 100%
+      rgba(168,85,247,.40) 0%,
+      rgba(168,85,247,.28) 14%,
+      rgba(168,85,247,.10) 32%,
+      rgba(168,85,247,.10) 100%
     ) !important;
-  border-bottom:1px solid rgba(168,85,247,.34) !important;
+  border-bottom:1px solid rgba(168,85,247,.18) !important;
   box-shadow:
-    inset 0 -1px 0 rgba(168,85,247,.22),
-    inset 0 -8px 12px rgba(168,85,247,.10) !important;
+    inset 0 1px 0 rgba(168,85,247,.22),
+    inset 0 8px 12px rgba(168,85,247,.10) !important;
 }
 
 /* keep section color values without glow clutter */
