@@ -2085,7 +2085,7 @@ function tierDistributionMarkup(groups) {
 
   return `
     <div class="tier-distribution">
-      <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
+      <p class="players-visual-gold-copy players-visual-gold-copy-centered">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
 
       <div class="tier-distribution-head">
         <h3>Tier Distribution</h3>
