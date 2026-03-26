@@ -6721,6 +6721,10 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:linear-gradient(90deg, rgba(226,232,240,.96), rgba(255,255,255,.36) 58%, transparent 100%);
 }
 
+.honors-page-shell-gray .champions-title{
+  color:#f1f5f9;
+}
+
 .honors-hub{
   display:grid;
   gap:22px;
