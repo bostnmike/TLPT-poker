@@ -9143,22 +9143,24 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 /* final banner fills — same geometry, only color changes */
 #champions-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.16)) !important;
-  border-bottom:1px solid rgba(34,197,94,.32) !important;
-  box-shadow:inset 0 -1px 0 rgba(34,197,94,.18) !important;
+  background:#1ea85a !important;
+  background-image:none !important;
+  border-bottom:1px solid #15803d !important;
+  box-shadow:none !important;
 }
 
 #leaders-list .leader-banner-top{
-  background:rgba(59,130,246,.26);
-  background-image:none;
-  border-bottom:1px solid rgba(59,130,246,.32);
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18);
+  background:#3b82f6 !important;
+  background-image:none !important;
+  border-bottom:1px solid #2563eb !important;
+  box-shadow:none !important;
 }
 
 #records-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(168,85,247,.30), rgba(168,85,247,.16)) !important;
-  border-bottom:1px solid rgba(168,85,247,.32) !important;
-  box-shadow:inset 0 -1px 0 rgba(168,85,247,.18) !important;
+  background:#a855f7 !important;
+  background-image:none !important;
+  border-bottom:1px solid #7e22ce !important;
+  box-shadow:none !important;
 }
 
 /* keep section color values without glow clutter */
