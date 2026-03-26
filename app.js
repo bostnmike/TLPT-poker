@@ -2124,14 +2124,14 @@ function renderPlayers(data) {
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
     
     if (helpCopy) {
-      helpCopy.textContent = "The Crew can now be filtered by Primary or Secondary Archetype. Choose a mode, then click an archetype to isolate that player type.";
-    }
+      helpCopy.textContent = "Archetype view: pick Primary or Secondary, then click a style to find your particular brand of trouble.";
+  }
 
     if (explainer) {
       explainer.textContent = currentArchetypeMode === "primary"
-        ? "Primary Archetype reflects the strongest stylistic signal in a player’s profile."
-        : "Secondary Archetype reflects the next-strongest stylistic signal — the backup flavor that still shows up in how they play.";
-    }
+      ? "Primary Archetype = the loudest signal in the file."
+      : "Secondary Archetype = the backup chaos hiding underneath.";
+  }
     
     if (visual) {
       visual.innerHTML = archetypeFilterMarkup(
