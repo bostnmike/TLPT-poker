@@ -5096,7 +5096,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   overflow:hidden;
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   grid-template-areas:
     "head mode"
     "filters filters";
@@ -5196,6 +5196,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   z-index:1;
   align-self:start;
+  justify-self:center;
 }
 
 .archetype-mode-btn{
