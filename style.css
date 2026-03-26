@@ -3226,9 +3226,54 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 16px rgba(34,197,94,.12);
 }
 
-/* restore home commissioner red theme */
+/* homepage outer shell color treatments */
 .home-commissioner-section{
   margin-top:8px;
+  border-color:rgba(215,38,61,.26);
+  background:
+    radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(255,120,120,.08), transparent 26%),
+    linear-gradient(180deg, rgba(54,14,22,.98), rgba(18,12,16,.99));
+  box-shadow:
+    0 0 0 1px rgba(215,38,61,.10),
+    0 12px 28px rgba(0,0,0,.22),
+    0 0 18px rgba(215,38,61,.10);
+}
+
+#home-snapshot{
+  border-color:rgba(59,130,246,.24);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(147,197,253,.08), transparent 26%),
+    linear-gradient(180deg, rgba(12,28,52,.98), rgba(11,18,32,.99));
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.08),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 18px rgba(59,130,246,.10);
+}
+
+#home-pulse{
+  border-color:rgba(255,184,28,.24);
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(255,214,108,.08), transparent 26%),
+    linear-gradient(180deg, rgba(54,38,10,.98), rgba(20,16,10,.99));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.08),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 18px rgba(255,184,28,.10);
+}
+
+.home-analysis-lane{
+  border-color:rgba(255,177,90,.24);
+  background:
+    radial-gradient(circle at top right, rgba(255,177,90,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(251,146,60,.08), transparent 26%),
+    linear-gradient(180deg, rgba(58,30,10,.98), rgba(20,14,10,.99));
+  box-shadow:
+    0 0 0 1px rgba(255,177,90,.08),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 20px rgba(255,177,90,.10);
 }
 
 .home-commissioner-shell{
@@ -3256,22 +3301,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border:none !important;
   box-shadow:none !important;
   background:transparent !important;
-}
-
-#home-commissioner-section .section-head::before{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(215,38,61,.95), rgba(255,184,28,.28) 58%, transparent 100%);
-}
-
-#home-commissioner-section .section-head::after{
-  content:none !important;
-  display:none !important;
 }
 
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
