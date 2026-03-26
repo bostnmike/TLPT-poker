@@ -2031,7 +2031,6 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
 
       <div class="archetype-filters-stack">
         <div class="archetype-helper-copy">
-          <p class="archetype-helper-top">Learn all about your primary & secondary brands of trouble.</p>
           <p class="archetype-helper-bottom">${explainer}</p>
         </div>
 
@@ -2131,10 +2130,10 @@ function renderPlayers(data) {
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
-    
-     if (helpCopy) {
-      helpCopy.style.display = "none";
-      helpCopy.textContent = "";
+  
+    if (helpCopy) {
+      helpCopy.style.display = "";
+      helpCopy.textContent = "Learn all about your primary & secondary brands of trouble.";
     }
 
     if (explainer) {
