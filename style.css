@@ -3898,16 +3898,16 @@ td{
   width:100%;
   min-height:36px;
   padding:7px 10px;
-  font-size:.82rem;
+  font-size:.88rem;
 }
 
 .standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn-emoji{
   margin-right:6px;
-  font-size:.95em;
+  font-size:1.02em;
 }
 
 .standings-buttons-shell > .button-row[data-sort-scope="standings"] .btn-label{
-  font-size:.82rem;
+  font-size:.88rem;
 }
 
 .standings-race-strip-inline{
