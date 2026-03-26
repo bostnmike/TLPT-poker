@@ -6606,7 +6606,11 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .honors-page-shell .champions-title{
-  font-size:1.72rem;
+  font-size:1.5em;
+}
+
+.crew-header-shell .page-title-red{
+  font-size:1.5em;
 }
 
 .champions-title-purple{
@@ -6700,16 +6704,20 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-bottom:0;
 }
 
-.honors-page-shell-purple{
-  border-color:rgba(168,85,247,.30);
+.honors-page-shell-gray{
+  border-color:rgba(148,163,184,.30);
   background:
-    radial-gradient(circle at top right, rgba(168,85,247,.18), transparent 34%),
-    radial-gradient(circle at left center, rgba(216,180,254,.08), transparent 28%),
-    linear-gradient(180deg, rgba(44,20,64,.96), rgba(18,14,28,.99));
+    radial-gradient(circle at top right, rgba(148,163,184,.14), transparent 34%),
+    radial-gradient(circle at left center, rgba(226,232,240,.06), transparent 28%),
+    linear-gradient(180deg, rgba(32,38,46,.96), rgba(16,20,26,.99));
 }
 
 .honors-page-shell .page-title-row::after{
   bottom:-12px;
+}
+
+.honors-page-shell-gray .page-title-row::after{
+  background:linear-gradient(90deg, rgba(148,163,184,.95), rgba(255,255,255,.20) 58%, transparent 100%);
 }
 
 .honors-hub{
