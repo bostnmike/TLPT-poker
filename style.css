@@ -521,42 +521,42 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   grid-template-columns:repeat(7, minmax(0,1fr));
 }
 
-/* yellow group */
+/* green group */
 .dashboard-button-groups .btn[data-dashboard-sort="profit"],
 .dashboard-button-groups .btn[data-dashboard-sort="roi"],
 .dashboard-button-groups .btn[data-dashboard-sort="hits"],
 .dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"],
 .dashboard-button-groups .btn[data-dashboard-sort="bubbles"]{
-  border-color:rgba(255,184,28,.26);
+  border-color:rgba(34,197,94,.34);
   background:
-    linear-gradient(180deg, rgba(255,239,186,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,184,28,.14), rgba(56,40,10,.96));
-  color:#fff1c4;
+    linear-gradient(180deg, rgba(220,252,231,.06), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(34,197,94,.22), rgba(8,42,22,.98));
+  color:#dcfce7;
 }
 
 /* blue group */
 .dashboard-button-groups .btn[data-dashboard-sort="hitRate"],
 .dashboard-button-groups .btn[data-dashboard-sort="cashRate"],
 .dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"]{
-  border-color:rgba(59,130,246,.26);
+  border-color:rgba(59,130,246,.36);
   background:
-    linear-gradient(180deg, rgba(219,234,254,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.14), rgba(18,34,66,.96));
+    linear-gradient(180deg, rgba(219,234,254,.06), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.24), rgba(10,24,52,.98));
   color:#dbeafe;
 }
 
-/* red group */
+/* purple group */
 .dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"],
 .dashboard-button-groups .btn[data-dashboard-sort="luckIndex"],
 .dashboard-button-groups .btn[data-dashboard-sort="clutchIndex"],
 .dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"],
 .dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"],
 .dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"]{
-  border-color:rgba(239,68,68,.24);
+  border-color:rgba(168,85,247,.34);
   background:
-    linear-gradient(180deg, rgba(254,202,202,.08), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(239,68,68,.13), rgba(56,18,18,.96));
-  color:#fee2e2;
+    linear-gradient(180deg, rgba(243,232,255,.06), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(168,85,247,.22), rgba(42,16,70,.98));
+  color:#f3e8ff;
 }
 
 .btn-emoji{
@@ -592,29 +592,29 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .dashboard-button-groups .btn[data-dashboard-sort="hits"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="bubbles"]:hover{
-  border-color:rgba(255,184,28,.48);
+  border-color:rgba(34,197,94,.52);
   background:
-    linear-gradient(180deg, rgba(255,239,186,.16), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,184,28,.24), rgba(120,78,10,.94));
-  color:#fff1c4;
+    linear-gradient(180deg, rgba(220,252,231,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(34,197,94,.30), rgba(12,64,34,.96));
+  color:#f0fdf4;
   box-shadow:
     0 10px 22px rgba(0,0,0,.26),
-    0 0 0 1px rgba(255,184,28,.16),
-    0 0 18px rgba(255,184,28,.10);
+    0 0 0 1px rgba(34,197,94,.16),
+    0 0 18px rgba(34,197,94,.12);
 }
 
 .dashboard-button-groups .btn[data-dashboard-sort="hitRate"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="cashRate"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"]:hover{
-  border-color:rgba(59,130,246,.48);
+  border-color:rgba(59,130,246,.52);
   background:
-    linear-gradient(180deg, rgba(219,234,254,.16), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.24), rgba(18,42,78,.94));
+    linear-gradient(180deg, rgba(219,234,254,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(59,130,246,.34), rgba(14,32,68,.96));
   color:#eff6ff;
   box-shadow:
     0 10px 22px rgba(0,0,0,.26),
     0 0 0 1px rgba(59,130,246,.16),
-    0 0 18px rgba(59,130,246,.10);
+    0 0 18px rgba(59,130,246,.12);
 }
 
 .dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"]:hover,
@@ -623,15 +623,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"]:hover,
 .dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"]:hover{
-  border-color:rgba(239,68,68,.44);
+  border-color:rgba(168,85,247,.50);
   background:
-    linear-gradient(180deg, rgba(254,202,202,.16), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(239,68,68,.22), rgba(96,18,18,.94));
-  color:#fff1f1;
+    linear-gradient(180deg, rgba(243,232,255,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(168,85,247,.30), rgba(56,24,90,.96));
+  color:#faf5ff;
   box-shadow:
     0 10px 22px rgba(0,0,0,.26),
-    0 0 0 1px rgba(239,68,68,.14),
-    0 0 18px rgba(239,68,68,.08);
+    0 0 0 1px rgba(168,85,247,.16),
+    0 0 18px rgba(168,85,247,.12);
 }
 
 .dashboard-button-groups .btn[data-dashboard-sort="profit"].active,
@@ -639,21 +639,23 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .dashboard-button-groups .btn[data-dashboard-sort="hits"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="bubbles"].active{
-  border-color:rgba(255,184,28,.52);
+  border-color:rgba(34,197,94,.56);
   background:
-    linear-gradient(180deg, rgba(255,239,186,.12), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(255,184,28,.30), rgba(120,78,10,.96));
-  color:#fff3cf;
+    linear-gradient(180deg, rgba(220,252,231,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(34,197,94,.38), rgba(10,54,27,.98));
+  color:#f0fdf4;
 }
 
-.dashboard-button-groups .btn[data-dashboard-sort="hitRate"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="cashRate"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"].active{
-  border-color:rgba(59,130,246,.52);
+.dashboard-button-groups .btn[data-dashboard-sort="profit"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="roi"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="hits"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="bubbles"].active{
+  border-color:rgba(34,197,94,.56);
   background:
-    linear-gradient(180deg, rgba(219,234,254,.12), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(59,130,246,.30), rgba(18,42,78,.96));
-  color:#eff6ff;
+    linear-gradient(180deg, rgba(220,252,231,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(34,197,94,.38), rgba(10,54,27,.98));
+  color:#f0fdf4;
 }
 
 .dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"].active,
@@ -662,11 +664,11 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"].active{
-  border-color:rgba(239,68,68,.48);
+  border-color:rgba(168,85,247,.54);
   background:
-    linear-gradient(180deg, rgba(254,202,202,.12), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(239,68,68,.28), rgba(96,18,18,.96));
-  color:#fff1f1;
+    linear-gradient(180deg, rgba(243,232,255,.12), rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, rgba(168,85,247,.36), rgba(46,18,78,.98));
+  color:#faf5ff;
 }
 
 .btn-rsvp{
