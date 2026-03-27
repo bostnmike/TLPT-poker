@@ -4229,7 +4229,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:absolute;
   left:0;
   right:0;
-  bottom:0;
+  bottom:-12px;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.45) 58%, transparent 100%);
@@ -5020,7 +5020,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .crew-header-shell .page-title-row{
   position:relative;
-  margin-bottom:12px;
+  margin-bottom:14px;
   padding:0 0 12px 0;
   border:none;
   border-radius:0;
@@ -5038,7 +5038,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:absolute;
   left:0;
   right:0;
-  bottom:0;
+  bottom:-12px;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(255,255,255,.18) 58%, transparent 100%);
@@ -9528,4 +9528,20 @@ body:has(#dashboard-grid) .page-title-row::after{
     bottom:-12px !important;
     height:3px !important;
   }  
+
+  /* match home / schedule / media top page headers to Honors spacing */
+  .home-welcome-row,
+  .section.schedule-hero .page-title-row,
+  .section.media-header .page-title-row{
+    position:relative;
+    margin-bottom:14px;
+    padding:0 0 12px 0;
+  }
+
+  .home-welcome-row::after,
+  .section.schedule-hero .page-title-row::after,
+  .section.media-header .page-title-row::after{
+    bottom:-12px;
+    height:3px;
+  }
 }
