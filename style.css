@@ -242,11 +242,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .hero-stack{
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:22px;
   padding:0;
 }
 
-.hero-stack > .section{
+.hero-stack > .section,
+.hero-stack > .league-ticker{
   margin:0;
 }
 
@@ -843,13 +844,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  margin:4px 0 10px 0;
-  padding:10px 0;
-  border:1px solid rgba(255,184,28,.22);
+  margin:0;
+  padding:6px 0 6px 0;
+  border:1px solid rgba(255,255,255,.12);
   border-radius:16px;
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    radial-gradient(circle at 12% 28%, rgba(239,68,68,.16), transparent 22%),
+    radial-gradient(circle at 30% 18%, rgba(255,184,28,.16), transparent 22%),
+    radial-gradient(circle at 50% 18%, rgba(34,197,94,.14), transparent 22%),
+    radial-gradient(circle at 70% 20%, rgba(59,130,246,.16), transparent 22%),
+    radial-gradient(circle at 88% 30%, rgba(168,85,247,.16), transparent 22%),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   color:#fff;
   font-weight:700;
@@ -867,7 +871,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.40) 55%, transparent 100%);
+  background:linear-gradient(
+    90deg,
+    rgba(239,68,68,.96) 0%,
+    rgba(255,184,28,.96) 25%,
+    rgba(34,197,94,.96) 50%,
+    rgba(59,130,246,.96) 75%,
+    rgba(168,85,247,.96) 100%
+  );
   pointer-events:none;
   z-index:3;
 }
@@ -3273,7 +3284,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 /* homepage outer shell color treatments */
 .home-commissioner-section{
-  margin:22px 0 0 0;
+  margin:0;
   border-color:rgba(215,38,61,.26);
   background:
     radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
@@ -3310,7 +3321,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-analysis-lane{
-  margin-top:22px;
+  margin-top:0;
   border-color:rgba(255,177,90,.24);
   background:
     radial-gradient(circle at top right, rgba(255,177,90,.12), transparent 34%),
@@ -3772,7 +3783,7 @@ td{
 
 .dashboard-page-stack{
   display:grid;
-  gap:16px;
+  gap:22px;
   margin:0 0 22px 0;
 }
 
@@ -3835,7 +3846,7 @@ td{
 }
 
 .dashboard-cards-shell{
-  margin-top:22px;
+  margin-top:0;
   padding:18px;
 }
 
@@ -3906,7 +3917,7 @@ td{
 
 .standings-page-stack{
   display:grid;
-  gap:16px;
+  gap:22px;
   margin:0 0 22px 0;
 }
 
@@ -3983,7 +3994,7 @@ td{
 }
 
 .standings-table-shell{
-  margin-top:22px;
+  margin-top:0;
   padding:0;
   overflow:hidden;
 }
@@ -6870,16 +6881,17 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .honors-hub{
   display:grid;
-  gap:16px;
-  margin:16px 0;
+  gap:22px;
+  margin:22px 0;
 }
 
 .honors-hub > .section{
   margin:0;
 }
 
-/* tighten body-shell spacing on targeted pages only */
-.hero-stack > .section{
+/* macro shell spacing is controlled only by parent stack gaps */
+.hero-stack > .section,
+.hero-stack > .league-ticker{
   margin:0;
 }
 
@@ -6889,23 +6901,13 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:0;
 }
 
-/* homepage */
-.hero-stack > .home-commissioner-section{
-  margin-top:22px;
-}
-
-.hero-stack > .home-analysis-lane{
-  margin-top:22px;
-}
-
-/* standings */
-.standings-page-stack > .standings-table-shell{
-  margin-top:22px;
-}
-
-/* dashboard */
+.hero-stack > .home-commissioner-section,
+.hero-stack > #home-snapshot,
+.hero-stack > #home-pulse,
+.hero-stack > .home-analysis-lane,
+.standings-page-stack > .standings-table-shell,
 .dashboard-page-stack > .dashboard-cards-shell{
-  margin-top:22px;
+  margin:0;
 }
 
 .honors-module{
