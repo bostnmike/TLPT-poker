@@ -969,7 +969,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:0 21px 0 16px;
+  padding:2px 21px 2px 16px;
 }
 
 .league-ticker-kicker{
