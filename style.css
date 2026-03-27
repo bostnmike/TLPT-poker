@@ -242,7 +242,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .hero-stack{
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:16px;
   padding:0;
 }
 
@@ -3766,7 +3766,7 @@ td{
 
 .dashboard-page-stack{
   display:grid;
-  gap:10px;
+  gap:16px;
   margin:0 0 22px 0;
 }
 
@@ -3895,7 +3895,7 @@ td{
 
 .standings-page-stack{
   display:grid;
-  gap:10px;
+  gap:16px;
   margin:0 0 22px 0;
 }
 
@@ -6854,7 +6854,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .honors-hub{
   display:grid;
-  gap:10px;
+  gap:16px;
   margin:10px 0;
 }
 
@@ -6873,7 +6873,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 #home-snapshot,
 #home-pulse,
 .home-analysis-lane{
-  margin-top:10px;
+  margin-top:16px;
   margin-bottom:0;
 }
 
