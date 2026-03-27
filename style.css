@@ -3272,7 +3272,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 /* homepage outer shell color treatments */
 .home-commissioner-section{
-  margin:0;
+  margin:16px 0 0 0;
   border-color:rgba(215,38,61,.26);
   background:
     radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
@@ -3309,6 +3309,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-analysis-lane{
+  margin-top:16px;
   border-color:rgba(255,177,90,.24);
   background:
     radial-gradient(circle at top right, rgba(255,177,90,.12), transparent 34%),
@@ -3833,6 +3834,7 @@ td{
 }
 
 .dashboard-cards-shell{
+  margin-top:16px;
   padding:18px;
 }
 
@@ -3980,6 +3982,7 @@ td{
 }
 
 .standings-table-shell{
+  margin-top:16px;
   padding:0;
   overflow:hidden;
 }
