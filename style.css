@@ -948,7 +948,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .league-ticker-wrap{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:6px;
   overflow:hidden;
 }
 
@@ -957,6 +957,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   justify-content:space-between;
   gap:12px;
+  padding:0 14px 0 16px;
 }
 
 .league-ticker-kicker{
@@ -3272,7 +3273,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 /* homepage outer shell color treatments */
 .home-commissioner-section{
-  margin:16px 0 0 0;
+  margin:22px 0 0 0;
   border-color:rgba(215,38,61,.26);
   background:
     radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
@@ -3309,7 +3310,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-analysis-lane{
-  margin-top:16px;
+  margin-top:22px;
   border-color:rgba(255,177,90,.24);
   background:
     radial-gradient(circle at top right, rgba(255,177,90,.12), transparent 34%),
@@ -3834,7 +3835,7 @@ td{
 }
 
 .dashboard-cards-shell{
-  margin-top:16px;
+  margin-top:22px;
   padding:18px;
 }
 
@@ -3982,7 +3983,7 @@ td{
 }
 
 .standings-table-shell{
-  margin-top:16px;
+  margin-top:22px;
   padding:0;
   overflow:hidden;
 }
@@ -8897,17 +8898,21 @@ body:has(#dashboard-grid) .page-title-row::after{
    ------------------------- */
 .league-ticker{
   position:relative;
-  border:1px solid rgba(255,184,28,.22);
+  overflow:hidden;
+  margin:4px 0 10px 0;
+  padding:6px 0 10px 0;
+  border:1px solid rgba(34,197,94,.24);
   border-radius:16px;
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
+    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 30%),
     radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+    linear-gradient(180deg, rgba(12,34,20,.98), rgba(8,18,12,.99));
+  color:#fff;
+  font-weight:700;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 10px 22px rgba(0,0,0,.18),
-    0 0 18px rgba(255,184,28,.08);
-  overflow:hidden;
+    0 0 18px rgba(34,197,94,.10);
 }
 
 .league-ticker::before{
@@ -8918,7 +8923,9 @@ body:has(#dashboard-grid) .page-title-row::after{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.40) 55%, transparent 100%);
+  background:linear-gradient(90deg, rgba(34,197,94,.96), rgba(134,239,172,.42) 55%, transparent 100%);
+  pointer-events:none;
+  z-index:3;
 }
 
 .events-header-stack{
