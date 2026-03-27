@@ -961,6 +961,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   flex-direction:column;
   gap:6px;
   overflow:hidden;
+  padding:0 20px 0;
 }
 
 .league-ticker-head{
@@ -968,7 +969,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:0 14px 0 16px;
+  padding:0 21px 0 16px;
 }
 
 .league-ticker-kicker{
@@ -8912,13 +8913,23 @@ body:has(#dashboard-grid) .page-title-row::after{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  margin:4px 0 10px 0;
-  padding:5px 0 10px 0;
-  border:1px solid rgba(255,184,28,.22);
+  margin:0;
+  padding:3px 0 6px 0;
+  border:1px solid rgba(255,255,255,.12);
   border-radius:16px;
   background:
-    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    radial-gradient(circle at 10% 24%, rgba(239,68,68,.24), transparent 20%),
+    radial-gradient(circle at 28% 18%, rgba(255,184,28,.24), transparent 20%),
+    radial-gradient(circle at 48% 18%, rgba(34,197,94,.22), transparent 20%),
+    radial-gradient(circle at 68% 20%, rgba(59,130,246,.24), transparent 20%),
+    radial-gradient(circle at 88% 26%, rgba(168,85,247,.24), transparent 20%),
+    linear-gradient(90deg,
+      rgba(239,68,68,.10) 0%,
+      rgba(255,184,28,.10) 25%,
+      rgba(34,197,94,.10) 50%,
+      rgba(59,130,246,.10) 75%,
+      rgba(168,85,247,.10) 100%
+    ),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   color:#fff;
   font-weight:700;
@@ -8936,7 +8947,17 @@ body:has(#dashboard-grid) .page-title-row::after{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(34,197,94,.96), rgba(134,239,172,.42) 55%, transparent 100%);
+  background:linear-gradient(
+    90deg,
+    rgba(239,68,68,.98) 0%,
+    rgba(255,184,28,.98) 25%,
+    rgba(34,197,94,.98) 50%,
+    rgba(59,130,246,.98) 75%,
+    rgba(168,85,247,.98) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(239,68,68,.16),
+    0 0 14px rgba(59,130,246,.12);
   pointer-events:none;
   z-index:3;
 }
