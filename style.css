@@ -9479,4 +9479,27 @@ body:has(#dashboard-grid) .page-title-row::after{
   #records-list{
     grid-template-columns:1fr;
   }
+
+  /* match all top page header chip-to-accent spacing to Honors */
+  .home-welcome-row,
+  .standings-top-shell .page-title-row,
+  .dashboard-top-shell .page-title-row,
+  .crew-header-shell .page-title-row,
+  .schedule-hero .page-title-row,
+  .section.rules-header .page-title-row,
+  .media-header .page-title-row{
+    position:relative;
+    margin-bottom:14px !important;
+    padding:0 0 12px 0 !important;
+  }
+
+  .home-welcome-row::after,
+  .standings-top-shell .page-title-row::after,
+  .dashboard-top-shell .page-title-row::after,
+  .crew-header-shell .page-title-row::after,
+  .schedule-hero .page-title-row::after,
+  .section.rules-header .page-title-row::after,
+  .media-header .page-title-row::after{
+    bottom:-12px !important;
+  }
 }
