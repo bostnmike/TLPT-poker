@@ -495,12 +495,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   box-shadow:none;
 }
 
-.dashboard-button-groups .dashboard-buttons{
-  display:grid;
-  gap:5px;
-  grid-template-columns:repeat(7, minmax(0,1fr));
-}
-
 .btn{
   appearance:none;
   display:inline-flex;
@@ -521,7 +515,18 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   box-shadow:0 6px 16px rgba(0,0,0,.22);
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn{
+.dashboard-button-groups .dashboard-buttons{
+  display:grid;
+  gap:5px;
+  grid-template-columns:repeat(7, minmax(0,1fr));
+}
+
+/* yellow group */
+.dashboard-button-groups .btn[data-dashboard-sort="profit"],
+.dashboard-button-groups .btn[data-dashboard-sort="roi"],
+.dashboard-button-groups .btn[data-dashboard-sort="hits"],
+.dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"],
+.dashboard-button-groups .btn[data-dashboard-sort="bubbles"]{
   border-color:rgba(255,184,28,.26);
   background:
     linear-gradient(180deg, rgba(255,239,186,.08), rgba(255,255,255,0) 42%),
@@ -529,7 +534,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#fff1c4;
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn{
+/* blue group */
+.dashboard-button-groups .btn[data-dashboard-sort="hitRate"],
+.dashboard-button-groups .btn[data-dashboard-sort="cashRate"],
+.dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"]{
   border-color:rgba(59,130,246,.26);
   background:
     linear-gradient(180deg, rgba(219,234,254,.08), rgba(255,255,255,0) 42%),
@@ -537,7 +545,13 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#dbeafe;
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn{
+/* red group */
+.dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"],
+.dashboard-button-groups .btn[data-dashboard-sort="luckIndex"],
+.dashboard-button-groups .btn[data-dashboard-sort="clutchIndex"],
+.dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"],
+.dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"],
+.dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"]{
   border-color:rgba(239,68,68,.24);
   background:
     linear-gradient(180deg, rgba(254,202,202,.08), rgba(255,255,255,0) 42%),
