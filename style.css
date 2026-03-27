@@ -9502,4 +9502,30 @@ body:has(#dashboard-grid) .page-title-row::after{
   .media-header .page-title-row::after{
     bottom:-12px !important;
   }
+
+  /* unify chip-to-accent spacing across all main page headers to match Honors */
+  .home-welcome-row,
+  body:has(#standings-table) .page-title-row,
+  body:has(#dashboard-grid) .page-title-row,
+  .crew-header-shell .page-title-row,
+  .section.schedule-hero .page-title-row,
+  .section.rules-header .page-title-row,
+  .section.media-header .page-title-row,
+  .honors-page-shell .page-title-row{
+    position:relative !important;
+    margin-bottom:14px !important;
+    padding-bottom:0 !important;
+  }
+
+  .home-welcome-row::after,
+  body:has(#standings-table) .page-title-row::after,
+  body:has(#dashboard-grid) .page-title-row::after,
+  .crew-header-shell .page-title-row::after,
+  .section.schedule-hero .page-title-row::after,
+  .section.rules-header .page-title-row::after,
+  .section.media-header .page-title-row::after,
+  .honors-page-shell .page-title-row::after{
+    bottom:-12px !important;
+    height:3px !important;
+  }  
 }
