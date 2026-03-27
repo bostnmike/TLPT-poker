@@ -242,7 +242,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .hero-stack{
   display:flex;
   flex-direction:column;
-  gap:22px;
+  gap:10px;
   padding:0;
 }
 
@@ -3766,7 +3766,7 @@ td{
 
 .dashboard-page-stack{
   display:grid;
-  gap:16px;
+  gap:10px;
   margin:0 0 22px 0;
 }
 
@@ -3895,7 +3895,7 @@ td{
 
 .standings-page-stack{
   display:grid;
-  gap:16px;
+  gap:10px;
   margin:0 0 22px 0;
 }
 
@@ -6854,8 +6854,27 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .honors-hub{
   display:grid;
-  gap:22px;
-  margin:22px 0;
+  gap:10px;
+  margin:10px 0;
+}
+
+/* tighten body-shell spacing on targeted pages only */
+.hero-stack > .section{
+  margin:0;
+}
+
+.standings-page-stack > .section,
+.dashboard-page-stack > .section,
+.honors-hub > .section{
+  margin:0;
+}
+
+.home-commissioner-section,
+#home-snapshot,
+#home-pulse,
+.home-analysis-lane{
+  margin-top:10px;
+  margin-bottom:0;
 }
 
 .honors-module{
