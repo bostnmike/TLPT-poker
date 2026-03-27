@@ -64,12 +64,12 @@ main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
 main.wrap > .dashboard-page-stack:first-child,
 main.wrap > .hero-stack:first-child{
-  margin-top:5px;
+  margin-top:12px;
 }
 
 main.wrap > .standings-page-stack:first-child > .section:first-child,
 main.wrap > .dashboard-page-stack:first-child > .section:first-child{
-  margin-top:5px;
+  margin-top:12px;
 }
 
 /* header */
