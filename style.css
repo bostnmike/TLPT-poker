@@ -587,7 +587,11 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   box-shadow:0 8px 18px rgba(0,0,0,.28), 0 0 0 1px rgba(255,184,28,.22);
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn:hover{
+.dashboard-button-groups .btn[data-dashboard-sort="profit"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="roi"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="hits"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="bubbles"]:hover{
   border-color:rgba(255,184,28,.48);
   background:
     linear-gradient(180deg, rgba(255,239,186,.16), rgba(255,255,255,0) 42%),
@@ -599,7 +603,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 18px rgba(255,184,28,.10);
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn:hover{
+.dashboard-button-groups .btn[data-dashboard-sort="hitRate"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="cashRate"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"]:hover{
   border-color:rgba(59,130,246,.48);
   background:
     linear-gradient(180deg, rgba(219,234,254,.16), rgba(255,255,255,0) 42%),
@@ -611,7 +617,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 18px rgba(59,130,246,.10);
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn:hover{
+.dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="luckIndex"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="clutchIndex"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"]:hover,
+.dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"]:hover{
   border-color:rgba(239,68,68,.44);
   background:
     linear-gradient(180deg, rgba(254,202,202,.16), rgba(255,255,255,0) 42%),
@@ -623,7 +634,11 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 18px rgba(239,68,68,.08);
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(1) .btn.active{
+.dashboard-button-groups .btn[data-dashboard-sort="profit"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="roi"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="hits"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="bubbles"].active{
   border-color:rgba(255,184,28,.52);
   background:
     linear-gradient(180deg, rgba(255,239,186,.12), rgba(255,255,255,0) 42%),
@@ -631,7 +646,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#fff3cf;
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(2) .btn.active{
+.dashboard-button-groups .btn[data-dashboard-sort="hitRate"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="cashRate"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="bubbleRate"].active{
   border-color:rgba(59,130,246,.52);
   background:
     linear-gradient(180deg, rgba(219,234,254,.12), rgba(255,255,255,0) 42%),
@@ -639,7 +656,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#eff6ff;
 }
 
-.dashboard-button-groups .dashboard-buttons:nth-child(3) .btn.active{
+.dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="luckIndex"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="clutchIndex"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="aggressionIndex"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="survivorIndex"].active,
+.dashboard-button-groups .btn[data-dashboard-sort="tiltIndex"].active{
   border-color:rgba(239,68,68,.48);
   background:
     linear-gradient(180deg, rgba(254,202,202,.12), rgba(255,255,255,0) 42%),
