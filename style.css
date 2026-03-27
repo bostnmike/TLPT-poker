@@ -3335,17 +3335,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(255,140,140,.34);
+  border:1px solid rgba(255,170,185,.40);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,180,180,.14), transparent 34%),
-    linear-gradient(180deg, rgba(255,120,120,.22), rgba(170,38,56,.16)),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    radial-gradient(circle at top right, rgba(255,205,215,.18), transparent 34%),
+    linear-gradient(180deg, rgba(255,155,175,.28), rgba(205,78,108,.18)),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
   box-shadow:
-    0 0 0 1px rgba(255,140,140,.12),
+    0 0 0 1px rgba(255,170,185,.14),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(255,120,120,.10);
+    0 0 18px rgba(255,155,175,.12);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -3369,7 +3369,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.32) 58%, transparent 100%);
+  background:linear-gradient(90deg, rgba(244,114,182,.96), rgba(249,168,212,.38) 58%, transparent 100%);
 }
 
 #home-commissioner-section .section-head::after{
