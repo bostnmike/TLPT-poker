@@ -246,6 +246,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   padding:0;
 }
 
+.hero-stack > .section{
+  margin:0;
+}
+
 .hero{
   display:grid;
   grid-template-columns:1fr;
@@ -3268,7 +3272,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 /* homepage outer shell color treatments */
 .home-commissioner-section{
-  margin-top:8px;
+  margin:0;
   border-color:rgba(215,38,61,.26);
   background:
     radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
@@ -3770,6 +3774,10 @@ td{
   margin:0 0 22px 0;
 }
 
+.dashboard-page-stack > .section{
+  margin:0;
+}
+
 .dashboard-top-shell{
   padding-top:20px;
 }
@@ -3897,6 +3905,10 @@ td{
   display:grid;
   gap:16px;
   margin:0 0 22px 0;
+}
+
+.standings-page-stack > .section{
+  margin:0;
 }
 
 .standings-top-shell{
@@ -6855,7 +6867,11 @@ body:has(#dashboard-grid) .page-title-row::after{
 .honors-hub{
   display:grid;
   gap:16px;
-  margin:10px 0;
+  margin:16px 0;
+}
+
+.honors-hub > .section{
+  margin:0;
 }
 
 /* tighten body-shell spacing on targeted pages only */
