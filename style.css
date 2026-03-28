@@ -3394,7 +3394,13 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   top:0;
   height:3px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(244,114,182,.96), rgba(249,168,212,.38) 58%, transparent 100%);
+  background:linear-gradient(
+    90deg,
+    rgba(220,38,38,.98) 0%,
+    rgba(249,115,22,.98) 36%,
+    rgba(255,184,28,.98) 74%,
+    transparent 100%
+  );
 }
 
 #home-commissioner-section .section-head::after{
