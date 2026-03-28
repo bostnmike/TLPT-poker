@@ -5318,6 +5318,54 @@ body:has(#dashboard-grid) .page-title-row::after{
   flex-wrap:wrap;
 }
 
+.archetype-visual-card:has(.archetype-mode-btn:first-child.active){
+  border-color:rgba(59,130,246,.28);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.14), transparent 30%),
+    radial-gradient(circle at left center, rgba(147,197,253,.10), transparent 28%),
+    linear-gradient(180deg, rgba(16,34,64,.98), rgba(10,18,34,.98));
+  box-shadow:
+    0 0 0 1px rgba(59,130,246,.10),
+    0 12px 28px rgba(0,0,0,.24),
+    0 0 22px rgba(59,130,246,.12);
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:first-child.active)::before{
+  background:linear-gradient(180deg, rgba(59,130,246,.96), rgba(147,197,253,.46));
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:first-child.active)::after{
+  background:radial-gradient(circle, rgba(59,130,246,.14), rgba(59,130,246,0) 68%);
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:first-child.active) .archetype-visual-head h3{
+  color:#dbeafe;
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:last-child.active){
+  border-color:rgba(34,197,94,.28);
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.14), transparent 30%),
+    radial-gradient(circle at left center, rgba(134,239,172,.10), transparent 28%),
+    linear-gradient(180deg, rgba(10,44,24,.98), rgba(8,20,14,.98));
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.10),
+    0 12px 28px rgba(0,0,0,.24),
+    0 0 22px rgba(34,197,94,.12);
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:last-child.active)::before{
+  background:linear-gradient(180deg, rgba(34,197,94,.96), rgba(134,239,172,.46));
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:last-child.active)::after{
+  background:radial-gradient(circle, rgba(34,197,94,.14), rgba(34,197,94,0) 68%);
+}
+
+.archetype-visual-card:has(.archetype-mode-btn:last-child.active) .archetype-visual-head h3{
+  color:#dcfce7;
+}
+
 .archetype-mode-btn{
   appearance:none;
   display:inline-flex;
