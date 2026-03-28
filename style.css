@@ -5467,6 +5467,13 @@ body:has(#dashboard-grid) .page-title-row::after{
   align-self:start;
 }
 
+.archetype-visual-head-inline{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
 .archetype-visual-head p{
   margin:0;
 }
