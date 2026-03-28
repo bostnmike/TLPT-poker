@@ -2001,9 +2001,6 @@ function groupPlayersByArchetype(players, mode = "primary") {
 
 function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
-  const explainer = mode === "primary"
-    ? "Primary Archetype = Your loudest (perhaps most annoying) table style."
-    : "Secondary Archetype = Your backup chaos, hiding underneath, - mostly when you're bluffing.";
 
   return `
     <div class="archetype-visual-card">
@@ -2020,6 +2017,17 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           Primary
         </button>
 
+        <label class="archetype-mode-switch" for="archetype-mode-switch-input" aria-label="Toggle between Primary and Secondary archetypes">
+          <input
+            id="archetype-mode-switch-input"
+            type="checkbox"
+            ${mode === "secondary" ? "checked" : ""}
+          />
+          <span class="archetype-mode-switch-track">
+            <span class="archetype-mode-switch-thumb"></span>
+          </span>
+        </label>
+
         <button
           type="button"
           class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
@@ -2028,10 +2036,8 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
           Secondary
         </button>
       </div>
-      
-        <div class="archetype-filters-stack">
-          <div class="archetype-filter-row">
 
+      <div class="archetype-filters-stack">
         <div class="archetype-filter-row">
           <button
             type="button"
@@ -2113,9 +2119,28 @@ function renderPlayers(data) {
   const explainer = document.getElementById("players-explainer");
   const tierBtn = document.getElementById("crew-view-tier");
   const archetypeBtn = document.getElementById("crew-view-archetype");
+  const crewViewSwitch = document.getElementById("crew-view-switch-input");
 
   if (tierBtn) tierBtn.classList.toggle("active", currentCrewView === "tier");
   if (archetypeBtn) archetypeBtn.classList.toggle("active", currentCrewView === "archetype");
+  if (crewViewSwitch) crewViewSwitch.checked = currentCrewView === "archetype";
+
+  document.querySelectorAll("[data-archetype-mode]").forEach(button => {
+  button.addEventListener("click", () => {
+    currentArchetypeMode = button.dataset.archetypeMode || "primary";
+    currentArchetypeFilter = "all";
+    renderPlayers(data);
+  });
+});
+
+  const archetypeModeSwitch = document.getElementById("archetype-mode-switch-input");
+  if (archetypeModeSwitch) {
+    archetypeModeSwitch.addEventListener("change", () => {
+      currentArchetypeMode = archetypeModeSwitch.checked ? "secondary" : "primary";
+      currentArchetypeFilter = "all";
+      renderPlayers(data);
+    });
+  }
 
   if (!grid || !data?.players) return;
 
@@ -2909,6 +2934,7 @@ function setActiveSortButton(scope, sortKey) {
 function initCrewViewToggle() {
   const tierBtn = document.getElementById("crew-view-tier");
   const archetypeBtn = document.getElementById("crew-view-archetype");
+  const crewViewSwitch = document.getElementById("crew-view-switch-input");
 
   if (!tierBtn || !archetypeBtn) return;
 
@@ -2916,8 +2942,7 @@ function initCrewViewToggle() {
     currentCrewView = "tier";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
-    tierBtn.classList.add("active");
-    archetypeBtn.classList.remove("active");
+    if (crewViewSwitch) crewViewSwitch.checked = false;
     renderPlayers(window.siteData);
   });
 
@@ -2925,10 +2950,18 @@ function initCrewViewToggle() {
     currentCrewView = "archetype";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
-    archetypeBtn.classList.add("active");
-    tierBtn.classList.remove("active");
+    if (crewViewSwitch) crewViewSwitch.checked = true;
     renderPlayers(window.siteData);
   });
+
+  if (crewViewSwitch) {
+    crewViewSwitch.addEventListener("change", () => {
+      currentCrewView = crewViewSwitch.checked ? "archetype" : "tier";
+      currentArchetypeMode = "primary";
+      currentArchetypeFilter = "all";
+      renderPlayers(window.siteData);
+    });
+  }
 }
 
 function initSorting() {
