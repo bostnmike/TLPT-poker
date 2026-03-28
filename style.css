@@ -9044,7 +9044,10 @@ body:has(#dashboard-grid) .page-title-row::after{
    4) Rules page polish
    ------------------------- */
 .format-toggle{
-  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
   margin-bottom:14px;
   padding:12px 14px;
   border:1px solid rgba(34,197,94,.22);
@@ -9059,15 +9062,64 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 16px rgba(34,197,94,.08);
 }
 
-.format-toggle::before{
-  content:"";
+.format-switch{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  cursor:pointer;
+}
+
+.format-switch input{
   position:absolute;
-  left:14px;
-  right:14px;
-  top:0;
-  height:3px;
+  opacity:0;
+  pointer-events:none;
+}
+
+.format-switch-track{
+  position:relative;
+  display:block;
+  width:70px;
+  height:36px;
   border-radius:999px;
-  background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(168,85,247,.50) 56%, transparent 100%);
+  border:1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(90deg, rgba(34,197,94,.24) 0%, rgba(168,85,247,.24) 100%),
+    linear-gradient(180deg, rgba(31,39,51,.98) 0%, rgba(20,26,34,.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 6px 16px rgba(0,0,0,.22);
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.format-switch-thumb{
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.28),
+    0 0 0 1px rgba(134,239,172,.20);
+  transition:transform .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.format-switch input:checked + .format-switch-track .format-switch-thumb{
+  transform:translateX(34px);
+  background:linear-gradient(180deg, #f3e8ff 0%, #d8b4fe 100%);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.28),
+    0 0 0 1px rgba(216,180,254,.20);
+}
+
+.format-switch:hover .format-switch-track{
+  border-color:rgba(255,255,255,.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 8px 18px rgba(0,0,0,.24);
 }
 
 .format-content-shell{
@@ -9517,6 +9569,16 @@ body:has(#dashboard-grid) .page-title-row::after{
     margin-bottom:28px !important;
   }
 
+  .format-toggle{
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .btn-format{
+    width:100%;
+    min-width:0;
+  }
+  
   .home-welcome-row::after,
   .standings-top-shell .page-title-row::after,
   .dashboard-top-shell .page-title-row::after,
