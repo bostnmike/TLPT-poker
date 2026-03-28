@@ -3360,17 +3360,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(255,188,198,.44);
+  border:1px solid rgba(255,170,120,.40);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,220,228,.20), transparent 34%),
-    linear-gradient(180deg, rgba(255,178,194,.32), rgba(221,102,132,.20)),
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    radial-gradient(circle at top right, rgba(255,214,170,.18), transparent 34%),
+    linear-gradient(180deg, rgba(255,146,92,.30), rgba(215,78,36,.22)),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
   box-shadow:
-    0 0 0 1px rgba(255,188,198,.16),
+    0 0 0 1px rgba(255,170,120,.14),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(255,178,194,.14);
+    0 0 18px rgba(255,120,72,.12);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -8828,8 +8828,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .home-welcome-row::after{
-  background:linear-gradient(90deg, rgba(255,255,255,.98), rgba(226,232,240,.62) 52%, transparent 100%);
-  box-shadow:0 0 10px rgba(226,232,240,.18);
+  content:none !important;
+  display:none !important;
 }
 
 .page-title-row:has(.page-title-orange)::after{
