@@ -9046,7 +9046,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 .format-toggle{
   display:flex;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-start;
   gap:16px;
   margin-bottom:14px;
   padding:12px 14px;
