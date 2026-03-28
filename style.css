@@ -5474,6 +5474,18 @@ body:has(#dashboard-grid) .page-title-row::after{
   flex-wrap:wrap;
 }
 
+.archetype-visual-head-inline h3{
+  margin:0;
+  line-height:1.2;
+}
+
+.archetype-visual-head-inline .archetype-helper-bottom{
+  margin:0;
+  line-height:1.2;
+  position:relative;
+  top:-1px;
+}
+
 .archetype-visual-head p{
   margin:0;
 }
