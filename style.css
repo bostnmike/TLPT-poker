@@ -5207,11 +5207,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   overflow:hidden;
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  grid-template-columns:1fr;
   grid-template-areas:
-    "head mode ."
-    "filters filters filters";
-  gap:14px 18px;
+    "head"
+    "mode"
+    "filters";
+  gap:14px;
   align-items:start;
   padding:18px 20px;
   border:1px solid rgba(255,122,122,.20);
@@ -5224,6 +5225,19 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 0 1px rgba(255,122,122,.08),
     0 12px 28px rgba(0,0,0,.24),
     0 0 22px rgba(255,122,122,.08);
+}
+
+.archetype-visual-head{
+  grid-area:head;
+}
+
+.archetype-mode-toggle{
+  grid-area:mode;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
 
 .archetype-visual-card::before{
@@ -6070,6 +6084,16 @@ body:has(#dashboard-grid) .page-title-row::after{
     line-height:1.45;
   }
 
+  .crew-view-toolbar,
+  .archetype-mode-toggle{
+    gap:12px;
+  }
+
+  .crew-view-toolbar .btn,
+  .archetype-mode-toggle .archetype-mode-btn{
+    min-width:0;
+  }
+    
   .hero-title{
     font-size:1.7rem;
   }
