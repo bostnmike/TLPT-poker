@@ -2005,7 +2005,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
-        <h3>🫟  Archetype Radar:</h3>
+        <h3>🫟 Archetype Radar:</h3>
       </div>
 
       <div class="archetype-mode-toggle">
@@ -2125,23 +2125,6 @@ function renderPlayers(data) {
   if (archetypeBtn) archetypeBtn.classList.toggle("active", currentCrewView === "archetype");
   if (crewViewSwitch) crewViewSwitch.checked = currentCrewView === "archetype";
 
-  document.querySelectorAll("[data-archetype-mode]").forEach(button => {
-  button.addEventListener("click", () => {
-    currentArchetypeMode = button.dataset.archetypeMode || "primary";
-    currentArchetypeFilter = "all";
-    renderPlayers(data);
-  });
-});
-
-  const archetypeModeSwitch = document.getElementById("archetype-mode-switch-input");
-  if (archetypeModeSwitch) {
-    archetypeModeSwitch.addEventListener("change", () => {
-      currentArchetypeMode = archetypeModeSwitch.checked ? "secondary" : "primary";
-      currentArchetypeFilter = "all";
-      renderPlayers(data);
-    });
-  }
-
   if (!grid || !data?.players) return;
 
   const eligiblePlayers = [...data.players]
@@ -2153,7 +2136,7 @@ function renderPlayers(data) {
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
-  
+
     if (helpCopy) {
       helpCopy.style.display = "";
       helpCopy.textContent = "Your primary & secondary brands of trouble.";
@@ -2163,7 +2146,7 @@ function renderPlayers(data) {
       explainer.style.display = "none";
       explainer.textContent = "";
     }
-    
+
     if (visual) {
       const archetypeExplainer = currentArchetypeMode === "primary"
         ? "Primary Archetype = Your loudest (perhaps most annoying) table style."
@@ -2180,7 +2163,7 @@ function renderPlayers(data) {
         )}
       `;
     }
-    
+
     grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
@@ -2197,6 +2180,17 @@ function renderPlayers(data) {
         renderPlayers(data);
       });
     });
+
+    const archetypeModeSwitch = document.getElementById("archetype-mode-switch-input");
+    if (archetypeModeSwitch) {
+      archetypeModeSwitch.checked = currentArchetypeMode === "secondary";
+
+      archetypeModeSwitch.addEventListener("change", () => {
+        currentArchetypeMode = archetypeModeSwitch.checked ? "secondary" : "primary";
+        currentArchetypeFilter = "all";
+        renderPlayers(data);
+      });
+    }
 
     return;
   }
@@ -2253,7 +2247,7 @@ function renderPlayers(data) {
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
   ];
 
-     if (helpCopy) {
+  if (helpCopy) {
     helpCopy.textContent = "";
     helpCopy.style.display = "none";
   }
@@ -2264,11 +2258,11 @@ function renderPlayers(data) {
   }
 
   if (visual) {
-  visual.innerHTML = `
-    <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
-    ${tierDistributionMarkup(tierGroups)}
-  `;
-}
+    visual.innerHTML = `
+      <p class="players-visual-gold-copy">Tiers sort the killers, the triers, and the occasional spreadsheet fraud.</p>
+      ${tierDistributionMarkup(tierGroups)}
+    `;
+  }
 
   grid.innerHTML = `
     ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
