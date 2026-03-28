@@ -886,11 +886,21 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .league-ticker::after{
   content:"";
   position:absolute;
-  inset:0;
+  left:16px;
+  right:16px;
+  bottom:0;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(
+    90deg,
+    rgba(239,68,68,.96) 0%,
+    rgba(255,184,28,.96) 25%,
+    rgba(34,197,94,.96) 50%,
+    rgba(59,130,246,.96) 75%,
+    rgba(168,85,247,.96) 100%
+  );
   pointer-events:none;
-  border-radius:16px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.02);
-  z-index:1;
+  z-index:3;
 }
 
 .league-ticker{
@@ -1156,16 +1166,32 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   line-height:1.4;
 }
 
-.home-insight-card{
+#home-insights-grid .home-insight-card{
   position:relative;
+  border:1px solid rgba(34,197,94,.20);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.10), rgba(34,197,94,.03) 34%, rgba(15,20,28,1) 100%);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.08),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 18px rgba(34,197,94,.10);
 }
 
-.home-insight-card.is-active{
-  border-color:rgba(255,184,28,.42);
+#home-insights-grid .home-insight-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(34,197,94,.42);
   box-shadow:
-    0 0 0 1px rgba(255,184,28,.18),
+    0 0 0 1px rgba(34,197,94,.18),
     0 10px 30px rgba(0,0,0,.25),
-    0 0 22px rgba(255,184,28,.14);
+    0 0 22px rgba(34,197,94,.14);
+}
+
+#home-insights-grid .home-insight-card.is-active{
+  border-color:rgba(34,197,94,.46);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,.18),
+    0 10px 30px rgba(0,0,0,.25),
+    0 0 22px rgba(34,197,94,.14);
 }
 
 .home-cluster-stack{
@@ -3286,15 +3312,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
-  border-color:rgba(215,38,61,.26);
+  border-color:rgba(215,38,61,.36);
   background:
-    radial-gradient(circle at top right, rgba(215,38,61,.12), transparent 34%),
-    radial-gradient(circle at left center, rgba(255,120,120,.08), transparent 26%),
-    linear-gradient(180deg, rgba(54,14,22,.98), rgba(18,12,16,.99));
+    radial-gradient(circle at top right, rgba(215,38,61,.18), transparent 34%),
+    radial-gradient(circle at left center, rgba(255,120,120,.10), transparent 26%),
+    linear-gradient(180deg, rgba(72,12,22,.99), rgba(20,8,12,.995));
   box-shadow:
-    0 0 0 1px rgba(215,38,61,.10),
-    0 12px 28px rgba(0,0,0,.22),
-    0 0 18px rgba(215,38,61,.10);
+    0 0 0 1px rgba(215,38,61,.14),
+    0 14px 32px rgba(0,0,0,.24),
+    0 0 22px rgba(215,38,61,.14);
 }
 
 #home-snapshot{
@@ -3334,17 +3360,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(255,170,185,.40);
+  border:1px solid rgba(255,188,198,.44);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,205,215,.18), transparent 34%),
-    linear-gradient(180deg, rgba(255,155,175,.28), rgba(205,78,108,.18)),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+    radial-gradient(circle at top right, rgba(255,220,228,.20), transparent 34%),
+    linear-gradient(180deg, rgba(255,178,194,.32), rgba(221,102,132,.20)),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   box-shadow:
-    0 0 0 1px rgba(255,170,185,.14),
+    0 0 0 1px rgba(255,188,198,.16),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(255,155,175,.12);
+    0 0 18px rgba(255,178,194,.14);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -8912,22 +8938,23 @@ body:has(#dashboard-grid) .page-title-row::after{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  margin:0;
-  padding:3px 0 6px 0;
+  margin:4px 0 10px 0;
+  padding:10px 0;
   border:1px solid rgba(255,255,255,.12);
   border-radius:16px;
   background:
-    radial-gradient(circle at 10% 24%, rgba(239,68,68,.24), transparent 20%),
-    radial-gradient(circle at 28% 18%, rgba(255,184,28,.24), transparent 20%),
-    radial-gradient(circle at 48% 18%, rgba(34,197,94,.22), transparent 20%),
-    radial-gradient(circle at 68% 20%, rgba(59,130,246,.24), transparent 20%),
-    radial-gradient(circle at 88% 26%, rgba(168,85,247,.24), transparent 20%),
-    linear-gradient(90deg,
-      rgba(239,68,68,.10) 0%,
-      rgba(255,184,28,.10) 25%,
-      rgba(34,197,94,.10) 50%,
-      rgba(59,130,246,.10) 75%,
-      rgba(168,85,247,.10) 100%
+    radial-gradient(circle at 10% 26%, rgba(239,68,68,.20), transparent 22%),
+    radial-gradient(circle at 28% 18%, rgba(255,184,28,.20), transparent 22%),
+    radial-gradient(circle at 48% 18%, rgba(34,197,94,.18), transparent 22%),
+    radial-gradient(circle at 68% 20%, rgba(59,130,246,.20), transparent 22%),
+    radial-gradient(circle at 88% 26%, rgba(168,85,247,.20), transparent 22%),
+    linear-gradient(
+      90deg,
+      rgba(239,68,68,.08) 0%,
+      rgba(255,184,28,.08) 25%,
+      rgba(34,197,94,.08) 50%,
+      rgba(59,130,246,.08) 75%,
+      rgba(168,85,247,.08) 100%
     ),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   color:#fff;
@@ -8977,14 +9004,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .events-header-stack::before{
-  content:"";
-  position:absolute;
-  left:16px;
-  right:16px;
-  top:0;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(244,114,182,.95), rgba(255,184,28,.30) 55%, transparent 100%);
+  content:none;
+  display:none;
 }
 
 .home-snapshot-layout{
@@ -9544,4 +9565,10 @@ body:has(#dashboard-grid) .page-title-row::after{
     bottom:-12px;
     height:3px;
   }
+
+  .home-welcome-row::after{
+    content:none !important;
+    display:none !important;
+  }
+  
 }
