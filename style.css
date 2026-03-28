@@ -5469,7 +5469,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .archetype-visual-head-inline{
   display:flex;
-  align-items:center;
+  align-items:flex-end;
   gap:12px;
   flex-wrap:wrap;
 }
