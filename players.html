@@ -37,10 +37,18 @@
 
       <div class="crew-view-toolbar" data-sort-scope="crew-view">
         <button id="crew-view-tier" class="btn active" type="button">🎖️ Tier View</button>
+
+        <label class="crew-view-switch" for="crew-view-switch-input" aria-label="Toggle between Tier View and Archetype View">
+          <input id="crew-view-switch-input" type="checkbox" />
+          <span class="crew-view-switch-track">
+            <span class="crew-view-switch-thumb"></span>
+          </span>
+        </label>
+
         <button id="crew-view-archetype" class="btn" type="button">🫟 Archetype View</button>
+
         <div id="players-help-copy" class="page-kicker" style="display:none;"></div>
       </div>
-    </div>
 
     <section class="section">
       <div id="players-visual"></div>
