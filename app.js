@@ -1999,14 +1999,14 @@ function groupPlayersByArchetype(players, mode = "primary") {
     .sort((a, b) => b.players.length - a.players.length || a.title.localeCompare(b.title));
 }
 
-function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
+function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", explainer = "") {
   const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
 
-  return `
+return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
         <div class="archetype-visual-head-inline">
-          <h3>🫟 Archetype Radar</h3>
+          <h3>🫟 Archetype Radar:</h3>
           <p class="archetype-helper-bottom">${explainer}</p>
         </div>
       </div>
@@ -2155,16 +2155,12 @@ function renderPlayers(data) {
         ? "Primary Archetype = Your loudest (perhaps most annoying) table style."
         : "Secondary Archetype = Your backup chaos, hiding underneath, - mostly when you're bluffing.";
 
-      visual.innerHTML = `
-        <div class="archetype-helper-copy archetype-helper-copy-outside">
-          <p class="archetype-helper-bottom">${archetypeExplainer}</p>
-        </div>
-        ${archetypeFilterMarkup(
-          archetypeGroups,
-          currentArchetypeFilter,
-          currentArchetypeMode
-        )}
-      `;
+      visual.innerHTML = archetypeFilterMarkup(
+        archetypeGroups,
+        currentArchetypeFilter,
+        currentArchetypeMode,
+        archetypeExplainer
+      );
     }
 
     grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
