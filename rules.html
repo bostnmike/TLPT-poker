@@ -84,10 +84,23 @@
 
     <section class="section rules-table-bg">
         <div class="page-kicker">Choose either format below to view the full blind sheet and chip set</div>
-        <div class="format-toggle">
-        <button class="btn btn-format active" id="format-btn-40k" type="button">40K Structure</button>
-        <button class="btn btn-format" id="format-btn-500k" type="button">500K Structure</button>
-      </div>
+
+        <div class="format-toggle" role="group" aria-label="Tournament structure toggle">
+          <button class="btn btn-format active" id="format-btn-40k" type="button">
+            Friday's 40K Structure
+          </button>
+
+          <label class="format-switch" for="format-switch-input" aria-label="Toggle between 40K and 500K structures">
+            <input id="format-switch-input" type="checkbox" />
+            <span class="format-switch-track">
+              <span class="format-switch-thumb"></span>
+            </span>
+          </label>
+
+          <button class="btn btn-format" id="format-btn-500k" type="button">
+            Saturday's 500K Structure
+          </button>
+        </div>
 
       <div class="format-content-shell">
         <div id="format-content"></div>
