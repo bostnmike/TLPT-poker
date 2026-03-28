@@ -1986,7 +1986,7 @@ function groupPlayersByArchetype(players, mode = "primary") {
         desc: selected.desc,
         players: []
       });
-    }
+    } 
 
     groups.get(selected.name).players.push(player);
   });
@@ -2005,7 +2005,10 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary") {
   return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
-        <h3>🫟 Archetype Radar:</h3>
+        <div class="archetype-visual-head-inline">
+          <h3>🫟 Archetype Radar</h3>
+          <p class="archetype-helper-bottom">${explainer}</p>
+        </div>
       </div>
 
       <div class="archetype-mode-toggle">
