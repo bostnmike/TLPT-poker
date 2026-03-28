@@ -7789,15 +7789,17 @@ body:has(#dashboard-grid) .page-title-row::after{
 .media-grid{
   display:grid;
   grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:20px;
+  gap:16px;
+  max-width:1080px;
+  margin:0 auto;
 }
 
 .media-card{
   position:relative;
   overflow:hidden;
-  padding:18px;
+  padding:14px;
   border:1px solid rgba(168,85,247,.20);
-  border-radius:18px;
+  border-radius:16px;
   background:
     linear-gradient(180deg, rgba(168,85,247,.10), rgba(168,85,247,.03)),
     linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
@@ -7811,33 +7813,24 @@ body:has(#dashboard-grid) .page-title-row::after{
 .media-card::before{
   content:"";
   position:absolute;
-  left:14px;
-  right:14px;
+  left:12px;
+  right:12px;
   top:0;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(239,68,68,.40) 58%, transparent 100%);
 }
 
-.media-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(168,85,247,.30);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 14px 30px rgba(0,0,0,.26),
-    0 0 22px rgba(168,85,247,.12);
-}
-
 .media-copy{
   position:relative;
   z-index:1;
-  padding:0 0 12px 0;
+  padding:0 0 10px 0;
 }
 
 .media-card h3{
-  margin:0 0 12px 0;
+  margin:0;
   color:#e9d5ff;
-  font-size:1.08rem;
+  font-size:1rem;
   font-weight:800;
   line-height:1.2;
   text-shadow:none;
@@ -7846,12 +7839,12 @@ body:has(#dashboard-grid) .page-title-row::after{
 .media-frame{
   width:100%;
   aspect-ratio:16 / 9;
-  border-radius:14px;
+  border-radius:12px;
   overflow:hidden;
   background:#05080c;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.04),
-    0 10px 18px rgba(0,0,0,.20);
+    0 8px 14px rgba(0,0,0,.18);
 }
 
 .media-thumb-link,
