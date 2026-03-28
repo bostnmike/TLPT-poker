@@ -2002,7 +2002,7 @@ function groupPlayersByArchetype(players, mode = "primary") {
 function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", explainer = "") {
   const totalPlayers = groups.reduce((sum, group) => sum + group.players.length, 0);
 
-return `
+  return `
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
         <div class="archetype-visual-head-inline">
@@ -2020,7 +2020,11 @@ return `
           Primary
         </button>
 
-        <label class="archetype-mode-switch" for="archetype-mode-switch-input" aria-label="Toggle between Primary and Secondary archetypes">
+        <label
+          class="archetype-mode-switch"
+          for="archetype-mode-switch-input"
+          aria-label="Toggle between Primary and Secondary archetypes"
+        >
           <input
             id="archetype-mode-switch-input"
             type="checkbox"
@@ -2163,7 +2167,9 @@ function renderPlayers(data) {
       );
     }
 
-    grid.innerHTML = filteredGroups.map(group => archetypeSectionMarkup(group, data)).join("");
+    grid.innerHTML = filteredGroups
+      .map(group => archetypeSectionMarkup(group, data))
+      .join("");
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
       button.addEventListener("click", () => {
