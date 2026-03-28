@@ -5176,6 +5176,84 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 0 1px rgba(215,70,70,.16);
 }
 
+.crew-view-toolbar{
+  justify-content:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.crew-view-toolbar #players-help-copy{
+  flex:1 1 100%;
+  margin-left:0;
+  padding-left:0;
+}
+
+.crew-view-switch,
+.archetype-mode-switch{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  cursor:pointer;
+}
+
+.crew-view-switch input,
+.archetype-mode-switch input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+.crew-view-switch-track,
+.archetype-mode-switch-track{
+  position:relative;
+  display:block;
+  width:70px;
+  height:36px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:
+    linear-gradient(90deg, rgba(215,70,70,.22) 0%, rgba(59,130,246,.22) 100%),
+    linear-gradient(180deg, rgba(31,39,51,.98) 0%, rgba(20,26,34,.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 6px 16px rgba(0,0,0,.22);
+  transition:border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.crew-view-switch-thumb,
+.archetype-mode-switch-thumb{
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:linear-gradient(180deg, #ffe0e0 0%, #ff9f9f 100%);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.28),
+    0 0 0 1px rgba(255,159,159,.20);
+  transition:transform .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.crew-view-switch input:checked + .crew-view-switch-track .crew-view-switch-thumb,
+.archetype-mode-switch input:checked + .archetype-mode-switch-track .archetype-mode-switch-thumb{
+  transform:translateX(34px);
+  background:linear-gradient(180deg, #dbeafe 0%, #93c5fd 100%);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.28),
+    0 0 0 1px rgba(147,197,253,.20);
+}
+
+.crew-view-switch:hover .crew-view-switch-track,
+.archetype-mode-switch:hover .archetype-mode-switch-track{
+  border-color:rgba(255,255,255,.24);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 8px 18px rgba(0,0,0,.24);
+}
+
 #players-visual{
   position:relative;
   margin:0 0 22px 0;
