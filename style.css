@@ -4243,7 +4243,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .section.rules-header .page-title-row{
   position:relative;
-  margin-bottom:14px;
+  margin-bottom:28px;
   padding:0 0 12px 0;
   border:none;
   border-radius:0;
@@ -9511,6 +9511,10 @@ body:has(#dashboard-grid) .page-title-row::after{
     position:relative;
     margin-bottom:14px !important;
     padding:0 0 12px 0 !important;
+  }
+
+  .section.rules-header .page-title-row{
+    margin-bottom:28px !important;
   }
 
   .home-welcome-row::after,
