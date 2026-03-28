@@ -2846,6 +2846,11 @@ function setActiveFormatButton(formatKey) {
     const btn = document.getElementById(`format-btn-${key}`);
     if (btn) btn.classList.toggle("active", key === formatKey);
   });
+
+  const toggle = document.getElementById("format-switch-input");
+  if (toggle) {
+    toggle.checked = formatKey === "500k";
+  }
 }
 
 function showFormat(formatKey) {
@@ -2854,18 +2859,19 @@ function showFormat(formatKey) {
   if (!format || !host) return;
 
   setActiveFormatButton(formatKey);
+
   host.innerHTML = `
-  <div class="rules-format">
-    <div class="format-head">
-      <div>
-        <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
+    <div class="rules-format">
+      <div class="format-head">
+        <div>
+          <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
+        </div>
       </div>
+      ${buildRulesTimerRail(format)}
+      ${buildRulesChipPanel(format, formatKey)}
+      ${buildRulesBlindTable(format)}
     </div>
-    ${buildRulesTimerRail(format)}
-    ${buildRulesChipPanel(format, formatKey)}
-    ${buildRulesBlindTable(format)}
-  </div>
-`;
+  `;
 }
 
 function initRulesPage() {
@@ -2874,8 +2880,21 @@ function initRulesPage() {
 
   const btn40 = document.getElementById("format-btn-40k");
   const btn500 = document.getElementById("format-btn-500k");
-  if (btn40) btn40.addEventListener("click", () => showFormat("40k"));
-  if (btn500) btn500.addEventListener("click", () => showFormat("500k"));
+  const toggle = document.getElementById("format-switch-input");
+
+  if (btn40) {
+    btn40.addEventListener("click", () => showFormat("40k"));
+  }
+
+  if (btn500) {
+    btn500.addEventListener("click", () => showFormat("500k"));
+  }
+
+  if (toggle) {
+    toggle.addEventListener("change", () => {
+      showFormat(toggle.checked ? "500k" : "40k");
+    });
+  }
 
   showFormat("40k");
 }
