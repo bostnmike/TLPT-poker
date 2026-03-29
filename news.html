@@ -52,15 +52,18 @@
 
       <div class="news-author-strip">
         <div class="news-author-avatar-wrap">
-          <div class="news-author-avatar-shell">
+          <span class="player-avatar-wrap">
             <img
-              class="news-author-avatar"
+              class="player-avatar table"
               src="images/players/bostnmike.jpg"
               alt="BostnMike"
+              loading="lazy"
+              decoding="async"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
-            <div class="news-author-avatar-fallback" style="display:none;">BM</div>
-          </div>
+            <span class="player-avatar-fallback table" style="display:none;">BM</span>
+          </span>
+        </div>
         </div>
         <div class="news-author-copy">
           <p class="news-author-kicker">Weekly Columnist</p>
