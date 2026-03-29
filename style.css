@@ -10260,4 +10260,93 @@ body:has(#dashboard-grid) .page-title-row::after{
   .news-author-avatar-wrap{
     justify-content:center;
   }
+
+  /* =========================================
+   NEWS AUTHOR AVATAR — HARD OVERRIDE
+   ========================================= */
+
+body .news-author-strip{
+  grid-template-columns:48px minmax(0, 1fr) !important;
+  gap:12px !important;
+}
+
+body .news-author-strip .news-author-avatar-shell{
+  width:48px !important;
+  height:48px !important;
+  min-width:48px !important;
+  min-height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  border:2px solid var(--gold) !important;
+  border-radius:50% !important;
+  overflow:hidden !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+body .news-author-strip .news-author-avatar,
+body .news-author-strip .news-author-avatar-fallback{
+  width:48px !important;
+  height:48px !important;
+  min-width:48px !important;
+  min-height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  flex:0 0 48px !important;
+}
+
+body .news-author-strip .news-author-avatar{
+  object-fit:cover !important;
+  object-position:center 28% !important;
+  transform:scale(1.04) !important;
+}
+
+body .news-author-strip .news-author-avatar-fallback{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  font-size:.95rem !important;
+}
+
+body .news-author-strip .news-author-name{
+  font-size:1.18rem !important;
+}
+
+body .news-author-strip .news-author-blurb{
+  font-size:.92rem !important;
+}
+
+@media (max-width: 720px){
+  body .news-author-strip{
+    grid-template-columns:1fr !important;
+    text-align:center !important;
+  }
+
+  body .news-author-strip .news-author-avatar-wrap{
+    justify-content:center !important;
+  }
+
+  body .news-author-strip .news-author-avatar-shell{
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    max-width:44px !important;
+    max-height:44px !important;
+  }
+
+  body .news-author-strip .news-author-avatar,
+  body .news-author-strip .news-author-avatar-fallback{
+    width:44px !important;
+    height:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    max-width:44px !important;
+    max-height:44px !important;
+    flex:0 0 44px !important;
+  }
 }
