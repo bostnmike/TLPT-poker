@@ -10544,17 +10544,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 16px rgba(255,184,28,.08);
 }
 
-.news-module-side:nth-of-type(2){
-  border-color:rgba(59,130,246,.24);
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 28%),
-    linear-gradient(135deg, rgba(12,28,52,.98), rgba(12,17,24,.99));
-  box-shadow:
-    0 0 0 1px rgba(59,130,246,.08),
-    0 12px 26px rgba(0,0,0,.20),
-    0 0 16px rgba(59,130,246,.08);
-}
-
 .news-intro-note{
   border-left:4px solid #ffb81c;
   background:
