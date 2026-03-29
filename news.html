@@ -64,18 +64,6 @@ body .news-page-kicker{
     0 0 20px rgba(255,184,28,.08) !important;
 }
 
-body .news-title-emoji{
-  display:inline-flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  width:46px !important;
-  height:46px !important;
-  font-size:2rem !important;
-  line-height:1 !important;
-  flex:0 0 46px !important;
-  filter:drop-shadow(0 6px 10px rgba(0,0,0,.22)) !important;
-}
-    
 body .news-author-strip{
   display:grid !important;
   grid-template-columns:68px minmax(0, 1fr) !important;
@@ -403,13 +391,7 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
   body .news-receipt-lead{padding:10px 12px !important;}
   body .news-receipt-pills{gap:8px !important;}
   body .news-receipt-pill{font-size:.84rem !important;padding:9px 11px !important;}
-  }
-      body .news-title-emoji{
-    width:42px !important;
-    height:42px !important;
-    font-size:1.8rem !important;
-    flex:0 0 42px !important;
-  }
+}
 </style>
 </head>
 <body>
@@ -642,187 +624,188 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
         </div>
 
         <div id="news-blog-feed" class="news-blog-feed">
-         <!--
-WEEK 2 ARTICLE TEMPLATE
+          <!--
+          WEEK 2 ARTICLE TEMPLATE
 
-Workflow:
-1. Copy the full <article>...</article> block below
-2. Paste it directly under this comment and above the current top article
-3. Update the dateline, id, dek, article copy, summary cards, stat pills, trend strip, and archive jump list
-4. If there are no new players, delete the Welcome to the League section
-5. If there is no good self-roast week for BostnMike, delete that pull-quote block
+          Workflow:
+          1. Copy the full <article>...</article> block below
+          2. Paste it directly under this comment and above the current top article
+          3. Update the dateline, id, dek, article copy, summary cards, stat pills, trend strip, and archive jump list
+          4. If there are no new players, delete the Welcome to the League section
+          5. If there is no good self-roast week for BostnMike, delete that pull-quote block
 
-<article id="week-04-05-2026" class="news-post-card news-post-featured">
-  <div class="news-post-meta">
-    <div class="news-post-kicker">The Week That Was</div>
-    <div class="news-post-dateline">Date Line: 04/05/2026</div>
-  </div>
+          <article id="week-04-05-2026" class="news-post-card news-post-featured">
+            <div class="news-post-meta">
+              <div class="news-post-kicker">The Week That Was</div>
+              <div class="news-post-dateline">Date Line: 04/05/2026</div>
+            </div>
 
-  <h3 class="news-post-title">The Week That Was</h3>
+            <h3 class="news-post-title">The Week That Was</h3>
 
-  <p class="news-post-dek">
-    Insert a short, sharp subheader that captures the week’s theme.
-  </p>
+            <p class="news-post-dek">
+              Insert a short, sharp subheader that captures the week’s theme.
+            </p>
 
-  <div class="news-post-body">
-    <p>
-      Write a funny opening paragraph that frames the week in the normal columnist voice.
-      Keep it grounded in the real changes from the Current vs New comparison.
-    </p>
+            <div class="news-post-body">
+              <p>
+                Write a funny opening paragraph that frames the week in the normal columnist voice.
+                Keep it grounded in the real changes from the Current vs New comparison.
+              </p>
 
-    <div class="news-pull-quote">
-      <p>“Insert the best short line of the week here.”</p>
-    </div>
+              <div class="news-pull-quote">
+                <p>“Insert the best short line of the week here.”</p>
+              </div>
 
-    <h4>🎯 The Big Story</h4>
-    <p>
-      Lead with the single most important development of the week:
-      biggest heater, biggest collapse, strangest stat movement, or the story that best explains the week.
-    </p>
+              <h4>🎯 The Big Story</h4>
+              <p>
+                Lead with the single most important development of the week:
+                biggest heater, biggest collapse, strangest stat movement, or the story that best explains the week.
+              </p>
 
-    <p>
-      Add one more short paragraph that sharpens the joke and explains why it mattered.
-    </p>
+              <p>
+                Add one more short paragraph that sharpens the joke and explains why it mattered.
+              </p>
 
-    <div class="news-receipt-panel">
-      <div class="news-receipt-lead">
-        <div class="news-receipt-top">
-          <span class="player-avatar-wrap">
-            <img
-              class="player-avatar table"
-              src="images/players/PLAYER-FILE.jpg"
-              alt="PLAYER NAME"
-              loading="lazy"
-              decoding="async"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <span class="player-avatar-fallback table" style="display:none;">XX</span>
-          </span>
+              <div class="news-receipt-panel">
+                <div class="news-receipt-lead">
+                  <div class="news-receipt-top">
+                    <span class="player-avatar-wrap">
+                      <img
+                        class="player-avatar table"
+                        src="images/players/PLAYER-FILE.jpg"
+                        alt="PLAYER NAME"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                      />
+                      <span class="player-avatar-fallback table" style="display:none;">XX</span>
+                    </span>
 
-          <div class="news-receipt-copy">
-            <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
-            <div class="news-receipt-name">PLAYER NAME</div>
-          </div>
-        </div>
-      </div>
+                    <div class="news-receipt-copy">
+                      <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
+                      <div class="news-receipt-name">PLAYER NAME</div>
+                    </div>
+                  </div>
+                </div>
 
-      <div class="news-receipt-pills">
-        <span class="news-receipt-pill">Profit ↑</span>
-        <span class="news-receipt-pill">Hits ↑</span>
-        <span class="news-receipt-pill">Cashes ↑</span>
-        <span class="news-receipt-pill">Luck Rank ↑</span>
-      </div>
-    </div>
+                <div class="news-receipt-pills">
+                  <span class="news-receipt-pill">Profit ↑</span>
+                  <span class="news-receipt-pill">Hits ↑</span>
+                  <span class="news-receipt-pill">Cashes ↑</span>
+                  <span class="news-receipt-pill">Luck Rank ↑</span>
+                </div>
+              </div>
 
-    <h4>📈 Movers</h4>
-    <div class="news-movers-grid">
-      <div class="news-mover-card up">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short rise summary.</p>
-      </div>
+              <h4>📈 Movers</h4>
+              <div class="news-movers-grid">
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
 
-      <div class="news-mover-card up">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short rise summary.</p>
-      </div>
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
 
-      <div class="news-mover-card up">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short rise summary.</p>
-      </div>
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
 
-      <div class="news-mover-card up">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short rise summary.</p>
-      </div>
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
 
-      <div class="news-mover-card down">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short fall summary.</p>
-      </div>
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
 
-      <div class="news-mover-card down">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short fall summary.</p>
-      </div>
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
 
-      <div class="news-mover-card down">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short fall summary.</p>
-      </div>
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
 
-      <div class="news-mover-card down">
-        <div class="news-mover-name">PLAYER NAME</div>
-        <p>Short fall summary.</p>
-      </div>
-    </div>
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
+              </div>
 
-    <div class="news-pull-quote news-pull-quote-self-roast">
-      <div class="news-pull-quote-row">
-        <span class="player-avatar-wrap">
-          <img
-            class="player-avatar table"
-            src="images/players/bostnmike.jpg"
-            alt="BostnMike"
-            loading="lazy"
-            decoding="async"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <span class="player-avatar-fallback table" style="display:none;">BM</span>
-        </span>
+              <div class="news-pull-quote news-pull-quote-self-roast">
+                <div class="news-pull-quote-row">
+                  <span class="player-avatar-wrap">
+                    <img
+                      class="player-avatar table"
+                      src="images/players/bostnmike.jpg"
+                      alt="BostnMike"
+                      loading="lazy"
+                      decoding="async"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <span class="player-avatar-fallback table" style="display:none;">BM</span>
+                  </span>
 
-        <p>
-          Insert the weekly BostnMike self-own here if the data supports it.
-        </p>
-      </div>
-    </div>
+                  <p>
+                    Insert the weekly BostnMike self-own here if the data supports it.
+                  </p>
+                </div>
+              </div>
 
-    <h4>🔢 Numbers That Matter</h4>
-    <ul>
-      <li><strong>Stat / swing:</strong> Why it matters.</li>
-      <li><strong>Stat / swing:</strong> Why it matters.</li>
-      <li><strong>Stat / swing:</strong> Why it matters.</li>
-      <li><strong>Stat / swing:</strong> Why it matters.</li>
-    </ul>
+              <h4>🔢 Numbers That Matter</h4>
+              <ul>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+              </ul>
 
-    <h4>🎉 Welcome to the League</h4>
-    <p>
-      Delete this whole section if there are no new players this week.
-    </p>
+              <h4>🎉 Welcome to the League</h4>
+              <p>
+                Delete this whole section if there are no new players this week.
+              </p>
 
-    <div class="news-pull-quote">
-      <p>“Optional second pull quote if the week has a killer line.”</p>
-    </div>
+              <div class="news-pull-quote">
+                <p>“Optional second pull quote if the week has a killer line.”</p>
+              </div>
 
-    <h4>🔥 Quick Hits</h4>
-    <div class="news-quickhits-grid">
-      <ul>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-      </ul>
-      <ul>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-        <li>Short roast bullet.</li>
-      </ul>
-    </div>
+              <h4>🔥 Quick Hits</h4>
+              <div class="news-quickhits-grid">
+                <ul>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                </ul>
+                <ul>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                </ul>
+              </div>
 
-    <div class="news-section-divider">
-      <span>The Spreadsheet’s Final Word</span>
-    </div>
+              <div class="news-section-divider">
+                <span>The Spreadsheet’s Final Word</span>
+              </div>
 
-    <h4>🎬 Closing</h4>
-    <p>
-      End with one clean closing paragraph that wraps the week and lands the joke.
-    </p>
-  </div>
-</article>
--->
+              <h4>🎬 Closing</h4>
+              <p>
+                End with one clean closing paragraph that wraps the week and lands the joke.
+              </p>
+            </div>
+          </article>
+          -->
+
           <article id="week-03-29-2026" class="news-post-card news-post-featured">
             <div class="news-post-meta">
               <div class="news-post-kicker">The Week That Was</div>
