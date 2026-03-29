@@ -90,9 +90,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .header-inner{
   display:grid;
-  grid-template-columns:auto minmax(0,1fr);
+  grid-template-columns:max-content minmax(0,1fr);
   align-items:end;
-  gap:16px 24px;
+  gap:12px 18px;
   padding:14px 0 12px;
 }
 
