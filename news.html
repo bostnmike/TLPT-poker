@@ -260,6 +260,29 @@ body .news-summary-head-copy{
   min-width:0 !important;
 }
 
+body .news-summary-head-multi{
+  align-items:flex-start !important;
+}
+
+body .news-summary-avatar-row{
+  display:flex !important;
+  align-items:center !important;
+  gap:6px !important;
+  flex:0 0 auto !important;
+}
+
+body .news-summary-avatar-row .player-avatar.table,
+body .news-summary-avatar-row .player-avatar-fallback.table{
+  width:38px !important;
+  height:38px !important;
+  min-width:38px !important;
+  min-height:38px !important;
+  border-width:2px !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.06),
+    0 6px 12px rgba(0,0,0,.22) !important;
+}
+    
 body .news-summary-head-copy .news-summary-player{
   margin:0 !important;
 }
@@ -275,6 +298,14 @@ body .news-summary-head-copy .news-summary-value{
     height:42px !important;
     min-width:42px !important;
     min-height:42px !important;
+  }
+  
+  body .news-summary-avatar-row .player-avatar.table,
+  body .news-summary-avatar-row .player-avatar-fallback.table{
+    width:34px !important;
+    height:34px !important;
+    min-width:34px !important;
+    min-height:34px !important;
   }
 }
     
@@ -598,10 +629,11 @@ body .news-summary-head-copy .news-summary-value{
     </p>
   </article>
 
-  <article class="news-summary-card news-summary-card-purple">
-    <div class="news-summary-label">🎉 New Blood</div>
+<article class="news-summary-card news-summary-card-purple">
+  <div class="news-summary-label">🎉 New Blood</div>
 
-    <div class="news-summary-head">
+  <div class="news-summary-head news-summary-head-multi">
+    <div class="news-summary-avatar-row">
       <span class="player-avatar-wrap">
         <img
           class="player-avatar table"
@@ -614,16 +646,41 @@ body .news-summary-head-copy .news-summary-value{
         <span class="player-avatar-fallback table" style="display:none;">MG</span>
       </span>
 
-      <div class="news-summary-head-copy">
-        <div class="news-summary-player">Mike-G • Pat • Kishan</div>
-        <div class="news-summary-value">Immediate noise</div>
-      </div>
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/pat.jpg"
+          alt="Pat"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">PA</span>
+      </span>
+
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/kishan.jpg"
+          alt="Kishan"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">KI</span>
+      </span>
     </div>
 
-    <p class="news-summary-copy">
-      Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.
-    </p>
-  </article>
+    <div class="news-summary-head-copy">
+      <div class="news-summary-player">Mike-G • Pat • Kishan</div>
+      <div class="news-summary-value">Immediate noise</div>
+    </div>
+  </div>
+
+  <p class="news-summary-copy">
+    Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.
+  </p>
+</article>
 </div>
     </section>
 
