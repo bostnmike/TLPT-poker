@@ -743,22 +743,67 @@
       line-height:1.5 !important;
     }
 
-    body .news-inline-callout{
-      display:grid !important;
-      grid-template-columns:repeat(5, minmax(0,1fr)) !important;
-      gap:10px !important;
-      margin:18px 0 !important;
-    }
+   body .news-receipt-panel{
+  display:grid !important;
+  grid-template-columns:220px minmax(0,1fr) !important;
+  gap:12px !important;
+  margin:18px 0 !important;
+  padding:14px !important;
+  border-radius:16px !important;
+  border:1px solid rgba(255,184,28,.20) !important;
+  background:
+    radial-gradient(circle at top left, rgba(255,184,28,.14), transparent 30%),
+    linear-gradient(135deg, rgba(52,40,14,.94), rgba(20,22,28,.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.18) !important;
+}
 
-    body .news-inline-callout > div{
-      padding:10px 12px !important;
-      border-radius:12px !important;
-      border:1px solid rgba(255,184,28,.16) !important;
-      background:linear-gradient(135deg, rgba(255,184,28,.10), rgba(255,255,255,.02)) !important;
-      color:#e8eef7 !important;
-      font-weight:700 !important;
-      text-align:center !important;
-    }
+body .news-receipt-lead{
+  padding:12px 14px !important;
+  border-radius:14px !important;
+  border:1px solid rgba(255,184,28,.16) !important;
+  background:
+    linear-gradient(135deg, rgba(255,184,28,.14), rgba(255,255,255,.02)) !important;
+}
+
+body .news-receipt-kicker{
+  margin:0 0 4px !important;
+  color:#ffe09a !important;
+  font-size:.72rem !important;
+  font-weight:900 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.08em !important;
+}
+
+body .news-receipt-name{
+  color:#fff7e2 !important;
+  font-size:1.1rem !important;
+  font-weight:900 !important;
+  line-height:1.15 !important;
+}
+
+body .news-receipt-pills{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+body .news-receipt-pill{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:10px 12px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(255,184,28,.18) !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) !important;
+  color:#e9f0f7 !important;
+  font-size:.88rem !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+}
 
     body .news-movers-grid{
       display:grid !important;
@@ -871,6 +916,22 @@
       body .news-records-strip{
         grid-template-columns:1fr !important;
       }
+        body .news-receipt-panel{
+    grid-template-columns:1fr !important;
+  }
+
+  body .news-receipt-lead{
+    padding:10px 12px !important;
+  }
+
+  body .news-receipt-pills{
+    gap:8px !important;
+  }
+
+  body .news-receipt-pill{
+    font-size:.84rem !important;
+    padding:9px 11px !important;
+  }
     }
   </style>
 </head>
@@ -1145,13 +1206,19 @@
     It was the kind of performance that doesn’t need chest-thumping because the spreadsheet already did the talking.
   </p>
 
-  <div class="news-inline-callout">
-    <div><strong>NASA Al</strong></div>
-    <div>Profit up</div>
-    <div>Hits up</div>
-    <div>Cashes up</div>
-    <div>Luck rank up</div>
+  <div class="news-receipt-panel">
+  <div class="news-receipt-lead">
+    <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
+    <div class="news-receipt-name">NASA Al</div>
   </div>
+
+  <div class="news-receipt-pills">
+    <span class="news-receipt-pill">Profit ↑</span>
+    <span class="news-receipt-pill">Hits ↑</span>
+    <span class="news-receipt-pill">Cashes ↑</span>
+    <span class="news-receipt-pill">Luck Rank ↑</span>
+  </div>
+</div>
 
   <p>
     Meanwhile, Mike-G showed up like he thought the room had been saving him a seat.
