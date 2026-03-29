@@ -306,6 +306,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   pointer-events:none;
 }
 
+/* NEWS PAGE — stop the global section overlay from muting the redesign */
+.section.news-header-shell::after,
+.section.news-summary-shell::after,
+.section.news-module-main::after,
+.section.news-module-side::after{
+  content:none;
+}
+
 .section > *{
   position:relative;
   z-index:1;
