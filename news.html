@@ -64,6 +64,18 @@ body .news-page-kicker{
     0 0 20px rgba(255,184,28,.08) !important;
 }
 
+body .news-title-emoji{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:46px !important;
+  height:46px !important;
+  font-size:2rem !important;
+  line-height:1 !important;
+  flex:0 0 46px !important;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.22)) !important;
+}
+    
 body .news-author-strip{
   display:grid !important;
   grid-template-columns:68px minmax(0, 1fr) !important;
@@ -391,7 +403,13 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
   body .news-receipt-lead{padding:10px 12px !important;}
   body .news-receipt-pills{gap:8px !important;}
   body .news-receipt-pill{font-size:.84rem !important;padding:9px 11px !important;}
-}
+  }
+      body .news-title-emoji{
+    width:42px !important;
+    height:42px !important;
+    font-size:1.8rem !important;
+    flex:0 0 42px !important;
+  }
 </style>
 </head>
 <body>
@@ -425,7 +443,7 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
   <main class="wrap">
     <section class="section news-header-shell">
       <div class="section-head page-title-row compact-page-title-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-500.png" alt="T-500 chip" onerror="this.style.display='none';" />
+        <span class="news-title-emoji" aria-hidden="true">🧑🏻‍💻</span>
         <h2 class="page-title-purple">The Week That Was</h2>
       </div>
 
