@@ -10558,8 +10558,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 
   .news-author-avatar,
   .news-author-avatar-fallback{
-    width:58px;
-    height:58px;
+    width:58px !important;
+    height:58px !important;
   }
 
   .news-author-strip{
@@ -10570,7 +10570,9 @@ body:has(#dashboard-grid) .page-title-row::after{
   .news-author-avatar-wrap{
     justify-content:center;
   }
-  /* =========================================
+}
+
+/* =========================================
    NEWS AUTHOR AVATAR OVERRIDE
    ========================================= */
 
