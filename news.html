@@ -53,6 +53,18 @@
         0 0 20px rgba(255,184,28,.08) !important;
     }
 
+body .news-title-emoji{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:46px !important;
+  height:46px !important;
+  font-size:2rem !important;
+  line-height:1 !important;
+  flex:0 0 46px !important;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.22)) !important;
+}
+    
     body .news-author-strip{
       display:grid !important;
       grid-template-columns:68px minmax(0, 1fr) !important;
@@ -743,6 +755,28 @@
       line-height:1.5 !important;
     }
 
+body .news-pull-quote-row{
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:12px !important;
+}
+
+body .news-pull-quote-row .player-avatar.table,
+body .news-pull-quote-row .player-avatar-fallback.table{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  min-height:44px !important;
+  border-width:2px !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.06),
+    0 8px 14px rgba(0,0,0,.24) !important;
+}
+
+body .news-pull-quote-row p{
+  flex:1 1 auto !important;
+}
+    
 body .news-pull-quote-self-roast{
   border-left-color:#93c5fd !important;
   background:
@@ -777,6 +811,31 @@ body .news-receipt-lead{
     linear-gradient(135deg, rgba(255,184,28,.14), rgba(255,255,255,.02)) !important;
 }
 
+body .news-receipt-top{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+body .news-receipt-top .player-avatar.table,
+body .news-receipt-top .player-avatar-fallback.table{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  border-width:2px !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.06),
+    0 8px 14px rgba(0,0,0,.24) !important;
+}
+
+body .news-receipt-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
+    
 body .news-receipt-kicker{
   margin:0 0 4px !important;
   color:#ffe09a !important;
@@ -942,6 +1001,26 @@ body .news-receipt-pill{
     font-size:.84rem !important;
     padding:9px 11px !important;
   }
+  body .news-title-emoji{
+    width:42px !important;
+    height:42px !important;
+    font-size:1.8rem !important;
+    flex:0 0 42px !important;
+  }
+
+  body .news-receipt-top .player-avatar.table,
+  body .news-receipt-top .player-avatar-fallback.table,
+  body .news-pull-quote-row .player-avatar.table,
+  body .news-pull-quote-row .player-avatar-fallback.table{
+    width:38px !important;
+    height:38px !important;
+    min-width:38px !important;
+    min-height:38px !important;
+  }
+
+  body .news-pull-quote-row{
+    align-items:flex-start !important;
+  }   
     }
   </style>
 </head>
@@ -976,7 +1055,7 @@ body .news-receipt-pill{
   <main class="wrap">
     <section class="section news-header-shell">
       <div class="section-head page-title-row compact-page-title-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-500.png" alt="T-500 chip" onerror="this.style.display='none';" />
+        <span class="news-title-emoji" aria-hidden="true">🧑🏻‍💻</span>
         <h2 class="page-title-purple">The Week That Was</h2>
       </div>
 
@@ -1216,10 +1295,26 @@ body .news-receipt-pill{
     It was the kind of performance that doesn’t need chest-thumping because the spreadsheet already did the talking.
   </p>
 
-  <div class="news-receipt-panel">
+<div class="news-receipt-panel">
   <div class="news-receipt-lead">
-    <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
-    <div class="news-receipt-name">NASA Al</div>
+    <div class="news-receipt-top">
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/nasa-al.jpg"
+          alt="NASA Al"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">NA</span>
+      </span>
+
+      <div class="news-receipt-copy">
+        <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
+        <div class="news-receipt-name">NASA Al</div>
+      </div>
+    </div>
   </div>
 
   <div class="news-receipt-pills">
@@ -1310,11 +1405,25 @@ body .news-receipt-pill{
 </div>
 
 <div class="news-pull-quote news-pull-quote-self-roast">
-  <p>
-    BostnMike had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy.
-    He now owns Most Hits (28) and Most Cashes (12), but his weekly line still came with a $25 profit drop and a slide in ROI and Power.
-    The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”
-  </p>
+  <div class="news-pull-quote-row">
+    <span class="player-avatar-wrap">
+      <img
+        class="player-avatar table"
+        src="images/players/bostnmike.jpg"
+        alt="BostnMike"
+        loading="lazy"
+        decoding="async"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+      <span class="player-avatar-fallback table" style="display:none;">BM</span>
+    </span>
+
+    <p>
+      BostnMike had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy.
+      He now owns Most Hits (28) and Most Cashes (12), but his weekly line still came with a $25 profit drop and a slide in ROI and Power.
+      The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”
+    </p>
+  </div>
 </div>
 
 <h4>🔢 Numbers That Matter</h4>
