@@ -118,10 +118,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   gap:6px;
   flex-wrap:nowrap;
   min-width:0;
-  overflow-x:auto;
-  overflow-y:visible;
+  overflow:visible;
   padding:0 0 2px;
-  scrollbar-width:none;
 }
 
 .nav::-webkit-scrollbar{
@@ -181,6 +179,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:inline-flex;
   align-items:center;
   flex:0 0 auto;
+}
+
+.nav-dropdown{
+  z-index:10030;
 }
 
 .nav-dropdown-parent{
