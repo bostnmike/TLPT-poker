@@ -34,11 +34,11 @@ body .news-title-emoji{
   display:inline-flex !important;
   align-items:center !important;
   justify-content:center !important;
-  width:46px !important;
-  height:46px !important;
-  font-size:2rem !important;
+  width:56px !important;
+  height:56px !important;
+  font-size:2.5rem !important;
   line-height:1 !important;
-  flex:0 0 46px !important;
+  flex:0 0 56px !important;
   filter:drop-shadow(0 6px 10px rgba(0,0,0,.22)) !important;
 }
 
@@ -346,10 +346,44 @@ body .news-pull-quote{margin:18px 0 !important;padding:16px 18px !important;bord
 body .news-pull-quote p{margin:0 !important;color:#fff3d1 !important;font-size:1.05rem !important;font-style:italic !important;line-height:1.5 !important;}
 body .news-pull-quote-self-roast{border-left-color:#93c5fd !important;background:linear-gradient(135deg, rgba(59,130,246,.12), rgba(255,255,255,.03)) !important;}
 body .news-pull-quote-self-roast p{color:#e8f1ff !important;}
+body .news-pull-quote-row{
+  display:flex !important;
+  align-items:flex-start !important;
+  gap:12px !important;
+}
+body .news-pull-quote-row .player-avatar.table,
+body .news-pull-quote-row .player-avatar-fallback.table{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  min-height:44px !important;
+  border-width:2px !important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 8px 14px rgba(0,0,0,.24) !important;
+}
 body .news-pull-quote-row p{flex:1 1 auto !important;}
 
 body .news-receipt-panel{display:grid !important;grid-template-columns:220px minmax(0,1fr) !important;gap:12px !important;margin:18px 0 !important;padding:14px !important;border:1px solid rgba(255,184,28,.20) !important;background:radial-gradient(circle at top left, rgba(255,184,28,.14), transparent 30%), linear-gradient(135deg, rgba(52,40,14,.94), rgba(20,22,28,.98)) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 10px 20px rgba(0,0,0,.18) !important;}
 body .news-receipt-lead{padding:12px 14px !important;border-radius:14px !important;border:1px solid rgba(255,184,28,.16) !important;background:linear-gradient(135deg, rgba(255,184,28,.14), rgba(255,255,255,.02)) !important;}
+body .news-receipt-top{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+body .news-receipt-top .player-avatar.table,
+body .news-receipt-top .player-avatar-fallback.table{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  min-height:42px !important;
+  border-width:2px !important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 8px 14px rgba(0,0,0,.24) !important;
+}
+body .news-receipt-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
 body .news-receipt-kicker{margin:0 0 4px !important;color:#ffe09a !important;font-size:.72rem !important;font-weight:900 !important;text-transform:uppercase !important;letter-spacing:.08em !important;}
 body .news-receipt-name{font-size:1.1rem !important;line-height:1.15 !important;}
 body .news-receipt-pills{display:flex !important;flex-wrap:wrap !important;align-items:center !important;gap:10px !important;}
@@ -371,7 +405,7 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
 }
 
 @media (max-width:720px){
-  body .news-title-emoji{width:42px !important;height:42px !important;font-size:1.8rem !important;flex:0 0 42px !important;}
+  body .news-title-emoji{width:50px !important;height:50px !important;font-size:2.2rem !important;flex:0 0 50px !important;}
   body .news-author-strip{grid-template-columns:1fr !important;}
   body .news-author-strip .player-avatar.table,
   body .news-author-strip .player-avatar-fallback.table{width:56px !important;height:56px !important;min-width:56px !important;min-height:56px !important;}
@@ -840,12 +874,27 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
     It was the kind of performance that doesn’t need chest-thumping because the spreadsheet already did the talking.
   </p>
 
-  <div class="news-inline-callout">
-    <div><strong>NASA Al</strong></div>
-    <div>Profit up</div>
-    <div>Hits up</div>
-    <div>Cashes up</div>
-    <div>Luck rank up</div>
+  <div class="news-receipt-panel">
+    <div class="news-receipt-lead">
+      <div class="news-receipt-top">
+        <span class="player-avatar-wrap">
+          <img class="player-avatar table" src="images/players/nasa-al.jpg" alt="NASA Al" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span class="player-avatar-fallback table" style="display:none;">NA</span>
+        </span>
+
+        <div class="news-receipt-copy">
+          <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
+          <div class="news-receipt-name">NASA Al</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-receipt-pills">
+      <span class="news-receipt-pill">Profit ↑</span>
+      <span class="news-receipt-pill">Hits ↑</span>
+      <span class="news-receipt-pill">Cashes ↑</span>
+      <span class="news-receipt-pill">Luck Rank ↑</span>
+    </div>
   </div>
 
   <p>
@@ -923,6 +972,21 @@ body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;b
       <p>
         Added a bubble and lost ground. A very specific kind of week:
         active enough to care, punished enough to regret it.
+      </p>
+    </div>
+  </div>
+
+  <div class="news-pull-quote news-pull-quote-self-roast">
+    <div class="news-pull-quote-row">
+      <span class="player-avatar-wrap">
+        <img class="player-avatar table" src="images/players/bostnmike.jpg" alt="BostnMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <span class="player-avatar-fallback table" style="display:none;">BM</span>
+      </span>
+
+      <p>
+        BostnMike had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy.
+        He now owns Most Hits (28) and Most Cashes (12), but his weekly line still came with a $25 profit drop and a slide in ROI and Power.
+        The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”
       </p>
     </div>
   </div>
