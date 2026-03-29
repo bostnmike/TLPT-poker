@@ -9920,6 +9920,7 @@ body:has(#dashboard-grid) .page-title-row::after{
     content:none !important;
     display:none !important;
   }
+
 /* =========================================
    NEWS PAGE — THE WEEK THAT WAS
    ========================================= */
@@ -10136,12 +10137,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   align-items:start;
 }
 
-.news-sidebar{
-  display:flex;
-  flex-direction:column;
-  gap:22px;
-}
-
 .section.news-module-main{
   border-color:rgba(168,85,247,.28);
   background:
@@ -10225,10 +10220,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:linear-gradient(180deg, #ffb81c, #d8b4fe);
 }
 
-#news-blog-feed .news-post-card:nth-of-type(4n+2)::before{ background:#86efac; }
-#news-blog-feed .news-post-card:nth-of-type(4n+3)::before{ background:#93c5fd; }
-#news-blog-feed .news-post-card:nth-of-type(4n+4)::before{ background:#fca5a5; }
-
 .news-post-meta{
   display:flex;
   align-items:center;
@@ -10266,7 +10257,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   color:#fff7e2;
   font-size:1.65rem;
   line-height:1.12;
-  text-shadow:0 0 10px rgba(255,184,28,.06);
 }
 
 .news-post-dek{
@@ -10280,19 +10270,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:20px 0 10px;
   color:#ffe08a;
   font-size:1rem;
-  text-transform:none;
-  letter-spacing:0;
 }
 
 .news-post-body p,
 .news-post-body li{
   color:#e4ebf3;
   line-height:1.6;
-}
-
-.news-post-body ul{
-  margin:8px 0 0 18px;
-  padding:0;
 }
 
 .news-post-body ul li::marker{
@@ -10314,15 +10297,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
   color:#eaf3ff;
   font-weight:800;
-}
-
-.news-archive-link:hover{
-  border-color:rgba(255,184,28,.30);
-  background:
-    linear-gradient(135deg, rgba(255,184,28,.14), rgba(255,255,255,.03));
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.10) inset,
-    0 0 14px rgba(255,184,28,.08);
 }
 
 .news-archive-link.is-active{
