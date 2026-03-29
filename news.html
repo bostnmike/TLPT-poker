@@ -234,6 +234,50 @@
     font-size:.92rem !important;
   }
 
+body .news-summary-head{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  margin-bottom:10px !important;
+}
+
+body .news-summary-head .player-avatar.table,
+body .news-summary-head .player-avatar-fallback.table{
+  width:46px !important;
+  height:46px !important;
+  min-width:46px !important;
+  min-height:46px !important;
+  border-width:2px !important;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.06),
+    0 8px 14px rgba(0,0,0,.24) !important;
+}
+
+body .news-summary-head-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
+
+body .news-summary-head-copy .news-summary-player{
+  margin:0 !important;
+}
+
+body .news-summary-head-copy .news-summary-value{
+  margin:0 !important;
+}
+
+@media (max-width:720px){
+  body .news-summary-head .player-avatar.table,
+  body .news-summary-head .player-avatar-fallback.table{
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    min-height:42px !important;
+  }
+}
+    
   body .news-layout{
     display:grid !important;
     grid-template-columns:minmax(0, 2.15fr) 320px !important;
@@ -473,42 +517,114 @@
       -->
 
       <div class="news-summary-grid">
-        <article class="news-summary-card news-summary-card-green">
-          <div class="news-summary-label">🔥 Heater of the Week</div>
-          <div class="news-summary-player">NASA Al</div>
-          <div class="news-summary-value">Quietly launching</div>
-          <p class="news-summary-copy">
-            The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama.
-          </p>
-        </article>
+  <article class="news-summary-card news-summary-card-green">
+    <div class="news-summary-label">🔥 Heater of the Week</div>
 
-        <article class="news-summary-card news-summary-card-blue">
-          <div class="news-summary-label">🚀 Biggest Riser</div>
-          <div class="news-summary-player">Mike-G</div>
-          <div class="news-summary-value">Door-kick debut</div>
-          <p class="news-summary-copy">
-            Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans.
-          </p>
-        </article>
+    <div class="news-summary-head">
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/nasa-al.jpg"
+          alt="NASA Al"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">NA</span>
+      </span>
 
-        <article class="news-summary-card news-summary-card-red">
-          <div class="news-summary-label">📉 Worst Slide</div>
-          <div class="news-summary-player">ProvidenceMike</div>
-          <div class="news-summary-value">Subscription pain</div>
-          <p class="news-summary-copy">
-            More entries, less joy, and the kind of week that reads less like variance and more like an invoice.
-          </p>
-        </article>
-
-        <article class="news-summary-card news-summary-card-purple">
-          <div class="news-summary-label">🎉 New Blood</div>
-          <div class="news-summary-player">Mike-G • Pat • Kishan</div>
-          <div class="news-summary-value">Immediate noise</div>
-          <p class="news-summary-copy">
-            Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.
-          </p>
-        </article>
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">NASA Al</div>
+        <div class="news-summary-value">Quietly launching</div>
       </div>
+    </div>
+
+    <p class="news-summary-copy">
+      The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama.
+    </p>
+  </article>
+
+  <article class="news-summary-card news-summary-card-blue">
+    <div class="news-summary-label">🚀 Biggest Riser</div>
+
+    <div class="news-summary-head">
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/mike-g.jpg"
+          alt="Mike-G"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">MG</span>
+      </span>
+
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">Mike-G</div>
+        <div class="news-summary-value">Door-kick debut</div>
+      </div>
+    </div>
+
+    <p class="news-summary-copy">
+      Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans.
+    </p>
+  </article>
+
+  <article class="news-summary-card news-summary-card-red">
+    <div class="news-summary-label">📉 Worst Slide</div>
+
+    <div class="news-summary-head">
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/providencemike.jpg"
+          alt="ProvidenceMike"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">PM</span>
+      </span>
+
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">ProvidenceMike</div>
+        <div class="news-summary-value">Subscription pain</div>
+      </div>
+    </div>
+
+    <p class="news-summary-copy">
+      More entries, less joy, and the kind of week that reads less like variance and more like an invoice.
+    </p>
+  </article>
+
+  <article class="news-summary-card news-summary-card-purple">
+    <div class="news-summary-label">🎉 New Blood</div>
+
+    <div class="news-summary-head">
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="images/players/mike-g.jpg"
+          alt="Mike-G"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">MG</span>
+      </span>
+
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">Mike-G • Pat • Kishan</div>
+        <div class="news-summary-value">Immediate noise</div>
+      </div>
+    </div>
+
+    <p class="news-summary-copy">
+      Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.
+    </p>
+  </article>
+</div>
     </section>
 
     <section class="news-layout">
