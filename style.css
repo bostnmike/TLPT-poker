@@ -10172,6 +10172,24 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 14px rgba(59,130,246,.08);
 }
 
+.news-intro-note{
+  margin:0 0 18px;
+  padding:14px 16px;
+  border-left:4px solid #ffb81c;
+  border-radius:12px;
+  background:
+    linear-gradient(90deg, rgba(255,184,28,.10), rgba(255,255,255,.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 6px 16px rgba(0,0,0,.14);
+}
+
+.news-intro-note p{
+  margin:0;
+  color:#d8e2ee;
+  line-height:1.6;
+}
+
 .news-blog-feed{
   display:flex;
   flex-direction:column;
@@ -10273,19 +10291,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .news-post-body ul li::marker{
   color:#ffb81c;
-}
-
-.news-note-card{
-  border-color:rgba(255,255,255,.10);
-  background:
-    linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 8px 16px rgba(0,0,0,.14);
-}
-
-.news-note-label{
-  color:#fff0bf;
 }
 
 .news-archive-list{
