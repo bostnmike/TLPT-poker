@@ -10206,4 +10206,106 @@ body:has(#dashboard-grid) .page-title-row::after{
     padding:18px 18px 16px;
   }
 }
+  /* =========================================
+   TOP NAV DROPDOWN — DISHONORS / NEWS
+   ========================================= */
+
+.nav-dropdown{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.nav-dropdown-parent{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.nav-dropdown-parent::after{
+  content:"▾";
+  font-size:.72rem;
+  opacity:.8;
+  transform:translateY(1px);
+}
+
+.nav-dropdown-menu{
+  position:absolute;
+  top:calc(100% + 10px);
+  left:0;
+  min-width:220px;
+  padding:8px;
+  border-radius:14px;
+  border:1px solid rgba(255,184,28,.18);
+  background:
+    linear-gradient(180deg, rgba(17,22,30,.98), rgba(12,17,24,.98));
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(6px);
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
+  z-index:10020;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.nav-dropdown-menu a{
+  display:block;
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.nav-dropdown-menu a:hover{
+  background:rgba(255,184,28,.08);
+  color:var(--gold);
+}
+
+.nav-dropdown-menu a.is-active{
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.14), rgba(255,184,28,.04)),
+    rgba(255,255,255,.02);
+  color:#fff2c8;
+  border:1px solid rgba(255,184,28,.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 4px 12px rgba(0,0,0,.16);
+}
+
+@media (max-width: 900px){
+  .nav-dropdown{
+    width:100%;
+    display:block;
+  }
+
+  .nav-dropdown-menu{
+    position:static;
+    min-width:0;
+    margin-top:6px;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    display:block;
+    padding:6px 0 0 12px;
+    border:none;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  .nav-dropdown-parent::after{
+    content:"";
+  }
+}
 }
