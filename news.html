@@ -559,6 +559,171 @@
         0 0 16px rgba(255,184,28,.10) !important;
     }
 
+  body .news-storyboard{
+    display:grid !important;
+    grid-template-columns:repeat(3, minmax(0,1fr)) !important;
+    gap:14px !important;
+    margin:18px 0 8px !important;
+  }
+
+  body .news-storyboard-card{
+    position:relative !important;
+    overflow:hidden !important;
+    padding:14px !important;
+    border-radius:16px !important;
+    border:1px solid rgba(255,255,255,.10) !important;
+    background:linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02)) !important;
+    box-shadow:0 10px 20px rgba(0,0,0,.18) !important;
+  }
+
+  body .news-storyboard-card::before{
+    content:"" !important;
+    position:absolute !important;
+    inset:0 auto 0 0 !important;
+    width:6px !important;
+  }
+
+  body .news-storyboard-card-gold{
+    border-color:rgba(255,184,28,.28) !important;
+    background:radial-gradient(circle at top right, rgba(255,184,28,.16), transparent 28%), linear-gradient(135deg, rgba(62,46,14,.92), rgba(20,22,28,.98)) !important;
+  }
+  body .news-storyboard-card-gold::before{background:#ffb81c !important;}
+
+  body .news-storyboard-card-blue{
+    border-color:rgba(59,130,246,.28) !important;
+    background:radial-gradient(circle at top right, rgba(59,130,246,.16), transparent 28%), linear-gradient(135deg, rgba(18,40,74,.92), rgba(20,22,28,.98)) !important;
+  }
+  body .news-storyboard-card-blue::before{background:#93c5fd !important;}
+
+  body .news-storyboard-card-red{
+    border-color:rgba(239,68,68,.28) !important;
+    background:radial-gradient(circle at top right, rgba(239,68,68,.16), transparent 28%), linear-gradient(135deg, rgba(70,22,26,.92), rgba(20,22,28,.98)) !important;
+  }
+  body .news-storyboard-card-red::before{background:#fca5a5 !important;}
+
+  body .news-storyboard-top{
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin-bottom:10px !important;
+  }
+
+  body .news-storyboard-top .player-avatar.table,
+  body .news-storyboard-top .player-avatar-fallback.table{
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    min-height:42px !important;
+  }
+
+  body .news-storyboard-label{
+    margin:0 0 4px !important;
+    color:#fff0bf !important;
+    font-size:.72rem !important;
+    font-weight:900 !important;
+    letter-spacing:.08em !important;
+    text-transform:uppercase !important;
+  }
+
+  body .news-storyboard-title{
+    margin:0 !important;
+    color:#fff !important;
+    font-size:1rem !important;
+    font-weight:900 !important;
+    line-height:1.15 !important;
+  }
+
+  body .news-storyboard-copy{
+    margin:0 !important;
+    color:#dfe8f2 !important;
+    line-height:1.45 !important;
+    font-size:.9rem !important;
+  }
+
+  body .news-movers-grid{
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    gap:16px !important;
+    margin-top:12px !important;
+  }
+
+  body .news-movers-card{
+    border:1px solid rgba(255,255,255,.10) !important;
+    border-radius:16px !important;
+    padding:16px !important;
+    box-shadow:0 10px 20px rgba(0,0,0,.18) !important;
+  }
+
+  body .news-movers-card-up{
+    background:radial-gradient(circle at top right, rgba(34,197,94,.16), transparent 28%), linear-gradient(135deg, rgba(16,54,32,.94), rgba(18,22,28,.98)) !important;
+    border-color:rgba(34,197,94,.28) !important;
+  }
+
+  body .news-movers-card-down{
+    background:radial-gradient(circle at top right, rgba(239,68,68,.16), transparent 28%), linear-gradient(135deg, rgba(62,20,24,.94), rgba(18,22,28,.98)) !important;
+    border-color:rgba(239,68,68,.28) !important;
+  }
+
+  body .news-movers-title{
+    margin:0 0 10px !important;
+    color:#fff7d1 !important;
+    font-size:.95rem !important;
+    font-weight:900 !important;
+    text-transform:uppercase !important;
+    letter-spacing:.06em !important;
+  }
+
+  body .news-records-strip{
+    display:grid !important;
+    grid-template-columns:repeat(2, minmax(0,1fr)) !important;
+    gap:14px !important;
+    margin:18px 0 6px !important;
+  }
+
+  body .news-record-card{
+    display:flex !important;
+    align-items:center !important;
+    gap:12px !important;
+    padding:14px !important;
+    border-radius:16px !important;
+    border:1px solid rgba(255,184,28,.20) !important;
+    background:radial-gradient(circle at top right, rgba(255,184,28,.14), transparent 28%), linear-gradient(135deg, rgba(49,38,14,.94), rgba(20,22,28,.98)) !important;
+    box-shadow:0 10px 20px rgba(0,0,0,.18) !important;
+  }
+
+  body .news-record-card .player-avatar.table,
+  body .news-record-card .player-avatar-fallback.table{
+    width:40px !important;
+    height:40px !important;
+    min-width:40px !important;
+    min-height:40px !important;
+  }
+
+  body .news-record-kicker{
+    margin:0 0 2px !important;
+    color:#ffe08a !important;
+    font-size:.72rem !important;
+    font-weight:900 !important;
+    text-transform:uppercase !important;
+    letter-spacing:.07em !important;
+  }
+
+  body .news-record-title{
+    margin:0 !important;
+    color:#fff !important;
+    font-size:.98rem !important;
+    font-weight:900 !important;
+    line-height:1.2 !important;
+  }
+
+  body .news-record-note{
+    margin:2px 0 0 !important;
+    color:#dce5ef !important;
+    font-size:.88rem !important;
+    line-height:1.4 !important;
+  }
+
+
     @media (max-width:1100px){
       body .news-summary-grid,
       body .news-statbar-grid{
@@ -856,6 +1021,50 @@
                 In other words, this league did not merely have a week. It left evidence.
               </p>
 
+              <div class="news-storyboard">
+                <div class="news-storyboard-card news-storyboard-card-gold">
+                  <div class="news-storyboard-top">
+                    <span class="player-avatar-wrap">
+                      <img class="player-avatar table" src="images/players/nasa-al.jpg" alt="NASA Al" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                      <span class="player-avatar-fallback table" style="display:none;">NA</span>
+                    </span>
+                    <div>
+                      <div class="news-storyboard-label">Mission Control</div>
+                      <div class="news-storyboard-title">NASA Al ran the cleanest heater</div>
+                    </div>
+                  </div>
+                  <p class="news-storyboard-copy">Profit up, hits up, cashes up, and almost no statistical debris left behind.</p>
+                </div>
+
+                <div class="news-storyboard-card news-storyboard-card-blue">
+                  <div class="news-storyboard-top">
+                    <span class="player-avatar-wrap">
+                      <img class="player-avatar table" src="images/players/mike-g.jpg" alt="Mike-G" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                      <span class="player-avatar-fallback table" style="display:none;">MG</span>
+                    </span>
+                    <div>
+                      <div class="news-storyboard-label">Door-Kick Debut</div>
+                      <div class="news-storyboard-title">Mike-G skipped orientation</div>
+                    </div>
+                  </div>
+                  <p class="news-storyboard-copy">Two entries, five hits, a cash, and an instant seat at the grown-ups’ table.</p>
+                </div>
+
+                <div class="news-storyboard-card news-storyboard-card-red">
+                  <div class="news-storyboard-top">
+                    <span class="player-avatar-wrap">
+                      <img class="player-avatar table" src="images/players/providencemike.jpg" alt="ProvidenceMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                      <span class="player-avatar-fallback table" style="display:none;">PM</span>
+                    </span>
+                    <div>
+                      <div class="news-storyboard-label">Receipts Department</div>
+                      <div class="news-storyboard-title">ProvidenceMike got itemized</div>
+                    </div>
+                  </div>
+                  <p class="news-storyboard-copy">Four more entries, no new cashes, and the balance sheet started writing in red ink.</p>
+                </div>
+              </div>
+
               <h4>🎯 The Big Story</h4>
               <p>
                 The biggest story was not at the top of the profit board, where Li-Fo still sits. It was one rung below,
@@ -878,23 +1087,29 @@
               </p>
 
               <h4>📈 Movers</h4>
-              <p><strong>Risers —</strong></p>
-              <ul>
-                <li><strong>NASA Al:</strong> the cleanest established riser on the board. More profit, more hits, more cashes, better ROI, less tilt. He didn’t just have a good week; he had the sort of week that makes other people mutter about seat draws and deck temperature.</li>
-                <li><strong>Mike-G:</strong> shot from brand-new face to instant factor. He debuted with real juice: profit, hits, a cash, and the kind of rate stats that make veterans immediately start explaining sample size. That is a debut and a threat letter in the same envelope.</li>
-                <li><strong>Pat:</strong> didn’t play much, but he made it count. One entry, one cash, $70 profit, and a league-best 233.3% ROI, which now owns the record previously held by Big Tim. Small sample? Of course. Still counts? Also of course.</li>
-                <li><strong>Kishan:</strong> also arrived with intent: one entry, one cash, two hits, $35 profit, and a very efficient first week. It’s hard to ask for a more effective hello.</li>
-                <li><strong>Red:</strong> somehow managed a weirdly TLPT week: profit got a little worse, but the mayhem improved. He added five hits, one cash, and climbed the hits board. A man can lose money and still leave fingerprints all over the furniture.</li>
-              </ul>
+              <div class="news-movers-grid">
+                <div class="news-movers-card news-movers-card-up">
+                  <h5 class="news-movers-title">📈 Risers</h5>
+                  <ul>
+                    <li><strong>NASA Al:</strong> the cleanest established riser on the board. More profit, more hits, more cashes, better ROI, less tilt. He didn’t just have a good week; he had the sort of week that makes other people mutter about seat draws and deck temperature.</li>
+                    <li><strong>Mike-G:</strong> shot from brand-new face to instant factor. He debuted with real juice: profit, hits, a cash, and the kind of rate stats that make veterans immediately start explaining sample size. That is a debut and a threat letter in the same envelope.</li>
+                    <li><strong>Pat:</strong> didn’t play much, but he made it count. One entry, one cash, $70 profit, and a league-best 233.3% ROI, which now owns the record previously held by Big Tim. Small sample? Of course. Still counts? Also of course.</li>
+                    <li><strong>Kishan:</strong> also arrived with intent: one entry, one cash, two hits, $35 profit, and a very efficient first week. It’s hard to ask for a more effective hello.</li>
+                    <li><strong>Red:</strong> somehow managed a weirdly TLPT week: profit got a little worse, but the mayhem improved. He added five hits, one cash, and climbed the hits board. A man can lose money and still leave fingerprints all over the furniture.</li>
+                  </ul>
+                </div>
 
-              <p><strong>Fallers —</strong></p>
-              <ul>
-                <li><strong>ProvidenceMike:</strong> took the hardest punch. Four more entries and a $120 loss swing is the kind of thing that makes the spreadsheet look like it wants to call a wellness check.</li>
-                <li><strong>Li-Fo:</strong> remained the profit leader, but the week still nicked the shine. Profit fell from $555 to $495, ROI sagged from 68.5% to 56.9%, and the records board no longer shows his name next to most cashes. Still rich, just slightly less smug.</li>
-                <li><strong>Hiro:</strong> had one of those weeks where the prime-number outs apparently remained theoretical. Two more entries, no new hits, no new cashes, and profit dropping from -$105 to -$165. The math may still be beautiful. The results were not.</li>
-                <li><strong>Ahmed:</strong> added a bubble and lost $30 in profit. That is a very particular brand of annoyance — active enough to feel involved, punished enough to regret it.</li>
-                <li><strong>BostnMike:</strong> had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy. He now owns Most Hits and Most Cashes, but the weekly line still came with a profit drop and a slide in ROI and Power. The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”</li>
-              </ul>
+                <div class="news-movers-card news-movers-card-down">
+                  <h5 class="news-movers-title">📉 Fallers</h5>
+                  <ul>
+                    <li><strong>ProvidenceMike:</strong> took the hardest punch. Four more entries and a $120 loss swing is the kind of thing that makes the spreadsheet look like it wants to call a wellness check.</li>
+                    <li><strong>Li-Fo:</strong> remained the profit leader, but the week still nicked the shine. Profit fell from $555 to $495, ROI sagged from 68.5% to 56.9%, and the records board no longer shows his name next to most cashes. Still rich, just slightly less smug.</li>
+                    <li><strong>Hiro:</strong> had one of those weeks where the prime-number outs apparently remained theoretical. Two more entries, no new hits, no new cashes, and profit dropping from -$105 to -$165. The math may still be beautiful. The results were not.</li>
+                    <li><strong>Ahmed:</strong> added a bubble and lost $30 in profit. That is a very particular brand of annoyance — active enough to feel involved, punished enough to regret it.</li>
+                    <li><strong>BostnMike:</strong> had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy. He now owns Most Hits and Most Cashes, but the weekly line still came with a profit drop and a slide in ROI and Power. The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”</li>
+                  </ul>
+                </div>
+              </div>
 
               <h4>🔢 Numbers That Matter</h4>
               <ul>
@@ -905,6 +1120,32 @@
                 <li><strong>ProvidenceMike:</strong> -$90 to -$210. Same five cashes, four extra entries, and all the romance of walking into a rake trap.</li>
                 <li><strong>Nitro:</strong> remains the basement tenant on the profit board, sliding from -$270 to -$300, and still living in worst-luck territory. At some point the variance speech starts sounding like performance art.</li>
               </ul>
+
+              <div class="news-records-strip">
+                <div class="news-record-card">
+                  <span class="player-avatar-wrap">
+                    <img class="player-avatar table" src="images/players/pat.jpg" alt="Pat" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span class="player-avatar-fallback table" style="display:none;">PA</span>
+                  </span>
+                  <div>
+                    <div class="news-record-kicker">🏆 Records Watch</div>
+                    <div class="news-record-title">Pat took the ROI crown</div>
+                    <p class="news-record-note">233.3% now clears Big Tim’s old 183.3% mark.</p>
+                  </div>
+                </div>
+
+                <div class="news-record-card">
+                  <span class="player-avatar-wrap">
+                    <img class="player-avatar table" src="images/players/bostnmike.jpg" alt="BostnMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                    <span class="player-avatar-fallback table" style="display:none;">BM</span>
+                  </span>
+                  <div>
+                    <div class="news-record-kicker">📚 Ledger Update</div>
+                    <div class="news-record-title">BostnMike padded the counting stats</div>
+                    <p class="news-record-note">More hits, more cashes, more bubbles — and somehow still less peace.</p>
+                  </div>
+                </div>
+              </div>
 
               <h4>🎉 Welcome to the League</h4>
               <p>
