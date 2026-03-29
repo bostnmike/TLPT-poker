@@ -198,7 +198,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .nav-dropdown-menu{
   position:absolute;
-  top:calc(100% + 8px);
+  top:calc(100% + 6px);
   left:0;
   min-width:220px;
   padding:8px;
@@ -217,7 +217,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     opacity .18s ease,
     transform .18s ease,
     visibility .18s ease;
-  z-index:10020;
+  z-index:10050;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
