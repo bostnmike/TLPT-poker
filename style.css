@@ -10244,37 +10244,30 @@ body:has(#dashboard-grid) .page-title-row::after{
   }
 
 @media (max-width: 720px){
-  body .news-author-strip{
-    grid-template-columns:1fr !important;
-    text-align:center !important;
+  .news-author-strip{
+    grid-template-columns:1fr;
+    text-align:left;
   }
 
-  body .news-author-strip .news-author-avatar-wrap{
-    justify-content:center !important;
+  .news-author-avatar-wrap{
+    justify-content:flex-start;
   }
 
-  body .news-author-strip .news-author-avatar-shell{
-    width:44px !important;
-    height:44px !important;
-    min-width:44px !important;
-    min-height:44px !important;
-    max-width:44px !important;
-    max-height:44px !important;
+  .news-author-strip .player-avatar.table,
+  .news-author-strip .player-avatar-fallback.table{
+    width:54px;
+    height:54px;
+    min-width:54px;
+    min-height:54px;
   }
 
-  body .news-author-strip .news-author-avatar,
-  body .news-author-strip .news-author-avatar-fallback{
-    width:44px !important;
-    height:44px !important;
-    min-width:44px !important;
-    min-height:44px !important;
-    max-width:44px !important;
-    max-height:44px !important;
-    flex:0 0 44px !important;
+  .news-summary-grid{
+    grid-template-columns:1fr;
   }
+}
 
 /* =========================================
-   NEWS PAGE LAUNCH POLISH
+   NEWS PAGE — VIBRANT LIVE POLISH
    ========================================= */
 
 .news-header-shell{
