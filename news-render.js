@@ -249,34 +249,6 @@ function renderTrendStrip(up, down, container) {
   `;
 }
 
-function renderTrendStrip(up, down, container) {
-  if (!container) return;
-
-  const upList = Array.isArray(up) ? up : [];
-  const downList = Array.isArray(down) ? down : [];
-
-  if (!upList.length && !downList.length) {
-    container.innerHTML = '';
-    return;
-  }
-
-  container.innerHTML = `
-    <section class="section news-trend-shell">
-      <div class="news-trend-grid">
-        <div class="news-trend-col up">
-          <h3>Trending Up</h3>
-          ${upList.map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
-        </div>
-
-        <div class="news-trend-col down">
-          <h3>Trending Down</h3>
-          ${downList.map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
-        </div>
-      </div>
-    </section>
-  `;
-}
-
 function renderWeeks(weeks, container) {
   container.innerHTML = weeks.map((week, index) => renderWeek(week, index)).join('');
 }
