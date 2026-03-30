@@ -1,5 +1,7 @@
 {
   "page": {
+    "title": "The Week That Was",
+    "emoji": "🧑🏻‍💻",
     "kicker": "📰 The official TLPT running column — weekly heaters, collapses, bad decisions, statistical slander, and whatever fresh nonsense the spreadsheet uncovered.",
     "introNote": "Weekly swings, fresh chaos, and the kind of statistical receipts that make the group chat go quiet for a few minutes."
   },
@@ -14,58 +16,58 @@
     {
       "id": "week-03-29-2026",
       "date": "03/29/2026",
-      "dek": "A week of fresh faces, fresh bruises, and one very productive trip to the cash cage by NASA Al.",
       "featured": true,
+      "dek": "A week of fresh faces, fresh bruises, and one very productive trip to the cash cage by NASA Al.",
       "summaryCards": [
         {
           "tone": "green",
           "label": "🔥 Heater of the Week",
           "player": "NASA Al",
           "value": "Quietly launching",
+          "copy": "The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama.",
           "avatar": "images/players/nasa-al.jpg",
-          "fallback": "NA",
-          "copy": "The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama."
+          "fallback": "NA"
         },
         {
           "tone": "blue",
           "label": "🚀 Biggest Riser",
           "player": "Mike-G",
           "value": "Door-kick debut",
+          "copy": "Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans.",
           "avatar": "images/players/mike-g.jpg",
-          "fallback": "MG",
-          "copy": "Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans."
+          "fallback": "MG"
         },
         {
           "tone": "red",
           "label": "📉 Worst Slide",
           "player": "ProvidenceMike",
           "value": "Subscription pain",
+          "copy": "More entries, less joy, and the kind of week that reads less like variance and more like an invoice.",
           "avatar": "images/players/providencemike.jpg",
-          "fallback": "PM",
-          "copy": "More entries, less joy, and the kind of week that reads less like variance and more like an invoice."
+          "fallback": "PM"
         },
         {
           "tone": "purple",
           "label": "🎉 New Blood",
           "player": "Mike-G • Pat • Kishan",
           "value": "Immediate noise",
+          "copy": "Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.",
           "avatars": [
-            {"src": "images/players/mike-g.jpg", "alt": "Mike-G", "fallback": "MG"},
-            {"src": "images/players/pat.jpg", "alt": "Pat", "fallback": "PA"},
-            {"src": "images/players/kishan.jpg", "alt": "Kishan", "fallback": "KI"}
-          ],
-          "copy": "Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday."
+            { "src": "images/players/mike-g.jpg", "alt": "Mike-G", "fallback": "MG" },
+            { "src": "images/players/pat.jpg", "alt": "Pat", "fallback": "PA" },
+            { "src": "images/players/kishan.jpg", "alt": "Kishan", "fallback": "KI" }
+          ]
         }
       ],
       "statPills": [
-        {"label": "Biggest Profit Jump", "value": "NASA Al"},
-        {"label": "Best ROI", "value": "Pat"},
-        {"label": "Most Hits Added", "value": "BostnMike"},
-        {"label": "Worst Swing", "value": "ProvidenceMike"}
+        { "label": "Biggest Profit Jump", "value": "NASA Al" },
+        { "label": "Best ROI", "value": "Pat" },
+        { "label": "Most Hits Added", "value": "Mike-G" },
+        { "label": "Worst Swing", "value": "ProvidenceMike" }
       ],
-      "trendUp": ["NASA Al", "Mike-G"],
-      "trendDown": ["ProvidenceMike", "Hiro"],
-      "html": "<p>The TLPT site tells you exactly what kind of circus this is: <em>The League. The Players. The Tilt.</em> The homepage promises the stats never forget, the standings page lets you sort the damage in public, and the dashboard is basically an audit performed by a casino pit boss with a grudge. In other words, this league did not merely have a week. It left evidence.</p>"
+      "trendUp": ["NASA Al", "Mike-G", "Pat"],
+      "trendDown": ["ProvidenceMike", "Hiro", "Ahmed"],
+      "html": "<p>REPLACE WITH YOUR CURRENT FEATURED ARTICLE HTML</p>"
     }
   ]
 }
