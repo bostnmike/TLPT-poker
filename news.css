@@ -436,11 +436,8 @@
   text-transform:uppercase;
 }
 
-.news-trend-col div{
+.news-trend-col > .news-trend-item{
   color:#e4ebf3;
-  line-height:1.5;
-  padding:4px 0;
-  font-weight:700;
 }
 
 .news-trend-item{
