@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLPT News</title>
+  <link rel="stylesheet" href="style.css?v=20260329-newsfix" />
+  <style>
+/* =========================================
+   NEWS PAGE — SELF-CONTAINED VISUALS
+   Cleaned / deduped page-scoped styles.
+   ========================================= */
+
+body .news-header-shell,
+body .news-summary-shell,
+body .news-module-main,
+body .news-module-side,
+body .news-statbar-shell,
+body .news-trend-shell{
+  position:relative;
+  overflow:hidden;
+}
+
+body .news-header-shell::after,
+body .news-summary-shell::after,
+body .news-module-main::after,
+body .news-module-side::after,
+body .news-statbar-shell::after,
+body .news-trend-shell::after{
+  content:none !important;
+}
+
+body .news-title-emoji{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:46px !important;
+  height:46px !important;
+  font-size:2rem !important;
+  line-height:1 !important;
+  flex:0 0 46px !important;
+  filter:drop-shadow(0 6px 10px rgba(0,0,0,.22)) !important;
+}
+
+body .news-header-shell{
+  border:1px solid rgba(255,184,28,.34) !important;
+  border-radius:18px !important;
+  background:
+    radial-gradient(circle at top left, rgba(255,184,28,.24), transparent 26%),
+    radial-gradient(circle at top right, rgba(168,85,247,.24), transparent 28%),
+    radial-gradient(circle at right center, rgba(59,130,246,.18), transparent 22%),
+    linear-gradient(135deg, rgba(74,40,104,.88), rgba(19,24,34,.99)) !important;
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.12),
+    0 16px 36px rgba(0,0,0,.26),
+    0 0 32px rgba(168,85,247,.14) !important;
+}
+
+body .news-page-kicker{
+  color:#ffe6a3 !important;
+  font-size:.86rem !important;
+  text-shadow:
+    0 0 10px rgba(255,184,28,.14),
+    0 0 20px rgba(255,184,28,.08) !important;
+}
+
+body .news-author-strip{
+  display:grid !important;
+  grid-template-columns:68px minmax(0, 1fr) !important;
+  gap:16px !important;
+  align-items:center !important;
+  margin-top:18px !important;
+  padding:16px 18px !important;
+  border-radius:16px !important;
+  border:1px solid rgba(255,184,28,.34) !important;
+  background:
+    radial-gradient(circle at top left, rgba(255,184,28,.18), transparent 30%),
+    radial-gradient(circle at right center, rgba(239,68,68,.12), transparent 24%),
+    linear-gradient(135deg, rgba(38,46,60,.98), rgba(16,20,28,.99)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 12px 28px rgba(0,0,0,.22),
+    0 0 18px rgba(255,184,28,.10) !important;
+}
+
+body .news-author-avatar-wrap{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+}
+
+body .news-author-strip .player-avatar.table,
+body .news-author-strip .player-avatar-fallback.table{
+  width:68px !important;
+  height:68px !important;
+  min-width:68px !important;
+  min-height:68px !important;
+  border-width:2px !important;
+  box-shadow:
+    0 0 0 2px rgba(255,184,28,.12),
+    0 10px 18px rgba(0,0,0,.28),
+    0 0 16px rgba(255,184,28,.10) !important;
+}
+
+body .news-author-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+  gap:8px !important;
+}
+
+body .news-author-title-stack{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:2px !important;
+  align-items:flex-start !important;
+}
+
+body .news-author-kicker{
+  margin:0 !important;
+  font-size:.76rem !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:#ffd978 !important;
+  font-weight:900 !important;
+}
+
+body .news-author-name{
+  margin:0 !important;
+  font-size:1.34rem !important;
+  line-height:1.05 !important;
+  color:#fff7e2 !important;
+}
+
+body .news-author-blurb{
+  margin:0 !important;
+  color:#d8e2ee !important;
+  line-height:1.52 !important;
+  font-size:.95rem !important;
+}
+
+body .news-summary-shell,
+body .news-statbar-shell{
+  border-radius:18px !important;
+  box-shadow:0 16px 32px rgba(0,0,0,.22) !important;
+}
+
+body .news-summary-shell{
+  border:1px solid rgba(255,184,28,.30) !important;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.18), transparent 28%),
+    radial-gradient(circle at left center, rgba(59,130,246,.16), transparent 24%),
+    linear-gradient(180deg, rgba(28,34,46,.98), rgba(12,15,20,.99)) !important;
+}
+
+body .news-summary-grid,
+body .news-statbar-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+  gap:16px !important;
+}
+
+body .news-summary-card,
+body .news-stat-pill{
+  position:relative !important;
+  overflow:hidden !important;
+  border-radius:18px !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 12px 24px rgba(0,0,0,.22) !important;
+}
+
+body .news-summary-card{
+  padding:18px 16px 16px !important;
+  transition:transform .18s ease, box-shadow .18s ease !important;
+}
+body .news-summary-card:hover{
+  transform:translateY(-2px) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 16px 30px rgba(0,0,0,.26) !important;
+}
+body .news-summary-card::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:7px !important;
+}
+body .news-summary-card-green{border-color:rgba(34,197,94,.40) !important;background:radial-gradient(circle at top right, rgba(34,197,94,.22), transparent 30%), linear-gradient(135deg, rgba(16,62,34,.98), rgba(15,22,28,.98)) !important;}
+body .news-summary-card-green::before{background:#86efac !important;}
+body .news-summary-card-blue{border-color:rgba(59,130,246,.40) !important;background:radial-gradient(circle at top right, rgba(59,130,246,.22), transparent 30%), linear-gradient(135deg, rgba(16,40,76,.98), rgba(15,22,28,.98)) !important;}
+body .news-summary-card-blue::before{background:#93c5fd !important;}
+body .news-summary-card-red{border-color:rgba(239,68,68,.40) !important;background:radial-gradient(circle at top right, rgba(239,68,68,.22), transparent 30%), linear-gradient(135deg, rgba(66,20,24,.98), rgba(15,22,28,.98)) !important;}
+body .news-summary-card-red::before{background:#fca5a5 !important;}
+body .news-summary-card-purple{border-color:rgba(168,85,247,.40) !important;background:radial-gradient(circle at top right, rgba(168,85,247,.22), transparent 30%), linear-gradient(135deg, rgba(48,22,70,.98), rgba(15,22,28,.98)) !important;}
+body .news-summary-card-purple::before{background:#d8b4fe !important;}
+
+body .news-summary-label,
+body .news-stat-label,
+body .news-trend-title,
+body .news-post-kicker{
+  color:#fff0bf !important;
+  font-size:.76rem !important;
+  font-weight:900 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+}
+body .news-summary-label{margin-bottom:8px !important;}
+body .news-summary-player,
+body .news-stat-value,
+body .news-trend-name,
+body .news-record-title,
+body .news-receipt-name,
+body .news-author-name{color:#ffffff !important;font-weight:900 !important;line-height:1.2 !important;}
+body .news-summary-player{font-size:1.08rem !important;margin-bottom:8px !important;}
+body .news-summary-value{color:#ffe08a !important;font-size:1.12rem !important;font-weight:900 !important;line-height:1.1 !important;margin-bottom:8px !important;}
+body .news-summary-copy,
+body .news-stat-note,
+body .news-trend-note,
+body .news-record-note,
+body .news-post-body p,
+body .news-post-body li,
+body .news-storyboard-copy{
+  color:#e0e8f1 !important;
+  line-height:1.5 !important;
+}
+body .news-summary-copy{margin:0 !important;font-size:.92rem !important;}
+
+body .news-summary-head,
+body .news-receipt-top,
+body .news-storyboard-top,
+body .news-trend-item,
+body .news-record-card,
+body .news-pull-quote-row{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+body .news-summary-head{margin-bottom:10px !important;}
+body .news-summary-head-copy,
+body .news-receipt-copy,
+body .news-trend-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
+body .news-summary-head-copy .news-summary-player,
+body .news-summary-head-copy .news-summary-value{margin:0 !important;}
+body .news-summary-head-multi{display:flex !important;flex-direction:column !important;align-items:flex-start !important;gap:10px !important;}
+body .news-summary-head-multi .news-summary-head-copy{width:100% !important;}
+body .news-summary-avatar-row{display:flex !important;align-items:center !important;gap:6px !important;flex:0 0 auto !important;}
+
+body .news-summary-head .player-avatar.table,
+body .news-summary-head .player-avatar-fallback.table{width:46px !important;height:46px !important;min-width:46px !important;min-height:46px !important;border-width:2px !important;box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 8px 14px rgba(0,0,0,.24) !important;}
+body .news-summary-avatar-row .player-avatar.table,
+body .news-summary-avatar-row .player-avatar-fallback.table{width:38px !important;height:38px !important;min-width:38px !important;min-height:38px !important;border-width:2px !important;box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 6px 12px rgba(0,0,0,.22) !important;}
+body .news-trend-item .player-avatar.table,
+body .news-trend-item .player-avatar-fallback.table,
+body .news-record-card .player-avatar.table,
+body .news-record-card .player-avatar-fallback.table,
+body .news-receipt-top .player-avatar.table,
+body .news-receipt-top .player-avatar-fallback.table,
+body .news-pull-quote-row .player-avatar.table,
+body .news-pull-quote-row .player-avatar-fallback.table{width:42px !important;height:42px !important;min-width:42px !important;min-height:42px !important;border-width:2px !important;box-shadow:0 0 0 2px rgba(255,255,255,.06), 0 8px 14px rgba(0,0,0,.24) !important;}
+
+body .news-statbar-shell,
+body .news-trend-shell,
+body .news-module-main,
+body .news-module-side,
+body .news-post-card,
+body .news-pull-quote,
+body .news-receipt-panel,
+body .news-mover-card,
+body .news-storyboard-card,
+body .news-record-card{
+  border-radius:18px !important;
+}
+
+body .news-statbar-shell{
+  margin-top:22px !important;
+  padding:14px 16px !important;
+  border:1px solid rgba(255,184,28,.24) !important;
+  background:radial-gradient(circle at left center, rgba(255,184,28,.12), transparent 26%), linear-gradient(135deg, rgba(33,24,14,.98), rgba(12,17,24,.99)) !important;
+}
+body .news-stat-pill{padding:12px 12px 10px !important;background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) !important;}
+body .news-stat-label{margin-bottom:6px !important;}
+body .news-stat-value{font-size:1.08rem !important;margin-bottom:4px !important;}
+body .news-stat-note{font-size:.84rem !important;line-height:1.35 !important;}
+
+body .news-trend-shell{
+  margin-top:22px !important;
+  padding:16px !important;
+  border:1px solid rgba(255,255,255,.12) !important;
+  background:radial-gradient(circle at top right, rgba(168,85,247,.14), transparent 26%), linear-gradient(135deg, rgba(22,22,36,.98), rgba(12,17,24,.99)) !important;
+  box-shadow:0 12px 24px rgba(0,0,0,.18) !important;
+}
+body .news-trend-grid,
+body .news-records-strip,
+body .news-storyboard,
+body .news-movers-grid,
+body .news-quickhits-grid{display:grid !important;gap:16px !important;}
+body .news-trend-grid,
+body .news-records-strip,
+body .news-movers-grid,
+body .news-quickhits-grid{grid-template-columns:repeat(2, minmax(0,1fr)) !important;}
+body .news-storyboard{grid-template-columns:repeat(3, minmax(0,1fr)) !important;margin:18px 0 8px !important;}
+body .news-trend-card,
+body .news-mover-card,
+body .news-storyboard-card,
+body .news-record-card{padding:14px !important;border:1px solid rgba(255,255,255,.10) !important;background:linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02)) !important;box-shadow:0 10px 20px rgba(0,0,0,.18) !important;}
+body .news-trend-card-up,
+body .news-mover-card.up{border-color:rgba(34,197,94,.28) !important;background:radial-gradient(circle at top right, rgba(34,197,94,.16), transparent 28%), linear-gradient(135deg, rgba(16,54,32,.94), rgba(18,22,28,.98)) !important;}
+body .news-trend-card-down,
+body .news-mover-card.down{border-color:rgba(239,68,68,.28) !important;background:radial-gradient(circle at top right, rgba(239,68,68,.16), transparent 28%), linear-gradient(135deg, rgba(62,20,24,.94), rgba(18,22,28,.98)) !important;}
+body .news-mover-name{margin-bottom:6px !important;color:#fff1c2 !important;font-weight:900 !important;font-size:1rem !important;}
+body .news-mover-card p{margin:0 !important;}
+body .news-storyboard-card::before{content:"" !important;position:absolute !important;inset:0 auto 0 0 !important;width:6px !important;}
+body .news-storyboard-card-gold{border-color:rgba(255,184,28,.28) !important;background:radial-gradient(circle at top right, rgba(255,184,28,.16), transparent 28%), linear-gradient(135deg, rgba(62,46,14,.92), rgba(20,22,28,.98)) !important;}
+body .news-storyboard-card-gold::before{background:#ffb81c !important;}
+body .news-storyboard-card-blue{border-color:rgba(59,130,246,.28) !important;background:radial-gradient(circle at top right, rgba(59,130,246,.16), transparent 28%), linear-gradient(135deg, rgba(18,40,74,.92), rgba(20,22,28,.98)) !important;}
+body .news-storyboard-card-blue::before{background:#93c5fd !important;}
+body .news-storyboard-card-red{border-color:rgba(239,68,68,.28) !important;background:radial-gradient(circle at top right, rgba(239,68,68,.16), transparent 28%), linear-gradient(135deg, rgba(70,22,26,.92), rgba(20,22,28,.98)) !important;}
+body .news-storyboard-card-red::before{background:#fca5a5 !important;}
+body .news-storyboard-label,
+body .news-record-kicker{margin:0 0 4px !important;color:#ffe08a !important;font-size:.72rem !important;font-weight:900 !important;text-transform:uppercase !important;letter-spacing:.07em !important;}
+body .news-storyboard-title{margin:0 !important;color:#fff !important;font-size:1rem !important;font-weight:900 !important;line-height:1.15 !important;}
+
+body .news-layout{display:grid !important;grid-template-columns:minmax(0, 2.15fr) 320px !important;gap:22px !important;align-items:start !important;}
+body .section.news-module-main{border:1px solid rgba(168,85,247,.28) !important;background:radial-gradient(circle at top left, rgba(168,85,247,.18), transparent 24%), radial-gradient(circle at right center, rgba(255,184,28,.10), transparent 22%), linear-gradient(135deg, rgba(30,21,48,.98), rgba(12,17,24,.99)) !important;box-shadow:0 16px 34px rgba(0,0,0,.24), 0 0 22px rgba(168,85,247,.10) !important;}
+body .section.news-module-side{border:1px solid rgba(59,130,246,.28) !important;background:radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 28%), linear-gradient(135deg, rgba(14,31,58,.98), rgba(12,17,24,.99)) !important;box-shadow:0 12px 24px rgba(0,0,0,.20), 0 0 16px rgba(59,130,246,.10) !important;}
+body .news-intro-note{margin:0 0 18px !important;padding:14px 16px !important;border-left:4px solid #ffb81c !important;border-radius:12px !important;background:linear-gradient(90deg, rgba(255,184,28,.14), rgba(255,255,255,.02)) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 6px 16px rgba(0,0,0,.14) !important;}
+body .news-intro-note p{margin:0 !important;color:#d8e2ee !important;line-height:1.6 !important;}
+
+body #news-blog-feed{display:flex !important;flex-direction:column !important;gap:20px !important;}
+body #news-blog-feed .news-post-card{position:relative !important;overflow:hidden !important;padding:22px 22px 20px !important;border-radius:18px !important;border:1px solid rgba(255,255,255,.10) !important;background:radial-gradient(circle at top left, rgba(255,255,255,.03), transparent 24%), linear-gradient(135deg, rgba(17,22,30,.98), rgba(12,17,24,.99)) !important;}
+body #news-blog-feed .news-post-card::before{content:"" !important;position:absolute !important;inset:0 auto 0 0 !important;width:5px !important;background:rgba(255,255,255,.12) !important;}
+body #news-blog-feed .news-post-featured{border-color:rgba(255,184,28,.28) !important;background:radial-gradient(circle at top left, rgba(255,184,28,.18), transparent 26%), radial-gradient(circle at right center, rgba(168,85,247,.16), transparent 24%), linear-gradient(135deg, rgba(30,21,48,.98), rgba(13,18,25,.99)) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 16px 36px rgba(0,0,0,.26), 0 0 20px rgba(255,184,28,.10) !important;}
+body #news-blog-feed .news-post-featured::before{width:6px !important;background:linear-gradient(180deg, #ffb81c, #d8b4fe) !important;}
+body .news-post-title{color:#fff7e2 !important;font-size:1.65rem !important;line-height:1.12 !important;}
+body .news-post-dek{color:#ffd978 !important;font-weight:700 !important;}
+body .news-post-body h4{color:#ffe08a !important;}
+
+body .news-pull-quote{margin:18px 0 !important;padding:16px 18px !important;border-left:4px solid #ffb81c !important;border-radius:14px !important;background:linear-gradient(135deg, rgba(255,184,28,.12), rgba(255,255,255,.03)) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 8px 18px rgba(0,0,0,.16) !important;}
+body .news-pull-quote p{margin:0 !important;color:#fff3d1 !important;font-size:1.05rem !important;font-style:italic !important;line-height:1.5 !important;}
+body .news-pull-quote-self-roast{border-left-color:#93c5fd !important;background:linear-gradient(135deg, rgba(59,130,246,.12), rgba(255,255,255,.03)) !important;}
+body .news-pull-quote-self-roast p{color:#e8f1ff !important;}
+body .news-pull-quote-row p{flex:1 1 auto !important;}
+
+body .news-receipt-panel{display:grid !important;grid-template-columns:220px minmax(0,1fr) !important;gap:12px !important;margin:18px 0 !important;padding:14px !important;border:1px solid rgba(255,184,28,.20) !important;background:radial-gradient(circle at top left, rgba(255,184,28,.14), transparent 30%), linear-gradient(135deg, rgba(52,40,14,.94), rgba(20,22,28,.98)) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 10px 20px rgba(0,0,0,.18) !important;}
+body .news-receipt-lead{padding:12px 14px !important;border-radius:14px !important;border:1px solid rgba(255,184,28,.16) !important;background:linear-gradient(135deg, rgba(255,184,28,.14), rgba(255,255,255,.02)) !important;}
+body .news-receipt-kicker{margin:0 0 4px !important;color:#ffe09a !important;font-size:.72rem !important;font-weight:900 !important;text-transform:uppercase !important;letter-spacing:.08em !important;}
+body .news-receipt-name{font-size:1.1rem !important;line-height:1.15 !important;}
+body .news-receipt-pills{display:flex !important;flex-wrap:wrap !important;align-items:center !important;gap:10px !important;}
+body .news-receipt-pill{display:inline-flex !important;align-items:center !important;justify-content:center !important;padding:10px 12px !important;border-radius:999px !important;border:1px solid rgba(255,184,28,.18) !important;background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02)) !important;color:#e9f0f7 !important;font-size:.88rem !important;font-weight:800 !important;line-height:1 !important;}
+
+body .news-quickhits-grid ul{margin:0 !important;}
+body .news-section-divider{margin:22px 0 14px !important;text-align:center !important;}
+body .news-section-divider span{display:inline-block !important;padding:8px 14px !important;border-radius:999px !important;border:1px solid rgba(255,184,28,.20) !important;background:linear-gradient(135deg, rgba(255,184,28,.12), rgba(255,255,255,.03)) !important;color:#fff0bf !important;font-size:.8rem !important;font-weight:900 !important;letter-spacing:.08em !important;text-transform:uppercase !important;}
+
+body .news-archive-list{display:flex !important;flex-direction:column !important;gap:10px !important;}
+body .news-archive-link{display:block !important;padding:10px 12px !important;border-radius:12px !important;border:1px solid rgba(255,255,255,.10) !important;background:linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02)) !important;color:#eaf3ff !important;font-weight:800 !important;}
+body .news-archive-link.is-active{border-color:rgba(255,184,28,.32) !important;background:linear-gradient(135deg, rgba(255,184,28,.16), rgba(255,255,255,.03)) !important;box-shadow:0 0 0 1px rgba(255,184,28,.12) inset, 0 0 16px rgba(255,184,28,.10) !important;}
+
+@media (max-width:1100px){
+  body .news-summary-grid,
+  body .news-statbar-grid{grid-template-columns:repeat(2, minmax(0,1fr)) !important;}
+  body .news-layout,
+  body .news-trend-grid{grid-template-columns:1fr !important;}
+}
+
+@media (max-width:720px){
+  body .news-title-emoji{width:42px !important;height:42px !important;font-size:1.8rem !important;flex:0 0 42px !important;}
+  body .news-author-strip{grid-template-columns:1fr !important;}
+  body .news-author-strip .player-avatar.table,
+  body .news-author-strip .player-avatar-fallback.table{width:56px !important;height:56px !important;min-width:56px !important;min-height:56px !important;}
+  body .news-summary-grid,
+  body .news-statbar-grid,
+  body .news-movers-grid,
+  body .news-quickhits-grid,
+  body .news-records-strip,
+  body .news-storyboard{grid-template-columns:1fr !important;}
+  body .news-summary-avatar-row .player-avatar.table,
+  body .news-summary-avatar-row .player-avatar-fallback.table{width:34px !important;height:34px !important;min-width:34px !important;min-height:34px !important;}
+  body .news-receipt-top .player-avatar.table,
+  body .news-receipt-top .player-avatar-fallback.table,
+  body .news-pull-quote-row .player-avatar.table,
+  body .news-pull-quote-row .player-avatar-fallback.table{width:38px !important;height:38px !important;min-width:38px !important;min-height:38px !important;}
+  body .news-receipt-panel{grid-template-columns:1fr !important;}
+  body .news-receipt-lead{padding:10px 12px !important;}
+  body .news-receipt-pills{gap:8px !important;}
+  body .news-receipt-pill{font-size:.84rem !important;padding:9px 11px !important;}
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">The League. The Players. The Tilt.</p>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">The Standings</a>
+        <a href="dashboard.html">The Dashboard</a>
+        <a href="players.html">The Crew</a>
+        <a href="schedule.html">The Schedule</a>
+
+        <div class="nav-dropdown">
+          <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
+          <div class="nav-dropdown-menu">
+            <a href="news.html" class="is-active" aria-current="page">The Week That Was</a>
+          </div>
+        </div>
+
+        <a href="rules.html">The Rules</a>
+        <a href="media.html">The Film</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section news-header-shell">
+      <div class="section-head page-title-row compact-page-title-row">
+        <span class="news-title-emoji" aria-hidden="true">🧑🏻‍💻</span>
+        <h2 class="page-title-purple">The Week That Was</h2>
+      </div>
+
+      <div class="page-kicker news-page-kicker">
+        📰 The official TLPT running column — weekly heaters, collapses, bad decisions, statistical slander, and whatever fresh nonsense the spreadsheet uncovered.
+      </div>
+
+      <div class="news-author-strip">
+        <div class="news-author-avatar-wrap">
+          <span class="player-avatar-wrap">
+            <img class="player-avatar table" src="images/players/bostnmike.jpg" alt="BostnMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <span class="player-avatar-fallback table" style="display:none;">BM</span>
+          </span>
+        </div>
+
+        <div class="news-author-copy">
+          <div class="news-author-title-stack">
+            <p class="news-author-kicker">Weekly Columnist</p>
+            <h3 class="news-author-name">By BostnMike</h3>
+          </div>
+          <p class="news-author-blurb">
+            Commissioner, stat-chaser, and part-time curator of league shame. Each week he reviews the numbers,
+            finds the real story, and documents the latest TLPT public embarrassments for the historical record.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-summary-shell">
+      <div class="section-head page-title-row compact-page-title-row">
+        <h3 class="page-title-gold">⚡ This Week at a Glance</h3>
+      </div>
+
+      <div class="news-summary-grid">
+        <article class="news-summary-card news-summary-card-green">
+          <div class="news-summary-label">🔥 Heater of the Week</div>
+          <div class="news-summary-head">
+            <span class="player-avatar-wrap">
+              <img class="player-avatar table" src="images/players/nasa-al.jpg" alt="NASA Al" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <span class="player-avatar-fallback table" style="display:none;">NA</span>
+            </span>
+            <div class="news-summary-head-copy">
+              <div class="news-summary-player">NASA Al</div>
+              <div class="news-summary-value">Quietly launching</div>
+            </div>
+          </div>
+          <p class="news-summary-copy">The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama.</p>
+        </article>
+
+        <article class="news-summary-card news-summary-card-blue">
+          <div class="news-summary-label">🚀 Biggest Riser</div>
+          <div class="news-summary-head">
+            <span class="player-avatar-wrap">
+              <img class="player-avatar table" src="images/players/mike-g.jpg" alt="Mike-G" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <span class="player-avatar-fallback table" style="display:none;">MG</span>
+            </span>
+            <div class="news-summary-head-copy">
+              <div class="news-summary-player">Mike-G</div>
+              <div class="news-summary-value">Door-kick debut</div>
+            </div>
+          </div>
+          <p class="news-summary-copy">Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans.</p>
+        </article>
+
+        <article class="news-summary-card news-summary-card-red">
+          <div class="news-summary-label">📉 Worst Slide</div>
+          <div class="news-summary-head">
+            <span class="player-avatar-wrap">
+              <img class="player-avatar table" src="images/players/providencemike.jpg" alt="ProvidenceMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <span class="player-avatar-fallback table" style="display:none;">PM</span>
+            </span>
+            <div class="news-summary-head-copy">
+              <div class="news-summary-player">ProvidenceMike</div>
+              <div class="news-summary-value">Subscription pain</div>
+            </div>
+          </div>
+          <p class="news-summary-copy">More entries, less joy, and the kind of week that reads less like variance and more like an invoice.</p>
+        </article>
+
+        <article class="news-summary-card news-summary-card-purple">
+          <div class="news-summary-label">🎉 New Blood</div>
+          <div class="news-summary-head news-summary-head-multi">
+            <div class="news-summary-avatar-row">
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/mike-g.jpg" alt="Mike-G" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">MG</span>
+              </span>
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/pat.jpg" alt="Pat" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">PA</span>
+              </span>
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/kishan.jpg" alt="Kishan" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">KI</span>
+              </span>
+            </div>
+            <div class="news-summary-head-copy">
+              <div class="news-summary-player">Mike-G • Pat • Kishan</div>
+              <div class="news-summary-value">Immediate noise</div>
+            </div>
+          </div>
+          <p class="news-summary-copy">Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section news-statbar-shell">
+      <div class="news-statbar-grid">
+        <div class="news-stat-pill">
+          <div class="news-stat-label">💰 Biggest Profit Jump</div>
+          <div class="news-stat-value">NASA Al +$135</div>
+          <div class="news-stat-note">The cleanest returning-player surge on the sheet.</div>
+        </div>
+        <div class="news-stat-pill">
+          <div class="news-stat-label">🏆 Best ROI</div>
+          <div class="news-stat-value">Pat 233.3%</div>
+          <div class="news-stat-note">Took the record before people learned his preferred seat.</div>
+        </div>
+        <div class="news-stat-pill">
+          <div class="news-stat-label">🎯 Most Hits Added</div>
+          <div class="news-stat-value">Mike-G +5</div>
+          <div class="news-stat-note">Joined the league and immediately started leaving fingerprints.</div>
+        </div>
+        <div class="news-stat-pill">
+          <div class="news-stat-label">🧾 Worst Swing</div>
+          <div class="news-stat-value">ProvidenceMike -$120</div>
+          <div class="news-stat-note">Variance, invoice, or community outreach — difficult to say.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-trend-shell">
+      <div class="news-trend-grid">
+        <article class="news-trend-card news-trend-card-up">
+          <h3 class="news-trend-title">📈 Trending Up</h3>
+          <div class="news-trend-list">
+            <div class="news-trend-item">
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/nasa-al.jpg" alt="NASA Al" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">NA</span>
+              </span>
+              <div class="news-trend-copy">
+                <div class="news-trend-name">NASA Al</div>
+                <div class="news-trend-note">Profit, hits, cashes, and composure all headed north.</div>
+              </div>
+            </div>
+            <div class="news-trend-item">
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/mike-g.jpg" alt="Mike-G" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">MG</span>
+              </span>
+              <div class="news-trend-copy">
+                <div class="news-trend-name">Mike-G</div>
+                <div class="news-trend-note">Debut week went from introduction to warning shot in a hurry.</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="news-trend-card news-trend-card-down">
+          <h3 class="news-trend-title">📉 Trending Down</h3>
+          <div class="news-trend-list">
+            <div class="news-trend-item">
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/providencemike.jpg" alt="ProvidenceMike" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">PM</span>
+              </span>
+              <div class="news-trend-copy">
+                <div class="news-trend-name">ProvidenceMike</div>
+                <div class="news-trend-note">Four more entries, no new cashes, and the balance moved the wrong way.</div>
+              </div>
+            </div>
+            <div class="news-trend-item">
+              <span class="player-avatar-wrap">
+                <img class="player-avatar table" src="images/players/hiro.jpg" alt="Hiro" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <span class="player-avatar-fallback table" style="display:none;">HI</span>
+              </span>
+              <div class="news-trend-copy">
+                <div class="news-trend-name">Hiro</div>
+                <div class="news-trend-note">Prime-number optimism did not translate into prime-number results.</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="news-layout">
+      <section class="section news-module news-module-main">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-white">🗞️ Weekly Column Archive</h3>
+        </div>
+
+        <div class="news-intro-note">
+          <p>Weekly swings, fresh chaos, and the kind of statistical receipts that make the group chat go quiet for a few minutes.</p>
+        </div>
+
+        <div id="news-blog-feed" class="news-blog-feed">
+          <!--
+          WEEK 2 ARTICLE TEMPLATE
+
+          Workflow:
+          1. Copy the full <article>...</article> block below
+          2. Paste it directly under this comment and above the current top article
+          3. Update the dateline, id, dek, article copy, summary cards, stat pills, trend strip, and archive jump list
+          4. If there are no new players, delete the Welcome to the League section
+          5. If there is no good self-roast week for BostnMike, delete that pull-quote block
+
+          <article id="week-04-05-2026" class="news-post-card news-post-featured">
+            <div class="news-post-meta">
+              <div class="news-post-kicker">The Week That Was</div>
+              <div class="news-post-dateline">Date Line: 04/05/2026</div>
+            </div>
+
+            <h3 class="news-post-title">The Week That Was</h3>
+
+            <p class="news-post-dek">
+              Insert a short, sharp subheader that captures the week’s theme.
+            </p>
+
+            <div class="news-post-body">
+              <p>
+                Write a funny opening paragraph that frames the week in the normal columnist voice.
+                Keep it grounded in the real changes from the Current vs New comparison.
+              </p>
+
+              <div class="news-pull-quote">
+                <p>“Insert the best short line of the week here.”</p>
+              </div>
+
+              <h4>🎯 The Big Story</h4>
+              <p>
+                Lead with the single most important development of the week:
+                biggest heater, biggest collapse, strangest stat movement, or the story that best explains the week.
+              </p>
+
+              <p>
+                Add one more short paragraph that sharpens the joke and explains why it mattered.
+              </p>
+
+              <div class="news-receipt-panel">
+                <div class="news-receipt-lead">
+                  <div class="news-receipt-top">
+                    <span class="player-avatar-wrap">
+                      <img
+                        class="player-avatar table"
+                        src="images/players/PLAYER-FILE.jpg"
+                        alt="PLAYER NAME"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                      />
+                      <span class="player-avatar-fallback table" style="display:none;">XX</span>
+                    </span>
+
+                    <div class="news-receipt-copy">
+                      <div class="news-receipt-kicker">Week’s Cleanest Heater</div>
+                      <div class="news-receipt-name">PLAYER NAME</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="news-receipt-pills">
+                  <span class="news-receipt-pill">Profit ↑</span>
+                  <span class="news-receipt-pill">Hits ↑</span>
+                  <span class="news-receipt-pill">Cashes ↑</span>
+                  <span class="news-receipt-pill">Luck Rank ↑</span>
+                </div>
+              </div>
+
+              <h4>📈 Movers</h4>
+              <div class="news-movers-grid">
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
+
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
+
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
+
+                <div class="news-mover-card up">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short rise summary.</p>
+                </div>
+
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
+
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
+
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
+
+                <div class="news-mover-card down">
+                  <div class="news-mover-name">PLAYER NAME</div>
+                  <p>Short fall summary.</p>
+                </div>
+              </div>
+
+              <div class="news-pull-quote news-pull-quote-self-roast">
+                <div class="news-pull-quote-row">
+                  <span class="player-avatar-wrap">
+                    <img
+                      class="player-avatar table"
+                      src="images/players/bostnmike.jpg"
+                      alt="BostnMike"
+                      loading="lazy"
+                      decoding="async"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <span class="player-avatar-fallback table" style="display:none;">BM</span>
+                  </span>
+
+                  <p>
+                    Insert the weekly BostnMike self-own here if the data supports it.
+                  </p>
+                </div>
+              </div>
+
+              <h4>🔢 Numbers That Matter</h4>
+              <ul>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+                <li><strong>Stat / swing:</strong> Why it matters.</li>
+              </ul>
+
+              <h4>🎉 Welcome to the League</h4>
+              <p>
+                Delete this whole section if there are no new players this week.
+              </p>
+
+              <div class="news-pull-quote">
+                <p>“Optional second pull quote if the week has a killer line.”</p>
+              </div>
+
+              <h4>🔥 Quick Hits</h4>
+              <div class="news-quickhits-grid">
+                <ul>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                </ul>
+                <ul>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                  <li>Short roast bullet.</li>
+                </ul>
+              </div>
+
+              <div class="news-section-divider">
+                <span>The Spreadsheet’s Final Word</span>
+              </div>
+
+              <h4>🎬 Closing</h4>
+              <p>
+                End with one clean closing paragraph that wraps the week and lands the joke.
+              </p>
+            </div>
+          </article>
+          -->
+
+          <article id="week-03-29-2026" class="news-post-card news-post-featured">
+            <div class="news-post-meta">
+              <div class="news-post-kicker">The Week That Was</div>
+              <div class="news-post-dateline">Date Line: 03/29/2026</div>
+            </div>
+
+            <h3 class="news-post-title">The Week That Was</h3>
+
+            <p class="news-post-dek">
+              A week of fresh faces, fresh bruises, and one very productive trip to the cash cage by NASA Al.
+            </p>
+
+<div class="news-post-body">
+  <p>
+    The TLPT site tells you exactly what kind of circus this is: <em>The League. The Players. The Tilt.</em>
+    The homepage promises the stats never forget, the standings page lets you sort the damage in public, and the dashboard functions like an audit conducted by someone who already doesn’t trust you.
+    In other words, this league did not merely have a week. It left evidence.
+  </p>
+
+  <div class="news-pull-quote">
+    <p>“This league did not merely have a week. It left evidence.”</p>
+  </div>
+
+  <h4>🎯 The Big Story</h4>
+  <p>
+    The biggest story was not at the very top of the profit board, where Li-Fo still sits like a man expecting interest payments.
+    It was one rung below, where NASA Al quietly put together the best established-player heater of the week.
+  </p>
+
+  <p>
+    Profit climbed. Hits climbed. Cashes climbed.
+    It was the kind of performance that doesn’t need chest-thumping because the spreadsheet already did the talking.
+  </p>
+
+  <div class="news-inline-callout">
+    <div><strong>NASA Al</strong></div>
+    <div>Profit up</div>
+    <div>Hits up</div>
+    <div>Cashes up</div>
+    <div>Luck rank up</div>
+  </div>
+
+  <p>
+    Meanwhile, Mike-G showed up like he thought the room had been saving him a seat.
+    Pat treated the ROI board like temporary housing.
+    Kishan stepped in and immediately looked like he understood the assignment better than some returning players.
+  </p>
+
+  <p>
+    And then there was ProvidenceMike, who spent the week serving as a public service announcement.
+    More entries, more pain, less joy.
+    Some men run bad. Some men turn the stat sheet into a witness statement.
+  </p>
+
+  <h4>📈 Movers</h4>
+
+  <div class="news-movers-grid">
+    <div class="news-mover-card up">
+      <div class="news-mover-name">NASA Al</div>
+      <p>
+        The cleanest veteran rise on the board. More profit, more hits, more cashes, less nonsense.
+        In a league built on noise, he had the rare useful week.
+      </p>
+    </div>
+
+    <div class="news-mover-card up">
+      <div class="news-mover-name">Mike-G</div>
+      <p>
+        Went from blank space to immediate problem. That is not a debut.
+        That is a disruption with a player profile.
+      </p>
+    </div>
+
+    <div class="news-mover-card up">
+      <div class="news-mover-name">Pat</div>
+      <p>
+        Barely any volume, maximum efficiency, and now he owns the best ROI mark on the board.
+        That is a very rude way to introduce yourself.
+      </p>
+    </div>
+
+    <div class="news-mover-card up">
+      <div class="news-mover-name">Kishan</div>
+      <p>
+        One week, one clean impression, no wasted movement.
+        The statistical version of showing up to a pickup game and immediately being one of the best players there.
+      </p>
+    </div>
+
+    <div class="news-mover-card down">
+      <div class="news-mover-name">ProvidenceMike</div>
+      <p>
+        Took the hardest hit of the week. More entries, less joy, and a profit line that reads like a billing error.
+      </p>
+    </div>
+
+    <div class="news-mover-card down">
+      <div class="news-mover-name">Li-Fo</div>
+      <p>
+        Still the profit boss, but the polish took a hit.
+        Still rich, just slightly less smug.
+      </p>
+    </div>
+
+    <div class="news-mover-card down">
+      <div class="news-mover-name">Hiro</div>
+      <p>
+        The prime numbers may still be beautiful.
+        The results were not.
+      </p>
+    </div>
+
+    <div class="news-mover-card down">
+      <div class="news-mover-name">Ahmed</div>
+      <p>
+        Added a bubble and lost ground. A very specific kind of week:
+        active enough to care, punished enough to regret it.
+      </p>
+    </div>
+  </div>
+
+  <h4>🔢 Numbers That Matter</h4>
+  <ul>
+    <li><strong>+$135:</strong> NASA Al’s profit swing, the strongest real heater among returning regulars.</li>
+    <li><strong>233.3% ROI:</strong> Pat now owns the top ROI mark, which is either elite efficiency or elite timing.</li>
+    <li><strong>Mike-G:</strong> one week in and already statistically louder than half the room.</li>
+    <li><strong>ProvidenceMike:</strong> the week’s cleanest example that volume and happiness are not the same thing.</li>
+  </ul>
+
+  <h4>🎉 Welcome to the League</h4>
+  <p>
+    Mike-G, Pat, and Kishan did not arrive quietly.
+    Mike-G kicked the door open, Pat stole shelf space on the records board, and Kishan delivered the kind of efficient debut that makes regulars suddenly interested in sample-size lectures.
+  </p>
+
+  <p>
+    Which is exactly what new blood should do.
+    Nobody joins TLPT to blend into the wallpaper.
+  </p>
+
+  <div class="news-pull-quote">
+    <p>“Nobody joins TLPT to blend into the wallpaper.”</p>
+  </div>
+
+  <h4>🔥 Quick Hits</h4>
+  <div class="news-quickhits-grid">
+    <ul>
+      <li>Mike-G needed one week to become everybody else’s problem.</li>
+      <li>Pat took the ROI record like he was picking up dry cleaning.</li>
+      <li>Kishan did not need an orientation period.</li>
+      <li>NASA Al looked like the only man operating with a flight plan.</li>
+      <li>ProvidenceMike is now on a payment plan with variance.</li>
+    </ul>
+    <ul>
+      <li>BostnMike broke records and still made the week feel expensive.</li>
+      <li>Li-Fo remains the king, just with a little less shine on the crown.</li>
+      <li>Red somehow lost money and still left fingerprints everywhere.</li>
+      <li>Hiro’s upside remained mostly theoretical.</li>
+      <li>Nitro continues to honor the low-profit arts.</li>
+    </ul>
+  </div>
+
+  <div class="news-section-divider">
+    <span>The Spreadsheet’s Final Word</span>
+  </div>
+
+  <h4>🎬 Closing</h4>
+  <p>
+    That was TLPT in a nutshell: a veteran heater, a few statistical body blows, and three newcomers who immediately made the room less comfortable.
+    The stats never forget. This week, they also didn’t forgive.
+  </p>
+</div>
+          </article>
+        </div>
+      </section>
+
+      <aside class="news-sidebar">
+        <section class="section news-module news-module-side">
+          <div class="section-head page-title-row compact-page-title-row">
+            <h3 class="page-title-blue">🗂️ Archive Jump List</h3>
+          </div>
+
+          <div id="news-archive-list" class="news-archive-list">
+            <a class="news-archive-link is-active" href="#week-03-29-2026">03/29/2026</a>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

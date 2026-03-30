@@ -1,0 +1,11 @@
+/* News framework starter */
+.news-statbar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 22px}
+.news-stat-pill{padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.02));display:flex;flex-direction:column;gap:4px}
+.news-stat-pill span{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#fff0bf;font-weight:800}
+.news-stat-pill strong{color:#fff;font-size:1rem}
+.news-trend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 22px}
+.news-trend-col{padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.10)}
+.news-trend-col.up{background:linear-gradient(135deg,rgba(16,62,34,.92),rgba(15,22,28,.98));border-color:rgba(34,197,94,.28)}
+.news-trend-col.down{background:linear-gradient(135deg,rgba(66,20,24,.92),rgba(15,22,28,.98));border-color:rgba(239,68,68,.28)}
+.news-trend-col h3{margin:0 0 10px;color:#fff0bf}
+@media (max-width: 900px){.news-statbar-grid,.news-trend-grid{grid-template-columns:1fr}}

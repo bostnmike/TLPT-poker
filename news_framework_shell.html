@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLPT News</title>
+  <link rel="stylesheet" href="style.css?v=20260329-newsfix" />
+  <link rel="stylesheet" href="news.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <h1 class="logo">TLPT Poker League</h1>
+        <p class="tag">The League. The Players. The Tilt.</p>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="standings.html">The Standings</a>
+        <a href="dashboard.html">The Dashboard</a>
+        <a href="players.html">The Crew</a>
+        <a href="schedule.html">The Schedule</a>
+        <div class="nav-dropdown">
+          <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
+          <div class="nav-dropdown-menu">
+            <a href="news.html" class="is-active" aria-current="page">The Week That Was</a>
+          </div>
+        </div>
+        <a href="rules.html">The Rules</a>
+        <a href="media.html">The Film</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section news-header-shell">
+      <div class="section-head page-title-row compact-page-title-row">
+        <span class="news-title-emoji" aria-hidden="true">🧑🏻‍💻</span>
+        <h2 class="page-title-purple">The Week That Was</h2>
+      </div>
+      <div class="page-kicker news-page-kicker" id="news-page-kicker"></div>
+      <div id="news-author-strip"></div>
+    </section>
+
+    <section class="section news-summary-shell">
+      <div class="section-head page-title-row compact-page-title-row">
+        <h3 class="page-title-gold">⚡ This Week at a Glance</h3>
+      </div>
+      <div id="news-summary-grid" class="news-summary-grid"></div>
+    </section>
+
+    <section id="news-statbar-shell" class="section news-statbar-shell"></section>
+    <section id="news-trend-shell" class="section news-trend-shell"></section>
+
+    <section class="news-layout">
+      <section class="section news-module news-module-main">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-white">🗞️ Weekly Column Archive</h3>
+        </div>
+        <div id="news-intro-note" class="news-intro-note"></div>
+        <div id="news-blog-feed" class="news-blog-feed"></div>
+      </section>
+
+      <aside class="news-sidebar">
+        <section class="section news-module news-module-side">
+          <div class="section-head page-title-row compact-page-title-row">
+            <h3 class="page-title-blue">🗂️ Archive Jump List</h3>
+          </div>
+          <div id="news-archive-list" class="news-archive-list"></div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>TLPT Poker League</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="news-render-starter.js"></script>
+</body>
+</html>

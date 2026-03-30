@@ -1,0 +1,71 @@
+{
+  "page": {
+    "kicker": "📰 The official TLPT running column — weekly heaters, collapses, bad decisions, statistical slander, and whatever fresh nonsense the spreadsheet uncovered.",
+    "introNote": "Weekly swings, fresh chaos, and the kind of statistical receipts that make the group chat go quiet for a few minutes."
+  },
+  "author": {
+    "name": "BostnMike",
+    "role": "Weekly Columnist",
+    "avatar": "images/players/bostnmike.jpg",
+    "fallback": "BM",
+    "blurb": "Commissioner, stat-chaser, and part-time curator of league shame. Each week he reviews the numbers, finds the real story, and documents the latest TLPT public embarrassments for the historical record."
+  },
+  "weeks": [
+    {
+      "id": "week-03-29-2026",
+      "date": "03/29/2026",
+      "dek": "A week of fresh faces, fresh bruises, and one very productive trip to the cash cage by NASA Al.",
+      "featured": true,
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🔥 Heater of the Week",
+          "player": "NASA Al",
+          "value": "Quietly launching",
+          "avatar": "images/players/nasa-al.jpg",
+          "fallback": "NA",
+          "copy": "The cleanest established-player surge of the week — profit up, hits up, cashes up, and not a lot of wasted drama."
+        },
+        {
+          "tone": "blue",
+          "label": "🚀 Biggest Riser",
+          "player": "Mike-G",
+          "value": "Door-kick debut",
+          "avatar": "images/players/mike-g.jpg",
+          "fallback": "MG",
+          "copy": "Arrived like the room had been waiting on him personally and immediately posted numbers loud enough to bother the veterans."
+        },
+        {
+          "tone": "red",
+          "label": "📉 Worst Slide",
+          "player": "ProvidenceMike",
+          "value": "Subscription pain",
+          "avatar": "images/players/providencemike.jpg",
+          "fallback": "PM",
+          "copy": "More entries, less joy, and the kind of week that reads less like variance and more like an invoice."
+        },
+        {
+          "tone": "purple",
+          "label": "🎉 New Blood",
+          "player": "Mike-G • Pat • Kishan",
+          "value": "Immediate noise",
+          "avatars": [
+            {"src": "images/players/mike-g.jpg", "alt": "Mike-G", "fallback": "MG"},
+            {"src": "images/players/pat.jpg", "alt": "Pat", "fallback": "PA"},
+            {"src": "images/players/kishan.jpg", "alt": "Kishan", "fallback": "KI"}
+          ],
+          "copy": "Three new names, three immediate impacts, and just enough disruption to make the regulars defensive by Tuesday."
+        }
+      ],
+      "statPills": [
+        {"label": "Biggest Profit Jump", "value": "NASA Al"},
+        {"label": "Best ROI", "value": "Pat"},
+        {"label": "Most Hits Added", "value": "BostnMike"},
+        {"label": "Worst Swing", "value": "ProvidenceMike"}
+      ],
+      "trendUp": ["NASA Al", "Mike-G"],
+      "trendDown": ["ProvidenceMike", "Hiro"],
+      "html": "<p>The TLPT site tells you exactly what kind of circus this is: <em>The League. The Players. The Tilt.</em> The homepage promises the stats never forget, the standings page lets you sort the damage in public, and the dashboard is basically an audit performed by a casino pit boss with a grudge. In other words, this league did not merely have a week. It left evidence.</p>"
+    }
+  ]
+}
