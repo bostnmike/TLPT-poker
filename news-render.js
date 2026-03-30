@@ -259,10 +259,15 @@ function renderTrendItem(item) {
 }
 
 function renderWeeks(weeks, container) {
-  container.innerHTML = weeks.map((week, index) => renderWeek(week, index)).join('');
+  const explicitFeaturedIndex = weeks.findIndex((week) => week?.featured === true);
+  const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
+
+  container.innerHTML = weeks
+    .map((week, index) => renderWeek(week, index === featuredIndex))
+    .join('');}
 }
 
-function renderWeek(week, index) {
+function renderWeek(week, isFeatured) {
   const isFeatured = week?.featured === true || index === 0;
   const id = escapeHtml(week?.id || `week-${index}`);
   const date = escapeHtml(week?.date || '');
