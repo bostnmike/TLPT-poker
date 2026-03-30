@@ -197,55 +197,54 @@ function renderTrendStrip(up, down, container) {
       <div class="news-trend-grid">
         <div class="news-trend-col up">
           <h3>Trending Up</h3>
-          ${upList
-            .map(
-              (item) => `
-                <div class="news-trend-item">
-                  ${
-                    item?.icon
-                      ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
-                      : ''
-                  }
-                  <div class="news-trend-item-copy">
-                    <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
-                    ${
-                      item?.note
-                        ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
-                        : ''
-                    }
-                  </div>
-                </div>
-              `
-            )
-            .join('')}
+          ${upList.map(renderTrendItem).join('')}
         </div>
 
         <div class="news-trend-col down">
           <h3>Trending Down</h3>
-          ${downList
-            .map(
-              (item) => `
-                <div class="news-trend-item">
-                  ${
-                    item?.icon
-                      ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
-                      : ''
-                  }
-                  <div class="news-trend-item-copy">
-                    <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
-                    ${
-                      item?.note
-                        ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
-                        : ''
-                    }
-                  </div>
-                </div>
-              `
-            )
-            .join('')}
+          ${downList.map(renderTrendItem).join('')}
         </div>
       </div>
     </section>
+  `;
+}
+
+function renderTrendItem(item) {
+  const icon = item?.icon
+    ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
+    : '';
+
+  const avatar = item?.avatar
+    ? `
+      <span class="news-trend-item-avatar">
+        <img
+          class="player-avatar table"
+          src="${escapeHtml(item.avatar)}"
+          alt="${escapeHtml(item?.name || '')}"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">${escapeHtml(
+          item?.fallback || getInitials(item?.name || '')
+        )}</span>
+      </span>
+    `
+    : '';
+
+  return `
+    <div class="news-trend-item">
+      ${avatar}
+      ${icon}
+      <div class="news-trend-item-copy">
+        <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
+        ${
+          item?.note
+            ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
+            : ''
+        }
+      </div>
+    </div>
   `;
 }
 
