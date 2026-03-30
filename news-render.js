@@ -263,12 +263,11 @@ function renderWeeks(weeks, container) {
   const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
 
   container.innerHTML = weeks
-    .map((week, index) => renderWeek(week, index === featuredIndex))
-    .join('');}
+    .map((week, index) => renderWeek(week, index, index === featuredIndex))
+    .join('');
 }
 
-function renderWeek(week, isFeatured) {
-  const isFeatured = week?.featured === true || index === 0;
+function renderWeek(week, index, isFeatured) {
   const id = escapeHtml(week?.id || `week-${index}`);
   const date = escapeHtml(week?.date || '');
   const title = escapeHtml(week?.title || 'The Week That Was');
