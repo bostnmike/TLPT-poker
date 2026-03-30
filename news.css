@@ -830,17 +830,25 @@
 }
 
 .news-mover-card.up{
-  border-color:rgba(34,197,94,.24);
+  border-color:rgba(34,197,94,.38);
   background:
-    radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 28%),
-    linear-gradient(135deg, rgba(16,52,30,.90), rgba(18,24,32,.98));
+    radial-gradient(circle at top right, rgba(34,197,94,.22), transparent 30%),
+    linear-gradient(135deg, rgba(14,72,34,.98), rgba(16,28,22,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.16),
+    0 0 18px rgba(34,197,94,.10);
 }
 
 .news-mover-card.down{
-  border-color:rgba(239,68,68,.24);
+  border-color:rgba(239,68,68,.38);
   background:
-    radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 28%),
-    linear-gradient(135deg, rgba(52,18,24,.90), rgba(18,24,32,.98));
+    radial-gradient(circle at top right, rgba(239,68,68,.22), transparent 30%),
+    linear-gradient(135deg, rgba(78,20,28,.98), rgba(26,18,22,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.16),
+    0 0 18px rgba(239,68,68,.10);
 }
 
 .news-mover-name{
