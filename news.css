@@ -384,6 +384,8 @@
   color:#f7fbff;
   font-size:1rem;
   line-height:1.2;
+  display:block;
+  margin-top:2px;
 }
 
 /* ----- trend strip ----- */
