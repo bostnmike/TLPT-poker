@@ -23,17 +23,17 @@ async function renderNewsPage() {
     renderPageMeta(data.page, pageTitle, pageEmoji, pageKicker, introNote);
     renderAuthor(data.author, authorStrip);
 
+    const featuredContent = data.featuredContent || {};
+    renderSummaryCards(featuredContent.summaryCards || [], summaryGrid);
+    renderStatPills(featuredContent.statPills || [], statbarShell);
+    renderTrendStrip(featuredContent.trendUp || [], featuredContent.trendDown || [], trendShell);
+
     const weeks = Array.isArray(data.weeks) ? data.weeks : [];
     if (!weeks.length) {
       renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archiveList);
       return;
     }
 
-    const latestWeek = weeks[0];
-
-    renderSummaryCards(latestWeek.summaryCards || [], summaryGrid);
-    renderStatPills(latestWeek.statPills || [], statbarShell);
-    renderTrendStrip(latestWeek.trendUp || [], latestWeek.trendDown || [], trendShell);
     renderWeeks(weeks, blogFeed);
     renderArchiveList(weeks, archiveList);
   } catch (error) {
@@ -99,7 +99,6 @@ function renderSummaryCard(card) {
 
   let headHtml = '';
 
-  // multi-avatar card (e.g. New Blood with multiple players)
   if (Array.isArray(card?.avatars) && card.avatars.length > 1) {
     headHtml = `
       <div class="news-summary-head news-summary-head-multi">
@@ -112,9 +111,7 @@ function renderSummaryCard(card) {
         </div>
       </div>
     `;
-  }
-  // single-avatar card
-  else if (card?.avatar) {
+  } else if (card?.avatar) {
     headHtml = `
       <div class="news-summary-head">
         ${renderAvatar({
@@ -128,9 +125,7 @@ function renderSummaryCard(card) {
         </div>
       </div>
     `;
-  }
-  // text-only flex card
-  else {
+  } else {
     headHtml = `
       <div class="news-summary-head-copy">
         <div class="news-summary-player">${player}</div>
@@ -385,7 +380,7 @@ function escapeHtml(value) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
+    .replace(/\"/g, '&quot;')
     .replace(/'/g, '&#39;');
 }
 
