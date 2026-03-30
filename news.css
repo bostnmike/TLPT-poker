@@ -1,6 +1,8 @@
 /* =========================================
-   NEWS PAGE — PRODUCTION STYLES
+   NEWS PAGE — PRODUCTION CSS
    ========================================= */
+
+/* ----- neutralize shared section overlays on News ----- */
 
 .news-header-shell,
 .news-summary-shell,
@@ -21,7 +23,7 @@
   content:none !important;
 }
 
-/* page header */
+/* ----- page title shell ----- */
 
 .news-title-emoji{
   display:inline-flex;
@@ -29,9 +31,9 @@
   justify-content:center;
   width:46px;
   height:46px;
+  flex:0 0 46px;
   font-size:2rem;
   line-height:1;
-  flex:0 0 46px;
   filter:drop-shadow(0 6px 10px rgba(0,0,0,.22));
 }
 
@@ -56,7 +58,7 @@
     0 0 20px rgba(255,184,28,.08);
 }
 
-/* author strip */
+/* ----- author strip ----- */
 
 .news-author-strip{
   display:grid;
@@ -134,7 +136,7 @@
   font-size:.95rem;
 }
 
-/* summary cards */
+/* ----- summary shell ----- */
 
 .section.news-summary-shell{
   border-color:rgba(255,184,28,.30);
@@ -154,16 +156,25 @@
   gap:16px;
 }
 
+/* ----- summary cards: base ----- */
+
 .news-summary-card{
   position:relative;
   overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  min-height:100%;
   padding:18px 16px 16px;
   border-radius:18px;
   border:1px solid rgba(255,255,255,.10);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.05),
     0 12px 24px rgba(0,0,0,.22);
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease;
 }
 
 .news-summary-card:hover{
@@ -212,8 +223,10 @@
 }
 .news-summary-card-purple::before{ background:#d8b4fe; }
 
+/* ----- summary card content ----- */
+
 .news-summary-label{
-  margin-bottom:8px;
+  margin:0 0 8px;
   color:#fff0bf;
   font-size:.76rem;
   font-weight:900;
@@ -225,7 +238,7 @@
   display:flex;
   align-items:center;
   gap:12px;
-  margin-bottom:10px;
+  margin:0 0 10px;
 }
 
 .news-summary-head .player-avatar.table,
@@ -252,6 +265,7 @@
   margin:0;
 }
 
+/* multi-avatar card */
 .news-summary-head-multi{
   display:flex;
   flex-direction:column;
@@ -282,12 +296,17 @@
     0 6px 12px rgba(0,0,0,.22);
 }
 
+/* text-only flex card support */
+.news-summary-card > .news-summary-head-copy{
+  margin:0 0 10px;
+}
+
 .news-summary-player{
   color:#ffffff;
   font-size:1.08rem;
   font-weight:900;
   line-height:1.2;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
 .news-summary-value{
@@ -295,7 +314,7 @@
   font-size:1.12rem;
   font-weight:900;
   line-height:1.1;
-  margin-bottom:8px;
+  margin:0 0 8px;
 }
 
 .news-summary-copy{
@@ -305,7 +324,7 @@
   font-size:.92rem;
 }
 
-/* stat pill row */
+/* ----- stat pill row ----- */
 
 .news-statbar-shell{
   margin:18px 0 0;
@@ -349,7 +368,7 @@
   line-height:1.2;
 }
 
-/* trend strip */
+/* ----- trend strip ----- */
 
 .news-trend-shell{
   margin:18px 0 0;
@@ -404,7 +423,7 @@
   font-weight:700;
 }
 
-/* layout */
+/* ----- main layout ----- */
 
 .news-layout{
   display:grid;
@@ -461,7 +480,7 @@
   line-height:1.6;
 }
 
-/* article feed */
+/* ----- article feed ----- */
 
 .news-blog-feed{
   display:flex;
@@ -572,7 +591,7 @@
   color:#ffb81c;
 }
 
-/* pull quotes */
+/* ----- pull quotes ----- */
 
 .news-pull-quote{
   margin:18px 0;
@@ -626,7 +645,7 @@
   color:#e8f1ff;
 }
 
-/* receipt panel */
+/* ----- receipt panel ----- */
 
 .news-receipt-panel{
   display:grid;
@@ -715,7 +734,7 @@
   line-height:1;
 }
 
-/* movers */
+/* ----- movers ----- */
 
 .news-movers-grid{
   display:grid;
@@ -757,7 +776,7 @@
   margin:0;
 }
 
-/* quick hits */
+/* ----- quick hits ----- */
 
 .news-quickhits-grid{
   display:grid;
@@ -769,7 +788,7 @@
   margin:0;
 }
 
-/* section divider */
+/* ----- section divider ----- */
 
 .news-section-divider{
   margin:22px 0 14px;
@@ -790,7 +809,7 @@
   text-transform:uppercase;
 }
 
-/* archive */
+/* ----- archive list ----- */
 
 .news-archive-list{
   display:flex;
@@ -827,7 +846,7 @@
     0 0 16px rgba(255,184,28,.10);
 }
 
-/* responsive */
+/* ----- responsive ----- */
 
 @media (max-width:1100px){
   .news-summary-grid,
@@ -845,10 +864,6 @@
     grid-template-columns:1fr;
   }
 
-  .news-inline-callout{
-    grid-template-columns:repeat(2, minmax(0,1fr));
-  }
-
   .news-movers-grid,
   .news-quickhits-grid,
   .news-trend-grid{
@@ -860,8 +875,8 @@
   .news-title-emoji{
     width:42px;
     height:42px;
-    font-size:1.8rem;
     flex:0 0 42px;
+    font-size:1.8rem;
   }
 
   .news-author-strip{
