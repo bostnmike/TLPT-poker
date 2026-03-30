@@ -144,82 +144,82 @@
         }
       ],
       "statPills": [
-  {
-    "icon": "💸",
-    "label": "Biggest Profit Jump",
-    "value": "NASA Al"
-  },
-  {
-    "icon": "📈",
-    "label": "Best ROI",
-    "value": "Pat"
-  },
-  {
-    "icon": "🎯",
-    "label": "Most Hits Added",
-    "value": "Mike-G"
-  },
-  {
-    "icon": "📉",
-    "label": "Worst Swing",
-    "value": "ProvidenceMike"
-  }
-],
-"trendUp": [
-  {
-    "icon": "🚀",
-    "name": "NASA Al",
-    "note": "heater",
-    "avatar": "images/players/nasa-al.jpg",
-    "fallback": "NA"
-  },
-  {
-    "icon": "⬆️",
-    "name": "Mike-G",
-    "note": "instant impact",
-    "avatar": "images/players/mike-g.jpg",
-    "fallback": "MG"
-  },
-  {
-    "icon": "🏆",
-    "name": "Pat",
-    "note": "ROI crown",
-    "avatar": "images/players/pat.jpg",
-    "fallback": "PA"
-  }
-],
-"trendDown": [
-  {
-    "icon": "📉",
-    "name": "ProvidenceMike",
-    "note": "rough week",
-    "avatar": "images/players/providencemike.jpg",
-    "fallback": "PM"
-  },
-  {
-    "icon": "🧊",
-    "name": "Hiro",
-    "note": "cold run",
-    "avatar": "images/players/hiro.jpg",
-    "fallback": "HI"
-  },
-  {
-    "icon": "⚠️",
-    "name": "Ahmed",
-    "note": "bubble pain",
-    "avatar": "images/players/ahmed.jpg",
-    "fallback": "AH"
-  }
-],
+        {
+          "icon": "💸",
+          "label": "Biggest Profit Jump",
+          "value": "NASA Al"
+        },
+        {
+          "icon": "📈",
+          "label": "Best ROI",
+          "value": "Pat"
+        },
+        {
+          "icon": "🎯",
+          "label": "Most Hits Added",
+          "value": "Mike-G"
+        },
+        {
+          "icon": "📉",
+          "label": "Worst Swing",
+          "value": "ProvidenceMike"
+        }
+      ],
+      "trendUp": [
+        {
+          "icon": "🚀",
+          "name": "NASA Al",
+          "note": "heater",
+          "avatar": "images/players/nasa-al.jpg",
+          "fallback": "NA"
+        },
+        {
+          "icon": "⬆️",
+          "name": "Mike-G",
+          "note": "instant impact",
+          "avatar": "images/players/mike-g.jpg",
+          "fallback": "MG"
+        },
+        {
+          "icon": "🏆",
+          "name": "Pat",
+          "note": "ROI crown",
+          "avatar": "images/players/pat.jpg",
+          "fallback": "PA"
+        }
+      ],
+      "trendDown": [
+        {
+          "icon": "📉",
+          "name": "ProvidenceMike",
+          "note": "rough week",
+          "avatar": "images/players/providencemike.jpg",
+          "fallback": "PM"
+        },
+        {
+          "icon": "🧊",
+          "name": "Hiro",
+          "note": "cold run",
+          "avatar": "images/players/hiro.jpg",
+          "fallback": "HI"
+        },
+        {
+          "icon": "⚠️",
+          "name": "Ahmed",
+          "note": "bubble pain",
+          "avatar": "images/players/ahmed.jpg",
+          "fallback": "AH"
+        }
+      ],
       "html": "<p>The TLPT site tells you exactly what kind of circus this is: <em>The League. The Players. The Tilt.</em> The homepage promises the stats never forget, the standings page lets you sort the damage in public, and the dashboard functions like an audit conducted by someone who already doesn’t trust you. In other words, this league did not merely have a week. It left evidence.</p><div class=\"news-pull-quote\"><p>“This league did not merely have a week. It left evidence.”</p></div><h4>🎯 The Big Story</h4><p>The biggest story was not at the very top of the profit board, where Li-Fo still sits like a man expecting interest payments. It was one rung below, where NASA Al quietly put together the best established-player heater of the week.</p><p>Profit climbed. Hits climbed. Cashes climbed. It was the kind of performance that doesn’t need chest-thumping because the spreadsheet already did the talking.</p><div class=\"news-receipt-panel\"><div class=\"news-receipt-lead\"><div class=\"news-receipt-top\"><span class=\"player-avatar-wrap\"><img class=\"player-avatar table\" src=\"images/players/nasa-al.jpg\" alt=\"NASA Al\" loading=\"lazy\" decoding=\"async\" onerror=\"this.style.display='none'; this.nextElementSibling.style.display='flex';\" /><span class=\"player-avatar-fallback table\" style=\"display:none;\">NA</span></span><div class=\"news-receipt-copy\"><div class=\"news-receipt-kicker\">Week’s Cleanest Heater</div><div class=\"news-receipt-name\">NASA Al</div></div></div></div><div class=\"news-receipt-pills\"><span class=\"news-receipt-pill\">Profit ↑</span><span class=\"news-receipt-pill\">Hits ↑</span><span class=\"news-receipt-pill\">Cashes ↑</span><span class=\"news-receipt-pill\">Luck Rank ↑</span></div></div><p>Meanwhile, Mike-G showed up like he thought the room had been saving him a seat. Pat treated the ROI board like temporary housing. Kishan stepped in and immediately looked like he understood the assignment better than some returning players.</p><p>And then there was ProvidenceMike, who spent the week serving as a public service announcement. More entries, more pain, less joy. Some men run bad. Some men turn the stat sheet into a witness statement.</p><h4>📈 Movers</h4><div class=\"news-movers-grid\"><div class=\"news-mover-card up\"><div class=\"news-mover-name\">NASA Al</div><p>The cleanest veteran rise on the board. More profit, more hits, more cashes, less nonsense. In a league built on noise, he had the rare useful week.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Mike-G</div><p>Went from blank space to immediate problem. That is not a debut. That is a disruption with a player profile.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Pat</div><p>Barely any volume, maximum efficiency, and now he owns the best ROI mark on the board. That is a very rude way to introduce yourself.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Kishan</div><p>One week, one clean impression, no wasted movement. The statistical version of showing up to a pickup game and immediately being one of the best players there.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">ProvidenceMike</div><p>Took the hardest hit of the week. More entries, less joy, and a profit line that reads like a billing error.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Li-Fo</div><p>Still the profit boss, but the polish took a hit. Still rich, just slightly less smug.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Hiro</div><p>The prime numbers may still be beautiful. The results were not.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Ahmed</div><p>Added a bubble and lost ground. A very specific kind of week: active enough to care, punished enough to regret it.</p></div></div><div class=\"news-pull-quote news-pull-quote-self-roast\"><div class=\"news-pull-quote-row\"><span class=\"player-avatar-wrap\"><img class=\"player-avatar table\" src=\"images/players/bostnmike.jpg\" alt=\"BostnMike\" loading=\"lazy\" decoding=\"async\" onerror=\"this.style.display='none'; this.nextElementSibling.style.display='flex';\" /><span class=\"player-avatar-fallback table\" style=\"display:none;\">BM</span></span><p>BostnMike had the classic commissioner’s paradox: more hits, more cashes, more bubbles, less actual joy. He now owns Most Hits (28) and Most Cashes (12), but his weekly line still came with a $25 profit drop and a slide in ROI and Power. The counting stats say “workhorse.” The efficiency stats say “maybe sit down for a minute.”</p></div></div><h4>🔢 Numbers That Matter</h4><ul><li><strong>+$135:</strong> NASA Al’s profit swing, the strongest real heater among returning regulars.</li><li><strong>233.3% ROI:</strong> Pat now owns the top ROI mark, which is either elite efficiency or elite timing.</li><li><strong>Mike-G:</strong> one week in and already statistically louder than half the room.</li><li><strong>ProvidenceMike:</strong> the week’s cleanest example that volume and happiness are not the same thing.</li></ul><h4>🎉 Welcome to the League</h4><p>Mike-G, Pat, and Kishan did not arrive quietly. Mike-G kicked the door open, Pat stole shelf space on the records board, and Kishan delivered the kind of efficient debut that makes regulars suddenly interested in sample-size lectures.</p><p>Which is exactly what new blood should do. Nobody joins TLPT to blend into the wallpaper.</p><div class=\"news-pull-quote\"><p>“Nobody joins TLPT to blend into the wallpaper.”</p></div><h4>🔥 Quick Hits</h4><div class=\"news-quickhits-grid\"><ul><li>Mike-G needed one week to become everybody else’s problem.</li><li>Pat took the ROI record like he was picking up dry cleaning.</li><li>Kishan did not need an orientation period.</li><li>NASA Al looked like the only man operating with a flight plan.</li><li>ProvidenceMike is now on a payment plan with variance.</li></ul><ul><li>BostnMike broke records and still made the week feel expensive.</li><li>Li-Fo remains the king, just with a little less shine on the crown.</li><li>Red somehow lost money and still left fingerprints everywhere.</li><li>Hiro’s upside remained mostly theoretical.</li><li>Nitro continues to honor the low-profit arts.</li></ul></div><div class=\"news-section-divider\"><span>The Spreadsheet’s Final Word</span></div><h4>🎬 Closing</h4><p>That was TLPT in a nutshell: a veteran heater, a few statistical body blows, and three newcomers who immediately made the room less comfortable. The stats never forget. This week, they also didn’t forgive.</p>"
-  },
-   {
-  "id": "week-03-14-2026",
-  "date": "03/14/2026",
-  "title": "The Week That Was",
-  "featured": false,
-  "dek": "Li-Fo tightened his grip on the board, Chris O found daylight in a hurry, and Vish turned volume into sorrow.",
-      "html": "PASTE THE MARCH 14 ARTICLE HTML HERE"
+    },
+    {
+      "id": "week-03-14-2026",
+      "date": "03/14/2026",
+      "title": "The Week That Was",
+      "featured": false,
+      "dek": "Li-Fo tightened his grip on the board, Chris O found daylight in a hurry, and Vish turned volume into sorrow.",
+      "html": "<p>The room did not get new blood that week. It got something worse: confirmation. Li-Fo was already sitting on top of the profit board, but by March 14 the rest of the honors page started looking like it had quietly been transferred into his name. That is not a heater anymore. That is a hostile takeover.</p><div class=\"news-pull-quote\"><p>“By March 14, the honors page was starting to look less like a leaderboard and more like leased property.”</p></div><h4>🎯 The Big Story</h4><p>The cleanest story of the week was Li-Fo turning a strong position into full board control. Profit Leader was already his. By March 14, he had also taken Power Leader and Hit King, while the records page showed him sitting on Highest Profit, Most Hits, Most Cashes, Top True Skill, and Best Luck Index. At that point you are not just running well. You are collecting deeds.</p><p>It is also the kind of week that makes everyone else at the table start speaking in disclaimers. Small sample. Seat draw. Structure variance. Sure. Meanwhile the board still says Li-Fo, and the board is rarely interested in anyone’s emotional testimony.</p><div class=\"news-receipt-panel\"><div class=\"news-receipt-lead\"><div class=\"news-receipt-top\"><span class=\"player-avatar-wrap\"><img class=\"player-avatar table\" src=\"images/players/lifo.jpg\" alt=\"Li-Fo\" loading=\"lazy\" decoding=\"async\" onerror=\"this.style.display='none'; this.nextElementSibling.style.display='flex';\" /><span class=\"player-avatar-fallback table\" style=\"display:none;\">LF</span></span><div class=\"news-receipt-copy\"><div class=\"news-receipt-kicker\">Week’s Biggest Board Grab</div><div class=\"news-receipt-name\">Li-Fo</div></div></div></div><div class=\"news-receipt-pills\"><span class=\"news-receipt-pill\">Profit Leader</span><span class=\"news-receipt-pill\">Power Leader</span><span class=\"news-receipt-pill\">Hit King</span><span class=\"news-receipt-pill\">Records Piling Up</span></div></div><p>That does not mean Li-Fo was the only one making noise. Chris O posted the week’s cleanest upward jolt, turning a red ledger into a black one in a hurry. A.l. Dave also found his way back above water, which is always encouraging for a man whose entire poker existence often feels one card away from a software warning.</p><p>And then there was Vish, who once again demonstrated that volume and happiness remain entirely separate categories. There are players who grind. There are players who donate. And then there are weeks where a player manages to look like both at once.</p><h4>📈 Movers</h4><div class=\"news-movers-grid\"><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Chris O</div><p>The week’s loudest clean heater. He went from -$85 to $100, added hits, added a cash, and generally behaved like a man who finally found the right end of the deck.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">A.l. Dave</div><p>Moved from -$15 to $25 and quietly pushed the profile back into respectable territory. Not a parade, but definitely a pulse.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Li-Fo</div><p>Already rich, now somehow also collecting titles. If the board had wallpaper, his face would probably be on that too.</p></div><div class=\"news-mover-card up\"><div class=\"news-mover-name\">Cougar</div><p>Not the flashiest week, but still the kind of steady line that makes other people annoyingly aware he keeps cashing while they keep explaining themselves.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Vish</div><p>The best example of volume turning into sorrow. More action, more exposure, and the kind of profit line that reads like an apology drafted by an accountant.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Jeff T</div><p>Another week deeper in the hole, which is impressive in the wrong way and consistent in the least comforting one.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Vic</div><p>Five entries and enough bubble pain to make the week feel longer than the calendar claims it was.</p></div><div class=\"news-mover-card down\"><div class=\"news-mover-name\">Nitro</div><p>Still holding down the wrong end of the records board. There is loyalty, and then there is whatever this is.</p></div></div><div class=\"news-pull-quote news-pull-quote-self-roast\"><div class=\"news-pull-quote-row\"><span class=\"player-avatar-wrap\"><img class=\"player-avatar table\" src=\"images/players/bostnmike.jpg\" alt=\"BostnMike\" loading=\"lazy\" decoding=\"async\" onerror=\"this.style.display='none'; this.nextElementSibling.style.display='flex';\" /><span class=\"player-avatar-fallback table\" style=\"display:none;\">BM</span></span><p>BostnMike did not lose the Bubble King belt, which is the sort of accomplishment that sounds a lot better until you remember what the award actually means.</p></div></div><h4>🔢 Numbers That Matter</h4><ul><li><strong>Li-Fo:</strong> Power Leader and Hit King by March 14, while still sitting on the profit throne.</li><li><strong>Chris O:</strong> from -$85 to $100, the week’s cleanest profit surge among eligible regulars.</li><li><strong>A.l. Dave:</strong> from -$15 to $25, which is not domination but is absolutely a healthier direction.</li><li><strong>Vish:</strong> the clearest reminder that more entries do not automatically qualify as progress.</li></ul><h4>🔥 Quick Hits</h4><div class=\"news-quickhits-grid\"><ul><li>Li-Fo did not just hold ground. He started annexing zip codes.</li><li>Chris O found $185 worth of clarity in a week, which is more than most people find in a fiscal quarter.</li><li>A.l. Dave got back into the black, proving that even chaos can occasionally balance a checkbook.</li><li>Cougar keeps cashing with the kind of steady irritation that should probably be studied.</li><li>Nitro remains loyal to the low-profit arts.</li></ul><ul><li>Vish once again made the case that action is not the same thing as joy.</li><li>Jeff T is building a résumé for hard-luck minutes nobody asked to review.</li><li>Vic’s bubbles were not decorative.</li><li>BostnMike still owned Bubble King, which is the poker equivalent of being employee of the month at the wrong factory.</li><li>By March 14, the honors page looked like Li-Fo had changed the locks.</li></ul></div><div class=\"news-section-divider\"><span>The Spreadsheet’s Final Word</span></div><h4>🎬 Closing</h4><p>So that was March 14: no new arrivals, no novelty act, just the old reliable cruelty of the numbers. Li-Fo tightened his grip, Chris O surged, A.l. Dave looked alive, and Vish provided the week’s cleanest case study in why volume should come with a warning label. The page remembers everything. That week, it remembered who owned the building.</p>"
     }
   ]
 }
