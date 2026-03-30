@@ -864,6 +864,11 @@
 
 .news-quickhits-grid ul{
   margin:0;
+  padding-left:18px;
+}
+
+.news-quickhits-grid li{
+  padding-left:2px;
 }
 
 /* ----- section divider ----- */
