@@ -25,20 +25,7 @@ async function renderNewsPage() {
 
     const weeks = Array.isArray(data.weeks) ? data.weeks : [];
     if (!weeks.length) {
-      blogFeed.innerHTML = `
-        <article class="news-post-card news-post-featured">
-          <div class="news-post-meta">
-            <div class="news-post-kicker">The Week That Was</div>
-            <div class="news-post-dateline">No entries yet</div>
-          </div>
-          <h3 class="news-post-title">No News Yet</h3>
-          <p class="news-post-dek">Add your first week object to news-data.json.</p>
-        </article>
-      `;
-      if (summaryGrid) summaryGrid.innerHTML = '';
-      if (statbarShell) statbarShell.innerHTML = '';
-      if (trendShell) trendShell.innerHTML = '';
-      if (archiveList) archiveList.innerHTML = '';
+      renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archiveList);
       return;
     }
 
@@ -51,49 +38,42 @@ async function renderNewsPage() {
     renderArchiveList(weeks, archiveList);
   } catch (error) {
     console.error('Error rendering news page:', error);
-    blogFeed.innerHTML = `
-      <article class="news-post-card news-post-featured">
-        <div class="news-post-meta">
-          <div class="news-post-kicker">The Week That Was</div>
-          <div class="news-post-dateline">Load error</div>
-        </div>
-        <h3 class="news-post-title">Couldn’t Load News</h3>
-        <p class="news-post-dek">Check news-data.json and try again.</p>
-      </article>
-    `;
+    renderErrorState(blogFeed, summaryGrid, statbarShell, trendShell, archiveList);
   }
 }
 
 function renderPageMeta(page, pageTitle, pageEmoji, pageKicker, introNote) {
-  if (!page) return;
+  const safePage = page || {};
 
-  if (pageTitle) pageTitle.textContent = page.title || 'The Week That Was';
-  if (pageEmoji) pageEmoji.textContent = page.emoji || '🧑🏻‍💻';
-  if (pageKicker) pageKicker.textContent = page.kicker || '';
+  if (pageTitle) pageTitle.textContent = safePage.title || 'The Week That Was';
+  if (pageEmoji) pageEmoji.textContent = safePage.emoji || '🧑🏻‍💻';
+  if (pageKicker) pageKicker.textContent = safePage.kicker || '';
   if (introNote) {
-    introNote.innerHTML = page.introNote ? `<p>${page.introNote}</p>` : '';
+    introNote.innerHTML = safePage.introNote ? `<p>${escapeHtml(safePage.introNote)}</p>` : '';
   }
 }
 
 function renderAuthor(author, container) {
-  if (!container || !author) return;
+  if (!container) return;
+
+  const safeAuthor = author || {};
 
   container.innerHTML = `
     <div class="news-author-strip">
       <div class="news-author-avatar-wrap">
         ${renderAvatar({
-          src: author.avatar,
-          alt: author.name,
-          fallback: author.fallback || getInitials(author.name)
+          src: safeAuthor.avatar || '',
+          alt: safeAuthor.name || 'BostnMike',
+          fallback: safeAuthor.fallback || getInitials(safeAuthor.name || 'BostnMike')
         })}
       </div>
 
       <div class="news-author-copy">
         <div class="news-author-title-stack">
-          <p class="news-author-kicker">${escapeHtml(author.role || 'Weekly Columnist')}</p>
-          <h3 class="news-author-name">By ${escapeHtml(author.name || 'BostnMike')}</h3>
+          <p class="news-author-kicker">${escapeHtml(safeAuthor.role || 'Weekly Columnist')}</p>
+          <h3 class="news-author-name">By ${escapeHtml(safeAuthor.name || 'BostnMike')}</h3>
         </div>
-        <p class="news-author-blurb">${escapeHtml(author.blurb || '')}</p>
+        <p class="news-author-blurb">${escapeHtml(safeAuthor.blurb || '')}</p>
       </div>
     </div>
   `;
@@ -101,6 +81,7 @@ function renderAuthor(author, container) {
 
 function renderSummaryCards(cards, container) {
   if (!container) return;
+
   if (!Array.isArray(cards) || !cards.length) {
     container.innerHTML = '';
     return;
@@ -110,15 +91,16 @@ function renderSummaryCards(cards, container) {
 }
 
 function renderSummaryCard(card) {
-  const tone = card.tone || 'blue';
-  const label = escapeHtml(card.label || '');
-  const player = escapeHtml(card.player || '');
-  const value = escapeHtml(card.value || '');
-  const copy = escapeHtml(card.copy || '');
+  const tone = escapeHtml(card?.tone || 'blue');
+  const label = escapeHtml(card?.label || '');
+  const player = escapeHtml(card?.player || '');
+  const value = escapeHtml(card?.value || '');
+  const copy = escapeHtml(card?.copy || '');
 
   let headHtml = '';
 
-  if (Array.isArray(card.avatars) && card.avatars.length > 1) {
+  // multi-avatar card (e.g. New Blood with multiple players)
+  if (Array.isArray(card?.avatars) && card.avatars.length > 1) {
     headHtml = `
       <div class="news-summary-head news-summary-head-multi">
         <div class="news-summary-avatar-row">
@@ -130,12 +112,14 @@ function renderSummaryCard(card) {
         </div>
       </div>
     `;
-  } else if (card.avatar) {
+  }
+  // single-avatar card
+  else if (card?.avatar) {
     headHtml = `
       <div class="news-summary-head">
         ${renderAvatar({
           src: card.avatar,
-          alt: card.player,
+          alt: card.player || '',
           fallback: card.fallback || getInitials(card.player || '')
         })}
         <div class="news-summary-head-copy">
@@ -144,15 +128,19 @@ function renderSummaryCard(card) {
         </div>
       </div>
     `;
-  } else {
+  }
+  // text-only flex card
+  else {
     headHtml = `
-      <div class="news-summary-player">${player}</div>
-      <div class="news-summary-value">${value}</div>
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">${player}</div>
+        <div class="news-summary-value">${value}</div>
+      </div>
     `;
   }
 
   return `
-    <article class="news-summary-card news-summary-card-${escapeHtml(tone)}">
+    <article class="news-summary-card news-summary-card-${tone}">
       <div class="news-summary-label">${label}</div>
       ${headHtml}
       <p class="news-summary-copy">${copy}</p>
@@ -162,6 +150,7 @@ function renderSummaryCard(card) {
 
 function renderStatPills(items, container) {
   if (!container) return;
+
   if (!Array.isArray(items) || !items.length) {
     container.innerHTML = '';
     return;
@@ -174,8 +163,8 @@ function renderStatPills(items, container) {
           .map(
             (item) => `
               <div class="news-stat-pill">
-                <span>${escapeHtml(item.label || '')}</span>
-                <strong>${escapeHtml(item.value || '')}</strong>
+                <span>${escapeHtml(item?.label || '')}</span>
+                <strong>${escapeHtml(item?.value || '')}</strong>
               </div>
             `
           )
@@ -187,7 +176,11 @@ function renderStatPills(items, container) {
 
 function renderTrendStrip(up, down, container) {
   if (!container) return;
-  if ((!Array.isArray(up) || !up.length) && (!Array.isArray(down) || !down.length)) {
+
+  const upList = Array.isArray(up) ? up : [];
+  const downList = Array.isArray(down) ? down : [];
+
+  if (!upList.length && !downList.length) {
     container.innerHTML = '';
     return;
   }
@@ -197,12 +190,12 @@ function renderTrendStrip(up, down, container) {
       <div class="news-trend-grid">
         <div class="news-trend-col up">
           <h3>Trending Up</h3>
-          ${(up || []).map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
+          ${upList.map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
         </div>
 
         <div class="news-trend-col down">
           <h3>Trending Down</h3>
-          ${(down || []).map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
+          ${downList.map((name) => `<div>${escapeHtml(name)}</div>`).join('')}
         </div>
       </div>
     </section>
@@ -210,19 +203,19 @@ function renderTrendStrip(up, down, container) {
 }
 
 function renderWeeks(weeks, container) {
-  container.innerHTML = weeks.map((week, index) => renderWeek(week, index === 0)).join('');
+  container.innerHTML = weeks.map((week, index) => renderWeek(week, index)).join('');
 }
 
-function renderWeek(week, isLatest) {
-  const id = escapeHtml(week.id || '');
-  const date = escapeHtml(week.date || '');
-  const title = escapeHtml(week.title || 'The Week That Was');
-  const dek = escapeHtml(week.dek || '');
-  const featuredClass = week.featured || isLatest ? ' news-post-featured' : '';
-  const html = typeof week.html === 'string' ? week.html : '';
+function renderWeek(week, index) {
+  const isFeatured = week?.featured === true || index === 0;
+  const id = escapeHtml(week?.id || `week-${index}`);
+  const date = escapeHtml(week?.date || '');
+  const title = escapeHtml(week?.title || 'The Week That Was');
+  const dek = escapeHtml(week?.dek || '');
+  const bodyHtml = typeof week?.html === 'string' ? week.html : '';
 
   return `
-    <article id="${id}" class="news-post-card${featuredClass}">
+    <article id="${id}" class="news-post-card${isFeatured ? ' news-post-featured' : ''}">
       <div class="news-post-meta">
         <div class="news-post-kicker">The Week That Was</div>
         <div class="news-post-dateline">Date Line: ${date}</div>
@@ -232,7 +225,7 @@ function renderWeek(week, isLatest) {
       <p class="news-post-dek">${dek}</p>
 
       <div class="news-post-body">
-        ${html}
+        ${bodyHtml}
       </div>
     </article>
   `;
@@ -244,17 +237,19 @@ function renderArchiveList(weeks, container) {
   container.innerHTML = weeks
     .map((week, index) => {
       const activeClass = index === 0 ? ' is-active' : '';
-      return `<a class="news-archive-link${activeClass}" href="#${escapeHtml(week.id || '')}">${escapeHtml(
-        week.date || ''
-      )}</a>`;
+      return `
+        <a class="news-archive-link${activeClass}" href="#${escapeHtml(week?.id || '')}">
+          ${escapeHtml(week?.date || '')}
+        </a>
+      `;
     })
     .join('');
 }
 
 function renderAvatar(avatar) {
-  const src = escapeHtml(avatar.src || '');
-  const alt = escapeHtml(avatar.alt || '');
-  const fallback = escapeHtml(avatar.fallback || getInitials(avatar.alt || ''));
+  const src = escapeHtml(avatar?.src || '');
+  const alt = escapeHtml(avatar?.alt || '');
+  const fallback = escapeHtml(avatar?.fallback || getInitials(avatar?.alt || ''));
 
   return `
     <span class="player-avatar-wrap">
@@ -271,8 +266,49 @@ function renderAvatar(avatar) {
   `;
 }
 
+function renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archiveList) {
+  if (summaryGrid) summaryGrid.innerHTML = '';
+  if (statbarShell) statbarShell.innerHTML = '';
+  if (trendShell) trendShell.innerHTML = '';
+
+  if (blogFeed) {
+    blogFeed.innerHTML = `
+      <article class="news-post-card news-post-featured">
+        <div class="news-post-meta">
+          <div class="news-post-kicker">The Week That Was</div>
+          <div class="news-post-dateline">No entries yet</div>
+        </div>
+        <h3 class="news-post-title">No News Yet</h3>
+        <p class="news-post-dek">Add your first week object to news-data.json.</p>
+      </article>
+    `;
+  }
+
+  if (archiveList) archiveList.innerHTML = '';
+}
+
+function renderErrorState(blogFeed, summaryGrid, statbarShell, trendShell, archiveList) {
+  if (summaryGrid) summaryGrid.innerHTML = '';
+  if (statbarShell) statbarShell.innerHTML = '';
+  if (trendShell) trendShell.innerHTML = '';
+  if (archiveList) archiveList.innerHTML = '';
+
+  if (blogFeed) {
+    blogFeed.innerHTML = `
+      <article class="news-post-card news-post-featured">
+        <div class="news-post-meta">
+          <div class="news-post-kicker">The Week That Was</div>
+          <div class="news-post-dateline">Load error</div>
+        </div>
+        <h3 class="news-post-title">Couldn’t Load News</h3>
+        <p class="news-post-dek">Check news-data.json and try again.</p>
+      </article>
+    `;
+  }
+}
+
 function getInitials(name) {
-  return String(name)
+  return String(name || '')
     .trim()
     .split(/\s+/)
     .slice(0, 2)
