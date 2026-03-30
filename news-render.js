@@ -210,6 +210,16 @@ function renderTrendStrip(up, down, container) {
 }
 
 function renderTrendItem(item) {
+  if (typeof item === 'string') {
+    return `
+      <div class="news-trend-item">
+        <div class="news-trend-item-copy">
+          <div class="news-trend-item-name">${escapeHtml(item)}</div>
+        </div>
+      </div>
+    `;
+  }
+
   const icon = item?.icon
     ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
     : '';
