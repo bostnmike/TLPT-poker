@@ -163,12 +163,87 @@ function renderStatPills(items, container) {
           .map(
             (item) => `
               <div class="news-stat-pill">
-                <span>${escapeHtml(item?.label || '')}</span>
+                <div class="news-stat-pill-top">
+                  ${
+                    item?.icon
+                      ? `<span class="news-stat-pill-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
+                      : ''
+                  }
+                  <span>${escapeHtml(item?.label || '')}</span>
+                </div>
                 <strong>${escapeHtml(item?.value || '')}</strong>
               </div>
             `
           )
           .join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderTrendStrip(up, down, container) {
+  if (!container) return;
+
+  const upList = Array.isArray(up) ? up : [];
+  const downList = Array.isArray(down) ? down : [];
+
+  if (!upList.length && !downList.length) {
+    container.innerHTML = '';
+    return;
+  }
+
+  container.innerHTML = `
+    <section class="section news-trend-shell">
+      <div class="news-trend-grid">
+        <div class="news-trend-col up">
+          <h3>Trending Up</h3>
+          ${upList
+            .map(
+              (item) => `
+                <div class="news-trend-item">
+                  ${
+                    item?.icon
+                      ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
+                      : ''
+                  }
+                  <div class="news-trend-item-copy">
+                    <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
+                    ${
+                      item?.note
+                        ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
+                        : ''
+                    }
+                  </div>
+                </div>
+              `
+            )
+            .join('')}
+        </div>
+
+        <div class="news-trend-col down">
+          <h3>Trending Down</h3>
+          ${downList
+            .map(
+              (item) => `
+                <div class="news-trend-item">
+                  ${
+                    item?.icon
+                      ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
+                      : ''
+                  }
+                  <div class="news-trend-item-copy">
+                    <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
+                    ${
+                      item?.note
+                        ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
+                        : ''
+                    }
+                  </div>
+                </div>
+              `
+            )
+            .join('')}
+        </div>
       </div>
     </section>
   `;
