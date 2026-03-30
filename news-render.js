@@ -294,9 +294,12 @@ function renderWeek(week, index, isFeatured) {
 function renderArchiveList(weeks, container) {
   if (!container) return;
 
+  const explicitFeaturedIndex = weeks.findIndex((week) => week?.featured === true);
+  const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
+
   container.innerHTML = weeks
     .map((week, index) => {
-      const activeClass = index === 0 ? ' is-active' : '';
+      const activeClass = index === featuredIndex ? ' is-active' : '';
       return `
         <a class="news-archive-link${activeClass}" href="#${escapeHtml(week?.id || '')}">
           ${escapeHtml(week?.date || '')}
