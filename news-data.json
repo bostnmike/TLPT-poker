@@ -449,13 +449,18 @@
   "featured": false,
   "dek": "Nobody left with the whole crown because the night ended in a three-way split, which was somehow the most fitting possible ending for a table that could not pick a single hero.",
   "summaryCards": [
-    {
-      "tone": "green",
-      "label": "🎬 Main Story",
-      "player": "Three-Way Chop",
-      "value": "No solo winner",
-      "copy": "Cougar, NASA Al, and Providencemike all finished first."
-    },
+   {
+  "tone": "green",
+  "label": "🎬 Main Story",
+  "player": "Cougar / NASA Al / Providencemike",
+  "value": "Three-way chop",
+  "copy": "Nobody took full control, so three players split first.",
+  "avatars": [
+    { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
+    { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
+    { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
+  ]
+}
     {
       "tone": "red",
       "label": "🪓 Table Killers",
@@ -498,12 +503,16 @@
     "firstPermanentOut": "Hiro"
   },
   "spotlight": {
-    "player": "Three-Way Chop",
-    "avatar": "",
-    "fallback": "3W",
-    "kicker": "Game Spotlight",
-    "pills": ["Three-Way Split", "No Solo Winner", "Shared Ending", "Oddball Finish"]
-  },
+  "player": "Cougar / NASA Al / Providencemike",
+  "fallback": "3W",
+  "kicker": "Game Spotlight",
+  "pills": ["Three-Way Split", "No Solo Winner", "Shared Ending", "Oddball Finish"],
+  "avatars": [
+    { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
+    { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
+    { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
+  ]
+}
   "feltSaid": [
     {
       "label": "First Blood",
