@@ -460,7 +460,7 @@
     { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
     { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
   ]
-}
+},
     {
       "tone": "red",
       "label": "🪓 Table Killers",
@@ -512,7 +512,7 @@
     { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
     { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
   ]
-}
+},
   "feltSaid": [
     {
       "label": "First Blood",
@@ -673,12 +673,16 @@
   "dek": "The Roast Edition lived up to the title: Red got bounced first and first for good, Li-Fo made the weirdest final table, and the whole night ended in a split nobody could have scripted cleanly.",
   "summaryCards": [
     {
-      "tone": "green",
-      "label": "🎬 Main Story",
-      "player": "Ahmed & BostnMike",
-      "value": "Split first",
-      "copy": "A bizarre ending turned the top payout into shared custody."
-    },
+  "tone": "green",
+  "label": "🎬 Main Story",
+  "player": "Ahmed / BostnMike",
+  "value": "Split first",
+  "copy": "A bizarre ending turned the top payout into shared custody.",
+  "avatars": [
+    { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+  ]
+},
     {
       "tone": "red",
       "label": "🪓 Table Killer",
@@ -721,12 +725,15 @@
     "firstPermanentOut": "Red"
   },
   "spotlight": {
-    "player": "Split Finish",
-    "avatar": "",
-    "fallback": "SF",
-    "kicker": "Game Spotlight",
-    "pills": ["Split First", "Roast Edition", "Messy Ending", "Nobody Stayed Safe"]
-  },
+  "player": "Ahmed / BostnMike",
+  "fallback": "SF",
+  "kicker": "Game Spotlight",
+  "pills": ["Split First", "Roast Edition", "Messy Ending", "Nobody Stayed Safe"],
+  "avatars": [
+    { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+  ]
+},
   "feltSaid": [
     {
       "label": "First Blood",
@@ -994,12 +1001,16 @@
   "dek": "The Pats-fan warning turned into a split finish, with BostnMike and Wild Bill sharing first after the table ran out of clean ways to separate them.",
   "summaryCards": [
     {
-      "tone": "green",
-      "label": "🎬 Main Story",
-      "player": "BostnMike & Wild Bill",
-      "value": "Split first",
-      "copy": "A short January game ended with shared custody at the top."
-    },
+  "tone": "green",
+  "label": "🎬 Main Story",
+  "player": "BostnMike / Wild Bill",
+  "value": "Split first",
+  "copy": "A short January game ended with shared custody at the top.",
+  "avatars": [
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+    { "src": "images/players/wild-bill.jpg", "alt": "Wild Bill", "fallback": "WB" }
+  ]
+},
     {
       "tone": "red",
       "label": "🪓 Table Killer",
@@ -1042,12 +1053,15 @@
     "firstPermanentOut": "Red"
   },
   "spotlight": {
-    "player": "Split Finish",
-    "avatar": "",
-    "fallback": "SF",
-    "kicker": "Game Spotlight",
-    "pills": ["Split First", "Two-Way Finish", "Shared Top Spot", "Short-Field Endgame"]
-  },
+  "player": "BostnMike / Wild Bill",
+  "fallback": "SF",
+  "kicker": "Game Spotlight",
+  "pills": ["Split First", "Two-Way Finish", "Shared Top Spot", "Short-Field Endgame"],
+  "avatars": [
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+    { "src": "images/players/wild-bill.jpg", "alt": "Wild Bill", "fallback": "WB" }
+  ]
+},
   "feltSaid": [
     {
       "label": "First Blood",
@@ -1101,12 +1115,16 @@
   "dek": "A tiny six-player field stretched all day, then ended with Red and BostnMike sharing the top after Nitro briefly threatened to steal the whole thing.",
   "summaryCards": [
     {
-      "tone": "green",
-      "label": "🎬 Main Story",
-      "player": "BostnMike & Red",
-      "value": "Split first",
-      "copy": "A long, weird six-player day ended in a two-way chop."
-    },
+  "tone": "green",
+  "label": "🎬 Main Story",
+  "player": "BostnMike / Red",
+  "value": "Split first",
+  "copy": "A long, weird six-player day ended in a two-way chop.",
+  "avatars": [
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+    { "src": "images/players/red.jpg", "alt": "Red", "fallback": "RE" }
+  ]
+},
     {
       "tone": "red",
       "label": "🪓 Table Killer",
@@ -1149,12 +1167,15 @@
     "firstPermanentOut": "Hayden D"
   },
   "spotlight": {
-    "player": "Split Finish",
-    "avatar": "",
-    "fallback": "SF",
-    "kicker": "Game Spotlight",
-    "pills": ["Split First", "9h+ Session", "Tiny Field", "Long-Day Chop"]
-  },
+  "player": "BostnMike / Red",
+  "fallback": "SF",
+  "kicker": "Game Spotlight",
+  "pills": ["Split First", "Long-Day Chop", "Tiny Field", "Two-Way Finish"],
+  "avatars": [
+    { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+    { "src": "images/players/red.jpg", "alt": "Red", "fallback": "RE" }
+  ]
+},
   "feltSaid": [
     {
       "label": "First Blood",
