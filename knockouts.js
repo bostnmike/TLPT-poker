@@ -147,47 +147,47 @@
 
     const html = [];
 
-    html.push(renderStatCard({
-      label: "Most Total Knock-Outs",
-      player: mostKnockouts ? safePlayer(playerMap, mostKnockouts.slug) : null,
-      value: mostKnockouts ? `${mostKnockouts.total}` : "—",
-      subtext: mostKnockouts ? `${mostKnockouts.uniqueVictims} unique victims` : ""
-    }));
+html.push(renderStatCard({
+  label: "Most Total Knock-Outs",
+  player: mostKnockouts ? safePlayer(playerMap, mostKnockouts.slug) : null,
+  value: mostKnockouts ? `${mostKnockouts.total}` : "—",
+  subtext: ""
+}));
 
-    html.push(renderStatCard({
-      label: "Most Times Busted",
-      player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
-      value: mostBusted ? `${mostBusted.total}` : "—",
-      subtext: mostBusted ? `keeps finding the rail` : ""
-    }));
+html.push(renderStatCard({
+  label: "Most Times Busted",
+  player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
+  value: mostBusted ? `${mostBusted.total}` : "—",
+  subtext: ""
+}));
 
-    if (biggestBully) {
-      const killer = safePlayer(playerMap, biggestBully.killerSlug);
-      const victim = safePlayer(playerMap, biggestBully.victimSlug);
+if (biggestBully) {
+  const killer = safePlayer(playerMap, biggestBully.killerSlug);
+  const victim = safePlayer(playerMap, biggestBully.victimSlug);
 
-      html.push(renderStatCard({
-        label: "Biggest Bully",
-        player: killer,
-        value: `${biggestBully.count}`,
-        subtext: victim ? `vs ${victim.name}` : ""
-      }));
-    } else {
-      html.push(renderStatCard({
-        label: "Biggest Bully",
-        player: null,
-        value: "—",
-        subtext: ""
-      }));
-    }
+  html.push(renderStatCard({
+    label: "Biggest Bully",
+    player: killer,
+    value: `${biggestBully.count} vs ${victim?.name || biggestBully.victimSlug}`,
+    subtext: ""
+  }));
+} else {
+  html.push(renderStatCard({
+    label: "Biggest Bully",
+    player: null,
+    value: "—",
+    subtext: ""
+  }));
+}
 
-    if (mostUniqueVictims) {
+if (mostUniqueVictims) {
   const killer = safePlayer(playerMap, mostUniqueVictims.slug);
 
   html.push(renderStatCard({
     label: "Most Unique Victims",
     player: killer,
     value: `${mostUniqueVictims.uniqueVictims}`,
-    subtext: `${mostUniqueVictims.total} total knock-outs`
+    subtext: ""
   }));
 } else {
   html.push(renderStatCard({
