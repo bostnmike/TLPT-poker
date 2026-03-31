@@ -98,7 +98,7 @@
       return `
         <div class="player-nemesis-card">
           <div class="player-nemesis-head">
-            <h3>☠️ Table Nemesis</h3>
+            <h3>🥊 Meet Your Table Nemesis</h3>
             <p class="muted">The player who’s bounced you most often.</p>
           </div>
 
@@ -126,7 +126,7 @@
 
           <div class="player-nemesis-copy">
             <div class="player-nemesis-name">${displayName}</div>
-            <div class="player-nemesis-count">${top.count} ${top.count === 1 ? "bust-out" : "bust-outs"}</div>
+            <div class="player-nemesis-count">${top.count} ${top.count === 1 ? "Knock-Out" : "Knock-Outs"}</div>
           </div>
         </div>
       </div>
@@ -165,15 +165,10 @@
             const displayName = victim?.name || slug;
 
             return `
-              <div class="player-body-count-row">
-                <div class="player-body-count-player">
-                  ${avatarMarkup(victim, "knockout-avatar-sm")}
-                  <span class="player-body-count-name">${displayName}</span>
-                </div>
-
-                <div class="player-body-count-number">
-                  ${count}
-                </div>
+              <div class="player-body-count-tile">
+                ${avatarMarkup(victim, "knockout-avatar-sm")}
+                <div class="player-body-count-tile-name">${displayName}</div>
+                <div class="player-body-count-tile-number">${count}</div>
               </div>
             `;
           }).join("")}
