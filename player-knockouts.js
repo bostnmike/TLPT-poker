@@ -144,7 +144,7 @@ function nemesisMarkup(currentPlayer, byVictim, playerMap) {
       <div class="player-body-count-card">
         <div class="player-body-count-head">
           <h3>💀 Your Body Count 0</h3>
-          <p class="muted">Everybody you’ve sent to the rail.</p>
+          <p class="muted">Everybody you’ve sent to the rail, and just how often you are making it a habit.</p>
         </div>
 
         <div class="player-body-count-empty muted">
