@@ -1,110 +1,125 @@
 {
-  "id": "week-03-28-2026",
-  "date": "03/28/2026",
-  "eventName": "March Sadness Part II | 9-Max",
-  "title": "TWTW: March Sadness Part II | 9-Max",
-  "featured": true,
-  "dek": "NASA Al won the night, Red turned into the table wrecking ball, and March Sadness closed with a much messier sequel than the title even promised.",
-  "summaryCards": [
-    {
-      "tone": "green",
-      "label": "🎬 Main Story",
-      "player": "NASA Al",
-      "value": "Winner",
-      "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night."
-    },
-    {
-      "tone": "red",
-      "label": "🪓 Table Killer",
-      "player": "Red",
-      "value": "5 knockouts",
-      "copy": "Stacked the body count even without winning the whole thing."
-    },
-    {
-      "tone": "purple",
-      "label": "♻️ Rebuy Pressure",
-      "player": "4 rebuys",
-      "value": "11 total entries",
-      "copy": "A seven-player field turned into a longer, meaner March sequel."
-    },
-    {
-      "tone": "blue",
-      "label": "⏱️ Session Shape",
-      "player": "4h 15m",
-      "value": "$330 pot",
-      "copy": "From 7:17 pm to 11:32 pm with three paid spots."
-    }
-  ],
-  "statPills": [
-    { "icon": "🎟️", "label": "Total Entries", "value": "11" },
-    { "icon": "♻️", "label": "Rebuys", "value": "4" },
-    { "icon": "💰", "label": "Prize Pool", "value": "$330" },
-    { "icon": "⏱️", "label": "Play Time", "value": "4h 15m" }
-  ],
-  "summary": {
-    "startTime": "7:17:25 pm 03/28/2026",
-    "endTime": "11:32:12 pm 03/28/2026",
-    "durationLabel": "4h 15m",
-    "buyIns": 7,
-    "rebuys": 4,
-    "entries": 11,
-    "totalPot": 330,
-    "paidSpots": 3,
-    "winner": "Nasa Al",
-    "firstOut": "Hiro, Li-Fo",
-    "firstPermanentOut": "Providencemike"
+  "page": {
+    "title": "The Week That Was",
+    "emoji": "🧑🏻‍💻",
+    "kicker": "Game stories, receipts, and table-level chaos.",
+    "introNote": "A running archive of what actually happened on the felt — not just what the standings said later."
   },
-  "spotlight": {
-    "player": "NASA Al",
-    "avatar": "images/players/nasa-al.jpg",
-    "fallback": "NA",
-    "kicker": "Game Spotlight",
-    "pills": ["Winner", "Closer", "4 Knockouts", "Last Hand, Last Word"]
+  "author": {
+    "name": "BostnMike",
+    "role": "Weekly Columnist",
+    "avatar": "images/players/bostnmike.jpg",
+    "fallback": "BM",
+    "blurb": "A lightly biased narrator of rebuys, bad timing, final-table nonsense, and whatever the felt decided to reveal that week."
   },
-  "feltSaid": [
+  "weeks": [
     {
-      "label": "First Blood",
-      "value": "Hiro & Li-Fo",
-      "note": "NASA Al cracked both open in the same early burst."
+      "id": "week-03-28-2026",
+      "date": "03/28/2026",
+      "eventName": "March Sadness Part II | 9-Max",
+      "title": "TWTW: March Sadness Part II | 9-Max",
+      "featured": true,
+      "dek": "NASA Al won the night, Red turned into the table wrecking ball, and March Sadness closed with a much messier sequel than the title even promised.",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "🎬 Main Story",
+          "player": "NASA Al",
+          "value": "Winner",
+          "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night."
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killer",
+          "player": "Red",
+          "value": "5 knockouts",
+          "copy": "Stacked the body count even without winning the whole thing."
+        },
+        {
+          "tone": "purple",
+          "label": "♻️ Rebuy Pressure",
+          "player": "4 rebuys",
+          "value": "11 total entries",
+          "copy": "A seven-player field turned into a longer, meaner March sequel."
+        },
+        {
+          "tone": "blue",
+          "label": "⏱️ Session Shape",
+          "player": "4h 15m",
+          "value": "$330 pot",
+          "copy": "From 7:17 pm to 11:32 pm with three paid spots."
+        }
+      ],
+      "statPills": [
+        { "icon": "🎟️", "label": "Total Entries", "value": "11" },
+        { "icon": "♻️", "label": "Rebuys", "value": "4" },
+        { "icon": "💰", "label": "Prize Pool", "value": "$330" },
+        { "icon": "⏱️", "label": "Play Time", "value": "4h 15m" }
+      ],
+      "summary": {
+        "startTime": "7:17:25 pm 03/28/2026",
+        "endTime": "11:32:12 pm 03/28/2026",
+        "durationLabel": "4h 15m",
+        "buyIns": 7,
+        "rebuys": 4,
+        "entries": 11,
+        "totalPot": 330,
+        "paidSpots": 3,
+        "winner": "Nasa Al",
+        "firstOut": "Hiro, Li-Fo",
+        "firstPermanentOut": "Providencemike"
+      },
+      "spotlight": {
+        "player": "NASA Al",
+        "avatar": "images/players/nasa-al.jpg",
+        "fallback": "NA",
+        "kicker": "Game Spotlight",
+        "pills": ["Winner", "Closer", "4 Knockouts", "Last Hand, Last Word"]
+      },
+      "feltSaid": [
+        {
+          "label": "First Blood",
+          "value": "Hiro & Li-Fo",
+          "note": "NASA Al cracked both open in the same early burst."
+        },
+        {
+          "label": "First Gone For Good",
+          "value": "Providencemike",
+          "note": "Red made the first permanent exit stick."
+        },
+        {
+          "label": "Table Killer",
+          "value": "Red",
+          "note": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
+        },
+        {
+          "label": "How It Ended",
+          "value": "NASA Al over Red",
+          "note": "BostnMike took third after the late Red wrecking spree."
+        }
+      ],
+      "mainStoryHtml": "<p>March Sadness Part II earned the title. The field stayed small, but the action did not. NASA Al struck first by busting both Hiro and Li-Fo in the same blast, Red spent the middle and late phases turning the table into a demolition site, and by the end the whole game felt like one long argument over who was actually driving the chaos.</p><p>That answer wound up being NASA Al. Red may have done the heavier public damage, but NASA Al stayed alive long enough to write the ending himself. He survived the swingiest stretch of the night, watched Red clear most of the room, then took out Red to close the whole thing and cash the biggest share of a messy March sequel.</p><p>The rebuy count kept the table breathing, the first bust-out came as a double, and the finish landed with the kind of violent little reset that makes this game feel less like a standings update and more like a night somebody will complain about for a week.</p>",
+      "roastHtml": "<p>BostnMike managed the deeply on-brand feat of cashing third in a game where Red still personally sent him out late. That is the commissioner sweet spot: visible, paid, and still somehow part of the problem.</p>",
+      "numbersThatMatter": [
+        "7 buy-ins, 4 rebuys, 11 total entries.",
+        "4h 15m of play from 7:17 pm to 11:32 pm.",
+        "$330 total pot with 3 paid spots.",
+        "Red led the bloodshed with 5 knockouts, but NASA Al got the final word."
+      ],
+      "quickHitsLeft": [
+        "The first bust-out was a two-player splash: Hiro and Li-Fo both hit the rail together.",
+        "Providencemike was first out for real, which made Red the first permanent executioner of the night.",
+        "BostnMike rebought after NASA Al clipped him early, then still managed to ladder into third.",
+        "Li-Fo and Hiro both needed re-entry, which told you early this was not a calm little seven-player sit-down."
+      ],
+      "quickHitsRight": [
+        "Red turned the late stretch into a one-man cleanup operation before running into NASA Al at the end.",
+        "The session stayed compact but never felt short because the eliminations came in waves.",
+        "NASA Al scored the winner line, but this game really had two authors and only one trophy.",
+        "March Sadness Part II felt like a sequel in the truest sense: louder, messier, and less interested in subtlety."
+      ],
+      "tldr": "NASA Al won March Sadness Part II, but Red did most of the public destruction along the way. It was a four-hour game that kept changing shape right up to the final knockout."
     },
-    {
-      "label": "First Gone For Good",
-      "value": "Providencemike",
-      "note": "Red made the first permanent exit stick."
-    },
-    {
-      "label": "Table Killer",
-      "value": "Red",
-      "note": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
-    },
-    {
-      "label": "How It Ended",
-      "value": "NASA Al over Red",
-      "note": "BostnMike took third after the late Red wrecking spree."
-    }
-  ],
-  "mainStoryHtml": "<p>March Sadness Part II earned the title. The field stayed small, but the action did not. NASA Al struck first by busting both Hiro and Li-Fo in the same blast, Red spent the middle and late phases turning the table into a demolition site, and by the end the whole game felt like one long argument over who was actually driving the chaos.</p><p>That answer wound up being NASA Al. Red may have done the heavier public damage, but NASA Al stayed alive long enough to write the ending himself. He survived the swingiest stretch of the night, watched Red clear most of the room, then took out Red to close the whole thing and cash the biggest share of a messy March sequel.</p><p>The rebuy count kept the table breathing, the first bust-out came as a double, and the finish landed with the kind of violent little reset that makes this game feel less like a standings update and more like a night somebody will complain about for a week.</p>",
-  "roastHtml": "<p>BostnMike managed the deeply on-brand feat of cashing third in a game where Red still personally sent him out late. That is the commissioner sweet spot: visible, paid, and still somehow part of the problem.</p>",
-  "numbersThatMatter": [
-    "7 buy-ins, 4 rebuys, 11 total entries.",
-    "4h 15m of play from 7:17 pm to 11:32 pm.",
-    "$330 total pot with 3 paid spots.",
-    "Red led the bloodshed with 5 knockouts, but NASA Al got the final word."
-  ],
-  "quickHitsLeft": [
-    "The first bust-out was a two-player splash: Hiro and Li-Fo both hit the rail together.",
-    "Providencemike was first out for real, which made Red the first permanent executioner of the night.",
-    "BostnMike rebought after NASA Al clipped him early, then still managed to ladder into third.",
-    "Li-Fo and Hiro both needed re-entry, which told you early this was not a calm little seven-player sit-down."
-  ],
-  "quickHitsRight": [
-    "Red turned the late stretch into a one-man cleanup operation before running into NASA Al at the end.",
-    "The session stayed compact but never felt short because the eliminations came in waves.",
-    "NASA Al scored the winner line, but this game really had two authors and only one trophy.",
-    "March Sadness Part II felt like a sequel in the truest sense: louder, messier, and less interested in subtlety."
-  ],
-  "tldr": "NASA Al won March Sadness Part II, but Red did most of the public destruction along the way. It was a four-hour game that kept changing shape right up to the final knockout."
-},
 {
   "id": "week-03-27-2026",
   "date": "03/27/2026",
