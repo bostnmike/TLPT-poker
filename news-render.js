@@ -5,7 +5,6 @@ async function renderNewsPage() {
   const authorStrip = document.getElementById('news-author-strip');
   const summaryGrid = document.getElementById('news-summary-grid');
   const statbarShell = document.getElementById('news-statbar-shell');
-  const trendShell = document.getElementById('news-trend-shell');
   const introNote = document.getElementById('news-intro-note');
   const blogFeed = document.getElementById('news-blog-feed');
   const archiveList = document.getElementById('news-archive-list');
@@ -23,22 +22,21 @@ async function renderNewsPage() {
     renderPageMeta(data.page, pageTitle, pageEmoji, pageKicker, introNote);
     renderAuthor(data.author, authorStrip);
 
-    const featuredContent = data.featuredContent || {};
-    renderSummaryCards(featuredContent.summaryCards || [], summaryGrid);
-    renderStatPills(featuredContent.statPills || [], statbarShell);
-    renderTrendStrip(featuredContent.trendUp || [], featuredContent.trendDown || [], trendShell);
-
     const weeks = Array.isArray(data.weeks) ? data.weeks : [];
     if (!weeks.length) {
-      renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archiveList);
+      renderEmptyState(summaryGrid, statbarShell, blogFeed, archiveList);
       return;
     }
 
+    const latestWeek = weeks[0];
+
+    renderSummaryCards(latestWeek.summaryCards || [], summaryGrid);
+    renderStatPills(latestWeek.statPills || [], statbarShell);
     renderWeeks(weeks, blogFeed);
     renderArchiveList(weeks, archiveList);
   } catch (error) {
     console.error('Error rendering news page:', error);
-    renderErrorState(blogFeed, summaryGrid, statbarShell, trendShell, archiveList);
+    renderErrorState(blogFeed, summaryGrid, statbarShell, archiveList);
   }
 }
 
@@ -97,157 +95,61 @@ function renderSummaryCard(card) {
   const value = escapeHtml(card?.value || '');
   const copy = escapeHtml(card?.copy || '');
 
-  let headHtml = '';
+  let avatarHtml = '';
 
-  if (Array.isArray(card?.avatars) && card.avatars.length > 1) {
-    headHtml = `
-      <div class="news-summary-head news-summary-head-multi">
-        <div class="news-summary-avatar-row">
-          ${card.avatars.map(renderAvatar).join('')}
-        </div>
-        <div class="news-summary-head-copy">
-          <div class="news-summary-player">${player}</div>
-          <div class="news-summary-value">${value}</div>
-        </div>
+  if (Array.isArray(card?.avatars) && card.avatars.length) {
+    avatarHtml = `
+      <div class="news-summary-avatars">
+        ${card.avatars.map((avatar) => renderAvatar(avatar)).join('')}
       </div>
     `;
   } else if (card?.avatar) {
-    headHtml = `
-      <div class="news-summary-head">
+    avatarHtml = `
+      <div class="news-summary-avatar">
         ${renderAvatar({
           src: card.avatar,
           alt: card.player || '',
           fallback: card.fallback || getInitials(card.player || '')
         })}
-        <div class="news-summary-head-copy">
-          <div class="news-summary-player">${player}</div>
-          <div class="news-summary-value">${value}</div>
-        </div>
-      </div>
-    `;
-  } else {
-    headHtml = `
-      <div class="news-summary-head-copy">
-        <div class="news-summary-player">${player}</div>
-        <div class="news-summary-value">${value}</div>
       </div>
     `;
   }
 
   return `
-    <article class="news-summary-card news-summary-card-${tone}">
-      <div class="news-summary-label">${label}</div>
-      ${headHtml}
-      <p class="news-summary-copy">${copy}</p>
+    <article class="news-summary-card tone-${tone}">
+      <div class="news-summary-card-inner">
+        <div class="news-summary-topline">${label}</div>
+        ${avatarHtml}
+        <div class="news-summary-player">${player}</div>
+        <div class="news-summary-value">${value}</div>
+        <p class="news-summary-copy">${copy}</p>
+      </div>
     </article>
   `;
 }
 
-function renderStatPills(items, container) {
+function renderStatPills(pills, container) {
   if (!container) return;
 
-  if (!Array.isArray(items) || !items.length) {
+  if (!Array.isArray(pills) || !pills.length) {
     container.innerHTML = '';
     return;
   }
 
   container.innerHTML = `
-    <section class="section news-statbar-shell">
+    <div class="news-statbar-shell">
       <div class="news-statbar-grid">
-        ${items
+        ${pills
           .map(
-            (item) => `
+            (pill) => `
               <div class="news-stat-pill">
-                <div class="news-stat-pill-top">
-                  ${
-                    item?.icon
-                      ? `<span class="news-stat-pill-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
-                      : ''
-                  }
-                  <span>${escapeHtml(item?.label || '')}</span>
-                </div>
-                <strong>${escapeHtml(item?.value || '')}</strong>
+                <span class="news-stat-pill-icon">${escapeHtml(pill?.icon || '')}</span>
+                <span class="news-stat-pill-label">${escapeHtml(pill?.label || '')}</span>
+                <span class="news-stat-pill-value">${escapeHtml(pill?.value || '')}</span>
               </div>
             `
           )
           .join('')}
-      </div>
-    </section>
-  `;
-}
-
-function renderTrendStrip(up, down, container) {
-  if (!container) return;
-
-  const upList = Array.isArray(up) ? up : [];
-  const downList = Array.isArray(down) ? down : [];
-
-  if (!upList.length && !downList.length) {
-    container.innerHTML = '';
-    return;
-  }
-
-  container.innerHTML = `
-    <section class="section news-trend-shell">
-      <div class="news-trend-grid">
-        <div class="news-trend-col up">
-          <h3>Trending Up</h3>
-          ${upList.map(renderTrendItem).join('')}
-        </div>
-
-        <div class="news-trend-col down">
-          <h3>Trending Down</h3>
-          ${downList.map(renderTrendItem).join('')}
-        </div>
-      </div>
-    </section>
-  `;
-}
-
-function renderTrendItem(item) {
-  if (typeof item === 'string') {
-    return `
-      <div class="news-trend-item">
-        <div class="news-trend-item-copy">
-          <div class="news-trend-item-name">${escapeHtml(item)}</div>
-        </div>
-      </div>
-    `;
-  }
-
-  const icon = item?.icon
-    ? `<span class="news-trend-item-icon" aria-hidden="true">${escapeHtml(item.icon)}</span>`
-    : '';
-
-  const avatar = item?.avatar
-    ? `
-      <span class="news-trend-item-avatar">
-        <img
-          class="player-avatar table"
-          src="${escapeHtml(item.avatar)}"
-          alt="${escapeHtml(item?.name || '')}"
-          loading="lazy"
-          decoding="async"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <span class="player-avatar-fallback table" style="display:none;">${escapeHtml(
-          item?.fallback || getInitials(item?.name || '')
-        )}</span>
-      </span>
-    `
-    : '';
-
-  return `
-    <div class="news-trend-item">
-      ${avatar}
-      ${icon}
-      <div class="news-trend-item-copy">
-        <div class="news-trend-item-name">${escapeHtml(item?.name || '')}</div>
-        ${
-          item?.note
-            ? `<div class="news-trend-item-note">${escapeHtml(item.note)}</div>`
-            : ''
-        }
       </div>
     </div>
   `;
@@ -265,9 +167,9 @@ function renderWeeks(weeks, container) {
 function renderWeek(week, index, isFeatured) {
   const id = escapeHtml(week?.id || `week-${index}`);
   const date = escapeHtml(week?.date || '');
-  const title = escapeHtml(week?.title || 'The Week That Was');
+  const title = escapeHtml(week?.title || `TWTW: ${week?.eventName || 'Event'}`);
   const dek = escapeHtml(week?.dek || '');
-  const bodyHtml = typeof week?.html === 'string' ? week.html : '';
+  const bodyHtml = renderWeekBody(week);
 
   return `
     <article id="${id}" class="news-post-card${isFeatured ? ' news-post-featured' : ''}">
@@ -283,6 +185,168 @@ function renderWeek(week, index, isFeatured) {
         ${bodyHtml}
       </div>
     </article>
+  `;
+}
+
+function renderWeekBody(week) {
+  return `
+    ${renderMainStory(week)}
+    ${renderGameSpotlight(week)}
+    ${renderWhatTheFeltSaid(week)}
+    ${renderRoastSection(week)}
+    ${renderNumbersThatMatter(week)}
+    ${renderQuickHits(week)}
+    ${renderTLDR(week)}
+  `;
+}
+
+function renderMainStory(week) {
+  const html = typeof week?.mainStoryHtml === 'string' ? week.mainStoryHtml : '';
+  if (!html) return '';
+
+  return `
+    <section class="news-story-section">
+      <h4>🎯 The Main Story</h4>
+      ${html}
+    </section>
+  `;
+}
+
+function renderGameSpotlight(week) {
+  const spotlight = week?.spotlight;
+  if (!spotlight) return '';
+
+  const kicker = escapeHtml(spotlight?.kicker || 'Game Spotlight');
+  const player = escapeHtml(spotlight?.player || '');
+  const pills = Array.isArray(spotlight?.pills) ? spotlight.pills : [];
+
+  return `
+    <section class="news-story-section">
+      <h4>🎖️ Game Spotlight</h4>
+      <div class="news-receipt-panel">
+        <div class="news-receipt-lead">
+          <div class="news-receipt-top">
+            <span class="player-avatar-wrap">
+              <img
+                class="player-avatar table"
+                src="${escapeHtml(spotlight?.avatar || '')}"
+                alt="${player}"
+                loading="lazy"
+                decoding="async"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <span class="player-avatar-fallback table" style="display:none;">
+                ${escapeHtml(spotlight?.fallback || getInitials(player))}
+              </span>
+            </span>
+
+            <div class="news-receipt-copy">
+              <div class="news-receipt-kicker">${kicker}</div>
+              <div class="news-receipt-name">${player}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-receipt-pills">
+          ${pills
+            .map((pill) => `<span class="news-receipt-pill">${escapeHtml(pill)}</span>`)
+            .join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderWhatTheFeltSaid(week) {
+  const items = Array.isArray(week?.feltSaid) ? week.feltSaid.slice(0, 4) : [];
+  if (!items.length) return '';
+
+  return `
+    <section class="news-story-section">
+      <h4>🃏 What the Felt Said</h4>
+      <div class="news-felt-grid">
+        ${items
+          .map(
+            (item) => `
+              <div class="news-felt-card">
+                <div class="news-felt-label">${escapeHtml(item?.label || '')}</div>
+                <div class="news-felt-value">${escapeHtml(item?.value || '')}</div>
+                <p class="news-felt-note">${escapeHtml(item?.note || '')}</p>
+              </div>
+            `
+          )
+          .join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderRoastSection(week) {
+  const html = typeof week?.roastHtml === 'string' ? week.roastHtml : '';
+  if (!html) return '';
+
+  return `
+    <section class="news-story-section">
+      <h4>🎙️ BostnMike Roast</h4>
+      <div class="news-pull-quote news-pull-quote-self-roast">
+        <div class="news-pull-quote-row">
+          <span class="player-avatar-wrap">
+            <img
+              class="player-avatar table"
+              src="images/players/bostnmike.jpg"
+              alt="BostnMike"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <span class="player-avatar-fallback table" style="display:none;">BM</span>
+          </span>
+          ${html}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderNumbersThatMatter(week) {
+  const items = Array.isArray(week?.numbersThatMatter) ? week.numbersThatMatter : [];
+  if (!items.length) return '';
+
+  return `
+    <section class="news-story-section">
+      <h4>🔢 Numbers That Matter</h4>
+      <ul>
+        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+      </ul>
+    </section>
+  `;
+}
+
+function renderQuickHits(week) {
+  const left = Array.isArray(week?.quickHitsLeft) ? week.quickHitsLeft : [];
+  const right = Array.isArray(week?.quickHitsRight) ? week.quickHitsRight : [];
+  if (!left.length && !right.length) return '';
+
+  return `
+    <section class="news-story-section">
+      <h4>🔥 Quick Hits</h4>
+      <div class="news-quickhits-grid">
+        <ul>${left.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+        <ul>${right.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      </div>
+    </section>
+  `;
+}
+
+function renderTLDR(week) {
+  const tldr = escapeHtml(week?.tldr || '');
+  if (!tldr) return '';
+
+  return `
+    <section class="news-story-section">
+      <div class="news-section-divider"><span>TL;DR</span></div>
+      <p>${tldr}</p>
+    </section>
   `;
 }
 
@@ -324,10 +388,28 @@ function renderAvatar(avatar) {
   `;
 }
 
-function renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archiveList) {
+function getInitials(name) {
+  return String(name || '')
+    .trim()
+    .split(/\s+/)
+    .map((part) => part.charAt(0))
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderEmptyState(summaryGrid, statbarShell, blogFeed, archiveList) {
   if (summaryGrid) summaryGrid.innerHTML = '';
   if (statbarShell) statbarShell.innerHTML = '';
-  if (trendShell) trendShell.innerHTML = '';
 
   if (blogFeed) {
     blogFeed.innerHTML = `
@@ -345,10 +427,9 @@ function renderEmptyState(summaryGrid, statbarShell, trendShell, blogFeed, archi
   if (archiveList) archiveList.innerHTML = '';
 }
 
-function renderErrorState(blogFeed, summaryGrid, statbarShell, trendShell, archiveList) {
+function renderErrorState(blogFeed, summaryGrid, statbarShell, archiveList) {
   if (summaryGrid) summaryGrid.innerHTML = '';
   if (statbarShell) statbarShell.innerHTML = '';
-  if (trendShell) trendShell.innerHTML = '';
   if (archiveList) archiveList.innerHTML = '';
 
   if (blogFeed) {
@@ -358,30 +439,11 @@ function renderErrorState(blogFeed, summaryGrid, statbarShell, trendShell, archi
           <div class="news-post-kicker">The Week That Was</div>
           <div class="news-post-dateline">Load error</div>
         </div>
-        <h3 class="news-post-title">Couldn’t Load News</h3>
-        <p class="news-post-dek">Check news-data.json and try again.</p>
+        <h3 class="news-post-title">Could not load the archive</h3>
+        <p class="news-post-dek">Check news-data.json for valid JSON and the new event-based schema.</p>
       </article>
     `;
   }
-}
-
-function getInitials(name) {
-  return String(name || '')
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0] || '')
-    .join('')
-    .toUpperCase();
-}
-
-function escapeHtml(value) {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 }
 
 document.addEventListener('DOMContentLoaded', renderNewsPage);
