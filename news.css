@@ -342,9 +342,11 @@
 
 .news-stat-pill{
   display:flex;
-  flex-direction:column;
-  gap:6px;
-  padding:12px 14px;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 14px;
+  min-height:52px;
   border-radius:14px;
   border:1px solid rgba(255,184,28,.16);
   background:
@@ -352,41 +354,47 @@
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 8px 16px rgba(0,0,0,.14);
+  white-space:nowrap;
 }
 
 .news-stat-pill-top{
   display:flex;
   align-items:center;
   gap:8px;
+  flex:0 1 auto;
+  min-width:0;
 }
 
 .news-stat-pill-icon{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:24px;
-  height:24px;
-  flex:0 0 24px;
-  font-size:1rem;
+  width:26px;
+  height:26px;
+  flex:0 0 26px;
+  font-size:1.05rem;
   line-height:1;
   filter:drop-shadow(0 4px 8px rgba(0,0,0,.18));
 }
 
 .news-stat-pill-top > span:not(.news-stat-pill-icon){
   color:#ffe09a;
-  font-size:.72rem;
+  font-size:.84rem;
   font-weight:900;
-  letter-spacing:.08em;
+  letter-spacing:.06em;
   text-transform:uppercase;
+  line-height:1;
 }
 
 .news-stat-pill strong{
   color:#f7fbff;
-  font-size:1rem;
-  line-height:1.2;
+  font-size:1.08rem;
+  font-weight:900;
+  line-height:1;
   display:block;
-  margin-top:2px;
-}
+  margin:0;
+  flex:0 0 auto;
+}no
 
 /* ----- trend strip ----- */
 
