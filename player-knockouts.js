@@ -90,7 +90,7 @@
       });
   }
 
-  function nemesisMarkup(currentPlayer, byVictim, playerMap) {
+function nemesisMarkup(currentPlayer, byVictim, playerMap) {
   const victimMap = byVictim?.[currentPlayer.slug] || {};
   const top = getTopEntry(victimMap);
   const subtitle = "The player who’s bounced you most often, and living rent free in your head with every check, raise.";
@@ -133,31 +133,7 @@
     </div>
   `;
 }
-
-    const nemesis = playerMap.get(top.slug);
-    const displayName = nemesis?.name || top.slug;
-
-    return `
-      <div class="player-nemesis-card">
-        <div class="player-nemesis-head">
-          <h3>☠️ Table Nemesis</h3>
-          <p class="muted">The player who’s bounced you most often.</p>
-        </div>
-
-        <div class="player-nemesis-body">
-          <div class="player-nemesis-avatar-wrap">
-            ${avatarMarkup(nemesis, "knockout-avatar-lg")}
-          </div>
-
-          <div class="player-nemesis-copy">
-            <div class="player-nemesis-name">${displayName}</div>
-            <div class="player-nemesis-count">${top.count} ${top.count === 1 ? "Knock-Out" : "Knock-Outs"}</div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
+  
  function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
   const killerMap = byKiller?.[currentPlayer.slug] || {};
   const victims = sortBodyCountEntries(killerMap);
