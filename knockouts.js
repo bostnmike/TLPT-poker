@@ -202,34 +202,92 @@ if (mostUniqueVictims) {
   }
 
   function renderRivalries(playerMap, byVictim) {
-    const rivalries = getStrongestRivalries(byVictim).slice(0, 12);
+  const rivalryMap = new Map();
 
-    if (!rivalries.length) {
-      return `<div class="knockouts-empty">No rivalry data yet.</div>`;
-    }
+  Object.entries(byVictim || {}).forEach(([victimSlug, killers]) => {
+    Object.entries(killers || {}).forEach(([killerSlug, count]) => {
+      const a = String(killerSlug);
+      const b = String(victimSlug);
+      const key = [a, b].sort().join("__");
 
-    return `
-      <div class="knockouts-rivalry-list">
-        ${rivalries.map(item => {
-          const killer = safePlayer(playerMap, item.killerSlug);
-          const victim = safePlayer(playerMap, item.victimSlug);
+      if (!rivalryMap.has(key)) {
+        rivalryMap.set(key, {
+          slugA: [a, b].sort()[0],
+          slugB: [a, b].sort()[1],
+          aOverB: 0,
+          bOverA: 0,
+          total: 0
+        });
+      }
 
-          return `
-            <div class="knockouts-rivalry-card">
-              ${avatarMarkup(killer, "knockouts-avatar-sm")}
-              <div class="knockouts-rivalry-arrow">→</div>
-              <div class="knockouts-rivalry-copy">
-                <div class="knockouts-rivalry-title">${killer?.name || item.killerSlug} vs ${victim?.name || item.victimSlug}</div>
-                <div class="knockouts-rivalry-sub">Sent them home ${item.count} ${item.count === 1 ? "time" : "times"}</div>
-              </div>
-              <div class="knockouts-list-value">${item.count}</div>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    `;
+      const entry = rivalryMap.get(key);
+
+      if (a === entry.slugA && b === entry.slugB) {
+        entry.aOverB += Number(count || 0);
+      } else if (a === entry.slugB && b === entry.slugA) {
+        entry.bOverA += Number(count || 0);
+      }
+
+      entry.total = entry.aOverB + entry.bOverA;
+    });
+  });
+
+  let rivalries = [...rivalryMap.values()]
+    .filter(entry => entry.total > 0)
+    .sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      const aMax = Math.max(a.aOverB, a.bOverA);
+      const bMax = Math.max(b.aOverB, b.bOverA);
+      if (bMax !== aMax) return bMax - aMax;
+      const aNames = `${a.slugA}-${a.slugB}`;
+      const bNames = `${b.slugA}-${b.slugB}`;
+      return aNames.localeCompare(bNames);
+    });
+
+  if (!rivalries.length) {
+    return `<div class="knockouts-empty">No rivalry data yet.</div>`;
   }
 
+  const cutoffIndex = Math.min(4, rivalries.length - 1);
+  const cutoffTotal = rivalries[cutoffIndex]?.total ?? rivalries[rivalries.length - 1].total;
+  rivalries = rivalries.filter((entry, index) => index < 5 || entry.total === cutoffTotal);
+
+  return `
+    <div class="knockouts-vendetta-list">
+      ${rivalries.map(entry => {
+        const playerA = safePlayer(playerMap, entry.slugA);
+        const playerB = safePlayer(playerMap, entry.slugB);
+
+        const nameA = playerA?.name || entry.slugA;
+        const nameB = playerB?.name || entry.slugB;
+
+        return `
+          <div class="knockouts-vendetta-card">
+            <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
+              <div class="knockouts-vendetta-name">${nameA}</div>
+              ${avatarMarkup(playerA, "knockouts-avatar-md")}
+            </div>
+
+            <div class="knockouts-vendetta-scoreline">
+              <span class="knockouts-vendetta-score">${entry.aOverB}</span>
+              <span class="knockouts-vendetta-vs">vs.</span>
+              <span class="knockouts-vendetta-score">${entry.bOverA}</span>
+            </div>
+
+            <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
+              ${avatarMarkup(playerB, "knockouts-avatar-md")}
+              <div class="knockouts-vendetta-name">${nameB}</div>
+            </div>
+
+            <div class="knockouts-vendetta-total">
+              ${entry.total} total
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
   function renderNemesisBoard(playerMap, byVictim) {
     const board = getNemesisBoard(byVictim);
 
