@@ -131,7 +131,7 @@ function renderSummaryCard(card) {
     headHtml = `
       <div class="news-summary-head-copy">
         <div class="news-summary-player">${player}</div>
-        <div class="news-summary-value">${value}</div>
+        ${valueHtml}
       </div>
     `;
   }
