@@ -384,7 +384,7 @@ function renderQuickHits(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🔥 Quick Hits</h4>
+      <h4>🥊 Quick Hits</h4>
       <div class="news-quickhits-grid">
         <ul>${left.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
         <ul>${right.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
