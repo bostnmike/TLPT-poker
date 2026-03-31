@@ -9,35 +9,31 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="index.html">
-        <img src="images/site/TLPT-logo.png" alt="TLPT Poker League" class="brand-logo" />
-        <span class="brand-text">TLPT Poker League</span>
-      </a>
-
-      <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="standings.html">Standings</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="players.html">The Crew</a>
-        <a href="schedule.html">Schedule</a>
-
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
-            The (Dis) Honors
-          </button>
-          <div class="nav-dropdown-menu">
-            <a href="champions.html">The (Dis) Honors</a>
-            <a href="news.html">The Week That Was</a>
-            <a href="knockouts.html" aria-current="page">Knockout Central</a>
-          </div>
-        </div>
-
-        <a href="rules.html">Rules</a>
-        <a href="media.html">Film Room</a>
-      </nav>
+  <div class="wrap header-inner">
+    <div>
+      <h1 class="logo">TLPT Poker League</h1>
+      <p class="tag">The League. The Players. The Tilt.</p>
     </div>
-  </header>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="standings.html">The Standings</a>
+      <a href="dashboard.html">The Dashboard</a>
+      <a href="players.html">The Crew</a>
+      <a href="schedule.html">The Schedule</a>
+
+      <div class="nav-dropdown">
+        <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
+        <div class="nav-dropdown-menu">
+          <a href="news.html">The Week That Was</a>
+          <a href="knockouts.html" class="is-active" aria-current="page">Knockout Central</a>
+        </div>
+      </div>
+
+      <a href="rules.html">The Rules</a>
+      <a href="media.html">The Film</a>
+    </nav>
+  </div>
+</header>
 
   <main class="wrap">
     <section class="section knockouts-header-shell">
@@ -95,25 +91,5 @@
 
   <script src="knockouts.js"></script>
 
-  <script>
-    (function () {
-      const dropdown = document.querySelector('.nav-dropdown');
-      const toggle = document.querySelector('.nav-dropdown-toggle');
-
-      if (!dropdown || !toggle) return;
-
-      toggle.addEventListener('click', () => {
-        const open = dropdown.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-
-      document.addEventListener('click', (event) => {
-        if (!dropdown.contains(event.target)) {
-          dropdown.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
