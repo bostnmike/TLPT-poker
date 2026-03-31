@@ -250,6 +250,29 @@ function renderGameSpotlight(week) {
   const kicker = escapeHtml(spotlight?.kicker || 'Game Spotlight');
   const player = escapeHtml(spotlight?.player || '');
   const pills = Array.isArray(spotlight?.pills) ? spotlight.pills : [];
+  const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
+
+  const avatarBlock = hasMulti
+    ? `
+      <div class="news-summary-avatar-row">
+        ${spotlight.avatars.map((avatar) => renderAvatar(avatar)).join('')}
+      </div>
+    `
+    : `
+      <span class="player-avatar-wrap">
+        <img
+          class="player-avatar table"
+          src="${escapeHtml(spotlight?.avatar || '')}"
+          alt="${player}"
+          loading="lazy"
+          decoding="async"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="player-avatar-fallback table" style="display:none;">
+          ${escapeHtml(spotlight?.fallback || getInitials(player))}
+        </span>
+      </span>
+    `;
 
   return `
     <section class="news-story-section">
@@ -257,20 +280,7 @@ function renderGameSpotlight(week) {
       <div class="news-receipt-panel">
         <div class="news-receipt-lead">
           <div class="news-receipt-top">
-            <span class="player-avatar-wrap">
-              <img
-                class="player-avatar table"
-                src="${escapeHtml(spotlight?.avatar || '')}"
-                alt="${player}"
-                loading="lazy"
-                decoding="async"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <span class="player-avatar-fallback table" style="display:none;">
-                ${escapeHtml(spotlight?.fallback || getInitials(player))}
-              </span>
-            </span>
-
+            ${avatarBlock}
             <div class="news-receipt-copy">
               <div class="news-receipt-kicker">${kicker}</div>
               <div class="news-receipt-name">${player}</div>
@@ -279,9 +289,7 @@ function renderGameSpotlight(week) {
         </div>
 
         <div class="news-receipt-pills">
-          ${pills
-            .map((pill) => `<span class="news-receipt-pill">${escapeHtml(pill)}</span>`)
-            .join('')}
+          ${pills.map((pill) => `<span class="news-receipt-pill">${escapeHtml(pill)}</span>`).join('')}
         </div>
       </div>
     </section>
