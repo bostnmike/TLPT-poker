@@ -181,14 +181,14 @@
       const killer = safePlayer(playerMap, worstNemesis.killerSlug);
 
       html.push(renderStatCard({
-        label: "Worst Nemesis",
+        label: "Bloodiest Battle",
         player: victim,
         value: `${worstNemesis.count}`,
         subtext: killer ? `owned by ${killer.name}` : ""
       }));
     } else {
       html.push(renderStatCard({
-        label: "Worst Nemesis",
+        label: "Bloodiest Battle",
         player: null,
         value: "—",
         subtext: ""
