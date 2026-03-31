@@ -144,19 +144,6 @@ function renderSummaryCard(card) {
   `;
 }
 
-  return `
-    <article class="news-summary-card tone-${tone}">
-      <div class="news-summary-card-inner">
-        <div class="news-summary-topline">${label}</div>
-        ${avatarHtml}
-        <div class="news-summary-player">${player}</div>
-        <div class="news-summary-value">${value}</div>
-        <p class="news-summary-copy">${copy}</p>
-      </div>
-    </article>
-  `;
-}
-
 function renderStatPills(pills, container) {
   if (!container) return;
 
