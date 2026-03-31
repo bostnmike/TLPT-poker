@@ -633,9 +633,14 @@
   justify-content:center;
   padding:7px 12px;
   border-radius:999px;
-  border:1px solid rgba(255,184,28,.24);
+  border:1px solid rgba(255,184,28,.30);
   background:
-    linear-gradient(180deg, rgba(255,184,28,.14), rgba(255,255,255,.03));
+    radial-gradient(circle at top left, rgba(255,184,28,.18), transparent 40%),
+    linear-gradient(135deg, rgba(76,52,14,.96), rgba(30,24,14,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 8px 16px rgba(0,0,0,.16),
+    0 0 14px rgba(255,184,28,.08);
   color:#fff3d1;
   font-size:.82rem;
   font-weight:800;
@@ -864,6 +869,50 @@
     0 8px 18px rgba(0,0,0,.18);
 }
 
+.news-felt-card-blood{
+  border-color:rgba(59,130,246,.34);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 30%),
+    linear-gradient(135deg, rgba(18,42,78,.96), rgba(12,17,24,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.18),
+    0 0 16px rgba(59,130,246,.08);
+}
+
+.news-felt-card-rail{
+  border-color:rgba(168,85,247,.34);
+  background:
+    radial-gradient(circle at top right, rgba(168,85,247,.18), transparent 30%),
+    linear-gradient(135deg, rgba(46,24,72,.96), rgba(12,17,24,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.18),
+    0 0 16px rgba(168,85,247,.08);
+}
+
+.news-felt-card-killer{
+  border-color:rgba(239,68,68,.34);
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.18), transparent 30%),
+    linear-gradient(135deg, rgba(72,22,28,.96), rgba(12,17,24,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.18),
+    0 0 16px rgba(239,68,68,.08);
+}
+
+.news-felt-card-ending{
+  border-color:rgba(34,197,94,.34);
+  background:
+    radial-gradient(circle at top right, rgba(34,197,94,.18), transparent 30%),
+    linear-gradient(135deg, rgba(16,58,34,.96), rgba(12,17,24,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 20px rgba(0,0,0,.18),
+    0 0 16px rgba(34,197,94,.08);
+}
+
 .news-felt-label-row{
   display:flex;
   align-items:center;
@@ -997,9 +1046,14 @@
   display:inline-block;
   padding:8px 14px;
   border-radius:999px;
-  border:1px solid rgba(255,184,28,.20);
+  border:1px solid rgba(255,184,28,.24);
   background:
-    linear-gradient(135deg, rgba(255,184,28,.12), rgba(255,255,255,.03));
+    radial-gradient(circle at top left, rgba(255,184,28,.16), transparent 40%),
+    linear-gradient(135deg, rgba(84,58,16,.96), rgba(34,24,14,.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 8px 16px rgba(0,0,0,.16),
+    0 0 14px rgba(255,184,28,.08);
   color:#fff0bf;
   font-size:.8rem;
   font-weight:900;
