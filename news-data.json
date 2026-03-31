@@ -1115,7 +1115,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "9h 38m",
+      "player": "3h 40m",
       "value": "$210 pot",
       "copy": "The longest game in this block by a mile, even with only 2 paid spots."
     }
@@ -1127,9 +1127,9 @@
     { "icon": "⏱️", "label": "Play Time", "value": "9h 38m" }
   ],
   "summary": {
-    "startTime": "10:12:53 am 01/24/2026",
+    "startTime": "4:10:53 pm 01/24/2026",
     "endTime": "7:50:27 pm 01/24/2026",
-    "durationLabel": "9h 38m",
+    "durationLabel": "3h 40m",
     "buyIns": 6,
     "rebuys": 1,
     "entries": 7,
@@ -1971,7 +1971,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "6h 29m",
+      "player": "3h 29m",
       "value": "$210 pot",
       "copy": "A small field that somehow turned into a long, slow-burn night."
     }
@@ -1980,12 +1980,12 @@
     { "icon": "🎟️", "label": "Total Entries", "value": "7" },
     { "icon": "♻️", "label": "Rebuys", "value": "0" },
     { "icon": "💰", "label": "Prize Pool", "value": "$210" },
-    { "icon": "⏱️", "label": "Play Time", "value": "6h 29m" }
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 29m" }
   ],
   "summary": {
-    "startTime": "4:24:25 pm 11/15/2025",
+    "startTime": "7:24:25 pm 11/15/2025",
     "endTime": "10:53:25 pm 11/15/2025",
-    "durationLabel": "6h 29m",
+    "durationLabel": "3h 29m",
     "buyIns": 7,
     "rebuys": 0,
     "entries": 7,
@@ -2292,7 +2292,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "36h 24m",
+      "player": "4h 24m",
       "value": "$300 pot",
       "copy": "A day-spanning marathon with 3 paid spots and a stolen finish."
     }
@@ -2301,12 +2301,12 @@
     { "icon": "🎟️", "label": "Total Entries", "value": "10" },
     { "icon": "♻️", "label": "Rebuys", "value": "2" },
     { "icon": "💰", "label": "Prize Pool", "value": "$300" },
-    { "icon": "⏱️", "label": "Play Time", "value": "36h 24m" }
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 24m" }
   ],
   "summary": {
-    "startTime": "11:13:09 am 10/03/2025",
+    "startTime": "7:13:09 am 10/04/2025",
     "endTime": "11:37:23 pm 10/04/2025",
-    "durationLabel": "36h 24m",
+    "durationLabel": "4h 24m",
     "buyIns": 8,
     "rebuys": 2,
     "entries": 10,
@@ -2506,7 +2506,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "7h 43m",
+      "player": "4h 43m",
       "value": "$210 pot",
       "copy": "A long five-player game with only 2 paid spots and a patient winner."
     }
@@ -2515,12 +2515,12 @@
     { "icon": "🎟️", "label": "Total Entries", "value": "7" },
     { "icon": "♻️", "label": "Rebuys", "value": "2" },
     { "icon": "💰", "label": "Prize Pool", "value": "$210" },
-    { "icon": "⏱️", "label": "Play Time", "value": "7h 43m" }
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 43m" }
   ],
   "summary": {
-    "startTime": "3:39:42 pm 07/26/2025",
+    "startTime": "7:39:42 pm 07/26/2025",
     "endTime": "11:23:09 pm 07/26/2025",
-    "durationLabel": "7h 43m",
+    "durationLabel": "4h 43m",
     "buyIns": 5,
     "rebuys": 2,
     "entries": 7,
