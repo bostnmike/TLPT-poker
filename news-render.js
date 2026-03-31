@@ -263,7 +263,7 @@ function renderWhatTheFeltSaid(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🃏 What the Felt Said</h4>
+      <h4>🃏 Felt Whispers</h4>
       <div class="news-felt-grid">
         ${items
           .map(
