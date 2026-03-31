@@ -95,25 +95,54 @@ function renderSummaryCard(card) {
   const value = escapeHtml(card?.value || '');
   const copy = escapeHtml(card?.copy || '');
 
-  let avatarHtml = '';
+  const hasMulti = Array.isArray(card?.avatars) && card.avatars.length;
+  const hasSingle = !!card?.avatar;
 
-  if (Array.isArray(card?.avatars) && card.avatars.length) {
-    avatarHtml = `
-      <div class="news-summary-avatars">
-        ${card.avatars.map((avatar) => renderAvatar(avatar)).join('')}
+  let headHtml = '';
+
+  if (hasMulti) {
+    headHtml = `
+      <div class="news-summary-head news-summary-head-multi">
+        <div class="news-summary-avatar-row">
+          ${card.avatars.map((avatar) => renderAvatar(avatar)).join('')}
+        </div>
+        <div class="news-summary-head-copy">
+          <div class="news-summary-player">${player}</div>
+          <div class="news-summary-value">${value}</div>
+        </div>
       </div>
     `;
-  } else if (card?.avatar) {
-    avatarHtml = `
-      <div class="news-summary-avatar">
+  } else if (hasSingle) {
+    headHtml = `
+      <div class="news-summary-head">
         ${renderAvatar({
           src: card.avatar,
           alt: card.player || '',
           fallback: card.fallback || getInitials(card.player || '')
         })}
+        <div class="news-summary-head-copy">
+          <div class="news-summary-player">${player}</div>
+          <div class="news-summary-value">${value}</div>
+        </div>
+      </div>
+    `;
+  } else {
+    headHtml = `
+      <div class="news-summary-head-copy">
+        <div class="news-summary-player">${player}</div>
+        <div class="news-summary-value">${value}</div>
       </div>
     `;
   }
+
+  return `
+    <article class="news-summary-card news-summary-card-${tone}">
+      <div class="news-summary-label">${label}</div>
+      ${headHtml}
+      <p class="news-summary-copy">${copy}</p>
+    </article>
+  `;
+}
 
   return `
     <article class="news-summary-card tone-${tone}">
@@ -143,9 +172,11 @@ function renderStatPills(pills, container) {
           .map(
             (pill) => `
               <div class="news-stat-pill">
-                <span class="news-stat-pill-icon">${escapeHtml(pill?.icon || '')}</span>
-                <span class="news-stat-pill-label">${escapeHtml(pill?.label || '')}</span>
-                <span class="news-stat-pill-value">${escapeHtml(pill?.value || '')}</span>
+                <div class="news-stat-pill-top">
+                  <span class="news-stat-pill-icon">${escapeHtml(pill?.icon || '')}</span>
+                  <span>${escapeHtml(pill?.label || '')}</span>
+                </div>
+                <strong>${escapeHtml(pill?.value || '')}</strong>
               </div>
             `
           )
@@ -266,19 +297,35 @@ function renderWhatTheFeltSaid(week) {
       <h4>🃏 Felt Whispers</h4>
       <div class="news-felt-grid">
         ${items
-          .map(
-            (item) => `
+          .map((item) => {
+            const label = item?.label || '';
+            const icon = escapeHtml(item?.icon || getFeltWhisperIcon(label));
+
+            return `
               <div class="news-felt-card">
-                <div class="news-felt-label">${escapeHtml(item?.label || '')}</div>
+                <div class="news-felt-label-row">
+                  <span class="news-felt-icon">${icon}</span>
+                  <div class="news-felt-label">${escapeHtml(label)}</div>
+                </div>
                 <div class="news-felt-value">${escapeHtml(item?.value || '')}</div>
                 <p class="news-felt-note">${escapeHtml(item?.note || '')}</p>
               </div>
-            `
-          )
+            `;
+          })
           .join('')}
       </div>
     </section>
   `;
+}
+
+function getFeltWhisperIcon(label) {
+  const normalized = String(label || '').toLowerCase();
+
+  if (normalized.includes('first blood')) return '🩸';
+  if (normalized.includes('first gone')) return '☠️';
+  if (normalized.includes('table killer')) return '🪓';
+  if (normalized.includes('how it ended')) return '🏁';
+  return '🃏';
 }
 
 function renderRoastSection(week) {
