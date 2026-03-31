@@ -1,0 +1,76 @@
+{
+  "2025-05-24": [
+    {
+      "victim": "jeff-t",
+      "killer": "bostnmike",
+      "count": 1
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "dan-k",
+      "count": 2
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "li-fo",
+      "count": 1
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "dan-k",
+      "count": 1
+    },
+    {
+      "victim": "dan-k",
+      "killer": "hiro",
+      "count": 1
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "count": 1
+    }
+  ],
+  "2025-06-14": [
+    {
+      "victim": "brad-r",
+      "killer": "rob-f",
+      "count": 2
+    },
+    {
+      "victim": "hiro",
+      "killer": "brad-r",
+      "count": 1
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "rob-f",
+      "count": 1
+    },
+    {
+      "victim": "nitro",
+      "killer": "wild-bill",
+      "count": 1
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "ai-dave",
+      "count": 1
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "count": 1
+    },
+    {
+      "victim": "rob-f",
+      "killer": "bostnmike",
+      "count": 1
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "bostnmike",
+      "count": 1
+    }
+  ]
+}
