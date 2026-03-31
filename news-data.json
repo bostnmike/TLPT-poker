@@ -31,16 +31,16 @@
         "fallback": "NA"
       },
       {
-  "tone": "blue",
-  "label": "🩸 First Out",
-  "player": "Hiro / Li-Fo",
-  "value": "Opening busts",
-  "copy": "NASA Al cracked both open in the same early burst.",
-  "avatars": [
-    { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" },
-    { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
-  ]
-},
+        "tone": "blue",
+        "label": "🩸 First Out",
+        "player": "Hiro / Li-Fo",
+        "value": "Opening busts",
+        "copy": "NASA Al cracked both open in the same early burst.",
+        "avatars": [
+          { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" },
+          { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+        ]
+      },
       {
         "tone": "purple",
         "label": "🦤 First Rail Bird",
