@@ -158,49 +158,50 @@
     `;
   }
 
-  function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
-    const killerMap = byKiller?.[currentPlayer.slug] || {};
-    const victims = sortBodyCountEntries(killerMap);
+ function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
+  const killerMap = byKiller?.[currentPlayer.slug] || {};
+  const victims = sortBodyCountEntries(killerMap);
+  const totalHits = victims.reduce((sum, entry) => sum + Number(entry.count || 0), 0);
 
-    if (!victims.length) {
-      return `
-        <div class="player-body-count-card">
-          <div class="player-body-count-head">
-            <h3>💀 Body Count</h3>
-            <p class="muted">Everybody you’ve sent to the rail.</p>
-          </div>
-
-          <div class="player-body-count-empty muted">
-            No confirmed victims on the board yet.
-          </div>
-        </div>
-      `;
-    }
-
+  if (!victims.length) {
     return `
       <div class="player-body-count-card">
         <div class="player-body-count-head">
-          <h3>💀 Body Count</h3>
+          <h3>💀 Your Body Count 0</h3>
           <p class="muted">Everybody you’ve sent to the rail.</p>
         </div>
 
-        <div class="player-body-count-list">
-          ${victims.map(({ slug, count }) => {
-            const victim = playerMap.get(slug);
-            const displayName = victim?.name || slug;
-
-            return `
-              <div class="player-body-count-tile">
-                ${avatarMarkup(victim, "knockout-avatar-sm")}
-                <div class="player-body-count-tile-name">${displayName}</div>
-                <div class="player-body-count-tile-number">${count}</div>
-              </div>
-            `;
-          }).join("")}
+        <div class="player-body-count-empty muted">
+          No confirmed victims on the board yet.
         </div>
       </div>
     `;
   }
+
+  return `
+    <div class="player-body-count-card">
+      <div class="player-body-count-head">
+        <h3>💀 Your Body Count ${totalHits}</h3>
+        <p class="muted">Everybody you’ve sent to the rail.</p>
+      </div>
+
+      <div class="player-body-count-list">
+        ${victims.map(({ slug, count }) => {
+          const victim = playerMap.get(slug);
+          const displayName = victim?.name || slug;
+
+          return `
+            <div class="player-body-count-tile">
+              ${avatarMarkup(victim, "knockout-avatar-sm")}
+              <div class="player-body-count-tile-name">${displayName}</div>
+              <div class="player-body-count-tile-number">${count}</div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `;
+}
 
   function injectKnockoutCards(currentPlayer, knockouts, players) {
     const profileRoot = document.getElementById("player-profile");
