@@ -34,7 +34,7 @@
         "tone": "blue",
         "label": "🩸 First Out",
         "player": "Hiro / Li-Fo",
-        "copy": "NASA Al cracked both open in the same early burst.",
+        "copy": "NASA Al cracked both open in the same early bust.",
         "avatars": [
           { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" },
           { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
