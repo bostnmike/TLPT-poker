@@ -831,6 +831,25 @@
     0 8px 18px rgba(0,0,0,.18);
 }
 
+.news-felt-label-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:8px;
+}
+
+.news-felt-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  font-size:1rem;
+  line-height:1;
+  filter:drop-shadow(0 4px 8px rgba(0,0,0,.18));
+}
+
 .news-felt-label{
   font-size:.78rem;
   font-weight:800;
