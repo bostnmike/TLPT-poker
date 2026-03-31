@@ -22,33 +22,35 @@
       "dek": "NASA Al won the night, Red turned into the table wrecking ball, and March Sadness closed with a much messier sequel than the title even promised.",
       "summaryCards": [
         {
-          "tone": "green",
-          "label": "🎬 Main Story",
-          "player": "NASA Al",
-          "value": "Winner",
-          "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night."
-        },
+  "tone": "green",
+  "label": "📰 The Main Story",
+  "player": "NASA Al",
+  "value": "Winner",
+  "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night.",
+  "avatar": "images/players/nasa-al.jpg",
+  "fallback": "NA"
+},
         {
-          "tone": "red",
-          "label": "🪓 Table Killer",
-          "player": "Red",
-          "value": "5 knockouts",
-          "copy": "Stacked the body count even without winning the whole thing."
-        },
+  "tone": "blue",
+  "label": "🩸 First Out",
+  "player": "Hiro / Li-Fo",
+  "value": "Opening busts",
+  "copy": "NASA Al cracked both open in the same early burst."
+},
         {
-          "tone": "purple",
-          "label": "♻️ Rebuy Pressure",
-          "player": "4 rebuys",
-          "value": "11 total entries",
-          "copy": "A seven-player field turned into a longer, meaner March sequel."
-        },
+  "tone": "purple",
+  "label": "🦤 First Rail Bird",
+  "player": "Providencemike",
+  "value": "First gone for good",
+  "copy": "Red made the first permanent exit stick."
+},
         {
-          "tone": "blue",
-          "label": "⏱️ Session Shape",
-          "player": "4h 15m",
-          "value": "$330 pot",
-          "copy": "From 7:17 pm to 11:32 pm with three paid spots."
-        }
+  "tone": "red",
+  "label": "🪓 Table Killer",
+  "player": "Red",
+  "value": "5 knockouts",
+  "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
+}
       ],
       "statPills": [
         { "icon": "🎟️", "label": "Total Entries", "value": "11" },
