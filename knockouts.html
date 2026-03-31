@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knockout Central | TLPT Poker League</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="knockouts.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html">
+        <img src="images/site/TLPT-logo.png" alt="TLPT Poker League" class="brand-logo" />
+        <span class="brand-text">TLPT Poker League</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="players.html">The Crew</a>
+        <a href="schedule.html">Schedule</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false">
+            The (Dis) Honors
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="champions.html">The (Dis) Honors</a>
+            <a href="news.html">The Week That Was</a>
+            <a href="knockouts.html" aria-current="page">Knockout Central</a>
+          </div>
+        </div>
+
+        <a href="rules.html">Rules</a>
+        <a href="media.html">Film Room</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section knockouts-header-shell">
+      <div class="section-head page-title-row compact-page-title-row">
+        <img
+          class="page-chip page-chip-dashboard"
+          src="images/site/chip-T-1000.png"
+          alt="T-1000 chip"
+          onerror="this.style.display='none';"
+        />
+        <h2 class="champions-title">Knockout Central</h2>
+      </div>
+
+      <div class="page-kicker">
+        Who’s sending whom to the rail, who keeps showing up in the nightmares, and who’s quietly building a body count.
+      </div>
+    </section>
+
+    <div id="knockouts-page" class="knockouts-page">
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head">
+          <h3>📊 League Leaders</h3>
+          <p class="muted">The loudest numbers in the knockout ledger.</p>
+        </div>
+        <div id="knockouts-summary-grid" class="knockouts-summary-grid"></div>
+      </section>
+
+      <div class="knockouts-two-up">
+        <section class="section knockouts-shell">
+          <div class="knockouts-shell-head">
+            <h3>🥊 Top Rivalries</h3>
+            <p class="muted">The repeat offenders and their favorite victims.</p>
+          </div>
+          <div id="knockouts-rivalries"></div>
+        </section>
+
+        <section class="section knockouts-shell">
+          <div class="knockouts-shell-head">
+            <h3>☠️ Nemesis Board</h3>
+            <p class="muted">For every player, the face most likely to ruin their night.</p>
+          </div>
+          <div id="knockouts-nemesis-board"></div>
+        </section>
+      </div>
+
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head">
+          <h3>💀 Body Count Ledger</h3>
+          <p class="muted">Everybody who’s sent somebody home, and exactly how often.</p>
+        </div>
+        <div id="knockouts-body-count-ledger"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="knockouts.js"></script>
+
+  <script>
+    (function () {
+      const dropdown = document.querySelector('.nav-dropdown');
+      const toggle = document.querySelector('.nav-dropdown-toggle');
+
+      if (!dropdown || !toggle) return;
+
+      toggle.addEventListener('click', () => {
+        const open = dropdown.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
