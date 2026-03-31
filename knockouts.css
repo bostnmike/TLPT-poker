@@ -96,19 +96,19 @@
   min-width:0;
   display:flex;
   flex-direction:column;
-  gap:4px;
+  gap:2px;
 }
 
 .knockouts-stat-name{
   color:#fff;
-  font-size:1.08rem;
+  font-size:1.22rem;
   font-weight:900;
   line-height:1.15;
 }
 
 .knockouts-stat-value{
   color:var(--gold);
-  font-size:1rem;
+  font-size:1.14rem;
   font-weight:900;
   line-height:1.15;
 }
