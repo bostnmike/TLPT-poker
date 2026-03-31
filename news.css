@@ -226,9 +226,9 @@
 /* ----- summary card content ----- */
 
 .news-summary-label{
-  margin:0 0 8px;
+  margin:0 0 10px;
   color:#fff0bf;
-  font-size:.76rem;
+  font-size:.86rem;
   font-weight:900;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -303,18 +303,18 @@
 
 .news-summary-player{
   color:#ffffff;
-  font-size:1.08rem;
+  font-size:1.28rem;
   font-weight:900;
-  line-height:1.2;
-  margin:0 0 8px;
+  line-height:1.08;
+  margin:0 0 6px;
 }
 
 .news-summary-value{
   color:#ffe08a;
-  font-size:1.12rem;
+  font-size:1.26rem;
   font-weight:900;
-  line-height:1.1;
-  margin:0 0 8px;
+  line-height:1.05;
+  margin:0 0 6px;
 }
 
 .news-summary-copy{
