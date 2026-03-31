@@ -1,0 +1,1540 @@
+{
+  "2025-05-23": [
+    {
+      "victim": "jeff-t",
+      "killer": "bostnmike",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "dan-k",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "Dan K"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "li-fo",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "dan-k",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "Dan K"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "dan-k",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Dan K"
+    },
+    {
+      "victim": "dan-k",
+      "killer": "hiro",
+      "sourceVictim": "Dan K",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    }
+  ],
+  "2025-06-14": [
+    {
+      "victim": "brad-r",
+      "killer": "rob-f",
+      "sourceVictim": "Brad R",
+      "sourceKiller": "Rob F"
+    },
+    {
+      "victim": "hiro",
+      "killer": "brad-r",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Brad R"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "rob-f",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Rob F"
+    },
+    {
+      "victim": "nitro",
+      "killer": "wild-bill",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Wild Bill"
+    },
+    {
+      "victim": "brad-r",
+      "killer": "rob-f",
+      "sourceVictim": "Brad R",
+      "sourceKiller": "Rob F"
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "ai-dave",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "rob-f",
+      "killer": "bostnmike",
+      "sourceVictim": "Rob F",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "bostnmike",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Bostnmike"
+    }
+  ],
+  "2025-06-21": [
+    {
+      "victim": "dan-k",
+      "killer": "hiro",
+      "sourceVictim": "Dan K",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "brad-r",
+      "killer": "li-fo",
+      "sourceVictim": "Brad R",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "brad-r",
+      "killer": "hiro",
+      "sourceVictim": "Brad R",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "hiro",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "hiro",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Hiro"
+    }
+  ],
+  "2025-06-28": [
+    {
+      "victim": "gilmore",
+      "killer": "li-fo",
+      "sourceVictim": "Gilmore",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "gilmore",
+      "killer": "nasa-al",
+      "sourceVictim": "Gilmore",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "nitro",
+      "killer": "bostnmike",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "the-architect",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "li-fo",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "nasa-al",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "hiro",
+      "killer": "the-architect",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "the-architect",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "nitro",
+      "killer": "li-fo",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "li-fo",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "li-fo",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Li-Fo"
+    }
+  ],
+  "2025-07-26": [
+    {
+      "victim": "nasa-al",
+      "killer": "ai-dave",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ai-dave",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "hiro",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "hiro",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Hiro"
+    }
+  ],
+  "2025-08-23": [
+    {
+      "victim": "chris-o",
+      "killer": "nasa-al",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "nasa-al",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "nasa-al",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "nasa-al",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Nasa Al"
+    }
+  ],
+  "2025-10-04": [
+    {
+      "victim": "nasa-al",
+      "killer": "bostnmike",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "yann",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "fabian",
+      "killer": "yann",
+      "sourceVictim": "Fabian",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "yann",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "hiro",
+      "killer": "yann",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "yann",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "yann",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Yann"
+    },
+    {
+      "victim": "yann",
+      "killer": "bostnmike",
+      "sourceVictim": "Yann",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "cougar",
+      "killer": "bostnmike",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Bostnmike"
+    }
+  ],
+  "2025-10-25": [
+    {
+      "victim": "hiro",
+      "killer": "wild-bill",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Wild Bill"
+    },
+    {
+      "victim": "cougar",
+      "killer": "hiro",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ai-dave",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "ai-dave",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "nitro",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Nitro"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "cougar",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "cougar",
+      "killer": "nitro",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Nitro"
+    }
+  ],
+  "2025-11-01": [
+    {
+      "victim": "rob-f",
+      "killer": "hiro",
+      "sourceVictim": "Rob F",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "li-fo",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "cougar",
+      "killer": "rob-f",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Rob F"
+    },
+    {
+      "victim": "rob-f",
+      "killer": "hiro",
+      "sourceVictim": "Rob F",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "li-fo",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Li-Fo"
+    }
+  ],
+  "2025-11-15": [
+    {
+      "victim": "cougar",
+      "killer": "ahmed",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "hiro",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "hiro",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "hiro",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    }
+  ],
+  "2025-11-30": [
+    {
+      "victim": "li-fo",
+      "killer": "providencemike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "big-tim",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Big Tim"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "li-fo",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ai-dave",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "cougar",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "cougar",
+      "killer": "li-fo",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "big-tim",
+      "killer": "ai-dave",
+      "sourceVictim": "Big Tim",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ai-dave",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ai-Dave"
+    }
+  ],
+  "2025-12-06": [
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "li-fo",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "ahmed",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "ahmed",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ahmed",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    }
+  ],
+  "2025-12-13": [
+    {
+      "victim": "red",
+      "killer": "bostnmike",
+      "sourceVictim": "Red",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "chris-o",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "gilmore",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Gilmore"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "chris-o",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "red",
+      "killer": "chris-o",
+      "sourceVictim": "Red",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "hiro",
+      "killer": "gilmore",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Gilmore"
+    },
+    {
+      "victim": "gilmore",
+      "killer": "li-fo",
+      "sourceVictim": "Gilmore",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "chris-o",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "bostnmike",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "vish",
+      "killer": "chris-o",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "chris-o",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "chris-o",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Chris O"
+    }
+  ],
+  "2025-12-21": [
+    {
+      "victim": "vic",
+      "killer": "ai-dave",
+      "sourceVictim": "Vic",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "cougar",
+      "killer": "ahmed",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "chris-o",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "vic",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Vic"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "ahmed",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "vic",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Vic"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "ahmed",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "vic",
+      "killer": "bostnmike",
+      "sourceVictim": "Vic",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "bostnmike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "bostnmike",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Bostnmike"
+    }
+  ],
+  "2025-12-27": [
+    {
+      "victim": "chris-o",
+      "killer": "red",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "the-architect",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "ai-dave",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "cougar",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "vish",
+      "killer": "the-architect",
+      "sourceVictim": "Vish",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "red",
+      "killer": "the-architect",
+      "sourceVictim": "Red",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "chris-o",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "chris-o",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "chris-o",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "cougar",
+      "killer": "chris-o",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Chris O"
+    }
+  ],
+  "2026-01-03": [
+    {
+      "victim": "hiro",
+      "killer": "red",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "vish",
+      "killer": "red",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "red",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "vish",
+      "killer": "chris-o",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "vish",
+      "killer": "hiro",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "the-architect",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "chris-o",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "vish",
+      "killer": "red",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "red",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "red",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "hiro",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "red",
+      "killer": "hiro",
+      "sourceVictim": "Red",
+      "sourceKiller": "Hiro"
+    }
+  ],
+  "2026-01-17": [
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nitro",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nitro"
+    },
+    {
+      "victim": "david-k",
+      "killer": "ahmed",
+      "sourceVictim": "David K",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "cougar",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "cougar",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "nitro",
+      "killer": "cougar",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "cougar",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Cougar"
+    }
+  ],
+  "2026-01-24": [
+    {
+      "victim": "hayden-d",
+      "killer": "red",
+      "sourceVictim": "Hayden D",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "nitro",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Nitro"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "nitro",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Nitro"
+    },
+    {
+      "victim": "nitro",
+      "killer": "bostnmike",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Bostnmike"
+    }
+  ],
+  "2026-01-30": [
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "red",
+      "killer": "wild-bill",
+      "sourceVictim": "Red",
+      "sourceKiller": "Wild Bill"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "bostnmike",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "wild-bill",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Wild Bill"
+    },
+    {
+      "victim": "cougar",
+      "killer": "hayden-d",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Hayden D"
+    },
+    {
+      "victim": "nitro",
+      "killer": "hayden-d",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Hayden D"
+    },
+    {
+      "victim": "hayden-d",
+      "killer": "bostnmike",
+      "sourceVictim": "Hayden D",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Bostnmike"
+    }
+  ],
+  "2026-02-07": [
+    {
+      "victim": "nitro",
+      "killer": "vish",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "hiro",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "cougar",
+      "killer": "providencemike",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "nitro",
+      "killer": "li-fo",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "vish",
+      "killer": "providencemike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "hiro",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "providencemike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Providencemike"
+    }
+  ],
+  "2026-02-13": [
+    {
+      "victim": "vish",
+      "killer": "providencemike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "jeff-t",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Jeff T"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "ai-dave",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "vish",
+      "killer": "jeff-t",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Jeff T"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "vish",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "bostnmike",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "nitro",
+      "killer": "vish",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "vish",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "nasa-al",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "vish",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "vish",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Vish"
+    }
+  ],
+  "2026-02-21": [
+    {
+      "victim": "red",
+      "killer": "li-fo",
+      "sourceVictim": "Red",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "red",
+      "killer": "vic",
+      "sourceVictim": "Red",
+      "sourceKiller": "Vic"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "vic",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Vic"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "cougar",
+      "killer": "ai-dave",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "ahmed",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "vic",
+      "killer": "bostnmike",
+      "sourceVictim": "Vic",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    }
+  ],
+  "2026-02-27": [
+    {
+      "victim": "red",
+      "killer": "providencemike",
+      "sourceVictim": "Red",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "vish",
+      "killer": "bostnmike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "vish",
+      "killer": "ai-dave",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "bostnmike",
+      "sourceVictim": "Phattedcalf",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "red",
+      "killer": "ai-dave",
+      "sourceVictim": "Red",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "providencemike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "ai-dave",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ai-dave",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "ai-dave",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Ai-Dave"
+    }
+  ],
+  "2026-03-07": [
+    {
+      "victim": "vic",
+      "killer": "ai-dave",
+      "sourceVictim": "Vic",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "cougar",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "vic",
+      "killer": "nasa-al",
+      "sourceVictim": "Vic",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "nasa-al",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "providencemike",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "dan-k",
+      "killer": "cougar",
+      "sourceVictim": "Dan K",
+      "sourceKiller": "Cougar"
+    }
+  ],
+  "2026-03-13": [
+    {
+      "victim": "red",
+      "killer": "cougar",
+      "sourceVictim": "Red",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "pittdburghbill",
+      "killer": "red",
+      "sourceVictim": "Pittsburghbill",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "cougar",
+      "killer": "red",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "vish",
+      "sourceVictim": "Phattedcalf",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "red",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "vish",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "nitro",
+      "killer": "red",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "red",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "vish",
+      "killer": "red",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Red"
+    }
+  ],
+  "2026-03-14": [
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "red",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "ahmed",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "cougar",
+      "killer": "bostnmike",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "red",
+      "killer": "vish",
+      "sourceVictim": "Red",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "vish",
+      "killer": "bostnmike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    }
+  ],
+  "2026-03-27": [
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "mike-g",
+      "killer": "kishan",
+      "sourceVictim": "Mike-G",
+      "sourceKiller": "Kishan"
+    },
+    {
+      "victim": "red",
+      "killer": "kishan",
+      "sourceVictim": "Red",
+      "sourceKiller": "Kishan"
+    },
+    {
+      "victim": "red",
+      "killer": "providencemike",
+      "sourceVictim": "Red",
+      "sourceKiller": "Providencemike"
+    },
+    {
+      "victim": "red",
+      "killer": "pat",
+      "sourceVictim": "Red",
+      "sourceKiller": "Pat"
+    },
+    {
+      "victim": "nitro",
+      "killer": "mike-g",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Mike-G"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "mike-g",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Mike-G"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "mike-g",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Mike-G"
+    },
+    {
+      "victim": "kishan",
+      "killer": "mike-g",
+      "sourceVictim": "Kishan",
+      "sourceKiller": "Mike-G"
+    },
+    {
+      "victim": "pat",
+      "killer": "mike-g",
+      "sourceVictim": "Pat",
+      "sourceKiller": "Mike-G"
+    }
+  ],
+  "2026-03-28": [
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "nasa-al",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "nasa-al",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "red",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "red",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "hiro",
+      "killer": "red",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "red",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "red",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "red",
+      "killer": "nasa-al",
+      "sourceVictim": "Red",
+      "sourceKiller": "Nasa Al"
+    }
+  ]
+}
