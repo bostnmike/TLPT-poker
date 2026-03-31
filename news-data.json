@@ -31,25 +31,33 @@
         "fallback": "NA"
       },
       {
-        "tone": "blue",
-        "label": "🩸 First Out",
-        "player": "Hiro / Li-Fo",
-        "value": "Opening busts",
-        "copy": "NASA Al cracked both open in the same early burst."
-      },
+  "tone": "blue",
+  "label": "🩸 First Out",
+  "player": "Hiro / Li-Fo",
+  "value": "Opening busts",
+  "copy": "NASA Al cracked both open in the same early burst.",
+  "avatars": [
+    { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" },
+    { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+  ]
+},
       {
         "tone": "purple",
         "label": "🦤 First Rail Bird",
         "player": "Providencemike",
         "value": "First gone for good",
-        "copy": "Red made the first permanent exit stick."
+        "copy": "Red made the first permanent exit stick.",
+        "avatar": "images/players/providencemike.jpg",
+        "fallback": "PM"
       },
       {
         "tone": "red",
         "label": "🪓 Table Killer",
         "player": "Red",
         "value": "5 knockouts",
-        "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
+        "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike.",
+        "avatar": "images/players/red.jpg",
+        "fallback": "RE"
       }
       ],
       "statPills": [
@@ -2326,7 +2334,7 @@
       "label": "⏱️ Session Shape",
       "player": "4h 24m",
       "value": "$300 pot",
-      "copy": "A day-spanning marathon with 3 paid spots and a stolen finish."
+      "copy": "A typical evening "slog" with 3 paid spots and a stolen finish."
     }
   ],
   "statPills": [
@@ -2381,7 +2389,7 @@
   "roastHtml": "<p>BostnMike won a game that practically spent all night trying to hand the headline to Yann. Credit where it is due: that is an annoyingly professional bit of larceny from the commissioner.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 2 rebuys, 10 total entries.",
-    "4h 24m of play from 7:13 pm on 10/03 to 11:37 pm on 10/04.",
+    "4h 24m of play from 7:13 pm to 11:37 pm.",
     "$300 total pot with 3 paid spots.",
     "Yann did the bulk of the destruction, but BostnMike took the final two knockouts to win."
   ],
@@ -2595,7 +2603,7 @@
   "roastHtml": "<p>BostnMike managed to become first gone for good in a five-player game that still somehow lasted nearly four hours. That is a remarkable combination of visibility, stamina, and bad timing.</p>",
   "numbersThatMatter": [
     "5 buy-ins, 2 rebuys, 7 total entries.",
-    "4h 43m of play from 7:39 pm to 11:23 pm.",
+    "3h 44m of play from 7:39 pm to 11:23 pm.",
     "$210 total pot with only 2 paid spots.",
     "Hiro took the final three eliminations after BostnMike became first gone for good."
   ],
