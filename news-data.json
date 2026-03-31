@@ -21,36 +21,36 @@
       "featured": true,
       "dek": "NASA Al won the night, Red turned into the table wrecking ball, and March Sadness closed with a much messier sequel than the title even promised.",
       "summaryCards": [
-        {
-  "tone": "green",
-  "label": "📰 The Main Story",
-  "player": "NASA Al",
-  "value": "Winner",
-  "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night.",
-  "avatar": "images/players/nasa-al.jpg",
-  "fallback": "NA"
-},
-        {
-  "tone": "blue",
-  "label": "🩸 First Out",
-  "player": "Hiro / Li-Fo",
-  "value": "Opening busts",
-  "copy": "NASA Al cracked both open in the same early burst."
-},
-        {
-  "tone": "purple",
-  "label": "🦤 First Rail Bird",
-  "player": "Providencemike",
-  "value": "First gone for good",
-  "copy": "Red made the first permanent exit stick."
-},
-        {
-  "tone": "red",
-  "label": "🪓 Table Killer",
-  "player": "Red",
-  "value": "5 knockouts",
-  "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
-}
+      {
+        "tone": "green",
+        "label": "📰 The Main Story",
+        "player": "NASA Al",
+        "value": "Winner",
+        "copy": "Finished Red heads-up after surviving a wild rebuy-heavy night.",
+        "avatar": "images/players/nasa-al.jpg",
+        "fallback": "NA"
+      },
+      {
+        "tone": "blue",
+        "label": "🩸 First Out",
+        "player": "Hiro / Li-Fo",
+        "value": "Opening busts",
+        "copy": "NASA Al cracked both open in the same early burst."
+      },
+      {
+        "tone": "purple",
+        "label": "🦤 First Rail Bird",
+        "player": "Providencemike",
+        "value": "First gone for good",
+        "copy": "Red made the first permanent exit stick."
+      },
+      {
+        "tone": "red",
+        "label": "🪓 Table Killer",
+        "player": "Red",
+        "value": "5 knockouts",
+        "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
+      }
       ],
       "statPills": [
         { "icon": "🎟️", "label": "Total Entries", "value": "11" },
@@ -1204,7 +1204,7 @@
   "roastHtml": "<p>BostnMike took first in a game with one of the smallest fields and still needed a co-winner to get there. That is the perfect commissioner compromise: technically victorious, spiritually negotiated.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 1 rebuy, 7 total entries.",
-    "9h 38m of play from 10:12 am to 7:50 pm.",
+    "3h 40m of play from 4:10 pm to 7:50 pm.",
     "$210 total pot with only 2 paid spots.",
     "BostnMike and Red split first after one of the longest small-field sessions in the archive."
   ],
@@ -1220,7 +1220,7 @@
     "Nothing about the field size explains the runtime. That is what makes it funny.",
     "Mother, \"Maye\" I? was basically a slow-burn endurance test disguised as a six-player game."
   ],
-  "tldr": "Mother, \"Maye\" I? lasted nearly ten hours and still ended with BostnMike and Red splitting first. It was tiny, slow, and somehow one of the strangest structures in the archive."
+  "tldr": "Mother, \"Maye\" I? lasted nearly 4 hours and still ended with BostnMike and Red splitting first. It was tiny, slow, and somehow one of the strangest structures in the archive."
 },
 {
   "id": "week-01-17-2026",
@@ -2060,7 +2060,7 @@
   "roastHtml": "<p>BostnMike made the money in a seven-player, no-rebuy game and still managed to get erased right before the finish. It takes real commissioner discipline to survive the easy part and miss the clean photo.</p>",
   "numbersThatMatter": [
     "7 buy-ins, 0 rebuys, 7 total entries.",
-    "6h 29m of play from 4:24 pm to 10:53 pm.",
+    "3h 29m of play from 7:24 pm to 10:53 pm.",
     "$210 total pot with 3 paid spots.",
     "Li-Fo took the final two knockouts in a one-life game where every exit was permanent."
   ],
@@ -2378,10 +2378,10 @@
     }
   ],
   "mainStoryHtml": "<p>I’m Your Huckleberry was not a calm game. It was a marathon with a body count. Yann took over the middle and late-middle stages so completely that the event looked decided long before it actually was. He clipped Hiro twice, wiped out Fabian, caught NASA Al again after the rebuy, then took Li-Fo and A.I. Dave in a row. For a long stretch, this was Yann’s movie.</p><p>Then BostnMike hijacked the ending. After drawing first blood on NASA Al way back at the start, he stayed alive through the long grind and finally flipped the whole thing by busting Yann in third and Cougar in second. That is what makes the game memorable. Not just who won, but how much of the night belonged to someone else before the winner suddenly took the final frame.</p><p>The runtime was absurd, the action summary looked like two separate movies stitched together, and the end result felt less like a steady climb than a last-minute theft.</p>",
-  "roastHtml": "<p>BostnMike won a game that practically spent all day trying to hand the headline to Yann. Credit where it is due: that is an annoyingly professional bit of larceny from the commissioner.</p>",
+  "roastHtml": "<p>BostnMike won a game that practically spent all night trying to hand the headline to Yann. Credit where it is due: that is an annoyingly professional bit of larceny from the commissioner.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 2 rebuys, 10 total entries.",
-    "36h 24m of play from 11:13 am on 10/03 to 11:37 pm on 10/04.",
+    "4h 24m of play from 7:13 pm on 10/03 to 11:37 pm on 10/04.",
     "$300 total pot with 3 paid spots.",
     "Yann did the bulk of the destruction, but BostnMike took the final two knockouts to win."
   ],
@@ -2591,11 +2591,11 @@
       "note": "Only two spots got paid in the five-player format."
     }
   ],
-  "mainStoryHtml": "<p>\"Last Call Before Europe\" was a five-player game that took almost eight hours to finish, which is funny enough before you even get to the actual poker. NASA Al hit the rail first, came back, Li-Fo did the same, and the whole room spent most of the session trying to squeeze a clean finish out of a structure that clearly wanted one more drink.</p><p>The game’s first real sharp turn came when A.I. Dave sent BostnMike out for good. That made the commissioner the first permanently dead player in a game with only five original seats, which is exactly the sort of oddly specific embarrassment a sendoff like this deserves. But A.I. Dave did not get the ending. Hiro did.</p><p>Once the room finally contracted, Hiro removed A.I. Dave, then Li-Fo, then NASA Al to win the whole thing. It was patient, a little grim, and perfectly on-brand for a game called Last Call.</p>",
+  "mainStoryHtml": "<p>\"Last Call Before Europe\" was a five-player game that took almost five hours to finish, which is funny enough, before you even get to the actual poker. NASA Al hit the rail first, came back, Li-Fo did the same, and the whole room spent most of the session trying to squeeze a clean finish out of a structure that clearly wanted one more drink.</p><p>The game’s first real sharp turn came when A.I. Dave sent BostnMike out for good. That made the commissioner the first permanently dead player in a game with only five original seats, which is exactly the sort of oddly specific embarrassment a sendoff like this deserves. But A.I. Dave did not get the ending. Hiro did.</p><p>Once the room finally contracted, Hiro removed A.I. Dave, then Li-Fo, then NASA Al to win the whole thing. It was patient, a little grim, and perfectly on-brand for a game called Last Call.</p>",
   "roastHtml": "<p>BostnMike managed to become first gone for good in a five-player game that still somehow lasted nearly eight hours. That is a remarkable combination of visibility, stamina, and bad timing.</p>",
   "numbersThatMatter": [
     "5 buy-ins, 2 rebuys, 7 total entries.",
-    "7h 43m of play from 3:39 pm to 11:23 pm.",
+    "4h 43m of play from 7:39 pm to 11:23 pm.",
     "$210 total pot with only 2 paid spots.",
     "Hiro took the final three eliminations after BostnMike became first gone for good."
   ],
