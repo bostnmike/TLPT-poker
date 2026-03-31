@@ -224,7 +224,7 @@ function renderMainStory(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🎯 The Main Story</h4>
+      <h4>📰 The Main Story</h4>
       ${html}
     </section>
   `;
@@ -241,37 +241,39 @@ function renderGameSpotlight(week) {
 
   const avatarBlock = hasMulti
     ? `
-      <div class="news-summary-avatar-row">
+      <div class="news-receipt-avatar-row">
         ${spotlight.avatars.map((avatar) => renderAvatar(avatar)).join('')}
       </div>
     `
     : `
-      <span class="player-avatar-wrap">
-        <img
-          class="player-avatar table"
-          src="${escapeHtml(spotlight?.avatar || '')}"
-          alt="${player}"
-          loading="lazy"
-          decoding="async"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        />
-        <span class="player-avatar-fallback table" style="display:none;">
-          ${escapeHtml(spotlight?.fallback || getInitials(player))}
+      <div class="news-receipt-avatar-row">
+        <span class="player-avatar-wrap">
+          <img
+            class="player-avatar table"
+            src="${escapeHtml(spotlight?.avatar || '')}"
+            alt="${player}"
+            loading="lazy"
+            decoding="async"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <span class="player-avatar-fallback table" style="display:none;">
+            ${escapeHtml(spotlight?.fallback || getInitials(player))}
+          </span>
         </span>
-      </span>
+      </div>
     `;
 
   return `
     <section class="news-story-section">
-      <h4>🎖️ Game Spotlight</h4>
+      <h4>🔦 Game Spotlight</h4>
       <div class="news-receipt-panel">
         <div class="news-receipt-lead">
-          <div class="news-receipt-top">
-            ${avatarBlock}
+          <div class="news-receipt-top news-receipt-top-split">
             <div class="news-receipt-copy">
               <div class="news-receipt-kicker">${kicker}</div>
               <div class="news-receipt-name">${player}</div>
             </div>
+            ${avatarBlock}
           </div>
         </div>
 
@@ -289,7 +291,7 @@ function renderWhatTheFeltSaid(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🃏 Felt Whispers</h4>
+      <h4>👂🏼 Felt Whispers</h4>
       <div class="news-felt-grid">
         ${items
           .map((item) => {
@@ -329,7 +331,7 @@ function renderRoastSection(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🎙️ BostnMike Roast</h4>
+      <h4>🎙️ Host Roast</h4>
       <div class="news-pull-quote news-pull-quote-self-roast">
         <div class="news-pull-quote-row">
           <span class="player-avatar-wrap">
