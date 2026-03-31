@@ -94,6 +94,7 @@ function renderSummaryCard(card) {
   const player = escapeHtml(card?.player || '');
   const value = escapeHtml(card?.value || '');
   const copy = escapeHtml(card?.copy || '');
+  const valueHtml = value ? `<div class="news-summary-value">${value}</div>` : '';
 
   const hasMulti = Array.isArray(card?.avatars) && card.avatars.length;
   const hasSingle = !!card?.avatar;
@@ -108,7 +109,7 @@ function renderSummaryCard(card) {
         </div>
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
-          <div class="news-summary-value">${value}</div>
+          ${valueHtml}
         </div>
       </div>
     `;
@@ -122,7 +123,7 @@ function renderSummaryCard(card) {
         })}
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
-          <div class="news-summary-value">${value}</div>
+          ${valueHtml}
         </div>
       </div>
     `;
