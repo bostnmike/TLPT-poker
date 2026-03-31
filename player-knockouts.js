@@ -96,13 +96,13 @@
 
     if (!top) {
       return `
-        <div class="player-nemesis-card">
-          <div class="player-nemesis-head">
-            <h3>🥊 Meet Your Table Nemesis</h3>
-            <p class="muted">The player who’s bounced you most often.</p>
-          </div>
+      <div class="player-nemesis-card">
+        <div class="player-nemesis-head">
+          <h3>🥊 Meet Your Table Nemesis</h3>
+          <p class="muted">The player who’s bounced you most often.</p>
+        </div>
 
-          <div class="player-nemesis-empty muted">
+        <div class="player-nemesis-body">
             No recurring executioner… yet.
           </div>
         </div>
