@@ -34,7 +34,6 @@
         "tone": "blue",
         "label": "🩸 First Out",
         "player": "Hiro / Li-Fo",
-        "value": "Opening busts",
         "copy": "NASA Al cracked both open in the same early burst.",
         "avatars": [
           { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" },
@@ -45,7 +44,6 @@
         "tone": "purple",
         "label": "🦤 First Rail Bird",
         "player": "Providencemike",
-        "value": "First gone for good",
         "copy": "Red made the first permanent exit stick.",
         "avatar": "images/players/providencemike.jpg",
         "fallback": "PM"
