@@ -139,7 +139,11 @@
     const mostKnockouts = killers[0] || null;
     const mostBusted = victims[0] || null;
     const biggestBully = rivalries[0] || null;
-    const worstNemesis = nemesisBoard[0] || null;
+    const mostUniqueVictims = [...killers].sort((a, b) => {
+      if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
+      if (b.total !== a.total) return b.total - a.total;
+      return a.slug.localeCompare(b.slug);
+    })[0] || null;
 
     const html = [];
 
@@ -176,24 +180,23 @@
       }));
     }
 
-    if (worstNemesis) {
-      const victim = safePlayer(playerMap, worstNemesis.victimSlug);
-      const killer = safePlayer(playerMap, worstNemesis.killerSlug);
+    if (mostUniqueVictims) {
+  const killer = safePlayer(playerMap, mostUniqueVictims.slug);
 
-      html.push(renderStatCard({
-        label: "Bloodiest Battle",
-        player: victim,
-        value: `${worstNemesis.count}`,
-        subtext: killer ? `owned by ${killer.name}` : ""
-      }));
-    } else {
-      html.push(renderStatCard({
-        label: "Bloodiest Battle",
-        player: null,
-        value: "—",
-        subtext: ""
-      }));
-    }
+  html.push(renderStatCard({
+    label: "Most Unique Victims",
+    player: killer,
+    value: `${mostUniqueVictims.uniqueVictims}`,
+    subtext: `${mostUniqueVictims.total} total knock-outs`
+  }));
+} else {
+  html.push(renderStatCard({
+    label: "Most Unique Victims",
+    player: null,
+    value: "—",
+    subtext: ""
+  }));
+}
 
     return html.join("");
   }
