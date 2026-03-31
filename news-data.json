@@ -1200,7 +1200,7 @@
       "note": "No third-place payout in a two-paid-spot game."
     }
   ],
-  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly four hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on Providencemike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, Providencemike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a marathon soul.</p>",
+  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly four hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on Providencemike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, Providencemike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a mini-marathon soul.</p>",
   "roastHtml": "<p>BostnMike took first in a game with one of the smallest fields and still needed a co-winner to get there. That is the perfect commissioner compromise: technically victorious, spiritually negotiated.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 1 rebuy, 7 total entries.",
@@ -2389,7 +2389,7 @@
     "NASA Al was first out, rebought, and still wound up as one more line in Yann’s rampage.",
     "Fabian was first gone for good, which made Yann the first real executioner of the game.",
     "Hiro used a rebuy and still got clipped twice by the same man, which is a rough piece of symmetry.",
-    "This was easily the longest game in the archive and absolutely behaved like it."
+    "This was easily the longer games in the archive and absolutely behaved like it."
   ],
   "quickHitsRight": [
     "Cougar skipped the loudest parts of the chaos and still made heads-up.",
@@ -2538,7 +2538,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "3h 43m",
+      "player": "3h 44m",
       "value": "$210 pot",
       "copy": "A long five-player game with only 2 paid spots and a patient winner."
     }
@@ -2547,12 +2547,12 @@
     { "icon": "🎟️", "label": "Total Entries", "value": "7" },
     { "icon": "♻️", "label": "Rebuys", "value": "2" },
     { "icon": "💰", "label": "Prize Pool", "value": "$210" },
-    { "icon": "⏱️", "label": "Play Time", "value": "4h 43m" }
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 44m" }
   ],
   "summary": {
     "startTime": "7:39:42 pm 07/26/2025",
     "endTime": "11:23:09 pm 07/26/2025",
-    "durationLabel": "3h 43m",
+    "durationLabel": "3h 44m",
     "buyIns": 5,
     "rebuys": 2,
     "entries": 7,
@@ -2592,7 +2592,7 @@
     }
   ],
   "mainStoryHtml": "<p>\"Last Call Before Europe\" was a five-player game that took almost four hours to finish, which is funny enough, before you even get to the actual poker. NASA Al hit the rail first, came back, Li-Fo did the same, and the whole room spent most of the session trying to squeeze a clean finish out of a structure that clearly wanted one more drink.</p><p>The game’s first real sharp turn came when A.I. Dave sent BostnMike out for good. That made the commissioner the first permanently dead player in a game with only five original seats, which is exactly the sort of oddly specific embarrassment a sendoff like this deserves. But A.I. Dave did not get the ending. Hiro did.</p><p>Once the room finally contracted, Hiro removed A.I. Dave, then Li-Fo, then NASA Al to win the whole thing. It was patient, a little grim, and perfectly on-brand for a game called Last Call.</p>",
-  "roastHtml": "<p>BostnMike managed to become first gone for good in a five-player game that still somehow lasted nearly eight hours. That is a remarkable combination of visibility, stamina, and bad timing.</p>",
+  "roastHtml": "<p>BostnMike managed to become first gone for good in a five-player game that still somehow lasted nearly four hours. That is a remarkable combination of visibility, stamina, and bad timing.</p>",
   "numbersThatMatter": [
     "5 buy-ins, 2 rebuys, 7 total entries.",
     "4h 43m of play from 7:39 pm to 11:23 pm.",
