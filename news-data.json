@@ -1200,7 +1200,7 @@
       "note": "No third-place payout in a two-paid-spot game."
     }
   ],
-  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly ten hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on Providencemike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, Providencemike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a marathon soul.</p>",
+  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly four hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on Providencemike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, Providencemike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a marathon soul.</p>",
   "roastHtml": "<p>BostnMike took first in a game with one of the smallest fields and still needed a co-winner to get there. That is the perfect commissioner compromise: technically victorious, spiritually negotiated.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 1 rebuy, 7 total entries.",
@@ -2056,7 +2056,7 @@
       "note": "BostnMike finished third after getting clipped just before the final hand."
     }
   ],
-  "mainStoryHtml": "<p>You Can Act Like a Man! was tiny, rebuy-free, and somehow still took six and a half hours to settle itself. Seven players, no second chances, no real chaos cushion — just a long, deliberate game where every bust-out mattered immediately.</p><p>Ahmed drew first blood on Cougar, but Hiro did most of the work through the middle. He took out A.I. Dave, Wild Bill, and Ahmed and looked like the natural center of gravity by the time the field got short. Then Li-Fo ended the speech. He knocked out BostnMike, then Hiro, and took the whole thing in the final seconds.</p><p>That is what makes this game memorable. Not fireworks. Not a rebuy circus. Just a small, patient, one-life table that eventually came down to one player taking the last two names for himself.</p>",
+  "mainStoryHtml": "<p>You Can Act Like a Man! was tiny, rebuy-free, and took only three and a half hours to settle itself. Seven players, no second chances, no real chaos cushion — just a long, deliberate game where every bust-out mattered immediately.</p><p>Ahmed drew first blood on Cougar, but Hiro did most of the work through the middle. He took out A.I. Dave, Wild Bill, and Ahmed and looked like the natural center of gravity by the time the field got short. Then Li-Fo ended the speech. He knocked out BostnMike, then Hiro, and took the whole thing in the final seconds.</p><p>That is what makes this game memorable. Not fireworks. Not a rebuy circus. Just a small, patient, one-life table that eventually came down to one player taking the last two names for himself.</p>",
   "roastHtml": "<p>BostnMike made the money in a seven-player, no-rebuy game and still managed to get erased right before the finish. It takes real commissioner discipline to survive the easy part and miss the clean photo.</p>",
   "numbersThatMatter": [
     "7 buy-ins, 0 rebuys, 7 total entries.",
@@ -2068,7 +2068,7 @@
     "Cougar was first out and first gone for good because there were no reloads to save anybody.",
     "Ahmed got first blood and still did not make the money, which tells you how slowly the game changed hands.",
     "Hiro looked like the likely winner for most of the middle stages before Li-Fo took the ending away.",
-    "This was one of the smallest fields in the archive and one of the longest runtimes."
+    "This was one of the smallest fields in the archive and one of the shorter runtimes."
   ],
   "quickHitsRight": [
     "Wild Bill and A.I. Dave both disappeared through Hiro before the money tightened up.",
@@ -2336,7 +2336,7 @@
     { "icon": "⏱️", "label": "Play Time", "value": "4h 24m" }
   ],
   "summary": {
-    "startTime": "7:13:09 am 10/04/2025",
+    "startTime": "7:13:09 pm 10/04/2025",
     "endTime": "11:37:23 pm 10/04/2025",
     "durationLabel": "4h 24m",
     "buyIns": 8,
@@ -2538,7 +2538,7 @@
     {
       "tone": "blue",
       "label": "⏱️ Session Shape",
-      "player": "4h 43m",
+      "player": "3h 43m",
       "value": "$210 pot",
       "copy": "A long five-player game with only 2 paid spots and a patient winner."
     }
@@ -2552,7 +2552,7 @@
   "summary": {
     "startTime": "7:39:42 pm 07/26/2025",
     "endTime": "11:23:09 pm 07/26/2025",
-    "durationLabel": "4h 43m",
+    "durationLabel": "3h 43m",
     "buyIns": 5,
     "rebuys": 2,
     "entries": 7,
@@ -2591,7 +2591,7 @@
       "note": "Only two spots got paid in the five-player format."
     }
   ],
-  "mainStoryHtml": "<p>\"Last Call Before Europe\" was a five-player game that took almost five hours to finish, which is funny enough, before you even get to the actual poker. NASA Al hit the rail first, came back, Li-Fo did the same, and the whole room spent most of the session trying to squeeze a clean finish out of a structure that clearly wanted one more drink.</p><p>The game’s first real sharp turn came when A.I. Dave sent BostnMike out for good. That made the commissioner the first permanently dead player in a game with only five original seats, which is exactly the sort of oddly specific embarrassment a sendoff like this deserves. But A.I. Dave did not get the ending. Hiro did.</p><p>Once the room finally contracted, Hiro removed A.I. Dave, then Li-Fo, then NASA Al to win the whole thing. It was patient, a little grim, and perfectly on-brand for a game called Last Call.</p>",
+  "mainStoryHtml": "<p>\"Last Call Before Europe\" was a five-player game that took almost four hours to finish, which is funny enough, before you even get to the actual poker. NASA Al hit the rail first, came back, Li-Fo did the same, and the whole room spent most of the session trying to squeeze a clean finish out of a structure that clearly wanted one more drink.</p><p>The game’s first real sharp turn came when A.I. Dave sent BostnMike out for good. That made the commissioner the first permanently dead player in a game with only five original seats, which is exactly the sort of oddly specific embarrassment a sendoff like this deserves. But A.I. Dave did not get the ending. Hiro did.</p><p>Once the room finally contracted, Hiro removed A.I. Dave, then Li-Fo, then NASA Al to win the whole thing. It was patient, a little grim, and perfectly on-brand for a game called Last Call.</p>",
   "roastHtml": "<p>BostnMike managed to become first gone for good in a five-player game that still somehow lasted nearly eight hours. That is a remarkable combination of visibility, stamina, and bad timing.</p>",
   "numbersThatMatter": [
     "5 buy-ins, 2 rebuys, 7 total entries.",
