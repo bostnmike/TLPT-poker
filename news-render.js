@@ -300,7 +300,7 @@ function renderWhatTheFeltSaid(week) {
             const icon = escapeHtml(item?.icon || getFeltWhisperIcon(label));
 
             return `
-              <div class="news-felt-card">
+              <div class="news-felt-card news-felt-card-${getFeltWhisperTone(label)}">
                 <div class="news-felt-label-row">
                   <span class="news-felt-icon">${icon}</span>
                   <div class="news-felt-label">${escapeHtml(label)}</div>
@@ -314,6 +314,16 @@ function renderWhatTheFeltSaid(week) {
       </div>
     </section>
   `;
+}
+
+function getFeltWhisperTone(label) {
+  const normalized = String(label || '').toLowerCase();
+
+  if (normalized.includes('first blood')) return 'blood';
+  if (normalized.includes('first gone')) return 'rail';
+  if (normalized.includes('table killer')) return 'killer';
+  if (normalized.includes('how it ended')) return 'ending';
+  return 'default';
 }
 
 function getFeltWhisperIcon(label) {
