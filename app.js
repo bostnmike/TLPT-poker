@@ -703,6 +703,44 @@ function wireArchetypeMixHover(scope = document) {
   });
 }
 
+function wireArchetypeMixHover(scope = document) {
+  const shell = scope.querySelector(".player-archetype-spectrum-shell");
+  if (!shell) return;
+
+  const clearActive = () => {
+    shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip")
+      .forEach(el => el.classList.remove("is-hover-match"));
+  };
+
+  const activateKey = (key) => {
+    if (!key) return;
+
+    shell.querySelectorAll(
+      `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
+    ).forEach(el => el.classList.add("is-hover-match"));
+  };
+
+  shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
+
+    el.addEventListener("mouseleave", () => {
+      clearActive();
+    });
+
+    el.addEventListener("focus", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
+
+    el.addEventListener("blur", () => {
+      clearActive();
+    });
+  });
+}
+
 function getPlayerTier(player, allPlayers = []) {
   if (!player) {
     return {
@@ -2678,9 +2716,9 @@ function renderPlayerProfile(data) {
     card.addEventListener("focusout", clearFormula);
   });
 
-  initAnimatedCounters(container);
-  wirePlayerFormulaCards(container);
-  wireArchetypeMixHover(container);
+initAnimatedCounters(container);
+wirePlayerFormulaCards(container);
+wireArchetypeMixHover(container);
 }
 
 function renderSchedule(data) {
