@@ -8,26 +8,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-  document.querySelectorAll('.media-video-trigger').forEach(trigger => {
-    trigger.addEventListener('click', function () {
-      const videoId = this.dataset.videoId;
-      const frame = this.closest('.media-frame');
-
-      frame.innerHTML = `
-        <div class="media-embed-wrap">
-          <iframe
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
-            title="Rise of the Nitro (how it all began)"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>
-        </div>
-      `;
-    });
-  });
-</script>
-  
 <body>
 
   <header class="site-header">
