@@ -1374,7 +1374,7 @@ function tierFormulaText(name) {
     return `
       ${base}
       <br><span class="tier-formula-range">• Range: bottom 20% (80% to 100%).</span>
-      <br><span class="tier-formula-drop">• Relegation line: you’re already in it — promotion starts once you climb out.</span>
+      <br><span class="tier-formula-drop">• Good news, there's nowhere to go but up...</span>
     `;
   }
 
