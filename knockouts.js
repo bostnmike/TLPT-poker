@@ -130,6 +130,37 @@
     `;
   }
 
+function renderTallyMarks(count) {
+  const total = Number(count || 0);
+  if (total <= 0) return "";
+
+  const groupsOfFive = Math.floor(total / 5);
+  const remainder = total % 5;
+
+  const fiveGroup = `
+    <span class="knockouts-tally-group">
+      <span class="knockouts-tally-stroke"></span>
+      <span class="knockouts-tally-stroke"></span>
+      <span class="knockouts-tally-stroke"></span>
+      <span class="knockouts-tally-stroke"></span>
+      <span class="knockouts-tally-slash"></span>
+    </span>
+  `;
+
+  const remainderGroup = remainder
+    ? `<span class="knockouts-tally-group">
+        ${Array.from({ length: remainder }).map(() => `<span class="knockouts-tally-stroke"></span>`).join("")}
+      </span>`
+    : "";
+
+  return `
+    <div class="knockouts-tally-row" aria-hidden="true">
+      ${Array.from({ length: groupsOfFive }).map(() => fiveGroup).join("")}
+      ${remainderGroup}
+    </div>
+  `;
+}
+  
   function renderTopStats(playerMap, byKiller, byVictim) {
     const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
     const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
