@@ -285,43 +285,65 @@ if (mostUniqueVictims) {
 `;
 }
   
-  function renderNemesisBoard(playerMap, byVictim) {
-    const board = getNemesisBoard(byVictim);
+function renderNemesisBoard(playerMap, byVictim) {
+  const board = Object.entries(byVictim || {})
+    .map(([victimSlug, killers]) => {
+      const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
+        killerSlug,
+        count: Number(count || 0)
+      }));
 
-    if (!board.length) {
-      return `<div class="knockouts-empty">No nemesis board yet.</div>`;
-    }
+      if (!entries.length) return null;
 
-    return `
-      <div class="knockouts-nemesis-grid">
-        ${board.map(item => {
-          const victim = safePlayer(playerMap, item.victimSlug);
-          const killer = safePlayer(playerMap, item.killerSlug);
+      entries.sort((a, b) => {
+        if (b.count !== a.count) return b.count - a.count;
+        return a.killerSlug.localeCompare(b.killerSlug);
+      });
 
-          return `
-            <div class="knockouts-nemesis-card">
-              <div class="knockouts-nemesis-top">
-                ${avatarMarkup(victim, "knockouts-avatar-sm")}
-                <div>
-                  <div class="knockouts-nemesis-player">${victim?.name || item.victimSlug}</div>
-                  <div class="knockouts-nemesis-meta">keeps seeing this face</div>
-                </div>
-              </div>
+      return {
+        victimSlug,
+        killerSlug: entries[0].killerSlug,
+        count: entries[0].count
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      const victimA = safePlayer(playerMap, a.victimSlug)?.name || a.victimSlug;
+      const victimB = safePlayer(playerMap, b.victimSlug)?.name || b.victimSlug;
+      return victimA.localeCompare(victimB);
+    });
 
-              <div class="knockouts-list-card">
-                ${avatarMarkup(killer, "knockouts-avatar-sm")}
-                <div class="knockouts-list-copy">
-                  <div class="knockouts-list-title">${killer?.name || item.killerSlug}</div>
-                  <div class="knockouts-list-sub">Table Nemesis</div>
-                </div>
-                <div class="knockouts-list-value">${item.count}</div>
-              </div>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    `;
+  if (!board.length) {
+    return `<div class="knockouts-empty">No nemesis board yet.</div>`;
   }
+
+  return `
+    <div class="knockouts-nemesis-grid">
+      ${board.map(item => {
+        const victim = safePlayer(playerMap, item.victimSlug);
+        const killer = safePlayer(playerMap, item.killerSlug);
+
+        return `
+          <div class="knockouts-nemesis-card">
+            <div class="knockouts-nemesis-side">
+              ${avatarMarkup(victim, "knockouts-avatar-sm")}
+              <div class="knockouts-nemesis-name">${victim?.name || item.victimSlug}</div>
+            </div>
+
+            <div class="knockouts-nemesis-count-pill">
+              ${item.count}x
+            </div>
+
+            <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
+              ${avatarMarkup(killer, "knockouts-avatar-sm")}
+              <div class="knockouts-nemesis-name">${killer?.name || item.killerSlug}</div>
+            </div>
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
 
   function renderBodyCountLedger(playerMap, byKiller) {
     const killers = getTotalByKiller(byKiller)
