@@ -6647,11 +6647,14 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .player-archetype-spectrum-segment{
   min-width:6px;
-  transition:filter .18s ease, transform .18s ease;
+  transition:filter .18s ease, transform .18s ease, box-shadow .18s ease, opacity .18s ease;
 }
 
-.player-archetype-spectrum-segment:hover{
-  filter:brightness(1.08);
+.player-archetype-spectrum-segment:hover,
+.player-archetype-spectrum-segment.is-hover-match{
+  filter:brightness(1.16);
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,.22);
+  opacity:1;
 }
 
 .player-archetype-spectrum-legend{
@@ -6674,6 +6677,24 @@ body:has(#dashboard-grid) .page-title-row::after{
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 6px 14px rgba(0,0,0,.16);
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+.player-archetype-spectrum-chip:hover,
+.player-archetype-spectrum-chip.is-hover-match{
+  transform:translateY(-1px);
+  border-color:rgba(255,184,28,.34);
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),
+    rgba(255,255,255,.02);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 8px 18px rgba(0,0,0,.18),
+    0 0 14px rgba(255,184,28,.10);
 }
 
 .player-archetype-spectrum-dot{
