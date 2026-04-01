@@ -1337,15 +1337,28 @@ function archetypeFormulaText(name) {
 
 function tierFormulaText(name) {
   const base = "Tier Score = (True Skill × 1.35) + Clutch + (Aggression × 0.85) + (Survivor × 0.9) − (Tilt × 1.1) + sample bonus − rebuy penalty.";
-  const cutoffs = "Cutoffs: top 15% = Apex Predator, next 20% = Table Crusher, next 25% = Shot Maker, next 20% = Gambler, bottom 20% = League Sponsor.";
-  const movement = "Promotion = climbing above your current percentile cutoff. Relegation = falling below it.";
 
-  if (name === "The Apex Predator") return `${base} ${cutoffs} ${movement} Stay above the top-15% line or the sharks start circling you too.`;
-  if (name === "The Table Crusher") return `${base} ${cutoffs} ${movement} Promotion lives above the 15% line. Relegation starts once you slip below the top 35%.`;
-  if (name === "The Shot Maker") return `${base} ${cutoffs} ${movement} Promotion lives above the top 35%. Relegation starts once you fall below the top 60%.`;
-  if (name === "The Gambler") return `${base} ${cutoffs} ${movement} Promotion lives above the top 60%. Relegation starts once you fall below the top 80%.`;
-  if (name === "The League Sponsor") return `${base} ${cutoffs} ${movement} Promotion starts once you claw your way out of the bottom 20%.`;
-  return `${base} ${cutoffs} ${movement}`;
+  if (name === "The Apex Predator") {
+    return `${base} Range: top 15% of Tier Scores. Relegation line: fall below the 15% cutoff and you drop.`;
+  }
+
+  if (name === "The Table Crusher") {
+    return `${base} Range: next 20% (15% to 35%). Promotion line: climb above 15%. Relegation line: fall below 35%.`;
+  }
+
+  if (name === "The Shot Maker") {
+    return `${base} Range: next 25% (35% to 60%). Promotion line: climb above 35%. Relegation line: fall below 60%.`;
+  }
+
+  if (name === "The Gambler") {
+    return `${base} Range: next 20% (60% to 80%). Promotion line: climb above 60%. Relegation line: fall below 80%.`;
+  }
+
+  if (name === "The League Sponsor") {
+    return `${base} Range: bottom 20% (80% to 100%). Promotion line: escape the bottom 20% and you’re out of sponsorship duty.`;
+  }
+
+  return base;
 }
 
 function buildArchetypeGuideCard() {
