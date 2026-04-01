@@ -2713,10 +2713,13 @@ function renderPlayerProfile(data) {
     card.addEventListener("focusout", clearFormula);
   });
 
-    initAnimatedCounters(container);
-    wirePlayerFormulaCards(container);
-    wireArchetypeMixHover(container);
-    }
+initAnimatedCounters(container);
+
+if (typeof wirePlayerFormulaCards === "function") {
+  wirePlayerFormulaCards(container);
+}
+
+wireArchetypeMixHover(container);
 
 function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
