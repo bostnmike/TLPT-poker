@@ -6664,7 +6664,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-top:14px;
 }
 
-.player-archetype-spectrum-chip{
+.player-archetype-spectrum-chip{ 
   display:inline-flex;
   align-items:center;
   gap:8px;
