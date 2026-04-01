@@ -381,17 +381,37 @@
     rgba(255,255,255,.01);
 }
 
-.knockouts-belt-tally-avatar{
+.knockouts-belt-tally-avatar-wrap{
+  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.knockouts-belt-tally-name{
+.knockouts-belt-hover-name{
+  position:absolute;
+  top:100%;
+  margin-top:8px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:6px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  background:rgba(8,10,14,.94);
   color:#fff;
-  font-size:.92rem;
-  font-weight:900;
-  line-height:1.2;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease;
+  z-index:5;
+}
+
+.knockouts-belt-tally-avatar-wrap:hover .knockouts-belt-hover-name{
+  opacity:1;
+  transform:translateX(-50%) translateY(2px);
 }
 
 .knockouts-belt-tally-total{
