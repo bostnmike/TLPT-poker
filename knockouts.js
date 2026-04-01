@@ -253,41 +253,38 @@ if (mostUniqueVictims) {
   rivalries = rivalries.filter((entry, index) => index < 6 || entry.total === cutoffTotal);
 
   return `
-    <div class="knockouts-vendetta-list">
-      ${rivalries.map(entry => {
-        const playerA = safePlayer(playerMap, entry.slugA);
-        const playerB = safePlayer(playerMap, entry.slugB);
+  <div class="knockouts-vendetta-list">
+    ${rivalries.map(entry => {
+      const playerA = safePlayer(playerMap, entry.slugA);
+      const playerB = safePlayer(playerMap, entry.slugB);
 
-        const nameA = playerA?.name || entry.slugA;
-        const nameB = playerB?.name || entry.slugB;
+      const nameA = playerA?.name || entry.slugA;
+      const nameB = playerB?.name || entry.slugB;
 
-        return `
-          <div class="knockouts-vendetta-card">
-            <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
-              <div class="knockouts-vendetta-name">${nameA}</div>
-              ${avatarMarkup(playerA, "knockouts-avatar-md")}
-            </div>
-
-            <div class="knockouts-vendetta-scoreline">
-              <span class="knockouts-vendetta-score">${entry.aOverB}</span>
-              <span class="knockouts-vendetta-vs">vs.</span>
-              <span class="knockouts-vendetta-score">${entry.bOverA}</span>
-            </div>
-
-            <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
-              ${avatarMarkup(playerB, "knockouts-avatar-md")}
-              <div class="knockouts-vendetta-name">${nameB}</div>
-            </div>
-
-            <div class="knockouts-vendetta-total">
-              ${entry.total} total
-            </div>
+      return `
+        <div class="knockouts-vendetta-card">
+          <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
+            <div class="knockouts-vendetta-name">${nameA}</div>
+            ${avatarMarkup(playerA, "knockouts-avatar-md")}
           </div>
-        `;
-      }).join("")}
-    </div>
-  `;
+
+          <div class="knockouts-vendetta-scoreline">
+            <span class="knockouts-vendetta-score">${entry.aOverB}</span>
+            <span class="knockouts-vendetta-vs">vs.</span>
+            <span class="knockouts-vendetta-score">${entry.bOverA}</span>
+          </div>
+
+          <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
+            ${avatarMarkup(playerB, "knockouts-avatar-md")}
+            <div class="knockouts-vendetta-name">${nameB}</div>
+          </div>
+        </div>
+      `;
+    }).join("")}
+  </div>
+`;
 }
+  
   function renderNemesisBoard(playerMap, byVictim) {
     const board = getNemesisBoard(byVictim);
 
