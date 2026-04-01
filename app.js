@@ -1339,23 +1339,43 @@ function tierFormulaText(name) {
   const base = "Tier Score = (True Skill × 1.35) + Clutch + (Aggression × 0.85) + (Survivor × 0.9) − (Tilt × 1.1) + sample bonus − rebuy penalty.";
 
   if (name === "The Apex Predator") {
-    return `${base} Range: top 15% of Tier Scores. Relegation line: fall below the 15% cutoff and you drop.`;
+    return `
+      ${base}
+      <br><span class="tier-formula-range">• Range: top 15% of Tier Scores.</span>
+      <br><span class="tier-formula-drop">• Relegation line: fall below the 15% cutoff and you drop.</span>
+    `;
   }
 
   if (name === "The Table Crusher") {
-    return `${base} Range: next 20% (15% to 35%). Promotion line: climb above 15%. Relegation line: fall below 35%.`;
+    return `
+      ${base}
+      <br><span class="tier-formula-range">• Range: 15% to 35%.</span>
+      <br><span class="tier-formula-drop">• Relegation line: fall below the 35% cutoff.</span>
+    `;
   }
 
   if (name === "The Shot Maker") {
-    return `${base} Range: next 25% (35% to 60%). Promotion line: climb above 35%. Relegation line: fall below 60%.`;
+    return `
+      ${base}
+      <br><span class="tier-formula-range">• Range: 35% to 60%.</span>
+      <br><span class="tier-formula-drop">• Relegation line: fall below the 60% cutoff.</span>
+    `;
   }
 
   if (name === "The Gambler") {
-    return `${base} Range: next 20% (60% to 80%). Promotion line: climb above 60%. Relegation line: fall below 80%.`;
+    return `
+      ${base}
+      <br><span class="tier-formula-range">• Range: 60% to 80%.</span>
+      <br><span class="tier-formula-drop">• Relegation line: fall below the 80% cutoff.</span>
+    `;
   }
 
   if (name === "The League Sponsor") {
-    return `${base} Range: bottom 20% (80% to 100%). Promotion line: escape the bottom 20% and you’re out of sponsorship duty.`;
+    return `
+      ${base}
+      <br><span class="tier-formula-range">• Range: bottom 20% (80% to 100%).</span>
+      <br><span class="tier-formula-drop">• Relegation line: you’re already in it — promotion starts once you climb out.</span>
+    `;
   }
 
   return base;
