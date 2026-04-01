@@ -677,36 +677,60 @@ function wireArchetypeMixHover(scope = document) {
   if (!shell) return;
 
   const clearActive = () => {
-    shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip")
+    shell
+      .querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip")
       .forEach(el => el.classList.remove("is-hover-match"));
   };
 
   const activateKey = (key) => {
     if (!key) return;
 
-    shell.querySelectorAll(
-      `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
-    ).forEach(el => el.classList.add("is-hover-match"));
+    shell
+      .querySelectorAll(
+        `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
+      )
+      .forEach(el => el.classList.add("is-hover-match"));
   };
 
-  shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip").forEach(el => {
-    el.addEventListener("mouseenter", () => {
-      clearActive();
-      activateKey(el.dataset.archetypeKey);
-    });
+  shell.addEventListener("mouseover", (event) => {
+    const target = event.target.closest(
+      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
+    );
+    if (!target || !shell.contains(target)) return;
 
-    el.addEventListener("mouseleave", () => {
-      clearActive();
-    });
+    clearActive();
+    activateKey(target.dataset.archetypeKey);
+  });
 
-    el.addEventListener("focus", () => {
-      clearActive();
-      activateKey(el.dataset.archetypeKey);
-    });
+  shell.addEventListener("mouseout", (event) => {
+    const fromEl = event.target.closest(
+      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
+    );
+    if (!fromEl || !shell.contains(fromEl)) return;
 
-    el.addEventListener("blur", () => {
-      clearActive();
-    });
+    const toEl = event.relatedTarget?.closest?.(
+      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
+    );
+
+    if (toEl && shell.contains(toEl) && toEl.dataset.archetypeKey === fromEl.dataset.archetypeKey) {
+      return;
+    }
+
+    clearActive();
+  });
+
+  shell.addEventListener("focusin", (event) => {
+    const target = event.target.closest(
+      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
+    );
+    if (!target || !shell.contains(target)) return;
+
+    clearActive();
+    activateKey(target.dataset.archetypeKey);
+  });
+
+  shell.addEventListener("focusout", () => {
+    clearActive();
   });
 }
 
@@ -2685,10 +2709,10 @@ function renderPlayerProfile(data) {
     card.addEventListener("focusout", clearFormula);
   });
 
-initAnimatedCounters(container);
-wirePlayerFormulaCards(container);
-wireArchetypeMixHover(container);
-}
+    initAnimatedCounters(container);
+    wirePlayerFormulaCards(container);
+    wireArchetypeMixHover(container);
+    }
 
 function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
