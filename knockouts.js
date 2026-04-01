@@ -252,7 +252,7 @@ if (mostUniqueVictims) {
   const cutoffTotal = rivalries[cutoffIndex]?.total ?? rivalries[rivalries.length - 1].total;
   rivalries = rivalries.filter((entry, index) => index < 6 || entry.total === cutoffTotal);
 
-  return `
+return `
   <div class="knockouts-vendetta-list">
     ${rivalries.map(entry => {
       const playerA = safePlayer(playerMap, entry.slugA);
@@ -264,8 +264,10 @@ if (mostUniqueVictims) {
       return `
         <div class="knockouts-vendetta-card">
           <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
-            <div class="knockouts-vendetta-name">${nameA}</div>
-            ${avatarMarkup(playerA, "knockouts-avatar-md")}
+            <div class="knockouts-vendetta-avatar-wrap">
+              ${avatarMarkup(playerA, "knockouts-avatar-md")}
+              <div class="knockouts-vendetta-hover-name">${nameA}</div>
+            </div>
           </div>
 
           <div class="knockouts-vendetta-scoreline">
@@ -275,8 +277,10 @@ if (mostUniqueVictims) {
           </div>
 
           <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
-            ${avatarMarkup(playerB, "knockouts-avatar-md")}
-            <div class="knockouts-vendetta-name">${nameB}</div>
+            <div class="knockouts-vendetta-avatar-wrap">
+              ${avatarMarkup(playerB, "knockouts-avatar-md")}
+              <div class="knockouts-vendetta-hover-name">${nameB}</div>
+            </div>
           </div>
         </div>
       `;
