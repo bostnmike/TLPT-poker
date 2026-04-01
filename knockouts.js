@@ -248,9 +248,9 @@ if (mostUniqueVictims) {
     return `<div class="knockouts-empty">No rivalry data yet.</div>`;
   }
 
-  const cutoffIndex = Math.min(4, rivalries.length - 1);
+  const cutoffIndex = Math.min(5, rivalries.length - 1);
   const cutoffTotal = rivalries[cutoffIndex]?.total ?? rivalries[rivalries.length - 1].total;
-  rivalries = rivalries.filter((entry, index) => index < 5 || entry.total === cutoffTotal);
+  rivalries = rivalries.filter((entry, index) => index < 6 || entry.total === cutoffTotal);
 
   return `
     <div class="knockouts-vendetta-list">
