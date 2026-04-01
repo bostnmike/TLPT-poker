@@ -59,6 +59,33 @@ a:hover{
   padding:25px 20px 0;
 }
 
+.site-footer{
+  width:100%;
+  margin-top:32px;
+  padding:0 20px 32px;
+  box-sizing:border-box;
+}
+
+.site-footer-inner{
+  max-width:1240px;
+  margin:0 auto;
+}
+
+.site-footer p{
+  margin:0;
+  text-align:left;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.site-footer a{
+  color:var(--gold);
+}
+
+.site-footer a:hover{
+  color:var(--gold-soft);
+}
+
 main.wrap > .section:first-child,
 main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
