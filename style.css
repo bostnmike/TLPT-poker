@@ -8366,12 +8366,14 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 18px rgba(168,85,247,.14);
 }
 
-.media-thumb-link:hover .media-thumb{
+.media-thumb-link:hover .media-thumb,
+.media-video-trigger:hover .media-thumb{
   transform:scale(1.05);
   filter:brightness(1.04);
 }
 
-.media-thumb-link:hover .media-play-overlay{
+.media-thumb-link:hover .media-play-overlay,
+.media-video-trigger:hover .media-play-overlay{
   background:linear-gradient(180deg, rgba(168,85,247,.92), rgba(239,68,68,.84));
   color:#fff;
   border-color:rgba(239,68,68,.40);
