@@ -1348,24 +1348,30 @@ function tierFormulaText(name) {
   return `${base} ${cutoffs} ${movement}`;
 }
 
-function buildArchetypeGuideCard() {
+function buildTierGuideCard() {
+  const defaultItem = TIER_GUIDE[0];
+  const defaultFormula = tierFormulaText(defaultItem.name);
+
   return `
-    <div class="event-card home-guide-card home-guide-card-archetype">
+    <div class="event-card home-guide-card home-guide-card-tier">
+      <div class="home-formula-display" id="home-tier-formula-display">
+        <div class="home-formula-display-title">Tier Formula</div>
+        <div class="home-formula-display-body">${defaultFormula}</div>
+      </div>
+
       <div class="event-guide-rows">
-        <div class="player-archetype-line event-guide-line">
+        <div class="player-tier-line event-guide-line">
           <span class="profile-line-desc">
-            ${ARCHETYPE_GUIDE.map(item => `
-              <span
-                class="home-guide-pill home-guide-pill-tooltip"
-                data-archetype-tone="${item.name
-                  .replace(/^The\s+/i, "")
-                  .toLowerCase()
-                  .replace(/\s+/g, "")
-                  .replace("luckydevil", "lucky")}"
-                data-tooltip="${archetypeFormulaText(item.name).replace(/"/g, "&quot;")}"
+            ${TIER_GUIDE.map(item => `
+              <button
+                type="button"
+                class="home-guide-pill home-guide-pill-reveal"
+                data-formula-target="home-tier-formula-display"
+                data-formula-title="Tier Formula"
+                data-formula-text="${tierFormulaText(item.name).replace(/"/g, "&quot;")}"
               >
                 ${item.emoji} ${item.name}
-              </span>
+              </button>
             `).join("")}
           </span>
         </div>
@@ -1374,25 +1380,36 @@ function buildArchetypeGuideCard() {
   `;
 }
 
-function buildTierGuideCard() {
-  return `
-    <div class="event-card home-guide-card home-guide-card-tier">
-      <div class="event-guide-rows">
-        <div class="player-tier-line event-guide-line">
-          <span class="profile-line-desc">
-            ${TIER_GUIDE.map(item => `
-              <span
-                class="home-guide-pill home-guide-pill-tooltip"
-                data-tooltip="${tierFormulaText(item.name).replace(/"/g, "&quot;")}"
-              >
-                ${item.emoji} ${item.name}
-              </span>
-            `).join("")}
-          </span>
-        </div>
-      </div>
-    </div>
-  `;
+function wireHomeFormulaReveal(scope = document) {
+  scope.querySelectorAll(".home-guide-pill-reveal").forEach(button => {
+    button.addEventListener("mouseenter", () => {
+      const targetId = button.dataset.formulaTarget;
+      const title = button.dataset.formulaTitle || "Formula";
+      const text = button.dataset.formulaText || "";
+
+      const host = document.getElementById(targetId);
+      if (!host) return;
+
+      host.innerHTML = `
+        <div class="home-formula-display-title">${title}</div>
+        <div class="home-formula-display-body">${text}</div>
+      `;
+    });
+
+    button.addEventListener("focus", () => {
+      const targetId = button.dataset.formulaTarget;
+      const title = button.dataset.formulaTitle || "Formula";
+      const text = button.dataset.formulaText || "";
+
+      const host = document.getElementById(targetId);
+      if (!host) return;
+
+      host.innerHTML = `
+        <div class="home-formula-display-title">${title}</div>
+        <div class="home-formula-display-body">${text}</div>
+      `;
+    });
+  });
 }
 
 function buildEventCard(event, data, options = {}) {
@@ -1561,15 +1578,17 @@ function renderHomePage(data) {
     `;
   }
 
-  const archetypeGuide = document.getElementById("home-archetype-guide");
-  if (archetypeGuide) {
-     archetypeGuide.innerHTML = buildArchetypeGuideCard();
-  }
+    const archetypeGuide = document.getElementById("home-archetype-guide");
+    if (archetypeGuide) {
+      archetypeGuide.innerHTML = buildArchetypeGuideCard();
+    }
 
-const tierGuide = document.getElementById("home-tier-guide");
-if (tierGuide) {
-  tierGuide.innerHTML = buildTierGuideCard();
-}
+    const tierGuide = document.getElementById("home-tier-guide");
+    if (tierGuide) {
+      tierGuide.innerHTML = buildTierGuideCard();
+    }
+
+wireHomeFormulaReveal();
 
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
