@@ -676,9 +676,9 @@ function wireArchetypeMixHover(scope = document) {
   const shell = scope.querySelector(".player-archetype-spectrum-shell");
   if (!shell) return;
 
-  const allTargets = shell.querySelectorAll(
-    ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
-  );
+  const segments = [...shell.querySelectorAll(".player-archetype-spectrum-segment")];
+  const chips = [...shell.querySelectorAll(".player-archetype-spectrum-chip")];
+  const allTargets = [...segments, ...chips];
 
   const clearActive = () => {
     allTargets.forEach(el => {
@@ -695,11 +695,9 @@ function wireArchetypeMixHover(scope = document) {
   const activateKey = (key) => {
     if (!key) return;
 
-    const matches = shell.querySelectorAll(
-      `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
-    );
+    allTargets.forEach(el => {
+      if (el.dataset.archetypeKey !== key) return;
 
-    matches.forEach(el => {
       el.classList.add("is-hover-match");
 
       if (el.classList.contains("player-archetype-spectrum-segment")) {
@@ -719,45 +717,24 @@ function wireArchetypeMixHover(scope = document) {
     });
   };
 
-  shell.addEventListener("mouseover", (event) => {
-    const target = event.target.closest(
-      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
-    );
-    if (!target || !shell.contains(target)) return;
+  allTargets.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
 
-    clearActive();
-    activateKey(target.dataset.archetypeKey);
-  });
+    el.addEventListener("mouseleave", () => {
+      clearActive();
+    });
 
-  shell.addEventListener("mouseout", (event) => {
-    const fromEl = event.target.closest(
-      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
-    );
-    if (!fromEl || !shell.contains(fromEl)) return;
+    el.addEventListener("focus", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
 
-    const toEl = event.relatedTarget?.closest?.(
-      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
-    );
-
-    if (toEl && shell.contains(toEl) && toEl.dataset.archetypeKey === fromEl.dataset.archetypeKey) {
-      return;
-    }
-
-    clearActive();
-  });
-
-  shell.addEventListener("focusin", (event) => {
-    const target = event.target.closest(
-      ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
-    );
-    if (!target || !shell.contains(target)) return;
-
-    clearActive();
-    activateKey(target.dataset.archetypeKey);
-  });
-
-  shell.addEventListener("focusout", () => {
-    clearActive();
+    el.addEventListener("blur", () => {
+      clearActive();
+    });
   });
 }
 
