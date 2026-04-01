@@ -6600,6 +6600,119 @@ body:has(#dashboard-grid) .page-title-row::after{
   color:var(--gold) !important;
 }
 
+.player-archetype-spectrum-shell{
+  margin:18px 0 14px;
+  padding:18px 18px 16px;
+  border:1px solid rgba(255,184,28,.20);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 32%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.08),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(255,184,28,.08);
+}
+
+.player-archetype-spectrum-head{
+  margin-bottom:12px;
+}
+
+.player-archetype-spectrum-kicker{
+  margin-bottom:4px;
+}
+
+.player-archetype-spectrum-sub{
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.4;
+}
+
+.player-archetype-spectrum-bar{
+  display:flex;
+  width:100%;
+  min-height:30px;
+  overflow:hidden;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)),
+    rgba(255,255,255,.02);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -2px 4px rgba(0,0,0,.35),
+    0 8px 18px rgba(0,0,0,.18);
+}
+
+.player-archetype-spectrum-segment{
+  min-width:6px;
+  transition:filter .18s ease, transform .18s ease;
+}
+
+.player-archetype-spectrum-segment:hover{
+  filter:brightness(1.08);
+}
+
+.player-archetype-spectrum-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 12px;
+  margin-top:14px;
+}
+
+.player-archetype-spectrum-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015)),
+    rgba(255,255,255,.02);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 6px 14px rgba(0,0,0,.16);
+}
+
+.player-archetype-spectrum-dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  flex:0 0 auto;
+  box-shadow:0 0 0 1px rgba(255,255,255,.18);
+}
+
+.player-archetype-spectrum-label{
+  color:#fff;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1;
+}
+
+.player-archetype-spectrum-value{
+  color:var(--gold);
+  font-size:.82rem;
+  font-weight:900;
+  line-height:1;
+}
+
+@media (max-width:800px){
+  .player-archetype-spectrum-shell{
+    padding:16px 14px 14px;
+  }
+
+  .player-archetype-spectrum-legend{
+    gap:8px;
+  }
+
+  .player-archetype-spectrum-chip{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
 .player-formula-help{
   margin:0 0 12px 0;
   text-align:center;
