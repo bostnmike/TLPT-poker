@@ -176,10 +176,12 @@
 
 .knockouts-vendetta-card{
   display:grid;
-  grid-template-columns:1fr auto 1fr auto;
+  grid-template-columns:auto auto auto;
   align-items:center;
-  gap:16px;
-  padding:16px 18px;
+  justify-content:center;
+  justify-items:center;
+  gap:22px;
+  padding:18px 20px;
   border:1px solid rgba(168,85,247,.22);
   border-radius:16px;
   background:
@@ -195,32 +197,60 @@
 .knockouts-vendetta-side{
   display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:center;
   min-width:0;
+  flex:0 0 auto;
 }
 
-.knockouts-vendetta-side-left{
-  justify-content:flex-end;
-  text-align:right;
-}
-
+.knockouts-vendetta-side-left,
 .knockouts-vendetta-side-right{
-  justify-content:flex-start;
-  text-align:left;
+  justify-content:center;
+  text-align:center;
 }
 
-.knockouts-vendetta-name{
+.knockouts-vendetta-avatar-wrap{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  width:80px;
+}
+
+.knockouts-vendetta-hover-name{
+  position:absolute;
+  top:100%;
+  margin-top:8px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:6px 10px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  background:rgba(8,10,14,.94);
   color:#fff;
-  font-size:1.08rem;
-  font-weight:900;
-  line-height:1.15;
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease;
+  z-index:5;
+}
+
+.knockouts-vendetta-avatar-wrap:hover .knockouts-vendetta-hover-name{
+  opacity:1;
+  transform:translateX(-50%) translateY(2px);
 }
 
 .knockouts-vendetta-scoreline{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:10px;
   white-space:nowrap;
+  min-width:0;
 }
 
 .knockouts-vendetta-score{
@@ -236,13 +266,6 @@
   font-weight:900;
   letter-spacing:.04em;
   text-transform:uppercase;
-}
-
-.knockouts-vendetta-total{
-  color:#d8b4fe;
-  font-size:.92rem;
-  font-weight:900;
-  white-space:nowrap;
 }
 
 .knockouts-nemesis-grid{
@@ -457,9 +480,9 @@
 
 .knockouts-avatar-md,
 .knockouts-avatar-fallback.knockouts-avatar-md{
-  width:84px;
-  height:84px;
-  font-size:1.2rem;
+  width:72px;
+  height:72px;
+  font-size:1.05rem;
 }
 
 .knockouts-avatar-sm,
@@ -493,9 +516,10 @@
     justify-self:start;
   }
 
-  .knockouts-vendetta-card{
+   .knockouts-vendetta-card{
     grid-template-columns:1fr;
     justify-items:center;
+    justify-content:center;
     text-align:center;
   }
 
@@ -504,11 +528,7 @@
     justify-content:center;
     text-align:center;
   }
-
-  .knockouts-vendetta-total{
-    white-space:normal;
-  }
-
+  
   .knockouts-belt-head{
     grid-template-columns:auto 1fr;
   }
