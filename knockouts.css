@@ -360,13 +360,20 @@
   white-space:nowrap;
 }
 
-.knockouts-belt{
+.knockouts-belt-grid{
   display:grid;
-  gap:16px;
+  grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+  gap:14px;
 }
 
-.knockouts-belt-card{
-  padding:16px 18px;
+.knockouts-belt-tally-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:10px;
+  text-align:center;
+  padding:16px 14px;
   border:1px solid rgba(255,255,255,.08);
   border-radius:16px;
   background:
@@ -374,74 +381,65 @@
     rgba(255,255,255,.01);
 }
 
-.knockouts-belt-head{
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
-  gap:12px;
-  margin-bottom:14px;
-}
-
-.knockouts-belt-copy{
-  min-width:0;
+.knockouts-belt-tally-avatar{
   display:flex;
-  flex-direction:column;
-  gap:4px;
-}
-
-.knockouts-belt-name{
-  color:#fff;
-  font-size:1.04rem;
-  font-weight:900;
-  line-height:1.2;
-}
-
-.knockouts-belt-sub{
-  color:#cbd5e1;
-  font-size:.84rem;
-  line-height:1.25;
-}
-
-.knockouts-belt-total{
-  color:var(--gold);
-  font-size:1.05rem;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.knockouts-belt-victims{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));
-  gap:12px;
-}
-
-.knockouts-belt-tile{
-  display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:8px;
-  text-align:center;
-  padding:12px 10px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)),
-    rgba(255,255,255,.01);
 }
 
-.knockouts-belt-tile-name{
+.knockouts-belt-tally-name{
   color:#fff;
-  font-size:.84rem;
-  font-weight:800;
+  font-size:.92rem;
+  font-weight:900;
   line-height:1.2;
 }
 
-.knockouts-belt-tile-count{
+.knockouts-belt-tally-total{
   color:var(--gold);
-  font-size:1rem;
+  font-size:1.35rem;
   font-weight:900;
   line-height:1;
+}
+
+.knockouts-tally-row{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
+  row-gap:8px;
+  max-width:100%;
+}
+
+.knockouts-tally-group{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  gap:4px;
+  min-height:20px;
+  padding:0 2px;
+}
+
+.knockouts-tally-stroke{
+  display:block;
+  width:3px;
+  height:18px;
+  border-radius:999px;
+  background:var(--gold);
+}
+
+.knockouts-tally-slash{
+  position:absolute;
+  left:2px;
+  right:2px;
+  top:1px;
+  bottom:1px;
+  margin:auto;
+  width:26px;
+  height:3px;
+  border-radius:999px;
+  background:var(--gold);
+  transform:rotate(-58deg);
+  transform-origin:center;
 }
 
 .knockouts-empty{
@@ -529,19 +527,9 @@
     text-align:center;
   }
   
-  .knockouts-belt-head{
-    grid-template-columns:auto 1fr;
-  }
-
-  .knockouts-belt-total{
-    grid-column:2;
-    justify-self:start;
-  }
-
-  .knockouts-belt-victims{
+  .knockouts-belt-grid{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
-
    .knockouts-nemesis-grid{
     grid-template-columns:1fr;
   }
