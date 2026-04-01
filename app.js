@@ -2720,7 +2720,8 @@ if (typeof wirePlayerFormulaCards === "function") {
 }
 
 wireArchetypeMixHover(container);
-
+}
+  
 function renderSchedule(data) {
   const list = document.getElementById("schedule-list");
   if (!list) return;
