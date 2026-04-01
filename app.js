@@ -1324,33 +1324,69 @@ function getRandomCommissionerReport(previousIndex = -1) {
   };
 }
 
-function buildEventGuideCard() {
+function archetypeFormulaText(name) {
+  if (name === "The Hitman") return "Hitman = Aggression Index + (Hits × 0.8)";
+  if (name === "The Closer") return "Closer = Clutch Index × 1.25";
+  if (name === "The Grinder") return "Grinder = (Survivor Index × 1.05) − (Tilt Index × 0.45) − (Aggression Index × 0.35)";
+  if (name === "The Lucky Devil") return "Lucky Devil = Luck Index × 1.15";
+  if (name === "The Wildcard") return "Wildcard = (Tilt Index × 1.1) + (Rebuys × 0.8)";
+  if (name === "The Bubble Magnet") return "Bubble Magnet = (Bubbles × 4) + (Clutch Index × 0.15)";
+  if (name === "The Technician") return "Technician = (Clutch Index + Survivor Index + Aggression Index) ÷ 3";
+  return "";
+}
+
+function tierFormulaText(name) {
+  const base = "Tier Score = (True Skill × 1.35) + Clutch + (Aggression × 0.85) + (Survivor × 0.9) − (Tilt × 1.1) + sample bonus − rebuy penalty.";
+  const cutoffs = "Cutoffs: top 15% = Apex Predator, next 20% = Table Crusher, next 25% = Shot Maker, next 20% = Gambler, bottom 20% = League Sponsor.";
+  const movement = "Promotion = climbing above your current percentile cutoff. Relegation = falling below it.";
+
+  if (name === "The Apex Predator") return `${base} ${cutoffs} ${movement} Stay above the top-15% line or the sharks start circling you too.`;
+  if (name === "The Table Crusher") return `${base} ${cutoffs} ${movement} Promotion lives above the 15% line. Relegation starts once you slip below the top 35%.`;
+  if (name === "The Shot Maker") return `${base} ${cutoffs} ${movement} Promotion lives above the top 35%. Relegation starts once you fall below the top 60%.`;
+  if (name === "The Gambler") return `${base} ${cutoffs} ${movement} Promotion lives above the top 60%. Relegation starts once you fall below the top 80%.`;
+  if (name === "The League Sponsor") return `${base} ${cutoffs} ${movement} Promotion starts once you claw your way out of the bottom 20%.`;
+  return `${base} ${cutoffs} ${movement}`;
+}
+
+function buildArchetypeGuideCard() {
   return `
-    <div class="event-card home-guide-card">
+    <div class="event-card home-guide-card home-guide-card-archetype">
       <div class="event-guide-rows">
         <div class="player-archetype-line event-guide-line">
-          <span class="profile-line-label profile-line-label-archetypes">
-            <span class="profile-line-label-emoji">🫟</span>
-            <span class="profile-line-label-text">Archetypes:</span>
-          </span>
           <span class="profile-line-desc">
             ${ARCHETYPE_GUIDE.map(item => `
-              <span class="home-guide-pill" data-archetype-tone="${item.name
-                .replace(/^The\s+/i, "")
-                .toLowerCase()
-                .replace(/\s+/g, "")
-                .replace("bubblemagnet", "bubblemagnet")
-                .replace("luckydevil", "lucky")
-              }">${item.emoji} ${item.name}</span>
+              <span
+                class="home-guide-pill home-guide-pill-tooltip"
+                data-archetype-tone="${item.name
+                  .replace(/^The\s+/i, "")
+                  .toLowerCase()
+                  .replace(/\s+/g, "")
+                  .replace("luckydevil", "lucky")}"
+                data-tooltip="${archetypeFormulaText(item.name).replace(/"/g, "&quot;")}"
+              >
+                ${item.emoji} ${item.name}
+              </span>
             `).join("")}
           </span>
         </div>
+      </div>
+    </div>
+  `;
+}
 
+function buildTierGuideCard() {
+  return `
+    <div class="event-card home-guide-card home-guide-card-tier">
+      <div class="event-guide-rows">
         <div class="player-tier-line event-guide-line">
-          <span class="profile-line-label">🏆 Tiers:</span>
           <span class="profile-line-desc">
             ${TIER_GUIDE.map(item => `
-              <span class="home-guide-pill">${item.emoji} ${item.name}</span>
+              <span
+                class="home-guide-pill home-guide-pill-tooltip"
+                data-tooltip="${tierFormulaText(item.name).replace(/"/g, "&quot;")}"
+              >
+                ${item.emoji} ${item.name}
+              </span>
             `).join("")}
           </span>
         </div>
@@ -1527,8 +1563,13 @@ function renderHomePage(data) {
 
   const archetypeGuide = document.getElementById("home-archetype-guide");
   if (archetypeGuide) {
-    archetypeGuide.innerHTML = buildEventGuideCard();
+     archetypeGuide.innerHTML = buildArchetypeGuideCard();
   }
+
+const tierGuide = document.getElementById("home-tier-guide");
+if (tierGuide) {
+  tierGuide.innerHTML = buildTierGuideCard();
+}
 
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
@@ -1599,32 +1640,6 @@ if (insightFormula && insightsGrid) {
     card.addEventListener("blur", () => setInsightState(null));
   });
 }
-
-  const actionCluster = document.getElementById("home-action-cluster");
-  if (actionCluster) {
-    const hitLeaders = sortPlayers(activePlayers, "hits").slice(0, 5);
-    const pressureLeaders = sortPlayers(activePlayers, "aggressionIndex").slice(0, 5);
-    const bubbleLeaders = sortPlayers(activePlayers, "bubbles").slice(0, 5);
-
-    actionCluster.innerHTML = `
-      <div class="home-cluster-stack home-cluster-stack-3">
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">💥 Knockout Board</div>
-          ${hitLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, String(player.hits ?? 0))).join("")}
-        </div>
-
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">⚡ Pressure Board</div>
-          ${pressureLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, fmtNum(player.aggressionIndex))).join("")}
-        </div>
-
-        <div class="home-mini-board">
-          <div class="home-mini-board-title">🫧 Bubble Watch</div>
-          ${bubbleLeaders.map((player, index) => buildHomeMiniRow(index + 1, player, String(player.bubbles ?? 0))).join("")}
-        </div>
-      </div>
-    `;
-  }
 }
   
 function getFeaturedPlayer(data) {
