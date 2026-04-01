@@ -21,6 +21,10 @@
   gap:22px;
 }
 
+.knockouts-two-up > .section{
+  min-width:0;
+}
+
 .knockouts-shell{
   position:relative;
   overflow:hidden;
