@@ -1605,58 +1605,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 12px rgba(255,184,28,.08);
 }
 
-.home-guide-pill-tooltip::after{
-  content:attr(data-tooltip);
-  position:absolute;
-  left:50%;
-  bottom:calc(100% + 10px);
-  transform:translateX(-50%);
-  width:min(320px, 78vw);
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid rgba(255,184,28,.24);
-  background:rgba(8,10,14,.96);
-  color:#fff;
-  font-size:.78rem;
-  font-weight:700;
-  line-height:1.45;
-  text-transform:none;
-  letter-spacing:0;
-  white-space:normal;
-  text-align:left;
-  box-shadow:
-    0 12px 24px rgba(0,0,0,.28),
-    0 0 16px rgba(255,184,28,.08);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .16s ease, transform .16s ease;
-  z-index:30;
-}
-
-.home-guide-pill-tooltip::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:calc(100% + 4px);
-  transform:translateX(-50%);
-  border-width:6px;
-  border-style:solid;
-  border-color:rgba(8,10,14,.96) transparent transparent transparent;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .16s ease, transform .16s ease;
-  z-index:31;
-}
-
-.home-guide-pill-tooltip:hover::after,
-.home-guide-pill-tooltip:hover::before{
-  opacity:1;
-}
-
-.home-guide-pill-tooltip:hover::after{
-  transform:translateX(-50%) translateY(-2px);
-}
-
 .home-guide-title{
   display:flex;
   align-items:center;
