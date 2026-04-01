@@ -1587,6 +1587,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   font-weight:700;
 }
 
+.tier-formula-range{
+  color:#22c55e;
+  font-weight:800;
+}
+
+.tier-formula-drop{
+  color:#ef4444;
+  font-weight:800;
+}
+
 .home-guide-pill-reveal{
   cursor:pointer;
 }
