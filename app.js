@@ -601,6 +601,76 @@ function getPlayerTierScore(player) {
   );
 }
 
+function getArchetypeMix(player) {
+  const ranked = getPlayerArchetypeScores(player);
+
+  if (!ranked.length) return [];
+
+  const minScore = Math.min(...ranked.map(item => Number(item.score ?? 0)));
+  const shifted = ranked.map(item => {
+    const raw = Number(item.score ?? 0);
+    const adjusted = minScore < 0 ? raw - minScore + 0.01 : raw + 0.01;
+    return {
+      ...item,
+      adjusted
+    };
+  });
+
+  const total = shifted.reduce((sum, item) => sum + item.adjusted, 0) || 1;
+
+  return shifted.map(item => ({
+    ...item,
+    pct: (item.adjusted / total) * 100
+  }));
+}
+
+function archetypeMixMarkup(player) {
+  const mix = getArchetypeMix(player);
+  if (!mix.length) return "";
+
+  const toneMap = {
+    hitman: "var(--red)",
+    closer: "#7ecbff",
+    grinder: "#86efac",
+    lucky: "#d8b4fe",
+    wildcard: "#f9a8d4",
+    bubblemagnet: "#93c5fd",
+    technician: "var(--gold)"
+  };
+
+  return `
+    <div class="player-archetype-spectrum-shell">
+      <div class="player-archetype-spectrum-head">
+        <div class="kicker player-archetype-spectrum-kicker">Archetype Mix</div>
+        <div class="player-archetype-spectrum-sub">How much of each table personality is in the tank.</div>
+      </div>
+
+      <div class="player-archetype-spectrum-bar" aria-label="Archetype percentage mix">
+        ${mix.map(item => `
+          <div
+            class="player-archetype-spectrum-segment"
+            style="width:${item.pct}%; background:${toneMap[item.key] || 'var(--gold)'};"
+            title="${item.emoji} ${item.name}: ${item.pct.toFixed(1)}%"
+          ></div>
+        `).join("")}
+      </div>
+
+      <div class="player-archetype-spectrum-legend">
+        ${mix.map(item => `
+          <div class="player-archetype-spectrum-chip">
+            <span
+              class="player-archetype-spectrum-dot"
+              style="background:${toneMap[item.key] || 'var(--gold)'};"
+            ></span>
+            <span class="player-archetype-spectrum-label">${item.emoji} ${item.name}</span>
+            <span class="player-archetype-spectrum-value">${item.pct.toFixed(1)}%</span>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
 function getPlayerTier(player, allPlayers = []) {
   if (!player) {
     return {
@@ -2539,6 +2609,8 @@ function renderPlayerProfile(data) {
       </div>
 
       ${playerDnaMarkup(player)}
+
+      ${archetypeMixMarkup(player)}
 
       <div id="player-nav" class="player-nav">
         <a class="btn" href="${playerUrl(prev)}">← Previous: ${displayPlayerName(prev)}</a>
