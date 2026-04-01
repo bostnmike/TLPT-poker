@@ -317,32 +317,30 @@ function renderNemesisBoard(playerMap, byVictim) {
     return `<div class="knockouts-empty">No nemesis board yet.</div>`;
   }
 
-  return `
-    <div class="knockouts-nemesis-grid">
-      ${board.map(item => {
-        const victim = safePlayer(playerMap, item.victimSlug);
-        const killer = safePlayer(playerMap, item.killerSlug);
+ return `
+  <div class="knockouts-nemesis-grid">
+    ${board.map(item => {
+      const victim = safePlayer(playerMap, item.victimSlug);
+      const killer = safePlayer(playerMap, item.killerSlug);
 
-        return `
-          <div class="knockouts-nemesis-card">
-            <div class="knockouts-nemesis-side">
-              ${avatarMarkup(victim, "knockouts-avatar-sm")}
-              <div class="knockouts-nemesis-name">${victim?.name || item.victimSlug}</div>
-            </div>
-
-            <div class="knockouts-nemesis-count-pill">
-              ${item.count}x
-            </div>
-
-            <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
-              ${avatarMarkup(killer, "knockouts-avatar-sm")}
-              <div class="knockouts-nemesis-name">${killer?.name || item.killerSlug}</div>
-            </div>
+      return `
+        <div class="knockouts-nemesis-card">
+          <div class="knockouts-nemesis-side">
+            ${avatarMarkup(victim, "knockouts-avatar-md")}
           </div>
-        `;
-      }).join("")}
-    </div>
-  `;
+
+          <div class="knockouts-nemesis-count-pill">
+            ${item.count} x by
+          </div>
+
+          <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
+            ${avatarMarkup(killer, "knockouts-avatar-md")}
+          </div>
+        </div>
+      `;
+    }).join("")}
+  </div>
+`;
 }
 
   function renderBodyCountLedger(playerMap, byKiller) {
