@@ -387,61 +387,42 @@ function renderNemesisBoard(playerMap, byVictim) {
   `;
 }
 
-  function renderBodyCountLedger(playerMap, byKiller) {
-    const killers = getTotalByKiller(byKiller)
-      .filter(item => item.total > 0)
-      .sort((a, b) => {
-        if (b.total !== a.total) return b.total - a.total;
-        return a.slug.localeCompare(b.slug);
-      });
+function renderBodyCountLedger(playerMap, byKiller) {
+  const killers = getTotalByKiller(byKiller)
+    .filter(item => item.total > 0)
+    .sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      const nameA = safePlayer(playerMap, a.slug)?.name || a.slug;
+      const nameB = safePlayer(playerMap, b.slug)?.name || b.slug;
+      return nameA.localeCompare(nameB);
+    });
 
-    if (!killers.length) {
-      return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
-    }
-
-    return `
-      <div class="knockouts-belt">
-        ${killers.map(killerEntry => {
-          const killer = safePlayer(playerMap, killerEntry.slug);
-          const victims = Object.entries(killerEntry.victims || {})
-            .map(([slug, count]) => ({
-              slug,
-              count: Number(count || 0)
-            }))
-            .sort((a, b) => {
-              if (b.count !== a.count) return b.count - a.count;
-              return a.slug.localeCompare(b.slug);
-            });
-
-          return `
-            <div class="knockouts-belt-card">
-              <div class="knockouts-belt-head">
-                ${avatarMarkup(killer, "knockouts-avatar-md")}
-                <div class="knockouts-belt-copy">
-                  <div class="knockouts-belt-name">${killer?.name || killerEntry.slug}</div>
-                  <div class="knockouts-belt-sub">${killerEntry.uniqueVictims} unique ${killerEntry.uniqueVictims === 1 ? "victim" : "victims"}</div>
-                </div>
-                <div class="knockouts-belt-total">${killerEntry.total} total</div>
-              </div>
-
-              <div class="knockouts-belt-victims">
-                ${victims.map(victimEntry => {
-                  const victim = safePlayer(playerMap, victimEntry.slug);
-                  return `
-                    <div class="knockouts-belt-tile">
-                      ${avatarMarkup(victim, "knockouts-avatar-sm")}
-                      <div class="knockouts-belt-tile-name">${victim?.name || victimEntry.slug}</div>
-                      <div class="knockouts-belt-tile-count">${victimEntry.count}</div>
-                    </div>
-                  `;
-                }).join("")}
-              </div>
-            </div>
-          `;
-        }).join("")}
-      </div>
-    `;
+  if (!killers.length) {
+    return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
   }
+
+  return `
+    <div class="knockouts-belt-grid">
+      ${killers.map(killerEntry => {
+        const killer = safePlayer(playerMap, killerEntry.slug);
+        const displayName = killer?.name || killerEntry.slug;
+
+        return `
+          <div class="knockouts-belt-tally-card">
+            <div class="knockouts-belt-tally-avatar-wrap">
+              ${avatarMarkup(killer, "knockouts-avatar-md")}
+              <div class="knockouts-belt-hover-name">${displayName}</div>
+            </div>
+
+            <div class="knockouts-belt-tally-total">${killerEntry.total}</div>
+
+            ${renderTallyMarks(killerEntry.total)}
+          </div>
+        `;
+      }).join("")}
+    </div>
+  `;
+}
 
   async function loadJson(url) {
     const res = await fetch(url, { cache: "no-store" });
