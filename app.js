@@ -1348,6 +1348,43 @@ function tierFormulaText(name) {
   return `${base} ${cutoffs} ${movement}`;
 }
 
+function buildArchetypeGuideCard() {
+  const defaultItem = ARCHETYPE_GUIDE[0];
+  const defaultFormula = archetypeFormulaText(defaultItem.name);
+
+  return `
+    <div class="event-card home-guide-card home-guide-card-archetype">
+      <div class="home-formula-display" id="home-archetype-formula-display">
+        <div class="home-formula-display-title">Archetype Formula</div>
+        <div class="home-formula-display-body">${defaultFormula}</div>
+      </div>
+
+      <div class="event-guide-rows">
+        <div class="player-archetype-line event-guide-line">
+          <span class="profile-line-desc">
+            ${ARCHETYPE_GUIDE.map(item => `
+              <button
+                type="button"
+                class="home-guide-pill home-guide-pill-reveal"
+                data-formula-target="home-archetype-formula-display"
+                data-formula-title="Archetype Formula"
+                data-formula-text="${archetypeFormulaText(item.name).replace(/"/g, "&quot;")}"
+                data-archetype-tone="${item.name
+                  .replace(/^The\\s+/i, "")
+                  .toLowerCase()
+                  .replace(/\\s+/g, "")
+                  .replace("luckydevil", "lucky")}"
+              >
+                ${item.emoji} ${item.name}
+              </button>
+            `).join("")}
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function buildTierGuideCard() {
   const defaultItem = TIER_GUIDE[0];
   const defaultFormula = tierFormulaText(defaultItem.name);
