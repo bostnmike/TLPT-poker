@@ -680,40 +680,57 @@ function wireArchetypeMixHover(scope = document) {
   const chips = [...shell.querySelectorAll(".player-archetype-spectrum-chip")];
   const allTargets = [...segments, ...chips];
 
+  chips.forEach(chip => {
+    chip.dataset.defaultBackground = chip.style.background || "";
+    chip.dataset.defaultBorderColor = chip.style.borderColor || "";
+    chip.dataset.defaultBoxShadow = chip.style.boxShadow || "";
+    chip.dataset.defaultTransform = chip.style.transform || "";
+  });
+
+  segments.forEach(segment => {
+    segment.dataset.defaultFilter = segment.style.filter || "";
+    segment.dataset.defaultBoxShadow = segment.style.boxShadow || "";
+    segment.dataset.defaultOpacity = segment.style.opacity || "";
+  });
+
   const clearActive = () => {
-    allTargets.forEach(el => {
-      el.classList.remove("is-hover-match");
-      el.style.filter = "";
-      el.style.boxShadow = "";
-      el.style.opacity = "";
-      el.style.transform = "";
-      el.style.borderColor = "";
-      el.style.background = "";
+    segments.forEach(segment => {
+      segment.classList.remove("is-hover-match");
+      segment.style.filter = segment.dataset.defaultFilter || "";
+      segment.style.boxShadow = segment.dataset.defaultBoxShadow || "";
+      segment.style.opacity = segment.dataset.defaultOpacity || "";
+      // IMPORTANT: do NOT clear segment background
+    });
+
+    chips.forEach(chip => {
+      chip.classList.remove("is-hover-match");
+      chip.style.transform = chip.dataset.defaultTransform || "";
+      chip.style.borderColor = chip.dataset.defaultBorderColor || "";
+      chip.style.background = chip.dataset.defaultBackground || "";
+      chip.style.boxShadow = chip.dataset.defaultBoxShadow || "";
     });
   };
 
   const activateKey = (key) => {
     if (!key) return;
 
-    allTargets.forEach(el => {
-      if (el.dataset.archetypeKey !== key) return;
+    segments.forEach(segment => {
+      if (segment.dataset.archetypeKey !== key) return;
+      segment.classList.add("is-hover-match");
+      segment.style.filter = "brightness(1.18)";
+      segment.style.boxShadow = "inset 0 0 0 2px rgba(255,255,255,.28)";
+      segment.style.opacity = "1";
+    });
 
-      el.classList.add("is-hover-match");
-
-      if (el.classList.contains("player-archetype-spectrum-segment")) {
-        el.style.filter = "brightness(1.18)";
-        el.style.boxShadow = "inset 0 0 0 2px rgba(255,255,255,.28)";
-        el.style.opacity = "1";
-      }
-
-      if (el.classList.contains("player-archetype-spectrum-chip")) {
-        el.style.transform = "translateY(-1px)";
-        el.style.borderColor = "rgba(255,184,28,.34)";
-        el.style.background =
-          "linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)), rgba(255,255,255,.02)";
-        el.style.boxShadow =
-          "inset 0 1px 0 rgba(255,255,255,.05), 0 8px 18px rgba(0,0,0,.18), 0 0 14px rgba(255,184,28,.10)";
-      }
+    chips.forEach(chip => {
+      if (chip.dataset.archetypeKey !== key) return;
+      chip.classList.add("is-hover-match");
+      chip.style.transform = "translateY(-1px)";
+      chip.style.borderColor = "rgba(255,184,28,.34)";
+      chip.style.background =
+        "linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)), rgba(255,255,255,.02)";
+      chip.style.boxShadow =
+        "inset 0 1px 0 rgba(255,255,255,.05), 0 8px 18px rgba(0,0,0,.18), 0 0 14px rgba(255,184,28,.10)";
     });
   };
 
