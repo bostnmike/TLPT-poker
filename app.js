@@ -676,20 +676,47 @@ function wireArchetypeMixHover(scope = document) {
   const shell = scope.querySelector(".player-archetype-spectrum-shell");
   if (!shell) return;
 
+  const allTargets = shell.querySelectorAll(
+    ".player-archetype-spectrum-segment, .player-archetype-spectrum-chip"
+  );
+
   const clearActive = () => {
-    shell
-      .querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip")
-      .forEach(el => el.classList.remove("is-hover-match"));
+    allTargets.forEach(el => {
+      el.classList.remove("is-hover-match");
+      el.style.filter = "";
+      el.style.boxShadow = "";
+      el.style.opacity = "";
+      el.style.transform = "";
+      el.style.borderColor = "";
+      el.style.background = "";
+    });
   };
 
   const activateKey = (key) => {
     if (!key) return;
 
-    shell
-      .querySelectorAll(
-        `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
-      )
-      .forEach(el => el.classList.add("is-hover-match"));
+    const matches = shell.querySelectorAll(
+      `.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`
+    );
+
+    matches.forEach(el => {
+      el.classList.add("is-hover-match");
+
+      if (el.classList.contains("player-archetype-spectrum-segment")) {
+        el.style.filter = "brightness(1.18)";
+        el.style.boxShadow = "inset 0 0 0 2px rgba(255,255,255,.28)";
+        el.style.opacity = "1";
+      }
+
+      if (el.classList.contains("player-archetype-spectrum-chip")) {
+        el.style.transform = "translateY(-1px)";
+        el.style.borderColor = "rgba(255,184,28,.34)";
+        el.style.background =
+          "linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)), rgba(255,255,255,.02)";
+        el.style.boxShadow =
+          "inset 0 1px 0 rgba(255,255,255,.05), 0 8px 18px rgba(0,0,0,.18), 0 0 14px rgba(255,184,28,.10)";
+      }
+    });
   };
 
   shell.addEventListener("mouseover", (event) => {
