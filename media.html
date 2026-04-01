@@ -203,6 +203,30 @@
     </a>
   </p>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.media-video-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function () {
+        const videoId = this.dataset.videoId;
+        const frame = this.closest('.media-frame');
+        const title = this.getAttribute('aria-label') || 'YouTube video';
+
+        frame.innerHTML = `
+          <div class="media-embed-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+              title="${title}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        `;
+      });
+    });
+  });
+</script>
   
 </body>
 </html>
