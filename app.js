@@ -649,6 +649,7 @@ function archetypeMixMarkup(player) {
         ${mix.map(item => `
           <div
             class="player-archetype-spectrum-segment"
+            data-archetype-key="${item.key}"
             style="width:${item.pct}%; background:${toneMap[item.key] || 'var(--gold)'};"
             title="${item.emoji} ${item.name}: ${item.pct.toFixed(1)}%"
           ></div>
@@ -657,7 +658,7 @@ function archetypeMixMarkup(player) {
 
       <div class="player-archetype-spectrum-legend">
         ${mix.map(item => `
-          <div class="player-archetype-spectrum-chip">
+          <div class="player-archetype-spectrum-chip" data-archetype-key="${item.key}">
             <span
               class="player-archetype-spectrum-dot"
               style="background:${toneMap[item.key] || 'var(--gold)'};"
@@ -669,6 +670,37 @@ function archetypeMixMarkup(player) {
       </div>
     </div>
   `;
+}
+
+function wireArchetypeMixHover(scope = document) {
+  const shell = scope.querySelector(".player-archetype-spectrum-shell");
+  if (!shell) return;
+
+  const clearActive = () => {
+    shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip")
+      .forEach(el => el.classList.remove("is-hover-match"));
+  };
+
+  const activateKey = (key) => {
+    if (!key) return;
+    shell.querySelectorAll(`.player-archetype-spectrum-segment[data-archetype-key="${key}"], .player-archetype-spectrum-chip[data-archetype-key="${key}"]`)
+      .forEach(el => el.classList.add("is-hover-match"));
+  };
+
+  shell.querySelectorAll(".player-archetype-spectrum-segment, .player-archetype-spectrum-chip").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
+
+    el.addEventListener("focus", () => {
+      clearActive();
+      activateKey(el.dataset.archetypeKey);
+    });
+
+    el.addEventListener("mouseleave", clearActive);
+    el.addEventListener("blur", clearActive);
+  });
 }
 
 function getPlayerTier(player, allPlayers = []) {
@@ -2647,6 +2679,8 @@ function renderPlayerProfile(data) {
   });
 
   initAnimatedCounters(container);
+  wirePlayerFormulaCards(container);
+  wireArchetypeMixHover(container);
 }
 
 function renderSchedule(data) {
