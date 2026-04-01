@@ -317,30 +317,39 @@ function renderNemesisBoard(playerMap, byVictim) {
     return `<div class="knockouts-empty">No nemesis board yet.</div>`;
   }
 
- return `
-  <div class="knockouts-nemesis-grid">
-    ${board.map(item => {
-      const victim = safePlayer(playerMap, item.victimSlug);
-      const killer = safePlayer(playerMap, item.killerSlug);
+  return `
+    <div class="knockouts-nemesis-grid">
+      ${board.map(item => {
+        const victim = safePlayer(playerMap, item.victimSlug);
+        const killer = safePlayer(playerMap, item.killerSlug);
 
-      return `
-        <div class="knockouts-nemesis-card">
-          <div class="knockouts-nemesis-side">
-            ${avatarMarkup(victim, "knockouts-avatar-md")}
-          </div>
+        const victimName = victim?.name || item.victimSlug;
+        const killerName = killer?.name || item.killerSlug;
 
-          <div class="knockouts-nemesis-count-pill">
-            ${item.count} x by
-          </div>
+        return `
+          <div class="knockouts-nemesis-card">
+            <div class="knockouts-nemesis-side">
+              <div class="knockouts-nemesis-avatar-wrap">
+                ${avatarMarkup(victim, "knockouts-avatar-md")}
+                <div class="knockouts-nemesis-hover-name">${victimName}</div>
+              </div>
+            </div>
 
-          <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
-            ${avatarMarkup(killer, "knockouts-avatar-md")}
+            <div class="knockouts-nemesis-count-pill">
+              ${item.count} x by
+            </div>
+
+            <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
+              <div class="knockouts-nemesis-avatar-wrap">
+                ${avatarMarkup(killer, "knockouts-avatar-md")}
+                <div class="knockouts-nemesis-hover-name">${killerName}</div>
+              </div>
+            </div>
           </div>
-        </div>
-      `;
-    }).join("")}
-  </div>
-`;
+        `;
+      }).join("")}
+    </div>
+  `;
 }
 
   function renderBodyCountLedger(playerMap, byKiller) {
