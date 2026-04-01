@@ -8317,6 +8317,16 @@ body:has(#dashboard-grid) .page-title-row::after{
   background:#000;
 }
 
+.media-video-trigger{
+  appearance:none;
+  -webkit-appearance:none;
+  border:0;
+  padding:0;
+  margin:0;
+  cursor:pointer;
+  text-align:left;
+}
+
 .media-thumb{
   width:100%;
   height:100%;
