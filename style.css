@@ -2744,16 +2744,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   white-space:nowrap;
 }
 
-.home-dual-rsvp-btn{
-  min-width:148px;
-}
-
-.home-dual-rsvp-btn{
-  justify-content:center;
-  text-align:center;
-  white-space:nowrap;
-}
-
 .home-dual-rsvp-btn-friday{
   background:linear-gradient(180deg, rgba(168,85,247,.32), rgba(168,85,247,.16));
   border-color:rgba(168,85,247,.42);
