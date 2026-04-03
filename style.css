@@ -894,7 +894,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .events-header-stack{
   position:relative;
   display:flex;
-  flex-direction:row;
   align-items:center;
   justify-content:flex-start;
   gap:16px;
@@ -1756,7 +1755,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .home-module-cta-row{
   margin-top:14px;
   display:flex;
-  justify-content:flex-start;
 }
 
 .home-module-cta{
@@ -2752,10 +2750,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
 }
 
-.home-rsvp-summary-header{
-  margin-top:0;
-}
-
 .event-layout-grid{
   display:grid;
   grid-template-columns:minmax(0, 1fr) 680px;
@@ -2867,7 +2861,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:flex-start;
   width:100%;
   gap:6px;
 }
@@ -4433,7 +4426,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .tier-section-head h3{
   margin:0;
-  color:inherit;
   font-size:1.25rem;
   line-height:1.2;
   letter-spacing:.01em;
