@@ -1072,10 +1072,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   animation-play-state:paused;
 }
 
-.league-ticker-item:last-child{
-  border-right:none;
-}
-
 .league-ticker-item{
   display:inline-flex;
   align-items:center;
@@ -1270,13 +1266,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .home-feature-head p{
   margin:0 0 14px 0;
-}
-
-.home-pulse-head{
-  justify-content:space-between !important;
-  align-items:center;
-  gap:16px;
-  flex-wrap:nowrap;
 }
 
 .home-insight-formula{
@@ -1668,6 +1657,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .home-pulse-head{
   position:relative;
+  justify-content:space-between !important;
+  align-items:center;
+  gap:16px;
+  flex-wrap:nowrap;
   padding:14px 16px;
   border:1px solid rgba(239,68,68,.20);
   border-radius:18px;
