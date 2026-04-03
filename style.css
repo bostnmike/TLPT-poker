@@ -1127,7 +1127,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .league-ticker-item:hover{
   transform:translateY(-1px);
-  color:inherit;
   opacity:.96;
 }
 
@@ -1907,7 +1906,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .home-snapshot-grid .snapshot-card:hover .snapshot-value{
   transform:scale(1.08);
-  text-shadow:none;
 }
 
 .snapshot-icon{
@@ -2674,7 +2672,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .event-details-col > .btn-rsvp{
   margin-top:auto !important;
-  align-self:flex-start;
   padding-top:8px;
 }
 
