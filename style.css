@@ -131,7 +131,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .nav{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:6px;
   flex-wrap:nowrap;
   min-width:0;
@@ -515,7 +514,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .standings-race-strip{
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:0;
   padding-left:0;
   margin:0 0 10px;
@@ -895,7 +893,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   position:relative;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
   gap:16px;
   padding:14px 16px;
   border:1px solid rgba(244,114,182,.22);
@@ -2385,7 +2382,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   flex-wrap:wrap;
   align-items:flex-start;
   align-content:flex-start;
-  justify-content:flex-start;
   gap:8px;
   margin-top:auto;
   margin-bottom:14px;
@@ -2763,7 +2759,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-right:1px solid rgba(255,255,255,.12);
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
   align-self:stretch;
   height:100%;
   min-height:100%;
@@ -2833,7 +2828,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   padding-left:4px;
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
   align-items:center;
   align-self:start;
 }
