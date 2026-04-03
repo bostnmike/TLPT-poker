@@ -2747,7 +2747,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-rsvp-summary-wrap{
-  width:100%;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -3796,9 +3795,6 @@ td{
 .dashboard-studio-strip-inline{
   margin:0 0 14px;
   padding-left:58px;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 .dashboard-formula-panel-inline{
