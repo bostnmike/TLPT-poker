@@ -797,18 +797,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:#f0fdf4;
 }
 
-.dashboard-button-groups .btn[data-dashboard-sort="profit"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="roi"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="hits"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="timesPlaced"].active,
-.dashboard-button-groups .btn[data-dashboard-sort="bubbles"].active{
-  border-color:rgba(34,197,94,.56);
-  background:
-    linear-gradient(180deg, rgba(220,252,231,.12), rgba(255,255,255,0) 42%),
-    linear-gradient(180deg, rgba(34,197,94,.38), rgba(10,54,27,.98));
-  color:#f0fdf4;
-}
-
 .dashboard-button-groups .btn[data-dashboard-sort="trueSkillScore"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="luckIndex"].active,
 .dashboard-button-groups .btn[data-dashboard-sort="clutchIndex"].active,
@@ -3307,19 +3295,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 /* ===== EVENT THEME RESTORE + HOME BUTTON ANCHOR ===== */
-
-/* make the left event column actually push the RSVP buttons to the bottom on home */
-.event-details-col .home-event-fixed-buttons,
-.event-details-col .home-event-fixed-buttons-inline{
-  margin-top:auto;
-  align-self:flex-start;
-}
-
-/* keep the individual buttons flush once the wrapper is pushed down */
-.event-details-col .home-event-fixed-buttons .btn,
-.event-details-col .home-event-fixed-buttons-inline .btn{
-  margin-top:0;
-}
 
 /* restore home-page event card shell colors */
 #home-events-list .schedule-event-card-top{
