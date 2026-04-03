@@ -1761,10 +1761,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   background:linear-gradient(90deg, rgba(255,184,28,.90), rgba(59,130,246,.25) 58%, transparent 100%);
 }
 
-.home-analysis-col .home-section-helper{
-  margin:0 0 12px 0;
-}
-
 .home-analysis-col #home-archetype-guide,
 .home-analysis-col #home-tier-guide{
   height:100%;
