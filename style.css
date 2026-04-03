@@ -1080,7 +1080,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .league-ticker-name{
-  color:#fff;
   font-weight:700;
   white-space:nowrap;
 }
@@ -1244,7 +1243,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .home-feature-head h3{
   margin:0 0 6px 0;
-  color:#fff;
 }
 
 .home-feature-head p{
@@ -2120,7 +2118,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 0 0 1px rgba(255,184,28,.10),
     0 12px 32px rgba(0,0,0,.28),
     0 0 22px rgba(255,184,28,.10);
-  color:var(--text);
   transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
