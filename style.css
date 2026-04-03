@@ -2615,21 +2615,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   flex-wrap:nowrap;
 }
 
-#home-events-list .event-card-topline .home-event-top-right,
-#schedule-list .event-card-topline .home-event-top-right{
-  margin-left:auto;
-  justify-content:flex-end;
-  width:auto;
-}
-
 #home-events-list .event-card-topline .schedule-day-pill,
 #schedule-list .event-card-topline .schedule-day-pill{
   margin-left:auto;
-}
-
-#schedule-list .home-event-top-right,
-#home-events-list .home-event-top-right{
-  justify-content:flex-end;
 }
 
 #schedule-list .home-event-top-right .schedule-day-pill,
