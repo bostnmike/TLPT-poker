@@ -2647,7 +2647,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .home-event-fixed-buttons-inline{
   display:flex;
   flex-wrap:nowrap;
-  width:auto;
   max-width:100%;
   margin-top:auto !important;
   align-self:flex-start;
@@ -2817,7 +2816,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:auto;
   max-width:max-content;
   min-height:38px;
   padding:8px 16px;
@@ -5289,7 +5287,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:auto;
   max-width:max-content;
   min-height:44px;
   padding:11px 18px;
