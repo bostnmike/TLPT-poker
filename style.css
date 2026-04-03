@@ -3127,16 +3127,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 10px 18px rgba(0,0,0,.18);
 }
 
-#home-events-list .schedule-event-card-bottom .event-rsvp-avatar-row .player-avatar,
-#home-events-list .schedule-event-card-bottom .event-rsvp-avatar-row .player-avatar-fallback,
-#schedule-list .schedule-event-card-bottom .event-rsvp-avatar-row .player-avatar,
-#schedule-list .schedule-event-card-bottom .event-rsvp-avatar-row .player-avatar-fallback{
-  box-shadow:
-    0 0 0 2px rgba(134,239,172,.12),
-    0 0 14px rgba(134,239,172,.12),
-    0 10px 18px rgba(0,0,0,.18);
-}
-
 #home-events-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
 #home-events-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar-fallback,
 #schedule-list .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
