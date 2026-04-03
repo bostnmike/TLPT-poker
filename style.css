@@ -505,8 +505,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .dashboard-helper-copy{
-  margin-top:-2px;
-  margin-bottom:14px;
+  margin:-2px 0 14px 0;
   max-width:72ch;
 }
 
@@ -2441,7 +2440,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .featured-player-link{
-  color:var(--gold);
   font-weight:800;
   margin-top:auto;
 }
@@ -3930,7 +3928,7 @@ td{
 }
 
 .standings-page-kicker{
-  margin:0 0 12px 2px;
+  margin:0 0 10px 2px;
 }
 
 .standings-buttons-shell{
@@ -4176,10 +4174,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .standings-section-shell{
   padding-top:20px;
-}
-
-.standings-page-kicker{
-  margin:0 0 10px 2px;
 }
 
 #rules .section,
