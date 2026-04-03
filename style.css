@@ -219,7 +219,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   left:0;
   min-width:220px;
   padding:8px;
-  margin-top:0;
   border-radius:14px;
   border:1px solid rgba(255,184,28,.18);
   background:
@@ -2516,7 +2515,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .schedule-day-pill{
   display:inline-flex;
   align-items:center;
-  justify-content:center;
   align-self:flex-start;
   padding:8px 16px;
   border-radius:999px;
