@@ -3349,48 +3349,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     margin-bottom:2px;
   }
 
-  .event-structure{
-    font-size:.82rem;
-    color:#ffffff;
-    margin:0 0 8px 0;
-    line-height:1.25;
-  }
+.event-structure{
+  font-size:.82rem;
+  color:#ffffff;
+  margin:0 0 8px 0;
+  line-height:1.25;
 }
-
-/* restore themed text accents on left-side details + commissioner title */
-#home-events-list .schedule-event-card-top .event-details-col p strong,
-#schedule-list .schedule-event-card-top .event-details-col p strong,
-#home-events-list .schedule-event-card-top .event-commissioner-inline-title,
-#schedule-list .schedule-event-card-top .event-commissioner-inline-title{
-  color:#ddd6fe;
-  text-shadow:none;
-}
-
-#home-events-list .schedule-event-card-bottom .event-details-col p strong,
-#schedule-list .schedule-event-card-bottom .event-details-col p strong,
-#home-events-list .schedule-event-card-bottom .event-commissioner-inline-title,
-#schedule-list .schedule-event-card-bottom .event-commissioner-inline-title{
-  color:#bbf7d0;
-  text-shadow:none;
 }
 
 /* restore schedule-page RSVP button themes */
 #schedule-list .schedule-event-card-top .btn-rsvp{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-color:rgba(168,85,247,.34);
-  color:#f3e8ff;
-}
-
-#schedule-list .schedule-event-card-top .btn-rsvp:hover{
-  background:linear-gradient(180deg, #ddd6fe 0%, #c4b5fd 100%);
-  border-color:#c4b5fd;
-  color:#24123d;
-  box-shadow:
-    0 0 0 1px rgba(196,181,253,.16),
-    0 10px 24px rgba(0,0,0,.20),
-    0 0 16px rgba(168,85,247,.12);
-}
-
 #schedule-list .schedule-event-card-bottom .btn-rsvp{
   background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
   border-color:rgba(34,197,94,.34);
