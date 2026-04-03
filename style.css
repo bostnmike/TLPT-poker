@@ -3903,7 +3903,7 @@ td{
 }
 
 .standings-buttons-shell{
-  margin:0 0 10px 0;
+  margin:0 0 10px;
   padding:8px;
   border:1px solid rgba(59,130,246,.28);
   border-radius:18px;
@@ -3985,7 +3985,7 @@ td{
   grid-template-columns:max-content minmax(0, 1fr);
   gap:12px;
   align-items:center;
-  margin:8px 0 0 0;
+  margin:8px 0 0;
   padding:0;
   border:none;
   border-radius:0;
@@ -4650,7 +4650,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .players-visual-gold-copy{
-  margin:0 0 12px 0;
+  margin:0 0 12px;
   color:var(--gold);
   line-height:1.5;
 }
@@ -5024,7 +5024,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 #players-explainer{
-  margin:0 0 14px 0;
+  margin:0 0 14px;
   color:var(--gold);
   line-height:1.5;
 }
@@ -5620,7 +5620,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .archetype-section-copy{
-  margin:6px 0 14px 0;
+  margin:6px 0 14px;
   color:var(--muted);
   line-height:1.5;
 }
