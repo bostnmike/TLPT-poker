@@ -1392,7 +1392,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   font-weight:800;
   font-size:1.2rem;
   text-align:left;
-  width:auto;
   white-space:nowrap;
 }
 
@@ -2410,7 +2409,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:auto;
   max-width:max-content;
   flex:0 0 auto;
   white-space:nowrap;
@@ -3090,7 +3088,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-rsvp-summary{
-  width:auto;
   display:inline-flex;
   align-items:center;
   justify-content:center;
