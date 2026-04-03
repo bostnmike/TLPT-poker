@@ -78,14 +78,6 @@ a:hover{
   line-height:1.5;
 }
 
-.site-footer a{
-  color:var(--gold);
-}
-
-.site-footer a:hover{
-  color:var(--gold-soft);
-}
-
 main.wrap > .section:first-child,
 main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
@@ -2569,7 +2561,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   justify-content:flex-end;
   flex:0 0 auto;
   min-width:max-content;
-  width:auto;
 }
 
 #home-events-list .event-card-topline,
