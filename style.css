@@ -2702,9 +2702,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   padding-top:8px;
 }
 
-.event-details-col > .btn-rsvp,
-.event-details-col > .home-event-fixed-buttons,
-.event-details-col > .home-event-fixed-buttons-inline{
+.event-details-col > .btn-rsvp{
   margin-top:auto !important;
   align-self:flex-start;
 }
@@ -2842,10 +2840,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   min-height:100%;
   gap:8px;
   padding-bottom:2px;
-}
-
-.event-details-col > .event-commissioner-inline{
-  margin-top:12px;
 }
 
 .event-details-col p{
@@ -4076,10 +4070,6 @@ td{
   font-weight:800;
   line-height:1.05;
   white-space:nowrap;
-}
-
-.standings-current-stat .dashboard-current-icon{
-  color:#93c5fd;
 }
 
 .standings-current-label::after{
