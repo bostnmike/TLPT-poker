@@ -2130,7 +2130,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   font-weight:900;
   letter-spacing:.1em;
   text-transform:uppercase;
-  margin-bottom:16px;
+  margin:0 0 16px;
   text-shadow:0 0 10px rgba(255,184,28,.18);
 }
 
@@ -4974,7 +4974,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 .crew-header-shell .page-title-row{
   position:relative;
   margin-bottom:14px;
-  padding:0 0 12px 0;
+  padding:0 0 12px;
   border:none;
   border-radius:0;
   background:none;
