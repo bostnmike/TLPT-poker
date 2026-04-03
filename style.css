@@ -3335,10 +3335,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     line-height:1.1;
   }
 
-  .event-details-col .event-title-kicker{
-    margin-bottom:2px;
-  }
-
 .event-structure{
   font-size:.82rem;
   color:#ffffff;
