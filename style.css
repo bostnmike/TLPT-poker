@@ -623,14 +623,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   gap:6px;
 }
 
-.dashboard-buttons{
-  margin:0;
-  padding:0;
-  border:none;
-  background:transparent;
-  box-shadow:none;
-}
-
 .btn{
   appearance:none;
   display:inline-flex;
@@ -3782,15 +3774,9 @@ td{
   display:flex;
   align-items:flex-start;
   justify-content:flex-start;
-  margin:0;
-  padding:0;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 .dashboard-cards-shell{
-  margin-top:0;
   padding:18px;
 }
 
@@ -4007,14 +3993,12 @@ body:has(#standings-table) .page-title-row{
   padding:0 0 12px;
   margin-bottom:14px;
   border:none;
-  border-radius:0;
   background:none;
   box-shadow:none;
 }
 
 body:has(#standings-table) .page-title-row::before{
   content:none;
-  display:none;
 }
 
 body:has(#standings-table) .page-title-row::after{
@@ -4033,14 +4017,12 @@ body:has(#dashboard-grid) .page-title-row{
   padding:0 0 12px;
   margin-bottom:14px;
   border:none;
-  border-radius:0;
   background:none;
   box-shadow:none;
 }
 
 body:has(#dashboard-grid) .page-title-row::before{
   content:none;
-  display:none;
 }
 
 body:has(#dashboard-grid) .page-title-row::after{
@@ -4078,14 +4060,12 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-bottom:28px;
   padding:0 0 12px;
   border:none;
-  border-radius:0;
   background:none;
   box-shadow:none;
 }
 
 .section.rules-header .page-title-row::before{
   content:none;
-  display:none;
 }
 
 .section.rules-header .page-title-row::after{
@@ -4886,7 +4866,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-bottom:14px;
   padding:0 0 12px;
   border:none;
-  border-radius:0;
   background:none;
   box-shadow:none;
 }
