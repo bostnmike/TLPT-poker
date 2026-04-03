@@ -5166,7 +5166,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 #players-visual{
   position:relative;
-  margin:0 0 22px 0;
+  margin:0 0 22px;
   padding:16px 18px;
   border:1px solid rgba(239,68,68,.18);
   border-radius:18px;
@@ -5425,7 +5425,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .archetype-helper-copy-outside{
-  margin:10px 0 14px 0;
+  margin:10px 0 14px;
 }
 
 .archetype-filter-row{
