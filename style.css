@@ -2662,10 +2662,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 8px 14px rgba(0,0,0,.26);
 }
 
-.home-event-top-right .schedule-day-pill{
-  margin-left:auto;
-}
-
 #home-events-list .schedule-event-card-top .schedule-day-pill,
 #schedule-list .schedule-event-card-top .schedule-day-pill{
   color:#f1e8ff;
