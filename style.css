@@ -3949,17 +3949,6 @@ td{
   white-space:nowrap;
 }
 
-.dashboard-formula-panel-inline{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  margin:0;
-  padding:0;
-  border:none;
-  background:none;
-  box-shadow:none;
-}
-
 .dashboard-formula-display{
   width:100%;
   min-height:auto;
