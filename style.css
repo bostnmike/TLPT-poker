@@ -967,7 +967,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  padding:6px 0 6px 0;
+  padding:6px 0;
   border:1px solid rgba(255,255,255,.12);
   border-radius:16px;
   background:
@@ -1087,7 +1087,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   flex-direction:column;
   gap:6px;
   overflow:hidden;
-  padding:0 20px 0;
+  padding:0 20px;
 }
 
 .league-ticker-head{
@@ -1237,7 +1237,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-feature-head h3{
-  margin:0 0 6px 0;
+  margin:0 0 6px;
 }
 
 .home-feature-head p{
