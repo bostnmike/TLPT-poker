@@ -3953,12 +3953,11 @@ td{
 }
 
 .standings-table-shell{
-  margin-top:0;
+  padding:0;
   overflow:hidden;
 }
 
 .standings-table-shell .table-wrap{
-  padding:0;
   overflow:hidden;
 }
 
