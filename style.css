@@ -71,7 +71,6 @@ a:hover{
 
 .site-footer p{
   margin:0;
-  text-align:left;
   color:var(--muted);
   line-height:1.5;
 }
@@ -550,7 +549,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   letter-spacing:.08em;
   text-transform:uppercase;
   line-height:1.25;
-  max-width:none;
 }
 
 .dashboard-studio-context,
@@ -558,8 +556,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   font-size:.82rem;
   line-height:1.35;
   color:var(--muted);
-  font-weight:400;
-  letter-spacing:0;
   white-space:nowrap;
 }
 
@@ -945,7 +941,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .events-header-title{
   color:#fff;
   margin:0;
-  text-align:left;
 }
 
 .league-ticker{
@@ -1773,11 +1768,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #home-snapshot .page-title-row,
 #home-snapshot .compact-page-title-row{
   position:relative;
-  padding-top:10px;
-  padding-bottom:0;
+  padding:10px 0 0;
   margin-bottom:10px;
   border:none !important;
-  border-bottom:none !important;
   box-shadow:none !important;
   background:transparent !important;
 }
@@ -1799,10 +1792,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #home-snapshot .page-title-row::after,
 #home-snapshot .compact-page-title-row::after{
   content:none !important;
-  display:none !important;
-  border:none !important;
-  box-shadow:none !important;
-  background:none !important;
 }
 
 .home-snapshot-grid{
@@ -2610,10 +2599,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   padding-top:8px;
 }
 
-.home-event-fixed-buttons .btn{
-  margin-top:0;
-}
-
 .home-event-fixed-buttons-inline{
   display:flex;
   flex-wrap:nowrap;
@@ -2625,6 +2610,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .event-details-col > .btn-rsvp{
   margin-top:auto !important;
+  align-self:flex-start;
   padding-top:8px;
 }
 
@@ -2823,7 +2809,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-details-col .btn{
-  margin-top:0;
   align-self:flex-start;
 }
 
@@ -3503,7 +3488,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .table-wrap{
   overflow-x:auto;
-  width:100%;
 }
 
 table{
