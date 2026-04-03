@@ -1887,6 +1887,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   background:
     linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02) 26%, rgba(15,20,28,1) 26%, rgba(15,20,28,1) 100%);
   text-align:center;
+  color:inherit;
+  text-decoration:none;
   box-shadow:
     0 0 0 1px rgba(255,184,28,.06),
     0 10px 30px rgba(0,0,0,.24);
@@ -1948,11 +1950,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   letter-spacing:.12em;
   color:var(--gold);
   font-weight:800;
-}
-
-.snapshot-card{
-  color:inherit;
-  text-decoration:none;
 }
 
 .snapshot-cta{
@@ -2705,9 +2702,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .event-details-col > .btn-rsvp{
   margin-top:auto !important;
   align-self:flex-start;
-}
-
-.event-details-col > .btn-rsvp{
   padding-top:8px;
 }
 
@@ -5099,8 +5093,9 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   display:flex;
   align-items:center;
-  gap:12px;
-  flex-wrap:nowrap;
+  justify-content:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
   margin:0;
   padding:14px 16px;
   border:1px solid rgba(239,68,68,.22);
@@ -5161,12 +5156,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     inset 0 -2px 4px rgba(44,6,6,.52),
     0 10px 22px rgba(0,0,0,.24),
     0 0 0 1px rgba(215,70,70,.16);
-}
-
-.crew-view-toolbar{
-  justify-content:flex-start;
-  gap:16px;
-  flex-wrap:wrap;
 }
 
 .crew-view-toolbar #players-help-copy{
