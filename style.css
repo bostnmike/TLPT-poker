@@ -3357,24 +3357,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 }
 
-/* restore schedule-page RSVP button themes */
-#schedule-list .schedule-event-card-top .btn-rsvp{
-#schedule-list .schedule-event-card-bottom .btn-rsvp{
-  background:linear-gradient(180deg, rgba(34,197,94,.28), rgba(34,197,94,.14));
-  border-color:rgba(34,197,94,.34);
-  color:#dcfce7;
-}
-
-#schedule-list .schedule-event-card-bottom .btn-rsvp:hover{
-  background:linear-gradient(180deg, #dcfce7 0%, #86efac 100%);
-  border-color:#86efac;
-  color:#0f2d18;
-  box-shadow:
-    0 0 0 1px rgba(134,239,172,.16),
-    0 10px 24px rgba(0,0,0,.20),
-    0 0 16px rgba(34,197,94,.12);
-}
-
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
