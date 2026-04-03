@@ -4093,7 +4093,7 @@ td{
 
 body:has(#standings-table) .page-title-row{
   position:relative;
-  padding:0 0 12px 0;
+  padding:0 0 12px;
   margin-bottom:14px;
   border:none;
   border-radius:0;
@@ -4119,7 +4119,7 @@ body:has(#standings-table) .page-title-row::after{
 
 body:has(#dashboard-grid) .page-title-row{
   position:relative;
-  padding:0 0 12px 0;
+  padding:0 0 12px;
   margin-bottom:14px;
   border:none;
   border-radius:0;
@@ -4165,7 +4165,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 .section.rules-header .page-title-row{
   position:relative;
   margin-bottom:28px;
-  padding:0 0 12px 0;
+  padding:0 0 12px;
   border:none;
   border-radius:0;
   background:none;
