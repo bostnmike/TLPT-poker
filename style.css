@@ -1458,7 +1458,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-section-helper{
-  margin:0 0 12px 0;
+  margin:0 0 12px;
   color:#cfd8e3;
 }
 
@@ -4583,7 +4583,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .tier-strength-label{
   grid-column:1 / -1;
-  margin:0 0 4px 0;
+  margin:0 0 4px;
   color:var(--muted);
   font-size:.74rem;
   font-weight:800;
@@ -4660,7 +4660,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .tier-distribution-head h3{
-  margin:0 0 14px 0;
+  margin:0 0 14px;
   color:#fff;
   font-size:1.15rem;
   line-height:1.2;
@@ -5363,7 +5363,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .archetype-visual-head h3{
-  margin:0 0 14px 0;
+  margin:0 0 14px;
   color:#fff;
   font-size:1.15rem;
   line-height:1.2;
@@ -5631,7 +5631,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   justify-content:space-between;
   gap:12px;
   flex-wrap:wrap;
-  margin:0 0 12px 0;
+  margin:0 0 12px;
   padding:12px 15px;
   border:1px solid color-mix(in srgb, var(--archetype-line) 64%, transparent);
   border-radius:14px;
