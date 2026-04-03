@@ -4244,10 +4244,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   padding-top:20px;
 }
 
-.standings-header-row{
-  margin-bottom:8px;
-}
-
 .standings-page-kicker{
   margin:0 0 10px 2px;
 }
@@ -7666,10 +7662,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:0;
   color:var(--muted);
   line-height:1.5;
-}
-
-.rules-table-bg .rules-format .format-head{
-  padding:0 18px;
 }
 
 .rules-table-bg .rules-format .timer-rail{
