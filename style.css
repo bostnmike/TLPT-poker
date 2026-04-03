@@ -62,7 +62,6 @@ a:hover{
 .site-footer{
   margin-top:32px;
   padding:0 20px 32px;
-  box-sizing:border-box;
 }
 
 .site-footer-inner{
@@ -3955,18 +3954,15 @@ td{
 
 .standings-table-shell{
   margin-top:0;
-  padding:0;
   overflow:hidden;
 }
 
 .standings-table-shell .table-wrap{
-  margin:0;
   padding:0;
   overflow:hidden;
 }
 
 .standings-table-shell #standings-table{
-  margin-top:0;
 }
 
 .standings-table-shell #standings-table thead th{
@@ -5002,7 +4998,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 .crew-view-toolbar #players-help-copy{
   margin-left:18px;
   padding-left:4px;
-  color:#dfe7ef;
   font-size:.92rem;
   font-weight:700;
   letter-spacing:0;
