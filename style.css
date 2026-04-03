@@ -1731,6 +1731,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .home-analysis-col > #home-archetype-guide,
 .home-analysis-col > #home-tier-guide{
   flex:1 1 auto;
+  height:100%;
 }
 
 .home-analysis-col .section-head{
@@ -1759,11 +1760,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(255,184,28,.90), rgba(59,130,246,.25) 58%, transparent 100%);
-}
-
-.home-analysis-col #home-archetype-guide,
-.home-analysis-col #home-tier-guide{
-  height:100%;
 }
 
 .home-analysis-col:first-child #home-archetype-guide{
@@ -1903,10 +1899,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   margin:0 auto 14px;
   border-radius:999px;
   background:rgba(255,184,28,.35);
-}
-
-.home-snapshot-grid .snapshot-card{
-  position:relative;
 }
 
 .snapshot-card:hover{
@@ -5156,12 +5148,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     inset 0 -2px 4px rgba(44,6,6,.52),
     0 10px 22px rgba(0,0,0,.24),
     0 0 0 1px rgba(215,70,70,.16);
-}
-
-.crew-view-toolbar #players-help-copy{
-  flex:1 1 100%;
-  margin-left:0;
-  padding-left:0;
 }
 
 .crew-view-switch,
