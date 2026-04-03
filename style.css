@@ -5876,10 +5876,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 /* ===== Dynamic Archetype Color System ===== */
-.tier-section-head h3{
-  color:inherit;
-}
-
 .archetype-hitman{
   --archetype-color:#ff5c5c;
   --archetype-bg:rgba(255,92,92,.28);
