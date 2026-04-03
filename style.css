@@ -930,7 +930,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:flex;
   align-items:center;
   gap:12px;
-  margin:0;
   flex:0 0 auto;
 }
 
@@ -968,7 +967,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .league-ticker{
   position:relative;
   overflow:hidden;
-  margin:0;
   padding:6px 0 6px 0;
   border:1px solid rgba(255,255,255,.12);
   border-radius:16px;
@@ -1136,7 +1134,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .home-strip-card,
 .home-insight-card{
-  display:block;
   padding:18px;
   border:1px solid var(--line);
   border-radius:16px;
