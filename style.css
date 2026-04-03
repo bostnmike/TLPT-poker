@@ -2739,7 +2739,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-dual-rsvp-btn{
-  min-width:148px;
   justify-content:center;
   text-align:center;
   white-space:nowrap;
