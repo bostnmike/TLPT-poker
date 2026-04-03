@@ -1241,7 +1241,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-feature-head p{
-  margin:0 0 14px 0;
+  margin:0 0 14px;
 }
 
 .home-insight-formula{
@@ -2200,8 +2200,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .featured-player-quote{
   position:relative;
-  margin:2px 0 16px 0;
-  padding:0 0 0 16px;
+  margin:2px 0 16px;
+  padding-left:16px;
   color:#ffe7b0;
   font-style:italic;
   font-weight:700;
@@ -2741,7 +2741,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   justify-content:center;
   gap:10px;
-  margin:2px 0 2px 0;
+  margin:2px 0;
   padding:0 8px;
 }
 
@@ -3249,7 +3249,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .event-structure{
   font-size:.82rem;
   color:#ffffff;
-  margin:0 0 8px 0;
+  margin:0 0 8px;
   line-height:1.25;
 }
 
