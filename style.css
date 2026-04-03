@@ -99,7 +99,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   top:0;
   left:0;
   right:0;
-  width:100%;
   z-index:9999;
   backdrop-filter:blur(8px);
 }
@@ -251,7 +250,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .nav-dropdown-menu a{
   display:block;
-  width:100%;
   padding:10px 12px;
   border-radius:10px;
   border:1px solid transparent;
@@ -1299,7 +1297,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   padding:10px 0;
   border-top:1px solid rgba(255,255,255,.06);
-  color:var(--text);
 }
 
 .home-mini-row:first-of-type{
@@ -1769,9 +1766,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   position:relative;
   padding:10px 0 0;
   margin-bottom:10px;
-  border:none !important;
-  box-shadow:none !important;
-  background:transparent !important;
 }
 
 #home-snapshot .section-head::before,
@@ -1790,7 +1784,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #home-snapshot .section-head::after,
 #home-snapshot .page-title-row::after,
 #home-snapshot .compact-page-title-row::after{
-  content:none !important;
+  content:none;
 }
 
 .home-snapshot-grid{
@@ -2607,7 +2601,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .event-details-col > .btn-rsvp{
   margin-top:auto !important;
-  align-self:flex-start;
   padding-top:8px;
 }
 
@@ -3967,9 +3960,6 @@ body:has(#standings-table) .page-title-row{
   position:relative;
   padding:0 0 12px;
   margin-bottom:14px;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 body:has(#standings-table) .page-title-row::before{
@@ -3991,9 +3981,6 @@ body:has(#dashboard-grid) .page-title-row{
   position:relative;
   padding:0 0 12px;
   margin-bottom:14px;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 body:has(#dashboard-grid) .page-title-row::before{
@@ -4034,9 +4021,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   margin-bottom:28px;
   padding:0 0 12px;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 .section.rules-header .page-title-row::before{
@@ -4840,9 +4824,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   margin-bottom:14px;
   padding:0 0 12px;
-  border:none;
-  background:none;
-  box-shadow:none;
 }
 
 .crew-header-shell .page-title-row::before{
