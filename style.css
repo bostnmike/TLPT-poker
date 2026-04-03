@@ -497,14 +497,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .dashboard-helper-copy{
-  margin:-2px 0 14px 0;
+  margin:-2px 0 14px;
   max-width:72ch;
 }
 
 .dashboard-studio-strip,
 .standings-race-strip{
   gap:6px;
-  margin:8px 0 12px 0;
+  margin:8px 0 12px;
   padding:10px 12px;
   border-radius:13px;
   background:
@@ -541,7 +541,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   justify-items:start;
   text-align:left;
   padding-left:58px;
-  margin:0 0 18px 0;
+  margin:0 0 18px;
   border:1px solid rgba(255,184,28,.18);
   background:
     radial-gradient(circle at top right, rgba(255,184,28,.10), transparent 30%),
@@ -3760,7 +3760,7 @@ td{
 .dashboard-page-stack{
   display:grid;
   gap:22px;
-  margin:0 0 22px 0;
+  margin:0 0 22px;
 }
 
 .dashboard-page-stack > .section{
@@ -3801,7 +3801,7 @@ td{
 }
 
 .dashboard-studio-strip-inline{
-  margin:0 0 14px 0;
+  margin:0 0 14px;
   padding-left:58px;
   border:none;
   border-radius:0;
