@@ -8247,10 +8247,22 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .media-grid{
   display:grid;
-  grid-template-columns:repeat(2, minmax(0,1fr));
-  gap:16px;
-  max-width:1080px;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:18px;
+  max-width:1240px;
   margin:0 auto;
+}
+
+@media (max-width:1100px){
+  .media-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width:700px){
+  .media-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 .media-card{
