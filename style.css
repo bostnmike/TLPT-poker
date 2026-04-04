@@ -3900,7 +3900,7 @@ body:has(#standings-table) .page-title-row::after{
   position:absolute;
   left:0;
   right:0;
-  bottom:-16px;
+  bottom:-7px;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.32) 58%, transparent 100%);
