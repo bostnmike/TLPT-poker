@@ -4772,14 +4772,16 @@ body:has(#dashboard-grid) .page-title-row::after{
   flex-wrap:wrap;
   margin:0;
   padding:14px 16px;
-  border:1px solid rgba(239,68,68,.22);
+  border-left:1px solid rgba(239,68,68,.22);
+  border-right:1px solid rgba(239,68,68,.22);
+  border-bottom:1px solid rgba(239,68,68,.22);
+  border-top:none;
   border-radius:16px;
   background:
     radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 34%),
     radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 28%),
     linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
     0 10px 24px rgba(0,0,0,.20),
     0 0 18px rgba(239,68,68,.08);
 }
