@@ -9168,16 +9168,11 @@ body:has(#dashboard-grid) .page-title-row::after{
 .section.schedule-hero .page-title-row{
   position:relative;
   margin-bottom:14px;
-  padding:0 0 12px 0;
-  border:none;
-  border-radius:0;
-  background:none;
-  box-shadow:none;
+  padding:0 0 12px;
 }
 
 .section.schedule-hero .page-title-row::before{
   content:none;
-  display:none;
 }
 
 .section.schedule-hero .page-title-row::after{
