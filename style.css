@@ -474,20 +474,25 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   color:var(--muted);
 }
 
-.page-helper-copy{
-  margin:-4px 0 14px;
-  color:#cfd8e3;
+.page-helper-copy,
+.dashboard-helper-copy{
+  margin:0 0 14px;
   line-height:1.5;
+}
+
+.page-helper-copy{
+  margin-top:-4px;
+  color:#cfd8e3;
   max-width:78ch;
+}
+
+.dashboard-helper-copy{
+  margin-top:-2px;
+  max-width:72ch;
 }
 
 .standings-helper-copy{
   margin-top:-2px;
-}
-
-.dashboard-helper-copy{
-  margin:-2px 0 14px;
-  max-width:72ch;
 }
 
 .standings-race-strip{
@@ -513,6 +518,11 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   line-height:1.35;
   color:var(--muted);
   white-space:nowrap;
+}
+
+.dashboard-studio-context strong,
+.standings-race-context strong{
+  color:#fff;
 }
 
 .standings-race-context{
@@ -547,11 +557,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   letter-spacing:.08em;
   text-transform:uppercase;
   line-height:1.25;
-}
-
-.dashboard-studio-context strong,
-.standings-race-context strong{
-  color:#fff;
 }
 
 /* page chip headings */
