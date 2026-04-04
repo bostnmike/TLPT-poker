@@ -9183,7 +9183,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:absolute;
   left:0;
   right:0;
-  bottom:0;
+  bottom:-4px;
   height:3px;
   border-radius:999px;
   background:linear-gradient(90deg, rgba(168,85,247,.95), rgba(255,255,255,.12) 58%, transparent 100%);
