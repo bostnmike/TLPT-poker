@@ -210,7 +210,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .nav-dropdown-parent::after{
   content:"▾";
   font-size:.7rem;
-  opacity:.82;
 }
 
 .nav-dropdown-menu{
@@ -489,7 +488,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   max-width:72ch;
 }
 
-.dashboard-studio-strip,
 .standings-race-strip{
   display:flex;
   align-items:center;
@@ -505,19 +503,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 8px 18px rgba(0,0,0,.16);
-}
-
-.standings-race-strip{
-  display:flex;
-  align-items:center;
-  gap:0;
-  padding-left:0;
-  margin:0 0 10px;
-  border:1px solid rgba(59,130,246,.18);
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 30%),
-    radial-gradient(circle at left center, rgba(168,85,247,.06), transparent 24%),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
 }
 
 .standings-race-context{
@@ -1040,7 +1025,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:inline-flex;
   align-items:center;
   gap:12px;
-  color:inherit;
   transition:transform .18s ease, opacity .18s ease;
 }
 
@@ -2665,7 +2649,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-rotator-nav-inline{
-  width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -5967,7 +5950,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .player-profile-title-row{
-  width:100%;
   display:flex;
   align-items:baseline;
   gap:18px;
