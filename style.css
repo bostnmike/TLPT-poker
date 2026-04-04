@@ -606,7 +606,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .dashboard-button-groups{
   display:grid;
-  gap:6px;
+  gap:2px;
 }
 
 .btn{
