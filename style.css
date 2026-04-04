@@ -3870,6 +3870,10 @@ body:has(#dashboard-grid) .page-title-orange{
   margin-bottom:28px;
 }
 
+.section.rules-header .page-title-green{
+  color:#74d79a;
+}
+
 body:has(#standings-table) .page-title-row::before,
 body:has(#dashboard-grid) .page-title-row::before,
 .section.rules-header .page-title-row::before,
