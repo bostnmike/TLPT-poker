@@ -3887,17 +3887,6 @@ body:has(#dashboard-grid) .page-title-row::before,
   content:none;
 }
 
-.section.schedule-hero .page-title-row::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-12px;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(244,114,182,.95), rgba(244,114,182,.36) 58%, transparent 100%);
-}
-
 .section.schedule-hero .page-kicker{
   margin:0 0 10px 2px;
 }
