@@ -3875,16 +3875,6 @@ body:has(#dashboard-grid) .page-title-row::before,
 
 .section.schedule-hero{
   padding-top:20px;
-  border-color:rgba(244,114,182,.24);
-  background:
-    radial-gradient(circle at top right, rgba(244,114,182,.18), transparent 32%),
-    radial-gradient(circle at left center, rgba(59,130,246,.10), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(255,184,28,.06), transparent 24%),
-    linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
-  box-shadow:
-    0 0 0 1px rgba(244,114,182,.10),
-    0 12px 30px rgba(0,0,0,.24),
-    0 0 30px rgba(244,114,182,.10);
 }
 
 .section.schedule-hero .page-title-row{
