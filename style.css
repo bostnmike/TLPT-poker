@@ -2743,8 +2743,6 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .event-details-col p strong{
   color:#fff;
-  font-weight:800;
-  letter-spacing:.01em;
 }
 
 #home-events-list .schedule-event-card-top .event-details-col p strong,
