@@ -3883,6 +3883,10 @@ body:has(#dashboard-grid) .page-title-row::before,
   padding:0 0 12px;
 }
 
+.section.schedule-hero .schedule-page-title{
+  color:#f9a8d4;
+}
+
 .section.schedule-hero .page-title-row::before{
   content:none;
 }
