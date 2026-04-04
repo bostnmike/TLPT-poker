@@ -6690,6 +6690,11 @@ body:has(#dashboard-grid) .page-title-row::after{
   font-size:1.5em;
 }
 
+.champions-title-gold-deep{
+  color:#c88a00;
+  text-shadow:0 0 8px rgba(200,138,0,.10);
+}
+
 .champions-title-purple{
   color:#d8b4fe;
   text-shadow:0 0 8px rgba(168,85,247,.12);
