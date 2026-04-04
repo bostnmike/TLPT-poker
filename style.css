@@ -4730,7 +4730,14 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .crew-header-shell .page-title-row::after{
-  content:none;
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-12px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(239,68,68,.95), rgba(255,255,255,.18) 58%, transparent 100%);
 }
 
 #players-help-copy{
