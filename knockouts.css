@@ -9,6 +9,26 @@
   position:relative;
 }
 
+.knockouts-header-shell .page-title-row{
+  position:relative;
+}
+
+.knockouts-header-shell .page-title-row::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-12px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(
+    90deg,
+    rgba(255,184,28,.95),
+    rgba(255,184,28,.34) 58%,
+    transparent 100%
+  );
+}
+
 .knockouts-header-shell .champions-title{
   color: var(--gold);
 }
