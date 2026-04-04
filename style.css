@@ -632,6 +632,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   display:grid;
   gap:5px;
   grid-template-columns:repeat(7, minmax(0,1fr));
+  margin:0;
 }
 
 /* green group */
