@@ -3860,6 +3860,10 @@ body:has(#dashboard-grid) .page-title-row,
   margin-bottom:14px;
 }
 
+body:has(#dashboard-grid) .page-title-orange{
+  color:#e89f4f;
+}
+
 .section.rules-header .page-title-row{
   position:relative;
   padding:0 0 12px;
@@ -3884,7 +3888,7 @@ body:has(#dashboard-grid) .page-title-row::before,
 }
 
 .section.schedule-hero .schedule-page-title{
-  color:#f9a8d4;
+  color:#e889b8;
 }
 
 .section.schedule-hero .page-title-row::before{
@@ -6698,6 +6702,10 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .crew-header-shell .page-title-red{
+  color:#e86a6a;
+}
+
+.crew-header-shell .page-title-red{
   font-size:1.5em;
 }
 
@@ -9161,6 +9169,10 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 0 1px rgba(168,85,247,.12),
     0 12px 30px rgba(0,0,0,.24),
     0 0 32px rgba(168,85,247,.12);
+}
+
+body:has(.media-header) .page-title-purple{
+  color:#c89af0;
 }
 
 .section.media-header .page-title-row{
