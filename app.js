@@ -810,13 +810,6 @@ function getPlayerTier(player, allPlayers = []) {
   };
 }
 
-  return {
-    emoji: "🍣",
-    name: "The League Sponsor",
-    desc: "keeping the prize pool healthy, one decision at a time"
-  };
-}
-
 function getTierRangeLabel(name) {
   if (name === "The Apex Predator") return " (Top 10%)";
   if (name === "The Table Crusher") return " (10–30%)";
