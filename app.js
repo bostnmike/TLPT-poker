@@ -2164,7 +2164,7 @@ function crewCardMarkup(player, data, tierPlayers = []) {
 
       <div class="crew-summary-row">
         <span class="crew-profit ${statValueClass(player, "profit")}">Profit ${fmtMoney(player.profit)}</span>
-        <span class="crew-power">Power ${fmtNum(player.trueSkillScore)}</span>
+        <span class="crew-power">Tier Score ${fmtNum(getPlayerTierScore(player))}</span>
       </div>
 
       <div class="player-card-stats crew-card-stats">
