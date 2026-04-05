@@ -1536,5 +1536,55 @@
       "sourceVictim": "Red",
       "sourceKiller": "Nasa Al"
     }
+  ],
+  "2026-04-04": [
+    {
+      "victim": "red",
+      "killer": "hiro",
+      "sourceVictim": "Red",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "red",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "hiro",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "red",
+      "sourceVictim": "Providencemike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "kishan",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Kishan"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "kishan",
+      "killer": "ahmed",
+      "sourceVictim": "Kishan",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "red",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Red"
+    }
   ]
 }
