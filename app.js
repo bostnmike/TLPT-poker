@@ -1507,7 +1507,7 @@ function archetypeFormulaText(name) {
 
 function tierFormulaText(name) {
   const base = "Tier Score = (True Skill × 1.5) + (Clutch × 1.1) + (Aggression × 0.65) + (Survivor × 1.0) − (Tilt × 1.25) + sample bonus − rebuy penalty.";
-  
+
   if (name === "The Apex Predator") {
     return `
       ${base}
@@ -1547,6 +1547,9 @@ function tierFormulaText(name) {
       <br><span class="tier-formula-drop">• Good news, there's nowhere to go but up...</span>
     `;
   }
+
+  return base;
+}
  
 function buildArchetypeGuideCard() {
   const defaultItem = ARCHETYPE_GUIDE[0];
