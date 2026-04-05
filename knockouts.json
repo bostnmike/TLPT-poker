@@ -8,7 +8,7 @@
       "hiro": 2,
       "li-fo": 5,
       "providencemike": 1,
-      "red": 2
+      "red": 3
     },
     "ai-dave": {
       "ahmed": 2,
@@ -34,13 +34,14 @@
       "chris-o": 1,
       "cougar": 2,
       "dan-k": 1,
-      "hiro": 1,
+      "hiro": 2,
+      "kishan": 1,
       "li-fo": 5,
       "mike-g": 1,
       "nasa-al": 2,
       "nitro": 1,
       "providencemike": 1,
-      "red": 2,
+      "red": 3,
       "the-architect": 1,
       "vish": 2
     },
@@ -88,7 +89,7 @@
       "red": 1
     },
     "hiro": {
-      "ahmed": 4,
+      "ahmed": 5,
       "ai-dave": 2,
       "bostnmike": 1,
       "brad-r": 1,
@@ -112,6 +113,7 @@
       "vic": 1
     },
     "kishan": {
+      "ahmed": 1,
       "mike-g": 1
     },
     "li-fo": {
@@ -170,7 +172,7 @@
       "li-fo": 1,
       "mike-g": 1,
       "nitro": 1,
-      "red": 2,
+      "red": 3,
       "the-architect": 1,
       "vic": 1,
       "vish": 1
@@ -180,7 +182,7 @@
       "bostnmike": 1,
       "chris-o": 1,
       "cougar": 1,
-      "hiro": 1,
+      "hiro": 2,
       "kishan": 1,
       "li-fo": 1,
       "nasa-al": 1,
@@ -233,8 +235,9 @@
       "chris-o": 2,
       "cougar": 2,
       "david-k": 1,
-      "hiro": 4,
+      "hiro": 5,
       "jeff-t": 1,
+      "kishan": 1,
       "li-fo": 5,
       "providencemike": 1
     },
@@ -315,14 +318,14 @@
     "hiro": {
       "ahmed": 2,
       "ai-dave": 2,
-      "bostnmike": 1,
+      "bostnmike": 2,
       "brad-r": 1,
       "cougar": 1,
       "dan-k": 2,
       "jeff-t": 1,
       "li-fo": 4,
       "nasa-al": 2,
-      "red": 1,
+      "red": 2,
       "rob-f": 2,
       "the-architect": 1,
       "vish": 1,
@@ -333,6 +336,7 @@
       "vish": 1
     },
     "kishan": {
+      "bostnmike": 1,
       "mike-g": 1,
       "red": 1
     },
@@ -390,9 +394,9 @@
       "vish": 2
     },
     "red": {
-      "ahmed": 2,
+      "ahmed": 3,
       "ai-dave": 1,
-      "bostnmike": 2,
+      "bostnmike": 3,
       "chris-o": 3,
       "cougar": 1,
       "hayden-d": 1,
@@ -400,7 +404,7 @@
       "li-fo": 1,
       "nitro": 1,
       "pittdburghbill": 1,
-      "providencemike": 2,
+      "providencemike": 3,
       "vish": 3
     },
     "rob-f": {
@@ -473,6 +477,7 @@
     "2026-03-13",
     "2026-03-14",
     "2026-03-27",
-    "2026-03-28"
+    "2026-03-28",
+    "2026-04-04"
   ]
 }
