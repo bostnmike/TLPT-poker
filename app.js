@@ -582,13 +582,13 @@ function getPlayerTierScore(player) {
   const tilt = Number(player?.tiltIndex ?? 0);
 
   let sampleBonus = 0;
-  if (entries >= 20) sampleBonus = 1.2;
-  else if (entries >= 15) sampleBonus = 0.9;
-  else if (entries >= 10) sampleBonus = 0.5;
-  else if (entries >= 5) sampleBonus = 0.15;
-  else sampleBonus = -1.25;
+  if (entries >= 20) sampleBonus = 3.0;
+  else if (entries >= 15) sampleBonus = 2.0;
+  else if (entries >= 10) sampleBonus = 1.0;
+  else if (entries >= 5) sampleBonus = 0.25;
+  else sampleBonus = -2.0;
 
-  const rebuyPenalty = rebuys * 0.08;
+  const rebuyPenalty = rebuys * 0.6;
 
   return (
     (trueSkill * 1.35) +
