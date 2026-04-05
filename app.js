@@ -771,7 +771,7 @@ function getPlayerTier(player, allPlayers = []) {
   const total = Math.max(ranked.length, 1);
   const pct = rank / total;
 
-  if (pct <= 0.15) {
+  if (pct <= 0.10) {
     return {
       emoji: "🦈",
       name: "The Apex Predator",
@@ -779,7 +779,7 @@ function getPlayerTier(player, allPlayers = []) {
     };
   }
 
-  if (pct <= 0.35) {
+  if (pct <= 0.30) {
     return {
       emoji: "⚔️",
       name: "The Table Crusher",
@@ -2150,7 +2150,7 @@ function crewCardMarkup(player, data, tierPlayers = []) {
   return `
     <a class="player-card player-card-rich crew-card" href="${playerUrl(player)}">
       <div class="crew-card-topline">
-        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}</span>
+        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}${getTierRangeLabel(tier.name)}</span>
         <span class="crew-tier-rank">#${tierRank}</span>
       </div>
 
