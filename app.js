@@ -810,15 +810,6 @@ function getPlayerTier(player, allPlayers = []) {
   };
 }
 
-function getTierRangeLabel(name) {
-  if (name === "The Apex Predator") return " (Top 10%)";
-  if (name === "The Table Crusher") return " (10–30%)";
-  if (name === "The Shot Maker") return " (30–60%)";
-  if (name === "The Gambler") return " (60–80%)";
-  if (name === "The League Sponsor") return " (Bottom 20%)";
-  return "";
-}
-
 function playerUrl(player) {
   return `player.html?name=${encodeURIComponent(player.name)}`;
 }
@@ -2150,16 +2141,17 @@ function crewCardMarkup(player, data, tierPlayers = []) {
   const tierRank = [...tierPlayers]
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
     .findIndex(p => p.name === player.name) + 1;
+
   const tierClass = tier.name
-  .toLowerCase()
-  .replace(/^the\s+/i, "")
-  .replace(/[^\w]+/g, "-")
-  .replace(/^-+|-+$/g, "");
+    .toLowerCase()
+    .replace(/^the\s+/i, "")
+    .replace(/[^\w]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
   return `
     <a class="player-card player-card-rich crew-card" href="${playerUrl(player)}">
       <div class="crew-card-topline">
-        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}${getTierRangeLabel(tier.name)}</span>
+        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}</span>
         <span class="crew-tier-rank">#${tierRank}</span>
       </div>
 
@@ -2199,10 +2191,17 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
     Math.min(100, (avgPower / Math.max(maxTierPower, 0.1)) * 100)
   );
 
+  let rangeLabel = "";
+  if (title === "The Apex Predators") rangeLabel = " (Top 10%)";
+  else if (title === "The Table Crushers") rangeLabel = " (10–30%)";
+  else if (title === "The Shot Makers") rangeLabel = " (30–60%)";
+  else if (title === "The Gamblers") rangeLabel = " (60–80%)";
+  else if (title === "The League Sponsors") rangeLabel = " (Bottom 20%)";
+
   return `
     <div class="tier-section">
       <div class="tier-section-head">
-        <h3>${emoji} ${title}</h3>
+        <h3>${emoji} ${title}<span class="tier-section-range">${rangeLabel}</span></h3>
         <div class="tier-header-stats">
           Avg Power ${fmtNum(avgPower)}
         </div>
@@ -2214,8 +2213,8 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
           <div class="tier-strength-fill" style="width:${strengthPct}%"></div>
         </div>
         <div class="tier-strength-pct">${Math.round(strengthPct)}%</div>
-      </div>       
-      
+      </div>
+
       <div class="tier-grid">
         ${players.map(player => crewCardMarkup(player, data, players)).join("")}
       </div>
