@@ -771,7 +771,7 @@ function getPlayerTier(player, allPlayers = []) {
   const total = Math.max(ranked.length, 1);
   const pct = rank / total;
 
-  if (pct <= 0.10) {
+  if (pct <= 0.15) {
     return {
       emoji: "🦈",
       name: "The Apex Predator",
@@ -779,7 +779,7 @@ function getPlayerTier(player, allPlayers = []) {
     };
   }
 
-  if (pct <= 0.30) {
+  if (pct <= 0.35) {
     return {
       emoji: "⚔️",
       name: "The Table Crusher",
@@ -1495,15 +1495,15 @@ function tierFormulaText(name) {
   if (name === "The Apex Predator") {
     return `
       ${base}
-      <br><span class="tier-formula-range">• Range: top 10% of Tier Scores.</span>
-      <br><span class="tier-formula-drop">• Relegation line: fall below the 10% cutoff and you drop.</span>
+      <br><span class="tier-formula-range">• Range: top 15% of Tier Scores.</span>
+      <br><span class="tier-formula-drop">• Relegation line: fall below the 15% cutoff and you drop.</span>
     `;
   }
 
   if (name === "The Table Crusher") {
     return `
       ${base}
-      <br><span class="tier-formula-range">• Range: 10% to 30%.</span>
+      <br><span class="tier-formula-range">• Range: 15% to 35%.</span>
       <br><span class="tier-formula-drop">• Relegation line: fall below the 30% cutoff.</span>
     `;
   }
@@ -1511,7 +1511,7 @@ function tierFormulaText(name) {
   if (name === "The Shot Maker") {
     return `
       ${base}
-      <br><span class="tier-formula-range">• Range: 30% to 60%.</span>
+      <br><span class="tier-formula-range">• Range: 35% to 60%.</span>
       <br><span class="tier-formula-drop">• Relegation line: fall below the 60% cutoff.</span>
     `;
   }
@@ -2192,12 +2192,12 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
   );
 
   let rangeLabel = "";
-  if (title === "The Apex Predators") rangeLabel = " (Top 10%)";
-  else if (title === "The Table Crushers") rangeLabel = " (10–30%)";
-  else if (title === "The Shot Makers") rangeLabel = " (30–60%)";
+  if (title === "The Apex Predators") rangeLabel = " (Top 15%)";
+  else if (title === "The Table Crushers") rangeLabel = " (15–35%)";
+  else if (title === "The Shot Makers") rangeLabel = " (35–60%)";
   else if (title === "The Gamblers") rangeLabel = " (60–80%)";
   else if (title === "The League Sponsors") rangeLabel = " (Bottom 20%)";
-
+  
   return `
     <div class="tier-section">
       <div class="tier-section-head">
