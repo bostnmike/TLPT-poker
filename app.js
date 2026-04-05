@@ -1492,46 +1492,45 @@ function archetypeFormulaText(name) {
 function tierFormulaText(name) {
   const base = "Tier Score = (True Skill × 1.5) + (Clutch × 1.1) + (Aggression × 0.65) + (Survivor × 1.0) − (Tilt × 1.25) + sample bonus − rebuy penalty.";
 
-  if (name === "The Apex Predator") {
-    return `
-      ${base}
-      <br><span class="tier-formula-range">• Range: top 15% of Tier Scores.</span>
-      <br><span class="tier-formula-drop">• Relegation line: fall below the 15% cutoff and you drop.</span>
-    `;
-  }
+if (name === "The Apex Predator") {
+  return `
+    ${base}
+    <br><span class="tier-formula-range">• Range: top 10% of Tier Scores.</span>
+    <br><span class="tier-formula-drop">• Relegation line: fall below the 10% cutoff and you drop.</span>
+  `;
+}
 
-  if (name === "The Table Crusher") {
-    return `
-      ${base}
-      <br><span class="tier-formula-range">• Range: 15% to 35%.</span>
-      <br><span class="tier-formula-drop">• Relegation line: fall below the 35% cutoff.</span>
-    `;
-  }
+if (name === "The Table Crusher") {
+  return `
+    ${base}
+    <br><span class="tier-formula-range">• Range: 10% to 30%.</span>
+    <br><span class="tier-formula-drop">• Relegation line: fall below the 30% cutoff.</span>
+  `;
+}
 
-  if (name === "The Shot Maker") {
-    return `
-      ${base}
-      <br><span class="tier-formula-range">• Range: 35% to 60%.</span>
-      <br><span class="tier-formula-drop">• Relegation line: fall below the 60% cutoff.</span>
-    `;
-  }
+if (name === "The Shot Maker") {
+  return `
+    ${base}
+    <br><span class="tier-formula-range">• Range: 30% to 60%.</span>
+    <br><span class="tier-formula-drop">• Relegation line: fall below the 60% cutoff.</span>
+  `;
+}
 
-  if (name === "The Gambler") {
-    return `
-      ${base}
-      <br><span class="tier-formula-range">• Range: 60% to 80%.</span>
-      <br><span class="tier-formula-drop">• Relegation line: fall below the 80% cutoff.</span>
-    `;
-  }
+if (name === "The Gambler") {
+  return `
+    ${base}
+    <br><span class="tier-formula-range">• Range: 60% to 80%.</span>
+    <br><span class="tier-formula-drop">• Relegation line: fall below the 80% cutoff.</span>
+  `;
+}
 
-  if (name === "The League Sponsor") {
-    return `
-      ${base}
-      <br><span class="tier-formula-range">• Range: bottom 20% (80% to 100%).</span>
-      <br><span class="tier-formula-drop">• Good news, there's nowhere to go but up...</span>
-    `;
-  }
-
+if (name === "The League Sponsor") {
+  return `
+    ${base}
+    <br><span class="tier-formula-range">• Range: bottom 20% (80% to 100%).</span>
+    <br><span class="tier-formula-drop">• Good news, there's nowhere to go but up...</span>
+  `;
+}
   return base;
 }
 
