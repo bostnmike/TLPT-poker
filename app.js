@@ -1490,7 +1490,7 @@ function archetypeFormulaText(name) {
 }
 
 function tierFormulaText(name) {
-  const base = "Tier Score = (True Skill × 1.35) + Clutch + (Aggression × 0.85) + (Survivor × 0.9) − (Tilt × 1.1) + sample bonus − rebuy penalty.";
+  const base = "Tier Score = (True Skill × 1.5) + (Clutch × 1.1) + (Aggression × 0.55) + (Survivor × 1.0) − (Tilt × 1.25) + sample bonus − rebuy penalty.";
 
   if (name === "The Apex Predator") {
     return `
