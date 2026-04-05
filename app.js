@@ -593,7 +593,7 @@ function getPlayerTierScore(player) {
   return (
     (trueSkill * 1.5) +
     (clutch * 1.1) +
-    (aggression * 0.55) +
+    (aggression * 0.65) +
     (survivor * 1.0) -
     (tilt * 1.25) +
     sampleBonus -
