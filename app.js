@@ -591,11 +591,11 @@ function getPlayerTierScore(player) {
   const rebuyPenalty = rebuys * 0.6;
 
   return (
-    (trueSkill * 1.35) +
-    (clutch * 1.0) +
-    (aggression * 0.85) +
-    (survivor * 0.9) -
-    (tilt * 1.1) +
+    (trueSkill * 1.5) +
+    (clutch * 1.1) +
+    (aggression * 0.55) +
+    (survivor * 1.0) -
+    (tilt * 1.25) +
     sampleBonus -
     rebuyPenalty
   );
