@@ -3175,17 +3175,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(138,28,20,.56);
+  border:1px solid rgba(168,85,247,.48);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(196,98,86,.10), transparent 34%),
-    linear-gradient(180deg, rgba(126,24,18,.54), rgba(70,12,10,.42)),
-    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+    radial-gradient(circle at top right, rgba(216,180,254,.12), transparent 34%),
+    linear-gradient(180deg, rgba(96,42,148,.40), rgba(42,16,78,.34)),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
   box-shadow:
-    0 0 0 1px rgba(138,28,20,.20),
-    0 10px 30px rgba(0,0,0,.26),
-    0 0 18px rgba(126,24,18,.18);
+    0 0 0 1px rgba(168,85,247,.18),
+    0 10px 30px rgba(0,0,0,.24),
+    0 0 18px rgba(168,85,247,.16);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
