@@ -506,7 +506,7 @@
     "paidSpots": 3,
     "winner": "Red",
     "firstOut": "Red",
-    "firstPermanentOut": "Pittsburghbill"
+    "firstPermanentOut": "PittsburghBill"
   },
   "spotlight": {
     "player": "Red",
@@ -523,13 +523,13 @@
     },
     {
       "label": "First Gone For Good",
-      "value": "Pittsburghbill",
+      "value": "PittsburghBill",
       "note": "Red made the first permanent knockout count."
     },
     {
       "label": "Table Killer",
       "value": "Red",
-      "note": "Removed Pittsburghbill, Cougar, Ahmed, Nitro, A.I. Dave, and Vish."
+      "note": "Removed PittsburghBill, Cougar, Ahmed, Nitro, A.I. Dave, and Vish."
     },
     {
       "label": "How It Ended",
@@ -537,7 +537,7 @@
       "note": "A.I. Dave finished third after surviving the late wave."
     }
   ],
-  "mainStoryHtml": "<p>Part I belonged to Red in the most TLPT way possible: he got bounced first, bought back in, and then spent the rest of the night making sure everybody remembered he was still there. What followed was not a gentle recovery. It was a one-man demolition job.</p><p>Once Red came back, the action summary practically turned into his personal paperwork. Pittsburghbill, Cougar, Ahmed, Nitro, A.I. Dave, and finally Vish all went through him. That is not just a win. That is a post-rebuy rampage, and it turned what could have been a clean little March game into a much nastier opener to the two-part set.</p><p>Vish did enough damage to reach heads-up, and Cougar got the original laugh by busting Red first, but neither of those stories survived the late stages. Part I ended up being about the guy who got the first warning and then decided to treat it like motivation.</p>",
+  "mainStoryHtml": "<p>Part I belonged to Red in the most TLPT way possible: he got bounced first, bought back in, and then spent the rest of the night making sure everybody remembered he was still there. What followed was not a gentle recovery. It was a one-man demolition job.</p><p>Once Red came back, the action summary practically turned into his personal paperwork. PittsburghBill, Cougar, Ahmed, Nitro, A.I. Dave, and finally Vish all went through him. That is not just a win. That is a post-rebuy rampage, and it turned what could have been a clean little March game into a much nastier opener to the two-part set.</p><p>Vish did enough damage to reach heads-up, and Cougar got the original laugh by busting Red first, but neither of those stories survived the late stages. Part I ended up being about the guy who got the first warning and then decided to treat it like motivation.</p>",
   "roastHtml": "<p>BostnMike managed to survive long enough to become part of Vish's highlight reel, which is a very specific kind of late-night insult. Not first out, not final boss, just neatly removed before the end credits.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 3 rebuys, 12 total entries.",
@@ -546,7 +546,7 @@
     "Red got busted first, rebought, and still finished with 6 knockouts and the win."
   ],
   "quickHitsLeft": [
-    "Pittsburghbill was first gone for good, which made Red's comeback begin with real blood.",
+    "PittsburghBill was first gone for good, which made Red's comeback begin with real blood.",
     "Vish used a rebuy and still rode the night all the way to second.",
     "Cougar got the first laugh by busting Red, then Red erased the joke later himself.",
     "This was a nine-player room that never felt static because the rebuys came at exactly the right times."
