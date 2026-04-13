@@ -41,7 +41,7 @@
     {
       "tone": "purple",
       "label": "🦤 First Rail Bird",
-      "player": "Providencemike",
+      "player": "ProvidenceMike",
       "copy": "Red made the first permanent exit stick.",
       "avatar": "images/players/providencemike.jpg",
       "fallback": "PM"
@@ -51,7 +51,7 @@
       "label": "🪓 Table Killer",
       "player": "Red",
       "value": "3 knockouts",
-      "copy": "Removed BostnMike, Providencemike, and Ahmed for the win.",
+      "copy": "Removed BostnMike, ProvidenceMike, and Ahmed for the win.",
       "avatar": "images/players/red.jpg",
       "fallback": "RE"
     }
@@ -73,7 +73,7 @@
     "paidSpots": 3,
     "winner": "Red",
     "firstOut": "Red",
-    "firstPermanentOut": "Providencemike"
+    "firstPermanentOut": "ProvidenceMike"
   },
   "spotlight": {
     "player": "Red",
@@ -90,13 +90,13 @@
     },
     {
       "label": "First Gone For Good",
-      "value": "Providencemike",
+      "value": "ProvidenceMike",
       "note": "Red made the first permanent exit count."
     },
     {
       "label": "Table Killer",
       "value": "Red",
-      "note": "Removed BostnMike, Providencemike, and Ahmed to finish the job."
+      "note": "Removed BostnMike, ProvidenceMike, and Ahmed to finish the job."
     },
     {
       "label": "How It Ended",
@@ -104,7 +104,7 @@
       "note": "Kishan finished third after sneaking through the steam and surviving to the podium."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-04.jpg\" alt=\"Poster for the 04/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Duke Hoop Shock and Awww did not waste time finding its plot twist. Red got busted first by Hiro, bought back in, and then spent the rest of the night rewriting the whole thing. That is the cleanest headline in the report, but it was not the only one. Ahmed did real damage late, Kishan quietly made the money, and BostnMike spent the evening getting dragged through one of the uglier steam-tilt lines the site has seen in a while.</p><p>The winner story is simple because the report makes it simple. Red took an early hit, survived the reset, then came back to bust BostnMike once, make Providencemike the first player gone for good, and finally take out Ahmed for the win. Ahmed deserves the strongest supporting line: he clipped Hiro, then Kishan, and for a moment it looked like he might hijack the ending himself. He didn’t. Red got there first and stayed there.</p><p>Then there was the host experience. BostnMike got busted by Red, rebought, got busted by Hiro, rebought again, and finally got dumped by Kishan. No cash. No recovery. Just a full public meltdown tour with timestamps. The room got its winner, the recap got its roast, and next week the league gets a break because the commish is out of town.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-04.jpg\" alt=\"Poster for the 04/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Duke Hoop Shock and Awww did not waste time finding its plot twist. Red got busted first by Hiro, bought back in, and then spent the rest of the night rewriting the whole thing. That is the cleanest headline in the report, but it was not the only one. Ahmed did real damage late, Kishan quietly made the money, and BostnMike spent the evening getting dragged through one of the uglier steam-tilt lines the site has seen in a while.</p><p>The winner story is simple because the report makes it simple. Red took an early hit, survived the reset, then came back to bust BostnMike once, make ProvidenceMike the first player gone for good, and finally take out Ahmed for the win. Ahmed deserves the strongest supporting line: he clipped Hiro, then Kishan, and for a moment it looked like he might hijack the ending himself. He didn’t. Red got there first and stayed there.</p><p>Then there was the host experience. BostnMike got busted by Red, rebought, got busted by Hiro, rebought again, and finally got dumped by Kishan. No cash. No recovery. Just a full public meltdown tour with timestamps. The room got its winner, the recap got its roast, and next week the league gets a break because the commish is out of town.</p>",
   "roastHtml": "<p>BostnMike spent this one doing community outreach for everybody else’s chip stack. Three exits, two rebuys, no cash, and just enough table time to make the collapse feel fully serialized.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 3 rebuys, 9 total entries.",
@@ -114,7 +114,7 @@
   ],
   "quickHitsLeft": [
     "Hiro drew first blood on Red, then later clipped BostnMike too before Ahmed shut his night down.",
-    "Providencemike was the first player gone for good, which made Red the first real executioner of the night.",
+    "ProvidenceMike was the first player gone for good, which made Red the first real executioner of the night.",
     "Kishan never owned the room, but he picked the right lane and still came away with third.",
     "BostnMike managed the full steam-tilt sampler platter: bust, rebuy, bust, rebuy, bust, no prize."
   ],
@@ -156,7 +156,7 @@
     {
       "tone": "purple",
       "label": "🦤 First Rail Bird",
-      "player": "Providencemike",
+      "player": "ProvidenceMike",
       "copy": "Red made the first permanent exit stick.",
       "avatar": "images/players/providencemike.jpg",
       "fallback": "PM"
@@ -166,7 +166,7 @@
       "label": "🪓 Table Killer",
       "player": "Red",
       "value": "5 knockouts",
-      "copy": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike.",
+      "copy": "Knocked out ProvidenceMike, Li-Fo, Hiro, Ahmed, and BostnMike.",
       "avatar": "images/players/red.jpg",
       "fallback": "RE"
     }
@@ -188,7 +188,7 @@
     "paidSpots": 3,
     "winner": "Nasa Al",
     "firstOut": "Hiro, Li-Fo",
-    "firstPermanentOut": "Providencemike"
+    "firstPermanentOut": "ProvidenceMike"
   },
   "spotlight": {
     "player": "NASA Al",
@@ -205,13 +205,13 @@
     },
     {
       "label": "First Gone For Good",
-      "value": "Providencemike",
+      "value": "ProvidenceMike",
       "note": "Red made the first permanent exit stick."
     },
     {
       "label": "Table Killer",
       "value": "Red",
-      "note": "Knocked out Providencemike, Li-Fo, Hiro, Ahmed, and BostnMike."
+      "note": "Knocked out ProvidenceMike, Li-Fo, Hiro, Ahmed, and BostnMike."
     },
     {
       "label": "How It Ended",
@@ -227,7 +227,7 @@
   ],
   "quickHitsLeft": [
     "The first bust-out was a two-player splash: Hiro and Li-Fo both hit the rail together.",
-    "Providencemike was first out for real, which made Red the first permanent executioner of the night.",
+    "ProvidenceMike was first out for real, which made Red the first permanent executioner of the night.",
     "BostnMike rebought after NASA Al clipped him early, then still managed to ladder into third.",
     "Li-Fo and Hiro both needed re-entry, which told you early this was not a calm little seven-player sit-down."
   ],
@@ -245,19 +245,19 @@
   "eventName": "March Sadness Part I | 9-Max",
   "title": "TWTW: March Sadness Part I | 9-Max",
   "featured": false,
-  "dek": "Mike-G came back from an early bust-out to take the whole thing, turning Part I into a cleaner comeback story than most TLPT nights usually allow.",
+  "dek": "BuffaloMike came back from an early bust-out to take the whole thing, turning Part I into a cleaner comeback story than most TLPT nights usually allow.",
   "summaryCards": [
     {
       "tone": "green",
       "label": "🎬 Main Story",
-      "player": "Mike-G",
+      "player": "BuffaloMike",
       "value": "Winner after rebuy",
       "copy": "Took an early hit, re-entered, and then closed the table."
     },
     {
       "tone": "red",
       "label": "🪓 Table Killer",
-      "player": "Mike-G",
+      "player": "BuffaloMike",
       "value": "5 knockouts",
       "copy": "Owned the back half of the action summary."
     },
@@ -291,12 +291,12 @@
     "entries": 11,
     "totalPot": 330,
     "paidSpots": 3,
-    "winner": "Mike-G",
-    "firstOut": "Providencemike",
+    "winner": "BuffaloMike",
+    "firstOut": "ProvidenceMike",
     "firstPermanentOut": "Red"
   },
   "spotlight": {
-    "player": "Mike-G",
+    "player": "BuffaloMike",
     "avatar": "images/players/mike-g.jpg",
     "fallback": "MG",
     "kicker": "Game Spotlight",
@@ -305,7 +305,7 @@
   "feltSaid": [
     {
       "label": "First Blood",
-      "value": "Providencemike",
+      "value": "ProvidenceMike",
       "note": "BostnMike drew first-bust honors."
     },
     {
@@ -315,35 +315,35 @@
     },
     {
       "label": "Table Killer",
-      "value": "Mike-G",
-      "note": "Finished Nitro, Providencemike, BostnMike, Kishan, and Pat."
+      "value": "BuffaloMike",
+      "note": "Finished Nitro, ProvidenceMike, BostnMike, Kishan, and Pat."
     },
     {
       "label": "How It Ended",
-      "value": "Mike-G over Pat",
+      "value": "BuffaloMike over Pat",
       "note": "Kishan finished third after helping shape the early action."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-03-27.jpg\" alt=\"Poster for the 03/27/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>March Sadness Part I ended up being a comeback story in disguise. Mike-G got busted in the first half of the night, bought back in, and then spent the closing stretch turning the table into his own cleanup operation. That is the sort of line that looks simple in the payout summary and far nastier in the action log.</p><p>Kishan helped write the early chapters by busting Mike-G once and later clipping Red, but once the night bent into its final third, it stopped being shared property. Mike-G started cashing everybody out one by one: Nitro, Providencemike, BostnMike, Kishan, and finally Pat to end it. Some wins feel patient. This one felt like a man returning to the scene with receipts.</p><p>The rebuys kept the shape of the game loose, Red kept fighting back into the room until Pat finally ended that story, and by the finish the first March Sadness chapter had already set the tone for the sequel: nobody was staying comfortable for long.</p>",  "roastHtml": "<p>BostnMike managed to land in the exact wrong chapter of the Mike-G redemption arc, which is a very commissioner way to spend an evening: present for the storyline, credited in the summary, and still one of the bodies in the montage.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-03-27.jpg\" alt=\"Poster for the 03/27/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>March Sadness Part I ended up being a comeback story in disguise. BuffaloMike got busted in the first half of the night, bought back in, and then spent the closing stretch turning the table into his own cleanup operation. That is the sort of line that looks simple in the payout summary and far nastier in the action log.</p><p>Kishan helped write the early chapters by busting BuffaloMike once and later clipping Red, but once the night bent into its final third, it stopped being shared property. BuffaloMike started cashing everybody out one by one: Nitro, ProvidenceMike, BostnMike, Kishan, and finally Pat to end it. Some wins feel patient. This one felt like a man returning to the scene with receipts.</p><p>The rebuys kept the shape of the game loose, Red kept fighting back into the room until Pat finally ended that story, and by the finish the first March Sadness chapter had already set the tone for the sequel: nobody was staying comfortable for long.</p>",  "roastHtml": "<p>BostnMike managed to land in the exact wrong chapter of the BuffaloMike redemption arc, which is a very commissioner way to spend an evening: present for the storyline, credited in the summary, and still one of the bodies in the montage.</p>",
   "numbersThatMatter": [
     "7 buy-ins, 4 rebuys, 11 total entries.",
     "4h 01m of play from 7:08 pm to 11:08 pm.",
     "$330 total pot with 3 paid spots.",
-    "Mike-G finished the night with 5 knockouts after rebuying back into the event."
+    "BuffaloMike finished the night with 5 knockouts after rebuying back into the event."
   ],
   "quickHitsLeft": [
-    "Providencemike was first out, but not first gone for good.",
+    "ProvidenceMike was first out, but not first gone for good.",
     "Red managed three separate bust-outs before Pat finally made him the first permanent casualty.",
-    "Mike-G got clipped by Kishan early, then turned around and authored the closing run himself.",
+    "BuffaloMike got clipped by Kishan early, then turned around and authored the closing run himself.",
     "This was a very live seven-player field that played bigger because the rebuys kept reopening doors."
   ],
   "quickHitsRight": [
     "Pat finished second and also delivered the permanent end to Red's night.",
-    "Kishan did real damage before Mike-G finally cut him down in third.",
-    "The game stayed almost exactly four hours, which made the late Mike-G takeover feel especially abrupt.",
+    "Kishan did real damage before BuffaloMike finally cut him down in third.",
+    "The game stayed almost exactly four hours, which made the late BuffaloMike takeover feel especially abrupt.",
     "Part I had all the right pre-sequel energy: reversals, re-entries, and one guy stealing the ending."
   ],
-  "tldr": "Mike-G lost early, re-entered, and then won March Sadness Part I by wiping out the final stretch himself. It was the cleanest comeback story in the whole seven-game block."
+  "tldr": "BuffaloMike lost early, re-entered, and then won March Sadness Part I by wiping out the final stretch himself. It was the cleanest comeback story in the whole seven-game block."
 },
 {
   "id": "week-03-14-2026",
@@ -422,7 +422,7 @@
     {
       "label": "Table Killer",
       "value": "Ahmed",
-      "note": "Knocked out Li-Fo twice, Providencemike twice, and Hiro."
+      "note": "Knocked out Li-Fo twice, ProvidenceMike twice, and Hiro."
     },
     {
       "label": "How It Ended",
@@ -430,7 +430,7 @@
       "note": "BostnMike finished third after getting clipped by Li-Fo."
     }
   ],
-  "mainStoryHtml": "<p>Part 2 of the AI Stat-Pack aftermath had the best kind of nonsense: the winner got thrown out first. Ahmed sent Li-Fo to the rail early, then did it again later, and for a long stretch it felt like the whole game belonged to the man collecting receipts. Then the room did what this room does best and made the ending more inconvenient than the middle.</p><p>Li-Fo bought back in twice, survived the long grind, and turned the whole thing around at the very end. That is what makes the result memorable. Not just that he won, but that the night kept trying to remove him from the story and he kept climbing back into it anyway. By the time he bust-out BostnMike and then Ahmed to win it, the opener had been completely rewritten.</p><p>The other half of the game belonged to Ahmed's body count. He did real damage, especially against Li-Fo and Providencemike, and for most of the session he looked like the cleaner read. But this one belonged to survival more than control, and Li-Fo survived everybody.</p>",
+  "mainStoryHtml": "<p>Part 2 of the AI Stat-Pack aftermath had the best kind of nonsense: the winner got thrown out first. Ahmed sent Li-Fo to the rail early, then did it again later, and for a long stretch it felt like the whole game belonged to the man collecting receipts. Then the room did what this room does best and made the ending more inconvenient than the middle.</p><p>Li-Fo bought back in twice, survived the long grind, and turned the whole thing around at the very end. That is what makes the result memorable. Not just that he won, but that the night kept trying to remove him from the story and he kept climbing back into it anyway. By the time he bust-out BostnMike and then Ahmed to win it, the opener had been completely rewritten.</p><p>The other half of the game belonged to Ahmed's body count. He did real damage, especially against Li-Fo and ProvidenceMike, and for most of the session he looked like the cleaner read. But this one belonged to survival more than control, and Li-Fo survived everybody.</p>",
   "roastHtml": "<p>BostnMike rebought, laddered, and still got personally removed by the guy who had already been busted twice. That is the kind of third-place finish that feels less like cashing and more like being named in the postgame lawsuit.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 6 rebuys, 14 total entries.",
@@ -440,7 +440,7 @@
   ],
   "quickHitsLeft": [
     "Ahmed was the table's main executioner for most of the night, even if he did not get the trophy.",
-    "Providencemike got sent out three different times across the session.",
+    "ProvidenceMike got sent out three different times across the session.",
     "Hiro also needed a reload and still ended up getting removed for good by Ahmed.",
     "This was the rebuy-heaviest event in the block, and it felt like it every step of the way."
   ],
@@ -570,19 +570,19 @@
    {
   "tone": "green",
   "label": "🎬 Main Story",
-  "player": "Cougar / NASA Al / Providencemike",
+  "player": "Cougar / NASA Al / ProvidenceMike",
   "value": "Three-way chop",
   "copy": "Nobody took full control, so three players split first.",
   "avatars": [
     { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
     { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
-    { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
+    { "src": "images/players/providenceMike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
   ]
 },
     {
       "tone": "red",
       "label": "🪓 Table Killers",
-      "player": "Cougar / NASA Al / Providencemike",
+      "player": "Cougar / NASA Al / ProvidenceMike",
       "value": "2 each",
       "copy": "Nobody owned the bloodshed alone either."
     },
@@ -616,19 +616,19 @@
     "entries": 10,
     "totalPot": 300,
     "paidSpots": 3,
-    "winner": "Cougar, Nasa Al, Providencemike",
+    "winner": "Cougar, Nasa Al, ProvidenceMike",
     "firstOut": "Vic",
     "firstPermanentOut": "Hiro"
   },
   "spotlight": {
-  "player": "Cougar / NASA Al / Providencemike",
+  "player": "Cougar / NASA Al / ProvidenceMike",
   "fallback": "3W",
   "kicker": "Game Spotlight",
   "pills": ["Three-Way Split", "No Solo Winner", "Shared Ending", "Oddball Finish"],
   "avatars": [
     { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
     { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
-    { "src": "images/players/providencemike.jpg", "alt": "Providencemike", "fallback": "PM" }
+    { "src": "images/players/providenceMike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
   ]
 },
   "feltSaid": [
@@ -640,35 +640,35 @@
     {
       "label": "First Gone For Good",
       "value": "Hiro",
-      "note": "Providencemike delivered the first permanent exit."
+      "note": "ProvidenceMike delivered the first permanent exit."
     },
     {
       "label": "Table Killer",
       "value": "Three-Way Tie",
-      "note": "Cougar, NASA Al, and Providencemike all finished with two knockouts."
+      "note": "Cougar, NASA Al, and ProvidenceMike all finished with two knockouts."
     },
     {
       "label": "How It Ended",
       "value": "Three-way chop",
-      "note": "Cougar, NASA Al, and Providencemike all split first."
+      "note": "Cougar, NASA Al, and ProvidenceMike all split first."
     }
   ],
-  "mainStoryHtml": "<p>Jesse Pinkman's Makin' Fat Stacks, Yo! did not believe in a clean ending. The field was big enough, the rebuy count was low enough, and the action was spread out just evenly enough that nobody ever really took full custody of the game. That usually makes for a muddled night. Here it made for a weirdly fitting three-way split.</p><p>Cougar, NASA Al, and Providencemike all did enough damage to get paid and none of them managed to separate from the other two at the very end. That is the story. Not a dominant closer, not one table killer, just a game that refused to reduce itself to one clean name. Even the knockout race ended in shared custody.</p><p>Hiro became the first one gone for good, Vic needed the only rebuy of the night, and BostnMike never saw the podium. But the bigger takeaway was structural: this one stayed balanced long enough that the final result had to be negotiated instead of declared.</p>",
+  "mainStoryHtml": "<p>Jesse Pinkman's Makin' Fat Stacks, Yo! did not believe in a clean ending. The field was big enough, the rebuy count was low enough, and the action was spread out just evenly enough that nobody ever really took full custody of the game. That usually makes for a muddled night. Here it made for a weirdly fitting three-way split.</p><p>Cougar, NASA Al, and ProvidenceMike all did enough damage to get paid and none of them managed to separate from the other two at the very end. That is the story. Not a dominant closer, not one table killer, just a game that refused to reduce itself to one clean name. Even the knockout race ended in shared custody.</p><p>Hiro became the first one gone for good, Vic needed the only rebuy of the night, and BostnMike never saw the podium. But the bigger takeaway was structural: this one stayed balanced long enough that the final result had to be negotiated instead of declared.</p>",
   "roastHtml": "<p>BostnMike found the rare game where the table could not even agree on a single winner and still somehow agreed he should not be part of the payout. That takes a special kind of democratic failure.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 1 rebuy, 10 total entries.",
     "4h 22m of play from 7:07 pm to 11:29 pm.",
     "$300 total pot with a three-way split at the top.",
-    "Cougar, NASA Al, and Providencemike all finished first."
+    "Cougar, NASA Al, and ProvidenceMike all finished first."
   ],
   "quickHitsLeft": [
     "Vic was first out and the only player to rebuy, which gave the game its one obvious second-chance subplot.",
-    "Hiro was the first permanent casualty after Providencemike clipped him.",
+    "Hiro was the first permanent casualty after ProvidenceMike clipped him.",
     "A.I. Dave drew first blood, but never got near the final shared crown.",
     "This was the cleanest rebuy profile in the block and still one of the strangest finishes."
   ],
   "quickHitsRight": [
-    "Cougar, NASA Al, and Providencemike also tied the knockout lead, which feels almost rude in its symmetry.",
+    "Cougar, NASA Al, and ProvidenceMike also tied the knockout lead, which feels almost rude in its symmetry.",
     "Dan K and Ahmed both disappeared in the final hour as the chop shape started coming into focus.",
     "The night stayed under four and a half hours and still found time for maximum weirdness.",
     "Not every game needs a hero. This one settled for a committee."
@@ -688,7 +688,7 @@
       "label": "🎬 Main Story",
       "player": "A.I. Dave",
       "value": "Winner",
-      "copy": "Owned the late-stage knockout run and closed over Providencemike."
+      "copy": "Owned the late-stage knockout run and closed over ProvidenceMike."
     },
     {
       "tone": "red",
@@ -742,7 +742,7 @@
     {
       "label": "First Blood",
       "value": "Red",
-      "note": "Providencemike sent him out first, but not for the last time."
+      "note": "ProvidenceMike sent him out first, but not for the last time."
     },
     {
       "label": "First Gone For Good",
@@ -752,15 +752,15 @@
     {
       "label": "Table Killer",
       "value": "A.I. Dave",
-      "note": "Finished Vish, Red, The Architect, BostnMike, and Providencemike."
+      "note": "Finished Vish, Red, The Architect, BostnMike, and ProvidenceMike."
     },
     {
       "label": "How It Ended",
-      "value": "A.I. Dave over Providencemike",
+      "value": "A.I. Dave over ProvidenceMike",
       "note": "BostnMike finished third after surviving his own rebuy."
     }
   ],
-  "mainStoryHtml": "<p>Back from Broadway moved fast and then got mean. Red hit the rail first and still found two rebuys before the room finally got rid of him for good, which tells you most of what you need to know about the early shape of the night. It was busy, loud, and just disorganized enough to leave the door open for someone patient to take over the ending.</p><p>That someone was A.I. Dave. Once the table narrowed, he started converting the noise into bodies. Vish, Red, The Architect, BostnMike, and Providencemike all went through him before it was over. That is not just winning. That is a closer showing up for the part of the game where everybody else runs out of ideas.</p><p>Providencemike did enough work to reach heads-up, and BostnMike survived a rebuy into third, but the back half of the session belonged to one player and one player only. Broadway came back with a lead actor after all.</p>",
+  "mainStoryHtml": "<p>Back from Broadway moved fast and then got mean. Red hit the rail first and still found two rebuys before the room finally got rid of him for good, which tells you most of what you need to know about the early shape of the night. It was busy, loud, and just disorganized enough to leave the door open for someone patient to take over the ending.</p><p>That someone was A.I. Dave. Once the table narrowed, he started converting the noise into bodies. Vish, Red, The Architect, BostnMike, and ProvidenceMike all went through him before it was over. That is not just winning. That is a closer showing up for the part of the game where everybody else runs out of ideas.</p><p>ProvidenceMike did enough work to reach heads-up, and BostnMike survived a rebuy into third, but the back half of the session belonged to one player and one player only. Broadway came back with a lead actor after all.</p>",
   "roastHtml": "<p>BostnMike rebought, made the money, and still got personally removed by A.I. Dave before the finish. It is always comforting when the commissioner can find a way to both cash and be corrected in the same evening.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 4 rebuys, 13 total entries.",
@@ -771,7 +771,7 @@
   "quickHitsLeft": [
     "Red was first out and still managed to turn the early game into a repeat offense story.",
     "Vish became first gone for good after BostnMike had only managed the temporary version.",
-    "Providencemike had one of the stronger supporting runs of the night before running into the closer.",
+    "ProvidenceMike had one of the stronger supporting runs of the night before running into the closer.",
     "This was one of the shorter games in the block, which made the late A.I. Dave takeover feel especially crisp."
   ],
   "quickHitsRight": [
@@ -838,7 +838,7 @@
     "entries": 11,
     "totalPot": 330,
     "paidSpots": 3,
-    "winner": "Ahmed, Bostnmike",
+    "winner": "Ahmed, BostnMike",
     "firstOut": "Red",
     "firstPermanentOut": "Red"
   },
@@ -884,7 +884,7 @@
   ],
   "quickHitsLeft": [
     "Li-Fo opened the bloodshed by busting both Red and Ahmed in the early stages.",
-    "Vic did serious middle-game damage by removing Red for good and later Providencemike.",
+    "Vic did serious middle-game damage by removing Red for good and later ProvidenceMike.",
     "A.I. Dave knocked out Cougar before Ahmed finally turned the tables on him.",
     "This was not the biggest rebuy night, which somehow made the ending feel even stranger."
   ],
@@ -963,25 +963,25 @@
     {
       "label": "First Blood",
       "value": "Vish",
-      "note": "Providencemike got the opening bust before Vish bought back in."
+      "note": "ProvidenceMike got the opening bust before Vish bought back in."
     },
     {
       "label": "First Gone For Good",
       "value": "Hiro",
-      "note": "Providencemike made the first permanent exit stick."
+      "note": "ProvidenceMike made the first permanent exit stick."
     },
     {
       "label": "Table Killer",
       "value": "Vish",
-      "note": "Finished Li-Fo, Nitro, BostnMike, Providencemike, and NASA Al."
+      "note": "Finished Li-Fo, Nitro, BostnMike, ProvidenceMike, and NASA Al."
     },
     {
       "label": "How It Ended",
       "value": "Vish over NASA Al",
-      "note": "Providencemike took third after the late-table squeeze."
+      "note": "ProvidenceMike took third after the late-table squeeze."
     }
   ],
-  "mainStoryHtml": "<p>Chip &amp; A Chair, The Tony K Story earned the title the hard way. Vish was first out, rebought, got busted again, rebought again, and still found a way to write the ending himself. It was a long February session that kept handing him exits, and he kept treating them like suggestions.</p><p>The table never stayed clean for long. A.I. Dave needed a reload, Providencemike needed a reload, and Vish needed two of them. But once the field narrowed, the night stopped being about rescue missions and started being about momentum. Vish clipped Li-Fo, Nitro, BostnMike, Providencemike, and finally NASA Al to close a comeback that got more absurd with each knockout.</p><p>Providencemike did enough early damage to feel like a real threat, and NASA Al stayed alive all the way to heads-up, but the whole story bends around one fact: the first guy out still ended up walking away with the biggest share of the pot.</p>",
+  "mainStoryHtml": "<p>Chip &amp; A Chair, The Tony K Story earned the title the hard way. Vish was first out, rebought, got busted again, rebought again, and still found a way to write the ending himself. It was a long February session that kept handing him exits, and he kept treating them like suggestions.</p><p>The table never stayed clean for long. A.I. Dave needed a reload, ProvidenceMike needed a reload, and Vish needed two of them. But once the field narrowed, the night stopped being about rescue missions and started being about momentum. Vish clipped Li-Fo, Nitro, BostnMike, ProvidenceMike, and finally NASA Al to close a comeback that got more absurd with each knockout.</p><p>Providencemike did enough early damage to feel like a real threat, and NASA Al stayed alive all the way to heads-up, but the whole story bends around one fact: the first guy out still ended up walking away with the biggest share of the pot.</p>",
   "roastHtml": "<p>BostnMike made it deep enough to matter and still got vacuumed up by the same guy who had already been busted twice. That is the kind of line that looks respectable in the payout math and embarrassing everywhere else.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 4 rebuys, 13 total entries.",
@@ -990,9 +990,9 @@
     "Vish got busted first, rebought twice, and still finished with 5 knockouts and the win."
   ],
   "quickHitsLeft": [
-    "Providencemike drew first blood on Vish, then later became part of Vish’s closing reel.",
+    "ProvidenceMike drew first blood on Vish, then later became part of Vish’s closing reel.",
     "Hiro was the first one gone for good, which gave the game an early real casualty after all the reload noise.",
-    "A.I. Dave and Providencemike both used rebuys, which kept the middle stages clogged and active.",
+    "A.I. Dave and ProvidenceMike both used rebuys, which kept the middle stages clogged and active.",
     "This was one of the longest games in the archive, and it felt every bit of it."
   ],
   "quickHitsRight": [
@@ -1009,19 +1009,19 @@
   "eventName": "Super Bowl Eve | 9-Max",
   "title": "TWTW: Super Bowl Eve | 9-Max",
   "featured": false,
-  "dek": "Providencemike took over the back half of a shorter February game and never let the table breathe once the field narrowed.",
+  "dek": "ProvidenceMike took over the back half of a shorter February game and never let the table breathe once the field narrowed.",
   "summaryCards": [
     {
       "tone": "green",
       "label": "🎬 Main Story",
-      "player": "Providencemike",
+      "player": "ProvidenceMike",
       "value": "Winner",
       "copy": "Closed over Li-Fo after handling Cougar, Vish, and Hiro in the late stages."
     },
     {
       "tone": "red",
       "label": "🪓 Table Killer",
-      "player": "Providencemike",
+      "player": "ProvidenceMike",
       "value": "4 knockouts",
       "copy": "Did the heavy finishing work once the room got short."
     },
@@ -1055,12 +1055,12 @@
     "entries": 11,
     "totalPot": 330,
     "paidSpots": 3,
-    "winner": "Providencemike",
+    "winner": "ProvidenceMike",
     "firstOut": "Nitro",
     "firstPermanentOut": "Ahmed"
   },
   "spotlight": {
-    "player": "Providencemike",
+    "player": "ProvidenceMike",
     "avatar": "images/players/providencemike.jpg",
     "fallback": "PM",
     "kicker": "Game Spotlight",
@@ -1079,16 +1079,16 @@
     },
     {
       "label": "Table Killer",
-      "value": "Providencemike",
+      "value": "ProvidenceMike",
       "note": "Finished Vish, Cougar, Hiro, and Li-Fo."
     },
     {
       "label": "How It Ended",
-      "value": "Providencemike over Li-Fo",
+      "value": "ProvidenceMike over Li-Fo",
       "note": "Hiro took third after lasting deep with a rebuy."
     }
   ],
-  "mainStoryHtml": "<p>Super Bowl Eve started like a game that might wander all over the place. Nitro hit the rail first and came back, Hiro came back, Providencemike came back, and for a while the table looked like it was going to spend the whole night reopening problems instead of solving them.</p><p>Then Providencemike took control of the solving part. Once the field shrank, he started knocking people out in the order that mattered: Cougar, Vish, Hiro, and finally Li-Fo to win it. That sequence gave the game its shape. What began as a rebuy-scrap turned into one player steadily removing the room’s remaining arguments.</p><p>Li-Fo made heads-up, Hiro held on for third, and Vish was influential early, but the event is easiest to remember for the way it tightened around one closer at the end.</p>",
+  "mainStoryHtml": "<p>Super Bowl Eve started like a game that might wander all over the place. Nitro hit the rail first and came back, Hiro came back, ProvidenceMike came back, and for a while the table looked like it was going to spend the whole night reopening problems instead of solving them.</p><p>Then ProvidenceMike took control of the solving part. Once the field shrank, he started knocking people out in the order that mattered: Cougar, Vish, Hiro, and finally Li-Fo to win it. That sequence gave the game its shape. What began as a rebuy-scrap turned into one player steadily removing the room’s remaining arguments.</p><p>Li-Fo made heads-up, Hiro held on for third, and Vish was influential early, but the event is easiest to remember for the way it tightened around one closer at the end.</p>",
   "roastHtml": "<p>BostnMike managed to avoid first blood, avoid the podium, and still get taken out before the late story got interesting. That is a very commissioner way to participate in a game: present in the paperwork, absent in the ending.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 3 rebuys, 11 total entries.",
@@ -1104,11 +1104,11 @@
   ],
   "quickHitsRight": [
     "Vish started the action with first blood and still got swallowed before the money was fully settled.",
-    "Li-Fo stayed around long enough to make heads-up but could not survive Providencemike’s closing run.",
+    "Li-Fo stayed around long enough to make heads-up but could not survive ProvidenceMike’s closing run.",
     "The game lasted nearly five hours despite the smaller field, which tells you how sticky the middle became.",
     "Super Bowl Eve ended with a clear winner, not a photo finish."
   ],
-  "tldr": "Providencemike won Super Bowl Eve by taking over the late stages and finishing Li-Fo heads-up. It started messy, but the ending belonged to one closer."
+  "tldr": "ProvidenceMike won Super Bowl Eve by taking over the late stages and finishing Li-Fo heads-up. It started messy, but the ending belonged to one closer."
 },
 {
   "id": "week-01-30-2026",
@@ -1166,7 +1166,7 @@
     "entries": 10,
     "totalPot": 300,
     "paidSpots": 3,
-    "winner": "Bostnmike, Wild Bill",
+    "winner": "BostnMike, Wild Bill",
     "firstOut": "Hiro",
     "firstPermanentOut": "Red"
   },
@@ -1184,7 +1184,7 @@
     {
       "label": "First Blood",
       "value": "Hiro",
-      "note": "Providencemike sent him out first before the only rebuy of the night."
+      "note": "ProvidenceMike sent him out first before the only rebuy of the night."
     },
     {
       "label": "First Gone For Good",
@@ -1193,16 +1193,16 @@
     },
     {
       "label": "Table Killer",
-      "value": "Bostnmike & Wild Bill",
+      "value": "BostnMike & Wild Bill",
       "note": "They split first and split the knockout lane too."
     },
     {
       "label": "How It Ended",
-      "value": "Bostnmike & Wild Bill split first",
-      "note": "Providencemike finished third."
+      "value": "BostnMike & Wild Bill split first",
+      "note": "ProvidenceMike finished third."
     }
   ],
-  "mainStoryHtml": "<p>Warning! Obnoxious Pats Fan Onboard! was one of the cleaner January games in structure and one of the stranger ones in finish. There was only one rebuy all night, the field stayed under control, and then the table got all the way to the top without finding a clean single winner.</p><p>BostnMike and Wild Bill split first, which fit the action better than a forced solo ending would have. Wild Bill handled Red and Hiro, BostnMike handled A.I. Dave, Hayden D, and Providencemike, and the whole night ended with both finalists busting out together in the official summary. That is not elegant, but it is honest.</p><p>Providencemike ran well enough to take third, Hiro opened the bust-out log, and the one-rebuy structure kept the whole thing from turning into a circus. By the end, the Pats-fan warning label felt less like the point than the dead-even finish itself.</p>",
+  "mainStoryHtml": "<p>Warning! Obnoxious Pats Fan Onboard! was one of the cleaner January games in structure and one of the stranger ones in finish. There was only one rebuy all night, the field stayed under control, and then the table got all the way to the top without finding a clean single winner.</p><p>BostnMike and Wild Bill split first, which fit the action better than a forced solo ending would have. Wild Bill handled Red and Hiro, BostnMike handled A.I. Dave, Hayden D, and ProvidenceMike, and the whole night ended with both finalists busting out together in the official summary. That is not elegant, but it is honest.</p><p>ProvidenceMike ran well enough to take third, Hiro opened the bust-out log, and the one-rebuy structure kept the whole thing from turning into a circus. By the end, the Pats-fan warning label felt less like the point than the dead-even finish itself.</p>",
   "roastHtml": "<p>BostnMike got to split first in a game where the table still refused to let him have an uncontested headline. That may be the purest commissioner outcome of all: paid like a winner, framed like a compromise.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 1 rebuy, 10 total entries.",
@@ -1217,7 +1217,7 @@
     "This was one of the tidier structures in the archive: low rebuy count, quick finish, weird ending."
   ],
   "quickHitsRight": [
-    "Providencemike turned first-bust honors into a podium finish, which is quietly one of the better survival notes here.",
+    "ProvidenceMike turned first-bust honors into a podium finish, which is quietly one of the better survival notes here.",
     "The event ended with both finalists busting out at the same timestamp, which tells you everything about how decided the split was.",
     "A.I. Dave and BostnMike collided before the money, and the commissioner got the better of that one.",
     "The Pats-fan game turned into a draw by force of structure, not sentiment."
@@ -1280,8 +1280,8 @@
     "entries": 7,
     "totalPot": 210,
     "paidSpots": 2,
-    "winner": "Bostnmike, Red",
-    "firstOut": "Providencemike",
+    "winner": "BostnMike, Red",
+    "firstOut": "ProvidenceMike",
     "firstPermanentOut": "Hayden D"
   },
   "spotlight": {
@@ -1297,7 +1297,7 @@
   "feltSaid": [
     {
       "label": "First Blood",
-      "value": "Providencemike",
+      "value": "ProvidenceMike",
       "note": "Nitro got the first bust-out honor."
     },
     {
@@ -1308,15 +1308,15 @@
     {
       "label": "Table Killer",
       "value": "Nitro",
-      "note": "Knocked out Providencemike and A.I. Dave before BostnMike stopped the run."
+      "note": "Knocked out ProvidenceMike and A.I. Dave before BostnMike stopped the run."
     },
     {
       "label": "How It Ended",
-      "value": "Bostnmike & Red split first",
+      "value": "BostnMike & Red split first",
       "note": "No third-place payout in a two-paid-spot game."
     }
   ],
-  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly four hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on Providencemike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, Providencemike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a mini-marathon soul.</p>",
+  "mainStoryHtml": "<p>Mother, &quot;Maye&quot; I? played like a small game with absolutely no interest in ending on time. Six buy-ins, one rebuy, only two paid spots — and somehow the table still dragged itself through nearly four hours before finally settling for a split at the top.</p><p>The funniest part is that Nitro nearly hijacked the story in the middle. He got first blood on ProvidenceMike, then clipped A.I. Dave, and for a stretch the whole game felt like it might become a tiny-field Nitro heist. Instead BostnMike finally ended that run, and the day staggered into a shared finish between Red and the commissioner.</p><p>Hayden D was the first one gone for good after his rebuy, ProvidenceMike disappeared early, and the event never once pretended to be in a hurry. It was a small table with a mini-marathon soul.</p>",
   "roastHtml": "<p>BostnMike took first in a game with one of the smallest fields and still needed a co-winner to get there. That is the perfect commissioner compromise: technically victorious, spiritually negotiated.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 1 rebuy, 7 total entries.",
@@ -1325,7 +1325,7 @@
     "BostnMike and Red split first after one of the longest small-field sessions in the archive."
   ],
   "quickHitsLeft": [
-    "Providencemike was first out before the game had really even found a rhythm.",
+    "ProvidenceMike was first out before the game had really even found a rhythm.",
     "Hayden D used the night’s only rebuy and still became the first player gone for good.",
     "Nitro was the real middle-game menace before BostnMike cut him down.",
     "A.I. Dave got picked off in a game where every bust-out felt louder because the field was so small."
@@ -1358,7 +1358,7 @@
       "label": "🪓 Table Killer",
       "player": "Cougar",
       "value": "4 knockouts",
-      "copy": "Closed the game by clearing Providencemike, BostnMike, Nitro, and Li-Fo."
+      "copy": "Closed the game by clearing ProvidenceMike, BostnMike, Nitro, and Li-Fo."
     },
     {
       "tone": "purple",
@@ -1415,7 +1415,7 @@
     {
       "label": "Table Killer",
       "value": "Cougar",
-      "note": "Closed out Providencemike, BostnMike, Nitro, and Li-Fo."
+      "note": "Closed out ProvidenceMike, BostnMike, Nitro, and Li-Fo."
     },
     {
       "label": "How It Ended",
@@ -1423,7 +1423,7 @@
       "note": "Ahmed finished third after shaping the early game."
     }
   ],
-  "mainStoryHtml": "<p>Finally, Leaving Las Vegas had enough rebuys to make the night feel busy, but the ending itself was pretty straightforward: Cougar got stronger as the room got smaller. Ahmed did the early table-cutting, Li-Fo survived long enough to get all the way back to second, and then Cougar simply finished what was left.</p><p>That is the real shape of the game. Ahmed busted Li-Fo first and later removed David K and Hiro, which gave him a loud claim on the front half. But once the field tightened, Cougar took over the actual closing duties. Providencemike, BostnMike, Nitro, and Li-Fo all went through him before the event ended.</p><p>Li-Fo deserves the weirdest supporting note here: first out, rebought, and still runner-up. That would be the headline in a different game. In this one it became part of Cougar’s winner reel instead.</p>",
+  "mainStoryHtml": "<p>Finally, Leaving Las Vegas had enough rebuys to make the night feel busy, but the ending itself was pretty straightforward: Cougar got stronger as the room got smaller. Ahmed did the early table-cutting, Li-Fo survived long enough to get all the way back to second, and then Cougar simply finished what was left.</p><p>That is the real shape of the game. Ahmed busted Li-Fo first and later removed David K and Hiro, which gave him a loud claim on the front half. But once the field tightened, Cougar took over the actual closing duties. ProvidenceMike, BostnMike, Nitro, and Li-Fo all went through him before the event ended.</p><p>Li-Fo deserves the weirdest supporting note here: first out, rebought, and still runner-up. That would be the headline in a different game. In this one it became part of Cougar’s winner reel instead.</p>",
   "roastHtml": "<p>BostnMike made the money bubble feel real and then got knocked out by Cougar before the thing got glamorous. That is a very commissioner line: visible in the middle, missing when the picture gets framed.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 4 rebuys, 12 total entries.",
@@ -1629,7 +1629,7 @@
     {
       "label": "Table Killer",
       "value": "Chris O",
-      "note": "Finished Providencemike, A.I. Dave, The Architect, and Cougar."
+      "note": "Finished ProvidenceMike, A.I. Dave, The Architect, and Cougar."
     },
     {
       "label": "How It Ended",
@@ -1637,7 +1637,7 @@
       "note": "The Architect finished third after helping shape the middle."
     }
   ],
-  "mainStoryHtml": "<p>Where's the Tylenol?!?! delivered exactly what the title advertised. Chris O got busted first by Red, bought back in, got busted again, bought back in again, and still wound up winning the whole thing. That is not a tidy arc. That is the kind of night that leaves the whole room rubbing its temples on principle.</p><p>The event stayed wide open through the middle. The Architect did real damage, Cougar clipped BostnMike, and Red looked like the early author after drawing first blood. Then Chris O came back through the smoke and took the ending. Providencemike, A.I. Dave, The Architect, and Cougar all fell to him in the final stretch, which turned a messy survival story into a pretty clean winner line.</p><p>That is what makes this one memorable: the guy who opened as the victim ended as the closer. Two rebuys, four late knockouts, and suddenly the Tylenol was for everyone else.</p>",
+  "mainStoryHtml": "<p>Where's the Tylenol?!?! delivered exactly what the title advertised. Chris O got busted first by Red, bought back in, got busted again, bought back in again, and still wound up winning the whole thing. That is not a tidy arc. That is the kind of night that leaves the whole room rubbing its temples on principle.</p><p>The event stayed wide open through the middle. The Architect did real damage, Cougar clipped BostnMike, and Red looked like the early author after drawing first blood. Then Chris O came back through the smoke and took the ending. ProvidenceMike, A.I. Dave, The Architect, and Cougar all fell to him in the final stretch, which turned a messy survival story into a pretty clean winner line.</p><p>That is what makes this one memorable: the guy who opened as the victim ended as the closer. Two rebuys, four late knockouts, and suddenly the Tylenol was for everyone else.</p>",
   "roastHtml": "<p>BostnMike got taken out by Cougar in the middle of a game that Chris O eventually won after getting busted twice. That is the kind of line that makes a commissioner sound less like a player and more like incidental scenery.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 3 rebuys, 12 total entries.",
@@ -1648,7 +1648,7 @@
   "quickHitsLeft": [
     "Red drew first blood on Chris O and still did not survive long enough to matter at the finish.",
     "Ahmed became the first one gone for good, which gave A.I. Dave the first real permanent receipt of the night.",
-    "Providencemike also needed a rebuy, which helped keep the whole middle section unstable.",
+    "ProvidenceMike also needed a rebuy, which helped keep the whole middle section unstable.",
     "This was one of the cleaner examples of a game changing authors halfway through."
   ],
   "quickHitsRight": [
@@ -1711,7 +1711,7 @@
     "entries": 11,
     "totalPot": 330,
     "paidSpots": 3,
-    "winner": "Bostnmike",
+    "winner": "BostnMike",
     "firstOut": "Vic",
     "firstPermanentOut": "Cougar"
   },
@@ -1740,7 +1740,7 @@
     },
     {
       "label": "How It Ended",
-      "value": "Bostnmike over Chris O",
+      "value": "BostnMike over Chris O",
       "note": "Ahmed finished third after helping wreck the middle."
     }
   ],
@@ -1750,7 +1750,7 @@
     "8 buy-ins, 3 rebuys, 11 total entries.",
     "4h 22m of play from 5:39 pm to 10:01 pm.",
     "$330 total pot with 3 paid spots.",
-    "Bostnmike scored the final three knockouts: Vic, Ahmed, and Chris O."
+    "BostnMike scored the final three knockouts: Vic, Ahmed, and Chris O."
   ],
   "quickHitsLeft": [
     "Vic was first out, rebought immediately, and still lasted deep enough to become part of the late-story traffic jam.",
@@ -1843,7 +1843,7 @@
     {
       "label": "Table Killer",
       "value": "Chris O",
-      "note": "Removed Li-Fo, Providencemike twice, Red, Vish, BostnMike, and Li-Fo again."
+      "note": "Removed Li-Fo, ProvidenceMike twice, Red, Vish, BostnMike, and Li-Fo again."
     },
     {
       "label": "How It Ended",
@@ -1851,7 +1851,7 @@
       "note": "BostnMike finished third after getting clipped in the final rush."
     }
   ],
-  "mainStoryHtml": "<p>Ohhh Fuuuudge played exactly like a December game with five rebuys should. Red was first out and still came back, Li-Fo needed a second life, Providencemike needed two of them, and the whole middle of the event felt like a crowded parking lot with chips. That usually produces nonsense. This time it produced a very clear closer.</p><p>Chris O took over once the field got tired of restarting itself. He got Li-Fo once early, then came back for Providencemike again and again, then made Red’s second life the first real permanent casualty, and finally finished Vish, BostnMike, and Li-Fo to end the night. It is one of the cleaner closing runs in this whole archive.</p><p>Gilmore had a useful supporting night, BostnMike hung around into third, and Li-Fo survived enough turbulence to make heads-up. But the event title was really about the table, not the winner: everybody else looked like the ones who needed the Tylenol after Chris O was done.</p>",
+  "mainStoryHtml": "<p>Ohhh Fuuuudge played exactly like a December game with five rebuys should. Red was first out and still came back, Li-Fo needed a second life, ProvidenceMike needed two of them, and the whole middle of the event felt like a crowded parking lot with chips. That usually produces nonsense. This time it produced a very clear closer.</p><p>Chris O took over once the field got tired of restarting itself. He got Li-Fo once early, then came back for ProvidenceMike again and again, then made Red’s second life the first real permanent casualty, and finally finished Vish, BostnMike, and Li-Fo to end the night. It is one of the cleaner closing runs in this whole archive.</p><p>Gilmore had a useful supporting night, BostnMike hung around into third, and Li-Fo survived enough turbulence to make heads-up. But the event title was really about the table, not the winner: everybody else looked like the ones who needed the Tylenol after Chris O was done.</p>",
   "roastHtml": "<p>BostnMike got to cash third in a game where Chris O spent the evening running a full-service correction department. That is a very on-brand commissioner finish: technically profitable, emotionally filed under “fuuuudge.”</p>",
   "numbersThatMatter": [
     "9 buy-ins, 5 rebuys, 14 total entries.",
@@ -1861,8 +1861,8 @@
   ],
   "quickHitsLeft": [
     "Red managed to be first out and first out for good, which is a brutally efficient holiday résumé.",
-    "Providencemike rebought twice and still got knocked out three separate times in the summary.",
-    "Gilmore quietly helped shape the middle by busting Providencemike and Hiro.",
+    "ProvidenceMike rebought twice and still got knocked out three separate times in the summary.",
+    "Gilmore quietly helped shape the middle by busting ProvidenceMike and Hiro.",
     "This was one of the most reload-heavy games in the whole project and felt like it."
   ],
   "quickHitsRight": [
@@ -2047,7 +2047,7 @@
     {
       "label": "First Blood",
       "value": "Li-Fo",
-      "note": "Providencemike got the first bust before Li-Fo started collecting extra lives."
+      "note": "ProvidenceMike got the first bust before Li-Fo started collecting extra lives."
     },
     {
       "label": "First Gone For Good",
@@ -2057,7 +2057,7 @@
     {
       "label": "Table Killer",
       "value": "Li-Fo",
-      "note": "Removed Providencemike, Cougar, BostnMike, and Ahmed before finally falling."
+      "note": "Removed ProvidenceMike, Cougar, BostnMike, and Ahmed before finally falling."
     },
     {
       "label": "How It Ended",
@@ -2065,7 +2065,7 @@
       "note": "Big Tim finished third after surviving the afternoon traffic."
     }
   ],
-  "mainStoryHtml": "<p>Sunday Funday Matinee took all afternoon to decide one thing: whether Li-Fo was actually killable. He was first out, rebought, got busted again, rebought again, then somehow rebought a third time and still reached heads-up. That would have been the whole story in a normal event. This one had another ending in mind.</p><p>A.I. Dave stayed upright while the rest of the room kept reopening wounds. He got Hiro for the first permanent exit, clipped Big Tim in third, and then finally ended Li-Fo’s weird resurrection theater to win the whole thing. It is not the loudest winner line in the archive, but it is one of the cleanest examples of somebody staying patient while the table burned calories around him.</p><p>Li-Fo deserves the supporting headline for sheer stubbornness. Providencemike, Cougar, BostnMike, and Ahmed all went through him before his own run finally ended. Sunday Funday felt less like one game than a series of arguments about whether the same guy could really keep coming back.</p>",
+  "mainStoryHtml": "<p>Sunday Funday Matinee took all afternoon to decide one thing: whether Li-Fo was actually killable. He was first out, rebought, got busted again, rebought again, then somehow rebought a third time and still reached heads-up. That would have been the whole story in a normal event. This one had another ending in mind.</p><p>A.I. Dave stayed upright while the rest of the room kept reopening wounds. He got Hiro for the first permanent exit, clipped Big Tim in third, and then finally ended Li-Fo’s weird resurrection theater to win the whole thing. It is not the loudest winner line in the archive, but it is one of the cleanest examples of somebody staying patient while the table burned calories around him.</p><p>Li-Fo deserves the supporting headline for sheer stubbornness. ProvidenceMike, Cougar, BostnMike, and Ahmed all went through him before his own run finally ended. Sunday Funday felt less like one game than a series of arguments about whether the same guy could really keep coming back.</p>",
   "roastHtml": "<p>BostnMike got taken out by a man who had already used multiple extra lives, which is the kind of Sunday matinee humiliation that should really come with concession vouchers.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 5 rebuys, 14 total entries.",
@@ -2075,13 +2075,13 @@
   ],
   "quickHitsLeft": [
     "Li-Fo was first out and still became the defining presence of the entire afternoon.",
-    "Providencemike and Hiro both used rebuys, but only one of them made it back into the real story.",
+    "ProvidenceMike and Hiro both used rebuys, but only one of them made it back into the real story.",
     "Jeff T was the one player who busted out without a named executioner in the log.",
     "This matinee took over five hours and felt every minute of it."
   ],
   "quickHitsRight": [
     "Big Tim quietly survived the reload parade and still finished third.",
-    "Cougar got one clean knockout on Providencemike before Li-Fo erased him later.",
+    "Cougar got one clean knockout on ProvidenceMike before Li-Fo erased him later.",
     "A.I. Dave did not need the biggest body count. He just needed the last word.",
     "Sunday Funday was basically Li-Fo’s afterlife story until A.I. Dave cancelled the franchise."
   ],
@@ -2460,7 +2460,7 @@
     "entries": 10,
     "totalPot": 300,
     "paidSpots": 3,
-    "winner": "Bostnmike",
+    "winner": "BostnMike",
     "firstOut": "Nasa Al",
     "firstPermanentOut": "Fabian"
   },
@@ -2489,7 +2489,7 @@
     },
     {
       "label": "How It Ended",
-      "value": "Bostnmike over Cougar",
+      "value": "BostnMike over Cougar",
       "note": "Yann finished third after doing most of the visible damage."
     }
   ],
@@ -2596,7 +2596,7 @@
     },
     {
       "label": "How It Ended",
-      "value": "NASA Al over Bostnmike",
+      "value": "NASA Al over BostnMike",
       "note": "No third-place payout in the two-paid-spot structure."
     }
   ],
@@ -2676,7 +2676,7 @@
     "paidSpots": 2,
     "winner": "Hiro",
     "firstOut": "Nasa Al",
-    "firstPermanentOut": "Bostnmike"
+    "firstPermanentOut": "BostnMike"
   },
   "spotlight": {
     "player": "Hiro",
@@ -2693,7 +2693,7 @@
     },
     {
       "label": "First Gone For Good",
-      "value": "Bostnmike",
+      "value": "BostnMike",
       "note": "A.I. Dave made the first permanent exit stick."
     },
     {
@@ -2995,12 +2995,12 @@
     "entries": 11,
     "totalPot": 330,
     "paidSpots": 3,
-    "winner": "Bostnmike",
+    "winner": "BostnMike",
     "firstOut": "Brad R",
     "firstPermanentOut": "Hiro"
   },
   "spotlight": {
-    "player": "Bostnmike",
+    "player": "BostnMike",
     "avatar": "images/players/bostnmike.jpg",
     "fallback": "BM",
     "kicker": "Game Spotlight",
@@ -3019,12 +3019,12 @@
     },
     {
       "label": "Table Killer",
-      "value": "Bostnmike",
+      "value": "BostnMike",
       "note": "Closed out Li-Fo, Rob F, and A.I. Dave."
     },
     {
       "label": "How It Ended",
-      "value": "Bostnmike over Ai-Dave",
+      "value": "BostnMike over Ai-Dave",
       "note": "Rob F finished third."
     }
   ],
@@ -3034,7 +3034,7 @@
     "9 buy-ins, 2 rebuys, 11 total entries.",
     "4h 05m of play from 7:08 pm to 11:13 pm.",
     "$330 total pot with 3 paid spots.",
-    "Bostnmike closed the final three knockouts: Li-Fo, Rob F, and A.I. Dave."
+    "BostnMike closed the final three knockouts: Li-Fo, Rob F, and A.I. Dave."
   ],
   "quickHitsLeft": [
     "Brad R took first-bust honors before Hiro became the first one gone for good.",
