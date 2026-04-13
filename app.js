@@ -1181,7 +1181,7 @@ function ensureHomeCommissionerSection() {
 
   commissionerSection.innerHTML = `
     <div class="section-head page-title-row">
-      <h2>🎤 Hot Takes: The Commissioner’s Report</h2>
+      <h2>🌶️ Hot Takes: The Commissioner’s Report</h2>
     </div>
     <div class="home-commissioner-shell">
       <p class="commissioner-typing-target" data-commissioner-report></p>
@@ -1677,7 +1677,7 @@ function buildEventCard(event, data, options = {}) {
       ${includeCommissioner ? `
         <div class="event-commissioner-inline">
           <div class="event-commissioner-inline-title">
-            <span class="report-icon">🎤</span> Hot Takes: The Commissioner's Report
+            <span class="report-icon">🌶️</span> Hot Takes: The Commissioner's Report
           </div>
           <p class="commissioner-typing-target" data-commissioner-report></p>
         </div>
