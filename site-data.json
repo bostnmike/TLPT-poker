@@ -28,7 +28,7 @@
         "jeff-t": "no",
         "kishan": "tbd",
         "li-fo": "tbd",
-        "mike-g": "tbd",
+        "buffalomike": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
         "phattedcalf": "tbd",
@@ -72,7 +72,7 @@
         "kishan": "tbd",
         "jeff-t": "no",
         "li-fo": "tbd",
-        "mike-g": "tbd",
+        "buffalomike": "tbd",
         "nasa-al": "yes",
         "nitro": "tbd",
         "pat": "tbd",
@@ -872,8 +872,8 @@
       "notes": ""
     },
     {
-      "name": "Mike G",
-      "slug": "mike-g",
+      "name": "BuffaloMike",
+      "slug": "buffalomike",
       "entries": 2,
       "buyIns": 1,
       "rebuys": 1,
