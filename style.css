@@ -3179,13 +3179,13 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,214,170,.18), transparent 34%),
-    linear-gradient(180deg, rgba(255,146,92,.30), rgba(215,78,36,.22)),
+    radial-gradient(circle at top right, rgba(255,224,150,.16), transparent 34%),
+    linear-gradient(180deg, rgba(255,184,28,.26), rgba(214,98,24,.22)),
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
   box-shadow:
     0 0 0 1px rgba(255,170,120,.14),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(255,120,72,.12);
+    0 0 18px rgba(255,140,40,.12);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -3862,7 +3862,7 @@ body:has(#dashboard-grid) .page-title-row,
 }
 
 body:has(#dashboard-grid) .page-title-orange{
-  color:#e89f4f;
+  color:#d98d39;
 }
 
 .section.rules-header .page-title-row{
@@ -3872,7 +3872,7 @@ body:has(#dashboard-grid) .page-title-orange{
 }
 
 .section.rules-header .page-title-green{
-  color:#74d79a;
+  color:#66c685;
 }
 
 body:has(#standings-table) .page-title-row::before,
@@ -3893,7 +3893,7 @@ body:has(#dashboard-grid) .page-title-row::before,
 }
 
 .section.schedule-hero .schedule-page-title{
-  color:#e889b8;
+  color:#d975a6;
 }
 
 .section.schedule-hero .page-title-row::before{
