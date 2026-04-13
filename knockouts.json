@@ -37,7 +37,7 @@
       "hiro": 2,
       "kishan": 1,
       "li-fo": 5,
-      "mike-g": 1,
+      "buffalomike": 1,
       "nasa-al": 2,
       "nitro": 1,
       "providencemike": 1,
@@ -114,7 +114,7 @@
     },
     "kishan": {
       "ahmed": 1,
-      "mike-g": 1
+      "buffalomike": 1
     },
     "li-fo": {
       "ahmed": 5,
@@ -131,7 +131,7 @@
       "vish": 1,
       "yann": 1
     },
-    "mike-g": {
+    "buffalomike": {
       "kishan": 1
     },
     "nasa-al": {
@@ -147,13 +147,13 @@
       "cougar": 1,
       "hayden-d": 1,
       "li-fo": 2,
-      "mike-g": 1,
+      "buffalomike": 1,
       "red": 1,
       "vish": 2,
       "wild-bill": 1
     },
     "pat": {
-      "mike-g": 1
+      "buffalomike": 1
     },
     "phattedcalf": {
       "bostnmike": 1,
@@ -170,7 +170,7 @@
       "cougar": 2,
       "gilmore": 1,
       "li-fo": 1,
-      "mike-g": 1,
+      "buffalomike": 1,
       "nitro": 1,
       "red": 3,
       "the-architect": 1,
@@ -337,7 +337,7 @@
     },
     "kishan": {
       "bostnmike": 1,
-      "mike-g": 1,
+      "buffalomike": 1,
       "red": 1
     },
     "li-fo": {
@@ -356,7 +356,7 @@
       "red": 1,
       "the-architect": 1
     },
-    "mike-g": {
+    "buffalomike": {
       "bostnmike": 1,
       "kishan": 1,
       "nitro": 1,
