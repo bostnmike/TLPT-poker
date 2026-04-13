@@ -716,7 +716,7 @@
       "notes": "I raise."
     },
     {
-      "name": "Phattedcalf",
+      "name": "PhattedCalf",
       "slug": "phattedcalf",
       "entries": 2,
       "buyIns": 2,
@@ -820,8 +820,8 @@
       "notes": ""
     },
     {
-      "name": "Pittdburghbill",
-      "slug": "pittdburghbill",
+      "name": "PittsburghBill",
+      "slug": "pittsburghbill",
       "entries": 2,
       "buyIns": 1,
       "rebuys": 1,
