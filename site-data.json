@@ -107,12 +107,12 @@
     },
     {
       "type": "Hit King",
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "note": "Most recorded hits / knockouts."
     },
     {
       "type": "Bubble King",
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "note": "Most bubble finishes so far."
     }
   ],
@@ -129,17 +129,17 @@
     },
     {
       "label": "Most Hits",
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "value": "28"
     },
     {
       "label": "Most Cashes",
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "value": "12"
     },
     {
       "label": "Most Bubbles",
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "value": "6"
     },
     {
@@ -170,7 +170,7 @@
   ],
   "players": [
     {
-      "name": "Bostnmike",
+      "name": "BostnMike",
       "slug": "bostnmike",
       "entries": 34,
       "buyIns": 29,
@@ -326,7 +326,7 @@
       "notes": "I'm running 5 minutes late."
     },
     {
-      "name": "Providencemike",
+      "name": "ProvidenceMike",
       "slug": "providencemike",
       "entries": 25,
       "buyIns": 15,
