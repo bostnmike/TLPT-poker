@@ -3127,15 +3127,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
-  border-color:rgba(255,224,92,.46);
+  border-color:rgba(244,114,182,.42);
   background:
-    radial-gradient(circle at top right, rgba(255,224,92,.28), transparent 34%),
-    radial-gradient(circle at left center, rgba(255,242,166,.16), transparent 26%),
-    linear-gradient(180deg, rgba(150,118,12,.99), rgba(38,28,8,.995));
+    radial-gradient(circle at top right, rgba(244,114,182,.22), transparent 34%),
+    radial-gradient(circle at left center, rgba(251,182,206,.14), transparent 26%),
+    linear-gradient(180deg, rgba(98,28,62,.99), rgba(24,12,20,.995));
   box-shadow:
-    0 0 0 1px rgba(255,224,92,.20),
+    0 0 0 1px rgba(244,114,182,.18),
     0 14px 32px rgba(0,0,0,.24),
-    0 0 24px rgba(255,224,92,.18);
+    0 0 24px rgba(244,114,182,.16);
 }
 
 #home-snapshot{
