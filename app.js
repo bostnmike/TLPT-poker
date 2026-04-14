@@ -2617,18 +2617,23 @@ function renderPlayerProfile(data) {
   const params = new URLSearchParams(window.location.search);
   let requestedName = params.get("name");
 
+  const players = sortPlayers(data.players, "trueSkillScore");
+
+  const normalizeName = (value) => String(value || "").trim().toLowerCase();
+
+  const defaultPlayer =
+    players.find(p => normalizeName(p.name) === "bostnmike") || players[0];
+
   if (!requestedName) {
-    requestedName = "BostnMike";
+    requestedName = defaultPlayer.name;
     params.set("name", requestedName);
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState({}, "", newUrl);
   }
 
-  const players = sortPlayers(data.players, "trueSkillScore");
   const player =
-    players.find(p => p.name === requestedName) ||
-    players.find(p => p.name === "BostnMike") ||
-    players[0];
+    players.find(p => normalizeName(p.name) === normalizeName(requestedName)) ||
+    defaultPlayer;
 
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
