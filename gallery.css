@@ -48,7 +48,7 @@
 
 .gallery-page-kicker{
   margin:16px 0 10px 2px;
-  color:#cfd3d8;
+  color:var(--gold);
   line-height:1.5;
   text-transform:none;
   letter-spacing:.01em;
