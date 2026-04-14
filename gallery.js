@@ -1,6 +1,7 @@
 const MANIFEST_PATH = "images/twtw/gallery-manifest.json";
 
 let galleryPosters = [];
+let currentPosterIndex = -1;
 
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
@@ -16,7 +17,22 @@ function buildTitleFromFilename(isoDate) {
   return `The Week That Was — ${formatDisplayDate(isoDate)}`;
 }
 
-function openLightbox(poster) {
+function updateLightboxNav() {
+  const prevBtn = document.getElementById("gallery-lightbox-prev");
+  const nextBtn = document.getElementById("gallery-lightbox-next");
+
+  if (!prevBtn || !nextBtn) return;
+
+  prevBtn.disabled = currentPosterIndex <= 0;
+  nextBtn.disabled = currentPosterIndex >= galleryPosters.length - 1;
+}
+
+function openLightboxByIndex(index) {
+  const poster = galleryPosters[index];
+  if (!poster) return;
+
+  currentPosterIndex = index;
+
   const lightbox = document.getElementById("gallery-lightbox");
   const image = document.getElementById("gallery-lightbox-image");
   const title = document.getElementById("gallery-lightbox-title");
@@ -26,11 +42,32 @@ function openLightbox(poster) {
 
   image.src = poster.src;
   image.alt = poster.title;
-  title.textContent = poster.title;
-  date.textContent = `${poster.collection} · ${formatDisplayDate(poster.date)}`;
+  title.textContent = poster.collection;
+  date.textContent = formatDisplayDate(poster.date);
 
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
+
+  updateLightboxNav();
+}
+
+function openLightbox(poster) {
+  const index = galleryPosters.findIndex(item => item.src === poster.src);
+  if (index !== -1) {
+    openLightboxByIndex(index);
+  }
+}
+
+function showPrevPoster() {
+  if (currentPosterIndex > 0) {
+    openLightboxByIndex(currentPosterIndex - 1);
+  }
+}
+
+function showNextPoster() {
+  if (currentPosterIndex < galleryPosters.length - 1) {
+    openLightboxByIndex(currentPosterIndex + 1);
+  }
 }
 
 function closeLightbox() {
@@ -42,6 +79,7 @@ function closeLightbox() {
   lightbox.hidden = true;
   image.src = "";
   document.body.style.overflow = "";
+  currentPosterIndex = -1;
 }
 
 function createPosterCard(poster) {
@@ -64,9 +102,8 @@ function createPosterCard(poster) {
     </div>
     <div class="gallery-card-meta">
       <div class="gallery-card-label">TLPT Archive</div>
-      <h3 class="gallery-card-title">${poster.title}</h3>
-      <p class="gallery-card-subline">${poster.collection}</p>
-      <p class="gallery-card-date">${formatDisplayDate(poster.date)}</p>
+      <h3 class="gallery-card-title">${poster.collection}</h3>
+      <p class="gallery-card-subline">${formatDisplayDate(poster.date)}</p>
     </div>
   `;
 
@@ -86,7 +123,6 @@ function createYearGroup(year, posters) {
         <div class="gallery-year-kicker">Collection Year</div>
         <h3 class="gallery-year-title">${year}</h3>
       </div>
-      <div class="gallery-year-count">${posters.length} poster${posters.length === 1 ? "" : "s"}</div>
     </div>
     <div class="gallery-year-rule"></div>
     <div class="gallery-year-grid"></div>
@@ -128,9 +164,9 @@ async function loadGallery() {
     const manifest = await res.json();
 
     galleryPosters = (manifest.files || [])
-      .filter(file => /^twtw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file))
+      .filter(file => /^twtw\\d{2}-\\d{2}-\\d{2}\\.jpg$/i.test(file))
       .map(file => {
-        const match = file.match(/^twtw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
+        const match = file.match(/^twtw(\\d{2})-(\\d{2})-(\\d{2})\\.jpg$/i);
         const yy = Number(match[1]);
         const mm = match[2];
         const dd = match[3];
@@ -178,13 +214,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeBtn = document.getElementById("gallery-lightbox-close");
   const backdrop = document.getElementById("gallery-lightbox-backdrop");
+  const prevBtn = document.getElementById("gallery-lightbox-prev");
+  const nextBtn = document.getElementById("gallery-lightbox-next");
 
   if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
   if (backdrop) backdrop.addEventListener("click", closeLightbox);
+  if (prevBtn) prevBtn.addEventListener("click", showPrevPoster);
+  if (nextBtn) nextBtn.addEventListener("click", showNextPoster);
 
   document.addEventListener("keydown", (e) => {
+    const lightbox = document.getElementById("gallery-lightbox");
+    if (!lightbox || lightbox.hidden) return;
+
     if (e.key === "Escape") {
       closeLightbox();
+    } else if (e.key === "ArrowLeft") {
+      showPrevPoster();
+    } else if (e.key === "ArrowRight") {
+      showNextPoster();
     }
   });
 });
