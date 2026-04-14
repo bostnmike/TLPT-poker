@@ -2618,7 +2618,7 @@ function renderPlayerProfile(data) {
   let requestedName = params.get("name");
 
   if (!requestedName) {
-    requestedName = "Bostnmike";
+    requestedName = "BostnMike";
     params.set("name", requestedName);
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.replaceState({}, "", newUrl);
@@ -2627,7 +2627,7 @@ function renderPlayerProfile(data) {
   const players = sortPlayers(data.players, "trueSkillScore");
   const player =
     players.find(p => p.name === requestedName) ||
-    players.find(p => p.name === "Bostnmike") ||
+    players.find(p => p.name === "BostnMike") ||
     players[0];
 
   const index = players.findIndex(p => p.name === player.name);
