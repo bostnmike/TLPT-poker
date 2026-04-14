@@ -221,7 +221,8 @@
 .gallery-lightbox-dialog{
   position:relative;
   z-index:2;
-  width:min(92vw, 760px);
+  width:max-content;
+  max-width:92vw;
   margin:3vh auto 0;
   padding:0;
   border:none;
@@ -232,6 +233,7 @@
 
 .gallery-lightbox-frame{
   position:relative;
+  display:inline-block;
   padding:18px;
   border-radius:10px;
   background:
@@ -255,9 +257,10 @@
 }
 
 .gallery-lightbox-image{
-  width:100%;
+  width:auto;
+  max-width:min(88vw, 720px);
   max-height:78vh;
-  object-fit:contain;
+  height:auto;
   display:block;
   position:relative;
   z-index:1;
