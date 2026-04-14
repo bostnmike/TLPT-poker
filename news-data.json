@@ -628,7 +628,7 @@
   "avatars": [
     { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
     { "src": "images/players/nasa-al.jpg", "alt": "NASA Al", "fallback": "NA" },
-    { "src": "images/players/providenceMike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
+    { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
   ]
 },
   "feltSaid": [
