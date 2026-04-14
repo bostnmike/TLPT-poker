@@ -1,7 +1,6 @@
 const MANIFEST_PATH = "images/twtw/gallery-manifest.json";
 
 let galleryPosters = [];
-let currentPosterIndex = -1;
 
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
@@ -17,22 +16,7 @@ function buildTitleFromFilename(isoDate) {
   return `The Week That Was — ${formatDisplayDate(isoDate)}`;
 }
 
-function updateLightboxNav() {
-  const prevBtn = document.getElementById("gallery-lightbox-prev");
-  const nextBtn = document.getElementById("gallery-lightbox-next");
-
-  if (!prevBtn || !nextBtn) return;
-
-  prevBtn.disabled = currentPosterIndex <= 0;
-  nextBtn.disabled = currentPosterIndex >= galleryPosters.length - 1;
-}
-
-function openLightboxByIndex(index) {
-  const poster = galleryPosters[index];
-  if (!poster) return;
-
-  currentPosterIndex = index;
-
+function openLightbox(poster) {
   const lightbox = document.getElementById("gallery-lightbox");
   const image = document.getElementById("gallery-lightbox-image");
   const title = document.getElementById("gallery-lightbox-title");
@@ -43,31 +27,10 @@ function openLightboxByIndex(index) {
   image.src = poster.src;
   image.alt = poster.title;
   title.textContent = poster.title;
-  date.textContent = formatDisplayDate(poster.date);
+  date.textContent = `${poster.collection} · ${formatDisplayDate(poster.date)}`;
 
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
-
-  updateLightboxNav();
-}
-
-function openLightbox(poster) {
-  const index = galleryPosters.findIndex(item => item.src === poster.src);
-  if (index !== -1) {
-    openLightboxByIndex(index);
-  }
-}
-
-function showPrevPoster() {
-  if (currentPosterIndex > 0) {
-    openLightboxByIndex(currentPosterIndex - 1);
-  }
-}
-
-function showNextPoster() {
-  if (currentPosterIndex < galleryPosters.length - 1) {
-    openLightboxByIndex(currentPosterIndex + 1);
-  }
 }
 
 function closeLightbox() {
@@ -79,7 +42,6 @@ function closeLightbox() {
   lightbox.hidden = true;
   image.src = "";
   document.body.style.overflow = "";
-  currentPosterIndex = -1;
 }
 
 function createPosterCard(poster) {
@@ -101,7 +63,9 @@ function createPosterCard(poster) {
       />
     </div>
     <div class="gallery-card-meta">
+      <div class="gallery-card-label">TLPT Archive</div>
       <h3 class="gallery-card-title">${poster.title}</h3>
+      <p class="gallery-card-subline">${poster.collection}</p>
       <p class="gallery-card-date">${formatDisplayDate(poster.date)}</p>
     </div>
   `;
@@ -112,10 +76,43 @@ function createPosterCard(poster) {
   return article;
 }
 
+function createYearGroup(year, posters) {
+  const section = document.createElement("section");
+  section.className = "gallery-year-group";
+
+  section.innerHTML = `
+    <div class="gallery-year-head">
+      <div>
+        <div class="gallery-year-kicker">Collection Year</div>
+        <h3 class="gallery-year-title">${year}</h3>
+      </div>
+      <div class="gallery-year-count">${posters.length} poster${posters.length === 1 ? "" : "s"}</div>
+    </div>
+    <div class="gallery-year-rule"></div>
+    <div class="gallery-year-grid"></div>
+  `;
+
+  const grid = section.querySelector(".gallery-year-grid");
+  posters.forEach(poster => grid.appendChild(createPosterCard(poster)));
+
+  return section;
+}
+
+function groupPostersByYear(posters) {
+  const grouped = new Map();
+
+  posters.forEach(poster => {
+    const year = poster.date.slice(0, 4);
+    if (!grouped.has(year)) grouped.set(year, []);
+    grouped.get(year).push(poster);
+  });
+
+  return Array.from(grouped.entries()).sort((a, b) => Number(b[0]) - Number(a[0]));
+}
+
 async function loadGallery() {
   const grid = document.getElementById("gallery-grid");
   const empty = document.getElementById("gallery-empty");
-  const count = document.getElementById("gallery-count");
 
   if (!grid) {
     console.error("Gallery error: #gallery-grid not found");
@@ -144,16 +141,13 @@ async function loadGallery() {
           file,
           date: isoDate,
           src: `images/twtw/${file}`,
-          title: buildTitleFromFilename(isoDate)
+          title: buildTitleFromFilename(isoDate),
+          collection: "The Week That Was"
         };
       })
       .sort((a, b) => new Date(b.date) - new Date(a.date));
 
     grid.innerHTML = "";
-
-    if (count) {
-      count.textContent = String(galleryPosters.length);
-    }
 
     if (!galleryPosters.length) {
       if (empty) empty.hidden = false;
@@ -162,9 +156,11 @@ async function loadGallery() {
 
     if (empty) empty.hidden = true;
 
+    const grouped = groupPostersByYear(galleryPosters);
     const fragment = document.createDocumentFragment();
-    galleryPosters.forEach(poster => {
-      fragment.appendChild(createPosterCard(poster));
+
+    grouped.forEach(([year, posters]) => {
+      fragment.appendChild(createYearGroup(year, posters));
     });
 
     grid.appendChild(fragment);
@@ -174,9 +170,6 @@ async function loadGallery() {
       empty.hidden = false;
       empty.textContent = "Unable to load gallery posters.";
     }
-    if (count) {
-      count.textContent = "0";
-    }
   }
 }
 
@@ -185,24 +178,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeBtn = document.getElementById("gallery-lightbox-close");
   const backdrop = document.getElementById("gallery-lightbox-backdrop");
-  const prevBtn = document.getElementById("gallery-lightbox-prev");
-  const nextBtn = document.getElementById("gallery-lightbox-next");
 
   if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
   if (backdrop) backdrop.addEventListener("click", closeLightbox);
-  if (prevBtn) prevBtn.addEventListener("click", showPrevPoster);
-  if (nextBtn) nextBtn.addEventListener("click", showNextPoster);
 
   document.addEventListener("keydown", (e) => {
-    const lightbox = document.getElementById("gallery-lightbox");
-    if (!lightbox || lightbox.hidden) return;
-
     if (e.key === "Escape") {
       closeLightbox();
-    } else if (e.key === "ArrowLeft") {
-      showPrevPoster();
-    } else if (e.key === "ArrowRight") {
-      showNextPoster();
     }
   });
 });
