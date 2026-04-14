@@ -90,19 +90,29 @@
     </section>
   </main>
 
-  <div id="gallery-lightbox" class="gallery-lightbox" hidden>
-    <button class="gallery-lightbox-close" id="gallery-lightbox-close" aria-label="Close poster viewer">×</button>
-    <div class="gallery-lightbox-backdrop" id="gallery-lightbox-backdrop"></div>
-    <div class="gallery-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-lightbox-title">
-      <div class="gallery-lightbox-frame">
-        <img id="gallery-lightbox-image" class="gallery-lightbox-image" alt="" />
-      </div>
-      <div class="gallery-lightbox-meta">
-        <h3 id="gallery-lightbox-title"></h3>
-        <p id="gallery-lightbox-date"></p>
-      </div>
+<div id="gallery-lightbox" class="gallery-lightbox" hidden>
+  <button class="gallery-lightbox-close" id="gallery-lightbox-close" aria-label="Close poster viewer">×</button>
+
+  <button class="gallery-lightbox-nav gallery-lightbox-prev" id="gallery-lightbox-prev" aria-label="Previous poster">
+    ‹
+  </button>
+
+  <button class="gallery-lightbox-nav gallery-lightbox-next" id="gallery-lightbox-next" aria-label="Next poster">
+    ›
+  </button>
+
+  <div class="gallery-lightbox-backdrop" id="gallery-lightbox-backdrop"></div>
+
+  <div class="gallery-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="gallery-lightbox-title">
+    <div class="gallery-lightbox-frame">
+      <img id="gallery-lightbox-image" class="gallery-lightbox-image" alt="" />
+    </div>
+    <div class="gallery-lightbox-meta">
+      <h3 id="gallery-lightbox-title"></h3>
+      <p id="gallery-lightbox-date"></p>
     </div>
   </div>
+</div>
 
   <footer class="site-footer">
     <div class="site-footer-inner">
