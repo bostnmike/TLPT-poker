@@ -2615,9 +2615,20 @@ function renderPlayerProfile(data) {
   if (!container || !data?.players?.length) return;
 
   const params = new URLSearchParams(window.location.search);
-  const requestedName = params.get("name");
+  let requestedName = params.get("name");
+
+  if (!requestedName) {
+    requestedName = "Bostnmike";
+    params.set("name", requestedName);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState({}, "", newUrl);
+  }
+
   const players = sortPlayers(data.players, "trueSkillScore");
-  const player = players.find(p => p.name === requestedName) || players[0];
+  const player =
+    players.find(p => p.name === requestedName) ||
+    players.find(p => p.name === "Bostnmike") ||
+    players[0];
 
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
@@ -2627,26 +2638,23 @@ function renderPlayerProfile(data) {
   const primaryArchetype = archetypes.primary;
   const secondaryArchetype = archetypes.secondary;
   const tier = getPlayerTier(player, players);
-  
+
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
+    let valueClass = "";
 
-  let valueClass = "";
+    if (config.profitClass) {
+      valueClass = statValueClass(player, "profit");
+    } else if (config.profitClassFromValue) {
+      valueClass = statValueClass({ profit: player?.[config.key] }, "profit");
+    }
 
-  if (config.profitClass) {
-    valueClass = statValueClass(player, "profit");
-  } 
-  else if (config.profitClassFromValue) {
-    valueClass = statValueClass({ profit: player?.[config.key] }, "profit");
-  }
-
-  return {
-    key: config.key,
-    label: config.label,
-    value: formatProfileStatValue(player, config),
-    valueClass
-  };
-
-});
+    return {
+      key: config.key,
+      label: config.label,
+      value: formatProfileStatValue(player, config),
+      valueClass
+    };
+  });
 
   const statsMarkup = profileStats.map(stat => `
     <div class="profile-stat player-stat-card" data-stat-formula="${STAT_FORMULAS[stat.key] || ""}" tabindex="0">
