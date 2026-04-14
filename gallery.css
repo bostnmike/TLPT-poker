@@ -51,7 +51,8 @@
   margin:0 0 10px;
   color:#dfe7ef;
   line-height:1.5;
-  max-width:76ch;
+  max-width:none;
+  width:100%;
 }
 
 .gallery-shell{
