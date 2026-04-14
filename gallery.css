@@ -64,15 +64,17 @@
 }
 
 .gallery-shell{
-  border-color:rgba(168,85,247,.20);
+  border-color:rgba(196,170,120,.16);
   background:
-    radial-gradient(circle at top right, rgba(168,85,247,.10), transparent 32%),
-    radial-gradient(circle at left center, rgba(59,130,246,.06), transparent 24%),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at 50% 0%, rgba(255,233,190,.06), transparent 26%),
+    radial-gradient(circle at top right, rgba(255,214,140,.04), transparent 22%),
+    radial-gradient(circle at bottom left, rgba(255,255,255,.025), transparent 18%),
+    linear-gradient(180deg, rgba(23,24,26,.985), rgba(11,12,14,.995));
   box-shadow:
-    0 0 0 1px rgba(168,85,247,.08),
-    0 12px 28px rgba(0,0,0,.22),
-    0 0 18px rgba(168,85,247,.08);
+    inset 0 1px 0 rgba(255,255,255,.025),
+    inset 0 0 0 1px rgba(255,255,255,.015),
+    0 14px 34px rgba(0,0,0,.28),
+    0 0 0 1px rgba(196,170,120,.06);
 }
 
 .gallery-toolbar{
