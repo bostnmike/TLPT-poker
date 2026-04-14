@@ -12,15 +12,24 @@ permissions:
 jobs:
   build-gallery-manifest:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
+
+      - name: Verify gallery folders
+        run: |
+          pwd
+          ls -la
+          ls -la images || true
+          ls -la images/twtw || true
 
       - name: Generate gallery manifest
         run: node scripts/build-gallery-manifest.mjs
