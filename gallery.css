@@ -24,7 +24,11 @@
   margin-bottom:6px;
 }
 
-.gallery-title-row::after{
+.gallery-hero .gallery-title-row::before{
+  content:none;
+}
+
+.gallery-hero .gallery-title-row::after{
   content:"";
   position:absolute;
   left:0;
