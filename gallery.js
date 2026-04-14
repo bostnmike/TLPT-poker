@@ -1,5 +1,8 @@
 const MANIFEST_PATH = "images/twtw/gallery-manifest.json";
 
+let galleryPosters = [];
+let currentPosterIndex = -1;
+
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
   const dt = new Date(`${year}-${month}-${day}T12:00:00`);
@@ -14,7 +17,22 @@ function buildTitleFromFilename(isoDate) {
   return `The Week That Was — ${formatDisplayDate(isoDate)}`;
 }
 
-function openLightbox(poster) {
+function updateLightboxNav() {
+  const prevBtn = document.getElementById("gallery-lightbox-prev");
+  const nextBtn = document.getElementById("gallery-lightbox-next");
+
+  if (!prevBtn || !nextBtn) return;
+
+  prevBtn.disabled = currentPosterIndex <= 0;
+  nextBtn.disabled = currentPosterIndex >= galleryPosters.length - 1;
+}
+
+function openLightboxByIndex(index) {
+  const poster = galleryPosters[index];
+  if (!poster) return;
+
+  currentPosterIndex = index;
+
   const lightbox = document.getElementById("gallery-lightbox");
   const image = document.getElementById("gallery-lightbox-image");
   const title = document.getElementById("gallery-lightbox-title");
@@ -29,6 +47,27 @@ function openLightbox(poster) {
 
   lightbox.hidden = false;
   document.body.style.overflow = "hidden";
+
+  updateLightboxNav();
+}
+
+function openLightbox(poster) {
+  const index = galleryPosters.findIndex(item => item.src === poster.src);
+  if (index !== -1) {
+    openLightboxByIndex(index);
+  }
+}
+
+function showPrevPoster() {
+  if (currentPosterIndex > 0) {
+    openLightboxByIndex(currentPosterIndex - 1);
+  }
+}
+
+function showNextPoster() {
+  if (currentPosterIndex < galleryPosters.length - 1) {
+    openLightboxByIndex(currentPosterIndex + 1);
+  }
 }
 
 function closeLightbox() {
@@ -40,6 +79,7 @@ function closeLightbox() {
   lightbox.hidden = true;
   image.src = "";
   document.body.style.overflow = "";
+  currentPosterIndex = -1;
 }
 
 function createPosterCard(poster) {
@@ -90,7 +130,7 @@ async function loadGallery() {
 
     const manifest = await res.json();
 
-    const posters = (manifest.files || [])
+    galleryPosters = (manifest.files || [])
       .filter(file => /^twtw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file))
       .map(file => {
         const match = file.match(/^twtw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
@@ -112,10 +152,10 @@ async function loadGallery() {
     grid.innerHTML = "";
 
     if (count) {
-      count.textContent = String(posters.length);
+      count.textContent = String(galleryPosters.length);
     }
 
-    if (!posters.length) {
+    if (!galleryPosters.length) {
       if (empty) empty.hidden = false;
       return;
     }
@@ -123,7 +163,7 @@ async function loadGallery() {
     if (empty) empty.hidden = true;
 
     const fragment = document.createDocumentFragment();
-    posters.forEach(poster => {
+    galleryPosters.forEach(poster => {
       fragment.appendChild(createPosterCard(poster));
     });
 
@@ -145,13 +185,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeBtn = document.getElementById("gallery-lightbox-close");
   const backdrop = document.getElementById("gallery-lightbox-backdrop");
+  const prevBtn = document.getElementById("gallery-lightbox-prev");
+  const nextBtn = document.getElementById("gallery-lightbox-next");
 
   if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
   if (backdrop) backdrop.addEventListener("click", closeLightbox);
+  if (prevBtn) prevBtn.addEventListener("click", showPrevPoster);
+  if (nextBtn) nextBtn.addEventListener("click", showNextPoster);
 
   document.addEventListener("keydown", (e) => {
+    const lightbox = document.getElementById("gallery-lightbox");
+    if (!lightbox || lightbox.hidden) return;
+
     if (e.key === "Escape") {
       closeLightbox();
+    } else if (e.key === "ArrowLeft") {
+      showPrevPoster();
+    } else if (e.key === "ArrowRight") {
+      showNextPoster();
     }
   });
 });
