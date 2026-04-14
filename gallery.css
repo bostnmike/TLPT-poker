@@ -37,10 +37,18 @@
 
 .gallery-page-title{
   margin:0;
+  color:#ffffff;
 }
 
 .gallery-helper-copy{
   margin:6px 0 0;
+  color:#dfe7ef;
+  line-height:1.5;
+  max-width:76ch;
+}
+
+.gallery-shell-copy{
+  margin:0 0 10px;
   color:#dfe7ef;
   line-height:1.5;
   max-width:76ch;
@@ -60,12 +68,11 @@
 
 .gallery-toolbar{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:10px;
   margin:0 0 18px;
-  padding:12px 14px;
+  padding:14px 16px;
   border:1px solid rgba(168,85,247,.18);
   border-radius:14px;
   background:
