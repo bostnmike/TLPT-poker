@@ -48,12 +48,6 @@
 
 .gallery-page-kicker{
   margin:16px 0 10px 2px;
-  color:var(--gold);
-  line-height:1.5;
-  text-transform:none;
-  letter-spacing:.01em;
-  font-size:1rem;
-  font-weight:700;
 }
 
 .gallery-helper-copy{
