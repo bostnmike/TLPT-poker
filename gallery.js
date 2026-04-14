@@ -164,9 +164,9 @@ async function loadGallery() {
     const manifest = await res.json();
 
     galleryPosters = (manifest.files || [])
-      .filter(file => /^twtw\\d{2}-\\d{2}-\\d{2}\\.jpg$/i.test(file))
+      .filter(file => /^twtw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file))
       .map(file => {
-        const match = file.match(/^twtw(\\d{2})-(\\d{2})-(\\d{2})\\.jpg$/i);
+        const match = file.match(/^twtw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
         const yy = Number(match[1]);
         const mm = match[2];
         const dd = match[3];
