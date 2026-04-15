@@ -101,7 +101,7 @@ function createPosterCard(poster) {
       />
     </div>
     <div class="gallery-card-meta">
-      <div class="gallery-card-label">TLPT Archive</div>
+      <div class="gallery-card-label">The BostnMike Collection</div>
       <h3 class="gallery-card-title">${poster.collection}</h3>
       <p class="gallery-card-subline">${formatDisplayDate(poster.date)}</p>
     </div>
@@ -120,7 +120,7 @@ function createYearGroup(year, posters) {
   section.innerHTML = `
     <div class="gallery-year-head">
       <div>
-        <div class="gallery-year-kicker">Collection Year</div>
+        <div class="gallery-year-kicker">TLPT Archive</div>
         <h3 class="gallery-year-title">${year}</h3>
       </div>
     </div>
