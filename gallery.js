@@ -42,7 +42,7 @@ function openLightboxByIndex(index) {
 
   image.src = poster.src;
   image.alt = poster.title;
-  title.textContent = poster.collection;
+  title.textContent = "The BostnMike Collection";
   date.textContent = formatDisplayDate(poster.date);
 
   lightbox.hidden = false;
