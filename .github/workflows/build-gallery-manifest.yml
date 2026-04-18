@@ -50,5 +50,6 @@ jobs:
           fi
 
           git commit -m "Update gallery manifest"
-          git pull --rebase origin main
-          git push origin main
+          git fetch origin main
+          git rebase origin/main
+          git push --force-with-lease origin HEAD:main
