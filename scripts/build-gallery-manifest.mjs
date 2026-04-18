@@ -23,11 +23,16 @@ const files = fs
   });
 
 const payload = {
-  generatedAt: new Date().toISOString(),
   folder: "images/twtw",
   files
 };
 
-fs.writeFileSync(outFile, JSON.stringify(payload, null, 2) + "\n", "utf8");
+const nextContent = JSON.stringify(payload, null, 2) + "\n";
+const prevContent = fs.existsSync(outFile) ? fs.readFileSync(outFile, "utf8") : "";
 
-console.log(`Wrote ${outFile} with ${files.length} poster(s).`);
+if (prevContent === nextContent) {
+  console.log(`No manifest changes needed. ${files.length} poster(s).`);
+} else {
+  fs.writeFileSync(outFile, nextContent, "utf8");
+  console.log(`Wrote ${outFile} with ${files.length} poster(s).`);
+}
