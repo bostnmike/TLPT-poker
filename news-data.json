@@ -14,11 +14,129 @@
   },
   "weeks": [
 {
+  "id": "week-04-17-2026",
+  "date": "04/17/2026",
+  "eventName": "WrestleMania Eve | 9-Max",
+  "title": "TWTW: WrestleMania Eve | 9-Max",
+  "featured": true,
+  "dek": "Red got three chances to become the story, failed all three, and watched Hiro and Ahmed turn WrestleMania Eve into a shared main event instead.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Ahmed / Hiro",
+      "value": "Split first",
+      "copy": "Hiro owned the late knockouts, Ahmed stayed alive, and both men shared the top spot.",
+      "avatars": [
+        { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+        { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "Red",
+      "copy": "ProvidenceMike got the first bust and started a very funny night for everyone else.",
+      "avatar": "images/players/red.jpg",
+      "fallback": "RE"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Red",
+      "copy": "Li-Fo finally made the third Red exit the permanent one.",
+      "avatar": "images/players/red.jpg",
+      "fallback": "RE"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Hiro",
+      "value": "4 knockouts",
+      "copy": "Removed Li-Fo twice, then Wild Bill, then BostnMike in the closing stretch.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "10" },
+    { "icon": "♻️", "label": "Rebuys", "value": "3" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$300" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 24m" }
+  ],
+  "summary": {
+    "startTime": "7:37:17 pm 04/17/2026",
+    "endTime": "12:00:51 am 04/18/2026",
+    "durationLabel": "4h 24m",
+    "buyIns": 7,
+    "rebuys": 3,
+    "entries": 10,
+    "totalPot": 300,
+    "paidSpots": 3,
+    "winner": "Ahmed, Hiro",
+    "firstOut": "Red",
+    "firstPermanentOut": "Red"
+  },
+  "spotlight": {
+    "player": "Ahmed / Hiro",
+    "fallback": "SF",
+    "kicker": "Game Spotlight",
+    "pills": ["Split First", "Shared Main Event", "Hiro Closed Hard", "Ahmed Stayed Alive"],
+    "avatars": [
+      { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+      { "src": "images/players/hiro.jpg", "alt": "Hiro", "fallback": "HI" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Red",
+      "note": "ProvidenceMike got the opening bust and started the three-act failure."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Red",
+      "note": "Li-Fo finally ended the comeback tour after two rebuys."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Hiro",
+      "note": "Removed Li-Fo twice, then Wild Bill, then BostnMike to own the late stages."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed & Hiro split first",
+      "note": "BostnMike took third after the rare decision to play poker instead of performance art."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-17.jpg\" alt=\"Poster for the 04/17/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>WrestleMania Eve delivered the rarest TLPT spectacle of all: Red got every dramatic entrance he could ask for and still never became the headliner. ProvidenceMike bounced him first, Ahmed sent him back out again, and after two rebuys and a growing pile of false hope, Li-Fo finally made him the first player gone for good. That alone would have been enough to give the night a shape. The fact that ProvidenceMike got to enjoy somebody else wearing the first-railbird crown only made it sweeter.</p><p>Meanwhile, the room kept moving. Li-Fo tried the multiple-life route himself, but Hiro kept collecting receipts and eventually turned the whole back half of the game into his personal cleanup job. He took out Li-Fo twice, then Wild Bill, then BostnMike, which is the kind of knockout line that usually belongs to the winner. This time it belonged to half the winners. Ahmed did not have the same public body count, but he stayed upright, clipped Red once in the middle, and lasted all the way to the shared finish. At midnight sharp, both Ahmed and Hiro busted out on the same timestamp and split first.</p><p>Then there was the host subplot, which for once did not look like a televised collapse. After last week’s steam-tilt spectacular, BostnMike came back playing lockdown poker, reportedly found aces four separate times, and did just enough adult supervision to limp into third. No grand takeover. No unnecessary theater. Just the kind of disciplined, low-voltage survival line that probably felt offensive to anyone hoping for another public meltdown.</p>",
+  "roastHtml": "<p>BostnMike finally responded to a week of self-inflicted disaster by playing responsible, locked-down poker and making the money. Naturally, the reward for that maturity was third place and a front-row seat to somebody else’s co-main event. Even when the commissioner improves, the table still treats it like a clerical correction.</p>",
+  "numbersThatMatter": [
+    "7 buy-ins, 3 rebuys, 10 total entries.",
+    "4h 24m of play from 7:37 pm to 12:00 am.",
+    "$300 total pot with 3 paid spots.",
+    "Red was first out, first gone for good, and still needed three separate bust lines to get there."
+  ],
+  "quickHitsLeft": [
+    "ProvidenceMike got the rare pleasure of seeing somebody else wear the first-railbird label.",
+    "Li-Fo rebought once, then still got clipped a second time by Hiro before the money settled.",
+    "Wild Bill hung around deep enough to matter, then got caught in Hiro’s closing run.",
+    "This was a 7-player room that played bigger because Red and Li-Fo kept reopening doors."
+  ],
+  "quickHitsRight": [
+    "Ahmed only had one named knockout in the log, but he lasted long enough to sign the split check.",
+    "Hiro’s late stretch was the loudest actual poker played all night.",
+    "BostnMike’s third-place cash was the exact opposite of last week: quiet, ugly, and probably healthier.",
+    "WrestleMania Eve ended like a true co-main event: one guy did the visible damage, the other still walked out with equal billing."
+  ],
+  "tldr": "Red got every chance to become the story and still wound up first out and first gone for good. Hiro did the loudest late-stage damage, Ahmed stayed alive, and WrestleMania Eve ended in a split first."
+},
+{
   "id": "week-04-04-2026",
   "date": "04/04/2026",
   "eventName": "Duke Hoop Shock and Awww :D | 9-Max",
   "title": "TWTW: Duke Hoop Shock and Awww :D | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Red won the game, Ahmed cleaned up late, Kishan snuck onto the podium, and BostnMike spent the night speedrunning one of the filthiest steam-tilt performances in recent memory.",
   "summaryCards": [
     {
