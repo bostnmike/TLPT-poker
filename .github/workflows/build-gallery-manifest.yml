@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'images/twtw/gallery-manifest.json'
   workflow_dispatch:
 
 concurrency:
