@@ -1,12 +1,13 @@
 {
   "byVictim": {
     "ahmed": {
-      "ai-dave": 1,
+      "ai-dave": 2,
       "bostnmike": 1,
       "chris-o": 1,
       "cougar": 1,
       "hiro": 2,
-      "li-fo": 5,
+      "li-fo": 6,
+      "nasa-al": 1,
       "providencemike": 1,
       "red": 2
     },
@@ -20,6 +21,7 @@
       "li-fo": 1,
       "nasa-al": 3,
       "nitro": 1,
+      "phattedcalf": 1,
       "red": 1,
       "the-architect": 1,
       "vic": 1,
@@ -37,7 +39,7 @@
       "dan-k": 1,
       "hiro": 2,
       "li-fo": 5,
-      "nasa-al": 2,
+      "nasa-al": 3,
       "nitro": 1,
       "providencemike": 1,
       "red": 2,
@@ -99,6 +101,7 @@
       "li-fo": 1,
       "nasa-al": 4,
       "nitro": 1,
+      "phattedcalf": 1,
       "providencemike": 7,
       "red": 2,
       "the-architect": 1,
@@ -122,7 +125,7 @@
       "ai-dave": 1,
       "big-tim": 1,
       "bostnmike": 2,
-      "chris-o": 2,
+      "chris-o": 4,
       "cougar": 1,
       "hiro": 6,
       "nasa-al": 1,
@@ -135,6 +138,7 @@
     "nasa-al": {
       "ai-dave": 1,
       "bostnmike": 1,
+      "chris-o": 1,
       "hiro": 2,
       "li-fo": 2,
       "vish": 1,
@@ -155,6 +159,7 @@
     },
     "phattedcalf": {
       "bostnmike": 1,
+      "chris-o": 1,
       "vish": 1
     },
     "pittsburghbill": {
@@ -180,13 +185,14 @@
       "ahmed": 1,
       "ai-dave": 1,
       "bostnmike": 1,
-      "chris-o": 1,
+      "chris-o": 2,
       "cougar": 1,
       "hiro": 1,
       "kishan": 1,
-      "li-fo": 2,
+      "li-fo": 3,
       "nasa-al": 1,
       "pat": 1,
+      "phattedcalf": 1,
       "providencemike": 3,
       "the-architect": 1,
       "vic": 1,
@@ -242,7 +248,7 @@
       "red": 1
     },
     "ai-dave": {
-      "ahmed": 1,
+      "ahmed": 2,
       "big-tim": 1,
       "bostnmike": 2,
       "cougar": 1,
@@ -294,9 +300,11 @@
       "ai-dave": 1,
       "bostnmike": 1,
       "cougar": 1,
-      "li-fo": 2,
+      "li-fo": 4,
+      "nasa-al": 1,
+      "phattedcalf": 1,
       "providencemike": 3,
-      "red": 1,
+      "red": 2,
       "the-architect": 2,
       "vish": 2
     },
@@ -347,7 +355,7 @@
       "red": 1
     },
     "li-fo": {
-      "ahmed": 5,
+      "ahmed": 6,
       "ai-dave": 1,
       "bostnmike": 5,
       "brad-r": 1,
@@ -359,12 +367,13 @@
       "nasa-al": 2,
       "nitro": 2,
       "providencemike": 1,
-      "red": 2,
+      "red": 3,
       "the-architect": 1
     },
     "nasa-al": {
+      "ahmed": 1,
       "ai-dave": 3,
-      "bostnmike": 2,
+      "bostnmike": 3,
       "chris-o": 2,
       "gilmore": 1,
       "hiro": 4,
@@ -381,6 +390,11 @@
       "providencemike": 1
     },
     "pat": {
+      "red": 1
+    },
+    "phattedcalf": {
+      "ai-dave": 1,
+      "hiro": 1,
       "red": 1
     },
     "providencemike": {
@@ -478,6 +492,7 @@
     "2026-03-14",
     "2026-03-27",
     "2026-03-28",
-    "2026-04-17"
+    "2026-04-17",
+    "2026-04-18"
   ]
 }
