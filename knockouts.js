@@ -45,6 +45,27 @@
     return bySlug;
   }
 
+function getOfficialHits(player) {
+  if (!player || typeof player !== "object") return 0;
+
+  // Support either flat player.hits or nested stats.hits / stat block variants
+  const candidates = [
+    player.hits,
+    player.Hits,
+    player.stats?.hits,
+    player.stats?.Hits,
+    player.statBlock?.hits,
+    player.statBlock?.Hits
+  ];
+
+  for (const value of candidates) {
+    const num = Number(value);
+    if (Number.isFinite(num)) return num;
+  }
+
+  return 0;
+}
+  
   function getTotalByKiller(byKiller) {
     return Object.entries(byKiller || {}).map(([killerSlug, victims]) => {
       const total = Object.values(victims || {}).reduce((sum, count) => sum + Number(count || 0), 0);
@@ -161,72 +182,85 @@ function renderTallyMarks(count) {
   `;
 }
   
-  function renderTopStats(playerMap, byKiller, byVictim) {
-    const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
-    const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
-    const rivalries = getStrongestRivalries(byVictim);
-    const nemesisBoard = getNemesisBoard(byVictim);
+function renderTopStats(players, playerMap, byKiller, byVictim) {
+  const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
+  const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
+  const rivalries = getStrongestRivalries(byVictim);
 
-    const mostKnockouts = killers[0] || null;
-    const mostBusted = victims[0] || null;
-    const biggestBully = rivalries[0] || null;
-    const mostUniqueVictims = [...killers].sort((a, b) => {
-      if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
-      if (b.total !== a.total) return b.total - a.total;
-      return a.slug.localeCompare(b.slug);
-    })[0] || null;
+  const officialHitsLeaders = [...players]
+    .map(player => ({
+      player,
+      hits: getOfficialHits(player)
+    }))
+    .filter(entry => entry.hits > 0)
+    .sort((a, b) => {
+      if (b.hits !== a.hits) return b.hits - a.hits;
+      return (a.player?.name || "").localeCompare(b.player?.name || "");
+    });
 
-    const html = [];
+  const mostOfficialHits = officialHitsLeaders[0] || null;
+  const mostBusted = victims[0] || null;
+  const biggestBully = rivalries[0] || null;
+  const mostUniqueVictims = [...killers].sort((a, b) => {
+    if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
+    if (b.total !== a.total) return b.total - a.total;
+    return a.slug.localeCompare(b.slug);
+  })[0] || null;
 
-html.push(renderStatCard({
-  label: "Most Total Knock-Outs",
-  player: mostKnockouts ? safePlayer(playerMap, mostKnockouts.slug) : null,
-  value: mostKnockouts ? `${mostKnockouts.total}` : "—",
-  subtext: ""
-}));
-
-html.push(renderStatCard({
-  label: "Most Times Busted",
-  player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
-  value: mostBusted ? `${mostBusted.total}` : "—",
-  subtext: ""
-}));
-
-if (biggestBully) {
-  const killer = safePlayer(playerMap, biggestBully.killerSlug);
-  const victim = safePlayer(playerMap, biggestBully.victimSlug);
+  const html = [];
 
   html.push(renderStatCard({
-    label: "Biggest Bully",
-    player: killer,
-    value: `${biggestBully.count} vs ${victim?.name || biggestBully.victimSlug}`,
+    label: "Most Total Knock-Outs",
+    player: mostOfficialHits ? mostOfficialHits.player : null,
+    value: mostOfficialHits ? `${mostOfficialHits.hits}` : "—",
     subtext: ""
   }));
-} else {
-  html.push(renderStatCard({
-    label: "Biggest Bully",
-    player: null,
-    value: "—",
-    subtext: ""
-  }));
-}
-
-if (mostUniqueVictims) {
-  const killer = safePlayer(playerMap, mostUniqueVictims.slug);
 
   html.push(renderStatCard({
-    label: "Most Unique Victims",
-    player: killer,
-    value: `${mostUniqueVictims.uniqueVictims}`,
+    label: "Most Times Busted",
+    player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
+    value: mostBusted ? `${mostBusted.total}` : "—",
     subtext: ""
   }));
-} else {
-  html.push(renderStatCard({
-    label: "Most Unique Victims",
-    player: null,
-    value: "—",
-    subtext: ""
-  }));
+
+  if (biggestBully) {
+    const killer = safePlayer(playerMap, biggestBully.killerSlug);
+    const victim = safePlayer(playerMap, biggestBully.victimSlug);
+
+    html.push(renderStatCard({
+      label: "Biggest Bully",
+      player: killer,
+      value: `${biggestBully.count} vs ${victim?.name || biggestBully.victimSlug}`,
+      subtext: ""
+    }));
+  } else {
+    html.push(renderStatCard({
+      label: "Biggest Bully",
+      player: null,
+      value: "—",
+      subtext: ""
+    }));
+  }
+
+  if (mostUniqueVictims) {
+    const killer = safePlayer(playerMap, mostUniqueVictims.slug);
+
+    html.push(renderStatCard({
+      label: "Most Unique Victims",
+      player: killer,
+      value: `${mostUniqueVictims.uniqueVictims}`,
+      subtext: ""
+    }));
+  } else {
+    html.push(renderStatCard({
+      label: "Most Unique Victims",
+      player: null,
+      value: "—",
+      subtext: ""
+    }));
+  }
+
+  return html.join("");
 }
 
     return html.join("");
@@ -446,7 +480,7 @@ function renderBodyCountLedger(playerMap, byKiller) {
     const bodyCountLedgerHost = document.getElementById("knockouts-body-count-ledger");
 
     if (topStatsHost) {
-      topStatsHost.innerHTML = renderTopStats(playerMap, byKiller, byVictim);
+      topStatsHost.innerHTML = renderTopStats(players, playerMap, byKiller, byVictim);
     }
 
     if (rivalriesHost) {
