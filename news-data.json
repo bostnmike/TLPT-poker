@@ -14,11 +14,124 @@
   },
   "weeks": [
 {
+  "id": "week-04-18-2026",
+  "date": "04/18/2026",
+  "eventName": "Sabres in the Playoffs?! | 9-Max",
+  "title": "TWTW: Sabres in the Playoffs?! | 9-Max",
+  "featured": true,
+  "dek": "A murderers’ row table turned 04/18 into a four-hour knife fight, and Chris O was the one still standing when the room finally ran out of lives.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Chris O",
+      "value": "Winner",
+      "copy": "Survived the loaded field and closed over Li-Fo after a brutal four-hour sprint.",
+      "avatar": "images/players/chris-o.jpg",
+      "fallback": "CO"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "Ahmed",
+      "copy": "NASA Al opened the violence early and set the tone for the whole room.",
+      "avatar": "images/players/ahmed.jpg",
+      "fallback": "AH"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "BostnMike",
+      "copy": "NASA Al made him the first one gone for good, and Mike wisely skipped the rebuy.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Chris O",
+      "value": "5 knockouts",
+      "copy": "Removed Red, Li-Fo, NASA Al, Phattedcalf, and Li-Fo again to own the finish.",
+      "avatar": "images/players/chris-o.jpg",
+      "fallback": "CO"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "14" },
+    { "icon": "♻️", "label": "Rebuys", "value": "5" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$420" },
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 40m" }
+  ],
+  "summary": {
+    "startTime": "7:15:50 pm 04/18/2026",
+    "endTime": "10:56:03 pm 04/18/2026",
+    "durationLabel": "3h 40m",
+    "buyIns": 9,
+    "rebuys": 5,
+    "entries": 14,
+    "totalPot": 420,
+    "paidSpots": 3,
+    "winner": "Chris O",
+    "firstOut": "Ahmed",
+    "firstPermanentOut": "BostnMike"
+  },
+  "spotlight": {
+    "player": "Chris O",
+    "avatar": "images/players/chris-o.jpg",
+    "fallback": "CO",
+    "kicker": "Game Spotlight",
+    "pills": ["Winner", "Closer", "5 Knockouts", "Survived the Gauntlet"]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Ahmed",
+      "note": "NASA Al got the opening bust and announced this would not be a polite evening."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "BostnMike",
+      "note": "NASA Al made the commissioner the first permanent casualty, and Mike declined the sequel."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Chris O",
+      "note": "Removed Red, Li-Fo, NASA Al, Phattedcalf, and Li-Fo again to finish the job."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Chris O over Li-Fo",
+      "note": "Phattedcalf finished third after helping turn the middle stages into a contact sport."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-18.jpg\" alt=\"Poster for the 04/18/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Sabres in the Playoffs?! did not feel like a casual Saturday game. It felt like somebody accidentally invited the top shelf and then dared them to keep it civil. The room was stacked, the aggression showed up early, and the rebuys started landing almost on cue. Ahmed hit the rail first, Red followed five minutes later, and before the night was half old the game had already announced that nobody was getting a soft landing.</p><p>The early tone belonged to NASA Al and Phattedcalf. NASA Al clipped Ahmed first and later sent BostnMike out for good, while Phattedcalf tagged Red once and Hiro once in the kind of middle stretch that made the whole session feel meaner than the box score. Red tried the usual resurrection routine with two rebuys, but this time the table never let him become the sequel. Chris O got him once, Li-Fo got him for good, and the steamroller never actually left the garage.</p><p>Then the game tightened, and Chris O started looking like the one player who could survive that room without blinking. He knocked out Red once in the middle, got Li-Fo once before the rebuy, then took NASA Al, Phattedcalf, and finally Li-Fo again to close the whole thing. That is a legitimate closer line in any game. In a field this loaded, it reads even cleaner. Li-Fo did enough to make heads-up after taking out Red for good and later Ahmed, but the ending belonged to Chris O.</p><p>And then there was the commissioner subplot, which was less subplot than surrender document. BostnMike got top pair/top kicker cracked by NASA Al’s pocket kings, made a nit fold with jacks into Red’s sevens, decided his head clearly was not in the right zip code, and waived off the rebuy entirely. In a room like this, that may have been the sharpest read he made all night.</p>",
+  "roastHtml": "<p>BostnMike spent one hand getting top/top snapped by cowboys, another proudly finding a nit fold against pocket sevens, and the rest of the night conducting a private emotional audit. In a murderers’ row game, the commissioner did not rebuy — which is honestly the poker equivalent of seeing the boss music start and heading for the parking lot.</p>",
+  "numbersThatMatter": [
+    "9 buy-ins, 5 rebuys, 14 total entries.",
+    "3h 40m of play from 7:15 pm to 10:56 pm.",
+    "$420 total pot with 3 paid spots.",
+    "Chris O took the last two eliminations and finished with 5 named knockouts in a loaded field."
+  ],
+  "quickHitsLeft": [
+    "Ahmed was first out, rebought, rebought again later, and still never found stable footing.",
+    "Red tried the usual multi-life nonsense and still wound up dead for good before the money.",
+    "NASA Al hit hard early, but Chris O eventually sent him out before the podium fully set.",
+    "This was one of those nights where 14 total entries somehow still felt even meaner than that sounds."
+  ],
+  "quickHitsRight": [
+    "Phattedcalf quietly did serious damage by busting Red and Hiro before Chris O cut him down in third.",
+    "Li-Fo rebought, eliminated Red for good, then sent Ahmed out again before settling for runner-up.",
+    "BostnMike becoming first gone for good without a rebuy was either wisdom or trauma management. Probably both.",
+    "Sabres in the Playoffs?! was perfectly named: improbable, violent, and suspicious enough that nobody fully trusted what they were seeing."
+  ],
+  "tldr": "A loaded room produced a nasty, rebuy-heavy slugfest, and Chris O was the one who closed it. BostnMike saw the bloodbath, opted out early, and honestly may have been the only one showing real self-care."
+},
+{
   "id": "week-04-17-2026",
   "date": "04/17/2026",
   "eventName": "WrestleMania Eve | 9-Max",
   "title": "TWTW: WrestleMania Eve | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Red got three chances to become the story, failed all three, and watched Hiro and Ahmed turn WrestleMania Eve into a shared main event instead.",
   "summaryCards": [
     {
