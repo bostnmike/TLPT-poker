@@ -1586,5 +1586,85 @@
       "sourceVictim": "Bostnmike",
       "sourceKiller": "Hiro"
     }
+  ],
+  "2026-04-18": [
+    {
+      "victim": "ahmed",
+      "killer": "nasa-al",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "red",
+      "killer": "phattedcalf",
+      "sourceVictim": "Red",
+      "sourceKiller": "Phattedcalf"
+    },
+    {
+      "victim": "red",
+      "killer": "chris-o",
+      "sourceVictim": "Red",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "nasa-al",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "chris-o",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "ai-dave",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Ai-Dave"
+    },
+    {
+      "victim": "red",
+      "killer": "li-fo",
+      "sourceVictim": "Red",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "phattedcalf",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Phattedcalf"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "chris-o",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "phattedcalf",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Phattedcalf"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "chris-o",
+      "sourceVictim": "Phattedcalf",
+      "sourceKiller": "Chris O"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "chris-o",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Chris O"
+    }
   ]
 }
