@@ -45,27 +45,26 @@
     return bySlug;
   }
 
-function getOfficialHits(player) {
-  if (!player || typeof player !== "object") return 0;
+  function getOfficialHits(player) {
+    if (!player || typeof player !== "object") return 0;
 
-  // Support either flat player.hits or nested stats.hits / stat block variants
-  const candidates = [
-    player.hits,
-    player.Hits,
-    player.stats?.hits,
-    player.stats?.Hits,
-    player.statBlock?.hits,
-    player.statBlock?.Hits
-  ];
+    const candidates = [
+      player.hits,
+      player.Hits,
+      player.stats?.hits,
+      player.stats?.Hits,
+      player.statBlock?.hits,
+      player.statBlock?.Hits
+    ];
 
-  for (const value of candidates) {
-    const num = Number(value);
-    if (Number.isFinite(num)) return num;
+    for (const value of candidates) {
+      const num = Number(value);
+      if (Number.isFinite(num)) return num;
+    }
+
+    return 0;
   }
 
-  return 0;
-}
-  
   function getTotalByKiller(byKiller) {
     return Object.entries(byKiller || {}).map(([killerSlug, victims]) => {
       const total = Object.values(victims || {}).reduce((sum, count) => sum + Number(count || 0), 0);
@@ -101,34 +100,6 @@ function getOfficialHits(player) {
     });
   }
 
-  function getNemesisBoard(byVictim) {
-    return Object.entries(byVictim || {})
-      .map(([victimSlug, killers]) => {
-        const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
-          killerSlug,
-          count: Number(count || 0)
-        }));
-
-        if (!entries.length) return null;
-
-        entries.sort((a, b) => {
-          if (b.count !== a.count) return b.count - a.count;
-          return a.killerSlug.localeCompare(b.killerSlug);
-        });
-
-        return {
-          victimSlug,
-          killerSlug: entries[0].killerSlug,
-          count: entries[0].count
-        };
-      })
-      .filter(Boolean)
-      .sort((a, b) => {
-        if (b.count !== a.count) return b.count - a.count;
-        return a.victimSlug.localeCompare(b.victimSlug);
-      });
-  }
-
   function safePlayer(playerMap, slug) {
     return playerMap.get(String(slug || "")) || null;
   }
@@ -151,312 +122,309 @@ function getOfficialHits(player) {
     `;
   }
 
-function renderTallyMarks(count) {
-  const total = Number(count || 0);
-  if (total <= 0) return "";
+  function renderTallyMarks(count) {
+    const total = Number(count || 0);
+    if (total <= 0) return "";
 
-  const groupsOfFive = Math.floor(total / 5);
-  const remainder = total % 5;
+    const groupsOfFive = Math.floor(total / 5);
+    const remainder = total % 5;
 
-  const fiveGroup = `
-    <span class="knockouts-tally-group">
-      <span class="knockouts-tally-stroke"></span>
-      <span class="knockouts-tally-stroke"></span>
-      <span class="knockouts-tally-stroke"></span>
-      <span class="knockouts-tally-stroke"></span>
-      <span class="knockouts-tally-slash"></span>
-    </span>
-  `;
+    const fiveGroup = `
+      <span class="knockouts-tally-group">
+        <span class="knockouts-tally-stroke"></span>
+        <span class="knockouts-tally-stroke"></span>
+        <span class="knockouts-tally-stroke"></span>
+        <span class="knockouts-tally-stroke"></span>
+        <span class="knockouts-tally-slash"></span>
+      </span>
+    `;
 
-  const remainderGroup = remainder
-    ? `<span class="knockouts-tally-group">
-        ${Array.from({ length: remainder }).map(() => `<span class="knockouts-tally-stroke"></span>`).join("")}
-      </span>`
-    : "";
+    const remainderGroup = remainder
+      ? `<span class="knockouts-tally-group">
+          ${Array.from({ length: remainder }).map(() => `<span class="knockouts-tally-stroke"></span>`).join("")}
+        </span>`
+      : "";
 
-  return `
-    <div class="knockouts-tally-row" aria-hidden="true">
-      ${Array.from({ length: groupsOfFive }).map(() => fiveGroup).join("")}
-      ${remainderGroup}
-    </div>
-  `;
-}
-  
-function renderTopStats(players, playerMap, byKiller, byVictim) {
-  const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
-  const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
-  const rivalries = getStrongestRivalries(byVictim);
-
-  const officialHitsLeaders = [...players]
-    .map(player => ({
-      player,
-      hits: getOfficialHits(player)
-    }))
-    .filter(entry => entry.hits > 0)
-    .sort((a, b) => {
-      if (b.hits !== a.hits) return b.hits - a.hits;
-      return (a.player?.name || "").localeCompare(b.player?.name || "");
-    });
-
-  const mostOfficialHits = officialHitsLeaders[0] || null;
-  const mostBusted = victims[0] || null;
-  const biggestBully = rivalries[0] || null;
-  const mostUniqueVictims = [...killers].sort((a, b) => {
-    if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
-    if (b.total !== a.total) return b.total - a.total;
-    return a.slug.localeCompare(b.slug);
-  })[0] || null;
-
-  const html = [];
-
-  html.push(renderStatCard({
-    label: "Most Total Knock-Outs",
-    player: mostOfficialHits ? mostOfficialHits.player : null,
-    value: mostOfficialHits ? `${mostOfficialHits.hits}` : "—",
-    subtext: ""
-  }));
-
-  html.push(renderStatCard({
-    label: "Most Times Busted",
-    player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
-    value: mostBusted ? `${mostBusted.total}` : "—",
-    subtext: ""
-  }));
-
-  if (biggestBully) {
-    const killer = safePlayer(playerMap, biggestBully.killerSlug);
-    const victim = safePlayer(playerMap, biggestBully.victimSlug);
-
-    html.push(renderStatCard({
-      label: "Biggest Bully",
-      player: killer,
-      value: `${biggestBully.count} vs ${victim?.name || biggestBully.victimSlug}`,
-      subtext: ""
-    }));
-  } else {
-    html.push(renderStatCard({
-      label: "Biggest Bully",
-      player: null,
-      value: "—",
-      subtext: ""
-    }));
+    return `
+      <div class="knockouts-tally-row" aria-hidden="true">
+        ${Array.from({ length: groupsOfFive }).map(() => fiveGroup).join("")}
+        ${remainderGroup}
+      </div>
+    `;
   }
 
-  if (mostUniqueVictims) {
-    const killer = safePlayer(playerMap, mostUniqueVictims.slug);
+  function renderTopStats(players, playerMap, byKiller, byVictim) {
+    const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
+    const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
+    const rivalries = getStrongestRivalries(byVictim);
+
+    const officialHitsLeaders = [...players]
+      .map(player => ({
+        player,
+        hits: getOfficialHits(player)
+      }))
+      .filter(entry => entry.hits > 0)
+      .sort((a, b) => {
+        if (b.hits !== a.hits) return b.hits - a.hits;
+        return (a.player?.name || "").localeCompare(b.player?.name || "");
+      });
+
+    const mostOfficialHits = officialHitsLeaders[0] || null;
+    const mostBusted = victims[0] || null;
+    const biggestBully = rivalries[0] || null;
+    const mostUniqueVictims = [...killers].sort((a, b) => {
+      if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
+      if (b.total !== a.total) return b.total - a.total;
+      return a.slug.localeCompare(b.slug);
+    })[0] || null;
+
+    const html = [];
 
     html.push(renderStatCard({
-      label: "Most Unique Victims",
-      player: killer,
-      value: `${mostUniqueVictims.uniqueVictims}`,
+      label: "Most Total Knock-Outs",
+      player: mostOfficialHits ? mostOfficialHits.player : null,
+      value: mostOfficialHits ? `${mostOfficialHits.hits}` : "—",
       subtext: ""
     }));
-  } else {
-    html.push(renderStatCard({
-      label: "Most Unique Victims",
-      player: null,
-      value: "—",
-      subtext: ""
-    }));
-  }
 
-  return html.join("");
-}
+    html.push(renderStatCard({
+      label: "Most Times Busted",
+      player: mostBusted ? safePlayer(playerMap, mostBusted.slug) : null,
+      value: mostBusted ? `${mostBusted.total}` : "—",
+      subtext: ""
+    }));
+
+    if (biggestBully) {
+      const killer = safePlayer(playerMap, biggestBully.killerSlug);
+      const victim = safePlayer(playerMap, biggestBully.victimSlug);
+
+      html.push(renderStatCard({
+        label: "Biggest Bully",
+        player: killer,
+        value: `${biggestBully.count} vs ${victim?.name || biggestBully.victimSlug}`,
+        subtext: ""
+      }));
+    } else {
+      html.push(renderStatCard({
+        label: "Biggest Bully",
+        player: null,
+        value: "—",
+        subtext: ""
+      }));
+    }
+
+    if (mostUniqueVictims) {
+      const killer = safePlayer(playerMap, mostUniqueVictims.slug);
+
+      html.push(renderStatCard({
+        label: "Most Unique Victims",
+        player: killer,
+        value: `${mostUniqueVictims.uniqueVictims}`,
+        subtext: ""
+      }));
+    } else {
+      html.push(renderStatCard({
+        label: "Most Unique Victims",
+        player: null,
+        value: "—",
+        subtext: ""
+      }));
+    }
 
     return html.join("");
   }
 
   function renderRivalries(playerMap, byVictim) {
-  const rivalryMap = new Map();
+    const rivalryMap = new Map();
 
-  Object.entries(byVictim || {}).forEach(([victimSlug, killers]) => {
-    Object.entries(killers || {}).forEach(([killerSlug, count]) => {
-      const a = String(killerSlug);
-      const b = String(victimSlug);
-      const key = [a, b].sort().join("__");
+    Object.entries(byVictim || {}).forEach(([victimSlug, killers]) => {
+      Object.entries(killers || {}).forEach(([killerSlug, count]) => {
+        const a = String(killerSlug);
+        const b = String(victimSlug);
+        const key = [a, b].sort().join("__");
 
-      if (!rivalryMap.has(key)) {
-        rivalryMap.set(key, {
-          slugA: [a, b].sort()[0],
-          slugB: [a, b].sort()[1],
-          aOverB: 0,
-          bOverA: 0,
-          total: 0
-        });
-      }
+        if (!rivalryMap.has(key)) {
+          rivalryMap.set(key, {
+            slugA: [a, b].sort()[0],
+            slugB: [a, b].sort()[1],
+            aOverB: 0,
+            bOverA: 0,
+            total: 0
+          });
+        }
 
-      const entry = rivalryMap.get(key);
+        const entry = rivalryMap.get(key);
 
-      if (a === entry.slugA && b === entry.slugB) {
-        entry.aOverB += Number(count || 0);
-      } else if (a === entry.slugB && b === entry.slugA) {
-        entry.bOverA += Number(count || 0);
-      }
+        if (a === entry.slugA && b === entry.slugB) {
+          entry.aOverB += Number(count || 0);
+        } else if (a === entry.slugB && b === entry.slugA) {
+          entry.bOverA += Number(count || 0);
+        }
 
-      entry.total = entry.aOverB + entry.bOverA;
-    });
-  });
-
-  let rivalries = [...rivalryMap.values()]
-    .filter(entry => entry.total > 0)
-    .sort((a, b) => {
-      if (b.total !== a.total) return b.total - a.total;
-      const aMax = Math.max(a.aOverB, a.bOverA);
-      const bMax = Math.max(b.aOverB, b.bOverA);
-      if (bMax !== aMax) return bMax - aMax;
-      const aNames = `${a.slugA}-${a.slugB}`;
-      const bNames = `${b.slugA}-${b.slugB}`;
-      return aNames.localeCompare(bNames);
+        entry.total = entry.aOverB + entry.bOverA;
+      });
     });
 
-  if (!rivalries.length) {
-    return `<div class="knockouts-empty">No rivalry data yet.</div>`;
-  }
-
-  const cutoffIndex = Math.min(5, rivalries.length - 1);
-  const cutoffTotal = rivalries[cutoffIndex]?.total ?? rivalries[rivalries.length - 1].total;
-  rivalries = rivalries.filter((entry, index) => index < 6 || entry.total === cutoffTotal);
-
-return `
-  <div class="knockouts-vendetta-list">
-    ${rivalries.map(entry => {
-      const playerA = safePlayer(playerMap, entry.slugA);
-      const playerB = safePlayer(playerMap, entry.slugB);
-
-      const nameA = playerA?.name || entry.slugA;
-      const nameB = playerB?.name || entry.slugB;
-
-      return `
-        <div class="knockouts-vendetta-card">
-          <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
-            <div class="knockouts-vendetta-avatar-wrap">
-              ${avatarMarkup(playerA, "knockouts-avatar-md")}
-              <div class="knockouts-vendetta-hover-name">${nameA}</div>
-            </div>
-          </div>
-
-          <div class="knockouts-vendetta-scoreline">
-            <span class="knockouts-vendetta-score">${entry.aOverB}</span>
-            <span class="knockouts-vendetta-vs">vs.</span>
-            <span class="knockouts-vendetta-score">${entry.bOverA}</span>
-          </div>
-
-          <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
-            <div class="knockouts-vendetta-avatar-wrap">
-              ${avatarMarkup(playerB, "knockouts-avatar-md")}
-              <div class="knockouts-vendetta-hover-name">${nameB}</div>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join("")}
-  </div>
-`;
-}
-  
-function renderNemesisBoard(playerMap, byVictim) {
-  const board = Object.entries(byVictim || {})
-    .map(([victimSlug, killers]) => {
-      const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
-        killerSlug,
-        count: Number(count || 0)
-      }));
-
-      if (!entries.length) return null;
-
-      entries.sort((a, b) => {
-        if (b.count !== a.count) return b.count - a.count;
-        return a.killerSlug.localeCompare(b.killerSlug);
+    let rivalries = [...rivalryMap.values()]
+      .filter(entry => entry.total > 0)
+      .sort((a, b) => {
+        if (b.total !== a.total) return b.total - a.total;
+        const aMax = Math.max(a.aOverB, a.bOverA);
+        const bMax = Math.max(b.aOverB, b.bOverA);
+        if (bMax !== aMax) return bMax - aMax;
+        const aNames = `${a.slugA}-${a.slugB}`;
+        const bNames = `${b.slugA}-${b.slugB}`;
+        return aNames.localeCompare(bNames);
       });
 
-      return {
-        victimSlug,
-        killerSlug: entries[0].killerSlug,
-        count: entries[0].count
-      };
-    })
-    .filter(Boolean)
-    .sort((a, b) => {
-      const victimA = safePlayer(playerMap, a.victimSlug)?.name || a.victimSlug;
-      const victimB = safePlayer(playerMap, b.victimSlug)?.name || b.victimSlug;
-      return victimA.localeCompare(victimB);
-    });
+    if (!rivalries.length) {
+      return `<div class="knockouts-empty">No rivalry data yet.</div>`;
+    }
 
-  if (!board.length) {
-    return `<div class="knockouts-empty">No nemesis board yet.</div>`;
-  }
+    const cutoffIndex = Math.min(5, rivalries.length - 1);
+    const cutoffTotal = rivalries[cutoffIndex]?.total ?? rivalries[rivalries.length - 1].total;
+    rivalries = rivalries.filter((entry, index) => index < 6 || entry.total === cutoffTotal);
 
-  return `
-    <div class="knockouts-nemesis-grid">
-      ${board.map(item => {
-        const victim = safePlayer(playerMap, item.victimSlug);
-        const killer = safePlayer(playerMap, item.killerSlug);
+    return `
+      <div class="knockouts-vendetta-list">
+        ${rivalries.map(entry => {
+          const playerA = safePlayer(playerMap, entry.slugA);
+          const playerB = safePlayer(playerMap, entry.slugB);
 
-        const victimName = victim?.name || item.victimSlug;
-        const killerName = killer?.name || item.killerSlug;
+          const nameA = playerA?.name || entry.slugA;
+          const nameB = playerB?.name || entry.slugB;
 
-        return `
-          <div class="knockouts-nemesis-card">
-            <div class="knockouts-nemesis-side">
-              <div class="knockouts-nemesis-avatar-wrap">
-                ${avatarMarkup(victim, "knockouts-avatar-md")}
-                <div class="knockouts-nemesis-hover-name">${victimName}</div>
+          return `
+            <div class="knockouts-vendetta-card">
+              <div class="knockouts-vendetta-side knockouts-vendetta-side-left">
+                <div class="knockouts-vendetta-avatar-wrap">
+                  ${avatarMarkup(playerA, "knockouts-avatar-md")}
+                  <div class="knockouts-vendetta-hover-name">${nameA}</div>
+                </div>
+              </div>
+
+              <div class="knockouts-vendetta-scoreline">
+                <span class="knockouts-vendetta-score">${entry.aOverB}</span>
+                <span class="knockouts-vendetta-vs">vs.</span>
+                <span class="knockouts-vendetta-score">${entry.bOverA}</span>
+              </div>
+
+              <div class="knockouts-vendetta-side knockouts-vendetta-side-right">
+                <div class="knockouts-vendetta-avatar-wrap">
+                  ${avatarMarkup(playerB, "knockouts-avatar-md")}
+                  <div class="knockouts-vendetta-hover-name">${nameB}</div>
+                </div>
               </div>
             </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
 
-            <div class="knockouts-nemesis-count-pill">
-              ${item.count} x by
+  function renderNemesisBoard(playerMap, byVictim) {
+    const board = Object.entries(byVictim || {})
+      .map(([victimSlug, killers]) => {
+        const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
+          killerSlug,
+          count: Number(count || 0)
+        }));
+
+        if (!entries.length) return null;
+
+        entries.sort((a, b) => {
+          if (b.count !== a.count) return b.count - a.count;
+          return a.killerSlug.localeCompare(b.killerSlug);
+        });
+
+        return {
+          victimSlug,
+          killerSlug: entries[0].killerSlug,
+          count: entries[0].count
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        const victimA = safePlayer(playerMap, a.victimSlug)?.name || a.victimSlug;
+        const victimB = safePlayer(playerMap, b.victimSlug)?.name || b.victimSlug;
+        return victimA.localeCompare(victimB);
+      });
+
+    if (!board.length) {
+      return `<div class="knockouts-empty">No nemesis board yet.</div>`;
+    }
+
+    return `
+      <div class="knockouts-nemesis-grid">
+        ${board.map(item => {
+          const victim = safePlayer(playerMap, item.victimSlug);
+          const killer = safePlayer(playerMap, item.killerSlug);
+
+          const victimName = victim?.name || item.victimSlug;
+          const killerName = killer?.name || item.killerSlug;
+
+          return `
+            <div class="knockouts-nemesis-card">
+              <div class="knockouts-nemesis-side">
+                <div class="knockouts-nemesis-avatar-wrap">
+                  ${avatarMarkup(victim, "knockouts-avatar-md")}
+                  <div class="knockouts-nemesis-hover-name">${victimName}</div>
+                </div>
+              </div>
+
+              <div class="knockouts-nemesis-count-pill">
+                ${item.count} x by
+              </div>
+
+              <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
+                <div class="knockouts-nemesis-avatar-wrap">
+                  ${avatarMarkup(killer, "knockouts-avatar-md")}
+                  <div class="knockouts-nemesis-hover-name">${killerName}</div>
+                </div>
+              </div>
             </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
 
-            <div class="knockouts-nemesis-side knockouts-nemesis-side-right">
-              <div class="knockouts-nemesis-avatar-wrap">
+  function renderBodyCountLedger(playerMap, byKiller) {
+    const killers = getTotalByKiller(byKiller)
+      .filter(item => item.total > 0)
+      .sort((a, b) => {
+        if (b.total !== a.total) return b.total - a.total;
+        const nameA = safePlayer(playerMap, a.slug)?.name || a.slug;
+        const nameB = safePlayer(playerMap, b.slug)?.name || b.slug;
+        return nameA.localeCompare(nameB);
+      });
+
+    if (!killers.length) {
+      return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
+    }
+
+    return `
+      <div class="knockouts-belt-grid">
+        ${killers.map(killerEntry => {
+          const killer = safePlayer(playerMap, killerEntry.slug);
+          const displayName = killer?.name || killerEntry.slug;
+
+          return `
+            <div class="knockouts-belt-tally-card">
+              <div class="knockouts-belt-tally-avatar-wrap">
                 ${avatarMarkup(killer, "knockouts-avatar-md")}
-                <div class="knockouts-nemesis-hover-name">${killerName}</div>
+                <div class="knockouts-belt-hover-name">${displayName}</div>
               </div>
+
+              <div class="knockouts-belt-tally-total">${killerEntry.total}</div>
+
+              ${renderTallyMarks(killerEntry.total)}
             </div>
-          </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
-
-function renderBodyCountLedger(playerMap, byKiller) {
-  const killers = getTotalByKiller(byKiller)
-    .filter(item => item.total > 0)
-    .sort((a, b) => {
-      if (b.total !== a.total) return b.total - a.total;
-      const nameA = safePlayer(playerMap, a.slug)?.name || a.slug;
-      const nameB = safePlayer(playerMap, b.slug)?.name || b.slug;
-      return nameA.localeCompare(nameB);
-    });
-
-  if (!killers.length) {
-    return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
+          `;
+        }).join("")}
+      </div>
+    `;
   }
-
-  return `
-    <div class="knockouts-belt-grid">
-      ${killers.map(killerEntry => {
-        const killer = safePlayer(playerMap, killerEntry.slug);
-        const displayName = killer?.name || killerEntry.slug;
-
-        return `
-          <div class="knockouts-belt-tally-card">
-            <div class="knockouts-belt-tally-avatar-wrap">
-              ${avatarMarkup(killer, "knockouts-avatar-md")}
-              <div class="knockouts-belt-hover-name">${displayName}</div>
-            </div>
-
-            <div class="knockouts-belt-tally-total">${killerEntry.total}</div>
-
-            ${renderTallyMarks(killerEntry.total)}
-          </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
 
   async function loadJson(url) {
     const res = await fetch(url, { cache: "no-store" });
