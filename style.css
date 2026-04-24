@@ -3127,15 +3127,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
-  border-color:rgba(250,204,21,.34);
+  border-color:rgba(250,204,21,.24);
   background:
-    radial-gradient(circle at top right, rgba(253,224,71,.16), transparent 34%),
-    radial-gradient(circle at left center, rgba(255,241,168,.10), transparent 26%),
-    linear-gradient(180deg, rgba(110,82,12,.98), rgba(42,29,6,.995));
+    radial-gradient(circle at top right, rgba(250,204,21,.12), transparent 32%),
+    radial-gradient(circle at left center, rgba(253,224,71,.06), transparent 24%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.12),
-    0 14px 32px rgba(0,0,0,.24),
-    0 0 24px rgba(250,204,21,.10);
+    0 0 0 1px rgba(250,204,21,.08),
+    0 12px 28px rgba(0,0,0,.20),
+    0 0 18px rgba(250,204,21,.08);
 }
 
 #home-snapshot{
@@ -3175,17 +3175,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(255,226,122,.42);
+  border:1px solid rgba(255,184,28,.24);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,244,180,.16), transparent 34%),
-    linear-gradient(180deg, rgba(255,224,92,.40), rgba(214,164,28,.30)),
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+    radial-gradient(circle at top right, rgba(255,205,72,.10), transparent 34%),
+    linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
   box-shadow:
-    0 0 0 1px rgba(255,226,122,.14),
-    0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(255,214,102,.12);
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 16px rgba(255,184,28,.08);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
@@ -3196,7 +3196,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .home-commissioner-shell .commissioner-typing-target *,
 .home-commissioner-shell .commissioner-report-text,
 .home-commissioner-shell .commissioner-report-text *{
-  color:#2f2205 !important;
+  color:#f8fafc !important;
   text-shadow:none !important;
 }
 
@@ -3224,9 +3224,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-radius:999px;
   background:linear-gradient(
     90deg,
-    rgba(255,241,168,.98) 0%,
-    rgba(250,204,21,.96) 42%,
-    rgba(202,138,4,.92) 78%,
+    rgba(255,224,102,.98) 0%,
+    rgba(255,184,28,.96) 46%,
+    rgba(255,184,28,.42) 78%,
     transparent 100%
   );
 }
