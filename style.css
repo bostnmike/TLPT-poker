@@ -3127,15 +3127,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
-  border-color:rgba(196,181,253,.42);
+  border-color:rgba(250,204,21,.34);
   background:
-    radial-gradient(circle at top right, rgba(196,181,253,.22), transparent 34%),
-    radial-gradient(circle at left center, rgba(221,214,254,.14), transparent 26%),
-    linear-gradient(180deg, rgba(78,46,126,.99), rgba(20,12,34,.995));
+    radial-gradient(circle at top right, rgba(253,224,71,.16), transparent 34%),
+    radial-gradient(circle at left center, rgba(255,241,168,.10), transparent 26%),
+    linear-gradient(180deg, rgba(110,82,12,.98), rgba(42,29,6,.995));
   box-shadow:
-    0 0 0 1px rgba(196,181,253,.18),
+    0 0 0 1px rgba(250,204,21,.12),
     0 14px 32px rgba(0,0,0,.24),
-    0 0 24px rgba(196,181,253,.16);
+    0 0 24px rgba(250,204,21,.10);
 }
 
 #home-snapshot{
@@ -3175,21 +3175,34 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(142,74,156,.50);
+  border:1px solid rgba(255,226,122,.42);
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(214,170,224,.10), transparent 34%),
-    linear-gradient(180deg, rgba(108,52,122,.44), rgba(58,24,70,.38)),
-    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
+    radial-gradient(circle at top right, rgba(255,244,180,.16), transparent 34%),
+    linear-gradient(180deg, rgba(255,224,92,.40), rgba(214,164,28,.30)),
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
   box-shadow:
-    0 0 0 1px rgba(142,74,156,.18),
+    0 0 0 1px rgba(255,226,122,.14),
     0 10px 30px rgba(0,0,0,.24),
-    0 0 18px rgba(108,52,122,.16);
+    0 0 18px rgba(255,214,102,.12);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
   min-height:3.4em;
+}
+
+.home-commissioner-shell .commissioner-typing-target,
+.home-commissioner-shell .commissioner-typing-target *,
+.home-commissioner-shell .commissioner-report-text,
+.home-commissioner-shell .commissioner-report-text *{
+  color:#2f2205 !important;
+  text-shadow:none !important;
+}
+
+.home-commissioner-shell .commissioner-typing-target{
+  font-weight:800;
+  letter-spacing:.01em;
 }
 
 #home-commissioner-section .section-head{
@@ -3211,9 +3224,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-radius:999px;
   background:linear-gradient(
     90deg,
-    rgba(220,38,38,.98) 0%,
-    rgba(249,115,22,.98) 36%,
-    rgba(255,184,28,.98) 74%,
+    rgba(255,241,168,.98) 0%,
+    rgba(250,204,21,.96) 42%,
+    rgba(202,138,4,.92) 78%,
     transparent 100%
   );
 }
