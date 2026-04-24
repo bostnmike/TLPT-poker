@@ -3179,9 +3179,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-radius:18px;
   padding:14px 18px;
   background:
-    radial-gradient(circle at top right, rgba(255,205,72,.10), transparent 34%),
-    linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
+    linear-gradient(180deg, rgba(255,205,72,.14), rgba(255,205,72,.04) 24%, rgba(18,24,32,.98) 24%, rgba(12,15,20,.99) 100%),
+    radial-gradient(circle at top right, rgba(255,205,72,.08), transparent 34%);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 10px 22px rgba(0,0,0,.18),
