@@ -1,0 +1,568 @@
+{
+  "eventId": "2026-01-24",
+  "sourceFile": "Event Report 2026-01-24.html",
+  "title": "Mother, \"Maye\" I? | 9-Max",
+  "date": "2026-01-24",
+  "summary": {
+    "startTimeRaw": "10:12:53 am 01/24/2026",
+    "startTimeIso": "2026-01-24T10:12:53",
+    "endTimeRaw": "7:50:27 pm 01/24/2026",
+    "endTimeIso": "2026-01-24T19:50:27",
+    "firstOut": "Providencemike",
+    "firstPermanentOut": "Hayden D",
+    "winner": "Bostnmike, Red",
+    "buyIns": 6,
+    "rebuys": 1,
+    "entries": 7,
+    "totalPot": 210,
+    "paidSpots": 2
+  },
+  "winners": [
+    {
+      "name": "BostnMike",
+      "slug": "bostnmike",
+      "rank": 1,
+      "payout": 105
+    },
+    {
+      "name": "Red",
+      "slug": "red",
+      "rank": 1,
+      "payout": 105
+    }
+  ],
+  "actions": [
+    {
+      "type": "buyin",
+      "time_raw": "11:00:25 am 01/23/2026",
+      "player": "BostnMike",
+      "slug": "bostnmike"
+    },
+    {
+      "type": "buyin",
+      "time_raw": "11:00:25 am 01/23/2026",
+      "player": "Hayden D",
+      "slug": "hayden-d"
+    },
+    {
+      "type": "buyin",
+      "time_raw": "11:00:25 am 01/23/2026",
+      "player": "ProvidenceMike",
+      "slug": "providencemike"
+    },
+    {
+      "type": "buyin",
+      "time_raw": "11:00:25 am 01/23/2026",
+      "player": "Red",
+      "slug": "red"
+    },
+    {
+      "type": "tournament_started",
+      "time_raw": "10:12:53 am 01/24/2026"
+    },
+    {
+      "type": "buyin",
+      "time_raw": "12:20:16 pm 01/24/2026",
+      "player": "Nitro",
+      "slug": "nitro"
+    },
+    {
+      "type": "buyin",
+      "time_raw": "2:41:01 pm 01/24/2026",
+      "player": "A.I. Dave",
+      "slug": "ai-dave"
+    },
+    {
+      "type": "rebuy",
+      "time_raw": "4:36:46 pm 01/24/2026",
+      "player": "Hayden D",
+      "slug": "hayden-d"
+    },
+    {
+      "type": "bustout",
+      "time_raw": "6:16:40 pm 01/24/2026",
+      "player": "Hayden D",
+      "slug": "hayden-d",
+      "by": "Red",
+      "bySlug": "red",
+      "killers": [
+        {
+          "name": "Red",
+          "slug": "red"
+        }
+      ]
+    },
+    {
+      "type": "bustout",
+      "time_raw": "6:46:00 pm 01/24/2026",
+      "player": "ProvidenceMike",
+      "slug": "providencemike",
+      "by": "Nitro",
+      "bySlug": "nitro",
+      "killers": [
+        {
+          "name": "Nitro",
+          "slug": "nitro"
+        }
+      ]
+    },
+    {
+      "type": "bustout",
+      "time_raw": "7:14:35 pm 01/24/2026",
+      "player": "A.I. Dave",
+      "slug": "ai-dave",
+      "by": "Nitro",
+      "bySlug": "nitro",
+      "killers": [
+        {
+          "name": "Nitro",
+          "slug": "nitro"
+        }
+      ]
+    },
+    {
+      "type": "bustout",
+      "time_raw": "7:50:14 pm 01/24/2026",
+      "player": "Nitro",
+      "slug": "nitro",
+      "by": "BostnMike",
+      "bySlug": "bostnmike",
+      "killers": [
+        {
+          "name": "BostnMike",
+          "slug": "bostnmike"
+        }
+      ]
+    },
+    {
+      "type": "bustout_uncredited",
+      "time_raw": "7:50:27 pm 01/24/2026",
+      "player": "BostnMike",
+      "slug": "bostnmike"
+    },
+    {
+      "type": "bustout_uncredited",
+      "time_raw": "7:50:27 pm 01/24/2026",
+      "player": "Red",
+      "slug": "red"
+    },
+    {
+      "type": "tournament_ended",
+      "time_raw": "7:50:27 pm 01/24/2026"
+    },
+    {
+      "type": "total_pot",
+      "time_raw": "7:50:27 pm 01/24/2026",
+      "totalPot": 210
+    },
+    {
+      "type": "payout",
+      "time_raw": "7:50:27 pm 01/24/2026",
+      "player": "BostnMike",
+      "slug": "bostnmike",
+      "rank": 1,
+      "payout": 105
+    },
+    {
+      "type": "payout",
+      "time_raw": "7:50:27 pm 01/24/2026",
+      "player": "Red",
+      "slug": "red",
+      "rank": 1,
+      "payout": 105
+    }
+  ],
+  "players": [
+    {
+      "name": "A.I. Dave",
+      "slug": "ai-dave",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 0,
+      "profit": -30
+    },
+    {
+      "name": "Ahmed",
+      "slug": "ahmed",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Big Tim",
+      "slug": "big-tim",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "BostnMike",
+      "slug": "bostnmike",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 1,
+      "timesPlaced": 1,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 105,
+      "profit": 75
+    },
+    {
+      "name": "Brad R",
+      "slug": "brad-r",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "BuffaloMike",
+      "slug": "buffalomike",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Chris O",
+      "slug": "chris-o",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Cougar",
+      "slug": "cougar",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Dan K",
+      "slug": "dan-k",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "David K",
+      "slug": "david-k",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Fabian",
+      "slug": "fabian",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Gilmore",
+      "slug": "gilmore",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Hayden D",
+      "slug": "hayden-d",
+      "buyIns": 1,
+      "rebuys": 1,
+      "entries": 2,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 60,
+      "totalWinnings": 0,
+      "profit": -60
+    },
+    {
+      "name": "Hiro",
+      "slug": "hiro",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Jeff T",
+      "slug": "jeff-t",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Kishan",
+      "slug": "kishan",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Li-Fo",
+      "slug": "li-fo",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Nasa Al",
+      "slug": "nasa-al",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Nitro",
+      "slug": "nitro",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 2,
+      "timesPlaced": 0,
+      "bubbles": 1,
+      "totalCost": 30,
+      "totalWinnings": 0,
+      "profit": -30
+    },
+    {
+      "name": "Pat",
+      "slug": "pat",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "PhattedCalf",
+      "slug": "phattedcalf",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "PittsburghBill",
+      "slug": "pittsburghbill",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "ProvidenceMike",
+      "slug": "providencemike",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 0,
+      "profit": -30
+    },
+    {
+      "name": "Red",
+      "slug": "red",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 1,
+      "timesPlaced": 1,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 105,
+      "profit": 75
+    },
+    {
+      "name": "Rob F",
+      "slug": "rob-f",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "The Architect",
+      "slug": "the-architect",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Vic",
+      "slug": "vic",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Vish",
+      "slug": "vish",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Wild Bill",
+      "slug": "wild-bill",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
+      "name": "Yann",
+      "slug": "yann",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    }
+  ],
+  "warnings": []
+}
