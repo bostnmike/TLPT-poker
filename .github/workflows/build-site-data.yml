@@ -69,5 +69,7 @@ jobs:
             echo "No generated changes to commit."
           else
             git commit -m "Automated site data rebuild"
-            git push
+            git fetch origin main
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
