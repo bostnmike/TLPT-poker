@@ -1,1 +1,18 @@
-1
+{
+  "players": [
+    {
+      "name": "BostnMike",
+      "slug": "bostnmike",
+      "image": "images/players/bostnmike.jpg",
+      "notes": "Play as tight as you want, Mike",
+      "aliases": ["bostnmike"]
+    },
+    {
+      "name": "BuffaloMike",
+      "slug": "buffalomike",
+      "image": "images/players/mike-g.jpg",
+      "notes": "Sure, I'll play.",
+      "aliases": ["mike-g", "buffalomike", "buffalo mike"]
+    }
+  ]
+}
