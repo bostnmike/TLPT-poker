@@ -81,6 +81,23 @@ def canonicalize_player_name(raw_name, alias_map):
     raise RuntimeError(f"Could not map player name from event report: {raw_name}")
 
 
+def split_killer_names(raw_killer_text):
+    """
+    Supports:
+    - 'Li-Fo, Nasa Al'
+    - 'Li-Fo and Nasa Al'
+    - 'Li-Fo, Nasa Al and Red'
+    """
+    text = str(raw_killer_text or "").strip()
+    if not text:
+        return []
+
+    # normalize ' and ' into commas, then split
+    text = re.sub(r"\s+\band\b\s+", ",", text, flags=re.IGNORECASE)
+    parts = [part.strip() for part in text.split(",") if part.strip()]
+    return parts
+
+
 def strip_tags(html_fragment):
     text = re.sub(r"<br\s*/?>", "\n", html_fragment, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", "", text)
@@ -245,14 +262,24 @@ def parse_action_line(line, alias_map):
     m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+was busted out by\s+(.*?)\s*$', line, flags=re.IGNORECASE)
     if m:
         busted_name, busted_slug = canonicalize_player_name(m.group(2).strip(), alias_map)
-        killer_name, killer_slug = canonicalize_player_name(m.group(3).strip(), alias_map)
+
+        killer_names_raw = split_killer_names(m.group(3).strip())
+        killers = []
+        for raw_killer in killer_names_raw:
+            killer_name, killer_slug = canonicalize_player_name(raw_killer, alias_map)
+            killers.append({
+                "name": killer_name,
+                "slug": killer_slug
+            })
+
         return {
             "type": "bustout",
             "time_raw": m.group(1).strip(),
             "player": busted_name,
             "slug": busted_slug,
-            "by": killer_name,
-            "bySlug": killer_slug
+            "by": ", ".join(k["name"] for k in killers),
+            "bySlug": killers[0]["slug"] if killers else "",
+            "killers": killers
         }
 
     m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+busted out\s*$', line, flags=re.IGNORECASE)
@@ -298,7 +325,12 @@ def derive_event_player_stats(metadata_players, parsed_actions, payouts, buy_in_
         elif action_type == "rebuy":
             player_map[action["slug"]]["rebuys"] += 1
         elif action_type == "bustout":
-            player_map[action["bySlug"]]["hits"] += 1
+            killers = action.get("killers") or []
+            if killers:
+                for killer in killers:
+                    player_map[killer["slug"]]["hits"] += 1
+            elif action.get("bySlug"):
+                player_map[action["bySlug"]]["hits"] += 1
 
     paid_slugs = set()
     for payout in payouts:
