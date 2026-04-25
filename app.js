@@ -2884,16 +2884,17 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
   const { recordItems } = getBalancedHonorsSections(data);
 
+  const playerByName = Object.fromEntries(
+    players.map(player => [String(player.name || "").toLowerCase(), player])
+  );
+
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
-      const rule = HONOR_RULES[honor.type];
-      const player = getLeaderByRule(players, rule);
+      const player = playerByName[String(honor.name || "").toLowerCase()];
       if (!player) return "";
 
-      const valueClass = rule?.key === "profit"
-        ? statValueClass(player, "profit")
-        : "";
-
+      const rule = HONOR_RULES[honor.type];
+      const valueClass = rule?.key === "profit" ? statValueClass(player, "profit") : "";
       let valueText = honor.note || "";
 
       if (rule?.key === "profit") {
@@ -2915,27 +2916,26 @@ function renderChampions(data) {
     initAnimatedCounters(honorsEl);
   }
 
-  if (recordsEl) {
-    recordsEl.innerHTML = recordItems.map(record => {
-      const rule = RECORD_RULES[record.label];
-      const player = getLeaderByRule(players, rule);
+  if (recordsEl && Array.isArray(data?.records)) {
+    recordsEl.innerHTML = data.records.map(record => {
+      const player = playerByName[String(record.name || "").toLowerCase()];
       if (!player) return "";
 
-      const valueClass = rule?.key === "profit"
-        ? statValueClass(player, "profit")
-        : rule?.key === "luckIndex"
-          ? statValueClass({ profit: player?.luckIndex }, "profit")
-          : "";
+      const displayMeta = recordItems.find(item => item.label === record.label);
+      const rule = RECORD_RULES[record.label];
 
-      const valueText = rule?.key
-        ? formatStatValue(player, rule.key)
-        : (record.value || "");
+      const valueClass =
+        rule?.key === "profit"
+          ? statValueClass(player, "profit")
+          : rule?.key === "luckIndex"
+            ? statValueClass({ profit: player?.luckIndex }, "profit")
+            : "";
 
       return honorsCardMarkup(
         player,
-        record.title || record.label,
-        record.icon || recordIcon(record.label),
-        valueText,
+        displayMeta?.title || record.label,
+        displayMeta?.icon || recordIcon(record.label),
+        record.value || "",
         false,
         valueClass
       );
