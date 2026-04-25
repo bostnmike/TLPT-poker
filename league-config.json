@@ -1,0 +1,42 @@
+{
+  "buy_in_amount": 30,
+  "qualification_thresholds": {
+    "leaders_min_entries": 5,
+    "standings_min_entries": 2,
+    "dashboard_min_entries": 2
+  },
+  "tier_formula": {
+    "trueSkillWeight": 1.5,
+    "clutchWeight": 1.1,
+    "aggressionWeight": 0.65,
+    "survivorWeight": 1.0,
+    "tiltWeight": 1.25,
+    "rebuyPenaltyPerRebuy": 0.6,
+    "sampleBonus": {
+      "20": 3.0,
+      "15": 2.0,
+      "10": 1.0,
+      "5": 0.25,
+      "defaultBelow5": -2.0
+    }
+  },
+  "honors": [
+    { "type": "Profit Leader", "key": "profit", "direction": "desc" },
+    { "type": "Power Leader", "key": "trueSkillScore", "direction": "desc" },
+    { "type": "Clutch Leader", "key": "clutchIndex", "direction": "desc" },
+    { "type": "Hit King", "key": "hits", "direction": "desc" },
+    { "type": "Bubble King", "key": "bubbles", "direction": "desc" }
+  ],
+  "records": [
+    { "label": "Highest Profit", "key": "profit", "direction": "desc" },
+    { "label": "Best ROI", "key": "roi", "direction": "desc" },
+    { "label": "Most Hits", "key": "hits", "direction": "desc" },
+    { "label": "Most Cashes", "key": "timesPlaced", "direction": "desc" },
+    { "label": "Most Bubbles", "key": "bubbles", "direction": "desc" },
+    { "label": "Top True Skill", "key": "trueSkillScore", "direction": "desc" },
+    { "label": "Best Clutch Index", "key": "clutchIndex", "direction": "desc" },
+    { "label": "Best Luck Index", "key": "luckIndex", "direction": "desc" },
+    { "label": "Worst Luck Index", "key": "luckIndex", "direction": "asc" },
+    { "label": "Lowest Profit", "key": "profit", "direction": "asc" }
+  ]
+}
