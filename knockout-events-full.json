@@ -1666,5 +1666,85 @@
       "sourceVictim": "Li-Fo",
       "sourceKiller": "Chris O"
     }
+  ],
+  "2026-04-24": [
+    {
+      "victim": "li-fo",
+      "killer": "red",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "hiro",
+      "killer": "red",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "hiro",
+      "killer": "red",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Bostnmike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "red",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "vish",
+      "killer": "red",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "hiro",
+      "killer": "vish",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "red",
+      "sourceVictim": "Ai-Dave",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "red",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "vish",
+      "killer": "hiro",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "red",
+      "sourceVictim": "Bostnmike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "nitro",
+      "killer": "red",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "providencemike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Providencemike"
+    }
   ]
 }
