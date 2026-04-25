@@ -2,13 +2,12 @@
 
 import csv
 import json
-import math
 import sys
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-RAW_DIR = DATA_DIR / "raw"
 GENERATED_DIR = DATA_DIR / "generated"
 
 METADATA_PATH = DATA_DIR / "player-metadata.json"
@@ -22,8 +21,8 @@ def load_json(path: Path):
         return json.load(f)
 
 
-def normalize(s):
-    return str(s or "").strip().lower()
+def normalize(value):
+    return str(value or "").strip().lower()
 
 
 def safe_num(value):
@@ -41,16 +40,16 @@ def safe_num(value):
 
 
 def fmt_money(value):
-    sign = "-" if value < 0 else ""
-    return f"{sign}${abs(int(round(value))):,}"
+    sign = "-" if float(value) < 0 else ""
+    return f"{sign}${abs(int(round(float(value)))):,}"
 
 
 def fmt_pct(value):
-    return f"{value * 100:.1f}%"
+    return f"{float(value) * 100:.1f}%"
 
 
 def fmt_num1(value):
-    return f"{value:.1f}"
+    return f"{float(value):.1f}"
 
 
 def choose_record_value(player, key, fmt):
@@ -61,20 +60,23 @@ def choose_record_value(player, key, fmt):
         return fmt_pct(value)
     if fmt == "num1":
         return fmt_num1(value)
-    return str(int(round(value)))
+    return str(int(round(float(value))))
 
 
 def sort_players(players, key, direction="desc"):
-    reverse = direction == "desc"
+    if direction == "desc":
+        return sorted(
+            players,
+            key=lambda p: (-float(p.get(key, 0)), str(p.get("name", "")).lower())
+        )
     return sorted(
         players,
-        key=lambda p: (float(p.get(key, 0)), p.get("name", "")),
-        reverse=reverse
+        key=lambda p: (float(p.get(key, 0)), str(p.get("name", "")).lower())
     )
 
 
 def compute_expected_profit(entries, league_avg_profit_per_entry):
-    return entries * league_avg_profit_per_entry
+    return float(entries) * float(league_avg_profit_per_entry)
 
 
 def compute_clutch_index(player):
@@ -121,29 +123,42 @@ def compute_true_skill(player):
     )
 
 
+def get_csv_value(row, possible_keys, required=True):
+    for key in possible_keys:
+        if key in row:
+            return row.get(key)
+    if required:
+        raise RuntimeError(f"Missing CSV column. Tried: {possible_keys}")
+    return None
+
+
+def build_alias_map(metadata_players):
+    alias_map = {}
+    for player in metadata_players:
+        alias_map[normalize(player["name"])] = player
+        for alias in player.get("aliases", []):
+            alias_map[normalize(alias)] = player
+    return alias_map
+
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python scripts/build-site-data.py data/raw/<csvfile>")
         sys.exit(1)
 
     csv_path = Path(sys.argv[1]).resolve()
+    if not csv_path.exists():
+        raise RuntimeError(f"CSV file not found: {csv_path}")
+
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
 
     raw_field_map = config["raw_field_map"]
-    buy_in_amount = config["buy_in_amount"]
+    leaders_min_entries = config["qualification_thresholds"]["leaders_min_entries"]
 
     meta_players = metadata["players"]
-    alias_map = {}
-    slug_map = {}
-
-    for player in meta_players:
-        slug = player["slug"]
-        slug_map[slug] = player
-        for alias in player.get("aliases", []):
-            alias_map[normalize(alias)] = player
-        alias_map[normalize(player["name"])] = player
+    alias_map = build_alias_map(meta_players)
 
     csv_rows = []
     with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
@@ -153,29 +168,38 @@ def main():
 
     mapped_players = {}
     unmapped_rows = []
+    duplicate_csv_matches = []
 
     for row in csv_rows:
-        raw_name = row.get(raw_field_map["name"], "")
+        raw_name = get_csv_value(row, [raw_field_map["name"]])
         lookup = alias_map.get(normalize(raw_name))
+
         if not lookup:
             unmapped_rows.append(raw_name)
             continue
 
         slug = lookup["slug"]
+
+        if lookup["slug"] != slug:
+            raise RuntimeError(f"Slug mismatch while mapping row for {raw_name}")
+
+        if slug in mapped_players:
+            duplicate_csv_matches.append({"slug": slug, "csv_name": raw_name})
+
         mapped_players[slug] = {
             "name": lookup["name"],
             "slug": lookup["slug"],
             "image": lookup["image"],
             "notes": lookup["notes"],
-            "entries": safe_num(row.get(raw_field_map["entries"])),
-            "buyIns": safe_num(row.get(raw_field_map["buyIns"])),
-            "rebuys": safe_num(row.get(raw_field_map["rebuys"])),
-            "hits": safe_num(row.get(raw_field_map["hits"])),
-            "timesPlaced": safe_num(row.get(raw_field_map["timesPlaced"])),
-            "bubbles": safe_num(row.get(raw_field_map["bubbles"])),
-            "profit": safe_num(row.get(raw_field_map["profit"])),
-            "totalCost": safe_num(row.get(raw_field_map["totalCost"])),
-            "totalWinnings": safe_num(row.get(raw_field_map["totalWinnings"]))
+            "entries": safe_num(get_csv_value(row, [raw_field_map["entries"]])),
+            "buyIns": safe_num(get_csv_value(row, [raw_field_map["buyIns"]])),
+            "rebuys": safe_num(get_csv_value(row, [raw_field_map["rebuys"]])),
+            "hits": safe_num(get_csv_value(row, [raw_field_map["hits"]])),
+            "timesPlaced": safe_num(get_csv_value(row, [raw_field_map["timesPlaced"]])),
+            "bubbles": safe_num(get_csv_value(row, [raw_field_map["bubbles"]])),
+            "profit": safe_num(get_csv_value(row, [raw_field_map["profit"]])),
+            "totalCost": safe_num(get_csv_value(row, [raw_field_map["totalCost"]])),
+            "totalWinnings": safe_num(get_csv_value(row, [raw_field_map["totalWinnings"]]))
         }
 
     missing_players = [p["slug"] for p in meta_players if p["slug"] not in mapped_players]
@@ -183,22 +207,35 @@ def main():
     if unmapped_rows:
         raise RuntimeError(f"Unmapped CSV rows: {unmapped_rows}")
 
+    if duplicate_csv_matches:
+        raise RuntimeError(f"Duplicate CSV mappings detected: {duplicate_csv_matches}")
+
     if missing_players:
         raise RuntimeError(f"Players missing from CSV: {missing_players}")
 
     players = list(mapped_players.values())
+
+    required_meta_fields = ["name", "slug", "image", "notes"]
+    for p in players:
+        for field in required_meta_fields:
+            if field not in p:
+                raise RuntimeError(f"Missing metadata field '{field}' for {p.get('slug', 'unknown')}")
 
     total_entries = sum(float(p["entries"]) for p in players)
     total_profit = sum(float(p["profit"]) for p in players)
     league_avg_profit_per_entry = (total_profit / total_entries) if total_entries else 0.0
 
     for p in players:
-        p["roi"] = (float(p["profit"]) / float(p["totalCost"])) if float(p["totalCost"]) else 0.0
-        p["cashRate"] = (float(p["timesPlaced"]) / float(p["buyIns"])) if float(p["buyIns"]) else 0.0
-        p["bubbleRate"] = (float(p["bubbles"]) / float(p["buyIns"])) if float(p["buyIns"]) else 0.0
-        p["hitRate"] = (float(p["hits"]) / float(p["entries"])) if float(p["entries"]) else 0.0
+        total_cost = float(p["totalCost"])
+        buyins = float(p["buyIns"])
+        entries = float(p["entries"])
 
-        p["expectedProfit"] = compute_expected_profit(float(p["entries"]), league_avg_profit_per_entry)
+        p["roi"] = (float(p["profit"]) / total_cost) if total_cost else 0.0
+        p["cashRate"] = (float(p["timesPlaced"]) / buyins) if buyins else 0.0
+        p["bubbleRate"] = (float(p["bubbles"]) / buyins) if buyins else 0.0
+        p["hitRate"] = (float(p["hits"]) / entries) if entries else 0.0
+
+        p["expectedProfit"] = compute_expected_profit(p["entries"], league_avg_profit_per_entry)
         p["luckIndex"] = float(p["profit"]) - float(p["expectedProfit"])
         p["clutchIndex"] = compute_clutch_index(p)
         p["aggressionIndex"] = compute_aggression_index(p)
@@ -206,8 +243,11 @@ def main():
         p["tiltIndex"] = compute_tilt_index(p)
         p["trueSkillScore"] = compute_true_skill(p)
 
-    leaders_min_entries = config["qualification_thresholds"]["leaders_min_entries"]
     qualified = [p for p in players if float(p["entries"]) >= leaders_min_entries]
+    if not qualified:
+        raise RuntimeError(
+            f"No qualified players found using leaders_min_entries={leaders_min_entries}"
+        )
 
     honors = []
     for rule in config["honors"]:
@@ -216,7 +256,7 @@ def main():
         honors.append({
             "type": rule["type"],
             "name": leader["name"],
-            "note": rule["note"]
+            "note": rule.get("note", "")
         })
 
     records = []
@@ -226,10 +266,13 @@ def main():
         records.append({
             "label": rule["label"],
             "name": leader["name"],
-            "value": choose_record_value(leader, rule["key"], rule["format"])
+            "value": choose_record_value(leader, rule["key"], rule.get("format", "int"))
         })
 
+    players = sorted(players, key=lambda p: str(p["name"]).lower())
+
     output = {
+        "generatedAt": datetime.utcnow().isoformat() + "Z",
         "events": events["events"],
         "honors": honors,
         "records": records,
