@@ -45,26 +45,6 @@
     return bySlug;
   }
 
-  function getOfficialHits(player) {
-    if (!player || typeof player !== "object") return 0;
-
-    const candidates = [
-      player.hits,
-      player.Hits,
-      player.stats?.hits,
-      player.stats?.Hits,
-      player.statBlock?.hits,
-      player.statBlock?.Hits
-    ];
-
-    for (const value of candidates) {
-      const num = Number(value);
-      if (Number.isFinite(num)) return num;
-    }
-
-    return 0;
-  }
-
   function getTotalByKiller(byKiller) {
     return Object.entries(byKiller || {}).map(([killerSlug, victims]) => {
       const total = Object.values(victims || {}).reduce((sum, count) => sum + Number(count || 0), 0);
@@ -153,25 +133,23 @@
     `;
   }
 
-  function renderTopStats(players, playerMap, byKiller, byVictim) {
-    const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
-    const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
+  function renderTopStats(playerMap, byKiller, byVictim) {
+    const killers = getTotalByKiller(byKiller).sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      return a.slug.localeCompare(b.slug);
+    });
+
+    const victims = getTotalByVictim(byVictim).sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      return a.slug.localeCompare(b.slug);
+    });
+
     const rivalries = getStrongestRivalries(byVictim);
 
-    const officialHitsLeaders = [...players]
-      .map(player => ({
-        player,
-        hits: getOfficialHits(player)
-      }))
-      .filter(entry => entry.hits > 0)
-      .sort((a, b) => {
-        if (b.hits !== a.hits) return b.hits - a.hits;
-        return (a.player?.name || "").localeCompare(b.player?.name || "");
-      });
-
-    const mostOfficialHits = officialHitsLeaders[0] || null;
+    const mostKills = killers[0] || null;
     const mostBusted = victims[0] || null;
     const biggestBully = rivalries[0] || null;
+
     const mostUniqueVictims = [...killers].sort((a, b) => {
       if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
       if (b.total !== a.total) return b.total - a.total;
@@ -182,8 +160,8 @@
 
     html.push(renderStatCard({
       label: "Most Total Knock-Outs",
-      player: mostOfficialHits ? mostOfficialHits.player : null,
-      value: mostOfficialHits ? `${mostOfficialHits.hits}` : "—",
+      player: mostKills ? safePlayer(playerMap, mostKills.slug) : null,
+      value: mostKills ? `${mostKills.total}` : "—",
       subtext: ""
     }));
 
@@ -389,16 +367,14 @@
     `;
   }
 
-  function renderBodyCountLedger(players) {
-    const killers = [...players]
-      .map(player => ({
-        player,
-        total: getOfficialHits(player)
-      }))
-      .filter(entry => entry.total > 0)
+  function renderBodyCountLedger(playerMap, byKiller) {
+    const killers = getTotalByKiller(byKiller)
+      .filter(item => item.total > 0)
       .sort((a, b) => {
         if (b.total !== a.total) return b.total - a.total;
-        return (a.player?.name || "").localeCompare(b.player?.name || "");
+        const nameA = safePlayer(playerMap, a.slug)?.name || a.slug;
+        const nameB = safePlayer(playerMap, b.slug)?.name || b.slug;
+        return nameA.localeCompare(nameB);
       });
 
     if (!killers.length) {
@@ -407,20 +383,20 @@
 
     return `
       <div class="knockouts-belt-grid">
-        ${killers.map(entry => {
-          const player = entry.player;
-          const displayName = player?.name || "—";
+        ${killers.map(killerEntry => {
+          const killer = safePlayer(playerMap, killerEntry.slug);
+          const displayName = killer?.name || killerEntry.slug;
 
           return `
             <div class="knockouts-belt-tally-card">
               <div class="knockouts-belt-tally-avatar-wrap">
-                ${avatarMarkup(player, "knockouts-avatar-md")}
+                ${avatarMarkup(killer, "knockouts-avatar-md")}
                 <div class="knockouts-belt-hover-name">${displayName}</div>
               </div>
 
-              <div class="knockouts-belt-tally-total">${entry.total}</div>
+              <div class="knockouts-belt-tally-total">${killerEntry.total}</div>
 
-              ${renderTallyMarks(entry.total)}
+              ${renderTallyMarks(killerEntry.total)}
             </div>
           `;
         }).join("")}
@@ -450,7 +426,7 @@
     const bodyCountLedgerHost = document.getElementById("knockouts-body-count-ledger");
 
     if (topStatsHost) {
-      topStatsHost.innerHTML = renderTopStats(players, playerMap, byKiller, byVictim);
+      topStatsHost.innerHTML = renderTopStats(playerMap, byKiller, byVictim);
     }
 
     if (rivalriesHost) {
@@ -462,7 +438,7 @@
     }
 
     if (bodyCountLedgerHost) {
-      bodyCountLedgerHost.innerHTML = renderBodyCountLedger(players);
+      bodyCountLedgerHost.innerHTML = renderBodyCountLedger(playerMap, byKiller);
     }
   }
 
