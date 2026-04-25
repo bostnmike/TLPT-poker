@@ -5,7 +5,7 @@
       "format": "40K Format",
       "day": "Friday",
       "date": "Friday, May 1, 2026",
-      "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
+      "structure": "Blinds start 100/200 \u2022 20 min levels \u2022 ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
@@ -50,7 +50,7 @@
       "format": "500K Format",
       "day": "Saturday",
       "date": "Saturday, May 2, 2026",
-      "structure": "Blinds start 500/1000 • 20 min levels • ~4.5 hour event",
+      "structure": "Blinds start 500/1000 \u2022 20 min levels \u2022 ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:15 PM",
       "location": "The Caahhd Room",
@@ -91,7 +91,7 @@
       }
     }
   ],
-"honors": [
+  "honors": [
     {
       "type": "Profit Leader",
       "name": "Li-Fo",
