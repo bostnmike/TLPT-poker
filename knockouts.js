@@ -1,6 +1,6 @@
 /* knockouts.js */
 (() => {
-  const SITE_DATA_URL = "site-data.json";
+  const SITE_DATA_URL = "data/generated/site-data.json";
   const KNOCKOUTS_URL = "knockouts.json";
 
   function getInitials(name) {
@@ -80,6 +80,34 @@
     });
   }
 
+  function getNemesisBoard(byVictim) {
+    return Object.entries(byVictim || {})
+      .map(([victimSlug, killers]) => {
+        const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
+          killerSlug,
+          count: Number(count || 0)
+        }));
+
+        if (!entries.length) return null;
+
+        entries.sort((a, b) => {
+          if (b.count !== a.count) return b.count - a.count;
+          return a.killerSlug.localeCompare(b.killerSlug);
+        });
+
+        return {
+          victimSlug,
+          killerSlug: entries[0].killerSlug,
+          count: entries[0].count
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        if (b.count !== a.count) return b.count - a.count;
+        return a.victimSlug.localeCompare(b.victimSlug);
+      });
+  }
+
   function safePlayer(playerMap, slug) {
     return playerMap.get(String(slug || "")) || null;
   }
@@ -134,22 +162,13 @@
   }
 
   function renderTopStats(playerMap, byKiller, byVictim) {
-    const killers = getTotalByKiller(byKiller).sort((a, b) => {
-      if (b.total !== a.total) return b.total - a.total;
-      return a.slug.localeCompare(b.slug);
-    });
-
-    const victims = getTotalByVictim(byVictim).sort((a, b) => {
-      if (b.total !== a.total) return b.total - a.total;
-      return a.slug.localeCompare(b.slug);
-    });
-
+    const killers = getTotalByKiller(byKiller).sort((a, b) => b.total - a.total);
+    const victims = getTotalByVictim(byVictim).sort((a, b) => b.total - a.total);
     const rivalries = getStrongestRivalries(byVictim);
 
-    const mostKills = killers[0] || null;
+    const mostKnockouts = killers[0] || null;
     const mostBusted = victims[0] || null;
     const biggestBully = rivalries[0] || null;
-
     const mostUniqueVictims = [...killers].sort((a, b) => {
       if (b.uniqueVictims !== a.uniqueVictims) return b.uniqueVictims - a.uniqueVictims;
       if (b.total !== a.total) return b.total - a.total;
@@ -160,8 +179,8 @@
 
     html.push(renderStatCard({
       label: "Most Total Knock-Outs",
-      player: mostKills ? safePlayer(playerMap, mostKills.slug) : null,
-      value: mostKills ? `${mostKills.total}` : "—",
+      player: mostKnockouts ? safePlayer(playerMap, mostKnockouts.slug) : null,
+      value: mostKnockouts ? `${mostKnockouts.total}` : "—",
       subtext: ""
     }));
 
@@ -461,3 +480,4 @@
     initKnockoutCentral();
   }
 })();
+Visible: 0% - 100%
