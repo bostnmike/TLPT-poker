@@ -11,33 +11,33 @@ let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
-  totalCost: "Total Cost: Buy-ins + Rebuys Cost",
-  totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
-  profit: "Profit: Total Take − Total Cost",
+  totalCost: "Total Cost: Buy-ins and rebuys paid across all events",
+  totalWinnings: "Total Winnings: Gross cumulative return from the Tournament Director export",
+  profit: "Profit: Net cumulative take from the Tournament Director export",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
   bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
-  hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
+  hitRate: "Hit Rate: Hits ÷ Entries",
   entries: "Entries: Buy-ins + Rebuys",
   buyIns: "Buy-ins: Total number of initial tournament entries purchased",
   rebuys: "Rebuys: Total number of re-entry purchases after busting",
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  trueSkillScore: "Power Index: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
+  trueSkillScore: "Power Index: Composite site metric stored in site-data.json",
   luckIndex: "Luck Index: Profit − Expected Profit",
-  clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
-  aggressionIndex: "Aggression Index: Hits ÷ Entries",
-  survivorIndex: "Survivor Index: Cash Rate × (1 − Bubble Rate)",
-  tiltIndex: "Tilt Index: (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
+  clutchIndex: "Clutch Index: Composite placement-efficiency metric stored in site-data.json",
+  aggressionIndex: "Aggression Index: Composite hit-pressure metric stored in site-data.json",
+  survivorIndex: "Survivor Index: Composite deep-run consistency metric stored in site-data.json",
+  tiltIndex: "Tilt Index: Composite rebuy/inefficiency metric stored in site-data.json",
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
 const PROFILE_STAT_CONFIG = [
   { key: "totalCost", label: "Total Cost", type: "money", icon: "💸", dashboard: false },
-  { key: "totalWinnings", label: "Total Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
+  { key: "totalWinnings", label: "Gross Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
 
-  { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
+  { key: "profit", label: "Net Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
   { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
   { key: "cashRate", label: "Cash Rate", type: "pct", icon: "💵", dashboard: true },
   { key: "bubbleRate", label: "Bubble Rate", type: "pct", icon: "🫧", dashboard: true },
