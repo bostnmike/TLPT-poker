@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--
+  The Tournament Director
+  Copyright (c) 2004 - 2020 Corey Cooper
+-->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+    <title>Say My Name | 9-Max</title>
+  </head>
+
+  <style type="text/css">
+html {
+  font-family: Segoe UI;
+  font-size: 10pt;
+}
+
+body {
+  background-color: #5f7a96;
+}
+
+.table {
+  display: table;
+  border-spacing: 5px;
+  margin: auto;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+}
+
+.infoTable {
+  border: 2px solid #000;
+  border-radius: 6px;
+  font-size: 1.0rem;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 4px;
+}
+
+.tableHeader {
+  padding: 8px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  display: table;
+  border-spacing: 5px;
+  margin: auto
+}
+
+.eventname {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.description {
+  font-weight: bold;
+}
+
+.infotitle {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.fieldname {
+  text-align: left;
+}
+
+.fieldvalue, .rake {
+  text-align: right;
+}
+
+.sum {
+  background-color: #000;
+  height: 1px;
+}
+
+.rake {
+  color: #800;
+}
+
+.text {
+  color: #000;
+}
+  </style>
+
+  <body>
+
+    <div class="infoTable tableHeader">
+      <div class="eventname">Say My Name | 9-Max</div>
+      <div class="description"></div>
+    </div>
+
+    <p>
+
+    <div class="table">
+      <div class="row">
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="3">Take-in</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Buy-ins:</td>
+              <td class="fieldvalue">$240.00</td>
+              <td class="fieldvalue">(8)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Rebuys:</td>
+              <td class="fieldvalue">$90.00</td>
+              <td class="fieldvalue">(3)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Add-ons:</td>
+              <td class="fieldvalue">$0.00</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+            <tr>
+              <td class="fieldname"></td>
+              <td class="fieldvalue" colspan="2"><hr class="sum"></td>
+            </tr>
+            <tr>
+              <td class="fieldname">Total:</td>
+              <td class="fieldvalue">$330.00</td>
+              <td class="fieldvalue">(11)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="2">Rake</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Buy-ins:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Rebuys:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Add-ons:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Fixed:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname"></td>
+              <td class="fieldvalue"><hr class="sum"></td>
+              <td class="fieldvalue"></td>
+            </tr>
+            <tr>
+              <td class="fieldname">Total:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="2">Pot</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Paid-in:</td>
+              <td class="fieldvalue">$330.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">House contribution:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Rake:</td>
+              <td class="rake">($0.00)</td>
+            </tr>
+            <tr>
+              <td class="fieldname"></td>
+              <td class="fieldvalue"><hr class="sum"></td>
+              <td class="fieldvalue"></td>
+            </tr>
+            <tr>
+              <td class="fieldname">Total:</td>
+              <td class="fieldvalue">$330.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Guaranteed pot:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname">House adds to reach guaranteed pot:</td>
+              <td class="fieldvalue">$0.00</td>
+            </tr>
+            <tr>
+              <td class="fieldname"></td>
+              <td class="fieldvalue"><hr class="sum"></td>
+              <td class="fieldvalue"></td>
+            </tr>
+            <tr>
+              <td class="fieldname">Total:</td>
+              <td class="fieldvalue">$330.00</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="3">Prizes</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Percentage:</td>
+              <td class="fieldvalue">$330.00</td>
+              <td class="fieldvalue">(3)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Fixed:</td>
+              <td class="fieldvalue">$0.00</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Non-monetary:</td>
+              <td class="fieldvalue">n/a</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+            <tr>
+              <td class="fieldname"></td>
+              <td class="fieldvalue" colspan="2"><hr class="sum"></td>
+            </tr>
+            <tr>
+              <td class="fieldname">Total:</td>
+              <td class="fieldvalue">$330.00</td>
+              <td class="fieldvalue">(3)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="3">Bounties</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Bought:</td>
+              <td class="fieldvalue">$0.00</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Won:</td>
+              <td class="fieldvalue">$0.00</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Kept:</td>
+              <td class="fieldvalue">$0.00</td>
+              <td class="fieldvalue">(0)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="infoTable cell">
+          <table border="0" width="100%">
+            <tr>
+              <td class="infotitle" colspan="3">Summary</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Tournament start time:</td>
+              <td class="fieldvalue">7:02:36 pm 06/28/2025</td>
+            </tr>
+            <tr>
+              <td class="fieldname">First player out:</td>
+              <td class="fieldvalue">Gilmore</td>
+            </tr>
+            <tr>
+              <td class="fieldname">First player permanently out:</td>
+              <td class="fieldvalue">Gilmore</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Tournament end time:</td>
+              <td class="fieldvalue">11:03:33 pm 06/28/2025</td>
+            </tr>
+            <tr>
+              <td class="fieldname">Winner:</td>
+              <td class="fieldvalue">Li-Fo</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="table">
+      <div class="infoTable cell">
+        <table border="0" width="100%">
+          <tr>
+            <td class="infotitle">Action Summary</td>
+          </tr>
+          <tr>
+            <td class="text">10:09:59 am 06/28/2025: Ai-Dave bought-in<br>
+10:09:59 am 06/28/2025: Bostnmike bought-in<br>
+10:09:59 am 06/28/2025: Gilmore bought-in<br>
+10:09:59 am 06/28/2025: Hiro bought-in<br>
+10:09:59 am 06/28/2025: Li-Fo bought-in<br>
+10:09:59 am 06/28/2025: Nitro bought-in<br>
+10:09:59 am 06/28/2025: The Architect bought-in<br>
+11:57:08 am 06/28/2025: Nasa Al bought-in<br>
+7:02:36 pm 06/28/2025: Tournament started<br>
+8:19:58 pm 06/28/2025: Gilmore was busted out by Li-Fo, Nasa Al<br>
+8:53:01 pm 06/28/2025: Nitro was busted out by Bostnmike<br>
+8:53:08 pm 06/28/2025: Nitro rebought<br>
+8:54:47 pm 06/28/2025: Ai-Dave was busted out by The Architect<br>
+8:54:54 pm 06/28/2025: Ai-Dave rebought<br>
+9:08:13 pm 06/28/2025: Hiro was busted out by Nasa Al<br>
+9:08:20 pm 06/28/2025: Hiro rebought<br>
+9:37:20 pm 06/28/2025: Ai-Dave was busted out by Li-Fo, Nasa Al<br>
+10:30:28 pm 06/28/2025: Hiro was busted out by The Architect<br>
+10:38:44 pm 06/28/2025: Bostnmike was busted out by The Architect<br>
+10:47:00 pm 06/28/2025: Nitro was busted out by Li-Fo<br>
+11:03:32 pm 06/28/2025: Nasa Al was busted out by Li-Fo<br>
+11:03:33 pm 06/28/2025: The Architect was busted out by Li-Fo<br>
+11:03:33 pm 06/28/2025: Tournament ended<br>
+11:03:33 pm 06/28/2025: Total pot: $330.00<br>
+11:03:33 pm 06/28/2025: Li-Fo ranked 1st, received $165.00<br>
+11:03:33 pm 06/28/2025: The Architect ranked 2nd, received $100.00<br>
+11:03:33 pm 06/28/2025: Nasa Al ranked 3rd, received $65.00</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </body>
+</html>
