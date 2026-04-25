@@ -2,7 +2,6 @@
 
 import json
 import re
-import sys
 from datetime import datetime
 from html import unescape
 from pathlib import Path
@@ -13,6 +12,8 @@ RAW_EVENTS_DIR = DATA_DIR / "raw" / "events"
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 METADATA_PATH = DATA_DIR / "player-metadata.json"
 CONFIG_PATH = DATA_DIR / "league-config.json"
+
+TIMESTAMP_RE = r'(\d{1,2}:\d{2}:\d{2}\s+[ap]m\s+\d{2}/\d{2}/\d{4})'
 
 
 def load_json(path: Path):
@@ -33,6 +34,8 @@ def slugify_name(name):
         .replace(".", "")
         .replace("'", "")
         .replace('"', "")
+        .replace("-", "")
+        .replace(" ", "")
     )
 
 
@@ -44,18 +47,6 @@ def safe_int(value, default=0):
         return default
     try:
         return int(round(float(text)))
-    except ValueError:
-        return default
-
-
-def safe_float(value, default=0.0):
-    if value is None:
-        return default
-    text = str(value).strip().replace(",", "").replace("$", "").replace("%", "")
-    if not text:
-        return default
-    try:
-        return float(text)
     except ValueError:
         return default
 
@@ -77,17 +68,23 @@ def build_alias_map(metadata_players):
 def canonicalize_player_name(raw_name, alias_map):
     cleaned = normalize(unescape(raw_name).replace("\xa0", " "))
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
+
     player = alias_map.get(cleaned)
     if player:
         return player["name"], player["slug"]
 
-    # fallback to loose punctuation-stripped matching
     cleaned_loose = slugify_name(cleaned)
     for key, value in alias_map.items():
         if slugify_name(key) == cleaned_loose:
             return value["name"], value["slug"]
 
     raise RuntimeError(f"Could not map player name from event report: {raw_name}")
+
+
+def strip_tags(html_fragment):
+    text = re.sub(r"<br\s*/?>", "\n", html_fragment, flags=re.IGNORECASE)
+    text = re.sub(r"<[^>]+>", "", text)
+    return unescape(text).replace("\r", "").strip()
 
 
 def extract_title(html):
@@ -100,12 +97,6 @@ def extract_title(html):
         if m:
             return unescape(strip_tags(m.group(1))).strip()
     return "Untitled Event"
-
-
-def strip_tags(html_fragment):
-    text = re.sub(r"<br\s*/?>", "\n", html_fragment, flags=re.IGNORECASE)
-    text = re.sub(r"<[^>]+>", "", text)
-    return unescape(text).replace("\r", "").strip()
 
 
 def extract_action_lines(html):
@@ -142,7 +133,6 @@ def extract_takein_count(html, label):
 
 
 def extract_total_pot(html):
-    # Use the Summary/Action total pot line if present, fallback to Pot Total block
     m = re.search(
         r"Total pot:\s*\$([0-9,]+(?:\.\d{2})?)",
         html,
@@ -151,14 +141,12 @@ def extract_total_pot(html):
     if m:
         return parse_currency_to_int(m.group(1))
 
-    # fallback: Pot Total in table
     matches = re.findall(
         r'<td class="fieldname">Total:</td>\s*<td class="fieldvalue">\s*\$([0-9,]+(?:\.\d{2})?)\s*</td>',
         html,
         flags=re.IGNORECASE | re.DOTALL
     )
     if matches:
-        # last total in pot/prize sections is often the pot total
         return parse_currency_to_int(matches[-1])
 
     return 0
@@ -180,33 +168,32 @@ def parse_datetime_from_summary(text):
     text = str(text or "").strip()
     if not text:
         return ""
-    for fmt in ("%I:%M:%S %p %m/%d/%Y", "%I:%M:%S %p %m/%d/%Y".lower()):
-        try:
-            # normalize am/pm casing
-            cleaned = re.sub(r"\b(am|pm)\b", lambda m: m.group(1).upper(), text, flags=re.IGNORECASE)
-            dt = datetime.strptime(cleaned, "%I:%M:%S %p %m/%d/%Y")
-            return dt.isoformat()
-        except ValueError:
-            continue
-    return text
+    try:
+        cleaned = re.sub(r"\b(am|pm)\b", lambda m: m.group(1).upper(), text, flags=re.IGNORECASE)
+        dt = datetime.strptime(cleaned, "%I:%M:%S %p %m/%d/%Y")
+        return dt.isoformat()
+    except ValueError:
+        return text
 
 
 def parse_payout_line(line, alias_map):
-    m = re.search(
-        r'^\s*(.*?)\s+ranked\s+(\d+)(?:st|nd|rd|th),\s+received\s+\$([0-9,]+(?:\.\d{2})?)\s*$',
+    m = re.match(
+        rf'^{TIMESTAMP_RE}:\s*(.*?)\s+ranked\s+(\d+)(?:st|nd|rd|th),\s+received\s+\$([0-9,]+(?:\.\d{{2}})?)\s*$',
         line,
         flags=re.IGNORECASE
     )
     if not m:
         return None
 
-    raw_name = m.group(1).strip()
-    rank = safe_int(m.group(2))
-    payout = parse_currency_to_int(m.group(3))
+    timestamp = m.group(1).strip()
+    raw_name = m.group(2).strip()
+    rank = safe_int(m.group(3))
+    payout = parse_currency_to_int(m.group(4))
     name, slug = canonicalize_player_name(raw_name, alias_map)
 
     return {
         "type": "payout",
+        "time_raw": timestamp,
         "player": name,
         "slug": slug,
         "rank": rank,
@@ -215,21 +202,19 @@ def parse_payout_line(line, alias_map):
 
 
 def parse_action_line(line, alias_map):
-    # payout line
     payout = parse_payout_line(line, alias_map)
     if payout:
         return payout
 
-    # "timestamp: Tournament started"
-    m = re.match(r'^(.*?):\s*Tournament started\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*Tournament started\s*$', line, flags=re.IGNORECASE)
     if m:
         return {"type": "tournament_started", "time_raw": m.group(1).strip()}
 
-    m = re.match(r'^(.*?):\s*Tournament ended\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*Tournament ended\s*$', line, flags=re.IGNORECASE)
     if m:
         return {"type": "tournament_ended", "time_raw": m.group(1).strip()}
 
-    m = re.match(r'^(.*?):\s*Total pot:\s*\$([0-9,]+(?:\.\d{2})?)\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*Total pot:\s*\$([0-9,]+(?:\.\d{{2}})?)\s*$', line, flags=re.IGNORECASE)
     if m:
         return {
             "type": "total_pot",
@@ -237,8 +222,7 @@ def parse_action_line(line, alias_map):
             "totalPot": parse_currency_to_int(m.group(2))
         }
 
-    # "timestamp: Name bought-in"
-    m = re.match(r'^(.*?):\s*(.*?)\s+bought-in\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+bought-in\s*$', line, flags=re.IGNORECASE)
     if m:
         name, slug = canonicalize_player_name(m.group(2).strip(), alias_map)
         return {
@@ -248,8 +232,7 @@ def parse_action_line(line, alias_map):
             "slug": slug
         }
 
-    # "timestamp: Name rebought"
-    m = re.match(r'^(.*?):\s*(.*?)\s+rebought\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+rebought\s*$', line, flags=re.IGNORECASE)
     if m:
         name, slug = canonicalize_player_name(m.group(2).strip(), alias_map)
         return {
@@ -259,8 +242,7 @@ def parse_action_line(line, alias_map):
             "slug": slug
         }
 
-    # "timestamp: Name was busted out by Killer"
-    m = re.match(r'^(.*?):\s*(.*?)\s+was busted out by\s+(.*?)\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+was busted out by\s+(.*?)\s*$', line, flags=re.IGNORECASE)
     if m:
         busted_name, busted_slug = canonicalize_player_name(m.group(2).strip(), alias_map)
         killer_name, killer_slug = canonicalize_player_name(m.group(3).strip(), alias_map)
@@ -273,8 +255,7 @@ def parse_action_line(line, alias_map):
             "bySlug": killer_slug
         }
 
-    # "timestamp: Name busted out" (often end-of-event for winners/chop)
-    m = re.match(r'^(.*?):\s*(.*?)\s+busted out\s*$', line, flags=re.IGNORECASE)
+    m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+busted out\s*$', line, flags=re.IGNORECASE)
     if m:
         name, slug = canonicalize_player_name(m.group(2).strip(), alias_map)
         return {
@@ -306,10 +287,9 @@ def build_empty_player_record(meta_player):
     }
 
 
-def derive_event_player_stats(metadata_players, parsed_actions, payouts, paid_spots, buy_in_amount):
+def derive_event_player_stats(metadata_players, parsed_actions, payouts, buy_in_amount):
     player_map = {p["slug"]: build_empty_player_record(p) for p in metadata_players}
 
-    # Raw tallies from action log
     for action in parsed_actions:
         action_type = action["type"]
 
@@ -320,7 +300,6 @@ def derive_event_player_stats(metadata_players, parsed_actions, payouts, paid_sp
         elif action_type == "bustout":
             player_map[action["bySlug"]]["hits"] += 1
 
-    # Payout/cashes
     paid_slugs = set()
     for payout in payouts:
         slug = payout["slug"]
@@ -328,14 +307,11 @@ def derive_event_player_stats(metadata_players, parsed_actions, payouts, paid_sp
         player_map[slug]["totalWinnings"] += payout["payout"]
         paid_slugs.add(slug)
 
-    # Entries / cost / profit
     for record in player_map.values():
         record["entries"] = record["buyIns"] + record["rebuys"]
         record["totalCost"] = record["entries"] * buy_in_amount
         record["profit"] = record["totalWinnings"] - record["totalCost"]
 
-    # Bubble detection:
-    # Find players who busted permanently and did not cash.
     bustout_actions = [
         a for a in parsed_actions
         if a["type"] in {"bustout", "bustout_uncredited"}
@@ -393,36 +369,28 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
         metadata_players=metadata_players,
         parsed_actions=parsed_actions,
         payouts=payouts,
-        paid_spots=paid_spots,
         buy_in_amount=buy_in_amount
     )
 
-    # derive date
-    event_date = ""
     iso_start = parse_datetime_from_summary(summary_start)
     if iso_start and "T" in iso_start:
         event_date = iso_start.split("T")[0]
     elif re.match(r"\d{4}-\d{2}-\d{2}", path.stem):
         event_date = path.stem
     else:
-        # fallback to filename stem
         event_date = path.stem
 
     warnings = []
 
-    # Cross-check action-derived entries against summary counts
     action_buyins = sum(1 for a in parsed_actions if a["type"] == "buyin")
     action_rebuys = sum(1 for a in parsed_actions if a["type"] == "rebuy")
     if action_buyins != buyins_count:
         warnings.append(f"Buy-in count mismatch: summary={buyins_count}, actions={action_buyins}")
     if action_rebuys != rebuys_count:
         warnings.append(f"Rebuy count mismatch: summary={rebuys_count}, actions={action_rebuys}")
-
-    # Cross-check payouts against paid spots
     if paid_spots and len(payouts) != paid_spots:
         warnings.append(f"Paid spots mismatch: summary={paid_spots}, payouts={len(payouts)}")
 
-    # Build output
     event = {
         "eventId": event_date,
         "sourceFile": path.name,
