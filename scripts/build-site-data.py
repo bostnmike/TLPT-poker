@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import csv
 import json
 import sys
 from datetime import datetime
@@ -8,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
+PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 GENERATED_DIR = DATA_DIR / "generated"
 
 METADATA_PATH = DATA_DIR / "player-metadata.json"
@@ -19,24 +19,6 @@ OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
-
-
-def normalize(value):
-    return str(value or "").strip().lower()
-
-
-def safe_num(value):
-    if value is None:
-        return 0
-    text = str(value).strip().replace(",", "").replace("$", "").replace("%", "")
-    if text == "":
-        return 0
-    try:
-        if "." in text:
-            return float(text)
-        return int(text)
-    except ValueError:
-        return 0
 
 
 def fmt_money(value):
@@ -123,103 +105,77 @@ def compute_true_skill(player):
     )
 
 
-def get_csv_value(row, possible_keys, required=True):
-    for key in possible_keys:
-        if key in row:
-            return row.get(key)
-    if required:
-        raise RuntimeError(f"Missing CSV column. Tried: {possible_keys}")
-    return None
-
-
-def build_alias_map(metadata_players):
-    alias_map = {}
-    for player in metadata_players:
-        alias_map[normalize(player["name"])] = player
-        for alias in player.get("aliases", []):
-            alias_map[normalize(alias)] = player
-    return alias_map
+def build_zero_player(meta):
+    return {
+        "name": meta["name"],
+        "slug": meta["slug"],
+        "image": meta["image"],
+        "notes": meta["notes"],
+        "entries": 0,
+        "buyIns": 0,
+        "rebuys": 0,
+        "hits": 0,
+        "timesPlaced": 0,
+        "bubbles": 0,
+        "profit": 0,
+        "roi": 0.0,
+        "cashRate": 0.0,
+        "bubbleRate": 0.0,
+        "hitRate": 0.0,
+        "totalCost": 0,
+        "totalWinnings": 0,
+        "expectedProfit": 0.0,
+        "luckIndex": 0.0,
+        "clutchIndex": 0.0,
+        "aggressionIndex": 0.0,
+        "survivorIndex": 0.0,
+        "tiltIndex": 0.0,
+        "trueSkillScore": 0.0
+    }
 
 
 def main():
-    if len(sys.argv) < 2:
-        print("Usage: python scripts/build-site-data.py data/raw/<csvfile>")
-        sys.exit(1)
-
-    csv_path = Path(sys.argv[1]).resolve()
-    if not csv_path.exists():
-        raise RuntimeError(f"CSV file not found: {csv_path}")
-
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
 
-    raw_field_map = config["raw_field_map"]
-    leaders_min_entries = config["qualification_thresholds"]["leaders_min_entries"]
+    parsed_files = sorted(PARSED_EVENTS_DIR.glob("*.json"))
+    if not parsed_files:
+        raise RuntimeError(f"No parsed event JSON files found in {PARSED_EVENTS_DIR}. Run parse-event-reports.py first.")
 
     meta_players = metadata["players"]
-    alias_map = build_alias_map(meta_players)
+    players_by_slug = {p["slug"]: build_zero_player(p) for p in meta_players}
 
-    csv_rows = []
-    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            csv_rows.append(row)
+    parsed_event_count = 0
+    parse_warnings = []
 
-    mapped_players = {}
-    unmapped_rows = []
-    duplicate_csv_matches = []
+    for parsed_file in parsed_files:
+        event = load_json(parsed_file)
+        parsed_event_count += 1
 
-    for row in csv_rows:
-        raw_name = get_csv_value(row, [raw_field_map["name"]])
-        lookup = alias_map.get(normalize(raw_name))
+        for warning in event.get("warnings", []):
+            parse_warnings.append(f"{parsed_file.name}: {warning}")
 
-        if not lookup:
-            unmapped_rows.append(raw_name)
-            continue
+        for event_player in event.get("players", []):
+            slug = event_player["slug"]
+            if slug not in players_by_slug:
+                raise RuntimeError(f"Parsed event contains unknown player slug '{slug}' in {parsed_file.name}")
 
-        slug = lookup["slug"]
+            target = players_by_slug[slug]
+            for key in [
+                "entries",
+                "buyIns",
+                "rebuys",
+                "hits",
+                "timesPlaced",
+                "bubbles",
+                "profit",
+                "totalCost",
+                "totalWinnings"
+            ]:
+                target[key] += event_player.get(key, 0)
 
-        if lookup["slug"] != slug:
-            raise RuntimeError(f"Slug mismatch while mapping row for {raw_name}")
-
-        if slug in mapped_players:
-            duplicate_csv_matches.append({"slug": slug, "csv_name": raw_name})
-
-        mapped_players[slug] = {
-            "name": lookup["name"],
-            "slug": lookup["slug"],
-            "image": lookup["image"],
-            "notes": lookup["notes"],
-            "entries": safe_num(get_csv_value(row, [raw_field_map["entries"]])),
-            "buyIns": safe_num(get_csv_value(row, [raw_field_map["buyIns"]])),
-            "rebuys": safe_num(get_csv_value(row, [raw_field_map["rebuys"]])),
-            "hits": safe_num(get_csv_value(row, [raw_field_map["hits"]])),
-            "timesPlaced": safe_num(get_csv_value(row, [raw_field_map["timesPlaced"]])),
-            "bubbles": safe_num(get_csv_value(row, [raw_field_map["bubbles"]])),
-            "profit": safe_num(get_csv_value(row, [raw_field_map["profit"]])),
-            "totalCost": safe_num(get_csv_value(row, [raw_field_map["totalCost"]])),
-            "totalWinnings": safe_num(get_csv_value(row, [raw_field_map["totalWinnings"]]))
-        }
-
-    missing_players = [p["slug"] for p in meta_players if p["slug"] not in mapped_players]
-
-    if unmapped_rows:
-        raise RuntimeError(f"Unmapped CSV rows: {unmapped_rows}")
-
-    if duplicate_csv_matches:
-        raise RuntimeError(f"Duplicate CSV mappings detected: {duplicate_csv_matches}")
-
-    if missing_players:
-        raise RuntimeError(f"Players missing from CSV: {missing_players}")
-
-    players = list(mapped_players.values())
-
-    required_meta_fields = ["name", "slug", "image", "notes"]
-    for p in players:
-        for field in required_meta_fields:
-            if field not in p:
-                raise RuntimeError(f"Missing metadata field '{field}' for {p.get('slug', 'unknown')}")
+    players = list(players_by_slug.values())
 
     total_entries = sum(float(p["entries"]) for p in players)
     total_profit = sum(float(p["profit"]) for p in players)
@@ -243,11 +199,10 @@ def main():
         p["tiltIndex"] = compute_tilt_index(p)
         p["trueSkillScore"] = compute_true_skill(p)
 
+    leaders_min_entries = config["qualification_thresholds"]["leaders_min_entries"]
     qualified = [p for p in players if float(p["entries"]) >= leaders_min_entries]
     if not qualified:
-        raise RuntimeError(
-            f"No qualified players found using leaders_min_entries={leaders_min_entries}"
-        )
+        raise RuntimeError(f"No qualified players found using leaders_min_entries={leaders_min_entries}")
 
     honors = []
     for rule in config["honors"]:
@@ -273,6 +228,9 @@ def main():
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
+        "sourceMode": "event_reports",
+        "parsedEventCount": parsed_event_count,
+        "parseWarnings": parse_warnings,
         "events": events["events"],
         "honors": honors,
         "records": records,
