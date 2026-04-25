@@ -1,7 +1,16 @@
 /* knockouts.js */
 (() => {
-  const SITE_DATA_URL = "data/generated/site-data.json";
-  const KNOCKOUTS_URL = "knockouts.json";
+  const SITE_DATA_URLS = [
+    "data/generated/site-data.json",
+    "./data/generated/site-data.json",
+    "site-data.json"
+  ];
+
+  const KNOCKOUTS_URLS = [
+    "knockouts.json",
+    "./knockouts.json",
+    "data/generated/knockouts.json"
+  ];
 
   function getInitials(name) {
     const parts = String(name || "")
@@ -78,34 +87,6 @@
       if (a.killerSlug !== b.killerSlug) return a.killerSlug.localeCompare(b.killerSlug);
       return a.victimSlug.localeCompare(b.victimSlug);
     });
-  }
-
-  function getNemesisBoard(byVictim) {
-    return Object.entries(byVictim || {})
-      .map(([victimSlug, killers]) => {
-        const entries = Object.entries(killers || {}).map(([killerSlug, count]) => ({
-          killerSlug,
-          count: Number(count || 0)
-        }));
-
-        if (!entries.length) return null;
-
-        entries.sort((a, b) => {
-          if (b.count !== a.count) return b.count - a.count;
-          return a.killerSlug.localeCompare(b.killerSlug);
-        });
-
-        return {
-          victimSlug,
-          killerSlug: entries[0].killerSlug,
-          count: entries[0].count
-        };
-      })
-      .filter(Boolean)
-      .sort((a, b) => {
-        if (b.count !== a.count) return b.count - a.count;
-        return a.victimSlug.localeCompare(b.victimSlug);
-      });
   }
 
   function safePlayer(playerMap, slug) {
@@ -414,7 +395,6 @@
               </div>
 
               <div class="knockouts-belt-tally-total">${killerEntry.total}</div>
-
               ${renderTallyMarks(killerEntry.total)}
             </div>
           `;
@@ -423,10 +403,38 @@
     `;
   }
 
-  async function loadJson(url) {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to load ${url}`);
-    return await res.json();
+  async function loadJsonWithFallback(urls, label) {
+    let lastError = null;
+
+    for (const url of urls) {
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`${label} fetch failed: ${url} (${res.status})`);
+        const data = await res.json();
+        console.log(`[Knockouts] Loaded ${label} from: ${url}`);
+        return data;
+      } catch (err) {
+        lastError = err;
+        console.warn(`[Knockouts] Failed loading ${label} from: ${url}`, err);
+      }
+    }
+
+    throw lastError || new Error(`Unable to load ${label}`);
+  }
+
+  function showKnockoutsError(message) {
+    const root = document.getElementById("knockouts-page");
+    if (!root) return;
+
+    root.innerHTML = `
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head">
+          <h3>⚠️ Knockout data failed to load</h3>
+          <p class="muted">The page shell loaded, but the data request failed.</p>
+        </div>
+        <div class="knockouts-empty">${message}</div>
+      </section>
+    `;
   }
 
   function renderKnockoutCentral(siteData, knockouts) {
@@ -463,14 +471,21 @@
 
   async function initKnockoutCentral() {
     try {
-      const [siteData, knockouts] = await Promise.all([
-        loadJson(SITE_DATA_URL),
-        loadJson(KNOCKOUTS_URL)
-      ]);
+      const siteData = await loadJsonWithFallback(SITE_DATA_URLS, "site data");
+      const knockouts = await loadJsonWithFallback(KNOCKOUTS_URLS, "knockouts data");
+
+      if (!Array.isArray(siteData?.players)) {
+        throw new Error("site-data.json loaded but players array is missing");
+      }
+
+      if (!knockouts?.byVictim || !knockouts?.byKiller) {
+        throw new Error("knockouts.json loaded but byVictim/byKiller is missing");
+      }
 
       renderKnockoutCentral(siteData, knockouts);
     } catch (err) {
       console.error("Failed to initialize Knockout Central:", err);
+      showKnockoutsError(String(err.message || err));
     }
   }
 
@@ -480,4 +495,3 @@
     initKnockoutCentral();
   }
 })();
-Visible: 0% - 100%
