@@ -1,0 +1,25 @@
+{
+  "status": "SEED_ONLY_NOT_VALIDATED",
+  "summary": {
+    "note": "Bootstrap file created manually so the site can load. Run the builder and validator next.",
+    "csv_rows": 0,
+    "metadata_players": 30,
+    "generated_players": 30,
+    "unmapped_csv_rows": 0,
+    "missing_from_generated": 0,
+    "duplicate_slugs": 0,
+    "duplicate_names": 0,
+    "raw_mismatches": 0,
+    "formula_mismatches": 0,
+    "honors_mismatches": 0,
+    "records_mismatches": 0
+  },
+  "unmapped_csv_rows": [],
+  "missing_from_generated": [],
+  "duplicate_slugs": [],
+  "duplicate_names": [],
+  "raw_mismatches": [],
+  "formula_mismatches": [],
+  "honors_mismatches": [],
+  "records_mismatches": []
+}
