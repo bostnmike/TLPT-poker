@@ -389,45 +389,45 @@
     `;
   }
 
-function renderBodyCountLedger(players) {
-  const killers = [...players]
-    .map(player => ({
-      player,
-      total: getOfficialHits(player)
-    }))
-    .filter(entry => entry.total > 0)
-    .sort((a, b) => {
-      if (b.total !== a.total) return b.total - a.total;
-      return (a.player?.name || "").localeCompare(b.player?.name || "");
-    });
+  function renderBodyCountLedger(players) {
+    const killers = [...players]
+      .map(player => ({
+        player,
+        total: getOfficialHits(player)
+      }))
+      .filter(entry => entry.total > 0)
+      .sort((a, b) => {
+        if (b.total !== a.total) return b.total - a.total;
+        return (a.player?.name || "").localeCompare(b.player?.name || "");
+      });
 
-  if (!killers.length) {
-    return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
+    if (!killers.length) {
+      return `<div class="knockouts-empty">No knockout ledger yet.</div>`;
+    }
+
+    return `
+      <div class="knockouts-belt-grid">
+        ${killers.map(entry => {
+          const player = entry.player;
+          const displayName = player?.name || "—";
+
+          return `
+            <div class="knockouts-belt-tally-card">
+              <div class="knockouts-belt-tally-avatar-wrap">
+                ${avatarMarkup(player, "knockouts-avatar-md")}
+                <div class="knockouts-belt-hover-name">${displayName}</div>
+              </div>
+
+              <div class="knockouts-belt-tally-total">${entry.total}</div>
+
+              ${renderTallyMarks(entry.total)}
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
   }
 
-  return `
-    <div class="knockouts-belt-grid">
-      ${killers.map(entry => {
-        const player = entry.player;
-        const displayName = player?.name || "—";
-
-        return `
-          <div class="knockouts-belt-tally-card">
-            <div class="knockouts-belt-tally-avatar-wrap">
-              ${avatarMarkup(player, "knockouts-avatar-md")}
-              <div class="knockouts-belt-hover-name">${displayName}</div>
-            </div>
-
-            <div class="knockouts-belt-tally-total">${entry.total}</div>
-
-            ${renderTallyMarks(entry.total)}
-          </div>
-        `;
-      }).join("")}
-    </div>
-  `;
-}
-  
   async function loadJson(url) {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to load ${url}`);
