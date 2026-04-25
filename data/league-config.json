@@ -5,12 +5,24 @@
     "standings_min_entries": 2,
     "dashboard_min_entries": 2
   },
+  "raw_field_map": {
+    "name": "Player",
+    "buyIns": "Buy Ins",
+    "rebuys": "Rebuys",
+    "entries": "Entries",
+    "hits": "Hits",
+    "timesPlaced": "Times Placed",
+    "bubbles": "Bubbles",
+    "totalCost": "Total Cost",
+    "totalWinnings": "Total Winnings",
+    "profit": "Total Take"
+  },
   "honors": [
-    { "type": "Profit Leader", "key": "profit", "direction": "desc" },
-    { "type": "Power Leader", "key": "trueSkillScore", "direction": "desc" },
-    { "type": "Clutch Leader", "key": "clutchIndex", "direction": "desc" },
-    { "type": "Hit King", "key": "hits", "direction": "desc" },
-    { "type": "Bubble King", "key": "bubbles", "direction": "desc" }
+    { "type": "Profit Leader", "key": "profit", "direction": "desc", "note": "Current leader in total profit." },
+    { "type": "Power Leader", "key": "trueSkillScore", "direction": "desc", "note": "Highest True Skill Score in the current workbook." },
+    { "type": "Clutch Leader", "key": "clutchIndex", "direction": "desc", "note": "Best Clutch Index in the current workbook." },
+    { "type": "Hit King", "key": "hits", "direction": "desc", "note": "Most recorded hits / knockouts." },
+    { "type": "Bubble King", "key": "bubbles", "direction": "desc", "note": "Most bubble finishes so far." }
   ],
   "records": [
     { "label": "Highest Profit", "key": "profit", "direction": "desc", "format": "money" },
