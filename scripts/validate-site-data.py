@@ -2,12 +2,12 @@
 
 import csv
 import json
-import math
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
+PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 GENERATED_DIR = DATA_DIR / "generated"
 
 METADATA_PATH = DATA_DIR / "player-metadata.json"
@@ -44,20 +44,24 @@ def almost_equal(a, b, tol=1e-9):
 
 
 def sort_players(players, key, direction="desc"):
-    reverse = direction == "desc"
+    if direction == "desc":
+        return sorted(
+            players,
+            key=lambda p: (-float(p.get(key, 0)), str(p.get("name", "")).lower())
+        )
     return sorted(
         players,
-        key=lambda p: (float(p.get(key, 0)), p.get("name", "")),
-        reverse=reverse
+        key=lambda p: (float(p.get(key, 0)), str(p.get("name", "")).lower())
     )
 
 
 def build_alias_map(metadata_players):
     alias_map = {}
     for player in metadata_players:
+        alias_map[normalize(player["name"])] = player["slug"]
+        alias_map[normalize(player["slug"])] = player["slug"]
         for alias in player.get("aliases", []):
             alias_map[normalize(alias)] = player["slug"]
-        alias_map[normalize(player["name"])] = player["slug"]
     return alias_map
 
 
@@ -75,30 +79,112 @@ def choose_expected_record_value(player, rule):
     return str(int(round(float(value))))
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python scripts/validate-site-data.py data/raw/<csvfile>")
-        sys.exit(1)
+def aggregate_from_parsed_events(metadata_players):
+    players = {
+        p["slug"]: {
+            "name": p["name"],
+            "slug": p["slug"],
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "totalCost": 0,
+            "totalWinnings": 0
+        }
+        for p in metadata_players
+    }
 
-    csv_path = Path(sys.argv[1]).resolve()
+    parsed_files = sorted(PARSED_EVENTS_DIR.glob("*.json"))
+    if not parsed_files:
+        raise RuntimeError(f"No parsed event JSON files found in {PARSED_EVENTS_DIR}")
+
+    parse_warnings = []
+
+    for parsed_file in parsed_files:
+        event = load_json(parsed_file)
+        for warning in event.get("warnings", []):
+            parse_warnings.append(f"{parsed_file.name}: {warning}")
+
+        for event_player in event.get("players", []):
+            slug = event_player["slug"]
+            if slug not in players:
+                raise RuntimeError(f"Unknown player slug '{slug}' in parsed event {parsed_file.name}")
+
+            for key in [
+                "entries",
+                "buyIns",
+                "rebuys",
+                "hits",
+                "timesPlaced",
+                "bubbles",
+                "profit",
+                "totalCost",
+                "totalWinnings"
+            ]:
+                players[slug][key] += event_player.get(key, 0)
+
+    return players, parsed_files, parse_warnings
+
+
+def add_formula_fields(players):
+    total_entries = sum(float(p["entries"]) for p in players.values())
+    total_profit = sum(float(p["profit"]) for p in players.values())
+    league_avg_profit_per_entry = (total_profit / total_entries) if total_entries else 0.0
+
+    for p in players.values():
+        total_cost = float(p["totalCost"])
+        buyins = float(p["buyIns"])
+        entries = float(p["entries"])
+        profit = float(p["profit"])
+
+        p["roi"] = (profit / total_cost) if total_cost else 0.0
+        p["cashRate"] = (float(p["timesPlaced"]) / buyins) if buyins else 0.0
+        p["bubbleRate"] = (float(p["bubbles"]) / buyins) if buyins else 0.0
+        p["hitRate"] = (float(p["hits"]) / entries) if entries else 0.0
+
+        p["expectedProfit"] = entries * league_avg_profit_per_entry
+        p["luckIndex"] = profit - p["expectedProfit"]
+        p["clutchIndex"] = (p["cashRate"] * 100 * 0.55) + (p["roi"] * 100 * 0.35) - (p["bubbleRate"] * 100 * 0.20)
+        p["aggressionIndex"] = p["hitRate"] * 100
+        p["survivorIndex"] = max(0.0, (p["cashRate"] * 100 * 0.8) + ((1 - p["bubbleRate"]) * 20))
+        p["tiltIndex"] = max(0.0, (float(p["rebuys"]) / max(buyins, 1.0)) * 100 + p["bubbleRate"] * 40 + max(0.0, -p["roi"] * 20))
+        p["trueSkillScore"] = (
+            (p["roi"] * 100 * 0.30)
+            + (p["cashRate"] * 100 * 0.20)
+            + (p["hitRate"] * 100 * 0.15)
+            + (p["clutchIndex"] * 0.20)
+            + (p["aggressionIndex"] * 0.10)
+            + (p["survivorIndex"] * 0.10)
+            - (p["tiltIndex"] * 0.15)
+        )
+
+    return players
+
+
+def main():
+    csv_path = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else None
 
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
     site_data = load_json(SITE_DATA_PATH)
 
     metadata_players = metadata["players"]
-    players = site_data["players"]
     alias_map = build_alias_map(metadata_players)
-    raw_field_map = config["raw_field_map"]
+    player_by_slug = {player["slug"]: player for player in site_data["players"]}
 
-    player_by_slug = {}
+    parsed_aggregate, parsed_files, parse_warnings = aggregate_from_parsed_events(metadata_players)
+    parsed_aggregate = add_formula_fields(parsed_aggregate)
+
     duplicate_slugs = []
     duplicate_names = []
 
     seen_slugs = set()
     seen_names = set()
 
-    for player in players:
+    for player in site_data["players"]:
         slug = player["slug"]
         name = player["name"]
 
@@ -106,86 +192,65 @@ def main():
             duplicate_slugs.append(slug)
         seen_slugs.add(slug)
 
-        if normalize(name) in seen_names:
+        norm_name = normalize(name)
+        if norm_name in seen_names:
             duplicate_names.append(name)
-        seen_names.add(normalize(name))
+        seen_names.add(norm_name)
 
-        player_by_slug[slug] = player
-
-    csv_rows = []
-    with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            csv_rows.append(row)
-
-    unmapped_csv_rows = []
-    csv_by_slug = {}
-
-    for row in csv_rows:
-        raw_name = row.get(raw_field_map["name"], "")
-        slug = alias_map.get(normalize(raw_name))
-        if not slug:
-            unmapped_csv_rows.append(raw_name)
-            continue
-
-        csv_by_slug[slug] = {
-            "buyIns": safe_num(row.get(raw_field_map["buyIns"])),
-            "rebuys": safe_num(row.get(raw_field_map["rebuys"])),
-            "entries": safe_num(row.get(raw_field_map["entries"])),
-            "hits": safe_num(row.get(raw_field_map["hits"])),
-            "timesPlaced": safe_num(row.get(raw_field_map["timesPlaced"])),
-            "bubbles": safe_num(row.get(raw_field_map["bubbles"])),
-            "totalCost": safe_num(row.get(raw_field_map["totalCost"])),
-            "totalWinnings": safe_num(row.get(raw_field_map["totalWinnings"])),
-            "profit": safe_num(row.get(raw_field_map["profit"]))
-        }
-
-    missing_from_generated = []
-    for meta_player in metadata_players:
-        if meta_player["slug"] not in player_by_slug:
-            missing_from_generated.append(meta_player["slug"])
+    missing_from_generated = [
+        meta_player["slug"]
+        for meta_player in metadata_players
+        if meta_player["slug"] not in player_by_slug
+    ]
 
     raw_mismatches = []
-    for slug, csv_stats in csv_by_slug.items():
+    for slug, expected_player in parsed_aggregate.items():
         generated = player_by_slug.get(slug)
         if not generated:
             continue
-        for key, expected in csv_stats.items():
+
+        for key in [
+            "buyIns",
+            "rebuys",
+            "entries",
+            "hits",
+            "timesPlaced",
+            "bubbles",
+            "totalCost",
+            "totalWinnings",
+            "profit"
+        ]:
+            expected = expected_player.get(key, 0)
             actual = generated.get(key, 0)
             if not almost_equal(actual, expected):
                 raw_mismatches.append({
                     "slug": slug,
                     "field": key,
-                    "csv": expected,
+                    "parsed_events": expected,
                     "generated": actual
                 })
 
     formula_mismatches = []
-    for player in players:
-        slug = player["slug"]
+    for slug, expected_player in parsed_aggregate.items():
+        generated = player_by_slug.get(slug)
+        if not generated:
+            continue
 
-        total_cost = float(player.get("totalCost", 0))
-        buyins = float(player.get("buyIns", 0))
-        entries = float(player.get("entries", 0))
-        profit = float(player.get("profit", 0))
-        times_placed = float(player.get("timesPlaced", 0))
-        bubbles = float(player.get("bubbles", 0))
-        hits = float(player.get("hits", 0))
-
-        expected_roi = (profit / total_cost) if total_cost else 0.0
-        expected_cash_rate = (times_placed / buyins) if buyins else 0.0
-        expected_bubble_rate = (bubbles / buyins) if buyins else 0.0
-        expected_hit_rate = (hits / entries) if entries else 0.0
-
-        checks = {
-            "roi": expected_roi,
-            "cashRate": expected_cash_rate,
-            "bubbleRate": expected_bubble_rate,
-            "hitRate": expected_hit_rate
-        }
-
-        for field, expected in checks.items():
-            actual = float(player.get(field, 0))
+        for field in [
+            "roi",
+            "cashRate",
+            "bubbleRate",
+            "hitRate",
+            "expectedProfit",
+            "luckIndex",
+            "clutchIndex",
+            "aggressionIndex",
+            "survivorIndex",
+            "tiltIndex",
+            "trueSkillScore"
+        ]:
+            expected = expected_player.get(field, 0)
+            actual = generated.get(field, 0)
             if not almost_equal(actual, expected):
                 formula_mismatches.append({
                     "slug": slug,
@@ -196,7 +261,7 @@ def main():
 
     honors_mismatches = []
     qualified_min = config["qualification_thresholds"]["leaders_min_entries"]
-    qualified = [p for p in players if float(p.get("entries", 0)) >= qualified_min]
+    qualified = [p for p in parsed_aggregate.values() if float(p.get("entries", 0)) >= qualified_min]
 
     for rule in config["honors"]:
         sorted_pool = sort_players(qualified, rule["key"], rule["direction"])
@@ -211,8 +276,9 @@ def main():
             })
 
     records_mismatches = []
+    aggregate_player_list = list(parsed_aggregate.values())
     for rule in config["records"]:
-        sorted_pool = sort_players(players, rule["key"], rule["direction"])
+        sorted_pool = sort_players(aggregate_player_list, rule["key"], rule["direction"])
         expected_player = sorted_pool[0] if sorted_pool else None
         expected_name = expected_player["name"] if expected_player else None
         expected_value = choose_expected_record_value(expected_player, rule) if expected_player else None
@@ -230,40 +296,87 @@ def main():
                 "generated_value": actual_value
             })
 
+    csv_mismatches = []
+    unmapped_csv_rows = []
+
+    if csv_path:
+        if not csv_path.exists():
+            raise RuntimeError(f"CSV file not found: {csv_path}")
+
+        raw_field_map = config["raw_field_map"]
+        with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                raw_name = row.get(raw_field_map["name"], "")
+                slug = alias_map.get(normalize(raw_name))
+                if not slug:
+                    unmapped_csv_rows.append(raw_name)
+                    continue
+
+                generated = player_by_slug.get(slug)
+                if not generated:
+                    continue
+
+                for key in [
+                    "buyIns",
+                    "rebuys",
+                    "entries",
+                    "hits",
+                    "timesPlaced",
+                    "bubbles",
+                    "totalCost",
+                    "totalWinnings",
+                    "profit"
+                ]:
+                    csv_value = safe_num(row.get(raw_field_map[key]))
+                    actual = generated.get(key, 0)
+                    if not almost_equal(actual, csv_value):
+                        csv_mismatches.append({
+                            "slug": slug,
+                            "field": key,
+                            "csv": csv_value,
+                            "generated": actual
+                        })
+
     report = {
         "status": "PASS",
         "summary": {
-            "csv_rows": len(csv_rows),
+            "parsed_event_files": len(parsed_files),
             "metadata_players": len(metadata_players),
-            "generated_players": len(players),
-            "unmapped_csv_rows": len(unmapped_csv_rows),
+            "generated_players": len(site_data["players"]),
             "missing_from_generated": len(missing_from_generated),
             "duplicate_slugs": len(duplicate_slugs),
             "duplicate_names": len(duplicate_names),
             "raw_mismatches": len(raw_mismatches),
             "formula_mismatches": len(formula_mismatches),
             "honors_mismatches": len(honors_mismatches),
-            "records_mismatches": len(records_mismatches)
+            "records_mismatches": len(records_mismatches),
+            "parse_warnings": len(parse_warnings),
+            "csv_checked": bool(csv_path),
+            "unmapped_csv_rows": len(unmapped_csv_rows),
+            "csv_mismatches": len(csv_mismatches)
         },
-        "unmapped_csv_rows": unmapped_csv_rows,
+        "parse_warnings": parse_warnings,
         "missing_from_generated": missing_from_generated,
         "duplicate_slugs": duplicate_slugs,
         "duplicate_names": duplicate_names,
         "raw_mismatches": raw_mismatches,
         "formula_mismatches": formula_mismatches,
         "honors_mismatches": honors_mismatches,
-        "records_mismatches": records_mismatches
+        "records_mismatches": records_mismatches,
+        "unmapped_csv_rows": unmapped_csv_rows,
+        "csv_mismatches": csv_mismatches
     }
 
     has_errors = any([
-        unmapped_csv_rows,
         missing_from_generated,
         duplicate_slugs,
         duplicate_names,
         raw_mismatches,
         formula_mismatches,
         honors_mismatches,
-        records_mismatches
+        records_mismatches,
+        csv_mismatches
     ])
 
     if has_errors:
