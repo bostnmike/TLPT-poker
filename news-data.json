@@ -14,11 +14,125 @@
   },
   "weeks": [
 {
+{
+  "id": "week-04-24-2026",
+  "date": "04/24/2026",
+  "eventName": "Shipping Up to Boston | 9-Max",
+  "title": "TWTW: Shipping Up to Boston | 9-Max",
+  "featured": true,
+  "dek": "ProvidenceMike got rivered into near-extinction, came roaring all the way back to the chip lead, and turned a chaotic four-hour grinder into a three-way chop worth staying up for.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "ProvidenceMike",
+      "value": "Three-way chop",
+      "copy": "Came all the way back from a brutal river beat and short-stack life to grab a share of first.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "Li-Fo",
+      "copy": "Red opened the night by sending Li-Fo out first and setting the tone for the chaos.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Ai-Dave",
+      "copy": "Red made the second Ai-Dave exit the first permanent one of the night.",
+      "avatar": "images/players/ai-dave.jpg",
+      "fallback": "AD"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Red",
+      "value": "9 knockouts",
+      "copy": "Busted Li-Fo twice, Hiro twice, Ai-Dave twice, plus Vish, BostnMike, and Nitro.",
+      "avatar": "images/players/red.jpg",
+      "fallback": "RE"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "16" },
+    { "icon": "♻️", "label": "Rebuys", "value": "7" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$480" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 44m" }
+  ],
+  "summary": {
+    "startTime": "7:10:39 pm 04/24/2026",
+    "endTime": "11:54:25 pm 04/24/2026",
+    "durationLabel": "4h 44m",
+    "buyIns": 9,
+    "rebuys": 7,
+    "entries": 16,
+    "totalPot": 480,
+    "paidSpots": 3,
+    "winner": "Hiro, Providencemike, Red",
+    "firstOut": "Li-Fo",
+    "firstPermanentOut": "Ai-Dave"
+  },
+  "spotlight": {
+    "player": "ProvidenceMike",
+    "avatar": "images/players/providencemike.jpg",
+    "fallback": "PM",
+    "kicker": "Game Spotlight",
+    "pills": ["Three-Way Chop", "Massive Comeback", "Chip Leader Late", "Flipped the Script"]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Li-Fo",
+      "note": "Red opened the night by bouncing Li-Fo first and started a very long evening of repeat business."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Ai-Dave",
+      "note": "Red made the second Ai-Dave exit permanent and claimed the first real casualty of the night."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Red",
+      "note": "Removed Li-Fo twice, Hiro twice, Ai-Dave twice, plus Vish, BostnMike, and Nitro."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Hiro / ProvidenceMike / Red split first",
+      "note": "The top three agreed to a chop, and BostnMike got just enough sleep to make Logan with a pulse."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-24.jpg\" alt=\"Poster for the 04/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Shipping Up to Boston started like a table with no interest in mercy and somehow ended like a travel accommodation. The room was live from the jump, the rebuys stacked up fast, and Red spent most of the night treating the field like a personal eviction notice. Li-Fo got sent out first and came back. Hiro got sent out, came back, got sent out again, came back again, and still kept breathing. Ai-Dave and Vish both needed second lives too. It was one of those nights where nobody stayed dead unless the room signed paperwork.</p><p>And then ProvidenceMike flipped the whole script. After taking a brutal river beat and getting dragged all the way down to roughly 8K, he did not just survive. He rebuilt. He fought all the way back into the lead, stayed upright while the room kept detonating around him, and turned what should have been a sad supporting-role entry into the emotional center of the night. By the time he knocked out Ahmed late and sat down with the chip lead, the comeback had already become the real story whether the payout sheet admitted it or not.</p><p>The loudest public destruction still belonged to Red. He busted Li-Fo twice, Hiro twice, Ai-Dave twice, plus Vish, BostnMike, and Nitro, which is the kind of body count that usually buys you a clean solo headline. This time it bought him only a seat in a negotiated ending. Hiro deserves equal billing for refusing to stay buried after multiple busts, and for finally taking out Vish before the last conversation began. At 11:54:25, Hiro, ProvidenceMike, and Red all busted out together and chopped the top three spots.</p><p>Then there was BostnMike, who spent the night getting all the wrong kinds of confirmations. Jacks cracked by Vish’s sixes, every race lost, no real rhythm, and just enough pain to make the final chop feel less like diplomacy and more like a sleep-saving act of mercy before the early Boston flight. Four and a half hours of sleep has never looked so much like first-place money.</p>",
+  "roastHtml": "<p>BostnMike spent the night watching pocket jacks lose to sixes, every race miss the runway, and his stack behave like it had already boarded a different flight. By the time the chop came through, the commissioner was not chasing glory anymore. He was basically negotiating with JetBlue and the poker gods at the same time.</p>",
+  "numbersThatMatter": [
+    "9 buy-ins, 7 rebuys, 16 total entries.",
+    "4h 44m of play from 7:10 pm to 11:54 pm.",
+    "$480 total pot with a three-way chop at the top.",
+    "Red piled up 9 named knockouts and still had to share the ending."
+  ],
+  "quickHitsLeft": [
+    "Vish supplied the line of the night by explaining that Li-Fo bets like a \"poker terrorist.\"",
+    "Li-Fo was first out, rebought twice, and still stuck around long enough to be central to the chaos.",
+    "Hiro got busted three separate times and still ended up with a piece of first.",
+    "Ai-Dave became first gone for good, which is easy to forget in a game this noisy."
+  ],
+  "quickHitsRight": [
+    "ProvidenceMike’s comeback from the felt after the river beat was the emotional pivot of the entire night.",
+    "Ahmed survived the churn, then got clipped late by ProvidenceMike right before the chop settled.",
+    "Red did enough damage to headline almost any normal game. This was not a normal game.",
+    "Shipping Up to Boston ended with a three-way deal and a commissioner privately thanking the clock."
+  ],
+  "tldr": "ProvidenceMike looked cooked, came all the way back to the chip lead, and helped turn a wild rebuy night into a three-way chop. Red did most of the killing, Hiro refused to stay dead, and BostnMike finally caught one break when the deal got made."
+},
+{
   "id": "week-04-18-2026",
   "date": "04/18/2026",
   "eventName": "Sabres in the Playoffs?! | 9-Max",
   "title": "TWTW: Sabres in the Playoffs?! | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "A murderers’ row table turned 04/18 into a four-hour knife fight, and Chris O was the one still standing when the room finally ran out of lives.",
   "summaryCards": [
     {
@@ -125,7 +239,7 @@
     "Sabres in the Playoffs?! was perfectly named: improbable, violent, and suspicious enough that nobody fully trusted what they were seeing."
   ],
   "tldr": "A loaded room produced a nasty, rebuy-heavy slugfest, and Chris O was the one who closed it. BostnMike saw the bloodbath, opted out early, and honestly may have been the only one showing real self-care."
-},
+}
 {
   "id": "week-04-17-2026",
   "date": "04/17/2026",
