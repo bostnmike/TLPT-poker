@@ -8,11 +8,207 @@
       "aliases": ["bostnmike"]
     },
     {
+      "name": "Hiro",
+      "slug": "hiro",
+      "image": "images/players/hiro.jpg",
+      "notes": "Ooooooh, but I have a prime number of outs!",
+      "aliases": ["hiro"]
+    },
+    {
+      "name": "Li-Fo",
+      "slug": "li-fo",
+      "image": "images/players/li-fo.jpg",
+      "notes": "What's the wost that can happen?",
+      "aliases": ["li-fo", "lifo", "tony"]
+    },
+    {
+      "name": "A.I. Dave",
+      "slug": "ai-dave",
+      "image": "images/players/ai-dave.jpg",
+      "notes": "Oh man! I caught some of that $hit!",
+      "aliases": ["a.i. dave", "ai-dave", "ai dave"]
+    },
+    {
+      "name": "Cougar",
+      "slug": "cougar",
+      "image": "images/players/cougar.jpg",
+      "notes": "Nice hand, you SUCK!",
+      "aliases": ["cougar"]
+    },
+    {
+      "name": "Nasa Al",
+      "slug": "nasa-al",
+      "image": "images/players/nasa-al.jpg",
+      "notes": "I'm running 5 minutes late.",
+      "aliases": ["nasa al", "nasa-al", "al"]
+    },
+    {
+      "name": "Ahmed",
+      "slug": "ahmed",
+      "image": "images/players/ahmed.jpg",
+      "notes": "Get in there, Man!",
+      "aliases": ["ahmed"]
+    },
+    {
+      "name": "ProvidenceMike",
+      "slug": "providencemike",
+      "image": "images/players/providencemike.jpg",
+      "notes": "I definitely should not be in this hand. I'm really hard to kill BTW.",
+      "aliases": ["providencemike", "providence mike"]
+    },
+    {
+      "name": "Red",
+      "slug": "red",
+      "image": "images/players/red.jpg",
+      "notes": "Glory, Glory, Man United.",
+      "aliases": ["red"]
+    },
+    {
+      "name": "Nitro",
+      "slug": "nitro",
+      "image": "images/players/nitro.png",
+      "notes": "I don't believe you, Tony.",
+      "aliases": ["nitro"]
+    },
+    {
+      "name": "Yann",
+      "slug": "yann",
+      "image": "images/players/yann.jpg",
+      "notes": "",
+      "aliases": ["yann"]
+    },
+    {
+      "name": "Fabian",
+      "slug": "fabian",
+      "image": "images/players/fabian.jpg",
+      "notes": "",
+      "aliases": ["fabian"]
+    },
+    {
+      "name": "Vish",
+      "slug": "vish",
+      "image": "images/players/vish.jpg",
+      "notes": "I just want to gamble. Vamos!",
+      "aliases": ["vish"]
+    },
+    {
+      "name": "Chris O",
+      "slug": "chris-o",
+      "image": "images/players/chris-o.jpg",
+      "notes": "Can I still rebuy?",
+      "aliases": ["chris o", "chris-o"]
+    },
+    {
+      "name": "Jeff T",
+      "slug": "jeff-t",
+      "image": "images/players/jeff-t.jpg",
+      "notes": "On my big blind?!",
+      "aliases": ["jeff t", "jeff-t"]
+    },
+    {
+      "name": "The Architect",
+      "slug": "the-architect",
+      "image": "images/players/the-architect.jpg",
+      "notes": "Un-&^%$%-ing Believeable! How do you get there… Every Time!?",
+      "aliases": ["the architect", "the-architect", "architect", "billy b", "billy"]
+    },
+    {
+      "name": "Wild Bill",
+      "slug": "wild-bill",
+      "image": "images/players/wild-bill.jpg",
+      "notes": "Tournament Poker, Yee-Haw. Yep, it's a skill game.",
+      "aliases": ["wild bill", "wild-bill", "bill"]
+    },
+    {
+      "name": "Hayden D",
+      "slug": "hayden-d",
+      "image": "images/players/hayden-d.jpg",
+      "notes": "Oh man, there's $400 on my table in the kitchen. Time to shove.",
+      "aliases": ["hayden d", "hayden-d"]
+    },
+    {
+      "name": "Vic",
+      "slug": "vic",
+      "image": "images/players/vic.jpg",
+      "notes": "But, I don't like it when you call.",
+      "aliases": ["vic"]
+    },
+    {
+      "name": "PhattedCalf",
+      "slug": "phattedcalf",
+      "image": "images/players/phattedcalf.png",
+      "notes": "Doctor. Doctor. Annnnnd..... Doctor.",
+      "aliases": ["phattedcalf", "phatted calf"]
+    },
+    {
+      "name": "Rob F",
+      "slug": "rob-f",
+      "image": "images/players/rob-f.jpg",
+      "notes": "",
+      "aliases": ["rob f", "rob-f"]
+    },
+    {
+      "name": "Brad R",
+      "slug": "brad-r",
+      "image": "images/players/brad-r.jpg",
+      "notes": "I raise.",
+      "aliases": ["brad r", "brad-r"]
+    },
+    {
+      "name": "Kishan",
+      "slug": "kishan",
+      "image": "images/players/kishan.jpg",
+      "notes": "",
+      "aliases": ["kishan"]
+    },
+    {
+      "name": "Big Tim",
+      "slug": "big-tim",
+      "image": "images/players/big-tim.jpg",
+      "notes": "",
+      "aliases": ["big tim", "big-tim"]
+    },
+    {
+      "name": "Gilmore",
+      "slug": "gilmore",
+      "image": "images/players/gilmore.jpg",
+      "notes": "",
+      "aliases": ["gilmore", "matthew g"]
+    },
+    {
+      "name": "Dan K",
+      "slug": "dan-k",
+      "image": "images/players/dan-k.jpg",
+      "notes": "",
+      "aliases": ["dan k", "dan-k"]
+    },
+    {
+      "name": "Pat",
+      "slug": "pat",
+      "image": "images/players/pat.jpg",
+      "notes": "I should probably look at my cards first.",
+      "aliases": ["pat"]
+    },
+    {
       "name": "BuffaloMike",
       "slug": "buffalomike",
       "image": "images/players/mike-g.jpg",
       "notes": "Sure, I'll play.",
-      "aliases": ["mike-g", "buffalomike", "buffalo mike"]
+      "aliases": ["buffalomike", "buffalo mike", "mike-g"]
+    },
+    {
+      "name": "PittsburghBill",
+      "slug": "pittsburghbill",
+      "image": "images/players/pittsburghbill.png",
+      "notes": "",
+      "aliases": ["pittsburghbill", "pittsburgh bill", "pittdburghbill"]
+    },
+    {
+      "name": "David K",
+      "slug": "david-k",
+      "image": "images/players/david-k.jpg",
+      "notes": "",
+      "aliases": ["david k", "david-k"]
     }
   ]
 }
