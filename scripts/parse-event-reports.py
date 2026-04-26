@@ -83,16 +83,20 @@ def canonicalize_player_name(raw_name, alias_map):
 
 def split_killer_names(raw_killer_text):
     """
-    Supports:
+    Supports source strings like:
     - 'Li-Fo, Nasa Al'
     - 'Li-Fo and Nasa Al'
     - 'Li-Fo, Nasa Al and Red'
+
+    IMPORTANT LEAGUE RULE:
+    Only one player may ever be credited with a hit.
+    We still split here so we can detect bad/shared source lines,
+    but downstream we keep ONLY the first listed killer.
     """
     text = str(raw_killer_text or "").strip()
     if not text:
         return []
 
-    # normalize ' and ' into commas, then split
     text = re.sub(r"\s+\band\b\s+", ",", text, flags=re.IGNORECASE)
     parts = [part.strip() for part in text.split(",") if part.strip()]
     return parts
@@ -264,22 +268,24 @@ def parse_action_line(line, alias_map):
         busted_name, busted_slug = canonicalize_player_name(m.group(2).strip(), alias_map)
 
         killer_names_raw = split_killer_names(m.group(3).strip())
-        killers = []
-        for raw_killer in killer_names_raw:
-            killer_name, killer_slug = canonicalize_player_name(raw_killer, alias_map)
-            killers.append({
-                "name": killer_name,
-                "slug": killer_slug
-            })
+        if not killer_names_raw:
+            raise RuntimeError(f"Could not parse killer name(s) from event report line: {line}")
+
+        # HARD RULE:
+        # There is only ever one credited hitman.
+        # If the source line lists multiple killers, keep ONLY the first listed killer.
+        chosen_raw_killer = killer_names_raw[0]
+        killer_name, killer_slug = canonicalize_player_name(chosen_raw_killer, alias_map)
 
         return {
             "type": "bustout",
             "time_raw": m.group(1).strip(),
             "player": busted_name,
             "slug": busted_slug,
-            "by": ", ".join(k["name"] for k in killers),
-            "bySlug": killers[0]["slug"] if killers else "",
-            "killers": killers
+            "by": killer_name,
+            "bySlug": killer_slug,
+            "rawKillerText": m.group(3).strip(),
+            "sharedKillerSource": len(killer_names_raw) > 1
         }
 
     m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+busted out\s*$', line, flags=re.IGNORECASE)
@@ -296,6 +302,57 @@ def parse_action_line(line, alias_map):
         "type": "unparsed",
         "raw": line
     }
+
+
+def suppress_chop_finish_bustouts(parsed_actions, payouts):
+    """
+    HARD RULE:
+    If multiple players are paid/ranked 1st, treat the event as a chop.
+    Chopped finishers are NOT busted out, and no final hit is awarded.
+
+    We remove the terminal bustout action for each chopped finisher,
+    i.e. the last bustout after that player's final buy-in/rebuy.
+    """
+    warnings = []
+
+    if not payouts:
+        return parsed_actions, warnings
+
+    top_rank = min((p.get("rank", 999999) for p in payouts), default=999999)
+    if top_rank != 1:
+        return parsed_actions, warnings
+
+    chopped_slugs = [p["slug"] for p in payouts if p.get("rank") == 1]
+    if len(chopped_slugs) < 2:
+        return parsed_actions, warnings
+
+    cleaned_actions = list(parsed_actions)
+
+    for chopped_slug in chopped_slugs:
+        last_reentry_idx = -1
+        last_bust_idx = -1
+
+        for idx, action in enumerate(cleaned_actions):
+            if not action or action.get("slug") != chopped_slug:
+                continue
+
+            if action.get("type") in {"buyin", "rebuy"}:
+                last_reentry_idx = idx
+
+            if action.get("type") in {"bustout", "bustout_uncredited"}:
+                last_bust_idx = idx
+
+        # Only suppress the terminal bustout if it happens after the player's
+        # final buyin/rebuy sequence.
+        if last_bust_idx > last_reentry_idx >= -1:
+            removed = cleaned_actions[last_bust_idx]
+            cleaned_actions[last_bust_idx] = None
+            warnings.append(
+                f"Chop detected: removed terminal bustout for {chopped_slug} at {removed.get('time_raw', 'unknown time')}"
+            )
+
+    cleaned_actions = [action for action in cleaned_actions if action is not None]
+    return cleaned_actions, warnings
 
 
 def build_empty_player_record(meta_player):
@@ -325,11 +382,7 @@ def derive_event_player_stats(metadata_players, parsed_actions, payouts, buy_in_
         elif action_type == "rebuy":
             player_map[action["slug"]]["rebuys"] += 1
         elif action_type == "bustout":
-            killers = action.get("killers") or []
-            if killers:
-                for killer in killers:
-                    player_map[killer["slug"]]["hits"] += 1
-            elif action.get("bySlug"):
+            if action.get("bySlug"):
                 player_map[action["bySlug"]]["hits"] += 1
 
     paid_slugs = set()
@@ -397,6 +450,18 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
 
     payouts = [a for a in parsed_actions if a["type"] == "payout"]
 
+    # HARD RULES ENFORCEMENT
+    # 1) Shared killer lines only credit the first listed killer
+    shared_killer_warnings = []
+    for action in parsed_actions:
+        if action.get("type") == "bustout" and action.get("sharedKillerSource"):
+            shared_killer_warnings.append(
+                f"Shared killer source reduced to first listed killer only: {action.get('rawKillerText', '')}"
+            )
+
+    # 2) Chopped finishers are not busted out and do not generate final hits
+    parsed_actions, chop_warnings = suppress_chop_finish_bustouts(parsed_actions, payouts)
+
     player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
         metadata_players=metadata_players,
         parsed_actions=parsed_actions,
@@ -413,6 +478,8 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
         event_date = path.stem
 
     warnings = []
+    warnings.extend(shared_killer_warnings)
+    warnings.extend(chop_warnings)
 
     action_buyins = sum(1 for a in parsed_actions if a["type"] == "buyin")
     action_rebuys = sum(1 for a in parsed_actions if a["type"] == "rebuy")
