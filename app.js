@@ -1,24 +1,7 @@
 /* app.js */
 async function loadSiteData() {
-  try {
-    console.log("🔄 Loading site-data.json...");
-
-    const res = await fetch("./data/generated/site-data.json", { cache: "no-store" });
-
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
-    }
-
-    const data = await res.json();
-
-    console.log("✅ site-data loaded:", data);
-
-    return data;
-
-  } catch (err) {
-    console.error("❌ FAILED TO LOAD DATA:", err);
-    return { players: [] };
-  }
+  const res = await fetch("data/generated/site-data.json", { cache: "no-store" });
+  return await res.json();
 }
 
 const DEFAULT_STANDINGS_SORT = "profit";
