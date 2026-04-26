@@ -1,101 +1,154 @@
 /* style.css */
-:root{
-  --bg:#0a0d12;
-  --panel:#11161e;
-  --panel-2:#18212c;
-  --panel-3:#0f141c;
-  --text:#ecf2f8;
-  --muted:#9eb0c3;
-  --line:#283444;
-  --accent:#d7263d;
-  --gold:#ffb81c;
-  --gold-soft:#f6c65b;
-  --gold-deep:#c88a00;
-  --green:#3ddc84;
-  --red:#ff6b6b;
-  --white:#ffffff;
-  --shadow:0 10px 30px rgba(0,0,0,.25);
+
+/* =========================================
+   🎨 DESIGN SYSTEM (SINGLE SOURCE OF TRUTH)
+========================================= */
+:root {
+  --gold: #d4af37;
+  --gold-dark: #b8962e;
+  --gold-soft: #f6c65b;
+
+  --black: #0a0a0a;
+  --charcoal: #1a1a1a;
+  --gray: #2a2a2a;
+  --light-gray: #bbbbbb;
+  --white: #ffffff;
+
+  --text: #ecf2f8;
+  --muted: #9eb0c3;
+  --line: #283444;
+
+  --green: #3ddc84;
+  --red: #ff6b6b;
+
+  /* 🔥 RESTORED PANEL SYSTEM */
+  --panel: #11161e;
+  --panel-2: #18212c;
+  --panel-3: #0f141c;
+
+  --accent-schedule: #c2185b;
+  --accent-media: #6a1b9a;
+  --accent-rules: #2e7d32;
+  --accent-players: #c62828;
+  --accent-dashboard: #ef6c00;
+  --accent-knockout: #f9a825;
+
+  --radius: 12px;
+  --radius-lg: 18px;
+
+  --shadow: 0 6px 18px rgba(0,0,0,0.4);
+  --transition: all 0.25s ease;
 }
 
-*{
-  box-sizing:border-box;
+/* =========================================
+   🧼 GLOBAL RESET
+========================================= */
+* {
+  box-sizing: border-box;
 }
 
 html,
-body{
-  width:100%;
-  overflow-x:hidden;
+body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
-body{
-  margin:0;
-  padding-top:96px;
-  font-family:Arial, Helvetica, sans-serif;
+/* =========================================
+   🌑 BASE BODY
+========================================= */
+body {
+  margin: 0;
+  padding-top: 96px;
+  font-family: Arial, Helvetica, sans-serif;
+
   background:
     radial-gradient(circle at top right, rgba(255,184,28,.07), transparent 25%),
     radial-gradient(circle at left center, rgba(215,38,61,.08), transparent 22%),
     linear-gradient(180deg,#091018 0%,#0b0f14 100%);
-  color:var(--text);
+
+  color: var(--text);
 }
 
-img{
-  max-width:100%;
-  height:auto;
-  display:block;
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--white);
 }
 
-a{
-  color:var(--gold);
-  text-decoration:none;
+p {
+  color: var(--muted);
+  line-height: 1.5;
 }
 
-a:hover{
-  color:var(--gold-soft);
+/* =========================================
+   🖼 MEDIA + LINKS
+========================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-.wrap{
-  max-width:1240px;
-  margin:0 auto;
-  padding:25px 20px 0;
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-.site-footer{
-  margin-top:32px;
-  padding:0 20px 32px;
+a:hover {
+  color: var(--gold-soft);
 }
 
-.site-footer-inner{
-  max-width:1240px;
-  margin:0 auto;
+/* =========================================
+   📦 LAYOUT WRAPPER
+========================================= */
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 25px 20px 0;
 }
 
-.site-footer p{
-  margin:0;
-  color:var(--muted);
-  line-height:1.5;
+/* =========================================
+   🦶 FOOTER
+========================================= */
+.site-footer {
+  margin-top: 32px;
+  padding: 0 20px 32px;
 }
 
+.site-footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* =========================================
+   🧱 TOP SPACING NORMALIZATION
+========================================= */
 main.wrap > .section:first-child,
 main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
 main.wrap > .dashboard-page-stack:first-child,
-main.wrap > .hero-stack:first-child{
-  margin-top:0;
+main.wrap > .hero-stack:first-child {
+  margin-top: 0;
 }
 
 main.wrap > .standings-page-stack:first-child > .section:first-child,
-main.wrap > .dashboard-page-stack:first-child > .section:first-child{
-  margin-top:0;
+main.wrap > .dashboard-page-stack:first-child > .section:first-child {
+  margin-top: 0;
 }
-
 /* =========================================
    HEADER / TOP NAV
    ========================================= */
 
 .site-header{
   border-bottom:1px solid var(--line);
-  background:rgba(9,13,18,.95);
-  position:fixed;
+  background: color-mix(in srgb, var(--black) 92%, transparent);  position:fixed;
   top:0;
   left:0;
   right:0;
@@ -159,7 +212,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .nav > a:hover,
 .nav-dropdown-parent:hover{
-  background:var(--panel);
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02)),
+    var(--panel);
   color:var(--gold);
 }
 
