@@ -1261,26 +1261,35 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
-function renderDashboard(data) {
+function renderDashboard(sortKey) {
   const grid = document.getElementById('player-grid');
   if (!grid) {
     console.error('player-grid not found');
     return;
   }
 
-  const players = data.players || [];
+  // ✅ USE GLOBAL DATA (THIS IS THE FIX)
+  const data = window.siteData || {};
+  const players = Array.isArray(data.players) ? data.players : [];
 
   if (!players.length) {
     grid.innerHTML = '<div style="padding:20px;">No player data found.</div>';
     return;
   }
 
-  grid.innerHTML = players.map(player => {
+  // OPTIONAL SORT (SAFE)
+  const sortedPlayers = [...players].sort((a, b) => {
+    const valA = Number(a?.[sortKey]) || 0;
+    const valB = Number(b?.[sortKey]) || 0;
+    return valB - valA;
+  });
 
-    // --- SAFE VALUES ---
+  grid.innerHTML = sortedPlayers.map(player => {
+
     const name = player.name || 'Unknown';
-    const image = player.image 
-      ? `images/players/${player.image}` 
+
+    const image = player.image
+      ? `images/players/${player.image}`
       : `images/players/default.jpg`;
 
     const tier = player.tier || '';
@@ -1288,31 +1297,28 @@ function renderDashboard(data) {
       ? `tier-${tier.toLowerCase().replace(/\s+/g, '-')}`
       : '';
 
-    const heat = player.heat || '';
-    
-    const tierBadge = player.tier
-      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
+    const heat = player.heat
+      ? `<div class="player-heat">${player.heat}</div>`
       : '';
 
-    // --- OPTIONAL STAT FALLBACKS ---
-    const roi = player.roi ?? '--';
-    const profit = player.profit ?? '--';
+    const tierBadge = tier
+      ? `<div class="player-tier-badge ${tierClass}">${tier}</div>`
+      : '';
 
     return `
-  <div class="player-card">
+      <div class="player-card player-card-rich">
 
-    <div class="player-card-header">
-      <img src="images/players/${player.image}" class="player-avatar">
-    </div>
+        <div class="player-card-top">
+          <img src="${image}" class="player-avatar">
+          <div>
+            <h3>${name}</h3>
+            ${tierBadge}
+            ${heat}
+          </div>
+        </div>
 
-    <div class="player-card-body">
-      <div class="player-name">${player.name}</div>
-      ${tierBadge}
-      ${heat}
-    </div>
-
-  </div>
-`;
+      </div>
+    `;
   }).join('');
 }
 
