@@ -9771,14 +9771,4 @@ body:has(.media-header) .page-title-purple{
   color: #fff;
 }
 
-/* FIX BROKEN DASHBOARD GOLD LINES */
-.dashboard .accent-line,
-.dashboard .progress-line,
-.dashboard .player-line {
-    transform: none !important;
-    scale: none !important;
-    animation: none !important;
-    height: 2px !important;
-    border-radius: 2px !important;
-    box-shadow: none !important;
-}
+const grid = document.getElementById('dashboard-grid');
