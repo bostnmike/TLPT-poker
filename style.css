@@ -4623,6 +4623,15 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .player-card{
   padding:18px;
+
+  /* ✅ THIS IS THE FIX */
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;   /* 🔥 stops full-width stretch */
+  gap:8px;
+
+  width:100%;
+  max-width:240px;          /* 🔥 forces card shape */
 }
 
 .player-card-rich{
