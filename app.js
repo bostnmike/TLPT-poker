@@ -1261,62 +1261,57 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
-function renderDashboard(sortKey) {
+function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const grid = document.getElementById('player-grid');
+
   if (!grid) {
     console.error('player-grid not found');
     return;
   }
 
-  // ✅ USE GLOBAL DATA (THIS IS THE FIX)
-  const data = window.siteData || {};
-  const players = Array.isArray(data.players) ? data.players : [];
+  if (!window.siteData || !window.siteData.players) {
+    console.error('siteData not loaded');
+    grid.innerHTML = '<div style="padding:20px;">No data loaded.</div>';
+    return;
+  }
+
+  let players = [...window.siteData.players];
+
+  // ✅ SORTING (this is what your button was trying to do)
+  players.sort((a, b) => {
+    const aVal = a[sortKey] ?? 0;
+    const bVal = b[sortKey] ?? 0;
+    return bVal - aVal;
+  });
 
   if (!players.length) {
     grid.innerHTML = '<div style="padding:20px;">No player data found.</div>';
     return;
   }
 
-  // OPTIONAL SORT (SAFE)
-  const sortedPlayers = [...players].sort((a, b) => {
-    const valA = Number(a?.[sortKey]) || 0;
-    const valB = Number(b?.[sortKey]) || 0;
-    return valB - valA;
-  });
-
-  grid.innerHTML = sortedPlayers.map(player => {
-
-    const name = player.name || 'Unknown';
+  grid.innerHTML = players.map(player => {
 
     const image = player.image
       ? `images/players/${player.image}`
       : `images/players/default.jpg`;
 
-    const tier = player.tier || '';
-    const tierClass = tier
-      ? `tier-${tier.toLowerCase().replace(/\s+/g, '-')}`
+    const tierClass = player.tier
+      ? `tier-${player.tier.toLowerCase().replace(/\s+/g, '-')}`
       : '';
 
-    const heat = player.heat
-      ? `<div class="player-heat">${player.heat}</div>`
-      : '';
-
-    const tierBadge = tier
-      ? `<div class="player-tier-badge ${tierClass}">${tier}</div>`
+    const tierBadge = player.tier
+      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
       : '';
 
     return `
       <div class="player-card player-card-rich">
-
         <div class="player-card-top">
           <img src="${image}" class="player-avatar">
           <div>
-            <h3>${name}</h3>
+            <h3>${player.name}</h3>
             ${tierBadge}
-            ${heat}
           </div>
         </div>
-
       </div>
     `;
   }).join('');
@@ -3391,7 +3386,7 @@ async function main() {
   renderHomePage(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
-  renderDashboard(DEFAULT_DASHBOARD_SORT);
+  renderDashboard();
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);
