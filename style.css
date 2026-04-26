@@ -9797,3 +9797,53 @@ body:has(.media-header) .page-title-purple{
 }
 
 const grid = document.getElementById('dashboard-grid');
+
+   /* =========================================
+   🚑 DASHBOARD HARD RESET (FINAL FIX)
+   This overrides all broken layout changes
+========================================= */
+
+/* Restore grid layout */
+#dashboard-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 18px !important;
+}
+
+/* Kill ANY flex/width overrides breaking cards */
+#dashboard-grid .player-card {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+
+  width: 100% !important;
+  min-height: 70px !important;
+
+  background: linear-gradient(145deg, #11161e, #0f141c) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 14px !important;
+  padding: 14px 16px !important;
+}
+
+/* Fix avatar rendering */
+#dashboard-grid .player-avatar {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid var(--gold) !important;
+  background: #0f141c !important;
+  flex-shrink: 0 !important;
+}
+
+/* Fix text alignment */
+#dashboard-grid h3 {
+  margin: 0 !important;
+  font-size: 1rem !important;
+  color: #fff !important;
+}
+
+/* Remove any weird nested flex issues */
+#dashboard-grid .player-card-top {
+  display: contents !important;
+}
