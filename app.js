@@ -1263,44 +1263,59 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
 
 function renderDashboard(data) {
   const grid = document.getElementById('player-grid');
-  if (!grid) return;
+  if (!grid) {
+    console.error('player-grid not found');
+    return;
+  }
 
   const players = data.players || [];
 
+  if (!players.length) {
+    grid.innerHTML = '<div style="padding:20px;">No player data found.</div>';
+    return;
+  }
+
   grid.innerHTML = players.map(player => {
 
-    // ✅ SAFE TIER CLASS (NO CRASH)
-    const tierClass = player.tier
-      ? `tier-${player.tier.toLowerCase().replace(/\s+/g, '-')}`
-      : '';
-
-    // ✅ SAFE BADGE
-    const tierBadge = player.tier
-      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
-      : '';
-
-    // ✅ SAFE HEAT
-    const heat = player.heat
-      ? `<div class="player-heat">🔥 ${player.heat}</div>`
-      : '';
-
-    // ✅ SAFE IMAGE (fallback protection)
-    const image = player.image
-      ? `images/players/${player.image}`
+    // --- SAFE VALUES ---
+    const name = player.name || 'Unknown';
+    const image = player.image 
+      ? `images/players/${player.image}` 
       : `images/players/default.jpg`;
 
-    // ✅ SAFE NAME
-    const name = player.name || 'Unknown';
+    const tier = player.tier || '';
+    const tierClass = tier
+      ? `tier-${tier.toLowerCase().replace(/\s+/g, '-')}`
+      : '';
+
+    const heat = player.heat || '';
+
+    // --- OPTIONAL STAT FALLBACKS ---
+    const roi = player.roi ?? '--';
+    const profit = player.profit ?? '--';
 
     return `
       <div class="player-card">
-        <img src="${image}" class="player-avatar" alt="${name}">
-        <div class="player-name">${name}</div>
-        ${tierBadge}
-        ${heat}
+
+        <div class="player-card-header">
+          <img src="${image}" class="player-avatar" alt="${name}">
+        </div>
+
+        <div class="player-card-body">
+          <div class="player-name">${name}</div>
+
+          ${tier ? `<div class="player-tier-badge ${tierClass}">${tier}</div>` : ''}
+
+          ${heat ? `<div class="player-heat">🔥 ${heat}</div>` : ''}
+
+          <div class="player-stats">
+            <div>ROI: ${roi}</div>
+            <div>Profit: ${profit}</div>
+          </div>
+        </div>
+
       </div>
     `;
-
   }).join('');
 }
 
