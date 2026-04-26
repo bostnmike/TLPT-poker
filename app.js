@@ -1319,7 +1319,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
     return `
       <div class="player-card player-card-rich">
         <div class="player-card-top">
-          <img src="${image}" class="player-avatar">
+          <img src="${image}" class="player-avatar" onerror="this.src='images/players/default.jpg'">
           <div>
             <h3>${player.name}</h3>
             ${tierBadge}
