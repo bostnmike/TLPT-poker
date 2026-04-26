@@ -1289,6 +1289,10 @@ function renderDashboard(data) {
       : '';
 
     const heat = player.heat || '';
+    
+    const tierBadge = player.tier
+      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
+      : '';
 
     // --- OPTIONAL STAT FALLBACKS ---
     const roi = player.roi ?? '--';
