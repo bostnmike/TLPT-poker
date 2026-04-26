@@ -152,29 +152,6 @@ def main():
             - (p["tiltIndex"] * 0.8)
             + sample_bonus
         )
-
-# -------------------------------
-# TIER SYSTEM
-# -------------------------------
-
-# Sort players by true skill
-sorted_by_skill = sorted(players, key=lambda p: -p["trueSkillScore"])
-
-total_players = len(sorted_by_skill)
-
-for idx, p in enumerate(sorted_by_skill):
-    percentile = idx / max(total_players - 1, 1)
-
-    if percentile <= 0.15:
-        tier = "S"
-    elif percentile <= 0.35:
-        tier = "A"
-    elif percentile <= 0.65:
-        tier = "B"
-    else:
-        tier = "C"
-
-    p["tier"] = tier
     
     # ---------------- HONORS ----------------
 
