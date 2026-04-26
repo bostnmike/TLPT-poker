@@ -1,7 +1,32 @@
 /* app.js */
+let SITE_DATA = null;
+
 async function loadSiteData() {
-  const res = await fetch("/TLPT-poker/data/generated/site-data.json", { cache: "no-store" });
-  return await res.json();
+  try {
+    if (SITE_DATA) return SITE_DATA;
+
+    console.log("🔄 Loading GENERATED site-data.json...");
+
+    const res = await fetch("/TLPT-poker/data/generated/site-data.json", {
+      cache: "no-store"
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} - ${res.url}`);
+    }
+
+    const data = await res.json();
+
+    SITE_DATA = data;
+
+    console.log("✅ GENERATED site-data loaded:", data);
+
+    return data;
+
+  } catch (err) {
+    console.error("❌ FAILED TO LOAD GENERATED DATA:", err);
+    return { players: [] };
+  }
 }
 
 const DEFAULT_STANDINGS_SORT = "profit";
@@ -3349,19 +3374,28 @@ function initEventRsvpNameHover() {
   });
 }
 
+let SITE_DATA = null;
+
 async function loadSiteData() {
   try {
-    console.log("🔄 Loading site-data.json...");
+    // prevent re-fetching
+    if (SITE_DATA) return SITE_DATA;
 
-    const res = await fetch("./site-data.json", { cache: "no-store" });
+    console.log("🔄 Loading generated site-data.json...");
+
+    const res = await fetch("/TLPT-poker/data/generated/site-data.json", {
+      cache: "no-store"
+    });
 
     if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
+      throw new Error(`HTTP ${res.status} - ${res.url}`);
     }
 
     const data = await res.json();
 
-    console.log("✅ site-data loaded:", data);
+    SITE_DATA = data;
+
+    console.log("✅ NEW site-data loaded:", data);
 
     return data;
 
