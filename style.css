@@ -4622,16 +4622,40 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .player-card{
-  padding:18px;
-
-  /* ✅ THIS IS THE FIX */
   display:flex;
-  flex-direction:column;
-  align-items:flex-start;   /* 🔥 stops full-width stretch */
-  gap:8px;
+  align-items:center;
+  gap:12px;
 
-  width:100%;
-  max-width:240px;          /* 🔥 forces card shape */
+  background: linear-gradient(145deg, #11161e, #0f141c);
+  border:1px solid var(--line);
+  border-radius:14px;
+
+  padding:14px 16px;
+  min-height:70px;
+
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.player-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,184,28,.5);
+  box-shadow:
+    0 0 0 1px rgba(255,184,28,.2),
+    0 12px 34px rgba(0,0,0,.35),
+    0 0 22px rgba(255,184,28,.16);
+}
+
+.player-avatar{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  flex-shrink:0;
+}
+
+.player-card h3{
+  margin:0;
+  font-size:1rem;
+  color:#fff;
 }
 
 .player-card-rich{
