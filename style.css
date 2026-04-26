@@ -9673,3 +9673,27 @@ body:has(.media-header) .page-title-purple{
   box-shadow: 0 14px 34px rgba(0,0,0,0.45);
   transition: all 0.2s ease;
 }
+
+/* ===== PLAYER TIER BADGES + HEAT ===== */
+.player-tier-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-top: 4px;
+  display: inline-block;
+  letter-spacing: .5px;
+}
+
+.player-heat {
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+/* Tier Colors */
+.tier-the-apex-predator { background: gold; color: #000; }
+.tier-the-table-crusher { background: #ef4444; color: #fff; }
+.tier-the-shot-maker { background: #3b82f6; color: #fff; }
+.tier-the-gambler { background: #a855f7; color: #fff; }
+.tier-the-league-sponsor { background: #6b7280; color: #fff; }
