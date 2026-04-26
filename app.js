@@ -2122,23 +2122,95 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
   `;
 }
 
-function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
-  const grid = document.getElementById("dashboard-grid");
-  if (!grid || !window.siteData?.players) return;
-
-  ensureDashboardHeadline(sortKey);
-
-  const eligiblePlayers = window.siteData.players.filter(
-    player => Number(player?.entries ?? 0) >= 2
+function getHotStatus(player, players) {
+  const sorted = [...players].sort(
+    (a, b) => getPlayerTierScore(b) - getPlayerTierScore(a)
   );
 
-  const sorted = sortPlayers(eligiblePlayers, sortKey);
+  const rank = sorted.findIndex(p => p.name === player.name) + 1;
 
-  renderDashboardStudioStrip(sortKey, sorted);
+  if (rank <= Math.ceil(players.length * 0.15)) return "🔥 HOT";
+  if (player.roi > 0.5) return "🔥 HEATER";
+  if (player.profit < 0) return "❄️ COLD";
 
-  grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
-  initAnimatedCounters(grid);
-  setActiveSortButton("dashboard", sortKey);
+  return "";
+}
+
+function renderDashboard(players) {
+  const grid = document.getElementById("dashboard-grid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  const sortedPlayers = [...players]; // keep your existing sort logic outside this if needed
+
+  sortedPlayers.forEach(player => {
+    const tier = getPlayerTier(player, players);
+    const tierClass = `tier-${tier.name.toLowerCase().replace(/\s/g, "-")}`;
+
+    const heat = getHotStatus(player, players);
+
+    const card = document.createElement("div");
+    card.className = "dashboard-card";
+
+    card.innerHTML = `
+      <div class="dashboard-card-inner">
+
+        <!-- HEADER -->
+        <div class="dashboard-card-header">
+          ${playerImageMarkup(player, "medium")}
+
+          <div class="dashboard-card-header-text">
+            <div class="dashboard-player-name">
+              ${displayPlayerName(player)}
+            </div>
+
+            <div class="player-tier-badge ${tierClass}">
+              ${tier.emoji} ${tier.name}
+            </div>
+
+            ${heat ? `<div class="player-heat">${heat}</div>` : ""}
+          </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="dashboard-card-stats">
+
+          <div class="stat">
+            <span class="stat-label">Profit</span>
+            <span class="stat-value ${statValueClass(player, "profit")}">
+              ${fmtMoney(player.profit)}
+            </span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-label">ROI</span>
+            <span class="stat-value">
+              ${fmtPct(player.roi)}
+            </span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-label">Hits</span>
+            <span class="stat-value">
+              ${player.hits}
+            </span>
+          </div>
+
+          <div class="stat">
+            <span class="stat-label">Cashes</span>
+            <span class="stat-value">
+              ${player.timesPlaced}
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
 }
 
 function crewCardMarkup(player, data, tierPlayers = []) {
