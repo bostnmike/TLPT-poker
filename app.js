@@ -2123,15 +2123,23 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
 }
 
 function getHotStatus(player, players) {
+  if (!players || !players.length) return "";
+
+  // SAFE SORT (prevents crashes if function is missing)
   const sorted = [...players].sort(
-    (a, b) => getPlayerTierScore(b) - getPlayerTierScore(a)
+    (a, b) => (getPlayerTierScore?.(b) ?? 0) - (getPlayerTierScore?.(a) ?? 0)
   );
 
   const rank = sorted.findIndex(p => p.name === player.name) + 1;
 
-  if (rank <= Math.ceil(players.length * 0.15)) return "🔥 HOT";
-  if (player.roi > 0.5) return "🔥 HEATER";
-  if (player.profit < 0) return "❄️ COLD";
+  // DEFENSIVE DEFAULTS
+  const profit = player.profit ?? 0;
+  const roi = player.roi ?? 0;
+
+  // ORDER MATTERS (cold first)
+  if (profit < 0) return "❄️ COLD";
+  if (rank > 0 && rank <= Math.ceil(players.length * 0.15)) return "🔥 HOT";
+  if (roi > 0.5) return "🔥 HEATER";
 
   return "";
 }
@@ -2146,8 +2154,7 @@ function renderDashboard(players) {
 
   sortedPlayers.forEach(player => {
     const tier = getPlayerTier(player, players);
-    const tierClass = `tier-${tier.name.toLowerCase().replace(/\s/g, "-")}`;
-
+    const tierClass = `tier-${tier.key}`;
     const heat = getHotStatus(player, players);
 
     const card = document.createElement("div");
@@ -2200,7 +2207,7 @@ function renderDashboard(players) {
           <div class="stat">
             <span class="stat-label">Cashes</span>
             <span class="stat-value">
-              ${player.timesPlaced}
+              ${player.timesPlaced ?? player.cashes ?? 0}
             </span>
           </div>
 
