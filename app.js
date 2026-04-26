@@ -3431,3 +3431,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 });
+
+async function main() {
+  try {
+    const data = await loadSiteData();
+    window.siteData = data;
+
+    renderHomePage?.(data);
+    renderLeagueSnapshot?.(data);
+    renderStandings?.();
+    renderPlayers?.(data);
+    renderDashboard?.();
+  } catch (err) {
+    console.error("❌ Failed to initialize site:", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", main);
