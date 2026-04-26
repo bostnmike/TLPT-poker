@@ -695,8 +695,8 @@
     }
   ],
   "warnings": [
-    "Chop detected: removed terminal bustout for hiro at 11:54:25 pm 04/24/2026",
-    "Chop detected: removed terminal bustout for providencemike at 11:54:25 pm 04/24/2026",
-    "Chop detected: removed terminal bustout for red at 11:54:25 pm 04/24/2026"
+    "2026-04-24: generic chop handling removed terminal bustout for hiro at 11:54:25 pm 04/24/2026",
+    "2026-04-24: generic chop handling removed terminal bustout for providencemike at 11:54:25 pm 04/24/2026",
+    "2026-04-24: generic chop handling removed terminal bustout for red at 11:54:25 pm 04/24/2026"
   ]
 }

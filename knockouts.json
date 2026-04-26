@@ -2,7 +2,7 @@
   "byVictim": {
     "ahmed": {
       "hiro": 2,
-      "li-fo": 5,
+      "li-fo": 4,
       "bostnmike": 1,
       "ai-dave": 2,
       "chris-o": 1,
@@ -86,7 +86,8 @@
       "yann": 1
     },
     "gilmore": {
-      "li-fo": 2
+      "nasa-al": 1,
+      "li-fo": 1
     },
     "hayden-d": {
       "red": 1,
@@ -360,7 +361,6 @@
       "jeff-t": 2,
       "brad-r": 1,
       "bostnmike": 5,
-      "gilmore": 2,
       "ai-dave": 1,
       "nitro": 2,
       "nasa-al": 2,
@@ -368,11 +368,13 @@
       "hiro": 1,
       "providencemike": 1,
       "cougar": 1,
-      "ahmed": 5,
+      "ahmed": 4,
       "chris-o": 1,
+      "gilmore": 1,
       "red": 3
     },
     "nasa-al": {
+      "gilmore": 1,
       "hiro": 4,
       "chris-o": 2,
       "ai-dave": 2,

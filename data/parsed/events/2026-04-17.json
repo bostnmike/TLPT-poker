@@ -609,7 +609,7 @@
     }
   ],
   "warnings": [
-    "Chop detected: removed terminal bustout for ahmed at 12:00:51 am 04/18/2026",
-    "Chop detected: removed terminal bustout for hiro at 12:00:51 am 04/18/2026"
+    "2026-04-17: removed bustout for chopped finalist ahmed at 12:00:51 am 04/18/2026",
+    "2026-04-17: removed bustout for chopped finalist hiro at 12:00:51 am 04/18/2026"
   ]
 }

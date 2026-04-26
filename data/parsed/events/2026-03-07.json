@@ -599,8 +599,8 @@
     }
   ],
   "warnings": [
-    "Chop detected: removed terminal bustout for cougar at 11:29:38 pm 03/07/2026",
-    "Chop detected: removed terminal bustout for nasa-al at 11:29:38 pm 03/07/2026",
-    "Chop detected: removed terminal bustout for providencemike at 11:29:38 pm 03/07/2026"
+    "2026-03-07: removed bustout for chopped finalist cougar at 11:29:38 pm 03/07/2026",
+    "2026-03-07: removed bustout for chopped finalist nasa-al at 11:29:38 pm 03/07/2026",
+    "2026-03-07: removed bustout for chopped finalist providencemike at 11:29:38 pm 03/07/2026"
   ]
 }
