@@ -82,24 +82,12 @@ def canonicalize_player_name(raw_name, alias_map):
 
 
 def split_killer_names(raw_killer_text):
-    """
-    Supports source strings like:
-    - 'Li-Fo, Nasa Al'
-    - 'Li-Fo and Nasa Al'
-    - 'Li-Fo, Nasa Al and Red'
-
-    IMPORTANT LEAGUE RULE:
-    Only one player may ever be credited with a hit.
-    We still split here so we can detect bad/shared source lines,
-    but downstream we keep ONLY the first listed killer.
-    """
     text = str(raw_killer_text or "").strip()
     if not text:
         return []
 
     text = re.sub(r"\s+\band\b\s+", ",", text, flags=re.IGNORECASE)
-    parts = [part.strip() for part in text.split(",") if part.strip()]
-    return parts
+    return [part.strip() for part in text.split(",") if part.strip()]
 
 
 def strip_tags(html_fragment):
@@ -271,9 +259,7 @@ def parse_action_line(line, alias_map):
         if not killer_names_raw:
             raise RuntimeError(f"Could not parse killer name(s) from event report line: {line}")
 
-        # HARD RULE:
-        # There is only ever one credited hitman.
-        # If the source line lists multiple killers, keep ONLY the first listed killer.
+        # HARD RULE: only one credited hitman, always the first listed
         chosen_raw_killer = killer_names_raw[0]
         killer_name, killer_slug = canonicalize_player_name(chosen_raw_killer, alias_map)
 
@@ -305,14 +291,6 @@ def parse_action_line(line, alias_map):
 
 
 def suppress_chop_finish_bustouts(parsed_actions, payouts):
-    """
-    HARD RULE:
-    If multiple players are paid/ranked 1st, treat the event as a chop.
-    Chopped finishers are NOT busted out, and no final hit is awarded.
-
-    We remove the terminal bustout action for each chopped finisher,
-    i.e. the last bustout after that player's final buy-in/rebuy.
-    """
     warnings = []
 
     if not payouts:
@@ -342,8 +320,6 @@ def suppress_chop_finish_bustouts(parsed_actions, payouts):
             if action.get("type") in {"bustout", "bustout_uncredited"}:
                 last_bust_idx = idx
 
-        # Only suppress the terminal bustout if it happens after the player's
-        # final buyin/rebuy sequence.
         if last_bust_idx > last_reentry_idx >= -1:
             removed = cleaned_actions[last_bust_idx]
             cleaned_actions[last_bust_idx] = None
@@ -450,8 +426,6 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
 
     payouts = [a for a in parsed_actions if a["type"] == "payout"]
 
-    # HARD RULES ENFORCEMENT
-    # 1) Shared killer lines only credit the first listed killer
     shared_killer_warnings = []
     for action in parsed_actions:
         if action.get("type") == "bustout" and action.get("sharedKillerSource"):
@@ -459,7 +433,6 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
                 f"Shared killer source reduced to first listed killer only: {action.get('rawKillerText', '')}"
             )
 
-    # 2) Chopped finishers are not busted out and do not generate final hits
     parsed_actions, chop_warnings = suppress_chop_finish_bustouts(parsed_actions, payouts)
 
     player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
