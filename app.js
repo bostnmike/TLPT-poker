@@ -1262,7 +1262,7 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
 }
 
 function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
-  const grid = document.getElementById('player-grid');
+  const grid = document.getElementById('dashboard-grid');
 
   if (!grid) {
     console.error('player-grid not found');
