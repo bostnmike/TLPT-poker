@@ -1,34 +1,26 @@
 /* app.js */
-let SITE_DATA = null;
+window.SITE_DATA = window.SITE_DATA || null;
 
 async function loadSiteData() {
   try {
-    if (SITE_DATA) return SITE_DATA;
+    if (window.SITE_DATA) return window.SITE_DATA;
 
     const BASE_PATH = "/TLPT-poker";
-
-    console.log("🔄 Loading site data from:", `${BASE_PATH}/data/generated/site-data.json`);
 
     const res = await fetch(`${BASE_PATH}/data/generated/site-data.json`, {
       cache: "no-store"
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status} - ${res.url}`);
-    }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const data = await res.json();
 
-    SITE_DATA = data;
-
-    console.log("✅ Site data loaded");
+    window.SITE_DATA = data;
 
     return data;
 
   } catch (err) {
-    console.error("❌ SITE DATA FAILED:", err);
-
-    // Prevent total page crash
+    console.error("SITE DATA LOAD FAILED:", err);
     return { players: [], events: [], honors: {} };
   }
 }
@@ -3378,7 +3370,7 @@ function initEventRsvpNameHover() {
   });
 }
 
-let SITE_DATA = null;
+window.SITE_DATA = window.SITE_DATA || null;
 
 async function loadSiteData() {
   try {
