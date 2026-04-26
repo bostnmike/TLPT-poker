@@ -269,7 +269,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
 }
 
 .nav-dropdown-parent::after{
-  content:"â–¾";
+  content:"▾";
   font-size:.7rem;
 }
 
