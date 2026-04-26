@@ -1,7 +1,7 @@
 /* style.css */
 
 /* =========================================
-   🎨 DESIGN SYSTEM (SINGLE SOURCE OF TRUTH)
+   ðŸŽ¨ DESIGN SYSTEM (SINGLE SOURCE OF TRUTH)
 ========================================= */
 :root {
   --gold: #d4af37;
@@ -21,7 +21,7 @@
   --green: #3ddc84;
   --red: #ff6b6b;
 
-  /* 🔥 RESTORED PANEL SYSTEM */
+  /* ðŸ”¥ RESTORED PANEL SYSTEM */
   --panel: #11161e;
   --panel-2: #18212c;
   --panel-3: #0f141c;
@@ -46,7 +46,7 @@
 }
 
 /* =========================================
-   🧼 GLOBAL RESET
+   ðŸ§¼ GLOBAL RESET
 ========================================= */
 * {
   box-sizing: border-box;
@@ -59,7 +59,7 @@ body {
 }
 
 /* =========================================
-   🌑 BASE BODY
+   ðŸŒ‘ BASE BODY
 ========================================= */
 body {
   margin: 0;
@@ -87,7 +87,7 @@ p {
 }
 
 /* =========================================
-   🖼 MEDIA + LINKS
+   ðŸ–¼ MEDIA + LINKS
 ========================================= */
 img {
   max-width: 100%;
@@ -106,7 +106,7 @@ a:hover {
 }
 
 /* =========================================
-   📦 LAYOUT WRAPPER
+   ðŸ“¦ LAYOUT WRAPPER
 ========================================= */
 .wrap {
   max-width: 1240px;
@@ -115,7 +115,7 @@ a:hover {
 }
 
 /* =========================================
-   🦶 FOOTER
+   ðŸ¦¶ FOOTER
 ========================================= */
 .site-footer {
   margin-top: 32px;
@@ -134,7 +134,7 @@ a:hover {
 }
 
 /* =========================================
-   🧱 TOP SPACING NORMALIZATION
+   ðŸ§± TOP SPACING NORMALIZATION
 ========================================= */
 main.wrap > .section:first-child,
 main.wrap > .crew-header-shell:first-child,
@@ -269,7 +269,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
 }
 
 .nav-dropdown-parent::after{
-  content:"▾";
+  content:"â–¾";
   font-size:.7rem;
 }
 
@@ -5364,7 +5364,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 
 
-/* FINAL FIX — PLAYER COUNT PILLS BY ACTUAL FILTER VALUE */
+/* FINAL FIX â€” PLAYER COUNT PILLS BY ACTUAL FILTER VALUE */
 .archetype-filter-pill[data-archetype-filter="Hitman" i] > span{
   border:1px solid #ff6b6b !important;
   background:
@@ -8642,7 +8642,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   }
 }
 
-/* FINAL OVERRIDE — archetype player-count pills */
+/* FINAL OVERRIDE â€” archetype player-count pills */
 .archetype-filter-pill.archetype-hitman > span{
   border:1px solid #ff6b6b !important;
   background:linear-gradient(180deg, rgba(255,214,214,.18), rgba(255,255,255,0) 42%), linear-gradient(180deg, rgba(255,107,107,.34), rgba(120,22,22,.96)) !important;
@@ -8713,7 +8713,7 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-/* FINAL FIX — FULL ARCHETYPE FILTER PILL COLORS */
+/* FINAL FIX â€” FULL ARCHETYPE FILTER PILL COLORS */
 .archetype-filter-pill.archetype-hitman{
   border-color:#ff6b6b !important;
   background:
@@ -9332,7 +9332,7 @@ body:has(.media-header) .page-title-purple{
 }
 
 /* -------------------------
-   7) Unify stronger “featured / control shell” feel
+   7) Unify stronger â€œfeatured / control shellâ€ feel
    ------------------------- */
 .dashboard-sort-shell,
 .standings-sort-shell,
@@ -9497,7 +9497,7 @@ body:has(.media-header) .page-title-purple{
   font-weight:800 !important;
 }
 
-/* final banner fills — same geometry, only color changes */
+/* final banner fills â€” same geometry, only color changes */
 #champions-list .leader-banner-top{
   background:
     linear-gradient(
@@ -9702,3 +9702,62 @@ body:has(.media-header) .page-title-purple{
 .tier-the-shot-maker { background: #3b82f6; color: #fff; }
 .tier-the-gambler { background: #a855f7; color: #fff; }
 .tier-the-league-sponsor { background: #6b7280; color: #fff; }
+
+
+
+
+/* =========================================
+   ðŸ”¥ TLPT HARD FIX (DO NOT REMOVE)
+========================================= */
+
+/* Normalize player cards */
+.player-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  background: rgba(20,20,20,0.95) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.player-card-header {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 14px 10px !important;
+}
+
+.player-card-body {
+  padding: 12px 10px 16px !important;
+  text-align: center !important;
+}
+
+.player-avatar {
+  width: 72px !important;
+  height: 72px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+}
+
+/* Kill broken overlays */
+.player-card::after,
+.player-overlay,
+.card-glow,
+.card-gradient,
+.card-bg-effect {
+  display: none !important;
+}
+
+/* Tier badge */
+.player-tier-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+}
