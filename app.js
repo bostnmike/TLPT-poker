@@ -5,9 +5,11 @@ async function loadSiteData() {
   try {
     if (SITE_DATA) return SITE_DATA;
 
-    console.log("🔄 Loading GENERATED site-data.json...");
+    const BASE_PATH = "/TLPT-poker";
 
-    const res = await fetch("./data/generated/site-data.json", {
+    console.log("🔄 Loading site data from:", `${BASE_PATH}/data/generated/site-data.json`);
+
+    const res = await fetch(`${BASE_PATH}/data/generated/site-data.json`, {
       cache: "no-store"
     });
 
@@ -19,13 +21,15 @@ async function loadSiteData() {
 
     SITE_DATA = data;
 
-    console.log("✅ GENERATED site-data loaded:", data);
+    console.log("✅ Site data loaded");
 
     return data;
 
   } catch (err) {
-    console.error("❌ FAILED TO LOAD GENERATED DATA:", err);
-    return { players: [] };
+    console.error("❌ SITE DATA FAILED:", err);
+
+    // Prevent total page crash
+    return { players: [], events: [], honors: {} };
   }
 }
 
