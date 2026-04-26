@@ -1,160 +1,101 @@
 /* style.css */
-
-/* =========================================
-   ðŸŽ¨ DESIGN SYSTEM (SINGLE SOURCE OF TRUTH)
-========================================= */
-:root {
-  --gold: #d4af37;
-  --gold-dark: #b8962e;
-  --gold-soft: #f6c65b;
-
-  --black: #0a0a0a;
-  --charcoal: #1a1a1a;
-  --gray: #2a2a2a;
-  --light-gray: #bbbbbb;
-  --white: #ffffff;
-
-  --text: #ecf2f8;
-  --muted: #9eb0c3;
-  --line: #283444;
-
-  --green: #3ddc84;
-  --red: #ff6b6b;
-
-  /* ðŸ”¥ RESTORED PANEL SYSTEM */
-  --panel: #11161e;
-  --panel-2: #18212c;
-  --panel-3: #0f141c;
-
-  --accent-schedule: #c2185b;
-  --accent-media: #6a1b9a;
-  --accent-rules: #2e7d32;
-  --accent-players: #c62828;
-  --accent-dashboard: #ef6c00;
-  --accent-knockout: #f9a825;
-
-  --radius: 12px;
-  --radius-lg: 18px;
-
-  --shadow: 0 6px 18px rgba(0,0,0,0.4);
-  --transition: all 0.25s ease;
+:root{
+  --bg:#0a0d12;
+  --panel:#11161e;
+  --panel-2:#18212c;
+  --panel-3:#0f141c;
+  --text:#ecf2f8;
+  --muted:#9eb0c3;
+  --line:#283444;
+  --accent:#d7263d;
+  --gold:#ffb81c;
+  --gold-soft:#f6c65b;
+  --gold-deep:#c88a00;
+  --green:#3ddc84;
+  --red:#ff6b6b;
+  --white:#ffffff;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* === PANEL SURFACE UPGRADE === */
-:root {
-  --panel-glow: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
-}
-
-/* =========================================
-   ðŸ§¼ GLOBAL RESET
-========================================= */
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
 html,
-body {
-  width: 100%;
-  overflow-x: hidden;
+body{
+  width:100%;
+  overflow-x:hidden;
 }
 
-/* =========================================
-   ðŸŒ‘ BASE BODY
-========================================= */
-body {
-  margin: 0;
-  padding-top: 96px;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-
+body{
+  margin:0;
+  padding-top:96px;
+  font-family:Arial, Helvetica, sans-serif;
   background:
     radial-gradient(circle at top right, rgba(255,184,28,.07), transparent 25%),
     radial-gradient(circle at left center, rgba(215,38,61,.08), transparent 22%),
     linear-gradient(180deg,#091018 0%,#0b0f14 100%);
-
-  color: var(--text);
+  color:var(--text);
 }
 
-h1, h2, h3 {
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--white);
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
 }
 
-p {
-  color: var(--muted);
-  line-height: 1.5;
+a{
+  color:var(--gold);
+  text-decoration:none;
 }
 
-/* =========================================
-   ðŸ–¼ MEDIA + LINKS
-========================================= */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+a:hover{
+  color:var(--gold-soft);
 }
 
-a {
-  color: var(--gold);
-  text-decoration: none;
-  transition: var(--transition);
+.wrap{
+  max-width:1240px;
+  margin:0 auto;
+  padding:25px 20px 0;
 }
 
-a:hover {
-  color: var(--gold-soft);
+.site-footer{
+  margin-top:32px;
+  padding:0 20px 32px;
 }
 
-/* =========================================
-   ðŸ“¦ LAYOUT WRAPPER
-========================================= */
-.wrap {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 25px 20px 0;
+.site-footer-inner{
+  max-width:1240px;
+  margin:0 auto;
 }
 
-/* =========================================
-   ðŸ¦¶ FOOTER
-========================================= */
-.site-footer {
-  margin-top: 32px;
-  padding: 0 20px 32px;
+.site-footer p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.5;
 }
 
-.site-footer-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-}
-
-.site-footer p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* =========================================
-   ðŸ§± TOP SPACING NORMALIZATION
-========================================= */
 main.wrap > .section:first-child,
 main.wrap > .crew-header-shell:first-child,
 main.wrap > .standings-page-stack:first-child,
 main.wrap > .dashboard-page-stack:first-child,
-main.wrap > .hero-stack:first-child {
-  margin-top: 0;
+main.wrap > .hero-stack:first-child{
+  margin-top:0;
 }
 
 main.wrap > .standings-page-stack:first-child > .section:first-child,
-main.wrap > .dashboard-page-stack:first-child > .section:first-child {
-  margin-top: 0;
+main.wrap > .dashboard-page-stack:first-child > .section:first-child{
+  margin-top:0;
 }
+
 /* =========================================
    HEADER / TOP NAV
    ========================================= */
 
 .site-header{
   border-bottom:1px solid var(--line);
-  background: color-mix(in srgb, var(--black) 92%, transparent);  position:fixed;
+  background:rgba(9,13,18,.95);
+  position:fixed;
   top:0;
   left:0;
   right:0;
@@ -218,9 +159,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
 
 .nav > a:hover,
 .nav-dropdown-parent:hover{
-  background:
-    linear-gradient(180deg, rgba(255,184,28,.08), rgba(255,184,28,.02)),
-    var(--panel);
+  background:var(--panel);
   color:var(--gold);
 }
 
@@ -269,7 +208,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
 }
 
 .nav-dropdown-parent::after{
-  content:"▾";
+  content:"â–¾";
   font-size:.7rem;
 }
 
@@ -342,9 +281,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
 .media-card,
 .rules-chip-panel,
 .blind-sheet{
-  background:
-    var(--panel-glow),
-    var(--panel);
+  background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
   box-shadow:var(--shadow);
@@ -356,8 +293,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   margin:22px 0;
   padding:24px;
   background:
-  var(--panel-glow),
-  var(--panel);
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.018) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 80% 35%, rgba(255,255,255,.015) 0 2px, transparent 2px 100%),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,.012) 0px,
+      rgba(255,255,255,.012) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(135deg, rgba(15,81,50,.22), rgba(17,22,30,.96));
   background-size:160px 160px, 220px 220px, auto, auto;
 }
 
@@ -365,7 +310,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.10));
+  background:linear-gradient(180deg, rgba(7,11,16,.08), rgba(7,11,16,.18));
   pointer-events:none;
 }
 
@@ -1174,7 +1119,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   border-color:rgba(255,184,28,.5);
   box-shadow:
     0 0 0 1px rgba(255,184,28,.18),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 22px rgba(255,184,28,.14);
 }
 
@@ -1284,7 +1229,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
     linear-gradient(180deg, rgba(34,197,94,.10), rgba(34,197,94,.03) 34%, rgba(15,20,28,1) 100%);
   box-shadow:
     0 0 0 1px rgba(34,197,94,.08),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 18px rgba(34,197,94,.10);
 }
 
@@ -1293,7 +1238,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   border-color:rgba(34,197,94,.42);
   box-shadow:
     0 0 0 1px rgba(34,197,94,.18),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 22px rgba(34,197,94,.14);
 }
 
@@ -1301,7 +1246,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   border-color:rgba(34,197,94,.46);
   box-shadow:
     0 0 0 1px rgba(34,197,94,.18),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 22px rgba(34,197,94,.14);
 }
 
@@ -2073,7 +2018,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child {
   border-color:rgba(255,184,28,.5);
   box-shadow:
     0 0 0 1px rgba(255,184,28,.18),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 22px rgba(255,184,28,.14);
 }
 
@@ -4109,7 +4054,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   background-blend-mode:overlay;
   box-shadow:
     0 0 0 1px rgba(205,127,50,.35),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 20px rgba(205,127,50,.18);
 }
 
@@ -4622,40 +4567,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 }
 
 .player-card{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  background: linear-gradient(145deg, #11161e, #0f141c);
-  border:1px solid var(--line);
-  border-radius:14px;
-
-  padding:14px 16px;
-  min-height:70px;
-
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-}
-
-.player-card:hover{
-  transform:translateY(-2px);
-  border-color:rgba(255,184,28,.5);
-  box-shadow:
-    0 0 0 1px rgba(255,184,28,.2),
-    0 12px 34px rgba(0,0,0,.35),
-    0 0 22px rgba(255,184,28,.16);
-}
-
-.player-avatar{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  flex-shrink:0;
-}
-
-.player-card h3{
-  margin:0;
-  font-size:1rem;
-  color:#fff;
+  padding:18px;
 }
 
 .player-card-rich{
@@ -4667,14 +4579,16 @@ body:has(#dashboard-grid) .page-title-row::after{
   border-color:rgba(255,184,28,.5);
   box-shadow:
     0 0 0 1px rgba(255,184,28,.2),
-    0 12px 34px rgba(0,0,0,.35),
+    0 10px 30px rgba(0,0,0,.25),
     0 0 22px rgba(255,184,28,.16);
 }
 
 .player-card-top{
   display:flex;
+  gap:12px;
   align-items:center;
-  gap:10px;
+  margin-bottom:12px;
+  min-width:0;
 }
 
 .player-card h3{
@@ -5034,11 +4948,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     inset 0 1px 0 rgba(255,255,255,.04),
     0 12px 28px rgba(0,0,0,.22),
     0 0 18px rgba(239,68,68,.08);
-}
-
-#players-visual{
-  position:relative;
-  overflow:hidden;
 }
 
 #players-visual::before{
@@ -9699,151 +9608,3 @@ body:has(.media-header) .page-title-purple{
     content:none !important;
     display:none !important;
   }
-
-/* === PANEL HOVER DEPTH === */
-.section:hover,
-.player-card:hover,
-.stat-card:hover,
-.media-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.45);
-  transition: all 0.2s ease;
-}
-
-/* ===== PLAYER TIER BADGES + HEAT ===== */
-.player-tier-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 8px;
-  border-radius: 999px;
-  margin-top: 4px;
-  display: inline-block;
-  letter-spacing: .5px;
-}
-
-.player-heat {
-  font-size: 11px;
-  font-weight: 700;
-  margin-top: 4px;
-}
-
-/* Tier Colors */
-.tier-the-apex-predator { background: gold; color: #000; }
-.tier-the-table-crusher { background: #ef4444; color: #fff; }
-.tier-the-shot-maker { background: #3b82f6; color: #fff; }
-.tier-the-gambler { background: #a855f7; color: #fff; }
-.tier-the-league-sponsor { background: #6b7280; color: #fff; }
-
-
-
-
-/* =========================================
-   ðŸ”¥ TLPT HARD FIX (DO NOT REMOVE)
-========================================= */
-
-/* Normalize player cards */
-.player-card {
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
-  overflow: hidden !important;
-  background: rgba(20,20,20,0.95) !important;
-  border-radius: 12px !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
-}
-
-.player-card-header {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding: 14px 10px !important;
-}
-
-.player-card-body {
-  padding: 12px 10px 16px !important;
-  text-align: center !important;
-}
-
-.player-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #0f141c;
-  border: 2px solid var(--gold);
-  flex-shrink: 0;
-}
-
-/* Kill broken overlays */
-.player-card::after,
-.player-overlay,
-.card-glow,
-.card-gradient,
-.card-bg-effect {
-  display: none !important;
-}
-
-/* Tier badge */
-.player-tier-badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  font-size: 10px;
-  font-weight: bold;
-  padding: 3px 6px;
-  border-radius: 6px;
-  background: #333;
-  color: #fff;
-}
-
-const grid = document.getElementById('dashboard-grid');
-
-   /* =========================================
-   🚑 DASHBOARD HARD RESET (FINAL FIX)
-   This overrides all broken layout changes
-========================================= */
-
-/* Restore grid layout */
-#dashboard-grid {
-  display: grid !important;
-  grid-template-columns: repeat(5, 1fr) !important;
-  gap: 18px !important;
-}
-
-/* Kill ANY flex/width overrides breaking cards */
-#dashboard-grid .player-card {
-  display: flex !important;
-  align-items: center !important;
-  gap: 12px !important;
-
-  width: 100% !important;
-  min-height: 70px !important;
-
-  background: linear-gradient(145deg, #11161e, #0f141c) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 14px !important;
-  padding: 14px 16px !important;
-}
-
-/* Fix avatar rendering */
-#dashboard-grid .player-avatar {
-  width: 42px !important;
-  height: 42px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  border: 2px solid var(--gold) !important;
-  background: #0f141c !important;
-  flex-shrink: 0 !important;
-}
-
-/* Fix text alignment */
-#dashboard-grid h3 {
-  margin: 0 !important;
-  font-size: 1rem !important;
-  color: #fff !important;
-}
-
-/* Remove any weird nested flex issues */
-#dashboard-grid .player-card-top {
-  display: contents !important;
-}
