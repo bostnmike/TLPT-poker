@@ -4673,10 +4673,8 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .player-card-top{
   display:flex;
-  gap:12px;
   align-items:center;
-  margin-bottom:12px;
-  min-width:0;
+  gap:10px;
 }
 
 .player-card h3{
@@ -9767,10 +9765,13 @@ body:has(.media-header) .page-title-purple{
 }
 
 .player-avatar {
-  width: 72px !important;
-  height: 72px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #0f141c;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
 }
 
 /* Kill broken overlays */
