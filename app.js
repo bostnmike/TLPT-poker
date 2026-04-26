@@ -1261,29 +1261,47 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
-function renderDashboardStudioStrip(sortKey, sortedPlayers) {
-  const strip = document.getElementById("dashboard-studio-strip");
-  if (!strip) return;
+function renderDashboard(data) {
+  const grid = document.getElementById('player-grid');
+  if (!grid) return;
 
-  const meta = DASHBOARD_META[sortKey] || {
-    label: formatStatLabel(sortKey),
-    icon: statIcon(sortKey),
-    formula: ""
-  };
+  const players = data.players || [];
 
-  const leader = sortedPlayers[0];
-  if (!leader) {
-    strip.innerHTML = "";
-    return;
-  }
+  grid.innerHTML = players.map(player => {
 
-strip.innerHTML = `
-  <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
+    // ✅ SAFE TIER CLASS (NO CRASH)
+    const tierClass = player.tier
+      ? `tier-${player.tier.toLowerCase().replace(/\s+/g, '-')}`
+      : '';
 
-  <div class="dashboard-studio-context">
-    <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
-  </div>
-`;
+    // ✅ SAFE BADGE
+    const tierBadge = player.tier
+      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
+      : '';
+
+    // ✅ SAFE HEAT
+    const heat = player.heat
+      ? `<div class="player-heat">🔥 ${player.heat}</div>`
+      : '';
+
+    // ✅ SAFE IMAGE (fallback protection)
+    const image = player.image
+      ? `images/players/${player.image}`
+      : `images/players/default.jpg`;
+
+    // ✅ SAFE NAME
+    const name = player.name || 'Unknown';
+
+    return `
+      <div class="player-card">
+        <img src="${image}" class="player-avatar" alt="${name}">
+        <div class="player-name">${name}</div>
+        ${tierBadge}
+        ${heat}
+      </div>
+    `;
+
+  }).join('');
 }
 
 function ensureDashboardHeadline(sortKey) {
