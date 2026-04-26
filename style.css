@@ -5005,6 +5005,11 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 18px rgba(239,68,68,.08);
 }
 
+#players-visual{
+  position:relative;
+  overflow:hidden;
+}
+
 #players-visual::before{
   content:"";
   position:absolute;
