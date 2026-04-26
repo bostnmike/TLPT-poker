@@ -1,19 +1,22 @@
 /* app.js */
 async function loadSiteData() {
   try {
+    console.log("🔄 Loading site-data.json...");
+
     const res = await fetch("./site-data.json", { cache: "no-store" });
 
     if (!res.ok) {
-      throw new Error(`HTTP error: ${res.status}`);
+      throw new Error(`HTTP ${res.status}`);
     }
 
     const data = await res.json();
+
     console.log("✅ site-data loaded:", data);
 
     return data;
 
   } catch (err) {
-    console.error("❌ FAILED TO LOAD site-data.json", err);
+    console.error("❌ FAILED TO LOAD DATA:", err);
     return { players: [] };
   }
 }
@@ -1275,59 +1278,30 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
-function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
-  const grid = document.getElementById('dashboard-grid');
+function renderDashboard(sortKey = "roi") {
+  const grid = document.getElementById("dashboard-grid");
 
   if (!grid) {
-    console.error('dashboard-grid not found');
+    console.error("❌ dashboard-grid not found");
     return;
   }
 
   if (!window.siteData || !window.siteData.players) {
-    console.error('siteData not loaded');
-    grid.innerHTML = '<div style="padding:20px;">No data loaded.</div>';
+    console.error("❌ siteData missing");
+    grid.innerHTML = "<div style='padding:20px;'>No data loaded</div>";
     return;
   }
 
-  let players = [...window.siteData.players];
+  const players = [...window.siteData.players];
 
-  players.sort((a, b) => {
-    const aVal = a[sortKey] ?? 0;
-    const bVal = b[sortKey] ?? 0;
-    return bVal - aVal;
-  });
+  players.sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0));
 
-  if (!players.length) {
-    grid.innerHTML = '<div style="padding:20px;">No player data found.</div>';
-    return;
-  }
-
-  grid.innerHTML = players.map(player => {
-
-    const image = player.image
-      ? `images/players/${player.image}`
-      : `images/players/default.jpg`;
-
-    const tierClass = player.tier
-      ? `tier-${player.tier.toLowerCase().replace(/\s+/g, '-')}`
-      : '';
-
-    const tierBadge = player.tier
-      ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
-      : '';
-
-    return `
-      <div class="player-card player-card-rich">
-        <div class="player-card-top">
-          <img src="${image}" class="player-avatar" onerror="this.src='images/players/default.jpg'">
-          <div>
-            <h3>${player.name}</h3>
-            ${tierBadge}
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
+  grid.innerHTML = players.map(p => `
+    <div class="player-card">
+      <img src="images/players/${p.image || 'default.jpg'}" class="player-avatar">
+      <h3>${p.name}</h3>
+    </div>
+  `).join("");
 }
 
 function ensureDashboardHeadline(sortKey) {
@@ -3392,21 +3366,25 @@ function initEventRsvpNameHover() {
   });
 }
 
-async function main() {
+async function loadSiteData() {
   try {
-    const data = await loadSiteData();
+    console.log("🔄 Loading site-data.json...");
 
-    window.siteData = data;
+    const res = await fetch("./site-data.json", { cache: "no-store" });
 
-    console.log("DATA READY:", data);
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
 
-    renderHomePage(data);
-    renderLeagueSnapshot(data);
-    renderStandings(DEFAULT_STANDINGS_SORT);
-    renderDashboard(); // ✅ ONLY CALL ONCE
+    const data = await res.json();
+
+    console.log("✅ site-data loaded:", data);
+
+    return data;
 
   } catch (err) {
-    console.error("FAILED TO INIT APP:", err);
+    console.error("❌ FAILED TO LOAD DATA:", err);
+    return { players: [] };
   }
 }
 
