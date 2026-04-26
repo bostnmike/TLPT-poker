@@ -85,12 +85,8 @@
       "slug": "hayden-d",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -99,12 +95,8 @@
       "slug": "providencemike",
       "by": "Nitro",
       "bySlug": "nitro",
-      "killers": [
-        {
-          "name": "Nitro",
-          "slug": "nitro"
-        }
-      ]
+      "rawKillerText": "Nitro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -113,12 +105,8 @@
       "slug": "ai-dave",
       "by": "Nitro",
       "bySlug": "nitro",
-      "killers": [
-        {
-          "name": "Nitro",
-          "slug": "nitro"
-        }
-      ]
+      "rawKillerText": "Nitro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -127,24 +115,8 @@
       "slug": "nitro",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "7:50:27 pm 01/24/2026",
-      "player": "BostnMike",
-      "slug": "bostnmike"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "7:50:27 pm 01/24/2026",
-      "player": "Red",
-      "slug": "red"
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -564,5 +536,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for bostnmike at 7:50:27 pm 01/24/2026",
+    "Chop detected: removed terminal bustout for red at 7:50:27 pm 01/24/2026"
+  ]
 }

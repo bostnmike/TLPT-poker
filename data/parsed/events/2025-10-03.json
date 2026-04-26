@@ -97,12 +97,8 @@
       "slug": "nasa-al",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -117,12 +113,8 @@
       "slug": "hiro",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -137,12 +129,8 @@
       "slug": "fabian",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -151,12 +139,8 @@
       "slug": "nasa-al",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -165,12 +149,8 @@
       "slug": "hiro",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -179,12 +159,8 @@
       "slug": "li-fo",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -193,12 +169,8 @@
       "slug": "ai-dave",
       "by": "Yann",
       "bySlug": "yann",
-      "killers": [
-        {
-          "name": "Yann",
-          "slug": "yann"
-        }
-      ]
+      "rawKillerText": "Yann",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -207,12 +179,8 @@
       "slug": "yann",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -221,12 +189,8 @@
       "slug": "cougar",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

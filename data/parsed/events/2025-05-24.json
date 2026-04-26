@@ -79,12 +79,8 @@
       "slug": "jeff-t",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -99,12 +95,8 @@
       "slug": "wild-bill",
       "by": "Dan K",
       "bySlug": "dan-k",
-      "killers": [
-        {
-          "name": "Dan K",
-          "slug": "dan-k"
-        }
-      ]
+      "rawKillerText": "Dan K",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -119,12 +111,8 @@
       "slug": "jeff-t",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -133,12 +121,8 @@
       "slug": "wild-bill",
       "by": "Dan K",
       "bySlug": "dan-k",
-      "killers": [
-        {
-          "name": "Dan K",
-          "slug": "dan-k"
-        }
-      ]
+      "rawKillerText": "Dan K",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -147,12 +131,8 @@
       "slug": "bostnmike",
       "by": "Dan K",
       "bySlug": "dan-k",
-      "killers": [
-        {
-          "name": "Dan K",
-          "slug": "dan-k"
-        }
-      ]
+      "rawKillerText": "Dan K",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -161,12 +141,8 @@
       "slug": "dan-k",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -175,12 +151,8 @@
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

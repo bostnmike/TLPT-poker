@@ -103,12 +103,8 @@
       "slug": "chris-o",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "providencemike",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -155,12 +147,8 @@
       "slug": "ahmed",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -169,12 +157,8 @@
       "slug": "bostnmike",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -183,12 +167,8 @@
       "slug": "vish",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -197,12 +177,8 @@
       "slug": "red",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -211,12 +187,8 @@
       "slug": "providencemike",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -225,12 +197,8 @@
       "slug": "ai-dave",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -239,12 +207,8 @@
       "slug": "the-architect",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -253,12 +217,8 @@
       "slug": "cougar",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

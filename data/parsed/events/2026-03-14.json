@@ -97,12 +97,8 @@
       "slug": "li-fo",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -117,12 +113,8 @@
       "slug": "providencemike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -143,12 +135,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -163,12 +151,8 @@
       "slug": "li-fo",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -177,12 +161,8 @@
       "slug": "providencemike",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -203,12 +183,8 @@
       "slug": "cougar",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -217,12 +193,8 @@
       "slug": "red",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -231,12 +203,8 @@
       "slug": "providencemike",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -245,12 +213,8 @@
       "slug": "hiro",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -259,12 +223,8 @@
       "slug": "vish",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -273,12 +233,8 @@
       "slug": "bostnmike",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -287,12 +243,8 @@
       "slug": "ahmed",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

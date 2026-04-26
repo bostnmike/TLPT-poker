@@ -73,12 +73,8 @@
       "slug": "nasa-al",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -93,12 +89,8 @@
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -113,12 +105,8 @@
       "slug": "bostnmike",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -127,12 +115,8 @@
       "slug": "ai-dave",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -141,12 +125,8 @@
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -155,12 +135,8 @@
       "slug": "nasa-al",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

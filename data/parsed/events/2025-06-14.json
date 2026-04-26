@@ -109,12 +109,8 @@
       "slug": "brad-r",
       "by": "Rob F",
       "bySlug": "rob-f",
-      "killers": [
-        {
-          "name": "Rob F",
-          "slug": "rob-f"
-        }
-      ]
+      "rawKillerText": "Rob F",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -129,12 +125,8 @@
       "slug": "hiro",
       "by": "Brad R",
       "bySlug": "brad-r",
-      "killers": [
-        {
-          "name": "Brad R",
-          "slug": "brad-r"
-        }
-      ]
+      "rawKillerText": "Brad R",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -143,12 +135,8 @@
       "slug": "jeff-t",
       "by": "Rob F",
       "bySlug": "rob-f",
-      "killers": [
-        {
-          "name": "Rob F",
-          "slug": "rob-f"
-        }
-      ]
+      "rawKillerText": "Rob F",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -157,12 +145,8 @@
       "slug": "nitro",
       "by": "Wild Bill",
       "bySlug": "wild-bill",
-      "killers": [
-        {
-          "name": "Wild Bill",
-          "slug": "wild-bill"
-        }
-      ]
+      "rawKillerText": "Wild Bill",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -171,12 +155,8 @@
       "slug": "brad-r",
       "by": "Rob F",
       "bySlug": "rob-f",
-      "killers": [
-        {
-          "name": "Rob F",
-          "slug": "rob-f"
-        }
-      ]
+      "rawKillerText": "Rob F",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -185,12 +165,8 @@
       "slug": "wild-bill",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -199,12 +175,8 @@
       "slug": "li-fo",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -213,12 +185,8 @@
       "slug": "rob-f",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -227,12 +195,8 @@
       "slug": "ai-dave",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

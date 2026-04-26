@@ -2,7 +2,7 @@
   "byVictim": {
     "ahmed": {
       "hiro": 2,
-      "li-fo": 6,
+      "li-fo": 5,
       "bostnmike": 1,
       "ai-dave": 2,
       "chris-o": 1,
@@ -15,15 +15,15 @@
       "bostnmike": 3,
       "the-architect": 1,
       "li-fo": 1,
-      "nasa-al": 3,
       "hiro": 2,
+      "nasa-al": 2,
       "yann": 1,
       "cougar": 1,
       "vic": 1,
-      "ahmed": 2,
       "chris-o": 1,
       "nitro": 1,
       "jeff-t": 1,
+      "ahmed": 1,
       "red": 3,
       "phattedcalf": 1
     },
@@ -86,8 +86,7 @@
       "yann": 1
     },
     "gilmore": {
-      "li-fo": 2,
-      "nasa-al": 1
+      "li-fo": 2
     },
     "hayden-d": {
       "red": 1,
@@ -116,7 +115,6 @@
       "rob-f": 1,
       "hiro": 1,
       "vic": 1,
-      "ahmed": 1,
       "nasa-al": 1
     },
     "kishan": {
@@ -244,9 +242,8 @@
       "hiro": 5,
       "chris-o": 2,
       "bostnmike": 1,
-      "jeff-t": 1,
-      "ai-dave": 2,
       "david-k": 1,
+      "ai-dave": 1,
       "providencemike": 1,
       "kishan": 1,
       "red": 1
@@ -371,15 +368,14 @@
       "hiro": 1,
       "providencemike": 1,
       "cougar": 1,
-      "ahmed": 6,
+      "ahmed": 5,
       "chris-o": 1,
       "red": 3
     },
     "nasa-al": {
-      "gilmore": 1,
       "hiro": 4,
-      "ai-dave": 3,
       "chris-o": 2,
+      "ai-dave": 2,
       "bostnmike": 3,
       "jeff-t": 1,
       "vic": 1,

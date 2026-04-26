@@ -91,12 +91,8 @@
       "slug": "hiro",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -105,12 +101,8 @@
       "slug": "li-fo",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -131,12 +123,8 @@
       "slug": "bostnmike",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -151,12 +139,8 @@
       "slug": "providencemike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -171,12 +155,8 @@
       "slug": "providencemike",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -185,12 +165,8 @@
       "slug": "li-fo",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -199,12 +175,8 @@
       "slug": "hiro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -213,12 +185,8 @@
       "slug": "ahmed",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -227,12 +195,8 @@
       "slug": "bostnmike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -241,12 +205,8 @@
       "slug": "red",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

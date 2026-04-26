@@ -85,12 +85,8 @@
       "slug": "red",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -105,12 +101,8 @@
       "slug": "bostnmike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -125,12 +117,8 @@
       "slug": "bostnmike",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -145,12 +133,8 @@
       "slug": "providencemike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -159,12 +143,8 @@
       "slug": "bostnmike",
       "by": "Kishan",
       "bySlug": "kishan",
-      "killers": [
-        {
-          "name": "Kishan",
-          "slug": "kishan"
-        }
-      ]
+      "rawKillerText": "Kishan",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -173,12 +153,8 @@
       "slug": "hiro",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -187,12 +163,8 @@
       "slug": "kishan",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -201,12 +173,8 @@
       "slug": "ahmed",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

@@ -85,12 +85,8 @@
       "slug": "hiro",
       "by": "Wild Bill",
       "bySlug": "wild-bill",
-      "killers": [
-        {
-          "name": "Wild Bill",
-          "slug": "wild-bill"
-        }
-      ]
+      "rawKillerText": "Wild Bill",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -105,12 +101,8 @@
       "slug": "cougar",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -125,12 +117,8 @@
       "slug": "hiro",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -139,12 +127,8 @@
       "slug": "wild-bill",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -153,12 +137,8 @@
       "slug": "bostnmike",
       "by": "Nitro",
       "bySlug": "nitro",
-      "killers": [
-        {
-          "name": "Nitro",
-          "slug": "nitro"
-        }
-      ]
+      "rawKillerText": "Nitro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -167,12 +147,8 @@
       "slug": "ai-dave",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -181,12 +157,8 @@
       "slug": "cougar",
       "by": "Nitro",
       "bySlug": "nitro",
-      "killers": [
-        {
-          "name": "Nitro",
-          "slug": "nitro"
-        }
-      ]
+      "rawKillerText": "Nitro",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

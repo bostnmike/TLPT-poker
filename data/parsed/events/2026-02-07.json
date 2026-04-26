@@ -97,12 +97,8 @@
       "slug": "nitro",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -129,12 +125,8 @@
       "slug": "ahmed",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -143,12 +135,8 @@
       "slug": "cougar",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -157,12 +145,8 @@
       "slug": "nitro",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -171,12 +155,8 @@
       "slug": "vish",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -185,12 +165,8 @@
       "slug": "bostnmike",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -199,12 +175,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -213,12 +185,8 @@
       "slug": "li-fo",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

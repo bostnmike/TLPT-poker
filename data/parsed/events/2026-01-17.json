@@ -97,12 +97,8 @@
       "slug": "li-fo",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -135,12 +131,8 @@
       "slug": "hiro",
       "by": "Nitro",
       "bySlug": "nitro",
-      "killers": [
-        {
-          "name": "Nitro",
-          "slug": "nitro"
-        }
-      ]
+      "rawKillerText": "Nitro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -155,12 +147,8 @@
       "slug": "david-k",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -169,12 +157,8 @@
       "slug": "providencemike",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -183,12 +167,8 @@
       "slug": "bostnmike",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -197,12 +177,8 @@
       "slug": "nitro",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -211,12 +187,8 @@
       "slug": "hiro",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -225,12 +197,8 @@
       "slug": "ahmed",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -239,12 +207,8 @@
       "slug": "li-fo",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

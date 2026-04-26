@@ -103,12 +103,8 @@
       "slug": "vish",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "ai-dave",
       "by": "Jeff T",
       "bySlug": "jeff-t",
-      "killers": [
-        {
-          "name": "Jeff T",
-          "slug": "jeff-t"
-        }
-      ]
+      "rawKillerText": "Jeff T",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -143,12 +135,8 @@
       "slug": "providencemike",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -163,12 +151,8 @@
       "slug": "vish",
       "by": "Jeff T",
       "bySlug": "jeff-t",
-      "killers": [
-        {
-          "name": "Jeff T",
-          "slug": "jeff-t"
-        }
-      ]
+      "rawKillerText": "Jeff T",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -183,12 +167,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -197,12 +177,8 @@
       "slug": "li-fo",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -211,12 +187,8 @@
       "slug": "ai-dave",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -225,12 +197,8 @@
       "slug": "nitro",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -239,12 +207,8 @@
       "slug": "bostnmike",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -253,12 +217,8 @@
       "slug": "jeff-t",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -267,12 +227,8 @@
       "slug": "providencemike",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -281,12 +237,8 @@
       "slug": "nasa-al",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

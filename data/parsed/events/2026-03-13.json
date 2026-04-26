@@ -103,12 +103,8 @@
       "slug": "red",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -135,12 +131,8 @@
       "slug": "pittsburghbill",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -149,12 +141,8 @@
       "slug": "cougar",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -163,12 +151,8 @@
       "slug": "phattedcalf",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -177,12 +161,8 @@
       "slug": "ahmed",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -191,12 +171,8 @@
       "slug": "bostnmike",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -205,12 +181,8 @@
       "slug": "nitro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -219,12 +191,8 @@
       "slug": "ai-dave",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -233,12 +201,8 @@
       "slug": "vish",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

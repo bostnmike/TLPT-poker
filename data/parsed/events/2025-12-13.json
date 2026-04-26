@@ -103,12 +103,8 @@
       "slug": "red",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -129,12 +125,8 @@
       "slug": "li-fo",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -149,12 +141,8 @@
       "slug": "providencemike",
       "by": "Gilmore",
       "bySlug": "gilmore",
-      "killers": [
-        {
-          "name": "Gilmore",
-          "slug": "gilmore"
-        }
-      ]
+      "rawKillerText": "Gilmore",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -169,12 +157,8 @@
       "slug": "providencemike",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -189,12 +173,8 @@
       "slug": "red",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -203,12 +183,8 @@
       "slug": "hiro",
       "by": "Gilmore",
       "bySlug": "gilmore",
-      "killers": [
-        {
-          "name": "Gilmore",
-          "slug": "gilmore"
-        }
-      ]
+      "rawKillerText": "Gilmore",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -217,12 +193,8 @@
       "slug": "gilmore",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -231,12 +203,8 @@
       "slug": "providencemike",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -245,12 +213,8 @@
       "slug": "the-architect",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -259,12 +223,8 @@
       "slug": "vish",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -273,12 +233,8 @@
       "slug": "bostnmike",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -287,12 +243,8 @@
       "slug": "li-fo",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

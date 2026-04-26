@@ -103,12 +103,8 @@
       "slug": "li-fo",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "li-fo",
       "by": "Big Tim",
       "bySlug": "big-tim",
-      "killers": [
-        {
-          "name": "Big Tim",
-          "slug": "big-tim"
-        }
-      ]
+      "rawKillerText": "Big Tim",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -149,12 +141,8 @@
       "slug": "providencemike",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -169,12 +157,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -189,12 +173,8 @@
       "slug": "hiro",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -203,12 +183,8 @@
       "slug": "providencemike",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout_uncredited",
@@ -223,12 +199,8 @@
       "slug": "cougar",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -237,12 +209,8 @@
       "slug": "bostnmike",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -251,12 +219,8 @@
       "slug": "ahmed",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -265,12 +229,8 @@
       "slug": "big-tim",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -279,12 +239,8 @@
       "slug": "li-fo",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

@@ -103,12 +103,8 @@
       "slug": "red",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "ahmed",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -143,12 +135,8 @@
       "slug": "red",
       "by": "Vic",
       "bySlug": "vic",
-      "killers": [
-        {
-          "name": "Vic",
-          "slug": "vic"
-        }
-      ]
+      "rawKillerText": "Vic",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -157,12 +145,8 @@
       "slug": "providencemike",
       "by": "Vic",
       "bySlug": "vic",
-      "killers": [
-        {
-          "name": "Vic",
-          "slug": "vic"
-        }
-      ]
+      "rawKillerText": "Vic",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -171,12 +155,8 @@
       "slug": "hiro",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -185,12 +165,8 @@
       "slug": "cougar",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -199,12 +175,8 @@
       "slug": "ai-dave",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -213,38 +185,14 @@
       "slug": "vic",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout_uncredited",
       "time_raw": "10:55:24 pm 02/21/2026",
       "player": "Li-Fo",
       "slug": "li-fo"
-    },
-    {
-      "type": "bustout",
-      "time_raw": "10:55:54 pm 02/21/2026",
-      "player": "Ahmed",
-      "slug": "ahmed",
-      "by": "Li-Fo",
-      "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "10:55:54 pm 02/21/2026",
-      "player": "BostnMike",
-      "slug": "bostnmike"
     },
     {
       "type": "tournament_ended",
@@ -495,7 +443,7 @@
       "buyIns": 1,
       "rebuys": 0,
       "entries": 1,
-      "hits": 3,
+      "hits": 2,
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
@@ -672,5 +620,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for ahmed at 10:55:54 pm 02/21/2026",
+    "Chop detected: removed terminal bustout for bostnmike at 10:55:54 pm 02/21/2026"
+  ]
 }

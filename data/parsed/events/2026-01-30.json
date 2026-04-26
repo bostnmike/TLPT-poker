@@ -103,12 +103,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "red",
       "by": "Wild Bill",
       "bySlug": "wild-bill",
-      "killers": [
-        {
-          "name": "Wild Bill",
-          "slug": "wild-bill"
-        }
-      ]
+      "rawKillerText": "Wild Bill",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -137,12 +129,8 @@
       "slug": "ai-dave",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -151,12 +139,8 @@
       "slug": "hiro",
       "by": "Wild Bill",
       "bySlug": "wild-bill",
-      "killers": [
-        {
-          "name": "Wild Bill",
-          "slug": "wild-bill"
-        }
-      ]
+      "rawKillerText": "Wild Bill",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -165,12 +149,8 @@
       "slug": "cougar",
       "by": "Hayden D",
       "bySlug": "hayden-d",
-      "killers": [
-        {
-          "name": "Hayden D",
-          "slug": "hayden-d"
-        }
-      ]
+      "rawKillerText": "Hayden D",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -179,12 +159,8 @@
       "slug": "nitro",
       "by": "Hayden D",
       "bySlug": "hayden-d",
-      "killers": [
-        {
-          "name": "Hayden D",
-          "slug": "hayden-d"
-        }
-      ]
+      "rawKillerText": "Hayden D",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -193,12 +169,8 @@
       "slug": "hayden-d",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -207,24 +179,8 @@
       "slug": "providencemike",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "10:49:54 pm 01/30/2026",
-      "player": "BostnMike",
-      "slug": "bostnmike"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "10:49:54 pm 01/30/2026",
-      "player": "Wild Bill",
-      "slug": "wild-bill"
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -652,5 +608,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for bostnmike at 10:49:54 pm 01/30/2026",
+    "Chop detected: removed terminal bustout for wild-bill at 10:49:54 pm 01/30/2026"
+  ]
 }

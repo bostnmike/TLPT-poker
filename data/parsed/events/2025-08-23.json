@@ -79,12 +79,8 @@
       "slug": "chris-o",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -99,12 +95,8 @@
       "slug": "chris-o",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -113,12 +105,8 @@
       "slug": "ai-dave",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -127,12 +115,8 @@
       "slug": "hiro",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -141,12 +125,8 @@
       "slug": "bostnmike",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

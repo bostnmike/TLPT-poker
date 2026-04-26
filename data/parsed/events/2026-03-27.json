@@ -91,12 +91,8 @@
       "slug": "providencemike",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -111,12 +107,8 @@
       "slug": "buffalomike",
       "by": "Kishan",
       "bySlug": "kishan",
-      "killers": [
-        {
-          "name": "Kishan",
-          "slug": "kishan"
-        }
-      ]
+      "rawKillerText": "Kishan",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -131,12 +123,8 @@
       "slug": "red",
       "by": "Kishan",
       "bySlug": "kishan",
-      "killers": [
-        {
-          "name": "Kishan",
-          "slug": "kishan"
-        }
-      ]
+      "rawKillerText": "Kishan",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -151,12 +139,8 @@
       "slug": "red",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -171,12 +155,8 @@
       "slug": "red",
       "by": "Pat",
       "bySlug": "pat",
-      "killers": [
-        {
-          "name": "Pat",
-          "slug": "pat"
-        }
-      ]
+      "rawKillerText": "Pat",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -185,12 +165,8 @@
       "slug": "nitro",
       "by": "BuffaloMike",
       "bySlug": "buffalomike",
-      "killers": [
-        {
-          "name": "BuffaloMike",
-          "slug": "buffalomike"
-        }
-      ]
+      "rawKillerText": "Mike-G",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -199,12 +175,8 @@
       "slug": "providencemike",
       "by": "BuffaloMike",
       "bySlug": "buffalomike",
-      "killers": [
-        {
-          "name": "BuffaloMike",
-          "slug": "buffalomike"
-        }
-      ]
+      "rawKillerText": "Mike-G",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -213,12 +185,8 @@
       "slug": "bostnmike",
       "by": "BuffaloMike",
       "bySlug": "buffalomike",
-      "killers": [
-        {
-          "name": "BuffaloMike",
-          "slug": "buffalomike"
-        }
-      ]
+      "rawKillerText": "Mike-G",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -227,12 +195,8 @@
       "slug": "kishan",
       "by": "BuffaloMike",
       "bySlug": "buffalomike",
-      "killers": [
-        {
-          "name": "BuffaloMike",
-          "slug": "buffalomike"
-        }
-      ]
+      "rawKillerText": "Mike-G",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -241,12 +205,8 @@
       "slug": "pat",
       "by": "BuffaloMike",
       "bySlug": "buffalomike",
-      "killers": [
-        {
-          "name": "BuffaloMike",
-          "slug": "buffalomike"
-        }
-      ]
+      "rawKillerText": "Mike-G",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",

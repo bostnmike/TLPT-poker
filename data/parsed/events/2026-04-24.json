@@ -103,12 +103,8 @@
       "slug": "li-fo",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "hiro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -143,12 +135,8 @@
       "slug": "hiro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -163,12 +151,8 @@
       "slug": "li-fo",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -183,12 +167,8 @@
       "slug": "ai-dave",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -203,12 +183,8 @@
       "slug": "vish",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -223,12 +199,8 @@
       "slug": "hiro",
       "by": "Vish",
       "bySlug": "vish",
-      "killers": [
-        {
-          "name": "Vish",
-          "slug": "vish"
-        }
-      ]
+      "rawKillerText": "Vish",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -243,12 +215,8 @@
       "slug": "ai-dave",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -257,12 +225,8 @@
       "slug": "li-fo",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -271,12 +235,8 @@
       "slug": "vish",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -285,12 +245,8 @@
       "slug": "bostnmike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -299,12 +255,8 @@
       "slug": "nitro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -313,30 +265,8 @@
       "slug": "ahmed",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:54:25 pm 04/24/2026",
-      "player": "Hiro",
-      "slug": "hiro"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:54:25 pm 04/24/2026",
-      "player": "ProvidenceMike",
-      "slug": "providencemike"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:54:25 pm 04/24/2026",
-      "player": "Red",
-      "slug": "red"
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -764,5 +694,9 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for hiro at 11:54:25 pm 04/24/2026",
+    "Chop detected: removed terminal bustout for providencemike at 11:54:25 pm 04/24/2026",
+    "Chop detected: removed terminal bustout for red at 11:54:25 pm 04/24/2026"
+  ]
 }

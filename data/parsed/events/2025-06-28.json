@@ -95,18 +95,10 @@
       "time_raw": "8:19:58 pm 06/28/2025",
       "player": "Gilmore",
       "slug": "gilmore",
-      "by": "Li-Fo, Nasa Al",
+      "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        },
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Li-Fo, Nasa Al",
+      "sharedKillerSource": true
     },
     {
       "type": "bustout",
@@ -115,12 +107,8 @@
       "slug": "nitro",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -135,12 +123,8 @@
       "slug": "ai-dave",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -155,12 +139,8 @@
       "slug": "hiro",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -173,18 +153,10 @@
       "time_raw": "9:37:20 pm 06/28/2025",
       "player": "A.I. Dave",
       "slug": "ai-dave",
-      "by": "Li-Fo, Nasa Al",
+      "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        },
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Li-Fo, Nasa Al",
+      "sharedKillerSource": true
     },
     {
       "type": "bustout",
@@ -193,12 +165,8 @@
       "slug": "hiro",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -207,12 +175,8 @@
       "slug": "bostnmike",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -221,12 +185,8 @@
       "slug": "nitro",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -235,12 +195,8 @@
       "slug": "nasa-al",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -249,12 +205,8 @@
       "slug": "the-architect",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -518,7 +470,7 @@
       "buyIns": 1,
       "rebuys": 0,
       "entries": 1,
-      "hits": 3,
+      "hits": 1,
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
@@ -682,5 +634,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Shared killer source reduced to first listed killer only: Li-Fo, Nasa Al",
+    "Shared killer source reduced to first listed killer only: Li-Fo, Nasa Al"
+  ]
 }

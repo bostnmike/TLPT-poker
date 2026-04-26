@@ -91,12 +91,8 @@
       "slug": "red",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -111,12 +107,8 @@
       "slug": "red",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -131,12 +123,8 @@
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -151,12 +139,8 @@
       "slug": "red",
       "by": "Li-Fo",
       "bySlug": "li-fo",
-      "killers": [
-        {
-          "name": "Li-Fo",
-          "slug": "li-fo"
-        }
-      ]
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -165,12 +149,8 @@
       "slug": "li-fo",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -179,12 +159,8 @@
       "slug": "providencemike",
       "by": "Wild Bill",
       "bySlug": "wild-bill",
-      "killers": [
-        {
-          "name": "Wild Bill",
-          "slug": "wild-bill"
-        }
-      ]
+      "rawKillerText": "Wild Bill",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -193,12 +169,8 @@
       "slug": "wild-bill",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -207,24 +179,8 @@
       "slug": "bostnmike",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "12:00:51 am 04/18/2026",
-      "player": "Ahmed",
-      "slug": "ahmed"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "12:00:51 am 04/18/2026",
-      "player": "Hiro",
-      "slug": "hiro"
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -652,5 +608,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for ahmed at 12:00:51 am 04/18/2026",
+    "Chop detected: removed terminal bustout for hiro at 12:00:51 am 04/18/2026"
+  ]
 }

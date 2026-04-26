@@ -109,12 +109,8 @@
       "slug": "vic",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -129,12 +125,8 @@
       "slug": "cougar",
       "by": "Ahmed",
       "bySlug": "ahmed",
-      "killers": [
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Ahmed",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -143,48 +135,28 @@
       "slug": "the-architect",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
       "time_raw": "9:40:19 pm 12/21/2025",
       "player": "Jeff T",
       "slug": "jeff-t",
-      "by": "Vic, Ahmed",
+      "by": "Vic",
       "bySlug": "vic",
-      "killers": [
-        {
-          "name": "Vic",
-          "slug": "vic"
-        },
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Vic, Ahmed",
+      "sharedKillerSource": true
     },
     {
       "type": "bustout",
       "time_raw": "9:48:16 pm 12/21/2025",
       "player": "A.I. Dave",
       "slug": "ai-dave",
-      "by": "Vic, Ahmed",
+      "by": "Vic",
       "bySlug": "vic",
-      "killers": [
-        {
-          "name": "Vic",
-          "slug": "vic"
-        },
-        {
-          "name": "Ahmed",
-          "slug": "ahmed"
-        }
-      ]
+      "rawKillerText": "Vic, Ahmed",
+      "sharedKillerSource": true
     },
     {
       "type": "bustout",
@@ -193,12 +165,8 @@
       "slug": "vic",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -207,12 +175,8 @@
       "slug": "ahmed",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -221,12 +185,8 @@
       "slug": "chris-o",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -282,7 +242,7 @@
       "buyIns": 1,
       "rebuys": 0,
       "entries": 1,
-      "hits": 3,
+      "hits": 1,
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
@@ -654,5 +614,8 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Shared killer source reduced to first listed killer only: Vic, Ahmed",
+    "Shared killer source reduced to first listed killer only: Vic, Ahmed"
+  ]
 }

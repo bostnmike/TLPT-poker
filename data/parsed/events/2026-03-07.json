@@ -103,12 +103,8 @@
       "slug": "vic",
       "by": "A.I. Dave",
       "bySlug": "ai-dave",
-      "killers": [
-        {
-          "name": "A.I. Dave",
-          "slug": "ai-dave"
-        }
-      ]
+      "rawKillerText": "Ai-Dave",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -123,12 +119,8 @@
       "slug": "hiro",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -137,12 +129,8 @@
       "slug": "ahmed",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -151,12 +139,8 @@
       "slug": "vic",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -165,12 +149,8 @@
       "slug": "ai-dave",
       "by": "Nasa Al",
       "bySlug": "nasa-al",
-      "killers": [
-        {
-          "name": "Nasa Al",
-          "slug": "nasa-al"
-        }
-      ]
+      "rawKillerText": "Nasa Al",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -179,12 +159,8 @@
       "slug": "bostnmike",
       "by": "ProvidenceMike",
       "bySlug": "providencemike",
-      "killers": [
-        {
-          "name": "ProvidenceMike",
-          "slug": "providencemike"
-        }
-      ]
+      "rawKillerText": "Providencemike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -193,30 +169,8 @@
       "slug": "dan-k",
       "by": "Cougar",
       "bySlug": "cougar",
-      "killers": [
-        {
-          "name": "Cougar",
-          "slug": "cougar"
-        }
-      ]
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:29:38 pm 03/07/2026",
-      "player": "Cougar",
-      "slug": "cougar"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:29:38 pm 03/07/2026",
-      "player": "Nasa Al",
-      "slug": "nasa-al"
-    },
-    {
-      "type": "bustout_uncredited",
-      "time_raw": "11:29:38 pm 03/07/2026",
-      "player": "ProvidenceMike",
-      "slug": "providencemike"
+      "rawKillerText": "Cougar",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
@@ -644,5 +598,9 @@
       "profit": 0
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Chop detected: removed terminal bustout for cougar at 11:29:38 pm 03/07/2026",
+    "Chop detected: removed terminal bustout for nasa-al at 11:29:38 pm 03/07/2026",
+    "Chop detected: removed terminal bustout for providencemike at 11:29:38 pm 03/07/2026"
+  ]
 }

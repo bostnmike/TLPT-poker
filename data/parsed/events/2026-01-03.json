@@ -97,12 +97,8 @@
       "slug": "hiro",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -117,12 +113,8 @@
       "slug": "vish",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -137,12 +129,8 @@
       "slug": "chris-o",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -157,12 +145,8 @@
       "slug": "vish",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -177,12 +161,8 @@
       "slug": "vish",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -197,12 +177,8 @@
       "slug": "li-fo",
       "by": "The Architect",
       "bySlug": "the-architect",
-      "killers": [
-        {
-          "name": "The Architect",
-          "slug": "the-architect"
-        }
-      ]
+      "rawKillerText": "The Architect",
+      "sharedKillerSource": false
     },
     {
       "type": "rebuy",
@@ -217,12 +193,8 @@
       "slug": "ahmed",
       "by": "Chris O",
       "bySlug": "chris-o",
-      "killers": [
-        {
-          "name": "Chris O",
-          "slug": "chris-o"
-        }
-      ]
+      "rawKillerText": "Chris O",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -231,12 +203,8 @@
       "slug": "li-fo",
       "by": "BostnMike",
       "bySlug": "bostnmike",
-      "killers": [
-        {
-          "name": "BostnMike",
-          "slug": "bostnmike"
-        }
-      ]
+      "rawKillerText": "Bostnmike",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -245,12 +213,8 @@
       "slug": "vish",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -259,12 +223,8 @@
       "slug": "bostnmike",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -273,12 +233,8 @@
       "slug": "chris-o",
       "by": "Red",
       "bySlug": "red",
-      "killers": [
-        {
-          "name": "Red",
-          "slug": "red"
-        }
-      ]
+      "rawKillerText": "Red",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -287,12 +243,8 @@
       "slug": "the-architect",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "bustout",
@@ -301,12 +253,8 @@
       "slug": "red",
       "by": "Hiro",
       "bySlug": "hiro",
-      "killers": [
-        {
-          "name": "Hiro",
-          "slug": "hiro"
-        }
-      ]
+      "rawKillerText": "Hiro",
+      "sharedKillerSource": false
     },
     {
       "type": "tournament_ended",
