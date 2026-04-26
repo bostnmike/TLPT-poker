@@ -279,14 +279,14 @@ function fmtNum(n) {
 
 function parseAnimatedValue(text) {
   const raw = String(text ?? "").trim();
-
   if (!raw) return null;
 
   const isMoney = raw.includes("$");
   const isPct = raw.includes("%");
   const negative = raw.startsWith("-");
 
-  const numeric = Number(raw.replace(/[^0-9.]/g, ""));
+  // ✅ FIX: preserve decimals properly (this was part of the issue)
+  const numeric = Number(raw.replace(/[^0-9.-]/g, ""));
   if (Number.isNaN(numeric)) return null;
 
   return {
@@ -320,7 +320,10 @@ function formatAnimatedValue(value, meta) {
 function animateCountUp(el, duration = 1100) {
   if (!el || el.dataset.countAnimated === "true") return;
 
-  const meta = parseAnimatedValue(el.dataset.targetValue || el.textContent);
+  const targetText = el.dataset.targetValue || el.textContent;
+  const meta = parseAnimatedValue(targetText);
+
+  // ❗ If not numeric → DON'T animate (prevents bad overrides)
   if (!meta) return;
 
   el.dataset.countAnimated = "true";
@@ -337,6 +340,7 @@ function animateCountUp(el, duration = 1100) {
     if (progress < 1) {
       requestAnimationFrame(tick);
     } else {
+      // ✅ Always snap back to ORIGINAL value
       el.textContent = meta.raw;
     }
   }
