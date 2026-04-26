@@ -1295,27 +1295,20 @@ function renderDashboard(data) {
     const profit = player.profit ?? '--';
 
     return `
-      <div class="player-card">
+  <div class="player-card">
 
-        <div class="player-card-header">
-          <img src="${image}" class="player-avatar" alt="${name}">
-        </div>
+    <div class="player-card-header">
+      <img src="images/players/${player.image}" class="player-avatar">
+    </div>
 
-        <div class="player-card-body">
-          <div class="player-name">${name}</div>
+    <div class="player-card-body">
+      <div class="player-name">${player.name}</div>
+      ${tierBadge}
+      ${heat}
+    </div>
 
-          ${tier ? `<div class="player-tier-badge ${tierClass}">${tier}</div>` : ''}
-
-          ${heat ? `<div class="player-heat">🔥 ${heat}</div>` : ''}
-
-          <div class="player-stats">
-            <div>ROI: ${roi}</div>
-            <div>Profit: ${profit}</div>
-          </div>
-        </div>
-
-      </div>
-    `;
+  </div>
+`;
   }).join('');
 }
 
