@@ -15,6 +15,51 @@ CONFIG_PATH = DATA_DIR / "league-config.json"
 
 TIMESTAMP_RE = r'(\d{1,2}:\d{2}:\d{2}\s+[ap]m\s+\d{2}/\d{2}/\d{4})'
 
+# -------------------------------------------------------------------
+# HARD-CODED LEAGUE OVERRIDES
+# -------------------------------------------------------------------
+# These are the known edge-case events that must override imperfect TD text.
+#
+# Rules encoded here:
+# - Only one credited hitman per elimination
+# - Chops create NO final bust-out and NO final hit
+# - Specific known source-text ambiguities are normalized here
+# -------------------------------------------------------------------
+EVENT_OVERRIDES = {
+    "2025-06-28": {
+        "force_single_killer": {
+            # victim_slug: killer_slug
+            "gilmore": "nasa-al",
+        },
+        "chop_finalists": []
+    },
+    "2026-01-24": {
+        "force_single_killer": {},
+        "chop_finalists": ["bostnmike", "red"]
+    },
+    "2026-01-30": {
+        "force_single_killer": {},
+        "chop_finalists": ["bostnmike", "wild-bill"]
+    },
+    "2026-02-21": {
+        "force_single_killer": {},
+        "chop_finalists": ["ahmed", "bostnmike"]
+    },
+    "2026-03-07": {
+        "force_single_killer": {},
+        "chop_finalists": ["cougar", "providencemike", "nasa-al"]
+    },
+    "2026-03-28": {
+        # This event is intentionally left alone.
+        "force_single_killer": {},
+        "chop_finalists": []
+    },
+    "2026-04-17": {
+        "force_single_killer": {},
+        "chop_finalists": ["ahmed", "hiro"]
+    }
+}
+
 
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
@@ -259,7 +304,7 @@ def parse_action_line(line, alias_map):
         if not killer_names_raw:
             raise RuntimeError(f"Could not parse killer name(s) from event report line: {line}")
 
-        # HARD RULE: only one credited hitman, always the first listed
+        # HARD RULE: only one credited hitman, always first listed
         chosen_raw_killer = killer_names_raw[0]
         killer_name, killer_slug = canonicalize_player_name(chosen_raw_killer, alias_map)
 
@@ -290,44 +335,72 @@ def parse_action_line(line, alias_map):
     }
 
 
-def suppress_chop_finish_bustouts(parsed_actions, payouts):
+def apply_event_specific_overrides(event_date, parsed_actions, payouts):
     warnings = []
-
-    if not payouts:
-        return parsed_actions, warnings
-
-    top_rank = min((p.get("rank", 999999) for p in payouts), default=999999)
-    if top_rank != 1:
-        return parsed_actions, warnings
-
-    chopped_slugs = [p["slug"] for p in payouts if p.get("rank") == 1]
-    if len(chopped_slugs) < 2:
-        return parsed_actions, warnings
+    overrides = EVENT_OVERRIDES.get(event_date, {})
+    force_single_killer = overrides.get("force_single_killer", {})
+    chop_finalists = set(overrides.get("chop_finalists", []))
 
     cleaned_actions = list(parsed_actions)
 
-    for chopped_slug in chopped_slugs:
-        last_reentry_idx = -1
-        last_bust_idx = -1
-
-        for idx, action in enumerate(cleaned_actions):
-            if not action or action.get("slug") != chopped_slug:
+    # Force known victim->killer corrections
+    if force_single_killer:
+        for action in cleaned_actions:
+            if action.get("type") != "bustout":
                 continue
 
-            if action.get("type") in {"buyin", "rebuy"}:
-                last_reentry_idx = idx
+            victim_slug = action.get("slug")
+            if victim_slug in force_single_killer:
+                forced_killer_slug = force_single_killer[victim_slug]
+                action["bySlug"] = forced_killer_slug
+                action["by"] = forced_killer_slug
+                warnings.append(
+                    f"{event_date}: forced credited killer for victim {victim_slug} -> {forced_killer_slug}"
+                )
 
-            if action.get("type") in {"bustout", "bustout_uncredited"}:
-                last_bust_idx = idx
+    # Enforce explicit chop finalists for known dates
+    if chop_finalists:
+        for idx, action in enumerate(cleaned_actions):
+            if action is None:
+                continue
+            if action.get("type") not in {"bustout", "bustout_uncredited"}:
+                continue
+            if action.get("slug") in chop_finalists:
+                cleaned_actions[idx] = None
+                warnings.append(
+                    f"{event_date}: removed bustout for chopped finalist {action.get('slug')} at {action.get('time_raw', 'unknown time')}"
+                )
 
-        if last_bust_idx > last_reentry_idx >= -1:
-            removed = cleaned_actions[last_bust_idx]
-            cleaned_actions[last_bust_idx] = None
-            warnings.append(
-                f"Chop detected: removed terminal bustout for {chopped_slug} at {removed.get('time_raw', 'unknown time')}"
-            )
+        cleaned_actions = [action for action in cleaned_actions if action is not None]
+        return cleaned_actions, warnings
 
-    cleaned_actions = [action for action in cleaned_actions if action is not None]
+    # Generic chop handling fallback:
+    # if multiple players are ranked 1st, remove the terminal bustout for those players
+    first_place_slugs = [p["slug"] for p in payouts if p.get("rank") == 1]
+    if len(first_place_slugs) >= 2:
+        for chopped_slug in first_place_slugs:
+            last_reentry_idx = -1
+            last_bust_idx = -1
+
+            for idx, action in enumerate(cleaned_actions):
+                if not action or action.get("slug") != chopped_slug:
+                    continue
+
+                if action.get("type") in {"buyin", "rebuy"}:
+                    last_reentry_idx = idx
+
+                if action.get("type") in {"bustout", "bustout_uncredited"}:
+                    last_bust_idx = idx
+
+            if last_bust_idx > last_reentry_idx >= -1:
+                removed = cleaned_actions[last_bust_idx]
+                cleaned_actions[last_bust_idx] = None
+                warnings.append(
+                    f"{event_date}: generic chop handling removed terminal bustout for {chopped_slug} at {removed.get('time_raw', 'unknown time')}"
+                )
+
+        cleaned_actions = [action for action in cleaned_actions if action is not None]
+
     return cleaned_actions, warnings
 
 
@@ -426,22 +499,6 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
 
     payouts = [a for a in parsed_actions if a["type"] == "payout"]
 
-    shared_killer_warnings = []
-    for action in parsed_actions:
-        if action.get("type") == "bustout" and action.get("sharedKillerSource"):
-            shared_killer_warnings.append(
-                f"Shared killer source reduced to first listed killer only: {action.get('rawKillerText', '')}"
-            )
-
-    parsed_actions, chop_warnings = suppress_chop_finish_bustouts(parsed_actions, payouts)
-
-    player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
-        metadata_players=metadata_players,
-        parsed_actions=parsed_actions,
-        payouts=payouts,
-        buy_in_amount=buy_in_amount
-    )
-
     iso_start = parse_datetime_from_summary(summary_start)
     if iso_start and "T" in iso_start:
         event_date = iso_start.split("T")[0]
@@ -450,18 +507,34 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
     else:
         event_date = path.stem
 
+    shared_killer_warnings = []
+    for action in parsed_actions:
+        if action.get("type") == "bustout" and action.get("sharedKillerSource"):
+            shared_killer_warnings.append(
+                f"{event_date}: shared killer source reduced to first listed killer only: {action.get('rawKillerText', '')}"
+            )
+
+    parsed_actions, override_warnings = apply_event_specific_overrides(event_date, parsed_actions, payouts)
+
+    player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
+        metadata_players=metadata_players,
+        parsed_actions=parsed_actions,
+        payouts=payouts,
+        buy_in_amount=buy_in_amount
+    )
+
     warnings = []
     warnings.extend(shared_killer_warnings)
-    warnings.extend(chop_warnings)
+    warnings.extend(override_warnings)
 
     action_buyins = sum(1 for a in parsed_actions if a["type"] == "buyin")
     action_rebuys = sum(1 for a in parsed_actions if a["type"] == "rebuy")
     if action_buyins != buyins_count:
-        warnings.append(f"Buy-in count mismatch: summary={buyins_count}, actions={action_buyins}")
+        warnings.append(f"{event_date}: buy-in count mismatch: summary={buyins_count}, actions={action_buyins}")
     if action_rebuys != rebuys_count:
-        warnings.append(f"Rebuy count mismatch: summary={rebuys_count}, actions={action_rebuys}")
+        warnings.append(f"{event_date}: rebuy count mismatch: summary={rebuys_count}, actions={action_rebuys}")
     if paid_spots and len(payouts) != paid_spots:
-        warnings.append(f"Paid spots mismatch: summary={paid_spots}, payouts={len(payouts)}")
+        warnings.append(f"{event_date}: paid spots mismatch: summary={paid_spots}, payouts={len(payouts)}")
 
     event = {
         "eventId": event_date,
