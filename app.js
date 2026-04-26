@@ -7,7 +7,7 @@ async function loadSiteData() {
 
     console.log("🔄 Loading GENERATED site-data.json...");
 
-    const res = await fetch("/TLPT-poker/data/generated/site-data.json", {
+    const res = await fetch("./data/generated/site-data.json", {
       cache: "no-store"
     });
 
