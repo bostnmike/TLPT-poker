@@ -1,6 +1,6 @@
 /* app.js */
 async function loadSiteData() {
-  const res = await fetch("data/generated/site-data.json", { cache: "no-store" });
+  const res = await fetch("site-data.json", { cache: "no-store" });
   return await res.json();
 }
 
@@ -3441,5 +3441,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener("DOMContentLoaded", () => {
   loadSiteData();
+});
+
+  document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const data = await loadSiteData();
+
+    console.log("DATA LOADED:", data);
+
+    window.siteData = data;
+
+    renderDashboard(); // ← IMPORTANT: no args
+  } catch (err) {
+    console.error("FAILED TO LOAD DATA:", err);
+    document.getElementById("player-grid").innerHTML =
+      "<div style='padding:20px;color:red;'>Data failed to load</div>";
+  }
 });
 });
