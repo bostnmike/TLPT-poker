@@ -1,7 +1,21 @@
 /* app.js */
 async function loadSiteData() {
-  const res = await fetch("site-data.json", { cache: "no-store" });
-  return await res.json();
+  try {
+    const res = await fetch("./site-data.json", { cache: "no-store" });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error: ${res.status}`);
+    }
+
+    const data = await res.json();
+    console.log("✅ site-data loaded:", data);
+
+    return data;
+
+  } catch (err) {
+    console.error("❌ FAILED TO LOAD site-data.json", err);
+    return { players: [] };
+  }
 }
 
 const DEFAULT_STANDINGS_SORT = "profit";
@@ -1265,7 +1279,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const grid = document.getElementById('dashboard-grid');
 
   if (!grid) {
-    console.error('player-grid not found');
+    console.error('dashboard-grid not found');
     return;
   }
 
@@ -1277,7 +1291,6 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 
   let players = [...window.siteData.players];
 
-  // ✅ SORTING (this is what your button was trying to do)
   players.sort((a, b) => {
     const aVal = a[sortKey] ?? 0;
     const bVal = b[sortKey] ?? 0;
@@ -3380,23 +3393,21 @@ function initEventRsvpNameHover() {
 }
 
 async function main() {
-  const data = await loadSiteData();
-  window.siteData = data;
+  try {
+    const data = await loadSiteData();
 
-  renderHomePage(data);
-  renderLeagueSnapshot(data);
-  renderStandings(DEFAULT_STANDINGS_SORT);
-  renderDashboard();
-  renderPlayers(data);
-  renderPlayerProfile(data);
-  renderSchedule(data);
-  renderChampions(data);
-  renderStatLeaders(data);
-  renderHonorsSummary(data);
-  initRulesPage();
-  initSorting();
-  initCrewViewToggle();
-  initEventRsvpNameHover();
+    window.siteData = data;
+
+    console.log("DATA READY:", data);
+
+    renderHomePage(data);
+    renderLeagueSnapshot(data);
+    renderStandings(DEFAULT_STANDINGS_SORT);
+    renderDashboard(); // ✅ ONLY CALL ONCE
+
+  } catch (err) {
+    console.error("FAILED TO INIT APP:", err);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
