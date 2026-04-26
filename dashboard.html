@@ -1,132 +1,53 @@
-<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>TLPT Dashboard</title>
-  
-  <link rel="icon" type="image/png" sizes="32x32" href="images/site/favicon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
-
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <div>
-        <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">The League. The Players. The Tilt.</p>
-      </div>
 
-<nav class="nav">
-  <a href="index.html">Home</a>
+  <h1>TLPT Dashboard</h1>
 
-  <div class="nav-dropdown">
-    <a href="dashboard.html" class="nav-dropdown-parent is-active" aria-current="page">The Metrics</a>
-    <div class="nav-dropdown-menu">
-      <a href="dashboard.html" class="is-active" aria-current="page">Dashboard</a>
-      <a href="knockouts.html">Knockout Central</a>
-      <a href="standings.html">Standings</a>
-    </div>
-  </div>
+  <div id="player-grid" class="player-grid"></div>
 
-  <div class="nav-dropdown">
-    <a href="players.html" class="nav-dropdown-parent">The Crew</a>
-    <div class="nav-dropdown-menu">
-      <a href="player.html?name=Bostnmike">Player Profiles</a>
-    </div>
-  </div>
+  <script>
+    fetch('site-data.json')
+      .then(res => res.json())
+      .then(data => {
+        const players = data.players || [];
+        const grid = document.getElementById('player-grid');
 
-  <a href="schedule.html">The Schedule</a>
+        grid.innerHTML = players.map(player => {
 
-  <div class="nav-dropdown">
-    <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
-    <div class="nav-dropdown-menu">
-      <a href="news.html">The Week That Was</a>
-    </div>
-  </div>
+          const tierClass = player.tier
+            ? `tier-${player.tier.toLowerCase().replace(/\s+/g, '-')}`
+            : '';
 
-  <a href="rules.html">The Rules</a>
+          const tierBadge = player.tier
+            ? `<div class="player-tier-badge ${tierClass}">${player.tier}</div>`
+            : '';
 
-  <div class="nav-dropdown">
-    <a href="media.html" class="nav-dropdown-parent">Media</a>
-    <div class="nav-dropdown-menu">
-      <a href="media.html">The Film</a>
-      <a href="gallery.html">The Gallery</a>
-    </div>
-  </div>
-</nav>
-    </div>
-  </header>
+          const heat = player.heat
+            ? `<div class="player-heat">🔥 ${player.heat}</div>`
+            : '';
 
-  <main class="wrap">
-    <section class="dashboard-page-stack">
-      <section class="section dashboard-top-shell">
-        <div class="section-head page-title-row compact-page-title-row dashboard-header-row">
-          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-10000.png" alt="T-10000 chip" onerror="this.style.display='none';" />
-          <h2 class="page-title-orange">TLPT Metrics</h2>
-        </div>
-
-        <div class="page-kicker dashboard-page-kicker">Sort the board by any stat to reshuffle the field &amp; see who’s running the hottest.</div>
-
-        <div class="dashboard-buttons-shell">
-          <div class="dashboard-button-groups" data-sort-scope="dashboard">
-            <div class="button-row dashboard-buttons">
-              <button class="btn active" data-dashboard-sort="profit" type="button"><span class="btn-emoji">💰</span><span class="btn-label">Net Profit</span></button>
-              <button class="btn" data-dashboard-sort="hits" type="button"><span class="btn-emoji">💥</span><span class="btn-label">Hits</span></button>
-              <button class="btn" data-dashboard-sort="timesPlaced" type="button"><span class="btn-emoji">💵</span><span class="btn-label">Cashes</span></button>
-              <button class="btn" data-dashboard-sort="bubbles" type="button"><span class="btn-emoji">🫧</span><span class="btn-label">Bubbles</span></button>
-              <button class="btn" data-dashboard-sort="hitRate" type="button"><span class="btn-emoji">💥</span><span class="btn-label">Hit Rate</span></button>
-              <button class="btn" data-dashboard-sort="cashRate" type="button"><span class="btn-emoji">💵</span><span class="btn-label">Cash Rate</span></button>
-              <button class="btn" data-dashboard-sort="bubbleRate" type="button"><span class="btn-emoji">🫧</span><span class="btn-label">Bubble Rate</span></button>
+          return `
+            <div class="player-card">
+              <img src="images/players/${player.image}" class="player-avatar">
+              <div class="player-name">${player.name}</div>
+              ${tierBadge}
+              ${heat}
             </div>
+          `;
+        }).join('');
+      })
+      .catch(err => {
+        console.error('DATA LOAD ERROR:', err);
+        document.body.innerHTML += '<p style="color:red;">Error loading dashboard</p>';
+      });
+  </script>
 
-            <div class="button-row dashboard-buttons">
-              <button class="btn" data-dashboard-sort="roi" type="button"><span class="btn-emoji">📈</span><span class="btn-label">ROI</span></button>
-              <button class="btn" data-dashboard-sort="trueSkillScore" type="button"><span class="btn-emoji">💪🏼</span><span class="btn-label">Power</span></button>
-              <button class="btn" data-dashboard-sort="luckIndex" type="button"><span class="btn-emoji">🍀</span><span class="btn-label">Luck</span></button>
-              <button class="btn" data-dashboard-sort="clutchIndex" type="button"><span class="btn-emoji">🎯</span><span class="btn-label">Clutch</span></button>
-              <button class="btn" data-dashboard-sort="aggressionIndex" type="button"><span class="btn-emoji">⚡</span><span class="btn-label">Aggression</span></button>
-              <button class="btn" data-dashboard-sort="survivorIndex" type="button"><span class="btn-emoji">🛟</span><span class="btn-label">Survivor</span></button>
-              <button class="btn" data-dashboard-sort="tiltIndex" type="button"><span class="btn-emoji">🫨</span><span class="btn-label">Tilt</span></button>
-            </div>
-          </div>
-        </div>
-
-        <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
-
-        <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
-          <div id="dashboard-current-stat" class="dashboard-current-stat"></div>
-          <div class="dashboard-formula-panel dashboard-formula-panel-inline">
-            <div id="dashboard-formula-display" class="dashboard-formula-display">Click a stat button to reveal the calculation formula.</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section dashboard-cards-shell">
-        <div id="dashboard-grid"></div>
-      </section>
-    </section>
-  </main>
-
-<footer class="site-footer">
-  <div class="site-footer-inner">
-    <p>
-      TLPT is a BostnMike Production... and all that, that entails.
-      Site data fueled by
-      <a
-        href="https://thetournamentdirector.net/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        The Tournament Director
-      </a>
-    </p>
-  </div>
-</footer>
-
-  <script src="app.js"></script>
 </body>
 </html>
