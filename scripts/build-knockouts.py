@@ -40,22 +40,13 @@ def main():
                 continue
 
             victim_slug = action.get("slug")
-            killers = action.get("killers") or []
+            killer_slug = action.get("bySlug")
 
-            # fallback for older parsed files
-            if not killers and action.get("bySlug"):
-                killers = [{"slug": action["bySlug"], "name": action.get("by", action["bySlug"])}]
-
-            if not victim_slug or not killers:
+            if not victim_slug or not killer_slug:
                 continue
 
-            for killer in killers:
-                killer_slug = killer.get("slug")
-                if not killer_slug:
-                    continue
-
-                bump_nested_counter(by_victim, victim_slug, killer_slug, 1)
-                bump_nested_counter(by_killer, killer_slug, victim_slug, 1)
+            bump_nested_counter(by_victim, victim_slug, killer_slug, 1)
+            bump_nested_counter(by_killer, killer_slug, victim_slug, 1)
 
     output = {
         "byVictim": dict(sorted(by_victim.items(), key=lambda item: item[0])),
