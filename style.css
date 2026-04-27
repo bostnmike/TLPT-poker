@@ -208,7 +208,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .nav-dropdown-parent::after{
-  content:"â–¾";
+  content:"▾";
   font-size:.7rem;
 }
 
@@ -3127,15 +3127,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 /* homepage outer shell color treatments */
 .home-commissioner-section{
   margin:0;
-  border-color:rgba(250,204,21,.24);
+  border-color:rgba(196,181,253,.42);
   background:
-    radial-gradient(circle at top right, rgba(250,204,21,.12), transparent 32%),
-    radial-gradient(circle at left center, rgba(253,224,71,.06), transparent 24%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+    radial-gradient(circle at top right, rgba(196,181,253,.22), transparent 34%),
+    radial-gradient(circle at left center, rgba(221,214,254,.14), transparent 26%),
+    linear-gradient(180deg, rgba(78,46,126,.99), rgba(20,12,34,.995));
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.08),
-    0 12px 28px rgba(0,0,0,.20),
-    0 0 18px rgba(250,204,21,.08);
+    0 0 0 1px rgba(196,181,253,.18),
+    0 14px 32px rgba(0,0,0,.24),
+    0 0 24px rgba(196,181,253,.16);
 }
 
 #home-snapshot{
@@ -3175,33 +3175,21 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-commissioner-shell{
-  border:1px solid rgba(255,236,179,.20);
+  border:1px solid rgba(142,74,156,.50);
   border-radius:18px;
   padding:14px 18px;
   background:
-    linear-gradient(180deg, rgba(255,244,214,.11), rgba(255,244,214,.03) 24%, rgba(18,24,32,.98) 24%, rgba(12,15,20,.99) 100%),
-    radial-gradient(circle at top right, rgba(255,248,229,.07), transparent 34%);
+    radial-gradient(circle at top right, rgba(214,170,224,.10), transparent 34%),
+    linear-gradient(180deg, rgba(108,52,122,.44), rgba(58,24,70,.38)),
+    linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.012));
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 10px 22px rgba(0,0,0,.18),
-    0 0 16px rgba(255,236,179,.06);
+    0 0 0 1px rgba(142,74,156,.18),
+    0 10px 30px rgba(0,0,0,.24),
+    0 0 18px rgba(108,52,122,.16);
 }
 
 .home-commissioner-shell .commissioner-typing-target{
   min-height:3.4em;
-}
-
-.home-commissioner-shell .commissioner-typing-target,
-.home-commissioner-shell .commissioner-typing-target *,
-.home-commissioner-shell .commissioner-report-text,
-.home-commissioner-shell .commissioner-report-text *{
-  color:#f8fafc !important;
-  text-shadow:none !important;
-}
-
-.home-commissioner-shell .commissioner-typing-target{
-  font-weight:800;
-  letter-spacing:.01em;
 }
 
 #home-commissioner-section .section-head{
@@ -3223,9 +3211,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   border-radius:999px;
   background:linear-gradient(
     90deg,
-    rgba(255,224,102,.98) 0%,
-    rgba(255,184,28,.96) 46%,
-    rgba(255,184,28,.42) 78%,
+    rgba(220,38,38,.98) 0%,
+    rgba(249,115,22,.98) 36%,
+    rgba(255,184,28,.98) 74%,
     transparent 100%
   );
 }
@@ -5304,7 +5292,7 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 
 
-/* FINAL FIX â€” PLAYER COUNT PILLS BY ACTUAL FILTER VALUE */
+/* FINAL FIX — PLAYER COUNT PILLS BY ACTUAL FILTER VALUE */
 .archetype-filter-pill[data-archetype-filter="Hitman" i] > span{
   border:1px solid #ff6b6b !important;
   background:
@@ -8582,7 +8570,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   }
 }
 
-/* FINAL OVERRIDE â€” archetype player-count pills */
+/* FINAL OVERRIDE — archetype player-count pills */
 .archetype-filter-pill.archetype-hitman > span{
   border:1px solid #ff6b6b !important;
   background:linear-gradient(180deg, rgba(255,214,214,.18), rgba(255,255,255,0) 42%), linear-gradient(180deg, rgba(255,107,107,.34), rgba(120,22,22,.96)) !important;
@@ -8653,7 +8641,7 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 2px 8px rgba(0,0,0,.22) !important;
 }
 
-/* FINAL FIX â€” FULL ARCHETYPE FILTER PILL COLORS */
+/* FINAL FIX — FULL ARCHETYPE FILTER PILL COLORS */
 .archetype-filter-pill.archetype-hitman{
   border-color:#ff6b6b !important;
   background:
@@ -9272,7 +9260,7 @@ body:has(.media-header) .page-title-purple{
 }
 
 /* -------------------------
-   7) Unify stronger â€œfeatured / control shellâ€ feel
+   7) Unify stronger “featured / control shell” feel
    ------------------------- */
 .dashboard-sort-shell,
 .standings-sort-shell,
@@ -9437,7 +9425,7 @@ body:has(.media-header) .page-title-purple{
   font-weight:800 !important;
 }
 
-/* final banner fills â€” same geometry, only color changes */
+/* final banner fills — same geometry, only color changes */
 #champions-list .leader-banner-top{
   background:
     linear-gradient(
