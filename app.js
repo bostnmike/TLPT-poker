@@ -3367,6 +3367,9 @@ async function main() {
 document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
+      // ✅ ADD THIS LINE (runs schedule page safely)
+      renderSchedulePage();
+
       const reportEls = document.querySelectorAll("[data-commissioner-report]");
 
       if (!reportEls.length) return;
