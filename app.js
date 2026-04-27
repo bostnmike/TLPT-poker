@@ -3354,7 +3354,7 @@ async function main() {
   renderDashboard(DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
   renderPlayerProfile(data);
-  renderSchedule(data);
+  renderSchedulePage();
   renderChampions(data);
   renderStatLeaders(data);
   renderHonorsSummary(data);
@@ -3445,9 +3445,17 @@ async function renderSchedulePage() {
 function renderRSVPs(rsvps) {
   if (!rsvps) return "";
 
-  return Object.entries(rsvps)
-    .map(([player, status]) => {
-      return `<span class="rsvp rsvp-${status}">${player}</span>`;
-    })
-    .join(" ");
+  return `
+    <div class="rsvp-container">
+      ${Object.entries(rsvps)
+        .map(([player, status]) => {
+          return `
+            <div class="rsvp-pill rsvp-${status}">
+              ${player}
+            </div>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
 }
