@@ -1,6 +1,11 @@
 /* app.js */
 async function loadSiteData() {
-  const res = await fetch("site-data.json", { cache: "no-store" });
+  const res = await fetch("./data/generated/site-data.json", { cache: "no-store" });
+
+  if (!res.ok) {
+    throw new Error(`Failed to load site-data.json (${res.status})`);
+  }
+
   return await res.json();
 }
 
