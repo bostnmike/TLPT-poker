@@ -1,28 +1,7 @@
 /* app.js */
-window.SITE_DATA = window.SITE_DATA || null;
-
 async function loadSiteData() {
-  try {
-    if (window.SITE_DATA) return window.SITE_DATA;
-
-    const BASE_PATH = "/TLPT-poker";
-
-    const res = await fetch(`${BASE_PATH}/data/generated/site-data.json`, {
-      cache: "no-store"
-    });
-
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-    const data = await res.json();
-
-    window.SITE_DATA = data;
-
-    return data;
-
-  } catch (err) {
-    console.error("SITE DATA LOAD FAILED:", err);
-    return { players: [], events: [], honors: {} };
-  }
+  const res = await fetch("site-data.json", { cache: "no-store" });
+  return await res.json();
 }
 
 const DEFAULT_STANDINGS_SORT = "profit";
@@ -32,33 +11,33 @@ let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
-  totalCost: "Total Cost: Buy-ins and rebuys paid across all events",
-  totalWinnings: "Total Winnings: Gross cumulative return from the Tournament Director export",
-  profit: "Profit: Net cumulative take from the Tournament Director export",
+  totalCost: "Total Cost: Buy-ins + Rebuys Cost",
+  totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
+  profit: "Profit: Total Take − Total Cost",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
   bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
-  hitRate: "Hit Rate: Hits ÷ Entries",
+  hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
   buyIns: "Buy-ins: Total number of initial tournament entries purchased",
   rebuys: "Rebuys: Total number of re-entry purchases after busting",
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  trueSkillScore: "Power Index: Composite site metric stored in site-data.json",
+  trueSkillScore: "Power Index: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
   luckIndex: "Luck Index: Profit − Expected Profit",
-  clutchIndex: "Clutch Index: Composite placement-efficiency metric stored in site-data.json",
-  aggressionIndex: "Aggression Index: Composite hit-pressure metric stored in site-data.json",
-  survivorIndex: "Survivor Index: Composite deep-run consistency metric stored in site-data.json",
-  tiltIndex: "Tilt Index: Composite rebuy/inefficiency metric stored in site-data.json",
+  clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
+  aggressionIndex: "Aggression Index: Hits ÷ Entries",
+  survivorIndex: "Survivor Index: Cash Rate × (1 − Bubble Rate)",
+  tiltIndex: "Tilt Index: (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
 const PROFILE_STAT_CONFIG = [
   { key: "totalCost", label: "Total Cost", type: "money", icon: "💸", dashboard: false },
-  { key: "totalWinnings", label: "Gross Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
+  { key: "totalWinnings", label: "Total Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
 
-  { key: "profit", label: "Net Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
+  { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
   { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
   { key: "cashRate", label: "Cash Rate", type: "pct", icon: "💵", dashboard: true },
   { key: "bubbleRate", label: "Bubble Rate", type: "pct", icon: "🫧", dashboard: true },
@@ -300,14 +279,14 @@ function fmtNum(n) {
 
 function parseAnimatedValue(text) {
   const raw = String(text ?? "").trim();
+
   if (!raw) return null;
 
   const isMoney = raw.includes("$");
   const isPct = raw.includes("%");
   const negative = raw.startsWith("-");
 
-  // ✅ FIX: preserve decimals properly (this was part of the issue)
-  const numeric = Number(raw.replace(/[^0-9.-]/g, ""));
+  const numeric = Number(raw.replace(/[^0-9.]/g, ""));
   if (Number.isNaN(numeric)) return null;
 
   return {
@@ -341,10 +320,7 @@ function formatAnimatedValue(value, meta) {
 function animateCountUp(el, duration = 1100) {
   if (!el || el.dataset.countAnimated === "true") return;
 
-  const targetText = el.dataset.targetValue || el.textContent;
-  const meta = parseAnimatedValue(targetText);
-
-  // ❗ If not numeric → DON'T animate (prevents bad overrides)
+  const meta = parseAnimatedValue(el.dataset.targetValue || el.textContent);
   if (!meta) return;
 
   el.dataset.countAnimated = "true";
@@ -361,7 +337,6 @@ function animateCountUp(el, duration = 1100) {
     if (progress < 1) {
       requestAnimationFrame(tick);
     } else {
-      // ✅ Always snap back to ORIGINAL value
       el.textContent = meta.raw;
     }
   }
@@ -1282,30 +1257,29 @@ function renderStandingsRaceStrip(sortKey, sortedPlayers) {
   `;
 }
 
-function renderDashboard(sortKey = "roi") {
-  const grid = document.getElementById("dashboard-grid");
+function renderDashboardStudioStrip(sortKey, sortedPlayers) {
+  const strip = document.getElementById("dashboard-studio-strip");
+  if (!strip) return;
 
-  if (!grid) {
-    console.error("❌ dashboard-grid not found");
+  const meta = DASHBOARD_META[sortKey] || {
+    label: formatStatLabel(sortKey),
+    icon: statIcon(sortKey),
+    formula: ""
+  };
+
+  const leader = sortedPlayers[0];
+  if (!leader) {
+    strip.innerHTML = "";
     return;
   }
 
-  if (!window.siteData || !window.siteData.players) {
-    console.error("❌ siteData missing");
-    grid.innerHTML = "<div style='padding:20px;'>No data loaded</div>";
-    return;
-  }
+strip.innerHTML = `
+  <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
 
-  const players = [...window.siteData.players];
-
-  players.sort((a, b) => (b[sortKey] || 0) - (a[sortKey] || 0));
-
-  grid.innerHTML = players.map(p => `
-    <div class="player-card">
-      <img src="images/players/${p.image || 'default.jpg'}" class="player-avatar">
-      <h3>${p.name}</h3>
-    </div>
-  `).join("");
+  <div class="dashboard-studio-context">
+    <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
+  </div>
+`;
 }
 
 function ensureDashboardHeadline(sortKey) {
@@ -2144,26 +2118,23 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
   `;
 }
 
-function getHotStatus(player, players) {
-  if (!players || !players.length) return "";
+function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
+  const grid = document.getElementById("dashboard-grid");
+  if (!grid || !window.siteData?.players) return;
 
-  // SAFE SORT (prevents crashes if function is missing)
-  const sorted = [...players].sort(
-    (a, b) => (getPlayerTierScore?.(b) ?? 0) - (getPlayerTierScore?.(a) ?? 0)
+  ensureDashboardHeadline(sortKey);
+
+  const eligiblePlayers = window.siteData.players.filter(
+    player => Number(player?.entries ?? 0) >= 2
   );
 
-  const rank = sorted.findIndex(p => p.name === player.name) + 1;
+  const sorted = sortPlayers(eligiblePlayers, sortKey);
 
-  // DEFENSIVE DEFAULTS
-  const profit = player.profit ?? 0;
-  const roi = player.roi ?? 0;
+  renderDashboardStudioStrip(sortKey, sorted);
 
-  // ORDER MATTERS (cold first)
-  if (profit < 0) return "❄️ COLD";
-  if (rank > 0 && rank <= Math.ceil(players.length * 0.15)) return "🔥 HOT";
-  if (roi > 0.5) return "🔥 HEATER";
-
-  return "";
+  grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
+  initAnimatedCounters(grid);
+  setActiveSortButton("dashboard", sortKey);
 }
 
 function crewCardMarkup(player, data, tierPlayers = []) {
@@ -2913,17 +2884,16 @@ function renderChampions(data) {
   const recordsEl = document.getElementById("records-list");
   const { recordItems } = getBalancedHonorsSections(data);
 
-  const playerByName = Object.fromEntries(
-    players.map(player => [String(player.name || "").toLowerCase(), player])
-  );
-
   if (honorsEl && Array.isArray(data?.honors)) {
     honorsEl.innerHTML = data.honors.map(honor => {
-      const player = playerByName[String(honor.name || "").toLowerCase()];
+      const rule = HONOR_RULES[honor.type];
+      const player = getLeaderByRule(players, rule);
       if (!player) return "";
 
-      const rule = HONOR_RULES[honor.type];
-      const valueClass = rule?.key === "profit" ? statValueClass(player, "profit") : "";
+      const valueClass = rule?.key === "profit"
+        ? statValueClass(player, "profit")
+        : "";
+
       let valueText = honor.note || "";
 
       if (rule?.key === "profit") {
@@ -2945,26 +2915,27 @@ function renderChampions(data) {
     initAnimatedCounters(honorsEl);
   }
 
-  if (recordsEl && Array.isArray(data?.records)) {
-    recordsEl.innerHTML = data.records.map(record => {
-      const player = playerByName[String(record.name || "").toLowerCase()];
+  if (recordsEl) {
+    recordsEl.innerHTML = recordItems.map(record => {
+      const rule = RECORD_RULES[record.label];
+      const player = getLeaderByRule(players, rule);
       if (!player) return "";
 
-      const displayMeta = recordItems.find(item => item.label === record.label);
-      const rule = RECORD_RULES[record.label];
+      const valueClass = rule?.key === "profit"
+        ? statValueClass(player, "profit")
+        : rule?.key === "luckIndex"
+          ? statValueClass({ profit: player?.luckIndex }, "profit")
+          : "";
 
-      const valueClass =
-        rule?.key === "profit"
-          ? statValueClass(player, "profit")
-          : rule?.key === "luckIndex"
-            ? statValueClass({ profit: player?.luckIndex }, "profit")
-            : "";
+      const valueText = rule?.key
+        ? formatStatValue(player, rule.key)
+        : (record.value || "");
 
       return honorsCardMarkup(
         player,
-        displayMeta?.title || record.label,
-        displayMeta?.icon || recordIcon(record.label),
-        record.value || "",
+        record.title || record.label,
+        record.icon || recordIcon(record.label),
+        valueText,
         false,
         valueClass
       );
@@ -3370,35 +3341,24 @@ function initEventRsvpNameHover() {
   });
 }
 
-window.SITE_DATA = window.SITE_DATA || null;
+async function main() {
+  const data = await loadSiteData();
+  window.siteData = data;
 
-async function loadSiteData() {
-  try {
-    // prevent re-fetching
-    if (SITE_DATA) return SITE_DATA;
-
-    console.log("🔄 Loading generated site-data.json...");
-
-    const res = await fetch("/TLPT-poker/data/generated/site-data.json", {
-      cache: "no-store"
-    });
-
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status} - ${res.url}`);
-    }
-
-    const data = await res.json();
-
-    SITE_DATA = data;
-
-    console.log("✅ NEW site-data loaded:", data);
-
-    return data;
-
-  } catch (err) {
-    console.error("❌ FAILED TO LOAD DATA:", err);
-    return { players: [] };
-  }
+  renderHomePage(data);
+  renderLeagueSnapshot(data);
+  renderStandings(DEFAULT_STANDINGS_SORT);
+  renderDashboard(DEFAULT_DASHBOARD_SORT);
+  renderPlayers(data);
+  renderPlayerProfile(data);
+  renderSchedule(data);
+  renderChampions(data);
+  renderStatLeaders(data);
+  renderHonorsSummary(data);
+  initRulesPage();
+  initSorting();
+  initCrewViewToggle();
+  initEventRsvpNameHover();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -3440,41 +3400,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error("TLPT site load failed:", error);
     });
-
-  document.addEventListener("DOMContentLoaded", () => {
-  loadSiteData();
 });
-
-  document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const data = await loadSiteData();
-
-    console.log("DATA LOADED:", data);
-
-    window.siteData = data;
-
-    renderDashboard(); // ← IMPORTANT: no args
-  } catch (err) {
-    console.error("FAILED TO LOAD DATA:", err);
-    document.getElementById("player-grid").innerHTML =
-      "<div style='padding:20px;color:red;'>Data failed to load</div>";
-  }
-});
-});
-
-async function main() {
-  try {
-    const data = await loadSiteData();
-    window.siteData = data;
-
-    renderHomePage?.(data);
-    renderLeagueSnapshot?.(data);
-    renderStandings?.();
-    renderPlayers?.(data);
-    renderDashboard?.();
-  } catch (err) {
-    console.error("❌ Failed to initialize site:", err);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", main);
