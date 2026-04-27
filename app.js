@@ -2786,34 +2786,37 @@ if (typeof wirePlayerFormulaCards === "function") {
 wireArchetypeMixHover(container);
 }
   
-function renderSchedule(data) {
-  const container = document.getElementById("schedule-list");
-  if (!container) return;
+const scheduleContainer = document.getElementById("schedule-container");
 
-  container.innerHTML = "";
+function renderSchedule(events) {
+  if (!scheduleContainer) return;
 
-  const events = data.events || [];
-
-  if (events.length === 0) {
-    container.innerHTML = "<p>No scheduled events.</p>";
-    return;
-  }
+  scheduleContainer.innerHTML = "";
 
   events.forEach(event => {
     const card = document.createElement("div");
-    card.className = "event-card";
+    card.className = "event-shell"; // match home page class
 
     card.innerHTML = `
-      <div class="event-day">${event.day}</div>
-      <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.date}</p>
-      <p><strong>Time:</strong> ${event.time}</p>
-      <p><strong>Format:</strong> ${event.format}</p>
-      <p><strong>Structure:</strong> ${event.structure}</p>
-      <p><strong>Location:</strong> ${event.location}</p>
+      <div class="event-header">
+        <div class="event-title">
+          ${event.title || "Event name TBA | 9-Max"}
+        </div>
+        <div class="event-day">
+          ${event.day || ""}
+        </div>
+      </div>
+
+      <div class="event-body">
+        <p><strong>Date:</strong> ${event.date}</p>
+        <p><strong>Time:</strong> ${event.time}</p>
+        <p><strong>Format:</strong> ${event.format}</p>
+        <p><strong>Structure:</strong> ${event.structure}</p>
+        <p><strong>Location:</strong> ${event.location}</p>
+      </div>
     `;
 
-    container.appendChild(card);
+    scheduleContainer.appendChild(card);
   });
 }
 
