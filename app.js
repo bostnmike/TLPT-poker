@@ -1,12 +1,32 @@
 /* app.js */
 async function loadSiteData() {
-  const res = await fetch("./data/generated/site-data.json", { cache: "no-store" });
+  // 🔥 Load base site data (players, stats, etc.)
+  const baseRes = await fetch("./data/generated/site-data.json?v=" + Date.now(), {
+    cache: "no-store"
+  });
 
-  if (!res.ok) {
-    throw new Error(`Failed to load site-data.json (${res.status})`);
+  if (!baseRes.ok) {
+    throw new Error(`Failed to load site-data.json (${baseRes.status})`);
   }
 
-  return await res.json();
+  const baseData = await baseRes.json();
+
+  // 🔥 Load LIVE events (this is where your RSVP edits live)
+  const eventsRes = await fetch("./data/events.json?v=" + Date.now(), {
+    cache: "no-store"
+  });
+
+  if (!eventsRes.ok) {
+    throw new Error(`Failed to load events.json (${eventsRes.status})`);
+  }
+
+  const eventsData = await eventsRes.json();
+
+  // 🔥 FORCE events to come from events.json
+  return {
+    ...baseData,
+    events: eventsData.events || []
+  };
 }
 
 const DEFAULT_STANDINGS_SORT = "profit";
