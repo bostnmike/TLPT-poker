@@ -3388,8 +3388,6 @@ async function main() {
   initEventRsvpNameHover();
 }
 
-i already have this below main.
-
 document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
