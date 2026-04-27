@@ -1,6 +1,6 @@
 /* player-knockouts.js */
 (() => {
-  const KNOCKOUTS_URL = "knockouts.json";
+  const KNOCKOUTS_URL = "data/generated/knockouts-generated.json?v=" + Date.now();
   const SITE_DATA_URL = "data/generated/site-data.json";
 
   function getRequestedPlayerName() {
