@@ -3482,3 +3482,26 @@ function renderRSVPs(rsvps) {
     </div>
   `;
 }
+
+// =========================================
+// 🔥 MIRROR HOME EVENTS ON SCHEDULE PAGE
+// COPY/PASTE THIS AT THE VERY BOTTOM OF app.js
+// =========================================
+
+(function mirrorHomeEventsToSchedule() {
+  const homeContainer = document.getElementById("home-events-list");
+  const scheduleContainer = document.getElementById("schedule-list");
+
+  if (!scheduleContainer) return;
+
+  const attemptCopy = () => {
+    if (homeContainer && homeContainer.innerHTML.trim() !== "") {
+      scheduleContainer.innerHTML = homeContainer.innerHTML;
+    } else {
+      // retry until home events are rendered
+      setTimeout(attemptCopy, 50);
+    }
+  };
+
+  attemptCopy();
+})();
