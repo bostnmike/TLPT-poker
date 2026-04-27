@@ -6,7 +6,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
-OUTPUT_PATH = ROOT / "knockouts.json"
+OUTPUT_PATH = ROOT / "data" / "generated" / "knockouts-generated.json"
 
 
 def load_json(path: Path):
@@ -54,10 +54,12 @@ def main():
         "eventsProcessed": events_processed
     }
 
+    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print(f"Wrote {OUTPUT_PATH}")
+    print(f"✅ Wrote {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
