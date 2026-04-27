@@ -3390,12 +3390,18 @@ async function main() {
 
 document.addEventListener("DOMContentLoaded", () => {
   main()
-    .then(() => {
-      // ✅ ADD THIS LINE (runs schedule page safely)
-      renderSchedulePage();
+    .then((data) => {
+
+      // ✅ HARD GUARD — prevents site crash
+      if (data && typeof renderScheduleUsingHome === "function") {
+        try {
+          renderScheduleUsingHome(data);
+        } catch (e) {
+          console.error("Schedule render failed:", e);
+        }
+      }
 
       const reportEls = document.querySelectorAll("[data-commissioner-report]");
-
       if (!reportEls.length) return;
 
       let currentIndex = -1;
