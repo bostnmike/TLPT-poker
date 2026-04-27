@@ -3377,7 +3377,7 @@ async function main() {
   renderDashboard(DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
   renderPlayerProfile(data);
-  renderSchedulePage();
+  renderScheduleUsingHome(data);
   renderChampions(data);
   renderStatLeaders(data);
   renderHonorsSummary(data);
@@ -3484,24 +3484,27 @@ function renderRSVPs(rsvps) {
 }
 
 // =========================================
-// 🔥 MIRROR HOME EVENTS ON SCHEDULE PAGE
-// COPY/PASTE THIS AT THE VERY BOTTOM OF app.js
+// 🔁 REUSE HOME EVENT RENDER ON SCHEDULE
 // =========================================
-
-(function mirrorHomeEventsToSchedule() {
-  const homeContainer = document.getElementById("home-events-list");
+function renderScheduleUsingHome(data) {
   const scheduleContainer = document.getElementById("schedule-list");
-
   if (!scheduleContainer) return;
 
-  const attemptCopy = () => {
-    if (homeContainer && homeContainer.innerHTML.trim() !== "") {
-      scheduleContainer.innerHTML = homeContainer.innerHTML;
-    } else {
-      // retry until home events are rendered
-      setTimeout(attemptCopy, 50);
-    }
-  };
+  const events = getCurrentEvents(data);
+  if (!events.length) {
+    scheduleContainer.innerHTML = "<p>No events scheduled.</p>";
+    return;
+  }
 
-  attemptCopy();
-})();
+  scheduleContainer.innerHTML = events
+    .map((event, index) =>
+      buildHomeEventCard(
+        event,
+        data,
+        events,
+        index,
+        index
+      )
+    )
+    .join("");
+}
