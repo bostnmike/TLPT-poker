@@ -1,20 +1,18 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TLPT Dashboard</title>
-
+  
   <link rel="icon" type="image/png" sizes="32x32" href="images/site/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-  <!-- HEADER -->
   <header class="site-header">
     <div class="wrap header-inner">
       <div>
@@ -22,123 +20,113 @@
         <p class="tag">The League. The Players. The Tilt.</p>
       </div>
 
-      <nav class="nav">
-        <a href="index.html">Home</a>
+<nav class="nav">
+  <a href="index.html">Home</a>
 
-        <div class="nav-dropdown">
-          <a href="dashboard.html" class="nav-dropdown-parent is-active">The Metrics</a>
-          <div class="nav-dropdown-menu">
-            <a href="dashboard.html" class="is-active">Dashboard</a>
-            <a href="knockouts.html">Knockout Central</a>
-            <a href="standings.html">Standings</a>
-          </div>
-        </div>
+  <div class="nav-dropdown">
+    <a href="dashboard.html" class="nav-dropdown-parent is-active" aria-current="page">The Metrics</a>
+    <div class="nav-dropdown-menu">
+      <a href="dashboard.html" class="is-active" aria-current="page">Dashboard</a>
+      <a href="knockouts.html">Knockout Central</a>
+      <a href="standings.html">Standings</a>
+    </div>
+  </div>
 
-        <div class="nav-dropdown">
-          <a href="players.html" class="nav-dropdown-parent">The Crew</a>
-          <div class="nav-dropdown-menu">
-            <a href="player.html?name=Bostnmike">Player Profiles</a>
-          </div>
-        </div>
+  <div class="nav-dropdown">
+    <a href="players.html" class="nav-dropdown-parent">The Crew</a>
+    <div class="nav-dropdown-menu">
+      <a href="player.html?name=Bostnmike">Player Profiles</a>
+    </div>
+  </div>
 
-        <a href="schedule.html">The Schedule</a>
+  <a href="schedule.html">The Schedule</a>
 
-        <div class="nav-dropdown">
-          <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
-          <div class="nav-dropdown-menu">
-            <a href="news.html">The Week That Was</a>
-          </div>
-        </div>
+  <div class="nav-dropdown">
+    <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
+    <div class="nav-dropdown-menu">
+      <a href="news.html">The Week That Was</a>
+    </div>
+  </div>
 
-        <a href="rules.html">The Rules</a>
+  <a href="rules.html">The Rules</a>
 
-        <div class="nav-dropdown">
-          <a href="media.html" class="nav-dropdown-parent">Media</a>
-          <div class="nav-dropdown-menu">
-            <a href="media.html">The Film</a>
-            <a href="gallery.html">The Gallery</a>
-          </div>
-        </div>
-      </nav>
+  <div class="nav-dropdown">
+    <a href="media.html" class="nav-dropdown-parent">Media</a>
+    <div class="nav-dropdown-menu">
+      <a href="media.html">The Film</a>
+      <a href="gallery.html">The Gallery</a>
+    </div>
+  </div>
+</nav>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main class="wrap">
-
     <section class="dashboard-page-stack">
-
-      <!-- TOP SHELL -->
       <section class="section dashboard-top-shell">
-
         <div class="section-head page-title-row compact-page-title-row dashboard-header-row">
-          <img class="page-chip page-chip-dashboard"
-               src="images/site/chip-T-10000.png"
-               alt="T-10000 chip"
-               onerror="this.style.display='none';" />
+          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-10000.png" alt="T-10000 chip" onerror="this.style.display='none';" />
           <h2 class="page-title-orange">TLPT Metrics</h2>
         </div>
 
-        <div class="page-kicker dashboard-page-kicker">
-          Sort the board by any stat to reshuffle the field & see who’s running the hottest.
-        </div>
+        <div class="page-kicker dashboard-page-kicker">Sort the board by any stat to reshuffle the field &amp; see who’s running the hottest.</div>
 
-        <!-- BUTTONS -->
         <div class="dashboard-buttons-shell">
           <div class="dashboard-button-groups" data-sort-scope="dashboard">
-
             <div class="button-row dashboard-buttons">
-              <button class="btn" data-dashboard-sort="roi"><span class="btn-emoji">📈</span><span class="btn-label">ROI</span></button>
-              <button class="btn" data-dashboard-sort="trueSkillScore"><span class="btn-emoji">💪🏼</span><span class="btn-label">Power</span></button>
-              <button class="btn" data-dashboard-sort="luckIndex"><span class="btn-emoji">🍀</span><span class="btn-label">Luck</span></button>
-              <button class="btn" data-dashboard-sort="clutchIndex"><span class="btn-emoji">🎯</span><span class="btn-label">Clutch</span></button>
-              <button class="btn" data-dashboard-sort="aggressionIndex"><span class="btn-emoji">⚡</span><span class="btn-label">Aggression</span></button>
-              <button class="btn" data-dashboard-sort="survivorIndex"><span class="btn-emoji">🛟</span><span class="btn-label">Survivor</span></button>
-              <button class="btn" data-dashboard-sort="tiltIndex"><span class="btn-emoji">🫨</span><span class="btn-label">Tilt</span></button>
+              <button class="btn active" data-dashboard-sort="profit" type="button"><span class="btn-emoji">💰</span><span class="btn-label">Profit</span></button>
+              <button class="btn" data-dashboard-sort="hits" type="button"><span class="btn-emoji">💥</span><span class="btn-label">Hits</span></button>
+              <button class="btn" data-dashboard-sort="timesPlaced" type="button"><span class="btn-emoji">💵</span><span class="btn-label">Cashes</span></button>
+              <button class="btn" data-dashboard-sort="bubbles" type="button"><span class="btn-emoji">🫧</span><span class="btn-label">Bubbles</span></button>
+              <button class="btn" data-dashboard-sort="hitRate" type="button"><span class="btn-emoji">💥</span><span class="btn-label">Hit Rate</span></button>
+              <button class="btn" data-dashboard-sort="cashRate" type="button"><span class="btn-emoji">💵</span><span class="btn-label">Cash Rate</span></button>
+              <button class="btn" data-dashboard-sort="bubbleRate" type="button"><span class="btn-emoji">🫧</span><span class="btn-label">Bubble Rate</span></button>
             </div>
 
+            <div class="button-row dashboard-buttons">
+              <button class="btn" data-dashboard-sort="roi" type="button"><span class="btn-emoji">📈</span><span class="btn-label">ROI</span></button>
+              <button class="btn" data-dashboard-sort="trueSkillScore" type="button"><span class="btn-emoji">💪🏼</span><span class="btn-label">Power</span></button>
+              <button class="btn" data-dashboard-sort="luckIndex" type="button"><span class="btn-emoji">🍀</span><span class="btn-label">Luck</span></button>
+              <button class="btn" data-dashboard-sort="clutchIndex" type="button"><span class="btn-emoji">🎯</span><span class="btn-label">Clutch</span></button>
+              <button class="btn" data-dashboard-sort="aggressionIndex" type="button"><span class="btn-emoji">⚡</span><span class="btn-label">Aggression</span></button>
+              <button class="btn" data-dashboard-sort="survivorIndex" type="button"><span class="btn-emoji">🛟</span><span class="btn-label">Survivor</span></button>
+              <button class="btn" data-dashboard-sort="tiltIndex" type="button"><span class="btn-emoji">🫨</span><span class="btn-label">Tilt</span></button>
+            </div>
           </div>
         </div>
 
-        <!-- STRIP -->
         <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
 
-        <!-- FORMULA -->
         <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
           <div id="dashboard-current-stat" class="dashboard-current-stat"></div>
           <div class="dashboard-formula-panel dashboard-formula-panel-inline">
-            <div id="dashboard-formula-display" class="dashboard-formula-display">
-              Click a stat button to reveal the calculation formula.
-            </div>
+            <div id="dashboard-formula-display" class="dashboard-formula-display">Click a stat button to reveal the calculation formula.</div>
           </div>
         </div>
-
       </section>
 
-      <!-- PLAYER GRID -->
       <section class="section dashboard-cards-shell">
         <div id="dashboard-grid"></div>
       </section>
-
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="site-footer-inner">
-      <p>
-        TLPT is a BostnMike Production... and all that, that entails.
-        Site data fueled by
-        <a href="https://thetournamentdirector.net/" target="_blank" rel="noopener noreferrer">
-          The Tournament Director
-        </a>
-      </p>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>
+      TLPT is a BostnMike Production... and all that, that entails.
+      Site data fueled by
+      <a
+        href="https://thetournamentdirector.net/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        The Tournament Director
+      </a>
+    </p>
+  </div>
+</footer>
 
-  <!-- SCRIPT (CRITICAL) -->
   <script src="app.js"></script>
-
 </body>
 </html>
