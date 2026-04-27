@@ -3404,3 +3404,47 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("TLPT site load failed:", error);
     });
 });
+
+async function renderSchedulePage() {
+  const container = document.getElementById("schedule-list");
+  if (!container) return;
+
+  const data = await loadSiteData();
+  const events = data.events || [];
+
+  if (!events.length) {
+    container.innerHTML = "<p>No upcoming events scheduled.</p>";
+    return;
+  }
+
+  container.innerHTML = events.map(event => {
+    return `
+      <div class="section event-card">
+        <div class="section-head">
+          <h3>${event.title}</h3>
+          <span>${event.day}</span>
+        </div>
+
+        <p><strong>Date:</strong> ${event.date}</p>
+        <p><strong>Time:</strong> ${event.time} – ${event.endTime}</p>
+        <p><strong>Format:</strong> ${event.format}</p>
+        <p><strong>Structure:</strong> ${event.structure}</p>
+        <p><strong>Location:</strong> ${event.location}</p>
+
+        <div class="rsvp-row">
+          ${renderRSVPs(event.rsvps)}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderRSVPs(rsvps) {
+  if (!rsvps) return "";
+
+  return Object.entries(rsvps)
+    .map(([player, status]) => {
+      return `<span class="rsvp rsvp-${status}">${player}</span>`;
+    })
+    .join(" ");
+}
