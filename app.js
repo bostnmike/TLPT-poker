@@ -2786,38 +2786,37 @@ if (typeof wirePlayerFormulaCards === "function") {
 wireArchetypeMixHover(container);
 }
   
-const scheduleContainer = document.getElementById("schedule-container");
+function renderSchedule(data) {
+  const list = document.getElementById("schedule-list");
+  if (!list) return;
 
-function renderSchedule(events) {
-  if (!scheduleContainer) return;
+  const events = getCurrentEvents(data).slice(0, 2);
 
-  scheduleContainer.innerHTML = "";
-
-  events.forEach(event => {
-    const card = document.createElement("div");
-    card.className = "event-shell"; // match home page class
-
-    card.innerHTML = `
-      <div class="event-header">
-        <div class="event-title">
-          ${event.title || "Event name TBA | 9-Max"}
-        </div>
-        <div class="event-day">
-          ${event.day || ""}
-        </div>
+  list.innerHTML = events.map((event, index) => `
+    <div class="event-card compact-event-card home-event-hero schedule-event-card schedule-event-card-${index === 0 ? "top" : "bottom"}">
+      <div class="event-card-topline">
+        <div class="kicker event-title-kicker">${event.title}</div>
+        <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
       </div>
 
-      <div class="event-body">
-        <p><strong>Date:</strong> ${event.date}</p>
-        <p><strong>Time:</strong> ${event.time}</p>
-        <p><strong>Format:</strong> ${event.format}</p>
-        <p><strong>Structure:</strong> ${event.structure}</p>
-        <p><strong>Location:</strong> ${event.location}</p>
-      </div>
-    `;
+      <div class="event-layout-grid">
+        <div class="event-details-col">
+          <div class="event-format-title">${event.format || ""}</div>
+          <div class="event-structure">${event.structure || ""}</div>
+          <h3>${event.date}</h3>
+          <p class="muted"><strong>Start:</strong> ${event.time}</p>
+          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
+          <p class="muted"><strong>Location:</strong> ${event.location}</p>
+          <p class="muted">${event.address || ""}</p>
+          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${getEventButtonLabel(event)}</a>
+        </div>
 
-    scheduleContainer.appendChild(card);
-  });
+        <div class="event-rsvp-col">
+          ${eventRsvpAvatarMarkup(event, data)}
+        </div>
+      </div>
+    </div>
+  `).join("");
 }
 
 function honorIcon(type) {
@@ -3372,13 +3371,12 @@ async function main() {
   window.siteData = data;
 
   renderHomePage(data);
-  initCommissionerReport(data);
   renderLeagueSnapshot(data);
   renderStandings(DEFAULT_STANDINGS_SORT);
   renderDashboard(DEFAULT_DASHBOARD_SORT);
   renderPlayers(data);
   renderPlayerProfile(data);
-  renderScheduleUsingHome(data);
+  renderSchedule(data);
   renderChampions(data);
   renderStatLeaders(data);
   renderHonorsSummary(data);
@@ -3390,18 +3388,9 @@ async function main() {
 
 document.addEventListener("DOMContentLoaded", () => {
   main()
-    .then((data) => {
-
-      // ✅ HARD GUARD — prevents site crash
-      if (data && typeof renderScheduleUsingHome === "function") {
-        try {
-          renderScheduleUsingHome(data);
-        } catch (e) {
-          console.error("Schedule render failed:", e);
-        }
-      }
-
+    .then(() => {
       const reportEls = document.querySelectorAll("[data-commissioner-report]");
+
       if (!reportEls.length) return;
 
       let currentIndex = -1;
@@ -3437,47 +3426,3 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("TLPT site load failed:", error);
     });
 });
-
-function renderRSVPs(rsvps) {
-  if (!rsvps) return "";
-
-  return `
-    <div class="rsvp-container">
-      ${Object.entries(rsvps)
-        .map(([player, status]) => {
-          return `
-            <div class="rsvp-pill rsvp-${status}">
-              ${player}
-            </div>
-          `;
-        })
-        .join("")}
-    </div>
-  `;
-}
-
-// =========================================
-// 🔁 REUSE HOME EVENT RENDER ON SCHEDULE
-// =========================================
-function renderScheduleUsingHome(data) {
-  const scheduleContainer = document.getElementById("schedule-list");
-  if (!scheduleContainer) return;
-
-  const events = getCurrentEvents(data);
-  if (!events.length) {
-    scheduleContainer.innerHTML = "<p>No events scheduled.</p>";
-    return;
-  }
-
-  scheduleContainer.innerHTML = events
-    .map((event, index) =>
-      buildHomeEventCard(
-        event,
-        data,
-        events,
-        index,
-        index
-      )
-    )
-    .join("");
-}
