@@ -3388,12 +3388,13 @@ async function main() {
   initEventRsvpNameHover();
 }
 
+i already have this below main.
+
 document.addEventListener("DOMContentLoaded", () => {
   main()
     .then(() => {
-
-      // ✅ FIXED LINE
-      renderScheduleUsingHome(window.siteData);
+      // ✅ ADD THIS LINE (runs schedule page safely)
+      renderSchedulePage();
 
       const reportEls = document.querySelectorAll("[data-commissioner-report]");
 
