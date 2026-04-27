@@ -2767,36 +2767,34 @@ wireArchetypeMixHover(container);
 }
   
 function renderSchedule(data) {
-  const list = document.getElementById("schedule-list");
-  if (!list) return;
+  const container = document.getElementById("schedule-list");
+  if (!container) return;
 
-  const events = getCurrentEvents(data).slice(0, 2);
+  container.innerHTML = "";
 
-  list.innerHTML = events.map((event, index) => `
-    <div class="event-card compact-event-card home-event-hero schedule-event-card schedule-event-card-${index === 0 ? "top" : "bottom"}">
-      <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
-        <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
-      </div>
+  const events = data.events || [];
 
-      <div class="event-layout-grid">
-        <div class="event-details-col">
-          <div class="event-format-title">${event.format || ""}</div>
-          <div class="event-structure">${event.structure || ""}</div>
-          <h3>${event.date}</h3>
-          <p class="muted"><strong>Start:</strong> ${event.time}</p>
-          <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
-          <p class="muted"><strong>Location:</strong> ${event.location}</p>
-          <p class="muted">${event.address || ""}</p>
-          <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${getEventButtonLabel(event)}</a>
-        </div>
+  if (events.length === 0) {
+    container.innerHTML = "<p>No scheduled events.</p>";
+    return;
+  }
 
-        <div class="event-rsvp-col">
-          ${eventRsvpAvatarMarkup(event, data)}
-        </div>
-      </div>
-    </div>
-  `).join("");
+  events.forEach(event => {
+    const card = document.createElement("div");
+    card.className = "event-card";
+
+    card.innerHTML = `
+      <div class="event-day">${event.day}</div>
+      <h3>${event.title}</h3>
+      <p><strong>Date:</strong> ${event.date}</p>
+      <p><strong>Time:</strong> ${event.time}</p>
+      <p><strong>Format:</strong> ${event.format}</p>
+      <p><strong>Structure:</strong> ${event.structure}</p>
+      <p><strong>Location:</strong> ${event.location}</p>
+    `;
+
+    container.appendChild(card);
+  });
 }
 
 function honorIcon(type) {
