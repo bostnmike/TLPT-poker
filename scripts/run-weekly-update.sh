@@ -1,17 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CSV_PATH="${1:-}"
+echo ""
+echo "🔄 TLPT Weekly Update (Event HTML Mode)"
+echo "--------------------------------------"
 
-if [ -z "$CSV_PATH" ]; then
-  echo "Usage: bash scripts/run-weekly-update.sh data/raw/<file>.csv"
-  exit 1
-fi
+echo "📥 Parsing event summaries..."
+python3 scripts/parse-event-reports.py
 
-python scripts/build-site-data.py "$CSV_PATH"
-python scripts/validate-site-data.py "$CSV_PATH"
+echo "📊 Building site data..."
+python3 scripts/build-site-data.py
+
+echo "💀 Building knockouts..."
+python3 scripts/build-knockouts.py
+
+echo "🧪 Validating data..."
+python3 scripts/validate-site-data.py
 
 echo ""
-echo "Weekly update complete."
-echo "Generated file: data/generated/site-data.json"
-echo "Validation file: data/generated/validation-report.json"
+echo "✅ Weekly update complete."
+echo "Generated:"
+echo " - data/generated/site-data.json"
+echo " - data/generated/knockouts-generated.json"
+echo " - data/generated/validation-report.json"
