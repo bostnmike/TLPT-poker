@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Player Movement | TLPT</title>
+
+  <!-- EXISTING SITE CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- NEW ISOLATED CSS -->
+  <link rel="stylesheet" href="player-movement.css" />
+</head>
+
+<body>
+
+<main class="wrap">
+  <div class="pm-page">
+
+    <!-- HEADER -->
+    <section class="pm-header-shell">
+      <h1>📈 Player Movement</h1>
+      <div class="pm-accent-line"></div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="pm-controls-shell">
+      <select id="pm-sort">
+        <option value="movement">Top Movers</option>
+        <option value="fallers">Biggest Fallers</option>
+        <option value="roi">Best ROI</option>
+      </select>
+    </section>
+
+    <!-- TOP MOVERS -->
+    <section class="pm-section-shell">
+      <h2>🚀 Top Movers</h2>
+      <div id="pm-top-movers" class="pm-movers-grid"></div>
+    </section>
+
+    <!-- ALL PLAYERS -->
+    <section class="pm-section-shell">
+      <h2>📊 All Players</h2>
+      <div id="pm-player-grid" class="pm-player-grid"></div>
+    </section>
+
+  </div>
+</main>
+
+<script src="player-movement.js"></script>
+
+</body>
+</html>
