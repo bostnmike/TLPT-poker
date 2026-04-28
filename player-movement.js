@@ -80,7 +80,7 @@ function createCard(p) {
     <div class="pm-player-card">
 
       <div class="pm-player-header">
-        <img src="images/players/${p.image}" />
+        <img src="images/players/${p.image || 'default.png'}" />
         <div>
           <strong>${p.name}</strong>
           <div>#${p.rank}</div>
