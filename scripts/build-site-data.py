@@ -78,6 +78,15 @@ def main():
     if not parsed_files:
         raise RuntimeError("No parsed events found")
 
+    def build_fallback_player(slug):
+    return {
+        "name": slug.replace("-", " ").title(),
+        "slug": slug,
+        "image": "images/players/default.jpg",
+        "notes": "",
+        "active": True
+    }
+    
     players_by_slug = {p["slug"]: build_zero_player(p) for p in metadata["players"]}
 
     for parsed_file in parsed_files:
