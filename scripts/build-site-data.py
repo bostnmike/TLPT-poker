@@ -78,14 +78,26 @@ def main():
     if not parsed_files:
         raise RuntimeError("No parsed events found")
 
+    from pathlib import Path
+
+    PLAYER_IMAGE_DIR = Path("images/players")
+
+
     def build_fallback_player(slug):
-    return {
-        "name": slug.replace("-", " ").title(),
-        "slug": slug,
-        "image": "images/players/default.jpg",
-        "notes": "",
-        "active": True
-    }
+        # Default image path
+        image_path = f"images/players/{slug}.jpg"
+
+        # Check if avatar file actually exists
+        if not (PLAYER_IMAGE_DIR / f"{slug}.jpg").exists():
+            image_path = "images/players/default.jpg"
+
+        return {
+            "name": slug.replace("-", " ").title(),
+            "slug": slug,
+            "image": image_path,
+            "notes": "",
+            "active": True
+        }
     
     players_by_slug = {p["slug"]: build_zero_player(p) for p in metadata["players"]}
 
