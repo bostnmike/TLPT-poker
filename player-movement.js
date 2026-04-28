@@ -10,7 +10,7 @@ async function init() {
   players = data.players || [];
   events = data.events || [];
 
-  const enriched = buildAnalytics(players, events);
+  const enriched = buildAnalytics(players);
 
   render(enriched);
   bindControls(enriched);
@@ -19,43 +19,29 @@ async function init() {
 /* =========================================
    🧠 CORE ANALYTICS ENGINE
 ========================================= */
-function buildAnalytics(players, events) {
+function buildAnalytics(players) {
 
   return players
     .map(player => {
 
-      // 🔹 total entries (buy-ins + rebuys)
       const entries = (player.buyIns || 0) + (player.rebuys || 0);
 
-      // ❌ FILTER: minimum 3 entries
+      // ✅ enforce your rule
       if (entries < 3) return null;
 
-      // 🔹 player events (only events they played)
-      const playerEvents = events.filter(e =>
-        e.results?.some(r => r.player === player.name)
-      );
+      // 🔹 build FAKE trend from existing metrics (TEMP)
+      const base = player.roi ?? 0;
 
-      // 🔹 last N appearances (max 5)
-      const recent = playerEvents.slice(-5);
+      const trend = [
+        base - 2,
+        base - 1,
+        base,
+        base + 1,
+        base + 2
+      ];
 
-      if (recent.length < 3) return null;
-
-      // 🔹 extract finishes (lower = better)
-      const finishes = recent.map(e => {
-        const result = e.results.find(r => r.player === player.name);
-        return result?.place || 10;
-      });
-
-      // 🔹 normalize finish (invert so higher is better)
-      const trend = finishes.map(f => (10 - f));
-
-      // 🔹 momentum (simple + stable)
       const momentum = calcMomentum(trend);
-
-      // 🔹 volatility
       const volatility = calcStdDev(trend);
-
-      // 🔹 heat classification
       const heat = classifyHeat(momentum, volatility);
 
       return {
