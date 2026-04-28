@@ -89,13 +89,17 @@
   gap: 12px;
 }
 
-.pm-player-header img {
-  width: 48px;
-  height: 48px;
+.pm-avatar {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
-  background: var(--panel-3);
-  border: 2px solid var(--line);
+
+  /* GOLD RING */
+  border: 2px solid var(--gold);
+
+  /* INNER RING */
+  box-shadow: 0 0 0 2px var(--panel-2);
 }
 
 /* Name + rank */
