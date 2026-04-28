@@ -81,17 +81,14 @@ function createCard(p) {
 
       <div class="pm-player-header">
 
-        <div class="pm-avatar-wrap">
-          <img src="images/players/${p.slug}.jpg" 
-               onerror="this.src='images/players/default.jpg'" />
-          <img class="pm-chip" src="images/site/chip-T-1000.png" />
-        </div>
         <img src="images/players/${p.slug}.jpg" 
-           onerror="this.src='images/players/default.jpg'" />
+             onerror="this.src='images/players/default.jpg'" />
+
         <div>
           <strong>${p.name}</strong>
           <div>#${p.rank}</div>
         </div>
+
       </div>
 
       <div class="pm-movement ${movementClass}">
