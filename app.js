@@ -1,7 +1,6 @@
 /* app.js */
 async function loadSiteData() {
-  // 🔥 Load base site data (players, stats, etc.)
-  const baseRes = await fetch("./data/generated/site-data.json?v=" + Date.now(), {
+  const baseRes = await fetch("/data/generated/site-data.json?v=" + Date.now(), {
     cache: "no-store"
   });
 
@@ -11,8 +10,7 @@ async function loadSiteData() {
 
   const baseData = await baseRes.json();
 
-  // 🔥 Load LIVE events (this is where your RSVP edits live)
-  const eventsRes = await fetch("./data/events.json?v=" + Date.now(), {
+  const eventsRes = await fetch("/data/events.json?v=" + Date.now(), {
     cache: "no-store"
   });
 
@@ -22,7 +20,6 @@ async function loadSiteData() {
 
   const eventsData = await eventsRes.json();
 
-  // 🔥 FORCE events to come from events.json
   return {
     ...baseData,
     events: eventsData.events || []
