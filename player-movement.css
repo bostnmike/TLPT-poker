@@ -20,6 +20,21 @@
 }
 
 /* =========================================
+   🪙 HEADER CHIP
+========================================= */
+.pm-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pm-title-chip {
+  width: 42px;   /* 🔥 THIS FIXES THE SIZE */
+  height: 42px;
+  flex-shrink: 0;
+}
+
+/* =========================================
    🎯 HEADER
 ========================================= */
 .pm-page h1 {
