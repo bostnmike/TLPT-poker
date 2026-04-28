@@ -2,8 +2,8 @@
 set -euo pipefail
 
 echo ""
-echo "🔄 TLPT Weekly Update (Event HTML Mode)"
-echo "--------------------------------------"
+echo "🔄 TLPT Weekly Update (HTML Pipeline)"
+echo "------------------------------------"
 
 echo "📥 Parsing event summaries..."
 python3 scripts/parse-event-reports.py
@@ -19,7 +19,7 @@ python3 scripts/validate-site-data.py
 
 echo ""
 echo "✅ Weekly update complete."
-echo "Generated:"
+echo "Generated files:"
 echo " - data/generated/site-data.json"
 echo " - data/generated/knockouts-generated.json"
 echo " - data/generated/validation-report.json"
