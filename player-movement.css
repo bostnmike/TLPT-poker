@@ -1,21 +1,22 @@
 /* =========================================
-   🔒 FULL ISOLATION
+   🔒 PAGE WRAPPER
 ========================================= */
 .pm-page {
-  padding: 20px;
+  padding: 24px 0;
 }
 
 /* =========================================
-   🧱 SHELLS
+   🧱 SHELL SYSTEM (MATCH SITE)
 ========================================= */
 .pm-page .pm-header-shell,
 .pm-page .pm-section-shell,
 .pm-page .pm-controls-shell {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
 }
 
 /* =========================================
@@ -23,90 +24,127 @@
 ========================================= */
 .pm-page h1 {
   margin: 0;
+  font-size: 28px;
 }
 
 .pm-page .pm-accent-line {
-  height: 3px;
-  margin-top: 10px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  height: 4px;
+  margin-top: 12px;
+  background: linear-gradient(90deg, var(--accent), transparent 70%);
 }
 
 /* =========================================
    🎛 CONTROLS
 ========================================= */
+.pm-controls-shell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .pm-page select {
-  padding: 8px;
+  padding: 10px 12px;
   background: var(--panel-2);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 /* =========================================
-   📊 GRID
+   📊 GRID (IMPROVED SPACING)
 ========================================= */
-.pm-player-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-}
-
+.pm-player-grid,
 .pm-movers-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
+  gap: 18px;
+  margin-top: 16px;
 }
 
 /* =========================================
-   🧩 PLAYER CARD
+   🧩 PLAYER CARD (UPGRADED)
 ========================================= */
 .pm-player-card {
   background: var(--panel-2);
   border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px;
-  transition: transform 0.2s ease;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .pm-player-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  border-color: var(--accent);
 }
 
-/* HEADER */
+/* =========================================
+   👤 PLAYER HEADER
+========================================= */
 .pm-player-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .pm-player-header img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
+  object-fit: cover;
+  background: var(--panel-3);
 }
 
-/* MOVEMENT */
+/* Name + rank */
+.pm-player-header strong {
+  display: block;
+  font-size: 14px;
+}
+
+.pm-player-header div {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* =========================================
+   📈 MOVEMENT (BIG UPGRADE)
+========================================= */
 .pm-movement {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 8px 0;
+  margin: 10px 0 8px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 /* COLORS */
 .pm-up {
-  color: #4caf50;
+  color: var(--green);
 }
 
 .pm-down {
-  color: #e53935;
+  color: var(--red);
 }
 
 .pm-neutral {
-  color: #aaa;
+  color: var(--muted);
 }
 
-/* STATS */
+/* =========================================
+   📊 STATS
+========================================= */
 .pm-stats {
   font-size: 12px;
   color: var(--muted);
+  line-height: 1.4;
+}
+
+/* =========================================
+   🚀 SECTION TITLES (STRONGER)
+========================================= */
+.pm-section-shell h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
