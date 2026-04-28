@@ -25,8 +25,8 @@ function buildPlayerData(rawPlayers) {
       ...p,
       rank: i + 1,
       movement,
-      roi: p.stats?.roi || 0,
-      profit: p.stats?.profit || 0
+      roi: p.roi ?? 0,
+      profit: p.profit ?? 0
     };
   });
 }
