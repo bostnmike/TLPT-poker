@@ -23,12 +23,11 @@ function buildPlayerData(rawPlayers) {
 
     return {
       ...p,
-      src="${p.avatar}"
-      onerror="this.onerror=null; this.src='images/players/default.jpg';"
       rank: i + 1,
       movement,
       roi: p.roi ?? 0,
-      profit: p.profit ?? 0
+      profit: p.profit ?? 0,
+      avatar: p.image || `images/players/${p.slug}.jpg`
     };
   });
 }
@@ -85,8 +84,8 @@ function createCard(p) {
 
         <img 
           class="pm-avatar"
-          src="images/players/${p.slug}.jpg"
-          onerror="this.onerror=null; this.src='images/players/${p.slug}.png';"
+          src="${p.avatar}"
+          onerror="this.onerror=null; this.src='images/players/default.jpg';"
         />
 
         <div>
