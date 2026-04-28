@@ -1,0 +1,25 @@
+{
+  "players": [
+    {
+      "name": "BostnMike",
+      "slug": "bostnmike",
+      "image": "images/players/bostnmike.jpg",
+      "notes": "If I don\u2019t win, something went wrong.",
+      "active": true
+    },
+    {
+      "name": "Red",
+      "slug": "red",
+      "image": "images/players/red.jpg",
+      "notes": "Pressure? I am the pressure.",
+      "active": true
+    },
+    {
+      "name": "Li-Fo",
+      "slug": "li-fo",
+      "image": "images/players/lifo.jpg",
+      "notes": "Last in, first out. Always.",
+      "active": true
+    }
+  ]
+}
