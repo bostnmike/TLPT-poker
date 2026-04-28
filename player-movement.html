@@ -13,16 +13,62 @@
 
 <body>
 
+<!-- =========================================
+     🔷 SITE HEADER (MATCH OTHER PAGES)
+========================================= -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="logo">
+      <a href="index.html">TLPT Poker League</a>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="standings.html">Standings</a></li>
+
+        <!-- 👇 THE CREW MENU -->
+        <li class="has-submenu">
+          <span>The Crew</span>
+          <ul class="submenu">
+
+            <!-- ✅ NEW ITEM (YOUR REQUEST) -->
+            <li>
+              <a href="player-movement.html">📈 Player Movement</a>
+            </li>
+
+            <!-- EXISTING -->
+            <li>
+              <a href="players.html">Player Profiles</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="champions.html">Honors</a></li>
+        <li><a href="media.html">Media</a></li>
+
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- =========================================
+     📊 PAGE CONTENT
+========================================= -->
 <main class="wrap">
   <div class="pm-page">
 
-    <!-- HEADER -->
     <section class="pm-header-shell">
       <h1>📈 Player Movement</h1>
       <div class="pm-accent-line"></div>
     </section>
 
-    <!-- CONTROLS -->
     <section class="pm-controls-shell">
       <select id="pm-sort">
         <option value="movement">Top Movers</option>
@@ -31,13 +77,11 @@
       </select>
     </section>
 
-    <!-- TOP MOVERS -->
     <section class="pm-section-shell">
       <h2>🚀 Top Movers</h2>
       <div id="pm-top-movers" class="pm-movers-grid"></div>
     </section>
 
-    <!-- ALL PLAYERS -->
     <section class="pm-section-shell">
       <h2>📊 All Players</h2>
       <div id="pm-player-grid" class="pm-player-grid"></div>
