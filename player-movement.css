@@ -35,23 +35,35 @@
 }
 
 /* =========================================
-   🎯 HEADER
+   🎯 HEADER TITLE
 ========================================= */
 .pm-page h1 {
   margin: 0;
   font-size: 28px;
 }
 
+/* =========================================
+   🟡 ACCENT LINE (HONORS MATCH)
+========================================= */
 .pm-accent-line {
   height: 4px;
-  margin-top: 12px;
-  background: linear-gradient(90deg, var(--gold), transparent 70%);
+  margin-top: 14px;
+  width: 100%;
+
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--gold) 35%,
+    rgba(255, 215, 0, 0.4) 65%,
+    transparent 100%
+  );
 }
 
+/* =========================================
+   📦 HEADER SHELL SPACING
+========================================= */
 .pm-header-shell {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding-bottom: 18px;
 }
 
 /* =========================================
