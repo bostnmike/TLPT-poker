@@ -8,43 +8,65 @@ on:
       - 'images/players/**'
       - 'scripts/**'
 
+# 🔒 Prevent overlapping runs (VERY IMPORTANT)
+concurrency:
+  group: tlpt-update-main
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # -----------------------------
+      # Checkout repo
+      # -----------------------------
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # -----------------------------
+      # Setup Python
+      # -----------------------------
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Install dependencies (if any)
+      # -----------------------------
+      # Install dependencies (safe no-op)
+      # -----------------------------
+      - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
 
-      - name: Run parser
-        run: |
-          python scripts/parse-event-reports.py
+      # -----------------------------
+      # Run pipeline
+      # -----------------------------
+      - name: Parse event summaries
+        run: python scripts/parse-event-reports.py
 
       - name: Build site data
-        run: |
-          python scripts/build-site-data.py
+        run: python scripts/build-site-data.py
 
       - name: Build knockouts
-        run: |
-          python scripts/build-knockouts.py
+        run: python scripts/build-knockouts.py
 
       - name: Validate data
-        run: |
-          python scripts/validate-site-data.py
+        run: python scripts/validate-site-data.py
 
+      # -----------------------------
+      # Commit results (only if changed)
+      # -----------------------------
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
+
           git add data/generated/
-          git commit -m "🤖 Auto-update site data" || echo "No changes to commit"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🤖 Auto-update site data"
+            git push
+          fi
