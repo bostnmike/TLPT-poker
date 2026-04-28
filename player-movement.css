@@ -72,10 +72,11 @@
   padding: 16px;
   transition: all 0.2s ease;
   position: relative;
+  will-change: transform; 
 }
 
 .pm-player-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   border-color: var(--accent);
 }
 
@@ -106,6 +107,11 @@
 .pm-player-header div {
   font-size: 12px;
   color: var(--muted);
+}
+
+.pm-player-grid,
+.pm-movers-grid {
+  align-items: stretch;
 }
 
 /* =========================================
