@@ -23,6 +23,8 @@ function buildPlayerData(rawPlayers) {
 
     return {
       ...p,
+      src="${p.avatar}"
+      onerror="this.onerror=null; this.src='images/players/default.jpg';"
       rank: i + 1,
       movement,
       roi: p.roi ?? 0,
