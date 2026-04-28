@@ -1,0 +1,112 @@
+/* =========================================
+   🔒 FULL ISOLATION
+========================================= */
+.pm-page {
+  padding: 20px;
+}
+
+/* =========================================
+   🧱 SHELLS
+========================================= */
+.pm-page .pm-header-shell,
+.pm-page .pm-section-shell,
+.pm-page .pm-controls-shell {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   🎯 HEADER
+========================================= */
+.pm-page h1 {
+  margin: 0;
+}
+
+.pm-page .pm-accent-line {
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+/* =========================================
+   🎛 CONTROLS
+========================================= */
+.pm-page select {
+  padding: 8px;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+/* =========================================
+   📊 GRID
+========================================= */
+.pm-player-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.pm-movers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+/* =========================================
+   🧩 PLAYER CARD
+========================================= */
+.pm-player-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  transition: transform 0.2s ease;
+}
+
+.pm-player-card:hover {
+  transform: translateY(-4px);
+}
+
+/* HEADER */
+.pm-player-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pm-player-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* MOVEMENT */
+.pm-movement {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+/* COLORS */
+.pm-up {
+  color: #4caf50;
+}
+
+.pm-down {
+  color: #e53935;
+}
+
+.pm-neutral {
+  color: #aaa;
+}
+
+/* STATS */
+.pm-stats {
+  font-size: 12px;
+  color: var(--muted);
+}
