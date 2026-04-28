@@ -81,8 +81,11 @@ function createCard(p) {
 
       <div class="pm-player-header">
 
-        <img src="images/players/${p.slug}.jpg" 
-             onerror="this.src='images/players/default.jpg'" />
+        <img 
+          class="pm-avatar"
+          src="images/players/${p.slug}.jpg"
+          onerror="this.onerror=null; this.src='images/players/${p.slug}.png';"
+        />
 
         <div>
           <strong>${p.name}</strong>
