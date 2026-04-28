@@ -33,6 +33,12 @@
   background: linear-gradient(90deg, var(--accent), transparent 70%);
 }
 
+.pm-header-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 /* =========================================
    🎛 CONTROLS
 ========================================= */
