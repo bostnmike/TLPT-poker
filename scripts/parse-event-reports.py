@@ -500,12 +500,17 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
     payouts = [a for a in parsed_actions if a["type"] == "payout"]
 
     iso_start = parse_datetime_from_summary(summary_start)
+
     if iso_start and "T" in iso_start:
         event_date = iso_start.split("T")[0]
-    elif re.match(r"\d{4}-\d{2}-\d{2}", path.stem):
-        event_date = path.stem
     else:
-        event_date = path.stem
+        # Extract YYYY-MM-DD from filename like "Event Report 2025-06-28.html"
+        date_match = re.search(r"\d{4}-\d{2}-\d{2}", path.stem)
+
+        if date_match:
+            event_date = date_match.group(0)
+        else:
+            event_date = path.stem
 
     shared_killer_warnings = []
     for action in parsed_actions:
