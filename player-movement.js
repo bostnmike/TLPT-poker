@@ -80,6 +80,12 @@ function createCard(p) {
     <div class="pm-player-card">
 
       <div class="pm-player-header">
+
+        <div class="pm-avatar-wrap">
+          <img src="images/players/${p.slug}.jpg" 
+               onerror="this.src='images/players/default.jpg'" />
+          <img class="pm-chip" src="images/site/chip-T-1000.png" />
+        </div>
         <img src="images/players/${p.slug}.jpg" 
            onerror="this.src='images/players/default.jpg'" />
         <div>
