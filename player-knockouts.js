@@ -134,9 +134,23 @@ function nemesisMarkup(currentPlayer, byVictim, playerMap) {
   `;
 }
   
- function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
-  const killerMap = byKiller?.[currentPlayer.slug] || {};
-  const victims = sortBodyCountEntries(killerMap);
+function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
+  const playerSlug = String(currentPlayer.slug || "").toLowerCase();
+
+  // 🔥 Merge ALL possible matching keys (defensive)
+  const mergedVictims = {};
+
+  Object.entries(byKiller || {}).forEach(([killerSlug, victimMap]) => {
+    if (String(killerSlug).toLowerCase() === playerSlug) {
+      Object.entries(victimMap || {}).forEach(([victimSlug, count]) => {
+        const key = String(victimSlug).toLowerCase();
+        mergedVictims[key] = (mergedVictims[key] || 0) + Number(count || 0);
+      });
+    }
+  });
+
+  const victims = sortBodyCountEntries(mergedVictims);
+
   const totalHits = victims.reduce((sum, entry) => sum + Number(entry.count || 0), 0);
 
   if (!victims.length) {
