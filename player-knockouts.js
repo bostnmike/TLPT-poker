@@ -17,10 +17,18 @@
       .replace(/^-+|-+$/g, "");
   }
 
-  function findPlayerByRequest(players, requestedName) {
-    if (!requestedName) return players[0] || null;
-    return players.find(p => String(p.name || "") === String(requestedName)) || players[0] || null;
-  }
+function findPlayerByRequest(players, requestedName) {
+  if (!requestedName) return players[0] || null;
+
+  const requestedSlug = slugifyName(requestedName);
+
+  return (
+    players.find(p => String(p.slug || "") === requestedSlug) ||
+    players.find(p => String(p.name || "").toLowerCase() === String(requestedName).toLowerCase()) ||
+    players[0] ||
+    null
+  );
+}
 
   function buildPlayerMap(players) {
     const bySlug = new Map();
