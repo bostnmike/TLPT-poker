@@ -1,0 +1,50 @@
+name: TLPT Weekly Update
+
+on:
+  push:
+    paths:
+      - 'data/raw/events/*.html'
+      - 'data/player-metadata.json'
+      - 'images/players/**'
+      - 'scripts/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies (if any)
+        run: |
+          pip install --upgrade pip
+
+      - name: Run parser
+        run: |
+          python scripts/parse-event-reports.py
+
+      - name: Build site data
+        run: |
+          python scripts/build-site-data.py
+
+      - name: Build knockouts
+        run: |
+          python scripts/build-knockouts.py
+
+      - name: Validate data
+        run: |
+          python scripts/validate-site-data.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/generated/
+          git commit -m "🤖 Auto-update site data" || echo "No changes to commit"
+          git push
