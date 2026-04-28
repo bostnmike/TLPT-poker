@@ -93,7 +93,15 @@ def main():
         event = load_json(parsed_file)
 
         for ep in event.get("players", []):
-            p = players_by_slug[ep["slug"]]
+            player_slug = ep["slug"]
+
+            # 🔥 NEW: create fallback player if missing
+            if player_slug not in players_by_slug:
+                fallback_meta = build_fallback_player(player_slug)
+                players_by_slug[player_slug] = build_zero_player(fallback_meta)
+
+            p = players_by_slug[player_slug]
+
             for key in [
                 "entries", "buyIns", "rebuys", "hits",
                 "timesPlaced", "bubbles", "profit",
