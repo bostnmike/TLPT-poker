@@ -10,6 +10,8 @@ OUTPUT_PATH = DATA_DIR / "generated" / "validation-report.json"
 
 
 def load_json(path):
+    if not path.exists():
+        raise FileNotFoundError(f"Missing required file: {path}")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -28,36 +30,33 @@ def validate_player(p):
     # -----------------------------
     # Core math checks (STRICT)
     # -----------------------------
-    expected_cost = p["entries"] * 30
-    if p["totalCost"] != expected_cost:
-        errors.append(f"totalCost mismatch: {p['totalCost']} != {expected_cost}")
+    expected_cost = p.get("entries", 0) * 30
+    if p.get("totalCost", 0) != expected_cost:
+        errors.append(f"totalCost mismatch: {p.get('totalCost')} != {expected_cost}")
 
-    expected_profit = p["totalWinnings"] - p["totalCost"]
-    if p["profit"] != expected_profit:
-        errors.append(f"profit mismatch: {p['profit']} != {expected_profit}")
+    expected_profit = p.get("totalWinnings", 0) - p.get("totalCost", 0)
+    if p.get("profit", 0) != expected_profit:
+        errors.append(f"profit mismatch: {p.get('profit')} != {expected_profit}")
 
-    expected_roi = safe_div(p["profit"], p["totalCost"])
-    if not approx_equal(p["roi"], expected_roi):
-        errors.append(f"roi mismatch")
+    expected_roi = safe_div(p.get("profit", 0), p.get("totalCost", 0))
+    if not approx_equal(p.get("roi", 0), expected_roi):
+        errors.append("roi mismatch")
 
-    expected_cash = safe_div(p["timesPlaced"], p["buyIns"])
-    if not approx_equal(p["cashRate"], expected_cash):
-        errors.append(f"cashRate mismatch")
+    expected_cash = safe_div(p.get("timesPlaced", 0), p.get("buyIns", 0))
+    if not approx_equal(p.get("cashRate", 0), expected_cash):
+        errors.append("cashRate mismatch")
 
-    expected_bubble = safe_div(p["bubbles"], p["buyIns"])
-    if not approx_equal(p["bubbleRate"], expected_bubble):
-        errors.append(f"bubbleRate mismatch")
+    expected_bubble = safe_div(p.get("bubbles", 0), p.get("buyIns", 0))
+    if not approx_equal(p.get("bubbleRate", 0), expected_bubble):
+        errors.append("bubbleRate mismatch")
 
-    expected_hit = safe_div(p["hits"], p["entries"])
-    if not approx_equal(p["hitRate"], expected_hit):
-        errors.append(f"hitRate mismatch")
+    expected_hit = safe_div(p.get("hits", 0), p.get("entries", 0))
+    if not approx_equal(p.get("hitRate", 0), expected_hit):
+        errors.append("hitRate mismatch")
 
     # -----------------------------
     # Advanced metrics (SANITY ONLY)
     # -----------------------------
-    # We DO NOT validate exact formulas anymore
-    # because they are now normalized / composite
-
     for key in [
         "clutchIndex",
         "aggressionIndex",
@@ -86,25 +85,29 @@ def main():
 
     report = {
         "status": "PASS",
+        "totalPlayers": len(players),
+        "errorCount": 0,
         "errors": {}
     }
 
-    total_errors = 0
-
     for p in players:
+        slug = p.get("slug", "unknown")
         errors = validate_player(p)
-        if errors:
-            report["errors"][p["slug"]] = errors
-            total_errors += len(errors)
 
-    if total_errors > 0:
+        if errors:
+            report["errors"][slug] = errors
+            report["errorCount"] += len(errors)
+
+    if report["errorCount"] > 0:
         report["status"] = "FAIL"
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
 
-    print(f"Wrote {OUTPUT_PATH}")
-    print(f"Validation status: {report['status']}")
+    print(f"✔ Wrote {OUTPUT_PATH}")
+    print(f"✔ Players checked: {report['totalPlayers']}")
+    print(f"✔ Errors found: {report['errorCount']}")
+    print(f"✔ Status: {report['status']}")
 
     if report["status"] == "FAIL":
         exit(2)
