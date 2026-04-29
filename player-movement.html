@@ -2,92 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Player Movement | TLPT</title>
+  <title>Player Form | TLPT</title>
 
-  <!-- EXISTING SITE CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- NEW ISOLATED CSS -->
   <link rel="stylesheet" href="player-movement.css" />
 </head>
 
 <body>
 
-<!-- =========================================
-     🔷 SITE HEADER (MATCH OTHER PAGES)
-========================================= -->
 <header class="site-header">
-    <div class="wrap header-inner">
-      <div>
-        <h1 class="logo">TLPT Poker League</h1>
-        <p class="tag">The League. The Players. The Tilt.</p>
+  <div class="wrap header-inner">
+    <div>
+      <h1 class="logo">TLPT Poker League</h1>
+      <p class="tag">The League. The Players. The Tilt.</p>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="dashboard.html" class="nav-dropdown-parent">The Metrics</a>
+        <div class="nav-dropdown-menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="knockouts.html">Knockout Central</a>
+          <a href="standings.html">Standings</a>
+        </div>
       </div>
-<nav class="nav">
-  <a href="index.html">Home</a>
 
-  <div class="nav-dropdown">
-    <a href="dashboard.html" class="nav-dropdown-parent">The Metrics</a>
-    <div class="nav-dropdown-menu">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="knockouts.html">Knockout Central</a>
-      <a href="standings.html">Standings</a>
-    </div>
+      <div class="nav-dropdown">
+        <a href="players.html" class="nav-dropdown-parent is-active">The Crew</a>
+        <div class="nav-dropdown-menu">
+          <a href="player-movement.html" class="is-active">Player Form</a>
+          <a href="player.html?name=Bostnmike">Player Profiles</a>
+        </div>
+      </div>
+
+      <a href="schedule.html">The Schedule</a>
+
+      <div class="nav-dropdown">
+        <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
+        <div class="nav-dropdown-menu">
+          <a href="news.html">The Week That Was</a>
+        </div>
+      </div>
+
+      <a href="rules.html">The Rules</a>
+
+      <div class="nav-dropdown">
+        <a href="media.html" class="nav-dropdown-parent">Media</a>
+        <div class="nav-dropdown-menu">
+          <a href="media.html">The Film</a>
+          <a href="gallery.html">The Gallery</a>
+        </div>
+      </div>
+    </nav>
   </div>
+</header>
 
-  <div class="nav-dropdown">
-    <a href="players.html" class="nav-dropdown-parent is-active" aria-current="page">The Crew</a>
-    <div class="nav-dropdown-menu">
-      <a href="player-movement.html" class="is-active" aria-current="page">Player Movement</a>
-      <a href="player.html?name=Bostnmike">Player Profiles</a>
-    </div>
-  </div>
-
-  <a href="schedule.html">The Schedule</a>
-
-  <div class="nav-dropdown">
-    <a href="champions.html" class="nav-dropdown-parent">The (Dis)Honors</a>
-    <div class="nav-dropdown-menu">
-      <a href="news.html">The Week That Was</a>
-    </div>
-  </div>
-
-  <a href="rules.html">The Rules</a>
-
-  <div class="nav-dropdown">
-    <a href="media.html" class="nav-dropdown-parent">Media</a>
-    <div class="nav-dropdown-menu">
-      <a href="media.html">The Film</a>
-      <a href="gallery.html">The Gallery</a>
-    </div>
-  </div>
-</nav>
-    </div>
-  </header>
-  
-<!-- =========================================
-     📊 PAGE CONTENT
-========================================= -->
 <main class="wrap">
   <div class="pm-page">
 
+    <!-- HEADER -->
     <section class="pm-header-shell">
       <div class="pm-title-row">
         <img src="images/site/chip-T-1000.png" class="pm-title-chip" />
-        <h1>Player Movement</h1>
+        <h1>Player Form</h1>
       </div>
       <div class="pm-accent-line"></div>
     </section>
 
+    <!-- CONTROLS + FORMULA -->
     <section class="pm-controls-shell">
-      <select id="pm-sort">
-        <option value="momentum">🔥 Hottest Players</option>
-        <option value="cold">❄️ Coldest Players</option>
-        <option value="volatile">🎢 Most Volatile</option>
-      </select>
+
+      <div class="pm-controls-left">
+        <button class="pm-btn active" data-sort="momentum">🔥 Hottest</button>
+        <button class="pm-btn" data-sort="cold">❄️ Coldest</button>
+        <button class="pm-btn" data-sort="volatile">🎢 Volatile</button>
+      </div>
+
+      <div class="pm-formula">
+        <strong>Form Score</strong><br/>
+        Deep Runs + Aggression + Survival − Rebuys − Cost<br/>
+        <span class="pm-formula-sub">
+          Based on last 5 events • Event-weighted momentum
+        </span>
+      </div>
+
     </section>
 
     <section class="pm-section-shell">
-      <h2>🚀 Top Movers</h2>
+      <h2>🚀 Top Form Players</h2>
       <div id="pm-top-movers" class="pm-movers-grid"></div>
     </section>
 
