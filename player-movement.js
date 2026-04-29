@@ -74,23 +74,67 @@ function buildAnalytics(players, events) {
         let placementIndex = -1;
         let isBubble = false;
 
-        /* 🏆 PLACEMENT */
-        if (event.winners && event.winners.length) {
-          placementIndex = event.winners.findIndex(w =>
-            names.includes(w.name.toLowerCase())
-          );
+        /* =========================================
+            🏆 FIELD-ADJUSTED PLACEMENT (NEW)
+         ========================================= */
 
-          if (placementIndex === 0) {
-            score += 100;
-            result = "win";
-          } else if (placementIndex === 1) {
-            score += 70;
-            result = "deep";
-          } else if (placementIndex === 2) {
-            score += 50;
-            result = "deep";
-          }
-        }
+         let finishPosition = null;
+
+         // 1. Check winners first (top placements)
+         if (event.winners && event.winners.length) {
+
+           const winnerIndex = event.winners.findIndex(w =>
+             names.includes(w.name.toLowerCase())
+           );
+
+           if (winnerIndex !== -1) {
+             finishPosition = winnerIndex + 1; // 1st, 2nd, 3rd
+           }
+         }
+
+         // 2. Otherwise derive from exits
+         if (finishPosition === null && event.exits && event.exits.length) {
+
+           const exitIndex = event.exits.findIndex(e => {
+             const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
+             return names.includes(n);
+           });
+
+           if (exitIndex !== -1) {
+             const totalPlayers = event.exits.length + (event.winners?.length || 0);
+             finishPosition = totalPlayers - exitIndex;
+           }
+         }
+
+         // 3. Apply percentile scoring
+         if (finishPosition !== null) {
+
+           const totalPlayers =
+             (event.exits?.length || 0) + (event.winners?.length || 0);
+
+           const percentile = finishPosition / totalPlayers;
+
+           if (percentile <= 0.15) {
+             score += 100;
+             result = "win";
+           }
+           else if (percentile <= 0.35) {
+             score += 70;
+             result = "deep";
+           }
+           else if (percentile <= 0.55) {
+             score += 40;
+             result = "mid";
+           }
+           else if (percentile <= 0.75) {
+             score += 10;
+             result = "mid";
+           }
+           else {
+             score -= 25;
+             result = "early";
+           }
+         }
 
         /* 💣 BUBBLE */
         if (event.exits && event.exits.length) {
@@ -102,32 +146,9 @@ function buildAnalytics(players, events) {
               : lastExit.name.toLowerCase();
 
           if (names.includes(exitName)) {
-            score += 25;
+            score += 20;
             result = "bubble";
             isBubble = true;
-          }
-        }
-
-        /* ❄️ EARLY EXIT */
-        if (event.exits && event.exits.length) {
-          const exitIndex = event.exits.findIndex(e => {
-            const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
-            return names.includes(n);
-          });
-
-          if (exitIndex !== -1) {
-            const totalExits = event.exits.length;
-            const earlyThreshold = Math.floor(totalExits * 0.4);
-
-            const isEarly =
-              exitIndex < earlyThreshold &&
-              placementIndex === -1 &&
-              !isBubble;
-
-            if (isEarly) {
-              score -= 25;
-              result = "early";
-            }
           }
         }
 
