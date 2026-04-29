@@ -258,7 +258,10 @@ function createCard(p) {
         </div>
       </div>
 
-      <div class="pm-badges">${badge} ${streak}</div>
+      <div class="pm-badges">
+        <span class="pm-icon pm-badge">${badge}</span>
+        <span class="pm-icon pm-streak">${streak}</span>
+      </div>
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
