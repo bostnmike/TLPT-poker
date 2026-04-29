@@ -74,8 +74,15 @@ function buildAnalytics(players, events) {
         );
 
         let result = "bust";
-        if (winner) result = "win";
 
+         if (winner) {
+           result = "win";
+         } else if (hits >= 3) {
+           result = "deep";
+         } else if (buyins > 0 && hits === 0 && rebuys === 0) {
+           result = "bubble";
+         }
+         
         let score = 0;
         if (winner) score += 100;
         else score += 20;
@@ -230,11 +237,13 @@ function createCard(p) {
     p.rankChange > 0 ? "↑" :
     p.rankChange < 0 ? "↓" : "→";
 
-  const badge =
-    p.lastResult === "win" ? "🏆" :
-    "💀";
+  let badge = "💀";
 
-  const streak =
+   if (p.lastResult === "win") badge = "🏆";
+   else if (p.lastResult === "deep") badge = "🎯";
+   else if (p.lastResult === "bubble") badge = "💣";
+
+   const streak =
     p.streak >= 2 ? "🔥".repeat(p.streak) : "";
 
   return `
