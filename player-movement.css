@@ -59,24 +59,50 @@
 }
 
 .pm-btn {
-  background: #111;
-  border: 1px solid #444;
-  color: #ccc;
-  padding: 8px 16px;
+  padding: 8px 14px;
+
+  border-radius: 999px; /* match chip style */
+
+  background: var(--panel-2);     /* 🔥 matches cards */
+  border: 1px solid var(--line);  /* 🔥 matches shells */
+
+  color: var(--text);
+
   cursor: pointer;
-  border-radius: 6px;
   font-weight: 600;
+
+  transition: all 0.2s ease;
 }
 
 .pm-btn.active {
-  color: #000;
   border: none;
+  color: #111; /* ensures readable on yellow */
 }
 
-.pm-btn.hot.active { background: #e53935; }
-.pm-btn.cold.active { background: #1e88e5; }
-.pm-btn.consistent.active { background: #43a047; }
-.pm-btn.volatile.active { background: #fdd835; }
+.pm-btn.hot.active {
+  background: linear-gradient(135deg, #e53935, #ff7043);
+  box-shadow: 0 0 6px rgba(229,57,53,0.6);
+}
+
+.pm-btn.cold.active {
+  background: linear-gradient(135deg, #1e88e5, #4fc3f7);
+  box-shadow: 0 0 6px rgba(30,136,229,0.6);
+}
+
+.pm-btn.consistent.active {
+  background: linear-gradient(135deg, #43a047, #81c784);
+  box-shadow: 0 0 6px rgba(67,160,71,0.6);
+}
+
+.pm-btn.volatile.active {
+  background: linear-gradient(135deg, #fdd835, #ffeb3b);
+  color: #111;
+  box-shadow: 0 0 6px rgba(253,216,53,0.6);
+}
+
+.pm-btn:active {
+  transform: scale(0.96);
+}
 
 /* FORMULA FIX */
 .pm-formula {
