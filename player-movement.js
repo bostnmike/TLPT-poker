@@ -4,13 +4,10 @@ let players = [];
 let previousRanks = {};
 
 /* =========================================
-   🔐 NORMALIZATION + MATCHING
+   🔐 NORMALIZATION
 ========================================= */
 function normalize(str) {
-  return (str || "")
-    .toLowerCase()
-    .replace(/\s+/g, "")
-    .trim();
+  return (str || "").toLowerCase().replace(/\s+/g, "").trim();
 }
 
 function isSamePlayer(player, rawName) {
@@ -28,31 +25,35 @@ function isSamePlayer(player, rawName) {
    🚀 INIT
 ========================================= */
 async function init() {
-  const res = await fetch(DATA_URL);
-  const data = await res.json();
+  try {
+    const res = await fetch(DATA_URL);
+    const data = await res.json();
+    players = data.players || [];
 
-  players = data.players || [];
+    const indexRes = await fetch("data/parsed/events/index.json");
+    const eventFiles = await indexRes.json();
 
-  const indexRes = await fetch("data/parsed/events/index.json");
-  const eventFiles = await indexRes.json();
+    const eventData = (await Promise.all(
+      eventFiles.map(file =>
+        fetch(`data/parsed/events/${file}`)
+          .then(r => r.json())
+          .catch(() => null)
+      )
+    )).filter(Boolean);
 
-  const eventData = (await Promise.all(
-    eventFiles.map(file =>
-      fetch(`data/parsed/events/${file}`)
-        .then(r => r.json())
-        .catch(() => null)
-    )
-  )).filter(Boolean);
+    eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    const enriched = buildAnalytics(players, eventData);
 
-  const enriched = buildAnalytics(players, eventData);
+    bindControls(enriched);
 
-  bindControls(enriched);
+  } catch (err) {
+    console.error("INIT ERROR:", err);
+  }
 }
 
 /* =========================================
-   🧠 ANALYTICS (FIXED)
+   🧠 ANALYTICS (CORRECT DATA MODEL)
 ========================================= */
 function buildAnalytics(players, events) {
 
@@ -71,9 +72,10 @@ function buildAnalytics(players, events) {
       const finishPosition = row.place;
       const totalPlayers =
         event.summary?.entries ||
-        event.players.length;
+        event.players?.length ||
+        0;
 
-      if (!finishPosition || !totalPlayers) return;
+      if (!finishPosition || totalPlayers < 2) return;
 
       const finishPct = finishPosition / totalPlayers;
 
@@ -101,7 +103,6 @@ function buildAnalytics(players, events) {
       });
     });
 
-    // ✅ QUALIFICATION: 4 ALL-TIME EVENTS
     if (playerEvents.length < 4) return null;
 
     const recent = playerEvents.slice(-6);
@@ -191,8 +192,10 @@ function bindControls(players) {
 
     const ranked = applyRanking(players, mode);
 
-    document.getElementById("pm-top-title").innerHTML =
-      `${emoji} ${label}`;
+    const title = document.getElementById("pm-top-title");
+    if (title) {
+      title.innerHTML = `${emoji} ${label}`;
+    }
 
     renderTopMovers(ranked);
     renderAllPlayers(ranked);
@@ -200,7 +203,6 @@ function bindControls(players) {
   };
 
   buttons.forEach(btn => {
-
     btn.addEventListener("click", () => {
 
       buttons.forEach(b => b.classList.remove("active"));
@@ -213,14 +215,13 @@ function bindControls(players) {
       if (type === "consistent") update(type, "5 Most Consistent Players", "🟢");
       if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
-
   });
 
   update("momentum", "5 Hottest Players", "🔥");
 }
 
 /* =========================================
-   🎴 CARD
+   🎴 RENDER
 ========================================= */
 function createCard(p) {
 
@@ -284,12 +285,18 @@ function drawAllSparklines() {
 
 /* ========================================= */
 function renderTopMovers(players) {
-  document.getElementById("pm-top-movers").innerHTML =
+  const el = document.getElementById("pm-top-movers");
+  if (!el) return;
+
+  el.innerHTML =
     players.slice(0,5).map(createCard).join("");
 }
 
 function renderAllPlayers(players) {
-  document.getElementById("pm-player-grid").innerHTML =
+  const el = document.getElementById("pm-player-grid");
+  if (!el) return;
+
+  el.innerHTML =
     players.map(createCard).join("");
 
   drawAllSparklines();
