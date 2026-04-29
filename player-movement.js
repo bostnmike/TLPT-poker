@@ -261,20 +261,40 @@ function drawAllSparklines() {
 }
 
 /* =========================================
-   🎛 CONTROLS
+   🎛 CONTROLS (TREND-BASED SORTING)
 ========================================= */
 function bindControls(players) {
-  document.getElementById("pm-sort").addEventListener("change", (e) => {
+
+  const select = document.getElementById("pm-sort");
+
+  if (!select) return;
+
+  select.addEventListener("change", (e) => {
+
     const type = e.target.value;
 
     let sorted = [...players];
 
-    if (type === "movement") {
-      sorted.sort((a,b) => b.momentum - a.momentum);
-    } else if (type === "fallers") {
-      sorted.sort((a,b) => a.momentum - b.momentum);
-    } else if (type === "roi") {
-      sorted.sort((a,b) => b.roi - a.roi);
+    switch (type) {
+
+      // 🔥 HOTTEST PLAYERS (highest momentum)
+      case "momentum":
+        sorted.sort((a, b) => b.momentum - a.momentum);
+        break;
+
+      // ❄️ COLDEST PLAYERS (lowest momentum)
+      case "cold":
+        sorted.sort((a, b) => a.momentum - b.momentum);
+        break;
+
+      // 🎢 MOST VOLATILE (highest variance)
+      case "volatile":
+        sorted.sort((a, b) => b.volatility - a.volatility);
+        break;
+
+      default:
+        sorted.sort((a, b) => b.momentum - a.momentum);
+        break;
     }
 
     renderAllPlayers(sorted);
