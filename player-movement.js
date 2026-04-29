@@ -8,40 +8,27 @@ async function init() {
 
   players = data.players || [];
 
-  // 🔥 LOAD EVENT INDEX
   const indexRes = await fetch("data/parsed/events/index.json");
   const eventFiles = await indexRes.json();
 
-  // 🔥 LOAD ALL EVENTS (SAFE)
   const eventData = (await Promise.all(
     eventFiles.map(file =>
       fetch(`data/parsed/events/${file}`)
-        .then(r => {
-          if (!r.ok) throw new Error(`Failed to load ${file}`);
-          return r.json();
-        })
-        .catch(err => {
-          console.warn(err);
-          return null;
-        })
+        .then(r => r.json())
+        .catch(() => null)
     )
   )).filter(Boolean);
 
-  // 🔥 SORT EVENTS
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const enriched = buildAnalytics(players, eventData);
-
-  if (!enriched.length) {
-    console.warn("No eligible players for movement analysis");
-  }
 
   render(enriched);
   bindControls(enriched);
 }
 
 /* =========================================
-   🧠 CORE ANALYTICS ENGINE (EVENT-BASED)
+   🧠 CORE ANALYTICS ENGINE
 ========================================= */
 function buildAnalytics(players, events) {
 
@@ -55,35 +42,67 @@ function buildAnalytics(players, events) {
 
       events.forEach(event => {
 
-        const participated = event.actions?.some(a =>
+        const actions = event.actions || [];
+
+        const participated = actions.some(a =>
           (a.type === "buyin" || a.type === "rebuy") &&
           names.includes(a.player.toLowerCase())
         );
 
         if (!participated) return;
 
-        const fieldSize =
-          event.actions?.filter(a => a.type === "buyin").length || 10;
+        const buyins = actions.filter(a =>
+          a.type === "buyin" &&
+          names.includes(a.player.toLowerCase())
+        ).length;
+
+        const rebuys = actions.filter(a =>
+          a.type === "rebuy" &&
+          names.includes(a.player.toLowerCase())
+        ).length;
+
+        const hits = actions.filter(a =>
+          a.type === "knockout" &&
+          names.includes(a.player.toLowerCase())
+        ).length;
 
         const winner = event.winners?.find(w =>
           names.includes(w.name.toLowerCase())
         );
 
-        let score;
+        const fieldSize =
+          actions.filter(a => a.type === "buyin").length || 10;
 
+        // 🔥 EVENT SCORE MODEL
+        let score = 0;
+
+        // Placement
         if (winner) {
-          score = fieldSize - winner.rank;
+          score += 100;
         } else {
-          score = Math.floor(fieldSize / 3);
+          score += 20; // survived somewhat
         }
+
+        // Deep run proxy
+        score += (hits * 8);
+
+        // Aggression
+        score += (hits * 5);
+
+        // Rebuy penalty
+        score -= (rebuys * 15);
+
+        // Buy-in cost pressure
+        score -= (buyins * 5);
+
+        // Normalize by field size
+        score += fieldSize * 0.5;
 
         playerEvents.push(score);
       });
 
-      // 🔥 NEW RULE: MUST HAVE 3 EVENTS
       if (playerEvents.length < 3) return null;
 
-      // 🔹 last 5 events
       const recent = playerEvents.slice(-5);
 
       const momentum = calcMomentum(recent);
@@ -127,12 +146,12 @@ function calcStdDev(arr) {
 }
 
 /* =========================================
-   🔥 HEAT
+   🔥 HEAT CLASSIFICATION
 ========================================= */
 function classifyHeat(momentum, volatility) {
-  if (volatility > 3) return "🎢";
-  if (momentum > 1) return "🔥";
-  if (momentum < -1) return "❄️";
+  if (volatility > 25) return "🎢";
+  if (momentum > 15) return "🔥";
+  if (momentum < -15) return "❄️";
   return "😐";
 }
 
@@ -140,7 +159,6 @@ function classifyHeat(momentum, volatility) {
    🎯 RENDER
 ========================================= */
 function render(players) {
-
   players.sort((a, b) => b.momentum - a.momentum);
 
   players.forEach((p, i) => {
@@ -158,10 +176,7 @@ function render(players) {
 ========================================= */
 function renderTopMovers(players) {
   const container = document.getElementById("pm-top-movers");
-
-  const movers = [...players].slice(0, 5);
-
-  container.innerHTML = movers.map(createCard).join("");
+  container.innerHTML = players.slice(0, 5).map(createCard).join("");
 }
 
 /* =========================================
@@ -169,17 +184,13 @@ function renderTopMovers(players) {
 ========================================= */
 function renderAllPlayers(players) {
   const container = document.getElementById("pm-player-grid");
-
-  container.innerHTML = players
-    .map(createCard)
-    .join("");
+  container.innerHTML = players.map(createCard).join("");
 }
 
 /* =========================================
    🧩 CARD TEMPLATE
 ========================================= */
 function createCard(p) {
-
   return `
     <div class="pm-player-card">
 
@@ -195,15 +206,13 @@ function createCard(p) {
         </div>
       </div>
 
-      <div class="pm-movement">
-        ${p.heat}
-      </div>
+      <div class="pm-movement">${p.heat}</div>
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
       <div class="pm-stats">
         Momentum: ${p.momentum}<br/>
-        Events: ${p.eventsPlayed}
+        Volatility: ${p.volatility.toFixed(1)}
       </div>
 
     </div>
@@ -216,7 +225,6 @@ function createCard(p) {
 function drawAllSparklines() {
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
     const ctx = canvas.getContext("2d");
-
     const data = canvas.dataset.trend.split(",").map(Number);
 
     canvas.width = 120;
@@ -254,30 +262,20 @@ function bindControls(players) {
 
   const select = document.getElementById("pm-sort");
 
-  if (!select) return;
-
   select.addEventListener("change", (e) => {
-
-    const type = e.target.value;
 
     let sorted = [...players];
 
-    switch (type) {
-      case "momentum":
-        sorted.sort((a, b) => b.momentum - a.momentum);
-        break;
+    if (e.target.value === "momentum") {
+      sorted.sort((a, b) => b.momentum - a.momentum);
+    }
 
-      case "cold":
-        sorted.sort((a, b) => a.momentum - b.momentum);
-        break;
+    if (e.target.value === "cold") {
+      sorted.sort((a, b) => a.momentum - b.momentum);
+    }
 
-      case "volatile":
-        sorted.sort((a, b) => b.volatility - a.volatility);
-        break;
-
-      default:
-        sorted.sort((a, b) => b.momentum - a.momentum);
-        break;
+    if (e.target.value === "volatile") {
+      sorted.sort((a, b) => b.volatility - a.volatility);
     }
 
     renderAllPlayers(sorted);
@@ -285,7 +283,4 @@ function bindControls(players) {
   });
 }
 
-/* =========================================
-   🚀 INIT
-========================================= */
 init();
