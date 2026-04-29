@@ -47,98 +47,47 @@ async function init() {
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const enriched = buildAnalytics(players, eventData);
+
   bindControls(enriched);
 }
 
 /* =========================================
-   🧠 ANALYTICS
+   🧠 ANALYTICS (FIXED)
 ========================================= */
 function buildAnalytics(players, events) {
 
   return players.map(player => {
 
     const playerEvents = [];
-    let totalParticipations = 0;
 
     events.forEach(event => {
 
-      const actions = event.actions || [];
-
-      const participated = actions.some(a =>
-        (a.type === "buyin" || a.type === "rebuy") &&
-        isSamePlayer(player, a.player)
+      const row = (event.players || []).find(p =>
+        isSamePlayer(player, p.name)
       );
 
-      if (!participated) return;
+      if (!row) return;
 
-      totalParticipations++;
-
-      const rebuys = actions.filter(a =>
-        a.type === "rebuy" &&
-        isSamePlayer(player, a.player)
-      ).length;
-
-      const hits = actions.filter(a =>
-        a.type === "knockout" &&
-        isSamePlayer(player, a.player)
-      ).length;
-
-      const winners = event.winners || [];
-      const exits = event.exits || [];
-
-      let totalPlayers =
+      const finishPosition = row.place;
+      const totalPlayers =
         event.summary?.entries ||
-        event.summary?.totalEntries ||
-        event.summary?.players ||
-        (exits.length + winners.length);
+        event.players.length;
 
-      if (!totalPlayers || totalPlayers < 2) return;
+      if (!finishPosition || !totalPlayers) return;
 
-      let finishPosition = null;
+      const finishPct = finishPosition / totalPlayers;
 
-      const winnerIndex = winners.findIndex(w =>
-        isSamePlayer(player, w.name)
-      );
-
-      if (winnerIndex !== -1) {
-        finishPosition = winnerIndex + 1;
-      }
-
-      if (finishPosition === null) {
-        const exitIndex = exits.findIndex(e => {
-          const raw = typeof e === "string" ? e : e.name;
-          return isSamePlayer(player, raw);
-        });
-
-        if (exitIndex !== -1) {
-          finishPosition = totalPlayers - exitIndex;
-        }
-      }
-
-      let finishPct = null;
-      let finishLabel = "--";
-
-      if (finishPosition) {
-        finishPct = finishPosition / totalPlayers;
-        finishLabel = `${finishPosition}/${totalPlayers}`;
-      }
+      const rebuys = row.rebuys || 0;
+      const hits = row.hits || 0;
 
       let score = 0;
 
-      if (finishPct !== null) {
-        if (finishPct <= 0.15) score += 100;
-        else if (finishPct <= 0.35) score += 70;
-        else if (finishPct <= 0.55) score += 40;
-        else if (finishPct <= 0.75) score += 10;
-        else if (finishPct <= 0.9) score -= 15;
-        else score -= 35;
-      }
-
-      if (exits.length) {
-        const last = exits[exits.length - 1];
-        const raw = typeof last === "string" ? last : last.name;
-        if (isSamePlayer(player, raw)) score += 20;
-      }
+      if (finishPct <= 0.15) score += 100;
+      else if (finishPct <= 0.35) score += 70;
+      else if (finishPct <= 0.55) score += 40;
+      else if (finishPct <= 0.75) score += 10;
+      else if (finishPct <= 0.9) score -= 15;
+      else score -= 35;
 
       score += hits * 10;
       score -= rebuys * 15;
@@ -148,25 +97,21 @@ function buildAnalytics(players, events) {
       playerEvents.push({
         score,
         finishPct,
-        finishLabel
+        finishLabel: `${finishPosition}/${totalPlayers}`
       });
     });
 
-    // 🔥 CORRECT QUALIFICATION
-    if (totalParticipations < 4) return null;
+    // ✅ QUALIFICATION: 4 ALL-TIME EVENTS
+    if (playerEvents.length < 4) return null;
 
     const recent = playerEvents.slice(-6);
 
-    const valid = recent.filter(e => e.finishPct != null);
-
-    if (!valid.length) return null;
-
-    const trend = valid.map(e => 1 - e.finishPct);
+    const trend = recent.map(e => 1 - e.finishPct);
 
     const avgFinishPct =
-      valid.reduce((sum, e) => sum + e.finishPct, 0) / valid.length;
+      recent.reduce((sum, e) => sum + e.finishPct, 0) / recent.length;
 
-    const bestFinish = valid.reduce((best, e) =>
+    const best = recent.reduce((best, e) =>
       !best || e.finishPct < best.finishPct ? e : best
     );
 
@@ -175,7 +120,7 @@ function buildAnalytics(players, events) {
       trend,
       finishes: recent.map(e => e.finishLabel),
       avgFinishPct,
-      bestFinish: bestFinish.finishLabel,
+      bestFinish: best.finishLabel,
       momentum: calcMomentum(trend),
       volatility: calcStdDev(trend)
     };
@@ -225,6 +170,11 @@ function applyRanking(players, mode) {
 
   sorted.forEach((p,i)=>{
     p.rank = i+1;
+    p.rankChange = previousRanks[p.slug]
+      ? previousRanks[p.slug] - p.rank
+      : 0;
+
+    previousRanks[p.slug] = p.rank;
   });
 
   return sorted;
@@ -270,7 +220,7 @@ function bindControls(players) {
 }
 
 /* =========================================
-   🎴 RENDER
+   🎴 CARD
 ========================================= */
 function createCard(p) {
 
@@ -286,14 +236,11 @@ function createCard(p) {
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
-      <div class="pm-finishes">
-        ${p.finishes.map(f => `<span>${f}</span>`).join("")}
-      </div>
-
       <div class="pm-stats">
         Avg Finish: ${(p.avgFinishPct * 100).toFixed(0)}%<br/>
         Best Finish: ${p.bestFinish}<br/>
-        Momentum: ${p.momentum}
+        Momentum: ${p.momentum}<br/>
+        ${p.finishes.join(" | ")}
       </div>
     </div>
   `;
@@ -335,6 +282,7 @@ function drawAllSparklines() {
   });
 }
 
+/* ========================================= */
 function renderTopMovers(players) {
   document.getElementById("pm-top-movers").innerHTML =
     players.slice(0,5).map(createCard).join("");
