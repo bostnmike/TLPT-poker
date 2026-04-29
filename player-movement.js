@@ -3,9 +3,7 @@ const DATA_URL = "data/generated/site-data.json";
 let players = [];
 let previousRanks = {};
 
-/* =========================================
-   🔐 NORMALIZATION
-========================================= */
+/* ========================================= */
 function normalize(str) {
   return (str || "").toLowerCase().replace(/\s+/g, "").trim();
 }
@@ -21,9 +19,7 @@ function isSamePlayer(player, rawName) {
   return allNames.some(n => normalize(n) === nRaw);
 }
 
-/* =========================================
-   🚀 INIT
-========================================= */
+/* ========================================= */
 async function init() {
   try {
     const res = await fetch(DATA_URL);
@@ -44,7 +40,6 @@ async function init() {
     eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     const enriched = buildAnalytics(players, eventData);
-
     bindControls(enriched);
 
   } catch (err) {
@@ -52,9 +47,7 @@ async function init() {
   }
 }
 
-/* =========================================
-   🧠 ANALYTICS (CORRECT DATA MODEL)
-========================================= */
+/* ========================================= */
 function buildAnalytics(players, events) {
 
   return players.map(player => {
@@ -69,18 +62,20 @@ function buildAnalytics(players, events) {
 
       if (!row) return;
 
-      const finishPosition = row.place;
+      const finishPosition = Number(row.place);
       const totalPlayers =
-        event.summary?.entries ||
-        event.players?.length ||
+        Number(event.summary?.entries) ||
+        Number(event.players?.length) ||
         0;
 
-      if (!finishPosition || totalPlayers < 2) return;
+      if (!finishPosition || !totalPlayers) return;
 
       const finishPct = finishPosition / totalPlayers;
 
-      const rebuys = row.rebuys || 0;
-      const hits = row.hits || 0;
+      if (!isFinite(finishPct)) return;
+
+      const rebuys = Number(row.rebuys || 0);
+      const hits = Number(row.hits || 0);
 
       let score = 0;
 
@@ -107,7 +102,9 @@ function buildAnalytics(players, events) {
 
     const recent = playerEvents.slice(-6);
 
-    const trend = recent.map(e => 1 - e.finishPct);
+    const trend = recent.map(e =>
+      isFinite(e.finishPct) ? (1 - e.finishPct) : 0.5
+    );
 
     const avgFinishPct =
       recent.reduce((sum, e) => sum + e.finishPct, 0) / recent.length;
@@ -119,7 +116,7 @@ function buildAnalytics(players, events) {
     return {
       ...player,
       trend,
-      finishes: recent.map(e => e.finishLabel),
+      finishes: recent.map(e => e.finishLabel || "--"),
       avgFinishPct,
       bestFinish: best.finishLabel,
       momentum: calcMomentum(trend),
@@ -129,9 +126,7 @@ function buildAnalytics(players, events) {
   }).filter(Boolean);
 }
 
-/* =========================================
-   📈 MOMENTUM
-========================================= */
+/* ========================================= */
 function calcMomentum(arr) {
   if (!arr || arr.length < 2) return 0;
 
@@ -147,9 +142,7 @@ function calcMomentum(arr) {
   return weightTotal ? Number((total / weightTotal).toFixed(2)) : 0;
 }
 
-/* =========================================
-   🎢 VOLATILITY
-========================================= */
+/* ========================================= */
 function calcStdDev(arr) {
   if (!arr || arr.length < 2) return 0;
 
@@ -157,9 +150,7 @@ function calcStdDev(arr) {
   return Math.sqrt(arr.reduce((s,v)=>s+(v-mean)**2,0)/arr.length);
 }
 
-/* =========================================
-   🎯 RANKING
-========================================= */
+/* ========================================= */
 function applyRanking(players, mode) {
 
   let sorted = [...players];
@@ -181,9 +172,7 @@ function applyRanking(players, mode) {
   return sorted;
 }
 
-/* =========================================
-   🎛 CONTROLS
-========================================= */
+/* ========================================= */
 function bindControls(players) {
 
   const buttons = document.querySelectorAll(".pm-btn");
@@ -220,9 +209,7 @@ function bindControls(players) {
   update("momentum", "5 Hottest Players", "🔥");
 }
 
-/* =========================================
-   🎴 RENDER
-========================================= */
+/* ========================================= */
 function createCard(p) {
 
   return `
@@ -247,17 +234,19 @@ function createCard(p) {
   `;
 }
 
-/* =========================================
-   📉 SPARKLINES
-========================================= */
+/* ========================================= */
 function drawAllSparklines() {
 
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
 
     let data = canvas.dataset.trend.split(",").map(Number);
 
+    if (data.some(isNaN)) {
+      data = data.map(v => isNaN(v) ? 0.5 : v);
+    }
+
     if (data.length < 2) {
-      data = [data[0] || 0.5, data[0] || 0.5];
+      data = [0.5, 0.5];
     }
 
     const ctx = canvas.getContext("2d");
@@ -288,17 +277,14 @@ function renderTopMovers(players) {
   const el = document.getElementById("pm-top-movers");
   if (!el) return;
 
-  el.innerHTML =
-    players.slice(0,5).map(createCard).join("");
+  el.innerHTML = players.slice(0,5).map(createCard).join("");
 }
 
 function renderAllPlayers(players) {
   const el = document.getElementById("pm-player-grid");
   if (!el) return;
 
-  el.innerHTML =
-    players.map(createCard).join("");
-
+  el.innerHTML = players.map(createCard).join("");
   drawAllSparklines();
 }
 
