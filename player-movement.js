@@ -494,7 +494,7 @@ function weightedAverage(values) {
    🎯 RANKING
 ========================================= */
 
-function applyRanking(players, mode) {
+function sortPlayersByMode(players, mode) {
   const sorted = [...players];
 
   if (mode === "momentum") {
@@ -530,6 +530,20 @@ function applyRanking(players, mode) {
       a.name.localeCompare(b.name)
     );
   }
+
+  return sorted;
+}
+
+function seedRankBaseline(players, mode) {
+  const baseline = sortPlayersByMode(players, mode);
+
+  baseline.forEach((player, index) => {
+    previousRanks[player.slug] = index + 1;
+  });
+}
+
+function applyRanking(players, mode) {
+  const sorted = sortPlayersByMode(players, mode);
 
   sorted.forEach((player, index) => {
     player.rank = index + 1;
@@ -577,6 +591,18 @@ function bindControls(players) {
       if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
   });
+
+  /*
+    Seed baseline before first render so the default Hot view
+    does not show every player as → 0.
+  */
+  seedRankBaseline(players, "consistent");
+
+  const hotButton = document.querySelector('.pm-btn[data-sort="momentum"]');
+  if (hotButton) {
+    buttons.forEach(b => b.classList.remove("active"));
+    hotButton.classList.add("active");
+  }
 
   update("momentum", "5 Hottest Players", "🔥");
 }
@@ -679,7 +705,11 @@ function drawAllSparklines() {
     const range = flat ? 1 : max - min;
 
     ctx.strokeStyle = "#ffd54a";
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.shadowColor = "rgba(255, 213, 74, 0.35)";
+    ctx.shadowBlur = 6;
     ctx.beginPath();
 
     data.forEach((value, index) => {
@@ -693,6 +723,8 @@ function drawAllSparklines() {
     });
 
     ctx.stroke();
+    
+    ctx.shadowBlur = 0;
   });
 }
 
