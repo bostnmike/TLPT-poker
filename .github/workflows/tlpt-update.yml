@@ -1,72 +1,67 @@
-name: TLPT Weekly Update
+name: TLPT Data Pipeline
 
 on:
   push:
     paths:
-      - 'data/raw/events/*.html'
-      - 'data/player-metadata.json'
-      - 'images/players/**'
-      - 'scripts/**'
-
-# 🔒 Prevent overlapping runs (VERY IMPORTANT)
-concurrency:
-  group: tlpt-update-main
-  cancel-in-progress: true
+      - "data/raw/event-summary.html"
+      - "scripts/**"
+      - "data/parsed/**"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # -----------------------------
-      # Checkout repo
-      # -----------------------------
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      # -----------------------------------------
+      # 🧾 Checkout repo
+      # -----------------------------------------
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # -----------------------------
-      # Setup Python
-      # -----------------------------
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # -----------------------------------------
+      # 🟢 Setup Node
+      # -----------------------------------------
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.11'
+          node-version: "18"
 
-      # -----------------------------
-      # Install dependencies (safe no-op)
-      # -----------------------------
+      # -----------------------------------------
+      # 📦 Install dependencies (if any)
+      # -----------------------------------------
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
+        run: npm install || echo "No dependencies"
 
-      # -----------------------------
-      # Run pipeline
-      # -----------------------------
-      - name: Parse event summaries
-        run: python scripts/parse-event-reports.py
+      # -----------------------------------------
+      # 🔄 Parse uploaded event HTML → JSON
+      # -----------------------------------------
+      - name: Parse event summary
+        run: node scripts/parse-events.js
 
+      # -----------------------------------------
+      # 🔥 AUTO-GENERATE EVENT INDEX (KEY STEP)
+      # -----------------------------------------
+      - name: Generate event index
+        run: node scripts/generate-event-index.js
+
+      # -----------------------------------------
+      # 🧠 Build site-data.json
+      # -----------------------------------------
       - name: Build site data
-        run: python scripts/build-site-data.py
+        run: node scripts/build-site-data.js
 
-      - name: Build knockouts
-        run: python scripts/build-knockouts.py
-
-      - name: Validate data
-        run: python scripts/validate-site-data.py
-
-      # -----------------------------
-      # Commit results (only if changed)
-      # -----------------------------
+      # -----------------------------------------
+      # 💾 Commit changes back to repo
+      # -----------------------------------------
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git add data/generated/
+          git add data/parsed/events/index.json
+          git add data/parsed/events/*.json
+          git add data/generated/site-data.json
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "🤖 Auto-update site data"
-            git push
-          fi
+          git diff --cached --quiet || git commit -m "🔄 TLPT auto-update: new event processed"
+          git push
