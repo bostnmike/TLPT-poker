@@ -233,9 +233,13 @@ function renderAllPlayers(players) {
 ========================================= */
 function createCard(p) {
 
-  const arrow =
-    p.rankChange > 0 ? "↑" :
-    p.rankChange < 0 ? "↓" : "→";
+  let arrow = "→";
+
+   if (p.rankChange > 0) {
+     arrow = `<span class="up">↑</span>`;
+   } else if (p.rankChange < 0) {
+     arrow = `<span class="down">↓</span>`;
+   }
 
   let badge = "💀";
    let badgeClass = "pm-bust";
