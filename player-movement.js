@@ -60,6 +60,7 @@ function buildAnalytics(players, events) {
   return players.map(player => {
 
     const playerEvents = [];
+    let totalParticipations = 0;
 
     events.forEach(event => {
 
@@ -71,6 +72,9 @@ function buildAnalytics(players, events) {
       );
 
       if (!participated) return;
+
+      totalParticipations++; // ✅ count ALL events played
+       
 
       const rebuys = actions.filter(a =>
         a.type === "rebuy" &&
@@ -127,7 +131,16 @@ function buildAnalytics(players, events) {
       }
 
       // 🚨 skip invalid data (NO silent corruption)
-      if (!finishPosition) return;
+      if (!finishPosition) {
+        // keep event but mark finish unknown
+        playerEvents.push({
+          score: 0,
+          finishPct: null,
+          finishPosition: null,
+          totalPlayers: null
+        });
+        return;
+      }
 
       const finishPct = finishPosition / totalPlayers;
 
@@ -168,7 +181,7 @@ function buildAnalytics(players, events) {
     /* =========================================
        🔥 QUALIFICATION (MIN 4 EVENTS)
     ========================================== */
-    if (playerEvents.length < 4) return null;
+    if (totalParticipations < 4) return null;
 
     const recent = playerEvents.slice(-6);
 
