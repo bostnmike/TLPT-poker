@@ -1,8 +1,12 @@
+2. Full player-movement.html replacement
+
+Replace the entire file with this.
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Player Form | TLPT</title>
+  <title>The Heater Meter | TLPT</title>
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="player-movement.css" />
@@ -11,7 +15,7 @@
 <body>
 
 <!-- =========================================
-   🔥 GLOBAL HEADER (RESTORED)
+   🔥 GLOBAL HEADER
 ========================================= -->
 <header class="site-header">
   <div class="wrap header-inner">
@@ -62,27 +66,34 @@
     </nav>
   </div>
 </header>
-  
+
 <!-- =========================================
    🧠 PAGE CONTENT
 ========================================= -->
 <main class="wrap">
-
   <div class="pm-page">
 
     <!-- HEADER -->
     <section class="pm-header-shell">
       <div class="pm-title-row">
-        <img src="images/site/chip-T-1000.png" class="pm-title-chip" />
-        <h1>Player Form</h1>
+        <img
+          src="images/site/chip-T-1000.png"
+          class="pm-title-chip"
+          alt="T-1000 chip"
+          onerror="this.style.display='none';"
+        />
+        <h1>🔥 The Heater Meter</h1>
       </div>
+
       <div class="pm-accent-line"></div>
+
+      <p class="page-kicker">
+        Who’s heating up, who’s cooling off, who’s grinding steady, and who’s riding the volatility train.
+      </p>
     </section>
 
     <!-- CONTROLS -->
     <section class="pm-controls-shell">
-
-      <!-- LEFT -->
       <div class="pm-controls-left">
 
         <div class="pm-button-row">
@@ -103,35 +114,52 @@
 
         <div class="pm-formula">
           <div class="pm-formula-line1">
-            <strong>Form Score:</strong> Field-Adjusted Placement + Hits − Rebuys + Clean Run Bonus
+            <strong>Heater Score:</strong> Field-Adjusted Placement + Hits − Rebuys + Clean Run Bonus
           </div>
           <div class="pm-formula-line2">
-            Weighted by recency (older → newer: 1 → 6)
+            Weighted by recency: older → newer = 1 → 6
           </div>
           <div class="pm-formula-line3">
-            Based on last 6 events • Percentile placement • Early exit scaling • Momentum & volatility driven
+            Based on last 6 events • Percentile placement • Early exit scaling • Form score & volatility driven
           </div>
         </div>
 
+      </div>
     </section>
 
     <!-- TOP -->
     <section class="pm-section-shell">
-      <h2 id="pm-top-title">🔥 5 Hottest Players</h2>
+      <h2 id="pm-top-title">🔥 5 Biggest Heaters</h2>
       <div id="pm-top-movers" class="pm-movers-grid"></div>
     </section>
 
     <!-- ALL -->
     <section class="pm-section-shell">
-      <h2>📊 All Players</h2>
+      <h2>📊 Full Heater Board</h2>
       <div id="pm-player-grid" class="pm-player-grid"></div>
     </section>
 
   </div>
-
 </main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>
+      TLPT is a BostnMike Production... and all that, that entails.
+      Site data fueled by
+      <a
+        href="https://thetournamentdirector.net/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        The Tournament Director
+      </a>
+    </p>
+  </div>
+</footer>
 
 <script src="player-movement.js"></script>
 
 </body>
+</html>
 </html>
