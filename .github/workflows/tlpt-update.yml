@@ -3,7 +3,7 @@ name: TLPT Data Pipeline
 on:
   push:
     paths:
-      - "data/raw/event-summary.html"
+      - "data/raw/events/**"
       - "scripts/**"
       - "data/parsed/**"
   workflow_dispatch:
@@ -14,55 +14,57 @@ jobs:
 
     steps:
       # -----------------------------------------
-      # 🧾 Checkout FULL repo (IMPORTANT)
+      # 🧾 Checkout repo (FULL)
       # -----------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # 🔥 ensures full file history + all files
+          fetch-depth: 0
 
       # -----------------------------------------
-      # 🟢 Setup Node
+      # 🐍 Setup Python (YOU USE PYTHON PARSER)
       # -----------------------------------------
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          node-version: "18"
+          python-version: "3.11"
 
       # -----------------------------------------
-      # 📦 Install dependencies
+      # 🔍 DEBUG — confirm files exist
       # -----------------------------------------
-      - name: Install dependencies
-        run: npm install || echo "No dependencies"
-
-      # -----------------------------------------
-      # 🔍 DEBUG: LIST FILES (CRITICAL)
-      # -----------------------------------------
-      - name: Debug - list event files
+      - name: Debug raw events
         run: |
-          echo "Listing events directory:"
+          echo "Raw event files:"
+          ls -la data/raw/events/
+
+      # -----------------------------------------
+      # 🔄 PARSE ALL EVENTS (REAL SCRIPT)
+      # -----------------------------------------
+      - name: Parse all event reports
+        run: python scripts/parse-event-reports.py
+
+      # -----------------------------------------
+      # 🔍 DEBUG — confirm parsed output
+      # -----------------------------------------
+      - name: Debug parsed events
+        run: |
+          echo "Parsed event files:"
           ls -la data/parsed/events/
 
       # -----------------------------------------
-      # 🔄 Parse new event (if present)
-      # -----------------------------------------
-      - name: Parse event summary
-        run: node scripts/parse-events.js
-
-      # -----------------------------------------
-      # 🔥 Generate index (AFTER files exist)
+      # 🔥 GENERATE INDEX (YOUR JS FILE)
       # -----------------------------------------
       - name: Generate event index
         run: node scripts/generate-event-index.js
 
       # -----------------------------------------
-      # 🧠 Build site data
+      # 🧠 BUILD SITE DATA (PYTHON VERSION)
       # -----------------------------------------
       - name: Build site data
-        run: node scripts/build-site-data.js
+        run: python scripts/build-site-data.py
 
       # -----------------------------------------
-      # 💾 Commit everything
+      # 💾 COMMIT EVERYTHING
       # -----------------------------------------
       - name: Commit updated data
         run: |
@@ -74,5 +76,5 @@ jobs:
 
           git status
 
-          git diff --cached --quiet || git commit -m "🔄 TLPT auto-update"
+          git diff --cached --quiet || git commit -m "🔄 TLPT auto-update (full rebuild)"
           git push
