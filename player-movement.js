@@ -101,14 +101,12 @@ function rowKeys(row) {
 function isSamePlayer(player, rawName, rawSlug) {
   const pKeys = playerKeys(player);
   const rKeys = [rawName, rawSlug].map(normalize).filter(Boolean);
-
   return rKeys.some(key => pKeys.includes(key));
 }
 
 function isSamePlayerRow(player, row) {
   const pKeys = playerKeys(player);
   const rKeys = rowKeys(row);
-
   return rKeys.some(key => pKeys.includes(key));
 }
 
@@ -176,7 +174,6 @@ async function init() {
 
 /* =========================================
    🧠 EVENT MODEL
-   Finish order comes from bustout + winner/payout actions.
 ========================================= */
 
 function getEventModel(event) {
@@ -254,7 +251,6 @@ function getEventModel(event) {
     usedPositions.add(cleanFinish);
   }
 
-  /* Winners / payouts are authoritative. */
   winners.forEach((winner, index) => {
     const winnerRank = toNumber(winner.rank, index + 1);
 
@@ -271,7 +267,6 @@ function getEventModel(event) {
     }
   });
 
-  /* Bustout order fills the rest. */
   const bustouts = actions.filter(action => action.type === "bustout");
 
   bustouts.forEach((action, index) => {
@@ -301,32 +296,21 @@ function getEventModel(event) {
       .map(key => finishByKey.get(key))
       .find(Boolean);
 
-    /*
-      If a player rebought, they may appear in bustouts multiple times.
-      The later bustout is the player's actual final finish.
-    */
     if (!existing || finishPosition < existing.finishPosition) {
       addFinishForRow(row, finishPosition, "bustout");
     }
   });
 
-  /*
-    Safety net: the parsed JSON currently has at least one event row with
-    entries but no matching bustout action. This keeps the page alive.
-  */
   participantRows.forEach(row => {
     const alreadyHasFinish = rowKeys(row).some(key => finishByKey.has(key));
     if (alreadyHasFinish) return;
 
     const openPositions = [];
-
     for (let pos = totalEntries; pos >= 1; pos--) {
       if (!usedPositions.has(pos)) openPositions.push(pos);
     }
 
-    const fallbackPosition = openPositions.length
-      ? openPositions[0]
-      : totalEntries;
+    const fallbackPosition = openPositions.length ? openPositions[0] : totalEntries;
 
     console.warn("Missing finish action; assigned fallback finish:", {
       event: event.eventId || event.date || event.title,
@@ -422,11 +406,6 @@ function buildAnalytics(players, events) {
       });
     });
 
-    /*
-      Qualification rule:
-      A player qualifies if they played at least 4 events all-time.
-      The card still only displays the most recent 6.
-    */
     if (playerEvents.length < 4) return null;
 
     const recent = playerEvents.slice(-6);
@@ -434,8 +413,11 @@ function buildAnalytics(players, events) {
     const trend = recent.map(event => 1 - event.finishPct);
     const scores = recent.map(event => event.score);
 
-    const avgFinishPct =
-      recent.reduce((sum, event) => sum + event.finishPct, 0) / recent.length;
+    const avgFinishPosition =
+      recent.reduce((sum, event) => sum + event.finishPosition, 0) / recent.length;
+
+    const avgFieldSize =
+      recent.reduce((sum, event) => sum + event.totalEntries, 0) / recent.length;
 
     const best = recent.reduce(
       (bestEvent, event) =>
@@ -452,7 +434,9 @@ function buildAnalytics(players, events) {
       trend,
       scores,
       finishes: recent.map(event => event.finishLabel),
-      avgFinishPct,
+      avgFinishPosition,
+      avgFieldSize,
+      avgFinishDisplay: `${avgFinishPosition.toFixed(1)} / ${avgFieldSize.toFixed(1)}`,
       bestFinish: best ? best.finishLabel : "--",
       momentum: calcMomentum(trend),
       volatility: calcStdDev(trend),
@@ -466,7 +450,8 @@ function buildAnalytics(players, events) {
 ========================================= */
 
 function calcMomentum(arr) {
-  if (!arr || arr.length < 2) return 0;
+  if (!arr || !arr.length) return 0;
+  if (arr.length < 2) return 0;
 
   let total = 0;
   let weightTotal = 0;
@@ -477,19 +462,15 @@ function calcMomentum(arr) {
     weightTotal += weight;
   }
 
-  return weightTotal
-    ? Number((total / weightTotal).toFixed(2))
-    : 0;
+  return weightTotal ? Number((total / weightTotal).toFixed(2)) : 0;
 }
 
 function calcStdDev(arr) {
   if (!arr || arr.length < 2) return 0;
 
   const mean = arr.reduce((a, b) => a + b, 0) / arr.length;
-
   const variance =
-    arr.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) /
-    arr.length;
+    arr.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0) / arr.length;
 
   return Number(Math.sqrt(variance).toFixed(2));
 }
@@ -506,9 +487,7 @@ function weightedAverage(values) {
     weightTotal += weight;
   });
 
-  return weightTotal
-    ? Number((total / weightTotal).toFixed(2))
-    : 0;
+  return weightTotal ? Number((total / weightTotal).toFixed(2)) : 0;
 }
 
 /* =========================================
@@ -522,7 +501,7 @@ function applyRanking(players, mode) {
     sorted.sort((a, b) =>
       (b.momentum - a.momentum) ||
       (b.formScore - a.formScore) ||
-      (a.avgFinishPct - b.avgFinishPct) ||
+      (a.avgFinishPosition - b.avgFinishPosition) ||
       a.name.localeCompare(b.name)
     );
   }
@@ -531,7 +510,7 @@ function applyRanking(players, mode) {
     sorted.sort((a, b) =>
       (a.momentum - b.momentum) ||
       (a.formScore - b.formScore) ||
-      (b.avgFinishPct - a.avgFinishPct) ||
+      (b.avgFinishPosition - a.avgFinishPosition) ||
       a.name.localeCompare(b.name)
     );
   }
@@ -539,7 +518,7 @@ function applyRanking(players, mode) {
   if (mode === "consistent") {
     sorted.sort((a, b) =>
       ((b.formScore - b.volatility) - (a.formScore - a.volatility)) ||
-      (a.avgFinishPct - b.avgFinishPct) ||
+      (a.avgFinishPosition - b.avgFinishPosition) ||
       a.name.localeCompare(b.name)
     );
   }
@@ -592,21 +571,10 @@ function bindControls(players) {
 
       const type = button.dataset.sort;
 
-      if (type === "momentum") {
-        update(type, "5 Hottest Players", "🔥");
-      }
-
-      if (type === "cold") {
-        update(type, "5 Coldest Players", "❄️");
-      }
-
-      if (type === "consistent") {
-        update(type, "5 Most Consistent Players", "🟢");
-      }
-
-      if (type === "volatile") {
-        update(type, "5 Most Volatile Players", "🎢");
-      }
+      if (type === "momentum") update(type, "5 Hottest Players", "🔥");
+      if (type === "cold") update(type, "5 Coldest Players", "❄️");
+      if (type === "consistent") update(type, "5 Most Consistent Players", "🟢");
+      if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
   });
 
@@ -617,16 +585,16 @@ function bindControls(players) {
    🎴 CARD RENDERING
 ========================================= */
 
-function rankArrow(player) {
+function rankArrowMarkup(player) {
   if (player.rankChange > 0) {
-    return `<span class="up">↑${player.rankChange}</span>`;
+    return `<span class="pm-rank-badge pm-rank-up">↑ ${player.rankChange}</span>`;
   }
 
   if (player.rankChange < 0) {
-    return `<span class="down">↓${Math.abs(player.rankChange)}</span>`;
+    return `<span class="pm-rank-badge pm-rank-down">↓ ${Math.abs(player.rankChange)}</span>`;
   }
 
-  return `<span class="flat">→</span>`;
+  return `<span class="pm-rank-badge pm-rank-flat">→ 0</span>`;
 }
 
 function createCard(player) {
@@ -642,9 +610,9 @@ function createCard(player) {
           src="${escapeHtml(player.image || "images/players/default.jpg")}"
           onerror="this.src='images/players/default.jpg';"
         />
-        <div>
+        <div class="pm-player-heading">
           <strong>${escapeHtml(player.name)}</strong>
-          <div>#${player.rank} ${rankArrow(player)}</div>
+          <div class="pm-player-subhead">#${player.rank}</div>
         </div>
       </div>
 
@@ -653,11 +621,26 @@ function createCard(player) {
         data-trend="${player.trend.join(",")}"
       ></canvas>
 
-      <div class="pm-stats">
-        Avg Finish: ${(player.avgFinishPct * 100).toFixed(0)}%<br/>
-        Best Finish: ${escapeHtml(player.bestFinish)}<br/>
-        Momentum: ${player.momentum}<br/>
-        ${finishHistory}
+      <div class="pm-card-metrics">
+        <div class="pm-metric-list">
+          <div class="pm-metric-row">
+            <span class="pm-metric-label">Avg Finish</span>
+            <span class="pm-metric-value">${escapeHtml(player.avgFinishDisplay)}</span>
+          </div>
+          <div class="pm-metric-row">
+            <span class="pm-metric-label">Best Finish</span>
+            <span class="pm-metric-value">${escapeHtml(player.bestFinish)}</span>
+          </div>
+        </div>
+
+        <div class="pm-rank-change-wrap">
+          ${rankArrowMarkup(player)}
+        </div>
+      </div>
+
+      <div class="pm-stats pm-finish-history">
+        <span class="pm-finish-history-label">Recent Finishes:</span>
+        <span class="pm-finish-history-values">${finishHistory}</span>
       </div>
     </div>
   `;
@@ -695,22 +678,18 @@ function drawAllSparklines() {
     const flat = max === min;
     const range = flat ? 1 : max - min;
 
-    ctx.strokeStyle = "#FFD700";
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#ffd54a";
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
 
     data.forEach((value, index) => {
       const x = (index / (data.length - 1)) * canvas.width;
-
       const y = flat
         ? canvas.height / 2
         : canvas.height - ((value - min) / range) * canvas.height;
 
-      if (index === 0) {
-        ctx.moveTo(x, y);
-      } else {
-        ctx.lineTo(x, y);
-      }
+      if (index === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     });
 
     ctx.stroke();
