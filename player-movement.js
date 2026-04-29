@@ -199,7 +199,7 @@ function bindControls(players) {
 
       if (type === "momentum") update(type, "5 Hottest Players", "🔥");
       if (type === "cold") update(type, "5 Coldest Players", "❄️");
-      if (type === "consistent") update(type, "Most Consistent Players", "🟢");
+      if (type === "consistent") update(type, "5 Most Consistent Players", "🟢");
       if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
 
@@ -265,6 +265,7 @@ function createCard(p) {
    📉 SPARKLINES
 ========================================= */
 function drawAllSparklines() {
+
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
 
     const ctx = canvas.getContext("2d");
@@ -277,12 +278,21 @@ function drawAllSparklines() {
     const min = Math.min(...data);
     const range = max - min || 1;
 
-    ctx.beginPath();
+    const delta = data[data.length - 1] - data[0];
+
+    // 🔥 COLOR FIX
+    ctx.strokeStyle =
+      delta > 0 ? "#4caf50" :   // green
+      delta < 0 ? "#e53935" :   // red
+      "#999";                  // neutral
+
     ctx.lineWidth = 2;
+    ctx.beginPath();
 
     data.forEach((val, i) => {
       const x = (i / (data.length - 1)) * canvas.width;
       const y = canvas.height - ((val - min) / range) * canvas.height;
+
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     });
