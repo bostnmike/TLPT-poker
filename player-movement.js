@@ -4,6 +4,31 @@ let players = [];
 let previousRanks = {};
 
 /* =========================================
+   🔐 NORMALIZATION + MATCHING
+========================================= */
+function normalize(str) {
+  return (str || "")
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .trim();
+}
+
+/* match using slug first, fallback to normalized name */
+function isSamePlayer(player, rawName) {
+  if (!rawName) return false;
+
+  const nRaw = normalize(rawName);
+
+  // slug match
+  if (player.slug && normalize(player.slug) === nRaw) return true;
+
+  // name + aliases match
+  const allNames = [player.name, ...(player.aliases || [])];
+
+  return allNames.some(n => normalize(n) === nRaw);
+}
+
+/* =========================================
    🚀 INIT
 ========================================= */
 async function init() {
@@ -37,9 +62,6 @@ function buildAnalytics(players, events) {
 
   return players.map(player => {
 
-    const names = [player.name, ...(player.aliases || [])]
-      .map(n => n.toLowerCase());
-
     const playerEvents = [];
 
     events.forEach(event => {
@@ -48,49 +70,60 @@ function buildAnalytics(players, events) {
 
       const participated = actions.some(a =>
         (a.type === "buyin" || a.type === "rebuy") &&
-        names.includes(a.player.toLowerCase())
+        isSamePlayer(player, a.player)
       );
 
       if (!participated) return;
 
       const rebuys = actions.filter(a =>
         a.type === "rebuy" &&
-        names.includes(a.player.toLowerCase())
+        isSamePlayer(player, a.player)
       ).length;
 
       const hits = actions.filter(a =>
         a.type === "knockout" &&
-        names.includes(a.player.toLowerCase())
+        isSamePlayer(player, a.player)
       ).length;
 
       let score = 0;
       let finishPosition = null;
+      let totalPlayers = 0;
 
-      /* 🏆 FINISH POSITION */
-      if (event.winners && event.winners.length) {
-        const idx = event.winners.findIndex(w =>
-          names.includes(w.name.toLowerCase())
-        );
-        if (idx !== -1) finishPosition = idx + 1;
+      /* =========================================
+         🏆 FINISH POSITION (ROBUST)
+      ========================================== */
+
+      const winners = event.winners || [];
+      const exits = event.exits || [];
+
+      totalPlayers = exits.length + winners.length;
+
+      // winners (top placements)
+      const winnerIndex = winners.findIndex(w =>
+        isSamePlayer(player, w.name)
+      );
+
+      if (winnerIndex !== -1) {
+        finishPosition = winnerIndex + 1;
       }
 
-      if (finishPosition === null && event.exits && event.exits.length) {
-        const idx = event.exits.findIndex(e => {
-          const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
-          return names.includes(n);
+      // exits (everyone else)
+      if (finishPosition === null) {
+        const exitIndex = exits.findIndex(e => {
+          const raw = typeof e === "string" ? e : e.name;
+          return isSamePlayer(player, raw);
         });
 
-        if (idx !== -1) {
-          const total = event.exits.length + (event.winners?.length || 0);
-          finishPosition = total - idx;
+        if (exitIndex !== -1) {
+          finishPosition = totalPlayers - exitIndex;
         }
       }
 
       let finishPct = null;
 
-      if (finishPosition !== null) {
-        const total = (event.exits?.length || 0) + (event.winners?.length || 0);
-        finishPct = finishPosition / total;
+      if (finishPosition !== null && totalPlayers > 0) {
+
+        finishPct = finishPosition / totalPlayers;
 
         if (finishPct <= 0.15) score += 100;
         else if (finishPct <= 0.35) score += 70;
@@ -100,29 +133,45 @@ function buildAnalytics(players, events) {
         else score -= 35;
       }
 
-      /* 💣 Bubble */
-      if (event.exits && event.exits.length) {
-        const last = event.exits[event.exits.length - 1];
-        const n = typeof last === "string" ? last.toLowerCase() : last.name.toLowerCase();
-        if (names.includes(n)) score += 20;
+      /* =========================================
+         💣 BUBBLE
+      ========================================== */
+      if (exits.length) {
+        const last = exits[exits.length - 1];
+        const raw = typeof last === "string" ? last : last.name;
+
+        if (isSamePlayer(player, raw)) {
+          score += 20;
+        }
       }
 
-      /* ⚔️ Activity */
+      /* =========================================
+         ⚔️ ACTIVITY
+      ========================================== */
       score += hits * 10;
       score -= rebuys * 15;
 
-      /* 🧼 Clean run */
+      /* 🧼 CLEAN RUN */
       if (rebuys === 0) score += 10;
 
-      playerEvents.push({ score, finishPct });
+      playerEvents.push({
+        score,
+        finishPct,
+        finishPosition,
+        totalPlayers
+      });
     });
 
-    /* 🔥 QUALIFICATION (ALL-TIME) */
+    /* =========================================
+       🔥 QUALIFICATION
+    ========================================== */
     if (playerEvents.length < 4) return null;
 
     const recent = playerEvents.slice(-6);
 
-    /* 🔥 FIX: INVERTED FINISH TREND */
+    /* =========================================
+       📉 TREND (INVERTED FOR VISUAL)
+    ========================================== */
     const trend = recent.map(e => 1 - (e.finishPct ?? 1));
 
     const avgFinishPct =
@@ -131,11 +180,18 @@ function buildAnalytics(players, events) {
     const bestFinish =
       Math.min(...recent.map(e => e.finishPct ?? 1));
 
+    const bestFinishRaw =
+      recent.reduce((best, e) => {
+        if (!best) return e;
+        return e.finishPct < best.finishPct ? e : best;
+      }, null);
+
     return {
       ...player,
       trend,
       avgFinishPct,
       bestFinish,
+      bestFinishRaw,
       momentum: calcMomentum(trend),
       volatility: calcStdDev(trend)
     };
@@ -226,22 +282,11 @@ function bindControls(players) {
 }
 
 /* =========================================
-   🎴 RENDER
-========================================= */
-function renderTopMovers(players) {
-  document.getElementById("pm-top-movers").innerHTML =
-    players.slice(0,5).map(createCard).join("");
-}
-
-function renderAllPlayers(players) {
-  document.getElementById("pm-player-grid").innerHTML =
-    players.map(createCard).join("");
-}
-
-/* =========================================
    🎴 CARD
 ========================================= */
 function createCard(p) {
+
+  const best = p.bestFinishRaw;
 
   return `
     <div class="pm-player-card">
@@ -257,7 +302,9 @@ function createCard(p) {
 
       <div class="pm-stats">
         Avg Finish: ${(p.avgFinishPct*100).toFixed(0)}%<br/>
-        Best Finish: ${(p.bestFinish*100).toFixed(0)}%<br/>
+        Best Finish: ${
+          best ? `${best.finishPosition} / ${best.totalPlayers}` : "--"
+        }<br/>
         Momentum: ${p.momentum}
       </div>
     </div>
@@ -265,7 +312,7 @@ function createCard(p) {
 }
 
 /* =========================================
-   📉 SPARKLINES (FIXED)
+   📉 SPARKLINES
 ========================================= */
 function drawAllSparklines() {
 
@@ -281,7 +328,7 @@ function drawAllSparklines() {
     const min = Math.min(...data);
     const range = max - min || 1;
 
-    ctx.strokeStyle = "#FFD700"; // gold
+    ctx.strokeStyle = "#FFD700";
     ctx.lineWidth = 2;
     ctx.beginPath();
 
@@ -293,6 +340,16 @@ function drawAllSparklines() {
 
     ctx.stroke();
   });
+}
+
+function renderTopMovers(players) {
+  document.getElementById("pm-top-movers").innerHTML =
+    players.slice(0,5).map(createCard).join("");
+}
+
+function renderAllPlayers(players) {
+  document.getElementById("pm-player-grid").innerHTML =
+    players.map(createCard).join("");
 }
 
 init();
