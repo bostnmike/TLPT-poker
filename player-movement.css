@@ -71,17 +71,76 @@
 ========================================= */
 .pm-controls-shell {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.pm-page select {
-  padding: 10px 12px;
-  background: var(--panel-2);
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  font-size: 14px;
+/* BUTTON ROW */
+.pm-controls-left {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* BASE BUTTON */
+.pm-btn {
+  background: #111;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* HOVER */
+.pm-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ACTIVE STATES */
+.pm-btn.active {
+  color: #000;
+  border: none;
+}
+
+/* COLOR CODING */
+.pm-btn.hot.active {
+  background: #e53935;
+}
+
+.pm-btn.cold.active {
+  background: #1e88e5;
+}
+
+.pm-btn.consistent.active {
+  background: #43a047;
+}
+
+.pm-btn.volatile.active {
+  background: #fdd835;
+}
+
+/* FORMULA (FIXED LAYOUT) */
+.pm-formula {
+  font-size: 15px;
+  color: #ddd;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pm-formula strong {
+  color: #fff;
+}
+
+.pm-formula-sub {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
 }
 
 /* =========================================
