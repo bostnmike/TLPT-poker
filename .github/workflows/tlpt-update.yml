@@ -1,5 +1,8 @@
 name: TLPT Data Pipeline
 
+permissions:
+  contents: write
+
 on:
   push:
     paths:
@@ -14,7 +17,7 @@ jobs:
 
     steps:
       # -----------------------------------------
-      # 🧾 Checkout repo (FULL)
+      # 🧾 Checkout repo
       # -----------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,7 +25,7 @@ jobs:
           fetch-depth: 0
 
       # -----------------------------------------
-      # 🐍 Setup Python (YOU USE PYTHON PARSER)
+      # 🐍 Setup Python
       # -----------------------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -30,41 +33,25 @@ jobs:
           python-version: "3.11"
 
       # -----------------------------------------
-      # 🔍 DEBUG — confirm files exist
-      # -----------------------------------------
-      - name: Debug raw events
-        run: |
-          echo "Raw event files:"
-          ls -la data/raw/events/
-
-      # -----------------------------------------
-      # 🔄 PARSE ALL EVENTS (REAL SCRIPT)
+      # 🔄 Parse ALL events
       # -----------------------------------------
       - name: Parse all event reports
         run: python scripts/parse-event-reports.py
 
       # -----------------------------------------
-      # 🔍 DEBUG — confirm parsed output
-      # -----------------------------------------
-      - name: Debug parsed events
-        run: |
-          echo "Parsed event files:"
-          ls -la data/parsed/events/
-
-      # -----------------------------------------
-      # 🔥 GENERATE INDEX (YOUR JS FILE)
+      # 🔥 Generate index
       # -----------------------------------------
       - name: Generate event index
         run: node scripts/generate-event-index.js
 
       # -----------------------------------------
-      # 🧠 BUILD SITE DATA (PYTHON VERSION)
+      # 🧠 Build site data
       # -----------------------------------------
       - name: Build site data
         run: python scripts/build-site-data.py
 
       # -----------------------------------------
-      # 💾 COMMIT EVERYTHING
+      # 💾 Commit + push
       # -----------------------------------------
       - name: Commit updated data
         run: |
@@ -73,8 +60,6 @@ jobs:
 
           git add data/parsed/events/
           git add data/generated/site-data.json
-
-          git status
 
           git diff --cached --quiet || git commit -m "🔄 TLPT auto-update (full rebuild)"
           git push
