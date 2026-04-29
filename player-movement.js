@@ -27,7 +27,7 @@ async function init() {
     )
   )).filter(Boolean);
 
-  // 🔥 SORT EVENTS (YYYY-MM-DD safe)
+  // 🔥 SORT EVENTS
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const enriched = buildAnalytics(players, eventData);
@@ -41,27 +41,20 @@ async function init() {
 }
 
 /* =========================================
-   🧠 CORE ANALYTICS ENGINE
+   🧠 CORE ANALYTICS ENGINE (EVENT-BASED)
 ========================================= */
 function buildAnalytics(players, events) {
 
   return players
     .map(player => {
 
-      const entries = (player.buyIns || 0) + (player.rebuys || 0);
-
-      // 🔥 FILTER: min 3 entries
-      if (entries < 3) return null;
-
       const playerEvents = [];
 
-      // 🔹 build alias list
       const names = [player.name, ...(player.aliases || [])]
         .map(n => n.toLowerCase());
 
       events.forEach(event => {
 
-        // 🔹 participation check
         const participated = event.actions?.some(a =>
           (a.type === "buyin" || a.type === "rebuy") &&
           names.includes(a.player.toLowerCase())
@@ -69,11 +62,9 @@ function buildAnalytics(players, events) {
 
         if (!participated) return;
 
-        // 🔹 field size (buy-ins only)
         const fieldSize =
           event.actions?.filter(a => a.type === "buyin").length || 10;
 
-        // 🔹 winner lookup
         const winner = event.winners?.find(w =>
           names.includes(w.name.toLowerCase())
         );
@@ -81,20 +72,19 @@ function buildAnalytics(players, events) {
         let score;
 
         if (winner) {
-          // 🏆 higher score = better finish
           score = fieldSize - winner.rank;
         } else {
-          // ❌ baseline = bottom third
           score = Math.floor(fieldSize / 3);
         }
 
         playerEvents.push(score);
       });
 
-      // 🔹 last 5 appearances
-      const recent = playerEvents.slice(-5);
+      // 🔥 NEW RULE: MUST HAVE 3 EVENTS
+      if (playerEvents.length < 3) return null;
 
-      if (recent.length < 3) return null;
+      // 🔹 last 5 events
+      const recent = playerEvents.slice(-5);
 
       const momentum = calcMomentum(recent);
       const volatility = calcStdDev(recent);
@@ -102,7 +92,7 @@ function buildAnalytics(players, events) {
 
       return {
         ...player,
-        entries,
+        eventsPlayed: playerEvents.length,
         trend: recent,
         momentum,
         volatility,
@@ -151,7 +141,6 @@ function classifyHeat(momentum, volatility) {
 ========================================= */
 function render(players) {
 
-  // 🔹 assign ranks (based on momentum)
   players.sort((a, b) => b.momentum - a.momentum);
 
   players.forEach((p, i) => {
@@ -161,7 +150,6 @@ function render(players) {
   renderTopMovers(players);
   renderAllPlayers(players);
 
-  // 🔹 draw sparklines ONCE
   drawAllSparklines();
 }
 
@@ -171,8 +159,7 @@ function render(players) {
 function renderTopMovers(players) {
   const container = document.getElementById("pm-top-movers");
 
-  const movers = [...players]
-    .slice(0, 5);
+  const movers = [...players].slice(0, 5);
 
   container.innerHTML = movers.map(createCard).join("");
 }
@@ -216,7 +203,7 @@ function createCard(p) {
 
       <div class="pm-stats">
         Momentum: ${p.momentum}<br/>
-        Entries: ${p.entries}
+        Events: ${p.eventsPlayed}
       </div>
 
     </div>
@@ -261,7 +248,7 @@ function drawAllSparklines() {
 }
 
 /* =========================================
-   🎛 CONTROLS (TREND-BASED SORTING)
+   🎛 CONTROLS
 ========================================= */
 function bindControls(players) {
 
@@ -276,18 +263,14 @@ function bindControls(players) {
     let sorted = [...players];
 
     switch (type) {
-
-      // 🔥 HOTTEST PLAYERS (highest momentum)
       case "momentum":
         sorted.sort((a, b) => b.momentum - a.momentum);
         break;
 
-      // ❄️ COLDEST PLAYERS (lowest momentum)
       case "cold":
         sorted.sort((a, b) => a.momentum - b.momentum);
         break;
 
-      // 🎢 MOST VOLATILE (highest variance)
       case "volatile":
         sorted.sort((a, b) => b.volatility - a.volatility);
         break;
