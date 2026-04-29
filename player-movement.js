@@ -27,10 +27,9 @@ async function init() {
     )
   )).filter(Boolean);
 
-  // 🔥 SORT CHRONOLOGICALLY
+  // 🔥 SORT EVENTS (YYYY-MM-DD safe)
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  // 🔥 BUILD ANALYTICS
   const enriched = buildAnalytics(players, eventData);
 
   if (!enriched.length) {
@@ -51,37 +50,48 @@ function buildAnalytics(players, events) {
 
       const entries = (player.buyIns || 0) + (player.rebuys || 0);
 
-      // 🔥 YOUR RULE
+      // 🔥 FILTER: min 3 entries
       if (entries < 3) return null;
 
       const playerEvents = [];
 
+      // 🔹 build alias list
+      const names = [player.name, ...(player.aliases || [])]
+        .map(n => n.toLowerCase());
+
       events.forEach(event => {
 
-        // 🔹 Did player participate?
+        // 🔹 participation check
         const participated = event.actions?.some(a =>
           (a.type === "buyin" || a.type === "rebuy") &&
-          a.player === player.name
+          names.includes(a.player.toLowerCase())
         );
 
         if (!participated) return;
 
-        // 🔹 Did they place?
-        const winner = event.winners?.find(w => w.name === player.name);
+        // 🔹 field size (buy-ins only)
+        const fieldSize =
+          event.actions?.filter(a => a.type === "buyin").length || 10;
+
+        // 🔹 winner lookup
+        const winner = event.winners?.find(w =>
+          names.includes(w.name.toLowerCase())
+        );
 
         let score;
 
         if (winner) {
-          // 🏆 higher = better
-          score = 10 - winner.rank;
+          // 🏆 higher score = better finish
+          score = fieldSize - winner.rank;
         } else {
-          // ❌ non-cash baseline
-          score = 3;
+          // ❌ baseline = bottom third
+          score = Math.floor(fieldSize / 3);
         }
 
         playerEvents.push(score);
       });
 
+      // 🔹 last 5 appearances
       const recent = playerEvents.slice(-5);
 
       if (recent.length < 3) return null;
@@ -130,7 +140,6 @@ function calcStdDev(arr) {
    🔥 HEAT
 ========================================= */
 function classifyHeat(momentum, volatility) {
-
   if (volatility > 3) return "🎢";
   if (momentum > 1) return "🔥";
   if (momentum < -1) return "❄️";
@@ -141,8 +150,19 @@ function classifyHeat(momentum, volatility) {
    🎯 RENDER
 ========================================= */
 function render(players) {
+
+  // 🔹 assign ranks (based on momentum)
+  players.sort((a, b) => b.momentum - a.momentum);
+
+  players.forEach((p, i) => {
+    p.rank = i + 1;
+  });
+
   renderTopMovers(players);
   renderAllPlayers(players);
+
+  // 🔹 draw sparklines ONCE
+  drawAllSparklines();
 }
 
 /* =========================================
@@ -152,12 +172,9 @@ function renderTopMovers(players) {
   const container = document.getElementById("pm-top-movers");
 
   const movers = [...players]
-    .sort((a,b) => b.momentum - a.momentum)
-    .slice(0,5);
+    .slice(0, 5);
 
   container.innerHTML = movers.map(createCard).join("");
-
-  drawAllSparklines();
 }
 
 /* =========================================
@@ -167,11 +184,8 @@ function renderAllPlayers(players) {
   const container = document.getElementById("pm-player-grid");
 
   container.innerHTML = players
-    .sort((a,b) => b.momentum - a.momentum)
     .map(createCard)
     .join("");
-
-  drawAllSparklines();
 }
 
 /* =========================================
@@ -185,12 +199,12 @@ function createCard(p) {
       <div class="pm-player-header">
         <img 
           class="pm-avatar"
-          src="${p.image}"
+          src="${p.image || `images/players/${p.slug}.jpg`}"
           onerror="this.onerror=null; this.src='images/players/default.jpg';"
         />
         <div>
           <strong>${p.name}</strong>
-          <div>#${p.rank || "-"}</div>
+          <div>#${p.rank}</div>
         </div>
       </div>
 
@@ -210,7 +224,7 @@ function createCard(p) {
 }
 
 /* =========================================
-   📉 SPARKLINES (CANVAS)
+   📉 SPARKLINES
 ========================================= */
 function drawAllSparklines() {
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
@@ -223,20 +237,23 @@ function drawAllSparklines() {
 
     const max = Math.max(...data);
     const min = Math.min(...data);
+    const range = max - min || 1;
 
     ctx.beginPath();
     ctx.lineWidth = 2;
 
-    // color based on trend
-    const delta = data[data.length-1] - data[0];
-    ctx.strokeStyle = delta > 0 ? "#4caf50" : delta < 0 ? "#e53935" : "#aaa";
+    const delta = data[data.length - 1] - data[0];
+    ctx.strokeStyle =
+      delta > 0 ? "#4caf50" :
+      delta < 0 ? "#e53935" :
+      "#aaa";
 
     data.forEach((val, i) => {
       const x = (i / (data.length - 1)) * canvas.width;
-      const y = canvas.height - ((val - min) / (max - min || 1)) * canvas.height;
+      const y = canvas.height - ((val - min) / range) * canvas.height;
 
-      if (i === 0) ctx.moveTo(x,y);
-      else ctx.lineTo(x,y);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     });
 
     ctx.stroke();
@@ -261,6 +278,7 @@ function bindControls(players) {
     }
 
     renderAllPlayers(sorted);
+    drawAllSparklines();
   });
 }
 
