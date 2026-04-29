@@ -126,10 +126,11 @@
 
 /* FORMULA (FIXED LAYOUT) */
 .pm-formula {
-  font-size: 15px;
+  font-size: 16px;
   color: #ddd;
   text-align: right;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 400px;
 }
 
 .pm-formula strong {
