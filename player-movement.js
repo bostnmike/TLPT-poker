@@ -18,10 +18,8 @@ function isSamePlayer(player, rawName) {
 
   const nRaw = normalize(rawName);
 
-  // slug match (primary)
   if (player.slug && normalize(player.slug) === nRaw) return true;
 
-  // name + aliases (fallback)
   const allNames = [player.name, ...(player.aliases || [])];
   return allNames.some(n => normalize(n) === nRaw);
 }
@@ -73,8 +71,7 @@ function buildAnalytics(players, events) {
 
       if (!participated) return;
 
-      totalParticipations++; // ✅ count ALL events played
-       
+      totalParticipations++;
 
       const rebuys = actions.filter(a =>
         a.type === "rebuy" &&
@@ -86,9 +83,6 @@ function buildAnalytics(players, events) {
         isSamePlayer(player, a.player)
       ).length;
 
-      /* =========================================
-         🧮 TRUE FIELD SIZE
-      ========================================== */
       const winners = event.winners || [];
       const exits = event.exits || [];
 
@@ -96,20 +90,12 @@ function buildAnalytics(players, events) {
         event.summary?.entries ||
         event.summary?.totalEntries ||
         event.summary?.players ||
-        null;
-
-      if (!totalPlayers) {
-        totalPlayers = exits.length + winners.length;
-      }
+        (exits.length + winners.length);
 
       if (!totalPlayers || totalPlayers < 2) return;
 
-      /* =========================================
-         🏁 FINISH POSITION
-      ========================================== */
       let finishPosition = null;
 
-      // winners
       const winnerIndex = winners.findIndex(w =>
         isSamePlayer(player, w.name)
       );
@@ -118,7 +104,6 @@ function buildAnalytics(players, events) {
         finishPosition = winnerIndex + 1;
       }
 
-      // exits
       if (finishPosition === null) {
         const exitIndex = exits.findIndex(e => {
           const raw = typeof e === "string" ? e : e.name;
@@ -130,57 +115,44 @@ function buildAnalytics(players, events) {
         }
       }
 
-      // 🚨 skip invalid data (NO silent corruption)
-      if (!finishPosition) {
-        // keep event but mark finish unknown
-        playerEvents.push({
-          score: 0,
-          finishPct: null,
-          finishPosition: null,
-          totalPlayers: null
-        });
-        return;
+      let finishPct = null;
+      let finishLabel = "--";
+
+      if (finishPosition) {
+        finishPct = finishPosition / totalPlayers;
+        finishLabel = `${finishPosition}/${totalPlayers}`;
       }
 
-      const finishPct = finishPosition / totalPlayers;
-
-      /* =========================================
-         📊 SCORING
-      ========================================== */
       let score = 0;
 
-      if (finishPct <= 0.15) score += 100;
-      else if (finishPct <= 0.35) score += 70;
-      else if (finishPct <= 0.55) score += 40;
-      else if (finishPct <= 0.75) score += 10;
-      else if (finishPct <= 0.9) score -= 15;
-      else score -= 35;
+      if (finishPct !== null) {
+        if (finishPct <= 0.15) score += 100;
+        else if (finishPct <= 0.35) score += 70;
+        else if (finishPct <= 0.55) score += 40;
+        else if (finishPct <= 0.75) score += 10;
+        else if (finishPct <= 0.9) score -= 15;
+        else score -= 35;
+      }
 
-      // bubble
       if (exits.length) {
         const last = exits[exits.length - 1];
         const raw = typeof last === "string" ? last : last.name;
         if (isSamePlayer(player, raw)) score += 20;
       }
 
-      // activity
       score += hits * 10;
       score -= rebuys * 15;
 
-      // clean run
       if (rebuys === 0) score += 10;
 
       playerEvents.push({
         score,
         finishPct,
-        finishPosition,
-        totalPlayers
+        finishLabel
       });
     });
 
-    /* =========================================
-       🔥 QUALIFICATION (MIN 4 EVENTS)
-    ========================================== */
+    // 🔥 CORRECT QUALIFICATION
     if (totalParticipations < 4) return null;
 
     const recent = playerEvents.slice(-6);
@@ -189,25 +161,21 @@ function buildAnalytics(players, events) {
 
     if (!valid.length) return null;
 
-    /* =========================================
-       📉 TREND (FIXED)
-    ========================================== */
     const trend = valid.map(e => 1 - e.finishPct);
 
     const avgFinishPct =
       valid.reduce((sum, e) => sum + e.finishPct, 0) / valid.length;
 
-    const bestFinishRaw =
-      valid.reduce((best, e) =>
-        !best || e.finishPct < best.finishPct ? e : best,
-        null
-      );
+    const bestFinish = valid.reduce((best, e) =>
+      !best || e.finishPct < best.finishPct ? e : best
+    );
 
     return {
       ...player,
       trend,
+      finishes: recent.map(e => e.finishLabel),
       avgFinishPct,
-      bestFinishRaw,
+      bestFinish: bestFinish.finishLabel,
       momentum: calcMomentum(trend),
       volatility: calcStdDev(trend)
     };
@@ -230,15 +198,15 @@ function calcMomentum(arr) {
     weightTotal += weight;
   }
 
-  if (weightTotal === 0) return 0;
-
-  return Number((total / weightTotal).toFixed(2));
+  return weightTotal ? Number((total / weightTotal).toFixed(2)) : 0;
 }
 
 /* =========================================
    🎢 VOLATILITY
 ========================================= */
 function calcStdDev(arr) {
+  if (!arr || arr.length < 2) return 0;
+
   const mean = arr.reduce((a,b)=>a+b,0)/arr.length;
   return Math.sqrt(arr.reduce((s,v)=>s+(v-mean)**2,0)/arr.length);
 }
@@ -302,11 +270,9 @@ function bindControls(players) {
 }
 
 /* =========================================
-   🎴 CARD
+   🎴 RENDER
 ========================================= */
 function createCard(p) {
-
-  const best = p.bestFinishRaw;
 
   return `
     <div class="pm-player-card">
@@ -320,11 +286,13 @@ function createCard(p) {
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
+      <div class="pm-finishes">
+        ${p.finishes.map(f => `<span>${f}</span>`).join("")}
+      </div>
+
       <div class="pm-stats">
-        Avg Finish: ${(p.avgFinishPct*100).toFixed(0)}%<br/>
-        Best Finish: ${
-          best ? `${best.finishPosition} / ${best.totalPlayers}` : "--"
-        }<br/>
+        Avg Finish: ${(p.avgFinishPct * 100).toFixed(0)}%<br/>
+        Best Finish: ${p.bestFinish}<br/>
         Momentum: ${p.momentum}
       </div>
     </div>
@@ -338,8 +306,13 @@ function drawAllSparklines() {
 
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
 
+    let data = canvas.dataset.trend.split(",").map(Number);
+
+    if (data.length < 2) {
+      data = [data[0] || 0.5, data[0] || 0.5];
+    }
+
     const ctx = canvas.getContext("2d");
-    const data = canvas.dataset.trend.split(",").map(Number);
 
     canvas.width = 120;
     canvas.height = 40;
@@ -370,6 +343,8 @@ function renderTopMovers(players) {
 function renderAllPlayers(players) {
   document.getElementById("pm-player-grid").innerHTML =
     players.map(createCard).join("");
+
+  drawAllSparklines();
 }
 
 init();
