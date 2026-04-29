@@ -298,3 +298,53 @@
 .pm-streak {
   text-shadow: 0 0 8px #ff5722;
 }
+
+/* =========================================
+   🔼 ARROW COLORS
+========================================= */
+.pm-player-header div span.up {
+  color: #4caf50;
+}
+
+.pm-player-header div span.down {
+  color: #e53935;
+}
+
+/* =========================================
+   🔥 STREAK ANIMATION
+========================================= */
+@keyframes flameFlicker {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.pm-streak {
+  text-shadow: 0 0 10px #ff5722;
+  animation: flameFlicker 1.2s infinite;
+}
+
+/* =========================================
+   🏆 WIN PULSE
+========================================= */
+@keyframes winPulse {
+  0% { text-shadow: 0 0 6px gold; }
+  50% { text-shadow: 0 0 14px gold; }
+  100% { text-shadow: 0 0 6px gold; }
+}
+
+.pm-win {
+  animation: winPulse 1.5s infinite;
+}
+
+/* =========================================
+   🎴 CARD HOVER POLISH
+========================================= */
+.pm-player-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pm-player-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
