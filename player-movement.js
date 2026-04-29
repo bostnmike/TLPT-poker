@@ -116,16 +116,37 @@ function buildAnalytics(players, events) {
    📈 HELPERS
 ========================================= */
 function calcMomentum(trend) {
-  let delta = 0;
+
+  if (trend.length < 2) return 0;
+
+  let weightedSum = 0;
+  let weightTotal = 0;
+
   for (let i = 1; i < trend.length; i++) {
-    delta += (trend[i] - trend[i - 1]);
+
+    const weight = i + 1; // newer = heavier
+    const delta = trend[i] - trend[i - 1];
+
+    weightedSum += delta * weight;
+    weightTotal += weight;
   }
-  return Number(delta.toFixed(2));
+
+  return Number((weightedSum / weightTotal).toFixed(2));
 }
 
 function calcStdDev(arr) {
-  const mean = arr.reduce((a,b) => a+b,0) / arr.length;
-  const variance = arr.reduce((a,b) => a + Math.pow(b - mean, 2), 0) / arr.length;
+
+  const weights = arr.map((_, i) => i + 1);
+
+  const weightedMean =
+    arr.reduce((sum, val, i) => sum + val * weights[i], 0) /
+    weights.reduce((a, b) => a + b, 0);
+
+  const variance =
+    arr.reduce((sum, val, i) =>
+      sum + weights[i] * Math.pow(val - weightedMean, 2), 0
+    ) / weights.reduce((a, b) => a + b, 0);
+
   return Math.sqrt(variance);
 }
 
