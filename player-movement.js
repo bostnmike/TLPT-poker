@@ -64,10 +64,7 @@ function buildAnalytics(players, events) {
         let result = "bust";
         let finishPosition = null;
 
-        /* =========================================
-           🏆 FINISH POSITION
-        ========================================= */
-
+        /* FINISH POSITION */
         if (event.winners && event.winners.length) {
           const winnerIndex = event.winners.findIndex(w =>
             names.includes(w.name.toLowerCase())
@@ -125,7 +122,7 @@ function buildAnalytics(players, events) {
           }
         }
 
-        /* 💣 Bubble */
+        /* BUBBLE */
         if (event.exits && event.exits.length) {
           const lastExit = event.exits[event.exits.length - 1];
           const name =
@@ -139,33 +136,42 @@ function buildAnalytics(players, events) {
           }
         }
 
-        /* ⚔️ Activity + discipline */
+        /* ACTIVITY */
         score += hits * 10;
         score -= rebuys * 15;
 
-        /* 🧼 Clean run */
+        /* CLEAN RUN */
         if (rebuys === 0) score += 10;
 
-        playerEvents.push({ score, result, finishPct });
+        playerEvents.push({
+          score,
+          result,
+          finishPct
+        });
       });
 
-      if (playerEvents.length < 3) return null;
+      // 🔥 CHANGE: MIN EVENTS = 4
+      if (playerEvents.length < 4) return null;
 
       const recent = playerEvents.slice(-6);
-      const trend = recent.map(e => e.score);
+
+      // 🔥 CHANGE: trend = FINISH PERCENT (NOT SCORE)
+      const trend = recent.map(e => e.finishPct ?? 1);
 
       const avgFinishPct =
-        recent.filter(e => e.finishPct != null).length
-          ? recent.reduce((sum, e) => sum + e.finishPct, 0) / recent.length
-          : null;
+        recent.reduce((sum, e) => sum + (e.finishPct ?? 1), 0) / recent.length;
+
+      const bestFinish =
+        Math.min(...recent.map(e => e.finishPct ?? 1));
 
       return {
         ...player,
         trend,
         avgFinishPct,
+        bestFinish,
         lastResult: recent[recent.length - 1].result,
-        momentum: calcMomentum(trend),
-        volatility: calcStdDev(trend),
+        momentum: calcMomentum(recent.map(e => e.score)),
+        volatility: calcStdDev(recent.map(e => e.score)),
         streak: calcStreak(recent)
       };
 
@@ -189,18 +195,8 @@ function calcMomentum(trend) {
 }
 
 function calcStdDev(arr) {
-  const weights = arr.map((_, i) => i + 1);
-
-  const mean =
-    arr.reduce((sum, val, i) => sum + val * weights[i], 0) /
-    weights.reduce((a, b) => a + b, 0);
-
-  const variance =
-    arr.reduce((sum, val, i) =>
-      sum + weights[i] * Math.pow(val - mean, 2), 0
-    ) / weights.reduce((a, b) => a + b, 0);
-
-  return Math.sqrt(variance);
+  const mean = arr.reduce((a,b)=>a+b,0)/arr.length;
+  return Math.sqrt(arr.reduce((s,v)=>s+(v-mean)**2,0)/arr.length);
 }
 
 function calcStreak(events) {
@@ -224,8 +220,6 @@ function applyRanking(players, mode) {
 
   sorted.forEach((p,i)=>{
     p.rank = i+1;
-    p.rankChange = previousRanks[p.slug] ? previousRanks[p.slug]-p.rank : 0;
-    previousRanks[p.slug]=p.rank;
   });
 
   return sorted;
@@ -249,7 +243,6 @@ function bindControls(players) {
   };
 
   buttons.forEach(btn => {
-
     btn.addEventListener("click", () => {
 
       buttons.forEach(b => b.classList.remove("active"));
@@ -262,10 +255,33 @@ function bindControls(players) {
       if (type === "consistent") update(type, "5 Most Consistent Players", "🟢");
       if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
-
   });
 
   update("momentum", "5 Hottest Players", "🔥");
+}
+
+/* ========================================= */
+function createCard(p) {
+
+  return `
+    <div class="pm-player-card">
+      <div class="pm-player-header">
+        <img class="pm-avatar" src="${p.image}" />
+        <div>
+          <strong>${p.name}</strong>
+          <div>#${p.rank}</div>
+        </div>
+      </div>
+
+      <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
+
+      <div class="pm-stats">
+        Avg Finish: ${(p.avgFinishPct*100).toFixed(0)}%<br/>
+        Best Finish: ${(p.bestFinish*100).toFixed(0)}%<br/>
+        Momentum: ${p.momentum}
+      </div>
+    </div>
+  `;
 }
 
 /* ========================================= */
@@ -279,46 +295,13 @@ function renderAllPlayers(players) {
     players.map(createCard).join("");
 }
 
-/* ========================================= */
-function createCard(p) {
-
-  let badge = "💀";
-  let badgeClass = "pm-bust";
-
-  if (p.lastResult === "win") badge = "🏆";
-  else if (p.lastResult === "deep") badge = "🎯";
-  else if (p.lastResult === "bubble") badge = "💣";
-  else if (p.lastResult === "early") badge = "❄️";
-  else if (p.lastResult === "very-early") badge = "🥶";
-
-  return `
-    <div class="pm-player-card">
-      <div class="pm-player-header">
-        <img class="pm-avatar" src="${p.image}" />
-        <div>
-          <strong>${p.name}</strong>
-          <div>#${p.rank}</div>
-        </div>
-      </div>
-
-      <div class="pm-badges">
-        <span class="pm-icon">${badge}</span>
-      </div>
-
-      <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
-
-      <div class="pm-stats">
-        Momentum: ${p.momentum}<br/>
-        Volatility: ${p.volatility.toFixed(1)}<br/>
-        Avg Finish: ${p.avgFinishPct ? (p.avgFinishPct*100).toFixed(0)+"%" : "--"}
-      </div>
-    </div>
-  `;
-}
-
-/* ========================================= */
+/* =========================================
+   📉 SPARKLINES (FIXED COLORS)
+========================================= */
 function drawAllSparklines() {
+
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
+
     const ctx = canvas.getContext("2d");
     const data = canvas.dataset.trend.split(",").map(Number);
 
@@ -329,12 +312,16 @@ function drawAllSparklines() {
     const min = Math.min(...data);
     const range = max - min || 1;
 
+    ctx.strokeStyle = "#FFD700"; // 🔥 GOLD — FIXES BLACK ISSUE
+    ctx.lineWidth = 2;
     ctx.beginPath();
+
     data.forEach((val,i)=>{
       const x = (i/(data.length-1))*120;
       const y = 40 - ((val-min)/range)*40;
       i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
     });
+
     ctx.stroke();
   });
 }
