@@ -233,3 +233,64 @@
   text-align: right;
   line-height: 1.4;
 }
+
+/* =========================================
+   📍 BADGE POSITION (BOTTOM RIGHT)
+========================================= */
+.pm-player-card {
+  position: relative;
+}
+
+.pm-badges {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* =========================================
+   ✨ ICON BASE STYLE
+========================================= */
+.pm-icon {
+  font-size: 16px;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+}
+
+/* =========================================
+   🏆 WIN GLOW
+========================================= */
+.pm-badge:has(> span:contains("🏆")),
+.pm-badges span:contains("🏆") {
+  text-shadow: 0 0 6px gold;
+}
+
+/* =========================================
+   🎯 DEEP RUN GLOW
+========================================= */
+.pm-badges span:contains("🎯") {
+  text-shadow: 0 0 6px #00e5ff;
+}
+
+/* =========================================
+   💣 BUBBLE GLOW
+========================================= */
+.pm-badges span:contains("💣") {
+  text-shadow: 0 0 6px orange;
+}
+
+/* =========================================
+   💀 BUST GLOW (SUBTLE)
+========================================= */
+.pm-badges span:contains("💀") {
+  text-shadow: 0 0 4px #888;
+}
+
+/* =========================================
+   🔥 STREAK GLOW (STRONG)
+========================================= */
+.pm-streak {
+  text-shadow: 0 0 8px #ff5722;
+}
