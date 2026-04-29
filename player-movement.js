@@ -3,9 +3,6 @@ const DATA_URL = "data/generated/site-data.json";
 let players = [];
 let previousRanks = {};
 
-/* =========================================
-   🚀 INIT
-========================================= */
 async function init() {
   const res = await fetch(DATA_URL);
   const data = await res.json();
@@ -26,7 +23,6 @@ async function init() {
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const enriched = buildAnalytics(players, eventData);
-
   bindControls(enriched);
 }
 
@@ -54,11 +50,6 @@ function buildAnalytics(players, events) {
 
         if (!participated) return;
 
-        const buyins = actions.filter(a =>
-          a.type === "buyin" &&
-          names.includes(a.player.toLowerCase())
-        ).length;
-
         const rebuys = actions.filter(a =>
           a.type === "rebuy" &&
           names.includes(a.player.toLowerCase())
@@ -71,92 +62,91 @@ function buildAnalytics(players, events) {
 
         let score = 0;
         let result = "bust";
-        let placementIndex = -1;
-        let isBubble = false;
+        let finishPosition = null;
 
         /* =========================================
-            🏆 FIELD-ADJUSTED PLACEMENT (NEW)
-         ========================================= */
+           🏆 FINISH POSITION
+        ========================================= */
 
-         let finishPosition = null;
+        if (event.winners && event.winners.length) {
+          const winnerIndex = event.winners.findIndex(w =>
+            names.includes(w.name.toLowerCase())
+          );
+          if (winnerIndex !== -1) {
+            finishPosition = winnerIndex + 1;
+          }
+        }
 
-         // 1. Check winners first (top placements)
-         if (event.winners && event.winners.length) {
+        if (finishPosition === null && event.exits && event.exits.length) {
+          const exitIndex = event.exits.findIndex(e => {
+            const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
+            return names.includes(n);
+          });
 
-           const winnerIndex = event.winners.findIndex(w =>
-             names.includes(w.name.toLowerCase())
-           );
+          if (exitIndex !== -1) {
+            const totalPlayers =
+              event.exits.length + (event.winners?.length || 0);
+            finishPosition = totalPlayers - exitIndex;
+          }
+        }
 
-           if (winnerIndex !== -1) {
-             finishPosition = winnerIndex + 1; // 1st, 2nd, 3rd
-           }
-         }
+        let finishPct = null;
 
-         // 2. Otherwise derive from exits
-         if (finishPosition === null && event.exits && event.exits.length) {
+        if (finishPosition !== null) {
 
-           const exitIndex = event.exits.findIndex(e => {
-             const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
-             return names.includes(n);
-           });
+          const totalPlayers =
+            (event.exits?.length || 0) + (event.winners?.length || 0);
 
-           if (exitIndex !== -1) {
-             const totalPlayers = event.exits.length + (event.winners?.length || 0);
-             finishPosition = totalPlayers - exitIndex;
-           }
-         }
+          finishPct = finishPosition / totalPlayers;
 
-         // 3. Apply percentile scoring
-         if (finishPosition !== null) {
+          if (finishPct <= 0.15) {
+            score += 100;
+            result = "win";
+          }
+          else if (finishPct <= 0.35) {
+            score += 70;
+            result = "deep";
+          }
+          else if (finishPct <= 0.55) {
+            score += 40;
+            result = "mid";
+          }
+          else if (finishPct <= 0.75) {
+            score += 10;
+            result = "mid";
+          }
+          else if (finishPct <= 0.9) {
+            score -= 15;
+            result = "early";
+          }
+          else {
+            score -= 35;
+            result = "very-early";
+          }
+        }
 
-           const totalPlayers =
-             (event.exits?.length || 0) + (event.winners?.length || 0);
-
-           const percentile = finishPosition / totalPlayers;
-
-           if (percentile <= 0.15) {
-             score += 100;
-             result = "win";
-           }
-           else if (percentile <= 0.35) {
-             score += 70;
-             result = "deep";
-           }
-           else if (percentile <= 0.55) {
-             score += 40;
-             result = "mid";
-           }
-           else if (percentile <= 0.75) {
-             score += 10;
-             result = "mid";
-           }
-           else {
-             score -= 25;
-             result = "early";
-           }
-         }
-
-        /* 💣 BUBBLE */
+        /* 💣 Bubble */
         if (event.exits && event.exits.length) {
           const lastExit = event.exits[event.exits.length - 1];
-
-          const exitName =
+          const name =
             typeof lastExit === "string"
               ? lastExit.toLowerCase()
               : lastExit.name.toLowerCase();
 
-          if (names.includes(exitName)) {
+          if (names.includes(name)) {
             score += 20;
             result = "bubble";
-            isBubble = true;
           }
         }
 
-        /* ⚔️ ACTIVITY */
+        /* ⚔️ Activity + discipline */
         score += hits * 10;
         score -= rebuys * 15;
 
-        playerEvents.push({ score, result });
+        /* 🧼 Clean run */
+        if (rebuys === 0) score += 10;
+
+        playerEvents.push({ score, result, finishPct });
       });
 
       if (playerEvents.length < 3) return null;
@@ -164,9 +154,15 @@ function buildAnalytics(players, events) {
       const recent = playerEvents.slice(-6);
       const trend = recent.map(e => e.score);
 
+      const avgFinishPct =
+        recent.filter(e => e.finishPct != null).length
+          ? recent.reduce((sum, e) => sum + e.finishPct, 0) / recent.length
+          : null;
+
       return {
         ...player,
         trend,
+        avgFinishPct,
         lastResult: recent[recent.length - 1].result,
         momentum: calcMomentum(trend),
         volatility: calcStdDev(trend),
@@ -177,9 +173,7 @@ function buildAnalytics(players, events) {
     .filter(Boolean);
 }
 
-/* =========================================
-   📈 MOMENTUM
-========================================= */
+/* ========================================= */
 function calcMomentum(trend) {
   let weightedSum = 0;
   let weightTotal = 0;
@@ -187,7 +181,6 @@ function calcMomentum(trend) {
   for (let i = 1; i < trend.length; i++) {
     const weight = i + 1;
     const delta = trend[i] - trend[i - 1];
-
     weightedSum += delta * weight;
     weightTotal += weight;
   }
@@ -195,9 +188,6 @@ function calcMomentum(trend) {
   return Number((weightedSum / weightTotal).toFixed(2));
 }
 
-/* =========================================
-   🎢 VOLATILITY
-========================================= */
 function calcStdDev(arr) {
   const weights = arr.map((_, i) => i + 1);
 
@@ -213,9 +203,6 @@ function calcStdDev(arr) {
   return Math.sqrt(variance);
 }
 
-/* =========================================
-   🔥 STREAK
-========================================= */
 function calcStreak(events) {
   let streak = 0;
   for (let i = events.length - 1; i >= 0; i--) {
@@ -225,9 +212,7 @@ function calcStreak(events) {
   return streak;
 }
 
-/* =========================================
-   🎯 RANKING
-========================================= */
+/* ========================================= */
 function applyRanking(players, mode) {
 
   let sorted = [...players];
@@ -246,9 +231,7 @@ function applyRanking(players, mode) {
   return sorted;
 }
 
-/* =========================================
-   🎛 CONTROLS
-========================================= */
+/* ========================================= */
 function bindControls(players) {
 
   const buttons = document.querySelectorAll(".pm-btn");
@@ -285,9 +268,7 @@ function bindControls(players) {
   update("momentum", "5 Hottest Players", "🔥");
 }
 
-/* =========================================
-   🎴 RENDER
-========================================= */
+/* ========================================= */
 function renderTopMovers(players) {
   document.getElementById("pm-top-movers").innerHTML =
     players.slice(0,5).map(createCard).join("");
@@ -298,76 +279,46 @@ function renderAllPlayers(players) {
     players.map(createCard).join("");
 }
 
-/* =========================================
-   🎴 CARD
-========================================= */
+/* ========================================= */
 function createCard(p) {
-
-  let arrow = "→";
-
-  if (p.rankChange > 0) {
-    arrow = `<span class="up">↑</span>`;
-  } else if (p.rankChange < 0) {
-    arrow = `<span class="down">↓</span>`;
-  }
 
   let badge = "💀";
   let badgeClass = "pm-bust";
 
-  if (p.lastResult === "win") {
-    badge = "🏆";
-    badgeClass = "pm-win";
-  }
-  else if (p.lastResult === "deep") {
-    badge = "🎯";
-    badgeClass = "pm-deep";
-  }
-  else if (p.lastResult === "bubble") {
-    badge = "💣";
-    badgeClass = "pm-bubble";
-  }
-  else if (p.lastResult === "early") {
-    badge = "❄️";
-    badgeClass = "pm-early";
-  }
-
-  const streak =
-    p.streak >= 2 ? "🔥".repeat(p.streak) : "";
+  if (p.lastResult === "win") badge = "🏆";
+  else if (p.lastResult === "deep") badge = "🎯";
+  else if (p.lastResult === "bubble") badge = "💣";
+  else if (p.lastResult === "early") badge = "❄️";
+  else if (p.lastResult === "very-early") badge = "🥶";
 
   return `
     <div class="pm-player-card">
       <div class="pm-player-header">
-        <img class="pm-avatar"
-          src="${p.image}"
-          onerror="this.src='images/players/default.jpg';" />
+        <img class="pm-avatar" src="${p.image}" />
         <div>
           <strong>${p.name}</strong>
-          <div>#${p.rank} ${arrow}</div>
+          <div>#${p.rank}</div>
         </div>
       </div>
 
       <div class="pm-badges">
-        <span class="pm-icon ${badgeClass}">${badge}</span>
-        <span class="pm-icon pm-streak">${streak}</span>
+        <span class="pm-icon">${badge}</span>
       </div>
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
       <div class="pm-stats">
         Momentum: ${p.momentum}<br/>
-        Volatility: ${p.volatility.toFixed(1)}
+        Volatility: ${p.volatility.toFixed(1)}<br/>
+        Avg Finish: ${p.avgFinishPct ? (p.avgFinishPct*100).toFixed(0)+"%" : "--"}
       </div>
     </div>
   `;
 }
 
-/* =========================================
-   📉 SPARKLINES
-========================================= */
+/* ========================================= */
 function drawAllSparklines() {
-
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
-
     const ctx = canvas.getContext("2d");
     const data = canvas.dataset.trend.split(",").map(Number);
 
@@ -378,24 +329,12 @@ function drawAllSparklines() {
     const min = Math.min(...data);
     const range = max - min || 1;
 
-    const delta = data[data.length - 1] - data[0];
-
-    ctx.strokeStyle =
-      delta > 0 ? "#4caf50" :
-      delta < 0 ? "#e53935" :
-      "#999";
-
-    ctx.lineWidth = 2;
     ctx.beginPath();
-
-    data.forEach((val, i) => {
-      const x = (i / (data.length - 1)) * canvas.width;
-      const y = canvas.height - ((val - min) / range) * canvas.height;
-
-      if (i === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+    data.forEach((val,i)=>{
+      const x = (i/(data.length-1))*120;
+      const y = 40 - ((val-min)/range)*40;
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
     });
-
     ctx.stroke();
   });
 }
