@@ -1,144 +1,238 @@
 #!/usr/bin/env python3
 
 import json
+from datetime import datetime
 from pathlib import Path
-from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
-OUTPUT_PATH = DATA_DIR / "generated" / "site-data.json"
+GENERATED_DIR = DATA_DIR / "generated"
+
 METADATA_PATH = DATA_DIR / "player-metadata.json"
+CONFIG_PATH = DATA_DIR / "league-config.json"
+EVENTS_PATH = DATA_DIR / "events.json"
+OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
 
-# -----------------------------------------
-# UTIL
-# -----------------------------------------
-def load_json(path):
+def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
-def safe_int(val):
-    try:
-        return int(val)
-    except:
-        return 0
+def sort_players(players, key, direction="desc"):
+    if direction == "desc":
+        return sorted(players, key=lambda p: (-float(p.get(key, 0)), p["name"].lower()))
+    return sorted(players, key=lambda p: (float(p.get(key, 0)), p["name"].lower()))
 
 
-# -----------------------------------------
-# MAIN
-# -----------------------------------------
+def normalize_stat(players, key):
+    values = [float(p.get(key, 0)) for p in players]
+    min_val = min(values)
+    max_val = max(values)
+
+    if max_val == min_val:
+        for p in players:
+            p[f"{key}_norm"] = 50.0
+        return
+
+    for p in players:
+        p[f"{key}_norm"] = 100 * (float(p[key]) - min_val) / (max_val - min_val)
+
+
+def build_zero_player(meta):
+    return {
+        "name": meta["name"],
+        "slug": meta["slug"],
+        "image": meta["image"],
+        "notes": meta["notes"],
+        "entries": 0,
+        "buyIns": 0,
+        "rebuys": 0,
+        "hits": 0,
+        "timesPlaced": 0,
+        "bubbles": 0,
+        "profit": 0,
+        "roi": 0.0,
+        "cashRate": 0.0,
+        "bubbleRate": 0.0,
+        "hitRate": 0.0,
+        "totalCost": 0,
+        "totalWinnings": 0,
+        "expectedProfit": 0.0,
+        "luckIndex": 0.0,
+        "clutchIndex": 0.0,
+        "aggressionIndex": 0.0,
+        "survivorIndex": 0.0,
+        "tiltIndex": 0.0,
+        "trueSkillScore": 0.0
+    }
+
+
 def main():
-
-    print("🔄 Building site data...")
-
-    # -----------------------------------------
-    # LOAD PLAYER METADATA
-    # -----------------------------------------
     metadata = load_json(METADATA_PATH)
-    players_meta = metadata.get("players", [])
+    config = load_json(CONFIG_PATH)
+    events = load_json(EVENTS_PATH)
 
-    players_map = {}
-
-    for p in players_meta:
-        slug = p.get("slug")
-
-        players_map[slug] = {
-            **p,
-            "buyIns": 0,
-            "rebuys": 0,
-            "entries": 0,
-            "hits": 0,
-            "timesPlaced": 0,
-            "bubbles": 0,
-            "totalCost": 0,
-            "totalWinnings": 0,
-            "profit": 0,
-        }
-
-    # -----------------------------------------
-    # LOAD EVENTS (🔥 FIXED)
-    # -----------------------------------------
-    event_files = sorted(
+    # 🔥 FIX: EXCLUDE index.json
+    parsed_files = sorted(
         f for f in PARSED_EVENTS_DIR.glob("*.json")
         if f.name != "index.json"
     )
 
-    print(f"📁 Found {len(event_files)} event files")
+    if not parsed_files:
+        raise RuntimeError("No parsed events found")
 
-    events = []
+    from pathlib import Path
 
-    for path in event_files:
-        try:
-            data = load_json(path)
+    PLAYER_IMAGE_DIR = Path("images/players")
 
-            # 🚨 HARD GUARD
-            if not isinstance(data, dict):
-                print(f"⚠️ Skipping non-event file: {path.name}")
-                continue
 
-            events.append(data)
+    def build_fallback_player(slug):
+        image_path = f"images/players/{slug}.jpg"
 
-        except Exception as e:
-            print(f"⚠️ Failed to load {path.name}: {e}")
+        if not (PLAYER_IMAGE_DIR / f"{slug}.jpg").exists():
+            image_path = "images/players/default.jpg"
 
-    print(f"✅ Loaded {len(events)} valid events")
+        return {
+            "name": slug.replace("-", " ").title(),
+            "slug": slug,
+            "image": image_path,
+            "notes": "",
+            "active": True
+        }
+    
+    players_by_slug = {p["slug"]: build_zero_player(p) for p in metadata["players"]}
 
-    # -----------------------------------------
-    # PROCESS EVENTS
-    # -----------------------------------------
-    for event in events:
+    for parsed_file in parsed_files:
+        event = load_json(parsed_file)
 
-        # 🔒 SAFE ACCESS
-        players = event.get("players", [])
-
-        if not isinstance(players, list):
-            print("⚠️ Skipping malformed event (players not list)")
+        # 🔒 SAFETY GUARD (extra protection)
+        if not isinstance(event, dict):
+            print(f"Skipping non-event file: {parsed_file.name}")
             continue
 
-        for ep in players:
+        for ep in event.get("players", []):
+            player_slug = ep["slug"]
 
-            slug = ep.get("slug")
+            if player_slug not in players_by_slug:
+                fallback_meta = build_fallback_player(player_slug)
+                players_by_slug[player_slug] = build_zero_player(fallback_meta)
 
-            if slug not in players_map:
-                continue
+            p = players_by_slug[player_slug]
 
-            p = players_map[slug]
+            for key in [
+                "entries", "buyIns", "rebuys", "hits",
+                "timesPlaced", "bubbles", "profit",
+                "totalCost", "totalWinnings"
+            ]:
+                p[key] += ep.get(key, 0)
 
-            p["buyIns"] += safe_int(ep.get("buyIns"))
-            p["rebuys"] += safe_int(ep.get("rebuys"))
-            p["entries"] += safe_int(ep.get("entries"))
-            p["hits"] += safe_int(ep.get("hits"))
-            p["timesPlaced"] += safe_int(ep.get("timesPlaced"))
-            p["bubbles"] += safe_int(ep.get("bubbles"))
-            p["totalCost"] += safe_int(ep.get("totalCost"))
-            p["totalWinnings"] += safe_int(ep.get("totalWinnings"))
-            p["profit"] += safe_int(ep.get("profit"))
+    players = list(players_by_slug.values())
 
-    # -----------------------------------------
-    # FINAL PLAYER LIST
-    # -----------------------------------------
-    players = list(players_map.values())
+    # ---------------- BASIC METRICS ----------------
 
-    # -----------------------------------------
-    # OUTPUT STRUCTURE
-    # -----------------------------------------
+    for p in players:
+        cost = float(p["totalCost"])
+        buyins = float(p["buyIns"])
+        entries = float(p["entries"])
+
+        p["roi"] = (p["profit"] / cost) if cost else 0.0
+        p["cashRate"] = (p["timesPlaced"] / buyins) if buyins else 0.0
+        p["bubbleRate"] = (p["bubbles"] / buyins) if buyins else 0.0
+        p["hitRate"] = (p["hits"] / entries) if entries else 0.0
+
+    # ---------------- EXPECTED / LUCK ----------------
+
+    total_entries = sum(p["entries"] for p in players)
+    total_profit = sum(p["profit"] for p in players)
+    league_avg = total_profit / total_entries if total_entries else 0
+
+    for p in players:
+        p["expectedProfit"] = p["entries"] * league_avg
+        p["luckIndex"] = p["profit"] - p["expectedProfit"]
+
+    # ---------------- RAW COMPONENTS ----------------
+
+    for p in players:
+        p["clutchRaw"] = p["timesPlaced"] / max(p["buyIns"], 1)
+        p["aggressionRaw"] = p["hits"] / max(p["entries"], 1)
+        p["survivorRaw"] = 1 - (p["bubbles"] / max(p["buyIns"], 1))
+        p["tiltRaw"] = p["rebuys"] / max(p["buyIns"], 1)
+
+    # ---------------- NORMALIZE ----------------
+
+    normalize_stat(players, "roi")
+    normalize_stat(players, "luckIndex")
+    normalize_stat(players, "clutchRaw")
+    normalize_stat(players, "aggressionRaw")
+    normalize_stat(players, "survivorRaw")
+    normalize_stat(players, "tiltRaw")
+
+    # ---------------- FINAL METRICS ----------------
+
+    for p in players:
+        p["clutchIndex"] = p["clutchRaw_norm"]
+        p["aggressionIndex"] = p["aggressionRaw_norm"]
+        p["survivorIndex"] = p["survivorRaw_norm"]
+        p["tiltIndex"] = 100 - p["tiltRaw_norm"]
+
+        sample_bonus = min(10, p["buyIns"])
+
+        p["trueSkillScore"] = (
+            (p["roi_norm"] * 1.4)
+            + (p["clutchIndex"] * 1.2)
+            + (p["aggressionIndex"] * 1.0)
+            + (p["survivorIndex"] * 1.0)
+            + (p["luckIndex_norm"] * 0.5)
+            - (p["tiltIndex"] * 0.8)
+            + sample_bonus
+        )
+
+    # ---------------- HONORS ----------------
+
+    qualified = [
+        p for p in players
+        if p["entries"] >= config["qualification_thresholds"]["leaders_min_entries"]
+    ]
+
+    honors = []
+    for rule in config["honors"]:
+        leader = sort_players(qualified, rule["key"], rule["direction"])[0]
+        honors.append({
+            "type": rule["type"],
+            "name": leader["name"],
+            "note": rule.get("note", "")
+        })
+
+    # ---------------- RECORDS ----------------
+
+    records = []
+    for rule in config["records"]:
+        leader = sort_players(players, rule["key"], rule["direction"])[0]
+        records.append({
+            "label": rule["label"],
+            "name": leader["name"],
+            "value": str(round(leader[rule["key"]], 2))
+        })
+
+    players = sorted(players, key=lambda p: p["name"].lower())
+
     output = {
+        "generatedAt": datetime.utcnow().isoformat() + "Z",
+        "sourceMode": "event_reports",
+        "events": events["events"],
+        "honors": honors,
+        "records": records,
         "players": players
     }
 
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-
+    GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     with OUTPUT_PATH.open("w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
 
-    print(f"✅ site-data.json written successfully")
+    print(f"Wrote {OUTPUT_PATH}")
 
 
-# -----------------------------------------
-# RUN
-# -----------------------------------------
 if __name__ == "__main__":
     main()
