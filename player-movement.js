@@ -119,8 +119,7 @@ function buildAnalytics(players, events) {
         ========================================== */
 
         score += hits * 10;
-        score -= rebuys * 15;
-        score -= buyins * 5;
+        penalize rebuys harder (−20)
 
         playerEvents.push({ score, result });
       });
