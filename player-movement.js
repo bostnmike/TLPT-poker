@@ -1,7 +1,11 @@
 const DATA_URL = "data/generated/site-data.json";
 
 let players = [];
+let previousRanks = {};
 
+/* =========================================
+   🚀 INIT
+========================================= */
 async function init() {
   const res = await fetch(DATA_URL);
   const data = await res.json();
@@ -27,17 +31,17 @@ async function init() {
 }
 
 /* =========================================
-   🧠 ANALYTICS ENGINE
+   🧠 ANALYTICS
 ========================================= */
 function buildAnalytics(players, events) {
 
   return players
     .map(player => {
 
-      const playerEvents = [];
-
       const names = [player.name, ...(player.aliases || [])]
         .map(n => n.toLowerCase());
+
+      const playerEvents = [];
 
       events.forEach(event => {
 
@@ -69,33 +73,32 @@ function buildAnalytics(players, events) {
           names.includes(w.name.toLowerCase())
         );
 
-        const fieldSize =
-          actions.filter(a => a.type === "buyin").length || 10;
+        let result = "bust";
+        if (winner) result = "win";
 
-        // 🔥 EVENT SCORE MODEL
         let score = 0;
-
         if (winner) score += 100;
         else score += 20;
 
         score += hits * 10;
         score -= rebuys * 15;
         score -= buyins * 5;
-        score += fieldSize * 0.5;
 
-        playerEvents.push(score);
+        playerEvents.push({ score, result });
       });
 
       if (playerEvents.length < 3) return null;
 
       const recent = playerEvents.slice(-5);
+      const trend = recent.map(e => e.score);
 
       return {
         ...player,
-        trend: recent,
-        eventsPlayed: playerEvents.length,
-        momentum: calcMomentum(recent),
-        volatility: calcStdDev(recent)
+        trend,
+        lastResult: recent[recent.length - 1].result,
+        momentum: calcMomentum(trend),
+        volatility: calcStdDev(trend),
+        streak: calcStreak(recent)
       };
 
     })
@@ -103,7 +106,7 @@ function buildAnalytics(players, events) {
 }
 
 /* =========================================
-   📈 MOMENTUM
+   📈 HELPERS
 ========================================= */
 function calcMomentum(trend) {
   let delta = 0;
@@ -113,38 +116,42 @@ function calcMomentum(trend) {
   return Number(delta.toFixed(2));
 }
 
-/* =========================================
-   🎢 VOLATILITY
-========================================= */
 function calcStdDev(arr) {
   const mean = arr.reduce((a,b) => a+b,0) / arr.length;
   const variance = arr.reduce((a,b) => a + Math.pow(b - mean, 2), 0) / arr.length;
   return Math.sqrt(variance);
 }
 
+function calcStreak(events) {
+  let streak = 0;
+
+  for (let i = events.length - 1; i >= 0; i--) {
+    if (events[i].score > 60) streak++;
+    else break;
+  }
+
+  return streak;
+}
+
 /* =========================================
-   🎯 RANKING ENGINE
+   🎯 RANKING
 ========================================= */
 function applyRanking(players, mode) {
 
   let sorted = [...players];
 
   switch (mode) {
-
     case "momentum":
       sorted.sort((a, b) => b.momentum - a.momentum);
       break;
-
     case "cold":
       sorted.sort((a, b) => a.momentum - b.momentum);
       break;
-
     case "consistent":
       sorted.sort((a, b) =>
         (b.momentum - b.volatility) - (a.momentum - a.volatility)
       );
       break;
-
     case "volatile":
       sorted.sort((a, b) => b.volatility - a.volatility);
       break;
@@ -152,23 +159,14 @@ function applyRanking(players, mode) {
 
   sorted.forEach((p, i) => {
     p.rank = i + 1;
-    p.rankClass = getRankClass(mode, p);
+    p.rankChange = previousRanks[p.slug]
+      ? previousRanks[p.slug] - p.rank
+      : 0;
+
+    previousRanks[p.slug] = p.rank;
   });
 
   return sorted;
-}
-
-/* =========================================
-   🎨 VISUAL CLASSIFIER
-========================================= */
-function getRankClass(mode, p) {
-
-  if (mode === "momentum" && p.momentum > 20) return "pm-hot";
-  if (mode === "cold" && p.momentum < -20) return "pm-cold";
-  if (mode === "consistent" && p.volatility < 10 && p.momentum > 0) return "pm-consistent";
-  if (mode === "volatile" && p.volatility > 25) return "pm-volatile";
-
-  return "";
 }
 
 /* =========================================
@@ -178,8 +176,12 @@ function bindControls(players) {
 
   const buttons = document.querySelectorAll(".pm-btn");
 
-  const update = (mode) => {
+  const update = (mode, label, emoji) => {
+
     const ranked = applyRanking(players, mode);
+
+    document.getElementById("pm-top-title").innerHTML =
+      `${emoji} ${label}`;
 
     renderTopMovers(ranked);
     renderAllPlayers(ranked);
@@ -193,16 +195,21 @@ function bindControls(players) {
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      update(btn.dataset.sort);
+      const type = btn.dataset.sort;
+
+      if (type === "momentum") update(type, "5 Hottest Players", "🔥");
+      if (type === "cold") update(type, "5 Coldest Players", "❄️");
+      if (type === "consistent") update(type, "Most Consistent Players", "🟢");
+      if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
     });
 
   });
 
-  update("momentum");
+  update("momentum", "5 Hottest Players", "🔥");
 }
 
 /* =========================================
-   🧩 RENDER
+   🎴 RENDER
 ========================================= */
 function renderTopMovers(players) {
   document.getElementById("pm-top-movers").innerHTML =
@@ -218,17 +225,31 @@ function renderAllPlayers(players) {
    🎴 CARD
 ========================================= */
 function createCard(p) {
+
+  const arrow =
+    p.rankChange > 0 ? "↑" :
+    p.rankChange < 0 ? "↓" : "→";
+
+  const badge =
+    p.lastResult === "win" ? "🏆" :
+    "💀";
+
+  const streak =
+    p.streak >= 2 ? "🔥".repeat(p.streak) : "";
+
   return `
-    <div class="pm-player-card ${p.rankClass || ''}">
+    <div class="pm-player-card">
       <div class="pm-player-header">
         <img class="pm-avatar"
-          src="${p.image || `images/players/${p.slug}.jpg`}"
+          src="${p.image}"
           onerror="this.src='images/players/default.jpg';" />
         <div>
           <strong>${p.name}</strong>
-          <div>#${p.rank}</div>
+          <div>#${p.rank} ${arrow}</div>
         </div>
       </div>
+
+      <div class="pm-badges">${badge} ${streak}</div>
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
@@ -244,7 +265,6 @@ function createCard(p) {
    📉 SPARKLINES
 ========================================= */
 function drawAllSparklines() {
-
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
 
     const ctx = canvas.getContext("2d");
@@ -259,13 +279,6 @@ function drawAllSparklines() {
 
     ctx.beginPath();
     ctx.lineWidth = 2;
-
-    const delta = data[data.length - 1] - data[0];
-
-    ctx.strokeStyle =
-      delta > 0 ? "#4caf50" :
-      delta < 0 ? "#e53935" :
-      "#aaa";
 
     data.forEach((val, i) => {
       const x = (i / (data.length - 1)) * canvas.width;
