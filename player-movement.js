@@ -260,26 +260,35 @@ function drawAllSparklines() {
 ========================================= */
 function bindControls(players) {
 
-  const select = document.getElementById("pm-sort");
+  const buttons = document.querySelectorAll(".pm-btn");
 
-  select.addEventListener("change", (e) => {
+  buttons.forEach(btn => {
 
-    let sorted = [...players];
+    btn.addEventListener("click", () => {
 
-    if (e.target.value === "momentum") {
-      sorted.sort((a, b) => b.momentum - a.momentum);
-    }
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-    if (e.target.value === "cold") {
-      sorted.sort((a, b) => a.momentum - b.momentum);
-    }
+      let sorted = [...players];
 
-    if (e.target.value === "volatile") {
-      sorted.sort((a, b) => b.volatility - a.volatility);
-    }
+      const type = btn.dataset.sort;
 
-    renderAllPlayers(sorted);
-    drawAllSparklines();
+      if (type === "momentum") {
+        sorted.sort((a, b) => b.momentum - a.momentum);
+      }
+
+      if (type === "cold") {
+        sorted.sort((a, b) => a.momentum - b.momentum);
+      }
+
+      if (type === "volatile") {
+        sorted.sort((a, b) => b.volatility - a.volatility);
+      }
+
+      renderAllPlayers(sorted);
+      drawAllSparklines();
+    });
+
   });
 }
 
