@@ -219,6 +219,8 @@ function buildAnalytics(players, events) {
    📈 MOMENTUM
 ========================================= */
 function calcMomentum(arr) {
+  if (!arr || arr.length < 2) return 0;
+
   let total = 0;
   let weightTotal = 0;
 
@@ -227,6 +229,8 @@ function calcMomentum(arr) {
     total += (arr[i] - arr[i - 1]) * weight;
     weightTotal += weight;
   }
+
+  if (weightTotal === 0) return 0;
 
   return Number((total / weightTotal).toFixed(2));
 }
