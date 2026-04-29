@@ -69,23 +69,54 @@ function buildAnalytics(players, events) {
           names.includes(a.player.toLowerCase())
         ).length;
 
-        const winner = event.winners?.find(w =>
-          names.includes(w.name.toLowerCase())
-        );
-
+        let score = 0;
         let result = "bust";
 
-         if (winner) {
-           result = "win";
-         } else if (hits >= 3) {
-           result = "deep";
-         } else if (buyins > 0 && hits === 0 && rebuys === 0) {
-           result = "bubble";
-         }
-         
-        let score = 0;
-        if (winner) score += 100;
-        else score += 20;
+        /* =========================================
+           🏆 PLACEMENT SCORING (NEW)
+        ========================================== */
+
+        if (event.winners && event.winners.length) {
+
+          const placementIndex = event.winners.findIndex(w =>
+            names.includes(w.name.toLowerCase())
+          );
+
+          if (placementIndex === 0) {
+            score += 100;
+            result = "win";
+          }
+          else if (placementIndex === 1) {
+            score += 70;
+            result = "deep";
+          }
+          else if (placementIndex === 2) {
+            score += 50;
+            result = "deep";
+          }
+        }
+
+        /* =========================================
+           💣 BUBBLE DETECTION
+        ========================================== */
+
+        if (event.exits && event.exits.length) {
+          const lastExit = event.exits[event.exits.length - 1];
+
+          const exitName =
+            typeof lastExit === "string"
+              ? lastExit.toLowerCase()
+              : lastExit.name.toLowerCase();
+
+          if (names.includes(exitName)) {
+            score += 25;
+            result = "bubble";
+          }
+        }
+
+        /* =========================================
+           ⚔️ ACTIVITY + COST
+        ========================================== */
 
         score += hits * 10;
         score -= rebuys * 15;
@@ -113,7 +144,7 @@ function buildAnalytics(players, events) {
 }
 
 /* =========================================
-   📈 HELPERS
+   📈 MOMENTUM (WEIGHTED)
 ========================================= */
 function calcMomentum(trend) {
 
@@ -123,8 +154,7 @@ function calcMomentum(trend) {
   let weightTotal = 0;
 
   for (let i = 1; i < trend.length; i++) {
-
-    const weight = i + 1; // newer = heavier
+    const weight = i + 1;
     const delta = trend[i] - trend[i - 1];
 
     weightedSum += delta * weight;
@@ -134,6 +164,9 @@ function calcMomentum(trend) {
   return Number((weightedSum / weightTotal).toFixed(2));
 }
 
+/* =========================================
+   🎢 VOLATILITY (WEIGHTED)
+========================================= */
 function calcStdDev(arr) {
 
   const weights = arr.map((_, i) => i + 1);
@@ -150,6 +183,9 @@ function calcStdDev(arr) {
   return Math.sqrt(variance);
 }
 
+/* =========================================
+   🔥 STREAK
+========================================= */
 function calcStreak(events) {
   let streak = 0;
 
@@ -256,33 +292,33 @@ function createCard(p) {
 
   let arrow = "→";
 
-   if (p.rankChange > 0) {
-     arrow = `<span class="up">↑</span>`;
-   } else if (p.rankChange < 0) {
-     arrow = `<span class="down">↓</span>`;
-   }
+  if (p.rankChange > 0) {
+    arrow = `<span class="up">↑</span>`;
+  } else if (p.rankChange < 0) {
+    arrow = `<span class="down">↓</span>`;
+  }
 
   let badge = "💀";
-   let badgeClass = "pm-bust";
+  let badgeClass = "pm-bust";
 
-   if (p.lastResult === "win") {
-     badge = "🏆";
-     badgeClass = "pm-win";
-   }
-   else if (p.lastResult === "deep") {
-     badge = "🎯";
-     badgeClass = "pm-deep";
-   }
-   else if (p.lastResult === "bubble") {
-     badge = "💣";
-     badgeClass = "pm-bubble";
-   }
+  if (p.lastResult === "win") {
+    badge = "🏆";
+    badgeClass = "pm-win";
+  }
+  else if (p.lastResult === "deep") {
+    badge = "🎯";
+    badgeClass = "pm-deep";
+  }
+  else if (p.lastResult === "bubble") {
+    badge = "💣";
+    badgeClass = "pm-bubble";
+  }
 
-   const streak =
+  const streak =
     p.streak >= 2 ? "🔥".repeat(p.streak) : "";
 
   return `
-    <div class="pm-player-card ${p.rankClass || ''}">
+    <div class="pm-player-card">
       <div class="pm-player-header">
         <img class="pm-avatar"
           src="${p.image}"
@@ -294,7 +330,7 @@ function createCard(p) {
       </div>
 
       <div class="pm-badges">
-        <span class="pm-icon pm-badge">${badge}</span>
+        <span class="pm-icon ${badgeClass}">${badge}</span>
         <span class="pm-icon pm-streak">${streak}</span>
       </div>
 
@@ -327,11 +363,10 @@ function drawAllSparklines() {
 
     const delta = data[data.length - 1] - data[0];
 
-    // 🔥 COLOR FIX
     ctx.strokeStyle =
-      delta > 0 ? "#4caf50" :   // green
-      delta < 0 ? "#e53935" :   // red
-      "#999";                  // neutral
+      delta > 0 ? "#4caf50" :
+      delta < 0 ? "#e53935" :
+      "#999";
 
     ctx.lineWidth = 2;
     ctx.beginPath();
