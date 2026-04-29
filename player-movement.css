@@ -549,3 +549,35 @@
 .pm-page .pm-header-shell .page-kicker {
   margin-top: 0;
 }
+
+/* =========================================
+   🔥 HEATER METER FORMULA TEXT WRAP FIX
+========================================= */
+
+.pm-page .pm-formula {
+  height: auto;
+  min-height: unset;
+  max-height: none;
+  overflow: visible;
+  white-space: normal;
+  line-height: 1.35;
+  padding: 14px 16px;
+}
+
+.pm-page .pm-formula-line1,
+.pm-page .pm-formula-line2,
+.pm-page .pm-formula-line3 {
+  display: block;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  line-height: 1.35;
+}
+
+.pm-page .pm-formula-line1 {
+  margin-bottom: 5px;
+}
+
+.pm-page .pm-formula-line2 {
+  margin-bottom: 5px;
+}
