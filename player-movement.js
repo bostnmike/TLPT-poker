@@ -71,35 +71,28 @@ function buildAnalytics(players, events) {
 
         let score = 0;
         let result = "bust";
+        let placementIndex = -1;
+        let isBubble = false;
 
-        /* =========================================
-           🏆 PLACEMENT SCORING (NEW)
-        ========================================== */
-
+        /* 🏆 PLACEMENT */
         if (event.winners && event.winners.length) {
-
-          const placementIndex = event.winners.findIndex(w =>
+          placementIndex = event.winners.findIndex(w =>
             names.includes(w.name.toLowerCase())
           );
 
           if (placementIndex === 0) {
             score += 100;
             result = "win";
-          }
-          else if (placementIndex === 1) {
+          } else if (placementIndex === 1) {
             score += 70;
             result = "deep";
-          }
-          else if (placementIndex === 2) {
+          } else if (placementIndex === 2) {
             score += 50;
             result = "deep";
           }
         }
 
-        /* =========================================
-           💣 BUBBLE DETECTION
-        ========================================== */
-
+        /* 💣 BUBBLE */
         if (event.exits && event.exits.length) {
           const lastExit = event.exits[event.exits.length - 1];
 
@@ -111,15 +104,36 @@ function buildAnalytics(players, events) {
           if (names.includes(exitName)) {
             score += 25;
             result = "bubble";
+            isBubble = true;
           }
         }
 
-        /* =========================================
-           ⚔️ ACTIVITY + COST
-        ========================================== */
+        /* ❄️ EARLY EXIT */
+        if (event.exits && event.exits.length) {
+          const exitIndex = event.exits.findIndex(e => {
+            const n = typeof e === "string" ? e.toLowerCase() : e.name.toLowerCase();
+            return names.includes(n);
+          });
 
+          if (exitIndex !== -1) {
+            const totalExits = event.exits.length;
+            const earlyThreshold = Math.floor(totalExits * 0.4);
+
+            const isEarly =
+              exitIndex < earlyThreshold &&
+              placementIndex === -1 &&
+              !isBubble;
+
+            if (isEarly) {
+              score -= 25;
+              result = "early";
+            }
+          }
+        }
+
+        /* ⚔️ ACTIVITY */
         score += hits * 10;
-        penalize rebuys harder (−20)
+        score -= rebuys * 15;
 
         playerEvents.push({ score, result });
       });
@@ -143,12 +157,9 @@ function buildAnalytics(players, events) {
 }
 
 /* =========================================
-   📈 MOMENTUM (WEIGHTED)
+   📈 MOMENTUM
 ========================================= */
 function calcMomentum(trend) {
-
-  if (trend.length < 2) return 0;
-
   let weightedSum = 0;
   let weightTotal = 0;
 
@@ -164,19 +175,18 @@ function calcMomentum(trend) {
 }
 
 /* =========================================
-   🎢 VOLATILITY (WEIGHTED)
+   🎢 VOLATILITY
 ========================================= */
 function calcStdDev(arr) {
-
   const weights = arr.map((_, i) => i + 1);
 
-  const weightedMean =
+  const mean =
     arr.reduce((sum, val, i) => sum + val * weights[i], 0) /
     weights.reduce((a, b) => a + b, 0);
 
   const variance =
     arr.reduce((sum, val, i) =>
-      sum + weights[i] * Math.pow(val - weightedMean, 2), 0
+      sum + weights[i] * Math.pow(val - mean, 2), 0
     ) / weights.reduce((a, b) => a + b, 0);
 
   return Math.sqrt(variance);
@@ -187,12 +197,10 @@ function calcStdDev(arr) {
 ========================================= */
 function calcStreak(events) {
   let streak = 0;
-
   for (let i = events.length - 1; i >= 0; i--) {
     if (events[i].score > 60) streak++;
     else break;
   }
-
   return streak;
 }
 
@@ -203,30 +211,15 @@ function applyRanking(players, mode) {
 
   let sorted = [...players];
 
-  switch (mode) {
-    case "momentum":
-      sorted.sort((a, b) => b.momentum - a.momentum);
-      break;
-    case "cold":
-      sorted.sort((a, b) => a.momentum - b.momentum);
-      break;
-    case "consistent":
-      sorted.sort((a, b) =>
-        (b.momentum - b.volatility) - (a.momentum - a.volatility)
-      );
-      break;
-    case "volatile":
-      sorted.sort((a, b) => b.volatility - a.volatility);
-      break;
-  }
+  if (mode === "momentum") sorted.sort((a,b)=>b.momentum-a.momentum);
+  if (mode === "cold") sorted.sort((a,b)=>a.momentum-b.momentum);
+  if (mode === "consistent") sorted.sort((a,b)=>(b.momentum-b.volatility)-(a.momentum-a.volatility));
+  if (mode === "volatile") sorted.sort((a,b)=>b.volatility-a.volatility);
 
-  sorted.forEach((p, i) => {
-    p.rank = i + 1;
-    p.rankChange = previousRanks[p.slug]
-      ? previousRanks[p.slug] - p.rank
-      : 0;
-
-    previousRanks[p.slug] = p.rank;
+  sorted.forEach((p,i)=>{
+    p.rank = i+1;
+    p.rankChange = previousRanks[p.slug] ? previousRanks[p.slug]-p.rank : 0;
+    previousRanks[p.slug]=p.rank;
   });
 
   return sorted;
@@ -311,6 +304,10 @@ function createCard(p) {
   else if (p.lastResult === "bubble") {
     badge = "💣";
     badgeClass = "pm-bubble";
+  }
+  else if (p.lastResult === "early") {
+    badge = "❄️";
+    badgeClass = "pm-early";
   }
 
   const streak =
