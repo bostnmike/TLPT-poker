@@ -1,7 +1,6 @@
 const DATA_URL = "data/generated/site-data.json";
 
 let players = [];
-let events = [];
 
 async function init() {
   const res = await fetch(DATA_URL);
@@ -9,18 +8,34 @@ async function init() {
 
   players = data.players || [];
 
-  // 🔥 LOAD ALL PARSED EVENTS
-  const eventFiles = [
-    "data/parsed/events/2026-04-24.json",
-    "data/parsed/events/2025-11-30.json",
-    "data/parsed/events/2025-05-24.json"
-  ];
+  // 🔥 LOAD EVENT INDEX
+  const indexRes = await fetch("data/parsed/events/index.json");
+  const eventFiles = await indexRes.json();
 
-  const eventData = await Promise.all(
-    eventFiles.map(f => fetch(f).then(r => r.json()))
-  );
+  // 🔥 LOAD ALL EVENTS (SAFE)
+  const eventData = (await Promise.all(
+    eventFiles.map(file =>
+      fetch(`data/parsed/events/${file}`)
+        .then(r => {
+          if (!r.ok) throw new Error(`Failed to load ${file}`);
+          return r.json();
+        })
+        .catch(err => {
+          console.warn(err);
+          return null;
+        })
+    )
+  )).filter(Boolean);
 
+  // 🔥 SORT CHRONOLOGICALLY
+  eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  // 🔥 BUILD ANALYTICS
   const enriched = buildAnalytics(players, eventData);
+
+  if (!enriched.length) {
+    console.warn("No eligible players for movement analysis");
+  }
 
   render(enriched);
   bindControls(enriched);
