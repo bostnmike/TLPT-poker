@@ -1,13 +1,8 @@
-/* =========================================
-   🔒 PAGE WRAPPER
-========================================= */
 .pm-page {
   padding: 24px 0;
 }
 
-/* =========================================
-   🧱 SHELL SYSTEM (MATCH SITE)
-========================================= */
+/* SHELLS */
 .pm-page .pm-header-shell,
 .pm-page .pm-section-shell,
 .pm-page .pm-controls-shell {
@@ -19,9 +14,7 @@
   box-shadow: var(--shadow);
 }
 
-/* =========================================
-   🪙 HEADER CHIP
-========================================= */
+/* HEADER */
 .pm-title-row {
   display: flex;
   align-items: center;
@@ -31,25 +24,17 @@
 .pm-title-chip {
   width: 72px;
   height: 72px;
-  flex-shrink: 0;
 }
 
-/* =========================================
-   🎯 HEADER TITLE
-========================================= */
 .pm-page h1 {
   margin: 0;
   font-size: 28px;
 }
 
-/* =========================================
-   🟡 ACCENT LINE (HONORS MATCH)
-========================================= */
 .pm-accent-line {
   height: 4px;
   margin-top: 14px;
   width: 100%;
-
   background: linear-gradient(
     90deg,
     var(--gold) 0%,
@@ -59,16 +44,7 @@
   );
 }
 
-/* =========================================
-   📦 HEADER SHELL SPACING
-========================================= */
-.pm-header-shell {
-  padding-bottom: 18px;
-}
-
-/* =========================================
-   🎛 CONTROLS
-========================================= */
+/* CONTROLS */
 .pm-controls-shell {
   display: flex;
   justify-content: space-between;
@@ -77,14 +53,11 @@
   flex-wrap: wrap;
 }
 
-/* BUTTON ROW */
 .pm-controls-left {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
 }
 
-/* BASE BUTTON */
 .pm-btn {
   background: #111;
   border: 1px solid #444;
@@ -93,89 +66,51 @@
   cursor: pointer;
   border-radius: 6px;
   font-weight: 600;
-  transition: all 0.2s ease;
 }
 
-/* HOVER */
-.pm-btn:hover {
-  transform: translateY(-1px);
-}
-
-/* ACTIVE STATES */
 .pm-btn.active {
   color: #000;
   border: none;
 }
 
-/* COLOR CODING */
-.pm-btn.hot.active {
-  background: #e53935;
-}
+.pm-btn.hot.active { background: #e53935; }
+.pm-btn.cold.active { background: #1e88e5; }
+.pm-btn.consistent.active { background: #43a047; }
+.pm-btn.volatile.active { background: #fdd835; }
 
-.pm-btn.cold.active {
-  background: #1e88e5;
-}
-
-.pm-btn.consistent.active {
-  background: #43a047;
-}
-
-.pm-btn.volatile.active {
-  background: #fdd835;
-}
-
-/* FORMULA (FIXED LAYOUT) */
+/* FORMULA FIX */
 .pm-formula {
-  font-size: 16px;
+  font-size: 15px;
   color: #ddd;
+  max-width: 420px;
   text-align: right;
+  line-height: 1.4;
   white-space: normal;
-  max-width: 400px;
-}
-
-.pm-formula strong {
-  color: #fff;
 }
 
 .pm-formula-sub {
   display: block;
   font-size: 11px;
   color: #777;
-  margin-top: 2px;
 }
 
-/* =========================================
-   📊 GRID (IMPROVED SPACING)
-========================================= */
+/* GRID */
 .pm-player-grid,
 .pm-movers-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 18px;
-  margin-top: 16px;
 }
 
-/* =========================================
-   🧩 PLAYER CARD (UPGRADED)
-========================================= */
+/* CARD */
 .pm-player-card {
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 16px;
-  transition: all 0.2s ease;
-  position: relative;
-  will-change: transform; 
 }
 
-.pm-player-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent);
-}
-
-/* =========================================
-   👤 PLAYER HEADER
-========================================= */
+/* HEADER */
 .pm-player-header {
   display: flex;
   align-items: center;
@@ -186,235 +121,40 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  object-fit: cover;
-  background: var(--panel-3);
-
-  /* GOLD RING */
   border: 2px solid var(--gold);
-
-  /* INNER RING */
-  box-shadow: 0 0 0 2px var(--panel-2);
-}
-   
-  /* GOLD RING */
-  border: 2px solid var(--gold);
-
-  /* INNER RING */
-  box-shadow: 0 0 0 2px var(--panel-2);
 }
 
-/* Name + rank */
-.pm-player-header strong {
-  display: block;
-  font-size: 14px;
+/* BADGES */
+.pm-badges {
+  margin: 8px 0;
+  font-size: 16px;
 }
 
-.pm-player-header div {
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.pm-player-grid,
-.pm-movers-grid {
-  align-items: stretch;
-}
-
-/* =========================================
-   📈 MOVEMENT (BIG UPGRADE)
-========================================= */
-.pm-movement {
-  margin: 10px 0 8px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-/* COLORS */
-.pm-up {
-  color: var(--green);
-}
-
-.pm-down {
-  color: var(--red);
-}
-
-.pm-neutral {
-  color: var(--muted);
-}
-
-/* =========================================
-   📊 STATS
-========================================= */
+/* STATS */
 .pm-stats {
   font-size: 12px;
   color: var(--muted);
-  line-height: 1.4;
 }
 
-/* =========================================
-   🚀 SECTION TITLES (STRONGER)
-========================================= */
-.pm-section-shell h2 {
-  margin: 0 0 10px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.pm-controls-shell {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-}
-
-.pm-controls-left {
-  display: flex;
-  gap: 10px;
-}
-
-.pm-btn {
-  background: #111;
-  border: 1px solid #444;
-  color: #ccc;
-  padding: 8px 14px;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.pm-btn:hover {
-  background: #222;
-}
-
-.pm-btn.active {
-  background: var(--gold);
-  color: #000;
-  border-color: var(--gold);
-}
-
-.pm-formula {
-  font-size: 13px;
-  color: #aaa;
-  text-align: right;
-  max-width: 300px;
-}
-
-.pm-formula-sub {
-  font-size: 11px;
-  color: #666;
-}
-
-/* =========================================
-   🎛 CONTROLS (BUTTONS + FORMULA)
-========================================= */
-.pm-controls-shell {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.pm-controls-left {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.pm-btn {
-  background: #111;
-  border: 1px solid #444;
-  color: #ccc;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.pm-btn:hover {
-  transform: translateY(-1px);
-}
-
-.pm-btn.active {
-  color: #000;
-  border: none;
-}
-
-/* BUTTON COLORS */
-.pm-btn.hot.active {
-  background: #e53935;
-}
-
-.pm-btn.cold.active {
-  background: #1e88e5;
-}
-
-.pm-btn.consistent.active {
-  background: #43a047;
-}
-
-.pm-btn.volatile.active {
-  background: #fdd835;
-}
-
-/* =========================================
-   🧠 FORMULA DISPLAY (FIXED)
-========================================= */
-.pm-formula {
-  font-size: 15px;
-  color: #ddd;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.pm-formula strong {
-  color: #fff;
-}
-
-.pm-formula-sub {
-  display: block;
-  font-size: 11px;
-  color: #777;
-  margin-top: 2px;
-}
-
-/* =========================================
-   🔥 HOT (RED GLOW)
-========================================= */
+/* EFFECTS */
 .pm-player-card.pm-hot {
   box-shadow: 0 0 12px rgba(229,57,53,0.7);
-  border: 1px solid rgba(229,57,53,0.8);
 }
 
-/* =========================================
-   ❄️ COLD (BLUE FADE)
-========================================= */
 .pm-player-card.pm-cold {
   opacity: 0.6;
-  filter: grayscale(30%);
-  border: 1px solid rgba(30,136,229,0.6);
 }
 
-/* =========================================
-   🟢 CONSISTENT (GREEN STABLE)
-========================================= */
 .pm-player-card.pm-consistent {
-  border: 1px solid rgba(67,160,71,0.9);
-  box-shadow: 0 0 8px rgba(67,160,71,0.4);
+  border: 1px solid #43a047;
 }
 
-/* =========================================
-   🎢 VOLATILE (PULSE ANIMATION)
-========================================= */
-@keyframes pmPulseGlow {
+@keyframes pulse {
   0% { box-shadow: 0 0 6px rgba(253,216,53,0.4); }
   50% { box-shadow: 0 0 16px rgba(253,216,53,0.9); }
   100% { box-shadow: 0 0 6px rgba(253,216,53,0.4); }
 }
 
 .pm-player-card.pm-volatile {
-  border: 1px solid rgba(253,216,53,0.9);
-  animation: pmPulseGlow 2s infinite;
+  animation: pulse 2s infinite;
 }
