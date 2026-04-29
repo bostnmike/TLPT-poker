@@ -13,18 +13,16 @@ function normalize(str) {
     .trim();
 }
 
-/* match using slug first, fallback to normalized name */
 function isSamePlayer(player, rawName) {
   if (!rawName) return false;
 
   const nRaw = normalize(rawName);
 
-  // slug match
+  // slug match (primary)
   if (player.slug && normalize(player.slug) === nRaw) return true;
 
-  // name + aliases match
+  // name + aliases (fallback)
   const allNames = [player.name, ...(player.aliases || [])];
-
   return allNames.some(n => normalize(n) === nRaw);
 }
 
@@ -51,7 +49,6 @@ async function init() {
   eventData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const enriched = buildAnalytics(players, eventData);
-
   bindControls(enriched);
 }
 
@@ -85,20 +82,30 @@ function buildAnalytics(players, events) {
         isSamePlayer(player, a.player)
       ).length;
 
-      let score = 0;
-      let finishPosition = null;
-      let totalPlayers = 0;
-
       /* =========================================
-         🏆 FINISH POSITION (ROBUST)
+         🧮 TRUE FIELD SIZE
       ========================================== */
-
       const winners = event.winners || [];
       const exits = event.exits || [];
 
-      totalPlayers = exits.length + winners.length;
+      let totalPlayers =
+        event.summary?.entries ||
+        event.summary?.totalEntries ||
+        event.summary?.players ||
+        null;
 
-      // winners (top placements)
+      if (!totalPlayers) {
+        totalPlayers = exits.length + winners.length;
+      }
+
+      if (!totalPlayers || totalPlayers < 2) return;
+
+      /* =========================================
+         🏁 FINISH POSITION
+      ========================================== */
+      let finishPosition = null;
+
+      // winners
       const winnerIndex = winners.findIndex(w =>
         isSamePlayer(player, w.name)
       );
@@ -107,7 +114,7 @@ function buildAnalytics(players, events) {
         finishPosition = winnerIndex + 1;
       }
 
-      // exits (everyone else)
+      // exits
       if (finishPosition === null) {
         const exitIndex = exits.findIndex(e => {
           const raw = typeof e === "string" ? e : e.name;
@@ -119,39 +126,35 @@ function buildAnalytics(players, events) {
         }
       }
 
-      let finishPct = null;
+      // 🚨 skip invalid data (NO silent corruption)
+      if (!finishPosition) return;
 
-      if (finishPosition !== null && totalPlayers > 0) {
-
-        finishPct = finishPosition / totalPlayers;
-
-        if (finishPct <= 0.15) score += 100;
-        else if (finishPct <= 0.35) score += 70;
-        else if (finishPct <= 0.55) score += 40;
-        else if (finishPct <= 0.75) score += 10;
-        else if (finishPct <= 0.9) score -= 15;
-        else score -= 35;
-      }
+      const finishPct = finishPosition / totalPlayers;
 
       /* =========================================
-         💣 BUBBLE
+         📊 SCORING
       ========================================== */
+      let score = 0;
+
+      if (finishPct <= 0.15) score += 100;
+      else if (finishPct <= 0.35) score += 70;
+      else if (finishPct <= 0.55) score += 40;
+      else if (finishPct <= 0.75) score += 10;
+      else if (finishPct <= 0.9) score -= 15;
+      else score -= 35;
+
+      // bubble
       if (exits.length) {
         const last = exits[exits.length - 1];
         const raw = typeof last === "string" ? last : last.name;
-
-        if (isSamePlayer(player, raw)) {
-          score += 20;
-        }
+        if (isSamePlayer(player, raw)) score += 20;
       }
 
-      /* =========================================
-         ⚔️ ACTIVITY
-      ========================================== */
+      // activity
       score += hits * 10;
       score -= rebuys * 15;
 
-      /* 🧼 CLEAN RUN */
+      // clean run
       if (rebuys === 0) score += 10;
 
       playerEvents.push({
@@ -163,34 +166,34 @@ function buildAnalytics(players, events) {
     });
 
     /* =========================================
-       🔥 QUALIFICATION
+       🔥 QUALIFICATION (MIN 4 EVENTS)
     ========================================== */
     if (playerEvents.length < 4) return null;
 
     const recent = playerEvents.slice(-6);
 
+    const valid = recent.filter(e => e.finishPct != null);
+
+    if (!valid.length) return null;
+
     /* =========================================
-       📉 TREND (INVERTED FOR VISUAL)
+       📉 TREND (FIXED)
     ========================================== */
-    const trend = recent.map(e => 1 - (e.finishPct ?? 1));
+    const trend = valid.map(e => 1 - e.finishPct);
 
     const avgFinishPct =
-      recent.reduce((sum, e) => sum + (e.finishPct ?? 1), 0) / recent.length;
-
-    const bestFinish =
-      Math.min(...recent.map(e => e.finishPct ?? 1));
+      valid.reduce((sum, e) => sum + e.finishPct, 0) / valid.length;
 
     const bestFinishRaw =
-      recent.reduce((best, e) => {
-        if (!best) return e;
-        return e.finishPct < best.finishPct ? e : best;
-      }, null);
+      valid.reduce((best, e) =>
+        !best || e.finishPct < best.finishPct ? e : best,
+        null
+      );
 
     return {
       ...player,
       trend,
       avgFinishPct,
-      bestFinish,
       bestFinishRaw,
       momentum: calcMomentum(trend),
       volatility: calcStdDev(trend)
