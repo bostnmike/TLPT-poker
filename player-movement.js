@@ -238,7 +238,7 @@ function createCard(p) {
     p.streak >= 2 ? "🔥".repeat(p.streak) : "";
 
   return `
-    <div class="pm-player-card">
+    <div class="pm-player-card ${p.rankClass || ''}">
       <div class="pm-player-header">
         <img class="pm-avatar"
           src="${p.image}"
