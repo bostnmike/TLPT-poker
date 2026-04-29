@@ -181,3 +181,55 @@
   gap: 6px;
   align-items: center;
 }
+
+/* =========================================
+   🎛 CONTROLS LAYOUT FIX
+========================================= */
+.pm-controls-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 🔥 important */
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* LEFT SIDE STACK */
+.pm-controls-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* BUTTON ROW */
+.pm-button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   📘 LEGEND (BIGGER + CLEAN)
+========================================= */
+.pm-legend {
+  display: flex;
+  gap: 14px;
+  font-size: 13px;      /* 🔥 slightly bigger */
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.pm-legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* =========================================
+   🧠 FORMULA (RIGHT SIDE FIX)
+========================================= */
+.pm-formula {
+  max-width: 420px;
+  font-size: 15px;
+  text-align: right;
+  line-height: 1.4;
+}
