@@ -473,16 +473,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   padding: 13px 12px;
   border-radius: 14px;
-  font-size: 26px;
-  font-weight: 1000;
   line-height: 1;
   letter-spacing: .01em;
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: 0 0 16px rgba(0,0,0,.32);
-  -webkit-text-stroke: 1px currentColor;
-  text-stroke: 1px currentColor;
+}
+
+.pm-page .pm-rank-arrow {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 1000;
+  line-height: .8;
+  -webkit-text-stroke: 1.2px currentColor;
+  text-stroke: 1.2px currentColor;
+}
+
+.pm-page .pm-rank-number {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .pm-page .pm-rank-up {
