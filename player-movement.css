@@ -158,3 +158,18 @@
 .pm-player-card.pm-volatile {
   animation: pulse 2s infinite;
 }
+
+.pm-legend {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.pm-legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
