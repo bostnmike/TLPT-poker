@@ -238,10 +238,20 @@ function createCard(p) {
     p.rankChange < 0 ? "↓" : "→";
 
   let badge = "💀";
+   let badgeClass = "pm-bust";
 
-   if (p.lastResult === "win") badge = "🏆";
-   else if (p.lastResult === "deep") badge = "🎯";
-   else if (p.lastResult === "bubble") badge = "💣";
+   if (p.lastResult === "win") {
+     badge = "🏆";
+     badgeClass = "pm-win";
+   }
+   else if (p.lastResult === "deep") {
+     badge = "🎯";
+     badgeClass = "pm-deep";
+   }
+   else if (p.lastResult === "bubble") {
+     badge = "💣";
+     badgeClass = "pm-bubble";
+   }
 
    const streak =
     p.streak >= 2 ? "🔥".repeat(p.streak) : "";
