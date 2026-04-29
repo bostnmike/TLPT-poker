@@ -200,3 +200,47 @@
   align-items: center;
   gap: 6px;
 }
+
+.pm-controls-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.pm-controls-left {
+  display: flex;
+  gap: 10px;
+}
+
+.pm-btn {
+  background: #111;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.pm-btn:hover {
+  background: #222;
+}
+
+.pm-btn.active {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+.pm-formula {
+  font-size: 13px;
+  color: #aaa;
+  text-align: right;
+  max-width: 300px;
+}
+
+.pm-formula-sub {
+  font-size: 11px;
+  color: #666;
+}
