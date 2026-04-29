@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-29T02:18:45.393407Z",
+  "generatedAt": "2026-04-29T02:32:38.336603Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -207,7 +207,8 @@
       "clutchRaw_norm": 26.31578947368421,
       "aggressionRaw_norm": 13.768115942028984,
       "survivorRaw_norm": 84.21052631578948,
-      "tiltRaw_norm": 21.052631578947366
+      "tiltRaw_norm": 21.052631578947366,
+      "tier": "B"
     },
     {
       "name": "Ahmed",
@@ -243,7 +244,8 @@
       "clutchRaw_norm": 38.88888888888889,
       "aggressionRaw_norm": 15.873015873015872,
       "survivorRaw_norm": 58.33333333333333,
-      "tiltRaw_norm": 16.666666666666664
+      "tiltRaw_norm": 16.666666666666664,
+      "tier": "B"
     },
     {
       "name": "Big Tim",
@@ -279,7 +281,8 @@
       "clutchRaw_norm": 100.0,
       "aggressionRaw_norm": 16.666666666666668,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "S"
     },
     {
       "name": "BostnMike",
@@ -315,7 +318,8 @@
       "clutchRaw_norm": 40.625,
       "aggressionRaw_norm": 13.063063063063062,
       "survivorRaw_norm": 71.875,
-      "tiltRaw_norm": 15.625
+      "tiltRaw_norm": 15.625,
+      "tier": "B"
     },
     {
       "name": "Brad R",
@@ -351,7 +355,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 4.166666666666667,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 100.0
+      "tiltRaw_norm": 100.0,
+      "tier": "C"
     },
     {
       "name": "BuffaloMike",
@@ -387,7 +392,8 @@
       "clutchRaw_norm": 100.0,
       "aggressionRaw_norm": 41.666666666666664,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 100.0
+      "tiltRaw_norm": 100.0,
+      "tier": "S"
     },
     {
       "name": "Chris O",
@@ -423,7 +429,8 @@
       "clutchRaw_norm": 57.14285714285714,
       "aggressionRaw_norm": 22.61904761904762,
       "survivorRaw_norm": 78.57142857142858,
-      "tiltRaw_norm": 100.0
+      "tiltRaw_norm": 100.0,
+      "tier": "A"
     },
     {
       "name": "Cougar",
@@ -459,7 +466,8 @@
       "clutchRaw_norm": 35.714285714285715,
       "aggressionRaw_norm": 11.111111111111109,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 7.142857142857142
+      "tiltRaw_norm": 7.142857142857142,
+      "tier": "B"
     },
     {
       "name": "Dan K",
@@ -495,7 +503,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 16.666666666666668,
       "survivorRaw_norm": 0.0,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "C"
     },
     {
       "name": "David K",
@@ -531,7 +540,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 0.0,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "C"
     },
     {
       "name": "Fabian",
@@ -567,7 +577,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 0.0,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "C"
     },
     {
       "name": "Gilmore",
@@ -603,7 +614,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 16.666666666666668,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "C"
     },
     {
       "name": "Hayden D",
@@ -639,7 +651,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 11.111111111111109,
       "survivorRaw_norm": 24.999999999999996,
-      "tiltRaw_norm": 50.0
+      "tiltRaw_norm": 50.0,
+      "tier": "C"
     },
     {
       "name": "Hiro",
@@ -675,7 +688,8 @@
       "clutchRaw_norm": 37.03703703703704,
       "aggressionRaw_norm": 11.788617886178862,
       "survivorRaw_norm": 83.33333333333333,
-      "tiltRaw_norm": 51.85185185185185
+      "tiltRaw_norm": 51.85185185185185,
+      "tier": "B"
     },
     {
       "name": "Jeff T",
@@ -711,7 +725,8 @@
       "clutchRaw_norm": 14.285714285714285,
       "aggressionRaw_norm": 3.3333333333333335,
       "survivorRaw_norm": 78.57142857142858,
-      "tiltRaw_norm": 42.857142857142854
+      "tiltRaw_norm": 42.857142857142854,
+      "tier": "C"
     },
     {
       "name": "Kishan",
@@ -747,7 +762,8 @@
       "clutchRaw_norm": 100.0,
       "aggressionRaw_norm": 25.0,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "A"
     },
     {
       "name": "Li-Fo",
@@ -783,7 +799,8 @@
       "clutchRaw_norm": 61.904761904761905,
       "aggressionRaw_norm": 12.037037037037036,
       "survivorRaw_norm": 85.71428571428571,
-      "tiltRaw_norm": 71.42857142857143
+      "tiltRaw_norm": 71.42857142857143,
+      "tier": "A"
     },
     {
       "name": "Nasa Al",
@@ -819,7 +836,8 @@
       "clutchRaw_norm": 70.0,
       "aggressionRaw_norm": 23.611111111111114,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 20.0
+      "tiltRaw_norm": 20.0,
+      "tier": "S"
     },
     {
       "name": "Nitro",
@@ -855,7 +873,8 @@
       "clutchRaw_norm": 9.090909090909092,
       "aggressionRaw_norm": 5.5555555555555545,
       "survivorRaw_norm": 59.090909090909086,
-      "tiltRaw_norm": 36.36363636363637
+      "tiltRaw_norm": 36.36363636363637,
+      "tier": "C"
     },
     {
       "name": "Pat",
@@ -891,7 +910,8 @@
       "clutchRaw_norm": 100.0,
       "aggressionRaw_norm": 16.666666666666668,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "S"
     },
     {
       "name": "PhattedCalf",
@@ -927,7 +947,8 @@
       "clutchRaw_norm": 33.33333333333333,
       "aggressionRaw_norm": 16.666666666666668,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "B"
     },
     {
       "name": "PittsburghBill",
@@ -963,7 +984,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 0.0,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 100.0
+      "tiltRaw_norm": 100.0,
+      "tier": "C"
     },
     {
       "name": "ProvidenceMike",
@@ -999,7 +1021,8 @@
       "clutchRaw_norm": 35.294117647058826,
       "aggressionRaw_norm": 11.111111111111109,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 58.82352941176471
+      "tiltRaw_norm": 58.82352941176471,
+      "tier": "A"
     },
     {
       "name": "Red",
@@ -1035,7 +1058,8 @@
       "clutchRaw_norm": 40.0,
       "aggressionRaw_norm": 19.753086419753085,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 80.0
+      "tiltRaw_norm": 80.0,
+      "tier": "A"
     },
     {
       "name": "Rob F",
@@ -1071,7 +1095,8 @@
       "clutchRaw_norm": 50.0,
       "aggressionRaw_norm": 22.222222222222218,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 50.0
+      "tiltRaw_norm": 50.0,
+      "tier": "A"
     },
     {
       "name": "The Architect",
@@ -1107,7 +1132,8 @@
       "clutchRaw_norm": 50.0,
       "aggressionRaw_norm": 14.583333333333334,
       "survivorRaw_norm": 75.0,
-      "tiltRaw_norm": 33.33333333333333
+      "tiltRaw_norm": 33.33333333333333,
+      "tier": "B"
     },
     {
       "name": "Vic",
@@ -1143,7 +1169,8 @@
       "clutchRaw_norm": 0.0,
       "aggressionRaw_norm": 13.333333333333334,
       "survivorRaw_norm": 0.0,
-      "tiltRaw_norm": 66.66666666666666
+      "tiltRaw_norm": 66.66666666666666,
+      "tier": "C"
     },
     {
       "name": "Vish",
@@ -1179,7 +1206,8 @@
       "clutchRaw_norm": 22.22222222222222,
       "aggressionRaw_norm": 9.803921568627452,
       "survivorRaw_norm": 66.66666666666667,
-      "tiltRaw_norm": 88.88888888888889
+      "tiltRaw_norm": 88.88888888888889,
+      "tier": "B"
     },
     {
       "name": "Wild Bill",
@@ -1215,7 +1243,8 @@
       "clutchRaw_norm": 16.666666666666664,
       "aggressionRaw_norm": 11.904761904761905,
       "survivorRaw_norm": 75.0,
-      "tiltRaw_norm": 16.666666666666664
+      "tiltRaw_norm": 16.666666666666664,
+      "tier": "C"
     },
     {
       "name": "Yann",
@@ -1251,7 +1280,8 @@
       "clutchRaw_norm": 100.0,
       "aggressionRaw_norm": 100.0,
       "survivorRaw_norm": 99.99999999999999,
-      "tiltRaw_norm": 0.0
+      "tiltRaw_norm": 0.0,
+      "tier": "S"
     }
   ]
 }
