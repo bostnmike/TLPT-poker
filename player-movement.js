@@ -613,14 +613,14 @@ function bindControls(players) {
 
 function rankArrowMarkup(player) {
   if (player.rankChange > 0) {
-    return `<span class="pm-rank-badge pm-rank-up">↑ ${player.rankChange}</span>`;
+    return `<span class="pm-rank-badge pm-rank-up"><span class="pm-rank-arrow">↑</span><span class="pm-rank-number">${player.rankChange}</span></span>`;
   }
 
   if (player.rankChange < 0) {
-    return `<span class="pm-rank-badge pm-rank-down">↓ ${Math.abs(player.rankChange)}</span>`;
+    return `<span class="pm-rank-badge pm-rank-down"><span class="pm-rank-arrow">↓</span><span class="pm-rank-number">${Math.abs(player.rankChange)}</span></span>`;
   }
 
-  return `<span class="pm-rank-badge pm-rank-flat">→ 0</span>`;
+  return `<span class="pm-rank-badge pm-rank-flat"><span class="pm-rank-arrow">→</span><span class="pm-rank-number">0</span></span>`;
 }
 
 function createCard(player) {
