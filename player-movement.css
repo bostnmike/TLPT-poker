@@ -80,12 +80,16 @@
 
 /* FORMULA FIX */
 .pm-formula {
-  font-size: 15px;
+  font-size: 14px;
   color: #ddd;
-  max-width: 420px;
+
   text-align: right;
-  line-height: 1.4;
-  white-space: normal;
+
+  white-space: nowrap;        /* 🔥 FORCE ONE LINE */
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-width: 600px;           /* 🔥 give it room */
 }
 
 .pm-formula-sub {
