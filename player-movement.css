@@ -551,39 +551,55 @@
 }
 
 /* =========================================
-   🔥 HEATER METER FORMULA BOTTOM ALIGN + WRAP
+   🔥 HEATER METER FORMULA CLEAN ALIGN + WRAP
 ========================================= */
 
 .pm-page .pm-controls-shell {
   display: flex;
-  align-items: stretch;
-  min-height: 210px;
+  align-items: center;
+  min-height: 132px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .pm-page .pm-controls-left {
   width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(420px, 1fr) minmax(460px, 0.95fr);
+  grid-template-rows: auto auto;
+  column-gap: 32px;
+  row-gap: 14px;
+  align-items: end;
 }
 
 .pm-page .pm-button-row {
-  flex: 0 0 auto;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: start;
 }
 
 .pm-page .pm-legend {
-  flex: 0 0 auto;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
 }
 
 .pm-page .pm-formula {
-  margin-top: auto;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: end;
+  justify-self: end;
+
   height: auto;
   min-height: unset;
   max-height: none;
+  max-width: 560px;
+
   overflow: visible;
   white-space: normal;
+  text-align: right;
   line-height: 1.35;
-  padding: 14px 16px;
+  padding: 0;
   font-size: 14px;
 }
 
