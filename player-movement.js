@@ -585,10 +585,10 @@ function bindControls(players) {
 
       const type = button.dataset.sort;
 
-      if (type === "momentum") update(type, "5 Hottest Players", "🔥");
-      if (type === "cold") update(type, "5 Coldest Players", "❄️");
-      if (type === "consistent") update(type, "5 Most Consistent Players", "🟢");
-      if (type === "volatile") update(type, "5 Most Volatile Players", "🎢");
+      if (type === "momentum") update(type, "5 Biggest Heaters", "🔥");
+      if (type === "cold") update(type, "5 Coldest Decks", "❄️");
+      if (type === "consistent") update(type, "5 Steadiest Grinders", "🟢");
+      if (type === "volatile") update(type, "5 Chaos Engines", "🎢");
     });
   });
 
@@ -604,7 +604,7 @@ function bindControls(players) {
     hotButton.classList.add("active");
   }
 
-  update("momentum", "5 Hottest Players", "🔥");
+  update("momentum", "5 Biggest Heaters", "🔥");
 }
 
 /* =========================================
