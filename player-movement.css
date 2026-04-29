@@ -537,3 +537,15 @@
   font-size: 15px;
   line-height: 1.35;
 }
+
+/* =========================================
+   🔥 HEATER METER HEADER POLISH
+========================================= */
+
+.pm-page .pm-header-shell .pm-accent-line {
+  margin-bottom: 16px;
+}
+
+.pm-page .pm-header-shell .page-kicker {
+  margin-top: 0;
+}
