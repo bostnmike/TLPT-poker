@@ -303,3 +303,117 @@
   font-size: 11px;
   color: #666;
 }
+
+/* =========================================
+   🎛 CONTROLS (BUTTONS + FORMULA)
+========================================= */
+.pm-controls-shell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pm-controls-left {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pm-btn {
+  background: #111;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pm-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pm-btn.active {
+  color: #000;
+  border: none;
+}
+
+/* BUTTON COLORS */
+.pm-btn.hot.active {
+  background: #e53935;
+}
+
+.pm-btn.cold.active {
+  background: #1e88e5;
+}
+
+.pm-btn.consistent.active {
+  background: #43a047;
+}
+
+.pm-btn.volatile.active {
+  background: #fdd835;
+}
+
+/* =========================================
+   🧠 FORMULA DISPLAY (FIXED)
+========================================= */
+.pm-formula {
+  font-size: 15px;
+  color: #ddd;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pm-formula strong {
+  color: #fff;
+}
+
+.pm-formula-sub {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* =========================================
+   🔥 HOT (RED GLOW)
+========================================= */
+.pm-player-card.pm-hot {
+  box-shadow: 0 0 12px rgba(229,57,53,0.7);
+  border: 1px solid rgba(229,57,53,0.8);
+}
+
+/* =========================================
+   ❄️ COLD (BLUE FADE)
+========================================= */
+.pm-player-card.pm-cold {
+  opacity: 0.6;
+  filter: grayscale(30%);
+  border: 1px solid rgba(30,136,229,0.6);
+}
+
+/* =========================================
+   🟢 CONSISTENT (GREEN STABLE)
+========================================= */
+.pm-player-card.pm-consistent {
+  border: 1px solid rgba(67,160,71,0.9);
+  box-shadow: 0 0 8px rgba(67,160,71,0.4);
+}
+
+/* =========================================
+   🎢 VOLATILE (PULSE ANIMATION)
+========================================= */
+@keyframes pmPulseGlow {
+  0% { box-shadow: 0 0 6px rgba(253,216,53,0.4); }
+  50% { box-shadow: 0 0 16px rgba(253,216,53,0.9); }
+  100% { box-shadow: 0 0 6px rgba(253,216,53,0.4); }
+}
+
+.pm-player-card.pm-volatile {
+  border: 1px solid rgba(253,216,53,0.9);
+  animation: pmPulseGlow 2s infinite;
+}
