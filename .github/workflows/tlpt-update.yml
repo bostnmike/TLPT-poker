@@ -14,10 +14,12 @@ jobs:
 
     steps:
       # -----------------------------------------
-      # 🧾 Checkout repo
+      # 🧾 Checkout FULL repo (IMPORTANT)
       # -----------------------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # 🔥 ensures full file history + all files
 
       # -----------------------------------------
       # 🟢 Setup Node
@@ -28,40 +30,49 @@ jobs:
           node-version: "18"
 
       # -----------------------------------------
-      # 📦 Install dependencies (if any)
+      # 📦 Install dependencies
       # -----------------------------------------
       - name: Install dependencies
         run: npm install || echo "No dependencies"
 
       # -----------------------------------------
-      # 🔄 Parse uploaded event HTML → JSON
+      # 🔍 DEBUG: LIST FILES (CRITICAL)
+      # -----------------------------------------
+      - name: Debug - list event files
+        run: |
+          echo "Listing events directory:"
+          ls -la data/parsed/events/
+
+      # -----------------------------------------
+      # 🔄 Parse new event (if present)
       # -----------------------------------------
       - name: Parse event summary
         run: node scripts/parse-events.js
 
       # -----------------------------------------
-      # 🔥 AUTO-GENERATE EVENT INDEX (KEY STEP)
+      # 🔥 Generate index (AFTER files exist)
       # -----------------------------------------
       - name: Generate event index
         run: node scripts/generate-event-index.js
 
       # -----------------------------------------
-      # 🧠 Build site-data.json
+      # 🧠 Build site data
       # -----------------------------------------
       - name: Build site data
         run: node scripts/build-site-data.js
 
       # -----------------------------------------
-      # 💾 Commit changes back to repo
+      # 💾 Commit everything
       # -----------------------------------------
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 
-          git add data/parsed/events/index.json
-          git add data/parsed/events/*.json
+          git add data/parsed/events/
           git add data/generated/site-data.json
 
-          git diff --cached --quiet || git commit -m "🔄 TLPT auto-update: new event processed"
+          git status
+
+          git diff --cached --quiet || git commit -m "🔄 TLPT auto-update"
           git push
