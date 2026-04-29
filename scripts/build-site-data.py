@@ -74,7 +74,7 @@ def main():
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
 
-    # 🔥 FIX: EXCLUDE index.json
+    # ✅ FIX 1: EXCLUDE index.json
     parsed_files = sorted(
         f for f in PARSED_EVENTS_DIR.glob("*.json")
         if f.name != "index.json"
@@ -83,14 +83,10 @@ def main():
     if not parsed_files:
         raise RuntimeError("No parsed events found")
 
-    from pathlib import Path
-
     PLAYER_IMAGE_DIR = Path("images/players")
-
 
     def build_fallback_player(slug):
         image_path = f"images/players/{slug}.jpg"
-
         if not (PLAYER_IMAGE_DIR / f"{slug}.jpg").exists():
             image_path = "images/players/default.jpg"
 
@@ -101,18 +97,21 @@ def main():
             "notes": "",
             "active": True
         }
-    
+
     players_by_slug = {p["slug"]: build_zero_player(p) for p in metadata["players"]}
 
     for parsed_file in parsed_files:
         event = load_json(parsed_file)
 
-        # 🔒 SAFETY GUARD (extra protection)
         if not isinstance(event, dict):
-            print(f"Skipping non-event file: {parsed_file.name}")
             continue
 
         for ep in event.get("players", []):
+
+            # ✅ FIX 2: IGNORE ZERO PARTICIPATION
+            if ep.get("entries", 0) == 0:
+                continue
+
             player_slug = ep["slug"]
 
             if player_slug not in players_by_slug:
@@ -188,6 +187,25 @@ def main():
             - (p["tiltIndex"] * 0.8)
             + sample_bonus
         )
+
+    # ---------------- TIER SYSTEM ----------------
+
+    sorted_by_skill = sorted(players, key=lambda p: -p["trueSkillScore"])
+    total_players = len(sorted_by_skill)
+
+    for idx, p in enumerate(sorted_by_skill):
+        percentile = idx / max(total_players - 1, 1)
+
+        if percentile <= 0.15:
+            tier = "S"
+        elif percentile <= 0.35:
+            tier = "A"
+        elif percentile <= 0.65:
+            tier = "B"
+        else:
+            tier = "C"
+
+        p["tier"] = tier
 
     # ---------------- HONORS ----------------
 
