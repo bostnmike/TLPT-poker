@@ -262,6 +262,11 @@ function bindControls(players) {
 
   const buttons = document.querySelectorAll(".pm-btn");
 
+  if (!buttons.length) {
+    console.warn("No control buttons found");
+    return;
+  }
+
   buttons.forEach(btn => {
 
     btn.addEventListener("click", () => {
@@ -270,19 +275,30 @@ function bindControls(players) {
       btn.classList.add("active");
 
       let sorted = [...players];
-
       const type = btn.dataset.sort;
 
-      if (type === "momentum") {
-        sorted.sort((a, b) => b.momentum - a.momentum);
-      }
+      switch (type) {
 
-      if (type === "cold") {
-        sorted.sort((a, b) => a.momentum - b.momentum);
-      }
+        case "momentum": // 🔥 HOT
+          sorted.sort((a, b) => b.momentum - a.momentum);
+          break;
 
-      if (type === "volatile") {
-        sorted.sort((a, b) => b.volatility - a.volatility);
+        case "cold": // ❄️ COLD
+          sorted.sort((a, b) => a.momentum - b.momentum);
+          break;
+
+        case "consistent": // 🟢 LOW VOLATILITY + POSITIVE MOMENTUM
+          sorted.sort((a, b) =>
+            (b.momentum - b.volatility) - (a.momentum - a.volatility)
+          );
+          break;
+
+        case "volatile": // 🎢 HIGH VARIANCE
+          sorted.sort((a, b) => b.volatility - a.volatility);
+          break;
+
+        default:
+          sorted.sort((a, b) => b.momentum - a.momentum);
       }
 
       renderAllPlayers(sorted);
