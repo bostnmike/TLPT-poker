@@ -382,3 +382,7 @@
   font-size: 11px;
   color: #777;
 }
+
+.pm-early {
+  text-shadow: 0 0 8px #42a5f5;
+}
