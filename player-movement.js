@@ -23,12 +23,11 @@ async function init() {
 
   const enriched = buildAnalytics(players, eventData);
 
-  render(enriched);
   bindControls(enriched);
 }
 
 /* =========================================
-   🧠 CORE ANALYTICS ENGINE
+   🧠 ANALYTICS ENGINE
 ========================================= */
 function buildAnalytics(players, events) {
 
@@ -76,26 +75,12 @@ function buildAnalytics(players, events) {
         // 🔥 EVENT SCORE MODEL
         let score = 0;
 
-        // Placement
-        if (winner) {
-          score += 100;
-        } else {
-          score += 20; // survived somewhat
-        }
+        if (winner) score += 100;
+        else score += 20;
 
-        // Deep run proxy
-        score += (hits * 8);
-
-        // Aggression
-        score += (hits * 5);
-
-        // Rebuy penalty
-        score -= (rebuys * 15);
-
-        // Buy-in cost pressure
-        score -= (buyins * 5);
-
-        // Normalize by field size
+        score += hits * 10;
+        score -= rebuys * 15;
+        score -= buyins * 5;
         score += fieldSize * 0.5;
 
         playerEvents.push(score);
@@ -105,17 +90,12 @@ function buildAnalytics(players, events) {
 
       const recent = playerEvents.slice(-5);
 
-      const momentum = calcMomentum(recent);
-      const volatility = calcStdDev(recent);
-      const heat = classifyHeat(momentum, volatility);
-
       return {
         ...player,
-        eventsPlayed: playerEvents.length,
         trend: recent,
-        momentum,
-        volatility,
-        heat
+        eventsPlayed: playerEvents.length,
+        momentum: calcMomentum(recent),
+        volatility: calcStdDev(recent)
       };
 
     })
@@ -126,13 +106,10 @@ function buildAnalytics(players, events) {
    📈 MOMENTUM
 ========================================= */
 function calcMomentum(trend) {
-  if (trend.length < 2) return 0;
-
   let delta = 0;
   for (let i = 1; i < trend.length; i++) {
     delta += (trend[i] - trend[i - 1]);
   }
-
   return Number(delta.toFixed(2));
 }
 
@@ -146,67 +123,112 @@ function calcStdDev(arr) {
 }
 
 /* =========================================
-   🔥 HEAT CLASSIFICATION
+   🎯 RANKING ENGINE
 ========================================= */
-function classifyHeat(momentum, volatility) {
-  if (volatility > 25) return "🎢";
-  if (momentum > 15) return "🔥";
-  if (momentum < -15) return "❄️";
-  return "😐";
-}
+function applyRanking(players, mode) {
 
-/* =========================================
-   🎯 RENDER
-========================================= */
-function render(players) {
-  players.sort((a, b) => b.momentum - a.momentum);
+  let sorted = [...players];
 
-  players.forEach((p, i) => {
+  switch (mode) {
+
+    case "momentum":
+      sorted.sort((a, b) => b.momentum - a.momentum);
+      break;
+
+    case "cold":
+      sorted.sort((a, b) => a.momentum - b.momentum);
+      break;
+
+    case "consistent":
+      sorted.sort((a, b) =>
+        (b.momentum - b.volatility) - (a.momentum - a.volatility)
+      );
+      break;
+
+    case "volatile":
+      sorted.sort((a, b) => b.volatility - a.volatility);
+      break;
+  }
+
+  sorted.forEach((p, i) => {
     p.rank = i + 1;
+    p.rankClass = getRankClass(mode, p);
   });
 
-  renderTopMovers(players);
-  renderAllPlayers(players);
-
-  drawAllSparklines();
+  return sorted;
 }
 
 /* =========================================
-   🚀 TOP MOVERS
+   🎨 VISUAL CLASSIFIER
+========================================= */
+function getRankClass(mode, p) {
+
+  if (mode === "momentum" && p.momentum > 20) return "pm-hot";
+  if (mode === "cold" && p.momentum < -20) return "pm-cold";
+  if (mode === "consistent" && p.volatility < 10 && p.momentum > 0) return "pm-consistent";
+  if (mode === "volatile" && p.volatility > 25) return "pm-volatile";
+
+  return "";
+}
+
+/* =========================================
+   🎛 CONTROLS
+========================================= */
+function bindControls(players) {
+
+  const buttons = document.querySelectorAll(".pm-btn");
+
+  const update = (mode) => {
+    const ranked = applyRanking(players, mode);
+
+    renderTopMovers(ranked);
+    renderAllPlayers(ranked);
+    drawAllSparklines();
+  };
+
+  buttons.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      update(btn.dataset.sort);
+    });
+
+  });
+
+  update("momentum");
+}
+
+/* =========================================
+   🧩 RENDER
 ========================================= */
 function renderTopMovers(players) {
-  const container = document.getElementById("pm-top-movers");
-  container.innerHTML = players.slice(0, 5).map(createCard).join("");
+  document.getElementById("pm-top-movers").innerHTML =
+    players.slice(0,5).map(createCard).join("");
 }
 
-/* =========================================
-   📊 ALL PLAYERS
-========================================= */
 function renderAllPlayers(players) {
-  const container = document.getElementById("pm-player-grid");
-  container.innerHTML = players.map(createCard).join("");
+  document.getElementById("pm-player-grid").innerHTML =
+    players.map(createCard).join("");
 }
 
 /* =========================================
-   🧩 CARD TEMPLATE
+   🎴 CARD
 ========================================= */
 function createCard(p) {
   return `
-    <div class="pm-player-card">
-
+    <div class="pm-player-card ${p.rankClass || ''}">
       <div class="pm-player-header">
-        <img 
-          class="pm-avatar"
+        <img class="pm-avatar"
           src="${p.image || `images/players/${p.slug}.jpg`}"
-          onerror="this.onerror=null; this.src='images/players/default.jpg';"
-        />
+          onerror="this.src='images/players/default.jpg';" />
         <div>
           <strong>${p.name}</strong>
           <div>#${p.rank}</div>
         </div>
       </div>
-
-      <div class="pm-movement">${p.heat}</div>
 
       <canvas class="pm-sparkline" data-trend="${p.trend.join(',')}"></canvas>
 
@@ -214,7 +236,6 @@ function createCard(p) {
         Momentum: ${p.momentum}<br/>
         Volatility: ${p.volatility.toFixed(1)}
       </div>
-
     </div>
   `;
 }
@@ -223,7 +244,9 @@ function createCard(p) {
    📉 SPARKLINES
 ========================================= */
 function drawAllSparklines() {
+
   document.querySelectorAll(".pm-sparkline").forEach(canvas => {
+
     const ctx = canvas.getContext("2d");
     const data = canvas.dataset.trend.split(",").map(Number);
 
@@ -238,6 +261,7 @@ function drawAllSparklines() {
     ctx.lineWidth = 2;
 
     const delta = data[data.length - 1] - data[0];
+
     ctx.strokeStyle =
       delta > 0 ? "#4caf50" :
       delta < 0 ? "#e53935" :
@@ -246,65 +270,11 @@ function drawAllSparklines() {
     data.forEach((val, i) => {
       const x = (i / (data.length - 1)) * canvas.width;
       const y = canvas.height - ((val - min) / range) * canvas.height;
-
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     });
 
     ctx.stroke();
-  });
-}
-
-/* =========================================
-   🎛 CONTROLS
-========================================= */
-function bindControls(players) {
-
-  const buttons = document.querySelectorAll(".pm-btn");
-
-  if (!buttons.length) {
-    console.warn("No control buttons found");
-    return;
-  }
-
-  buttons.forEach(btn => {
-
-    btn.addEventListener("click", () => {
-
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      let sorted = [...players];
-      const type = btn.dataset.sort;
-
-      switch (type) {
-
-        case "momentum": // 🔥 HOT
-          sorted.sort((a, b) => b.momentum - a.momentum);
-          break;
-
-        case "cold": // ❄️ COLD
-          sorted.sort((a, b) => a.momentum - b.momentum);
-          break;
-
-        case "consistent": // 🟢 LOW VOLATILITY + POSITIVE MOMENTUM
-          sorted.sort((a, b) =>
-            (b.momentum - b.volatility) - (a.momentum - a.volatility)
-          );
-          break;
-
-        case "volatile": // 🎢 HIGH VARIANCE
-          sorted.sort((a, b) => b.volatility - a.volatility);
-          break;
-
-        default:
-          sorted.sort((a, b) => b.momentum - a.momentum);
-      }
-
-      renderAllPlayers(sorted);
-      drawAllSparklines();
-    });
-
   });
 }
 
