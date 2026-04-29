@@ -96,7 +96,7 @@ function buildAnalytics(players, events) {
 
       if (playerEvents.length < 3) return null;
 
-      const recent = playerEvents.slice(-5);
+      const recent = playerEvents.slice(-6);
       const trend = recent.map(e => e.score);
 
       return {
