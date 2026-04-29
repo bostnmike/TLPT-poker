@@ -8,9 +8,19 @@ async function init() {
   const data = await res.json();
 
   players = data.players || [];
-  events = data.events || [];
 
-  const enriched = buildAnalytics(players);
+  // 🔥 LOAD ALL PARSED EVENTS
+  const eventFiles = [
+    "data/parsed/events/2026-04-24.json",
+    "data/parsed/events/2025-11-30.json",
+    "data/parsed/events/2025-05-24.json"
+  ];
+
+  const eventData = await Promise.all(
+    eventFiles.map(f => fetch(f).then(r => r.json()))
+  );
+
+  const enriched = buildAnalytics(players, eventData);
 
   render(enriched);
   bindControls(enriched);
@@ -19,35 +29,56 @@ async function init() {
 /* =========================================
    🧠 CORE ANALYTICS ENGINE
 ========================================= */
-function buildAnalytics(players) {
+function buildAnalytics(players, events) {
 
   return players
     .map(player => {
 
       const entries = (player.buyIns || 0) + (player.rebuys || 0);
 
-      // ✅ enforce your rule
+      // 🔥 YOUR RULE
       if (entries < 3) return null;
 
-      // 🔹 build FAKE trend from existing metrics (TEMP)
-      const base = player.roi ?? 0;
+      const playerEvents = [];
 
-      const trend = [
-        base - 2,
-        base - 1,
-        base,
-        base + 1,
-        base + 2
-      ];
+      events.forEach(event => {
 
-      const momentum = calcMomentum(trend);
-      const volatility = calcStdDev(trend);
+        // 🔹 Did player participate?
+        const participated = event.actions?.some(a =>
+          (a.type === "buyin" || a.type === "rebuy") &&
+          a.player === player.name
+        );
+
+        if (!participated) return;
+
+        // 🔹 Did they place?
+        const winner = event.winners?.find(w => w.name === player.name);
+
+        let score;
+
+        if (winner) {
+          // 🏆 higher = better
+          score = 10 - winner.rank;
+        } else {
+          // ❌ non-cash baseline
+          score = 3;
+        }
+
+        playerEvents.push(score);
+      });
+
+      const recent = playerEvents.slice(-5);
+
+      if (recent.length < 3) return null;
+
+      const momentum = calcMomentum(recent);
+      const volatility = calcStdDev(recent);
       const heat = classifyHeat(momentum, volatility);
 
       return {
         ...player,
         entries,
-        trend,
+        trend: recent,
         momentum,
         volatility,
         heat
