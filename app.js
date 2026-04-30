@@ -942,7 +942,9 @@ function badgesMarkup(player, data) {
 }
 
 function getRsvpCounts(event) {
-  const statuses = Object.values(event?.rsvps || {}).map(value => String(value || "tbd").toLowerCase());
+  const statuses = Object.values(event?.rsvps || {}).map(value =>
+    String(value || "tbd").toLowerCase()
+  );
 
   return {
     yes: statuses.filter(status => status === "yes").length,
@@ -954,7 +956,71 @@ function getRsvpCounts(event) {
 
 function formatRsvpLine(event) {
   const counts = getRsvpCounts(event);
-  return `${counts.yes} yes • ${counts.maybe} maybe • ${counts.tbd} tbd • ${counts.no} no`;
+  return `At the Table = ${counts.yes} • On the Rail = ${counts.maybe} • In the Tank = ${counts.tbd} • Folded Pre = ${counts.no}`;
+}
+
+function getPlayerBySlug(slug, data) {
+  const players = data?.players || [];
+  const cleanSlug = String(slug || "").toLowerCase();
+
+  return players.find(player =>
+    String(player.slug || "").toLowerCase() === cleanSlug
+  );
+}
+
+function getDisplayNameForRsvpSlug(slug, data) {
+  const player = getPlayerBySlug(slug, data);
+
+  if (player) {
+    return displayPlayerNamePlain(player);
+  }
+
+  return String(slug || "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
+}
+
+function getRsvpPlayersByStatus(event, data, statusKey) {
+  const rsvps = event?.rsvps || {};
+  const targetStatus = String(statusKey || "").toLowerCase();
+
+  return Object.entries(rsvps)
+    .filter(([, status]) => String(status || "tbd").toLowerCase() === targetStatus)
+    .map(([slug]) => getDisplayNameForRsvpSlug(slug, data))
+    .filter(Boolean)
+    .sort((a, b) => a.localeCompare(b));
+}
+
+function formatRsvpNameList(names, emptyText = "Nobody yet") {
+  if (!names || !names.length) return emptyText;
+  return names.join(", ");
+}
+
+function eventRsvpForecastMarkup(event, data) {
+  const maybePlayers = getRsvpPlayersByStatus(event, data, "maybe");
+  const tbdPlayers = getRsvpPlayersByStatus(event, data, "tbd");
+  const noPlayers = getRsvpPlayersByStatus(event, data, "no");
+
+  return `
+    <div class="event-rsvp-forecast" aria-label="Table forecast">
+      <div class="event-rsvp-forecast-title">Table Forecast</div>
+
+      <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
+        <span class="event-rsvp-forecast-label">On the Rail</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(maybePlayers)}</span>
+      </div>
+
+      <div class="event-rsvp-forecast-row event-rsvp-forecast-tbd">
+        <span class="event-rsvp-forecast-label">In the Tank</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(tbdPlayers)}</span>
+      </div>
+
+      <div class="event-rsvp-forecast-row event-rsvp-forecast-no">
+        <span class="event-rsvp-forecast-label">Folded Pre</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(noPlayers)}</span>
+      </div>
+    </div>
+  `;
 }
 
 function getConfirmedRsvpPlayers(event, data) {
