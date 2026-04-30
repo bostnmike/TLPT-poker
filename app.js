@@ -991,9 +991,24 @@ function getRsvpPlayersByStatus(event, data, statusKey) {
     .sort((a, b) => a.localeCompare(b));
 }
 
-function formatRsvpNameList(names, emptyText = "Nobody yet") {
+function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
+  const {
+    maxNames = 8,
+    collapseAfter = 12
+  } = options;
+
   if (!names || !names.length) return emptyText;
-  return names.join(", ");
+
+  if (names.length >= collapseAfter) {
+    return `${names.length} players`;
+  }
+
+  const visibleNames = names.slice(0, maxNames);
+  const remaining = names.length - visibleNames.length;
+
+  return remaining > 0
+    ? `${visibleNames.join(", ")} +${remaining} more`
+    : visibleNames.join(", ");
 }
 
 function eventRsvpForecastMarkup(event, data) {
@@ -1007,17 +1022,26 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
         <span class="event-rsvp-forecast-label">On the Rail</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(maybePlayers)}</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(maybePlayers, "Nobody yet", {
+          maxNames: 6,
+          collapseAfter: 12
+        })}</span>
       </div>
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-tbd">
         <span class="event-rsvp-forecast-label">In the Tank</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(tbdPlayers)}</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(tbdPlayers, "Nobody yet", {
+          maxNames: 8,
+          collapseAfter: 14
+        })}</span>
       </div>
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-no">
         <span class="event-rsvp-forecast-label">Folded Pre</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(noPlayers)}</span>
+        <span class="event-rsvp-forecast-names">${formatRsvpNameList(noPlayers, "Nobody yet", {
+          maxNames: 4,
+          collapseAfter: 8
+        })}</span>
       </div>
     </div>
   `;
@@ -1236,7 +1260,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
           ${eventRsvpForecastMarkup(event, data)}
-          ${rsvpButtonsMarkup || `<a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>`}
+          ${buttonsMarkup}
         </div>
 
         <div class="event-rsvp-col">
@@ -1756,6 +1780,7 @@ function buildEventCard(event, data, options = {}) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          ${eventRsvpForecastMarkup(event, data)}
           ${rsvpButtonsMarkup || `<a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>`}
         </div>
 
