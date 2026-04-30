@@ -3,7 +3,7 @@ async function loadSiteData() {
   const baseRes = await fetch("/data/generated/site-data.json?v=" + Date.now(), {
     cache: "no-store"
   });
-
+buildHomeEventCard(event,
   if (!baseRes.ok) {
     throw new Error(`Failed to load site-data.json (${baseRes.status})`);
   }
@@ -1235,6 +1235,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          ${eventRsvpForecastMarkup(event, data)}
           ${buttonsMarkup}
         </div>
 
