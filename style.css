@@ -9598,155 +9598,85 @@ body:has(.media-header) .page-title-purple{
   }
 
 /* =========================================
-   TABLE FORECAST — CLEAN EVENT CARD DISPLAY
+   TABLE FORECAST — FINAL CENTERED DISPLAY
 ========================================= */
 
-.event-rsvp-forecast {
-  margin: 14px 0 16px;
-  padding: 12px 13px;
+/*
+  Purpose:
+  - One single source of truth for Table Forecast styling.
+  - Centers the forecast between the location text and RSVP buttons.
+  - Makes title/category labels visually distinct from player names.
+  - Overrides the older RSVP button auto-margin behavior inside event cards.
+*/
+
+#home-events-list .event-details-col > .event-rsvp-forecast,
+#schedule-list .event-details-col > .event-rsvp-forecast {
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  width: 100%;
+  max-width: 430px;
+
+  padding: 13px 15px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.11);
+  border: 1px solid rgba(255,255,255,.12);
+
+  text-align: center;
+
   background:
     radial-gradient(circle at top left, rgba(255,255,255,.07), transparent 46%),
-    rgba(4,8,15,.24);
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
+    rgba(4,8,15,.26);
+
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 1px 0 rgba(255,255,255,.065),
     0 8px 18px rgba(0,0,0,.16);
 }
 
-.event-rsvp-forecast-title {
-  margin-bottom: 9px;
-  font-size: .78rem;
+/* Override the old button auto-anchor so forecast can center vertically */
+#home-events-list .event-details-col > .home-event-fixed-buttons,
+#home-events-list .event-details-col > .home-event-fixed-buttons-inline,
+#schedule-list .event-details-col > .btn-rsvp {
+  margin-top: 0 !important;
+}
+
+/* Keep RSVP buttons visually at the bottom after forecast centers */
+#home-events-list .event-details-col > .home-event-fixed-buttons,
+#home-events-list .event-details-col > .home-event-fixed-buttons-inline {
+  align-self: flex-start;
+  padding-top: 6px;
+}
+
+#schedule-list .event-details-col > .btn-rsvp {
+  align-self: flex-start;
+  padding-top: 8px;
+}
+
+#home-events-list .event-rsvp-forecast-title,
+#schedule-list .event-rsvp-forecast-title {
+  margin: 0 0 10px;
+  color: var(--gold);
+  font-size: .82rem;
   line-height: 1;
   font-weight: 950;
-  letter-spacing: .07em;
+  letter-spacing: .085em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.78);
-}
-
-.event-rsvp-forecast-row {
-  display: grid;
-  grid-template-columns: 98px minmax(0, 1fr);
-  gap: 8px;
-  align-items: start;
-  margin: 6px 0;
-  font-size: .86rem;
-  line-height: 1.25;
-}
-
-.event-rsvp-forecast-label {
-  font-weight: 950;
-  white-space: nowrap;
-}
-
-.event-rsvp-forecast-names {
-  color: rgba(255,255,255,.82);
-  font-weight: 750;
-  overflow-wrap: anywhere;
-}
-
-.event-rsvp-forecast-maybe .event-rsvp-forecast-label {
-  color: #fde68a;
-}
-
-.event-rsvp-forecast-tbd .event-rsvp-forecast-label {
-  color: #d8b4fe;
-}
-
-.event-rsvp-forecast-no .event-rsvp-forecast-label {
-  color: #fca5a5;
-}
-
-.event-rsvp-summary {
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.event-rsvp-pill {
-  white-space: nowrap;
-}
-
-@media (max-width: 760px) {
-  .event-rsvp-forecast {
-    margin: 14px 0;
-    padding: 11px 12px;
-  }
-
-  .event-rsvp-forecast-row {
-    grid-template-columns: 1fr;
-    gap: 2px;
-    font-size: .84rem;
-  }
-
-  .event-rsvp-summary {
-    justify-content: center;
-  }
-
-  .event-rsvp-pill {
-    font-size: .78rem;
-  }
-}
-
-/* =========================================
-   TABLE FORECAST — CENTERED POLISH
-========================================= */
-
-.event-rsvp-forecast {
-  margin: 18px auto 20px;
-  padding: 13px 15px;
-  max-width: 430px;
   text-align: center;
 }
 
-.event-rsvp-forecast-title {
-  margin-bottom: 10px;
-  color: var(--gold);
-  font-size: .82rem;
-  font-weight: 950;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.event-rsvp-forecast-row {
+#home-events-list .event-rsvp-forecast-row,
+#schedule-list .event-rsvp-forecast-row {
   display: grid;
   grid-template-columns: 104px minmax(0, 1fr);
   gap: 10px;
   align-items: start;
+
+  margin: 6px 0;
+  font-size: .86rem;
+  line-height: 1.26;
   text-align: left;
 }
 
-.event-rsvp-forecast-label {
-  font-weight: 950;
-  white-space: nowrap;
-}
-
-.event-rsvp-forecast-names {
-  font-weight: 650;
-  color: rgba(255,255,255,.78);
-  line-height: 1.28;
-}
-
-.event-rsvp-forecast-maybe .event-rsvp-forecast-label {
-  color: #facc15;
-}
-
-.event-rsvp-forecast-tbd .event-rsvp-forecast-label {
-  color: #c084fc;
-}
-
-.event-rsvp-forecast-no .event-rsvp-forecast-label {
-  color: #fb7185;
-}
-
-@media (max-width: 760px) {
-  .event-rsvp-forecast {
-    max-width: 100%;
-    margin: 16px 0 18px;
-    text-align: left;
-  }
-
-  .event-rsvp-forecast-row {
-    grid-template-columns: 1fr;
-    gap: 3px;
-  }
-}
+#home-events-list .event
