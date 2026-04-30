@@ -794,3 +794,51 @@
 .pm-page .pm-btn.volatile.active * {
   color: #fff !important;
 }
+
+/* =========================================
+   🏷️ HEATER METER CARD BADGES
+========================================= */
+
+.pm-page .pm-player-card {
+  position: relative;
+  padding-bottom: 46px;
+}
+
+.pm-page .pm-card-badges {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  min-height: 26px;
+}
+
+.pm-page .pm-card-badge {
+  width: 27px;
+  height: 27px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  font-size: 15px;
+  line-height: 1;
+
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255,255,255,.28), transparent 28%),
+    linear-gradient(180deg, rgba(27,39,55,.95), rgba(11,18,28,.95));
+
+  border: 1px solid rgba(255,213,74,.34);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    0 0 12px rgba(255,213,74,.18),
+    0 6px 14px rgba(0,0,0,.28);
+}
+
+.pm-page .pm-card-badge:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.12);
+}
