@@ -373,6 +373,57 @@ function scoreEvent(finishPct, row) {
 }
 
 /* =========================================
+   🏷️ CARD BADGES
+========================================= */
+
+function getEventBadges(finishPct, row) {
+  const badges = [];
+
+  const bubbles = toNumber(row && row.bubbles, 0);
+
+  if (finishPct <= 0.15) {
+    badges.push({ icon: "🏆", label: "Elite" });
+  } else if (finishPct <= 0.35) {
+    badges.push({ icon: "🎯", label: "Deep" });
+  }
+
+  if (bubbles > 0) {
+    badges.push({ icon: "💣", label: "Bubble" });
+  }
+
+  if (finishPct > 0.90) {
+    badges.push({ icon: "🥶", label: "Very Early" });
+  } else if (finishPct > 0.75) {
+    badges.push({ icon: "❄️", label: "Early" });
+  }
+
+  return badges;
+}
+
+function buildPlayerBadges(recentEvents) {
+  const badgeMap = new Map();
+
+  recentEvents.forEach(event => {
+    (event.badges || []).forEach(badge => {
+      if (!badgeMap.has(badge.label)) {
+        badgeMap.set(badge.label, badge);
+      }
+    });
+  });
+
+  const strongRecentRuns = recentEvents
+    .slice(-3)
+    .filter(event => event.finishPct <= 0.35)
+    .length;
+
+  if (strongRecentRuns >= 2) {
+    badgeMap.set("Streak", { icon: "🔥", label: "Streak" });
+  }
+
+  return Array.from(badgeMap.values());
+}
+
+/* =========================================
    🧠 ANALYTICS
 ========================================= */
 
@@ -402,7 +453,8 @@ function buildAnalytics(players, events) {
         finishPosition: finish.finishPosition,
         totalEntries: finish.totalEntries,
         finishLabel: finish.finishLabel,
-        source: finish.source
+        source: finish.source,
+        badges: getEventBadges(finish.finishPct, row)
       });
     });
 
@@ -434,6 +486,7 @@ function buildAnalytics(players, events) {
       trend,
       scores,
       finishes: recent.map(event => event.finishLabel),
+      badges: buildPlayerBadges(recent),
       avgFinishPosition,
       avgFieldSize,
       avgFinishDisplay: `${avgFinishPosition.toFixed(1)} / ${avgFieldSize.toFixed(1)}`,
@@ -628,6 +681,14 @@ function createCard(player) {
     .map(finish => escapeHtml(finish))
     .join(" | ");
 
+  const badgeHtml = (player.badges || [])
+    .map(badge => `
+      <span class="pm-card-badge" title="${escapeHtml(badge.label)}">
+        ${escapeHtml(badge.icon)}
+      </span>
+    `)
+    .join("");
+
   return `
     <div class="pm-player-card">
       <div class="pm-player-header">
@@ -668,10 +729,13 @@ function createCard(player) {
         <span class="pm-finish-history-label">Recent Finishes:</span>
         <span class="pm-finish-history-values">${finishHistory}</span>
       </div>
+
+      <div class="pm-card-badges">
+        ${badgeHtml}
+      </div>
     </div>
   `;
 }
-
 /* =========================================
    📉 SPARKLINES
 ========================================= */
