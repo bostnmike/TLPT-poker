@@ -9686,3 +9686,67 @@ body:has(.media-header) .page-title-purple{
     font-size: .78rem;
   }
 }
+
+/* =========================================
+   TABLE FORECAST — CENTERED POLISH
+========================================= */
+
+.event-rsvp-forecast {
+  margin: 18px auto 20px;
+  padding: 13px 15px;
+  max-width: 430px;
+  text-align: center;
+}
+
+.event-rsvp-forecast-title {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: .82rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.event-rsvp-forecast-row {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  text-align: left;
+}
+
+.event-rsvp-forecast-label {
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.event-rsvp-forecast-names {
+  font-weight: 650;
+  color: rgba(255,255,255,.78);
+  line-height: 1.28;
+}
+
+.event-rsvp-forecast-maybe .event-rsvp-forecast-label {
+  color: #facc15;
+}
+
+.event-rsvp-forecast-tbd .event-rsvp-forecast-label {
+  color: #c084fc;
+}
+
+.event-rsvp-forecast-no .event-rsvp-forecast-label {
+  color: #fb7185;
+}
+
+@media (max-width: 760px) {
+  .event-rsvp-forecast {
+    max-width: 100%;
+    margin: 16px 0 18px;
+    text-align: left;
+  }
+
+  .event-rsvp-forecast-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+}
