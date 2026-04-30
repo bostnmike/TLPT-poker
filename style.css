@@ -9596,3 +9596,123 @@ body:has(.media-header) .page-title-purple{
     content:none !important;
     display:none !important;
   }
+
+  /* =========================================
+   RSVP / TABLE FORECAST DISPLAY
+========================================= */
+
+.event-rsvp-summary {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.event-rsvp-pill {
+  white-space: nowrap;
+}
+
+.event-rsvp-pill.yes {
+  color: #86efac;
+  border-color: rgba(34,197,94,.62);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 26%),
+    linear-gradient(180deg, rgba(22,101,52,.92), rgba(8,47,27,.96));
+}
+
+.event-rsvp-pill.maybe {
+  color: #fde68a;
+  border-color: rgba(234,179,8,.68);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 26%),
+    linear-gradient(180deg, rgba(133,77,14,.92), rgba(66,32,6,.96));
+}
+
+.event-rsvp-pill.tbd {
+  color: #d8b4fe;
+  border-color: rgba(168,85,247,.68);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.18), transparent 26%),
+    linear-gradient(180deg, rgba(88,28,135,.92), rgba(46,16,101,.96));
+}
+
+.event-rsvp-pill.no {
+  color: #fca5a5;
+  border-color: rgba(239,68,68,.64);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.16), transparent 26%),
+    linear-gradient(180deg, rgba(127,29,29,.92), rgba(69,10,10,.96));
+}
+
+.event-rsvp-forecast {
+  margin: 18px 0 20px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.055), transparent 45%),
+    rgba(6,11,20,.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 10px 22px rgba(0,0,0,.16);
+}
+
+.event-rsvp-forecast-title {
+  margin-bottom: 10px;
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  font-size: .92rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.event-rsvp-forecast-row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  margin: 7px 0;
+  color: rgba(255,255,255,.78);
+  font-size: .95rem;
+  line-height: 1.35;
+}
+
+.event-rsvp-forecast-label {
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.event-rsvp-forecast-maybe .event-rsvp-forecast-label {
+  color: #fde68a;
+}
+
+.event-rsvp-forecast-tbd .event-rsvp-forecast-label {
+  color: #d8b4fe;
+}
+
+.event-rsvp-forecast-no .event-rsvp-forecast-label {
+  color: #fca5a5;
+}
+
+.event-rsvp-forecast-names {
+  color: rgba(255,255,255,.82);
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .event-rsvp-forecast {
+    margin: 16px 0 18px;
+    padding: 12px;
+  }
+
+  .event-rsvp-forecast-row {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .event-rsvp-summary {
+    justify-content: center;
+  }
+
+  .event-rsvp-pill {
+    font-size: .78rem;
+  }
+}
