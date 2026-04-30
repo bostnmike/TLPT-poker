@@ -3,7 +3,7 @@ async function loadSiteData() {
   const baseRes = await fetch("/data/generated/site-data.json?v=" + Date.now(), {
     cache: "no-store"
   });
-buildHomeEventCard(event,
+
   if (!baseRes.ok) {
     throw new Error(`Failed to load site-data.json (${baseRes.status})`);
   }
@@ -1041,11 +1041,11 @@ function buildRsvpSummaryMarkup(event, extraClass = "") {
 
   return `
     <div class="event-rsvp-summary-wrap">
-      <div class="${summaryClass}" aria-label="RSVP summary">
-        <span class="event-rsvp-pill yes">Yes = ${counts.yes}</span>
-        <span class="event-rsvp-pill no">No = ${counts.no}</span>
-        <span class="event-rsvp-pill maybe">Maybe = ${counts.maybe}</span>
-        <span class="event-rsvp-pill tbd">TBD = ${counts.tbd}</span>
+      <div class="${summaryClass}" aria-label="Table forecast summary">
+        <span class="event-rsvp-pill yes">At the Table = ${counts.yes}</span>
+        <span class="event-rsvp-pill maybe">On the Rail = ${counts.maybe}</span>
+        <span class="event-rsvp-pill tbd">In the Tank = ${counts.tbd}</span>
+        <span class="event-rsvp-pill no">Folded Pre = ${counts.no}</span>
       </div>
     </div>
   `;
@@ -1236,7 +1236,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
           ${eventRsvpForecastMarkup(event, data)}
-          ${buttonsMarkup}
+          ${rsvpButtonsMarkup || `<a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${buttonLabel}</a>`}
         </div>
 
         <div class="event-rsvp-col">
@@ -2872,6 +2872,7 @@ function renderSchedule(data) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          ${eventRsvpForecastMarkup(event, data)}
           <a class="btn btn-rsvp" href="${event.apple_invite_url}" target="_blank" rel="noopener">${getEventButtonLabel(event)}</a>
         </div>
 
