@@ -9680,3 +9680,135 @@ body:has(.media-header) .page-title-purple{
 }
 
 #home-events-list .event
+
+  /* =========================================
+   TABLE FORECAST — FINAL OVERRIDE
+   Paste at VERY BOTTOM of style.css
+========================================= */
+
+/* Kill the old RSVP-button auto-push so the forecast can own the middle spacing */
+#home-events-list .event-details-col > .home-event-fixed-buttons,
+#home-events-list .event-details-col > .home-event-fixed-buttons-inline,
+#schedule-list .event-details-col > .btn-rsvp {
+  margin-top: 0 !important;
+}
+
+/* Let the left column distribute content cleanly */
+#home-events-list .event-details-col,
+#schedule-list .event-details-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Center the forecast between location/address and the RSVP buttons */
+#home-events-list .event-details-col > .event-rsvp-forecast,
+#schedule-list .event-details-col > .event-rsvp-forecast {
+  margin: auto auto 18px auto !important;
+
+  width: 100% !important;
+  max-width: 430px !important;
+
+  padding: 13px 15px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+
+  text-align: center !important;
+
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.08), transparent 46%),
+    linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)),
+    rgba(4,8,15,.34) !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.075),
+    0 8px 18px rgba(0,0,0,.18) !important;
+}
+
+/* Make the RSVP buttons sit naturally below the forecast */
+#home-events-list .event-details-col > .home-event-fixed-buttons,
+#home-events-list .event-details-col > .home-event-fixed-buttons-inline,
+#schedule-list .event-details-col > .btn-rsvp {
+  align-self: flex-start !important;
+  padding-top: 0 !important;
+}
+
+/* Forecast title */
+#home-events-list .event-rsvp-forecast-title,
+#schedule-list .event-rsvp-forecast-title {
+  margin: 0 0 10px !important;
+  color: var(--gold) !important;
+  font-size: .82rem !important;
+  line-height: 1 !important;
+  font-weight: 950 !important;
+  letter-spacing: .085em !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+/* Forecast rows */
+#home-events-list .event-rsvp-forecast-row,
+#schedule-list .event-rsvp-forecast-row {
+  display: grid !important;
+  grid-template-columns: 104px minmax(0, 1fr) !important;
+  gap: 10px !important;
+  align-items: start !important;
+
+  margin: 6px 0 !important;
+  font-size: .86rem !important;
+  line-height: 1.26 !important;
+  text-align: left !important;
+}
+
+/* Category labels */
+#home-events-list .event-rsvp-forecast-label,
+#schedule-list .event-rsvp-forecast-label {
+  font-weight: 950 !important;
+  white-space: nowrap !important;
+}
+
+/* Player names / count text */
+#home-events-list .event-rsvp-forecast-names,
+#schedule-list .event-rsvp-forecast-names {
+  color: rgba(255,255,255,.78) !important;
+  font-weight: 650 !important;
+  line-height: 1.28 !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Category colors */
+#home-events-list .event-rsvp-forecast-maybe .event-rsvp-forecast-label,
+#schedule-list .event-rsvp-forecast-maybe .event-rsvp-forecast-label {
+  color: #facc15 !important;
+}
+
+#home-events-list .event-rsvp-forecast-tbd .event-rsvp-forecast-label,
+#schedule-list .event-rsvp-forecast-tbd .event-rsvp-forecast-label {
+  color: #c084fc !important;
+}
+
+#home-events-list .event-rsvp-forecast-no .event-rsvp-forecast-label,
+#schedule-list .event-rsvp-forecast-no .event-rsvp-forecast-label {
+  color: #fb7185 !important;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  #home-events-list .event-details-col > .event-rsvp-forecast,
+  #schedule-list .event-details-col > .event-rsvp-forecast {
+    max-width: 100% !important;
+    margin: 16px 0 18px !important;
+    text-align: left !important;
+  }
+
+  #home-events-list .event-rsvp-forecast-row,
+  #schedule-list .event-rsvp-forecast-row {
+    grid-template-columns: 1fr !important;
+    gap: 3px !important;
+  }
+
+  #home-events-list .event-details-col > .home-event-fixed-buttons,
+  #home-events-list .event-details-col > .home-event-fixed-buttons-inline {
+    width: 100% !important;
+    flex-wrap: wrap !important;
+  }
+}
