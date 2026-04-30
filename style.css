@@ -9598,109 +9598,24 @@ body:has(.media-header) .page-title-purple{
   }
 
 /* =========================================
-   TABLE FORECAST — FINAL CENTERED DISPLAY
+   TABLE FORECAST — FINAL CLEAN DISPLAY
 ========================================= */
 
-/*
-  Purpose:
-  - One single source of truth for Table Forecast styling.
-  - Centers the forecast between the location text and RSVP buttons.
-  - Makes title/category labels visually distinct from player names.
-  - Overrides the older RSVP button auto-margin behavior inside event cards.
-*/
-
-#home-events-list .event-details-col > .event-rsvp-forecast,
-#schedule-list .event-details-col > .event-rsvp-forecast {
-  margin-top: auto !important;
-  margin-bottom: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-
-  width: 100%;
-  max-width: 430px;
-
-  padding: 13px 15px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.12);
-
-  text-align: center;
-
-  background:
-    radial-gradient(circle at top left, rgba(255,255,255,.07), transparent 46%),
-    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)),
-    rgba(4,8,15,.26);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.065),
-    0 8px 18px rgba(0,0,0,.16);
-}
-
-/* Override the old button auto-anchor so forecast can center vertically */
+/* Neutralize old auto-push button behavior */
 #home-events-list .event-details-col > .home-event-fixed-buttons,
 #home-events-list .event-details-col > .home-event-fixed-buttons-inline,
 #schedule-list .event-details-col > .btn-rsvp {
   margin-top: 0 !important;
 }
 
-/* Keep RSVP buttons visually at the bottom after forecast centers */
-#home-events-list .event-details-col > .home-event-fixed-buttons,
-#home-events-list .event-details-col > .home-event-fixed-buttons-inline {
-  align-self: flex-start;
-  padding-top: 6px;
-}
-
-#schedule-list .event-details-col > .btn-rsvp {
-  align-self: flex-start;
-  padding-top: 8px;
-}
-
-#home-events-list .event-rsvp-forecast-title,
-#schedule-list .event-rsvp-forecast-title {
-  margin: 0 0 10px;
-  color: var(--gold);
-  font-size: .82rem;
-  line-height: 1;
-  font-weight: 950;
-  letter-spacing: .085em;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#home-events-list .event-rsvp-forecast-row,
-#schedule-list .event-rsvp-forecast-row {
-  display: grid;
-  grid-template-columns: 104px minmax(0, 1fr);
-  gap: 10px;
-  align-items: start;
-
-  margin: 6px 0;
-  font-size: .86rem;
-  line-height: 1.26;
-  text-align: left;
-}
-
-#home-events-list .event
-
-  /* =========================================
-   TABLE FORECAST — FINAL OVERRIDE
-   Paste at VERY BOTTOM of style.css
-========================================= */
-
-/* Kill the old RSVP-button auto-push so the forecast can own the middle spacing */
-#home-events-list .event-details-col > .home-event-fixed-buttons,
-#home-events-list .event-details-col > .home-event-fixed-buttons-inline,
-#schedule-list .event-details-col > .btn-rsvp {
-  margin-top: 0 !important;
-}
-
-/* Let the left column distribute content cleanly */
+/* Keep the left event column as a controlled vertical stack */
 #home-events-list .event-details-col,
 #schedule-list .event-details-col {
   display: flex !important;
   flex-direction: column !important;
 }
 
-/* Center the forecast between location/address and the RSVP buttons */
+/* The forecast card itself */
 #home-events-list .event-details-col > .event-rsvp-forecast,
 #schedule-list .event-details-col > .event-rsvp-forecast {
   margin: auto auto 18px auto !important;
@@ -9724,7 +9639,7 @@ body:has(.media-header) .page-title-purple{
     0 8px 18px rgba(0,0,0,.18) !important;
 }
 
-/* Make the RSVP buttons sit naturally below the forecast */
+/* RSVP buttons sit below the forecast */
 #home-events-list .event-details-col > .home-event-fixed-buttons,
 #home-events-list .event-details-col > .home-event-fixed-buttons-inline,
 #schedule-list .event-details-col > .btn-rsvp {
