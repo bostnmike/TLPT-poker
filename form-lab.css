@@ -1,0 +1,514 @@
+/* =========================================
+   THE FORM LAB — ISOLATED PAGE STYLES
+========================================= */
+
+.fl-page {
+  display: grid;
+  gap: 22px;
+}
+
+.fl-page * {
+  box-sizing: border-box;
+}
+
+.fl-header-shell,
+.fl-control-shell,
+.fl-lab-shell,
+.fl-detail-shell,
+.fl-events-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,184,28,.22);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.12), transparent 34%),
+    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 28%),
+    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 12px 28px rgba(0,0,0,.22),
+    0 0 20px rgba(255,184,28,.08);
+}
+
+.fl-header-shell,
+.fl-control-shell,
+.fl-lab-shell,
+.fl-events-shell {
+  padding: 20px;
+}
+
+.fl-detail-shell {
+  padding: 18px;
+}
+
+.fl-header-shell::before,
+.fl-control-shell::before,
+.fl-lab-shell::before,
+.fl-events-shell::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,184,28,.95), rgba(59,130,246,.36) 58%, transparent 100%);
+}
+
+.fl-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fl-title-chip {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.34));
+}
+
+.fl-kicker {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: .76rem;
+  font-weight: 950;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.fl-title-row h1,
+.fl-chart-head h2,
+.fl-events-head h2 {
+  margin: 0;
+  color: #fff;
+  line-height: 1.08;
+}
+
+.fl-title-row h1 {
+  font-size: 2.2rem;
+}
+
+.fl-title-row p,
+#fl-chart-subtitle {
+  margin: 8px 0 0;
+  color: #cfd8e3;
+  line-height: 1.45;
+}
+
+.fl-accent-line {
+  height: 3px;
+  margin-top: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.42) 58%, transparent 100%);
+}
+
+.fl-control-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 1fr .9fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.fl-field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.fl-field span {
+  color: var(--gold);
+  font-size: .74rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fl-field select {
+  width: 100%;
+  min-height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,184,28,.26);
+  background:
+    linear-gradient(180deg, rgba(31,39,51,.98), rgba(20,26,34,.98));
+  color: #fff;
+  padding: 0 12px;
+  font-weight: 800;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 8px 18px rgba(0,0,0,.20);
+}
+
+.fl-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 16px;
+  color: #dfe7ef;
+  font-size: .9rem;
+  font-weight: 750;
+}
+
+.fl-toggle-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.fl-toggle-row input {
+  accent-color: var(--gold);
+}
+
+.fl-chart-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.fl-player-card {
+  min-width: 220px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,184,28,.18);
+  background:
+    linear-gradient(180deg, rgba(255,184,28,.09), rgba(255,184,28,.025)),
+    rgba(255,255,255,.018);
+}
+
+.fl-player-card-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fl-player-card img,
+.fl-player-avatar-fallback {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,184,28,.68);
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,.22);
+}
+
+.fl-player-avatar-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-weight: 950;
+  background: #11161e;
+}
+
+.fl-player-card strong {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.fl-player-card span {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.fl-chart-stage {
+  position: relative;
+  min-height: 520px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.08), transparent 28%),
+    linear-gradient(180deg, rgba(8,12,18,.58), rgba(6,9,14,.36));
+  overflow: hidden;
+}
+
+.fl-chart {
+  display: block;
+  width: 100%;
+  min-height: 520px;
+}
+
+.fl-axis-line,
+.fl-grid-line {
+  stroke: rgba(255,255,255,.12);
+  stroke-width: 1;
+}
+
+.fl-axis-label,
+.fl-tick-label,
+.fl-point-label {
+  fill: rgba(236,242,248,.78);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.fl-axis-label {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.fl-tick-label {
+  font-size: 11px;
+}
+
+.fl-point {
+  cursor: pointer;
+  transition: opacity .16s ease;
+}
+
+.fl-point-dot {
+  fill: var(--gold);
+  stroke: rgba(255,255,255,.86);
+  stroke-width: 2;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.36));
+}
+
+.fl-point:hover .fl-point-dot,
+.fl-point.is-selected .fl-point-dot {
+  fill: #fff2b8;
+  stroke: var(--gold);
+  stroke-width: 3;
+}
+
+.fl-point-label {
+  font-size: 11px;
+  font-weight: 900;
+  paint-order: stroke;
+  stroke: rgba(0,0,0,.75);
+  stroke-width: 3px;
+}
+
+.fl-trend-line {
+  stroke: #86efac;
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(134,239,172,.20));
+}
+
+.fl-average-line {
+  stroke: rgba(255,184,28,.58);
+  stroke-width: 2;
+  stroke-dasharray: 7 7;
+}
+
+.fl-average-label {
+  fill: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 950;
+  paint-order: stroke;
+  stroke: rgba(0,0,0,.76);
+  stroke-width: 3px;
+}
+
+.fl-tooltip {
+  position: absolute;
+  z-index: 10;
+  min-width: 210px;
+  max-width: 270px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,184,28,.30);
+  background:
+    linear-gradient(180deg, rgba(18,24,32,.98), rgba(8,12,18,.98));
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(0,0,0,.34), 0 0 18px rgba(255,184,28,.10);
+  pointer-events: none;
+  font-size: .84rem;
+  line-height: 1.36;
+}
+
+.fl-tooltip strong {
+  color: var(--gold);
+}
+
+.fl-quadrant-legend {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.fl-quadrant-card {
+  padding: 11px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.09);
+  background: rgba(255,255,255,.025);
+  color: rgba(255,255,255,.80);
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.fl-quadrant-card strong {
+  display: block;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.fl-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: 16px;
+}
+
+.fl-event-detail,
+.fl-chart-readout {
+  color: #dfe7ef;
+  line-height: 1.48;
+  font-size: .94rem;
+}
+
+.fl-event-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.fl-detail-stat {
+  padding: 10px;
+  border-radius: 13px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.025);
+}
+
+.fl-detail-stat span {
+  display: block;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.fl-detail-stat strong {
+  display: block;
+  margin-top: 5px;
+  color: #fff;
+  font-size: 1.02rem;
+}
+
+.fl-events-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.fl-event-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.fl-event-card {
+  padding: 13px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.09);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+}
+
+.fl-event-card:hover,
+.fl-event-card.is-selected {
+  transform: translateY(-1px);
+  border-color: rgba(255,184,28,.36);
+  box-shadow: 0 10px 22px rgba(0,0,0,.20), 0 0 16px rgba(255,184,28,.08);
+}
+
+.fl-event-card-date {
+  color: var(--gold);
+  font-weight: 950;
+  font-size: .82rem;
+}
+
+.fl-event-card-title {
+  margin-top: 5px;
+  color: #fff;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.fl-event-card-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.fl-empty-state {
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px dashed rgba(255,184,28,.28);
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .fl-control-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fl-field-player {
+    grid-column: 1 / -1;
+  }
+
+  .fl-chart-head,
+  .fl-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fl-player-card {
+    min-width: 0;
+  }
+
+  .fl-event-list,
+  .fl-quadrant-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .fl-title-row {
+    align-items: flex-start;
+  }
+
+  .fl-title-chip {
+    width: 58px;
+    height: 58px;
+  }
+
+  .fl-title-row h1 {
+    font-size: 1.7rem;
+  }
+
+  .fl-control-grid,
+  .fl-event-list,
+  .fl-quadrant-legend,
+  .fl-event-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fl-chart-stage,
+  .fl-chart {
+    min-height: 440px;
+  }
+
+  .fl-header-shell,
+  .fl-control-shell,
+  .fl-lab-shell,
+  .fl-events-shell {
+    padding: 16px;
+  }
+}
