@@ -586,3 +586,13 @@
 .fl-header-shell .fl-header-helper {
   margin: 10px 0 0 2px;
 }
+
+/* =========================================
+   FORM LAB — SELECTED DOT FIX
+========================================= */
+
+.fl-point-dot.is-selected {
+  fill: #fff2b8;
+  stroke: var(--gold);
+  stroke-width: 3;
+}
