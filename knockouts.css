@@ -29,8 +29,12 @@
   );
 }
 
-.knockouts-header-shell .champions-title{
-  color:#e0a100;
+.knockouts-header-shell .page-title-red{
+  color:#e86a6a;
+  font-size:1.5em;
+  font-weight:900;
+  line-height:1.1;
+  text-shadow:0 0 8px rgba(239,68,68,.12);
 }
 
 .knockouts-summary-grid{
