@@ -97,14 +97,14 @@
 }
 
 .fl-header-helper {
-  margin: 12px 0 0;
+  margin: 8px 0 0 2px;
   color: var(--gold);
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1.42;
-  text-shadow:
-    0 0 10px rgba(255,184,28,.18),
-    0 0 20px rgba(255,184,28,.08);
+  font-size: .78rem;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-shadow: none;
 }
 
 .fl-accent-line {
