@@ -56,7 +56,7 @@ const FL_PRESETS = {
     yMetric: "painIndex",
     subtitle: "For nights that were statistically close and spiritually illegal."
   },
-  "custom": {
+  custom: {
     label: "Custom",
     xMetric: "rebuys",
     yMetric: "finishDepth",
@@ -188,6 +188,7 @@ async function initFormLab() {
     FL_STATE.events = data.events || [];
 
     const allPlayers = normalizePlayers(data.players || []);
+
     FL_STATE.players = allPlayers.filter(player => {
       return getPlayerEventRowsForPlayer(player).length >= FL_MIN_EVENTS_PLAYED;
     });
@@ -306,6 +307,13 @@ function normalizePlayers(players) {
 function populatePlayerSelect() {
   const select = document.getElementById("fl-player-select");
   if (!select) return;
+
+  if (!FL_STATE.players.length) {
+    select.innerHTML = `
+      <option value="">No qualified players</option>
+    `;
+    return;
+  }
 
   select.innerHTML = FL_STATE.players.map(player => `
     <option value="${escapeAttr(player.slug)}">${escapeHtml(displayName(player))}</option>
@@ -438,13 +446,14 @@ function renderFormLab() {
   syncControls();
 
   const player = getSelectedPlayer();
-  const allRows = getPlayerEventRows(player);
-  const rows = applyWindow(allRows);
 
   if (!player) {
-    renderFatalError(new Error("No players found in site-data.json."));
+    renderFatalError(new Error(`No players have at least ${FL_MIN_EVENTS_PLAYED} played events yet.`));
     return;
   }
+
+  const allRows = getPlayerEventRows(player);
+  const rows = applyWindow(allRows);
 
   if (!rows.length) {
     renderNoRows(player, allRows);
@@ -476,16 +485,20 @@ function renderFatalError(error) {
   const title = document.getElementById("fl-chart-title");
   const subtitle = document.getElementById("fl-chart-subtitle");
   const chart = document.getElementById("fl-chart");
+  const playerCard = document.getElementById("fl-player-card");
   const detail = document.getElementById("fl-event-detail");
   const readout = document.getElementById("fl-chart-readout");
   const list = document.getElementById("fl-event-list");
+  const quadrant = document.getElementById("fl-quadrant-legend");
 
   if (title) title.textContent = "Form Lab could not load.";
   if (subtitle) subtitle.textContent = error && error.message ? error.message : "Check the console for details.";
   if (chart) chart.innerHTML = "";
+  if (playerCard) playerCard.innerHTML = "";
   if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
   if (readout) readout.innerHTML = `<p class="fl-empty-state">The chart did not initialize.</p>`;
   if (list) list.innerHTML = "";
+  if (quadrant) quadrant.innerHTML = "";
 }
 
 function renderNoRows(player, allRows) {
@@ -496,6 +509,7 @@ function renderNoRows(player, allRows) {
   const detail = document.getElementById("fl-event-detail");
   const readout = document.getElementById("fl-chart-readout");
   const list = document.getElementById("fl-event-list");
+  const quadrant = document.getElementById("fl-quadrant-legend");
 
   if (title) title.textContent = "No event dots found.";
   if (subtitle) subtitle.textContent = `${displayName(player)} was found, but no parsed event rows matched this player.`;
@@ -515,6 +529,7 @@ function renderNoRows(player, allRows) {
   if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
   if (readout) readout.innerHTML = `<p class="fl-empty-state">Try another player or check parsed event player slugs.</p>`;
   if (list) list.innerHTML = "";
+  if (quadrant) quadrant.innerHTML = "";
 }
 
 function renderChartHeader(rows) {
@@ -541,12 +556,14 @@ function renderPlayerCard(player, allRows, rows) {
   const avgDepth = average(rows.map(row => row.finishDepth));
 
   el.innerHTML = `
-    <div>
-      <h3>${escapeHtml(formatDate(row.dateIso || row.dateRaw))}</h3>
-      <p>${escapeHtml(row.title || "")}</p>
+    <div class="fl-player-card-row">
+      ${playerAvatarMarkup(player)}
+      <div>
+        <div class="fl-kicker">Selected Player</div>
+        <h3>${escapeHtml(displayName(player))}</h3>
+        <p>${rows.length} shown / ${allRows.length} total event${allRows.length === 1 ? "" : "s"}</p>
+      </div>
     </div>
-
-    <div class="fl-event-detail-grid">
 
     <div class="fl-detail-grid">
       <div class="fl-detail-stat">
@@ -643,8 +660,8 @@ function renderScatter(rows) {
     ${FL_STATE.showAverage ? `
       <line class="fl-average-line" x1="${xScale(avgX)}" y1="${margin.top}" x2="${xScale(avgX)}" y2="${height - margin.bottom}"></line>
       <line class="fl-average-line" x1="${margin.left}" y1="${yScale(avgY)}" x2="${width - margin.right}" y2="${yScale(avgY)}"></line>
-      <text class="fl-average-label" x="${xScale(avgX) + 8}" y="${margin.top + 18}">avg ${xMeta.short}</text>
-      <text class="fl-average-label" x="${margin.left + 8}" y="${yScale(avgY) - 8}">avg ${yMeta.short}</text>
+      <text class="fl-average-label" x="${xScale(avgX) + 8}" y="${margin.top + 18}">avg ${escapeHtml(xMeta.short)}</text>
+      <text class="fl-average-label" x="${margin.left + 8}" y="${yScale(avgY) - 8}">avg ${escapeHtml(yMeta.short)}</text>
     ` : ""}
 
     ${FL_STATE.showTrend && trendLine ? `
@@ -712,8 +729,6 @@ function renderQuadrants() {
   const el = document.getElementById("fl-quadrant-legend");
   if (!el) return;
 
-  const preset = FL_PRESETS[FL_STATE.preset] || FL_PRESETS.custom;
-
   const labels = {
     "form-volatility": [
       ["Steady Heater", "High form, lower chaos."],
@@ -763,7 +778,6 @@ function renderEventDetail(rows) {
 
   el.innerHTML = `
     <div>
-      <div class="fl-kicker">Selected Event</div>
       <h3>${escapeHtml(formatDate(row.dateIso || row.dateRaw))}</h3>
       <p>${escapeHtml(row.title || "")}</p>
     </div>
@@ -850,6 +864,10 @@ function getSelectedPlayer() {
 }
 
 function getPlayerEventRows(player) {
+  return getPlayerEventRowsForPlayer(player);
+}
+
+function getPlayerEventRowsForPlayer(player) {
   if (!player) return [];
 
   const playerSlug = canonicalSlug(player.slug || player.name);
@@ -880,7 +898,7 @@ function buildPlayerEventRow(event, player, playerSlug) {
   const dateIso = getEventDateIso(event);
   const finishPosition = getFinishPosition(found, event);
   const fieldSize = getFieldSize(event);
-  const rebuys = getNumeric(found.rebuys !== undefined ? found.rebuys : found.rebuyCount);
+  const rebuys = getNumeric(firstDefined(found.rebuys, found.rebuyCount, found.rebuysUsed, 0));
   const entriesUsed = 1 + rebuys;
   const hits = getPlayerHits(event, playerSlug, found);
   const winnings = getNumeric(firstDefined(found.winnings, found.prize, found.payout, found.totalWinnings, 0));
@@ -1168,9 +1186,12 @@ function linearRegression(points) {
   const denominator = n * sumXX - sumX * sumX;
   if (!denominator) return null;
 
+  const slope = (n * sumXY - sumX * sumY) / denominator;
+  const intercept = (sumY - slope * sumX) / n;
+
   return {
-    slope: (n * sumXY - sumX * sumY) / denominator,
-    intercept: (sumY - ((n * sumXY - sumX * sumY) / denominator) * sumX) / n
+    slope,
+    intercept
   };
 }
 
