@@ -1,6 +1,8 @@
-/* form-lab.js */
+/* form-lab.js
+   The Form Lab — interactive one-player scatter dashboard
+*/
 
-const FORM_LAB_STATE = {
+const FL_STATE = {
   data: null,
   players: [],
   events: [],
@@ -8,64 +10,64 @@ const FORM_LAB_STATE = {
   preset: "form-volatility",
   xMetric: "volatility",
   yMetric: "formScore",
-  window: "6",
+  windowSize: "6",
   showLabels: true,
   showTrend: true,
   showAverage: true,
   selectedEventId: ""
 };
 
-const FORM_LAB_PRESETS = {
+const FL_PRESETS = {
   "form-volatility": {
     label: "Form vs. Volatility",
     xMetric: "volatility",
     yMetric: "formScore",
-    description: "Who is heating up, who is steady, and who is turning every night into a weather event."
+    subtitle: "Recent form against event chaos. The upper-left is where the adults allegedly live."
   },
   "finish-rebuys": {
     label: "Finish Depth vs. Rebuy Load",
     xMetric: "rebuys",
     yMetric: "finishDepth",
-    description: "Deep runs look a lot cleaner when they do not require a wheelbarrow full of second chances."
+    subtitle: "Deep runs are nice. Deep runs without lighting extra bullets on fire are nicer."
   },
   "profit-finish": {
     label: "Profit vs. Finish Depth",
     xMetric: "finishDepth",
     yMetric: "profit",
-    description: "Because running deep is nice, but cashing checks is the part people remember."
+    subtitle: "Did the deep run actually pay, or did it just feel important at the time?"
   },
   "hits-finish": {
     label: "Hits vs. Finish Depth",
     xMetric: "hits",
     yMetric: "finishDepth",
-    description: "Did the violence actually help, or was it just loud cardio?"
+    subtitle: "A look at whether the violence translated into survival."
   },
   "profit-rebuys": {
     label: "Profit vs. Rebuys",
     xMetric: "rebuys",
     yMetric: "profit",
-    description: "A sober look at whether the extra bullets were genius, denial, or performance art."
+    subtitle: "The eternal question: investment strategy or denial?"
   },
   "bubble-pain": {
     label: "Bubble Pain Map",
     xMetric: "finishDepth",
     yMetric: "painIndex",
-    description: "For nights when the result was technically close and emotionally criminal."
+    subtitle: "For nights that were statistically close and spiritually illegal."
   },
-  custom: {
+  "custom": {
     label: "Custom",
     xMetric: "rebuys",
     yMetric: "finishDepth",
-    description: "Pick your own axes and make your own deeply unnecessary case."
+    subtitle: "Choose your own axes and build your own deeply unnecessary evidence."
   }
 };
 
-const FORM_LAB_METRICS = {
+const FL_METRICS = {
   formScore: {
     label: "Form Score",
     short: "Form",
     format: value => numberFmt(value, 1),
-    description: "A weighted event score using finish depth, profit, hits, rebuys, cashing, and bubble pain."
+    description: "Weighted event score using finish depth, profit, hits, rebuys, cashing, and bubble pain."
   },
   finishDepth: {
     label: "Finish Depth",
@@ -78,13 +80,13 @@ const FORM_LAB_METRICS = {
     short: "Finish",
     format: value => value ? ordinal(value) : "-",
     invertAxis: true,
-    description: "Actual finishing place. Lower is better."
+    description: "Actual finishing position. Lower is better."
   },
   fieldSize: {
     label: "Field Size",
     short: "Field",
     format: value => numberFmt(value, 0),
-    description: "Effective field size for that event."
+    description: "Effective field size for the event."
   },
   rebuys: {
     label: "Rebuys",
@@ -96,13 +98,13 @@ const FORM_LAB_METRICS = {
     label: "Entries Used",
     short: "Entries",
     format: value => numberFmt(value, 0),
-    description: "Buy-in plus rebuys used by the player."
+    description: "Buy-in plus rebuys."
   },
   hits: {
     label: "Hits",
     short: "Hits",
     format: value => numberFmt(value, 0),
-    description: "Knockouts credited to the player in that event."
+    description: "Knockouts credited to the player."
   },
   profit: {
     label: "Profit",
@@ -120,7 +122,7 @@ const FORM_LAB_METRICS = {
     label: "Winnings",
     short: "Won",
     format: moneyFmt,
-    description: "Event payout/winnings."
+    description: "Event payout."
   },
   bubbleFlag: {
     label: "Bubble Flag",
@@ -144,13 +146,13 @@ const FORM_LAB_METRICS = {
     label: "Chaos Score",
     short: "Chaos",
     format: value => numberFmt(value, 1),
-    description: "Rebuys, hits, and swingy outcomes rolled into one chaos-friendly number."
+    description: "Rebuys, hits, and swingy outcomes rolled together."
   },
   painIndex: {
     label: "Pain Index",
     short: "Pain",
     format: value => numberFmt(value, 1),
-    description: "Near-miss misery: bubble pain, deep-run disappointment, and negative profit."
+    description: "Bubble pain, deep-run disappointment, and negative profit."
   },
   killerValue: {
     label: "Killer Value",
@@ -162,7 +164,7 @@ const FORM_LAB_METRICS = {
     label: "Survival Value",
     short: "Survival",
     format: value => numberFmt(value, 1),
-    description: "Finish depth relative to event size and entry use."
+    description: "Finish depth relative to entries used."
   },
   volatility: {
     label: "Event Volatility",
@@ -176,39 +178,40 @@ document.addEventListener("DOMContentLoaded", initFormLab);
 
 async function initFormLab() {
   try {
+    setLoadingState("Loading data…");
+
     const data = await loadFormLabData();
-    FORM_LAB_STATE.data = data;
-    FORM_LAB_STATE.players = normalizePlayers(data.players || []);
-    FORM_LAB_STATE.events = data.events || [];
+
+    FL_STATE.data = data;
+    FL_STATE.players = normalizePlayers(data.players || []);
+    FL_STATE.events = data.events || [];
 
     populatePlayerSelect();
+    populatePresetSelect();
     populateMetricSelects();
-    wireFormLabControls();
+    wireControls();
 
     const defaultPlayer =
-      FORM_LAB_STATE.players.find(player => player.slug === "bostnmike") ||
-      FORM_LAB_STATE.players[0];
+      FL_STATE.players.find(player => player.slug === "bostnmike") ||
+      FL_STATE.players[0];
 
-    FORM_LAB_STATE.selectedPlayerSlug = defaultPlayer?.slug || "";
+    FL_STATE.selectedPlayerSlug = defaultPlayer ? defaultPlayer.slug : "";
 
     const playerSelect = document.getElementById("fl-player-select");
-    if (playerSelect) playerSelect.value = FORM_LAB_STATE.selectedPlayerSlug;
+    if (playerSelect) playerSelect.value = FL_STATE.selectedPlayerSlug;
 
     applyPreset("form-volatility", false);
+    syncControls();
     renderFormLab();
-  } catch (err) {
-    console.error("Form Lab failed to initialize:", err);
-    const root = document.getElementById("form-lab-root");
-    if (root) {
-      root.innerHTML = `
-        <section class="fl-shell fl-error-shell">
-          <h2>Form Lab could not load.</h2>
-          <p>Something went wrong loading the event data. Check the browser console and make sure the parsed event files exist.</p>
-        </section>
-      `;
-    }
+  } catch (error) {
+    console.error("Form Lab failed:", error);
+    renderFatalError(error);
   }
 }
+
+/* =========================================
+   DATA LOADING
+========================================= */
 
 async function loadFormLabData() {
   const siteRes = await fetch("data/generated/site-data.json?v=" + Date.now(), {
@@ -216,7 +219,7 @@ async function loadFormLabData() {
   });
 
   if (!siteRes.ok) {
-    throw new Error(`Failed to load site-data.json (${siteRes.status})`);
+    throw new Error(`Could not load data/generated/site-data.json (${siteRes.status})`);
   }
 
   const siteData = await siteRes.json();
@@ -226,107 +229,132 @@ async function loadFormLabData() {
   });
 
   if (!indexRes.ok) {
-    throw new Error(`Failed to load parsed event index (${indexRes.status})`);
+    throw new Error(`Could not load data/parsed/events/index.json (${indexRes.status})`);
   }
 
   const indexData = await indexRes.json();
   const files = normalizeEventIndexFiles(indexData);
 
-  const eventResponses = await Promise.all(
+  const eventFiles = await Promise.all(
     files.map(async file => {
-      const cleanFile = String(file || "").replace(/^\/+/, "");
-      const url = cleanFile.includes("/")
-        ? cleanFile
-        : `data/parsed/events/${cleanFile}`;
+      const clean = String(file || "").replace(/^\/+/, "");
+      const url = clean.includes("/")
+        ? clean
+        : `data/parsed/events/${clean}`;
 
-      const res = await fetch(`${url}?v=${Date.now()}`, {
-        cache: "no-store"
-      });
+      try {
+        const res = await fetch(`${url}?v=${Date.now()}`, {
+          cache: "no-store"
+        });
 
-      if (!res.ok) {
-        console.warn(`Skipping event file ${url}: ${res.status}`);
+        if (!res.ok) {
+          console.warn(`Skipping event file ${url}: ${res.status}`);
+          return null;
+        }
+
+        return await res.json();
+      } catch (error) {
+        console.warn(`Skipping event file ${url}:`, error);
         return null;
       }
-
-      return res.json();
     })
   );
 
   return {
     ...siteData,
-    events: eventResponses.filter(Boolean)
+    events: eventFiles.filter(Boolean)
   };
 }
 
 function normalizeEventIndexFiles(indexData) {
   if (Array.isArray(indexData)) return indexData;
 
-  if (Array.isArray(indexData?.events)) {
-    return indexData.events.map(item => {
-      if (typeof item === "string") return item;
-      return item.file || item.path || item.filename || "";
-    }).filter(Boolean);
+  if (Array.isArray(indexData && indexData.events)) {
+    return indexData.events
+      .map(item => {
+        if (typeof item === "string") return item;
+        return item.file || item.path || item.filename || "";
+      })
+      .filter(Boolean);
   }
 
-  if (Array.isArray(indexData?.files)) return indexData.files;
+  if (Array.isArray(indexData && indexData.files)) return indexData.files;
 
   return [];
 }
 
+/* =========================================
+   SETUP
+========================================= */
+
 function normalizePlayers(players) {
-  return [...players]
+  return players
     .filter(player => player && player.name)
     .map(player => ({
       ...player,
       slug: canonicalSlug(player.slug || player.name)
     }))
-    .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+    .sort((a, b) => displayName(a).localeCompare(displayName(b)));
 }
 
 function populatePlayerSelect() {
   const select = document.getElementById("fl-player-select");
   if (!select) return;
 
-  select.innerHTML = FORM_LAB_STATE.players.map(player => `
+  select.innerHTML = FL_STATE.players.map(player => `
     <option value="${escapeAttr(player.slug)}">${escapeHtml(displayName(player))}</option>
   `).join("");
 }
 
+function populatePresetSelect() {
+  const select = document.getElementById("fl-preset-select");
+  if (!select) return;
+
+  select.innerHTML = Object.entries(FL_PRESETS).map(([key, preset]) => `
+    <option value="${escapeAttr(key)}">${escapeHtml(preset.label)}</option>
+  `).join("");
+}
+
 function populateMetricSelects() {
-  const xSelect = document.getElementById("fl-x-metric");
-  const ySelect = document.getElementById("fl-y-metric");
-  const options = Object.entries(FORM_LAB_METRICS).map(([key, meta]) => `
-    <option value="${escapeAttr(key)}">${escapeHtml(meta.label)}</option>
+  const xSelect = document.getElementById("fl-x-select");
+  const ySelect = document.getElementById("fl-y-select");
+
+  const options = Object.entries(FL_METRICS).map(([key, metric]) => `
+    <option value="${escapeAttr(key)}">${escapeHtml(metric.label)}</option>
   `).join("");
 
   if (xSelect) xSelect.innerHTML = options;
   if (ySelect) ySelect.innerHTML = options;
 }
 
-function wireFormLabControls() {
+function wireControls() {
   const playerSelect = document.getElementById("fl-player-select");
+  const presetSelect = document.getElementById("fl-preset-select");
+  const xSelect = document.getElementById("fl-x-select");
+  const ySelect = document.getElementById("fl-y-select");
+  const windowSelect = document.getElementById("fl-window-select");
+
   if (playerSelect) {
     playerSelect.addEventListener("change", () => {
-      FORM_LAB_STATE.selectedPlayerSlug = playerSelect.value;
-      FORM_LAB_STATE.selectedEventId = "";
+      FL_STATE.selectedPlayerSlug = playerSelect.value;
+      FL_STATE.selectedEventId = "";
       renderFormLab();
     });
   }
 
-  document.querySelectorAll("[data-fl-preset]").forEach(button => {
-    button.addEventListener("click", () => {
-      applyPreset(button.dataset.flPreset || "custom");
+  if (presetSelect) {
+    presetSelect.addEventListener("change", () => {
+      applyPreset(presetSelect.value, true);
+      FL_STATE.selectedEventId = "";
       renderFormLab();
     });
-  });
-
-  const xSelect = document.getElementById("fl-x-metric");
-  const ySelect = document.getElementById("fl-y-metric");
+  }
 
   if (xSelect) {
     xSelect.addEventListener("change", () => {
-      FORM_LAB_STATE.xMetric = xSelect.value;
-      FORM_LAB_STATE.preset = "custom";
+      FL_STATE.xMetric = xSelect.value;
+      FL_STATE.preset = "custom";
+      FL_STATE.selectedEventId = "";
       syncControls();
       renderFormLab();
     });
@@ -334,18 +362,18 @@ function wireFormLabControls() {
 
   if (ySelect) {
     ySelect.addEventListener("change", () => {
-      FORM_LAB_STATE.yMetric = ySelect.value;
-      FORM_LAB_STATE.preset = "custom";
+      FL_STATE.yMetric = ySelect.value;
+      FL_STATE.preset = "custom";
+      FL_STATE.selectedEventId = "";
       syncControls();
       renderFormLab();
     });
   }
 
-  const windowSelect = document.getElementById("fl-window");
   if (windowSelect) {
     windowSelect.addEventListener("change", () => {
-      FORM_LAB_STATE.window = windowSelect.value;
-      FORM_LAB_STATE.selectedEventId = "";
+      FL_STATE.windowSize = windowSelect.value;
+      FL_STATE.selectedEventId = "";
       renderFormLab();
     });
   }
@@ -356,46 +384,49 @@ function wireFormLabControls() {
 }
 
 function wireCheckbox(id, stateKey) {
-  const checkbox = document.getElementById(id);
-  if (!checkbox) return;
+  const input = document.getElementById(id);
+  if (!input) return;
 
-  checkbox.addEventListener("change", () => {
-    FORM_LAB_STATE[stateKey] = checkbox.checked;
+  input.addEventListener("change", () => {
+    FL_STATE[stateKey] = input.checked;
     renderFormLab();
   });
 }
 
-function applyPreset(presetKey, sync = true) {
-  const preset = FORM_LAB_PRESETS[presetKey] || FORM_LAB_PRESETS["form-volatility"];
+function applyPreset(presetKey, updateControls) {
+  const preset = FL_PRESETS[presetKey] || FL_PRESETS["form-volatility"];
 
-  FORM_LAB_STATE.preset = presetKey;
-  FORM_LAB_STATE.xMetric = preset.xMetric;
-  FORM_LAB_STATE.yMetric = preset.yMetric;
+  FL_STATE.preset = presetKey;
+  FL_STATE.xMetric = preset.xMetric;
+  FL_STATE.yMetric = preset.yMetric;
 
-  if (sync) syncControls();
+  if (updateControls) syncControls();
 }
 
 function syncControls() {
-  document.querySelectorAll("[data-fl-preset]").forEach(button => {
-    button.classList.toggle("is-active", button.dataset.flPreset === FORM_LAB_STATE.preset);
-  });
+  const presetSelect = document.getElementById("fl-preset-select");
+  const xSelect = document.getElementById("fl-x-select");
+  const ySelect = document.getElementById("fl-y-select");
+  const windowSelect = document.getElementById("fl-window-select");
 
-  const xSelect = document.getElementById("fl-x-metric");
-  const ySelect = document.getElementById("fl-y-metric");
-  const windowSelect = document.getElementById("fl-window");
+  if (presetSelect) presetSelect.value = FL_STATE.preset;
+  if (xSelect) xSelect.value = FL_STATE.xMetric;
+  if (ySelect) ySelect.value = FL_STATE.yMetric;
+  if (windowSelect) windowSelect.value = FL_STATE.windowSize;
 
-  if (xSelect) xSelect.value = FORM_LAB_STATE.xMetric;
-  if (ySelect) ySelect.value = FORM_LAB_STATE.yMetric;
-  if (windowSelect) windowSelect.value = FORM_LAB_STATE.window;
-
-  const labels = document.getElementById("fl-show-labels");
-  const trend = document.getElementById("fl-show-trend");
-  const average = document.getElementById("fl-show-average");
-
-  if (labels) labels.checked = FORM_LAB_STATE.showLabels;
-  if (trend) trend.checked = FORM_LAB_STATE.showTrend;
-  if (average) average.checked = FORM_LAB_STATE.showAverage;
+  syncCheckbox("fl-show-labels", FL_STATE.showLabels);
+  syncCheckbox("fl-show-trend", FL_STATE.showTrend);
+  syncCheckbox("fl-show-average", FL_STATE.showAverage);
 }
+
+function syncCheckbox(id, value) {
+  const input = document.getElementById(id);
+  if (input) input.checked = Boolean(value);
+}
+
+/* =========================================
+   RENDER
+========================================= */
 
 function renderFormLab() {
   syncControls();
@@ -404,15 +435,414 @@ function renderFormLab() {
   const allRows = getPlayerEventRows(player);
   const rows = applyWindow(allRows);
 
-  renderPlayerSummary(player, allRows, rows);
-  renderPresetDescription(rows);
-  renderScatterChart(rows, player);
-  renderSelectedEventPanel(rows, player);
-  renderTimeline(rows);
+  if (!player) {
+    renderFatalError(new Error("No players found in site-data.json."));
+    return;
+  }
+
+  if (!rows.length) {
+    renderNoRows(player, allRows);
+    return;
+  }
+
+  if (!FL_STATE.selectedEventId || !rows.some(row => row.id === FL_STATE.selectedEventId)) {
+    FL_STATE.selectedEventId = rows[rows.length - 1].id;
+  }
+
+  renderChartHeader(rows);
+  renderPlayerCard(player, allRows, rows);
+  renderScatter(rows);
+  renderQuadrants();
+  renderEventDetail(rows);
+  renderReadout(rows);
+  renderEventList(rows);
 }
 
+function setLoadingState(message) {
+  const title = document.getElementById("fl-chart-title");
+  const subtitle = document.getElementById("fl-chart-subtitle");
+
+  if (title) title.textContent = message || "Loading chart…";
+  if (subtitle) subtitle.textContent = "The lab is pulling parsed event data.";
+}
+
+function renderFatalError(error) {
+  const title = document.getElementById("fl-chart-title");
+  const subtitle = document.getElementById("fl-chart-subtitle");
+  const chart = document.getElementById("fl-chart");
+  const detail = document.getElementById("fl-event-detail");
+  const readout = document.getElementById("fl-chart-readout");
+  const list = document.getElementById("fl-event-list");
+
+  if (title) title.textContent = "Form Lab could not load.";
+  if (subtitle) subtitle.textContent = error && error.message ? error.message : "Check the console for details.";
+  if (chart) chart.innerHTML = "";
+  if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
+  if (readout) readout.innerHTML = `<p class="fl-empty-state">The chart did not initialize.</p>`;
+  if (list) list.innerHTML = "";
+}
+
+function renderNoRows(player, allRows) {
+  const title = document.getElementById("fl-chart-title");
+  const subtitle = document.getElementById("fl-chart-subtitle");
+  const chart = document.getElementById("fl-chart");
+  const playerCard = document.getElementById("fl-player-card");
+  const detail = document.getElementById("fl-event-detail");
+  const readout = document.getElementById("fl-chart-readout");
+  const list = document.getElementById("fl-event-list");
+
+  if (title) title.textContent = "No event dots found.";
+  if (subtitle) subtitle.textContent = `${displayName(player)} was found, but no parsed event rows matched this player.`;
+  if (chart) chart.innerHTML = "";
+  if (playerCard) {
+    playerCard.innerHTML = `
+      <div class="fl-player-card-row">
+        ${playerAvatarMarkup(player)}
+        <div>
+          <div class="fl-kicker">Selected Player</div>
+          <h3>${escapeHtml(displayName(player))}</h3>
+          <p>Matched events: ${allRows.length}</p>
+        </div>
+      </div>
+    `;
+  }
+  if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
+  if (readout) readout.innerHTML = `<p class="fl-empty-state">Try another player or check parsed event player slugs.</p>`;
+  if (list) list.innerHTML = "";
+}
+
+function renderChartHeader(rows) {
+  const preset = FL_PRESETS[FL_STATE.preset] || FL_PRESETS.custom;
+  const xMetric = FL_METRICS[FL_STATE.xMetric];
+  const yMetric = FL_METRICS[FL_STATE.yMetric];
+
+  const title = document.getElementById("fl-chart-title");
+  const subtitle = document.getElementById("fl-chart-subtitle");
+
+  if (title) title.textContent = preset.label;
+  if (subtitle) {
+    subtitle.textContent = `${preset.subtitle} X: ${xMetric.label}. Y: ${yMetric.label}. Showing ${rows.length} event${rows.length === 1 ? "" : "s"}.`;
+  }
+}
+
+function renderPlayerCard(player, allRows, rows) {
+  const el = document.getElementById("fl-player-card");
+  if (!el) return;
+
+  const totalProfit = rows.reduce((sum, row) => sum + row.profit, 0);
+  const totalHits = rows.reduce((sum, row) => sum + row.hits, 0);
+  const totalRebuys = rows.reduce((sum, row) => sum + row.rebuys, 0);
+  const avgDepth = average(rows.map(row => row.finishDepth));
+
+  el.innerHTML = `
+    <div class="fl-player-card-row">
+      ${playerAvatarMarkup(player)}
+      <div>
+        <div class="fl-kicker">Selected Player</div>
+        <h3>${escapeHtml(displayName(player))}</h3>
+        <p>${rows.length} shown / ${allRows.length} total event${allRows.length === 1 ? "" : "s"}</p>
+      </div>
+    </div>
+
+    <div class="fl-detail-grid">
+      <div class="fl-detail-stat">
+        <span>Avg Depth</span>
+        <strong>${numberFmt(avgDepth, 0)}%</strong>
+      </div>
+      <div class="fl-detail-stat">
+        <span>Profit</span>
+        <strong class="${totalProfit >= 0 ? "positive" : "negative"}">${moneyFmt(totalProfit)}</strong>
+      </div>
+      <div class="fl-detail-stat">
+        <span>Hits</span>
+        <strong>${totalHits}</strong>
+      </div>
+      <div class="fl-detail-stat">
+        <span>Rebuys</span>
+        <strong>${totalRebuys}</strong>
+      </div>
+    </div>
+  `;
+}
+
+function renderScatter(rows) {
+  const svg = document.getElementById("fl-chart");
+  const tooltip = document.getElementById("fl-tooltip");
+  if (!svg) return;
+
+  const xKey = FL_STATE.xMetric;
+  const yKey = FL_STATE.yMetric;
+  const xMeta = FL_METRICS[xKey];
+  const yMeta = FL_METRICS[yKey];
+
+  const width = 960;
+  const height = 560;
+  const margin = { top: 42, right: 38, bottom: 78, left: 84 };
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
+
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+
+  const xValues = rows.map(row => Number(row[xKey])).filter(Number.isFinite);
+  const yValues = rows.map(row => Number(row[yKey])).filter(Number.isFinite);
+
+  const xDomain = paddedDomain(xValues);
+  const yDomain = paddedDomain(yValues);
+
+  const xScale = value => {
+    const pct = (Number(value) - xDomain[0]) / Math.max(xDomain[1] - xDomain[0], 1);
+    return margin.left + clamp(pct, 0, 1) * innerW;
+  };
+
+  const yScale = value => {
+    const pct = (Number(value) - yDomain[0]) / Math.max(yDomain[1] - yDomain[0], 1);
+    const adjusted = yMeta.invertAxis ? pct : 1 - pct;
+    return margin.top + clamp(adjusted, 0, 1) * innerH;
+  };
+
+  const xTicks = makeTicks(xDomain[0], xDomain[1], 5);
+  const yTicks = makeTicks(yDomain[0], yDomain[1], 5);
+
+  const avgX = average(rows.map(row => row[xKey]));
+  const avgY = average(rows.map(row => row[yKey]));
+
+  const regression = linearRegression(rows.map(row => ({
+    x: Number(row[xKey]),
+    y: Number(row[yKey])
+  })).filter(point => Number.isFinite(point.x) && Number.isFinite(point.y)));
+
+  const trendLine = regression
+    ? {
+        x1: xDomain[0],
+        y1: regression.slope * xDomain[0] + regression.intercept,
+        x2: xDomain[1],
+        y2: regression.slope * xDomain[1] + regression.intercept
+      }
+    : null;
+
+  svg.innerHTML = `
+    <rect class="fl-chart-bg" x="0" y="0" width="${width}" height="${height}" rx="18"></rect>
+
+    ${xTicks.map(tick => `
+      <line class="fl-grid-line" x1="${xScale(tick)}" y1="${margin.top}" x2="${xScale(tick)}" y2="${height - margin.bottom}"></line>
+      <text class="fl-tick-label" x="${xScale(tick)}" y="${height - margin.bottom + 26}" text-anchor="middle">${escapeHtml(xMeta.format(tick))}</text>
+    `).join("")}
+
+    ${yTicks.map(tick => `
+      <line class="fl-grid-line" x1="${margin.left}" y1="${yScale(tick)}" x2="${width - margin.right}" y2="${yScale(tick)}"></line>
+      <text class="fl-tick-label" x="${margin.left - 14}" y="${yScale(tick) + 4}" text-anchor="end">${escapeHtml(yMeta.format(tick))}</text>
+    `).join("")}
+
+    <line class="fl-axis-line" x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}"></line>
+    <line class="fl-axis-line" x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}"></line>
+
+    ${FL_STATE.showAverage ? `
+      <line class="fl-average-line" x1="${xScale(avgX)}" y1="${margin.top}" x2="${xScale(avgX)}" y2="${height - margin.bottom}"></line>
+      <line class="fl-average-line" x1="${margin.left}" y1="${yScale(avgY)}" x2="${width - margin.right}" y2="${yScale(avgY)}"></line>
+      <text class="fl-average-label" x="${xScale(avgX) + 8}" y="${margin.top + 18}">avg ${xMeta.short}</text>
+      <text class="fl-average-label" x="${margin.left + 8}" y="${yScale(avgY) - 8}">avg ${yMeta.short}</text>
+    ` : ""}
+
+    ${FL_STATE.showTrend && trendLine ? `
+      <line class="fl-trend-line" x1="${xScale(trendLine.x1)}" y1="${yScale(trendLine.y1)}" x2="${xScale(trendLine.x2)}" y2="${yScale(trendLine.y2)}"></line>
+    ` : ""}
+
+    <text class="fl-axis-label" x="${margin.left + innerW / 2}" y="${height - 26}" text-anchor="middle">${escapeHtml(xMeta.label)}</text>
+    <text class="fl-axis-label" x="26" y="${margin.top + innerH / 2}" text-anchor="middle" transform="rotate(-90 26 ${margin.top + innerH / 2})">${escapeHtml(yMeta.label)}</text>
+
+    ${rows.map(row => {
+      const cx = xScale(row[xKey]);
+      const cy = yScale(row[yKey]);
+      const selected = row.id === FL_STATE.selectedEventId;
+      const tone = row.profit >= 0 ? "positive" : row.bubbleFlag ? "bubble" : "negative";
+
+      return `
+        <g class="fl-point" data-event-id="${escapeAttr(row.id)}" tabindex="0">
+          <circle class="fl-point-dot fl-point-${tone}${selected ? " is-selected" : ""}" cx="${cx}" cy="${cy}" r="${selected ? 9 : 7}"></circle>
+          ${FL_STATE.showLabels ? `<text class="fl-point-label" x="${cx + 11}" y="${cy - 10}">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</text>` : ""}
+        </g>
+      `;
+    }).join("")}
+  `;
+
+  svg.querySelectorAll(".fl-point").forEach(point => {
+    const eventId = point.getAttribute("data-event-id");
+    const row = rows.find(item => item.id === eventId);
+
+    point.addEventListener("click", () => {
+      FL_STATE.selectedEventId = eventId;
+      renderFormLab();
+    });
+
+    point.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        FL_STATE.selectedEventId = eventId;
+        renderFormLab();
+      }
+    });
+
+    point.addEventListener("mousemove", event => {
+      if (!tooltip || !row) return;
+
+      tooltip.hidden = false;
+      tooltip.innerHTML = `
+        <strong>${escapeHtml(formatDate(row.dateIso || row.dateRaw))}</strong>
+        <span>${escapeHtml(xMeta.label)}: ${escapeHtml(xMeta.format(row[xKey]))}</span>
+        <span>${escapeHtml(yMeta.label)}: ${escapeHtml(yMeta.format(row[yKey]))}</span>
+        <span>Finish: ${row.finishPosition ? `${ordinal(row.finishPosition)} / ${row.fieldSize}` : "-"}</span>
+        <span>Profit: ${moneyFmt(row.profit)}</span>
+      `;
+
+      tooltip.style.left = `${event.clientX + 14}px`;
+      tooltip.style.top = `${event.clientY + 14}px`;
+    });
+
+    point.addEventListener("mouseleave", () => {
+      if (tooltip) tooltip.hidden = true;
+    });
+  });
+}
+
+function renderQuadrants() {
+  const el = document.getElementById("fl-quadrant-legend");
+  if (!el) return;
+
+  const preset = FL_PRESETS[FL_STATE.preset] || FL_PRESETS.custom;
+
+  const labels = {
+    "form-volatility": [
+      ["Steady Heater", "High form, lower chaos."],
+      ["Dangerous Chaos", "High form, high volatility."],
+      ["Cold but Stable", "Low form, low chaos."],
+      ["Swingy Trouble", "Low form, high volatility."]
+    ],
+    "finish-rebuys": [
+      ["Clean Deep Run", "Deep finish with fewer rebuys."],
+      ["Rebuy Survivor", "Deep finish after extra bullets."],
+      ["Short Night", "Early exit without much damage."],
+      ["Bullet Fire", "Rebuys without much survival."]
+    ],
+    "bubble-pain": [
+      ["Maximum Agony", "Deep enough to hurt."],
+      ["Clean Escape", "Low pain, better night."],
+      ["Quiet Exit", "Not close enough to haunt anyone."],
+      ["Why Are We Like This?", "The spreadsheet has concerns."]
+    ]
+  };
+
+  const items = labels[FL_STATE.preset] || [
+    ["Upper Left", "Usually good, depending on the axes."],
+    ["Upper Right", "Strong but expensive or chaotic."],
+    ["Lower Left", "Quiet night."],
+    ["Lower Right", "The danger zone."]
+  ];
+
+  el.innerHTML = items.map(item => `
+    <div class="fl-quadrant-card">
+      <strong>${escapeHtml(item[0])}</strong>
+      <span>${escapeHtml(item[1])}</span>
+    </div>
+  `).join("");
+}
+
+function renderEventDetail(rows) {
+  const el = document.getElementById("fl-event-detail");
+  if (!el) return;
+
+  const row = rows.find(item => item.id === FL_STATE.selectedEventId) || rows[rows.length - 1];
+
+  if (!row) {
+    el.innerHTML = `<p class="fl-empty-state">Select a dot to inspect an event.</p>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <div>
+      <div class="fl-kicker">Selected Event</div>
+      <h3>${escapeHtml(formatDate(row.dateIso || row.dateRaw))}</h3>
+      <p>${escapeHtml(row.title || "")}</p>
+    </div>
+
+    <div class="fl-event-detail-grid">
+      ${detailStat("Finish", row.finishPosition ? `${ordinal(row.finishPosition)} / ${row.fieldSize}` : "-")}
+      ${detailStat("Depth", `${numberFmt(row.finishDepth, 0)}%`)}
+      ${detailStat("Profit", moneyFmt(row.profit), row.profit >= 0 ? "positive" : "negative")}
+      ${detailStat("Rebuys", row.rebuys)}
+      ${detailStat("Hits", row.hits)}
+      ${detailStat("Cost", moneyFmt(row.cost))}
+      ${detailStat("Winnings", moneyFmt(row.winnings))}
+      ${detailStat("Form", numberFmt(row.formScore, 1))}
+      ${detailStat("Pain", numberFmt(row.painIndex, 1))}
+    </div>
+  `;
+}
+
+function detailStat(label, value, extraClass) {
+  return `
+    <div class="fl-detail-stat">
+      <span>${escapeHtml(label)}</span>
+      <strong class="${extraClass || ""}">${escapeHtml(String(value))}</strong>
+    </div>
+  `;
+}
+
+function renderReadout(rows) {
+  const el = document.getElementById("fl-chart-readout");
+  if (!el) return;
+
+  const xMetric = FL_METRICS[FL_STATE.xMetric];
+  const yMetric = FL_METRICS[FL_STATE.yMetric];
+
+  const bestY = [...rows].sort((a, b) => Number(b[FL_STATE.yMetric]) - Number(a[FL_STATE.yMetric]))[0];
+  const worstY = [...rows].sort((a, b) => Number(a[FL_STATE.yMetric]) - Number(b[FL_STATE.yMetric]))[0];
+
+  el.innerHTML = `
+    <h3>What this chart is saying</h3>
+    <p>
+      This view plots <strong>${escapeHtml(yMetric.label)}</strong> against
+      <strong>${escapeHtml(xMetric.label)}</strong> for each selected event.
+    </p>
+    <p>
+      Highest plotted Y event:
+      <strong>${escapeHtml(formatDate(bestY.dateIso || bestY.dateRaw))}</strong>
+      at <strong>${escapeHtml(yMetric.format(bestY[FL_STATE.yMetric]))}</strong>.
+      Lowest:
+      <strong>${escapeHtml(formatDate(worstY.dateIso || worstY.dateRaw))}</strong>
+      at <strong>${escapeHtml(yMetric.format(worstY[FL_STATE.yMetric]))}</strong>.
+    </p>
+  `;
+}
+
+function renderEventList(rows) {
+  const el = document.getElementById("fl-event-list");
+  if (!el) return;
+
+  el.innerHTML = rows.map(row => `
+    <button class="fl-event-card${row.id === FL_STATE.selectedEventId ? " is-selected" : ""}" type="button" data-event-id="${escapeAttr(row.id)}">
+      <span class="fl-event-card-date">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</span>
+      <span class="fl-event-card-title">${escapeHtml(row.title || "Event")}</span>
+      <span class="fl-event-card-metrics">
+        <strong>${row.finishPosition ? ordinal(row.finishPosition) : "-"}</strong>
+        <span class="${row.profit >= 0 ? "positive" : "negative"}">${moneyFmt(row.profit)}</span>
+      </span>
+    </button>
+  `).join("");
+
+  el.querySelectorAll("[data-event-id]").forEach(button => {
+    button.addEventListener("click", () => {
+      FL_STATE.selectedEventId = button.getAttribute("data-event-id") || "";
+      renderFormLab();
+    });
+  });
+}
+
+/* =========================================
+   EVENT ROW BUILDING
+========================================= */
+
 function getSelectedPlayer() {
-  return FORM_LAB_STATE.players.find(player => player.slug === FORM_LAB_STATE.selectedPlayerSlug) || FORM_LAB_STATE.players[0] || null;
+  return FL_STATE.players.find(player => player.slug === FL_STATE.selectedPlayerSlug) || FL_STATE.players[0] || null;
 }
 
 function getPlayerEventRows(player) {
@@ -421,12 +851,16 @@ function getPlayerEventRows(player) {
   const playerSlug = canonicalSlug(player.slug || player.name);
   const rows = [];
 
-  FORM_LAB_STATE.events.forEach(event => {
+  FL_STATE.events.forEach(event => {
     const row = buildPlayerEventRow(event, player, playerSlug);
     if (row) rows.push(row);
   });
 
-  return rows.sort((a, b) => new Date(a.dateIso || a.dateRaw) - new Date(b.dateIso || b.dateRaw));
+  return rows.sort((a, b) => {
+    const aDate = new Date(a.dateIso || a.dateRaw).getTime() || 0;
+    const bDate = new Date(b.dateIso || b.dateRaw).getTime() || 0;
+    return aDate - bDate;
+  });
 }
 
 function buildPlayerEventRow(event, player, playerSlug) {
@@ -442,39 +876,48 @@ function buildPlayerEventRow(event, player, playerSlug) {
   const dateIso = getEventDateIso(event);
   const finishPosition = getFinishPosition(found, event);
   const fieldSize = getFieldSize(event);
-  const rebuys = getNumeric(found.rebuys ?? found.rebuyCount ?? found.rebuysUsed ?? 0);
+  const rebuys = getNumeric(found.rebuys !== undefined ? found.rebuys : found.rebuyCount);
   const entriesUsed = 1 + rebuys;
   const hits = getPlayerHits(event, playerSlug, found);
-  const winnings = getNumeric(found.winnings ?? found.prize ?? found.payout ?? found.totalWinnings ?? 0);
+  const winnings = getNumeric(firstDefined(found.winnings, found.prize, found.payout, found.totalWinnings, 0));
   const cost = entriesUsed * 30;
-  const profit = Number.isFinite(getNumeric(found.profit)) && found.profit !== undefined
-    ? getNumeric(found.profit)
+
+  const explicitProfit = firstDefined(found.profit, found.net, found.netProfit, null);
+  const profit = explicitProfit !== null && explicitProfit !== undefined
+    ? getNumeric(explicitProfit)
     : winnings - cost;
 
   const paidSpots = getPaidSpots(event);
-  const bubblePosition = paidSpots > 0 ? paidSpots + 1 : null;
   const cashFlag = winnings > 0 || (paidSpots > 0 && finishPosition > 0 && finishPosition <= paidSpots);
-  const bubbleFlag = bubblePosition && finishPosition === bubblePosition ? 1 : 0;
+  const bubbleFlag = paidSpots > 0 && finishPosition === paidSpots + 1 ? 1 : 0;
 
   const finishDepth = calculateFinishDepth(finishPosition, fieldSize);
-  const rebuyPenalty = rebuys * 7;
-  const cashBonus = cashFlag ? 12 : 0;
-  const bubblePenalty = bubbleFlag ? 12 : 0;
-  const hitBonus = hits * 10;
-  const profitComponent = clamp(profit / 3, -35, 35);
-  const formScore = clamp(finishDepth + hitBonus + cashBonus + profitComponent - rebuyPenalty - bubblePenalty, -50, 175);
 
-  const efficiencyScore = finishDepth - (rebuys * 12) + (cashFlag ? 8 : 0);
-  const chaosScore = (rebuys * 16) + (hits * 10) + Math.abs(profit / 10);
-  const painIndex = Math.max(0, (bubbleFlag ? 45 : 0) + (finishDepth * 0.25) - (profit > 0 ? profit / 10 : profit / 4));
+  const formScore = clamp(
+    finishDepth +
+      hits * 10 +
+      (cashFlag ? 12 : 0) +
+      clamp(profit / 3, -35, 35) -
+      rebuys * 7 -
+      bubbleFlag * 12,
+    -50,
+    175
+  );
+
+  const efficiencyScore = finishDepth - rebuys * 12 + (cashFlag ? 8 : 0);
+  const chaosScore = rebuys * 16 + hits * 10 + Math.abs(profit / 10);
+  const painIndex = Math.max(
+    0,
+    (bubbleFlag ? 45 : 0) +
+      finishDepth * 0.25 +
+      (profit < 0 ? Math.abs(profit) / 4 : -profit / 10)
+  );
   const killerValue = hits / Math.max(entriesUsed, 1);
   const survivalValue = finishDepth / Math.max(entriesUsed, 1);
-  const volatility = Math.abs(profit / 10) + (rebuys * 14) + (hits * 6) + (bubbleFlag ? 16 : 0);
-
-  const id = `${dateIso || event.id || event.date || "event"}-${playerSlug}`;
+  const volatility = Math.abs(profit / 10) + rebuys * 14 + hits * 6 + bubbleFlag * 16;
 
   return {
-    id,
+    id: `${dateIso || event.id || event.date || "event"}-${playerSlug}`,
     event,
     player,
     dateIso,
@@ -490,7 +933,7 @@ function buildPlayerEventRow(event, player, playerSlug) {
     profit,
     paidSpots,
     cashFlag: cashFlag ? 1 : 0,
-    bubbleFlag: bubbleFlag ? 1 : 0,
+    bubbleFlag,
     finishDepth,
     formScore,
     efficiencyScore,
@@ -512,23 +955,33 @@ function getEventPlayers(event) {
 }
 
 function getFinishPosition(playerResult, event) {
-  const direct = getNumeric(
-    playerResult.finishPosition ??
-    playerResult.finish ??
-    playerResult.place ??
-    playerResult.rank ??
-    playerResult.position
-  );
+  const direct = getNumeric(firstDefined(
+    playerResult.finishPosition,
+    playerResult.finish,
+    playerResult.place,
+    playerResult.rank,
+    playerResult.position,
+    0
+  ));
 
   if (direct > 0) return direct;
 
   const players = getEventPlayers(event);
   const index = players.findIndex(item => item === playerResult);
+
   return index >= 0 ? index + 1 : 0;
 }
 
 function getFieldSize(event) {
-  const direct = getNumeric(event.fieldSize ?? event.entries ?? event.totalEntries ?? event.buyIns ?? event.playersCount);
+  const direct = getNumeric(firstDefined(
+    event.fieldSize,
+    event.entries,
+    event.totalEntries,
+    event.buyIns,
+    event.playersCount,
+    0
+  ));
+
   if (direct > 0) return direct;
 
   const players = getEventPlayers(event);
@@ -536,11 +989,16 @@ function getFieldSize(event) {
 }
 
 function getPaidSpots(event) {
-  return getNumeric(event.paidSpots ?? event.payouts?.paidSpots ?? event.summary?.paidSpots ?? 0);
+  return getNumeric(firstDefined(
+    event.paidSpots,
+    event.payouts && event.payouts.paidSpots,
+    event.summary && event.summary.paidSpots,
+    0
+  ));
 }
 
 function getPlayerHits(event, playerSlug, found) {
-  const direct = getNumeric(found.hits ?? found.knockouts ?? found.kos);
+  const direct = getNumeric(firstDefined(found.hits, found.knockouts, found.kos, 0));
   if (direct > 0) return direct;
 
   const eliminations = event.eliminations || event.knockouts || event.hits || [];
@@ -553,381 +1011,37 @@ function getPlayerHits(event, playerSlug, found) {
 }
 
 function getEventDateIso(event) {
-  const raw = event.dateIso || event.dateISO || event.eventDateIso || event.eventDate || event.date || event.id || "";
-  const text = String(raw || "").trim();
+  const raw = String(firstDefined(event.dateIso, event.dateISO, event.eventDateIso, event.eventDate, event.date, event.id, "")).trim();
 
-  const isoMatch = text.match(/\d{4}-\d{2}-\d{2}/);
+  const isoMatch = raw.match(/\d{4}-\d{2}-\d{2}/);
   if (isoMatch) return isoMatch[0];
 
-  const parsed = new Date(text);
-  if (!Number.isNaN(parsed.getTime())) {
-    return parsed.toISOString().slice(0, 10);
-  }
+  const parsed = new Date(raw);
+  if (!Number.isNaN(parsed.getTime())) return parsed.toISOString().slice(0, 10);
 
-  return text;
+  return raw;
 }
 
 function applyWindow(rows) {
-  const sorted = [...rows].sort((a, b) => new Date(a.dateIso || a.dateRaw) - new Date(b.dateIso || b.dateRaw));
+  const sorted = [...rows];
 
-  if (FORM_LAB_STATE.window === "all") return sorted;
+  if (FL_STATE.windowSize === "all") return sorted;
 
-  const count = Number(FORM_LAB_STATE.window || 6);
+  const count = Number(FL_STATE.windowSize || 6);
   return sorted.slice(Math.max(0, sorted.length - count));
 }
 
-function renderPlayerSummary(player, allRows, rows) {
-  const el = document.getElementById("fl-player-summary");
-  if (!el) return;
+/* =========================================
+   HELPERS
+========================================= */
 
-  if (!player) {
-    el.innerHTML = `<p class="fl-muted">No player selected.</p>`;
-    return;
-  }
-
-  const avgFinishDepth = average(rows.map(row => row.finishDepth));
-  const totalProfit = rows.reduce((sum, row) => sum + row.profit, 0);
-  const totalHits = rows.reduce((sum, row) => sum + row.hits, 0);
-  const totalRebuys = rows.reduce((sum, row) => sum + row.rebuys, 0);
-
-  el.innerHTML = `
-    <div class="fl-player-summary-card">
-      <div class="fl-player-summary-main">
-        ${playerImageMarkup(player)}
-        <div>
-          <div class="fl-kicker">Selected Player</div>
-          <h2>${escapeHtml(displayName(player))}</h2>
-          <p>${rows.length} shown event${rows.length === 1 ? "" : "s"} / ${allRows.length} total event${allRows.length === 1 ? "" : "s"}</p>
-        </div>
-      </div>
-
-      <div class="fl-summary-stat">
-        <span>Avg Depth</span>
-        <strong>${numberFmt(avgFinishDepth, 0)}%</strong>
-      </div>
-      <div class="fl-summary-stat">
-        <span>Profit</span>
-        <strong class="${totalProfit >= 0 ? "positive" : "negative"}">${moneyFmt(totalProfit)}</strong>
-      </div>
-      <div class="fl-summary-stat">
-        <span>Hits</span>
-        <strong>${totalHits}</strong>
-      </div>
-      <div class="fl-summary-stat">
-        <span>Rebuys</span>
-        <strong>${totalRebuys}</strong>
-      </div>
-    </div>
-  `;
-}
-
-function renderPresetDescription(rows) {
-  const el = document.getElementById("fl-chart-readout");
-  if (!el) return;
-
-  const preset = FORM_LAB_PRESETS[FORM_LAB_STATE.preset] || FORM_LAB_PRESETS.custom;
-  const xMeta = FORM_LAB_METRICS[FORM_LAB_STATE.xMetric];
-  const yMeta = FORM_LAB_METRICS[FORM_LAB_STATE.yMetric];
-
-  const best = rows.length
-    ? [...rows].sort((a, b) => Number(b[FORM_LAB_STATE.yMetric] ?? 0) - Number(a[FORM_LAB_STATE.yMetric] ?? 0))[0]
-    : null;
-
-  el.innerHTML = `
-    <div class="fl-readout-title">${escapeHtml(preset.label)}</div>
-    <div class="fl-readout-body">
-      ${escapeHtml(preset.description)}
-      <br>
-      <strong>X:</strong> ${escapeHtml(xMeta?.label || FORM_LAB_STATE.xMetric)}
-      &nbsp;•&nbsp;
-      <strong>Y:</strong> ${escapeHtml(yMeta?.label || FORM_LAB_STATE.yMetric)}
-      ${best ? `<br><strong>Top plotted Y event:</strong> ${escapeHtml(formatDate(best.dateIso || best.dateRaw))} — ${escapeHtml(yMeta.format(best[FORM_LAB_STATE.yMetric]))}` : ""}
-    </div>
-  `;
-}
-
-function renderScatterChart(rows, player) {
-  const mount = document.getElementById("fl-scatter-chart");
-  if (!mount) return;
-
-  if (!rows.length) {
-    mount.innerHTML = `
-      <div class="fl-empty-chart">
-        No event data found for this player.
-      </div>
-    `;
-    return;
-  }
-
-  const xKey = FORM_LAB_STATE.xMetric;
-  const yKey = FORM_LAB_STATE.yMetric;
-  const xMeta = FORM_LAB_METRICS[xKey];
-  const yMeta = FORM_LAB_METRICS[yKey];
-
-  const width = 960;
-  const height = 560;
-  const margin = { top: 44, right: 42, bottom: 76, left: 82 };
-  const innerW = width - margin.left - margin.right;
-  const innerH = height - margin.top - margin.bottom;
-
-  const xValues = rows.map(row => Number(row[xKey] ?? 0)).filter(Number.isFinite);
-  const yValues = rows.map(row => Number(row[yKey] ?? 0)).filter(Number.isFinite);
-
-  const xDomain = paddedDomain(xValues);
-  const yDomain = paddedDomain(yValues);
-
-  const xScale = value => {
-    const pct = (Number(value) - xDomain[0]) / Math.max(xDomain[1] - xDomain[0], 1);
-    return margin.left + clamp(pct, 0, 1) * innerW;
-  };
-
-  const yScale = value => {
-    const pct = (Number(value) - yDomain[0]) / Math.max(yDomain[1] - yDomain[0], 1);
-    const adjusted = yMeta?.invertAxis ? pct : 1 - pct;
-    return margin.top + clamp(adjusted, 0, 1) * innerH;
-  };
-
-  const xTicks = makeTicks(xDomain[0], xDomain[1], 5);
-  const yTicks = makeTicks(yDomain[0], yDomain[1], 5);
-
-  const avgX = average(rows.map(row => row[xKey]));
-  const avgY = average(rows.map(row => row[yKey]));
-  const trend = linearRegression(rows.map(row => ({
-    x: Number(row[xKey] ?? 0),
-    y: Number(row[yKey] ?? 0)
-  })).filter(point => Number.isFinite(point.x) && Number.isFinite(point.y)));
-
-  const trendLine = trend
-    ? {
-        x1: xDomain[0],
-        y1: trend.slope * xDomain[0] + trend.intercept,
-        x2: xDomain[1],
-        y2: trend.slope * xDomain[1] + trend.intercept
-      }
-    : null;
-
-  const selectedId = FORM_LAB_STATE.selectedEventId || rows[rows.length - 1]?.id;
-  FORM_LAB_STATE.selectedEventId = selectedId;
-
-  mount.innerHTML = `
-    <svg class="fl-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Form Lab scatter chart">
-      <defs>
-        <filter id="fl-dot-glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"></feGaussianBlur>
-          <feMerge>
-            <feMergeNode in="coloredBlur"></feMergeNode>
-            <feMergeNode in="SourceGraphic"></feMergeNode>
-          </feMerge>
-        </filter>
-      </defs>
-
-      <rect class="fl-chart-bg" x="0" y="0" width="${width}" height="${height}" rx="18"></rect>
-
-      ${xTicks.map(tick => `
-        <line class="fl-grid-line" x1="${xScale(tick)}" y1="${margin.top}" x2="${xScale(tick)}" y2="${height - margin.bottom}"></line>
-        <text class="fl-axis-tick" x="${xScale(tick)}" y="${height - margin.bottom + 26}" text-anchor="middle">${escapeHtml(xMeta.format(tick))}</text>
-      `).join("")}
-
-      ${yTicks.map(tick => `
-        <line class="fl-grid-line" x1="${margin.left}" y1="${yScale(tick)}" x2="${width - margin.right}" y2="${yScale(tick)}"></line>
-        <text class="fl-axis-tick" x="${margin.left - 14}" y="${yScale(tick) + 4}" text-anchor="end">${escapeHtml(yMeta.format(tick))}</text>
-      `).join("")}
-
-      <line class="fl-axis-line" x1="${margin.left}" y1="${height - margin.bottom}" x2="${width - margin.right}" y2="${height - margin.bottom}"></line>
-      <line class="fl-axis-line" x1="${margin.left}" y1="${margin.top}" x2="${margin.left}" y2="${height - margin.bottom}"></line>
-
-      ${FORM_LAB_STATE.showAverage ? `
-        <line class="fl-average-line" x1="${xScale(avgX)}" y1="${margin.top}" x2="${xScale(avgX)}" y2="${height - margin.bottom}"></line>
-        <line class="fl-average-line" x1="${margin.left}" y1="${yScale(avgY)}" x2="${width - margin.right}" y2="${yScale(avgY)}"></line>
-      ` : ""}
-
-      ${FORM_LAB_STATE.showTrend && trendLine ? `
-        <line class="fl-trend-line" x1="${xScale(trendLine.x1)}" y1="${yScale(trendLine.y1)}" x2="${xScale(trendLine.x2)}" y2="${yScale(trendLine.y2)}"></line>
-      ` : ""}
-
-      <text class="fl-axis-label" x="${margin.left + innerW / 2}" y="${height - 24}" text-anchor="middle">${escapeHtml(xMeta.label)}</text>
-      <text class="fl-axis-label fl-axis-label-y" x="24" y="${margin.top + innerH / 2}" text-anchor="middle" transform="rotate(-90 24 ${margin.top + innerH / 2})">${escapeHtml(yMeta.label)}</text>
-
-      ${rows.map((row, index) => {
-        const cx = xScale(row[xKey]);
-        const cy = yScale(row[yKey]);
-        const selected = row.id === selectedId;
-        const tone = row.profit >= 0 ? "positive" : row.bubbleFlag ? "bubble" : "negative";
-
-        return `
-          <g class="fl-point-group${selected ? " is-selected" : ""}" data-event-id="${escapeAttr(row.id)}" tabindex="0">
-            <circle class="fl-point fl-point-${tone}" cx="${cx}" cy="${cy}" r="${selected ? 9 : 7}" filter="url(#fl-dot-glow)"></circle>
-            ${FORM_LAB_STATE.showLabels ? `
-              <text class="fl-point-label" x="${cx + 11}" y="${cy - 10}">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</text>
-            ` : ""}
-            <title>${escapeHtml(formatTooltip(row, xMeta, yMeta, xKey, yKey))}</title>
-          </g>
-        `;
-      }).join("")}
-    </svg>
-  `;
-
-  mount.querySelectorAll(".fl-point-group").forEach(group => {
-    group.addEventListener("click", () => {
-      FORM_LAB_STATE.selectedEventId = group.dataset.eventId || "";
-      renderSelectedEventPanel(rows, player);
-      renderTimeline(rows);
-      renderScatterChart(rows, player);
-    });
-
-    group.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        FORM_LAB_STATE.selectedEventId = group.dataset.eventId || "";
-        renderSelectedEventPanel(rows, player);
-        renderTimeline(rows);
-        renderScatterChart(rows, player);
-      }
-    });
-  });
-}
-
-function renderSelectedEventPanel(rows, player) {
-  const el = document.getElementById("fl-event-detail");
-  if (!el) return;
-
-  const selected = rows.find(row => row.id === FORM_LAB_STATE.selectedEventId) || rows[rows.length - 1];
-
-  if (!selected) {
-    el.innerHTML = `<p class="fl-muted">Select an event dot to inspect it.</p>`;
-    return;
-  }
-
-  const finishLabel = selected.finishPosition
-    ? `${ordinal(selected.finishPosition)} of ${selected.fieldSize}`
-    : "-";
-
-  el.innerHTML = `
-    <div class="fl-event-detail-head">
-      <div>
-        <div class="fl-kicker">Selected Event</div>
-        <h3>${escapeHtml(formatDate(selected.dateIso || selected.dateRaw))}</h3>
-        <p>${escapeHtml(selected.title || "")}</p>
-      </div>
-      <div class="fl-event-result-pill ${selected.profit >= 0 ? "positive" : "negative"}">${moneyFmt(selected.profit)}</div>
-    </div>
-
-    <div class="fl-event-stat-grid">
-      ${detailStat("Finish", finishLabel)}
-      ${detailStat("Depth", `${numberFmt(selected.finishDepth, 0)}%`)}
-      ${detailStat("Rebuys", selected.rebuys)}
-      ${detailStat("Hits", selected.hits)}
-      ${detailStat("Cost", moneyFmt(selected.cost))}
-      ${detailStat("Winnings", moneyFmt(selected.winnings))}
-      ${detailStat("Form", numberFmt(selected.formScore, 1))}
-      ${detailStat("Pain", numberFmt(selected.painIndex, 1))}
-    </div>
-  `;
-}
-
-function detailStat(label, value) {
-  return `
-    <div class="fl-event-stat">
-      <span>${escapeHtml(label)}</span>
-      <strong>${escapeHtml(String(value))}</strong>
-    </div>
-  `;
-}
-
-function renderTimeline(rows) {
-  const el = document.getElementById("fl-event-timeline");
-  if (!el) return;
-
-  if (!rows.length) {
-    el.innerHTML = "";
-    return;
-  }
-
-  el.innerHTML = rows.map(row => `
-    <button
-      class="fl-timeline-card${row.id === FORM_LAB_STATE.selectedEventId ? " is-selected" : ""}"
-      type="button"
-      data-event-id="${escapeAttr(row.id)}"
-    >
-      <span class="fl-timeline-date">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</span>
-      <strong>${row.finishPosition ? ordinal(row.finishPosition) : "-"}</strong>
-      <span class="${row.profit >= 0 ? "positive" : "negative"}">${moneyFmt(row.profit)}</span>
-    </button>
-  `).join("");
-
-  el.querySelectorAll("[data-event-id]").forEach(button => {
-    button.addEventListener("click", () => {
-      FORM_LAB_STATE.selectedEventId = button.dataset.eventId || "";
-      renderFormLab();
-    });
-  });
-}
-
-function formatTooltip(row, xMeta, yMeta, xKey, yKey) {
-  return [
-    formatDate(row.dateIso || row.dateRaw),
-    `${xMeta.label}: ${xMeta.format(row[xKey])}`,
-    `${yMeta.label}: ${yMeta.format(row[yKey])}`,
-    `Finish: ${row.finishPosition ? `${row.finishPosition}/${row.fieldSize}` : "-"}`,
-    `Profit: ${moneyFmt(row.profit)}`,
-    `Hits: ${row.hits}`,
-    `Rebuys: ${row.rebuys}`
-  ].join("\n");
-}
-
-function paddedDomain(values) {
-  const clean = values.filter(value => Number.isFinite(Number(value))).map(Number);
-
-  if (!clean.length) return [0, 1];
-
-  let min = Math.min(...clean);
-  let max = Math.max(...clean);
-
-  if (min === max) {
-    min -= 1;
-    max += 1;
-  }
-
-  const pad = (max - min) * 0.12;
-  return [min - pad, max + pad];
-}
-
-function makeTicks(min, max, count = 5) {
-  const ticks = [];
-  const step = (max - min) / Math.max(count - 1, 1);
-
-  for (let i = 0; i < count; i += 1) {
-    ticks.push(min + step * i);
-  }
-
-  return ticks;
-}
-
-function linearRegression(points) {
-  if (!points.length || points.length < 2) return null;
-
-  const n = points.length;
-  const sumX = points.reduce((sum, point) => sum + point.x, 0);
-  const sumY = points.reduce((sum, point) => sum + point.y, 0);
-  const sumXY = points.reduce((sum, point) => sum + point.x * point.y, 0);
-  const sumXX = points.reduce((sum, point) => sum + point.x * point.x, 0);
-
-  const denominator = n * sumXX - sumX * sumX;
-  if (denominator === 0) return null;
-
-  const slope = (n * sumXY - sumX * sumY) / denominator;
-  const intercept = (sumY - slope * sumX) / n;
-
-  return { slope, intercept };
-}
-
-function playerImageMarkup(player) {
-  const image = player?.image || "";
+function playerAvatarMarkup(player) {
   const name = displayName(player);
+  const image = player && player.image ? player.image : "";
 
-  if (image) {
-    return `
-      <span class="fl-player-avatar-wrap">
+  return `
+    <span class="fl-player-avatar-wrap">
+      ${image ? `
         <img
           class="fl-player-avatar"
           src="${escapeAttr(image)}"
@@ -937,27 +1051,23 @@ function playerImageMarkup(player) {
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
         />
         <span class="fl-player-avatar-fallback" style="display:none;">${escapeHtml(initialsFromName(name))}</span>
-      </span>
-    `;
-  }
-
-  return `
-    <span class="fl-player-avatar-wrap">
-      <span class="fl-player-avatar-fallback">${escapeHtml(initialsFromName(name))}</span>
+      ` : `
+        <span class="fl-player-avatar-fallback">${escapeHtml(initialsFromName(name))}</span>
+      `}
     </span>
   `;
 }
 
 function displayName(player) {
   if (!player) return "";
-  const name = player.name || "";
+
+  const name = String(player.name || "");
   const fixes = {
     "Nasa Al": "NASA Al",
     "Providencemike": "ProvidenceMike",
     "Bostnmike": "BostnMike",
+    "Ai Dave": "A.I. Dave",
     "Ai-Dave": "A.I. Dave",
-    "A.I. Dave": "A.I. Dave",
-    "ai-dave": "A.I. Dave",
     "Phattedcalf": "PhattedCalf",
     "Pittdburghbill": "PittsburghBill"
   };
@@ -985,6 +1095,13 @@ function canonicalSlug(value) {
     .replace(/^-+|-+$/g, "");
 }
 
+function firstDefined() {
+  for (let i = 0; i < arguments.length; i += 1) {
+    if (arguments[i] !== undefined && arguments[i] !== null) return arguments[i];
+  }
+  return undefined;
+}
+
 function getNumeric(value) {
   if (value === null || value === undefined || value === "") return 0;
   const cleaned = String(value).replace(/[^0-9.-]/g, "");
@@ -1008,11 +1125,56 @@ function average(values) {
   return clean.reduce((sum, value) => sum + value, 0) / clean.length;
 }
 
+function paddedDomain(values) {
+  const clean = values.map(Number).filter(Number.isFinite);
+  if (!clean.length) return [0, 1];
+
+  let min = Math.min(...clean);
+  let max = Math.max(...clean);
+
+  if (min === max) {
+    min -= 1;
+    max += 1;
+  }
+
+  const pad = (max - min) * 0.12;
+  return [min - pad, max + pad];
+}
+
+function makeTicks(min, max, count) {
+  const ticks = [];
+  const step = (max - min) / Math.max(count - 1, 1);
+
+  for (let i = 0; i < count; i += 1) {
+    ticks.push(min + step * i);
+  }
+
+  return ticks;
+}
+
+function linearRegression(points) {
+  if (!points || points.length < 2) return null;
+
+  const n = points.length;
+  const sumX = points.reduce((sum, point) => sum + point.x, 0);
+  const sumY = points.reduce((sum, point) => sum + point.y, 0);
+  const sumXY = points.reduce((sum, point) => sum + point.x * point.y, 0);
+  const sumXX = points.reduce((sum, point) => sum + point.x * point.x, 0);
+
+  const denominator = n * sumXX - sumX * sumX;
+  if (!denominator) return null;
+
+  return {
+    slope: (n * sumXY - sumX * sumY) / denominator,
+    intercept: (sumY - ((n * sumXY - sumX * sumY) / denominator) * sumX) / n
+  };
+}
+
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, Number(value) || 0));
 }
 
-function numberFmt(value, digits = 1) {
+function numberFmt(value, digits) {
   const num = Number(value || 0);
   return num.toLocaleString("en-US", {
     minimumFractionDigits: digits,
@@ -1032,6 +1194,7 @@ function ordinal(value) {
 
   const suffixes = ["th", "st", "nd", "rd"];
   const v = num % 100;
+
   return `${num}${suffixes[(v - 20) % 10] || suffixes[v] || suffixes[0]}`;
 }
 
@@ -1061,7 +1224,7 @@ function shortDate(value) {
 }
 
 function escapeHtml(value) {
-  return String(value ?? "")
+  return String(value == null ? "" : value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
