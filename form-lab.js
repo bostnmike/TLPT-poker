@@ -535,14 +535,12 @@ function renderPlayerCard(player, allRows, rows) {
   const avgDepth = average(rows.map(row => row.finishDepth));
 
   el.innerHTML = `
-    <div class="fl-player-card-row">
-      ${playerAvatarMarkup(player)}
-      <div>
-        <div class="fl-kicker">Selected Player</div>
-        <h3>${escapeHtml(displayName(player))}</h3>
-        <p>${rows.length} shown / ${allRows.length} total event${allRows.length === 1 ? "" : "s"}</p>
-      </div>
+    <div>
+      <h3>${escapeHtml(formatDate(row.dateIso || row.dateRaw))}</h3>
+      <p>${escapeHtml(row.title || "")}</p>
     </div>
+
+    <div class="fl-event-detail-grid">
 
     <div class="fl-detail-grid">
       <div class="fl-detail-stat">
