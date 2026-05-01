@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="form-lab.css" />
 </head>
+
 <body>
 <header class="site-header">
   <div class="wrap header-inner">
@@ -26,7 +27,7 @@
       <div class="nav-dropdown">
         <a href="dashboard.html" class="nav-dropdown-parent is-active">The Metrics</a>
         <div class="nav-dropdown-menu">
-          <a href="dashboard.html">Dashboard</a>
+          <a href="dashboard.html">Main Dashboard</a>
           <a href="form-lab.html" class="is-active" aria-current="page">The Form Lab</a>
           <a href="player-movement.html">The Heater Meter</a>
           <a href="knockouts.html">Knockout Central</a>
@@ -68,14 +69,24 @@
 <main class="wrap fl-page">
   <section class="fl-header-shell">
     <div class="fl-title-row">
-      <img src="images/site/chip-T-1000.png" class="fl-title-chip" alt="T-1000 chip" onerror="this.style.display='none';" />
+      <img
+        src="images/site/chip-T-1000.png"
+        class="fl-title-chip"
+        alt="T-1000 chip"
+        onerror="this.style.display='none';"
+      />
+
       <div>
         <div class="fl-kicker">The Metrics</div>
         <h1>The Form Lab</h1>
-        <p>Interactive player trend analysis, scatter plots, and deeply unnecessary evidence.</p>
       </div>
     </div>
+
     <div class="fl-accent-line"></div>
+
+    <p class="fl-header-helper">
+      Interactive player trend analysis, scatter plots, and deeply unnecessary evidence.
+    </p>
   </section>
 
   <section class="fl-control-shell" aria-label="Form Lab controls">
@@ -111,9 +122,20 @@
     </div>
 
     <div class="fl-toggle-row" aria-label="Chart options">
-      <label><input id="fl-show-labels" type="checkbox" checked /> Show event labels</label>
-      <label><input id="fl-show-trend" type="checkbox" checked /> Show trend line</label>
-      <label><input id="fl-show-average" type="checkbox" checked /> Show player average</label>
+      <label>
+        <input id="fl-show-labels" type="checkbox" checked />
+        Show event labels
+      </label>
+
+      <label>
+        <input id="fl-show-trend" type="checkbox" checked />
+        Show trend line
+      </label>
+
+      <label>
+        <input id="fl-show-average" type="checkbox" checked />
+        Show player average
+      </label>
     </div>
   </section>
 
@@ -124,6 +146,7 @@
         <h2 id="fl-chart-title">Loading chart…</h2>
         <p id="fl-chart-subtitle">Choose a player, preset, and axis metrics.</p>
       </div>
+
       <div id="fl-player-card" class="fl-player-card"></div>
     </div>
 
@@ -158,6 +181,7 @@
         <h2>Player Event History</h2>
       </div>
     </div>
+
     <div id="fl-event-list" class="fl-event-list"></div>
   </section>
 </main>
