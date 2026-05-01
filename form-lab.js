@@ -885,8 +885,57 @@ function getPlayerEventRowsForPlayer(player) {
   });
 }
 
+function didPlayerPlayEvent(event, playerResult, playerSlug) {
+  const entries = getNumeric(firstDefined(playerResult.entries, 0));
+  const buyIns = getNumeric(firstDefined(playerResult.buyIns, playerResult.buyins, playerResult.buyInCount, 0));
+  const rebuys = getNumeric(firstDefined(playerResult.rebuys, playerResult.rebuyCount, playerResult.rebuysUsed, 0));
+
+  if (entries > 0 || buyIns > 0) {
+    return true;
+  }
+
+  /*
+    Safety fallback:
+    If a future parsed event forgets to populate entries/buyIns,
+    count the player as active only if they appear in actual event actions.
+  */
+  const actions = Array.isArray(event.actions) ? event.actions : [];
+
+  return actions.some(action => {
+    const actionSlug = canonicalSlug(
+      action.slug ||
+      action.playerSlug ||
+      action.player ||
+      action.name ||
+      ""
+    );
+
+    const actionBySlug = canonicalSlug(
+      action.bySlug ||
+      action.hitmanSlug ||
+      action.killerSlug ||
+      action.eliminatorSlug ||
+      ""
+    );
+
+    const actionType = String(action.type || "").toLowerCase();
+
+    const playerIsActor = actionSlug === playerSlug;
+    const playerIsHitman = actionBySlug === playerSlug;
+
+    return (
+      playerIsActor &&
+      ["buyin", "buy-in", "rebuy", "bustout", "payout"].includes(actionType)
+    ) || (
+      playerIsHitman &&
+      ["bustout", "knockout"].includes(actionType)
+    );
+  }) || rebuys > 0;
+}
+
 function buildPlayerEventRow(event, player, playerSlug) {
   const eventPlayers = getEventPlayers(event);
+
   const found = eventPlayers.find(candidate => {
     const candidateSlug = canonicalSlug(candidate.slug || candidate.playerSlug || candidate.name || candidate.player || "");
     const candidateNameSlug = canonicalSlug(candidate.name || candidate.player || "");
@@ -895,14 +944,26 @@ function buildPlayerEventRow(event, player, playerSlug) {
 
   if (!found) return null;
 
+  /*
+    Critical fix:
+    Parsed event files include the full roster, including players who did not play.
+    Do NOT build a row unless the player actually entered that event.
+  */
+  if (!didPlayerPlayEvent(event, found, playerSlug)) {
+    return null;
+  }
+
   const dateIso = getEventDateIso(event);
   const finishPosition = getFinishPosition(found, event);
   const fieldSize = getFieldSize(event);
+
+  const buyIns = getNumeric(firstDefined(found.buyIns, found.buyins, found.buyInCount, 1));
   const rebuys = getNumeric(firstDefined(found.rebuys, found.rebuyCount, found.rebuysUsed, 0));
-  const entriesUsed = 1 + rebuys;
+  const entriesUsed = Math.max(1, getNumeric(firstDefined(found.entries, buyIns + rebuys, 1)));
+
   const hits = getPlayerHits(event, playerSlug, found);
   const winnings = getNumeric(firstDefined(found.winnings, found.prize, found.payout, found.totalWinnings, 0));
-  const cost = entriesUsed * 30;
+  const cost = getNumeric(firstDefined(found.totalCost, entriesUsed * 30));
 
   const explicitProfit = firstDefined(found.profit, found.net, found.netProfit, null);
   const profit = explicitProfit !== null && explicitProfit !== undefined
@@ -911,7 +972,10 @@ function buildPlayerEventRow(event, player, playerSlug) {
 
   const paidSpots = getPaidSpots(event);
   const cashFlag = winnings > 0 || (paidSpots > 0 && finishPosition > 0 && finishPosition <= paidSpots);
-  const bubbleFlag = paidSpots > 0 && finishPosition === paidSpots + 1 ? 1 : 0;
+  const bubbleFlag = getNumeric(firstDefined(found.bubbles, 0)) > 0 ||
+    (paidSpots > 0 && finishPosition === paidSpots + 1)
+      ? 1
+      : 0;
 
   const finishDepth = calculateFinishDepth(finishPosition, fieldSize);
 
@@ -939,14 +1003,15 @@ function buildPlayerEventRow(event, player, playerSlug) {
   const volatility = Math.abs(profit / 10) + rebuys * 14 + hits * 6 + bubbleFlag * 16;
 
   return {
-    id: `${dateIso || event.id || event.date || "event"}-${playerSlug}`,
+    id: `${dateIso || event.eventId || event.id || event.date || "event"}-${playerSlug}`,
     event,
     player,
     dateIso,
-    dateRaw: event.date || event.eventDate || event.id || "",
+    dateRaw: event.date || event.eventDate || event.eventId || event.id || "",
     title: event.title || event.name || event.eventName || dateIso || "Event",
     finishPosition,
     fieldSize,
+    buyIns,
     rebuys,
     entriesUsed,
     hits,
@@ -996,6 +1061,7 @@ function getFinishPosition(playerResult, event) {
 
 function getFieldSize(event) {
   const direct = getNumeric(firstDefined(
+    event.summary && event.summary.entries,
     event.fieldSize,
     event.entries,
     event.totalEntries,
@@ -1007,7 +1073,14 @@ function getFieldSize(event) {
   if (direct > 0) return direct;
 
   const players = getEventPlayers(event);
-  return players.length || 1;
+
+  const actualPlayers = players.filter(player => {
+    const entries = getNumeric(firstDefined(player.entries, 0));
+    const buyIns = getNumeric(firstDefined(player.buyIns, player.buyins, player.buyInCount, 0));
+    return entries > 0 || buyIns > 0;
+  });
+
+  return actualPlayers.length || 1;
 }
 
 function getPaidSpots(event) {
