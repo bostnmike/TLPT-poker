@@ -954,7 +954,7 @@ function buildPlayerEventRow(event, player, playerSlug) {
   }
 
   const dateIso = getEventDateIso(event);
-  const finishPosition = getFinishPosition(found, event);
+  const finishPosition = getFinishPosition(found, event, playerSlug);
   const fieldSize = getFieldSize(event);
 
   const buyIns = getNumeric(firstDefined(found.buyIns, found.buyins, found.buyInCount, 1));
@@ -1041,22 +1041,135 @@ function getEventPlayers(event) {
   return [];
 }
 
-function getFinishPosition(playerResult, event) {
+function getFinishPosition(playerResult, event, playerSlug) {
+  const slug = canonicalSlug(playerSlug || playerResult.slug || playerResult.playerSlug || playerResult.name || playerResult.player || "");
+
+  /*
+    1. Winners/chops are the cleanest source.
+    Parsed events store chops as winners with rank: 1.
+  */
+  const winnerRank = getWinnerRank(event, slug);
+  if (winnerRank > 0) return winnerRank;
+
+  /*
+    2. Most parsed event player rows do NOT contain a finish position.
+    So derive it from the final bustout order.
+  */
+  const actionDerivedFinish = getFinishPositionFromFinalBustouts(event, slug);
+  if (actionDerivedFinish > 0) return actionDerivedFinish;
+
+  /*
+    3. Only now trust explicit finish-ish fields.
+    IMPORTANT: do not use roster array index as a fallback.
+  */
   const direct = getNumeric(firstDefined(
     playerResult.finishPosition,
-    playerResult.finish,
+    playerResult.finishPlace,
+    playerResult.finalPlace,
+    playerResult.placement,
     playerResult.place,
-    playerResult.rank,
+    playerResult.finish,
+    playerResult.finalRank,
     playerResult.position,
     0
   ));
 
-  if (direct > 0) return direct;
+  return direct > 0 ? direct : 0;
+}
 
+function getWinnerRank(event, playerSlug) {
+  const slug = canonicalSlug(playerSlug);
+
+  const winners = Array.isArray(event.winners) ? event.winners : [];
+
+  const winner = winners.find(item => {
+    const winnerSlug = canonicalSlug(item.slug || item.playerSlug || item.name || item.player || "");
+    return winnerSlug === slug;
+  });
+
+  if (winner) {
+    return getNumeric(firstDefined(winner.rank, winner.place, winner.finishPosition, 1)) || 1;
+  }
+
+  return 0;
+}
+
+function getFinishPositionFromFinalBustouts(event, playerSlug) {
+  const slug = canonicalSlug(playerSlug);
+  const actions = Array.isArray(event.actions) ? event.actions : [];
+
+  if (!actions.length) return 0;
+
+  const activePlayerCount = getActualPlayerCount(event);
+
+  if (!activePlayerCount) return 0;
+
+  const finalBustouts = actions.filter((action, index) => {
+    const actionType = String(action.type || "").toLowerCase();
+    if (actionType !== "bustout" && actionType !== "knockout") return false;
+
+    const bustedSlug = canonicalSlug(action.slug || action.playerSlug || action.player || action.name || "");
+    if (!bustedSlug) return false;
+
+    /*
+      If this player rebuys after this bustout, this was NOT their final exit.
+      We only want permanent exits.
+    */
+    const reboughtLater = actions.slice(index + 1).some(laterAction => {
+      const laterType = String(laterAction.type || "").toLowerCase();
+      const laterSlug = canonicalSlug(laterAction.slug || laterAction.playerSlug || laterAction.player || laterAction.name || "");
+
+      return laterSlug === bustedSlug && laterType === "rebuy";
+    });
+
+    return !reboughtLater;
+  });
+
+  const finalIndex = finalBustouts.findIndex(action => {
+    const bustedSlug = canonicalSlug(action.slug || action.playerSlug || action.player || action.name || "");
+    return bustedSlug === slug;
+  });
+
+  if (finalIndex < 0) return 0;
+
+  /*
+    First permanent bustout finishes last.
+    Example: 9 actual players.
+      first permanent bustout = 9th
+      second permanent bustout = 8th
+      ...
+      last permanent bustout before winners = 4th if 3-way chop
+  */
+  return Math.max(1, activePlayerCount - finalIndex);
+}
+
+function getActualPlayerCount(event) {
   const players = getEventPlayers(event);
-  const index = players.findIndex(item => item === playerResult);
 
-  return index >= 0 ? index + 1 : 0;
+  const activeFromRows = players
+    .filter(player => {
+      const entries = getNumeric(firstDefined(player.entries, 0));
+      const buyIns = getNumeric(firstDefined(player.buyIns, player.buyins, player.buyInCount, 0));
+      return entries > 0 || buyIns > 0;
+    })
+    .map(player => canonicalSlug(player.slug || player.playerSlug || player.name || player.player || ""))
+    .filter(Boolean);
+
+  if (activeFromRows.length) {
+    return new Set(activeFromRows).size;
+  }
+
+  const actions = Array.isArray(event.actions) ? event.actions : [];
+
+  const activeFromActions = actions
+    .filter(action => {
+      const type = String(action.type || "").toLowerCase();
+      return type === "buyin" || type === "buy-in";
+    })
+    .map(action => canonicalSlug(action.slug || action.playerSlug || action.player || action.name || ""))
+    .filter(Boolean);
+
+  return new Set(activeFromActions).size;
 }
 
 function getFieldSize(event) {
