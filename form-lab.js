@@ -715,8 +715,7 @@ function renderScatter(rows) {
         <span>Profit: ${moneyFmt(row.profit)}</span>
       `;
 
-      tooltip.style.left = `${event.clientX + 14}px`;
-      tooltip.style.top = `${event.clientY + 14}px`;
+      positionFormLabTooltip(tooltip, event);
     });
 
     point.addEventListener("mouseleave", () => {
@@ -1445,4 +1444,39 @@ function escapeHtml(value) {
 
 function escapeAttr(value) {
   return escapeHtml(value);
+}
+
+function positionFormLabTooltip(tooltip, event) {
+  if (!tooltip || !event) return;
+
+  const offset = 14;
+  const padding = 12;
+
+  // First place it in the default down/right position so we can measure it.
+  tooltip.style.left = `${event.clientX + offset}px`;
+  tooltip.style.top = `${event.clientY + offset}px`;
+
+  const rect = tooltip.getBoundingClientRect();
+  const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  let left = event.clientX + offset;
+  let top = event.clientY + offset;
+
+  // If it would run off the right edge, flip it to the left of the cursor.
+  if (left + rect.width + padding > viewportWidth) {
+    left = event.clientX - rect.width - offset;
+  }
+
+  // If it would run off the bottom edge, flip it above the cursor.
+  if (top + rect.height + padding > viewportHeight) {
+    top = event.clientY - rect.height - offset;
+  }
+
+  // Final guardrails so it never disappears off-screen.
+  left = Math.max(padding, Math.min(left, viewportWidth - rect.width - padding));
+  top = Math.max(padding, Math.min(top, viewportHeight - rect.height - padding));
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
 }
