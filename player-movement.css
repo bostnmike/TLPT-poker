@@ -1153,3 +1153,50 @@
   text-align: left;
   text-shadow: 0 0 8px rgba(200,138,0,.10);
 }
+
+/* =========================================
+   HEATER METER FINAL HEADER ALIGNMENT
+========================================= */
+
+/* Match the top spacing used by the other main pages */
+main.wrap .pm-page {
+  padding-top: 0 !important;
+}
+
+/* The header shell itself should sit right under the normal page wrap spacing */
+.pm-page .pm-header-shell {
+  margin-top: 0 !important;
+}
+
+/* Match Champions / The TLPT (Dis)Honors title treatment */
+.pm-page .pm-title-row h1,
+.pm-page .pm-page-title,
+.pm-page h1 {
+  margin: 0 !important;
+  color: #fde68a !important;
+  font-size: 1.5em !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  text-align: left !important;
+  text-shadow: 0 0 8px rgba(250,204,21,.14) !important;
+}
+
+/* Keep the chip at the same page-header size as the rest of the site */
+.pm-page .pm-title-chip,
+.pm-page .page-chip,
+.pm-page .page-chip-dashboard {
+  width: 82px !important;
+  height: 82px !important;
+  min-width: 82px !important;
+  min-height: 82px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  flex: 0 0 auto !important;
+}
+
+/* Keep title/chip alignment consistent with other header shells */
+.pm-page .pm-title-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
