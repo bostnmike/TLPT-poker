@@ -22,8 +22,8 @@
 }
 
 .pm-title-chip {
-  width: 72px;
-  height: 72px;
+  width: 82px;
+  height: 82px;
 }
 
 .pm-page h1 {
@@ -1120,4 +1120,36 @@
     right: auto;
     justify-content: flex-start;
   }
+}
+
+/* =========================================
+   HEATER METER HEADER ALIGNMENT
+========================================= */
+
+.pm-page .pm-title-chip,
+.pm-page .page-chip,
+.pm-page .page-chip-dashboard {
+  width: 82px !important;
+  height: 82px !important;
+  min-width: 82px !important;
+  min-height: 82px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
+/* =========================================
+   HEATER METER TITLE — CHAMPIONS STYLE
+========================================= */
+
+.pm-page .pm-title-row h1,
+.pm-page .pm-page-title,
+.pm-page h1 {
+  margin: 0;
+  color: #c88a00 !important;
+  font-size: 1.5em !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  text-align: left;
+  text-shadow: 0 0 8px rgba(200,138,0,.10);
 }
