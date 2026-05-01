@@ -17,6 +17,8 @@ const FL_STATE = {
   selectedEventId: ""
 };
 
+const FL_MIN_EVENTS_PLAYED = 4;
+
 const FL_PRESETS = {
   "form-volatility": {
     label: "Form vs. Volatility",
@@ -183,8 +185,12 @@ async function initFormLab() {
     const data = await loadFormLabData();
 
     FL_STATE.data = data;
-    FL_STATE.players = normalizePlayers(data.players || []);
     FL_STATE.events = data.events || [];
+
+    const allPlayers = normalizePlayers(data.players || []);
+    FL_STATE.players = allPlayers.filter(player => {
+      return getPlayerEventRowsForPlayer(player).length >= FL_MIN_EVENTS_PLAYED;
+    });
 
     populatePlayerSelect();
     populatePresetSelect();
