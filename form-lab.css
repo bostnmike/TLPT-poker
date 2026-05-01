@@ -41,7 +41,6 @@
   padding: 18px;
 }
 
-.fl-header-shell::before,
 .fl-control-shell::before,
 .fl-lab-shell::before,
 .fl-events-shell::before {
@@ -91,18 +90,28 @@
   font-size: 2.2rem;
 }
 
-.fl-title-row p,
 #fl-chart-subtitle {
   margin: 8px 0 0;
   color: #cfd8e3;
   line-height: 1.45;
 }
 
+.fl-header-helper {
+  margin: 12px 0 0;
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.42;
+  text-shadow:
+    0 0 10px rgba(255,184,28,.18),
+    0 0 20px rgba(255,184,28,.08);
+}
+
 .fl-accent-line {
   height: 3px;
-  margin-top: 18px;
+  margin-top: 14px;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.42) 58%, transparent 100%);
+  background: linear-gradient(90deg, rgba(255,184,28,.95), rgba(255,184,28,.42) 68%, transparent 100%);
 }
 
 .fl-control-grid {
