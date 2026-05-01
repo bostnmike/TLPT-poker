@@ -317,8 +317,8 @@
 }
 
 .fl-tooltip {
-  position: absolute;
-  z-index: 10;
+  position: fixed;
+  z-index: 99999;
   min-width: 210px;
   max-width: 270px;
   padding: 12px;
