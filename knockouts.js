@@ -6,11 +6,12 @@
     "site-data.json"
   ];
 
-  const KNOCKOUTS_URLS = [
-    "knockouts.json",
-    "./knockouts.json",
-    "data/generated/knockouts.json"
-  ];
+const KNOCKOUTS_URLS = [
+  "data/generated/knockouts.json?v=" + Date.now(),
+  "data/generated/knockouts-generated.json?v=" + Date.now(),
+  "knockouts.json?v=" + Date.now(),
+  "./knockouts.json?v=" + Date.now()
+];
 
   function getInitials(name) {
     const parts = String(name || "")
