@@ -14,11 +14,124 @@
   },
   "weeks": [
 {
+  "id": "week-05-01-2026",
+  "date": "05/01/2026",
+  "eventName": "Clear & Obvious, Bluffs | 9-Max",
+  "title": "TWTW: Clear & Obvious, Bluffs | 9-Max",
+  "featured": true,
+  "dek": "ProvidenceMike got bounced first, rebought instantly, then rode a Boston-accent-heavy grinder all the way back into another chop at the top.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "ProvidenceMike",
+      "value": "Split first",
+      "copy": "Got busted first, rebought immediately, and came all the way back for another shared win.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "ProvidenceMike",
+      "copy": "Tim S returned from a long layoff and wasted no time drawing first blood.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Phattedcalf",
+      "copy": "ProvidenceMike made the first permanent exit count once the comeback started rolling.",
+      "avatar": "images/players/phattedcalf.jpg",
+      "fallback": "PC"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "ProvidenceMike",
+      "value": "4 knockouts",
+      "copy": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the way back.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "9" },
+    { "icon": "♻️", "label": "Rebuys", "value": "3" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$270" },
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 58m" }
+  ],
+  "summary": {
+    "startTime": "7:38:12 pm 05/01/2026",
+    "endTime": "11:36:00 pm 05/01/2026",
+    "durationLabel": "3h 58m",
+    "buyIns": 6,
+    "rebuys": 3,
+    "entries": 9,
+    "totalPot": 270,
+    "paidSpots": 3,
+    "winner": "Li-Fo, Providencemike",
+    "firstOut": "Providencemike",
+    "firstPermanentOut": "Phattedcalf"
+  },
+  "spotlight": {
+    "player": "ProvidenceMike",
+    "avatar": "images/players/providencemike.jpg",
+    "fallback": "PM",
+    "kicker": "Game Spotlight",
+    "pills": ["Split First", "Busted First", "Immediate Rebuy", "Second Chop in Two Events"]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "ProvidenceMike",
+      "note": "Tim S returned from the wilderness and immediately made his presence everybody else’s problem."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Phattedcalf",
+      "note": "ProvidenceMike made the first permanent exit count once the comeback got rolling."
+    },
+    {
+      "label": "Table Killer",
+      "value": "ProvidenceMike",
+      "note": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the march back."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Li-Fo / ProvidenceMike split first",
+      "note": "BostnMike took third, and the chop bought him the only mercy he saw all night: a little sleep."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-01.jpg\" alt=\"Poster for the 05/01/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Clear &amp; Obvious, Bluffs turned into a very local kind of problem. Tim S came back after what felt like a calendar-year disappearance, the table was thick with Boston-area voices, and for a while it looked like the returning guest star might hijack the whole script. He bounced ProvidenceMike first, clipped Li-Fo next, and reminded everybody that rust is optional when you show up ready to start trouble. In a room featuring Tim, Phattedcalf, ProvidenceMike, and both Mikes, this was a Boston-accent-heavy table from the jump, and it played like one: loud, aggrieved, and fully convinced every river card had committed a personal offense.</p><p>Then ProvidenceMike did the thing he keeps doing lately: he stayed alive long enough to become the story. After taking the first bust of the night and buying right back in, he rebuilt his stack, settled the room down by knocking out Phattedcalf, then sent Tim S out for good, then took Hiro, then took BostnMike, and walked himself all the way into another shared finish. That is now two chops in two events, which officially moves this from nice little run territory into something much more annoying for the rest of the field.</p><p>Li-Fo deserves the other half of the ending, because this was not ProvidenceMike soloing the room. Tim S sent Li-Fo out earlier too, Li-Fo bought back, hung around through the middle stages, and was still standing when the event finally reached its shared finish at 11:36. The payout sheet may call it a split. The room probably called it overdue. Either way, the top line belongs to Li-Fo and ProvidenceMike together.</p><p>And then there was the host experience, which felt less like tournament poker and more like a targeted anti-commissioner campaign. BostnMike had queens cracked on the river by Hiro, had aces cracked on the river by ProvidenceMike, and generally spent the night learning that premium holdings are just a creative way to lose with extra confidence. He still laddered into third, which says more about the shape of the table than the health of the cards. And because the hockey gods enjoy structure, Red got the last laugh without even sitting down: the Bruins got bounced by his beloved Sabres in Game 6, which is the kind of off-table needle that fits this league a little too well.</p>",
+  "roastHtml": "<p>BostnMike spent the evening getting premium hands treated like loose suggestions. Queens cracked on the river. Aces cracked on the river. Third place secured anyway, which is really just the table’s way of saying, We ruined your night, but not enough to make it clean.</p>",
+  "numbersThatMatter": [
+    "6 buy-ins, 3 rebuys, 9 total entries.",
+    "3h 58m of play from 7:38 pm to 11:36 pm.",
+    "$270 total pot with a split first-place finish.",
+    "ProvidenceMike was first out, rebought immediately, and still came back to share first."
+  ],
+  "quickHitsLeft": [
+    "Tim S returned after a very long hiatus and wasted no time busting ProvidenceMike first and Li-Fo next.",
+    "This was a deeply Boston-accent-heavy table, which may explain why every setback felt like a constitutional violation.",
+    "Phattedcalf was first gone for good once ProvidenceMike’s comeback arc found teeth.",
+    "Li-Fo took the early bust, reloaded, and still got his share of first by the end."
+  ],
+  "quickHitsRight": [
+    "ProvidenceMike is now on a two-event chop heater, which is not the kind of trend the rest of the room needed.",
+    "Hiro got his river justice against BostnMike’s queens before ProvidenceMike closed the commissioner himself.",
+    "Red was nowhere near the table and still found a way to needle the room when the Sabres bounced the Bruins in Game 6.",
+    "Clear &amp; Obvious, Bluffs ended exactly like the title suggests: everybody thought they were right, and two guys got paid first."
+  ],
+  "tldr": "ProvidenceMike got busted first, bought right back in, and turned another wild night into another chop at the top. Tim S made a loud return, Li-Fo survived his own reboot, and BostnMike spent the night discovering that even aces come with fine print."
+},
+{
   "id": "week-04-24-2026",
   "date": "04/24/2026",
   "eventName": "Shipping Up to Boston | 9-Max",
   "title": "TWTW: Shipping Up to Boston | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "ProvidenceMike got rivered into near-extinction, came roaring all the way back to the chip lead, and turned a chaotic four-hour grinder into a three-way chop worth staying up for.",
   "summaryCards": [
     {
@@ -104,7 +217,7 @@
       "note": "The top three agreed to a chop, and BostnMike got just enough sleep to make Logan with a pulse."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-24.jpg\" alt=\"Poster for the 04/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Shipping Up to Boston started like a table with no interest in mercy and somehow ended like a travel accommodation. The room was live from the jump, the rebuys stacked up fast, and Red spent most of the night treating the field like a personal eviction notice. Li-Fo got sent out first and came back. Hiro got sent out, came back, got sent out again, came back again, and still kept breathing. Ai-Dave and Vish both needed second lives too. It was one of those nights where nobody stayed dead unless the room signed paperwork.</p><p>And then ProvidenceMike flipped the whole script. After taking a brutal river beat and getting dragged all the way down to roughly 8K, he did not just survive. He rebuilt. He fought all the way back into the lead, stayed upright while the room kept detonating around him, and turned what should have been a sad supporting-role entry into the emotional center of the night. By the time he knocked out Ahmed late and sat down with the chip lead, the comeback had already become the real story whether the payout sheet admitted it or not.</p><p>The loudest public destruction still belonged to Red. He busted Li-Fo twice, Hiro twice, Ai-Dave twice, plus Vish, BostnMike, and Nitro, which is the kind of body count that usually buys you a clean solo headline. This time it bought him only a seat in a negotiated ending. Hiro deserves equal billing for refusing to stay buried after multiple busts, and for finally taking out Vish before the last conversation began. At 11:54:25, Hiro, ProvidenceMike, and Red all arrived at a \"TLPT Cease-Fire\" and chopped the top three spots.</p><p>Then there was BostnMike, who spent the night getting all the wrong kinds of confirmations. Jacks cracked by Vish’s sixes, every race lost, no real rhythm, and just enough pain to make the final chop feel less like diplomacy and more like a sleep-saving act of mercy before the early Boston flight. Four and a half hours of sleep has never looked so much like first-place money.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-04-24.jpg\" alt=\"Poster for the 04/24/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Shipping Up to Boston started like a table with no interest in mercy and somehow ended like a travel accommodation. The room was live from the jump, the rebuys stacked up fast, and Red spent most of the night treating the field like a personal eviction notice. Li-Fo got sent out first and came back. Hiro got sent out, came back, got sent out again, came back again, and still kept breathing. Ai-Dave and Vish both needed second lives too. It was one of those nights where nobody stayed dead unless the room signed paperwork.</p><p>And then ProvidenceMike flipped the whole script. After taking a brutal river beat and getting dragged all the way down to roughly 8K, he did not just survive. He rebuilt. He fought all the way back into the lead, stayed upright while the room kept detonating around him, and turned what should have been a sad supporting-role entry into the emotional center of the night. By the time he knocked out Ahmed late and sat down with the chip lead, the comeback had already become the real story whether the payout sheet admitted it or not.</p><p>The loudest public destruction still belonged to Red. He busted Li-Fo twice, Hiro twice, Ai-Dave twice, plus Vish, BostnMike, and Nitro, which is the kind of body count that usually buys you a clean solo headline. This time it bought him only a seat in a negotiated ending. Hiro deserves equal billing for refusing to stay buried after multiple busts, and for finally taking out Vish before the last conversation began. At 11:54:25, Hiro, ProvidenceMike, and Red all arrived at a TLPT Cease-Fire and chopped the top three spots.</p><p>Then there was BostnMike, who spent the night getting all the wrong kinds of confirmations. Jacks cracked by Vish’s sixes, every race lost, no real rhythm, and just enough pain to make the final chop feel less like diplomacy and more like a sleep-saving act of mercy before the early Boston flight. Four and a half hours of sleep has never looked so much like first-place money.</p>",
   "roastHtml": "<p>BostnMike spent the night watching pocket jacks lose to sixes, every race miss the runway, and his stack behave like it had already boarded a different flight. By the time the chop came through, the commissioner was not chasing glory anymore. He was basically negotiating with JetBlue and the poker gods at the same time.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 7 rebuys, 16 total entries.",
