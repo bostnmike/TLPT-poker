@@ -9728,3 +9728,20 @@ body:has(.media-header) .page-title-purple{
     flex-wrap: wrap !important;
   }
 }
+
+/* =========================================
+   SCHEDULE RSVP BUTTON — VERTICAL ALIGNMENT FIX
+========================================= */
+
+#schedule-list .event-details-col > a.btn.btn-rsvp {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-height: 40px !important;
+  padding: 9px 15px !important;
+
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap;
+}
