@@ -1,9 +1,10 @@
 {
- "A.I. Dave": "ai-dave",
+  "A.I. Dave": "ai-dave",
   "Ahmed": "ahmed",
   "Ai-Dave": "ai-dave",
   "Big Tim": "big-tim",
   "Bostnmike": "bostnmike",
+  "BostnMike": "bostnmike",
   "Brad R": "brad-r",
   "BuffaloMike": "buffalomike",
   "Chris O": "chris-o",
@@ -19,10 +20,13 @@
   "Li-Fo": "li-fo",
   "Mike G": "mike-g",
   "Mike-G": "buffalomike",
+  "mike-g": "buffalomike",
   "Nasa Al": "nasa-al",
+  "nasa-al": "nasa-al",
   "Nitro": "nitro",
   "Pat": "pat",
   "Phattedcalf": "phattedcalf",
+  "PhattedCalf": "phattedcalf",
   "Pittdburghbill": "pittsburghbill",
   "PittsburghBill": "pittsburghbill",
   "Pittsburghbill": "pittsburghbill",
@@ -32,9 +36,9 @@
   "Red": "red",
   "Rob F": "rob-f",
   "The Architect": "the-architect",
+  "Tim S": "tim-s",
   "Vic": "vic",
   "Vish": "vish",
   "Wild Bill": "wild-bill",
-  "Yann": "yann",
-  "mike-g": "buffalomike"
+  "Yann": "yann"
 }

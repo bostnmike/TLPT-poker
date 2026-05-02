@@ -1,10 +1,10 @@
 {
-  "2025-05-23": [
+  "2025-05-24": [
     {
       "victim": "jeff-t",
       "killer": "bostnmike",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "wild-bill",
@@ -27,7 +27,7 @@
     {
       "victim": "bostnmike",
       "killer": "dan-k",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Dan K"
     },
     {
@@ -78,25 +78,25 @@
       "victim": "wild-bill",
       "killer": "ai-dave",
       "sourceVictim": "Wild Bill",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "li-fo",
       "killer": "bostnmike",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "rob-f",
       "killer": "bostnmike",
       "sourceVictim": "Rob F",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "ai-dave",
       "killer": "bostnmike",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "BostnMike"
     }
   ],
   "2025-06-21": [
@@ -127,7 +127,7 @@
     {
       "victim": "bostnmike",
       "killer": "li-fo",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Li-Fo"
     },
     {
@@ -146,26 +146,20 @@
   "2025-06-28": [
     {
       "victim": "gilmore",
-      "killer": "li-fo",
-      "sourceVictim": "Gilmore",
-      "sourceKiller": "Li-Fo"
-    },
-    {
-      "victim": "gilmore",
       "killer": "nasa-al",
       "sourceVictim": "Gilmore",
-      "sourceKiller": "Nasa Al"
+      "sourceKiller": "nasa-al"
     },
     {
       "victim": "nitro",
       "killer": "bostnmike",
       "sourceVictim": "Nitro",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "ai-dave",
       "killer": "the-architect",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "The Architect"
     },
     {
@@ -177,14 +171,8 @@
     {
       "victim": "ai-dave",
       "killer": "li-fo",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Li-Fo"
-    },
-    {
-      "victim": "ai-dave",
-      "killer": "nasa-al",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Nasa Al"
     },
     {
       "victim": "hiro",
@@ -195,7 +183,7 @@
     {
       "victim": "bostnmike",
       "killer": "the-architect",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "The Architect"
     },
     {
@@ -222,7 +210,7 @@
       "victim": "nasa-al",
       "killer": "ai-dave",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "li-fo",
@@ -233,13 +221,13 @@
     {
       "victim": "bostnmike",
       "killer": "ai-dave",
-      "sourceVictim": "Bostnmike",
-      "sourceKiller": "Ai-Dave"
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "ai-dave",
       "killer": "hiro",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Hiro"
     },
     {
@@ -271,7 +259,7 @@
     {
       "victim": "ai-dave",
       "killer": "nasa-al",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Nasa Al"
     },
     {
@@ -283,16 +271,16 @@
     {
       "victim": "bostnmike",
       "killer": "nasa-al",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Nasa Al"
     }
   ],
-  "2025-10-04": [
+  "2025-10-03": [
     {
       "victim": "nasa-al",
       "killer": "bostnmike",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "hiro",
@@ -327,20 +315,20 @@
     {
       "victim": "ai-dave",
       "killer": "yann",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Yann"
     },
     {
       "victim": "yann",
       "killer": "bostnmike",
       "sourceVictim": "Yann",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "cougar",
       "killer": "bostnmike",
       "sourceVictim": "Cougar",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     }
   ],
   "2025-10-25": [
@@ -360,24 +348,24 @@
       "victim": "hiro",
       "killer": "ai-dave",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "wild-bill",
       "killer": "ai-dave",
       "sourceVictim": "Wild Bill",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "bostnmike",
       "killer": "nitro",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Nitro"
     },
     {
       "victim": "ai-dave",
       "killer": "cougar",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Cougar"
     },
     {
@@ -415,7 +403,7 @@
     {
       "victim": "bostnmike",
       "killer": "li-fo",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Li-Fo"
     },
     {
@@ -441,7 +429,7 @@
     {
       "victim": "ai-dave",
       "killer": "hiro",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Hiro"
     },
     {
@@ -459,7 +447,7 @@
     {
       "victim": "bostnmike",
       "killer": "li-fo",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Li-Fo"
     },
     {
@@ -474,7 +462,7 @@
       "victim": "li-fo",
       "killer": "providencemike",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "li-fo",
@@ -485,25 +473,25 @@
     {
       "victim": "providencemike",
       "killer": "li-fo",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Li-Fo"
     },
     {
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "hiro",
       "killer": "ai-dave",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "providencemike",
       "killer": "cougar",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Cougar"
     },
     {
@@ -515,7 +503,7 @@
     {
       "victim": "bostnmike",
       "killer": "li-fo",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Li-Fo"
     },
     {
@@ -528,13 +516,13 @@
       "victim": "big-tim",
       "killer": "ai-dave",
       "sourceVictim": "Big Tim",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "li-fo",
       "killer": "ai-dave",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     }
   ],
   "2025-12-06": [
@@ -571,7 +559,7 @@
     {
       "victim": "bostnmike",
       "killer": "ahmed",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Ahmed"
     },
     {
@@ -592,7 +580,7 @@
       "victim": "red",
       "killer": "bostnmike",
       "sourceVictim": "Red",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "li-fo",
@@ -603,13 +591,13 @@
     {
       "victim": "providencemike",
       "killer": "gilmore",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Gilmore"
     },
     {
       "victim": "providencemike",
       "killer": "chris-o",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Chris O"
     },
     {
@@ -633,14 +621,14 @@
     {
       "victim": "providencemike",
       "killer": "chris-o",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Chris O"
     },
     {
       "victim": "the-architect",
       "killer": "bostnmike",
       "sourceVictim": "The Architect",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "vish",
@@ -651,7 +639,7 @@
     {
       "victim": "bostnmike",
       "killer": "chris-o",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Chris O"
     },
     {
@@ -666,7 +654,7 @@
       "victim": "vic",
       "killer": "ai-dave",
       "sourceVictim": "Vic",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "cougar",
@@ -687,40 +675,28 @@
       "sourceKiller": "Vic"
     },
     {
-      "victim": "jeff-t",
-      "killer": "ahmed",
-      "sourceVictim": "Jeff T",
-      "sourceKiller": "Ahmed"
-    },
-    {
       "victim": "ai-dave",
       "killer": "vic",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Vic"
-    },
-    {
-      "victim": "ai-dave",
-      "killer": "ahmed",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Ahmed"
     },
     {
       "victim": "vic",
       "killer": "bostnmike",
       "sourceVictim": "Vic",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "ahmed",
       "killer": "bostnmike",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "chris-o",
       "killer": "bostnmike",
       "sourceVictim": "Chris O",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     }
   ],
   "2025-12-27": [
@@ -733,19 +709,19 @@
     {
       "victim": "providencemike",
       "killer": "the-architect",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "The Architect"
     },
     {
       "victim": "ahmed",
       "killer": "ai-dave",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "bostnmike",
       "killer": "cougar",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Cougar"
     },
     {
@@ -763,13 +739,13 @@
     {
       "victim": "providencemike",
       "killer": "chris-o",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Chris O"
     },
     {
       "victim": "ai-dave",
       "killer": "chris-o",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Chris O"
     },
     {
@@ -832,7 +808,7 @@
       "victim": "li-fo",
       "killer": "bostnmike",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "vish",
@@ -843,7 +819,7 @@
     {
       "victim": "bostnmike",
       "killer": "red",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Red"
     },
     {
@@ -887,13 +863,13 @@
     {
       "victim": "providencemike",
       "killer": "cougar",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Cougar"
     },
     {
       "victim": "bostnmike",
       "killer": "cougar",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Cougar"
     },
     {
@@ -931,20 +907,20 @@
     {
       "victim": "providencemike",
       "killer": "nitro",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Nitro"
     },
     {
       "victim": "ai-dave",
       "killer": "nitro",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Nitro"
     },
     {
       "victim": "nitro",
       "killer": "bostnmike",
       "sourceVictim": "Nitro",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     }
   ],
   "2026-01-30": [
@@ -952,7 +928,7 @@
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "red",
@@ -963,8 +939,8 @@
     {
       "victim": "ai-dave",
       "killer": "bostnmike",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "hiro",
@@ -988,13 +964,13 @@
       "victim": "hayden-d",
       "killer": "bostnmike",
       "sourceVictim": "Hayden D",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "providencemike",
       "killer": "bostnmike",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
     }
   ],
   "2026-02-07": [
@@ -1014,7 +990,7 @@
       "victim": "cougar",
       "killer": "providencemike",
       "sourceVictim": "Cougar",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "nitro",
@@ -1026,25 +1002,25 @@
       "victim": "vish",
       "killer": "providencemike",
       "sourceVictim": "Vish",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "bostnmike",
       "killer": "hiro",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Hiro"
     },
     {
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "li-fo",
       "killer": "providencemike",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     }
   ],
   "2026-02-13": [
@@ -1052,19 +1028,19 @@
       "victim": "vish",
       "killer": "providencemike",
       "sourceVictim": "Vish",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "ai-dave",
       "killer": "jeff-t",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Jeff T"
     },
     {
       "victim": "providencemike",
       "killer": "ai-dave",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Ai-Dave"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "vish",
@@ -1076,7 +1052,7 @@
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "li-fo",
@@ -1087,8 +1063,8 @@
     {
       "victim": "ai-dave",
       "killer": "bostnmike",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "nitro",
@@ -1099,7 +1075,7 @@
     {
       "victim": "bostnmike",
       "killer": "vish",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Vish"
     },
     {
@@ -1111,7 +1087,7 @@
     {
       "victim": "providencemike",
       "killer": "vish",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Vish"
     },
     {
@@ -1129,12 +1105,6 @@
       "sourceKiller": "Li-Fo"
     },
     {
-      "victim": "ahmed",
-      "killer": "li-fo",
-      "sourceVictim": "Ahmed",
-      "sourceKiller": "Li-Fo"
-    },
-    {
       "victim": "red",
       "killer": "vic",
       "sourceVictim": "Red",
@@ -1143,38 +1113,32 @@
     {
       "victim": "providencemike",
       "killer": "vic",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Vic"
     },
     {
       "victim": "hiro",
       "killer": "bostnmike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "cougar",
       "killer": "ai-dave",
       "sourceVictim": "Cougar",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "ai-dave",
       "killer": "ahmed",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Ahmed"
     },
     {
       "victim": "vic",
       "killer": "bostnmike",
       "sourceVictim": "Vic",
-      "sourceKiller": "Bostnmike"
-    },
-    {
-      "victim": "ahmed",
-      "killer": "li-fo",
-      "sourceVictim": "Ahmed",
-      "sourceKiller": "Li-Fo"
+      "sourceKiller": "BostnMike"
     }
   ],
   "2026-02-27": [
@@ -1182,61 +1146,61 @@
       "victim": "red",
       "killer": "providencemike",
       "sourceVictim": "Red",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "vish",
       "killer": "bostnmike",
       "sourceVictim": "Vish",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "vish",
       "killer": "ai-dave",
       "sourceVictim": "Vish",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "phattedcalf",
       "killer": "bostnmike",
-      "sourceVictim": "Phattedcalf",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "red",
       "killer": "ai-dave",
       "sourceVictim": "Red",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "ahmed",
       "killer": "providencemike",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "the-architect",
       "killer": "ai-dave",
       "sourceVictim": "The Architect",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "bostnmike",
       "killer": "ai-dave",
-      "sourceVictim": "Bostnmike",
-      "sourceKiller": "Ai-Dave"
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "providencemike",
       "killer": "ai-dave",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Ai-Dave"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "A.I. Dave"
     }
   ],
   "2026-03-07": [
@@ -1244,13 +1208,13 @@
       "victim": "vic",
       "killer": "ai-dave",
       "sourceVictim": "Vic",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "ahmed",
@@ -1267,14 +1231,14 @@
     {
       "victim": "ai-dave",
       "killer": "nasa-al",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Nasa Al"
     },
     {
       "victim": "bostnmike",
       "killer": "providencemike",
-      "sourceVictim": "Bostnmike",
-      "sourceKiller": "Providencemike"
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "dan-k",
@@ -1305,7 +1269,7 @@
     {
       "victim": "phattedcalf",
       "killer": "vish",
-      "sourceVictim": "Phattedcalf",
+      "sourceVictim": "PhattedCalf",
       "sourceKiller": "Vish"
     },
     {
@@ -1317,7 +1281,7 @@
     {
       "victim": "bostnmike",
       "killer": "vish",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Vish"
     },
     {
@@ -1329,7 +1293,7 @@
     {
       "victim": "ai-dave",
       "killer": "red",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Red"
     },
     {
@@ -1349,14 +1313,14 @@
     {
       "victim": "providencemike",
       "killer": "red",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Red"
     },
     {
       "victim": "hiro",
       "killer": "providencemike",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "li-fo",
@@ -1367,14 +1331,14 @@
     {
       "victim": "providencemike",
       "killer": "ahmed",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Ahmed"
     },
     {
       "victim": "cougar",
       "killer": "bostnmike",
       "sourceVictim": "Cougar",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "red",
@@ -1385,8 +1349,8 @@
     {
       "victim": "providencemike",
       "killer": "bostnmike",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "hiro",
@@ -1398,12 +1362,12 @@
       "victim": "vish",
       "killer": "bostnmike",
       "sourceVictim": "Vish",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "bostnmike",
       "killer": "li-fo",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Li-Fo"
     },
     {
@@ -1417,8 +1381,8 @@
     {
       "victim": "providencemike",
       "killer": "bostnmike",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "buffalomike",
@@ -1436,7 +1400,7 @@
       "victim": "red",
       "killer": "providencemike",
       "sourceVictim": "Red",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "red",
@@ -1453,13 +1417,13 @@
     {
       "victim": "providencemike",
       "killer": "buffalomike",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "BuffaloMike"
     },
     {
       "victim": "bostnmike",
       "killer": "buffalomike",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "BuffaloMike"
     },
     {
@@ -1491,20 +1455,20 @@
     {
       "victim": "bostnmike",
       "killer": "nasa-al",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Nasa Al"
     },
     {
       "victim": "providencemike",
       "killer": "red",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Red"
     },
     {
       "victim": "providencemike",
       "killer": "bostnmike",
-      "sourceVictim": "Providencemike",
-      "sourceKiller": "Bostnmike"
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "li-fo",
@@ -1527,7 +1491,7 @@
     {
       "victim": "bostnmike",
       "killer": "red",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Red"
     },
     {
@@ -1537,12 +1501,62 @@
       "sourceKiller": "Nasa Al"
     }
   ],
+  "2026-04-04": [
+    {
+      "victim": "red",
+      "killer": "hiro",
+      "sourceVictim": "Red",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "red",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "hiro",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "red",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "kishan",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Kishan"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "kishan",
+      "killer": "ahmed",
+      "sourceVictim": "Kishan",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "red",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Red"
+    }
+  ],
   "2026-04-17": [
     {
       "victim": "red",
       "killer": "providencemike",
       "sourceVictim": "Red",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
     },
     {
       "victim": "red",
@@ -1571,7 +1585,7 @@
     {
       "victim": "providencemike",
       "killer": "wild-bill",
-      "sourceVictim": "Providencemike",
+      "sourceVictim": "ProvidenceMike",
       "sourceKiller": "Wild Bill"
     },
     {
@@ -1583,7 +1597,7 @@
     {
       "victim": "bostnmike",
       "killer": "hiro",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Hiro"
     }
   ],
@@ -1598,7 +1612,7 @@
       "victim": "red",
       "killer": "phattedcalf",
       "sourceVictim": "Red",
-      "sourceKiller": "Phattedcalf"
+      "sourceKiller": "PhattedCalf"
     },
     {
       "victim": "red",
@@ -1609,7 +1623,7 @@
     {
       "victim": "bostnmike",
       "killer": "nasa-al",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Nasa Al"
     },
     {
@@ -1622,7 +1636,7 @@
       "victim": "ahmed",
       "killer": "ai-dave",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Ai-Dave"
+      "sourceKiller": "A.I. Dave"
     },
     {
       "victim": "red",
@@ -1634,7 +1648,7 @@
       "victim": "hiro",
       "killer": "phattedcalf",
       "sourceVictim": "Hiro",
-      "sourceKiller": "Phattedcalf"
+      "sourceKiller": "PhattedCalf"
     },
     {
       "victim": "nasa-al",
@@ -1645,8 +1659,8 @@
     {
       "victim": "ai-dave",
       "killer": "phattedcalf",
-      "sourceVictim": "Ai-Dave",
-      "sourceKiller": "Phattedcalf"
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "PhattedCalf"
     },
     {
       "victim": "ahmed",
@@ -1657,7 +1671,7 @@
     {
       "victim": "phattedcalf",
       "killer": "chris-o",
-      "sourceVictim": "Phattedcalf",
+      "sourceVictim": "PhattedCalf",
       "sourceKiller": "Chris O"
     },
     {
@@ -1690,12 +1704,12 @@
       "victim": "li-fo",
       "killer": "bostnmike",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Bostnmike"
+      "sourceKiller": "BostnMike"
     },
     {
       "victim": "ai-dave",
       "killer": "red",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Red"
     },
     {
@@ -1713,7 +1727,7 @@
     {
       "victim": "ai-dave",
       "killer": "red",
-      "sourceVictim": "Ai-Dave",
+      "sourceVictim": "A.I. Dave",
       "sourceKiller": "Red"
     },
     {
@@ -1731,7 +1745,7 @@
     {
       "victim": "bostnmike",
       "killer": "red",
-      "sourceVictim": "Bostnmike",
+      "sourceVictim": "BostnMike",
       "sourceKiller": "Red"
     },
     {
@@ -1744,7 +1758,51 @@
       "victim": "ahmed",
       "killer": "providencemike",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Providencemike"
+      "sourceKiller": "ProvidenceMike"
+    }
+  ],
+  "2026-05-01": [
+    {
+      "victim": "providencemike",
+      "killer": "tim-s",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Tim S"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "tim-s",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Tim S"
+    },
+    {
+      "victim": "tim-s",
+      "killer": "bostnmike",
+      "sourceVictim": "Tim S",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "providencemike",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "tim-s",
+      "killer": "providencemike",
+      "sourceVictim": "Tim S",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "providencemike",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "ProvidenceMike"
     }
   ]
 }

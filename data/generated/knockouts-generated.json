@@ -1,83 +1,83 @@
 {
   "byVictim": {
     "ahmed": {
+      "ai-dave": 2,
+      "bostnmike": 1,
+      "chris-o": 1,
+      "cougar": 1,
       "hiro": 2,
       "li-fo": 4,
-      "bostnmike": 1,
-      "ai-dave": 2,
-      "chris-o": 1,
+      "nasa-al": 1,
       "providencemike": 2,
-      "cougar": 1,
-      "red": 3,
-      "nasa-al": 1
+      "red": 3
     },
     "ai-dave": {
-      "bostnmike": 3,
-      "the-architect": 1,
-      "li-fo": 1,
-      "hiro": 2,
-      "nasa-al": 2,
-      "yann": 1,
-      "cougar": 1,
-      "vic": 1,
-      "chris-o": 1,
-      "nitro": 1,
-      "jeff-t": 1,
       "ahmed": 1,
+      "bostnmike": 3,
+      "chris-o": 1,
+      "cougar": 1,
+      "hiro": 2,
+      "jeff-t": 1,
+      "li-fo": 1,
+      "nasa-al": 2,
+      "nitro": 1,
+      "phattedcalf": 1,
       "red": 3,
-      "phattedcalf": 1
+      "the-architect": 1,
+      "vic": 1,
+      "yann": 1
     },
     "big-tim": {
       "ai-dave": 1
     },
     "bostnmike": {
-      "dan-k": 1,
-      "li-fo": 5,
-      "the-architect": 1,
-      "ai-dave": 2,
-      "nasa-al": 3,
-      "nitro": 1,
       "ahmed": 1,
+      "ai-dave": 2,
+      "buffalomike": 1,
       "chris-o": 1,
       "cougar": 2,
-      "red": 4,
+      "dan-k": 1,
       "hiro": 3,
-      "vish": 2,
-      "providencemike": 1,
-      "buffalomike": 1,
-      "kishan": 1
+      "kishan": 1,
+      "li-fo": 5,
+      "nasa-al": 3,
+      "nitro": 1,
+      "providencemike": 2,
+      "red": 4,
+      "the-architect": 1,
+      "vish": 2
     },
     "brad-r": {
-      "rob-f": 2,
+      "hiro": 1,
       "li-fo": 1,
-      "hiro": 1
+      "rob-f": 2
     },
     "buffalomike": {
       "kishan": 1
     },
     "chris-o": {
-      "nasa-al": 2,
-      "li-fo": 1,
       "ahmed": 2,
       "bostnmike": 1,
+      "li-fo": 1,
+      "nasa-al": 2,
       "red": 3
     },
     "cougar": {
-      "bostnmike": 2,
-      "hiro": 1,
-      "nitro": 1,
-      "rob-f": 1,
       "ahmed": 2,
-      "li-fo": 1,
+      "ai-dave": 1,
+      "bostnmike": 2,
       "chris-o": 1,
       "hayden-d": 1,
+      "hiro": 1,
+      "li-fo": 1,
+      "nitro": 1,
       "providencemike": 1,
-      "ai-dave": 1,
-      "red": 1
+      "red": 1,
+      "rob-f": 1
     },
     "dan-k": {
-      "hiro": 2,
-      "cougar": 1
+      "cougar": 1,
+      "hiro": 2
     },
     "david-k": {
       "ahmed": 1
@@ -86,131 +86,138 @@
       "yann": 1
     },
     "gilmore": {
-      "nasa-al": 1,
-      "li-fo": 1
+      "li-fo": 1,
+      "nasa-al": 1
     },
     "hayden-d": {
-      "red": 1,
-      "bostnmike": 1
+      "bostnmike": 1,
+      "red": 1
     },
     "hiro": {
-      "brad-r": 1,
-      "nasa-al": 4,
-      "the-architect": 1,
-      "yann": 2,
-      "wild-bill": 2,
-      "ai-dave": 2,
-      "li-fo": 1,
-      "providencemike": 7,
       "ahmed": 5,
-      "gilmore": 1,
-      "red": 4,
-      "nitro": 1,
+      "ai-dave": 2,
       "bostnmike": 1,
+      "brad-r": 1,
+      "gilmore": 1,
+      "li-fo": 1,
+      "nasa-al": 4,
+      "nitro": 1,
       "phattedcalf": 1,
-      "vish": 1
+      "providencemike": 8,
+      "red": 4,
+      "the-architect": 1,
+      "vish": 1,
+      "wild-bill": 2,
+      "yann": 2
     },
     "jeff-t": {
       "bostnmike": 1,
-      "li-fo": 2,
-      "rob-f": 1,
       "hiro": 1,
-      "vic": 1,
-      "nasa-al": 1
+      "li-fo": 2,
+      "nasa-al": 1,
+      "rob-f": 1,
+      "vic": 1
     },
     "kishan": {
-      "buffalomike": 1,
-      "ahmed": 1
+      "ahmed": 1,
+      "buffalomike": 1
     },
     "li-fo": {
-      "hiro": 6,
-      "bostnmike": 3,
-      "yann": 1,
-      "providencemike": 2,
-      "big-tim": 1,
-      "ai-dave": 1,
       "ahmed": 5,
+      "ai-dave": 1,
+      "big-tim": 1,
+      "bostnmike": 3,
       "chris-o": 4,
-      "the-architect": 1,
       "cougar": 1,
-      "vish": 1,
+      "hiro": 6,
       "nasa-al": 1,
-      "red": 3
+      "providencemike": 2,
+      "red": 3,
+      "the-architect": 1,
+      "tim-s": 1,
+      "vish": 1,
+      "yann": 1
     },
     "nasa-al": {
-      "hiro": 2,
-      "li-fo": 2,
       "ai-dave": 1,
       "bostnmike": 1,
-      "yann": 1,
+      "chris-o": 1,
+      "hiro": 2,
+      "li-fo": 2,
       "vish": 1,
-      "chris-o": 1
+      "yann": 1
     },
     "nitro": {
-      "wild-bill": 1,
       "bostnmike": 2,
-      "li-fo": 2,
+      "buffalomike": 1,
       "cougar": 1,
       "hayden-d": 1,
-      "vish": 2,
+      "li-fo": 2,
       "red": 2,
-      "buffalomike": 1
+      "vish": 2,
+      "wild-bill": 1
     },
     "pat": {
       "buffalomike": 1
     },
     "phattedcalf": {
       "bostnmike": 1,
-      "vish": 1,
-      "chris-o": 1
+      "chris-o": 1,
+      "providencemike": 1,
+      "vish": 1
     },
     "pittsburghbill": {
       "red": 1
     },
     "providencemike": {
-      "li-fo": 1,
+      "ahmed": 1,
+      "ai-dave": 2,
+      "bostnmike": 4,
+      "buffalomike": 1,
+      "chris-o": 3,
       "cougar": 2,
       "gilmore": 1,
-      "chris-o": 3,
-      "the-architect": 1,
+      "li-fo": 1,
       "nitro": 1,
-      "bostnmike": 4,
-      "ai-dave": 2,
-      "vish": 1,
-      "vic": 1,
       "red": 3,
-      "ahmed": 1,
-      "buffalomike": 1,
+      "the-architect": 1,
+      "tim-s": 1,
+      "vic": 1,
+      "vish": 1,
       "wild-bill": 1
     },
     "red": {
+      "ahmed": 1,
+      "ai-dave": 1,
       "bostnmike": 1,
       "chris-o": 2,
-      "the-architect": 1,
-      "hiro": 2,
-      "wild-bill": 1,
-      "li-fo": 3,
-      "vic": 1,
-      "providencemike": 3,
-      "ai-dave": 1,
       "cougar": 1,
-      "vish": 1,
+      "hiro": 2,
       "kishan": 1,
-      "pat": 1,
+      "li-fo": 3,
       "nasa-al": 1,
-      "ahmed": 1,
-      "phattedcalf": 1
+      "pat": 1,
+      "phattedcalf": 1,
+      "providencemike": 3,
+      "the-architect": 1,
+      "vic": 1,
+      "vish": 1,
+      "wild-bill": 1
     },
     "rob-f": {
       "bostnmike": 1,
       "hiro": 2
     },
     "the-architect": {
-      "li-fo": 1,
+      "ai-dave": 1,
       "bostnmike": 1,
       "chris-o": 2,
       "hiro": 1,
-      "ai-dave": 1
+      "li-fo": 1
+    },
+    "tim-s": {
+      "bostnmike": 1,
+      "providencemike": 1
     },
     "vic": {
       "ai-dave": 2,
@@ -218,18 +225,18 @@
       "nasa-al": 1
     },
     "vish": {
-      "chris-o": 2,
-      "the-architect": 1,
-      "red": 4,
-      "hiro": 2,
-      "providencemike": 2,
-      "jeff-t": 1,
+      "ai-dave": 1,
       "bostnmike": 2,
-      "ai-dave": 1
+      "chris-o": 2,
+      "hiro": 2,
+      "jeff-t": 1,
+      "providencemike": 2,
+      "red": 4,
+      "the-architect": 1
     },
     "wild-bill": {
-      "dan-k": 2,
       "ai-dave": 2,
+      "dan-k": 2,
       "hiro": 2
     },
     "yann": {
@@ -238,233 +245,240 @@
   },
   "byKiller": {
     "ahmed": {
-      "cougar": 2,
-      "li-fo": 5,
-      "hiro": 5,
-      "chris-o": 2,
-      "bostnmike": 1,
-      "david-k": 1,
       "ai-dave": 1,
-      "providencemike": 1,
+      "bostnmike": 1,
+      "chris-o": 2,
+      "cougar": 2,
+      "david-k": 1,
+      "hiro": 5,
       "kishan": 1,
+      "li-fo": 5,
+      "providencemike": 1,
       "red": 1
     },
     "ai-dave": {
-      "wild-bill": 2,
-      "nasa-al": 1,
-      "bostnmike": 2,
-      "hiro": 2,
-      "big-tim": 1,
-      "li-fo": 1,
-      "vic": 2,
       "ahmed": 2,
-      "providencemike": 2,
+      "big-tim": 1,
+      "bostnmike": 2,
       "cougar": 1,
-      "vish": 1,
+      "hiro": 2,
+      "li-fo": 1,
+      "nasa-al": 1,
+      "providencemike": 2,
       "red": 1,
-      "the-architect": 1
+      "the-architect": 1,
+      "vic": 2,
+      "vish": 1,
+      "wild-bill": 2
     },
     "big-tim": {
       "li-fo": 1
     },
     "bostnmike": {
+      "ahmed": 1,
+      "ai-dave": 3,
+      "chris-o": 1,
+      "cougar": 2,
+      "hayden-d": 1,
+      "hiro": 1,
       "jeff-t": 1,
       "li-fo": 3,
-      "rob-f": 1,
-      "ai-dave": 3,
-      "nitro": 2,
       "nasa-al": 1,
-      "yann": 1,
-      "cougar": 2,
-      "red": 1,
-      "the-architect": 1,
-      "vic": 2,
-      "ahmed": 1,
-      "chris-o": 1,
-      "hayden-d": 1,
+      "nitro": 2,
+      "phattedcalf": 1,
       "providencemike": 4,
-      "hiro": 1,
+      "red": 1,
+      "rob-f": 1,
+      "the-architect": 1,
+      "tim-s": 1,
+      "vic": 2,
       "vish": 2,
-      "phattedcalf": 1
+      "yann": 1
     },
     "brad-r": {
       "hiro": 1
     },
     "buffalomike": {
-      "nitro": 1,
-      "providencemike": 1,
       "bostnmike": 1,
       "kishan": 1,
-      "pat": 1
+      "nitro": 1,
+      "pat": 1,
+      "providencemike": 1
     },
     "chris-o": {
+      "ahmed": 1,
+      "ai-dave": 1,
+      "bostnmike": 1,
+      "cougar": 1,
       "li-fo": 4,
+      "nasa-al": 1,
+      "phattedcalf": 1,
       "providencemike": 3,
       "red": 2,
-      "vish": 2,
-      "bostnmike": 1,
       "the-architect": 2,
-      "ai-dave": 1,
-      "cougar": 1,
-      "ahmed": 1,
-      "nasa-al": 1,
-      "phattedcalf": 1
+      "vish": 2
     },
     "cougar": {
-      "ai-dave": 1,
-      "providencemike": 2,
-      "bostnmike": 2,
-      "nitro": 1,
-      "li-fo": 1,
       "ahmed": 1,
+      "ai-dave": 1,
+      "bostnmike": 2,
       "dan-k": 1,
+      "li-fo": 1,
+      "nitro": 1,
+      "providencemike": 2,
       "red": 1
     },
     "dan-k": {
-      "wild-bill": 2,
-      "bostnmike": 1
+      "bostnmike": 1,
+      "wild-bill": 2
     },
     "gilmore": {
-      "providencemike": 1,
-      "hiro": 1
+      "hiro": 1,
+      "providencemike": 1
     },
     "hayden-d": {
       "cougar": 1,
       "nitro": 1
     },
     "hiro": {
-      "dan-k": 2,
-      "li-fo": 6,
-      "brad-r": 1,
-      "nasa-al": 2,
-      "jeff-t": 1,
-      "ai-dave": 2,
-      "cougar": 1,
-      "rob-f": 2,
-      "wild-bill": 2,
       "ahmed": 2,
-      "vish": 2,
-      "the-architect": 1,
+      "ai-dave": 2,
+      "bostnmike": 3,
+      "brad-r": 1,
+      "cougar": 1,
+      "dan-k": 2,
+      "jeff-t": 1,
+      "li-fo": 6,
+      "nasa-al": 2,
       "red": 2,
-      "bostnmike": 3
+      "rob-f": 2,
+      "the-architect": 1,
+      "vish": 2,
+      "wild-bill": 2
     },
     "jeff-t": {
       "ai-dave": 1,
       "vish": 1
     },
     "kishan": {
+      "bostnmike": 1,
       "buffalomike": 1,
-      "red": 1,
-      "bostnmike": 1
+      "red": 1
     },
     "li-fo": {
-      "jeff-t": 2,
-      "brad-r": 1,
-      "bostnmike": 5,
-      "ai-dave": 1,
-      "nitro": 2,
-      "nasa-al": 2,
-      "the-architect": 1,
-      "hiro": 1,
-      "providencemike": 1,
-      "cougar": 1,
       "ahmed": 4,
+      "ai-dave": 1,
+      "bostnmike": 5,
+      "brad-r": 1,
       "chris-o": 1,
+      "cougar": 1,
       "gilmore": 1,
-      "red": 3
+      "hiro": 1,
+      "jeff-t": 2,
+      "nasa-al": 2,
+      "nitro": 2,
+      "providencemike": 1,
+      "red": 3,
+      "the-architect": 1
     },
     "nasa-al": {
-      "gilmore": 1,
-      "hiro": 4,
-      "chris-o": 2,
+      "ahmed": 1,
       "ai-dave": 2,
       "bostnmike": 3,
+      "chris-o": 2,
+      "gilmore": 1,
+      "hiro": 4,
       "jeff-t": 1,
-      "vic": 1,
       "li-fo": 1,
       "red": 1,
-      "ahmed": 1
+      "vic": 1
     },
     "nitro": {
+      "ai-dave": 1,
       "bostnmike": 1,
       "cougar": 1,
       "hiro": 1,
-      "providencemike": 1,
-      "ai-dave": 1
+      "providencemike": 1
     },
     "pat": {
       "red": 1
     },
     "phattedcalf": {
-      "red": 1,
+      "ai-dave": 1,
       "hiro": 1,
-      "ai-dave": 1
+      "red": 1
     },
     "providencemike": {
-      "li-fo": 2,
-      "hiro": 7,
-      "cougar": 1,
-      "vish": 2,
-      "red": 3,
       "ahmed": 2,
-      "bostnmike": 1
+      "bostnmike": 2,
+      "cougar": 1,
+      "hiro": 8,
+      "li-fo": 2,
+      "phattedcalf": 1,
+      "red": 3,
+      "tim-s": 1,
+      "vish": 2
     },
     "red": {
-      "chris-o": 3,
-      "hiro": 4,
-      "vish": 4,
-      "bostnmike": 4,
-      "hayden-d": 1,
-      "pittsburghbill": 1,
-      "cougar": 1,
       "ahmed": 3,
-      "nitro": 2,
       "ai-dave": 3,
+      "bostnmike": 4,
+      "chris-o": 3,
+      "cougar": 1,
+      "hayden-d": 1,
+      "hiro": 4,
+      "li-fo": 3,
+      "nitro": 2,
+      "pittsburghbill": 1,
       "providencemike": 3,
-      "li-fo": 3
+      "vish": 4
     },
     "rob-f": {
       "brad-r": 2,
-      "jeff-t": 1,
-      "cougar": 1
+      "cougar": 1,
+      "jeff-t": 1
     },
     "the-architect": {
       "ai-dave": 1,
-      "hiro": 1,
       "bostnmike": 1,
+      "hiro": 1,
+      "li-fo": 1,
       "providencemike": 1,
-      "vish": 1,
       "red": 1,
-      "li-fo": 1
+      "vish": 1
+    },
+    "tim-s": {
+      "li-fo": 1,
+      "providencemike": 1
     },
     "vic": {
-      "jeff-t": 1,
       "ai-dave": 1,
-      "red": 1,
-      "providencemike": 1
+      "jeff-t": 1,
+      "providencemike": 1,
+      "red": 1
     },
     "vish": {
-      "nitro": 2,
-      "li-fo": 1,
       "bostnmike": 2,
-      "providencemike": 1,
+      "hiro": 1,
+      "li-fo": 1,
       "nasa-al": 1,
+      "nitro": 2,
       "phattedcalf": 1,
-      "red": 1,
-      "hiro": 1
+      "providencemike": 1,
+      "red": 1
     },
     "wild-bill": {
-      "nitro": 1,
       "hiro": 2,
-      "red": 1,
-      "providencemike": 1
+      "nitro": 1,
+      "providencemike": 1,
+      "red": 1
     },
     "yann": {
-      "hiro": 2,
+      "ai-dave": 1,
       "fabian": 1,
-      "nasa-al": 1,
+      "hiro": 2,
       "li-fo": 1,
-      "ai-dave": 1
+      "nasa-al": 1
     }
   },
   "eventsProcessed": [
@@ -499,6 +513,7 @@
     "2026-04-04",
     "2026-04-17",
     "2026-04-18",
-    "2026-04-24"
+    "2026-04-24",
+    "2026-05-01"
   ]
 }
