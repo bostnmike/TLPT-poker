@@ -136,9 +136,9 @@
     {
       "name": "PhattedCalf",
       "slug": "phattedcalf",
-      "image": "images/players/phattedcalf.png",
+      "image": "images/players/phattedcalf.jpg",
       "notes": "Doctor. Doctor. Annnnnd..... Doctor.",
-      "aliases": ["phattedcalf", "phatted calf"]
+      "aliases": ["phattedcalf", "PhattedCalf", "Phatted,calf", "phatted calf"]
     },
     {
       "name": "Rob F",
@@ -199,7 +199,7 @@
     {
       "name": "PittsburghBill",
       "slug": "pittsburghbill",
-      "image": "images/players/pittsburghbill.png",
+      "image": "images/players/pittsburghbill.jpg",
       "notes": "",
       "aliases": ["pittsburghbill", "pittsburgh bill", "pittdburghbill"]
     },
