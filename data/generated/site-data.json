@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-02T05:27:40.633594Z",
+  "generatedAt": "2026-05-02T20:56:25.138098Z",
   "sourceMode": "event_reports",
   "events": [
     {
-      "title": "Event name TBA | 9-Max",
+      "title": "Clear and Obvious, Bluffs | 9-Max",
       "format": "40K Format",
       "day": "Friday",
       "date": "Friday, May 1, 2026",
@@ -75,7 +75,7 @@
         "hayden-d": "",
         "hiro": "yes",
         "kishan": "tbd",
-        "jeff-t": "maybe",
+        "jeff-t": "no",
         "li-fo": "yes",
         "max": "",
         "nasa-al": "tbd",
@@ -83,13 +83,13 @@
         "pat": "",
         "phattedcalf": "no",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
+        "providencemike": "no",
         "red": "no",
         "rob-f": "",
         "the-architect": "yes",
         "tim-s": "",
         "vic": "tbd",
-        "vish": "maybe",
+        "vish": "yes",
         "wild-bill": "tbd",
         "yann": ""
       }
