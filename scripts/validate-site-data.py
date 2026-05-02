@@ -57,22 +57,30 @@ def validate_player(p):
     # -----------------------------
     # Advanced metrics (SANITY ONLY)
     # -----------------------------
-    for key in [
-        "clutchIndex",
-        "aggressionIndex",
-        "survivorIndex",
-        "tiltIndex",
-        "trueSkillScore"
-    ]:
+    metric_ranges = {
+        "clutchIndex": (-50, 200),
+        "aggressionIndex": (-50, 200),
+        "survivorIndex": (-50, 200),
+        "tiltIndex": (-50, 200),
+
+        # trueSkillScore is a composite score, not a 0-100 style index.
+        # Current tier/power-index formulas can legitimately push top players
+        # well above 200, so this gets a wider sanity range.
+        "trueSkillScore": (-50, 500),
+    }
+
+    for key, (min_allowed, max_allowed) in metric_ranges.items():
         val = p.get(key)
 
         if val is None:
             errors.append(f"{key} missing")
         elif not isinstance(val, (int, float)):
             errors.append(f"{key} not numeric")
-        elif val < -50 or val > 200:
-            errors.append(f"{key} out of expected range")
-
+        elif val < min_allowed or val > max_allowed:
+            errors.append(
+                f"{key} out of expected range: {val} not between {min_allowed} and {max_allowed}"
+            )
+            
     return errors
 
 
