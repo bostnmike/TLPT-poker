@@ -21,41 +21,43 @@
   "featured": true,
   "dek": "ProvidenceMike got bounced first, rebought instantly, then unlocked grinder-mode all the way back into another chop at the top.",
   "summaryCards": [
-    {
-      "tone": "green",
-      "label": "📰 The Main Story",
-      "player": "ProvidenceMike",
-      "value": "Split first",
-      "copy": "Got busted first, rebought immediately, and came all the way back for another shared win.",
-      "avatar": "images/players/providencemike.jpg",
-      "fallback": "PM"
-    },
-    {
-      "tone": "blue",
-      "label": "🩸 First Blood",
-      "player": "ProvidenceMike",
-      "copy": "Tim S returned from a long layoff and wasted no time drawing first blood.",
-      "avatar": "images/players/providencemike.jpg",
-      "fallback": "PM"
-    },
-    {
-      "tone": "purple",
-      "label": "🦤 First Rail Bird",
-      "player": "Phattedcalf",
-      "copy": "ProvidenceMike made the first permanent exit count once the comeback started rolling.",
-      "avatar": "images/players/phattedcalf.jpg",
-      "fallback": "PC"
-    },
-    {
-      "tone": "red",
-      "label": "🪓 Table Killer",
-      "player": "ProvidenceMike",
-      "value": "4 knockouts",
-      "copy": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the way back.",
-      "avatar": "images/players/providencemike.jpg",
-      "fallback": "PM"
-    }
-  ],
+  {
+    "tone": "green",
+    "label": "📰 The Main Story",
+    "player": "ProvidenceMike / Li-Fo",
+    "value": "Split first",
+    "copy": "ProvidenceMike got busted first, rebought immediately, and came all the way back to share the win with Li-Fo.",
+    "avatars": [
+      { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" },
+      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+    ]
+  },
+  {
+    "tone": "blue",
+    "label": "🩸 First Blood",
+    "player": "ProvidenceMike",
+    "copy": "Tim S returned from a long layoff and wasted no time drawing first blood.",
+    "avatar": "images/players/providencemike.jpg",
+    "fallback": "PM"
+  },
+  {
+    "tone": "purple",
+    "label": "🦤 First Rail Bird",
+    "player": "Phattedcalf",
+    "copy": "ProvidenceMike made the first permanent exit count once the comeback started rolling.",
+    "avatar": "images/players/phattedcalf.jpg",
+    "fallback": "PC"
+  },
+  {
+    "tone": "red",
+    "label": "🪓 Table Killer",
+    "player": "ProvidenceMike",
+    "value": "4 knockouts",
+    "copy": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the way back.",
+    "avatar": "images/players/providencemike.jpg",
+    "fallback": "PM"
+  }
+],
   "statPills": [
     { "icon": "🎟️", "label": "Total Entries", "value": "9" },
     { "icon": "♻️", "label": "Rebuys", "value": "3" },
