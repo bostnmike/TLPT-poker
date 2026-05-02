@@ -67,13 +67,33 @@ jobs:
         run: python scripts/validate-site-data.py
 
       # -----------------------------------------
-      # 💾 Commit + push
+      # 💾 Commit + push generated data
       # -----------------------------------------
       - name: Commit updated data
         run: |
           git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.email "github-actions@github.com"
 
+          echo "🔄 Syncing with latest main before committing generated files..."
+          git fetch origin main
+          git reset --hard origin/main
+
+          echo "📥 Re-running parser after sync..."
+          python scripts/parse-event-reports.py
+
+          echo "🔥 Re-generating parsed event index..."
+          node scripts/generate-event-index.js
+
+          echo "📊 Rebuilding site data..."
+          python scripts/build-site-data.py
+
+          echo "💀 Rebuilding knockout data..."
+          python scripts/build-knockouts.py
+
+          echo "🧪 Re-validating site data..."
+          python scripts/validate-site-data.py
+
+          echo "📦 Staging generated outputs..."
           git add data/parsed/events/
           git add data/generated/site-data.json
           git add data/generated/validation-report.json
@@ -84,25 +104,11 @@ jobs:
           git add knockout-name-map-full.json
 
           if git diff --cached --quiet; then
-            echo "No generated changes to commit."
+            echo "✅ No generated data changes to commit."
             exit 0
           fi
 
           git commit -m "🔄 TLPT auto-update (full rebuild)"
 
-          for i in 1 2 3; do
-            echo "Push attempt $i..."
-
-            git pull --rebase origin main
-
-            if git push origin main; then
-              echo "Push succeeded."
-              exit 0
-            fi
-
-            echo "Push failed. Retrying in 5 seconds..."
-            sleep 5
-          done
-
-          echo "Failed to push after 3 attempts."
-          exit 1
+          echo "🚀 Pushing generated data..."
+          git push origin HEAD:main
