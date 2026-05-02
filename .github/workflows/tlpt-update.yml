@@ -55,6 +55,18 @@ jobs:
         run: python scripts/build-site-data.py
 
       # -----------------------------------------
+      # 💀 Build knockout data
+      # -----------------------------------------
+      - name: Build knockout data
+        run: python scripts/build-knockouts.py
+
+      # -----------------------------------------
+      # 🧪 Validate generated site data
+      # -----------------------------------------
+      - name: Validate site data
+        run: python scripts/validate-site-data.py
+
+      # -----------------------------------------
       # 💾 Commit + push
       # -----------------------------------------
       - name: Commit updated data
@@ -64,6 +76,12 @@ jobs:
 
           git add data/parsed/events/
           git add data/generated/site-data.json
+          git add data/generated/validation-report.json
+          git add data/generated/knockouts-generated.json
+          git add data/generated/knockouts.json
+          git add knockouts.json
+          git add knockout-events-full.json
+          git add knockout-name-map-full.json
 
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
