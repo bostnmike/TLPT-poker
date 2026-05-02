@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-02T04:21:31.460424Z",
+  "generatedAt": "2026-05-02T05:27:40.633594Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -918,7 +918,7 @@
     {
       "name": "PhattedCalf",
       "slug": "phattedcalf",
-      "image": "images/players/phattedcalf.png",
+      "image": "images/players/phattedcalf.jpg",
       "notes": "Doctor. Doctor. Annnnnd..... Doctor.",
       "entries": 4,
       "buyIns": 4,
@@ -955,7 +955,7 @@
     {
       "name": "PittsburghBill",
       "slug": "pittsburghbill",
-      "image": "images/players/pittsburghbill.png",
+      "image": "images/players/pittsburghbill.jpg",
       "notes": "",
       "entries": 2,
       "buyIns": 1,
