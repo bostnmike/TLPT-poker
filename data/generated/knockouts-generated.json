@@ -25,7 +25,7 @@
       "red": 3,
       "the-architect": 1,
       "vic": 1,
-      "yann": 2
+      "yann": 1
     },
     "big-tim": {
       "ai-dave": 1
@@ -65,7 +65,7 @@
     "cougar": {
       "ahmed": 2,
       "ai-dave": 1,
-      "bostnmike": 3,
+      "bostnmike": 2,
       "chris-o": 1,
       "hayden-d": 1,
       "hiro": 1,
@@ -83,7 +83,7 @@
       "ahmed": 1
     },
     "fabian": {
-      "yann": 2
+      "yann": 1
     },
     "gilmore": {
       "li-fo": 1,
@@ -108,7 +108,7 @@
       "the-architect": 1,
       "vish": 1,
       "wild-bill": 2,
-      "yann": 4
+      "yann": 2
     },
     "jeff-t": {
       "bostnmike": 1,
@@ -136,16 +136,16 @@
       "the-architect": 1,
       "tim-s": 1,
       "vish": 2,
-      "yann": 2
+      "yann": 1
     },
     "nasa-al": {
       "ai-dave": 1,
-      "bostnmike": 2,
+      "bostnmike": 1,
       "chris-o": 1,
       "hiro": 2,
       "li-fo": 2,
       "vish": 1,
-      "yann": 2
+      "yann": 1
     },
     "nitro": {
       "bostnmike": 2,
@@ -240,7 +240,7 @@
       "hiro": 2
     },
     "yann": {
-      "bostnmike": 2
+      "bostnmike": 1
     }
   },
   "byKiller": {
@@ -278,12 +278,12 @@
       "ahmed": 1,
       "ai-dave": 3,
       "chris-o": 1,
-      "cougar": 3,
+      "cougar": 2,
       "hayden-d": 1,
       "hiro": 2,
       "jeff-t": 1,
       "li-fo": 3,
-      "nasa-al": 2,
+      "nasa-al": 1,
       "nitro": 2,
       "phattedcalf": 1,
       "providencemike": 4,
@@ -293,7 +293,7 @@
       "tim-s": 1,
       "vic": 2,
       "vish": 3,
-      "yann": 2
+      "yann": 1
     },
     "brad-r": {
       "hiro": 1
@@ -474,11 +474,11 @@
       "red": 1
     },
     "yann": {
-      "ai-dave": 2,
-      "fabian": 2,
-      "hiro": 4,
-      "li-fo": 2,
-      "nasa-al": 2
+      "ai-dave": 1,
+      "fabian": 1,
+      "hiro": 2,
+      "li-fo": 1,
+      "nasa-al": 1
     }
   },
   "eventsProcessed": [
@@ -488,7 +488,6 @@
     "2025-06-28",
     "2025-07-26",
     "2025-08-23",
-    "2025-10-03",
     "2025-10-04",
     "2025-10-25",
     "2025-11-01",

@@ -275,62 +275,6 @@
       "sourceKiller": "Nasa Al"
     }
   ],
-  "2025-10-03": [
-    {
-      "victim": "nasa-al",
-      "killer": "bostnmike",
-      "sourceVictim": "Nasa Al",
-      "sourceKiller": "BostnMike"
-    },
-    {
-      "victim": "hiro",
-      "killer": "yann",
-      "sourceVictim": "Hiro",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "fabian",
-      "killer": "yann",
-      "sourceVictim": "Fabian",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "nasa-al",
-      "killer": "yann",
-      "sourceVictim": "Nasa Al",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "hiro",
-      "killer": "yann",
-      "sourceVictim": "Hiro",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "li-fo",
-      "killer": "yann",
-      "sourceVictim": "Li-Fo",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "ai-dave",
-      "killer": "yann",
-      "sourceVictim": "A.I. Dave",
-      "sourceKiller": "Yann"
-    },
-    {
-      "victim": "yann",
-      "killer": "bostnmike",
-      "sourceVictim": "Yann",
-      "sourceKiller": "BostnMike"
-    },
-    {
-      "victim": "cougar",
-      "killer": "bostnmike",
-      "sourceVictim": "Cougar",
-      "sourceKiller": "BostnMike"
-    }
-  ],
   "2025-10-04": [
     {
       "victim": "nasa-al",
