@@ -5,7 +5,7 @@
       "bostnmike": 1,
       "chris-o": 1,
       "cougar": 1,
-      "hiro": 2,
+      "hiro": 3,
       "li-fo": 4,
       "nasa-al": 1,
       "providencemike": 2,
@@ -16,7 +16,7 @@
       "bostnmike": 3,
       "chris-o": 1,
       "cougar": 1,
-      "hiro": 2,
+      "hiro": 3,
       "jeff-t": 1,
       "li-fo": 1,
       "nasa-al": 2,
@@ -96,7 +96,7 @@
     "hiro": {
       "ahmed": 5,
       "ai-dave": 2,
-      "bostnmike": 1,
+      "bostnmike": 2,
       "brad-r": 1,
       "gilmore": 1,
       "li-fo": 1,
@@ -129,13 +129,13 @@
       "bostnmike": 3,
       "chris-o": 4,
       "cougar": 1,
-      "hiro": 6,
+      "hiro": 7,
       "nasa-al": 1,
       "providencemike": 2,
       "red": 3,
       "the-architect": 1,
       "tim-s": 1,
-      "vish": 1,
+      "vish": 2,
       "yann": 1
     },
     "nasa-al": {
@@ -212,7 +212,7 @@
       "ai-dave": 1,
       "bostnmike": 1,
       "chris-o": 2,
-      "hiro": 1,
+      "hiro": 2,
       "li-fo": 1
     },
     "tim-s": {
@@ -226,9 +226,9 @@
     },
     "vish": {
       "ai-dave": 1,
-      "bostnmike": 2,
+      "bostnmike": 3,
       "chris-o": 2,
-      "hiro": 2,
+      "hiro": 3,
       "jeff-t": 1,
       "providencemike": 2,
       "red": 4,
@@ -280,7 +280,7 @@
       "chris-o": 1,
       "cougar": 2,
       "hayden-d": 1,
-      "hiro": 1,
+      "hiro": 2,
       "jeff-t": 1,
       "li-fo": 3,
       "nasa-al": 1,
@@ -292,7 +292,7 @@
       "the-architect": 1,
       "tim-s": 1,
       "vic": 2,
-      "vish": 2,
+      "vish": 3,
       "yann": 1
     },
     "brad-r": {
@@ -341,19 +341,19 @@
       "nitro": 1
     },
     "hiro": {
-      "ahmed": 2,
-      "ai-dave": 2,
+      "ahmed": 3,
+      "ai-dave": 3,
       "bostnmike": 3,
       "brad-r": 1,
       "cougar": 1,
       "dan-k": 2,
       "jeff-t": 1,
-      "li-fo": 6,
+      "li-fo": 7,
       "nasa-al": 2,
       "red": 2,
       "rob-f": 2,
-      "the-architect": 1,
-      "vish": 2,
+      "the-architect": 2,
+      "vish": 3,
       "wild-bill": 2
     },
     "jeff-t": {
@@ -460,7 +460,7 @@
     "vish": {
       "bostnmike": 2,
       "hiro": 1,
-      "li-fo": 1,
+      "li-fo": 2,
       "nasa-al": 1,
       "nitro": 2,
       "phattedcalf": 1,
@@ -514,6 +514,7 @@
     "2026-04-17",
     "2026-04-18",
     "2026-04-24",
-    "2026-05-01"
+    "2026-05-01",
+    "2026-05-02"
   ]
 }

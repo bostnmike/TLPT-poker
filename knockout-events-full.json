@@ -1804,5 +1804,55 @@
       "sourceVictim": "BostnMike",
       "sourceKiller": "ProvidenceMike"
     }
+  ],
+  "2026-05-02": [
+    {
+      "victim": "vish",
+      "killer": "hiro",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "vish",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "hiro",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "hiro",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "hiro",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "vish",
+      "killer": "bostnmike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    }
   ]
 }
