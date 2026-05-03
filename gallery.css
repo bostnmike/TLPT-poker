@@ -655,3 +655,138 @@
     padding:14px 18px 13px;
   }
 }
+
+/* =========================================
+   GALLERY WINNER BADGES — MUSEUM PLATE
+========================================= */
+
+.gallery-card-meta.has-winner-badges {
+  min-height: 76px;
+  padding-left: 72px;
+}
+
+.gallery-winner-badges {
+  position: absolute;
+  left: 18px;
+  bottom: 14px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.gallery-winner-badges-one {
+  width: 46px;
+  height: 46px;
+}
+
+.gallery-winner-badges-multi {
+  width: 58px;
+  min-height: 40px;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.gallery-winner-avatar-wrap,
+.gallery-winner-unknown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,.20), transparent 30%),
+    linear-gradient(180deg, rgba(18,20,24,.98), rgba(4,6,10,.98));
+  border: 2px solid rgba(255,244,210,.76);
+  box-shadow:
+    0 3px 8px rgba(0,0,0,.34),
+    0 0 0 1px rgba(64,42,12,.50),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  overflow: hidden;
+}
+
+.gallery-winner-badges-one .gallery-winner-avatar-wrap,
+.gallery-winner-badges-one .gallery-winner-unknown {
+  width: 46px;
+  height: 46px;
+}
+
+.gallery-winner-badges-multi .gallery-winner-avatar-wrap,
+.gallery-winner-badges-multi .gallery-winner-unknown {
+  width: 34px;
+  height: 34px;
+  margin-right: -8px;
+  margin-bottom: -4px;
+}
+
+.gallery-winner-badges-multi .gallery-winner-avatar-wrap:nth-child(n+4) {
+  display: none;
+}
+
+.gallery-winner-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-winner-avatar-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #050608;
+  font-weight: 950;
+  font-size: 1.05rem;
+}
+
+.gallery-winner-avatar-wrap.is-missing-avatar .gallery-winner-avatar-fallback {
+  display: flex;
+}
+
+.gallery-winner-unknown {
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,.14), transparent 30%),
+    linear-gradient(180deg, #111318, #030405);
+  font-weight: 950;
+  font-size: 1.28rem;
+  line-height: 1;
+}
+
+.gallery-winner-badges::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,235,170,.18);
+  opacity: .75;
+}
+
+@media (max-width: 640px) {
+  .gallery-card-meta.has-winner-badges {
+    padding-left: 64px;
+  }
+
+  .gallery-winner-badges {
+    left: 15px;
+    bottom: 13px;
+  }
+
+  .gallery-winner-badges-one .gallery-winner-avatar-wrap,
+  .gallery-winner-badges-one .gallery-winner-unknown {
+    width: 40px;
+    height: 40px;
+  }
+
+  .gallery-winner-badges-multi .gallery-winner-avatar-wrap,
+  .gallery-winner-badges-multi .gallery-winner-unknown {
+    width: 30px;
+    height: 30px;
+    margin-right: -7px;
+  }
+}
