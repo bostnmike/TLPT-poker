@@ -1,10 +1,10 @@
 {
-  "eventId": "2025-10-03",
+  "eventId": "2025-10-04",
   "sourceFile": "Event Report 2025-10-04.html",
   "title": "I'm Your Huckleberry | 9-Max",
-  "date": "2025-10-03",
+  "date": "2025-10-04",
   "summary": {
-    "startTimeRaw": "11:13:09 am 10/03/2025",
+    "startTimeRaw": "07:13:09 pm 10/04/2025",
     "startTimeIso": "2025-10-03T11:13:09",
     "endTimeRaw": "11:37:23 pm 10/04/2025",
     "endTimeIso": "2025-10-04T23:37:23",
@@ -40,55 +40,55 @@
   "actions": [
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "BostnMike",
       "slug": "bostnmike"
     },
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "Cougar",
       "slug": "cougar"
     },
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "Fabian",
       "slug": "fabian"
     },
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "Hiro",
       "slug": "hiro"
     },
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "Li-Fo",
       "slug": "li-fo"
     },
     {
       "type": "buyin",
-      "time_raw": "12:19:51 pm 10/02/2025",
+      "time_raw": "12:19:51 pm 10/04/2025",
       "player": "Yann",
       "slug": "yann"
     },
     {
       "type": "buyin",
-      "time_raw": "12:35:54 pm 10/02/2025",
+      "time_raw": "12:35:54 pm 10/04/2025",
       "player": "Nasa Al",
       "slug": "nasa-al"
     },
     {
       "type": "buyin",
-      "time_raw": "11:03:15 am 10/03/2025",
+      "time_raw": "11:03:15 am 10/04/2025",
       "player": "A.I. Dave",
       "slug": "ai-dave"
     },
     {
       "type": "tournament_started",
-      "time_raw": "11:13:09 am 10/03/2025"
+      "time_raw": "11:13:09 am 10/04/2025"
     },
     {
       "type": "bustout",
