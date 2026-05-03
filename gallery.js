@@ -111,44 +111,54 @@ function getGalleryRankOneWinners(event) {
 }
 
 function buildGalleryWinnerBadgesMarkup(poster) {
-  const event = galleryParsedEventsByDate.get(poster.date);
-  const winners = getGalleryRankOneWinners(event);
+  try {
+    const event = galleryParsedEventsByDate.get(poster.date);
+    const winners = getGalleryRankOneWinners(event);
 
-  if (!winners.length) {
+    if (!winners.length) {
+      return `
+        <div class="gallery-winner-badges gallery-winner-badges-unknown" aria-label="Winner not identified yet">
+          <span class="gallery-winner-unknown">?</span>
+        </div>
+      `;
+    }
+
+    const badgeClass = winners.length === 1
+      ? "gallery-winner-badges-one"
+      : "gallery-winner-badges-multi";
+
+    const label = winners.length === 1
+      ? `Winner: ${winners[0].name}`
+      : `Chop winners: ${winners.map(player => player.name).join(", ")}`;
+
+    return `
+      <div class="gallery-winner-badges ${badgeClass}" aria-label="${escapeGalleryHtml(label)}">
+        ${winners.map(player => `
+          <span class="gallery-winner-avatar-wrap" title="${escapeGalleryHtml(player.name)}">
+            ${player.image ? `
+              <img
+                class="gallery-winner-avatar"
+                src="${escapeGalleryHtml(player.image)}"
+                alt="${escapeGalleryHtml(player.name)}"
+                loading="lazy"
+                decoding="async"
+                onerror="this.style.display='none'; this.parentElement.classList.add('is-missing-avatar');"
+              />
+            ` : ""}
+            <span class="gallery-winner-avatar-fallback">?</span>
+          </span>
+        `).join("")}
+      </div>
+    `;
+  } catch (err) {
+    console.warn("Gallery winner badge failed for poster:", poster, err);
+
     return `
       <div class="gallery-winner-badges gallery-winner-badges-unknown" aria-label="Winner not identified yet">
         <span class="gallery-winner-unknown">?</span>
       </div>
     `;
   }
-
-  const badgeClass = winners.length === 1
-    ? "gallery-winner-badges-one"
-    : "gallery-winner-badges-multi";
-
-  const label = winners.length === 1
-    ? `Winner: ${winners[0].name}`
-    : `Chop winners: ${winners.map(player => player.name).join(", ")}`;
-
-  return `
-    <div class="gallery-winner-badges ${badgeClass}" aria-label="${escapeGalleryHtml(label)}">
-      ${winners.map(player => `
-        <span class="gallery-winner-avatar-wrap" title="${escapeGalleryHtml(player.name)}">
-          ${player.image ? `
-            <img
-              class="gallery-winner-avatar"
-              src="${escapeGalleryHtml(player.image)}"
-              alt="${escapeGalleryHtml(player.name)}"
-              loading="lazy"
-              decoding="async"
-              onerror="this.style.display='none'; this.parentElement.classList.add('is-missing-avatar');"
-            />
-          ` : ""}
-          <span class="gallery-winner-avatar-fallback">?</span>
-        </span>
-      `).join("")}
-    </div>
-  `;
 }
 
 async function loadGalleryPlayerMetadata() {
