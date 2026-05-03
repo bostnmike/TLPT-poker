@@ -14,50 +14,163 @@
   },
   "weeks": [
 {
+  "id": "week-05-02-2026",
+  "date": "05/02/2026",
+  "eventName": "Should We Let Him Win? | 9-Max",
+  "title": "TWTW: Should We Let Him Win? | 9-Max",
+  "featured": true,
+  "dek": "The Architect came back from Northeastern, Hiro did almost all the heavy lifting, and then BostnMike showed up for the last two signatures like a man cashing his own family check.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "BostnMike",
+      "value": "Winner",
+      "copy": "Hiro did the demolition, but the commissioner took the last two knockouts and the trophy.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "Vish",
+      "copy": "Hiro opened the action by sending Vish out first before the re-entry cycle began.",
+      "avatar": "images/players/vish.jpg",
+      "fallback": "VI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Li-Fo",
+      "copy": "Hiro got the first bust, but Vish made the second Li-Fo exit permanent.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Hiro",
+      "value": "5 knockouts",
+      "copy": "Removed Vish, Li-Fo, Ai-Dave, Ahmed, and The Architect before BostnMike stole the ending.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "10" },
+    { "icon": "♻️", "label": "Rebuys", "value": "3" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$300" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 22m" }
+  ],
+  "summary": {
+    "startTime": "7:17:45 pm 05/02/2026",
+    "endTime": "11:40:12 pm 05/02/2026",
+    "durationLabel": "4h 22m",
+    "buyIns": 7,
+    "rebuys": 3,
+    "entries": 10,
+    "totalPot": 300,
+    "paidSpots": 3,
+    "winner": "Bostnmike",
+    "firstOut": "Vish",
+    "firstPermanentOut": "Li-Fo"
+  },
+  "spotlight": {
+    "player": "BostnMike",
+    "avatar": "images/players/bostnmike.jpg",
+    "fallback": "BM",
+    "kicker": "Game Spotlight",
+    "pills": ["Winner", "Last Two Knockouts", "Stole the Ending", "Architect’s Dad"]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Vish",
+      "note": "Hiro got the opening bust and started what looked like a winner’s night."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Li-Fo",
+      "note": "Hiro bounced him once, Vish made the second exit permanent."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Hiro",
+      "note": "Removed Vish, Li-Fo, Ai-Dave, Ahmed, and The Architect before the commissioner hijacked the finish."
+    },
+    {
+      "label": "How It Ended",
+      "value": "BostnMike over Hiro",
+      "note": "Vish took third after surviving just long enough to become part of the final signature package."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-02.jpg\" alt=\"Poster for the 05/02/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Should We Let Him Win? turned out to be the kind of title that sounds like a joke until the ending makes it feel suspiciously documentary. Billy — The Architect — came back after finishing his master’s at Northeastern, which should have made this a nice wholesome return story. Instead the room treated him like a ceremonial offering. He made it deep enough to matter, stuck around into the late stages, and gave the table a clean emotional anchor. Then Hiro removed him anyway, because that was basically Hiro’s entire night: show up, do all the hard work, and leave somebody else the trophy.</p><p>That is the real shape of the game. Hiro spent the evening running the correction department. He got Vish first, then Li-Fo, then Ai-Dave, then Ahmed, then finally The Architect, which is the sort of knockout log that usually comes with a winner photo and an annoying amount of confidence. Instead it came with second place money and the faint smell of clerical injustice. Li-Fo kept finding extra lives until Vish finally made the second exit permanent, and Vish himself survived long enough to make the podium after taking Li-Fo out for good. But the entire night still bent around one obvious fact: Hiro was doing the visible work.</p><p>And then the commissioner did what commissioners do best when the story gets sentimental: he complicated it. BostnMike did not own the middle. He did not own the body count. He just owned the ending. With Vish still hanging around in third and Hiro apparently on the verge of converting labor into title, BostnMike took out Vish, then took out Hiro, and turned Billy’s welcome-back arc into a fatherly theft with receipts. The Architect came home from graduate school, Hiro did the demolition, and Dad still walked off with the biggest envelope. That is either beautiful family storytelling or grounds for a grievance.</p><p>There was other nonsense too, because of course there was. Tony spent much of the night feeling like the table’s designated owner of the second-best hand, which is a brutal way to spend four-plus hours. And in the end the title held up perfectly: no, they did not let him win. They let him come back, they let him matter, and then they let his father take the whole thing instead.</p>",
+  "roastHtml": "<p>BostnMike spent most of the night watching Hiro do the actual construction work, then wandered in at the end like a suburban zoning official and claimed the whole development. Your son came back from Northeastern, made a real run, and Dad still managed to turn the story into himself. That is elite commissioner parenting.</p>",
+  "numbersThatMatter": [
+    "7 buy-ins, 3 rebuys, 10 total entries.",
+    "4h 22m of play from 7:17 pm to 11:40 pm.",
+    "$300 total pot with 3 paid spots.",
+    "Hiro racked up 5 named knockouts and still finished second after BostnMike took the last two eliminations."
+  ],
+  "quickHitsLeft": [
+    "The Architect returned after finishing his master’s at Northeastern and immediately got thrown into a very ungenerous room.",
+    "Hiro spent most of the night looking like the obvious winner, which is always dangerous foreshadowing in this league.",
+    "Li-Fo burned through two rebuys before Vish finally closed the file for good.",
+    "Tony seemed to have the second-best hand all night, which is a miserable way to build character."
+  ],
+  "quickHitsRight": [
+    "Vish was first out, rebought, survived all the way to third, and still got erased right before the final hand.",
+    "Ai-Dave and Ahmed both got caught in Hiro’s mid-to-late cleanup run.",
+    "Billy’s return story was nice right up until it turned into a paternal asset seizure.",
+    "Should We Let Him Win? answered its own question with a pretty firm no."
+  ],
+  "tldr": "The Architect came back from Northeastern, Hiro did the hard work, and BostnMike stole the ending by taking the last two knockouts. It was a family story, just not the family story Billy probably had in mind."
+},
+{
   "id": "week-05-01-2026",
   "date": "05/01/2026",
   "eventName": "Clear & Obvious, Bluffs | 9-Max",
   "title": "TWTW: Clear & Obvious, Bluffs | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "ProvidenceMike got bounced first, rebought instantly, then unlocked grinder-mode all the way back into another chop at the top.",
   "summaryCards": [
-  {
-    "tone": "green",
-    "label": "📰 The Main Story",
-    "player": "ProvidenceMike / Li-Fo",
-    "value": "Split first",
-    "copy": "ProvidenceMike got busted first, rebought immediately, and came all the way back to share the win with Li-Fo.",
-    "avatars": [
-      { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" },
-      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
-    ]
-  },
-  {
-    "tone": "blue",
-    "label": "🩸 First Blood",
-    "player": "ProvidenceMike",
-    "copy": "Tim S returned from a long layoff and wasted no time drawing first blood.",
-    "avatar": "images/players/providencemike.jpg",
-    "fallback": "PM"
-  },
-  {
-    "tone": "purple",
-    "label": "🦤 First Rail Bird",
-    "player": "Phattedcalf",
-    "copy": "ProvidenceMike made the first permanent exit count once the comeback started rolling.",
-    "avatar": "images/players/phattedcalf.jpg",
-    "fallback": "PC"
-  },
-  {
-    "tone": "red",
-    "label": "🪓 Table Killer",
-    "player": "ProvidenceMike",
-    "value": "4 knockouts",
-    "copy": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the way back.",
-    "avatar": "images/players/providencemike.jpg",
-    "fallback": "PM"
-  }
-],
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "ProvidenceMike / Li-Fo",
+      "value": "Split first",
+      "copy": "ProvidenceMike got busted first, rebought immediately, and came all the way back to share the win with Li-Fo.",
+      "avatars": [
+        { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" },
+        { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Blood",
+      "player": "ProvidenceMike",
+      "copy": "Tim S returned from a long layoff and wasted no time drawing first blood.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Phattedcalf",
+      "copy": "ProvidenceMike made the first permanent exit count once the comeback started rolling.",
+      "avatar": "images/players/phattedcalf.jpg",
+      "fallback": "PC"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "ProvidenceMike",
+      "value": "4 knockouts",
+      "copy": "Removed Phattedcalf, Tim S, Hiro, and BostnMike on the way back.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    }
+  ],
   "statPills": [
     { "icon": "🎟️", "label": "Total Entries", "value": "9" },
     { "icon": "♻️", "label": "Rebuys", "value": "3" },
