@@ -400,6 +400,19 @@
       "profit": -30
     },
     {
+      "name": "Griffin",
+      "slug": "griffin",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
       "name": "Hayden D",
       "slug": "hayden-d",
       "buyIns": 0,
