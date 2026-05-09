@@ -211,6 +211,13 @@
       "aliases": ["tim s", "tim-s", "tim s."]
     },
     {
+      "name": "Griffin",
+      "slug": "griffin",
+      "image": "images/players/griffin.jpg",
+      "notes": "",
+      "aliases": ["griffin"]
+    },
+    {
       "name": "David K",
       "slug": "david-k",
       "image": "images/players/david-k.jpg",
