@@ -989,7 +989,7 @@
   },
   "spotlight": {
     "player": "BuffaloMike",
-    "avatar": "images/players/mike-g.jpg",
+    "avatar": "images/players/buffalomike.jpg",
     "fallback": "MG",
     "kicker": "Game Spotlight",
     "pills": ["Winner", "Rebuy Success", "5 Knockouts", "Closed the Night"]
