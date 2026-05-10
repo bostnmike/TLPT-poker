@@ -830,6 +830,10 @@
 }
 
 .news-receipt-lead{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:92px;
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(255,184,28,.16);
@@ -847,6 +851,10 @@
   justify-content:center;
   align-items:center;
   gap:14px;
+}
+
+.news-receipt-top-split{
+  width:100%;
 }
 
 .news-receipt-avatar-row{
