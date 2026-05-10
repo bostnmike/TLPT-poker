@@ -557,7 +557,7 @@
 
 .news-layout{
   display:grid;
-  grid-template-columns:minmax(0, 2.6fr) 240px;
+  grid-template-columns:minmax(0, 2.8fr) 220px;
   gap:22px;
   align-items:start;
   margin-top:18px;
