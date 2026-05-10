@@ -35,7 +35,7 @@
     },
     {
       "tone": "blue",
-      "label": "🩸 First Blood",
+      "label": "🩸 First Casualty",
       "player": "Hiro",
       "copy": "Vish got the opening bust before the rebuy madness really kicked in.",
       "avatar": "images/players/hiro.jpg",
@@ -51,7 +51,7 @@
     },
     {
       "tone": "red",
-      "label": "🪓 Table Killer",
+      "label": "🪓 Bounty Hunter",
       "player": "Grif",
       "value": "4 knockouts",
       "copy": "Removed ProvidenceMike, Li-Fo, Red, and Ahmed in a loud first appearance.",
