@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T04:26:07.691693Z",
+  "generatedAt": "2026-05-10T04:56:55.780424Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -622,9 +622,9 @@
       "tier": "C"
     },
     {
-      "name": "Griffin",
+      "name": "Grif",
       "slug": "griffin",
-      "image": "images/players/griffin.jpg",
+      "image": "images/players/grif.jpg",
       "notes": "",
       "entries": 2,
       "buyIns": 1,

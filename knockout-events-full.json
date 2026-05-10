@@ -1865,7 +1865,7 @@
     {
       "victim": "griffin",
       "killer": "ahmed",
-      "sourceVictim": "Griffin",
+      "sourceVictim": "Grif",
       "sourceKiller": "Ahmed"
     },
     {
@@ -1878,7 +1878,7 @@
       "victim": "providencemike",
       "killer": "griffin",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "Griffin"
+      "sourceKiller": "Grif"
     },
     {
       "victim": "hiro",
@@ -1890,7 +1890,7 @@
       "victim": "li-fo",
       "killer": "griffin",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Griffin"
+      "sourceKiller": "Grif"
     },
     {
       "victim": "hiro",
@@ -1902,7 +1902,7 @@
       "victim": "red",
       "killer": "griffin",
       "sourceVictim": "Red",
-      "sourceKiller": "Griffin"
+      "sourceKiller": "Grif"
     },
     {
       "victim": "the-architect",
@@ -1920,7 +1920,7 @@
       "victim": "ahmed",
       "killer": "griffin",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Griffin"
+      "sourceKiller": "Grif"
     }
   ]
 }

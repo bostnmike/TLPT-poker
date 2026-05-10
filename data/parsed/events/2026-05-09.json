@@ -25,7 +25,7 @@
       "payout": 140
     },
     {
-      "name": "Griffin",
+      "name": "Grif",
       "slug": "griffin",
       "rank": 1,
       "payout": 140
@@ -89,7 +89,7 @@
     {
       "type": "buyin",
       "time_raw": "12:48:21 pm 05/09/2026",
-      "player": "Griffin",
+      "player": "Grif",
       "slug": "griffin"
     },
     {
@@ -115,7 +115,7 @@
     {
       "type": "bustout",
       "time_raw": "8:02:30 pm 05/09/2026",
-      "player": "Griffin",
+      "player": "Grif",
       "slug": "griffin",
       "by": "Ahmed",
       "bySlug": "ahmed",
@@ -125,7 +125,7 @@
     {
       "type": "rebuy",
       "time_raw": "8:02:35 pm 05/09/2026",
-      "player": "Griffin",
+      "player": "Grif",
       "slug": "griffin"
     },
     {
@@ -149,7 +149,7 @@
       "time_raw": "8:56:33 pm 05/09/2026",
       "player": "ProvidenceMike",
       "slug": "providencemike",
-      "by": "Griffin",
+      "by": "Grif",
       "bySlug": "griffin",
       "rawKillerText": "Griffin",
       "sharedKillerSource": false
@@ -181,7 +181,7 @@
       "time_raw": "10:20:08 pm 05/09/2026",
       "player": "Li-Fo",
       "slug": "li-fo",
-      "by": "Griffin",
+      "by": "Grif",
       "bySlug": "griffin",
       "rawKillerText": "Griffin",
       "sharedKillerSource": false
@@ -201,7 +201,7 @@
       "time_raw": "10:31:12 pm 05/09/2026",
       "player": "Red",
       "slug": "red",
-      "by": "Griffin",
+      "by": "Grif",
       "bySlug": "griffin",
       "rawKillerText": "Griffin",
       "sharedKillerSource": false
@@ -231,7 +231,7 @@
       "time_raw": "11:30:56 pm 05/09/2026",
       "player": "Ahmed",
       "slug": "ahmed",
-      "by": "Griffin",
+      "by": "Grif",
       "bySlug": "griffin",
       "rawKillerText": "Griffin",
       "sharedKillerSource": false
@@ -256,7 +256,7 @@
     {
       "type": "payout",
       "time_raw": "11:45:36 pm 05/09/2026",
-      "player": "Griffin",
+      "player": "Grif",
       "slug": "griffin",
       "rank": 1,
       "payout": 140
@@ -428,7 +428,7 @@
       "profit": 0
     },
     {
-      "name": "Griffin",
+      "name": "Grif",
       "slug": "griffin",
       "buyIns": 1,
       "rebuys": 1,
