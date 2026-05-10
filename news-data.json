@@ -24,12 +24,12 @@
     {
       "tone": "green",
       "label": "📰 The Main Story",
-      "player": "BostnMike / Griffin / ProvidenceMike",
+      "player": "BostnMike / Grif / ProvidenceMike",
       "value": "Three-way chop",
-      "copy": "BostnMike came back from the brink, Griffin crashed the room as New Blood, and ProvidenceMike survived the Mike-on-Mike cooler to split first.",
+      "copy": "BostnMike came back from the brink, Grif crashed the room as New Blood, and ProvidenceMike survived the Mike-on-Mike cooler to split first.",
       "avatars": [
         { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
-        { "src": "images/players/griffin.jpg", "alt": "Griffin", "fallback": "GR" },
+        { "src": "images/players/grif.jpg", "alt": "Grif", "fallback": "GR" },
         { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
       ]
     },
@@ -45,17 +45,17 @@
       "tone": "purple",
       "label": "🦤 First Rail Bird",
       "player": "Li-Fo",
-      "copy": "Griffin made the Li-Fo exit permanent and announced the debut was not ceremonial.",
+      "copy": "Grif made the Li-Fo exit permanent and announced the debut was not ceremonial.",
       "avatar": "images/players/li-fo.jpg",
       "fallback": "LF"
     },
     {
       "tone": "red",
       "label": "🪓 Table Killer",
-      "player": "Griffin",
+      "player": "Grif",
       "value": "4 knockouts",
       "copy": "Removed ProvidenceMike, Li-Fo, Red, and Ahmed in a loud first appearance.",
-      "avatar": "images/players/griffin.jpg",
+      "avatar": "images/players/grif.jpg",
       "fallback": "GR"
     }
   ],
@@ -74,18 +74,18 @@
     "entries": 14,
     "totalPot": 420,
     "paidSpots": 3,
-    "winner": "Bostnmike, Griffin, Providencemike",
+    "winner": "Bostnmike, Grif, Providencemike",
     "firstOut": "Hiro",
     "firstPermanentOut": "Li-Fo"
   },
   "spotlight": {
-    "player": "BostnMike / Griffin / ProvidenceMike",
+    "player": "BostnMike / Grif / ProvidenceMike",
     "fallback": "3W",
     "kicker": "Game Spotlight",
     "pills": ["Three-Way Chop", "3-BB Comeback", "New Blood Cashes", "Full Chip Set Night"],
     "avatars": [
       { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
-      { "src": "images/players/griffin.jpg", "alt": "Griffin", "fallback": "GR" },
+      { "src": "images/players/grif.jpg", "alt": "Grif", "fallback": "GR" },
       { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
     ]
   },
@@ -98,29 +98,29 @@
     {
       "label": "First Gone For Good",
       "value": "Li-Fo",
-      "note": "Griffin made the Li-Fo exit permanent and announced the debut was not ornamental."
+      "note": "Grif made the Li-Fo exit permanent and announced the debut was not ornamental."
     },
     {
       "label": "Table Killer",
-      "value": "Griffin",
+      "value": "Grif",
       "note": "Removed ProvidenceMike, Li-Fo, Red, and Ahmed in a debut that got loud in a hurry."
     },
     {
       "label": "How It Ended",
-      "value": "BostnMike / Griffin / ProvidenceMike split first",
+      "value": "BostnMike / Grif / ProvidenceMike split first",
       "note": "The final three agreed to the chop after a full-table rebuy parade and one of the commissioner’s nastier revivals."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-09.jpg\" alt=\"Poster for the 05/09/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>High-Roller Ball did not play like a tidy little Saturday sit-down. It played like the chip cabinet got challenged to a stress test and accepted. Full table, five rebuys, fourteen total entries, and enough reload traffic to make the full set of chips earn its keep. That was the room. And inside all that chaos, the commissioner somehow authored one of the uglier-prettier rescue jobs of the season. BostnMike got knocked out by Ahmed, bought back in, fell all the way down to roughly three big blinds, and still came all the way back into the chip lead before the final three agreed to the chop.</p><p>It was not a solo act, and that is part of what made the night so good. Griffin arrived as New Blood and immediately behaved like he had zero interest in easing in gently. Ahmed knocked him out once, but after the rebuy he started collecting bodies: ProvidenceMike, Li-Fo, Red, and Ahmed all went through him before the night was done. That is not a courtesy cameo. That is a debut with fingerprints all over the felt. By the end he was not just still standing — he was one of the three names splitting first.</p><p>ProvidenceMike deserves the other big supporting line, because the Mike-on-Mike collision landed exactly where the pain lives. Four-handed, ProvidenceMike picked up kings, BostnMike picked up jacks, and the commissioner managed the kind of suckout that usually makes a guy stare at the ceiling for a full commercial break. ProvidenceMike still recovered well enough to eliminate The Architect and work his own way into the chop, which is a pretty decent answer to a bad beat that should have ruined the whole evening.</p><p>And then there was the miracle note: BostnMike’s aces held up. That should not need to be news, but given the recent archive, it absolutely qualifies. He survived the short stack, survived the room, got one premium hand to actually do its job, and then closed enough of the late business himself to reach the shared finish. At 11:45:36, BostnMike, Griffin, and ProvidenceMike,-after playing \"one more level\"- mutually agreed to chop the High-Roller Ball three ways. On a night that used every chip in the building, that was probably the only civilized thing left to do.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-09.jpg\" alt=\"Poster for the 05/09/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>High-Roller Ball did not play like a tidy little Saturday sit-down. It played like the chip cabinet got challenged to a stress test and accepted. Full table, five rebuys, fourteen total entries, and enough reload traffic to make the full set of chips earn its keep. That was the room. And inside all that chaos, the commissioner somehow authored one of the uglier-prettier rescue jobs of the season. BostnMike got knocked out by Ahmed, bought back in, fell all the way down to roughly three big blinds, and still came all the way back into the chip lead before the final three agreed to the chop.</p><p>It was not a solo act, and that is part of what made the night so good. Grif arrived as New Blood and immediately behaved like he had zero interest in easing in gently. Ahmed knocked him out once, but after the rebuy he started collecting bodies: ProvidenceMike, Li-Fo, Red, and Ahmed all went through him before the night was done. That is not a courtesy cameo. That is a debut with fingerprints all over the felt. By the end he was not just still standing — he was one of the three names splitting first.</p><p>ProvidenceMike deserves the other big supporting line, because the Mike-on-Mike collision landed exactly where the pain lives. Four-handed, ProvidenceMike picked up kings, BostnMike picked up jacks, and the commissioner managed the kind of suckout that usually makes a guy stare at the ceiling for a full commercial break. ProvidenceMike still recovered well enough to eliminate The Architect and work his own way into the chop, which is a pretty decent answer to a bad beat that should have ruined the whole evening.</p><p>And then there was the miracle note: BostnMike’s aces held up. That should not need to be news, but given the recent archive, it absolutely qualifies. He survived the short stack, survived the room, got one premium hand to actually do its job, and then closed enough of the late business himself to reach the shared finish. At 11:45:36, BostnMike, Grif, and ProvidenceMike,-after playing \"one more level\"- mutually agreed to chop the High-Roller Ball three ways. On a night that used every chip in the building, that was probably the only civilized thing left to do.</p>",
   "roastHtml": "<p>BostnMike spent part of the night dead, part of the night on life support, and part of the night pretending this was all skillfully managed. The truth is he got down to three big blinds, found one miracle lane, and then acted like the comeback was always in the architectural plans. For a guy who needed the full chip set and a little divine intervention, he is going to be absolutely unbearable about this.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 5 rebuys, 14 total entries.",
     "4h 28m of play from 7:17 pm to 11:45 pm.",
     "$420 total pot with a three-way chop at the top.",
-    "BostnMike busted and rebought, Griffin debuted with 4 named knockouts, and ProvidenceMike still survived the jacks-over-kings insult to share first."
+    "BostnMike busted and rebought, Grif debuted with 4 named knockouts, and ProvidenceMike still survived the jacks-over-kings insult to share first."
   ],
   "quickHitsLeft": [
-    "New Blood alert: welcome Griffin (Grif), who immediately played like he had been auditing this room for months.",
+    "New Blood alert: welcome Grif, who immediately played like he had been auditing this room for months.",
     "Hiro was first out, rebought, then still got clipped for good by BostnMike later in the night.",
     "Li-Fo was the first player gone for good, which is always a useful sign the table has no patience.",
     "The full chip set got a proper workout with fourteen total entries on a full nine-player table."
@@ -128,10 +128,10 @@
   "quickHitsRight": [
     "The Battle of the Mikes got cruel four-handed when BostnMike’s jacks sucked out on ProvidenceMike’s kings.",
     "ProvidenceMike still rallied well enough after that to bust The Architect and grab a seat in the final chop.",
-    "Ahmed started loud with early knockouts on Griffin and BostnMike, but Griffin got the last word by taking him out late.",
+    "Ahmed started loud with early knockouts on Grif and BostnMike, but Grif got the last word by taking him out late.",
     "High-Roller Ball ended the only way a night like this probably could: with three survivors and a room too tired to argue."
   ],
-  "tldr": "BostnMike came back from three-big-blind territory, Griffin made a real entrance as New Blood, and ProvidenceMike survived a brutal Mike-on-Mike cooler to share first. High-Roller Ball used every chip in the house and paid three men to stop the bleeding."
+  "tldr": "BostnMike came back from three-big-blind territory, Grif made a real entrance as New Blood, and ProvidenceMike survived a brutal Mike-on-Mike cooler to share first. High-Roller Ball used every chip in the house and paid three men to stop the bleeding."
 },
 {
   "id": "week-05-02-2026",
