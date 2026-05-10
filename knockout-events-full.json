@@ -1854,5 +1854,73 @@
       "sourceVictim": "Hiro",
       "sourceKiller": "BostnMike"
     }
+  ],
+  "2026-05-09": [
+    {
+      "victim": "hiro",
+      "killer": "vish",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "griffin",
+      "killer": "ahmed",
+      "sourceVictim": "Griffin",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ahmed",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "griffin",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Griffin"
+    },
+    {
+      "victim": "hiro",
+      "killer": "red",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "griffin",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Griffin"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "red",
+      "killer": "griffin",
+      "sourceVictim": "Red",
+      "sourceKiller": "Griffin"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "providencemike",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "vish",
+      "killer": "bostnmike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "griffin",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Griffin"
+    }
   ]
 }
