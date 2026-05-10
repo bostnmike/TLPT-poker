@@ -3051,7 +3051,7 @@
   },
   "spotlight": {
     "player": "Nitro",
-    "avatar": "images/players/nitro.png",
+    "avatar": "images/players/nitro.jpg",
     "fallback": "NI",
     "kicker": "Game Spotlight",
     "pills": ["Winner", "Late Closer", "Compact Field", "Back for Real?"]
