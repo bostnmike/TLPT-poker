@@ -237,11 +237,9 @@ function renderGameSpotlight(week) {
 
   const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
   const spotlightCount = hasMulti ? spotlight.avatars.length : (spotlight?.avatar ? 1 : 0);
-  const defaultKicker = spotlightCount >= 2 ? 'Featured Actors' : 'Featured Actor';
-  const kicker = escapeHtml(spotlight?.kicker || defaultKicker);
+  const kicker = escapeHtml(spotlightCount >= 2 ? 'Featured Actors' : 'Featured Actor');
   const player = escapeHtml(spotlight?.player || '');
   const pills = Array.isArray(spotlight?.pills) ? spotlight.pills : [];
-  const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
   const isThreeAvatarSpotlight = hasMulti && spotlight.avatars.length === 3;
 
   const avatarBlock = hasMulti
