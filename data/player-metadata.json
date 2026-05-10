@@ -66,7 +66,7 @@
     {
       "name": "Nitro",
       "slug": "nitro",
-      "image": "images/players/nitro.png",
+      "image": "images/players/nitro.jpg",
       "notes": "I don't believe you, Tony.",
       "aliases": ["nitro"]
     },
@@ -192,7 +192,7 @@
     {
       "name": "BuffaloMike",
       "slug": "buffalomike",
-      "image": "images/players/mike-g.jpg",
+      "image": "images/players/guffalomike.jpg",
       "notes": "Sure, I'll play.",
       "aliases": ["buffalomike", "buffalo mike", "mike-g"]
     },
