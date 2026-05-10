@@ -844,16 +844,18 @@
 }
 
 .news-receipt-top-split{
-  justify-content:space-between;
+  justify-content:center;
   align-items:center;
+  gap:14px;
 }
 
 .news-receipt-avatar-row{
   display:flex;
   align-items:center;
+  justify-content:center;
   gap:6px;
   flex:0 0 auto;
-  margin-left:12px;
+  margin-left:0;
 }
 
 .news-receipt-avatar-row .player-avatar.table,
@@ -885,6 +887,8 @@
   flex-direction:column;
   gap:3px;
   min-width:0;
+  text-align:center;
+  align-items:center;
 }
 
 .news-receipt-kicker{
