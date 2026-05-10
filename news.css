@@ -815,7 +815,7 @@
 
 .news-receipt-panel{
   display:grid;
-  grid-template-columns:220px minmax(0,1fr);
+  grid-template-columns:270px minmax(0,1fr);
   gap:12px;
   margin:18px 0;
   padding:14px;
