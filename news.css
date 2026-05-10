@@ -870,6 +870,18 @@
     0 6px 12px rgba(0,0,0,.22);
 }
 
+.news-receipt-avatar-row-three{
+  display:grid;
+  grid-template-columns:repeat(2, 38px);
+  justify-content:center;
+  gap:6px 8px;
+}
+
+.news-receipt-avatar-row-three .player-avatar-wrap:nth-child(3){
+  grid-column:1 / -1;
+  justify-self:center;
+}
+
 .news-receipt-top .player-avatar.table,
 .news-receipt-top .player-avatar-fallback.table{
   width:42px;
