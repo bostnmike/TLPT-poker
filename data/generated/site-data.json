@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T14:48:00.599512Z",
+  "generatedAt": "2026-05-10T14:53:15.064045Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -365,7 +365,7 @@
     {
       "name": "BuffaloMike",
       "slug": "buffalomike",
-      "image": "images/players/guffalomike.jpg",
+      "image": "images/players/buffalomike.jpg",
       "notes": "Sure, I'll play.",
       "entries": 2,
       "buyIns": 1,
