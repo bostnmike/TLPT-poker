@@ -239,10 +239,11 @@ function renderGameSpotlight(week) {
   const player = escapeHtml(spotlight?.player || '');
   const pills = Array.isArray(spotlight?.pills) ? spotlight.pills : [];
   const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
+  const isThreeAvatarSpotlight = hasMulti && spotlight.avatars.length === 3;
 
   const avatarBlock = hasMulti
     ? `
-      <div class="news-receipt-avatar-row">
+      <div class="news-receipt-avatar-row${isThreeAvatarSpotlight ? ' news-receipt-avatar-row-three' : ''}">
         ${spotlight.avatars.map((avatar) => renderAvatar(avatar)).join('')}
       </div>
     `
