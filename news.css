@@ -719,8 +719,8 @@
 
 .news-story-poster-wrap{
   float:right;
-  width:min(33.44%, 282px);
-  max-width:282px;
+  width:min(32.44%, 274px);
+  max-width:274px;
   margin:2px 0 14px 18px;
   border-radius:16px;
   overflow:hidden;
