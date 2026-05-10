@@ -235,7 +235,10 @@ function renderGameSpotlight(week) {
   const spotlight = week?.spotlight;
   if (!spotlight) return '';
 
-  const kicker = escapeHtml(spotlight?.kicker || 'Game Spotlight');
+  const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
+  const spotlightCount = hasMulti ? spotlight.avatars.length : (spotlight?.avatar ? 1 : 0);
+  const defaultKicker = spotlightCount >= 2 ? 'Featured Actors' : 'Featured Actor';
+  const kicker = escapeHtml(spotlight?.kicker || defaultKicker);
   const player = escapeHtml(spotlight?.player || '');
   const pills = Array.isArray(spotlight?.pills) ? spotlight.pills : [];
   const hasMulti = Array.isArray(spotlight?.avatars) && spotlight.avatars.length;
