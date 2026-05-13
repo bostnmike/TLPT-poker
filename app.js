@@ -50,7 +50,7 @@ const STAT_FORMULAS = {
   luckIndex: "Luck Index: Profit − Expected Profit",
   clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   aggressionIndex: "Aggression Index: Hits ÷ Entries",
-  survivorIndex: "Survivor Index: Cash Rate × (1 − Bubble Rate)",
+  survivorIndex: "Survivor Index: 100 × ((0.55 × Cash Rate) + (0.25 × (1 − Bubble Rate)) + (0.20 × Hit Rate))",
   tiltIndex: "Tilt Index: (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
