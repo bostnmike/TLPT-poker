@@ -154,11 +154,19 @@ def main():
     # ---------------- RAW COMPONENTS ----------------
 
     for p in players:
+        cash_rate = p["cashRate"]
+        bubble_rate = p["bubbleRate"]
+        hit_rate = p["hitRate"]
+
         p["clutchRaw"] = p["timesPlaced"] / max(p["buyIns"], 1)
         p["aggressionRaw"] = p["hits"] / max(p["entries"], 1)
-        p["survivorRaw"] = 1 - (p["bubbles"] / max(p["buyIns"], 1))
+        p["survivorRaw"] = (
+            (0.55 * cash_rate)
+            + (0.25 * (1 - bubble_rate))
+            + (0.20 * hit_rate)
+        )
         p["tiltRaw"] = p["rebuys"] / max(p["buyIns"], 1)
-
+        
     # ---------------- NORMALIZE ----------------
 
     normalize_stat(players, "roi")
