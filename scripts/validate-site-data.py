@@ -64,9 +64,9 @@ def validate_player(p):
         "tiltIndex": (-50, 200),
 
         # trueSkillScore is a composite score, not a 0-100 style index.
-        # Current tier/power-index formulas can legitimately push top players
-        # well above 200, so this gets a wider sanity range.
-        "trueSkillScore": (-50, 500),
+        # Current formulas can push elite players well above 200 and
+        # very weak / tiny-sample profiles below -50, so allow more room.
+        "trueSkillScore": (-100, 500),
     }
 
     for key, (min_allowed, max_allowed) in metric_ranges.items():
