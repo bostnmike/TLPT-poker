@@ -206,7 +206,7 @@ def main():
             + (p["aggressionIndex"] * 1.0)
             + (p["survivorIndex"] * 1.0)
             + (p["luckIndex_norm"] * 0.5)
-            - (p["tiltIndex"] * 0.8)
+            + (p["tiltIndex"] * 0.8)
             + sample_bonus
         )
 
