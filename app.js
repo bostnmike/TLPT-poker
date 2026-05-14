@@ -51,7 +51,7 @@ const STAT_FORMULAS = {
   clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   aggressionIndex: "Aggression Index: Hits ÷ Entries",
   survivorIndex: "Survivor Index: normalized weighted score from (0.55 × Cash Rate) + (0.25 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
-  tiltIndex: "Tilt Index: (0.60 × (Rebuys ÷ Buy-ins)) + (0.40 × Bubble Rate)",
+  tiltIndex: "Composure Index: normalized score rewarding lower rebuy dependence and fewer bubble finishes",
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
@@ -77,8 +77,8 @@ const PROFILE_STAT_CONFIG = [
   { key: "clutchIndex", label: "Clutch Index", dashboardLabel: "Clutch", type: "num", icon: "🎯", dashboard: true },
   { key: "aggressionIndex", label: "Aggression Index", dashboardLabel: "Aggression", type: "num", icon: "⚡", dashboard: true },
   { key: "survivorIndex", label: "Survivor Index", dashboardLabel: "Survivor", type: "num", icon: "🛟", dashboard: true },
-  { key: "tiltIndex", label: "Tilt Index", dashboardLabel: "Tilt", type: "num", icon: "🫨", dashboard: true },
-
+  { key: "tiltIndex", label: "Composure Index", dashboardLabel: "Composure", type: "num", icon: "🧊", dashboard: true },
+  
   { key: "expectedProfit", label: "Expected Profit", type: "money", icon: "💰", dashboard: false, profitClassFromValue: true }
 ];
 
@@ -109,7 +109,7 @@ const DASHBOARD_EDITORIAL = {
   clutchIndex: "Who closes when the pressure spikes.",
   aggressionIndex: "Who pushes the pace and forces the action.",
   survivorIndex: "Who outlasts the field when stacks get shallow.",
-  tiltIndex: "The league’s emotional volatility index."
+  tiltIndex: "Who stays the steadiest when the session starts getting expensive."
 };
 
 const STAT_LEADER_CONFIG = [
@@ -117,7 +117,7 @@ const STAT_LEADER_CONFIG = [
   { key: "luckIndex", title: "Luck Leader" },
   { key: "aggressionIndex", title: "Aggression Leader" },
   { key: "survivorIndex", title: "Survivor Leader" },
-  { key: "tiltIndex", title: "Tilt Leader" }
+  { key: "tiltIndex", title: "Composure Leader" }
 ];
 
 const HOME_BADGE_CONFIG = [
@@ -508,7 +508,7 @@ function getPlayerArchetypeScores(player) {
   const clutch = Number(player?.clutchIndex ?? 0);
   const survivor = Number(player?.survivorIndex ?? 0);
   const luck = Number(player?.luckIndex ?? 0);
-  const tilt = Number(player?.tiltIndex ?? 0);
+  const composure = Number(player?.tiltIndex ?? 0);
   const bubbles = Number(player?.bubbles ?? 0);
   const rebuys = Number(player?.rebuys ?? 0);
   const hits = Number(player?.hits ?? 0);
@@ -533,7 +533,7 @@ function getPlayerArchetypeScores(player) {
       emoji: "⚙️",
       name: "The Grinder",
       desc: "Joey Knish would be proud, you’re steady and dangerous, if not a little boring.",
-      score: survivor * 1.05 - tilt * 0.45 - aggression * 0.35
+      score: survivor * 1.05 + composure * 0.45 - aggression * 0.35
     },
     {
       key: "lucky",
@@ -547,7 +547,7 @@ function getPlayerArchetypeScores(player) {
       emoji: "🌀",
       name: "The Wildcard",
       desc: "agent of chaos capable of brilliance or disaster on any orbit",
-      score: tilt * 1.1 + rebuys * 0.8
+      score: (100 - composure) * 1.1 + rebuys * 0.8
     },
     {
       key: "bubblemagnet",
@@ -601,7 +601,7 @@ function getPlayerTierScore(player) {
   const clutch = Number(player?.clutchIndex ?? 0);
   const aggression = Number(player?.aggressionIndex ?? 0);
   const survivor = Number(player?.survivorIndex ?? 0);
-  const tilt = Number(player?.tiltIndex ?? 0);
+  const composure = Number(player?.tiltIndex ?? 0);
 
   let sampleBonus = 0;
   if (entries >= 20) sampleBonus = 3.0;
@@ -616,8 +616,8 @@ function getPlayerTierScore(player) {
     (trueSkill * 1.5) +
     (clutch * 1.1) +
     (aggression * 0.65) +
-    (survivor * 1.0) -
-    (tilt * 1.25) +
+    (survivor * 1.0) +
+    (composure * 1.25) +
     sampleBonus -
     rebuyPenalty
   );
@@ -916,7 +916,7 @@ function badgeList(player, data) {
   if (player.name === topLuck) badges.push({ icon: "😈", label: "Lucky Devil", rarity: "epic", tone: "violet" });
   if (player.name === topAggro) badges.push({ icon: "🦁", label: "Aggro Animal", rarity: "epic", tone: "red" });
   if (player.name === topSurvivor) badges.push({ icon: "🛟", label: "Survivor", rarity: "uncommon", tone: "blue" });
-  if (player.name === topTilt) badges.push({ icon: "🫨", label: "Tilt Meter", rarity: "common", tone: "slate" });
+  if (player.name === topTilt) badges.push({ icon: "🧊", label: "Cool Customer", rarity: "common", tone: "slate" });
   if (player.name === topBubbleRate) badges.push({ icon: "🫧", label: "Bubble Trouble", rarity: "uncommon", tone: "blue" });
   if (player.name === topRebuys) badges.push({ icon: "♻️", label: "Rebuy King", rarity: "rare", tone: "amber" });
 
@@ -1692,16 +1692,16 @@ function getRandomCommissionerReport(previousIndex = -1) {
 function archetypeFormulaText(name) {
   if (name === "The Hitman") return "Hitman = Aggression Index + (Hits × 0.8)";
   if (name === "The Closer") return "Closer = Clutch Index × 1.25";
-  if (name === "The Grinder") return "Grinder = (Survivor Index × 1.05) − (Tilt Index × 0.45) − (Aggression Index × 0.35)";
+  if (name === "The Grinder") return "Grinder = (Survivor Index × 1.05) + (Composure Index × 0.45) − (Aggression Index × 0.35)";
   if (name === "The Lucky Devil") return "Lucky Devil = Luck Index × 1.15";
-  if (name === "The Wildcard") return "Wildcard = (Tilt Index × 1.1) + (Rebuys × 0.8)";
+  if (name === "The Wildcard") return "Wildcard = ((100 − Composure Index) × 1.1) + (Rebuys × 0.8)";
   if (name === "The Bubble Magnet") return "Bubble Magnet = (Bubbles × 4) + (Clutch Index × 0.15)";
   if (name === "The Technician") return "Technician = (Clutch Index + Survivor Index + Aggression Index) ÷ 3";
   return "";
 }
 
 function tierFormulaText(name) {
-  const base = "Tier Score = (True Skill × 1.5) + (Clutch × 1.1) + (Aggression × 0.65) + (Survivor × 1.0) − (Tilt × 1.25) + sample bonus − rebuy penalty.";
+  const base = "Tier Score = (True Skill × 1.5) + (Clutch × 1.1) + (Aggression × 0.65) + (Survivor × 1.0) + (Composure × 1.25) + sample bonus − rebuy penalty.";
 
   if (name === "The Apex Predator") {
     return `
@@ -2778,7 +2778,7 @@ function playerDnaMetrics(player) {
       tone: "green"
     },
     {
-      label: "Tilt Risk",
+      label: "Composure",
       value: clampPct(player?.tiltIndex),
       tone: "violet"
     },
@@ -3078,7 +3078,7 @@ function getBalancedHonorsSections(data) {
       { key: "luckIndex", title: "Lucky Duck", icon: "🐥" },
       { key: "aggressionIndex", title: "Mr. Aggro", icon: "😤" },
       { key: "survivorIndex", title: "The Survivor", icon: "🛟" },
-      { key: "tiltIndex", title: "On Tilt", icon: "😵‍💫" }
+      { key: "tiltIndex", title: "Cool Customer", icon: "🧊" }
     ],
     recordItems: [
       { label: "Most Cashes", title: "Cash Cow", icon: "🐮" },
