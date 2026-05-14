@@ -154,32 +154,32 @@ def main():
     # ---------------- RAW COMPONENTS ----------------
 
     for p in players:
-    cash_rate = p["cashRate"]
-    bubble_rate = p["bubbleRate"]
-    hit_rate = p["hitRate"]
+        cash_rate = p["cashRate"]
+        bubble_rate = p["bubbleRate"]
+        hit_rate = p["hitRate"]
 
-    buy_ins = max(p["buyIns"], 1)
-    rebuy_rate = p["rebuys"] / buy_ins
+        buy_ins = max(p["buyIns"], 1)
+        rebuy_rate = p["rebuys"] / buy_ins
 
-    p["clutchRaw"] = p["timesPlaced"] / buy_ins
-    p["aggressionRaw"] = p["hits"] / max(p["entries"], 1)
-    p["survivorRaw"] = (
-        (0.55 * cash_rate)
-        + (0.25 * (1 - bubble_rate))
-        + (0.20 * hit_rate)
-    )
+        p["clutchRaw"] = p["timesPlaced"] / buy_ins
+        p["aggressionRaw"] = p["hits"] / max(p["entries"], 1)
+        p["survivorRaw"] = (
+            (0.55 * cash_rate)
+            + (0.25 * (1 - bubble_rate))
+            + (0.20 * hit_rate)
+        )
 
-    # Base Composure Score:
-    # 100 × (1 − ((0.70 × Rebuy Rate) + (0.30 × Bubble Rate)))
-    base_composure = 100 * (1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate)))
+        # Base Composure Score:
+        # 100 × (1 − ((0.70 × Rebuy Rate) + (0.30 × Bubble Rate)))
+        base_composure = 100 * (1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate)))
 
-    # Pull tiny samples back toward 50 so one clean night does not auto-score 100
-    sample_factor = min(p["buyIns"], 8) / 8.0
-    composure_score = 50 + ((base_composure - 50) * sample_factor)
+        # Pull tiny samples back toward 50 so one clean night does not auto-score 100
+        sample_factor = min(p["buyIns"], 8) / 8.0
+        composure_score = 50 + ((base_composure - 50) * sample_factor)
 
-    # Clamp to 0–100
-    p["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
-        
+        # Clamp to 0–100
+        p["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
+
     # ---------------- NORMALIZE ----------------
 
     normalize_stat(players, "roi")
@@ -187,7 +187,6 @@ def main():
     normalize_stat(players, "clutchRaw")
     normalize_stat(players, "aggressionRaw")
     normalize_stat(players, "survivorRaw")
-    normalize_stat(players, "tiltRaw")
 
     # ---------------- FINAL METRICS ----------------
 
