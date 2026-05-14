@@ -51,7 +51,7 @@ const STAT_FORMULAS = {
   clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   aggressionIndex: "Aggression Index: Hits ÷ Entries",
   survivorIndex: "Survivor Index: normalized weighted score from (0.55 × Cash Rate) + (0.25 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
-  tiltIndex: "Composure Index: normalized score rewarding lower rebuy dependence and fewer bubble finishes",
+  tiltIndex: "Composure Index: fixed 0–100 score rewarding fewer rebuys and fewer bubble finishes, softened toward 50 for small samples",
   expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
 };
 
