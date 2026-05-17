@@ -14,11 +14,128 @@
   },
   "weeks": [
 {
+  "id": "week-05-16-2026",
+  "date": "05/16/2026",
+  "eventName": "Stranger Bluffs! | 9-Max",
+  "title": "TWTW: Stranger Bluffs! | 9-Max",
+  "featured": true,
+  "dek": "Li-Fo finally burned off the cursed cash and made a real run to second, but BostnMike turned a five-hour deep-stack crawl into his fourth straight cash — and the win.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Li-Fo / BostnMike",
+      "value": "Curse broken, heater alive",
+      "copy": "Li-Fo finally made the real run, but BostnMike closed the whole thing himself and stretched the cash streak to four.",
+      "avatars": [
+        { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" },
+        { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Vish",
+      "copy": "ProvidenceMike got first blood, and this time Vish was gone for good immediately.",
+      "avatar": "images/players/vish.jpg",
+      "fallback": "VI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Vish",
+      "copy": "No safety net, no sequel — first out and first gone for good.",
+      "avatar": "images/players/vish.jpg",
+      "fallback": "VI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "BostnMike",
+      "value": "6 knockouts",
+      "copy": "Removed Vish, Kishan, Phattedcalf, Ahmed, Hiro, and Li-Fo to own the closing stretch.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "11" },
+    { "icon": "♻️", "label": "Rebuys", "value": "3" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$330" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 55m" }
+  ],
+  "summary": {
+    "startTime": "7:16:21 pm 05/16/2026",
+    "endTime": "12:11:02 am 05/17/2026",
+    "durationLabel": "4h 55m",
+    "buyIns": 8,
+    "rebuys": 3,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Bostnmike",
+    "firstOut": "Vish",
+    "firstPermanentOut": "Vish"
+  },
+  "spotlight": {
+    "player": "Li-Fo / BostnMike",
+    "fallback": "LFBM",
+    "pills": ["Cursed Cash Burned", "4 Straight Cashes", "Bubble Crown Claimed", "Deep-Stack Marathon"],
+    "avatars": [
+      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" },
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Vish",
+      "note": "ProvidenceMike opened the night by bouncing Vish, and this one stuck immediately."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Vish",
+      "note": "Same name, same pain — first out and first permanent casualty."
+    },
+    {
+      "label": "Table Killer",
+      "value": "BostnMike",
+      "note": "Removed Vish, Kishan, Phattedcalf, Ahmed, Hiro, and Li-Fo in the long late close."
+    },
+    {
+      "label": "How It Ended",
+      "value": "BostnMike over Li-Fo",
+      "note": "Hiro took third, Ahmed finally inherited the bubble crown, and the room wandered into a blind level it had never seen before."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-16.jpg\" alt=\"Poster for the 05/16/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Stranger Bluffs! finally gave Li-Fo what had felt weirdly unavailable for weeks: a finish that did not come wrapped in cursed cash jokes and side-eye. ProvidenceMike bounced him in the middle, Li-Fo bought back in, and from there he survived the kind of late-night trench war that usually ends with somebody muttering about how second place is just first loser with better timing. This time, second actually felt like a purge. Tony burned off the cursed cash and made a real run.</p><p>That said, the ending still belonged to BostnMike. The room went deep — very deep — and stayed six-handed for so long it started to feel like the structure had stopped being a suggestion and turned into an endurance test. New territory, late clock, chips getting sticky, and everybody too invested to leave. Once the game finally broke, the commissioner handled the paperwork himself: Vish, Kishan, Phattedcalf, Ahmed on the bubble, then Hiro, then Li-Fo. It was not flashy. It was just decisive, which is sometimes meaner.</p><p>That makes four straight cashes for BostnMike, which is the sort of streak that gets more annoying the less theatrical it becomes. He did not need a miracle title twist here. He just stayed alive long enough for the room to thin out, then closed everybody himself. If Li-Fo’s night was about finally escaping the cursed-cash holding pattern, BostnMike’s was about making consistency feel like a hostile act.</p><p>And then there was Ahmed, who finally did what the table had been threatening him with for a while and officially put on the bubble crown. Fourth place in a game that ran to the edge of tomorrow is not just a miss. It is a full emotional subscription. Stranger Bluffs! took nearly five hours, reached a level the room had not seen before, and by the end the only man still fully comfortable in it was the one holding first-place money.</p>",
+  "roastHtml": "<p>BostnMike has now cashed four straight games, which is exactly the kind of streak that makes a commissioner start speaking in calm, measured tones right before becoming unbearable. The worst part is that this one was not even fraudulent-looking. He just waited out the deep-stack hostage situation and then signed off on everybody else's exit papers himself.</p>",
+  "numbersThatMatter": [
+    "8 buy-ins, 3 rebuys, 11 total entries.",
+    "4h 55m of play from 7:16 pm to 12:11 am.",
+    "$330 total pot with 3 paid spots.",
+    "BostnMike closed the final six named eliminations and made it four straight cashes."
+  ],
+  "quickHitsLeft": [
+    "Li-Fo finally burned off the cursed cash by rebuying once and still reaching second.",
+    "The room stayed six-handed so long it started to feel like a blind-structure science experiment.",
+    "Vish wore the roughest possible opening line: first out and first gone for good.",
+    "Kishan came in late and still found his way into BostnMike’s closing montage."
+  ],
+  "quickHitsRight": [
+    "Ahmed officially takes over the bubble crown after busting fourth in a game that lasted forever.",
+    "Hiro survived the marathon and still had to settle for third once BostnMike reached the cleanup phase.",
+    "ProvidenceMike drew first blood twice on the night — Vish first, then Li-Fo — but did not reach the payout line.",
+    "Stranger Bluffs! reached a new blind level for the room, which felt less historic than mildly accusatory."
+  ],
+  "tldr": "Li-Fo finally ditched the cursed-cash baggage and finished second, but BostnMike took the night and stretched the heater to four straight cashes. It was a deep, late grinder that eventually turned into a one-man closing reel."
+},
+{
   "id": "week-05-09-2026",
   "date": "05/09/2026",
   "eventName": "High-Roller Ball | 9-Max",
   "title": "TWTW: High-Roller Ball | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "BostnMike got down to fumes, watched his aces actually hold for once, sucked out on ProvidenceMike’s kings four-handed, and somehow turned three big blinds into a share of first.",
   "summaryCards": [
     {
@@ -81,7 +198,6 @@
   "spotlight": {
     "player": "BostnMike / Grif / ProvidenceMike",
     "fallback": "3W",
-    "kicker": "Game Spotlight",
     "pills": ["Three-Way Chop", "3-BB Comeback", "New Blood Cashes", "Full Chip Set Night"],
     "avatars": [
       { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
