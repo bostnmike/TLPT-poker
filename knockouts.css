@@ -89,6 +89,14 @@
   line-height:1.2;
 }
 
+.knockouts-shell-head-leaders h3{
+  margin:0;
+  color:#fff;
+  font-size:1.5em;
+  font-weight:900;
+  line-height:1.1;
+}
+
 .knockouts-shell-head p{
   margin:0;
 }
