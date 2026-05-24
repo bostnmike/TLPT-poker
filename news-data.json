@@ -14,11 +14,127 @@
   },
   "weeks": [
 {
+  "id": "week-05-23-2026",
+  "date": "05/23/2026",
+  "eventName": "Championship Sunday Eve | 9-Max",
+  "title": "TWTW: Championship Sunday Eve | 9-Max",
+  "featured": true,
+  "dek": "Griffin’s third bullet became the winner on the same night the Canes won in OT, while Tony ran hotter than physics and BostnMike quietly stretched the cash streak to five.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Griffin",
+      "value": "Winner on bullet three",
+      "copy": "Got knocked out twice, came back twice, and turned the third life into first place on a very Grif-coded hockey night.",
+      "avatar": "images/players/grif.jpg",
+      "fallback": "GR"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Nasa Al",
+      "copy": "BostnMike got the opening bust before Al came roaring back with a suspicious heater.",
+      "avatar": "images/players/nasa-al.jpg",
+      "fallback": "NA"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "ProvidenceMike got the first temporary version, Ahmed made the second exit permanent.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "Griffin",
+      "value": "5 knockouts",
+      "copy": "Removed Nasa Al twice, ProvidenceMike, BostnMike, and Li-Fo to close the whole thing.",
+      "avatar": "images/players/grif.jpg",
+      "fallback": "GR"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "15" },
+    { "icon": "♻️", "label": "Rebuys", "value": "7" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$450" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 39m" }
+  ],
+  "summary": {
+    "startTime": "7:18:26 pm 05/23/2026",
+    "endTime": "11:57:43 pm 05/23/2026",
+    "durationLabel": "4h 39m",
+    "buyIns": 8,
+    "rebuys": 7,
+    "entries": 15,
+    "totalPot": 450,
+    "paidSpots": 3,
+    "winner": "Griffin",
+    "firstOut": "Nasa Al",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Griffin / Li-Fo / BostnMike",
+    "fallback": "GLB",
+    "pills": ["Third Bullet Winner", "Tony Quad Show", "5 Straight Cashes", "Canes OT Night"],
+    "avatars": [
+      { "src": "images/players/grif.jpg", "alt": "Griffin", "fallback": "GR" },
+      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" },
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Nasa Al",
+      "note": "BostnMike got the opening bust, which turned out to be more delay than defeat."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "ProvidenceMike bounced him once, Ahmed made the second one stick."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Griffin",
+      "note": "Removed Nasa Al twice, ProvidenceMike, BostnMike, and Li-Fo on the way to the win."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Griffin over Li-Fo",
+      "note": "BostnMike took third for a fifth straight cash while the big Arsenal supporters were still glowing in title mode."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-23.jpg\" alt=\"Poster for the 05/23/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Championship Sunday Eve had enough lives, reloads, and side plots to qualify as a mini-series, but the cleanest headline belonged to Griffin. He got knocked out by NASA Al, bought back in, got knocked out again by Jeff T, bought back in again, and then turned the third bullet into the winner. On the very same night the Canes won in overtime, Grif got the hockey-script ending too. There are luck boxes, and then there are evenings where the universe just decides your jersey deserves the last word.</p><p>That did not mean the rest of the table stayed quiet. Tony put on the kind of card-show that makes a room wonder whether probability is still being supervised. Two sets of quads in one night is not a subtle way to announce that the cursed cash has been thoroughly exorcised. He and BostnMike, the resident big Gunner fans, were still basking in the glow of Arsenal’s title while the rest of the room tried to process whether Tony was running hot or briefly consulting a different deck. It still only got him second, because Griffin owned the final scene.</p><p>NASA Al deserves the loudest supporting paragraph. After getting busted first by BostnMike, he came back breathing fire and started stacking receipts in the middle: Griffin once, Jeff T next, then Griffin again in a span that had the table openly wondering whether he had somehow fixed the shuffler. It was absurd enough to feel suspicious and strong enough to feel decisive. Then it wasn’t. Griffin came back for a third life, and by the end NASA Al was just another body in the winner reel.</p><p>Jeff T’s return after a lengthy absence also deserves ink. He came back, reloaded once, even got a clean bust on Griffin, and for a moment looked like he might write the kind of surprise-return chapter this page loves. Li-Fo shut that door, which felt about right for a night where Tony was also casually making quads. Hiro, meanwhile, could not buy a clean deck if the room had taken up a collection for him. Two bust-outs, one permanent exit, and enough cold cards that even the imaginary voice-over started sounding sympathetic.</p><p>And then there was BostnMike, still just annoyingly present. He drew first blood on NASA Al, later picked off ProvidenceMike, then finally got run over by Griffin in third. Nothing flashy, nothing fraudulent-looking, just another cash. That makes five straight now, which is exactly the sort of steady heater that gets more irritating because it keeps refusing to explode. Championship Sunday Eve had quads, rebuys, a suspicious heater, a returning face, and a hockey ending. Somehow the commissioner still found a way to quietly remain in the money.</p>",
+  "roastHtml": "<p>BostnMike has now cashed five straight games, which means the commissioner has officially crossed from hot into smugly sustainable. The worst part is that this one was not even loud. He just let everyone else provide the fireworks, drifted into third again, and will absolutely speak about that like it was mature bankroll management instead of opportunistic loitering.</p>",
+  "numbersThatMatter": [
+    "8 buy-ins, 7 rebuys, 15 total entries.",
+    "4h 39m of play from 7:18 pm to 11:57 pm.",
+    "$450 total pot with 3 paid spots.",
+    "Griffin won on bullet three, while BostnMike extended the cash streak to five straight."
+  ],
+  "quickHitsLeft": [
+    "Jeff T returned after a long absence, rebought once, and even got a clean bust on Griffin before Li-Fo sent him packing.",
+    "Tony hit quads twice, which is not strategy so much as a public trust violation.",
+    "NASA Al’s mid-game burst was hot enough to make the table question the shuffler on principle.",
+    "Hiro got cold-decked so often the dramatic narration basically had to switch from sarcasm to concern."
+  ],
+  "quickHitsRight": [
+    "The big Gunner fans, Tony and BostnMike, were still clearly enjoying Arsenal’s title glow while the rest of the room dealt with actual variance.",
+    "ProvidenceMike got clipped by Griffin, bought back in, then later got finished by BostnMike before the money.",
+    "Li-Fo did real work late by taking out Jeff T and Ahmed before Griffin cut him down heads-up.",
+    "Championship Sunday Eve ended with the Canes winning in OT and Grif winning on bullet three, which is either cinematic symmetry or deeply annoying branding."
+  ],
+  "tldr": "Griffin’s third bullet became the winner on the same night the Canes won in overtime. Tony ran into quads twice, Jeff came back, Al briefly looked like he had hacked the shuffler, and BostnMike kept the cash streak alive again."
+},
+{
   "id": "week-05-16-2026",
   "date": "05/16/2026",
   "eventName": "Stranger Bluffs! | 9-Max",
   "title": "TWTW: Stranger Bluffs! | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Li-Fo finally burned off the cursed cash and made a real run to second, but BostnMike turned a five-hour deep-stack crawl into his fourth straight cash — and the win.",
   "summaryCards": [
     {
