@@ -57,7 +57,7 @@ const STAT_FORMULAS = {
 
 const PROFILE_STAT_CONFIG = [
   { key: "totalCost", label: "Total Cost", type: "money", icon: "💸", dashboard: false },
-  { key: "totalWinnings", label: "Total Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
+  { key: "totalWinnings", label: "Gross Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
 
   { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
   { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
@@ -2272,8 +2272,8 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
       <td>${player.hits ?? "-"}</td>
       <td>${player.timesPlaced ?? "-"}</td>
       <td>${player.bubbles ?? "-"}</td>
-      <td>${fmtNum(player.luckIndex)}</td>
-      <td>${fmtNum(player.clutchIndex)}</td>
+      <td>${player.rebuys ?? "-"}</td>
+      <td>${fmtMoney(player.totalWinnings)}</td>
     </tr>
   `).join("");
 
