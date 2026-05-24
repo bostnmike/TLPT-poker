@@ -47,12 +47,12 @@ const STAT_FORMULAS = {
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
   trueSkillScore: "Power Index: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
-  luckIndex: "Luck Index: Profit − Expected Profit",
+  luckIndex: "Luck Index: Profit − Expected Profit, where Expected Profit is based on Cash Rate, Hit Rate, and Bubble Avoidance",
   clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   aggressionIndex: "Aggression Index: Hits ÷ Entries",
   survivorIndex: "Survivor Index: normalized weighted score from (0.55 × Cash Rate) + (0.25 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   tiltIndex: "Composure Index: fixed 0–100 score rewarding fewer rebuys and fewer bubble finishes, softened toward 50 for small samples",
-  expectedProfit: "Expected Profit: Entries × League Average Profit per Entry"
+  expectedProfit: "Expected Profit: Total Cost × expected ROI derived from Cash Rate, Hit Rate, and Bubble Avoidance"
 };
 
 const PROFILE_STAT_CONFIG = [
