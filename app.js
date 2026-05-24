@@ -26,7 +26,7 @@ async function loadSiteData() {
   };
 }
 
-const DEFAULT_STANDINGS_SORT = "profit";
+const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "profit";
 let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
@@ -34,7 +34,7 @@ let currentArchetypeFilter = "all";
 
 const STAT_FORMULAS = {
   totalCost: "Total Cost: Buy-ins + Rebuys Cost",
-  totalWinnings: "Total Winnings: Total prize money won before subtracting costs",
+  totalWinnings: "Gross Winnings: Total prize money won before subtracting costs",
   profit: "Profit: Total Take − Total Cost",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
@@ -2266,14 +2266,14 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
     >
       <td>${index + 1}</td>
       <td>${playerInlineMarkup(player, "standings")}</td>
+      <td>${fmtMoney(player.totalWinnings)}</td>
       <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
-      <td>${fmtPct(player.roi)}</td>
-      <td>${fmtNum(player.trueSkillScore)}</td>
-      <td>${player.hits ?? "-"}</td>
       <td>${player.timesPlaced ?? "-"}</td>
       <td>${player.bubbles ?? "-"}</td>
+      <td>${player.hits ?? "-"}</td>
+      <td>${player.buyIns ?? "-"}</td>
       <td>${player.rebuys ?? "-"}</td>
-      <td>${fmtMoney(player.totalWinnings)}</td>
+      <td>${player.entries ?? "-"}</td>
     </tr>
   `).join("");
 
