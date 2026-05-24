@@ -1984,5 +1984,91 @@
       "sourceVictim": "Li-Fo",
       "sourceKiller": "BostnMike"
     }
+  ],
+  "2026-05-23": [
+    {
+      "victim": "nasa-al",
+      "killer": "bostnmike",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "griffin",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Grif"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "griffin",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Grif"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "griffin",
+      "killer": "nasa-al",
+      "sourceVictim": "Grif",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "nasa-al",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "griffin",
+      "killer": "jeff-t",
+      "sourceVictim": "Grif",
+      "sourceKiller": "Jeff T"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "jeff-t",
+      "killer": "li-fo",
+      "sourceVictim": "Jeff T",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "griffin",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Grif"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "griffin",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Grif"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "griffin",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Grif"
+    }
   ]
 }
