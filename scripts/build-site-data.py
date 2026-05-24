@@ -143,14 +143,30 @@ def main():
 
     # ---------------- EXPECTED / LUCK ----------------
 
-    total_entries = sum(p["entries"] for p in players)
-    total_profit = sum(p["profit"] for p in players)
-    league_avg = total_profit / total_entries if total_entries else 0
+    # Use a profile-based baseline instead of league-average profit per entry.
+    # In a closed league, average profit per entry tends to collapse to ~0,
+    # which makes Luck Index identical to Profit.
+    for p in players:
+        p["luckProxy"] = (
+            (0.40 * p["cashRate"])
+            + (0.20 * p["hitRate"])
+            + (0.40 * (1 - p["bubbleRate"]))
+        )
+
+    league_avg_proxy = (
+        sum(p["luckProxy"] for p in players) / max(len(players), 1)
+    )
 
     for p in players:
-        p["expectedProfit"] = p["entries"] * league_avg
-        p["luckIndex"] = p["profit"] - p["expectedProfit"]
+        proxy_delta = p["luckProxy"] - league_avg_proxy
 
+        # Convert the profile edge into an expected ROI band.
+        # Cap the result so expected profit doesn't get silly for small samples.
+        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
+
+        p["expectedProfit"] = round(p["totalCost"] * expected_roi, 1)
+        p["luckIndex"] = round(p["profit"] - p["expectedProfit"], 1)
+        
     # ---------------- RAW COMPONENTS ----------------
 
     for p in players:
@@ -255,6 +271,9 @@ def main():
             "name": leader["name"],
             "value": str(round(leader[rule["key"]], 2))
         })
+
+    for p in players:
+        p.pop("luckProxy", None)
 
     players = sorted(players, key=lambda p: p["name"].lower())
 
