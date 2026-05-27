@@ -34,6 +34,7 @@ async function renderNewsPage() {
     renderStatPills(latestWeek.statPills || [], statbarShell);
     renderWeeks(weeks, blogFeed);
     renderArchiveList(weeks, archiveList);
+    initFloatingArchiveRail();
   } catch (error) {
     console.error('Error rendering news page:', error);
     renderErrorState(blogFeed, summaryGrid, statbarShell, archiveList);
