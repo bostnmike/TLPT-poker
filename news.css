@@ -568,8 +568,6 @@
   flex-direction:column;
   gap:22px;
   align-self:start;
-  position:sticky;
-  top:110px;
 }
 
 .section.news-module-main{
@@ -585,6 +583,10 @@
 }
 
 .section.news-module-side{
+  position:sticky;
+  top:110px;
+  max-height:calc(100vh - 128px);
+  overflow:auto;
   border-color:rgba(59,130,246,.28);
   background:
     radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 28%),
@@ -1212,9 +1214,11 @@
     grid-template-columns:1fr;
   }
 
-  .news-sidebar{
+  .section.news-module-side{
     position:static;
     top:auto;
+    max-height:none;
+    overflow:visible;
   }
 }
 
