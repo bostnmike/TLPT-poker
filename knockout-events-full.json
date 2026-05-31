@@ -2070,5 +2070,67 @@
       "sourceVictim": "Li-Fo",
       "sourceKiller": "Grif"
     }
+  ],
+  "2026-05-30": [
+    {
+      "victim": "vish",
+      "killer": "bostnmike",
+      "sourceVictim": "Vish",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "red",
+      "killer": "vish",
+      "sourceVictim": "Red",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "vish",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Vish"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "red",
+      "killer": "ahmed",
+      "sourceVictim": "Red",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "hiro",
+      "killer": "ai-dave",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "ai-dave",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "vish",
+      "killer": "ai-dave",
+      "sourceVictim": "Vish",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "bostnmike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "cougar",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Cougar"
+    }
   ]
 }
