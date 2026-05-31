@@ -14,11 +14,128 @@
   },
   "weeks": [
 {
+  "id": "week-05-30-2026",
+  "date": "05/30/2026",
+  "eventName": "The Poker Club | 9-Max",
+  "title": "TWTW: The Poker Club | 9-Max",
+  "featured": true,
+  "dek": "Cougar came back from the long layoff and immediately split first with BostnMike, who kept the cash streak alive and found a decent antidote for Arsenal’s Champions League Final pain.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Cougar / BostnMike",
+      "value": "Split first",
+      "copy": "Cougar returned and immediately mattered, while BostnMike kept the heater alive with another cash after midnight.",
+      "avatars": [
+        { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
+        { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Vish",
+      "copy": "BostnMike got first blood, but Vish bought right back in and made himself a problem again.",
+      "avatar": "images/players/vish.jpg",
+      "fallback": "VI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Red",
+      "copy": "Vish got the temporary version, Ahmed made Red the first one gone for good.",
+      "avatar": "images/players/red.jpg",
+      "fallback": "RE"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "Ai-Dave",
+      "value": "3 knockouts",
+      "copy": "Removed Hiro, Providencemike, and Vish before Cougar cut him down in third.",
+      "avatar": "images/players/ai-dave.jpg",
+      "fallback": "AD"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "13" },
+    { "icon": "♻️", "label": "Rebuys", "value": "5" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$390" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 54m" }
+  ],
+  "summary": {
+    "startTime": "7:09:01 pm 05/30/2026",
+    "endTime": "12:03:27 am 05/31/2026",
+    "durationLabel": "4h 54m",
+    "buyIns": 8,
+    "rebuys": 5,
+    "entries": 13,
+    "totalPot": 390,
+    "paidSpots": 3,
+    "winner": "Bostnmike, Cougar",
+    "firstOut": "Vish",
+    "firstPermanentOut": "Red"
+  },
+  "spotlight": {
+    "player": "Cougar / BostnMike",
+    "fallback": "CB",
+    "pills": ["Split First", "Cougar Returns", "6 Straight Cashes", "After-Midnight Finish"],
+    "avatars": [
+      { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" },
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Vish",
+      "note": "BostnMike opened the night by bouncing Vish before the rebuy carousel started humming."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Red",
+      "note": "Vish only softened him up. Ahmed made the second exit the first permanent one."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Ai-Dave",
+      "note": "Removed Hiro, Providencemike, and Vish in the late stretch before Cougar shut the lane down."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Cougar / BostnMike split first",
+      "note": "Ai-Dave took third, and the final two hit the same timestamp after a game that pushed past midnight."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-05-30.jpg\" alt=\"Poster for the 05/30/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Poker Club got its cleanest headline from a familiar face making an overdue return. Cougar came back after the long absence and immediately mattered, surviving the full rebuy traffic jam, hanging around until the room finally got short, then taking out Ai-Dave in third before splitting first with BostnMike. That is not a courtesy cameo. That is a veteran re-entering the franchise and instantly making the top of the billing feel justified.</p><p>BostnMike, meanwhile, kept doing the increasingly irritating thing where he just refuses to leave the cash line. He drew first blood on Vish, later clipped Ahmed, and then stayed upright long enough to share the ending again. That makes another cash — and a pretty decent emotional bandage after Arsenal’s loss in the Champions League Final. There are healthier coping mechanisms, probably, but this one at least paid.</p><p>The room itself stayed messy enough to earn the title. Vish took the opening bust, rebought, then started causing problems by knocking out Red and Ai-Dave. Ahmed got loud in the middle by taking out Hiro and then making Red the first permanent railbird. Ai-Dave had the nastiest visible late run, sending Hiro out for good, then Providencemike, then Vish, and for a while it looked like he might own the whole closing chapter himself. He didn’t. Cougar ended that story in third, and the final two just took the rest of the night off the clock.</p><p>ProvidenceMike deserves the weirdest supporting note of the evening, because while the cards did not get him to the money, the night still could have gone a lot worse. He got knocked out by Ai-Dave, but at least he did not also lose a zillion dollars’ worth of Amazon packages out of his car, which honestly qualifies as a side-pot victory. By 12:03 in the morning, The Poker Club had a split ending, a returning co-star, and a commissioner who once again found a way to stay annoyingly relevant.</p>",
+  "roastHtml": "<p>BostnMike has now cashed again, which means the commissioner is treating poker results like emotional support after Arsenal heartbreak. The worst part is that it is working. He did not even need to dominate this one — he just lingered, survived, and once again turned a perfectly good room story into another chapter in his increasingly smug little cash streak.</p>",
+  "numbersThatMatter": [
+    "8 buy-ins, 5 rebuys, 13 total entries.",
+    "4h 54m of play from 7:09 pm to 12:03 am.",
+    "$390 total pot with a split first-place finish.",
+    "Cougar returned and split first, while BostnMike kept the cash streak alive again."
+  ],
+  "quickHitsLeft": [
+    "Cougar’s return did not come with much warm-up period. He came back and immediately shared the top spot.",
+    "Vish was first out, rebought instantly, then still found time to bust Red and Ai-Dave before Ai-Dave returned the favor.",
+    "Red became first gone for good after Ahmed made the second exit stick.",
+    "This one pushed past midnight, which felt right for a room that never stopped reopening plots."
+  ],
+  "quickHitsRight": [
+    "Ai-Dave did the loudest late-stage damage before Cougar cut the wire in third.",
+    "ProvidenceMike did not cash, but he at least avoided the much more expensive nightmare involving Amazon packages in the car.",
+    "BostnMike cashing again took some of the sting out of Arsenal’s Champions League Final loss, which may be the healthiest lie anyone told all weekend.",
+    "The Poker Club ended with a shared finish because, by the end, the final two had already proved enough."
+  ],
+  "tldr": "Cougar came back from the long layoff and immediately split first with BostnMike. Ai-Dave did the loudest late damage, ProvidenceMike survived the bigger off-table disaster, and the commissioner found yet another way to cash."
+},
+{
   "id": "week-05-23-2026",
   "date": "05/23/2026",
   "eventName": "Championship Sunday Eve | 9-Max",
   "title": "TWTW: Championship Sunday Eve | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Griffin’s third bullet became the winner on the same night the Canes won in OT, while Tony ran hotter than physics and BostnMike quietly stretched the cash streak to five.",
   "summaryCards": [
     {
