@@ -98,8 +98,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   background:rgba(9,13,18,.95);
   position:fixed;
   top:0;
-  left:var(--page-gutter);
-  right:var(--page-gutter);
+  left:50%;
+  width:min(calc(100% - (var(--page-gutter) * 2)), 1240px);
+  transform:translateX(-50%);
   z-index:9999;
   backdrop-filter:blur(8px);
 }
