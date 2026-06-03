@@ -549,7 +549,6 @@
 /* ----- main layout ----- */
 
 .news-layout{
-  position:relative;
   display:grid;
   grid-template-columns:minmax(0, 2.8fr) 220px;
   gap:22px;
@@ -1238,10 +1237,6 @@
   .section.news-module-side{
     max-height:none;
     overflow:visible;
-  }
-
-  .news-archive-list{
-    padding-right:0;
   }
 }
 
