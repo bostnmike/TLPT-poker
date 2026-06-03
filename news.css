@@ -39,11 +39,7 @@
 
 .section.news-header-shell{
   border-color:rgba(255,184,28,.34);
-  background:
-    radial-gradient(circle at top left, rgba(255,184,28,.24), transparent 26%),
-    radial-gradient(circle at top right, rgba(168,85,247,.24), transparent 28%),
-    radial-gradient(circle at right center, rgba(59,130,246,.18), transparent 22%),
-    linear-gradient(135deg, rgba(74,40,104,.88), rgba(19,24,34,.99));
+  background:#000;
   box-shadow:
     0 0 0 1px rgba(255,184,28,.12),
     0 16px 36px rgba(0,0,0,.26),
