@@ -577,14 +577,8 @@
 }
 
 .section.news-module-side{
-  display:flex;
-  flex-direction:column;
-  min-height:0;
-  max-height:calc(100vh - 126px);
   border-color:rgba(59,130,246,.28);
-  background:
-    radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 28%),
-    linear-gradient(135deg, rgba(14,31,58,.98), rgba(12,17,24,.99));
+  background:#000;
   box-shadow:
     0 0 0 1px rgba(59,130,246,.10),
     0 12px 24px rgba(0,0,0,.20),
