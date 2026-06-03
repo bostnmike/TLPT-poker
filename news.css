@@ -23,6 +23,14 @@
   content:none !important;
 }
 
+/* remove News section accent lines under these two headings */
+.news-summary-shell .section-head,
+.news-module-main .section-head{
+  border-bottom:none;
+  padding-bottom:0;
+  margin-bottom:10px;
+}
+
 /* ----- page title shell ----- */
 
 .news-title-emoji{
