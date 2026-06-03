@@ -26,9 +26,19 @@
 /* remove News section accent lines under these two headings */
 .news-summary-shell .section-head,
 .news-module-main .section-head{
-  border-bottom:none;
+  border-bottom:none !important;
+  box-shadow:none !important;
+  background:none !important;
   padding-bottom:0;
   margin-bottom:10px;
+}
+
+.news-summary-shell .section-head::before,
+.news-summary-shell .section-head::after,
+.news-module-main .section-head::before,
+.news-module-main .section-head::after{
+  content:none !important;
+  display:none !important;
 }
 
 /* ----- page title shell ----- */
