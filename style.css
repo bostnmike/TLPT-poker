@@ -99,7 +99,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   position:fixed;
   top:0;
   left:50%;
-  width:min(calc(100% - (var(--page-gutter) * 2)), 1240px);
+  width:min(calc(100% - (var(--page-gutter) * 4)), calc(1240px - (var(--page-gutter) * 2)));
   transform:translateX(-50%);
   z-index:9999;
   backdrop-filter:blur(8px);
