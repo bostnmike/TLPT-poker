@@ -151,30 +151,30 @@ function renderStatPills(pills, container) {
 
   if (!Array.isArray(pills) || !pills.length) {
     container.innerHTML = '';
+    container.className = '';
     return;
   }
 
+  container.className = 'news-statbar-shell';
+
   container.innerHTML = `
-    <div class="news-statbar-shell">
-      <div class="news-statbar-grid">
-        ${pills
-          .map(
-            (pill) => `
-              <div class="news-stat-pill">
-                <div class="news-stat-pill-top">
-                  <span class="news-stat-pill-icon">${escapeHtml(pill?.icon || '')}</span>
-                  <span>${escapeHtml(pill?.label || '')}</span>
-                </div>
-                <strong>${escapeHtml(pill?.value || '')}</strong>
+    <div class="news-statbar-grid">
+      ${pills
+        .map(
+          (pill) => `
+            <div class="news-stat-pill">
+              <div class="news-stat-pill-top">
+                <span class="news-stat-pill-icon">${escapeHtml(pill?.icon || '')}</span>
+                <span>${escapeHtml(pill?.label || '')}</span>
               </div>
-            `
-          )
-          .join('')}
-      </div>
+              <strong>${escapeHtml(pill?.value || '')}</strong>
+            </div>
+          `
+        )
+        .join('')}
     </div>
   `;
 }
-
 function renderWeeks(weeks, container) {
   const explicitFeaturedIndex = weeks.findIndex((week) => week?.featured === true);
   const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
