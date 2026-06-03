@@ -140,10 +140,7 @@
 
 .section.news-summary-shell{
   border-color:rgba(255,184,28,.30);
-  background:
-    radial-gradient(circle at top right, rgba(255,184,28,.18), transparent 28%),
-    radial-gradient(circle at left center, rgba(59,130,246,.16), transparent 24%),
-    linear-gradient(180deg, rgba(28,34,46,.98), rgba(12,15,20,.99));
+  background:#000;
   box-shadow:
     0 0 0 1px rgba(255,184,28,.10),
     0 16px 32px rgba(0,0,0,.22),
