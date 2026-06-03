@@ -587,6 +587,19 @@
     0 0 16px rgba(59,130,246,.10);
 }
 
+.section.news-module-side.news-archive-fixed{
+  position:fixed;
+  top:110px;
+  z-index:40;
+}
+
+.section.news-module-side.news-archive-bottom{
+  position:absolute;
+  left:0;
+  right:0;
+  z-index:1;
+}
+
 .news-intro-note{
   margin:0 0 18px;
   padding:14px 16px;
