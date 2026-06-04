@@ -2,6 +2,11 @@
    NEWS PAGE — PRODUCTION CSS
    ========================================= */
 
+html,
+body{
+  background:#000;
+}
+
 /* ----- neutralize shared section overlays on News ----- */
 
 .news-header-shell,
