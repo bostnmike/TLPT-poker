@@ -2132,5 +2132,55 @@
       "sourceVictim": "A.I. Dave",
       "sourceKiller": "Cougar"
     }
+  ],
+  "2026-06-05": [
+    {
+      "victim": "hiro",
+      "killer": "ai-dave",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "hiro",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "bostnmike",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "providencemike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "ahmed",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "ahmed",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Ahmed"
+    }
   ]
 }

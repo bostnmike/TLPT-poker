@@ -9,11 +9,11 @@
       "hiro": 3,
       "li-fo": 5,
       "nasa-al": 1,
-      "providencemike": 2,
+      "providencemike": 3,
       "red": 3
     },
     "ai-dave": {
-      "ahmed": 1,
+      "ahmed": 2,
       "bostnmike": 3,
       "chris-o": 1,
       "cougar": 2,
@@ -103,8 +103,8 @@
     },
     "hiro": {
       "ahmed": 7,
-      "ai-dave": 3,
-      "bostnmike": 4,
+      "ai-dave": 4,
+      "bostnmike": 5,
       "brad-r": 1,
       "gilmore": 1,
       "li-fo": 1,
@@ -172,9 +172,10 @@
       "buffalomike": 1
     },
     "phattedcalf": {
-      "bostnmike": 2,
+      "ahmed": 1,
+      "bostnmike": 3,
       "chris-o": 1,
-      "hiro": 1,
+      "hiro": 2,
       "providencemike": 1,
       "vish": 1
     },
@@ -184,7 +185,7 @@
     "providencemike": {
       "ahmed": 1,
       "ai-dave": 3,
-      "bostnmike": 5,
+      "bostnmike": 6,
       "buffalomike": 1,
       "chris-o": 3,
       "cougar": 2,
@@ -260,7 +261,7 @@
   },
   "byKiller": {
     "ahmed": {
-      "ai-dave": 1,
+      "ai-dave": 2,
       "bostnmike": 2,
       "chris-o": 2,
       "cougar": 2,
@@ -269,6 +270,7 @@
       "hiro": 7,
       "kishan": 1,
       "li-fo": 5,
+      "phattedcalf": 1,
       "providencemike": 1,
       "red": 2
     },
@@ -277,7 +279,7 @@
       "big-tim": 1,
       "bostnmike": 2,
       "cougar": 1,
-      "hiro": 3,
+      "hiro": 4,
       "li-fo": 1,
       "nasa-al": 1,
       "providencemike": 3,
@@ -296,14 +298,14 @@
       "chris-o": 1,
       "cougar": 2,
       "hayden-d": 1,
-      "hiro": 4,
+      "hiro": 5,
       "jeff-t": 1,
       "kishan": 1,
       "li-fo": 4,
       "nasa-al": 2,
       "nitro": 2,
-      "phattedcalf": 2,
-      "providencemike": 5,
+      "phattedcalf": 3,
+      "providencemike": 6,
       "red": 1,
       "rob-f": 1,
       "the-architect": 1,
@@ -375,7 +377,7 @@
       "jeff-t": 1,
       "li-fo": 7,
       "nasa-al": 2,
-      "phattedcalf": 1,
+      "phattedcalf": 2,
       "red": 2,
       "rob-f": 2,
       "the-architect": 2,
@@ -437,7 +439,7 @@
       "red": 1
     },
     "providencemike": {
-      "ahmed": 2,
+      "ahmed": 3,
       "bostnmike": 2,
       "cougar": 1,
       "hiro": 9,
@@ -549,6 +551,7 @@
     "2026-05-09",
     "2026-05-16",
     "2026-05-23",
-    "2026-05-30"
+    "2026-05-30",
+    "2026-06-05"
   ]
 }
