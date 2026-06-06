@@ -14,11 +14,128 @@
   },
   "weeks": [
 {
+  "id": "week-06-05-2026",
+  "date": "06/05/2026",
+  "eventName": "Poker Night - The Movie | 9-Max",
+  "title": "TWTW: Poker Night - The Movie | 9-Max",
+  "featured": true,
+  "dek": "With the shuffler in the shop, the room went fully manual, somehow survived, and still found enough chaos for Ahmed and BostnMike to split first while the commissioner stretched the cash streak to seven.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Ahmed / BostnMike",
+      "value": "Split first",
+      "copy": "The room survived a hand-shuffled night, and the two men still standing took equal billing at the top.",
+      "avatars": [
+        { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+        { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Phattedcalf",
+      "copy": "Hiro got the first bust, and this time there was no sequel that lasted very long.",
+      "avatar": "images/players/phattedcalf.jpg",
+      "fallback": "PC"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Phattedcalf",
+      "copy": "First out and first gone for good, which is efficient misery even by TLPT standards.",
+      "avatar": "images/players/phattedcalf.jpg",
+      "fallback": "PC"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "BostnMike",
+      "value": "3 knockouts",
+      "copy": "Removed Phattedcalf, Providencemike, and Hiro while quietly keeping the cash streak alive.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "11" },
+    { "icon": "♻️", "label": "Rebuys", "value": "5" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$330" },
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 51m" }
+  ],
+  "summary": {
+    "startTime": "7:13:38 pm 06/05/2026",
+    "endTime": "11:04:23 pm 06/05/2026",
+    "durationLabel": "3h 51m",
+    "buyIns": 6,
+    "rebuys": 5,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Ahmed, Bostnmike",
+    "firstOut": "Phattedcalf",
+    "firstPermanentOut": "Phattedcalf"
+  },
+  "spotlight": {
+    "player": "Ahmed / BostnMike",
+    "fallback": "AB",
+    "pills": ["Split First", "Hand Shuffle Night", "7 Straight Cashes", "Mike-on-Mike Crime"],
+    "avatars": [
+      { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Phattedcalf",
+      "note": "Hiro opened the night with the first bust, and this one wound up being permanent quickly."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Phattedcalf",
+      "note": "Hiro got the temporary version, BostnMike made the second exit stick for good."
+    },
+    {
+      "label": "Table Killer",
+      "value": "BostnMike",
+      "note": "Removed Phattedcalf, Providencemike, and Hiro before agreeing to the split with Ahmed."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed / BostnMike split first",
+      "note": "Ai-Dave took third after another rough date with the river, and the room finally stopped hand-shuffling itself into history."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-05.jpg\" alt=\"Poster for the 06/05/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Poker Night - The Movie opened with the least glamorous production note imaginable: the shuffler was in the shop, so the table had to go fully manual and hand shuffle its way through the whole night. Against all odds, civilization held. The cards still got dealt, the rebuys still piled up, and the room still found enough ways to hurt itself that by the end it felt less like a mechanical setback and more like an old-school endurance test with chips.</p><p>The official ending belonged to Ahmed and BostnMike, who split first after surviving the hand-shuffled nonsense better than everybody else. Ahmed took the scenic route there: ProvidenceMike clipped him once, he rebought, then came back to knock out Phattedcalf and finally Ai-Dave to secure his half of the headline. BostnMike took the quieter lane, which is somehow even more annoying now. He made Phattedcalf the first one gone for good, then committed the night’s cleanest act of Mike-on-Mike crime by sending Providencemike out, then took care of Hiro before arriving at the shared finish. Seven straight cashes now. Hideous behavior, really.</p><p>The side plots were better than usual too. Hiro gets birthday-weekend billing here — sadly not a prime number, but still a prime human — and he at least got first blood before BostnMike cut off the sequel. ProvidenceMike spent enough of the night leaning into the self-appointed \"Calling Station\" label that it stopped sounding like a joke and started reading like a scouting report. And somewhere in the middle of all this, the quote of the night arrived fully formed: \"I'm folding for beer.\" Which, honestly, may be the purest strategic statement anyone made all evening.</p><p>Ai-Dave deserves the sympathy paragraph. He got first blood on Hiro early, made the money, and still felt like the table’s designated river victim by the end. Three cruel runouts too many will do that to a man. PittsburghBill also wandered through the evening proving that his marriage remains sturdier than most chip stacks, which is nice for him and not especially actionable for the standings. By 11:04, the hand-shuffled experiment had produced a split finish, a fresh layer of BostnMike cash-streak irritation, and just enough room chaos to remind everyone that the machine was never really the problem.</p>",
+  "roastHtml": "<p>BostnMike has now cashed seven straight games, which is exactly the kind of streak that makes a commissioner start acting like he discovered hand-shuffled poker in a cave and brought it back to civilization himself. He did not even need to dominate this one. He just survived the manual labor, clipped ProvidenceMike on schedule, and wandered into another shared finish like that was always the plan.</p>",
+  "numbersThatMatter": [
+    "6 buy-ins, 5 rebuys, 11 total entries.",
+    "3h 51m of play from 7:13 pm to 11:04 pm.",
+    "$330 total pot with a split first-place finish.",
+    "BostnMike busted Phattedcalf, Providencemike, and Hiro, then stretched the cash streak to seven straight."
+  ],
+  "quickHitsLeft": [
+    "The shuffler being in the shop turned this into a fully hand-shuffled survival exercise, and somehow the room made it out alive.",
+    "ProvidenceMike leaned all the way into the 'Calling Station' rebrand, which felt less like comedy and more like open-source self-scouting.",
+    "Hiro gets the birthday-weekend salute: not a prime number, but still a prime human.",
+    "PittsburghBill’s marriage remains stronger than most late-stage chip stacks, which is lovely and only mildly relevant."
+  ],
+  "quickHitsRight": [
+    "The quote of the night was simple and perfect: 'I'm folding for beer.'",
+    "Ai-Dave made the money but still spent too much of the night getting rivered like the deck had a personal grievance.",
+    "Mike-on-Mike crime stayed on brand when BostnMike sent Providencemike out before the split got signed.",
+    "Ahmed recovered from the ProvidenceMike bust, rebought, and still finished the night holding first-place money."
+  ],
+  "tldr": "The room survived a hand-shuffled night, Ahmed and BostnMike split first, and the commissioner quietly pushed the cash streak to seven. The machine was gone, the chaos was not."
+},
+{
   "id": "week-05-30-2026",
   "date": "05/30/2026",
   "eventName": "The Poker Club | 9-Max",
   "title": "TWTW: The Poker Club | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Cougar came back from the long layoff and immediately split first with BostnMike, who kept the cash streak alive and found a decent antidote for Arsenal’s Champions League Final pain.",
   "summaryCards": [
     {
