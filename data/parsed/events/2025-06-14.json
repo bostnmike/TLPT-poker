@@ -31,7 +31,7 @@
       "payout": 100
     },
     {
-      "name": "Bpb",
+      "name": "Bob",
       "slug": "rob-f",
       "rank": 3,
       "payout": 65
@@ -83,7 +83,7 @@
     {
       "type": "buyin",
       "time_raw": "11:47:05 am 06/13/2025",
-      "player": "Bpb",
+      "player": "Bob",
       "slug": "rob-f"
     },
     {
@@ -107,7 +107,7 @@
       "time_raw": "8:49:43 pm 06/14/2025",
       "player": "Brad R",
       "slug": "brad-r",
-      "by": "Bpb",
+      "by": "Bob",
       "bySlug": "rob-f",
       "rawKillerText": "Rob F",
       "sharedKillerSource": false
@@ -133,7 +133,7 @@
       "time_raw": "9:37:55 pm 06/14/2025",
       "player": "Jeff T",
       "slug": "jeff-t",
-      "by": "Bpb",
+      "by": "Bob",
       "bySlug": "rob-f",
       "rawKillerText": "Rob F",
       "sharedKillerSource": false
@@ -153,7 +153,7 @@
       "time_raw": "10:16:20 pm 06/14/2025",
       "player": "Brad R",
       "slug": "brad-r",
-      "by": "Bpb",
+      "by": "Bob",
       "bySlug": "rob-f",
       "rawKillerText": "Rob F",
       "sharedKillerSource": false
@@ -181,7 +181,7 @@
     {
       "type": "bustout",
       "time_raw": "11:13:26 pm 06/14/2025",
-      "player": "Bpb",
+      "player": "Bob",
       "slug": "rob-f",
       "by": "BostnMike",
       "bySlug": "bostnmike",
@@ -226,7 +226,7 @@
     {
       "type": "payout",
       "time_raw": "11:13:33 pm 06/14/2025",
-      "player": "Bpb",
+      "player": "Bob",
       "slug": "rob-f",
       "rank": 3,
       "payout": 65
@@ -273,6 +273,19 @@
       "profit": 0
     },
     {
+      "name": "Bob",
+      "slug": "rob-f",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 3,
+      "timesPlaced": 1,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 65,
+      "profit": 35
+    },
+    {
       "name": "BostnMike",
       "slug": "bostnmike",
       "buyIns": 1,
@@ -284,19 +297,6 @@
       "totalCost": 30,
       "totalWinnings": 165,
       "profit": 135
-    },
-    {
-      "name": "Bpb",
-      "slug": "rob-f",
-      "buyIns": 1,
-      "rebuys": 0,
-      "entries": 1,
-      "hits": 3,
-      "timesPlaced": 1,
-      "bubbles": 0,
-      "totalCost": 30,
-      "totalWinnings": 65,
-      "profit": 35
     },
     {
       "name": "Brad R",

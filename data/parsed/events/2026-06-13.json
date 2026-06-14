@@ -89,7 +89,7 @@
     {
       "type": "buyin",
       "time_raw": "11:28:45 am 06/13/2026",
-      "player": "Bpb",
+      "player": "Bob",
       "slug": "rob-f"
     },
     {
@@ -131,7 +131,7 @@
     {
       "type": "bustout",
       "time_raw": "10:05:05 pm 06/13/2026",
-      "player": "Bpb",
+      "player": "Bob",
       "slug": "rob-f",
       "by": "PhattedCalf",
       "bySlug": "phattedcalf",
@@ -283,6 +283,19 @@
       "profit": 0
     },
     {
+      "name": "Bob",
+      "slug": "rob-f",
+      "buyIns": 1,
+      "rebuys": 0,
+      "entries": 1,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 30,
+      "totalWinnings": 0,
+      "profit": -30
+    },
+    {
       "name": "BostnMike",
       "slug": "bostnmike",
       "buyIns": 1,
@@ -294,19 +307,6 @@
       "totalCost": 30,
       "totalWinnings": 165,
       "profit": 135
-    },
-    {
-      "name": "Bpb",
-      "slug": "rob-f",
-      "buyIns": 1,
-      "rebuys": 0,
-      "entries": 1,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "totalCost": 30,
-      "totalWinnings": 0,
-      "profit": -30
     },
     {
       "name": "Brad R",

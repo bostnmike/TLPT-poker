@@ -48,7 +48,7 @@
       "victim": "brad-r",
       "killer": "rob-f",
       "sourceVictim": "Brad R",
-      "sourceKiller": "Bpb"
+      "sourceKiller": "Bob"
     },
     {
       "victim": "hiro",
@@ -60,7 +60,7 @@
       "victim": "jeff-t",
       "killer": "rob-f",
       "sourceVictim": "Jeff T",
-      "sourceKiller": "Bpb"
+      "sourceKiller": "Bob"
     },
     {
       "victim": "nitro",
@@ -72,7 +72,7 @@
       "victim": "brad-r",
       "killer": "rob-f",
       "sourceVictim": "Brad R",
-      "sourceKiller": "Bpb"
+      "sourceKiller": "Bob"
     },
     {
       "victim": "wild-bill",
@@ -89,7 +89,7 @@
     {
       "victim": "rob-f",
       "killer": "bostnmike",
-      "sourceVictim": "Bpb",
+      "sourceVictim": "Bob",
       "sourceKiller": "BostnMike"
     },
     {
@@ -379,7 +379,7 @@
     {
       "victim": "rob-f",
       "killer": "hiro",
-      "sourceVictim": "Bpb",
+      "sourceVictim": "Bob",
       "sourceKiller": "Hiro"
     },
     {
@@ -392,12 +392,12 @@
       "victim": "cougar",
       "killer": "rob-f",
       "sourceVictim": "Cougar",
-      "sourceKiller": "Bpb"
+      "sourceKiller": "Bob"
     },
     {
       "victim": "rob-f",
       "killer": "hiro",
-      "sourceVictim": "Bpb",
+      "sourceVictim": "Bob",
       "sourceKiller": "Hiro"
     },
     {
@@ -2199,7 +2199,7 @@
     {
       "victim": "rob-f",
       "killer": "phattedcalf",
-      "sourceVictim": "Bpb",
+      "sourceVictim": "Bob",
       "sourceKiller": "PhattedCalf"
     },
     {

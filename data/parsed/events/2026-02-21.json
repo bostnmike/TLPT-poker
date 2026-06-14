@@ -259,6 +259,19 @@
       "profit": 0
     },
     {
+      "name": "Bob",
+      "slug": "rob-f",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
       "name": "BostnMike",
       "slug": "bostnmike",
       "buyIns": 1,
@@ -270,19 +283,6 @@
       "totalCost": 30,
       "totalWinnings": 130,
       "profit": 100
-    },
-    {
-      "name": "Bpb",
-      "slug": "rob-f",
-      "buyIns": 0,
-      "rebuys": 0,
-      "entries": 0,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "totalCost": 0,
-      "totalWinnings": 0,
-      "profit": 0
     },
     {
       "name": "Brad R",
