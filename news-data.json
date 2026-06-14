@@ -14,11 +14,126 @@
   },
   "weeks": [
 {
+  "id": "week-06-13-2026",
+  "date": "06/13/2026",
+  "eventName": "Inglorious Bluffs: A Poker Movie | 9-Max",
+  "title": "TWTW: Inglorious Bluffs: A Poker Movie | 9-Max",
+  "featured": true,
+  "dek": "BostnMike made it eight straight cashes, played the Mike-on-Mike heads-up duel all the way out, and once again refused to leave quietly in a shorter hand-shuffled night.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "BostnMike",
+      "value": "8 straight cashes",
+      "copy": "You still cannot get rid of him. This time he closed the whole thing himself and finished the ProvidenceMike duel on the first heads-up hand.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Hiro",
+      "copy": "Ahmed got first blood before Hiro bought right back in for one more lap.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Rob F",
+      "copy": "The long-awaited return ended early when Phattedcalf made Bob F the first one gone for good.",
+      "avatar": "images/players/rob-f.jpg",
+      "fallback": "RF"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "BostnMike",
+      "value": "6 knockouts",
+      "copy": "Removed Red, Ai-Dave, Hiro, Phattedcalf, Li-Fo, and Providencemike in one long late sweep.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "11" },
+    { "icon": "♻️", "label": "Rebuys", "value": "2" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$330" },
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 39m" }
+  ],
+  "summary": {
+    "startTime": "7:21:44 pm 06/13/2026",
+    "endTime": "11:00:31 pm 06/13/2026",
+    "durationLabel": "3h 39m",
+    "buyIns": 9,
+    "rebuys": 2,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Bostnmike",
+    "firstOut": "Hiro",
+    "firstPermanentOut": "Rob F"
+  },
+  "spotlight": {
+    "player": "BostnMike / Providencemike",
+    "fallback": "BMPM",
+    "pills": ["Winner", "8 Straight Cashes", "Heads-Up Played Out", "Mike-on-Mike Crime"],
+    "avatars": [
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+      { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Hiro",
+      "note": "Ahmed opened the night by bouncing Hiro before the rebuy button got touched."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Rob F",
+      "note": "Bob F’s long-awaited return ended quickly when Phattedcalf made the exit permanent."
+    },
+    {
+      "label": "Table Killer",
+      "value": "BostnMike",
+      "note": "Removed Red, Ai-Dave, Hiro, Phattedcalf, Li-Fo, and Providencemike in the late close."
+    },
+    {
+      "label": "How It Ended",
+      "value": "BostnMike over Providencemike",
+      "note": "ProvidenceMike wanted to play it out heads-up, and Ace-9 beat Ace-7 on the very first hand after the deal talk died."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-13.jpg\" alt=\"Poster for the 06/13/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Inglorious Bluffs had the same production problem as last week: the shuffler was still in recovery, so the room had to go back to hand shuffling and pretending that was not quietly ruining everybody’s timing instincts. This time, though, the table survived it a little faster. For once the night ended early by recent standards, which meant the cards had enough time to hurt people and still leave the room home in something close to civilized hours. Progress.</p><p>The headline, unfortunately for everybody else, is that you still cannot get rid of BostnMike. The cash streak is up to eight now, which is getting less like a heater and more like a recurring condition. Once the room tightened, the commissioner handled the paperwork himself: Red, Ai-Dave, Hiro, Phattedcalf, Li-Fo, and finally Providencemike all went through him. There are louder wins. There are uglier wins. There are not many wins that feel this annoyingly inevitable once the late stages arrive.</p><p>The ProvidenceMike subplot deserves equal billing because the Mike-on-Mike violence kept its franchise alive. ProvidenceMike clipped Red, played his way all the way to heads-up, and — to his credit — wanted to play it out instead of shaking hands on a split. BostnMike agreed, and the whole duel lasted exactly one hand before Ace-9 held over Ace-7. That is either admirable competitive spirit or a very efficient way to write your own punchline.</p><p>Elsewhere, the room had side plots worth keeping. Bob F finally made the long-awaited return, only to get shown the door early by Phattedcalf. The table watched Scotland finally win a World Cup group-stage match, which gave the room one actual feel-good result before the cards got back to their usual behavior. The final three also got to see the Knicks win the NBA title, so at least the television was handing out cleaner endings than the felt. And yes, the hand-shuffle era may finally be ending: the shuffler is reportedly in recovery and expected back next week, which is probably the best health bulletin the league has issued all month.</p>",
+  "roastHtml": "<p>BostnMike has now cashed eight straight games, which is the kind of streak that stops feeling impressive and starts feeling medically persistent. The worst part is that ProvidenceMike gave him the courtesy of playing heads-up out, and the commissioner still wrapped it on the first hand like he had a hard stop and a police escort waiting outside.</p>",
+  "numbersThatMatter": [
+    "9 buy-ins, 2 rebuys, 11 total entries.",
+    "3h 39m of play from 7:21 pm to 11:00 pm.",
+    "$330 total pot with 3 paid spots.",
+    "BostnMike took the final 6 named eliminations and stretched the cash streak to 8 straight."
+  ],
+  "quickHitsLeft": [
+    "Bob F returned after a long absence, which was nice right up until Phattedcalf made him the first player gone for good.",
+    "The table got an actually happy sporting moment by watching Scotland win its first World Cup group-stage match.",
+    "Hiro was first out, rebought instantly, and still ended up part of BostnMike’s closing package later.",
+    "This was still a hand-shuffled night, but at least it did not drag into another near-morning documentary."
+  ],
+  "quickHitsRight": [
+    "ProvidenceMike knocked out Red, then chose valor over paperwork by wanting to play heads-up instead of chop.",
+    "The final three watched the Knicks win the NBA title, which meant somebody in the room got a clean ending.",
+    "The shuffler is reportedly in recovery and expected back next week, which should help both pace of play and public morale.",
+    "Li-Fo quietly laddered into third before BostnMike cut off that route too."
+  ],
+  "tldr": "BostnMike won Inglorious Bluffs, made it eight straight cashes, and beat ProvidenceMike on the first heads-up hand after agreeing to play it out. Hand-shuffle season may finally be ending, but the commissioner still is not."
+},
+{
   "id": "week-06-05-2026",
   "date": "06/05/2026",
   "eventName": "Poker Night - The Movie | 9-Max",
   "title": "TWTW: Poker Night - The Movie | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "With the shuffler in the shop, the room went fully manual, somehow survived, and still found enough chaos for Ahmed and BostnMike to split first while the commissioner stretched the cash streak to seven.",
   "summaryCards": [
     {
