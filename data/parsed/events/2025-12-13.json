@@ -334,6 +334,19 @@
       "profit": 55
     },
     {
+      "name": "Bpb",
+      "slug": "rob-f",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
       "name": "Brad R",
       "slug": "brad-r",
       "buyIns": 0,
@@ -605,19 +618,6 @@
       "totalCost": 60,
       "totalWinnings": 0,
       "profit": -60
-    },
-    {
-      "name": "Rob F",
-      "slug": "rob-f",
-      "buyIns": 0,
-      "rebuys": 0,
-      "entries": 0,
-      "hits": 0,
-      "timesPlaced": 0,
-      "bubbles": 0,
-      "totalCost": 0,
-      "totalWinnings": 0,
-      "profit": 0
     },
     {
       "name": "The Architect",
