@@ -41,7 +41,7 @@
     {
       "tone": "purple",
       "label": "🦤 First Rail Bird",
-      "player": "Rob F",
+      "player": "Bob",
       "copy": "The long-awaited return ended early when Phattedcalf made Bob F the first one gone for good.",
       "avatar": "images/players/rob-f.jpg",
       "fallback": "RF"
@@ -73,7 +73,7 @@
     "paidSpots": 3,
     "winner": "Bostnmike",
     "firstOut": "Hiro",
-    "firstPermanentOut": "Rob F"
+    "firstPermanentOut": "Bob"
   },
   "spotlight": {
     "player": "BostnMike / Providencemike",
@@ -92,7 +92,7 @@
     },
     {
       "label": "First Gone For Good",
-      "value": "Rob F",
+      "value": "Bob",
       "note": "Bob F’s long-awaited return ended quickly when Phattedcalf made the exit permanent."
     },
     {
@@ -106,7 +106,7 @@
       "note": "ProvidenceMike wanted to play it out heads-up, and Ace-9 beat Ace-7 on the very first hand after the deal talk died."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-13.jpg\" alt=\"Poster for the 06/13/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Inglorious Bluffs had the same production problem as last week: the shuffler was still in recovery, so the room had to go back to hand shuffling and pretending that was not quietly ruining everybody’s timing instincts. This time, though, the table survived it a little faster. For once the night ended early by recent standards, which meant the cards had enough time to hurt people and still leave the room home in something close to civilized hours. Progress.</p><p>The headline, unfortunately for everybody else, is that you still cannot get rid of BostnMike. The cash streak is up to eight now, which has the room comparing him to herpes: persistent, unwanted, and somehow always back in the conversation no matter how badly people would prefer otherwise. Once the table tightened, the commissioner handled the paperwork himself: Red, Ai-Dave, Hiro, Phattedcalf, Li-Fo, and finally Providencemike all went through him. There are louder wins. There are uglier wins. There are not many wins that feel this annoyingly inevitable once the late stages arrive.</p><p>The ProvidenceMike subplot deserves equal billing because the Mike-on-Mike violence kept its franchise alive. ProvidenceMike clipped Red, played his way all the way to heads-up, and — to his credit — wanted to play it out instead of shaking hands on a split. BostnMike agreed, and the whole duel lasted exactly one hand before Ace-9 held over Ace-7. That is either admirable competitive spirit or a very efficient way to write your own punchline.</p><p>Elsewhere, the room had side plots worth keeping. Bob F finally made the long-awaited return, only to get shown the door early by Phattedcalf. The table watched Scotland finally win its first World Cup group-stage match, which gave the room one actual feel-good result before the cards got back to their usual behavior. The final three also got to see the Knicks win the NBA title, so at least the television was handing out cleaner endings than the felt. And yes, the hand-shuffle era may finally be ending: the shuffler is reportedly in recovery and expected back next week, which is probably the best health bulletin the league has issued all month.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-13.jpg\" alt=\"Poster for the 06/13/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Inglorious Bluffs had the same production problem as last week: the shuffler was still MIA, so the room was still stuck hand shuffling and pretending that was not quietly ruining everybody’s timing instincts. This time, though, the table survived it a little faster. For once the night ended early by recent standards, which meant the cards had enough time to hurt people and still leave the room home in something close to civilized hours. Progress.</p><p>The headline, unfortunately for everybody else, is that you still cannot get rid of BostnMike. The cash streak is up to eight now, which has the room comparing him to herpes: persistent, unwanted, and somehow always back in the conversation no matter how badly people would prefer otherwise. Once the table tightened, the commissioner handled the paperwork himself: Red, Ai-Dave, Hiro, Phattedcalf, Li-Fo, and finally Providencemike all went through him. There are louder wins. There are uglier wins. There are not many wins that feel this annoyingly inevitable once the late stages arrive.</p><p>The ProvidenceMike subplot deserves equal billing because the Mike-on-Mike violence kept its franchise alive. ProvidenceMike clipped Red, played his way all the way to heads-up, and — to his credit — wanted to play it out instead of shaking hands on a split. BostnMike agreed, and the whole duel lasted exactly one hand before Ace-9 held over Ace-7. That is either admirable competitive spirit or a very efficient way to write your own punchline.</p><p>Elsewhere, the room had side plots worth keeping. Bob F finally made the long-awaited return, only to get shown the door early by Phattedcalf. The table watched Scotland finally win its first World Cup group-stage match, which gave the room one actual feel-good result before the cards got back to their usual behavior. The final three also got to see the Knicks win the NBA title, so at least the television was handing out cleaner endings than the felt. And yes, the hand-shuffle era may finally be ending: the shuffler is reportedly in recovery and expected back next week, which is probably the best health bulletin the league has issued all month.</p>",
   "roastHtml": "<p>BostnMike has now cashed eight straight games, which is the kind of streak that stops feeling impressive and starts feeling medically persistent. The worst part is that ProvidenceMike gave him the courtesy of playing heads-up out, and the commissioner still wrapped it on the first hand like he had a hard stop and a police escort waiting outside.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 2 rebuys, 11 total entries.",
@@ -3487,7 +3487,7 @@
       "label": "🪓 Table Killer",
       "player": "Hiro",
       "value": "2 clean knockouts",
-      "copy": "Handled Rob F twice and helped shape the late table."
+      "copy": "Handled Bob twice and helped shape the late table."
     },
     {
       "tone": "purple",
@@ -3520,7 +3520,7 @@
     "totalPot": 270,
     "paidSpots": 3,
     "winner": "Li-Fo",
-    "firstOut": "Rob F",
+    "firstOut": "Bob",
     "firstPermanentOut": "Jeff T"
   },
   "spotlight": {
@@ -3533,8 +3533,8 @@
   "feltSaid": [
     {
       "label": "First Blood",
-      "value": "Rob F",
-      "note": "Hiro got the opening bust before Rob F bought back in."
+      "value": "Bob",
+      "note": "Hiro got the opening bust before Bob bought back in."
     },
     {
       "label": "First Gone For Good",
@@ -3544,7 +3544,7 @@
     {
       "label": "Table Killer",
       "value": "Hiro",
-      "note": "Removed Rob F twice and controlled a useful middle stretch."
+      "note": "Removed Bob twice and controlled a useful middle stretch."
     },
     {
       "label": "How It Ended",
@@ -3552,7 +3552,7 @@
       "note": "Hiro finished third after helping knock the room into shape."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw25-11-01.jpg\" alt=\"Poster for the 11/01/2025 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Dia de los Muertos felt a little off from the jump, which is what made it work. The buy-ins started the night before, NASA Al entered late on game day, Jeff T arrived even later, and the whole table had that staggered Halloween spillover energy where nobody seemed fully synced and everybody was still somehow dangerous.</p><p>Rob F was first out, bought back in, and got knocked out again by Hiro. Jeff T came in late and still became the first one gone for good. That kind of night. Hiro did useful work in the middle and looked like the most active force at the table until the endgame tilted toward Li-Fo. Then Li-Fo did the one thing that matters most in a recap: he took the last two names himself, BostnMike and NASA Al, and turned a weird room into a clean result.</p><p>This was not the loudest game in the archive, but it had the right kind of strange. A Halloween leftover, a staggered entry list, and a winner who waited for the table to stop wobbling before taking the ending home.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw25-11-01.jpg\" alt=\"Poster for the 11/01/2025 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Dia de los Muertos felt a little off from the jump, which is what made it work. The buy-ins started the night before, NASA Al entered late on game day, Jeff T arrived even later, and the whole table had that staggered Halloween spillover energy where nobody seemed fully synced and everybody was still somehow dangerous.</p><p>Bob was first out, bought back in, and got knocked out again by Hiro. Jeff T came in late and still became the first one gone for good. That kind of night. Hiro did useful work in the middle and looked like the most active force at the table until the endgame tilted toward Li-Fo. Then Li-Fo did the one thing that matters most in a recap: he took the last two names himself, BostnMike and NASA Al, and turned a weird room into a clean result.</p><p>This was not the loudest game in the archive, but it had the right kind of strange. A Halloween leftover, a staggered entry list, and a winner who waited for the table to stop wobbling before taking the ending home.</p>",
   "roastHtml": "<p>BostnMike made the money and still got used as part of Li-Fo’s closing sequence. It is a very commissioner thing to do: survive the weird part, then become the punctuation mark.</p>",
   "numbersThatMatter": [
     "7 buy-ins, 2 rebuys, 9 total entries.",
@@ -3561,7 +3561,7 @@
     "Li-Fo took the final two eliminations: BostnMike and NASA Al."
   ],
   "quickHitsLeft": [
-    "Rob F was first out, rebought, and still got removed for good by the same man who started the story.",
+    "Bob was first out, rebought, and still got removed for good by the same man who started the story.",
     "Jeff T arrived late and still became the first permanent casualty, which is rough efficiency.",
     "Hiro did the visible middle-game labor before Li-Fo claimed the finish.",
     "The staggered buy-ins gave the whole event a slightly haunted timing profile."
@@ -4236,7 +4236,7 @@
       "label": "🩸 First Blood",
       "player": "Brad R",
       "value": "Out first",
-      "copy": "Rob F drew first bust-out honors."
+      "copy": "Bob drew first bust-out honors."
     },
     {
       "tone": "red",
@@ -4283,7 +4283,7 @@
     {
       "label": "First Blood",
       "value": "Brad R",
-      "note": "Rob F sent him out first."
+      "note": "Bob sent him out first."
     },
     {
       "label": "First Gone For Good",
@@ -4293,21 +4293,21 @@
     {
       "label": "Table Killer",
       "value": "BostnMike",
-      "note": "Closed out Li-Fo, Rob F, and A.I. Dave."
+      "note": "Closed out Li-Fo, Bob, and A.I. Dave."
     },
     {
       "label": "How It Ended",
       "value": "BostnMike over Ai-Dave",
-      "note": "Rob F finished third."
+      "note": "Bob finished third."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw25-06-14.jpg\" alt=\"Poster for the 06/14/2025 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Gunga Galunga never really opened up into chaos. It stayed tight, mean, and personal. The field was bigger than the opener, the rebuys kept the table alive, and by the time the game reached its late stages it had turned into one of those nights where the winner did not just survive the ending — he authored it.</p><p>That winner was BostnMike. What made the game memorable was not simply that he won. It was how he won. Once the final stretch arrived, he started erasing the room himself: Li-Fo out, then Rob F out, then A.I. Dave out to finish the whole thing. Some wins feel inherited. This one felt closed.</p><p>The rest of the game gave him plenty to work through. Brad R was first out. Hiro was the first one gone for good. The field kept reloading just enough to make the night feel durable without ever letting it get sloppy. By the end, Gunga Galunga felt like a game with its own center of gravity — and BostnMike had it by the throat.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw25-06-14.jpg\" alt=\"Poster for the 06/14/2025 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Gunga Galunga never really opened up into chaos. It stayed tight, mean, and personal. The field was bigger than the opener, the rebuys kept the table alive, and by the time the game reached its late stages it had turned into one of those nights where the winner did not just survive the ending — he authored it.</p><p>That winner was BostnMike. What made the game memorable was not simply that he won. It was how he won. Once the final stretch arrived, he started erasing the room himself: Li-Fo out, then Bob out, then A.I. Dave out to finish the whole thing. Some wins feel inherited. This one felt closed.</p><p>The rest of the game gave him plenty to work through. Brad R was first out. Hiro was the first one gone for good. The field kept reloading just enough to make the night feel durable without ever letting it get sloppy. By the end, Gunga Galunga felt like a game with its own center of gravity — and BostnMike had it by the throat.</p>",
   "roastHtml": "<p>BostnMike had the exact kind of night that makes a commissioner unbearable afterward: not just a win, but a closing sequence. There is no worse version of confidence than a guy who can now say, correctly, that he personally took care of the last three problems on the table.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 2 rebuys, 11 total entries.",
     "4h 05m of play from 7:08 pm to 11:13 pm.",
     "$330 total pot with 3 paid spots.",
-    "BostnMike closed the final three knockouts: Li-Fo, Rob F, and A.I. Dave."
+    "BostnMike closed the final three knockouts: Li-Fo, Bob, and A.I. Dave."
   ],
   "quickHitsLeft": [
     "Brad R took first-bust honors before Hiro became the first one gone for good.",
@@ -4317,7 +4317,7 @@
   ],
   "quickHitsRight": [
     "A.I. Dave made the final duel but could not survive the closer.",
-    "Rob F built a strong second act by busting Brad R twice and Jeff T once before getting cut down in third.",
+    "Bob built a strong second act by busting Brad R twice and Jeff T once before getting cut down in third.",
     "Li-Fo stayed in the fight long enough to matter, then got swallowed by the closing run.",
     "Gunga Galunga felt less like a sprint and more like a table waiting for someone to take command."
   ],
