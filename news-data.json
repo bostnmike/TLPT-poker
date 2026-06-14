@@ -78,7 +78,7 @@
   "spotlight": {
     "player": "BostnMike / ProvidenceMike",
     "fallback": "BMPM",
-    "pills": ["Winner", "8 Straight Cashes", "Heads-Up Played Out", "Mike-on-Mike Crime"],
+    "pills": ["Herpes", "8 Straight Cashes", "One Hand Heads-Up", "Mike-on-Mike Crime"],
     "avatars": [
       { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
       { "src": "images/players/providencemike.jpg", "alt": "ProvidenceMike", "fallback": "PM" }
