@@ -65,7 +65,194 @@ def build_zero_player(meta):
         "aggressionIndex": 0.0,
         "survivorIndex": 0.0,
         "tiltIndex": 0.0,
-        "trueSkillScore": 0.0
+        "trueSkillScore": 0.0,
+    }
+
+
+def parse_event_date(event):
+    raw = str(event.get("date") or event.get("eventId") or "")
+    try:
+        return datetime.fromisoformat(raw)
+    except ValueError:
+        return datetime.max
+
+
+def build_player_lookup(players):
+    return {
+        p["slug"]: {
+            "name": p["name"],
+            "slug": p["slug"],
+            "image": p["image"],
+            "notes": p.get("notes", "")
+        }
+        for p in players
+    }
+
+
+def make_streak_record(player_meta, streak_type, played_events, start_idx, end_idx, active=False):
+    if start_idx is None or end_idx is None or start_idx > end_idx:
+        return None
+
+    window = played_events[start_idx:end_idx + 1]
+    if not window:
+        return None
+
+    return {
+        "player": player_meta["name"],
+        "slug": player_meta["slug"],
+        "image": player_meta["image"],
+        "type": streak_type,
+        "length": len(window),
+        "startDate": window[0]["date"],
+        "endDate": window[-1]["date"],
+        "startTitle": window[0]["title"],
+        "endTitle": window[-1]["title"],
+        "active": active,
+        "events": [
+            {
+                "date": item["date"],
+                "title": item["title"],
+                "cashed": item["cashed"]
+            }
+            for item in window
+        ]
+    }
+
+
+def compute_best_run(played_events, target_cash):
+    best = None
+    run_start = None
+
+    for idx, event in enumerate(played_events):
+        matches = event["cashed"] == target_cash
+
+        if matches and run_start is None:
+            run_start = idx
+        elif not matches and run_start is not None:
+            candidate = (run_start, idx - 1)
+            if best is None or (candidate[1] - candidate[0]) > (best[1] - best[0]):
+                best = candidate
+            run_start = None
+
+    if run_start is not None:
+        candidate = (run_start, len(played_events) - 1)
+        if best is None or (candidate[1] - candidate[0]) > (best[1] - best[0]):
+            best = candidate
+
+    return best
+
+
+def compute_current_run(played_events, target_cash):
+    if not played_events:
+        return None
+
+    if played_events[-1]["cashed"] != target_cash:
+        return None
+
+    start_idx = len(played_events) - 1
+    while start_idx > 0 and played_events[start_idx - 1]["cashed"] == target_cash:
+        start_idx -= 1
+
+    return (start_idx, len(played_events) - 1)
+
+
+def build_streak_payload(players_lookup, parsed_events):
+    played_by_slug = {slug: [] for slug in players_lookup}
+
+    for event in parsed_events:
+        title = event.get("title", "")
+        date = event.get("date", "")
+
+        for ep in event.get("players", []):
+            if ep.get("entries", 0) <= 0:
+                continue
+
+            slug = ep["slug"]
+            if slug not in played_by_slug:
+                continue
+
+            played_by_slug[slug].append({
+                "date": date,
+                "title": title,
+                "cashed": bool(ep.get("timesPlaced", 0) > 0)
+            })
+
+    players_payload = {}
+    cash_leaders = []
+    drought_leaders = []
+    active_heaters = []
+    active_droughts = []
+
+    for slug, player_meta in players_lookup.items():
+        played_events = played_by_slug.get(slug, [])
+
+        best_cash_idx = compute_best_run(played_events, True)
+        best_drought_idx = compute_best_run(played_events, False)
+        current_cash_idx = compute_current_run(played_events, True)
+        current_drought_idx = compute_current_run(played_events, False)
+
+        best_cash = make_streak_record(
+            player_meta,
+            "cash",
+            played_events,
+            *(best_cash_idx or (None, None)),
+            active=False
+        )
+        best_drought = make_streak_record(
+            player_meta,
+            "drought",
+            played_events,
+            *(best_drought_idx or (None, None)),
+            active=False
+        )
+        current_cash = make_streak_record(
+            player_meta,
+            "cash",
+            played_events,
+            *(current_cash_idx or (None, None)),
+            active=True
+        )
+        current_drought = make_streak_record(
+            player_meta,
+            "drought",
+            played_events,
+            *(current_drought_idx or (None, None)),
+            active=True
+        )
+
+        players_payload[slug] = {
+            "playedEvents": len(played_events),
+            "bestCashStreak": best_cash,
+            "currentCashStreak": current_cash,
+            "bestDroughtStreak": best_drought,
+            "currentDroughtStreak": current_drought,
+        }
+
+        if best_cash and best_cash["length"] > 0:
+            cash_leaders.append(best_cash)
+        if best_drought and best_drought["length"] > 0:
+            drought_leaders.append(best_drought)
+        if current_cash and current_cash["length"] > 0:
+            active_heaters.append(current_cash)
+        if current_drought and current_drought["length"] > 0:
+            active_droughts.append(current_drought)
+
+    cash_leaders = sorted(cash_leaders, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
+    drought_leaders = sorted(drought_leaders, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
+    active_heaters = sorted(active_heaters, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
+    active_droughts = sorted(active_droughts, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
+
+    return {
+        "definitions": {
+            "cashStreak": "Consecutive played events that ended in a cash.",
+            "droughtStreak": "Consecutive played events without a cash.",
+            "note": "Skipped events do not break or extend streaks."
+        },
+        "cashLeaders": cash_leaders[:25],
+        "droughtLeaders": drought_leaders[:25],
+        "activeCashLeaders": active_heaters[:25],
+        "activeDroughtLeaders": active_droughts[:25],
+        "players": players_payload
     }
 
 
@@ -74,20 +261,17 @@ def main():
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
 
-    # ✅ FIX 1: EXCLUDE index.json
     parsed_files = sorted(
-        f for f in PARSED_EVENTS_DIR.glob("*.json")
-        if f.name != "index.json"
+        (f for f in PARSED_EVENTS_DIR.glob("*.json") if f.name != "index.json"),
+        key=lambda path: path.name
     )
 
     if not parsed_files:
         raise RuntimeError("No parsed events found")
 
-    PLAYER_IMAGE_DIR = Path("images/players")
-
     def build_fallback_player(slug):
         image_path = f"images/players/{slug}.jpg"
-        if not (PLAYER_IMAGE_DIR / f"{slug}.jpg").exists():
+        if not (ROOT / image_path).exists():
             image_path = "images/players/default.jpg"
 
         return {
@@ -99,6 +283,7 @@ def main():
         }
 
     players_by_slug = {p["slug"]: build_zero_player(p) for p in metadata["players"]}
+    parsed_events = []
 
     for parsed_file in parsed_files:
         event = load_json(parsed_file)
@@ -106,9 +291,9 @@ def main():
         if not isinstance(event, dict):
             continue
 
-        for ep in event.get("players", []):
+        parsed_events.append(event)
 
-            # ✅ FIX 2: IGNORE ZERO PARTICIPATION
+        for ep in event.get("players", []):
             if ep.get("entries", 0) == 0:
                 continue
 
@@ -143,9 +328,6 @@ def main():
 
     # ---------------- EXPECTED / LUCK ----------------
 
-    # Use a profile-based baseline instead of league-average profit per entry.
-    # In a closed league, average profit per entry tends to collapse to ~0,
-    # which makes Luck Index identical to Profit.
     for p in players:
         p["luckProxy"] = (
             (0.40 * p["cashRate"])
@@ -153,20 +335,14 @@ def main():
             + (0.40 * (1 - p["bubbleRate"]))
         )
 
-    league_avg_proxy = (
-        sum(p["luckProxy"] for p in players) / max(len(players), 1)
-    )
+    league_avg_proxy = sum(p["luckProxy"] for p in players) / max(len(players), 1)
 
     for p in players:
         proxy_delta = p["luckProxy"] - league_avg_proxy
-
-        # Convert the profile edge into an expected ROI band.
-        # Cap the result so expected profit doesn't get silly for small samples.
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
-
         p["expectedProfit"] = round(p["totalCost"] * expected_roi, 1)
         p["luckIndex"] = round(p["profit"] - p["expectedProfit"], 1)
-        
+
     # ---------------- RAW COMPONENTS ----------------
 
     for p in players:
@@ -185,15 +361,9 @@ def main():
             + (0.20 * hit_rate)
         )
 
-        # Base Composure Score:
-        # 100 × (1 − ((0.70 × Rebuy Rate) + (0.30 × Bubble Rate)))
         base_composure = 100 * (1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate)))
-
-        # Pull tiny samples back toward 50 so one clean night does not auto-score 100
         sample_factor = min(p["buyIns"], 8) / 8.0
         composure_score = 50 + ((base_composure - 50) * sample_factor)
-
-        # Clamp to 0–100
         p["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
 
     # ---------------- NORMALIZE ----------------
@@ -210,8 +380,6 @@ def main():
         p["clutchIndex"] = p["clutchRaw_norm"]
         p["aggressionIndex"] = p["aggressionRaw_norm"]
         p["survivorIndex"] = p["survivorRaw_norm"]
-
-        # Composure is now a direct fixed-scale 0–100 score, not a normalized league-relative stat
         p["tiltIndex"] = round(p["tiltScoreDirect"], 1)
 
         sample_bonus = min(10, p["buyIns"])
@@ -276,6 +444,9 @@ def main():
         p.pop("luckProxy", None)
 
     players = sorted(players, key=lambda p: p["name"].lower())
+    player_lookup = build_player_lookup(players)
+    parsed_events = sorted(parsed_events, key=parse_event_date)
+    streaks = build_streak_payload(player_lookup, parsed_events)
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
@@ -283,7 +454,8 @@ def main():
         "events": events["events"],
         "honors": honors,
         "records": records,
-        "players": players
+        "players": players,
+        "streaks": streaks
     }
 
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
