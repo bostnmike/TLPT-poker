@@ -51,11 +51,27 @@ function renderAvatar(person) {
   `;
 }
 
-function renderLeaderboard(items, containerId, emptyText, limit = null) {
+function renderLeaderboard(items, containerId, emptyText, limit = null, collapseTwos = false) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  const rows = Array.isArray(items) ? [...items] : [];
+  let rows = Array.isArray(items) ? [...items] : [];
+
+  if (collapseTwos) {
+    const threePlus = rows.filter((item) => Number(item.length) >= 3);
+    const twoCount = rows.filter((item) => Number(item.length) === 2).length;
+
+    rows = [...threePlus];
+
+    if (twoCount > 0) {
+      rows.push({
+        isTieSummary: true,
+        tieCount: twoCount,
+        length: 2
+      });
+    }
+  }
+
   const finalRows = Number.isInteger(limit) ? rows.slice(0, limit) : rows;
 
   if (!finalRows.length) {
@@ -64,19 +80,34 @@ function renderLeaderboard(items, containerId, emptyText, limit = null) {
   }
 
   container.innerHTML = finalRows
-    .map((item, index) => `
-      <article class="streak-row">
-        <span class="streak-rank">${index + 1}</span>
-        ${renderAvatar(item)}
-        <div class="streak-row-main">
-          <div class="streak-row-player">${escapeHtml(item.player)}</div>
-          <div class="streak-row-meta">
-            ${escapeHtml(formatDate(item.startDate))} → ${escapeHtml(formatDate(item.endDate))}
+    .map((item, index) => {
+      if (item.isTieSummary) {
+        return `
+          <article class="streak-row">
+            <span class="streak-rank">${index + 1}</span>
+            <div class="streak-row-main" style="grid-column: 2 / 4;">
+              <div class="streak-row-player">${escapeHtml(item.tieCount)} Players tied with 2</div>
+              <div class="streak-row-meta">Additional active droughts grouped at the minimum tracked threshold.</div>
+            </div>
+            <div class="streak-row-length">2 straight</div>
+          </article>
+        `;
+      }
+
+      return `
+        <article class="streak-row">
+          <span class="streak-rank">${index + 1}</span>
+          ${renderAvatar(item)}
+          <div class="streak-row-main">
+            <div class="streak-row-player">${escapeHtml(item.player)}</div>
+            <div class="streak-row-meta">
+              ${escapeHtml(formatDate(item.startDate))} → ${escapeHtml(formatDate(item.endDate))}
+            </div>
           </div>
-        </div>
-        <div class="streak-row-length">${escapeHtml(item.length)} straight</div>
-      </article>
-    `)
+          <div class="streak-row-length">${escapeHtml(item.length)} straight</div>
+        </article>
+      `;
+    })
     .join("");
 }
 
@@ -187,7 +218,9 @@ async function initStreakTracker() {
     renderLeaderboard(
       streaks.activeDroughtLeaders || [],
       "active-drought-board",
-      "No active droughts of 2+ among eligible players."
+      "No active droughts of 2+ among eligible players.",
+      null,
+      true
     );
 
     renderLeaderboard(
