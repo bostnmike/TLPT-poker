@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T19:00:31.034728Z",
+  "generatedAt": "2026-06-21T19:02:14.867996Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -1334,7 +1334,7 @@
     "definitions": {
       "cashStreak": "Consecutive played events that ended in a cash.",
       "droughtStreak": "Consecutive played events without a cash.",
-      "minimumEligibleEvents": 3,
+      "minimumEligibleEvents": 2,
       "minimumTrackedStreak": 2,
       "note": "Skipped events do not break or extend streaks."
     },
@@ -1597,6 +1597,30 @@
           {
             "date": "2025-10-25",
             "title": "We are SO Back | 9-Max",
+            "cashed": true
+          }
+        ]
+      },
+      {
+        "player": "Grif",
+        "slug": "griffin",
+        "image": "images/players/grif.jpg",
+        "type": "cash",
+        "length": 2,
+        "startDate": "2026-05-09",
+        "endDate": "2026-05-23",
+        "startTitle": "High-Roller Ball | 9-Max",
+        "endTitle": "Championship Sunday Eve | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2026-05-09",
+            "title": "High-Roller Ball | 9-Max",
+            "cashed": true
+          },
+          {
+            "date": "2026-05-23",
+            "title": "Championship Sunday Eve | 9-Max",
             "cashed": true
           }
         ]
@@ -2279,6 +2303,30 @@
         ]
       },
       {
+        "player": "Brad R",
+        "slug": "brad-r",
+        "image": "images/players/brad-r.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-06-14",
+        "endDate": "2025-06-21",
+        "startTitle": "Gunga Galunga 9-Max",
+        "endTitle": "Oh What a Night | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2025-06-14",
+            "title": "Gunga Galunga 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-06-21",
+            "title": "Oh What a Night | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Chris O",
         "slug": "chris-o",
         "image": "images/players/chris-o.jpg",
@@ -2298,6 +2346,54 @@
           {
             "date": "2025-12-06",
             "title": "$hitter's Full | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Gilmore",
+        "slug": "gilmore",
+        "image": "images/players/gilmore.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-06-28",
+        "endDate": "2025-12-13",
+        "startTitle": "Say My Name | 9-Max",
+        "endTitle": "Ohhh Fuuuudge | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2025-06-28",
+            "title": "Say My Name | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-12-13",
+            "title": "Ohhh Fuuuudge | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Hayden D",
+        "slug": "hayden-d",
+        "image": "images/players/hayden-d.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2026-01-24",
+        "endDate": "2026-01-30",
+        "startTitle": "Mother, \"Maye\" I? | 9-Max",
+        "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
+        "active": false,
+        "events": [
+          {
+            "date": "2026-01-24",
+            "title": "Mother, \"Maye\" I? | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-01-30",
+            "title": "Warning! Obnoxious Pats Fan Onboard!",
             "cashed": false
           }
         ]
@@ -2407,6 +2503,30 @@
           {
             "date": "2026-06-20",
             "title": "You're All Suspects | 9-Max",
+            "cashed": true
+          }
+        ]
+      },
+      {
+        "player": "Grif",
+        "slug": "griffin",
+        "image": "images/players/grif.jpg",
+        "type": "cash",
+        "length": 2,
+        "startDate": "2026-05-09",
+        "endDate": "2026-05-23",
+        "startTitle": "High-Roller Ball | 9-Max",
+        "endTitle": "Championship Sunday Eve | 9-Max",
+        "active": true,
+        "events": [
+          {
+            "date": "2026-05-09",
+            "title": "High-Roller Ball | 9-Max",
+            "cashed": true
+          },
+          {
+            "date": "2026-05-23",
+            "title": "Championship Sunday Eve | 9-Max",
             "cashed": true
           }
         ]
@@ -2710,6 +2830,78 @@
         ]
       },
       {
+        "player": "Brad R",
+        "slug": "brad-r",
+        "image": "images/players/brad-r.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-06-14",
+        "endDate": "2025-06-21",
+        "startTitle": "Gunga Galunga 9-Max",
+        "endTitle": "Oh What a Night | 9-Max",
+        "active": true,
+        "events": [
+          {
+            "date": "2025-06-14",
+            "title": "Gunga Galunga 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-06-21",
+            "title": "Oh What a Night | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Gilmore",
+        "slug": "gilmore",
+        "image": "images/players/gilmore.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-06-28",
+        "endDate": "2025-12-13",
+        "startTitle": "Say My Name | 9-Max",
+        "endTitle": "Ohhh Fuuuudge | 9-Max",
+        "active": true,
+        "events": [
+          {
+            "date": "2025-06-28",
+            "title": "Say My Name | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-12-13",
+            "title": "Ohhh Fuuuudge | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Hayden D",
+        "slug": "hayden-d",
+        "image": "images/players/hayden-d.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2026-01-24",
+        "endDate": "2026-01-30",
+        "startTitle": "Mother, \"Maye\" I? | 9-Max",
+        "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
+        "active": true,
+        "events": [
+          {
+            "date": "2026-01-24",
+            "title": "Mother, \"Maye\" I? | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-01-30",
+            "title": "Warning! Obnoxious Pats Fan Onboard!",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Nasa Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al.jpg",
@@ -2760,6 +2952,12 @@
         "playedEvents": 41
       },
       {
+        "name": "Brad R",
+        "slug": "brad-r",
+        "image": "images/players/brad-r.jpg",
+        "playedEvents": 2
+      },
+      {
         "name": "Chris O",
         "slug": "chris-o",
         "image": "images/players/chris-o.jpg",
@@ -2776,6 +2974,24 @@
         "slug": "dan-k",
         "image": "images/players/dan-k.jpg",
         "playedEvents": 3
+      },
+      {
+        "name": "Gilmore",
+        "slug": "gilmore",
+        "image": "images/players/gilmore.jpg",
+        "playedEvents": 2
+      },
+      {
+        "name": "Grif",
+        "slug": "griffin",
+        "image": "images/players/grif.jpg",
+        "playedEvents": 2
+      },
+      {
+        "name": "Hayden D",
+        "slug": "hayden-d",
+        "image": "images/players/hayden-d.jpg",
+        "playedEvents": 2
       },
       {
         "name": "Hiro",
@@ -3226,7 +3442,7 @@
       },
       "brad-r": {
         "playedEvents": 2,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -3491,7 +3707,7 @@
       },
       "gilmore": {
         "playedEvents": 2,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -3545,7 +3761,7 @@
       },
       "griffin": {
         "playedEvents": 2,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Grif",
           "slug": "griffin",
@@ -3599,7 +3815,7 @@
       },
       "hayden-d": {
         "playedEvents": 2,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
