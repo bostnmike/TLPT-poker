@@ -12,10 +12,15 @@
   box-shadow:var(--shadow);
 }
 
+.streak-header-shell{
+  padding-top:20px;
+}
+
 .streak-title-row{
   display:flex;
   align-items:center;
   gap:18px;
+  margin-bottom:8px;
 }
 
 .streak-title-chip{
