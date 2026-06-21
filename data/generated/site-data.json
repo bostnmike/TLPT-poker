@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T17:41:11.071987Z",
+  "generatedAt": "2026-06-21T18:32:38.989243Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -1334,6 +1334,8 @@
     "definitions": {
       "cashStreak": "Consecutive played events that ended in a cash.",
       "droughtStreak": "Consecutive played events without a cash.",
+      "minimumEligibleEvents": 4,
+      "minimumTrackedStreak": 2,
       "note": "Skipped events do not break or extend streaks."
     },
     "cashLeaders": [
@@ -1600,30 +1602,6 @@
         ]
       },
       {
-        "player": "Grif",
-        "slug": "griffin",
-        "image": "images/players/grif.jpg",
-        "type": "cash",
-        "length": 2,
-        "startDate": "2026-05-09",
-        "endDate": "2026-05-23",
-        "startTitle": "High-Roller Ball | 9-Max",
-        "endTitle": "Championship Sunday Eve | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-05-09",
-            "title": "High-Roller Ball | 9-Max",
-            "cashed": true
-          },
-          {
-            "date": "2026-05-23",
-            "title": "Championship Sunday Eve | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
         "player": "Hiro",
         "slug": "hiro",
         "image": "images/players/hiro.jpg",
@@ -1643,30 +1621,6 @@
           {
             "date": "2025-11-15",
             "title": "You Can Act Like a Man! | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Kishan",
-        "slug": "kishan",
-        "image": "images/players/kishan.jpg",
-        "type": "cash",
-        "length": 2,
-        "startDate": "2026-03-27",
-        "endDate": "2026-04-04",
-        "startTitle": "March Sadness Part I | 9-Max",
-        "endTitle": "Duke Hoop Shock and Awww :D | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-03-27",
-            "title": "March Sadness Part I | 9-Max",
-            "cashed": true
-          },
-          {
-            "date": "2026-04-04",
-            "title": "Duke Hoop Shock and Awww :D | 9-Max",
             "cashed": true
           }
         ]
@@ -1715,196 +1669,6 @@
           {
             "date": "2026-01-03",
             "title": "2025 Auld Lang Syne 2026 | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Big Tim",
-        "slug": "big-tim",
-        "image": "images/players/big-tim.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-11-30",
-        "endDate": "2025-11-30",
-        "startTitle": "Sunday Funday Matinee | 9-Max",
-        "endTitle": "Sunday Funday Matinee | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-11-30",
-            "title": "Sunday Funday Matinee | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Bob",
-        "slug": "rob-f",
-        "image": "images/players/rob-f.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-06-14",
-        "endDate": "2025-06-14",
-        "startTitle": "Gunga Galunga 9-Max",
-        "endTitle": "Gunga Galunga 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-06-14",
-            "title": "Gunga Galunga 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "BuffaloMike",
-        "slug": "buffalomike",
-        "image": "images/players/buffalomike.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-03-27",
-        "endDate": "2026-03-27",
-        "startTitle": "March Sadness Part I | 9-Max",
-        "endTitle": "March Sadness Part I | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-03-27",
-            "title": "March Sadness Part I | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Jeff T",
-        "slug": "jeff-t",
-        "image": "images/players/jeff-t.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-06-21",
-        "endDate": "2025-06-21",
-        "startTitle": "Oh What a Night | 9-Max",
-        "endTitle": "Oh What a Night | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-06-21",
-            "title": "Oh What a Night | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Nitro",
-        "slug": "nitro",
-        "image": "images/players/nitro.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-10-25",
-        "endDate": "2025-10-25",
-        "startTitle": "We are SO Back | 9-Max",
-        "endTitle": "We are SO Back | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-10-25",
-            "title": "We are SO Back | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Pat",
-        "slug": "pat",
-        "image": "images/players/pat.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-03-27",
-        "endDate": "2026-03-27",
-        "startTitle": "March Sadness Part I | 9-Max",
-        "endTitle": "March Sadness Part I | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-03-27",
-            "title": "March Sadness Part I | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "PhattedCalf",
-        "slug": "phattedcalf",
-        "image": "images/players/phattedcalf.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-04-18",
-        "endDate": "2026-04-18",
-        "startTitle": "Sabres in the Playoffs?! | 9-Max",
-        "endTitle": "Sabres in the Playoffs?! | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-04-18",
-            "title": "Sabres in the Playoffs?! | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Vish",
-        "slug": "vish",
-        "image": "images/players/vish.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-02-13",
-        "endDate": "2026-02-13",
-        "startTitle": "Chip & A Chair, The Tony K Story",
-        "endTitle": "Chip & A Chair, The Tony K Story",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-02-13",
-            "title": "Chip & A Chair, The Tony K Story",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Wild Bill",
-        "slug": "wild-bill",
-        "image": "images/players/wild-bill.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-01-30",
-        "endDate": "2026-01-30",
-        "startTitle": "Warning! Obnoxious Pats Fan Onboard!",
-        "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-01-30",
-            "title": "Warning! Obnoxious Pats Fan Onboard!",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Yann",
-        "slug": "yann",
-        "image": "images/players/yann.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-10-04",
-        "endDate": "2025-10-04",
-        "startTitle": "I'm Your Huckleberry | 9-Max",
-        "endTitle": "I'm Your Huckleberry | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-10-04",
-            "title": "I'm Your Huckleberry | 9-Max",
             "cashed": true
           }
         ]
@@ -2351,35 +2115,6 @@
         ]
       },
       {
-        "player": "Dan K",
-        "slug": "dan-k",
-        "image": "images/players/dan-k.jpg",
-        "type": "drought",
-        "length": 3,
-        "startDate": "2025-05-24",
-        "endDate": "2026-03-07",
-        "startTitle": "There Will Be Blood - 9 Max",
-        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-05-24",
-            "title": "There Will Be Blood - 9 Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-06-21",
-            "title": "Oh What a Night | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-03-07",
-            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-            "cashed": false
-          }
-        ]
-      },
-      {
         "player": "Red",
         "slug": "red",
         "image": "images/players/red.jpg",
@@ -2438,83 +2173,6 @@
         ]
       },
       {
-        "player": "Vic",
-        "slug": "vic",
-        "image": "images/players/vic.jpg",
-        "type": "drought",
-        "length": 3,
-        "startDate": "2025-12-21",
-        "endDate": "2026-03-07",
-        "startTitle": "A Holly Jolly | 9-Max",
-        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-12-21",
-            "title": "A Holly Jolly | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-02-21",
-            "title": "No One Is Safe! The Roast Edition | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-03-07",
-            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Bob",
-        "slug": "rob-f",
-        "image": "images/players/rob-f.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-11-01",
-        "endDate": "2026-06-13",
-        "startTitle": "Dia de los Muertos | 9-Max",
-        "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-11-01",
-            "title": "Dia de los Muertos | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-06-13",
-            "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Brad R",
-        "slug": "brad-r",
-        "image": "images/players/brad-r.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-06-14",
-        "endDate": "2025-06-21",
-        "startTitle": "Gunga Galunga 9-Max",
-        "endTitle": "Oh What a Night | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-06-14",
-            "title": "Gunga Galunga 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-06-21",
-            "title": "Oh What a Night | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
         "player": "Chris O",
         "slug": "chris-o",
         "image": "images/players/chris-o.jpg",
@@ -2534,54 +2192,6 @@
           {
             "date": "2025-12-06",
             "title": "$hitter's Full | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Gilmore",
-        "slug": "gilmore",
-        "image": "images/players/gilmore.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-06-28",
-        "endDate": "2025-12-13",
-        "startTitle": "Say My Name | 9-Max",
-        "endTitle": "Ohhh Fuuuudge | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-06-28",
-            "title": "Say My Name | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-12-13",
-            "title": "Ohhh Fuuuudge | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Hayden D",
-        "slug": "hayden-d",
-        "image": "images/players/hayden-d.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2026-01-24",
-        "endDate": "2026-01-30",
-        "startTitle": "Mother, \"Maye\" I? | 9-Max",
-        "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-01-24",
-            "title": "Mother, \"Maye\" I? | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-01-30",
-            "title": "Warning! Obnoxious Pats Fan Onboard!",
             "cashed": false
           }
         ]
@@ -2630,63 +2240,6 @@
           {
             "date": "2026-05-23",
             "title": "Championship Sunday Eve | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "David K",
-        "slug": "david-k",
-        "image": "images/players/david-k.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-01-17",
-        "endDate": "2026-01-17",
-        "startTitle": "Finally, Leaving Las Vegas | 9-Max",
-        "endTitle": "Finally, Leaving Las Vegas | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-01-17",
-            "title": "Finally, Leaving Las Vegas | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Fabian",
-        "slug": "fabian",
-        "image": "images/players/fabian.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2025-10-04",
-        "endDate": "2025-10-04",
-        "startTitle": "I'm Your Huckleberry | 9-Max",
-        "endTitle": "I'm Your Huckleberry | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2025-10-04",
-            "title": "I'm Your Huckleberry | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Kishan",
-        "slug": "kishan",
-        "image": "images/players/kishan.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-05-16",
-        "endDate": "2026-05-16",
-        "startTitle": "Stranger Bluffs! | 9-Max",
-        "endTitle": "Stranger Bluffs! | 9-Max",
-        "active": false,
-        "events": [
-          {
-            "date": "2026-05-16",
-            "title": "Stranger Bluffs! | 9-Max",
             "cashed": false
           }
         ]
@@ -2748,163 +2301,6 @@
           {
             "date": "2026-06-20",
             "title": "You're All Suspects | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Grif",
-        "slug": "griffin",
-        "image": "images/players/grif.jpg",
-        "type": "cash",
-        "length": 2,
-        "startDate": "2026-05-09",
-        "endDate": "2026-05-23",
-        "startTitle": "High-Roller Ball | 9-Max",
-        "endTitle": "Championship Sunday Eve | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-05-09",
-            "title": "High-Roller Ball | 9-Max",
-            "cashed": true
-          },
-          {
-            "date": "2026-05-23",
-            "title": "Championship Sunday Eve | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Ahmed",
-        "slug": "ahmed",
-        "image": "images/players/ahmed.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-06-20",
-        "endDate": "2026-06-20",
-        "startTitle": "You're All Suspects | 9-Max",
-        "endTitle": "You're All Suspects | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-20",
-            "title": "You're All Suspects | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Big Tim",
-        "slug": "big-tim",
-        "image": "images/players/big-tim.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-11-30",
-        "endDate": "2025-11-30",
-        "startTitle": "Sunday Funday Matinee | 9-Max",
-        "endTitle": "Sunday Funday Matinee | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-11-30",
-            "title": "Sunday Funday Matinee | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "BuffaloMike",
-        "slug": "buffalomike",
-        "image": "images/players/buffalomike.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-03-27",
-        "endDate": "2026-03-27",
-        "startTitle": "March Sadness Part I | 9-Max",
-        "endTitle": "March Sadness Part I | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-03-27",
-            "title": "March Sadness Part I | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Cougar",
-        "slug": "cougar",
-        "image": "images/players/cougar.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-05-30",
-        "endDate": "2026-05-30",
-        "startTitle": "The Poker Club | 9-Max",
-        "endTitle": "The Poker Club | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-05-30",
-            "title": "The Poker Club | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Hiro",
-        "slug": "hiro",
-        "image": "images/players/hiro.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-06-20",
-        "endDate": "2026-06-20",
-        "startTitle": "You're All Suspects | 9-Max",
-        "endTitle": "You're All Suspects | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-20",
-            "title": "You're All Suspects | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Pat",
-        "slug": "pat",
-        "image": "images/players/pat.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2026-03-27",
-        "endDate": "2026-03-27",
-        "startTitle": "March Sadness Part I | 9-Max",
-        "endTitle": "March Sadness Part I | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-03-27",
-            "title": "March Sadness Part I | 9-Max",
-            "cashed": true
-          }
-        ]
-      },
-      {
-        "player": "Yann",
-        "slug": "yann",
-        "image": "images/players/yann.jpg",
-        "type": "cash",
-        "length": 1,
-        "startDate": "2025-10-04",
-        "endDate": "2025-10-04",
-        "startTitle": "I'm Your Huckleberry | 9-Max",
-        "endTitle": "I'm Your Huckleberry | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-10-04",
-            "title": "I'm Your Huckleberry | 9-Max",
             "cashed": true
           }
         ]
@@ -3039,35 +2435,6 @@
         ]
       },
       {
-        "player": "Dan K",
-        "slug": "dan-k",
-        "image": "images/players/dan-k.jpg",
-        "type": "drought",
-        "length": 3,
-        "startDate": "2025-05-24",
-        "endDate": "2026-03-07",
-        "startTitle": "There Will Be Blood - 9 Max",
-        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-05-24",
-            "title": "There Will Be Blood - 9 Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-06-21",
-            "title": "Oh What a Night | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-03-07",
-            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-            "cashed": false
-          }
-        ]
-      },
-      {
         "player": "Red",
         "slug": "red",
         "image": "images/players/red.jpg",
@@ -3126,35 +2493,6 @@
         ]
       },
       {
-        "player": "Vic",
-        "slug": "vic",
-        "image": "images/players/vic.jpg",
-        "type": "drought",
-        "length": 3,
-        "startDate": "2025-12-21",
-        "endDate": "2026-03-07",
-        "startTitle": "A Holly Jolly | 9-Max",
-        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-12-21",
-            "title": "A Holly Jolly | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-02-21",
-            "title": "No One Is Safe! The Roast Edition | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-03-07",
-            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
-            "cashed": false
-          }
-        ]
-      },
-      {
         "player": "Vish",
         "slug": "vish",
         "image": "images/players/vish.jpg",
@@ -3184,102 +2522,6 @@
         ]
       },
       {
-        "player": "Bob",
-        "slug": "rob-f",
-        "image": "images/players/rob-f.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-11-01",
-        "endDate": "2026-06-13",
-        "startTitle": "Dia de los Muertos | 9-Max",
-        "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-11-01",
-            "title": "Dia de los Muertos | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-06-13",
-            "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Brad R",
-        "slug": "brad-r",
-        "image": "images/players/brad-r.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-06-14",
-        "endDate": "2025-06-21",
-        "startTitle": "Gunga Galunga 9-Max",
-        "endTitle": "Oh What a Night | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-06-14",
-            "title": "Gunga Galunga 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-06-21",
-            "title": "Oh What a Night | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Gilmore",
-        "slug": "gilmore",
-        "image": "images/players/gilmore.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2025-06-28",
-        "endDate": "2025-12-13",
-        "startTitle": "Say My Name | 9-Max",
-        "endTitle": "Ohhh Fuuuudge | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-06-28",
-            "title": "Say My Name | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2025-12-13",
-            "title": "Ohhh Fuuuudge | 9-Max",
-            "cashed": false
-          }
-        ]
-      },
-      {
-        "player": "Hayden D",
-        "slug": "hayden-d",
-        "image": "images/players/hayden-d.jpg",
-        "type": "drought",
-        "length": 2,
-        "startDate": "2026-01-24",
-        "endDate": "2026-01-30",
-        "startTitle": "Mother, \"Maye\" I? | 9-Max",
-        "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-01-24",
-            "title": "Mother, \"Maye\" I? | 9-Max",
-            "cashed": false
-          },
-          {
-            "date": "2026-01-30",
-            "title": "Warning! Obnoxious Pats Fan Onboard!",
-            "cashed": false
-          }
-        ]
-      },
-      {
         "player": "Nasa Al",
         "slug": "nasa-al",
         "image": "images/players/nasa-al.jpg",
@@ -3302,201 +2544,110 @@
             "cashed": false
           }
         ]
-      },
+      }
+    ],
+    "eligiblePlayers": [
       {
-        "player": "A.I. Dave",
+        "name": "A.I. Dave",
         "slug": "ai-dave",
         "image": "images/players/ai-dave.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-06-13",
-        "endDate": "2026-06-13",
-        "startTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-        "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-13",
-            "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
-            "cashed": false
-          }
-        ]
+        "playedEvents": 23
       },
       {
-        "player": "Chris O",
+        "name": "Ahmed",
+        "slug": "ahmed",
+        "image": "images/players/ahmed.jpg",
+        "playedEvents": 26
+      },
+      {
+        "name": "BostnMike",
+        "slug": "bostnmike",
+        "image": "images/players/bostnmike.jpg",
+        "playedEvents": 41
+      },
+      {
+        "name": "Chris O",
         "slug": "chris-o",
         "image": "images/players/chris-o.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-06-20",
-        "endDate": "2026-06-20",
-        "startTitle": "You're All Suspects | 9-Max",
-        "endTitle": "You're All Suspects | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-20",
-            "title": "You're All Suspects | 9-Max",
-            "cashed": false
-          }
-        ]
+        "playedEvents": 8
       },
       {
-        "player": "David K",
-        "slug": "david-k",
-        "image": "images/players/david-k.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-01-17",
-        "endDate": "2026-01-17",
-        "startTitle": "Finally, Leaving Las Vegas | 9-Max",
-        "endTitle": "Finally, Leaving Las Vegas | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-01-17",
-            "title": "Finally, Leaving Las Vegas | 9-Max",
-            "cashed": false
-          }
-        ]
+        "name": "Cougar",
+        "slug": "cougar",
+        "image": "images/players/cougar.jpg",
+        "playedEvents": 15
       },
       {
-        "player": "Fabian",
-        "slug": "fabian",
-        "image": "images/players/fabian.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2025-10-04",
-        "endDate": "2025-10-04",
-        "startTitle": "I'm Your Huckleberry | 9-Max",
-        "endTitle": "I'm Your Huckleberry | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2025-10-04",
-            "title": "I'm Your Huckleberry | 9-Max",
-            "cashed": false
-          }
-        ]
+        "name": "Hiro",
+        "slug": "hiro",
+        "image": "images/players/hiro.jpg",
+        "playedEvents": 36
       },
       {
-        "player": "Kishan",
-        "slug": "kishan",
-        "image": "images/players/kishan.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-05-16",
-        "endDate": "2026-05-16",
-        "startTitle": "Stranger Bluffs! | 9-Max",
-        "endTitle": "Stranger Bluffs! | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-05-16",
-            "title": "Stranger Bluffs! | 9-Max",
-            "cashed": false
-          }
-        ]
+        "name": "Jeff T",
+        "slug": "jeff-t",
+        "image": "images/players/jeff-t.jpg",
+        "playedEvents": 8
       },
       {
-        "player": "Li-Fo",
+        "name": "Li-Fo",
         "slug": "li-fo",
         "image": "images/players/li-fo.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-06-20",
-        "endDate": "2026-06-20",
-        "startTitle": "You're All Suspects | 9-Max",
-        "endTitle": "You're All Suspects | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-20",
-            "title": "You're All Suspects | 9-Max",
-            "cashed": false
-          }
-        ]
+        "playedEvents": 28
       },
       {
-        "player": "PittsburghBill",
-        "slug": "pittsburghbill",
-        "image": "images/players/pittsburghbill.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-03-13",
-        "endDate": "2026-03-13",
-        "startTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-        "endTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-03-13",
-            "title": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-            "cashed": false
-          }
-        ]
+        "name": "Nasa Al",
+        "slug": "nasa-al",
+        "image": "images/players/nasa-al.jpg",
+        "playedEvents": 11
       },
       {
-        "player": "ProvidenceMike",
+        "name": "Nitro",
+        "slug": "nitro",
+        "image": "images/players/nitro.jpg",
+        "playedEvents": 11
+      },
+      {
+        "name": "PhattedCalf",
+        "slug": "phattedcalf",
+        "image": "images/players/phattedcalf.jpg",
+        "playedEvents": 7
+      },
+      {
+        "name": "ProvidenceMike",
         "slug": "providencemike",
         "image": "images/players/providencemike.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-06-20",
-        "endDate": "2026-06-20",
-        "startTitle": "You're All Suspects | 9-Max",
-        "endTitle": "You're All Suspects | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-06-20",
-            "title": "You're All Suspects | 9-Max",
-            "cashed": false
-          }
-        ]
+        "playedEvents": 25
       },
       {
-        "player": "Tim S",
-        "slug": "tim-s",
-        "image": "images/players/tim-s.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-05-01",
-        "endDate": "2026-05-01",
-        "startTitle": "Clear & Obvious, Bluffs | 9-Max",
-        "endTitle": "Clear & Obvious, Bluffs | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-05-01",
-            "title": "Clear & Obvious, Bluffs | 9-Max",
-            "cashed": false
-          }
-        ]
+        "name": "Red",
+        "slug": "red",
+        "image": "images/players/red.jpg",
+        "playedEvents": 18
       },
       {
-        "player": "Wild Bill",
+        "name": "The Architect",
+        "slug": "the-architect",
+        "image": "images/players/the-architect.jpg",
+        "playedEvents": 8
+      },
+      {
+        "name": "Vish",
+        "slug": "vish",
+        "image": "images/players/vish.jpg",
+        "playedEvents": 13
+      },
+      {
+        "name": "Wild Bill",
         "slug": "wild-bill",
         "image": "images/players/wild-bill.jpg",
-        "type": "drought",
-        "length": 1,
-        "startDate": "2026-04-17",
-        "endDate": "2026-04-17",
-        "startTitle": "WrestleMania Eve | 9-Max",
-        "endTitle": "WrestleMania Eve | 9-Max",
-        "active": true,
-        "events": [
-          {
-            "date": "2026-04-17",
-            "title": "WrestleMania Eve | 9-Max",
-            "cashed": false
-          }
-        ]
+        "playedEvents": 6
       }
     ],
     "players": {
       "ai-dave": {
         "playedEvents": 23,
+        "eligible": true,
         "bestCashStreak": {
           "player": "A.I. Dave",
           "slug": "ai-dave",
@@ -3566,28 +2717,11 @@
             }
           ]
         },
-        "currentDroughtStreak": {
-          "player": "A.I. Dave",
-          "slug": "ai-dave",
-          "image": "images/players/ai-dave.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-06-13",
-          "endDate": "2026-06-13",
-          "startTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-          "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-13",
-              "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "currentDroughtStreak": null
       },
       "ahmed": {
         "playedEvents": 26,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Ahmed",
           "slug": "ahmed",
@@ -3612,25 +2746,7 @@
             }
           ]
         },
-        "currentCashStreak": {
-          "player": "Ahmed",
-          "slug": "ahmed",
-          "image": "images/players/ahmed.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-06-20",
-          "endDate": "2026-06-20",
-          "startTitle": "You're All Suspects | 9-Max",
-          "endTitle": "You're All Suspects | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-20",
-              "title": "You're All Suspects | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Ahmed",
           "slug": "ahmed",
@@ -3684,68 +2800,16 @@
       },
       "big-tim": {
         "playedEvents": 1,
-        "bestCashStreak": {
-          "player": "Big Tim",
-          "slug": "big-tim",
-          "image": "images/players/big-tim.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-11-30",
-          "endDate": "2025-11-30",
-          "startTitle": "Sunday Funday Matinee | 9-Max",
-          "endTitle": "Sunday Funday Matinee | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-11-30",
-              "title": "Sunday Funday Matinee | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
-        "currentCashStreak": {
-          "player": "Big Tim",
-          "slug": "big-tim",
-          "image": "images/players/big-tim.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-11-30",
-          "endDate": "2025-11-30",
-          "startTitle": "Sunday Funday Matinee | 9-Max",
-          "endTitle": "Sunday Funday Matinee | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2025-11-30",
-              "title": "Sunday Funday Matinee | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
         "bestDroughtStreak": null,
         "currentDroughtStreak": null
       },
       "rob-f": {
         "playedEvents": 3,
-        "bestCashStreak": {
-          "player": "Bob",
-          "slug": "rob-f",
-          "image": "images/players/rob-f.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-06-14",
-          "endDate": "2025-06-14",
-          "startTitle": "Gunga Galunga 9-Max",
-          "endTitle": "Gunga Galunga 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-06-14",
-              "title": "Gunga Galunga 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": false,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Bob",
@@ -3798,6 +2862,7 @@
       },
       "bostnmike": {
         "playedEvents": 41,
+        "eligible": true,
         "bestCashStreak": {
           "player": "BostnMike",
           "slug": "bostnmike",
@@ -3949,6 +3014,7 @@
       },
       "brad-r": {
         "playedEvents": 2,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -4002,49 +3068,15 @@
       },
       "buffalomike": {
         "playedEvents": 1,
-        "bestCashStreak": {
-          "player": "BuffaloMike",
-          "slug": "buffalomike",
-          "image": "images/players/buffalomike.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-03-27",
-          "endDate": "2026-03-27",
-          "startTitle": "March Sadness Part I | 9-Max",
-          "endTitle": "March Sadness Part I | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-03-27",
-              "title": "March Sadness Part I | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
-        "currentCashStreak": {
-          "player": "BuffaloMike",
-          "slug": "buffalomike",
-          "image": "images/players/buffalomike.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-03-27",
-          "endDate": "2026-03-27",
-          "startTitle": "March Sadness Part I | 9-Max",
-          "endTitle": "March Sadness Part I | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-03-27",
-              "title": "March Sadness Part I | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
         "bestDroughtStreak": null,
         "currentDroughtStreak": null
       },
       "chris-o": {
         "playedEvents": 8,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Chris O",
           "slug": "chris-o",
@@ -4099,28 +3131,11 @@
             }
           ]
         },
-        "currentDroughtStreak": {
-          "player": "Chris O",
-          "slug": "chris-o",
-          "image": "images/players/chris-o.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-06-20",
-          "endDate": "2026-06-20",
-          "startTitle": "You're All Suspects | 9-Max",
-          "endTitle": "You're All Suspects | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-20",
-              "title": "You're All Suspects | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "currentDroughtStreak": null
       },
       "cougar": {
         "playedEvents": 15,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Cougar",
           "slug": "cougar",
@@ -4145,25 +3160,7 @@
             }
           ]
         },
-        "currentCashStreak": {
-          "player": "Cougar",
-          "slug": "cougar",
-          "image": "images/players/cougar.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-05-30",
-          "endDate": "2026-05-30",
-          "startTitle": "The Poker Club | 9-Max",
-          "endTitle": "The Poker Club | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-05-30",
-              "title": "The Poker Club | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Cougar",
           "slug": "cougar",
@@ -4202,6 +3199,7 @@
       },
       "dan-k": {
         "playedEvents": 3,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -4265,92 +3263,23 @@
       },
       "david-k": {
         "playedEvents": 1,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "David K",
-          "slug": "david-k",
-          "image": "images/players/david-k.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-01-17",
-          "endDate": "2026-01-17",
-          "startTitle": "Finally, Leaving Las Vegas | 9-Max",
-          "endTitle": "Finally, Leaving Las Vegas | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-01-17",
-              "title": "Finally, Leaving Las Vegas | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": {
-          "player": "David K",
-          "slug": "david-k",
-          "image": "images/players/david-k.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-01-17",
-          "endDate": "2026-01-17",
-          "startTitle": "Finally, Leaving Las Vegas | 9-Max",
-          "endTitle": "Finally, Leaving Las Vegas | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-01-17",
-              "title": "Finally, Leaving Las Vegas | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "fabian": {
         "playedEvents": 1,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "Fabian",
-          "slug": "fabian",
-          "image": "images/players/fabian.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2025-10-04",
-          "endDate": "2025-10-04",
-          "startTitle": "I'm Your Huckleberry | 9-Max",
-          "endTitle": "I'm Your Huckleberry | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-10-04",
-              "title": "I'm Your Huckleberry | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": {
-          "player": "Fabian",
-          "slug": "fabian",
-          "image": "images/players/fabian.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2025-10-04",
-          "endDate": "2025-10-04",
-          "startTitle": "I'm Your Huckleberry | 9-Max",
-          "endTitle": "I'm Your Huckleberry | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2025-10-04",
-              "title": "I'm Your Huckleberry | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "gilmore": {
         "playedEvents": 2,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -4404,6 +3333,7 @@
       },
       "griffin": {
         "playedEvents": 2,
+        "eligible": false,
         "bestCashStreak": {
           "player": "Grif",
           "slug": "griffin",
@@ -4457,6 +3387,7 @@
       },
       "hayden-d": {
         "playedEvents": 2,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -4510,6 +3441,7 @@
       },
       "hiro": {
         "playedEvents": 36,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Hiro",
           "slug": "hiro",
@@ -4534,25 +3466,7 @@
             }
           ]
         },
-        "currentCashStreak": {
-          "player": "Hiro",
-          "slug": "hiro",
-          "image": "images/players/hiro.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-06-20",
-          "endDate": "2026-06-20",
-          "startTitle": "You're All Suspects | 9-Max",
-          "endTitle": "You're All Suspects | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-20",
-              "title": "You're All Suspects | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Hiro",
           "slug": "hiro",
@@ -4606,25 +3520,8 @@
       },
       "jeff-t": {
         "playedEvents": 8,
-        "bestCashStreak": {
-          "player": "Jeff T",
-          "slug": "jeff-t",
-          "image": "images/players/jeff-t.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-06-21",
-          "endDate": "2025-06-21",
-          "startTitle": "Oh What a Night | 9-Max",
-          "endTitle": "Oh What a Night | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-06-21",
-              "title": "Oh What a Night | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": true,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Jeff T",
@@ -4707,6 +3604,7 @@
       },
       "kishan": {
         "playedEvents": 3,
+        "eligible": false,
         "bestCashStreak": {
           "player": "Kishan",
           "slug": "kishan",
@@ -4732,47 +3630,12 @@
           ]
         },
         "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "Kishan",
-          "slug": "kishan",
-          "image": "images/players/kishan.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-05-16",
-          "endDate": "2026-05-16",
-          "startTitle": "Stranger Bluffs! | 9-Max",
-          "endTitle": "Stranger Bluffs! | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-05-16",
-              "title": "Stranger Bluffs! | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": {
-          "player": "Kishan",
-          "slug": "kishan",
-          "image": "images/players/kishan.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-05-16",
-          "endDate": "2026-05-16",
-          "startTitle": "Stranger Bluffs! | 9-Max",
-          "endTitle": "Stranger Bluffs! | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-05-16",
-              "title": "Stranger Bluffs! | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "li-fo": {
         "playedEvents": 28,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Li-Fo",
           "slug": "li-fo",
@@ -4837,28 +3700,11 @@
             }
           ]
         },
-        "currentDroughtStreak": {
-          "player": "Li-Fo",
-          "slug": "li-fo",
-          "image": "images/players/li-fo.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-06-20",
-          "endDate": "2026-06-20",
-          "startTitle": "You're All Suspects | 9-Max",
-          "endTitle": "You're All Suspects | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-20",
-              "title": "You're All Suspects | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "currentDroughtStreak": null
       },
       "nasa-al": {
         "playedEvents": 11,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Nasa Al",
           "slug": "nasa-al",
@@ -4945,25 +3791,8 @@
       },
       "nitro": {
         "playedEvents": 11,
-        "bestCashStreak": {
-          "player": "Nitro",
-          "slug": "nitro",
-          "image": "images/players/nitro.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-10-25",
-          "endDate": "2025-10-25",
-          "startTitle": "We are SO Back | 9-Max",
-          "endTitle": "We are SO Back | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-10-25",
-              "title": "We are SO Back | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": true,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Nitro",
@@ -5076,68 +3905,16 @@
       },
       "pat": {
         "playedEvents": 1,
-        "bestCashStreak": {
-          "player": "Pat",
-          "slug": "pat",
-          "image": "images/players/pat.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-03-27",
-          "endDate": "2026-03-27",
-          "startTitle": "March Sadness Part I | 9-Max",
-          "endTitle": "March Sadness Part I | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-03-27",
-              "title": "March Sadness Part I | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
-        "currentCashStreak": {
-          "player": "Pat",
-          "slug": "pat",
-          "image": "images/players/pat.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-03-27",
-          "endDate": "2026-03-27",
-          "startTitle": "March Sadness Part I | 9-Max",
-          "endTitle": "March Sadness Part I | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-03-27",
-              "title": "March Sadness Part I | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
         "bestDroughtStreak": null,
         "currentDroughtStreak": null
       },
       "phattedcalf": {
         "playedEvents": 7,
-        "bestCashStreak": {
-          "player": "PhattedCalf",
-          "slug": "phattedcalf",
-          "image": "images/players/phattedcalf.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-04-18",
-          "endDate": "2026-04-18",
-          "startTitle": "Sabres in the Playoffs?! | 9-Max",
-          "endTitle": "Sabres in the Playoffs?! | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-04-18",
-              "title": "Sabres in the Playoffs?! | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": true,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "PhattedCalf",
@@ -5210,49 +3987,15 @@
       },
       "pittsburghbill": {
         "playedEvents": 1,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "PittsburghBill",
-          "slug": "pittsburghbill",
-          "image": "images/players/pittsburghbill.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-03-13",
-          "endDate": "2026-03-13",
-          "startTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-          "endTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-03-13",
-              "title": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": {
-          "player": "PittsburghBill",
-          "slug": "pittsburghbill",
-          "image": "images/players/pittsburghbill.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-03-13",
-          "endDate": "2026-03-13",
-          "startTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-          "endTitle": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-03-13",
-              "title": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "providencemike": {
         "playedEvents": 25,
+        "eligible": true,
         "bestCashStreak": {
           "player": "ProvidenceMike",
           "slug": "providencemike",
@@ -5322,28 +4065,11 @@
             }
           ]
         },
-        "currentDroughtStreak": {
-          "player": "ProvidenceMike",
-          "slug": "providencemike",
-          "image": "images/players/providencemike.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-06-20",
-          "endDate": "2026-06-20",
-          "startTitle": "You're All Suspects | 9-Max",
-          "endTitle": "You're All Suspects | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-06-20",
-              "title": "You're All Suspects | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "currentDroughtStreak": null
       },
       "red": {
         "playedEvents": 18,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Red",
           "slug": "red",
@@ -5430,6 +4156,7 @@
       },
       "the-architect": {
         "playedEvents": 8,
+        "eligible": true,
         "bestCashStreak": {
           "player": "The Architect",
           "slug": "the-architect",
@@ -5516,49 +4243,15 @@
       },
       "tim-s": {
         "playedEvents": 1,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
-        "bestDroughtStreak": {
-          "player": "Tim S",
-          "slug": "tim-s",
-          "image": "images/players/tim-s.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-05-01",
-          "endDate": "2026-05-01",
-          "startTitle": "Clear & Obvious, Bluffs | 9-Max",
-          "endTitle": "Clear & Obvious, Bluffs | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-05-01",
-              "title": "Clear & Obvious, Bluffs | 9-Max",
-              "cashed": false
-            }
-          ]
-        },
-        "currentDroughtStreak": {
-          "player": "Tim S",
-          "slug": "tim-s",
-          "image": "images/players/tim-s.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-05-01",
-          "endDate": "2026-05-01",
-          "startTitle": "Clear & Obvious, Bluffs | 9-Max",
-          "endTitle": "Clear & Obvious, Bluffs | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-05-01",
-              "title": "Clear & Obvious, Bluffs | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "vic": {
         "playedEvents": 3,
+        "eligible": false,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -5622,25 +4315,8 @@
       },
       "vish": {
         "playedEvents": 13,
-        "bestCashStreak": {
-          "player": "Vish",
-          "slug": "vish",
-          "image": "images/players/vish.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-02-13",
-          "endDate": "2026-02-13",
-          "startTitle": "Chip & A Chair, The Tony K Story",
-          "endTitle": "Chip & A Chair, The Tony K Story",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-02-13",
-              "title": "Chip & A Chair, The Tony K Story",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": true,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Vish",
@@ -5708,25 +4384,8 @@
       },
       "wild-bill": {
         "playedEvents": 6,
-        "bestCashStreak": {
-          "player": "Wild Bill",
-          "slug": "wild-bill",
-          "image": "images/players/wild-bill.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2026-01-30",
-          "endDate": "2026-01-30",
-          "startTitle": "Warning! Obnoxious Pats Fan Onboard!",
-          "endTitle": "Warning! Obnoxious Pats Fan Onboard!",
-          "active": false,
-          "events": [
-            {
-              "date": "2026-01-30",
-              "title": "Warning! Obnoxious Pats Fan Onboard!",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": true,
+        "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
           "player": "Wild Bill",
@@ -5762,66 +4421,13 @@
             }
           ]
         },
-        "currentDroughtStreak": {
-          "player": "Wild Bill",
-          "slug": "wild-bill",
-          "image": "images/players/wild-bill.jpg",
-          "type": "drought",
-          "length": 1,
-          "startDate": "2026-04-17",
-          "endDate": "2026-04-17",
-          "startTitle": "WrestleMania Eve | 9-Max",
-          "endTitle": "WrestleMania Eve | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2026-04-17",
-              "title": "WrestleMania Eve | 9-Max",
-              "cashed": false
-            }
-          ]
-        }
+        "currentDroughtStreak": null
       },
       "yann": {
         "playedEvents": 1,
-        "bestCashStreak": {
-          "player": "Yann",
-          "slug": "yann",
-          "image": "images/players/yann.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-10-04",
-          "endDate": "2025-10-04",
-          "startTitle": "I'm Your Huckleberry | 9-Max",
-          "endTitle": "I'm Your Huckleberry | 9-Max",
-          "active": false,
-          "events": [
-            {
-              "date": "2025-10-04",
-              "title": "I'm Your Huckleberry | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
-        "currentCashStreak": {
-          "player": "Yann",
-          "slug": "yann",
-          "image": "images/players/yann.jpg",
-          "type": "cash",
-          "length": 1,
-          "startDate": "2025-10-04",
-          "endDate": "2025-10-04",
-          "startTitle": "I'm Your Huckleberry | 9-Max",
-          "endTitle": "I'm Your Huckleberry | 9-Max",
-          "active": true,
-          "events": [
-            {
-              "date": "2025-10-04",
-              "title": "I'm Your Huckleberry | 9-Max",
-              "cashed": true
-            }
-          ]
-        },
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
         "bestDroughtStreak": null,
         "currentDroughtStreak": null
       }
