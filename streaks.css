@@ -360,6 +360,36 @@
   letter-spacing:.04em;
 }
 
+.streak-detail-card-hot{
+  border-color:rgba(239,68,68,.26);
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.14), transparent 30%),
+    linear-gradient(135deg, rgba(58,20,26,.98), rgba(16,18,24,.99));
+}
+
+.streak-detail-card-hot::before{
+  background:linear-gradient(180deg, rgba(252,165,165,.96), rgba(239,68,68,.78));
+}
+
+.streak-detail-card-hot h4{
+  color:#ffb4b4;
+}
+
+.streak-detail-card-cold{
+  border-color:rgba(59,130,246,.26);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.14), transparent 30%),
+    linear-gradient(135deg, rgba(18,38,68,.98), rgba(16,18,24,.99));
+}
+
+.streak-detail-card-cold::before{
+  background:linear-gradient(180deg, rgba(147,197,253,.96), rgba(59,130,246,.78));
+}
+
+.streak-detail-card-cold h4{
+  color:#b9d8ff;
+}
+
 .streak-detail-pill-row{
   display:flex;
   align-items:center;
@@ -393,6 +423,22 @@
     radial-gradient(circle at top left, rgba(61,220,132,.14), transparent 50%),
     linear-gradient(135deg, rgba(16,62,34,.96), rgba(14,24,18,.98));
   color:#dffff0;
+}
+
+.streak-detail-card-hot .streak-detail-length{
+  border:1px solid rgba(239,68,68,.26);
+  background:
+    radial-gradient(circle at top left, rgba(239,68,68,.16), transparent 50%),
+    linear-gradient(135deg, rgba(72,22,28,.96), rgba(30,18,20,.98));
+  color:#ffe1e1;
+}
+
+.streak-detail-card-cold .streak-detail-length{
+  border:1px solid rgba(59,130,246,.26);
+  background:
+    radial-gradient(circle at top left, rgba(59,130,246,.16), transparent 50%),
+    linear-gradient(135deg, rgba(18,42,78,.96), rgba(14,22,32,.98));
+  color:#e6f0ff;
 }
 
 .streak-detail-line{
