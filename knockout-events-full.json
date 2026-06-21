@@ -2244,5 +2244,55 @@
       "sourceVictim": "ProvidenceMike",
       "sourceKiller": "BostnMike"
     }
+  ],
+  "2026-06-20": [
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "bostnmike",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "li-fo",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "hiro",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "li-fo",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "hiro",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Hiro"
+    }
   ]
 }
