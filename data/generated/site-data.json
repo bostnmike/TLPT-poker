@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T18:36:19.364214Z",
+  "generatedAt": "2026-06-21T19:00:04.264169Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -1334,7 +1334,7 @@
     "definitions": {
       "cashStreak": "Consecutive played events that ended in a cash.",
       "droughtStreak": "Consecutive played events without a cash.",
-      "minimumEligibleEvents": 4,
+      "minimumEligibleEvents": 3,
       "minimumTrackedStreak": 2,
       "note": "Skipped events do not break or extend streaks."
     },
@@ -1621,6 +1621,30 @@
           {
             "date": "2025-11-15",
             "title": "You Can Act Like a Man! | 9-Max",
+            "cashed": true
+          }
+        ]
+      },
+      {
+        "player": "Kishan",
+        "slug": "kishan",
+        "image": "images/players/kishan.jpg",
+        "type": "cash",
+        "length": 2,
+        "startDate": "2026-03-27",
+        "endDate": "2026-04-04",
+        "startTitle": "March Sadness Part I | 9-Max",
+        "endTitle": "Duke Hoop Shock and Awww :D | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2026-03-27",
+            "title": "March Sadness Part I | 9-Max",
+            "cashed": true
+          },
+          {
+            "date": "2026-04-04",
+            "title": "Duke Hoop Shock and Awww :D | 9-Max",
             "cashed": true
           }
         ]
@@ -2115,6 +2139,35 @@
         ]
       },
       {
+        "player": "Dan K",
+        "slug": "dan-k",
+        "image": "images/players/dan-k.jpg",
+        "type": "drought",
+        "length": 3,
+        "startDate": "2025-05-24",
+        "endDate": "2026-03-07",
+        "startTitle": "There Will Be Blood - 9 Max",
+        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+        "active": false,
+        "events": [
+          {
+            "date": "2025-05-24",
+            "title": "There Will Be Blood - 9 Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-06-21",
+            "title": "Oh What a Night | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-03-07",
+            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Red",
         "slug": "red",
         "image": "images/players/red.jpg",
@@ -2168,6 +2221,59 @@
           {
             "date": "2026-05-09",
             "title": "High-Roller Ball | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Vic",
+        "slug": "vic",
+        "image": "images/players/vic.jpg",
+        "type": "drought",
+        "length": 3,
+        "startDate": "2025-12-21",
+        "endDate": "2026-03-07",
+        "startTitle": "A Holly Jolly | 9-Max",
+        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+        "active": false,
+        "events": [
+          {
+            "date": "2025-12-21",
+            "title": "A Holly Jolly | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-02-21",
+            "title": "No One Is Safe! The Roast Edition | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-03-07",
+            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Bob",
+        "slug": "rob-f",
+        "image": "images/players/rob-f.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-11-01",
+        "endDate": "2026-06-13",
+        "startTitle": "Dia de los Muertos | 9-Max",
+        "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
+        "active": false,
+        "events": [
+          {
+            "date": "2025-11-01",
+            "title": "Dia de los Muertos | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-06-13",
+            "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
             "cashed": false
           }
         ]
@@ -2435,6 +2541,35 @@
         ]
       },
       {
+        "player": "Dan K",
+        "slug": "dan-k",
+        "image": "images/players/dan-k.jpg",
+        "type": "drought",
+        "length": 3,
+        "startDate": "2025-05-24",
+        "endDate": "2026-03-07",
+        "startTitle": "There Will Be Blood - 9 Max",
+        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+        "active": true,
+        "events": [
+          {
+            "date": "2025-05-24",
+            "title": "There Will Be Blood - 9 Max",
+            "cashed": false
+          },
+          {
+            "date": "2025-06-21",
+            "title": "Oh What a Night | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-03-07",
+            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Red",
         "slug": "red",
         "image": "images/players/red.jpg",
@@ -2493,6 +2628,35 @@
         ]
       },
       {
+        "player": "Vic",
+        "slug": "vic",
+        "image": "images/players/vic.jpg",
+        "type": "drought",
+        "length": 3,
+        "startDate": "2025-12-21",
+        "endDate": "2026-03-07",
+        "startTitle": "A Holly Jolly | 9-Max",
+        "endTitle": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+        "active": true,
+        "events": [
+          {
+            "date": "2025-12-21",
+            "title": "A Holly Jolly | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-02-21",
+            "title": "No One Is Safe! The Roast Edition | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-03-07",
+            "title": "Jesse Pinkman's Makin' Fat Stacks, Yo!",
+            "cashed": false
+          }
+        ]
+      },
+      {
         "player": "Vish",
         "slug": "vish",
         "image": "images/players/vish.jpg",
@@ -2517,6 +2681,30 @@
           {
             "date": "2026-05-30",
             "title": "The Poker Club | 9-Max",
+            "cashed": false
+          }
+        ]
+      },
+      {
+        "player": "Bob",
+        "slug": "rob-f",
+        "image": "images/players/rob-f.jpg",
+        "type": "drought",
+        "length": 2,
+        "startDate": "2025-11-01",
+        "endDate": "2026-06-13",
+        "startTitle": "Dia de los Muertos | 9-Max",
+        "endTitle": "Inglorious Bluffs: A Poker Movie | 9-Max",
+        "active": true,
+        "events": [
+          {
+            "date": "2025-11-01",
+            "title": "Dia de los Muertos | 9-Max",
+            "cashed": false
+          },
+          {
+            "date": "2026-06-13",
+            "title": "Inglorious Bluffs: A Poker Movie | 9-Max",
             "cashed": false
           }
         ]
@@ -2560,6 +2748,12 @@
         "playedEvents": 26
       },
       {
+        "name": "Bob",
+        "slug": "rob-f",
+        "image": "images/players/rob-f.jpg",
+        "playedEvents": 3
+      },
+      {
         "name": "BostnMike",
         "slug": "bostnmike",
         "image": "images/players/bostnmike.jpg",
@@ -2578,6 +2772,12 @@
         "playedEvents": 15
       },
       {
+        "name": "Dan K",
+        "slug": "dan-k",
+        "image": "images/players/dan-k.jpg",
+        "playedEvents": 3
+      },
+      {
         "name": "Hiro",
         "slug": "hiro",
         "image": "images/players/hiro.jpg",
@@ -2588,6 +2788,12 @@
         "slug": "jeff-t",
         "image": "images/players/jeff-t.jpg",
         "playedEvents": 8
+      },
+      {
+        "name": "Kishan",
+        "slug": "kishan",
+        "image": "images/players/kishan.jpg",
+        "playedEvents": 3
       },
       {
         "name": "Li-Fo",
@@ -2630,6 +2836,12 @@
         "slug": "the-architect",
         "image": "images/players/the-architect.jpg",
         "playedEvents": 8
+      },
+      {
+        "name": "Vic",
+        "slug": "vic",
+        "image": "images/players/vic.jpg",
+        "playedEvents": 3
       },
       {
         "name": "Vish",
@@ -2808,7 +3020,7 @@
       },
       "rob-f": {
         "playedEvents": 3,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -3199,7 +3411,7 @@
       },
       "dan-k": {
         "playedEvents": 3,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
@@ -3604,7 +3816,7 @@
       },
       "kishan": {
         "playedEvents": 3,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": {
           "player": "Kishan",
           "slug": "kishan",
@@ -4251,7 +4463,7 @@
       },
       "vic": {
         "playedEvents": 3,
-        "eligible": false,
+        "eligible": true,
         "bestCashStreak": null,
         "currentCashStreak": null,
         "bestDroughtStreak": {
