@@ -45,6 +45,10 @@
   );
 }
 
+.streak-header-shell .page-kicker{
+  margin-top:14px;
+}
+
 .streak-definition-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0,1fr));
