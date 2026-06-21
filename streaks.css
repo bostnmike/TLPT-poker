@@ -113,6 +113,28 @@
   text-shadow:0 0 14px rgba(59,130,246,.16);
 }
 
+.streak-shell-hot{
+  border-color:rgba(239,68,68,.24);
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 30%),
+    linear-gradient(135deg, rgba(44,18,24,.98), rgba(15,18,24,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 18px rgba(239,68,68,.08);
+}
+
+.streak-shell-cold{
+  border-color:rgba(59,130,246,.24);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.12), transparent 30%),
+    linear-gradient(135deg, rgba(18,34,60,.98), rgba(15,18,24,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 10px 22px rgba(0,0,0,.18),
+    0 0 18px rgba(59,130,246,.08);
+}
+
 .streak-leaderboard{
   display:flex;
   flex-direction:column;
