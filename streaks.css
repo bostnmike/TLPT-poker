@@ -32,12 +32,6 @@
   color:var(--gold);
 }
 
-.streak-header-kicker{
-  margin:6px 0 0;
-  color:var(--muted);
-  line-height:1.5;
-}
-
 .streak-accent-line{
   height:4px;
   margin-top:14px;
