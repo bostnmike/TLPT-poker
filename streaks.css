@@ -86,6 +86,51 @@
   font-size:.9rem;
 }
 
+.streak-definition-pill:nth-child(1){
+  border-color:rgba(239,68,68,.26);
+  background:
+    radial-gradient(circle at top right, rgba(239,68,68,.14), transparent 30%),
+    linear-gradient(135deg, rgba(58,20,26,.98), rgba(16,18,24,.99));
+}
+
+.streak-definition-pill:nth-child(1) strong{
+  color:#ffb4b4;
+}
+
+.streak-definition-pill:nth-child(1) span{
+  color:#ffd7d7;
+}
+
+.streak-definition-pill:nth-child(2){
+  border-color:rgba(59,130,246,.26);
+  background:
+    radial-gradient(circle at top right, rgba(59,130,246,.14), transparent 30%),
+    linear-gradient(135deg, rgba(18,38,68,.98), rgba(16,18,24,.99));
+}
+
+.streak-definition-pill:nth-child(2) strong{
+  color:#b9d8ff;
+}
+
+.streak-definition-pill:nth-child(2) span{
+  color:#d8e8ff;
+}
+
+.streak-definition-pill:nth-child(3){
+  border-color:rgba(255,184,28,.26);
+  background:
+    radial-gradient(circle at top right, rgba(255,184,28,.14), transparent 30%),
+    linear-gradient(135deg, rgba(56,42,14,.98), rgba(16,18,24,.99));
+}
+
+.streak-definition-pill:nth-child(3) strong{
+  color:#ffe09a;
+}
+
+.streak-definition-pill:nth-child(3) span{
+  color:#fff1c8;
+}
+
 .streak-two-up{
   display:grid;
   grid-template-columns:repeat(2, minmax(0,1fr));
