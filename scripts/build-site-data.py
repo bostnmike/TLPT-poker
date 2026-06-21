@@ -45,7 +45,7 @@ def build_zero_player(meta):
         "name": meta["name"],
         "slug": meta["slug"],
         "image": meta["image"],
-        "notes": meta["notes"],
+        "notes": meta.get("notes", ""),
         "entries": 0,
         "buyIns": 0,
         "rebuys": 0,
@@ -156,7 +156,7 @@ def compute_current_run(played_events, target_cash):
     return (start_idx, len(played_events) - 1)
 
 
-def build_streak_payload(players_lookup, parsed_events):
+def build_streak_payload(players_lookup, parsed_events, min_events=4, min_streak=2):
     played_by_slug = {slug: [] for slug in players_lookup}
 
     for event in parsed_events:
@@ -182,9 +182,12 @@ def build_streak_payload(players_lookup, parsed_events):
     drought_leaders = []
     active_heaters = []
     active_droughts = []
+    eligible_players = []
 
     for slug, player_meta in players_lookup.items():
         played_events = played_by_slug.get(slug, [])
+        played_count = len(played_events)
+        eligible = played_count >= min_events
 
         best_cash_idx = compute_best_run(played_events, True)
         best_drought_idx = compute_best_run(played_events, False)
@@ -220,38 +223,72 @@ def build_streak_payload(players_lookup, parsed_events):
             active=True
         )
 
+        if best_cash and best_cash["length"] < min_streak:
+            best_cash = None
+        if best_drought and best_drought["length"] < min_streak:
+            best_drought = None
+        if current_cash and current_cash["length"] < min_streak:
+            current_cash = None
+        if current_drought and current_drought["length"] < min_streak:
+            current_drought = None
+
         players_payload[slug] = {
-            "playedEvents": len(played_events),
+            "playedEvents": played_count,
+            "eligible": eligible,
             "bestCashStreak": best_cash,
             "currentCashStreak": current_cash,
             "bestDroughtStreak": best_drought,
             "currentDroughtStreak": current_drought,
         }
 
-        if best_cash and best_cash["length"] > 0:
-            cash_leaders.append(best_cash)
-        if best_drought and best_drought["length"] > 0:
-            drought_leaders.append(best_drought)
-        if current_cash and current_cash["length"] > 0:
-            active_heaters.append(current_cash)
-        if current_drought and current_drought["length"] > 0:
-            active_droughts.append(current_drought)
+        if eligible:
+            eligible_players.append({
+                "name": player_meta["name"],
+                "slug": player_meta["slug"],
+                "image": player_meta["image"],
+                "playedEvents": played_count,
+            })
 
-    cash_leaders = sorted(cash_leaders, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
-    drought_leaders = sorted(drought_leaders, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
-    active_heaters = sorted(active_heaters, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
-    active_droughts = sorted(active_droughts, key=lambda s: (-s["length"], s["player"].lower(), s["endDate"]))
+            if best_cash:
+                cash_leaders.append(best_cash)
+            if best_drought:
+                drought_leaders.append(best_drought)
+            if current_cash:
+                active_heaters.append(current_cash)
+            if current_drought:
+                active_droughts.append(current_drought)
+
+    cash_leaders = sorted(
+        cash_leaders,
+        key=lambda s: (-s["length"], s["player"].lower(), s["endDate"])
+    )
+    drought_leaders = sorted(
+        drought_leaders,
+        key=lambda s: (-s["length"], s["player"].lower(), s["endDate"])
+    )
+    active_heaters = sorted(
+        active_heaters,
+        key=lambda s: (-s["length"], s["player"].lower(), s["endDate"])
+    )
+    active_droughts = sorted(
+        active_droughts,
+        key=lambda s: (-s["length"], s["player"].lower(), s["endDate"])
+    )
+    eligible_players = sorted(eligible_players, key=lambda p: p["name"].lower())
 
     return {
         "definitions": {
             "cashStreak": "Consecutive played events that ended in a cash.",
             "droughtStreak": "Consecutive played events without a cash.",
+            "minimumEligibleEvents": min_events,
+            "minimumTrackedStreak": min_streak,
             "note": "Skipped events do not break or extend streaks."
         },
-        "cashLeaders": cash_leaders[:25],
-        "droughtLeaders": drought_leaders[:25],
-        "activeCashLeaders": active_heaters[:25],
-        "activeDroughtLeaders": active_droughts[:25],
+        "cashLeaders": cash_leaders,
+        "droughtLeaders": drought_leaders,
+        "activeCashLeaders": active_heaters,
+        "activeDroughtLeaders": active_droughts,
+        "eligiblePlayers": eligible_players,
         "players": players_payload
     }
 
@@ -314,8 +351,6 @@ def main():
 
     players = list(players_by_slug.values())
 
-    # ---------------- BASIC METRICS ----------------
-
     for p in players:
         cost = float(p["totalCost"])
         buyins = float(p["buyIns"])
@@ -325,8 +360,6 @@ def main():
         p["cashRate"] = (p["timesPlaced"] / buyins) if buyins else 0.0
         p["bubbleRate"] = (p["bubbles"] / buyins) if buyins else 0.0
         p["hitRate"] = (p["hits"] / entries) if entries else 0.0
-
-    # ---------------- EXPECTED / LUCK ----------------
 
     for p in players:
         p["luckProxy"] = (
@@ -342,8 +375,6 @@ def main():
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         p["expectedProfit"] = round(p["totalCost"] * expected_roi, 1)
         p["luckIndex"] = round(p["profit"] - p["expectedProfit"], 1)
-
-    # ---------------- RAW COMPONENTS ----------------
 
     for p in players:
         cash_rate = p["cashRate"]
@@ -366,15 +397,11 @@ def main():
         composure_score = 50 + ((base_composure - 50) * sample_factor)
         p["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
 
-    # ---------------- NORMALIZE ----------------
-
     normalize_stat(players, "roi")
     normalize_stat(players, "luckIndex")
     normalize_stat(players, "clutchRaw")
     normalize_stat(players, "aggressionRaw")
     normalize_stat(players, "survivorRaw")
-
-    # ---------------- FINAL METRICS ----------------
 
     for p in players:
         p["clutchIndex"] = p["clutchRaw_norm"]
@@ -394,8 +421,6 @@ def main():
             + sample_bonus
         )
 
-    # ---------------- TIER SYSTEM ----------------
-
     sorted_by_skill = sorted(players, key=lambda p: -p["trueSkillScore"])
     total_players = len(sorted_by_skill)
 
@@ -413,8 +438,6 @@ def main():
 
         p["tier"] = tier
 
-    # ---------------- HONORS ----------------
-
     qualified = [
         p for p in players
         if p["entries"] >= config["qualification_thresholds"]["leaders_min_entries"]
@@ -428,8 +451,6 @@ def main():
             "name": leader["name"],
             "note": rule.get("note", "")
         })
-
-    # ---------------- RECORDS ----------------
 
     records = []
     for rule in config["records"]:
@@ -446,7 +467,7 @@ def main():
     players = sorted(players, key=lambda p: p["name"].lower())
     player_lookup = build_player_lookup(players)
     parsed_events = sorted(parsed_events, key=parse_event_date)
-    streaks = build_streak_payload(player_lookup, parsed_events)
+    streaks = build_streak_payload(player_lookup, parsed_events, min_events=4, min_streak=2)
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
