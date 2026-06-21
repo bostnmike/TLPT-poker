@@ -467,7 +467,7 @@ def main():
     players = sorted(players, key=lambda p: p["name"].lower())
     player_lookup = build_player_lookup(players)
     parsed_events = sorted(parsed_events, key=parse_event_date)
-    streaks = build_streak_payload(player_lookup, parsed_events, min_events=4, min_streak=2)
+    streaks = build_streak_payload(player_lookup, parsed_events, min_events=3, min_streak=2)
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
