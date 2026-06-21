@@ -80,10 +80,12 @@ function renderLeaderboard(items, containerId, emptyText, limit = null) {
     .join("");
 }
 
-function detailCard(title, streak) {
+function detailCard(title, streak, theme = "hot") {
+  const themeClass = theme === "cold" ? "streak-detail-card-cold" : "streak-detail-card-hot";
+
   if (!streak) {
     return `
-      <article class="streak-detail-card">
+      <article class="streak-detail-card ${themeClass}">
         <h4>${escapeHtml(title)}</h4>
         <div class="streak-empty">No qualifying run.</div>
       </article>
@@ -91,7 +93,7 @@ function detailCard(title, streak) {
   }
 
   return `
-    <article class="streak-detail-card">
+    <article class="streak-detail-card ${themeClass}">
       <h4>${escapeHtml(title)}</h4>
 
       <div class="streak-detail-pill-row">
@@ -99,10 +101,12 @@ function detailCard(title, streak) {
         ${streak.active ? `<span class="streak-detail-active">Active</span>` : ""}
       </div>
 
-      <div class="streak-detail-line"><strong>Start:</strong> ${escapeHtml(formatDate(streak.startDate))}</div>
-      <div class="streak-detail-line"><strong>End:</strong> ${escapeHtml(formatDate(streak.endDate))}</div>
-      <div class="streak-detail-line"><strong>Opened:</strong> ${escapeHtml(streak.startTitle || "")}</div>
-      <div class="streak-detail-line"><strong>Latest:</strong> ${escapeHtml(streak.endTitle || "")}</div>
+      <div class="streak-detail-line">
+        <strong>Start:</strong> ${escapeHtml(formatDate(streak.startDate))} — ${escapeHtml(streak.startTitle || "")}
+      </div>
+      <div class="streak-detail-line">
+        <strong>End:</strong> ${escapeHtml(formatDate(streak.endDate))} — ${escapeHtml(streak.endTitle || "")}
+      </div>
     </article>
   `;
 }
