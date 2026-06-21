@@ -131,10 +131,10 @@ function renderPlayerDetail(streaks, slug) {
     </div>
 
     <div class="streak-detail-grid">
-      ${detailCard("Current Cash Streak", player.currentCashStreak)}
-      ${detailCard("Current Drought", player.currentDroughtStreak)}
-      ${detailCard("Best Cash Streak", player.bestCashStreak)}
-      ${detailCard("Best Drought Streak", player.bestDroughtStreak)}
+      ${detailCard("Current Cash Streak", player.currentCashStreak, "hot")}
+      ${detailCard("Current Drought", player.currentDroughtStreak, "cold")}
+      ${detailCard("Longest Cash Run", player.bestCashStreak, "hot")}
+      ${detailCard("Coldest Drought Run", player.bestDroughtStreak, "cold")}
     </div>
   `;
 }
