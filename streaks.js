@@ -21,17 +21,20 @@ function formatDate(value) {
   });
 }
 
-function renderAvatar(streak) {
-  const alt = escapeHtml(streak?.player || "");
-  const src = escapeHtml(streak?.image || "");
-  const fallback = escapeHtml(
-    String(streak?.player || "")
-      .split(/\s+/)
-      .map(part => part.charAt(0))
-      .join("")
-      .slice(0, 2)
-      .toUpperCase()
-  );
+function initials(name) {
+  return String(name || "")
+    .trim()
+    .split(/\s+/)
+    .map(part => part.charAt(0))
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
+function renderAvatar(person) {
+  const alt = escapeHtml(person?.player || person?.name || "");
+  const src = escapeHtml(person?.image || "");
+  const fallback = escapeHtml(initials(person?.player || person?.name || ""));
 
   return `
     <span class="player-avatar-wrap">
@@ -48,50 +51,119 @@ function renderAvatar(streak) {
   `;
 }
 
-function renderStreakCard(streak, index) {
-  return `
-    <article class="streak-card">
-      <div class="streak-card-head">
-        <span class="streak-rank">${index + 1}</span>
-        ${renderAvatar(streak)}
-        <div class="streak-card-title">
-          <div class="streak-player">${escapeHtml(streak.player)}</div>
-        </div>
-      </div>
-
-      <div class="streak-badge-row">
-        <span class="streak-length">${escapeHtml(streak.length)} straight</span>
-        ${streak.active ? `<span class="streak-active">Active</span>` : ""}
-      </div>
-
-      <div class="streak-meta">
-        <div class="streak-meta-line">
-          <strong>Start:</strong> ${escapeHtml(formatDate(streak.startDate))}
-        </div>
-        <div class="streak-meta-line">
-          <strong>End:</strong> ${escapeHtml(formatDate(streak.endDate))}
-        </div>
-        <div class="streak-meta-line">
-          <strong>Opened:</strong> ${escapeHtml(streak.startTitle || "")}
-        </div>
-        <div class="streak-meta-line">
-          <strong>Latest:</strong> ${escapeHtml(streak.endTitle || "")}
-        </div>
-      </div>
-    </article>
-  `;
-}
-
-function renderSection(items, containerId, emptyText) {
+function renderLeaderboard(items, containerId, emptyText, limit = null) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  if (!Array.isArray(items) || !items.length) {
+  const rows = Array.isArray(items) ? [...items] : [];
+  const finalRows = Number.isInteger(limit) ? rows.slice(0, limit) : rows;
+
+  if (!finalRows.length) {
     container.innerHTML = `<div class="streak-empty">${escapeHtml(emptyText)}</div>`;
     return;
   }
 
-  container.innerHTML = items.map(renderStreakCard).join("");
+  container.innerHTML = finalRows
+    .map((item, index) => `
+      <article class="streak-row">
+        <span class="streak-rank">${index + 1}</span>
+        ${renderAvatar(item)}
+        <div class="streak-row-main">
+          <div class="streak-row-player">${escapeHtml(item.player)}</div>
+          <div class="streak-row-meta">
+            ${escapeHtml(formatDate(item.startDate))} → ${escapeHtml(formatDate(item.endDate))}
+          </div>
+        </div>
+        <div class="streak-row-length">${escapeHtml(item.length)} straight</div>
+      </article>
+    `)
+    .join("");
+}
+
+function detailCard(title, streak) {
+  if (!streak) {
+    return `
+      <article class="streak-detail-card">
+        <h4>${escapeHtml(title)}</h4>
+        <div class="streak-empty">No qualifying run.</div>
+      </article>
+    `;
+  }
+
+  return `
+    <article class="streak-detail-card">
+      <h4>${escapeHtml(title)}</h4>
+
+      <div class="streak-detail-pill-row">
+        <span class="streak-detail-length">${escapeHtml(streak.length)} straight</span>
+        ${streak.active ? `<span class="streak-detail-active">Active</span>` : ""}
+      </div>
+
+      <div class="streak-detail-line"><strong>Start:</strong> ${escapeHtml(formatDate(streak.startDate))}</div>
+      <div class="streak-detail-line"><strong>End:</strong> ${escapeHtml(formatDate(streak.endDate))}</div>
+      <div class="streak-detail-line"><strong>Opened:</strong> ${escapeHtml(streak.startTitle || "")}</div>
+      <div class="streak-detail-line"><strong>Latest:</strong> ${escapeHtml(streak.endTitle || "")}</div>
+    </article>
+  `;
+}
+
+function renderPlayerDetail(streaks, slug) {
+  const container = document.getElementById("streak-player-detail");
+  if (!container) return;
+
+  const player = streaks?.players?.[slug];
+  const eligibleList = Array.isArray(streaks?.eligiblePlayers) ? streaks.eligiblePlayers : [];
+  const meta = eligibleList.find(p => p.slug === slug);
+
+  if (!player || !meta) {
+    container.innerHTML = `<div class="streak-empty">No eligible player selected.</div>`;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="streak-player-summary">
+      ${renderAvatar(meta)}
+      <div>
+        <div class="streak-player-name">${escapeHtml(meta.name)}</div>
+        <div class="streak-player-sub">Full streak profile for the eligible sample.</div>
+      </div>
+      <div class="streak-played-pill">${escapeHtml(meta.playedEvents)} played events</div>
+    </div>
+
+    <div class="streak-detail-grid">
+      ${detailCard("Current Cash Streak", player.currentCashStreak)}
+      ${detailCard("Current Drought", player.currentDroughtStreak)}
+      ${detailCard("Best Cash Streak", player.bestCashStreak)}
+      ${detailCard("Best Drought Streak", player.bestDroughtStreak)}
+    </div>
+  `;
+}
+
+function initPlayerSelect(streaks) {
+  const select = document.getElementById("streak-player-select");
+  if (!select) return;
+
+  const eligiblePlayers = Array.isArray(streaks?.eligiblePlayers) ? streaks.eligiblePlayers : [];
+
+  if (!eligiblePlayers.length) {
+    select.innerHTML = `<option value="">No eligible players</option>`;
+    renderPlayerDetail(streaks, "");
+    return;
+  }
+
+  select.innerHTML = eligiblePlayers
+    .map(player => `
+      <option value="${escapeHtml(player.slug)}">
+        ${escapeHtml(player.name)} (${escapeHtml(player.playedEvents)} events)
+      </option>
+    `)
+    .join("");
+
+  select.addEventListener("change", (event) => {
+    renderPlayerDetail(streaks, event.target.value);
+  });
+
+  renderPlayerDetail(streaks, eligiblePlayers[0].slug);
 }
 
 async function initStreakTracker() {
@@ -102,39 +174,48 @@ async function initStreakTracker() {
     const data = await res.json();
     const streaks = data.streaks || {};
 
-    renderSection(
-      streaks.cashLeaders || [],
-      "cash-leaders",
-      "No cash streaks found yet."
-    );
-
-    renderSection(
-      streaks.droughtLeaders || [],
-      "drought-leaders",
-      "No drought streaks found yet."
-    );
-
-    renderSection(
+    renderLeaderboard(
       streaks.activeCashLeaders || [],
-      "active-cash-leaders",
-      "No active cash streaks right now."
+      "active-cash-board",
+      "No active cash streaks of 2+ among eligible players."
     );
 
-    renderSection(
+    renderLeaderboard(
       streaks.activeDroughtLeaders || [],
-      "active-drought-leaders",
-      "No active drought streaks right now."
+      "active-drought-board",
+      "No active droughts of 2+ among eligible players."
     );
+
+    renderLeaderboard(
+      streaks.cashLeaders || [],
+      "top-cash-board",
+      "No qualifying cash streaks yet.",
+      5
+    );
+
+    renderLeaderboard(
+      streaks.droughtLeaders || [],
+      "top-drought-board",
+      "No qualifying droughts yet.",
+      5
+    );
+
+    initPlayerSelect(streaks);
   } catch (error) {
     console.error("Streak Tracker failed to load:", error);
 
-    ["cash-leaders", "drought-leaders", "active-cash-leaders", "active-drought-leaders"]
-      .forEach((id) => {
-        const container = document.getElementById(id);
-        if (container) {
-          container.innerHTML = `<div class="streak-empty">Could not load streak data.</div>`;
-        }
-      });
+    [
+      "active-cash-board",
+      "active-drought-board",
+      "top-cash-board",
+      "top-drought-board",
+      "streak-player-detail"
+    ].forEach((id) => {
+      const container = document.getElementById(id);
+      if (container) {
+        container.innerHTML = `<div class="streak-empty">Could not load streak data.</div>`;
+      }
+    });
   }
 }
 
