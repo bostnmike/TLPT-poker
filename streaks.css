@@ -98,7 +98,7 @@
 }
 
 .streak-definition-pill:nth-child(1) span{
-  color:#ffd7d7;
+  color:var(--muted);
 }
 
 .streak-definition-pill:nth-child(2){
@@ -113,7 +113,7 @@
 }
 
 .streak-definition-pill:nth-child(2) span{
-  color:#d8e8ff;
+  color:var(--muted);
 }
 
 .streak-definition-pill:nth-child(3){
@@ -128,7 +128,7 @@
 }
 
 .streak-definition-pill:nth-child(3) span{
-  color:#fff1c8;
+  color:var(--muted);
 }
 
 .streak-two-up{
