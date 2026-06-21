@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>Streak Tracker | TLPT</title>
-
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="streaks.css" />
 </head>
 
 <body>
-
 <header class="site-header">
   <div class="wrap header-inner">
     <div>
@@ -65,7 +63,6 @@
 
 <main class="wrap">
   <div class="streak-page">
-
     <section class="streak-header-shell">
       <div class="streak-title-row">
         <img
@@ -74,14 +71,15 @@
           alt="T-1000 chip"
           onerror="this.style.display='none';"
         />
-        <h1>Streak Tracker</h1>
+        <div>
+          <h1>Streak Tracker</h1>
+          <p class="streak-header-kicker">
+            Active heaters first, all-time top fives next, and a full player lookup for every eligible run.
+          </p>
+        </div>
       </div>
 
       <div class="streak-accent-line"></div>
-
-      <p class="page-kicker">
-        The longest heaters, the longest dry spells, and the active runs that are still alive.
-      </p>
 
       <div class="streak-definition-grid">
         <div class="streak-definition-pill">
@@ -93,40 +91,56 @@
           <span>Consecutive played events without a cash.</span>
         </div>
         <div class="streak-definition-pill">
-          <strong>Rule</strong>
-          <span>Skipped events do not break or extend streaks.</span>
+          <strong>Qualification</strong>
+          <span>Minimum 4 played events. Only streaks of 2+ count.</span>
         </div>
       </div>
     </section>
 
-    <section class="streak-section-shell">
-      <div class="section-head page-title-row compact-page-title-row">
-        <h3 class="page-title-gold">🔥 Longest Cash Streaks</h3>
-      </div>
-      <div id="cash-leaders" class="streak-grid"></div>
-    </section>
+    <div class="streak-two-up">
+      <section class="streak-section-shell">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-gold">⚡ Active Cash Streaks</h3>
+        </div>
+        <div id="active-cash-board" class="streak-leaderboard"></div>
+      </section>
+
+      <section class="streak-section-shell">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-gold">🌵 Active Droughts</h3>
+        </div>
+        <div id="active-drought-board" class="streak-leaderboard"></div>
+      </section>
+    </div>
+
+    <div class="streak-two-up">
+      <section class="streak-section-shell">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-gold">🔥 Top 5 Cash Streaks</h3>
+        </div>
+        <div id="top-cash-board" class="streak-leaderboard"></div>
+      </section>
+
+      <section class="streak-section-shell">
+        <div class="section-head page-title-row compact-page-title-row">
+          <h3 class="page-title-gold">🥶 Top 5 Droughts</h3>
+        </div>
+        <div id="top-drought-board" class="streak-leaderboard"></div>
+      </section>
+    </div>
 
     <section class="streak-section-shell">
       <div class="section-head page-title-row compact-page-title-row">
-        <h3 class="page-title-gold">🥶 Longest Droughts</h3>
+        <h3 class="page-title-gold">🔎 Player Streak Lookup</h3>
       </div>
-      <div id="drought-leaders" class="streak-grid"></div>
-    </section>
 
-    <section class="streak-section-shell">
-      <div class="section-head page-title-row compact-page-title-row">
-        <h3 class="page-title-gold">⚡ Active Cash Streaks</h3>
+      <div class="streak-lookup-bar">
+        <label for="streak-player-select" class="streak-select-label">Eligible Player</label>
+        <select id="streak-player-select" class="streak-player-select"></select>
       </div>
-      <div id="active-cash-leaders" class="streak-grid"></div>
-    </section>
 
-    <section class="streak-section-shell">
-      <div class="section-head page-title-row compact-page-title-row">
-        <h3 class="page-title-gold">🌵 Active Droughts</h3>
-      </div>
-      <div id="active-drought-leaders" class="streak-grid"></div>
+      <div id="streak-player-detail" class="streak-player-detail"></div>
     </section>
-
   </div>
 </main>
 
