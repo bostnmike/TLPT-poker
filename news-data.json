@@ -14,122 +14,122 @@
   },
   "weeks": [
 {
-“id”: “week-06-27-2026”,
-“date”: “06/27/2026”,
-“eventName”: “The Big Bluffowski | 9-Max”,
-“title”: “TWTW: The Big Bluffowski | 9-Max”,
-“featured”: true,
-“dek”: “The table finally got what it wanted: Ahmed slayed the dragon, ended BostnMike’s streak at nine, and then split first with Cougar while the Blanchette bloodline still found a way to cash anyway.”,
-“summaryCards”: [
-{
-“tone”: “green”,
-“label”: “📰 The Main Story”,
-“player”: “Ahmed / Cougar”,
-“value”: “Chopped first”,
-“copy”: “Ahmed brought samosas, busted BostnMike twice, and helped the room finally keep the commissioner off double digits before chopping with Cougar.”,
-“avatars”: [
-{ “src”: “images/players/ahmed.jpg”, “alt”: “Ahmed”, “fallback”: “AH” },
-{ “src”: “images/players/cougar.jpg”, “alt”: “Cougar”, “fallback”: “CO” }
-]
-},
-{
-“tone”: “blue”,
-“label”: “🩸 First Casualty”,
-“player”: “The Architect”,
-“copy”: “Billy was first out, but unlike some family members, he found a way back into the money.”,
-“avatar”: “images/players/the-architect.jpg”,
-“fallback”: “AR”
-},
-{
-“tone”: “purple”,
-“label”: “🦤 First Rail Bird”,
-“player”: “Hiro”,
-“copy”: “ProvidenceMike got the temporary version, but Billy made Hiro the first one gone for good.”,
-“avatar”: “images/players/hiro.jpg”,
-“fallback”: “HI”
-},
-{
-“tone”: “red”,
-“label”: “🪓 Bounty Hunter”,
-“player”: “Ahmed”,
-“value”: “4 knockouts”,
-“copy”: “Removed BostnMike twice, Li-Fo, and The Architect to own the biggest receipts of the night.”,
-“avatar”: “images/players/ahmed.jpg”,
-“fallback”: “AH”
-}
-],
-“statPills”: [
-{ “icon”: “🎟️”, “label”: “Total Entries”, “value”: “15” },
-{ “icon”: “♻️”, “label”: “Rebuys”, “value”: “6” },
-{ “icon”: “💰”, “label”: “Prize Pool”, “value”: “$450” },
-{ “icon”: “⏱️”, “label”: “Play Time”, “value”: “4h 34m” }
-],
-“summary”: {
-“startTime”: “7:11:29 pm 06/27/2026”,
-“endTime”: “11:45:00 pm 06/27/2026”,
-“durationLabel”: “4h 34m”,
-“buyIns”: 9,
-“rebuys”: 6,
-“entries”: 15,
-“totalPot”: 450,
-“paidSpots”: 3,
-“winner”: “Ahmed, Cougar”,
-“firstOut”: “The Architect”,
-“firstPermanentOut”: “Hiro”
-},
-“spotlight”: {
-“player”: “Ahmed / The Architect / Cougar”,
-“fallback”: “ATC”,
-“pills”: [“Dragon Slain”, “Blanchette Cashes”, “9♦ Night”, “Chopped First”],
-“avatars”: [
-{ “src”: “images/players/ahmed.jpg”, “alt”: “Ahmed”, “fallback”: “AH” },
-{ “src”: “images/players/the-architect.jpg”, “alt”: “The Architect”, “fallback”: “AR” },
-{ “src”: “images/players/cougar.jpg”, “alt”: “Cougar”, “fallback”: “CO” }
-]
-},
-“feltSaid”: [
-{
-“label”: “First Blood”,
-“value”: “The Architect”,
-“note”: “Ai-Dave got the opening bust, but Billy bought back in and turned it into a family subplot.”
-},
-{
-“label”: “First Gone For Good”,
-“value”: “Hiro”,
-“note”: “ProvidenceMike bounced him once, then The Architect made the second exit permanent.”
-},
-{
-“label”: “Table Killer”,
-“value”: “Ahmed”,
-“note”: “Removed BostnMike twice, Li-Fo, and The Architect while ending the commissioner’s streak at nine.”
-},
-{
-“label”: “How It Ended”,
-“value”: “Ahmed / Cougar chopped first”,
-“note”: “The Architect took third, and the last two agreed to a chop instead of forcing a final bust.”
-}
-],
-“mainStoryHtml”: “<div class="news-story-poster-wrap"><img src="images/twtw/twtw26-06-27.jpg" alt="Poster for the 06/27/2026 game" class="news-story-poster" loading="lazy" decoding="async">The Big Bluffowski finally gave the table a mission everybody could agree on: do not let BostnMike get to ten. And for once, the room pulled it off. Ahmed brought samosas, brought receipts, and most importantly brought the blade that finally slayed the dragon. He busted the commissioner at 8:34, watched him reload, saw Billy get his own shot in, then personally finished the job again at 10:53. Nine straight is where the streak dies. The room can breathe again.That does not mean the Blanchette story actually ended. The Architect was back in the mix, got busted first, rebought immediately, then turned around and made the money anyway. He knocked out BostnMike once, made Hiro the first player gone for good, busted Ai-Dave, and quietly kept the Blanchette family name in the cash even after Dad finally got dragged out of the building. So yes, the personal streak is dead. But if the commissioner wants to argue that the Blanchette bloodline still cashed, unfortunately the record contains supporting evidence.The rest of the night felt like it was being secretly co-authored by the 9 of diamonds, which kept floating into rivers like it had a producer credit. Unreal runouts kept bending hands sideways, stacks kept getting reopened, and by the late stages the game had that familiar TLPT feeling where nobody trusted the deck and everybody still had to keep playing. Cougar deserves real billing here too. Li-Fo bounced him once, he came back, clipped Vish for good, survived the churn, and stayed standing long enough to claim half the top line.In the end, Ahmed and Cougar agreed to a chop, so nobody got the final cinematic knockout. That was probably the most civilized thing the room did all night. Ahmed still gets the headline because he did the thing everybody else had been threatening to do for weeks: he ended the commissioner’s run himself. The samosas were appreciated. The dragon-slaying even more so.”,
-“roastHtml”: “BostnMike spent weeks acting like the streak was some unavoidable force of nature, then Ahmed showed up with snacks and a kill switch. The worst part is that even in death, the commissioner is now trying to claim the family cash count through his son. That is elite grievance-accounting from a man who did not make the money.”,
-“numbersThatMatter”: [
-“9 buy-ins, 6 rebuys, 15 total entries.”,
-“4h 34m of play from 7:11 pm to 11:45 pm.”,
-“$450 total pot with Ahmed and Cougar chopping first.”,
-“Ahmed busted BostnMike twice and ended the cash streak at 9 straight.”
-],
-“quickHitsLeft”: [
-“Billy was first out, rebought immediately, then still found a way to cash in third.”,
-“Hiro became first gone for good after ProvidenceMike softened him up and The Architect closed the file.”,
-“Cougar got clipped by Li-Fo, rebought, and still worked his way back into a share of first.”,
-“This was one of those 15-entry nights where the deck felt less shuffled than haunted.”
-],
-“quickHitsRight”: [
-“The 9♦ kept showing up on rivers like it had a side bet on the whole room tilting.”,
-“Ai-Dave drew first blood on Billy, but Billy got the last family-adjacent laugh by cashing.”,
-“Li-Fo did real late damage on ProvidenceMike before Ahmed finally cut him down.”,
-“No final bust here — Ahmed and Cougar agreed to a chop, which spared the room one more unnecessary wound.”
-],
-“tldr”: “Ahmed finally slayed the dragon, ended BostnMike’s streak at nine, and then chopped first with Cougar. Billy kept the Blanchette name in the money anyway, because of course he did.”
+  "id": "week-06-27-2026",
+  "date": "06/27/2026",
+  "eventName": "The Big Bluffowski | 9-Max",
+  "title": "TWTW: The Big Bluffowski | 9-Max",
+  "featured": true,
+  "dek": "The table finally got what it wanted: Ahmed slayed the dragon, ended BostnMike’s streak at nine, and then split first with Cougar while the Blanchette bloodline still found a way to cash anyway.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Ahmed / Cougar",
+      "value": "Chopped first",
+      "copy": "Ahmed brought samosas, busted BostnMike twice, and helped the room finally keep the commissioner off double digits before chopping with Cougar.",
+      "avatars": [
+        { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+        { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "The Architect",
+      "copy": "Billy was first out, but unlike some family members, he found a way back into the money.",
+      "avatar": "images/players/the-architect.jpg",
+      "fallback": "AR"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "ProvidenceMike got the temporary version, but Billy made Hiro the first one gone for good.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "Ahmed",
+      "value": "4 knockouts",
+      "copy": "Removed BostnMike twice, Li-Fo, and The Architect to own the biggest receipts of the night.",
+      "avatar": "images/players/ahmed.jpg",
+      "fallback": "AH"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "15" },
+    { "icon": "♻️", "label": "Rebuys", "value": "6" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$450" },
+    { "icon": "⏱️", "label": "Play Time", "value": "4h 34m" }
+  ],
+  "summary": {
+    "startTime": "7:11:29 pm 06/27/2026",
+    "endTime": "11:45:00 pm 06/27/2026",
+    "durationLabel": "4h 34m",
+    "buyIns": 9,
+    "rebuys": 6,
+    "entries": 15,
+    "totalPot": 450,
+    "paidSpots": 3,
+    "winner": "Ahmed, Cougar",
+    "firstOut": "The Architect",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Ahmed / The Architect / Cougar",
+    "fallback": "ATC",
+    "pills": ["Dragon Slain", "Blanchette Cashes", "9♦ Night", "Chopped First"],
+    "avatars": [
+      { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
+      { "src": "images/players/the-architect.jpg", "alt": "The Architect", "fallback": "AR" },
+      { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "The Architect",
+      "note": "Ai-Dave got the opening bust, but Billy bought back in and turned it into a family subplot."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "ProvidenceMike bounced him once, then The Architect made the second exit permanent."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Ahmed",
+      "note": "Removed BostnMike twice, Li-Fo, and The Architect while ending the commissioner’s streak at nine."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed / Cougar chopped first",
+      "note": "The Architect took third, and the last two agreed to a chop instead of forcing a final bust."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-27.jpg\" alt=\"Poster for the 06/27/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Big Bluffowski finally gave the table a mission everybody could agree on: do not let BostnMike get to ten. And for once, the room pulled it off. Ahmed brought samosas, brought receipts, and most importantly brought the blade that finally slayed the dragon. He busted the commissioner at 8:34, watched him reload, saw Billy get his own shot in, then personally finished the job again at 10:53. Nine straight is where the streak dies. The room can breathe again.</p><p>That does not mean the Blanchette story actually ended. The Architect was back in the mix, got busted first, rebought immediately, then turned around and made the money anyway. He knocked out BostnMike once, made Hiro the first player gone for good, busted Ai-Dave, and quietly kept the Blanchette family name in the cash even after Dad finally got dragged out of the building. So yes, the personal streak is dead. But if the commissioner wants to argue that the Blanchette bloodline still cashed, unfortunately the record contains supporting evidence.</p><p>The rest of the night felt like it was being secretly co-authored by the 9 of diamonds, which kept floating into rivers like it had a producer credit. Unreal runouts kept bending hands sideways, stacks kept getting reopened, and by the late stages the game had that familiar TLPT feeling where nobody trusted the deck and everybody still had to keep playing. Cougar deserves real billing here too. Li-Fo bounced him once, he came back, clipped Vish for good, survived the churn, and stayed standing long enough to claim half the top line.</p><p>In the end, Ahmed and Cougar agreed to a chop, so nobody got the final cinematic knockout. That was probably the most civilized thing the room did all night. Ahmed still gets the headline because he did the thing everybody else had been threatening to do for weeks: he ended the commissioner’s run himself. The samosas were appreciated. The dragon-slaying even more so.</p>",
+  "roastHtml": "<p>BostnMike spent weeks acting like the streak was some unavoidable force of nature, then Ahmed showed up with snacks and a kill switch. The worst part is that even in death, the commissioner is now trying to claim the family cash count through his son. That is elite grievance-accounting from a man who did not make the money.</p>",
+  "numbersThatMatter": [
+    "9 buy-ins, 6 rebuys, 15 total entries.",
+    "4h 34m of play from 7:11 pm to 11:45 pm.",
+    "$450 total pot with Ahmed and Cougar chopping first.",
+    "Ahmed busted BostnMike twice and ended the cash streak at 9 straight."
+  ],
+  "quickHitsLeft": [
+    "Billy was first out, rebought immediately, then still found a way to cash in third.",
+    "Hiro became first gone for good after ProvidenceMike softened him up and The Architect closed the file.",
+    "Cougar got clipped by Li-Fo, rebought, and still worked his way back into a share of first.",
+    "This was one of those 15-entry nights where the deck felt less shuffled than haunted."
+  ],
+  "quickHitsRight": [
+    "The 9♦ kept showing up on rivers like it had a side bet on the whole room tilting.",
+    "Ai-Dave drew first blood on Billy, but Billy got the last family-adjacent laugh by cashing.",
+    "Li-Fo did real late damage on ProvidenceMike before Ahmed finally cut him down.",
+    "No final bust here — Ahmed and Cougar agreed to a chop, which spared the room one more unnecessary wound."
+  ],
+  "tldr": "Ahmed finally slayed the dragon, ended BostnMike’s streak at nine, and then chopped first with Cougar. Billy kept the Blanchette name in the money anyway, because of course he did."
 },
 {
 “id”: “week-06-20-2026”,
