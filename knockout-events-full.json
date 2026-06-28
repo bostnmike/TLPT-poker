@@ -2294,5 +2294,85 @@
       "sourceVictim": "Ahmed",
       "sourceKiller": "Hiro"
     }
+  ],
+  "2026-06-27": [
+    {
+      "victim": "the-architect",
+      "killer": "ai-dave",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ahmed",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "the-architect",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "hiro",
+      "killer": "providencemike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "vish",
+      "killer": "hiro",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "cougar",
+      "killer": "li-fo",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "the-architect",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "vish",
+      "killer": "cougar",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "li-fo",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ahmed",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "the-architect",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "The Architect"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "the-architect",
+      "killer": "ahmed",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Ahmed"
+    }
   ]
 }
