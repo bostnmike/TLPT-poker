@@ -19,14 +19,14 @@
   "eventName": "Silence of the Nits | 9-Max",
   "title": "TWTW: Silence of the Nits | 9-Max",
   "featured": true,
-  "dek": "The crew got only a one-week vacation from the commissioner cashing, but Li-Fo kept the relapse from becoming a full-blown title run by closing the whole room himself.",
+  "dek": "The commissioner’s one-week disappearance from the payout line is officially over, but Li-Fo made sure the relapse stopped short of a win.",
   "summaryCards": [
     {
       "tone": "green",
       "label": "📰 The Main Story",
       "player": "BostnMike / Li-Fo",
       "value": "The blip is over",
-      "copy": "The commissioner cashed again, but Li-Fo shut the whole thing down before the relapse could become a win.",
+      "copy": "BostnMike cashed again, but Li-Fo kept the comeback from turning into another commissioner headline.",
       "avatars": [
         { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
         { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
@@ -36,7 +36,7 @@
       "tone": "blue",
       "label": "🩸 First Casualty",
       "player": "Hiro",
-      "copy": "Ahmed got first blood, and Hiro supplied the night's only rebuy.",
+      "copy": "Ahmed drew first blood and forced the night’s only rebuy.",
       "avatar": "images/players/hiro.jpg",
       "fallback": "HI"
     },
@@ -44,7 +44,7 @@
       "tone": "purple",
       "label": "🦤 First Rail Bird",
       "player": "Cougar",
-      "copy": "Li-Fo made the first permanent exit count in a game where every bust mattered.",
+      "copy": "Li-Fo made the first permanent exit count in a two-paid-spot grinder.",
       "avatar": "images/players/cougar.jpg",
       "fallback": "CO"
     },
@@ -53,7 +53,7 @@
       "label": "🪓 Bounty Hunter",
       "player": "Li-Fo",
       "value": "4 knockouts",
-      "copy": "Removed Cougar, Chris O, Ahmed, and BostnMike to personally close the night.",
+      "copy": "Removed Cougar, Chris O, Ahmed, and BostnMike to close the whole thing himself.",
       "avatar": "images/players/li-fo.jpg",
       "fallback": "LF"
     }
@@ -90,46 +90,46 @@
     {
       "label": "First Blood",
       "value": "Hiro",
-      "note": "Ahmed opened the action and forced the night's only rebuy before the table ever got loud."
+      "note": "Ahmed opened the action and forced the night’s only rebuy."
     },
     {
       "label": "First Gone For Good",
       "value": "Cougar",
-      "note": "Li-Fo made the first permanent exit stick in a two-paid-spot grinder."
+      "note": "Li-Fo made the first permanent exit stick."
     },
     {
       "label": "Table Killer",
       "value": "Li-Fo",
-      "note": "Removed Cougar, Chris O, Ahmed, and BostnMike to own the whole closing stretch."
+      "note": "Removed Cougar, Chris O, Ahmed, and BostnMike to own the closing stretch."
     },
     {
       "label": "How It Ended",
       "value": "Li-Fo over BostnMike",
-      "note": "Ahmed took third and tightened his grip on the bubble crown while the commissioner found the money again."
+      "note": "Ahmed finished third and added another layer to the bubble crown."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-07-04.jpg\" alt=\"Poster for the 07/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Silence of the Nits gave the crew a brief, beautiful illusion: maybe the commissioner problem had finally gone away. It had not. After a one-week blip, BostnMike cashed again, which is exactly the sort of news that makes a room briefly consider whether poker is really just a recurring administrative burden with chips. The good news for everyone else is that Li-Fo kept the relapse from becoming a full title parade.</p><p>This was a small-table night with only one rebuy, which made every bust feel louder than usual. Ahmed drew first blood by sending Hiro out and forcing the night's only second life. Then the room tightened, the exits started to matter more, and Li-Fo basically took over the paperwork. He made Cougar the first player gone for good, clipped Chris O next, then dumped Ahmed right onto the bubble again before finally shutting the door on BostnMike heads-up. That is not just a win. That is a clean closing line.</p><p>The funniest pain still belonged to the field around him. Ahmed managed the cruel little double of drawing first blood and still extending his league-leading bubble crown in a game with only two paid spots. Hiro used the only rebuy and still could not get past the second act. And the commissioner, after one blessed week of absence from the payout line, was right back in the money like nothing had happened. There really is no vaccine for this man.</p><p>What made Silence of the Nits work was how tight it stayed. Six original buy-ins, one rebuy, no chop, no chaos spiral, no giant field to hide in. Just a small room, a sharper-than-it-looked grind, and Li-Fo personally closing the whole thing himself. The blip is over. Unfortunately, so is the crew's peace.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-07-04.jpg\" alt=\"Poster for the 07/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Silence of the Nits delivered bad news for anyone who enjoyed last week’s brief taste of peace: BostnMike is back in the money. The commissioner’s one-week disappearance from the payout line is officially over, which means the room can stop pretending the problem solved itself. The good news, such as it was, is that Li-Fo kept the relapse from becoming a full-blown win.</p><p>This was a short field with only one rebuy, so every exit carried a little extra weight. Ahmed drew first blood by busting Hiro and forcing the only reload of the night, but the real closer was Li-Fo. He made Cougar the first player gone for good, then took out Chris O, dumped Ahmed onto the bubble yet again, and finally finished BostnMike heads-up. In a seven-entry game with only two paid spots, that is about as clean a winner line as you can ask for.</p><p>There was still enough cruelty to go around. Ahmed managed the particularly annoying feat of starting the violence and still finishing third, which only tightens his grip on the bubble crown. Hiro supplied the only rebuy and still went nowhere useful. And BostnMike, after one blessed week off, slid right back into the cash like a problem the room forgot to fully disinfect.</p><p>That is what made this one work. No bloated field. No rebuy circus. No shared ending. Just a compact little grinder, one annoyingly familiar cash, and Li-Fo personally shutting the whole thing down before the commissioner could turn the night into another speech about resilience.</p>",
   "roastHtml": "<p>BostnMike gave the room exactly one week to enjoy life without him cashing, then showed right back up in second like a subscription nobody remembers signing up for. The only mercy was that Li-Fo kept the comeback from turning into another commissioner victory speech.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 1 rebuy, 7 total entries.",
     "3h 47m of play from 7:48 pm to 11:36 pm.",
     "$210 total pot with only 2 paid spots.",
-    "Li-Fo knocked out Cougar, Chris O, Ahmed, and BostnMike to personally close the whole room."
+    "Li-Fo knocked out Cougar, Chris O, Ahmed, and BostnMike to personally close the room."
   ],
   "quickHitsLeft": [
-    "Ahmed got first blood on Hiro, then still found a way to reinforce the bubble-crown résumé by finishing third.",
-    "Hiro supplied the night's only rebuy, which tells you how quiet the rest of the structure actually was.",
+    "Ahmed got first blood on Hiro, then still found a way to strengthen the bubble-crown résumé by finishing third.",
+    "Hiro supplied the night’s only rebuy, which tells you how quiet the rest of the structure actually was.",
     "Cougar became first gone for good, which made Li-Fo the first real executioner of the night.",
     "This was a tiny seven-entry game that still ran nearly four hours because nobody wanted to blink first."
   ],
   "quickHitsRight": [
-    "Chris O got caught in Li-Fo's closing run right before the money tightened for real.",
-    "BostnMike's one-week break from cashing now officially counts as a scheduling glitch, not a trend.",
-    "Two paid spots made Ahmed's bubble finish feel even meaner than usual.",
+    "Chris O got caught in Li-Fo’s closing run right before the money tightened for real.",
+    "BostnMike’s one-week break from cashing now officially counts as a scheduling glitch, not a trend.",
+    "Two paid spots made Ahmed’s bubble finish feel even meaner than usual.",
     "Silence of the Nits ended with an actual solo winner, which felt almost refreshing after all the recent chops."
   ],
   "tldr": "The commissioner cashed again after a one-week pause, but Li-Fo kept the relapse from becoming a win by personally taking the final four knockouts. Ahmed got first blood and still grew the bubble crown anyway."
-},
+}
 {
   "id": "week-06-27-2026",
   "date": "06/27/2026",
