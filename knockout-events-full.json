@@ -2374,5 +2374,43 @@
       "sourceVictim": "The Architect",
       "sourceKiller": "Ahmed"
     }
+  ],
+  "2026-07-04": [
+    {
+      "victim": "hiro",
+      "killer": "ahmed",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "cougar",
+      "killer": "li-fo",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "li-fo",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Li-Fo"
+    }
   ]
 }
