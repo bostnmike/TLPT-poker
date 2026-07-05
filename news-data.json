@@ -28,8 +28,16 @@
       "value": "The blip is over",
       "copy": "BostnMike cashed again, but Li-Fo kept the comeback from turning into another commissioner headline.",
       "avatars": [
-        { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
-        { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+        {
+          "src": "images/players/bostnmike.jpg",
+          "alt": "BostnMike",
+          "fallback": "BM"
+        },
+        {
+          "src": "images/players/li-fo.jpg",
+          "alt": "Li-Fo",
+          "fallback": "LF"
+        }
       ]
     },
     {
@@ -59,10 +67,26 @@
     }
   ],
   "statPills": [
-    { "icon": "🎟️", "label": "Total Entries", "value": "7" },
-    { "icon": "♻️", "label": "Rebuys", "value": "1" },
-    { "icon": "💰", "label": "Prize Pool", "value": "$210" },
-    { "icon": "⏱️", "label": "Play Time", "value": "3h 47m" }
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "7"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "1"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$210"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "3h 47m"
+    }
   ],
   "summary": {
     "startTime": "7:48:46 pm 07/04/2026",
@@ -80,10 +104,23 @@
   "spotlight": {
     "player": "Li-Fo / BostnMike",
     "fallback": "LFBM",
-    "pills": ["Winner", "Blip Over", "Bubble Crown Grows", "4 Knockouts"],
+    "pills": [
+      "Winner",
+      "Blip Over",
+      "Bubble Crown Grows",
+      "4 Knockouts"
+    ],
     "avatars": [
-      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" },
-      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+      {
+        "src": "images/players/li-fo.jpg",
+        "alt": "Li-Fo",
+        "fallback": "LF"
+      },
+      {
+        "src": "images/players/bostnmike.jpg",
+        "alt": "BostnMike",
+        "fallback": "BM"
+      }
     ]
   },
   "feltSaid": [
@@ -129,7 +166,7 @@
     "Silence of the Nits ended with an actual solo winner, which felt almost refreshing after all the recent chops."
   ],
   "tldr": "The commissioner cashed again after a one-week pause, but Li-Fo kept the relapse from becoming a win by personally taking the final four knockouts. Ahmed got first blood and still grew the bubble crown anyway."
-}
+},
 {
   "id": "week-06-27-2026",
   "date": "06/27/2026",
@@ -145,8 +182,16 @@
       "value": "Chopped first",
       "copy": "Ahmed brought samosas, busted BostnMike twice, and helped the room finally keep the commissioner off double digits before chopping with Cougar.",
       "avatars": [
-        { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
-        { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" }
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/cougar.jpg",
+          "alt": "Cougar",
+          "fallback": "CO"
+        }
       ]
     },
     {
@@ -176,10 +221,26 @@
     }
   ],
   "statPills": [
-    { "icon": "🎟️", "label": "Total Entries", "value": "15" },
-    { "icon": "♻️", "label": "Rebuys", "value": "6" },
-    { "icon": "💰", "label": "Prize Pool", "value": "$450" },
-    { "icon": "⏱️", "label": "Play Time", "value": "4h 34m" }
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "15"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "6"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$450"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 34m"
+    }
   ],
   "summary": {
     "startTime": "7:11:29 pm 06/27/2026",
@@ -197,11 +258,28 @@
   "spotlight": {
     "player": "Ahmed / The Architect / Cougar",
     "fallback": "ATC",
-    "pills": ["Dragon Slain", "Blanchette Cashes", "9♦ Night", "Chopped First"],
+    "pills": [
+      "Dragon Slain",
+      "Blanchette Cashes",
+      "9♦ Night",
+      "Chopped First"
+    ],
     "avatars": [
-      { "src": "images/players/ahmed.jpg", "alt": "Ahmed", "fallback": "AH" },
-      { "src": "images/players/the-architect.jpg", "alt": "The Architect", "fallback": "AR" },
-      { "src": "images/players/cougar.jpg", "alt": "Cougar", "fallback": "CO" }
+      {
+        "src": "images/players/ahmed.jpg",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      },
+      {
+        "src": "images/players/the-architect.jpg",
+        "alt": "The Architect",
+        "fallback": "AR"
+      },
+      {
+        "src": "images/players/cougar.jpg",
+        "alt": "Cougar",
+        "fallback": "CO"
+      }
     ]
   },
   "feltSaid": [
