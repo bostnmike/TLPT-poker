@@ -14,11 +14,128 @@
   },
   "weeks": [
 {
+  "id": "week-07-04-2026",
+  "date": "07/04/2026",
+  "eventName": "Silence of the Nits | 9-Max",
+  "title": "TWTW: Silence of the Nits | 9-Max",
+  "featured": true,
+  "dek": "The crew got only a one-week vacation from the commissioner cashing, but Li-Fo kept the relapse from becoming a full-blown title run by closing the whole room himself.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "BostnMike / Li-Fo",
+      "value": "The blip is over",
+      "copy": "The commissioner cashed again, but Li-Fo shut the whole thing down before the relapse could become a win.",
+      "avatars": [
+        { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" },
+        { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Hiro",
+      "copy": "Ahmed got first blood, and Hiro supplied the night's only rebuy.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Cougar",
+      "copy": "Li-Fo made the first permanent exit count in a game where every bust mattered.",
+      "avatar": "images/players/cougar.jpg",
+      "fallback": "CO"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Bounty Hunter",
+      "player": "Li-Fo",
+      "value": "4 knockouts",
+      "copy": "Removed Cougar, Chris O, Ahmed, and BostnMike to personally close the night.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    }
+  ],
+  "statPills": [
+    { "icon": "🎟️", "label": "Total Entries", "value": "7" },
+    { "icon": "♻️", "label": "Rebuys", "value": "1" },
+    { "icon": "💰", "label": "Prize Pool", "value": "$210" },
+    { "icon": "⏱️", "label": "Play Time", "value": "3h 47m" }
+  ],
+  "summary": {
+    "startTime": "7:48:46 pm 07/04/2026",
+    "endTime": "11:36:06 pm 07/04/2026",
+    "durationLabel": "3h 47m",
+    "buyIns": 6,
+    "rebuys": 1,
+    "entries": 7,
+    "totalPot": 210,
+    "paidSpots": 2,
+    "winner": "Li-Fo",
+    "firstOut": "Hiro",
+    "firstPermanentOut": "Cougar"
+  },
+  "spotlight": {
+    "player": "Li-Fo / BostnMike",
+    "fallback": "LFBM",
+    "pills": ["Winner", "Blip Over", "Bubble Crown Grows", "4 Knockouts"],
+    "avatars": [
+      { "src": "images/players/li-fo.jpg", "alt": "Li-Fo", "fallback": "LF" },
+      { "src": "images/players/bostnmike.jpg", "alt": "BostnMike", "fallback": "BM" }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Hiro",
+      "note": "Ahmed opened the action and forced the night's only rebuy before the table ever got loud."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Cougar",
+      "note": "Li-Fo made the first permanent exit stick in a two-paid-spot grinder."
+    },
+    {
+      "label": "Table Killer",
+      "value": "Li-Fo",
+      "note": "Removed Cougar, Chris O, Ahmed, and BostnMike to own the whole closing stretch."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Li-Fo over BostnMike",
+      "note": "Ahmed took third and tightened his grip on the bubble crown while the commissioner found the money again."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-07-04.jpg\" alt=\"Poster for the 07/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Silence of the Nits gave the crew a brief, beautiful illusion: maybe the commissioner problem had finally gone away. It had not. After a one-week blip, BostnMike cashed again, which is exactly the sort of news that makes a room briefly consider whether poker is really just a recurring administrative burden with chips. The good news for everyone else is that Li-Fo kept the relapse from becoming a full title parade.</p><p>This was a small-table night with only one rebuy, which made every bust feel louder than usual. Ahmed drew first blood by sending Hiro out and forcing the night's only second life. Then the room tightened, the exits started to matter more, and Li-Fo basically took over the paperwork. He made Cougar the first player gone for good, clipped Chris O next, then dumped Ahmed right onto the bubble again before finally shutting the door on BostnMike heads-up. That is not just a win. That is a clean closing line.</p><p>The funniest pain still belonged to the field around him. Ahmed managed the cruel little double of drawing first blood and still extending his league-leading bubble crown in a game with only two paid spots. Hiro used the only rebuy and still could not get past the second act. And the commissioner, after one blessed week of absence from the payout line, was right back in the money like nothing had happened. There really is no vaccine for this man.</p><p>What made Silence of the Nits work was how tight it stayed. Six original buy-ins, one rebuy, no chop, no chaos spiral, no giant field to hide in. Just a small room, a sharper-than-it-looked grind, and Li-Fo personally closing the whole thing himself. The blip is over. Unfortunately, so is the crew's peace.</p>",
+  "roastHtml": "<p>BostnMike gave the room exactly one week to enjoy life without him cashing, then showed right back up in second like a subscription nobody remembers signing up for. The only mercy was that Li-Fo kept the comeback from turning into another commissioner victory speech.</p>",
+  "numbersThatMatter": [
+    "6 buy-ins, 1 rebuy, 7 total entries.",
+    "3h 47m of play from 7:48 pm to 11:36 pm.",
+    "$210 total pot with only 2 paid spots.",
+    "Li-Fo knocked out Cougar, Chris O, Ahmed, and BostnMike to personally close the whole room."
+  ],
+  "quickHitsLeft": [
+    "Ahmed got first blood on Hiro, then still found a way to reinforce the bubble-crown résumé by finishing third.",
+    "Hiro supplied the night's only rebuy, which tells you how quiet the rest of the structure actually was.",
+    "Cougar became first gone for good, which made Li-Fo the first real executioner of the night.",
+    "This was a tiny seven-entry game that still ran nearly four hours because nobody wanted to blink first."
+  ],
+  "quickHitsRight": [
+    "Chris O got caught in Li-Fo's closing run right before the money tightened for real.",
+    "BostnMike's one-week break from cashing now officially counts as a scheduling glitch, not a trend.",
+    "Two paid spots made Ahmed's bubble finish feel even meaner than usual.",
+    "Silence of the Nits ended with an actual solo winner, which felt almost refreshing after all the recent chops."
+  ],
+  "tldr": "The commissioner cashed again after a one-week pause, but Li-Fo kept the relapse from becoming a win by personally taking the final four knockouts. Ahmed got first blood and still grew the bubble crown anyway."
+},
+{
   "id": "week-06-27-2026",
   "date": "06/27/2026",
   "eventName": "The Big Bluffowski | 9-Max",
   "title": "TWTW: The Big Bluffowski | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "The table finally got what it wanted: Ahmed slayed the dragon, ended BostnMike’s streak at nine, and then split first with Cougar while the Blanchette bloodline still found a way to cash anyway.",
   "summaryCards": [
     {
@@ -109,7 +226,7 @@
       "note": "The Architect took third, and the last two agreed to a chop instead of forcing a final bust."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-27.jpg\" alt=\"Poster for the 06/27/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Big Bluffowski finally gave the table a mission everybody could agree on: do not let BostnMike get to ten. And for once, the room pulled it off. Ahmed brought samosas, receipts, and most importantly, the scimitar that finally slayed the dragon! And  he seemed to do it with glee, as he busted the commissioner TWICE! Once at 8:34 and then finished the job at 10:53. I would be remiss to not also mention the Blanchette on Blanchette violence, where Billy took him out at 8:52 - less than two minutes after the first hit! And there you have it, nine straight is where the streak dies! The room can breathe again.</p><p>That does not mean the Blanchette story actually ended. The Architect was back in the mix, got busted first, rebought immediately, then turned around and made the money anyway. In addition to BostnMike, he made Hiro the first player gone for good, busted Ai-Dave, and quietly kept the Blanchette family name in cash even after Dad was finally dragged out of the building. So yes, the personal streak is dead. And now -of course- the commissioner wants to argue that the Blanchette bloodline still cashed, unfortunately, the record contains supporting evidence.</p><p>The rest of the night felt like it was being secretly co-authored by the 9 of diamonds, which kept floating into rivers like it had a producer credit. Unreal runouts kept bending hands sideways, stacks kept getting reopened, and by the late stages the game had that familiar TLPT feeling where nobody trusted the Deckmate, and everybody still had to keep playing. Cougar deserves real billing here too. Li-Fo bounced him once, he came back, clipped Vish for good, survived the churn, and stayed standing long enough to claim half the top line.</p><p>In the end, Ahmed and Cougar agreed to a chop, so nobody got the final cinematic knockout. That was probably the most civilized thing the room did all night. Ahmed still gets the headline because he did the thing everybody else had been threatening to do for weeks: he ended the commissioner’s run himself. The samosas were appreciated. The dragon-slaying even more so!</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-06-27.jpg\" alt=\"Poster for the 06/27/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Big Bluffowski finally gave the table a mission everybody could agree on: do not let BostnMike get to ten. And for once, the room pulled it off. Ahmed brought samosas, receipts, and most importantly, the scimitar that finally slayed the dragon! And he seemed to do it with glee, as he busted the commissioner TWICE! Once at 8:34 and then finished the job at 10:53. I would be remiss to not also mention the Blanchette on Blanchette violence, where Billy took him out at 8:52, less than two minutes after the first hit! And there you have it, nine straight is where the streak dies! The room can breathe again.</p><p>That does not mean the Blanchette story actually ended. The Architect was back in the mix, got busted first, rebought immediately, then turned around and made the money anyway. In addition to BostnMike, he made Hiro the first player gone for good, busted Ai-Dave, and quietly kept the Blanchette family name in cash even after Dad was finally dragged out of the building. So yes, the personal streak is dead. And now, of course, the commissioner wants to argue that the Blanchette bloodline still cashed. Unfortunately, the record contains supporting evidence.</p><p>The rest of the night felt like it was being secretly co-authored by the 9 of diamonds, which kept floating into rivers like it had a producer credit. Unreal runouts kept bending hands sideways, stacks kept getting reopened, and by the late stages the game had that familiar TLPT feeling where nobody trusted the Deckmate, and everybody still had to keep playing. Cougar deserves real billing here too. Li-Fo bounced him once, he came back, clipped Vish for good, survived the churn, and stayed standing long enough to claim half the top line.</p><p>In the end, Ahmed and Cougar agreed to a chop, so nobody got the final cinematic knockout. That was probably the most civilized thing the room did all night. Ahmed still gets the headline because he did the thing everybody else had been threatening to do for weeks: he ended the commissioner’s run himself. The samosas were appreciated. The dragon-slaying even more so!</p>",
   "roastHtml": "<p>BostnMike spent weeks acting like the streak was some unavoidable force of nature, then Ahmed showed up with snacks and a kill switch. The worst part is that even in death, the commissioner is now trying to claim the family cash count through his son. That is elite grievance-accounting from a man who did not make the money.</p>",
   "numbersThatMatter": [
     "9 buy-ins, 6 rebuys, 15 total entries.",
