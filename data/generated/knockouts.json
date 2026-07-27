@@ -33,7 +33,7 @@
       "ai-dave": 1
     },
     "bostnmike": {
-      "ahmed": 4,
+      "ahmed": 5,
       "ai-dave": 2,
       "buffalomike": 1,
       "chris-o": 1,
@@ -104,7 +104,7 @@
     "hiro": {
       "ahmed": 9,
       "ai-dave": 4,
-      "bostnmike": 7,
+      "bostnmike": 8,
       "brad-r": 1,
       "gilmore": 1,
       "li-fo": 1,
@@ -141,7 +141,7 @@
       "griffin": 2,
       "hiro": 7,
       "nasa-al": 1,
-      "providencemike": 3,
+      "providencemike": 4,
       "red": 3,
       "the-architect": 1,
       "tim-s": 1,
@@ -149,6 +149,7 @@
       "yann": 1
     },
     "nasa-al": {
+      "ahmed": 1,
       "ai-dave": 1,
       "bostnmike": 2,
       "chris-o": 1,
@@ -214,7 +215,7 @@
       "nasa-al": 1,
       "pat": 1,
       "phattedcalf": 1,
-      "providencemike": 4,
+      "providencemike": 5,
       "the-architect": 1,
       "vic": 1,
       "vish": 2,
@@ -250,6 +251,7 @@
       "cougar": 1,
       "hiro": 4,
       "jeff-t": 1,
+      "li-fo": 1,
       "providencemike": 3,
       "red": 4,
       "the-architect": 1
@@ -266,7 +268,7 @@
   "byKiller": {
     "ahmed": {
       "ai-dave": 2,
-      "bostnmike": 4,
+      "bostnmike": 5,
       "chris-o": 2,
       "cougar": 2,
       "david-k": 1,
@@ -274,6 +276,7 @@
       "hiro": 9,
       "kishan": 1,
       "li-fo": 6,
+      "nasa-al": 1,
       "phattedcalf": 1,
       "providencemike": 1,
       "red": 2,
@@ -303,7 +306,7 @@
       "chris-o": 2,
       "cougar": 2,
       "hayden-d": 1,
-      "hiro": 7,
+      "hiro": 8,
       "jeff-t": 1,
       "kishan": 1,
       "li-fo": 7,
@@ -415,7 +418,8 @@
       "nitro": 2,
       "providencemike": 4,
       "red": 3,
-      "the-architect": 1
+      "the-architect": 1,
+      "vish": 1
     },
     "nasa-al": {
       "ahmed": 1,
@@ -451,9 +455,9 @@
       "bostnmike": 2,
       "cougar": 1,
       "hiro": 10,
-      "li-fo": 3,
+      "li-fo": 4,
       "phattedcalf": 1,
-      "red": 4,
+      "red": 5,
       "the-architect": 1,
       "tim-s": 1,
       "vish": 3
@@ -564,6 +568,7 @@
     "2026-06-13",
     "2026-06-20",
     "2026-06-27",
-    "2026-07-04"
+    "2026-07-04",
+    "2026-07-26"
   ]
 }
