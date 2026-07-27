@@ -14,11 +14,175 @@
   },
   "weeks": [
 {
+  "id": "week-07-26-2026",
+  "date": "07/26/2026",
+  "eventName": "The Uncallables | 9-Max",
+  "title": "TWTW: The Uncallables | 9-Max",
+  "featured": true,
+  "dek": "Ahmed and ProvidenceMike divided the late damage, shared first, and turned The Uncallables into the two players nobody could remove.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Ahmed / ProvidenceMike",
+      "value": "The Untouchables",
+      "copy": "Ahmed detonated the table with queens, ProvidenceMike cleared the final traffic, and the two agreed to share first.",
+      "avatars": [
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/providencemike.jpg",
+          "alt": "ProvidenceMike",
+          "fallback": "PM"
+        }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Hiro",
+      "copy": "BostnMike sent Hiro out first, and with no rebuy behind it, the opening hit was permanent.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "First out and first gone for good in a game where everyone else lasted into the late rush.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Closing Crew",
+      "player": "Ahmed / ProvidenceMike",
+      "value": "2 knockouts each",
+      "copy": "Ahmed removed NASA Al and BostnMike in one hand; ProvidenceMike followed with Red and Li-Fo.",
+      "avatars": [
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/providencemike.jpg",
+          "alt": "ProvidenceMike",
+          "fallback": "PM"
+        }
+      ]
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "11"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "3"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$330"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "3h 42m"
+    }
+  ],
+  "summary": {
+    "startTime": "4:16:54 pm 07/26/2026",
+    "endTime": "7:59:24 pm 07/26/2026",
+    "durationLabel": "3h 42m",
+    "buyIns": 8,
+    "rebuys": 3,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Ahmed, ProvidenceMike",
+    "firstOut": "Hiro",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Ahmed / ProvidenceMike",
+    "fallback": "AP",
+    "pills": [
+      "Split First",
+      "Queens Hold",
+      "Four Late Knockouts",
+      "Uncallable Duo"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/ahmed.jpg",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      },
+      {
+        "src": "images/players/providencemike.jpg",
+        "alt": "ProvidenceMike",
+        "fallback": "PM"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Hiro",
+      "note": "BostnMike got the opening bust, and Hiro had no second life waiting."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "The first casualty was permanent in a game with only three rebuys."
+    },
+    {
+      "label": "Hand of the Night",
+      "value": "Queens over Jacks",
+      "note": "NASA Al shoved short with an ace, BostnMike reshoved with jacks, and Ahmed woke up with queens that held."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed / ProvidenceMike split first",
+      "note": "Li-Fo took third after the final two agreed to share the top instead of forcing a last bust."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-07-26.jpg\" alt=\"Poster for the 07/26/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Uncallables returned the league after a three-week break and immediately produced the cleanest possible title payoff. Ahmed and ProvidenceMike divided the late work, shared first, and became the two players nobody could remove. The game stayed compact for most of the afternoon, but once the exits began, the closing stretch belonged almost entirely to the eventual co-winners.</p><p>The hand that changed everything started with NASA Al short-stacked and moving in with an ace. BostnMike looked down at pocket jacks, reshoved, and probably thought his first game back from Mexico was finally about to become productive. Then Ahmed woke up with pocket queens. The queens held, Al and the commissioner disappeared together, and the table lost two players in one shot. Mike came home relaxed. Possibly too relaxed. After three weeks away, this was not what the Commish ordered.</p><p>ProvidenceMike handled the next phase without needing a rebuy or much theater. He removed Red, then knocked out Li-Fo in third, leaving only Ahmed across from him. Rather than manufacture one more casualty, the final two agreed to share first. Ahmed supplied the explosion; ProvidenceMike supplied the cleanup. The event name did the rest.</p><p>Hiro had the opposite kind of afternoon. BostnMike sent him out first, and because there was no reload behind it, he was also first gone for good. Vish and NASA Al found second lives, BostnMike found one too, but none of those rebuys reached the payout line. By 7:59, The Uncallables had become The Untouchables, and the commissioner was left wondering whether the all-inclusive package had accidentally included rust.</p>",
+  "roastHtml": "<p>BostnMike came back from Mexico rested, refreshed, and apparently operating at resort speed. He rebought, found pocket jacks in the biggest hand of the day, and still managed to run directly into Ahmed’s queens with NASA Al already in the blast radius. Three weeks off, one tropical reset, and the first game back ended with the Commish getting removed as part of a two-for-one special.</p>",
+  "numbersThatMatter": [
+    "8 buy-ins, 3 rebuys, 11 total entries.",
+    "3h 42m of play from 4:16 pm to 7:59 pm.",
+    "$330 total pot with 3 paid spots.",
+    "Ahmed and ProvidenceMike split the final four named knockouts, two each."
+  ],
+  "quickHitsLeft": [
+    "Hiro was first out and first gone for good after BostnMike landed the opening knockout.",
+    "NASA Al, Vish, and BostnMike accounted for all three rebuys.",
+    "Ahmed’s pocket queens eliminated NASA Al and BostnMike in the same hand.",
+    "The game returned after a three-week break and still finished before 8:00 pm."
+  ],
+  "quickHitsRight": [
+    "ProvidenceMike reached the shared finish without using a rebuy.",
+    "Red became ProvidenceMike’s first late victim before Li-Fo followed in third.",
+    "Li-Fo earned the final paid spot but never got a vote in the shared ending.",
+    "The event title aged perfectly: the last two standing were effectively untouchable."
+  ],
+  "tldr": "Ahmed’s queens erased NASA Al and a very relaxed BostnMike in one hand, ProvidenceMike removed Red and Li-Fo, and the two Uncallables agreed to share first."
+},
+{
   "id": "week-07-04-2026",
   "date": "07/04/2026",
   "eventName": "Silence of the Nits | 9-Max",
   "title": "TWTW: Silence of the Nits | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "The commissioner’s one-week disappearance from the payout line is officially over, but Li-Fo made sure the relapse stopped short of a win.",
   "summaryCards": [
     {
