@@ -12,13 +12,166 @@
     "fallback": "BM",
     "blurb": "A lightly biased narrator of rebuys, bad timing, table nonsense, bad beats, and whatever else the felt decided to reveal that week."
   },
-  "weeks": [
+{
+  "id": "week-08-01-2026",
+  "date": "08/01/2026",
+  "eventName": "Stackface | 9-Max",
+  "title": "TWTW: Stackface | 9-Max",
+  "featured": true,
+  "dek": "BostnMike lost with aces, lost with queens, got busted twice, and still crawled back to split first with late-arriving Tim S.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "BostnMike / Tim S",
+      "value": "You cannot kill the face",
+      "copy": "The commissioner survived two bust-outs and two premium-hand funerals before sharing first with another rebuy survivor.",
+      "avatars": [
+        {
+          "src": "images/players/bostnmike.jpg",
+          "alt": "BostnMike",
+          "fallback": "BM"
+        },
+        {
+          "src": "images/players/tim-s.jpg",
+          "alt": "Tim S",
+          "fallback": "TS"
+        }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "BostnMike",
+      "copy": "ProvidenceMike flopped a flush against pocket queens and sent the commissioner directly to the rebuy desk.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "ProvidenceMike",
+      "copy": "He drew first blood on BostnMike, but the commissioner later returned the favor and made it permanent.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Li-Fo",
+      "value": "3 knockouts",
+      "copy": "Removed BostnMike, Tim S, and Wild Bill before Tim came back to end Tony's run.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "10"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "4"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$300"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 51m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:37:52 pm 08/01/2026",
+    "endTime": "12:28:58 am 08/02/2026",
+    "durationLabel": "4h 51m",
+    "buyIns": 6,
+    "rebuys": 4,
+    "entries": 10,
+    "totalPot": 300,
+    "paidSpots": 3,
+    "winner": "BostnMike, Tim S",
+    "firstOut": "BostnMike",
+    "firstPermanentOut": "ProvidenceMike"
+  },
+  "spotlight": {
+    "player": "BostnMike / Tim S",
+    "fallback": "BMTS",
+    "pills": [
+      "Split First",
+      "First Out to First",
+      "Two BostnMike Rebuys",
+      "Tim S Returns"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/bostnmike.jpg",
+        "alt": "BostnMike",
+        "fallback": "BM"
+      },
+      {
+        "src": "images/players/tim-s.jpg",
+        "alt": "Tim S",
+        "fallback": "TS"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "BostnMike",
+      "note": "ProvidenceMike flopped a flush against pocket queens and sent the commissioner out first."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "ProvidenceMike",
+      "note": "BostnMike eventually reversed the Mike-on-Mike violence and closed ProvidenceMike's file."
+    },
+    {
+      "label": "Premium Hand Abuse",
+      "value": "Aces and Queens",
+      "note": "Tony's pocket sixes cracked BostnMike's aces after ProvidenceMike had already ruined his queens."
+    },
+    {
+      "label": "How It Ended",
+      "value": "BostnMike / Tim S split first",
+      "note": "Ahmed took third, and the final two agreed to share the top rather than force one more knockout."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-01.jpg\" alt=\"Poster for the 08/01/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Stackface opened by treating the commissioner like the before photo in a cautionary poker seminar. BostnMike picked up pocket queens, watched ProvidenceMike flop a flush, and became the first player out before the game was forty minutes old. He rebought, rebuilt, and then let Tony continue the education. Pocket aces should have been the stabilizer. Instead Tony's pocket sixes cracked them, and Li-Fo sent Mike back to the rebuy desk for a second time. At that point, the title was doing less homage and more diagnosis.</p><p>The remarkable part is that none of it actually killed him. BostnMike returned on bullet three, finally reversed the Mike-on-Mike violence by eliminating ProvidenceMike for good, and later removed Ahmed on the bubble. The early premium-hand disasters did not disappear, but they stopped defining the result. First out became half of first place, which is a ridiculous sentence even by this room's standards.</p><p>Tim S built the parallel comeback. He arrived after the tournament had started, got knocked out by Li-Fo, rebought, and stayed alive long enough to take Tony out in fourth. That left Ahmed in the final three before BostnMike handled the bubble. With the clock approaching 12:30, Tim and Mike agreed to split first rather than turn a five-hour short-handed reload festival into an unnecessary sixth act.</p><p>The rest of the room supplied exactly the right supporting chaos. Wild Bill graced the table on one of those rare nights when stand-up comedy was not competing for his attention, knocked out Ahmed once, and later became the third name on Tony's hit list. Tony owned the middle of the game with three eliminations and the pocket-sixes insult, but Tim ended his run before the money. Six actual players somehow produced ten entries, four rebuys, and nearly five hours of poker. Nobody brought enough people, so everybody simply brought extra lives.</p>",
+  "roastHtml": "<p>BostnMike lost with queens, lost with aces, got busted twice, and will now explain that the shared win proves resilience. It proves something, certainly. Mostly that unlimited re-entry is the commissioner equivalent of plot armor.</p>",
+  "numbersThatMatter": [
+    "6 buy-ins, 4 rebuys, 10 total entries.",
+    "4h 51m of play from 7:37 pm to 12:28 am.",
+    "$300 total pot with BostnMike and Tim S splitting first.",
+    "BostnMike went from first out to shared first after using two rebuys."
+  ],
+  "quickHitsLeft": [
+    "ProvidenceMike flopped a flush against BostnMike's pocket queens to deliver the first bust of the night.",
+    "Tony's pocket sixes cracked BostnMike's aces and helped send the commissioner toward bullet three.",
+    "Wild Bill used a rare night without a stand-up gig to knock out Ahmed and provide proper celebrity table service.",
+    "Four rebuys from only six players turned a short-handed game into a full-sized accounting problem."
+  ],
+  "quickHitsRight": [
+    "Li-Fo led the body count by eliminating BostnMike, Tim S, and Wild Bill.",
+    "Tim S entered late, rebought once, eliminated Li-Fo, and still reached the shared finish.",
+    "BostnMike got revenge on ProvidenceMike before eliminating Ahmed on the bubble.",
+    "Tony controlled the commissioner early but missed the money after Tim S ended his run in fourth."
+  ],
+  "tldr": "BostnMike lost with aces, lost with queens, got busted twice, and still split first with Tim S. Six players produced ten entries, while Tony and ProvidenceMike spent the opening acts treating the commissioner like community property."
+},
 {
   "id": "week-07-26-2026",
   "date": "07/26/2026",
   "eventName": "The Uncallables | 9-Max",
   "title": "TWTW: The Uncallables | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Ahmed and ProvidenceMike divided the late damage, shared first, and turned The Uncallables into the two players nobody could remove.",
   "summaryCards": [
     {
@@ -156,7 +309,7 @@
     }
   ],
   "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-07-26.jpg\" alt=\"Poster for the 07/26/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Uncallables returned the league after a three-week break and immediately produced the cleanest possible title payoff. Ahmed and ProvidenceMike divided the late work, shared first, and became the two players nobody could remove. The game stayed compact for most of the afternoon, but once the exits began, the closing stretch belonged almost entirely to the eventual co-winners.</p><p>The hand that changed everything started with NASA Al short-stacked and moving in with an ace. BostnMike looked down at pocket jacks, reshoved, and probably thought his first game back from Mexico was finally about to become productive. Then Ahmed woke up with pocket queens. The queens held, Al and the commissioner disappeared together, and the table lost two players in one shot. Mike came home from Mexico relaxed... possibly too relaxed. After three weeks away, this was not what the Commish ordered.</p><p>ProvidenceMike handled the next phase without needing a rebuy or much theater. He removed Red, then knocked out Li-Fo in third, leaving only Ahmed across from him. Rather than manufacture one more casualty, the final two agreed to share first. Ahmed supplied the explosion; ProvidenceMike supplied the cleanup. The event name did the rest.</p><p>Hiro had the opposite kind of afternoon. BostnMike sent him out first, and because there was no reload behind it, he was also first gone for good. Vish and NASA Al found second lives, BostnMike found one too, but none of those rebuys reached the payout line. By 7:59, The Uncallables had become The Untouchables, and the commissioner was left wondering whether the all-inclusive package had accidentally included rust.</p>",
-  "roastHtml": "<p>BostnMike came back from Mexico rested, refreshed, and apparently operating at resort speed. He rebought, found pocket jacks in the biggest hand of the day, and still managed to run directly into Ahmed’s queens with NASA Al already in the blast radius. Three weeks off, one tropical reset, and the first game back ended with the Commish getting removed as part of a two-for-one special.</p>",
+  "roastHtml": "<p>BostnMike came back from Mexico rested, refreshed, and apparently operating at resort speed. He rebought, found pocket jacks in the biggest hand of the day, and still managed to run directly into Ahmed's queens with NASA Al already in the blast radius. Three weeks off, one tropical reset, and the first game back ended with the Commish getting removed as part of a two-for-one special.</p>",
   "numbersThatMatter": [
     "8 buy-ins, 3 rebuys, 11 total entries.",
     "3h 42m of play from 4:16 pm to 7:59 pm.",
@@ -166,16 +319,16 @@
   "quickHitsLeft": [
     "Hiro was first out and first gone for good after BostnMike landed the opening knockout.",
     "NASA Al, Vish, and BostnMike accounted for all three rebuys.",
-    "Ahmed’s pocket queens eliminated NASA Al and BostnMike in the same hand.",
+    "Ahmed's pocket queens eliminated NASA Al and BostnMike in the same hand.",
     "The game returned after a three-week break and still finished before 8:00 pm."
   ],
   "quickHitsRight": [
     "ProvidenceMike reached the shared finish without using a rebuy.",
-    "Red became ProvidenceMike’s first late victim before Li-Fo followed in third.",
+    "Red became ProvidenceMike's first late victim before Li-Fo followed in third.",
     "Li-Fo earned the final paid spot but never got a vote in the shared ending.",
     "The event title aged perfectly: the last two standing were effectively untouchable."
   ],
-  "tldr": "Ahmed’s queens erased NASA Al and a very relaxed BostnMike in one hand, ProvidenceMike removed Red and Li-Fo, and the two Uncallables agreed to share first."
+  "tldr": "Ahmed's queens erased NASA Al and a very relaxed BostnMike in one hand, ProvidenceMike removed Red and Li-Fo, and the two Uncallables agreed to share first."
 },
 {
   "id": "week-07-04-2026",
