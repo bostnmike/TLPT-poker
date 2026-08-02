@@ -5,13 +5,14 @@
     "kicker": "Game stories, receipts, and table-level chaos.",
     "introNote": "A running archive of what actually happened on the felt — not just what the standings said later."
   },
-  "author": {
+    "author": {
     "name": "BostnMike",
     "role": "Weekly Columnist",
     "avatar": "images/players/bostnmike.jpg",
     "fallback": "BM",
     "blurb": "A lightly biased narrator of rebuys, bad timing, table nonsense, bad beats, and whatever else the felt decided to reveal that week."
   },
+  "weeks": [
 {
   "id": "week-08-01-2026",
   "date": "08/01/2026",
