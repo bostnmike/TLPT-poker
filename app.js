@@ -28,6 +28,8 @@ async function loadSiteData() {
 
 const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "profit";
+const SHOW_HOME_COMMISSIONER_REPORT = false;
+
 let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
@@ -1901,11 +1903,14 @@ function buildEventCard(event, data, options = {}) {
 function renderHomePage(data) {
   const eventsEl = document.getElementById("home-events-list");
 
-  if (eventsEl) {
-    const homeEvents = getCurrentEvents(data).slice(0, 2);
-    ensureHomeCommissionerSection();
+if (eventsEl) {
+  const homeEvents = getCurrentEvents(data).slice(0, 2);
 
-    if (!homeEvents.length) {
+  if (SHOW_HOME_COMMISSIONER_REPORT) {
+    ensureHomeCommissionerSection();
+  }
+
+  if (!homeEvents.length) {
       eventsEl.innerHTML = "";
     } else if (homeEvents.length === 1) {
       eventsEl.innerHTML = `
