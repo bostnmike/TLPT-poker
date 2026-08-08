@@ -2500,5 +2500,67 @@
       "sourceVictim": "Ahmed",
       "sourceKiller": "BostnMike"
     }
+  ],
+  "2026-08-07": [
+    {
+      "victim": "ai-dave",
+      "killer": "nasa-al",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "ai-dave",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "ahmed",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "nasa-al",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "phattedcalf",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "PhattedCalf"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "phattedcalf",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "PhattedCalf"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "chris-o",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Chris O"
+    }
   ]
 }
