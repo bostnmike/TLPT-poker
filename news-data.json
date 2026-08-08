@@ -14,11 +14,160 @@
   },
   "weeks": [
 {
+  "id": "week-08-07-2026",
+  "date": "08/07/2026",
+  "eventName": "DRAWS! | 9-Max",
+  "title": "TWTW: DRAWS! | 9-Max",
+  "featured": true,
+  "dek": "Everybody watched the blood in the water while Chris O stayed almost invisible, then the shark finally surfaced on the last hand and took the whole thing.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Chris O",
+      "value": "Just when you thought it was safe to slow play...",
+      "copy": "Chris barely disturbed the surface all night, then delivered his only recorded knockout on the final hand to win it.",
+      "avatar": "images/players/chris-o.jpg",
+      "fallback": "CO"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Ai-Dave",
+      "copy": "NASA Al drew first blood on a broken foot, and Dave immediately bought another ticket back into the water.",
+      "avatar": "images/players/ai-dave.jpg",
+      "fallback": "AD"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "Li-Fo got him once; NASA Al made the second bite permanent.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "NASA Al",
+      "value": "3 knockouts",
+      "copy": "Playing on a broken foot, Al still removed Ai-Dave, Hiro, and Li-Fo before Phattedcalf finally caught him.",
+      "avatar": "images/players/nasa-al.jpg",
+      "fallback": "NA"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "11"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "3"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$330"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 37m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:16:19 pm 08/07/2026",
+    "endTime": "11:53:16 pm 08/07/2026",
+    "durationLabel": "4h 37m",
+    "buyIns": 8,
+    "rebuys": 3,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Chris O",
+    "firstOut": "Ai-Dave",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Chris O / NASA Al / Phattedcalf",
+    "fallback": "CAP",
+    "pills": [
+      "Winner",
+      "Shark Surfaced Late",
+      "Broken-Foot Al",
+      "Yeti Coolers"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/chris-o.jpg",
+        "alt": "Chris O",
+        "fallback": "CO"
+      },
+      {
+        "src": "images/players/nasa-al.jpg",
+        "alt": "NASA Al",
+        "fallback": "NA"
+      },
+      {
+        "src": "images/players/phattedcalf.jpg",
+        "alt": "Phattedcalf",
+        "fallback": "PC"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "Ai-Dave",
+      "note": "NASA Al opened the feeding frenzy and Dave immediately rebought."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "Li-Fo drew blood first, then NASA Al finished the job."
+    },
+    {
+      "label": "Table Killer",
+      "value": "NASA Al",
+      "note": "Three knockouts on a broken foot. Apparently the table's mercy rule was also injured."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Chris O over Phattedcalf",
+      "note": "Chris O's first recorded knockout of the night was the only one that could end the tournament."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-07.jpg\" alt=\"Poster for the 08/07/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>DRAWS! spent most of the night pointing everybody toward the obvious danger. NASA Al was limping around on a broken foot and still collecting bodies. Li-Fo was drawing blood. Phattedcalf disappeared once, came back, and started looking dangerous late. All the while Chris O barely disturbed the surface. No early knockout. No noisy middle act. Just a fin somewhere below the felt while everybody else kept splashing.</p><p>Then the table got heads-up. Phattedcalf had just swallowed NASA Al and Ahmed in a four-minute burst and looked like the predator left in the water. That was when Chris finally surfaced. His first recorded knockout of the entire night came on the last hand, and it was the only one that could end the tournament. Just when you thought it was safe to slow play, the shark arrived. And if you were thinking one little blocker bet was going to keep him away: You're gonna need a bigger bet.</p><p>Al deserves his own scene because the table showed absolutely no sympathy for the broken foot. He still knocked out Ai-Dave, made Hiro the first player gone for good, and later removed Li-Fo for his third body of the night. Then Phattedcalf finally stopped the wounded-man rampage, followed it by knocking out Ahmed four minutes later, and suddenly found himself heads-up with the quietest player in the room.</p><p>The commissioner, meanwhile, spent the evening in an entirely different climate. His kings found aces, his queens found kings, and premium pairs kept turning into ice sculptures before his eyes. Somewhere through all of it, the number 4 kept landing often enough that Bobby Orr may as well have been taking shifts across the felt. By 11:53 the rink was empty, the water was red, and the player who had made the least noise was the one holding first-place money.</p>",
+  "roastHtml": "<p>At this point BostnMike should stop answering to Commish and start answering to Yeti. Kings into aces. Queens into kings. Every time he found a premium pair, another cooler opened beneath him. Li-Fo finally put him out before the money, which at least saved the league from having to issue crampons.</p>",
+  "numbersThatMatter": [
+    "8 buy-ins, 3 rebuys, 11 total entries.",
+    "4h 37m of play from 7:16 pm to 11:53 pm.",
+    "$330 total pot with Chris O taking $165 for first.",
+    "NASA Al led the body count with 3 knockouts despite playing on a broken foot."
+  ],
+  "quickHitsLeft": [
+    "Ai-Dave was first out, rebought immediately, then later became Ahmed's only recorded knockout.",
+    "Hiro got one second life before NASA Al made the next exit permanent.",
+    "Phattedcalf rebought once, then eliminated NASA Al and Ahmed back-to-back to reach heads-up.",
+    "BostnMike's premium-pair night was basically an instructional video on why preflop confidence is temporary."
+  ],
+  "quickHitsRight": [
+    "Li-Fo sent BostnMike out before the money, but NASA Al ended Tony's own run twenty-one minutes later.",
+    "Ahmed reached third after eliminating Ai-Dave, only to become Phattedcalf's second late victim.",
+    "The number 4 kept showing up so often the table started feeling like Bobby Orr had been double-shifting.",
+    "Chris O needed exactly one recorded knockout to win the tournament, which is ruthless efficiency disguised as patience."
+  ],
+  "tldr": "Everybody watched NASA Al and Phattedcalf make the water bloody while Chris O stayed submerged. Then the quiet shark surfaced on the final hand, took his only recorded knockout, and won DRAWS!"
+},
+{
   "id": "week-08-01-2026",
   "date": "08/01/2026",
   "eventName": "Stackface | 9-Max",
   "title": "TWTW: Stackface | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "BostnMike lost with aces, lost with queens, got busted twice, and still crawled back to split first with late-arriving Tim S.",
   "summaryCards": [
     {
