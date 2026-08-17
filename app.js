@@ -169,6 +169,7 @@ const HALL_RULES = {
       title: "The Money Machine",
       icon: "💰",
       description: "Most career profit among Hall-qualified players.",
+      displayLabel: "Career Profit",
       key: "profit",
       direction: "desc"
     },
@@ -176,13 +177,16 @@ const HALL_RULES = {
       title: "The Complete Player",
       icon: "🧠",
       description: "Best overall career performance.",
+      displayLabel: "Hall Score",
       key: "hallScore",
+      suffix: "/100",
       direction: "desc"
     },
     {
       title: "The Killer",
       icon: "💥",
       description: "Most career knockouts.",
+      displayLabel: "Career Knockouts",
       key: "hits",
       direction: "desc"
     }
@@ -193,20 +197,23 @@ const HALL_RULES = {
       title: "The Donation Machine",
       icon: "💸",
       description: "Largest career loss.",
+      displayLabel: "Career Loss",
       key: "profit",
       direction: "asc"
     },
     {
       title: "The Variance Victim",
       icon: "🫠",
-      description: "Lowest luck index.",
-      key: "luckIndex",
-      direction: "asc"
+      description: "Biggest gap between results and expectation.",
+      displayLabel: "Variance Pain Score",
+      key: "variancePain",
+      direction: "desc"
     },
     {
       title: "The Bubble Prisoner",
       icon: "🫧",
-      description: "Most career bubbles.",
+      description: "Most painful near misses.",
+      displayLabel: "Career Bubbles",
       key: "bubbles",
       direction: "desc"
     }
@@ -471,6 +478,15 @@ function statIcon(key) {
 }
 
 function formatStatValue(player, key) {
+
+  if (key === "hallScore") {
+    return `${fmtNum(player?.hallScore ?? 0)} / 100`;
+  }
+
+  if (key === "variancePain") {
+    return fmtNum(player?.variancePain ?? 0);
+  }
+
   const stat = getStatConfig(key);
 
   if (!stat) {
@@ -509,12 +525,15 @@ function getHallPlayers(data) {
   const players = data?.players || [];
   const totalEvents = Number(data?.events?.length ?? 0);
 
-  return players
-    .filter(player => isHallEligible(player, totalEvents))
-    .map(player => ({
-      ...player,
-      hallScore: getHallScore(player)
-    }));
+  const eligiblePlayers = players.filter(
+    player => isHallEligible(player, totalEvents)
+  );
+
+  return eligiblePlayers.map(player => ({
+    ...player,
+    hallScore: getHallScore(player, eligiblePlayers),
+    variancePain: Math.abs(Number(player?.luckIndex ?? 0))
+  }));
 }
 
 function getLeaderByRule(players, rule, customPool = null) {
@@ -694,15 +713,43 @@ function getPlayerArchetype(player) {
   return getPlayerArchetypes(player).primary;
 }
 
-function getHallScore(player) {
+function normalizeHallMetric(players, player, key, higherIsBetter = true) {
+  const values = players
+    .map(item => Number(item?.[key] ?? 0))
+    .filter(value => !Number.isNaN(value));
+
+  if (!values.length) return 0;
+
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+
+  if (max === min) return 100;
+
+  const value = Number(player?.[key] ?? 0);
+
+  const normalized = higherIsBetter
+    ? ((value - min) / (max - min)) * 100
+    : ((max - value) / (max - min)) * 100;
+
+  return Math.max(0, Math.min(100, normalized));
+}
+
+
+function getHallScore(player, players = []) {
   if (!player) return 0;
 
+  const profit = normalizeHallMetric(players, player, "profit");
+  const roi = normalizeHallMetric(players, player, "roi");
+  const cashRate = normalizeHallMetric(players, player, "cashRate");
+  const skill = normalizeHallMetric(players, player, "trueSkillScore");
+  const longevity = Math.min((Number(player.buyIns ?? 0) / 25) * 100, 100);
+
   return (
-    (Number(player?.profit ?? 0) * 0.30) +
-    (Number(player?.roi ?? 0) * 1000 * 0.25) +
-    (Number(player?.cashRate ?? 0) * 100 * 0.20) +
-    (Number(player?.trueSkillScore ?? 0) * 0.15) +
-    (Number(player?.buyIns ?? 0) * 0.10)
+    (profit * 0.30) +
+    (roi * 0.25) +
+    (cashRate * 0.20) +
+    (skill * 0.15) +
+    (longevity * 0.10)
   );
 }
 
@@ -3407,7 +3454,7 @@ function renderHall(data) {
         player,
         rule.title,
         rule.icon,
-        formatStatValue(player, rule.key),
+        `${rule.displayLabel}: ${formatStatValue(player, rule.key)}${rule.suffix || ""}`,
         false,
         rule.key === "profit"
           ? statValueClass(player, "profit")
@@ -3424,7 +3471,7 @@ function renderHall(data) {
         player,
         rule.title,
         rule.icon,
-        formatStatValue(player, rule.key),
+        `${rule.displayLabel}: ${formatStatValue(player, rule.key)}${rule.suffix || ""}`,
         false,
         rule.key === "profit"
           ? statValueClass(player, "profit")
