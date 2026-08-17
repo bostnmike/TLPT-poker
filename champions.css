@@ -74,22 +74,25 @@
 
   position:absolute;
 
-  top:-80px;
+  top:-110px;
   left:50%;
 
-  width:220px;
-  height:220px;
+  width:300px;
+  height:300px;
 
   transform:translateX(-50%);
 
   background:
     radial-gradient(
       circle,
-      rgba(255,215,100,.35),
+      rgba(255,215,100,.28),
+      rgba(255,215,100,.08) 35%,
       transparent 70%
     );
 
   pointer-events:none;
+
+  z-index:1;
 
 }
 
@@ -106,9 +109,15 @@
 
   border-radius:14px;
 
-  border:1px solid rgba(255,255,255,.08);
+  border:1px solid rgba(255,215,100,.18);
+
+  box-shadow:
+    inset 0 0 18px rgba(255,215,100,.08),
+    inset 0 1px 0 rgba(255,255,255,.10);
 
   pointer-events:none;
+
+  z-index:3;
 
 }
 
@@ -173,7 +182,7 @@
 
   position:relative;
 
-  z-index:2;
+  z-index:4;
 
   display:flex;
 
@@ -232,7 +241,7 @@
 
   position:relative;
 
-  z-index:2;
+  z-index:4;
 
   text-align:center;
 
@@ -275,7 +284,7 @@
   left:20px;
   right:20px;
 
-  z-index:2;
+  z-index:4;
 
   text-align:center;
 
@@ -372,5 +381,19 @@
     opacity:1;
     transform:translateX(-50%) scale(1.08);
   }
+
+}
+
+.honors-card:hover {
+
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 25px 55px rgba(0,0,0,.55),
+    0 0 30px rgba(255,184,28,.12);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 
 }
