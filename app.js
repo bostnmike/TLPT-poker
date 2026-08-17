@@ -2274,14 +2274,50 @@ function renderLeagueSnapshot(data) {
     players.reduce((sum, p) => sum + (Number(p.roi) || 0), 0) /
     Math.max(players.length, 1);
 
-    const cards = [
-  { icon:"👥", label:"Players", value:players.length, className:"snapshot-purple", href:"players.html" },
-  { icon:"🎟️", label:"Entries", value:totalEntries, className:"snapshot-silver", href:"dashboard.html" },
-  { icon:"♻️", label:"Rebuys", value:totalRebuys, className:"snapshot-blue", href:"dashboard.html" },
-  { icon:"💥", label:"Knockouts", value:totalHits, className:"snapshot-yellow", href:"dashboard.html" },
-  { icon:"💰", label:"Total Entry Fees", value:fmtMoney(totalEntryFees), className:"snapshot-green", href:"dashboard.html" },
-  { icon:"📈", label:"Avg ROI", value:fmtPct(avgROI), className:"snapshot-red", href:"standings.html" }
-];
+  const cards = [
+    {
+      icon:"👥",
+      label:"Players Recorded",
+      value:players.length,
+      className:"snapshot-purple",
+      href:"players.html"
+    },
+    {
+      icon:"🎟️",
+      label:"Entries",
+      value:totalEntries,
+      className:"snapshot-silver",
+      href:"dashboard.html"
+    },
+    {
+      icon:"♻️",
+      label:"Rebuys",
+      value:totalRebuys,
+      className:"snapshot-blue",
+      href:"dashboard.html"
+    },
+    {
+      icon:"💥",
+      label:"Knockouts",
+      value:totalHits,
+      className:"snapshot-yellow",
+      href:"dashboard.html"
+    },
+    {
+      icon:"💰",
+      label:"Total Entry Fees",
+      value:fmtMoney(totalEntryFees),
+      className:"snapshot-green",
+      href:"dashboard.html"
+    },
+    {
+      icon:"📈",
+      label:"Avg ROI",
+      value:fmtPct(avgROI),
+      className:"snapshot-red",
+      href:"standings.html"
+    }
+  ];
 
 container.innerHTML = cards.map(card => `
   <a class="snapshot-card ${card.className}" href="${card.href}">
