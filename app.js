@@ -30,6 +30,13 @@ const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "profit";
 const SHOW_HOME_COMMISSIONER_REPORT = false;
 
+/*
+ * Crew-page qualification:
+ * A player must have played at least 3 separate tournaments.
+ * buyIns counts initial tournament entries; rebuys do not count.
+ */
+const CREW_MIN_BUY_INS = 3;
+
 let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
@@ -419,6 +426,14 @@ function getEligiblePlayers(players) {
   return (players || []).filter(player => Number(player?.entries ?? 0) >= 5);
 }
 
+/*
+ * Crew eligibility is intentionally separate from the broader site leader
+ * qualification rule above.
+ */
+function isCrewEligible(player) {
+  return Number(player?.buyIns ?? 0) >= CREW_MIN_BUY_INS;
+}
+
 function getLeaderByRule(players, rule) {
   if (!rule || !rule.key) return null;
 
@@ -597,7 +612,11 @@ function getPlayerArchetype(player) {
 function getPlayerTierScore(player) {
   if (!player) return -999;
 
-  const entries = Number(player?.entries ?? 0);
+  /*
+   * Use buyIns for sample size because buyIns represent separate tournament
+   * appearances. Rebuys are handled independently by the rebuy penalty.
+   */
+  const buyIns = Number(player?.buyIns ?? 0);
   const rebuys = Number(player?.rebuys ?? 0);
   const trueSkill = Number(player?.trueSkillScore ?? 0);
   const clutch = Number(player?.clutchIndex ?? 0);
@@ -606,11 +625,24 @@ function getPlayerTierScore(player) {
   const composure = Number(player?.tiltIndex ?? 0);
 
   let sampleBonus = 0;
-  if (entries >= 20) sampleBonus = 3.0;
-  else if (entries >= 15) sampleBonus = 2.0;
-  else if (entries >= 10) sampleBonus = 1.0;
-  else if (entries >= 5) sampleBonus = 0.25;
-  else sampleBonus = -2.0;
+
+  if (buyIns >= 20) {
+    sampleBonus = 3.0;
+  } else if (buyIns >= 15) {
+    sampleBonus = 2.0;
+  } else if (buyIns >= 10) {
+    sampleBonus = 1.0;
+  } else if (buyIns >= 5) {
+    sampleBonus = 0.25;
+  } else if (buyIns >= CREW_MIN_BUY_INS) {
+    /*
+     * Players with 3–4 separate appearances qualify for the Crew, but do not
+     * yet receive the established-sample bonus.
+     */
+    sampleBonus = 0;
+  } else {
+    sampleBonus = -2.0;
+  }
 
   const rebuyPenalty = rebuys * 0.6;
 
@@ -788,7 +820,7 @@ function getPlayerTier(player, allPlayers = []) {
     };
   }
 
-  const eligiblePlayers = (allPlayers || []).filter(p => Number(p?.entries ?? 0) >= 5);
+  const eligiblePlayers = (allPlayers || []).filter(isCrewEligible);
   const ranked = [...eligiblePlayers].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
   const index = ranked.findIndex(p => p.name === player.name);
   const rank = index >= 0 ? index + 1 : ranked.length + 1;
@@ -2618,7 +2650,7 @@ function renderPlayers(data) {
   if (!grid || !data?.players) return;
 
   const eligiblePlayers = [...data.players]
-    .filter(player => Number(player?.entries ?? 0) >= 5)
+    .filter(isCrewEligible)
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
 
   if (currentCrewView === "archetype") {
