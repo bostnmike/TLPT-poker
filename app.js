@@ -434,10 +434,12 @@ function isCrewEligible(player) {
   return Number(player?.buyIns ?? 0) >= CREW_MIN_BUY_INS;
 }
 
-function getLeaderByRule(players, rule) {
+function getLeaderByRule(players, rule, customPool = null) {
   if (!rule || !rule.key) return null;
 
-  const eligiblePlayers = getEligiblePlayers(players);
+  const eligiblePlayers = Array.isArray(customPool)
+    ? customPool
+    : getEligiblePlayers(players);
   if (!eligiblePlayers.length) return null;
 
   const sorted = [...eligiblePlayers].sort((a, b) => {
@@ -2021,22 +2023,73 @@ if (eventsEl) {
   }
 
   const allPlayers = data?.players || [];
-  const qualifiedPlayers = allPlayers.filter(player => Number(player?.entries ?? 0) >= 5);
+  const qualifiedPlayers = allPlayers.filter(isCrewEligible);
 
-  const leaderStrip = document.getElementById("home-leader-strip");
-  if (leaderStrip) {
-    const profitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(allPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(allPlayers, HONOR_RULES["Clutch Leader"]);
-    const hitLeader = getLeaderByRule(allPlayers, HONOR_RULES["Hit King"]);
+const leaderStrip = document.getElementById("home-leader-strip");
 
-    leaderStrip.innerHTML = [
-      buildHomeStripCard("Profit Leader", "💰", profitLeader, profitLeader ? fmtMoney(profitLeader.profit) : "", profitLeader ? statValueClass(profitLeader, "profit") : ""),
-      buildHomeStripCard("Power Leader", "💪🏼", powerLeader, powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""),
-      buildHomeStripCard("Clutch Leader", "🎯", clutchLeader, clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""),
-      buildHomeStripCard("Knockout King", "💥", hitLeader, hitLeader ? String(hitLeader.hits) : "")
-    ].join("");
-  }
+if (leaderStrip) {
+  /*
+   * Home page leader cards follow Crew qualification:
+   * 3 separate tournament appearances.
+   * Rebuys do not count.
+   */
+  const crewLeaderPool = allPlayers.filter(isCrewEligible);
+
+  const profitLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Profit Leader"],
+    crewLeaderPool
+  );
+
+  const powerLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Power Leader"],
+    crewLeaderPool
+  );
+
+  const clutchLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Clutch Leader"],
+    crewLeaderPool
+  );
+
+  const hitLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Hit King"],
+    crewLeaderPool
+  );
+
+  leaderStrip.innerHTML = [
+    buildHomeStripCard(
+      "Profit Leader",
+      "💰",
+      profitLeader,
+      profitLeader ? fmtMoney(profitLeader.profit) : "",
+      profitLeader ? statValueClass(profitLeader, "profit") : ""
+    ),
+
+    buildHomeStripCard(
+      "Power Leader",
+      "💪🏼",
+      powerLeader,
+      powerLeader ? fmtNum(powerLeader.trueSkillScore) : ""
+    ),
+
+    buildHomeStripCard(
+      "Clutch Leader",
+      "🎯",
+      clutchLeader,
+      clutchLeader ? fmtNum(clutchLeader.clutchIndex) : ""
+    ),
+
+    buildHomeStripCard(
+      "Knockout King",
+      "💥",
+      hitLeader,
+      hitLeader ? String(hitLeader.hits) : ""
+    )
+  ].join("");
+}
 
   const badgeCluster = document.getElementById("home-badge-cluster");
   if (badgeCluster) {
