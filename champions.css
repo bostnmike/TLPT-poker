@@ -132,6 +132,40 @@
 
 }
 
+/* Hall Best/Worst atmosphere */
+
+#hall-bests .honors-card {
+
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(255,215,100,.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(34,197,94,.12),
+      rgba(10,15,20,.98)
+    );
+
+}
+
+
+#hall-worsts .honors-card {
+
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(239,68,68,.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(30,58,138,.14),
+      rgba(10,15,20,.98)
+    );
+
+}
 
 /* Player section */
 
@@ -162,6 +196,14 @@
   width:105px;
   height:105px;
 
+  border-radius:50%;
+
+  border:3px solid rgba(255,215,100,.65);
+
+  box-shadow:
+    0 0 0 6px rgba(255,184,28,.08),
+    0 12px 30px rgba(0,0,0,.55);
+
 }
 
 
@@ -169,7 +211,7 @@
 
 .honors-player-name {
 
-  font-size:1.6rem;
+  font-size:1.75rem;
 
   font-weight:950;
 
@@ -177,8 +219,12 @@
 
   text-align:center;
 
-}
+  letter-spacing:.02em;
 
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.65);
+
+}
 
 /* Title */
 
@@ -202,15 +248,18 @@
 
 .leader-banner-title {
 
-  font-size:1rem;
+  font-size:1.05rem;
 
-  letter-spacing:.14em;
+  letter-spacing:.18em;
 
   text-transform:uppercase;
 
-  font-weight:900;
+  font-weight:950;
 
   color:var(--gold);
+
+  text-shadow:
+    0 0 12px rgba(255,184,28,.35);
 
 }
 
@@ -241,12 +290,16 @@
 
 .honors-card-value--numeric {
 
-  font-size:3rem;
+  font-size:3.4rem;
 
-  color:var(--gold);
+  color:#ffd76a;
+
+  letter-spacing:.03em;
 
   text-shadow:
-    0 0 20px rgba(255,184,28,.35);
+
+    0 0 10px rgba(255,215,100,.65),
+    0 0 35px rgba(255,184,28,.35);
 
 }
 
@@ -272,6 +325,52 @@
 
     grid-template-columns:1fr;
 
+  }
+
+}
+
+/* =========================================
+   Hall Museum Environment
+   ========================================= */
+
+.honors-page-shell {
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255,184,28,.08),
+      transparent 55%
+    );
+
+}
+
+/* =========================================
+   HALL MUSEUM PLAQUE ENHANCEMENTS
+   ========================================= */
+
+
+/* Display case glow */
+.honors-card {
+  isolation: isolate;
+}
+
+
+/* Spotlight halo */
+.honors-card::before {
+  animation: hallSpotlight 6s ease-in-out infinite alternate;
+}
+
+
+@keyframes hallSpotlight {
+
+  from {
+    opacity:.65;
+    transform:translateX(-50%) scale(.95);
+  }
+
+  to {
+    opacity:1;
+    transform:translateX(-50%) scale(1.08);
   }
 
 }
