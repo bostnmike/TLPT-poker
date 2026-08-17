@@ -2562,5 +2562,37 @@
       "sourceVictim": "PhattedCalf",
       "sourceKiller": "Chris O"
     }
+  ],
+  "2026-08-16": [
+    {
+      "victim": "nasa-al",
+      "killer": "dan-k",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Dan K"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "dan-k",
+      "killer": "nasa-al",
+      "sourceVictim": "Dan K",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "cougar",
+      "killer": "ahmed",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "ahmed",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Ahmed"
+    }
   ]
 }
