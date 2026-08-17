@@ -2091,14 +2091,23 @@ if (leaderStrip) {
   ].join("");
 }
 
-  const badgeCluster = document.getElementById("home-badge-cluster");
-  if (badgeCluster) {
-    const badges = HOME_BADGE_CONFIG.map(config => {
-      const leader = getLeaderByRule(qualifiedPlayers, HONOR_RULES[config.rule]);
-      return leader ? buildHomeBadgeCard(config, leader) : "";
-    }).join("");
-    badgeCluster.innerHTML = badges;
-  }
+const badgeCluster = document.getElementById("home-badge-cluster");
+
+if (badgeCluster) {
+  const crewBadgePool = allPlayers.filter(isCrewEligible);
+
+  const badges = HOME_BADGE_CONFIG.map(config => {
+    const leader = getLeaderByRule(
+      allPlayers,
+      HONOR_RULES[config.rule],
+      crewBadgePool
+    );
+
+    return leader ? buildHomeBadgeCard(config, leader) : "";
+  }).join("");
+
+  badgeCluster.innerHTML = badges;
+}
 
   /*
   * Keep the home ticker aligned with Crew-page eligibility:
@@ -2140,11 +2149,31 @@ wireHomeFormulaReveal();
 
   const insightsGrid = document.getElementById("home-insights-grid");
   if (insightsGrid) {
-    const profitLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Profit Leader"]);
-    const powerLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Power Leader"]);
-    const clutchLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Clutch Leader"]);
-    const hitLeader = getLeaderByRule(qualifiedPlayers, HONOR_RULES["Hit King"]);
+  const crewInsightPool = allPlayers.filter(isCrewEligible);
 
+  const profitLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Profit Leader"],
+    crewInsightPool
+  );
+
+  const powerLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Power Leader"],
+    crewInsightPool
+  );
+
+  const clutchLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Clutch Leader"],
+    crewInsightPool
+  );
+
+  const hitLeader = getLeaderByRule(
+    allPlayers,
+    HONOR_RULES["Hit King"],
+    crewInsightPool
+  );
     insightsGrid.innerHTML = [
       profitLeader ? buildHomeInsightCard(
         "Profit Leader",
