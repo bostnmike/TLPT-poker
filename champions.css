@@ -1,95 +1,157 @@
 /* =========================================
    TLPT HALL OF FAME / INFAMY
-   champions.css
    ========================================= */
 
 
-/* Main Hall containers */
+/* Section headers */
 
-#hall-bests,
-#hall-worsts {
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:18px;
-  align-items:stretch;
-}
-
-
-/* Hall card shell */
-
-.honors-card {
-  position:relative;
-  overflow:hidden;
-  min-height:260px;
-  padding:18px;
-  border-radius:18px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.06),
-      rgba(255,255,255,.015)
-    ),
-    var(--panel);
-
-  border:1px solid var(--line);
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.25);
-}
-
-
-/* Bests = gold/green Hall treatment */
-
-#hall-bests .honors-card {
-
-  border-color:
-    rgba(255,184,28,.35);
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(255,184,28,.18),
-      transparent 34%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(34,197,94,.08),
-      rgba(17,22,30,.98)
-    );
-}
-
-
-/* Worsts = red/blue infamy treatment */
-
-#hall-worsts .honors-card {
-
-  border-color:
-    rgba(239,68,68,.35);
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(239,68,68,.16),
-      transparent 34%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(59,130,246,.08),
-      rgba(17,22,30,.98)
-    );
-}
-
-
-/* Card headers */
-
-.honors-card-top {
+.hall-section-title {
 
   display:flex;
   align-items:center;
   gap:14px;
 
-  margin-bottom:16px;
+}
+
+
+.hall-section-icon {
+
+  font-size:3rem;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255,184,28,.45));
+
+}
+
+
+/* Main grids */
+
+#hall-bests,
+#hall-worsts {
+
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:22px;
+
+}
+
+
+/* Plaque */
+
+.honors-card {
+
+  position:relative;
+
+  min-height:310px;
+
+  padding:24px;
+
+  overflow:hidden;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.08),
+      rgba(10,15,20,.96)
+    );
+
+  border:1px solid rgba(255,184,28,.25);
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+}
+
+
+/* Gallery spotlight */
+
+.honors-card::before {
+
+  content:"";
+
+  position:absolute;
+
+  top:-80px;
+  left:50%;
+
+  width:220px;
+  height:220px;
+
+  transform:translateX(-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,215,100,.35),
+      transparent 70%
+    );
+
+  pointer-events:none;
+
+}
+
+
+/* Inner engraving */
+
+.honors-card::after {
+
+  content:"";
+
+  position:absolute;
+
+  inset:12px;
+
+  border-radius:14px;
+
+  border:1px solid rgba(255,255,255,.08);
+
+  pointer-events:none;
+
+}
+
+
+/* Bests */
+
+#hall-bests .honors-card {
+
+  border-color:
+    rgba(255,184,28,.55);
+
+}
+
+
+/* Worsts */
+
+#hall-worsts .honors-card {
+
+  border-color:
+    rgba(239,68,68,.45);
+
+}
+
+
+/* Player section */
+
+.honors-card-top {
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:14px;
+
+  margin-top:25px;
 
 }
 
@@ -97,51 +159,94 @@
 .honors-card-top .player-avatar,
 .honors-card-top .player-avatar-fallback {
 
-  width:86px;
-  height:86px;
+  width:105px;
+  height:105px;
 
 }
 
 
-/* Player name */
+/* Names */
 
 .honors-player-name {
 
-  font-size:1.35rem;
-  font-weight:900;
+  font-size:1.6rem;
+
+  font-weight:950;
+
   color:#fff;
+
+  text-align:center;
 
 }
 
 
-/* Award title */
+/* Title */
 
-.honors-card-label {
+.leader-banner-top {
 
-  display:block;
+  position:relative;
 
-  margin-bottom:10px;
+  z-index:2;
 
-  font-size:.82rem;
-  font-weight:900;
-  letter-spacing:.08em;
+  text-align:center;
+
+}
+
+
+.leader-banner-crown {
+
+  display:none;
+
+}
+
+
+.leader-banner-title {
+
+  font-size:1rem;
+
+  letter-spacing:.14em;
+
   text-transform:uppercase;
+
+  font-weight:900;
 
   color:var(--gold);
 
 }
 
 
-/* Value */
+/* Big museum number */
+
+.honors-card-value {
+
+  position:absolute;
+
+  bottom:30px;
+
+  left:20px;
+  right:20px;
+
+  z-index:2;
+
+  text-align:center;
+
+  font-size:1.15rem;
+
+  font-weight:900;
+
+  color:#f8fafc;
+
+}
+
 
 .honors-card-value--numeric {
 
-  margin-top:auto;
+  font-size:3rem;
 
-  font-size:2rem;
-  font-weight:900;
+  color:var(--gold);
 
-  text-align:center;
+  text-shadow:
+    0 0 20px rgba(255,184,28,.35);
 
 }
 
