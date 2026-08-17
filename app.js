@@ -2040,10 +2040,16 @@ if (eventsEl) {
     badgeCluster.innerHTML = badges;
   }
 
+  /*
+  * Keep the home ticker aligned with Crew-page eligibility:
+  * 3 separate tournament appearances; rebuys do not count.
+  */
+  const tickerPlayers = allPlayers.filter(isCrewEligible);
   const ticker = document.getElementById("league-ticker-text");
-  if (ticker && qualifiedPlayers.length) {
+
+  if (ticker && tickerPlayers.length) {
     const tickerItems = STAT_LEADER_CONFIG.map(stat => {
-      const leader = sortPlayers(qualifiedPlayers, stat.key)[0];
+      const leader = sortPlayers(tickerPlayers, stat.key)[0];
       if (!leader) return "";
       const statConfig = getStatConfig(stat.key);
       const icon = statConfig?.icon || "🏅";
@@ -2058,7 +2064,7 @@ if (eventsEl) {
         ${tickerItems}
       </div>
     `;
-  }
+    }
 
     const archetypeGuide = document.getElementById("home-archetype-guide");
     if (archetypeGuide) {
