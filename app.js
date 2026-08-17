@@ -917,13 +917,22 @@ function badgeMetaFromLabel(label) {
   return { rarity: "common", tone: "slate" };
 }
 
-function badgeList(player, data) {
-  const players = data?.players || [];
+function badgeList(player, data, comparisonPlayers = null) {
+  const hasCustomPool = Array.isArray(comparisonPlayers);
+  const players = hasCustomPool
+    ? comparisonPlayers
+    : (data?.players || []);
+
   if (!players.length) return [];
 
-  const eligiblePlayers = getEligiblePlayers(players);
-  const badgePool = eligiblePlayers.length ? eligiblePlayers : players;
+  const eligiblePlayers = hasCustomPool
+    ? players
+    : getEligiblePlayers(players);
 
+  const badgePool = eligiblePlayers.length
+    ? eligiblePlayers
+    : players;
+  
   const topProfit = sortPlayers(badgePool, "profit")[0]?.name;
   const topPower = sortPlayers(badgePool, "trueSkillScore")[0]?.name;
   const topClutch = sortPlayers(badgePool, "clutchIndex")[0]?.name;
@@ -959,10 +968,10 @@ function badgeList(player, data) {
   return badges;
 }
 
-function badgesMarkup(player, data) {
-  const badges = badgeList(player, data);
+function badgesMarkup(player, data, comparisonPlayers = null) {
+  const badges = badgeList(player, data, comparisonPlayers);
   if (!badges.length) return "";
-
+  
   return `
     <div class="button-row stat-leader-badges">
       ${badges.map(badge => `
@@ -2386,7 +2395,14 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
 }
 
 function crewCardMarkup(player, data, tierPlayers = []) {
+  /*
+   * Crew-page badges must be awarded only among players who qualify
+   * for the Crew page: at least 3 separate tournament appearances.
+   */
+  const crewBadgePool = (data?.players || []).filter(isCrewEligible);
+
   const tier = getPlayerTier(player, data?.players || []);
+  
   const tierRank = [...tierPlayers]
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
     .findIndex(p => p.name === player.name) + 1;
@@ -2422,7 +2438,7 @@ function crewCardMarkup(player, data, tierPlayers = []) {
         <p class="muted"><strong>Hits:</strong> ${player.hits ?? "-"}</p>
         <p class="muted"><strong>Cashes:</strong> ${player.timesPlaced ?? "-"}</p>
         <p class="muted"><strong>Bubble Rate:</strong> ${fmtPct(player.bubbleRate)}</p>
-        ${badgesMarkup(player, data)}
+        ${badgesMarkup(player, data, crewBadgePool)}
       </div>
     </a>
   `;
