@@ -1,0 +1,172 @@
+/* =========================================
+   TLPT HALL OF FAME / INFAMY
+   champions.css
+   ========================================= */
+
+
+/* Main Hall containers */
+
+#hall-bests,
+#hall-worsts {
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:18px;
+  align-items:stretch;
+}
+
+
+/* Hall card shell */
+
+.honors-card {
+  position:relative;
+  overflow:hidden;
+  min-height:260px;
+  padding:18px;
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.015)
+    ),
+    var(--panel);
+
+  border:1px solid var(--line);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.25);
+}
+
+
+/* Bests = gold/green Hall treatment */
+
+#hall-bests .honors-card {
+
+  border-color:
+    rgba(255,184,28,.35);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255,184,28,.18),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(34,197,94,.08),
+      rgba(17,22,30,.98)
+    );
+}
+
+
+/* Worsts = red/blue infamy treatment */
+
+#hall-worsts .honors-card {
+
+  border-color:
+    rgba(239,68,68,.35);
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(239,68,68,.16),
+      transparent 34%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(59,130,246,.08),
+      rgba(17,22,30,.98)
+    );
+}
+
+
+/* Card headers */
+
+.honors-card-top {
+
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin-bottom:16px;
+
+}
+
+
+.honors-card-top .player-avatar,
+.honors-card-top .player-avatar-fallback {
+
+  width:86px;
+  height:86px;
+
+}
+
+
+/* Player name */
+
+.honors-player-name {
+
+  font-size:1.35rem;
+  font-weight:900;
+  color:#fff;
+
+}
+
+
+/* Award title */
+
+.honors-card-label {
+
+  display:block;
+
+  margin-bottom:10px;
+
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  color:var(--gold);
+
+}
+
+
+/* Value */
+
+.honors-card-value--numeric {
+
+  margin-top:auto;
+
+  font-size:2rem;
+  font-weight:900;
+
+  text-align:center;
+
+}
+
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+  #hall-bests,
+  #hall-worsts {
+
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+  }
+
+}
+
+
+@media(max-width:650px){
+
+  #hall-bests,
+  #hall-worsts {
+
+    grid-template-columns:1fr;
+
+  }
+
+}
