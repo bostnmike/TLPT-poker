@@ -820,6 +820,14 @@ function getPlayerTier(player, allPlayers = []) {
     };
   }
 
+  if (!isCrewEligible(player)) {
+    return {
+      emoji: "⏳",
+      name: "Not Yet Qualified",
+      desc: "needs 3 separate tournament appearances before entering the Crew rankings"
+    };
+  }
+
   const eligiblePlayers = (allPlayers || []).filter(isCrewEligible);
   const ranked = [...eligiblePlayers].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
   const index = ranked.findIndex(p => p.name === player.name);
@@ -2153,7 +2161,12 @@ function getFeaturedPlayer(data) {
   const players = (data?.players || []).filter(Boolean);
   if (!players.length) return null;
 
-  const eligible = players.filter(player => Number(player?.entries ?? 0) >= 5);
+  /*
+   * Featured Player should use the same qualification standard
+   * as Crew: 3 separate tournament appearances.
+   */
+  const eligible = players.filter(isCrewEligible);
+
   const pool = eligible.length ? eligible : players;
 
   const rotationWindowMs = 12 * 60 * 60 * 1000;
@@ -2169,7 +2182,9 @@ function buildFeaturedPlayerCard(player, data) {
   const primaryArchetype = archetypes.primary;
   const secondaryArchetype = archetypes.secondary;
   const tier = getPlayerTier(player, data?.players || []);
-  const badges = badgeList(player, data).slice(0, 3);
+
+  const crewBadgePool = (data?.players || []).filter(isCrewEligible);
+  const badges = badgeList(player, data, crewBadgePool).slice(0, 3);
   const quote = ensureQuoted(player?.notes || "");
 
   return `
@@ -2979,7 +2994,11 @@ function renderPlayerProfile(data) {
             <span class="profile-line-desc">— ${tier.desc}</span>
           </div>
           
-          ${badgesMarkup(player, data)}
+          ${badgesMarkup(
+            player,
+            data,
+            (data?.players || []).filter(isCrewEligible)
+          )}
           
         </div>
       </div>
