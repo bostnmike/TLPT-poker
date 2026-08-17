@@ -204,9 +204,10 @@ const HALL_RULES = {
     {
       title: "The Variance Victim",
       icon: "🫠",
-      description: "Biggest gap between results and expectation.",
-      displayLabel: "Variance Pain Score",
+      description: "The largest gap between results and expected outcomes.",
+      displayLabel: "Variance Pain",
       key: "variancePain",
+      suffix: " pts",
       direction: "desc"
     },
     {
