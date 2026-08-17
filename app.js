@@ -37,6 +37,14 @@ const SHOW_HOME_COMMISSIONER_REPORT = false;
  */
 const CREW_MIN_BUY_INS = 3;
 
+/*
+ * Hall of Fame qualification:
+ * Players must have participated in 25% of TLPT history.
+ * Minimum floor prevents the Hall from becoming too easy early.
+ */
+const HALL_PERCENTAGE = 0.25;
+const HALL_MIN_EVENTS = 10;
+
 let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
@@ -153,6 +161,56 @@ const HONOR_RULES = {
   "Clutch Leader": { key: "clutchIndex", direction: "desc" },
   "Hit King": { key: "hits", direction: "desc" },
   "Bubble King": { key: "bubbles", direction: "desc" }
+};
+
+const HALL_RULES = {
+  bests: [
+    {
+      title: "The Money Machine",
+      icon: "💰",
+      description: "Most career profit among Hall-qualified players.",
+      key: "profit",
+      direction: "desc"
+    },
+    {
+      title: "The Complete Player",
+      icon: "🧠",
+      description: "Best overall career performance.",
+      key: "hallScore",
+      direction: "desc"
+    },
+    {
+      title: "The Killer",
+      icon: "💥",
+      description: "Most career knockouts.",
+      key: "hits",
+      direction: "desc"
+    }
+  ],
+
+  worsts: [
+    {
+      title: "The Donation Machine",
+      icon: "💸",
+      description: "Largest career loss.",
+      key: "profit",
+      direction: "asc"
+    },
+    {
+      title: "The Variance Victim",
+      icon: "🫠",
+      description: "Lowest luck index.",
+      key: "luckIndex",
+      direction: "asc"
+    },
+    {
+      title: "The Bubble Prisoner",
+      icon: "🫧",
+      description: "Most career bubbles.",
+      key: "bubbles",
+      direction: "desc"
+    }
+  ]
 };
 
 const RECORD_RULES = {
@@ -434,6 +492,31 @@ function isCrewEligible(player) {
   return Number(player?.buyIns ?? 0) >= CREW_MIN_BUY_INS;
 }
 
+/*
+ * Hall qualification:
+ * Uses separate tournament appearances, not entries.
+ */
+function isHallEligible(player, totalEvents = 0) {
+  const minimumEvents = Math.max(
+    Math.ceil(totalEvents * HALL_PERCENTAGE),
+    HALL_MIN_EVENTS
+  );
+
+  return Number(player?.buyIns ?? 0) >= minimumEvents;
+}
+
+function getHallPlayers(data) {
+  const players = data?.players || [];
+  const totalEvents = Number(data?.events?.length ?? 0);
+
+  return players
+    .filter(player => isHallEligible(player, totalEvents))
+    .map(player => ({
+      ...player,
+      hallScore: getHallScore(player)
+    }));
+}
+
 function getLeaderByRule(players, rule, customPool = null) {
   if (!rule || !rule.key) return null;
 
@@ -609,6 +692,18 @@ function getPlayerArchetypes(player) {
 
 function getPlayerArchetype(player) {
   return getPlayerArchetypes(player).primary;
+}
+
+function getHallScore(player) {
+  if (!player) return 0;
+
+  return (
+    (Number(player?.profit ?? 0) * 0.30) +
+    (Number(player?.roi ?? 0) * 1000 * 0.25) +
+    (Number(player?.cashRate ?? 0) * 100 * 0.20) +
+    (Number(player?.trueSkillScore ?? 0) * 0.15) +
+    (Number(player?.buyIns ?? 0) * 0.10)
+  );
 }
 
 function getPlayerTierScore(player) {
@@ -3285,6 +3380,60 @@ function getBalancedHonorsSections(data) {
   };
 }
 
+function renderHall(data) {
+  const players = getHallPlayers(data);
+
+  const bestsEl = document.getElementById("hall-bests");
+  const worstsEl = document.getElementById("hall-worsts");
+
+  if (!players.length) return;
+
+  function findHallLeader(rule) {
+    return [...players].sort((a, b) => {
+      const aVal = Number(a?.[rule.key] ?? 0);
+      const bVal = Number(b?.[rule.key] ?? 0);
+
+      return rule.direction === "asc"
+        ? aVal - bVal
+        : bVal - aVal;
+    })[0];
+  }
+
+  if (bestsEl) {
+    bestsEl.innerHTML = HALL_RULES.bests.map(rule => {
+      const player = findHallLeader(rule);
+
+      return honorsCardMarkup(
+        player,
+        rule.title,
+        rule.icon,
+        formatStatValue(player, rule.key),
+        false,
+        rule.key === "profit"
+          ? statValueClass(player, "profit")
+          : ""
+      );
+    }).join("");
+  }
+
+  if (worstsEl) {
+    worstsEl.innerHTML = HALL_RULES.worsts.map(rule => {
+      const player = findHallLeader(rule);
+
+      return honorsCardMarkup(
+        player,
+        rule.title,
+        rule.icon,
+        formatStatValue(player, rule.key),
+        false,
+        rule.key === "profit"
+          ? statValueClass(player, "profit")
+          : ""
+      );
+    }).join("");
+  }
+}
+
 function renderChampions(data) {
   const players = data?.players || [];
   const honorsEl = document.getElementById("champions-list");
@@ -3759,9 +3908,7 @@ async function main() {
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);
-  renderChampions(data);
-  renderStatLeaders(data);
-  renderHonorsSummary(data);
+  renderHall(data);
   initRulesPage();
   initSorting();
   initCrewViewToggle();
