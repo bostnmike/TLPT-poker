@@ -14,11 +14,175 @@
   },
   "weeks": [
 {
+  "id": "week-08-16-2026",
+  "date": "08/16/2026",
+  "eventName": "Raise Man | 9-Max",
+  "title": "TWTW: Raise Man | 9-Max",
+  "featured": true,
+  "dek": "Raise Man should have been the AARP Invitational: the Commish recruited an emergency veteran roster, old-school tight poker took over, and Ahmed made it four straight cashes before splitting first with the man who assembled the field.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "BostnMike / Ahmed",
+      "value": "The AARP Invitational",
+      "copy": "GM-of-the-Year recruiting built the table, then Ahmed and the Commish split first in a solver-free Sunday special.",
+      "avatars": [
+        {
+          "src": "images/players/bostnmike.jpg",
+          "alt": "BostnMike",
+          "fallback": "BM"
+        },
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "NASA Al",
+      "copy": "Dan K marked his return by sending Al out first, but the night's only rebuy put him right back in his seat.",
+      "avatar": "images/players/nasa-al.jpg",
+      "fallback": "NA"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "NASA Al came back from the rebuy desk and made Hiro the first exit that actually stuck.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killers",
+      "player": "Ahmed / NASA Al",
+      "value": "2 knockouts each",
+      "copy": "Al removed Hiro and Dan K; Ahmed later cleared Cougar and Al before the shared finish.",
+      "avatars": [
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/nasa-al.jpg",
+          "alt": "NASA Al",
+          "fallback": "NA"
+        }
+      ]
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "7"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "1"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$210"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 11m"
+    }
+  ],
+  "summary": {
+    "startTime": "4:45:35 pm 08/16/2026",
+    "endTime": "8:56:51 pm 08/16/2026",
+    "durationLabel": "4h 11m",
+    "buyIns": 6,
+    "rebuys": 1,
+    "entries": 7,
+    "totalPot": 210,
+    "paidSpots": 3,
+    "winner": "Ahmed, BostnMike",
+    "firstOut": "NASA Al",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Ahmed / BostnMike",
+    "fallback": "AB",
+    "pills": [
+      "Split First",
+      "4 Straight Cashes",
+      "GM of the Year",
+      "AARP Invitational"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/ahmed.jpg",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      },
+      {
+        "src": "images/players/bostnmike.jpg",
+        "alt": "BostnMike",
+        "fallback": "BM"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "NASA Al",
+      "note": "Dan K returned from the wilderness and immediately put his name on the first bust of the afternoon."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "NASA Al used the only rebuy, came back, and made Hiro the first permanent casualty."
+    },
+    {
+      "label": "Table Killers",
+      "value": "Ahmed / NASA Al",
+      "note": "Two each: Al took Hiro and Dan K; Ahmed handled Cougar and Al in the closing stretch."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed / BostnMike split first",
+      "note": "NASA Al took third, and the final two shared the top line rather than forcing one more exit."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-16.jpg\" alt=\"Poster for the 08/16/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Raise Man - should have been renamed the AARP Invitational. With half the regular roster unavailable, BostnMike spent the week working the phones like a GM at the trade deadline just to get six bodies into chairs. The result was less youth movement than alumni game: the average age was well into the 50s, AARP may as well have had the naming rights, no solver charts were invited, and old-school tight poker ruled the afternoon. A three-bet practically needed supporting documentation.</p><p>Ahmed has now reached the point where \"quietly cashing\" is false advertising. Four straight games in the money, and this time he handled the late paperwork himself: Cougar out, NASA Al next, then a split first with BostnMike. At this point Ahmed does not need a solver. He needs a reserved parking spot at the payout window.</p><p>The alumni department even produced Dan K, back after a lengthy absence and immediately useful. He busted NASA Al first, Al used the only rebuy of the entire game, then came back and eliminated Hiro and Dan K. It was old-school survival poker in its purest form: protect the stack, wait for a real hand, make the other guy prove he has it, and only then consider getting reckless sometime before the early-bird special expires.</p><p>By the time the table reached three-handed, the AARP Invitational had reduced itself to Al, Ahmed, and the commissioner who had assembled the roster in the first place. Ahmed removed Al, then he and BostnMike split first. So the final accounting was perfect: the Commish found the players, Ahmed found the payout window for the fourth straight game, and the solver never once had to be consulted.</p>",
+  "roastHtml": "<p>BostnMike spent the week begging enough veterans to come out and play, then had the nerve to take half of first himself. That is not hosting a poker game. That is building the roster, owning the arena, and collecting the revenue share. Vertical integration has officially reached the TLPT.</p>",
+  "numbersThatMatter": [
+    "6 buy-ins, 1 rebuy, 7 total entries.",
+    "4h 11m of play from 4:45 pm to 8:56 pm.",
+    "$210 total pot with Ahmed and BostnMike splitting first and NASA Al taking third.",
+    "Ahmed made it 4 straight cashes and took the final 2 named eliminations before the split."
+  ],
+  "quickHitsLeft": [
+    "Dan K returned after a lengthy absence and immediately busted NASA Al to draw first blood.",
+    "Al used the night's only rebuy, then eliminated Hiro and Dan K on the comeback trail.",
+    "Hiro became first gone for good in a game where almost everybody treated chips like retirement assets.",
+    "One rebuy across six players was exactly the kind of risk profile the AARP Invitational deserved."
+  ],
+  "quickHitsRight": [
+    "Ahmed's four-game cash streak is no longer quiet; it is recurring revenue.",
+    "Cougar survived deep into the evening before Ahmed started the late cleanup.",
+    "BostnMike went from emergency recruiter to co-winner, which feels suspiciously like front-office self-dealing.",
+    "The average age was well into the 50s, and the solver never got invited to the meeting."
+  ],
+  "tldr": "Raise Man should have been the AARP Invitational: BostnMike recruited a veteran-heavy table out of thin air, Dan K returned, old-school tight poker ruled, and Ahmed made it four straight cashes before splitting first with the GM who assembled the roster."
+},
+{
   "id": "week-08-07-2026",
   "date": "08/07/2026",
   "eventName": "DRAWS! | 9-Max",
   "title": "TWTW: DRAWS! | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Everybody watched the blood in the water while Chris O stayed almost invisible, then the shark finally surfaced on the last hand and took the whole thing.",
   "summaryCards": [
     {
