@@ -785,7 +785,7 @@
 }
 
 
-/* RIGHT BRANCH — exact mirror */
+/* RIGHT BRANCH â€” exact mirror */
 
 .hall-laurel-image-right {
   right:34px;
@@ -1146,21 +1146,13 @@
 
 .hall-plaque-prop {
   position:absolute;
-
   bottom:0;
-
   z-index:2;
-
   display:block;
-
   object-fit:contain;
-
   pointer-events:none;
-
   user-select:none;
-
   transform-origin:center center;
-
   filter:
     drop-shadow(
       0 8px 8px
@@ -1170,228 +1162,161 @@
 
 
 /* =========================================
-   MONEY MACHINE — COINS
+   MONEY MACHINE â€” COINS
    ========================================= */
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop {
-  width:112px;
-  height:112px;
-
-  bottom:3px;
+  width:108px;
+  height:108px;
+  bottom:5px;
 }
-
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-left {
   left:-8px;
-
   transform:none;
 }
-
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-right {
   right:-8px;
-
   transform:scaleX(-1);
 }
 
 
 /* =========================================
-   COMPLETE PLAYER — TROPHIES
+   COMPLETE PLAYER â€” TROPHIES
    ========================================= */
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-  width:94px;
-  height:94px;
-
-  bottom:7px;
+  width:90px;
+  height:90px;
+  bottom:8px;
 }
-
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
-  left:4px;
-
+  left:2px;
   transform:none;
 }
 
-
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
-  right:4px;
-
+  right:2px;
   transform:scaleX(-1);
 }
 
 
 /* =========================================
-   KILLER — BOXING GLOVES
+   KILLER â€” CLEAN SINGLE BOXING GLOVES
    ========================================= */
 
 .hall-plaque-the-killer
 .hall-plaque-prop {
-  width:124px;
-  height:124px;
-
-  bottom:0;
-
-  /*
-    IMPORTANT:
-    Put the gloves IN FRONT of the stat panel.
-    This prevents the cuff from being split into
-    that ridiculous detached white triangle.
-  */
-  z-index:4;
-}
-
-
-/*
-  Source glove:
-  head = upper-left
-  cuff = lower-right.
-
-  Concept LEFT glove needs:
-  head inward / cuff outward.
-  Therefore LEFT MUST BE MIRRORED.
-*/
-
-.hall-plaque-the-killer
-.hall-plaque-prop-left {
-  left:-25px;
-
-  transform:
-    scaleX(-1);
-}
-
-
-/*
-  Concept RIGHT glove uses the source naturally.
-*/
-
-.hall-plaque-the-killer
-.hall-plaque-prop-right {
-  right:-25px;
-
-  transform:none;
-}
-
-
-/* =========================================
-   DONATION MACHINE — FLYING MONEY
-   ========================================= */
-
-.hall-plaque-the-donation-machine
-.hall-plaque-prop {
-  width:116px;
-  height:116px;
-
-  bottom:1px;
-}
-
-
-.hall-plaque-the-donation-machine
-.hall-plaque-prop-left {
-  left:-10px;
-
-  transform:
-    rotate(-3deg);
-}
-
-
-.hall-plaque-the-donation-machine
-.hall-plaque-prop-right {
-  right:-10px;
-
-  transform:
-    scaleX(-1)
-    rotate(-3deg);
-}
-
-
-/* =========================================
-   VARIANCE VICTIM — PLAYING CARDS
-   ========================================= */
-
-.hall-plaque-the-variance-victim
-.hall-plaque-prop {
-
-  /*
-    The concept cards are LARGE.
-    They begin well above the stat plaque
-    and frame it rather than hiding behind it.
-  */
-
-  width:190px;
-  height:190px;
-
-  bottom:-7px;
-
+  width:110px;
+  height:110px;
+  bottom:6px;
   z-index:2;
 }
 
-
-/*
-  Clean upright A♥ asset.
-
-  Push the canvas outward so only the INNER
-  edge sits behind the stat plaque.
-*/
-
-.hall-plaque-the-variance-victim
+/* Left glove: mirror the clean single-glove asset
+   so the fist points inward and the cuff stays outward. */
+.hall-plaque-the-killer
 .hall-plaque-prop-left {
-  left:-52px;
-
-  transform:
-    rotate(-9deg);
+  left:-12px;
+  transform:scaleX(-1) rotate(-2deg);
 }
 
-
-/*
-  Clean upright 2♣ asset.
-  Separate asset — DO NOT MIRROR.
-*/
-
-.hall-plaque-the-variance-victim
+/* Right glove: use the clean asset naturally. */
+.hall-plaque-the-killer
 .hall-plaque-prop-right {
-  right:-52px;
-
-  transform:
-    rotate(9deg);
+  right:-12px;
+  transform:rotate(-2deg);
 }
 
 
 /* =========================================
-   BUBBLE PRISONER — BUBBLES
+   DONATION MACHINE â€” FLYING MONEY
+   ========================================= */
+
+.hall-plaque-the-donation-machine
+.hall-plaque-prop {
+  width:108px;
+  height:108px;
+  bottom:5px;
+}
+
+.hall-plaque-the-donation-machine
+.hall-plaque-prop-left {
+  left:-7px;
+  transform:rotate(-3deg);
+}
+
+.hall-plaque-the-donation-machine
+.hall-plaque-prop-right {
+  right:-7px;
+  transform:scaleX(-1) rotate(-3deg);
+}
+
+
+/* =========================================
+   VARIANCE VICTIM â€” CLEAN PLAYING CARDS
+   ========================================= */
+
+.hall-plaque-the-variance-victim
+.hall-plaque-prop {
+  /* Clean card files use square transparent canvases.
+     160px gives an on-screen card close to the approved concept
+     without overwhelming the stat plaque. */
+  width:160px;
+  height:160px;
+  bottom:0;
+  z-index:2;
+}
+
+/* Aâ™¥: bottom fans outward left, top leans inward toward the stat.
+   Positive rotation is clockwise. */
+.hall-plaque-the-variance-victim
+.hall-plaque-prop-left {
+  left:-32px;
+  transform:rotate(10deg);
+}
+
+/* 2â™£: bottom fans outward right, top leans inward.
+   Separate clean asset â€” never mirror it. */
+.hall-plaque-the-variance-victim
+.hall-plaque-prop-right {
+  right:-32px;
+  transform:rotate(-10deg);
+}
+
+
+/* =========================================
+   BUBBLE PRISONER â€” BUBBLES
    ========================================= */
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
-  width:118px;
-  height:118px;
-
-  bottom:0;
-
+  width:112px;
+  height:112px;
+  bottom:4px;
   opacity:.94;
 }
 
-
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-left {
-  left:-8px;
-
+  left:-6px;
   transform:none;
 }
 
-
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-right {
-  right:-8px;
-
+  right:-6px;
   transform:scaleX(-1);
 }
+
 /* TABLET */
 
 @media(max-width:1050px) {
