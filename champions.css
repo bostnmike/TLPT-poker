@@ -832,42 +832,6 @@
     );
 }
 
-/* BEST LAUREL */
-
-.hall-plaque--best
-.hall-laurel-stem {
-  stroke:#c99723;
-}
-
-
-.hall-plaque--best
-.hall-laurel-leaf {
-  fill:#e4b53c;
-
-  stroke:#ffdc73;
-
-  stroke-width:.7;
-}
-
-
-/* TARNISHED INFAMY LAUREL */
-
-.hall-plaque--worst
-.hall-laurel-stem {
-  stroke:#80603a;
-}
-
-
-.hall-plaque--worst
-.hall-laurel-leaf {
-  fill:#a77b43;
-
-  stroke:#caa46d;
-
-  stroke-width:.7;
-}
-
-
 /* PLAYER AVATAR */
 
 .hall-plaque-avatar {
@@ -1022,22 +986,27 @@
   position:relative;
   z-index:3;
 
-  width:
-    min(
-      72%,
-      250px
-    );
+  /*
+    Slightly narrower than before.
+    This creates a proper exhibit-prop lane
+    on each side of the stat plaque.
+  */
+  width:min(66%,230px);
 
-  min-height:98px;
+  min-height:96px;
 
-  margin-top:auto;
+  /*
+    Do NOT pin this to the absolute bottom
+    with margin-top:auto.
+  */
+  margin-top:16px;
+  margin-bottom:4px;
+
+  flex:0 0 auto;
 
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
 
   padding:
@@ -1060,23 +1029,6 @@
 
   text-align:center;
 }
-
-
-.hall-plaque--best
-.hall-plaque-stat-panel {
-  border:
-    2px solid
-    rgba(226,178,45,.90);
-}
-
-
-.hall-plaque--worst
-.hall-plaque-stat-panel {
-  border:
-    2px solid
-    rgba(222,55,62,.88);
-}
-
 
 /* STAT LABEL */
 
@@ -1160,6 +1112,7 @@
 
 /* =========================================
    MUSEUM STAT PROPS
+   Final Exhibit Placement
    ========================================= */
 
 .hall-plaque-prop {
@@ -1170,10 +1123,12 @@
   display:block;
 
   object-fit:contain;
+  object-position:center;
 
   pointer-events:none;
-
   user-select:none;
+
+  transform-origin:center center;
 
   filter:
     drop-shadow(
@@ -1183,39 +1138,31 @@
 }
 
 
-/* Left / Right base placement */
-
-.hall-plaque-prop-left {
-  left:5px;
-  transform:none;
-}
-
-
-.hall-plaque-prop-right {
-  right:5px;
-  transform:scaleX(-1);
-}
-
 /* =========================================
-   MONEY MACHINE — GOLD COIN STACKS
+   MONEY MACHINE — GOLD COINS
    ========================================= */
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop {
-  width:116px;
-  height:116px;
-  bottom:6px;
+  width:108px;
+  height:108px;
+
+  bottom:18px;
 }
+
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-left {
-  left:-14px;
+  left:-10px;
+
   transform:none;
 }
 
+
 .hall-plaque-the-money-machine
 .hall-plaque-prop-right {
-  right:-14px;
+  right:-10px;
+
   transform:scaleX(-1);
 }
 
@@ -1226,61 +1173,67 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-  width:94px;
-  height:94px;
-  bottom:13px;
+  width:96px;
+  height:96px;
+
+  bottom:18px;
 }
+
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
-  left:0;
+  left:-10px;
+
   transform:none;
 }
 
+
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
-  right:0;
+  right:-10px;
+
   transform:scaleX(-1);
 }
 
 
 /* =========================================
-   THE KILLER — SINGLE BOXING GLOVES
+   THE KILLER — BOXING GLOVES
    ========================================= */
 
 .hall-plaque-the-killer
 .hall-plaque-prop {
-  width:116px;
-  height:116px;
+  width:118px;
+  height:118px;
 
   /*
-    Raise them so the complete wrist cuff
-    remains inside the plaque.
+    High enough to expose the complete cuff.
   */
-  bottom:16px;
+  bottom:20px;
 }
 
 
 /*
-  The source glove ALREADY has the correct
-  diagonal orientation.
+  Critical change:
 
-  Right:
-  use the source naturally.
+  Push the gloves farther outward.
 
-  Left:
-  simply mirror it.
+  The previous -12px placement put the
+  cuff underneath the stat panel, which is
+  why only a strange white fragment showed.
 */
 
 .hall-plaque-the-killer
 .hall-plaque-prop-left {
-  left:-12px;
+  left:-28px;
+
   transform:scaleX(-1);
 }
 
+
 .hall-plaque-the-killer
 .hall-plaque-prop-right {
-  right:-12px;
+  right:-28px;
+
   transform:none;
 }
 
@@ -1291,33 +1244,32 @@
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop {
-  width:116px;
-  height:116px;
+  width:106px;
+  height:106px;
 
   /*
-    Current screenshot has these buried
-    against the bottom border.
+    Pull the money away from the card edge.
   */
-  bottom:10px;
+  bottom:18px;
 }
 
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-left {
-  left:-12px;
+  left:-6px;
 
   transform:
-    rotate(-4deg);
+    rotate(-3deg);
 }
 
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-right {
-  right:-12px;
+  right:-6px;
 
   transform:
     scaleX(-1)
-    rotate(-4deg);
+    rotate(-3deg);
 }
 
 
@@ -1327,70 +1279,60 @@
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop {
-
   /*
-    These intentionally get larger than
-    before. The concept uses the cards as
-    major framing objects, not tiny icons.
+    IMPORTANT:
+    These are square PNG canvases.
+
+    Keeping width and height equal lets
+    object-fit preserve the card at its
+    proper scale instead of constraining
+    everything to the old 108px width.
   */
 
-  width:108px;
-  height:144px;
+  width:132px;
+  height:132px;
 
-  bottom:2px;
+  bottom:17px;
 }
 
 
-/*
-  IMPORTANT:
-
-  These values assume you have replaced the
-  original dirty/angled PNGs with the CLEAN,
-  UPRIGHT versions I created above.
-*/
-
-
-/* A♥ — fan outward to the left */
+/* A♥ — fan outward left */
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-  left:-2px;
+  left:-8px;
 
   transform:
-    rotate(-10deg);
+    rotate(-12deg);
 }
 
 
-/* 2♣ — fan outward to the right */
+/* 2♣ — fan outward right */
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-  right:-2px;
+  right:-8px;
 
   /*
-    Different image asset.
-    DO NOT MIRROR.
+    Separate PNG.
+    Never mirror it.
   */
 
   transform:
-    rotate(10deg);
+    rotate(12deg);
 }
 
 
 /* =========================================
-   BUBBLE PRISONER — BUBBLE CLUSTERS
+   BUBBLE PRISONER — BUBBLES
    ========================================= */
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
-  width:118px;
-  height:118px;
+  width:110px;
+  height:110px;
 
-  /*
-    Raise bubbles away from the lower crop.
-  */
-
-  bottom:8px;
+  bottom:18px;
 
   opacity:.94;
 }
@@ -1398,14 +1340,16 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-left {
-  left:-12px;
+  left:-6px;
+
   transform:none;
 }
 
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-right {
-  right:-12px;
+  right:-6px;
+
   transform:scaleX(-1);
 }
 
