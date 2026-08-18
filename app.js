@@ -171,30 +171,38 @@ const HALL_RULES = {
       description: "Most career profit among Hall-qualified players.",
       displayLabel: "Career Profit",
       note: "All tournaments",
-      propLeft: "🪙",
-      propRight: "🪙",
+
+      propLeft: "images/site/hall/props/hall-prop-coins.png",
+      propRight: "images/site/hall/props/hall-prop-coins.png",
+
       key: "profit",
       direction: "desc"
     },
+
     {
       title: "The Complete Player",
       icon: "🧠",
       description: "Best overall career performance.",
       displayLabel: "Hall Score",
       note: "All categories",
-      propLeft: "🏆",
-      propRight: "🏆",
+
+      propLeft: "images/site/hall/props/hall-prop-trophy.png",
+      propRight: "images/site/hall/props/hall-prop-trophy.png",
+
       key: "hallScore",
       direction: "desc"
     },
+
     {
       title: "The Killer",
       icon: "💥",
       description: "Most career knockouts.",
       displayLabel: "Career Knockouts",
       note: "Total knockouts",
-      propLeft: "🥊",
-      propRight: "🥊",
+
+      propLeft: "images/site/hall/props/hall-prop-boxing-glove.png",
+      propRight: "images/site/hall/props/hall-prop-boxing-glove.png",
+
       key: "hits",
       direction: "desc"
     }
@@ -207,31 +215,39 @@ const HALL_RULES = {
       description: "Largest career loss.",
       displayLabel: "Career Loss",
       note: "All tournaments",
-      propLeft: "💸",
-      propRight: "💸",
+
+      propLeft: "images/site/hall/props/hall-prop-flying-money.png",
+      propRight: "images/site/hall/props/hall-prop-flying-money.png",
+
       key: "profit",
       direction: "asc"
     },
+
     {
       title: "The Variance Victim",
       icon: "🫠",
       description: "The largest gap between results and expected outcomes.",
       displayLabel: "Variance Pain",
       note: "Absolute luck-index gap",
-      propLeft: "🃏",
-      propRight: "🎲",
+
+      propLeft: "images/site/hall/props/hall-prop-card-ah.png",
+      propRight: "images/site/hall/props/hall-prop-card-2c.png",
+
       key: "variancePain",
       suffix: " pts",
       direction: "desc"
     },
+
     {
       title: "The Bubble Prisoner",
       icon: "🫧",
       description: "Most painful near misses.",
       displayLabel: "Career Bubbles",
       note: "Total bubbles",
-      propLeft: "🫧",
-      propRight: "🫧",
+
+      propLeft: "images/site/hall/props/hall-prop-bubbles.png",
+      propRight: "images/site/hall/props/hall-prop-bubbles.png",
+
       key: "bubbles",
       direction: "desc"
     }
@@ -3555,20 +3571,24 @@ function hallCardMarkup(player, rule, tone = "best") {
       </div>
 
 
-      <span
-        class="hall-plaque-prop hall-plaque-prop-left"
-        aria-hidden="true"
-      >
-        ${rule.propLeft || ""}
-      </span>
+      ${rule.propLeft ? `
+        <img
+          class="hall-plaque-prop hall-plaque-prop-left"
+          src="${rule.propLeft}"
+          alt=""
+          aria-hidden="true"
+        />
+      ` : ""}
 
 
-      <span
-        class="hall-plaque-prop hall-plaque-prop-right"
-        aria-hidden="true"
-      >
-        ${rule.propRight || ""}
-      </span>
+      ${rule.propRight ? `
+        <img
+          class="hall-plaque-prop hall-plaque-prop-right"
+          src="${rule.propRight}"
+          alt=""
+          aria-hidden="true"
+        />
+      ` : ""}
 
     </a>
   `;
