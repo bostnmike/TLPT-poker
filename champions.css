@@ -1208,25 +1208,19 @@
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop {
-
-  width:92px;
-  height:92px;
-
-  bottom:14px;
+  width:116px;
+  height:116px;
+  bottom:3px;
 }
-
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-left {
-
-  left:-2px;
+  left:-14px;
 }
-
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-right {
-
-  right:-2px;
+  right:-14px;
 }
 
 
@@ -1236,60 +1230,59 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-
-  width:72px;
-  height:72px;
-
-  bottom:22px;
+  width:90px;
+  height:90px;
+  bottom:10px;
 }
-
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
-
-  left:9px;
+  left:-1px;
 }
-
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
-
-  right:9px;
+  right:-1px;
 }
 
 
 /* =========================================
-   THE KILLER — BOXING GLOVES
+   THE KILLER — SINGLE BOXING GLOVES
    ========================================= */
 
 .hall-plaque-the-killer
 .hall-plaque-prop {
-
-  width:88px;
-  height:88px;
-
-  bottom:18px;
+  width:112px;
+  height:112px;
+  bottom:0;
 }
 
+
+/*
+  The new source image is a RIGHT-SIDE glove.
+
+  Right glove:
+  use asset normally.
+
+  Left glove:
+  mirror the exact same asset.
+*/
 
 .hall-plaque-the-killer
 .hall-plaque-prop-left {
-
-  left:-2px;
-
-  transform:
-    rotate(8deg);
-}
-
-
-.hall-plaque-the-killer
-.hall-plaque-prop-right {
-
-  right:-2px;
+  left:-15px;
 
   transform:
     scaleX(-1)
-    rotate(8deg);
+    rotate(5deg);
+}
+
+.hall-plaque-the-killer
+.hall-plaque-prop-right {
+  right:-15px;
+
+  transform:
+    rotate(5deg);
 }
 
 
@@ -1299,32 +1292,26 @@
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop {
-
-  width:86px;
-  height:86px;
-
-  bottom:13px;
+  width:112px;
+  height:112px;
+  bottom:-2px;
 }
-
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-left {
-
-  left:-2px;
+  left:-16px;
 
   transform:
-    rotate(-9deg);
+    rotate(-8deg);
 }
-
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-right {
-
-  right:-2px;
+  right:-16px;
 
   transform:
     scaleX(-1)
-    rotate(-9deg);
+    rotate(-8deg);
 }
 
 
@@ -1334,36 +1321,30 @@
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop {
-
-  width:68px;
-  height:82px;
-
-  bottom:14px;
+  width:80px;
+  height:98px;
+  bottom:1px;
 }
-
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-
-  left:8px;
+  left:0;
 
   transform:
-    rotate(-11deg);
+    rotate(-10deg);
 }
-
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-
-  right:8px;
+  right:0;
 
   /*
-    Do NOT mirror this one.
-    It is already a separate 2♣ asset.
+    Separate 2♣ image.
+    Do NOT mirror it.
   */
 
   transform:
-    rotate(11deg);
+    rotate(10deg);
 }
 
 
@@ -1373,25 +1354,29 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
+  width:112px;
+  height:112px;
+  bottom:-2px;
 
-  width:88px;
-  height:88px;
-
-  bottom:13px;
-
-  opacity:.92;
+  opacity:.94;
 }
-
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-left {
-
-  left:-2px;
+  left:-15px;
 
   transform:
-    rotate(-5deg);
+    rotate(-4deg);
 }
 
+.hall-plaque-the-bubble-prisoner
+.hall-plaque-prop-right {
+  right:-15px;
+
+  transform:
+    scaleX(-1)
+    rotate(-4deg);
+}
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-right {
