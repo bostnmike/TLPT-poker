@@ -170,6 +170,9 @@ const HALL_RULES = {
       icon: "💰",
       description: "Most career profit among Hall-qualified players.",
       displayLabel: "Career Profit",
+      note: "All tournaments",
+      propLeft: "🪙",
+      propRight: "🪙",
       key: "profit",
       direction: "desc"
     },
@@ -178,6 +181,9 @@ const HALL_RULES = {
       icon: "🧠",
       description: "Best overall career performance.",
       displayLabel: "Hall Score",
+      note: "All categories",
+      propLeft: "🏆",
+      propRight: "🏆",
       key: "hallScore",
       direction: "desc"
     },
@@ -186,6 +192,9 @@ const HALL_RULES = {
       icon: "💥",
       description: "Most career knockouts.",
       displayLabel: "Career Knockouts",
+      note: "Total knockouts",
+      propLeft: "🥊",
+      propRight: "🥊",
       key: "hits",
       direction: "desc"
     }
@@ -197,6 +206,9 @@ const HALL_RULES = {
       icon: "💸",
       description: "Largest career loss.",
       displayLabel: "Career Loss",
+      note: "All tournaments",
+      propLeft: "💸",
+      propRight: "💸",
       key: "profit",
       direction: "asc"
     },
@@ -205,6 +217,9 @@ const HALL_RULES = {
       icon: "🫠",
       description: "The largest gap between results and expected outcomes.",
       displayLabel: "Variance Pain",
+      note: "Absolute luck-index gap",
+      propLeft: "🃏",
+      propRight: "🎲",
       key: "variancePain",
       suffix: " pts",
       direction: "desc"
@@ -214,6 +229,9 @@ const HALL_RULES = {
       icon: "🫧",
       description: "Most painful near misses.",
       displayLabel: "Career Bubbles",
+      note: "Total bubbles",
+      propLeft: "🫧",
+      propRight: "🫧",
       key: "bubbles",
       direction: "desc"
     }
@@ -3414,6 +3432,246 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
+function hallLaurelMarkup() {
+  return `
+    <svg
+      class="hall-plaque-laurels"
+      viewBox="0 0 280 180"
+      aria-hidden="true"
+      focusable="false"
+    >
+
+      <g class="hall-laurel-branch hall-laurel-branch-left">
+
+        <path
+          class="hall-laurel-stem"
+          d="M111 164 C76 140 58 101 68 42"
+        />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="102" cy="147" rx="8" ry="18"
+          transform="rotate(-52 102 147)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="88" cy="128" rx="8" ry="18"
+          transform="rotate(-62 88 128)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="78" cy="106" rx="8" ry="18"
+          transform="rotate(-70 78 106)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="72" cy="82" rx="8" ry="18"
+          transform="rotate(-78 72 82)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="72" cy="59" rx="8" ry="18"
+          transform="rotate(-86 72 59)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="78" cy="39" rx="8" ry="18"
+          transform="rotate(-102 78 39)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="97" cy="137" rx="8" ry="18"
+          transform="rotate(32 97 137)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="83" cy="116" rx="8" ry="18"
+          transform="rotate(24 83 116)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="74" cy="93" rx="8" ry="18"
+          transform="rotate(15 74 93)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="70" cy="69" rx="8" ry="18"
+          transform="rotate(8 70 69)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="73" cy="47" rx="8" ry="18"
+          transform="rotate(-2 73 47)" />
+
+      </g>
+
+
+      <g
+        class="hall-laurel-branch hall-laurel-branch-right"
+        transform="translate(280 0) scale(-1 1)"
+      >
+
+        <path
+          class="hall-laurel-stem"
+          d="M111 164 C76 140 58 101 68 42"
+        />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="102" cy="147" rx="8" ry="18"
+          transform="rotate(-52 102 147)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="88" cy="128" rx="8" ry="18"
+          transform="rotate(-62 88 128)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="78" cy="106" rx="8" ry="18"
+          transform="rotate(-70 78 106)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="72" cy="82" rx="8" ry="18"
+          transform="rotate(-78 72 82)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="72" cy="59" rx="8" ry="18"
+          transform="rotate(-86 72 59)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="78" cy="39" rx="8" ry="18"
+          transform="rotate(-102 78 39)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="97" cy="137" rx="8" ry="18"
+          transform="rotate(32 97 137)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="83" cy="116" rx="8" ry="18"
+          transform="rotate(24 83 116)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="74" cy="93" rx="8" ry="18"
+          transform="rotate(15 74 93)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="70" cy="69" rx="8" ry="18"
+          transform="rotate(8 70 69)" />
+
+        <ellipse class="hall-laurel-leaf"
+          cx="73" cy="47" rx="8" ry="18"
+          transform="rotate(-2 73 47)" />
+
+      </g>
+
+    </svg>
+  `;
+}
+
+
+function hallCardMarkup(player, rule, tone = "best") {
+
+  const href = player ? playerUrl(player) : "#";
+
+  const nameMarkup = player
+    ? displayPlayerName(player)
+    : "Unknown";
+
+  const valueText = player
+    ? `${formatStatValue(player, rule.key)}${rule.suffix || ""}`
+    : "—";
+
+  const cardSlug = String(rule?.title || "hall-card")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  let valueTone = "";
+
+  if (rule?.key === "profit") {
+
+    const profit = Number(player?.profit ?? 0);
+
+    if (profit > 0) {
+      valueTone = " hall-plaque-stat-value--positive";
+    }
+
+    if (profit < 0) {
+      valueTone = " hall-plaque-stat-value--negative";
+    }
+
+  }
+
+  return `
+    <a
+      class="
+        hall-plaque
+        hall-plaque--${tone}
+        hall-plaque-${cardSlug}
+      "
+      href="${href}"
+    >
+
+      <div class="hall-plaque-title-row">
+
+        <span
+          class="hall-plaque-title-icon"
+          aria-hidden="true"
+        >
+          ${rule.icon}
+        </span>
+
+        <span class="hall-plaque-title">
+          ${rule.title}
+        </span>
+
+      </div>
+
+
+      <div class="hall-plaque-portrait-stage">
+
+        ${hallLaurelMarkup()}
+
+        <div class="hall-plaque-avatar">
+          ${player ? playerImageMarkup(player, "hall") : ""}
+        </div>
+
+      </div>
+
+
+      <div class="hall-plaque-nameplate">
+        ${nameMarkup}
+      </div>
+
+
+      <div class="hall-plaque-stat-panel">
+
+        <div class="hall-plaque-stat-label">
+          ${rule.displayLabel}
+        </div>
+
+        <div
+          class="
+            hall-plaque-stat-value
+            ${valueTone}
+          "
+        >
+          ${valueText}
+        </div>
+
+        <div class="hall-plaque-stat-note">
+          ${rule.note || rule.description || ""}
+        </div>
+
+      </div>
+
+
+      <span
+        class="hall-plaque-prop hall-plaque-prop-left"
+        aria-hidden="true"
+      >
+        ${rule.propLeft || ""}
+      </span>
+
+
+      <span
+        class="hall-plaque-prop hall-plaque-prop-right"
+        aria-hidden="true"
+      >
+        ${rule.propRight || ""}
+      </span>
+
+    </a>
+  `;
+}
+
 function getBalancedHonorsSections(data) {
   return {
     statLeaders: [
@@ -3434,57 +3692,84 @@ function getBalancedHonorsSections(data) {
 }
 
 function renderHall(data) {
+
   const players = getHallPlayers(data);
 
-  const bestsEl = document.getElementById("hall-bests");
-  const worstsEl = document.getElementById("hall-worsts");
+  const bestsEl =
+    document.getElementById("hall-bests");
+
+  const worstsEl =
+    document.getElementById("hall-worsts");
+
 
   if (!players.length) return;
 
-  function findHallLeader(rule) {
-    return [...players].sort((a, b) => {
-      const aVal = Number(a?.[rule.key] ?? 0);
-      const bVal = Number(b?.[rule.key] ?? 0);
 
-      return rule.direction === "asc"
-        ? aVal - bVal
-        : bVal - aVal;
+  function findHallLeader(rule) {
+
+    return [...players].sort((a, b) => {
+
+      const aVal =
+        Number(a?.[rule.key] ?? 0);
+
+      const bVal =
+        Number(b?.[rule.key] ?? 0);
+
+
+      if (rule.direction === "asc") {
+
+        if (aVal !== bVal) {
+          return aVal - bVal;
+        }
+
+      } else if (bVal !== aVal) {
+
+        return bVal - aVal;
+
+      }
+
+
+      return String(a?.name || "")
+        .localeCompare(
+          String(b?.name || "")
+        );
+
     })[0];
+
   }
+
 
   if (bestsEl) {
-    bestsEl.innerHTML = HALL_RULES.bests.map(rule => {
-      const player = findHallLeader(rule);
 
-      return honorsCardMarkup(
-        player,
-        rule.title,
-        rule.icon,
-        `${rule.displayLabel}: ${formatStatValue(player, rule.key)}${rule.suffix || ""}`,
-        false,
-        rule.key === "profit"
-          ? statValueClass(player, "profit")
-          : ""
-      );
-    }).join("");
+    bestsEl.innerHTML =
+      HALL_RULES.bests
+        .map(rule =>
+          hallCardMarkup(
+            findHallLeader(rule),
+            rule,
+            "best"
+          )
+        )
+        .join("");
+
   }
+
 
   if (worstsEl) {
-    worstsEl.innerHTML = HALL_RULES.worsts.map(rule => {
-      const player = findHallLeader(rule);
 
-      return honorsCardMarkup(
-        player,
-        rule.title,
-        rule.icon,
-        `${rule.displayLabel}: ${formatStatValue(player, rule.key)}${rule.suffix || ""}`,
-        false,
-        rule.key === "profit"
-          ? statValueClass(player, "profit")
-          : ""
-      );
-    }).join("");
+    worstsEl.innerHTML =
+      HALL_RULES.worsts
+        .map(rule =>
+          hallCardMarkup(
+            findHallLeader(rule),
+            rule,
+            "worst"
+          )
+        )
+        .join("");
+
   }
+
 }
 
 function renderChampions(data) {
