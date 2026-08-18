@@ -184,7 +184,7 @@ const HALL_RULES = {
       visualClass: "the-complete-player",
       description: "Highest career cash rate among Hall-qualified players.",
       displayLabel: "Career Cash Rate",
-      note: "The payout line has his routing number.",
+      note: "Payout has his routing number.",
 
       propLeft: "images/site/hall/props/hall-prop-trophy.png",
       propRight: "images/site/hall/props/hall-prop-trophy.png",
