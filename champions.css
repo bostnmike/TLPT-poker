@@ -1187,20 +1187,14 @@
 
 .hall-plaque-prop-left {
   left:5px;
-
-  transform:
-    rotate(-7deg);
+  transform:none;
 }
 
 
 .hall-plaque-prop-right {
   right:5px;
-
-  transform:
-    scaleX(-1)
-    rotate(-7deg);
+  transform:scaleX(-1);
 }
-
 
 /* =========================================
    MONEY MACHINE — GOLD COIN STACKS
@@ -1210,17 +1204,19 @@
 .hall-plaque-prop {
   width:116px;
   height:116px;
-  bottom:3px;
+  bottom:6px;
 }
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-left {
   left:-14px;
+  transform:none;
 }
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-right {
   right:-14px;
+  transform:scaleX(-1);
 }
 
 
@@ -1230,19 +1226,21 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-  width:90px;
-  height:90px;
-  bottom:10px;
+  width:94px;
+  height:94px;
+  bottom:13px;
 }
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
-  left:-1px;
+  left:0;
+  transform:none;
 }
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
-  right:-1px;
+  right:0;
+  transform:scaleX(-1);
 }
 
 
@@ -1252,37 +1250,38 @@
 
 .hall-plaque-the-killer
 .hall-plaque-prop {
-  width:112px;
-  height:112px;
-  bottom:0;
+  width:116px;
+  height:116px;
+
+  /*
+    Raise them so the complete wrist cuff
+    remains inside the plaque.
+  */
+  bottom:16px;
 }
 
 
 /*
-  The new source image is a RIGHT-SIDE glove.
+  The source glove ALREADY has the correct
+  diagonal orientation.
 
-  Right glove:
-  use asset normally.
+  Right:
+  use the source naturally.
 
-  Left glove:
-  mirror the exact same asset.
+  Left:
+  simply mirror it.
 */
 
 .hall-plaque-the-killer
 .hall-plaque-prop-left {
-  left:-15px;
-
-  transform:
-    scaleX(-1)
-    rotate(5deg);
+  left:-12px;
+  transform:scaleX(-1);
 }
 
 .hall-plaque-the-killer
 .hall-plaque-prop-right {
-  right:-15px;
-
-  transform:
-    rotate(5deg);
+  right:-12px;
+  transform:none;
 }
 
 
@@ -1292,26 +1291,33 @@
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop {
-  width:112px;
-  height:112px;
-  bottom:-2px;
+  width:116px;
+  height:116px;
+
+  /*
+    Current screenshot has these buried
+    against the bottom border.
+  */
+  bottom:10px;
 }
+
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-left {
-  left:-16px;
+  left:-12px;
 
   transform:
-    rotate(-8deg);
+    rotate(-4deg);
 }
+
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-right {
-  right:-16px;
+  right:-12px;
 
   transform:
     scaleX(-1)
-    rotate(-8deg);
+    rotate(-4deg);
 }
 
 
@@ -1321,26 +1327,49 @@
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop {
-  width:80px;
-  height:98px;
-  bottom:1px;
+
+  /*
+    These intentionally get larger than
+    before. The concept uses the cards as
+    major framing objects, not tiny icons.
+  */
+
+  width:108px;
+  height:144px;
+
+  bottom:2px;
 }
+
+
+/*
+  IMPORTANT:
+
+  These values assume you have replaced the
+  original dirty/angled PNGs with the CLEAN,
+  UPRIGHT versions I created above.
+*/
+
+
+/* A♥ — fan outward to the left */
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-  left:0;
+  left:-2px;
 
   transform:
     rotate(-10deg);
 }
 
+
+/* 2♣ — fan outward to the right */
+
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-  right:0;
+  right:-2px;
 
   /*
-    Separate 2♣ image.
-    Do NOT mirror it.
+    Different image asset.
+    DO NOT MIRROR.
   */
 
   transform:
@@ -1354,40 +1383,31 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
-  width:112px;
-  height:112px;
-  bottom:-2px;
+  width:118px;
+  height:118px;
+
+  /*
+    Raise bubbles away from the lower crop.
+  */
+
+  bottom:8px;
 
   opacity:.94;
 }
 
+
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-left {
-  left:-15px;
-
-  transform:
-    rotate(-4deg);
+  left:-12px;
+  transform:none;
 }
+
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-right {
-  right:-15px;
-
-  transform:
-    scaleX(-1)
-    rotate(-4deg);
+  right:-12px;
+  transform:scaleX(-1);
 }
-
-.hall-plaque-the-bubble-prisoner
-.hall-plaque-prop-right {
-
-  right:-2px;
-
-  transform:
-    scaleX(-1)
-    rotate(-5deg);
-}
-
 
 /* TABLET */
 
