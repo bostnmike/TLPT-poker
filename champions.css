@@ -122,15 +122,17 @@
 
   position:absolute;
 
-  inset:12px;
+  inset:10px;
 
-  border-radius:14px;
+  border-radius:16px;
 
-  border:1px solid rgba(255,215,100,.18);
+  border:
+    1px solid rgba(255,215,100,.35);
 
   box-shadow:
-    inset 0 0 18px rgba(255,215,100,.08),
-    inset 0 1px 0 rgba(255,255,255,.10);
+    inset 0 0 25px rgba(255,215,100,.12),
+    inset 0 1px 0 rgba(255,255,255,.20),
+    0 0 20px rgba(255,215,100,.08);
 
   pointer-events:none;
 
@@ -296,7 +298,7 @@
 
   position:absolute;
 
-  bottom:30px;
+  bottom:22px;
 
   left:20px;
   right:20px;
@@ -308,6 +310,8 @@
   font-size:1.15rem;
 
   font-weight:900;
+
+  letter-spacing:.03em;
 
   color:#f8fafc;
 
@@ -336,13 +340,24 @@
 .hall-module {
 
   position:relative;
+
   overflow:hidden;
 
-  border-color:
-    rgba(255,184,28,.22);
+  border-radius:22px;
+
+  border:
+    1px solid rgba(255,184,28,.25);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.04),
+      rgba(0,0,0,.25)
+    );
 
   box-shadow:
-    0 25px 60px rgba(0,0,0,.35),
+
+    0 30px 80px rgba(0,0,0,.55),
     inset 0 1px 0 rgba(255,255,255,.08);
 
 }
@@ -389,54 +404,6 @@
    Hall Decorative Flourishes
    ========================================= */
 
-
-/* Bests = legacy / growth */
-
-.hall-module-bests::after {
-
-  content:"🍂";
-
-  position:absolute;
-
-  right:35px;
-  top:20px;
-
-  font-size:5rem;
-
-  opacity:.12;
-
-  transform:rotate(20deg);
-
-  filter:
-    grayscale(.4)
-    blur(.2px);
-
-  pointer-events:none;
-
-}
-
-
-/* Worsts = fallen legends */
-
-.hall-module-worsts::after {
-
-  content:"🥀";
-
-  position:absolute;
-
-  right:35px;
-  top:20px;
-
-  font-size:4.5rem;
-
-  opacity:.12;
-
-  filter:
-    grayscale(.5);
-
-  pointer-events:none;
-
-}
 
 /* Responsive */
 
@@ -520,5 +487,34 @@
   transition:
     transform .25s ease,
     box-shadow .25s ease;
+
+}
+
+/* =========================================
+   Museum Wall Texture
+   ========================================= */
+
+.hall-module-bests::after,
+.hall-module-worsts::after {
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255,215,100,.10),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255,215,100,.06),
+      transparent 22%
+    );
+
+  pointer-events:none;
 
 }
