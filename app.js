@@ -3386,21 +3386,21 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
     .replace(/^-+|-+$/g, "");
 
   return `
-    <a class="champ-card stat-card-visual honors-card honors-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
+    <a class="champ-card stat-card-visual hall-card hall-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
       <div class="leader-banner-top">
         <div class="leader-banner-crown">${icon}</div>
         <div class="leader-banner-title">${category}</div>
       </div>
 
-      <div class="honors-card-top leader-banner-body">
+      <div class="hall-card-top leader-banner-body">
         ${player ? playerImageMarkup(player, "honors") : ""}
-        <div class="honors-card-stack">
-          <div class="honors-player-name">${nameMarkup}</div>
+        <div class="hall-card-stack">
+          <div class="hall-player-name">${nameMarkup}</div>
         </div>
       </div>
 
       <div
-        class="honors-card-value ${valueClass}${numericClass}"
+        class="hall-card-value ${valueClass}${numericClass}"
         data-animate-count="${isNumericValueText(valueText) ? "true" : "false"}"
         data-target-value="${valueText}"
       >${valueText}</div>
@@ -3581,8 +3581,8 @@ function renderStatLeaders(data) {
 
         <div class="honors-card-top leader-banner-body">
           ${playerImageMarkup(leader, "honors")}
-          <div class="honors-card-stack">
-            <div class="honors-player-name">${displayPlayerName(leader)}</div>
+          <div class="hall-card-stack">
+            <div class="hall-player-name">${displayPlayerName(leader)}</div>
           </div>
         </div>
 
