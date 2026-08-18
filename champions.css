@@ -1255,23 +1255,23 @@
 .hall-plaque-prop {
   /* The clean PNGs are square canvases with the card centered inside.
      132px keeps the cards substantial without overwhelming the stat plaque. */
-  width:132px;
-  height:132px;
-  bottom:-2px;
+  width:106px;
+  height:106px;
+  bottom:-3px;
   z-index:2;
 }
 
 /* Aâ™¥ â€” concept angle: top leans OUTWARD left, bottom points inward. */
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-  left:-16px;
+  left:-2px;
   transform:rotate(-12deg);
 }
 
 /* 2â™£ â€” opposite concept angle. Separate clean asset; never mirror it. */
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-  right:-16px;
+  right:-2px;
   transform:rotate(12deg);
 }
 
