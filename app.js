@@ -227,7 +227,7 @@ const HALL_RULES = {
       title: "The Lazarus",
       visualClass: "the-variance-victim",
       description: "Most times first out of the tournament and still recovered to cash.",
-      displayLabel: "First Out → Still Cashed",
+      displayLabel: "1st Out → Still Cashed",
       note: "Busting him is only a suggestion.",
 
       propLeft: "images/site/hall/props/hall-prop-card-ah-clean.png",
