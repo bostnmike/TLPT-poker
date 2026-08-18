@@ -200,8 +200,8 @@ const HALL_RULES = {
       displayLabel: "Career Knockouts",
       note: "Total knockouts",
 
-      propLeft: "images/site/hall/props/hall-prop-boxing-glove.png",
-      propRight: "images/site/hall/props/hall-prop-boxing-glove.png",
+      propLeft: "images/site/hall/props/hall-prop-boxing-glove-single.png",
+      propRight: "images/site/hall/props/hall-prop-boxing-glove-single.png",
 
       key: "hits",
       direction: "desc"
@@ -230,8 +230,8 @@ const HALL_RULES = {
       displayLabel: "Variance Pain",
       note: "Absolute luck-index gap",
 
-      propLeft: "images/site/hall/props/hall-prop-card-ah.png",
-      propRight: "images/site/hall/props/hall-prop-card-2c.png",
+      propLeft: "images/site/hall/props/hall-prop-card-ah-clean.png",
+      propRight: "images/site/hall/props/hall-prop-card-2c-clean.png",
 
       key: "variancePain",
       suffix: " pts",
@@ -3594,15 +3594,6 @@ function hallCardMarkup(player, rule, tone = "best") {
 
   </div>
 
-
-      ${rule.propRight ? `
-        <img
-          class="hall-plaque-prop hall-plaque-prop-right"
-          src="${rule.propRight}"
-          alt=""
-          aria-hidden="true"
-        />
-      ` : ""}
 
     </a>
   `;
