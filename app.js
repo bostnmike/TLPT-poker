@@ -167,7 +167,6 @@ const HALL_RULES = {
   bests: [
     {
       title: "The Money Machine",
-      icon: "💰",
       description: "Most career profit among Hall-qualified players.",
       displayLabel: "Career Profit",
       note: "All tournaments",
@@ -181,7 +180,6 @@ const HALL_RULES = {
 
     {
       title: "The Complete Player",
-      icon: "🧠",
       description: "Best overall career performance.",
       displayLabel: "Hall Score",
       note: "All categories",
@@ -195,7 +193,6 @@ const HALL_RULES = {
 
     {
       title: "The Killer",
-      icon: "💥",
       description: "Most career knockouts.",
       displayLabel: "Career Knockouts",
       note: "Total knockouts",
@@ -211,7 +208,6 @@ const HALL_RULES = {
   worsts: [
     {
       title: "The Donation Machine",
-      icon: "💸",
       description: "Largest career loss.",
       displayLabel: "Career Loss",
       note: "All tournaments",
@@ -225,7 +221,6 @@ const HALL_RULES = {
 
     {
       title: "The Variance Victim",
-      icon: "🫠",
       description: "The largest gap between results and expected outcomes.",
       displayLabel: "Variance Pain",
       note: "Absolute luck-index gap",
@@ -240,7 +235,6 @@ const HALL_RULES = {
 
     {
       title: "The Bubble Prisoner",
-      icon: "🫧",
       description: "Most painful near misses.",
       displayLabel: "Career Bubbles",
       note: "Total bubbles",
@@ -3518,13 +3512,6 @@ function hallCardMarkup(player, rule, tone = "best") {
     >
 
       <div class="hall-plaque-title-row">
-
-        <span
-          class="hall-plaque-title-icon"
-          aria-hidden="true"
-        >
-          ${rule.icon}
-        </span>
 
         <span class="hall-plaque-title">
           ${rule.title}
