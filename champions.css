@@ -1177,21 +1177,21 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-  width:90px;
-  height:90px;
+  width:106px;
+  height:106px;
   bottom:8px;
 }
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
   left:2px;
-  transform:none;
+  transform:rotate(12deg);
 }
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
   right:2px;
-  transform:scaleX(-1);
+  transform:rotate(-12deg);
 }
 
 
