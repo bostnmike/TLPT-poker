@@ -228,7 +228,7 @@ const HALL_RULES = {
       visualClass: "the-variance-victim",
       description: "Most times first out of the tournament and still recovered to cash.",
       displayLabel: "First Out → Still Cashed",
-      note: "Apparently busting him is only a suggestion.",
+      note: "Busting him is only a suggestion.",
 
       propLeft: "images/site/hall/props/hall-prop-card-ah-clean.png",
       propRight: "images/site/hall/props/hall-prop-card-2c-clean.png",
