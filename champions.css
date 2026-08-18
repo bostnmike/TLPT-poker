@@ -666,11 +666,11 @@
 
   display:flex;
 
-  align-items:flex-start;
+  align-items:center;
 
   justify-content:center;
 
-  gap:9px;
+  gap:0;
 
   padding:
     2px
@@ -681,20 +681,6 @@
 }
 
 
-.hall-plaque-title-icon {
-  flex:
-    0 0 auto;
-
-  font-size:1.25rem;
-
-  line-height:1.1;
-
-  filter:
-    drop-shadow(
-      0 2px 4px
-      rgba(0,0,0,.45)
-    );
-}
 
 
 .hall-plaque-title {
@@ -785,7 +771,7 @@
 }
 
 
-/* RIGHT BRANCH â€” exact mirror */
+/* RIGHT BRANCH Ã¢â‚¬â€ exact mirror */
 
 .hall-laurel-image-right {
   right:34px;
@@ -1162,7 +1148,7 @@
 
 
 /* =========================================
-   MONEY MACHINE â€” COINS
+   MONEY MACHINE Ã¢â‚¬â€ COINS
    ========================================= */
 
 .hall-plaque-the-money-machine
@@ -1186,7 +1172,7 @@
 
 
 /* =========================================
-   COMPLETE PLAYER â€” TROPHIES
+   COMPLETE PLAYER Ã¢â‚¬â€ TROPHIES
    ========================================= */
 
 .hall-plaque-the-complete-player
@@ -1210,7 +1196,7 @@
 
 
 /* =========================================
-   KILLER â€” CLEAN SINGLE BOXING GLOVES
+   KILLER Ã¢â‚¬â€ CLEAN SINGLE BOXING GLOVES
    ========================================= */
 
 .hall-plaque-the-killer
@@ -1238,7 +1224,7 @@
 
 
 /* =========================================
-   DONATION MACHINE â€” FLYING MONEY
+   DONATION MACHINE Ã¢â‚¬â€ FLYING MONEY
    ========================================= */
 
 .hall-plaque-the-donation-machine
@@ -1267,34 +1253,31 @@
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop {
-  /* Clean card files use square transparent canvases.
-     160px gives an on-screen card close to the approved concept
-     without overwhelming the stat plaque. */
-  width:160px;
-  height:160px;
-  bottom:0;
+  /* The clean PNGs are square canvases with the card centered inside.
+     132px keeps the cards substantial without overwhelming the stat plaque. */
+  width:132px;
+  height:132px;
+  bottom:-2px;
   z-index:2;
 }
 
-/* Aâ™¥: bottom fans outward left, top leans inward toward the stat.
-   Positive rotation is clockwise. */
+/* Aâ™¥ â€” concept angle: top leans OUTWARD left, bottom points inward. */
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-  left:-32px;
-  transform:rotate(10deg);
+  left:-16px;
+  transform:rotate(-12deg);
 }
 
-/* 2â™£: bottom fans outward right, top leans inward.
-   Separate clean asset â€” never mirror it. */
+/* 2â™£ â€” opposite concept angle. Separate clean asset; never mirror it. */
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-  right:-32px;
-  transform:rotate(-10deg);
+  right:-16px;
+  transform:rotate(12deg);
 }
 
 
 /* =========================================
-   BUBBLE PRISONER â€” BUBBLES
+   BUBBLE PRISONER Ã¢â‚¬â€ BUBBLES
    ========================================= */
 
 .hall-plaque-the-bubble-prisoner
