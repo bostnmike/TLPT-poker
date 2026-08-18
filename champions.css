@@ -1158,68 +1158,249 @@
 }
 
 
-/* DECORATIVE PROPS */
+/* =========================================
+   MUSEUM STAT PROPS
+   ========================================= */
 
 .hall-plaque-prop {
   position:absolute;
 
-  bottom:28px;
-
   z-index:2;
 
-  width:52px;
+  display:block;
 
-  display:grid;
+  object-fit:contain;
 
-  place-items:center;
+  pointer-events:none;
 
-  font-size:2.5rem;
-
-  line-height:1;
+  user-select:none;
 
   filter:
     drop-shadow(
       0 8px 8px
       rgba(0,0,0,.52)
     );
-
-  opacity:.95;
-
-  pointer-events:none;
 }
 
 
+/* Left / Right base placement */
+
 .hall-plaque-prop-left {
-  left:14px;
+  left:5px;
+
+  transform:
+    rotate(-7deg);
+}
+
+
+.hall-plaque-prop-right {
+  right:5px;
+
+  transform:
+    scaleX(-1)
+    rotate(-7deg);
+}
+
+
+/* =========================================
+   MONEY MACHINE — GOLD COIN STACKS
+   ========================================= */
+
+.hall-plaque-the-money-machine
+.hall-plaque-prop {
+
+  width:92px;
+  height:92px;
+
+  bottom:14px;
+}
+
+
+.hall-plaque-the-money-machine
+.hall-plaque-prop-left {
+
+  left:-2px;
+}
+
+
+.hall-plaque-the-money-machine
+.hall-plaque-prop-right {
+
+  right:-2px;
+}
+
+
+/* =========================================
+   COMPLETE PLAYER — TROPHIES
+   ========================================= */
+
+.hall-plaque-the-complete-player
+.hall-plaque-prop {
+
+  width:72px;
+  height:72px;
+
+  bottom:22px;
+}
+
+
+.hall-plaque-the-complete-player
+.hall-plaque-prop-left {
+
+  left:9px;
+}
+
+
+.hall-plaque-the-complete-player
+.hall-plaque-prop-right {
+
+  right:9px;
+}
+
+
+/* =========================================
+   THE KILLER — BOXING GLOVES
+   ========================================= */
+
+.hall-plaque-the-killer
+.hall-plaque-prop {
+
+  width:88px;
+  height:88px;
+
+  bottom:18px;
+}
+
+
+.hall-plaque-the-killer
+.hall-plaque-prop-left {
+
+  left:-2px;
+
+  transform:
+    rotate(8deg);
+}
+
+
+.hall-plaque-the-killer
+.hall-plaque-prop-right {
+
+  right:-2px;
+
+  transform:
+    scaleX(-1)
+    rotate(8deg);
+}
+
+
+/* =========================================
+   DONATION MACHINE — FLYING MONEY
+   ========================================= */
+
+.hall-plaque-the-donation-machine
+.hall-plaque-prop {
+
+  width:86px;
+  height:86px;
+
+  bottom:13px;
+}
+
+
+.hall-plaque-the-donation-machine
+.hall-plaque-prop-left {
+
+  left:-2px;
 
   transform:
     rotate(-9deg);
 }
 
 
+.hall-plaque-the-donation-machine
 .hall-plaque-prop-right {
-  right:14px;
+
+  right:-2px;
 
   transform:
-    rotate(9deg);
+    scaleX(-1)
+    rotate(-9deg);
 }
 
 
-.hall-plaque-the-complete-player
+/* =========================================
+   VARIANCE VICTIM — PLAYING CARDS
+   ========================================= */
+
+.hall-plaque-the-variance-victim
 .hall-plaque-prop {
-  font-size:2.25rem;
+
+  width:68px;
+  height:82px;
+
+  bottom:14px;
 }
 
 
-.hall-plaque-the-killer
+.hall-plaque-the-variance-victim
+.hall-plaque-prop-left {
+
+  left:8px;
+
+  transform:
+    rotate(-11deg);
+}
+
+
+.hall-plaque-the-variance-victim
+.hall-plaque-prop-right {
+
+  right:8px;
+
+  /*
+    Do NOT mirror this one.
+    It is already a separate 2♣ asset.
+  */
+
+  transform:
+    rotate(11deg);
+}
+
+
+/* =========================================
+   BUBBLE PRISONER — BUBBLE CLUSTERS
+   ========================================= */
+
+.hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
-  font-size:2.9rem;
+
+  width:88px;
+  height:88px;
+
+  bottom:13px;
+
+  opacity:.92;
 }
 
 
 .hall-plaque-the-bubble-prisoner
-.hall-plaque-prop {
-  opacity:.78;
+.hall-plaque-prop-left {
+
+  left:-2px;
+
+  transform:
+    rotate(-5deg);
+}
+
+
+.hall-plaque-the-bubble-prisoner
+.hall-plaque-prop-right {
+
+  right:-2px;
+
+  transform:
+    scaleX(-1)
+    rotate(-5deg);
 }
 
 
