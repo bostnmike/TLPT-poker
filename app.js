@@ -166,10 +166,11 @@ const HONOR_RULES = {
 const HALL_RULES = {
   bests: [
     {
-      title: "The Money Machine",
-      description: "Most career profit among Hall-qualified players.",
+      title: "The Tax Collector",
+      visualClass: "the-money-machine",
+      description: "Highest career profit among Hall-qualified players.",
       displayLabel: "Career Profit",
-      note: "All tournaments",
+      note: "Everybody pays eventually.",
 
       propLeft: "images/site/hall/props/hall-prop-coins.png",
       propRight: "images/site/hall/props/hall-prop-coins.png",
@@ -179,65 +180,69 @@ const HALL_RULES = {
     },
 
     {
-      title: "The Complete Player",
-      description: "Best overall career performance.",
-      displayLabel: "Hall Score",
-      note: "All categories",
+      title: "Direct Deposit",
+      visualClass: "the-complete-player",
+      description: "Highest career cash rate among Hall-qualified players.",
+      displayLabel: "Career Cash Rate",
+      note: "The payout line has his routing number.",
 
       propLeft: "images/site/hall/props/hall-prop-trophy.png",
       propRight: "images/site/hall/props/hall-prop-trophy.png",
 
-      key: "hallScore",
+      key: "cashRate",
       direction: "desc"
     },
 
     {
-      title: "The Killer",
-      description: "Most career knockouts.",
-      displayLabel: "Career Knockouts",
-      note: "Total knockouts",
+      title: "The Billing Department",
+      visualClass: "the-killer",
+      description: "Most knockouts per total entry among Hall-qualified players.",
+      displayLabel: "Knockouts Per Entry",
+      note: "No wasted motion. Invoice attached.",
 
       propLeft: "images/site/hall/props/hall-prop-boxing-glove-single.png",
       propRight: "images/site/hall/props/hall-prop-boxing-glove-single.png",
 
-      key: "hits",
+      key: "knockoutRate",
       direction: "desc"
     }
   ],
 
   worsts: [
     {
-      title: "The Donation Machine",
-      description: "Largest career loss.",
-      displayLabel: "Career Loss",
-      note: "All tournaments",
+      title: "The Punch Dummy",
+      visualClass: "the-killer",
+      description: "Most career bust-outs suffered among Hall-qualified players.",
+      displayLabel: "Times Knocked Out",
+      note: "Everyone gets a turn.",
 
-      propLeft: "images/site/hall/props/hall-prop-flying-money.png",
-      propRight: "images/site/hall/props/hall-prop-flying-money.png",
+      propLeft: "images/site/hall/props/hall-prop-boxing-glove-single.png",
+      propRight: "images/site/hall/props/hall-prop-boxing-glove-single.png",
 
-      key: "profit",
-      direction: "asc"
+      key: "timesBusted",
+      direction: "desc"
     },
 
     {
-      title: "The Variance Victim",
-      description: "The largest gap between results and expected outcomes.",
-      displayLabel: "Variance Pain",
-      note: "Absolute luck-index gap",
+      title: "The Lazarus",
+      visualClass: "the-variance-victim",
+      description: "Most times first out of the tournament and still recovered to cash.",
+      displayLabel: "First Out → Still Cashed",
+      note: "Apparently busting him is only a suggestion.",
 
       propLeft: "images/site/hall/props/hall-prop-card-ah-clean.png",
       propRight: "images/site/hall/props/hall-prop-card-2c-clean.png",
 
-      key: "variancePain",
-      suffix: " pts",
+      key: "lazarusCount",
       direction: "desc"
     },
 
     {
       title: "The Bubble Prisoner",
-      description: "Most painful near misses.",
+      visualClass: "the-bubble-prisoner",
+      description: "Most painful career near misses among Hall-qualified players.",
       displayLabel: "Career Bubbles",
-      note: "Total bubbles",
+      note: "So close it hurts.",
 
       propLeft: "images/site/hall/props/hall-prop-bubbles.png",
       propRight: "images/site/hall/props/hall-prop-bubbles.png",
@@ -515,6 +520,14 @@ function formatStatValue(player, key) {
     return fmtNum(player?.variancePain ?? 0);
   }
 
+  if (key === "knockoutRate") {
+    return Number(player?.knockoutRate ?? 0).toFixed(2);
+  }
+
+  if (key === "timesBusted" || key === "lazarusCount") {
+    return String(Math.round(Number(player?.[key] ?? 0)));
+  }
+
   const stat = getStatConfig(key);
 
   if (!stat) {
@@ -549,19 +562,108 @@ function isHallEligible(player, totalEvents = 0) {
   return Number(player?.buyIns ?? 0) >= minimumEvents;
 }
 
-function getHallPlayers(data) {
+async function loadHallHistoryData(data) {
+  const version = data?.generatedAt
+    ? `?v=${encodeURIComponent(data.generatedAt)}`
+    : "";
+
+  const indexRes = await fetch(`/data/parsed/events/index.json${version}`, {
+    cache: "no-store"
+  });
+
+  if (!indexRes.ok) {
+    throw new Error(`Failed to load Hall event index (${indexRes.status})`);
+  }
+
+  const eventFiles = (await indexRes.json())
+    .filter(fileName => /^\d{4}-\d{2}-\d{2}\.json$/.test(String(fileName || "")));
+
+  const events = await Promise.all(
+    eventFiles.map(async fileName => {
+      const eventRes = await fetch(`/data/parsed/events/${fileName}${version}`);
+
+      if (!eventRes.ok) {
+        throw new Error(`Failed to load Hall event ${fileName} (${eventRes.status})`);
+      }
+
+      return eventRes.json();
+    })
+  );
+
+  return {
+    eventCount: eventFiles.length,
+    events
+  };
+}
+
+function buildHallHistoryMetrics(historyEvents = []) {
+  const timesBusted = new Map();
+  const lazarusCount = new Map();
+
+  historyEvents.forEach(event => {
+    const actions = Array.isArray(event?.actions) ? event.actions : [];
+
+    actions.forEach(action => {
+      if (action?.type !== "bustout" || !action?.slug) return;
+
+      const slug = String(action.slug).toLowerCase();
+      timesBusted.set(slug, (timesBusted.get(slug) || 0) + 1);
+    });
+
+    const firstBustout = actions.find(
+      action => action?.type === "bustout" && action?.slug
+    );
+
+    const firstOutSlug = String(firstBustout?.slug || "").toLowerCase();
+    if (!firstOutSlug) return;
+
+    const recoveredToCash = (event?.winners || []).some(
+      winner => String(winner?.slug || "").toLowerCase() === firstOutSlug
+    );
+
+    if (recoveredToCash) {
+      lazarusCount.set(
+        firstOutSlug,
+        (lazarusCount.get(firstOutSlug) || 0) + 1
+      );
+    }
+  });
+
+  return {
+    timesBusted,
+    lazarusCount
+  };
+}
+
+function getHallPlayers(data, hallHistory = null) {
   const players = data?.players || [];
-  const totalEvents = Number(data?.events?.length ?? 0);
+
+  /*
+   * Hall qualification must use the full parsed TLPT event history.
+   * data.events contains the upcoming schedule and is not historical data.
+   */
+  const totalEvents = Number(hallHistory?.eventCount ?? 0);
+  const historyEvents = hallHistory?.events || [];
+  const historyMetrics = buildHallHistoryMetrics(historyEvents);
 
   const eligiblePlayers = players.filter(
     player => isHallEligible(player, totalEvents)
   );
 
-  return eligiblePlayers.map(player => ({
-    ...player,
-    hallScore: getHallScore(player, eligiblePlayers),
-    variancePain: Math.abs(Number(player?.luckIndex ?? 0))
-  }));
+  return eligiblePlayers.map(player => {
+    const slug = String(player?.slug || "").toLowerCase();
+    const entries = Number(player?.entries ?? 0);
+    const hits = Number(player?.hits ?? 0);
+
+    return {
+      ...player,
+      hallScore: getHallScore(player, eligiblePlayers),
+      variancePain: Math.abs(Number(player?.luckIndex ?? 0)),
+      knockoutRate: entries > 0 ? hits / entries : 0,
+      timesBusted: historyMetrics.timesBusted.get(slug) || 0,
+      lazarusCount: historyMetrics.lazarusCount.get(slug) || 0
+    };
+  });
 }
 
 function getLeaderByRule(players, rule, customPool = null) {
@@ -3480,7 +3582,7 @@ function hallCardMarkup(player, rule, tone = "best") {
     ? `${formatStatValue(player, rule.key)}${rule.suffix || ""}`
     : "—";
 
-  const cardSlug = String(rule?.title || "hall-card")
+  const cardSlug = String(rule?.visualClass || rule?.title || "hall-card")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
@@ -3605,9 +3707,7 @@ function getBalancedHonorsSections(data) {
   };
 }
 
-function renderHall(data) {
-
-  const players = getHallPlayers(data);
+async function renderHall(data) {
 
   const bestsEl =
     document.getElementById("hall-bests");
@@ -3616,76 +3716,107 @@ function renderHall(data) {
     document.getElementById("hall-worsts");
 
 
-  if (!players.length) return;
+  /*
+   * app.js runs on every TLPT page. Only load the full historical event set
+   * when the Hall page is actually present.
+   */
+  if (!bestsEl && !worstsEl) return;
 
 
-  function findHallLeader(rule) {
+  try {
+    const hallHistory = await loadHallHistoryData(data);
+    const players = getHallPlayers(data, hallHistory);
 
-    return [...players].sort((a, b) => {
-
-      const aVal =
-        Number(a?.[rule.key] ?? 0);
-
-      const bVal =
-        Number(b?.[rule.key] ?? 0);
+    if (!players.length) return;
 
 
-      if (rule.direction === "asc") {
+    /* Rename the room without requiring a champions.html edit. */
+    if (worstsEl) {
+      const infamyRoom = worstsEl.closest(".hall-room");
+      const infamyTitle = infamyRoom?.querySelector(".hall-room-title h3");
+      const infamyCopy = infamyRoom?.querySelector(".hall-room-header p");
 
-        if (aVal !== bVal) {
-          return aVal - bVal;
-        }
-
-      } else if (bVal !== aVal) {
-
-        return bVal - aVal;
-
+      if (infamyTitle) {
+        infamyTitle.textContent = "All-Time Infamy";
       }
 
-
-      return String(a?.name || "")
-        .localeCompare(
-          String(b?.name || "")
-        );
-
-    })[0];
-
-  }
+      if (infamyCopy) {
+        infamyCopy.textContent =
+          "The careers that became legends for all the wrong reasons.";
+      }
+    }
 
 
-  if (bestsEl) {
+    function findHallLeader(rule) {
 
-    bestsEl.innerHTML =
-      HALL_RULES.bests
-        .map(rule =>
-          hallCardMarkup(
-            findHallLeader(rule),
-            rule,
-            "best"
+      return [...players].sort((a, b) => {
+
+        const aVal =
+          Number(a?.[rule.key] ?? 0);
+
+        const bVal =
+          Number(b?.[rule.key] ?? 0);
+
+
+        if (rule.direction === "asc") {
+
+          if (aVal !== bVal) {
+            return aVal - bVal;
+          }
+
+        } else if (bVal !== aVal) {
+
+          return bVal - aVal;
+
+        }
+
+
+        return String(a?.name || "")
+          .localeCompare(
+            String(b?.name || "")
+          );
+
+      })[0];
+
+    }
+
+
+    if (bestsEl) {
+
+      bestsEl.innerHTML =
+        HALL_RULES.bests
+          .map(rule =>
+            hallCardMarkup(
+              findHallLeader(rule),
+              rule,
+              "best"
+            )
           )
-        )
-        .join("");
+          .join("");
 
-  }
+    }
 
 
-  if (worstsEl) {
+    if (worstsEl) {
 
-    worstsEl.innerHTML =
-      HALL_RULES.worsts
-        .map(rule =>
-          hallCardMarkup(
-            findHallLeader(rule),
-            rule,
-            "worst"
+      worstsEl.innerHTML =
+        HALL_RULES.worsts
+          .map(rule =>
+            hallCardMarkup(
+              findHallLeader(rule),
+              rule,
+              "worst"
+            )
           )
-        )
-        .join("");
+          .join("");
 
+    }
+
+  } catch (error) {
+    console.error("TLPT Hall history load failed:", error);
   }
 
 }
-
 function renderChampions(data) {
   const players = data?.players || [];
   const honorsEl = document.getElementById("champions-list");
@@ -4160,7 +4291,7 @@ async function main() {
   renderPlayers(data);
   renderPlayerProfile(data);
   renderSchedule(data);
-  renderHall(data);
+  await renderHall(data);
   initRulesPage();
   initSorting();
   initCrewViewToggle();
