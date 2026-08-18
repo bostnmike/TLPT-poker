@@ -3381,10 +3381,9 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
 
-  const numericClass =
-    isNumericValueText(valueText)
-      ? " hall-card-value--numeric"
-      : "";
+  const numericClass = isNumericValueText(valueText)
+    ? " hall-card-score-numeric"
+    : "";
 
   const cardSlug = String(category || "")
     .toLowerCase()
@@ -3392,28 +3391,24 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
     .replace(/^-+|-+$/g, "");
 
   return `
-    <a class="hall-card hall-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
+    <a class="hall-card hall-card-${cardSlug}" href="${href}">
 
       <div class="hall-card-title">
-        ${icon}
+        <span class="hall-card-icon">${icon}</span>
         <span>${category}</span>
       </div>
-
 
       <div class="hall-card-portrait">
         ${player ? playerImageMarkup(player, "honors") : ""}
       </div>
 
-
       <div class="hall-card-player">
         ${nameMarkup}
       </div>
 
-
       <div class="hall-card-score ${valueClass}${numericClass}">
         ${valueText}
       </div>
-
 
     </a>
   `;
