@@ -373,3 +373,69 @@
   }
 
 }
+
+/* =========================================
+   Hall Botanical Museum Flourish
+   ========================================= */
+
+
+/* Bests - preserved legacy / growth */
+
+.hall-module-bests::after {
+
+  content:"";
+
+  position:absolute;
+
+  right:25px;
+  bottom:20px;
+
+  width:180px;
+  height:180px;
+
+  opacity:.12;
+
+  background:
+    radial-gradient(
+      ellipse at 70% 30%,
+      rgba(255,215,100,.35),
+      transparent 55%
+    );
+
+  transform:
+    rotate(-15deg);
+
+  pointer-events:none;
+
+}
+
+
+/* Worsts - fallen / faded exhibit */
+
+.hall-module-worsts::after {
+
+  content:"";
+
+  position:absolute;
+
+  right:25px;
+  bottom:20px;
+
+  width:180px;
+  height:180px;
+
+  opacity:.10;
+
+  background:
+    radial-gradient(
+      ellipse at 70% 30%,
+      rgba(180,180,180,.25),
+      transparent 60%
+    );
+
+  transform:
+    rotate(20deg);
+
+  pointer-events:none;
+
+}
