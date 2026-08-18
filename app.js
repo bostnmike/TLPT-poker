@@ -3549,36 +3549,50 @@ function hallCardMarkup(player, rule, tone = "best") {
       </div>
 
 
-      <div class="hall-plaque-stat-panel">
+      <div class="hall-plaque-stat-stage">
 
-        <div class="hall-plaque-stat-label">
-          ${rule.displayLabel}
-        </div>
-
-        <div
-          class="
-            hall-plaque-stat-value
-            ${valueTone}
-          "
-        >
-          ${valueText}
-        </div>
-
-        <div class="hall-plaque-stat-note">
-          ${rule.note || rule.description || ""}
-        </div>
-
-      </div>
+  ${rule.propLeft ? `
+    <img
+      class="hall-plaque-prop hall-plaque-prop-left"
+      src="${rule.propLeft}"
+      alt=""
+      aria-hidden="true"
+    />
+  ` : ""}
 
 
-      ${rule.propLeft ? `
-        <img
-          class="hall-plaque-prop hall-plaque-prop-left"
-          src="${rule.propLeft}"
-          alt=""
-          aria-hidden="true"
-        />
-      ` : ""}
+  <div class="hall-plaque-stat-panel">
+
+    <div class="hall-plaque-stat-label">
+      ${rule.displayLabel}
+    </div>
+
+    <div
+      class="
+        hall-plaque-stat-value
+        ${valueTone}
+      "
+    >
+      ${valueText}
+    </div>
+
+    <div class="hall-plaque-stat-note">
+      ${rule.note || rule.description || ""}
+    </div>
+
+  </div>
+
+
+  ${rule.propRight ? `
+    <img
+      class="hall-plaque-prop hall-plaque-prop-right"
+      src="${rule.propRight}"
+      alt=""
+      aria-hidden="true"
+    />
+  ` : ""}
+
+  </div>
 
 
       ${rule.propRight ? `
