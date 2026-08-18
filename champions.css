@@ -739,34 +739,98 @@
 }
 
 
-/* ACTUAL LAUREL */
+/* =========================================
+   REAL LAUREL IMAGE ASSETS
+   ========================================= */
 
 .hall-plaque-laurels {
   position:absolute;
 
   inset:0;
 
-  width:100%;
-  height:100%;
+  z-index:1;
+
+  pointer-events:none;
 
   overflow:visible;
+}
 
+
+.hall-laurel-image {
+  position:absolute;
+
+  bottom:2px;
+
+  height:160px;
+  width:auto;
+
+  object-fit:contain;
+
+  pointer-events:none;
+
+  user-select:none;
+}
+
+
+/* LEFT BRANCH */
+
+.hall-laurel-image-left {
+  left:34px;
+
+  transform:
+    rotate(-6deg);
+
+  transform-origin:
+    bottom center;
+}
+
+
+/* RIGHT BRANCH — exact mirror */
+
+.hall-laurel-image-right {
+  right:34px;
+
+  transform:
+    scaleX(-1)
+    rotate(-6deg);
+
+  transform-origin:
+    bottom center;
+}
+
+
+/* Gold Hall of Fame treatment */
+
+.hall-plaque--best
+.hall-laurel-image {
   filter:
     drop-shadow(
-      0 4px 5px
-      rgba(0,0,0,.34)
+      0 5px 6px
+      rgba(0,0,0,.48)
+    )
+    drop-shadow(
+      0 0 5px
+      rgba(255,198,52,.18)
     );
 }
 
 
-.hall-laurel-stem {
-  fill:none;
+/* Tarnished Hall of Infamy treatment */
 
-  stroke-width:3;
+.hall-plaque--worst
+.hall-laurel-image {
+  opacity:.92;
 
-  stroke-linecap:round;
+  filter:
+    drop-shadow(
+      0 5px 6px
+      rgba(0,0,0,.52)
+    )
+    drop-shadow(
+      0 0 4px
+      rgba(166,100,48,.12)
+    );
 }
-
 
 /* BEST LAUREL */
 
