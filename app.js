@@ -179,7 +179,6 @@ const HALL_RULES = {
       description: "Best overall career performance.",
       displayLabel: "Hall Score",
       key: "hallScore",
-      suffix: "/100",
       direction: "desc"
     },
     {
