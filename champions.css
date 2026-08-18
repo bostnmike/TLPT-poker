@@ -980,29 +980,42 @@
 }
 
 
-/* STAT PANEL */
+/* =========================================
+   STAT EXHIBIT STAGE
+   Props + plaque are now one component
+   ========================================= */
+
+.hall-plaque-stat-stage {
+  position:relative;
+  z-index:3;
+
+  width:100%;
+  height:122px;
+
+  margin-top:auto;
+
+  flex:0 0 122px;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+
+  overflow:visible;
+}
+
+
+/* =========================================
+   STAT PANEL
+   ========================================= */
 
 .hall-plaque-stat-panel {
   position:relative;
   z-index:3;
 
-  /*
-    Slightly narrower than before.
-    This creates a proper exhibit-prop lane
-    on each side of the stat plaque.
-  */
-  width:min(66%,230px);
-
+  width:min(58%,210px);
   min-height:96px;
 
-  /*
-    Do NOT pin this to the absolute bottom
-    with margin-top:auto.
-  */
-  margin-top:16px;
-  margin-bottom:4px;
-
-  flex:0 0 auto;
+  margin:0 0 4px;
 
   display:flex;
   flex-direction:column;
@@ -1029,6 +1042,23 @@
 
   text-align:center;
 }
+
+
+.hall-plaque--best
+.hall-plaque-stat-panel {
+  border:
+    2px solid
+    rgba(226,178,45,.90);
+}
+
+
+.hall-plaque--worst
+.hall-plaque-stat-panel {
+  border:
+    2px solid
+    rgba(222,55,62,.88);
+}
+
 
 /* STAT LABEL */
 
@@ -1111,21 +1141,22 @@
 
 
 /* =========================================
-   MUSEUM STAT PROPS
-   Final Exhibit Placement
+   PROP BASE
    ========================================= */
 
 .hall-plaque-prop {
   position:absolute;
+
+  bottom:0;
 
   z-index:2;
 
   display:block;
 
   object-fit:contain;
-  object-position:center;
 
   pointer-events:none;
+
   user-select:none;
 
   transform-origin:center center;
@@ -1139,21 +1170,21 @@
 
 
 /* =========================================
-   MONEY MACHINE — GOLD COINS
+   MONEY MACHINE — COINS
    ========================================= */
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop {
-  width:108px;
-  height:108px;
+  width:112px;
+  height:112px;
 
-  bottom:18px;
+  bottom:3px;
 }
 
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-left {
-  left:-10px;
+  left:-8px;
 
   transform:none;
 }
@@ -1161,7 +1192,7 @@
 
 .hall-plaque-the-money-machine
 .hall-plaque-prop-right {
-  right:-10px;
+  right:-8px;
 
   transform:scaleX(-1);
 }
@@ -1173,16 +1204,16 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop {
-  width:96px;
-  height:96px;
+  width:94px;
+  height:94px;
 
-  bottom:18px;
+  bottom:7px;
 }
 
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-left {
-  left:-10px;
+  left:4px;
 
   transform:none;
 }
@@ -1190,49 +1221,59 @@
 
 .hall-plaque-the-complete-player
 .hall-plaque-prop-right {
-  right:-10px;
+  right:4px;
 
   transform:scaleX(-1);
 }
 
 
 /* =========================================
-   THE KILLER — BOXING GLOVES
+   KILLER — BOXING GLOVES
    ========================================= */
 
 .hall-plaque-the-killer
 .hall-plaque-prop {
-  width:118px;
-  height:118px;
+  width:124px;
+  height:124px;
+
+  bottom:0;
 
   /*
-    High enough to expose the complete cuff.
+    IMPORTANT:
+    Put the gloves IN FRONT of the stat panel.
+    This prevents the cuff from being split into
+    that ridiculous detached white triangle.
   */
-  bottom:20px;
+  z-index:4;
 }
 
 
 /*
-  Critical change:
+  Source glove:
+  head = upper-left
+  cuff = lower-right.
 
-  Push the gloves farther outward.
-
-  The previous -12px placement put the
-  cuff underneath the stat panel, which is
-  why only a strange white fragment showed.
+  Concept LEFT glove needs:
+  head inward / cuff outward.
+  Therefore LEFT MUST BE MIRRORED.
 */
 
 .hall-plaque-the-killer
 .hall-plaque-prop-left {
-  left:-28px;
+  left:-25px;
 
-  transform:scaleX(-1);
+  transform:
+    scaleX(-1);
 }
 
 
+/*
+  Concept RIGHT glove uses the source naturally.
+*/
+
 .hall-plaque-the-killer
 .hall-plaque-prop-right {
-  right:-28px;
+  right:-25px;
 
   transform:none;
 }
@@ -1244,19 +1285,16 @@
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop {
-  width:106px;
-  height:106px;
+  width:116px;
+  height:116px;
 
-  /*
-    Pull the money away from the card edge.
-  */
-  bottom:18px;
+  bottom:1px;
 }
 
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-left {
-  left:-6px;
+  left:-10px;
 
   transform:
     rotate(-3deg);
@@ -1265,7 +1303,7 @@
 
 .hall-plaque-the-donation-machine
 .hall-plaque-prop-right {
-  right:-6px;
+  right:-10px;
 
   transform:
     scaleX(-1)
@@ -1279,47 +1317,49 @@
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop {
-  /*
-    IMPORTANT:
-    These are square PNG canvases.
 
-    Keeping width and height equal lets
-    object-fit preserve the card at its
-    proper scale instead of constraining
-    everything to the old 108px width.
+  /*
+    The concept cards are LARGE.
+    They begin well above the stat plaque
+    and frame it rather than hiding behind it.
   */
 
-  width:132px;
-  height:132px;
+  width:190px;
+  height:190px;
 
-  bottom:17px;
+  bottom:-7px;
+
+  z-index:2;
 }
 
 
-/* A♥ — fan outward left */
+/*
+  Clean upright A♥ asset.
+
+  Push the canvas outward so only the INNER
+  edge sits behind the stat plaque.
+*/
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-left {
-  left:-8px;
+  left:-52px;
 
   transform:
-    rotate(-12deg);
+    rotate(-9deg);
 }
 
 
-/* 2♣ — fan outward right */
+/*
+  Clean upright 2♣ asset.
+  Separate asset — DO NOT MIRROR.
+*/
 
 .hall-plaque-the-variance-victim
 .hall-plaque-prop-right {
-  right:-8px;
-
-  /*
-    Separate PNG.
-    Never mirror it.
-  */
+  right:-52px;
 
   transform:
-    rotate(12deg);
+    rotate(9deg);
 }
 
 
@@ -1329,10 +1369,10 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop {
-  width:110px;
-  height:110px;
+  width:118px;
+  height:118px;
 
-  bottom:18px;
+  bottom:0;
 
   opacity:.94;
 }
@@ -1340,7 +1380,7 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-left {
-  left:-6px;
+  left:-8px;
 
   transform:none;
 }
@@ -1348,11 +1388,10 @@
 
 .hall-plaque-the-bubble-prisoner
 .hall-plaque-prop-right {
-  right:-6px;
+  right:-8px;
 
   transform:scaleX(-1);
 }
-
 /* TABLET */
 
 @media(max-width:1050px) {
