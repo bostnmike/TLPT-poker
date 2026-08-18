@@ -3377,33 +3377,44 @@ function recordIcon(label) {
 }
 
 function honorsCardMarkup(player, category, icon, valueText, isTop = false, valueClass = "") {
+
   const href = player ? playerUrl(player) : "#";
   const nameMarkup = player ? displayPlayerName(player) : "Unknown";
-  const numericClass = isNumericValueText(valueText) ? " honors-card-value--numeric" : "";
+
+  const numericClass =
+    isNumericValueText(valueText)
+      ? " hall-card-value--numeric"
+      : "";
+
   const cardSlug = String(category || "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
   return `
-    <a class="champ-card stat-card-visual hall-card hall-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
-      <div class="leader-banner-top">
-        <div class="leader-banner-crown">${icon}</div>
-        <div class="leader-banner-title">${category}</div>
+    <a class="hall-card hall-card-${cardSlug} ${isTop ? "is-top-rank" : ""}" href="${href}">
+
+      <div class="hall-card-title">
+        ${icon}
+        <span>${category}</span>
       </div>
 
-      <div class="hall-card-top leader-banner-body">
+
+      <div class="hall-card-portrait">
         ${player ? playerImageMarkup(player, "honors") : ""}
-        <div class="hall-card-stack">
-          <div class="hall-player-name">${nameMarkup}</div>
-        </div>
       </div>
 
-      <div
-        class="hall-card-value ${valueClass}${numericClass}"
-        data-animate-count="${isNumericValueText(valueText) ? "true" : "false"}"
-        data-target-value="${valueText}"
-      >${valueText}</div>
+
+      <div class="hall-card-player">
+        ${nameMarkup}
+      </div>
+
+
+      <div class="hall-card-score ${valueClass}${numericClass}">
+        ${valueText}
+      </div>
+
+
     </a>
   `;
 }
