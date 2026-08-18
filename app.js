@@ -3432,129 +3432,31 @@ function honorsCardMarkup(player, category, icon, valueText, isTop = false, valu
   `;
 }
 
-function hallLaurelMarkup() {
+function hallLaurelMarkup(tone = "best") {
+
+  const leafSrc =
+    tone === "worst"
+      ? "images/site/hall/hall-leaf-withered.png"
+      : "images/site/hall/hall-leaf-gold.png";
+
   return `
-    <svg
-      class="hall-plaque-laurels"
-      viewBox="0 0 280 180"
-      aria-hidden="true"
-      focusable="false"
-    >
+    <div class="hall-plaque-laurels" aria-hidden="true">
 
-      <g class="hall-laurel-branch hall-laurel-branch-left">
+      <img
+        class="hall-laurel-image hall-laurel-image-left"
+        src="${leafSrc}"
+        alt=""
+      />
 
-        <path
-          class="hall-laurel-stem"
-          d="M111 164 C76 140 58 101 68 42"
-        />
+      <img
+        class="hall-laurel-image hall-laurel-image-right"
+        src="${leafSrc}"
+        alt=""
+      />
 
-        <ellipse class="hall-laurel-leaf"
-          cx="102" cy="147" rx="8" ry="18"
-          transform="rotate(-52 102 147)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="88" cy="128" rx="8" ry="18"
-          transform="rotate(-62 88 128)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="78" cy="106" rx="8" ry="18"
-          transform="rotate(-70 78 106)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="72" cy="82" rx="8" ry="18"
-          transform="rotate(-78 72 82)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="72" cy="59" rx="8" ry="18"
-          transform="rotate(-86 72 59)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="78" cy="39" rx="8" ry="18"
-          transform="rotate(-102 78 39)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="97" cy="137" rx="8" ry="18"
-          transform="rotate(32 97 137)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="83" cy="116" rx="8" ry="18"
-          transform="rotate(24 83 116)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="74" cy="93" rx="8" ry="18"
-          transform="rotate(15 74 93)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="70" cy="69" rx="8" ry="18"
-          transform="rotate(8 70 69)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="73" cy="47" rx="8" ry="18"
-          transform="rotate(-2 73 47)" />
-
-      </g>
-
-
-      <g
-        class="hall-laurel-branch hall-laurel-branch-right"
-        transform="translate(280 0) scale(-1 1)"
-      >
-
-        <path
-          class="hall-laurel-stem"
-          d="M111 164 C76 140 58 101 68 42"
-        />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="102" cy="147" rx="8" ry="18"
-          transform="rotate(-52 102 147)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="88" cy="128" rx="8" ry="18"
-          transform="rotate(-62 88 128)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="78" cy="106" rx="8" ry="18"
-          transform="rotate(-70 78 106)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="72" cy="82" rx="8" ry="18"
-          transform="rotate(-78 72 82)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="72" cy="59" rx="8" ry="18"
-          transform="rotate(-86 72 59)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="78" cy="39" rx="8" ry="18"
-          transform="rotate(-102 78 39)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="97" cy="137" rx="8" ry="18"
-          transform="rotate(32 97 137)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="83" cy="116" rx="8" ry="18"
-          transform="rotate(24 83 116)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="74" cy="93" rx="8" ry="18"
-          transform="rotate(15 74 93)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="70" cy="69" rx="8" ry="18"
-          transform="rotate(8 70 69)" />
-
-        <ellipse class="hall-laurel-leaf"
-          cx="73" cy="47" rx="8" ry="18"
-          transform="rotate(-2 73 47)" />
-
-      </g>
-
-    </svg>
+    </div>
   `;
 }
-
 
 function hallCardMarkup(player, rule, tone = "best") {
 
@@ -3617,7 +3519,7 @@ function hallCardMarkup(player, rule, tone = "best") {
 
       <div class="hall-plaque-portrait-stage">
 
-        ${hallLaurelMarkup()}
+        ${hallLaurelMarkup(tone)}
 
         <div class="hall-plaque-avatar">
           ${player ? playerImageMarkup(player, "hall") : ""}
