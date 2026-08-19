@@ -877,7 +877,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   position:relative;
   display:flex;
   align-items:center;
-  gap:16px;
+  justify-content:flex-start;
+  gap:14px;
   padding:14px 16px;
   border:1px solid rgba(244,114,182,.22);
   border-radius:18px;
