@@ -2659,7 +2659,7 @@ function renderLeagueSnapshot(data) {
     },
     {
       icon:"💰",
-      label:"Total Prize Pool",
+      label:"Historical Prize Pool",
       value:fmtMoney(totalEntryFees),
       className:"snapshot-green",
       href:"dashboard.html"
