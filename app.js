@@ -3438,6 +3438,14 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
 
   return `
     <div class="tlpt-card-stage">
+      <svg class="tlpt-card-shape-defs" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="tlpt-player-card-shape" clipPathUnits="objectBoundingBox">
+            <path d="M .13,.055 C .23,.014 .36,0 .5,0 C .64,0 .77,.014 .87,.055 C .875,.094 .92,.127 1,.14 L 1,.855 C 1,.905 .91,.934 .79,.957 C .67,.98 .56,.993 .5,1 C .44,.993 .33,.98 .21,.957 C .09,.934 0,.905 0,.855 L 0,.14 C .08,.127 .125,.094 .13,.055 Z"></path>
+          </clipPath>
+        </defs>
+      </svg>
+
       <article
         class="tlpt-player-card tlpt-player-card-${tierMeta.className}"
         aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}."
@@ -3607,6 +3615,23 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
   `;
 }
 
+function syncTopPlayerNavigation(prev, next) {
+  const previousLink = document.getElementById("player-top-prev");
+  const nextLink = document.getElementById("player-top-next");
+
+  if (previousLink && prev) {
+    previousLink.href = playerUrl(prev);
+    previousLink.textContent = `← Previous: ${displayPlayerNamePlain(prev)}`;
+    previousLink.hidden = false;
+  }
+
+  if (nextLink && next) {
+    nextLink.href = playerUrl(next);
+    nextLink.textContent = `Next: ${displayPlayerNamePlain(next)} →`;
+    nextLink.hidden = false;
+  }
+}
+
 function renderPlayerProfile(data) {
   const container = document.getElementById("player-profile");
   if (!container || !data?.players?.length) return;
@@ -3635,6 +3660,7 @@ function renderPlayerProfile(data) {
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];
   const next = players[(index + 1) % players.length];
+  syncTopPlayerNavigation(prev, next);
   const quote = ensureQuoted(player?.notes || "");
   const archetypes = getPlayerArchetypes(player);
   const primaryArchetype = archetypes.primary;
