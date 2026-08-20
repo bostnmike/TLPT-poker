@@ -3725,12 +3725,6 @@ function renderPlayerProfile(data) {
 
       ${archetypeMixMarkup(player)}
 
-      <div id="player-nav" class="player-nav">
-        <a class="btn" href="${playerUrl(prev)}">← Previous: ${displayPlayerName(prev)}</a>
-        <a class="btn" href="players.html">The Crew</a>
-        <a class="btn" href="${playerUrl(next)}">Next: ${displayPlayerName(next)} →</a>
-      </div>
-
       <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
 
             <p class="player-formula-help muted">Mouse over any stat to reveal the calculation.</p>
