@@ -2804,51 +2804,63 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   setActiveSortButton("dashboard", sortKey);
 }
 
-function crewCardMarkup(player, data, tierPlayers = []) {
-  /*
-   * Crew-page badges must be awarded only among players who qualify
-   * for the Crew page: at least 3 separate tournament appearances.
-   */
-  const crewBadgePool = (data?.players || []).filter(isCrewEligible);
-
-  const tier = getPlayerTier(player, data?.players || []);
-  
-  const tierRank = [...tierPlayers]
-    .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
-    .findIndex(p => p.name === player.name) + 1;
-
-  const tierClass = tier.name
-    .toLowerCase()
-    .replace(/^the\s+/i, "")
-    .replace(/[^\w]+/g, "-")
-    .replace(/^-+|-+$/g, "");
+function crewCardMarkup(player, data) {
+  const players = data?.players || [];
+  const overall = playerCardOverallRating(player, players);
+  const tierMeta = playerCardTierMeta(player, players);
+  const attributes = playerCardAttributes(player, players);
+  const primaryArchetype = getPlayerArchetypes(player).primary;
 
   return `
-    <a class="player-card player-card-rich crew-card" href="${playerUrl(player)}">
-      <div class="crew-card-topline">
-        <span class="crew-tier-badge ${tierClass}">${tier.emoji} ${tier.name}</span>
-        <span class="crew-tier-rank">#${tierRank}</span>
-      </div>
+    <a
+      class="crew-ultimate-card crew-ultimate-card-${tierMeta.className}"
+      href="${playerUrl(player)}"
+      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}."
+    >
+      <div class="crew-ultimate-card-inner">
+        <div class="crew-ultimate-metal" aria-hidden="true"></div>
 
-      <div class="player-card-top crew-card-top">
-        ${playerImageMarkup(player, "crew")}
-        <div class="player-card-meta crew-card-meta">
-          <div class="kicker">Player</div>
-          <h3>${displayPlayerName(player)}</h3>
+        <header class="crew-ultimate-header">
+          <div class="crew-ultimate-rating-block">
+            <span class="crew-ultimate-overall">${overall}</span>
+            <span class="crew-ultimate-tier-code">${tierMeta.code}</span>
+          </div>
+
+          <div class="crew-ultimate-edition">
+            <span>TLPT</span>
+            <strong>CAREER</strong>
+          </div>
+
+          <img
+            class="crew-ultimate-chip"
+            src="images/site/chip-T-1000.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </header>
+
+        <div class="crew-ultimate-portrait">
+          ${playerImageMarkup(player, "crew")}
         </div>
-      </div>
 
-      <div class="crew-summary-row">
-        <span class="crew-profit ${statValueClass(player, "profit")}">Profit ${fmtMoney(player.profit)}</span>
-        <span class="crew-power">Tier Score ${fmtNum(getPlayerTierScore(player))}</span>
-      </div>
+        <div class="crew-ultimate-identity">
+          <h3>${displayPlayerName(player)}</h3>
+          <span>${primaryArchetype.emoji} ${primaryArchetype.name}</span>
+        </div>
 
-      <div class="player-card-stats crew-card-stats">
-        <p class="muted"><strong>Entries:</strong> ${player.entries ?? "-"}</p>
-        <p class="muted"><strong>Hits:</strong> ${player.hits ?? "-"}</p>
-        <p class="muted"><strong>Cashes:</strong> ${player.timesPlaced ?? "-"}</p>
-        <p class="muted"><strong>Bubble Rate:</strong> ${fmtPct(player.bubbleRate)}</p>
-        ${badgesMarkup(player, data, crewBadgePool)}
+        <div class="crew-ultimate-attributes" aria-label="Player card attributes">
+          ${attributes.map(attribute => `
+            <div class="crew-ultimate-attribute" title="${attribute.detail}">
+              <strong>${attribute.value}</strong>
+              <span>${attribute.code}</span>
+            </div>
+          `).join("")}
+        </div>
+
+        <div class="crew-ultimate-footer" aria-hidden="true">
+          <span>TLPT</span>
+          <span>${tierMeta.status}</span>
+        </div>
       </div>
     </a>
   `;
@@ -2891,7 +2903,7 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
       </div>
 
       <div class="tier-grid">
-        ${players.map(player => crewCardMarkup(player, data, players)).join("")}
+        ${players.map(player => crewCardMarkup(player, data)).join("")}
       </div>
     </div>
   `;
@@ -3025,7 +3037,7 @@ function archetypeSectionMarkup(group, data) {
       <p class="muted archetype-section-copy">${group.desc}</p>
 
       <div class="tier-grid">
-        ${group.players.map(player => crewCardMarkup(player, data, group.players)).join("")}
+        ${group.players.map(player => crewCardMarkup(player, data)).join("")}
         </div>
     </div>
   `;
