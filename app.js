@@ -3285,6 +3285,328 @@ function playerDnaMarkup(player) {
   `;
 }
 
+function playerCardBenchmarkPool(players) {
+  const established = (players || []).filter(player => Number(player?.buyIns ?? 0) >= 5);
+
+  if (established.length >= 2) return established;
+
+  const crew = (players || []).filter(isCrewEligible);
+  return crew.length >= 2 ? crew : (players || []);
+}
+
+function playerCardSampleAdjustedRating(player, rating) {
+  const appearances = Number(player?.buyIns ?? 0);
+  const safeRating = Math.max(1, Math.min(99, Number(rating) || 0));
+
+  if (appearances < CREW_MIN_BUY_INS) return 64;
+
+  if (appearances < 5) {
+    const provisionalCenter = 68;
+    return Math.round(provisionalCenter + ((safeRating - provisionalCenter) * 0.4));
+  }
+
+  return Math.round(safeRating);
+}
+
+function playerCardMetricRating(player, players, key, minRating = 40, maxRating = 96) {
+  const pool = playerCardBenchmarkPool(players);
+  const values = pool
+    .map(item => Number(item?.[key]))
+    .filter(Number.isFinite);
+
+  if (!values.length) return playerCardSampleAdjustedRating(player, 68);
+
+  const minValue = Math.min(...values);
+  const maxValue = Math.max(...values);
+  const value = Number(player?.[key] ?? 0);
+
+  const normalized = maxValue === minValue
+    ? 0.5
+    : (value - minValue) / (maxValue - minValue);
+
+  const bounded = Math.max(0, Math.min(1, normalized));
+  const rating = minRating + (bounded * (maxRating - minRating));
+
+  return playerCardSampleAdjustedRating(player, rating);
+}
+
+function playerCardTierMeta(player, players) {
+  const appearances = Number(player?.buyIns ?? 0);
+  const tier = getPlayerTier(player, players);
+  const eligiblePlayers = (players || [])
+    .filter(isCrewEligible)
+    .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  const rankIndex = eligiblePlayers.findIndex(item => item.name === player?.name);
+
+  const tierMap = {
+    "The Apex Predator": { code: "S", className: "s" },
+    "The Table Crusher": { code: "A", className: "a" },
+    "The Shot Maker": { code: "B", className: "b" },
+    "The Gambler": { code: "C", className: "c" },
+    "The League Sponsor": { code: "D", className: "d" }
+  };
+
+  const mappedTier = tierMap[tier.name] || { code: "—", className: "prospect" };
+
+  if (appearances < CREW_MIN_BUY_INS) {
+    return {
+      ...tier,
+      code: "RKI",
+      className: "prospect",
+      status: "Prospect",
+      statusDetail: `Needs ${Math.max(CREW_MIN_BUY_INS - appearances, 0)} more ${CREW_MIN_BUY_INS - appearances === 1 ? "appearance" : "appearances"} for a Crew ranking`,
+      rank: null,
+      totalRanked: eligiblePlayers.length
+    };
+  }
+
+  if (appearances < 5) {
+    return {
+      ...tier,
+      code: "PRO",
+      className: "provisional",
+      status: "Provisional",
+      statusDetail: `${5 - appearances} more ${5 - appearances === 1 ? "appearance" : "appearances"} for a full card rating`,
+      rank: rankIndex >= 0 ? rankIndex + 1 : null,
+      totalRanked: eligiblePlayers.length
+    };
+  }
+
+  return {
+    ...tier,
+    ...mappedTier,
+    status: "Established",
+    statusDetail: `${appearances} career appearances`,
+    rank: rankIndex >= 0 ? rankIndex + 1 : null,
+    totalRanked: eligiblePlayers.length
+  };
+}
+
+function playerCardOverallRating(player, players) {
+  return playerCardMetricRating(player, players, "trueSkillScore", 62, 95);
+}
+
+function playerCardAttributes(player, players) {
+  const returnRating = Math.round(
+    (playerCardMetricRating(player, players, "roi") * 0.65) +
+    (playerCardMetricRating(player, players, "profit") * 0.35)
+  );
+
+  return [
+    {
+      code: "RET",
+      label: "Return",
+      value: returnRating,
+      detail: "Return rating — ROI and career profit"
+    },
+    {
+      code: "CLT",
+      label: "Clutch",
+      value: playerCardMetricRating(player, players, "clutchIndex"),
+      detail: "Clutch rating — cashing and closing under pressure"
+    },
+    {
+      code: "ITM",
+      label: "In the Money",
+      value: playerCardMetricRating(player, players, "cashRate"),
+      detail: "In-the-money rating — career cash rate"
+    },
+    {
+      code: "AGR",
+      label: "Aggression",
+      value: playerCardMetricRating(player, players, "aggressionIndex"),
+      detail: "Aggression rating — knockouts per entry"
+    },
+    {
+      code: "HIT",
+      label: "Hit Rate",
+      value: playerCardMetricRating(player, players, "hitRate"),
+      detail: "Hit rating — total knockouts relative to bullets fired"
+    },
+    {
+      code: "SUR",
+      label: "Survival",
+      value: playerCardMetricRating(player, players, "survivorIndex"),
+      detail: "Survival rating — cashing, bubble avoidance and hit rate"
+    }
+  ];
+}
+
+function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
+  const overall = playerCardOverallRating(player, players);
+  const attributes = playerCardAttributes(player, players);
+
+  return `
+    <div class="tlpt-card-stage">
+      <article
+        class="tlpt-player-card tlpt-player-card-${tierMeta.className}"
+        aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}."
+      >
+        <div class="tlpt-player-card-inner">
+          <div class="tlpt-player-card-pattern" aria-hidden="true"></div>
+
+          <header class="tlpt-card-header">
+            <div class="tlpt-card-rating-block">
+              <span class="tlpt-card-overall">${overall}</span>
+              <span class="tlpt-card-tier-code">${tierMeta.code}</span>
+            </div>
+
+            <div class="tlpt-card-edition">
+              <span>TLPT</span>
+              <strong>CAREER</strong>
+            </div>
+
+            <div class="tlpt-card-crest-wrap">
+              <img
+                class="tlpt-card-crest"
+                src="images/site/chip-T-1000.png"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          </header>
+
+          <div class="tlpt-card-portrait">
+            ${playerImageMarkup(player, "profile")}
+          </div>
+
+          <div class="tlpt-card-identity">
+            <h2>${displayPlayerName(player)}</h2>
+            <div class="tlpt-card-archetype">${primaryArchetype.emoji} ${primaryArchetype.name}</div>
+          </div>
+
+          <div class="tlpt-card-attributes" aria-label="Player card attributes">
+            ${attributes.map(attribute => `
+              <div class="tlpt-card-attribute" title="${attribute.detail}">
+                <strong>${attribute.value}</strong>
+                <span>${attribute.code}</span>
+                <small>${attribute.label}</small>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="tlpt-card-footer-mark" aria-hidden="true">
+            <span>♠</span><span>♥</span><span>♣</span><span>♦</span>
+          </div>
+        </div>
+      </article>
+
+      <p class="tlpt-card-rating-note">
+        Card ratings compare established TLPT players. Exact career statistics appear alongside the card.
+      </p>
+    </div>
+  `;
+}
+
+function playerProfileStreakMeta(player, data) {
+  const streakData = data?.streaks?.players?.[player?.slug] || {};
+  const cashStreak = streakData.currentCashStreak;
+  const droughtStreak = streakData.currentDroughtStreak;
+
+  if (cashStreak?.length) {
+    return {
+      tone: "hot",
+      label: "Current Form",
+      value: `🔥 ${cashStreak.length}-game cash streak`
+    };
+  }
+
+  if (droughtStreak?.length) {
+    return {
+      tone: "cold",
+      label: "Current Form",
+      value: `🥶 ${droughtStreak.length}-game cash drought`
+    };
+  }
+
+  return {
+    tone: "steady",
+    label: "Current Form",
+    value: "No active streak"
+  };
+}
+
+function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryArchetype, tierMeta, quote) {
+  const streak = playerProfileStreakMeta(player, data);
+  const rankValue = tierMeta.rank ? `#${tierMeta.rank}` : "—";
+  const rankDetail = tierMeta.rank
+    ? `of ${tierMeta.totalRanked} Crew-qualified players`
+    : "Crew ranking pending";
+
+  const snapshotStats = [
+    { label: "Career Profit", value: fmtMoney(player?.profit), className: statValueClass(player, "profit") },
+    { label: "ROI", value: fmtPct(player?.roi) },
+    { label: "Cash Rate", value: fmtPct(player?.cashRate) },
+    { label: "Appearances", value: String(player?.buyIns ?? 0) },
+    { label: "Cashes", value: String(player?.timesPlaced ?? 0) },
+    { label: "Knockouts", value: String(player?.hits ?? 0) }
+  ];
+
+  return `
+    <section class="tlpt-player-summary" aria-labelledby="tlpt-player-summary-title">
+      <div class="kicker tlpt-player-summary-kicker">TLPT Ultimate Player Card</div>
+
+      <div class="tlpt-player-summary-title-row">
+        <div>
+          <h2 id="tlpt-player-summary-title">${displayPlayerName(player)}</h2>
+          <p class="tlpt-player-summary-quote">${quote}</p>
+        </div>
+      </div>
+
+      <div class="tlpt-player-status-row">
+        <div class="tlpt-player-status-card">
+          <span>Power Rank</span>
+          <strong>${rankValue}</strong>
+          <small>${rankDetail}</small>
+        </div>
+
+        <div class="tlpt-player-status-card">
+          <span>Power Tier</span>
+          <strong>${tierMeta.emoji} ${tierMeta.name}</strong>
+          <small>${tierMeta.desc}</small>
+        </div>
+
+        <div class="tlpt-player-status-card tlpt-player-status-${streak.tone}">
+          <span>${streak.label}</span>
+          <strong>${streak.value}</strong>
+          <small>${tierMeta.status}: ${tierMeta.statusDetail}</small>
+        </div>
+      </div>
+
+      <div class="tlpt-player-snapshot-grid" aria-label="Career snapshot">
+        ${snapshotStats.map(stat => `
+          <div class="tlpt-player-snapshot-stat">
+            <span>${stat.label}</span>
+            <strong class="${stat.className || ""}">${stat.value}</strong>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="tlpt-player-archetype-pair">
+        <div class="tlpt-player-archetype-card primary">
+          <span>Primary Archetype</span>
+          <strong>${primaryArchetype.emoji} ${primaryArchetype.name}</strong>
+          <small>${primaryArchetype.desc}</small>
+        </div>
+
+        <div class="tlpt-player-archetype-card secondary">
+          <span>Secondary Archetype</span>
+          <strong>${secondaryArchetype.emoji} ${secondaryArchetype.name}</strong>
+          <small>${secondaryArchetype.desc}</small>
+        </div>
+      </div>
+
+      <div class="tlpt-player-summary-badges">
+        ${badgesMarkup(
+          player,
+          data,
+          (data?.players || []).filter(isCrewEligible)
+        )}
+      </div>
+    </section>
+  `;
+}
+
 function renderPlayerProfile(data) {
   const container = document.getElementById("player-profile");
   if (!container || !data?.players?.length) return;
@@ -3317,7 +3639,7 @@ function renderPlayerProfile(data) {
   const archetypes = getPlayerArchetypes(player);
   const primaryArchetype = archetypes.primary;
   const secondaryArchetype = archetypes.secondary;
-  const tier = getPlayerTier(player, players);
+  const tierMeta = playerCardTierMeta(player, players);
 
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
     let valueClass = "";
@@ -3350,46 +3672,15 @@ function renderPlayerProfile(data) {
   container.innerHTML = `
     <div class="profile-shell player-profile-shell">
       <div class="profile-hero profile-hero-wide player-profile-hero">
-        <div class="player-profile-left">
-          ${playerImageMarkup(player, "profile")}
-        </div>
-
-        <div class="profile-hero-copy player-profile-copy">
-          <div class="kicker player-profile-kicker">Player Profile</div>
-
-          <div class="player-profile-title-row">
-            <h2>${displayPlayerName(player)}</h2>
-            <p class="profile-quote player-profile-quote-inline">${quote}</p>
-          </div>
-
-          <div class="player-archetype-line">
-            <span class="profile-line-label">Primary Archetype:</span>
-            <span class="profile-line-emoji">${primaryArchetype.emoji}</span>
-            <span class="profile-line-name">${primaryArchetype.name}</span>
-            <span class="profile-line-desc">— ${primaryArchetype.desc}</span>
-          </div>
-
-          <div class="player-archetype-line secondary-archetype-line">
-            <span class="profile-line-label">Secondary Archetype:</span>
-            <span class="profile-line-emoji">${secondaryArchetype.emoji}</span>
-            <span class="profile-line-name">${secondaryArchetype.name}</span>
-            <span class="profile-line-desc">— ${secondaryArchetype.desc}</span>
-          </div>
-          
-          <div class="player-tier-line">
-            <span class="profile-line-label">Player Tier:</span>
-            <span class="profile-line-emoji">${tier.emoji}</span>
-            <span class="profile-line-name">${tier.name}</span>
-            <span class="profile-line-desc">— ${tier.desc}</span>
-          </div>
-          
-          ${badgesMarkup(
-            player,
-            data,
-            (data?.players || []).filter(isCrewEligible)
-          )}
-          
-        </div>
+        ${playerCardMarkup(player, players, primaryArchetype, tierMeta)}
+        ${playerProfileSnapshotMarkup(
+          player,
+          data,
+          primaryArchetype,
+          secondaryArchetype,
+          tierMeta,
+          quote
+        )}
       </div>
 
       ${playerDnaMarkup(player)}
