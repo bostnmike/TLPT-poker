@@ -238,7 +238,7 @@ const HALL_RULES = {
     },
 
     {
-      title: "The Bubble Prisoner",
+      title: "Boy in the Bubble",
       visualClass: "the-bubble-prisoner",
       description: "Most painful career near misses among Hall-qualified players.",
       displayLabel: "Career Bubbles",
