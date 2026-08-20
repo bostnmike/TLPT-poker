@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-19T16:20:11.022119Z",
+  "generatedAt": "2026-08-20T18:30:10.016658Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -20,26 +20,26 @@
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-o": "tbd",
-        "cougar": "tbd",
+        "chris-o": "no",
+        "cougar": "no",
         "dan-k": "tbd",
         "david-k": "tbd",
         "fabian": "tbd",
         "gilmore": "tbd",
         "griffin": "tbd",
         "hayden-d": "tbd",
-        "hiro": "tbd",
+        "hiro": "yes",
         "jeff-t": "no",
         "kishan": "tbd",
         "li-fo": "yes",
         "max": "tbd",
         "nasa-al": "yes",
         "nitro": "tbd",
-        "phattedcalf": "tbd",
+        "phattedcalf": "no",
         "pat": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "no",
-        "red": "tbd",
+        "providencemike": "yes",
+        "red": "no",
         "rob-f": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
@@ -67,8 +67,8 @@
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-o": "tbd",
-        "cougar": "tbd",
+        "chris-o": "no",
+        "cougar": "yes",
         "dan-k": "tbd",
         "david-k": "tbd",
         "fabian": "tbd",
@@ -83,10 +83,10 @@
         "nasa-al": "tbd",
         "nitro": "tbd",
         "pat": "tbd",
-        "phattedcalf": "tbd",
+        "phattedcalf": "no",
         "pittsburghbill": "tbd",
         "providencemike": "yes",
-        "red": "tbd",
+        "red": "no",
         "rob-f": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
@@ -105,12 +105,12 @@
     },
     {
       "type": "Power Leader",
-      "name": "Grif",
+      "name": "Griffin",
       "note": "Highest True Skill Score in the current workbook."
     },
     {
       "type": "Clutch Leader",
-      "name": "Grif",
+      "name": "Griffin",
       "note": "Best Clutch Index in the current workbook."
     },
     {
@@ -646,7 +646,7 @@
       "tier": "C"
     },
     {
-      "name": "Grif",
+      "name": "Griffin",
       "slug": "griffin",
       "image": "images/players/grif.jpg",
       "notes": "",
@@ -1612,7 +1612,7 @@
         ]
       },
       {
-        "player": "Grif",
+        "player": "Griffin",
         "slug": "griffin",
         "image": "images/players/grif.jpg",
         "type": "cash",
@@ -2518,7 +2518,7 @@
         ]
       },
       {
-        "player": "Grif",
+        "player": "Griffin",
         "slug": "griffin",
         "image": "images/players/grif.jpg",
         "type": "cash",
@@ -3065,7 +3065,7 @@
         "playedEvents": 2
       },
       {
-        "name": "Grif",
+        "name": "Griffin",
         "slug": "griffin",
         "image": "images/players/grif.jpg",
         "playedEvents": 2
@@ -3898,7 +3898,7 @@
         "playedEvents": 2,
         "eligible": true,
         "bestCashStreak": {
-          "player": "Grif",
+          "player": "Griffin",
           "slug": "griffin",
           "image": "images/players/grif.jpg",
           "type": "cash",
@@ -3922,7 +3922,7 @@
           ]
         },
         "currentCashStreak": {
-          "player": "Grif",
+          "player": "Griffin",
           "slug": "griffin",
           "image": "images/players/grif.jpg",
           "type": "cash",

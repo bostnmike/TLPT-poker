@@ -1865,7 +1865,7 @@
     {
       "victim": "griffin",
       "killer": "ahmed",
-      "sourceVictim": "Grif",
+      "sourceVictim": "Griffin",
       "sourceKiller": "Ahmed"
     },
     {
@@ -1878,7 +1878,7 @@
       "victim": "providencemike",
       "killer": "griffin",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "hiro",
@@ -1890,7 +1890,7 @@
       "victim": "li-fo",
       "killer": "griffin",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "hiro",
@@ -1902,7 +1902,7 @@
       "victim": "red",
       "killer": "griffin",
       "sourceVictim": "Red",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "the-architect",
@@ -1920,7 +1920,7 @@
       "victim": "ahmed",
       "killer": "griffin",
       "sourceVictim": "Ahmed",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     }
   ],
   "2026-05-16": [
@@ -1996,13 +1996,13 @@
       "victim": "nasa-al",
       "killer": "griffin",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "providencemike",
       "killer": "griffin",
       "sourceVictim": "ProvidenceMike",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "hiro",
@@ -2013,7 +2013,7 @@
     {
       "victim": "griffin",
       "killer": "nasa-al",
-      "sourceVictim": "Grif",
+      "sourceVictim": "Griffin",
       "sourceKiller": "Nasa Al"
     },
     {
@@ -2025,7 +2025,7 @@
     {
       "victim": "griffin",
       "killer": "jeff-t",
-      "sourceVictim": "Grif",
+      "sourceVictim": "Griffin",
       "sourceKiller": "Jeff T"
     },
     {
@@ -2056,19 +2056,19 @@
       "victim": "nasa-al",
       "killer": "griffin",
       "sourceVictim": "Nasa Al",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "bostnmike",
       "killer": "griffin",
       "sourceVictim": "BostnMike",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     },
     {
       "victim": "li-fo",
       "killer": "griffin",
       "sourceVictim": "Li-Fo",
-      "sourceKiller": "Grif"
+      "sourceKiller": "Griffin"
     }
   ],
   "2026-05-30": [
