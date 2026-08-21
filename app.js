@@ -31,11 +31,16 @@ const DEFAULT_DASHBOARD_SORT = "profit";
 const SHOW_HOME_COMMISSIONER_REPORT = false;
 
 /*
- * Crew-page qualification:
- * A player must have played at least 3 separate tournaments.
+ * Crew experience bands use separate tournament appearances.
  * buyIns counts initial tournament entries; rebuys do not count.
+ *
+ * 1–2 appearances: RKI / Rookie — visible in the field, unranked.
+ * 3–4 appearances: PRO / Provisional — visible in the field, unranked.
+ * 5+ appearances: Established — eligible for Power Rank and power tiers.
  */
-const CREW_MIN_BUY_INS = 3;
+const CREW_ROOKIE_MIN_BUY_INS = 1;
+const CREW_PROVISIONAL_MIN_BUY_INS = 3;
+const CREW_ESTABLISHED_MIN_BUY_INS = 5;
 
 /*
  * Hall of Fame qualification:
@@ -541,12 +546,30 @@ function getEligiblePlayers(players) {
   return (players || []).filter(player => Number(player?.entries ?? 0) >= 5);
 }
 
-/*
- * Crew eligibility is intentionally separate from the broader site leader
- * qualification rule above.
- */
+function isCrewVisible(player) {
+  return Number(player?.buyIns ?? 0) >= CREW_ROOKIE_MIN_BUY_INS;
+}
+
+function isCrewRookie(player) {
+  const appearances = Number(player?.buyIns ?? 0);
+  return appearances >= CREW_ROOKIE_MIN_BUY_INS &&
+    appearances < CREW_PROVISIONAL_MIN_BUY_INS;
+}
+
+function isCrewProvisional(player) {
+  const appearances = Number(player?.buyIns ?? 0);
+  return appearances >= CREW_PROVISIONAL_MIN_BUY_INS &&
+    appearances < CREW_ESTABLISHED_MIN_BUY_INS;
+}
+
+/* Existing site leader pools continue to use the 3-appearance qualification. */
 function isCrewEligible(player) {
-  return Number(player?.buyIns ?? 0) >= CREW_MIN_BUY_INS;
+  return Number(player?.buyIns ?? 0) >= CREW_PROVISIONAL_MIN_BUY_INS;
+}
+
+/* Only established players participate in Power Rank and percentile tiers. */
+function isCrewEstablished(player) {
+  return Number(player?.buyIns ?? 0) >= CREW_ESTABLISHED_MIN_BUY_INS;
 }
 
 /*
@@ -906,12 +929,12 @@ function getPlayerTierScore(player) {
     sampleBonus = 2.0;
   } else if (buyIns >= 10) {
     sampleBonus = 1.0;
-  } else if (buyIns >= 5) {
+  } else if (buyIns >= CREW_ESTABLISHED_MIN_BUY_INS) {
     sampleBonus = 0.25;
-  } else if (buyIns >= CREW_MIN_BUY_INS) {
+  } else if (buyIns >= CREW_PROVISIONAL_MIN_BUY_INS) {
     /*
-     * Players with 3–4 separate appearances qualify for the Crew, but do not
-     * yet receive the established-sample bonus.
+     * Provisional players remain visible, but do not receive an established
+     * sample bonus or participate in official rankings.
      */
     sampleBonus = 0;
   } else {
@@ -1094,15 +1117,31 @@ function getPlayerTier(player, allPlayers = []) {
     };
   }
 
-  if (!isCrewEligible(player)) {
+  if (!isCrewVisible(player)) {
     return {
       emoji: "⏳",
-      name: "Not Yet Qualified",
-      desc: "needs 3 separate tournament appearances before entering the Crew rankings"
+      name: "Not Yet in the Field",
+      desc: "waiting for a first TLPT tournament appearance"
     };
   }
 
-  const eligiblePlayers = (allPlayers || []).filter(isCrewEligible);
+  if (isCrewRookie(player)) {
+    return {
+      emoji: "🌱",
+      name: "Rookie",
+      desc: "in the field and building the sample needed for Provisional status"
+    };
+  }
+
+  if (isCrewProvisional(player)) {
+    return {
+      emoji: "🧪",
+      name: "Provisional",
+      desc: "showing early results, but not yet eligible for an official Power Rank"
+    };
+  }
+
+  const eligiblePlayers = (allPlayers || []).filter(isCrewEstablished);
   const ranked = [...eligiblePlayers].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
   const index = ranked.findIndex(p => p.name === player.name);
   const rank = index >= 0 ? index + 1 : ranked.length + 1;
@@ -2295,8 +2334,6 @@ if (eventsEl) {
   }
 
   const allPlayers = data?.players || [];
-  const qualifiedPlayers = allPlayers.filter(isCrewEligible);
-
 const leaderStrip = document.getElementById("home-leader-strip");
 
 if (leaderStrip) {
@@ -2866,8 +2903,15 @@ function crewCardMarkup(player, data) {
   `;
 }
 
-function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
+function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, options = {}) {
   if (!players.length) return "";
+
+  const {
+    className = "",
+    rangeLabel: customRangeLabel = "",
+    headerLabel = "",
+    unranked = false
+  } = options;
 
   const avgPower =
     players.reduce((sum, p) => sum + (Number(p.trueSkillScore) || 0), 0) /
@@ -2878,29 +2922,31 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1) {
     Math.min(100, (avgPower / Math.max(maxTierPower, 0.1)) * 100)
   );
 
-  let rangeLabel = "";
-  if (title === "The Apex Predators") rangeLabel = " (Top 15%)";
-  else if (title === "The Table Crushers") rangeLabel = " (15–35%)";
-  else if (title === "The Shot Makers") rangeLabel = " (35–60%)";
-  else if (title === "The Gamblers") rangeLabel = " (60–80%)";
-  else if (title === "The League Sponsors") rangeLabel = " (Bottom 20%)";
+  let rangeLabel = customRangeLabel;
+  if (!rangeLabel && title === "The Apex Predators") rangeLabel = " (Top 15%)";
+  else if (!rangeLabel && title === "The Table Crushers") rangeLabel = " (15–35%)";
+  else if (!rangeLabel && title === "The Shot Makers") rangeLabel = " (35–60%)";
+  else if (!rangeLabel && title === "The Gamblers") rangeLabel = " (60–80%)";
+  else if (!rangeLabel && title === "The League Sponsors") rangeLabel = " (Bottom 20%)";
+
+  const sectionHeaderLabel = headerLabel || `Avg Power ${fmtNum(avgPower)}`;
   
   return `
-    <div class="tier-section">
+    <div class="tier-section ${className}">
       <div class="tier-section-head">
         <h3>${emoji} ${title}<span class="tier-section-range">${rangeLabel}</span></h3>
         <div class="tier-header-stats">
-          Avg Power ${fmtNum(avgPower)}
+          ${sectionHeaderLabel}
         </div>
       </div>
 
-      <div class="tier-strength">
+      ${unranked ? "" : `<div class="tier-strength">
         <div class="tier-strength-label">Tier Strength</div>
         <div class="tier-strength-bar">
           <div class="tier-strength-fill" style="width:${strengthPct}%"></div>
         </div>
         <div class="tier-strength-pct">${Math.round(strengthPct)}%</div>
-      </div>
+      </div>`}
 
       <div class="tier-grid">
         ${players.map(player => crewCardMarkup(player, data)).join("")}
@@ -3087,12 +3133,12 @@ function renderPlayers(data) {
 
   if (!grid || !data?.players) return;
 
-  const eligiblePlayers = [...data.players]
-    .filter(isCrewEligible)
+  const fieldPlayers = [...data.players]
+    .filter(isCrewVisible)
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
 
   if (currentCrewView === "archetype") {
-    const archetypeGroups = groupPlayersByArchetype(eligiblePlayers, currentArchetypeMode);
+    const archetypeGroups = groupPlayersByArchetype(fieldPlayers, currentArchetypeMode);
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
@@ -3158,9 +3204,22 @@ function renderPlayers(data) {
   const shotMakers = [];
   const gamblers = [];
   const leagueSponsors = [];
+  const provisionalPlayers = fieldPlayers
+    .filter(isCrewProvisional)
+    .sort((a, b) =>
+      Number(b?.buyIns ?? 0) - Number(a?.buyIns ?? 0) ||
+      String(a?.name || "").localeCompare(String(b?.name || ""))
+    );
+  const rookiePlayers = fieldPlayers
+    .filter(isCrewRookie)
+    .sort((a, b) =>
+      Number(b?.buyIns ?? 0) - Number(a?.buyIns ?? 0) ||
+      String(a?.name || "").localeCompare(String(b?.name || ""))
+    );
+  const establishedPlayers = fieldPlayers.filter(isCrewEstablished);
 
-  eligiblePlayers.forEach(player => {
-    const tier = getPlayerTier(player, eligiblePlayers);
+  establishedPlayers.forEach(player => {
+    const tier = getPlayerTier(player, establishedPlayers);
 
     if (tier.name === "The Apex Predator") {
       apexPredators.push(player);
@@ -3202,7 +3261,9 @@ function renderPlayers(data) {
     { title: "The Table Crushers", emoji: "⚔️", players: tableCrushers, className: "table-crushers" },
     { title: "The Shot Makers", emoji: "☄️", players: shotMakers, className: "shot-makers" },
     { title: "The Gamblers", emoji: "🎲", players: gamblers, className: "gamblers" },
-    { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" }
+    { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" },
+    { title: "PRO — Provisional", emoji: "🧪", players: provisionalPlayers, className: "provisionals" },
+    { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies" }
   ];
 
   if (helpCopy) {
@@ -3228,6 +3289,32 @@ function renderPlayers(data) {
     ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
     ${tierSectionMarkup("The Gamblers", "🎲", gamblers, data, maxTierPower)}
     ${tierSectionMarkup("The League Sponsors", "🍣", leagueSponsors, data, maxTierPower)}
+    ${tierSectionMarkup(
+      "PRO — Provisional",
+      "🧪",
+      provisionalPlayers,
+      data,
+      maxTierPower,
+      {
+        className: "tier-section-provisional",
+        rangeLabel: " (3–4 Appearances)",
+        headerLabel: `${provisionalPlayers.length} Unranked`,
+        unranked: true
+      }
+    )}
+    ${tierSectionMarkup(
+      "RKI — Rookie",
+      "🌱",
+      rookiePlayers,
+      data,
+      maxTierPower,
+      {
+        className: "tier-section-rookie",
+        rangeLabel: " (1–2 Appearances)",
+        headerLabel: `${rookiePlayers.length} In the Field`,
+        unranked: true
+      }
+    )}
   `;
 }
 
@@ -3298,7 +3385,7 @@ function playerDnaMarkup(player) {
 }
 
 function playerCardBenchmarkPool(players) {
-  const established = (players || []).filter(player => Number(player?.buyIns ?? 0) >= 5);
+  const established = (players || []).filter(isCrewEstablished);
 
   if (established.length >= 2) return established;
 
@@ -3310,9 +3397,9 @@ function playerCardSampleAdjustedRating(player, rating) {
   const appearances = Number(player?.buyIns ?? 0);
   const safeRating = Math.max(1, Math.min(99, Number(rating) || 0));
 
-  if (appearances < CREW_MIN_BUY_INS) return 64;
+  if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) return 64;
 
-  if (appearances < 5) {
+  if (appearances < CREW_ESTABLISHED_MIN_BUY_INS) {
     const provisionalCenter = 68;
     return Math.round(provisionalCenter + ((safeRating - provisionalCenter) * 0.4));
   }
@@ -3346,7 +3433,7 @@ function playerCardTierMeta(player, players) {
   const appearances = Number(player?.buyIns ?? 0);
   const tier = getPlayerTier(player, players);
   const eligiblePlayers = (players || [])
-    .filter(isCrewEligible)
+    .filter(isCrewEstablished)
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
   const rankIndex = eligiblePlayers.findIndex(item => item.name === player?.name);
 
@@ -3360,26 +3447,33 @@ function playerCardTierMeta(player, players) {
 
   const mappedTier = tierMap[tier.name] || { code: "—", className: "prospect" };
 
-  if (appearances < CREW_MIN_BUY_INS) {
+  if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) {
+    const appearancesToProvisional = Math.max(
+      CREW_PROVISIONAL_MIN_BUY_INS - appearances,
+      0
+    );
+
     return {
       ...tier,
       code: "RKI",
       className: "prospect",
-      status: "Prospect",
-      statusDetail: `Needs ${Math.max(CREW_MIN_BUY_INS - appearances, 0)} more ${CREW_MIN_BUY_INS - appearances === 1 ? "appearance" : "appearances"} for a Crew ranking`,
+      status: "Rookie",
+      statusDetail: `${appearancesToProvisional} more ${appearancesToProvisional === 1 ? "appearance" : "appearances"} for Provisional status; Power Rank begins at 5`,
       rank: null,
       totalRanked: eligiblePlayers.length
     };
   }
 
-  if (appearances < 5) {
+  if (appearances < CREW_ESTABLISHED_MIN_BUY_INS) {
+    const appearancesToEstablished = CREW_ESTABLISHED_MIN_BUY_INS - appearances;
+
     return {
       ...tier,
       code: "PRO",
       className: "provisional",
       status: "Provisional",
-      statusDetail: `${5 - appearances} more ${5 - appearances === 1 ? "appearance" : "appearances"} for a full card rating`,
-      rank: rankIndex >= 0 ? rankIndex + 1 : null,
+      statusDetail: `${appearancesToEstablished} more ${appearancesToEstablished === 1 ? "appearance" : "appearances"} for an established rating and Power Rank`,
+      rank: null,
       totalRanked: eligiblePlayers.length
     };
   }
@@ -3550,8 +3644,8 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
   const streak = playerProfileStreakMeta(player, data);
   const rankValue = tierMeta.rank ? `#${tierMeta.rank}` : "—";
   const rankDetail = tierMeta.rank
-    ? `of ${tierMeta.totalRanked} Crew-qualified players`
-    : "Crew ranking pending";
+    ? `of ${tierMeta.totalRanked} established players`
+    : `${tierMeta.status} — Power Rank begins at 5 appearances`;
 
   const snapshotStats = [
     { label: "Career Profit", value: fmtMoney(player?.profit), className: statValueClass(player, "profit") },
