@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T20:55:22.369290Z",
+  "generatedAt": "2026-08-21T20:59:04.531723Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -16,7 +16,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "tbd",
+        "ahmed": "yes",
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
@@ -4540,7 +4540,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.064
+              "trueSkillScore": 392.055
             }
           }
         },
@@ -4595,7 +4595,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.064
+              "trueSkillScore": 392.055
             }
           }
         },
@@ -4650,7 +4650,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.064
+              "trueSkillScore": 392.055
             }
           }
         },
@@ -4705,7 +4705,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.064
+              "trueSkillScore": 392.055
             }
           }
         },
