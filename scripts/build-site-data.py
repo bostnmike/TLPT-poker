@@ -14,6 +14,8 @@ CONFIG_PATH = DATA_DIR / "league-config.json"
 EVENTS_PATH = DATA_DIR / "events.json"
 OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
+CARD_FORM_WINDOW = 5
+
 
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
@@ -293,6 +295,175 @@ def build_streak_payload(players_lookup, parsed_events, min_events=4, min_streak
     }
 
 
+def aggregate_card_form_window(player_meta, event_rows):
+    metrics = build_zero_player(player_meta)
+
+    for item in event_rows:
+        row = item["row"]
+        for key in [
+            "entries", "buyIns", "rebuys", "hits", "timesPlaced",
+            "bubbles", "profit", "totalCost", "totalWinnings"
+        ]:
+            metrics[key] += row.get(key, 0) or 0
+
+    return {
+        "eventCount": len(event_rows),
+        "startDate": event_rows[0]["date"] if event_rows else None,
+        "endDate": event_rows[-1]["date"] if event_rows else None,
+        "metrics": metrics,
+        "events": [
+            {
+                "date": item["date"],
+                "title": item["title"],
+                "entries": item["row"].get("entries", 0) or 0,
+                "rebuys": item["row"].get("rebuys", 0) or 0,
+                "hits": item["row"].get("hits", 0) or 0,
+                "timesPlaced": item["row"].get("timesPlaced", 0) or 0,
+                "bubbles": item["row"].get("bubbles", 0) or 0,
+                "profit": item["row"].get("profit", 0) or 0,
+                "totalCost": item["row"].get("totalCost", 0) or 0,
+                "totalWinnings": item["row"].get("totalWinnings", 0) or 0,
+            }
+            for item in event_rows
+        ]
+    }
+
+
+def finalize_card_form_windows(windows):
+    active_metrics = [
+        window["metrics"]
+        for window in windows
+        if window["eventCount"] > 0
+    ]
+
+    if not active_metrics:
+        return
+
+    for metrics in active_metrics:
+        cost = float(metrics["totalCost"])
+        buyins = float(metrics["buyIns"])
+        entries = float(metrics["entries"])
+
+        metrics["roi"] = (metrics["profit"] / cost) if cost else 0.0
+        metrics["cashRate"] = (metrics["timesPlaced"] / buyins) if buyins else 0.0
+        metrics["bubbleRate"] = (metrics["bubbles"] / buyins) if buyins else 0.0
+        metrics["hitRate"] = (metrics["hits"] / entries) if entries else 0.0
+        metrics["luckProxy"] = (
+            (0.40 * metrics["cashRate"])
+            + (0.20 * metrics["hitRate"])
+            + (0.40 * (1 - metrics["bubbleRate"]))
+        )
+
+    league_avg_proxy = (
+        sum(metrics["luckProxy"] for metrics in active_metrics)
+        / max(len(active_metrics), 1)
+    )
+
+    for metrics in active_metrics:
+        proxy_delta = metrics["luckProxy"] - league_avg_proxy
+        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
+        metrics["expectedProfit"] = round(metrics["totalCost"] * expected_roi, 1)
+        metrics["luckIndex"] = round(metrics["profit"] - metrics["expectedProfit"], 1)
+
+        cash_rate = metrics["cashRate"]
+        bubble_rate = metrics["bubbleRate"]
+        hit_rate = metrics["hitRate"]
+        buy_ins = max(metrics["buyIns"], 1)
+        rebuy_rate = metrics["rebuys"] / buy_ins
+
+        metrics["clutchRaw"] = metrics["timesPlaced"] / buy_ins
+        metrics["aggressionRaw"] = metrics["hits"] / max(metrics["entries"], 1)
+        metrics["survivorRaw"] = (
+            (0.55 * cash_rate)
+            + (0.25 * (1 - bubble_rate))
+            + (0.20 * hit_rate)
+        )
+
+        base_composure = 100 * (
+            1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate))
+        )
+        sample_factor = min(metrics["buyIns"], 8) / 8.0
+        composure_score = 50 + ((base_composure - 50) * sample_factor)
+        metrics["tiltIndex"] = round(
+            max(0.0, min(100.0, composure_score)),
+            1
+        )
+
+    for key in ["roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"]:
+        normalize_stat(active_metrics, key)
+
+    for metrics in active_metrics:
+        metrics["clutchIndex"] = metrics["clutchRaw_norm"]
+        metrics["aggressionIndex"] = metrics["aggressionRaw_norm"]
+        metrics["survivorIndex"] = metrics["survivorRaw_norm"]
+        sample_bonus = min(10, metrics["buyIns"])
+        metrics["trueSkillScore"] = (
+            (metrics["roi_norm"] * 1.4)
+            + (metrics["clutchIndex"] * 1.2)
+            + (metrics["aggressionIndex"] * 1.0)
+            + (metrics["survivorIndex"] * 1.0)
+            + (metrics["luckIndex_norm"] * 0.5)
+            + (metrics["tiltIndex"] * 0.8)
+            + sample_bonus
+        )
+
+        metrics.pop("luckProxy", None)
+
+
+def build_card_form_payload(players, parsed_events, window_size=CARD_FORM_WINDOW):
+    player_meta = {
+        player["slug"]: {
+            "name": player["name"],
+            "slug": player["slug"],
+            "image": player["image"],
+            "notes": player.get("notes", "")
+        }
+        for player in players
+    }
+    played_by_slug = {slug: [] for slug in player_meta}
+
+    for event in parsed_events:
+        date = event.get("date", "")
+        title = event.get("title", "")
+
+        for row in event.get("players", []):
+            if (row.get("entries", 0) or 0) <= 0:
+                continue
+
+            slug = row.get("slug")
+            if slug not in played_by_slug:
+                continue
+
+            played_by_slug[slug].append({
+                "date": date,
+                "title": title,
+                "row": row
+            })
+
+    payload = {}
+    recent_windows = []
+    previous_windows = []
+
+    for slug, meta in player_meta.items():
+        played_events = played_by_slug.get(slug, [])
+        recent_rows = played_events[-window_size:]
+        previous_rows = played_events[-(window_size * 2):-window_size]
+        recent = aggregate_card_form_window(meta, recent_rows)
+        previous = aggregate_card_form_window(meta, previous_rows)
+
+        payload[slug] = {
+            "windowSize": window_size,
+            "recent": recent,
+            "previous": previous
+        }
+        recent_windows.append(recent)
+        previous_windows.append(previous)
+
+    finalize_card_form_windows(recent_windows)
+    finalize_card_form_windows(previous_windows)
+    return payload
+
+
 def main():
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
@@ -467,6 +638,10 @@ def main():
     players = sorted(players, key=lambda p: p["name"].lower())
     player_lookup = build_player_lookup(players)
     parsed_events = sorted(parsed_events, key=parse_event_date)
+    card_form = build_card_form_payload(players, parsed_events)
+    for player in players:
+        player["cardForm"] = card_form.get(player["slug"])
+
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 
     output = {
