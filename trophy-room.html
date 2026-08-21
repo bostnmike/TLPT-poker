@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TLPT Trophy Room</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="trophy-room.css?v=20260821-1" />
+</head>
+<body class="trophy-room-page">
+<svg class="trophy-card-shape-defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="tlpt-trophy-card-shape" clipPathUnits="objectBoundingBox">
+      <path d="M .13,.055 C .23,.014 .36,0 .5,0 C .64,0 .77,.014 .87,.055 C .875,.094 .92,.127 1,.14 L 1,.855 C 1,.905 .91,.934 .79,.957 C .67,.98 .56,.993 .5,1 C .44,.993 .33,.98 .21,.957 C .09,.934 0,.905 0,.855 L 0,.14 C .08,.127 .125,.094 .13,.055 Z"></path>
+    </clipPath>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div>
+      <h1 class="logo">TLPT Poker League</h1>
+      <p class="tag">The League. The Players. The Tilt.</p>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="dashboard.html" class="nav-dropdown-parent">The Metrics</a>
+        <div class="nav-dropdown-menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="form-lab.html">The Form Lab</a>
+          <a href="player-movement.html">The Heater Meter</a>
+          <a href="streaks.html">Streak Tracker</a>
+          <a href="knockouts.html">Knockout Central</a>
+          <a href="standings.html">Standings</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="players.html" class="nav-dropdown-parent is-active" aria-current="page">Members</a>
+        <div class="nav-dropdown-menu">
+          <a href="players.html">TLPT Crew</a>
+          <a href="player.html?name=BostnMike">Player Profiles</a>
+          <a href="trophy-room.html" class="is-active" aria-current="page">The Trophy Room</a>
+        </div>
+      </div>
+
+      <a href="schedule.html">The Schedule</a>
+
+      <div class="nav-dropdown">
+        <a href="champions.html" class="nav-dropdown-parent">Roast Zone</a>
+        <div class="nav-dropdown-menu">
+          <a href="champions.html">The Hall</a>
+          <a href="news.html">The Week That Was</a>
+        </div>
+      </div>
+
+      <a href="rules.html">The Rules</a>
+
+      <div class="nav-dropdown">
+        <a href="media.html" class="nav-dropdown-parent">Media</a>
+        <div class="nav-dropdown-menu">
+          <a href="media.html">The Film</a>
+          <a href="gallery.html">The Gallery</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap trophy-room-main">
+  <section class="trophy-room-hero" aria-labelledby="trophy-room-title">
+    <div class="trophy-room-hero-copy">
+      <span class="trophy-room-kicker">TLPT Collectible Card Archive</span>
+      <h2 id="trophy-room-title">The Trophy Room</h2>
+      <p>
+        Every permanent special edition, preserved with the rating, tier, attributes,
+        and date it carried when it entered the collection.
+      </p>
+    </div>
+
+    <img
+      class="trophy-room-chip"
+      src="images/site/chip-T-25000.png"
+      alt="T-25000 chip"
+      onerror="this.style.display='none';"
+    />
+
+    <div class="trophy-room-summary" aria-label="Trophy Room collection summary">
+      <div><span>Permanent Cards</span><strong id="trophy-total-cards">—</strong></div>
+      <div><span>Collectors</span><strong id="trophy-total-collectors">—</strong></div>
+      <div><span>Edition Designs</span><strong id="trophy-total-editions">—</strong></div>
+      <div><span>Latest Addition</span><strong id="trophy-latest-card">—</strong></div>
+    </div>
+  </section>
+
+  <section class="trophy-room-controls" aria-label="Filter the Trophy Room">
+    <div class="trophy-filter-family" role="group" aria-label="Card edition type">
+      <button type="button" class="is-active" data-trophy-type="all" aria-pressed="true">All Cards</button>
+      <button type="button" data-trophy-type="hall" aria-pressed="false">🏛️ Hall</button>
+      <button type="button" data-trophy-type="infamy" aria-pressed="false">🔥 Infamy</button>
+      <button type="button" data-trophy-type="leader" aria-pressed="false">👑 Leaders</button>
+      <button type="button" data-trophy-type="heater" aria-pressed="false">🌡️ Heaters</button>
+      <button type="button" data-trophy-type="milestone" aria-pressed="false">♦ Milestones</button>
+    </div>
+
+    <div class="trophy-filter-fields">
+      <label>
+        <span>Player</span>
+        <select id="trophy-player-filter">
+          <option value="all">All Collectors</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Year</span>
+        <select id="trophy-year-filter">
+          <option value="all">All Years</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Sort</span>
+        <select id="trophy-sort">
+          <option value="prestige">Prestige</option>
+          <option value="newest">Newest Earned</option>
+          <option value="oldest">Oldest Earned</option>
+          <option value="rating">Highest Rating</option>
+          <option value="player">Player Name</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="trophy-room-ledger" aria-labelledby="trophy-ledger-title">
+    <header class="trophy-room-ledger-head">
+      <div>
+        <span>Permanent Collection</span>
+        <h3 id="trophy-ledger-title">Earned Editions</h3>
+      </div>
+      <strong id="trophy-result-count" aria-live="polite">Loading collection…</strong>
+    </header>
+
+    <div id="trophy-card-grid" class="trophy-card-grid"></div>
+
+    <div id="trophy-empty-state" class="trophy-empty-state" hidden>
+      <strong>No cards match those filters.</strong>
+      <span>The vault is not empty. Your filter is just being difficult.</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>
+      TLPT is a BostnMike Production... and all that, that entails.
+      Site data fueled by
+      <a href="https://thetournamentdirector.net/" target="_blank" rel="noopener noreferrer">
+        The Tournament Director
+      </a>
+    </p>
+  </div>
+</footer>
+
+<script src="trophy-room.js?v=20260821-1"></script>
+</body>
+</html>
