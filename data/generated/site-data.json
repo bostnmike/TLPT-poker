@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T17:18:58.971246Z",
+  "generatedAt": "2026-08-21T20:55:22.369290Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -16,7 +16,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "yes",
+        "ahmed": "tbd",
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
@@ -416,7 +416,175 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "heater-2",
+          "earnedDate": "2026-06-05",
+          "earnedEvent": "Poker Night - The Movie | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2026-05-30 through 2026-06-05.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 78,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 7,
+            "totalRanked": 16,
+            "appearances": 22,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 62
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 63
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 63
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 69
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 69
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 68
+              }
+            ],
+            "metrics": {
+              "profit": -70,
+              "roi": -0.083333,
+              "cashRate": 0.318182,
+              "hitRate": 0.821429,
+              "trueSkillScore": 194.68
+            }
+          },
+          "streakLength": 2
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-08-07",
+          "earnedEvent": "DRAWS! | 9-Max",
+          "reason": "Joined the 25-Appearance Club at DRAWS! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 8,
+            "totalRanked": 16,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 60
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 62
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 62
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 71
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 71
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 70
+              }
+            ],
+            "metrics": {
+              "profit": -190,
+              "roi": -0.197917,
+              "cashRate": 0.28,
+              "hitRate": 0.78125,
+              "trueSkillScore": 178.752
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2025-12-27",
+          "earnedEvent": "Where's the Tylenol?!?! | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Where's the Tylenol?!?! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 79,
+            "tierCode": "D",
+            "tierClassName": "d",
+            "tierStatus": "Established",
+            "powerRank": 8,
+            "totalRanked": 9,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 65
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 53
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 53
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 66
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 66
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 62
+              }
+            ],
+            "metrics": {
+              "profit": 0,
+              "roi": 0.0,
+              "cashRate": 0.3,
+              "hitRate": 0.833333,
+              "trueSkillScore": 216.514
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Ahmed",
@@ -657,7 +825,287 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2026-02-27",
+          "earnedEvent": "Back from Broadway | 9-Max",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 1.18 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 85,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 73
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 66
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 66
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 76
+              }
+            ],
+            "metrics": {
+              "profit": 75,
+              "roi": 0.227273,
+              "cashRate": 0.4,
+              "hitRate": 1.181818,
+              "trueSkillScore": 249.957
+            }
+          }
+        },
+        {
+          "id": "infamy-boy-in-the-bubble",
+          "earnedDate": "2026-05-09",
+          "earnedEvent": "High-Roller Ball | 9-Max",
+          "reason": "First claimed the Hall bubble distinction at 6 bubbles.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 79,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 5,
+            "totalRanked": 15,
+            "appearances": 20,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 65
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 64
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 64
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 75
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 75
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 64
+              }
+            ],
+            "metrics": {
+              "profit": 40,
+              "roi": 0.057971,
+              "cashRate": 0.35,
+              "hitRate": 0.956522,
+              "trueSkillScore": 221.547
+            }
+          }
+        },
+        {
+          "id": "heater-4",
+          "earnedDate": "2025-12-21",
+          "earnedEvent": "A Holly Jolly | 9-Max",
+          "reason": "Personal-best 4-appearance cash streak from 2026-07-26 through 2026-08-16.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 87,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 2,
+            "totalRanked": 16,
+            "appearances": 32,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 79
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 86
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 86
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 79
+              }
+            ],
+            "metrics": {
+              "profit": 345,
+              "roi": 0.310811,
+              "cashRate": 0.4375,
+              "hitRate": 1.027027,
+              "trueSkillScore": 253.975
+            }
+          },
+          "streakLength": 4,
+          "upgradedDate": "2026-08-16",
+          "upgradeEvent": "Raise Man | 9-Max"
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-06-13",
+          "earnedEvent": "Inglorious Bluffs: A Poker Movie | 9-Max",
+          "reason": "Joined the 25-Appearance Club at Inglorious Bluffs: A Poker Movie | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 79,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 6,
+            "totalRanked": 16,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 64
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 64
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 64
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 76
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 76
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 65
+              }
+            ],
+            "metrics": {
+              "profit": -10,
+              "roi": -0.011494,
+              "cashRate": 0.32,
+              "hitRate": 0.965517,
+              "trueSkillScore": 210.472
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-02-27",
+          "earnedEvent": "Back from Broadway | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Back from Broadway | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 85,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 73
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 66
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 66
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 76
+              }
+            ],
+            "metrics": {
+              "profit": 75,
+              "roi": 0.227273,
+              "cashRate": 0.4,
+              "hitRate": 1.181818,
+              "trueSkillScore": 249.957
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Big Tim",
@@ -781,7 +1229,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Bob",
@@ -929,7 +1378,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "BostnMike",
@@ -1170,7 +1620,507 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-tax-collector",
+          "earnedDate": "2025-11-30",
+          "earnedEvent": "Sunday Funday Matinee | 9-Max",
+          "reason": "First claimed the Hall career-profit distinction at $95.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 88,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 3,
+            "totalRanked": 7,
+            "appearances": 11,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 77
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 60
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 60
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 73
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 73
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 61
+              }
+            ],
+            "metrics": {
+              "profit": 95,
+              "roi": 0.287879,
+              "cashRate": 0.363636,
+              "hitRate": 0.727273,
+              "trueSkillScore": 265.777
+            }
+          }
+        },
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2026-01-30",
+          "earnedEvent": "Warning! Obnoxious Pats Fan Onboard!",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 0.95 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 14,
+            "appearances": 19,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 95
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 67
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 67
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 71
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 71
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 73
+              }
+            ],
+            "metrics": {
+              "profit": 330,
+              "roi": 0.578947,
+              "cashRate": 0.421053,
+              "hitRate": 0.947368,
+              "trueSkillScore": 303.936
+            }
+          }
+        },
+        {
+          "id": "infamy-boy-in-the-bubble",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "First claimed the Hall bubble distinction at 3 bubbles.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 3,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 72
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 57
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 57
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 54
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 54
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 50
+              }
+            ],
+            "metrics": {
+              "profit": 125,
+              "roi": 0.416667,
+              "cashRate": 0.4,
+              "hitRate": 0.8,
+              "trueSkillScore": 270.83
+            }
+          }
+        },
+        {
+          "id": "leader-profit",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First claimed the established-player career-profit lead at $175.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 90
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 90
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 81
+              }
+            ],
+            "metrics": {
+              "profit": 175,
+              "roi": 0.833333,
+              "cashRate": 0.428571,
+              "hitRate": 1.142857,
+              "trueSkillScore": 306.0
+            }
+          }
+        },
+        {
+          "id": "leader-knockouts",
+          "earnedDate": "2026-02-27",
+          "earnedEvent": "Back from Broadway | 9-Max",
+          "reason": "First claimed the established-player knockout lead at 23 hits.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 93,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 2,
+            "totalRanked": 15,
+            "appearances": 23,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 90
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 69
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 69
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 83
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 83
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 72
+              }
+            ],
+            "metrics": {
+              "profit": 390,
+              "roi": 0.541667,
+              "cashRate": 0.434783,
+              "hitRate": 0.958333,
+              "trueSkillScore": 298.154
+            }
+          }
+        },
+        {
+          "id": "leader-roi",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 83.3%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 90
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 90
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 81
+              }
+            ],
+            "metrics": {
+              "profit": 175,
+              "roi": 0.833333,
+              "cashRate": 0.428571,
+              "hitRate": 1.142857,
+              "trueSkillScore": 306.0
+            }
+          }
+        },
+        {
+          "id": "heater-9",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "Personal-best 9-appearance cash streak from 2026-05-01 through 2026-06-20.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 16,
+            "appearances": 41,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 86
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 86
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 93
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 93
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 88
+              }
+            ],
+            "metrics": {
+              "profit": 1125,
+              "roi": 0.797872,
+              "cashRate": 0.536585,
+              "hitRate": 1.212766,
+              "trueSkillScore": 317.338
+            }
+          },
+          "streakLength": 9,
+          "upgradedDate": "2026-06-20",
+          "upgradeEvent": "You're All Suspects | 9-Max"
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-03-13",
+          "earnedEvent": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
+          "reason": "Joined the 25-Appearance Club at ChatGPT AI Stat Pack Aftermath Part I | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 87,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 3,
+            "totalRanked": 15,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 82
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 65
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 65
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 83
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 83
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 68
+              }
+            ],
+            "metrics": {
+              "profit": 330,
+              "roi": 0.423077,
+              "cashRate": 0.4,
+              "hitRate": 0.884615,
+              "trueSkillScore": 286.149
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 3,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 72
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 57
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 57
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 54
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 54
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 50
+              }
+            ],
+            "metrics": {
+              "profit": 125,
+              "roi": 0.416667,
+              "cashRate": 0.4,
+              "hitRate": 0.8,
+              "trueSkillScore": 270.83
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Brad R",
@@ -1306,7 +2256,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "BuffaloMike",
@@ -1430,7 +2381,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Chris O",
@@ -1671,7 +2623,177 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "leader-roi",
+          "earnedDate": "2026-08-07",
+          "earnedEvent": "DRAWS! | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 60.2%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 85,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 6,
+            "totalRanked": 16,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 87
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 87
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 90
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 90
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 92
+              }
+            ],
+            "metrics": {
+              "profit": 325,
+              "roi": 0.601852,
+              "cashRate": 0.5,
+              "hitRate": 1.111111,
+              "trueSkillScore": 239.125
+            }
+          }
+        },
+        {
+          "id": "heater-3",
+          "earnedDate": "2025-12-21",
+          "earnedEvent": "A Holly Jolly | 9-Max",
+          "reason": "Personal-best 3-appearance cash streak from 2025-12-13 through 2025-12-27.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 84,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 6,
+            "totalRanked": 9,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 83
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 83
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 83
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 74
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 74
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 94
+              }
+            ],
+            "metrics": {
+              "profit": 160,
+              "roi": 0.484848,
+              "cashRate": 0.6,
+              "hitRate": 1.090909,
+              "trueSkillScore": 242.397
+            }
+          },
+          "streakLength": 3,
+          "upgradedDate": "2025-12-27",
+          "upgradeEvent": "Where's the Tylenol?!?! | 9-Max"
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-08-07",
+          "earnedEvent": "DRAWS! | 9-Max",
+          "reason": "Joined the 10-Appearance Club at DRAWS! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 85,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 6,
+            "totalRanked": 16,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 87
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 87
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 90
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 90
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 92
+              }
+            ],
+            "metrics": {
+              "profit": 325,
+              "roi": 0.601852,
+              "cashRate": 0.5,
+              "hitRate": 1.111111,
+              "trueSkillScore": 239.125
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Cougar",
@@ -1912,7 +3034,175 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "leader-roi",
+          "earnedDate": "2026-01-17",
+          "earnedEvent": "Finally, Leaving Las Vegas | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 66.7%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 10,
+            "appearances": 8,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 90
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 76
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 76
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 65
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 65
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 80
+              }
+            ],
+            "metrics": {
+              "profit": 180,
+              "roi": 0.666667,
+              "cashRate": 0.5,
+              "hitRate": 0.777778,
+              "trueSkillScore": 301.379
+            }
+          }
+        },
+        {
+          "id": "heater-2",
+          "earnedDate": "2025-10-25",
+          "earnedEvent": "We are SO Back | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2025-10-04 through 2025-10-25.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 5,
+            "appearances": 2,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 89
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 70,
+              "roi": 0.777778,
+              "cashRate": 1.0,
+              "hitRate": 0.333333,
+              "trueSkillScore": 305.513
+            }
+          },
+          "streakLength": 2
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-02-07",
+          "earnedEvent": "Super Bowl Eve | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Super Bowl Eve | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 88,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 14,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 79
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 65
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 65
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 64
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 64
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 70
+              }
+            ],
+            "metrics": {
+              "profit": 120,
+              "roi": 0.363636,
+              "cashRate": 0.4,
+              "hitRate": 0.636364,
+              "trueSkillScore": 258.21
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Dan K",
@@ -2072,7 +3362,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "David K",
@@ -2196,7 +3487,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Fabian",
@@ -2320,7 +3612,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Gilmore",
@@ -2456,7 +3749,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Griffin",
@@ -2592,7 +3886,65 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "heater-2",
+          "earnedDate": "2026-05-23",
+          "earnedEvent": "Championship Sunday Eve | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2026-05-09 through 2026-05-23.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 16,
+            "appearances": 2,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 215,
+              "roi": 1.433333,
+              "cashRate": 1.0,
+              "hitRate": 1.8,
+              "trueSkillScore": 351.648
+            }
+          },
+          "streakLength": 2
+        }
+      ]
     },
     {
       "name": "Hayden D",
@@ -2728,7 +4080,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Hiro",
@@ -2969,7 +4322,560 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-tax-collector",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "First claimed the Hall career-profit distinction at $135.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 71
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 94
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 94
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 86
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 0.346154,
+              "cashRate": 0.5,
+              "hitRate": 1.307692,
+              "trueSkillScore": 240.769
+            }
+          }
+        },
+        {
+          "id": "hall-direct-deposit",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "First claimed the Hall cash-rate distinction at 50.0%.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 71
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 94
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 94
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 86
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 0.346154,
+              "cashRate": 0.5,
+              "hitRate": 1.307692,
+              "trueSkillScore": 240.769
+            }
+          }
+        },
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 1.31 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 71
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 94
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 94
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 86
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 0.346154,
+              "cashRate": 0.5,
+              "hitRate": 1.307692,
+              "trueSkillScore": 240.769
+            }
+          }
+        },
+        {
+          "id": "leader-profit",
+          "earnedDate": "2025-07-26",
+          "earnedEvent": "\"Last Call Before Europe\" | 9-Max",
+          "reason": "First claimed the established-player career-profit lead at $225.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 225,
+              "roi": 1.25,
+              "cashRate": 0.6,
+              "hitRate": 1.833333,
+              "trueSkillScore": 392.064
+            }
+          }
+        },
+        {
+          "id": "leader-knockouts",
+          "earnedDate": "2025-07-26",
+          "earnedEvent": "\"Last Call Before Europe\" | 9-Max",
+          "reason": "First claimed the established-player knockout lead at 11 hits.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 225,
+              "roi": 1.25,
+              "cashRate": 0.6,
+              "hitRate": 1.833333,
+              "trueSkillScore": 392.064
+            }
+          }
+        },
+        {
+          "id": "leader-roi",
+          "earnedDate": "2025-07-26",
+          "earnedEvent": "\"Last Call Before Europe\" | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 125.0%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 225,
+              "roi": 1.25,
+              "cashRate": 0.6,
+              "hitRate": 1.833333,
+              "trueSkillScore": 392.064
+            }
+          }
+        },
+        {
+          "id": "leader-cash-rate",
+          "earnedDate": "2025-07-26",
+          "earnedEvent": "\"Last Call Before Europe\" | 9-Max",
+          "reason": "First claimed the established-player cash-rate lead at 60.0%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 225,
+              "roi": 1.25,
+              "cashRate": 0.6,
+              "hitRate": 1.833333,
+              "trueSkillScore": 392.064
+            }
+          }
+        },
+        {
+          "id": "heater-2",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2025-11-01 through 2025-11-15.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 71
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 94
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 94
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 86
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 0.346154,
+              "cashRate": 0.5,
+              "hitRate": 1.307692,
+              "trueSkillScore": 240.769
+            }
+          },
+          "streakLength": 2
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-04-17",
+          "earnedEvent": "WrestleMania Eve | 9-Max",
+          "reason": "Joined the 25-Appearance Club at WrestleMania Eve | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 73,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 8,
+            "totalRanked": 15,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 57
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 61
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 61
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 68
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 68
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 63
+              }
+            ],
+            "metrics": {
+              "profit": -105,
+              "roi": -0.097222,
+              "cashRate": 0.36,
+              "hitRate": 0.777778,
+              "trueSkillScore": 192.344
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 71
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 72
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 72
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 94
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 94
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 86
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 0.346154,
+              "cashRate": 0.5,
+              "hitRate": 1.307692,
+              "trueSkillScore": 240.769
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Jeff T",
@@ -3186,7 +5092,8 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Kishan",
@@ -3334,7 +5241,65 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "heater-2",
+          "earnedDate": "2026-04-04",
+          "earnedEvent": "Duke Hoop Shock and Awww :D | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2026-03-27 through 2026-04-04.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 93,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 2,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 80
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 60,
+              "roi": 1.0,
+              "cashRate": 1.0,
+              "hitRate": 1.5,
+              "trueSkillScore": 349.641
+            }
+          },
+          "streakLength": 2
+        }
+      ]
     },
     {
       "name": "Li-Fo",
@@ -3575,7 +5540,562 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-tax-collector",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall career-profit distinction at $305.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 298.747
+            }
+          }
+        },
+        {
+          "id": "hall-direct-deposit",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 298.747
+            }
+          }
+        },
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 1.13 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 298.747
+            }
+          }
+        },
+        {
+          "id": "leader-profit",
+          "earnedDate": "2025-11-01",
+          "earnedEvent": "Dia de los Muertos | 9-Max",
+          "reason": "First claimed the established-player career-profit lead at $205.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 82
+              }
+            ],
+            "metrics": {
+              "profit": 205,
+              "roi": 0.854167,
+              "cashRate": 0.571429,
+              "hitRate": 1.25,
+              "trueSkillScore": 309.441
+            }
+          }
+        },
+        {
+          "id": "leader-knockouts",
+          "earnedDate": "2025-12-13",
+          "earnedEvent": "Ohhh Fuuuudge | 9-Max",
+          "reason": "First claimed the established-player knockout lead at 18 hits.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 11,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 370,
+              "roi": 0.72549,
+              "cashRate": 0.727273,
+              "hitRate": 1.058824,
+              "trueSkillScore": 325.54
+            }
+          }
+        },
+        {
+          "id": "leader-roi",
+          "earnedDate": "2025-11-01",
+          "earnedEvent": "Dia de los Muertos | 9-Max",
+          "reason": "First claimed the established-player ROI lead at 85.4%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 5,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 82
+              }
+            ],
+            "metrics": {
+              "profit": 205,
+              "roi": 0.854167,
+              "cashRate": 0.571429,
+              "hitRate": 1.25,
+              "trueSkillScore": 309.441
+            }
+          }
+        },
+        {
+          "id": "leader-cash-rate",
+          "earnedDate": "2025-08-23",
+          "earnedEvent": "Honey, I'm Home | 9-Max",
+          "reason": "First claimed the established-player cash-rate lead at 60.0%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 88,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 2,
+            "totalRanked": 3,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 75
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 65
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 65
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 76
+              }
+            ],
+            "metrics": {
+              "profit": 130,
+              "roi": 0.722222,
+              "cashRate": 0.6,
+              "hitRate": 1.166667,
+              "trueSkillScore": 336.366
+            }
+          }
+        },
+        {
+          "id": "heater-5",
+          "earnedDate": "2025-06-28",
+          "earnedEvent": "Say My Name | 9-Max",
+          "reason": "Personal-best 5-appearance cash streak from 2025-11-01 through 2025-12-13.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 11,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 370,
+              "roi": 0.72549,
+              "cashRate": 0.727273,
+              "hitRate": 1.058824,
+              "trueSkillScore": 325.54
+            }
+          },
+          "streakLength": 5,
+          "upgradedDate": "2025-12-13",
+          "upgradeEvent": "Ohhh Fuuuudge | 9-Max"
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-05-16",
+          "earnedEvent": "Stranger Bluffs! | 9-Max",
+          "reason": "Joined the 25-Appearance Club at Stranger Bluffs! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 81,
+            "tierCode": "A",
+            "tierClassName": "a",
+            "tierStatus": "Established",
+            "powerRank": 5,
+            "totalRanked": 16,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 75
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 87
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 87
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 75
+              }
+            ],
+            "metrics": {
+              "profit": 365,
+              "roi": 0.276515,
+              "cashRate": 0.6,
+              "hitRate": 0.613636,
+              "trueSkillScore": 237.222
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2025-12-06",
+          "earnedEvent": "$hitter's Full | 9-Max",
+          "reason": "Joined the 10-Appearance Club at $hitter's Full | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 7,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 95
+              }
+            ],
+            "metrics": {
+              "profit": 305,
+              "roi": 0.677778,
+              "cashRate": 0.7,
+              "hitRate": 1.133333,
+              "trueSkillScore": 298.747
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Nasa Al",
@@ -3816,7 +6336,452 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "hall-tax-collector",
+          "earnedDate": "2026-05-02",
+          "earnedEvent": "Should We Let Him Win? | 9-Max",
+          "reason": "First claimed the Hall career-profit distinction at $395.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 395,
+              "roi": 1.097222,
+              "cashRate": 0.7,
+              "hitRate": 1.416667,
+              "trueSkillScore": 341.127
+            }
+          }
+        },
+        {
+          "id": "hall-direct-deposit",
+          "earnedDate": "2026-04-18",
+          "earnedEvent": "Sabres in the Playoffs?! | 9-Max",
+          "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 94
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 395,
+              "roi": 1.097222,
+              "cashRate": 0.7,
+              "hitRate": 1.416667,
+              "trueSkillScore": 345.194
+            }
+          }
+        },
+        {
+          "id": "hall-billing-department",
+          "earnedDate": "2026-04-18",
+          "earnedEvent": "Sabres in the Playoffs?! | 9-Max",
+          "reason": "First claimed the Hall knockout-efficiency distinction at 1.42 knockouts per entry.",
+          "priority": 4,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 94
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 395,
+              "roi": 1.097222,
+              "cashRate": 0.7,
+              "hitRate": 1.416667,
+              "trueSkillScore": 345.194
+            }
+          }
+        },
+        {
+          "id": "leader-profit",
+          "earnedDate": "2026-05-02",
+          "earnedEvent": "Should We Let Him Win? | 9-Max",
+          "reason": "First claimed the established-player career-profit lead at $395.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 395,
+              "roi": 1.097222,
+              "cashRate": 0.7,
+              "hitRate": 1.416667,
+              "trueSkillScore": 341.127
+            }
+          }
+        },
+        {
+          "id": "leader-roi",
+          "earnedDate": "2026-02-13",
+          "earnedEvent": "Chip & A Chair, The Tony K Story",
+          "reason": "First claimed the established-player ROI lead at 74.1%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 7,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 90
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 74
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 74
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 200,
+              "roi": 0.740741,
+              "cashRate": 0.714286,
+              "hitRate": 1.0,
+              "trueSkillScore": 316.063
+            }
+          }
+        },
+        {
+          "id": "leader-cash-rate",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First claimed the established-player cash-rate lead at 60.0%.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 81,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 5,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 73
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 79
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 79
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 65,
+              "roi": 0.309524,
+              "cashRate": 0.6,
+              "hitRate": 1.0,
+              "trueSkillScore": 237.231
+            }
+          }
+        },
+        {
+          "id": "heater-4",
+          "earnedDate": "2025-07-26",
+          "earnedEvent": "\"Last Call Before Europe\" | 9-Max",
+          "reason": "Personal-best 4-appearance cash streak from 2025-11-01 through 2026-03-28.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 9,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 94
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 425,
+              "roi": 1.287879,
+              "cashRate": 0.777778,
+              "hitRate": 1.363636,
+              "trueSkillScore": 362.495
+            }
+          },
+          "streakLength": 4,
+          "upgradedDate": "2026-03-28",
+          "upgradeEvent": "March Sadness Part II | 9-Max"
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-04-18",
+          "earnedEvent": "Sabres in the Playoffs?! | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Sabres in the Playoffs?! | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 95,
+            "tierCode": "S",
+            "tierClassName": "s",
+            "tierStatus": "Established",
+            "powerRank": 1,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 94
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 395,
+              "roi": 1.097222,
+              "cashRate": 0.7,
+              "hitRate": 1.416667,
+              "trueSkillScore": 345.194
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Nitro",
@@ -4057,7 +7022,64 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-03-27",
+          "earnedEvent": "March Sadness Part I | 9-Max",
+          "reason": "Joined the 10-Appearance Club at March Sadness Part I | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 63,
+            "tierCode": "D",
+            "tierClassName": "d",
+            "tierStatus": "Established",
+            "powerRank": 14,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 41
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 49
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 49
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -300,
+              "roi": -0.714286,
+              "cashRate": 0.1,
+              "hitRate": 0.357143,
+              "trueSkillScore": 110.633
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Pat",
@@ -4181,7 +7203,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "PhattedCalf",
@@ -4398,7 +7421,8 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "PittsburghBill",
@@ -4522,7 +7546,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "ProvidenceMike",
@@ -4763,7 +7788,177 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "heater-3",
+          "earnedDate": "2026-02-07",
+          "earnedEvent": "Super Bowl Eve | 9-Max",
+          "reason": "Personal-best 3-appearance cash streak from 2026-01-30 through 2026-02-13.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 70,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 12,
+            "totalRanked": 15,
+            "appearances": 8,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 56
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 64
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 64
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 68
+              }
+            ],
+            "metrics": {
+              "profit": -115,
+              "roi": -0.27381,
+              "cashRate": 0.375,
+              "hitRate": 0.642857,
+              "trueSkillScore": 158.976
+            }
+          },
+          "streakLength": 3,
+          "upgradedDate": "2026-02-13",
+          "upgradeEvent": "Chip & A Chair, The Tony K Story"
+        },
+        {
+          "id": "milestone-25",
+          "earnedDate": "2026-06-20",
+          "earnedEvent": "You're All Suspects | 9-Max",
+          "reason": "Joined the 25-Appearance Club at You're All Suspects | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 72,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 10,
+            "totalRanked": 16,
+            "appearances": 25,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 56
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 68
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 68
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 64
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 64
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 70
+              }
+            ],
+            "metrics": {
+              "profit": -215,
+              "roi": -0.174797,
+              "cashRate": 0.36,
+              "hitRate": 0.682927,
+              "trueSkillScore": 167.356
+            }
+          }
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-02-27",
+          "earnedEvent": "Back from Broadway | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Back from Broadway | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 74,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 10,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 61
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 66
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 66
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 71
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 71
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 72
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -0.125,
+              "cashRate": 0.4,
+              "hitRate": 0.75,
+              "trueSkillScore": 181.278
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Red",
@@ -5004,7 +8199,175 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "leader-knockouts",
+          "earnedDate": "2026-04-24",
+          "earnedEvent": "Shipping Up to Boston | 9-Max",
+          "reason": "First claimed the established-player knockout lead at 32 hits.",
+          "priority": 3,
+          "snapshot": {
+            "overall": 72,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 10,
+            "totalRanked": 15,
+            "appearances": 15,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 64
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 68
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 68
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 85
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 85
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 77
+              }
+            ],
+            "metrics": {
+              "profit": 5,
+              "roi": 0.006173,
+              "cashRate": 0.4,
+              "hitRate": 1.185185,
+              "trueSkillScore": 181.609
+            }
+          }
+        },
+        {
+          "id": "heater-2",
+          "earnedDate": "2026-01-24",
+          "earnedEvent": "Mother, \"Maye\" I? | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2026-01-03 through 2026-01-24.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 92,
+            "tierCode": "PRO",
+            "tierClassName": "provisional",
+            "tierStatus": "Provisional",
+            "powerRank": null,
+            "totalRanked": 12,
+            "appearances": 4,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 85
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 80
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 80
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 92
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 92
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 80,
+              "roi": 0.533333,
+              "cashRate": 0.5,
+              "hitRate": 1.6,
+              "trueSkillScore": 273.333
+            }
+          },
+          "streakLength": 2
+        },
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-03-27",
+          "earnedEvent": "March Sadness Part I | 9-Max",
+          "reason": "Joined the 10-Appearance Club at March Sadness Part I | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 70,
+            "tierCode": "C",
+            "tierClassName": "c",
+            "tierStatus": "Established",
+            "powerRank": 12,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 56
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 57
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 57
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 78
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 78
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 68
+              }
+            ],
+            "metrics": {
+              "profit": -100,
+              "roi": -0.196078,
+              "cashRate": 0.3,
+              "hitRate": 0.882353,
+              "trueSkillScore": 160.713
+            }
+          }
+        }
+      ]
     },
     {
       "name": "The Architect",
@@ -5233,7 +8596,65 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "heater-2",
+          "earnedDate": "2026-01-03",
+          "earnedEvent": "2025 Auld Lang Syne 2026 | 9-Max",
+          "reason": "Personal-best 2-appearance cash streak from 2025-12-27 through 2026-01-03.",
+          "priority": 2,
+          "snapshot": {
+            "overall": 88,
+            "tierCode": "B",
+            "tierClassName": "b",
+            "tierStatus": "Established",
+            "powerRank": 4,
+            "totalRanked": 10,
+            "appearances": 5,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 77
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 89
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 89
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 77
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 77
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 92
+              }
+            ],
+            "metrics": {
+              "profit": 45,
+              "roi": 0.214286,
+              "cashRate": 0.6,
+              "hitRate": 1.0,
+              "trueSkillScore": 247.122
+            }
+          },
+          "streakLength": 2
+        }
+      ]
     },
     {
       "name": "Tim S",
@@ -5369,7 +8790,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Vic",
@@ -5517,7 +8939,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Vish",
@@ -5758,7 +9181,64 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": [
+        {
+          "id": "milestone-10",
+          "earnedDate": "2026-05-02",
+          "earnedEvent": "Should We Let Him Win? | 9-Max",
+          "reason": "Joined the 10-Appearance Club at Should We Let Him Win? | 9-Max.",
+          "priority": 1,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "D",
+            "tierClassName": "d",
+            "tierStatus": "Established",
+            "powerRank": 13,
+            "totalRanked": 15,
+            "appearances": 10,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 51
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 59
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 59
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 57
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 57
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 56
+              }
+            ],
+            "metrics": {
+              "profit": -205,
+              "roi": -0.359649,
+              "cashRate": 0.3,
+              "hitRate": 0.578947,
+              "trueSkillScore": 136.34
+            }
+          }
+        }
+      ]
     },
     {
       "name": "Wild Bill",
@@ -5963,7 +9443,8 @@
             }
           ]
         }
-      }
+      },
+      "cardCollection": []
     },
     {
       "name": "Yann",
@@ -6087,7 +9568,8 @@
           },
           "events": []
         }
-      }
+      },
+      "cardCollection": []
     }
   ],
   "streaks": {
@@ -9789,6 +13271,26 @@
         "bestDroughtStreak": null,
         "currentDroughtStreak": null
       }
+    }
+  },
+  "cardLedger": {
+    "version": 1,
+    "source": "parsed-event-replay",
+    "eventCount": 47,
+    "replayedThrough": "2026-08-16",
+    "rules": {
+      "base": "Live career card; recalculates whenever event data changes.",
+      "milestones": [
+        10,
+        25,
+        50,
+        75,
+        100
+      ],
+      "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
+      "hall": "Permanent when first earned at the historical Hall qualification threshold.",
+      "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
+      "snapshot": "Overall, tier and all six attributes are frozen at issuance or upgrade."
     }
   }
 }
