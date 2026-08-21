@@ -51,7 +51,7 @@
 .crew-page .crew-ultimate-card:hover,
 .crew-page .crew-ultimate-card:focus-visible{
   color:var(--crew-card-ink);
-  transform:translateY(-5px) scale(1.012);
+  transform:translateY(-5px);
   filter:
     drop-shadow(0 20px 20px rgba(0,0,0,.36))
     drop-shadow(0 0 20px var(--crew-card-glow));
@@ -246,7 +246,8 @@
 
 .crew-page .crew-ultimate-portrait .player-avatar-wrap{
   width:auto;
-  height:min(110px, 100%);
+  height:min(128px, 100%);
+  max-width:128px;
   aspect-ratio:1;
 }
 
@@ -254,6 +255,9 @@
 .crew-page .crew-ultimate-portrait .player-avatar-fallback.crew{
   width:100%;
   height:100%;
+  image-rendering:auto;
+  object-fit:cover;
+  object-position:center;
   border:3px solid var(--crew-card-edge);
   color:var(--crew-card-ink);
   background:rgba(10,14,18,.22);
@@ -425,6 +429,65 @@
   --crew-card-muted:#c2e2fa;
   --crew-card-line:rgba(194,226,250,.28);
   --crew-card-glow:rgba(78,166,224,.30);
+}
+
+.crew-page .crew-ultimate-card-prospect,
+.crew-page .crew-ultimate-card-rookie{
+  --crew-card-edge:#9edbc0;
+  --crew-card-surface-a:#10291f;
+  --crew-card-surface-b:#218a5b;
+  --crew-card-surface-c:#12271f;
+  --crew-card-ink:#edfff5;
+  --crew-card-muted:#bfe8d2;
+  --crew-card-line:rgba(191,232,210,.27);
+  --crew-card-glow:rgba(61,220,132,.34);
+}
+
+/* Developmental sections are visible, but deliberately unranked. */
+
+.crew-page .tier-section.tier-section-provisional{
+  border-color:rgba(78,166,224,.24);
+  background:
+    linear-gradient(180deg, rgba(78,166,224,.11), rgba(78,166,224,.025) 28%, rgba(255,255,255,.015) 100%);
+  box-shadow:
+    0 0 0 1px rgba(78,166,224,.08),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(78,166,224,.07);
+}
+
+.crew-page .tier-section.tier-section-rookie{
+  border-color:rgba(61,220,132,.22);
+  background:
+    linear-gradient(180deg, rgba(61,220,132,.10), rgba(61,220,132,.022) 28%, rgba(255,255,255,.015) 100%);
+  box-shadow:
+    0 0 0 1px rgba(61,220,132,.07),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(61,220,132,.06);
+}
+
+.crew-page .tier-section-provisional .tier-section-head{
+  color:#bfe5ff;
+}
+
+.crew-page .tier-section-rookie .tier-section-head{
+  color:#bff2d5;
+}
+
+.crew-page .tier-section-provisional .tier-header-stats,
+.crew-page .tier-section-rookie .tier-header-stats{
+  border:1px solid currentColor;
+  background:rgba(8,15,20,.30);
+  color:inherit;
+}
+
+.crew-page .tier-distribution-fill.provisionals{
+  background:linear-gradient(90deg, rgba(78,166,224,.95), rgba(78,166,224,.28));
+  box-shadow:0 0 12px rgba(78,166,224,.16);
+}
+
+.crew-page .tier-distribution-fill.rookies{
+  background:linear-gradient(90deg, rgba(61,220,132,.94), rgba(61,220,132,.26));
+  box-shadow:0 0 12px rgba(61,220,132,.15);
 }
 
 @media (max-width:1100px){

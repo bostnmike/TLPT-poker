@@ -3456,7 +3456,7 @@ function playerCardTierMeta(player, players) {
     return {
       ...tier,
       code: "RKI",
-      className: "prospect",
+      className: "rookie",
       status: "Rookie",
       statusDetail: `${appearancesToProvisional} more ${appearancesToProvisional === 1 ? "appearance" : "appearances"} for Provisional status; Power Rank begins at 5`,
       rank: null,
