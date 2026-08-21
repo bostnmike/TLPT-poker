@@ -1048,6 +1048,425 @@
   line-height:1.35;
 }
 
+.player-page .tlpt-card-special-banner[hidden]{
+  display:none;
+}
+
+/* =========================================
+   Phase 2D2 — Collectible card editions
+   ========================================= */
+
+.player-page .tlpt-card-collection{
+  margin:0 0 30px;
+  padding:24px;
+  border:1px solid rgba(255,184,28,.22);
+  border-radius:20px;
+  background:
+    radial-gradient(circle at 12% 2%,rgba(255,184,28,.12),transparent 28%),
+    radial-gradient(circle at 88% 14%,rgba(95,211,172,.09),transparent 28%),
+    linear-gradient(150deg,rgba(18,27,36,.96),rgba(8,13,18,.98));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 18px 36px rgba(0,0,0,.24);
+}
+
+.player-page .tlpt-card-collection-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:20px;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(255,184,28,.18);
+}
+
+.player-page .tlpt-card-collection-head > div > span{
+  color:var(--gold);
+  font-size:.64rem;
+  font-weight:1000;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-collection-head h2{
+  margin:4px 0 5px;
+  color:#fff;
+  font-size:clamp(1.45rem,2.7vw,2.1rem);
+  line-height:1.05;
+}
+
+.player-page .tlpt-card-collection-head p{
+  max-width:650px;
+  margin:0;
+  color:#9db0bf;
+  font-size:.76rem;
+  line-height:1.45;
+}
+
+.player-page .tlpt-card-collection-head > strong{
+  flex:0 0 auto;
+  padding:8px 12px;
+  border:1px solid rgba(255,184,28,.36);
+  border-radius:999px;
+  color:#ffe7a6;
+  background:rgba(255,184,28,.08);
+  font-size:.68rem;
+  line-height:1.2;
+  white-space:nowrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 16px rgba(0,0,0,.18);
+}
+
+.player-page .tlpt-card-collection-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,176px));
+  gap:24px 18px;
+  justify-content:center;
+  padding:24px 0 6px;
+}
+
+.player-page .tlpt-card-collectible-button{
+  appearance:none;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-width:0;
+  padding:0 0 24px;
+  border:0;
+  color:#fff;
+  background:transparent;
+  cursor:pointer;
+  font:inherit;
+  text-align:center;
+}
+
+.player-page .tlpt-card-collectible-button:focus-visible{
+  outline:2px solid #ffe39a;
+  outline-offset:6px;
+  border-radius:14px;
+}
+
+.player-page .tlpt-card-collectible-frame{
+  display:block;
+  width:100%;
+  aspect-ratio:.655;
+  padding:2px;
+  background:linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%);
+  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%);
+  filter:drop-shadow(0 13px 12px rgba(0,0,0,.34)) drop-shadow(0 0 10px var(--card-glow));
+  transition:transform .22s ease,filter .22s ease;
+}
+
+.player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-frame,
+.player-page .tlpt-card-collectible-button.is-selected .tlpt-card-collectible-frame{
+  transform:translateY(-5px) scale(1.025);
+  filter:drop-shadow(0 17px 14px rgba(0,0,0,.40)) drop-shadow(0 0 18px var(--card-glow));
+}
+
+.player-page .tlpt-card-collectible-button.is-selected .tlpt-card-collectible-frame{
+  background:linear-gradient(145deg,#fffbe0 0%,var(--special-accent,var(--card-edge)) 34%,#ffb81c 66%,#fff0ac 100%);
+}
+
+.player-page .tlpt-card-collectible-inner{
+  position:relative;
+  display:grid;
+  grid-template-rows:17% 37% 12% 20% 14%;
+  width:100%;
+  height:100%;
+  padding:8% 9% 10%;
+  overflow:hidden;
+  color:var(--card-ink);
+  background:
+    radial-gradient(circle at 76% 24%,rgba(255,255,255,.22),transparent 21%),
+    radial-gradient(circle at 26% 38%,rgba(255,255,255,.10),transparent 30%),
+    linear-gradient(145deg,var(--card-surface-a) 0%,var(--card-surface-b) 48%,var(--card-surface-c) 100%);
+  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%);
+}
+
+.player-page .tlpt-card-collectible-inner::after{
+  content:"";
+  position:absolute;
+  inset:-35% -70%;
+  z-index:5;
+  pointer-events:none;
+  transform:translateX(-58%) rotate(20deg);
+  background:linear-gradient(90deg,transparent 43%,rgba(255,255,255,.03) 47%,rgba(255,255,255,.26) 50%,rgba(255,255,255,.03) 53%,transparent 57%);
+  transition:transform .55s ease;
+}
+
+.player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-inner::after{
+  transform:translateX(58%) rotate(20deg);
+}
+
+.player-page .tlpt-card-collectible-pattern{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(118deg,transparent 0 15%,rgba(255,255,255,.15) 19%,transparent 24% 44%,rgba(255,255,255,.11) 48%,transparent 52% 75%,rgba(255,255,255,.08) 78%,transparent 82%),
+    repeating-linear-gradient(102deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,rgba(0,0,0,.018) 1px,rgba(0,0,0,.018) 4px);
+}
+
+.player-page .tlpt-player-card-special .tlpt-card-collectible-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 4%,var(--special-soft),transparent 25%),
+    linear-gradient(118deg,transparent 0 37%,var(--special-soft) 43%,transparent 49% 100%),
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 38%);
+  mix-blend-mode:screen;
+  opacity:.78;
+}
+
+.player-page .tlpt-player-card-special-infamy .tlpt-card-collectible-inner::before{
+  background:
+    radial-gradient(circle at 50% 6%,var(--special-soft),transparent 25%),
+    repeating-linear-gradient(128deg,transparent 0 12px,rgba(255,71,83,.12) 13px,transparent 16px),
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 42%);
+}
+
+.player-page .tlpt-player-card-special-heater .tlpt-card-collectible-inner::before{
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(255,59,19,.38),transparent 46%),
+    linear-gradient(118deg,transparent 0 36%,rgba(255,183,61,.24) 43%,transparent 50% 100%),
+    radial-gradient(circle at 50% 5%,var(--special-soft),transparent 25%);
+}
+
+.player-page .tlpt-card-collectible-head,
+.player-page .tlpt-card-collectible-portrait,
+.player-page .tlpt-card-collectible-name,
+.player-page .tlpt-card-collectible-stats,
+.player-page .tlpt-card-collectible-stamp{
+  position:relative;
+  z-index:2;
+}
+
+.player-page .tlpt-card-collectible-head{
+  display:grid;
+  grid-template-columns:31px minmax(0,1fr) 28px;
+  gap:3px;
+  align-items:start;
+  padding:3px 5px 0;
+}
+
+.player-page .tlpt-card-collectible-rating{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  line-height:1;
+}
+
+.player-page .tlpt-card-collectible-rating strong{
+  font-size:1.45rem;
+  font-weight:600;
+  letter-spacing:-.075em;
+}
+
+.player-page .tlpt-card-collectible-rating small{
+  width:24px;
+  margin-top:2px;
+  padding-top:2px;
+  border-top:1px solid var(--card-line);
+  font-size:.51rem;
+  font-weight:1000;
+}
+
+.player-page .tlpt-card-collectible-edition{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1px;
+  min-width:0;
+  padding-top:4px;
+  color:var(--card-muted);
+  font-size:.34rem;
+  font-weight:1000;
+  line-height:1.05;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-collectible-edition strong{
+  max-width:100%;
+  overflow:hidden;
+  color:var(--card-ink);
+  font-size:.39rem;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-collectible-head img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.30));
+}
+
+.player-page .tlpt-card-collectible-portrait{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.player-page .tlpt-card-collectible-portrait .player-avatar-wrap{
+  width:min(58%,88px);
+  height:auto;
+  aspect-ratio:1 / 1;
+}
+
+.player-page .tlpt-card-collectible-portrait .player-avatar.profile,
+.player-page .tlpt-card-collectible-portrait .player-avatar-fallback.profile{
+  display:flex;
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  aspect-ratio:1 / 1;
+  border:2px solid var(--card-edge);
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center;
+  image-rendering:auto;
+  box-shadow:0 0 0 2px rgba(0,0,0,.12),0 7px 10px rgba(0,0,0,.26),0 0 12px var(--card-glow);
+}
+
+.player-page .tlpt-card-collectible-name{
+  align-self:center;
+  width:100%;
+  padding:4px 2px;
+  overflow:hidden;
+  border-top:1px solid var(--card-line);
+  border-bottom:1px solid var(--card-line);
+  font-size:.67rem;
+  font-weight:1000;
+  line-height:1;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-collectible-name .player-entry-asterisk{
+  font-size:.5em;
+}
+
+.player-page .tlpt-card-collectible-stats{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px 9px;
+  align-content:center;
+  padding:3px 7px;
+}
+
+.player-page .tlpt-card-collectible-stats > span{
+  display:flex;
+  align-items:baseline;
+  gap:3px;
+  min-width:0;
+  line-height:1;
+}
+
+.player-page .tlpt-card-collectible-stats strong{
+  font-size:.62rem;
+}
+
+.player-page .tlpt-card-collectible-stats small{
+  color:var(--card-muted);
+  font-size:.36rem;
+  font-weight:1000;
+}
+
+.player-page .tlpt-card-collectible-stamp{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  min-width:0;
+  margin:2px 5px 0;
+  padding:3px 5px;
+  border:1px solid var(--special-accent,var(--card-line));
+  border-radius:999px;
+  color:var(--special-accent,var(--card-muted));
+  background:rgba(6,10,14,.54);
+  box-shadow:0 3px 7px rgba(0,0,0,.16);
+}
+
+.player-page .tlpt-card-collectible-stamp b{
+  flex:0 0 auto;
+  font-size:.48rem;
+}
+
+.player-page .tlpt-card-collectible-stamp strong{
+  min-width:0;
+  overflow:hidden;
+  font-size:.35rem;
+  letter-spacing:.025em;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-collectible-caption{
+  display:grid;
+  gap:2px;
+  width:100%;
+  margin-top:12px;
+  line-height:1.15;
+}
+
+.player-page .tlpt-card-collectible-caption strong{
+  color:var(--special-accent,#f7d77e);
+  font-size:.61rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-collectible-caption small{
+  overflow:hidden;
+  color:#b7c4ce;
+  font-size:.65rem;
+  font-weight:800;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-collectible-selected{
+  position:absolute;
+  bottom:0;
+  left:50%;
+  padding:3px 8px;
+  border:1px solid var(--special-accent,var(--card-edge));
+  border-radius:999px;
+  color:#090d12;
+  background:var(--special-accent,var(--card-edge));
+  font-size:.48rem;
+  font-weight:1000;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:0;
+  transform:translate(-50%,3px);
+  transition:opacity .18s ease,transform .18s ease;
+}
+
+.player-page .tlpt-card-collectible-button.is-selected .tlpt-card-collectible-selected{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+.player-page .tlpt-card-collection-status{
+  min-height:18px;
+  margin:14px 0 0;
+  color:#9fb0bd;
+  font-size:.68rem;
+  font-weight:800;
+  line-height:1.35;
+  text-align:center;
+}
+
+.player-page .tlpt-player-card.is-edition-changing .tlpt-player-card-inner{
+  animation:tlpt-card-view-change .28s ease-out both;
+}
+
 /* =========================================
    Phase 2C — Head-to-head card comparison
    ========================================= */
@@ -1846,6 +2265,23 @@
     grid-template-columns:1fr;
   }
 
+  .player-page .tlpt-card-collection{
+    padding:18px;
+  }
+
+  .player-page .tlpt-card-collection-head{
+    display:grid;
+    gap:12px;
+  }
+
+  .player-page .tlpt-card-collection-head > strong{
+    justify-self:start;
+  }
+
+  .player-page .tlpt-card-collection-grid{
+    gap:21px 14px;
+  }
+
   .player-page .tlpt-card-compare-overlay{
     padding:12px;
   }
@@ -2032,6 +2468,81 @@
 
   .player-page .tlpt-card-special-banner small{
     font-size:.52rem;
+  }
+
+  .player-page .tlpt-card-collection{
+    margin-bottom:22px;
+    padding:14px 10px;
+    border-radius:15px;
+  }
+
+  .player-page .tlpt-card-collection-head{
+    padding:0 4px 14px;
+  }
+
+  .player-page .tlpt-card-collection-head h2{
+    font-size:1.35rem;
+  }
+
+  .player-page .tlpt-card-collection-head p{
+    font-size:.67rem;
+  }
+
+  .player-page .tlpt-card-collection-head > strong{
+    padding:6px 9px;
+    font-size:.59rem;
+  }
+
+  .player-page .tlpt-card-collection-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:19px 9px;
+    padding-top:19px;
+  }
+
+  .player-page .tlpt-card-collectible-head{
+    grid-template-columns:27px minmax(0,1fr) 24px;
+    padding-left:3px;
+    padding-right:3px;
+  }
+
+  .player-page .tlpt-card-collectible-rating strong{
+    font-size:1.22rem;
+  }
+
+  .player-page .tlpt-card-collectible-rating small{
+    width:21px;
+    font-size:.45rem;
+  }
+
+  .player-page .tlpt-card-collectible-head img{
+    width:24px;
+    height:24px;
+  }
+
+  .player-page .tlpt-card-collectible-name{
+    font-size:.58rem;
+  }
+
+  .player-page .tlpt-card-collectible-stats{
+    gap:1px 5px;
+    padding-left:4px;
+    padding-right:4px;
+  }
+
+  .player-page .tlpt-card-collectible-stats strong{
+    font-size:.55rem;
+  }
+
+  .player-page .tlpt-card-collectible-stats small{
+    font-size:.31rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption strong{
+    font-size:.53rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption small{
+    font-size:.57rem;
   }
 
   .player-page .tlpt-player-summary{
@@ -2267,13 +2778,17 @@
   .player-page .tlpt-card-view-switch button,
   .player-page .tlpt-card-compare-open,
   .player-page .tlpt-card-rating-block,
-  .player-page .tlpt-card-attribute{
+  .player-page .tlpt-card-attribute,
+  .player-page .tlpt-card-collectible-frame,
+  .player-page .tlpt-card-collectible-inner::after,
+  .player-page .tlpt-card-collectible-selected{
     transition:none;
   }
 
   .player-page .tlpt-player-card.is-view-changing .tlpt-card-overall,
   .player-page .tlpt-player-card.is-view-changing .tlpt-card-edition,
-  .player-page .tlpt-player-card.is-view-changing .tlpt-card-attribute strong{
+  .player-page .tlpt-player-card.is-view-changing .tlpt-card-attribute strong,
+  .player-page .tlpt-player-card.is-edition-changing .tlpt-player-card-inner{
     animation:none;
   }
 
@@ -2282,6 +2797,15 @@
   }
 
   .player-page .tlpt-player-card:hover .tlpt-player-card-inner::after{
+    transform:translateX(-58%) rotate(20deg);
+  }
+
+  .player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-frame,
+  .player-page .tlpt-card-collectible-button.is-selected .tlpt-card-collectible-frame{
+    transform:none;
+  }
+
+  .player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-inner::after{
     transform:translateX(-58%) rotate(20deg);
   }
 }

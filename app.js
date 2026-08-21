@@ -2847,7 +2847,11 @@ function crewCardMarkup(player, data) {
   const tierMeta = playerCardTierMeta(player, players);
   const attributes = playerCardAttributes(player, players);
   const primaryArchetype = getPlayerArchetypes(player).primary;
-  const specialEdition = playerCardSpecialEdition(player, data);
+  const specialEditions = playerCardSpecialEditions(player, data);
+  const specialEdition = specialEditions[0] || null;
+  const specialCollectionLabel = specialEditions
+    .map(edition => `${edition.eyebrow}: ${edition.label}`)
+    .join("; ");
   const specialClass = specialEdition
     ? ` crew-ultimate-card-special crew-ultimate-card-special-${specialEdition.className}`
     : "";
@@ -2857,7 +2861,7 @@ function crewCardMarkup(player, data) {
       class="crew-ultimate-card crew-ultimate-card-${tierMeta.className}${specialClass}"
       href="${playerUrl(player)}"
       ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.className)}"` : ""}
-      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}.${specialEdition ? ` ${specialEdition.eyebrow}: ${specialEdition.label}. ${specialEdition.reason}` : ""}"
+      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}.${specialEdition ? ` ${specialEditions.length} special edition${specialEditions.length === 1 ? "" : "s"} collected: ${specialCollectionLabel}.` : ""}"
     >
       <div class="crew-ultimate-card-inner">
         <div class="crew-ultimate-metal" aria-hidden="true"></div>
@@ -2872,8 +2876,8 @@ function crewCardMarkup(player, data) {
             <span>TLPT</span>
             <strong>CAREER</strong>
             ${specialEdition ? `
-              <em title="${escapeHtmlAttr(specialEdition.reason)}">
-                ${specialEdition.icon} ${specialEdition.shortLabel}
+              <em title="${escapeHtmlAttr(`${specialEditions.length} collected: ${specialCollectionLabel}`)}">
+                ${specialEdition.icon} ${specialEdition.shortLabel}${specialEditions.length > 1 ? ` +${specialEditions.length - 1}` : ""}
               </em>
             ` : ""}
           </div>
@@ -3669,11 +3673,12 @@ function playerCardHistoricalEventCount(data) {
   return Math.max(0, ...streakCounts, ...appearanceCounts);
 }
 
-function playerCardSpecialEdition(player, data) {
+function playerCardSpecialEditions(player, data) {
   const players = data?.players || [];
-  if (!player || !players.length) return null;
+  if (!player || !players.length) return [];
 
   const samePlayer = candidate => candidate?.slug === player?.slug;
+  const editions = [];
   const historicalEvents = playerCardHistoricalEventCount(data);
   const hallPool = players
     .filter(candidate => isHallEligible(candidate, historicalEvents))
@@ -3686,6 +3691,7 @@ function playerCardSpecialEdition(player, data) {
 
   const hallEditions = [
     {
+      id: "hall-tax-collector",
       key: "profit",
       direction: "desc",
       className: "hall",
@@ -3696,6 +3702,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Highest Hall-qualified career profit at ${fmtMoney(leader?.profit)}.`
     },
     {
+      id: "hall-direct-deposit",
       key: "cashRate",
       direction: "desc",
       className: "hall",
@@ -3706,6 +3713,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Highest Hall-qualified career cash rate at ${fmtPct(leader?.cashRate)}.`
     },
     {
+      id: "hall-billing-department",
       key: "knockoutRate",
       direction: "desc",
       className: "hall",
@@ -3716,6 +3724,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Highest Hall-qualified knockout efficiency at ${Number(leader?.knockoutRate || 0).toFixed(2)} per entry.`
     },
     {
+      id: "infamy-boy-in-the-bubble",
       key: "bubbles",
       direction: "desc",
       className: "infamy",
@@ -3730,16 +3739,17 @@ function playerCardSpecialEdition(player, data) {
   for (const edition of hallEditions) {
     const leader = getLeaderByRule(hallPool, edition, hallPool);
     if (!samePlayer(leader)) continue;
-    return {
+    editions.push({
       ...edition,
       reason: edition.reason(leader),
       priority: 4
-    };
+    });
   }
 
   const establishedPool = players.filter(isCrewEstablished);
   const leaderEditions = [
     {
+      id: "leader-profit",
       key: "profit",
       direction: "desc",
       icon: "💰",
@@ -3748,6 +3758,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Current established-player profit leader at ${fmtMoney(leader?.profit)}.`
     },
     {
+      id: "leader-knockouts",
       key: "hits",
       direction: "desc",
       icon: "💥",
@@ -3756,6 +3767,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Current established-player knockout leader with ${Number(leader?.hits || 0)} hits.`
     },
     {
+      id: "leader-roi",
       key: "roi",
       direction: "desc",
       icon: "📈",
@@ -3764,6 +3776,7 @@ function playerCardSpecialEdition(player, data) {
       reason: leader => `Current established-player ROI leader at ${fmtPct(leader?.roi)}.`
     },
     {
+      id: "leader-cash-rate",
       key: "cashRate",
       direction: "desc",
       icon: "🏧",
@@ -3776,19 +3789,20 @@ function playerCardSpecialEdition(player, data) {
   for (const edition of leaderEditions) {
     const leader = getLeaderByRule(establishedPool, edition, establishedPool);
     if (!samePlayer(leader)) continue;
-    return {
+    editions.push({
       ...edition,
       className: "leader",
       eyebrow: "League Leader Edition",
       reason: edition.reason(leader),
       priority: 3
-    };
+    });
   }
 
   const cashStreak = data?.streaks?.players?.[player.slug]?.currentCashStreak;
   const streakLength = Number(cashStreak?.length || 0);
   if (streakLength >= 2) {
-    return {
+    editions.push({
+      id: `heater-${streakLength}`,
       className: "heater",
       icon: "🔥",
       eyebrow: "Heater Edition",
@@ -3796,13 +3810,14 @@ function playerCardSpecialEdition(player, data) {
       shortLabel: "HEATER",
       reason: `Active ${streakLength}-appearance cash streak from ${playerCardWindowDate(cashStreak?.startDate)} through ${playerCardWindowDate(cashStreak?.endDate)}.`,
       priority: 2
-    };
+    });
   }
 
   const appearances = Number(player?.buyIns || 0);
-  const milestone = [50, 25, 10].find(target => appearances >= target);
-  if (milestone) {
-    return {
+  [50, 25, 10].forEach(milestone => {
+    if (appearances < milestone) return;
+    editions.push({
+      id: `milestone-${milestone}`,
       className: "milestone",
       icon: "♦",
       eyebrow: "Milestone Edition",
@@ -3810,10 +3825,14 @@ function playerCardSpecialEdition(player, data) {
       shortLabel: `${milestone} CLUB`,
       reason: `${appearances} career tournament appearances and counting.`,
       priority: 1
-    };
-  }
+    });
+  });
 
-  return null;
+  return editions;
+}
+
+function playerCardSpecialEdition(player, data) {
+  return playerCardSpecialEditions(player, data)[0] || null;
 }
 
 function playerCardComparisonCandidates(player, players) {
@@ -4223,7 +4242,8 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
         class="tlpt-player-card tlpt-player-card-${tierMeta.className}${specialClass}"
         data-player-card
         data-card-player-name="${escapeHtmlAttr(displayPlayerNamePlain(player))}"
-        ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.className)}"` : ""}
+        data-card-edition-aria="${specialEdition ? escapeHtmlAttr(` ${specialEdition.eyebrow}: ${specialEdition.label}. ${specialEdition.reason}`) : ""}"
+        ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
         aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}.${specialEdition ? ` ${specialEdition.eyebrow}: ${specialEdition.label}. ${specialEdition.reason}` : ""}"
       >
         <div class="tlpt-player-card-inner">
@@ -4299,16 +4319,18 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
         </div>
       </article>
 
-      ${specialEdition ? `
-        <div class="tlpt-card-special-banner tlpt-card-special-banner-${specialEdition.className}">
-          <span aria-hidden="true">${specialEdition.icon}</span>
+      <div
+        class="tlpt-card-special-banner${specialEdition ? ` tlpt-card-special-banner-${specialEdition.className}` : ""}"
+        data-card-special-banner
+        ${specialEdition ? "" : "hidden"}
+      >
+          <span data-card-special-icon aria-hidden="true">${specialEdition?.icon || "♦"}</span>
           <div>
-            <strong>${specialEdition.eyebrow}</strong>
-            <b>${specialEdition.label}</b>
-            <small>${specialEdition.reason}</small>
+            <strong data-card-special-eyebrow>${specialEdition?.eyebrow || "Special Edition"}</strong>
+            <b data-card-special-label>${specialEdition?.label || "Career Card"}</b>
+            <small data-card-special-reason>${specialEdition?.reason || ""}</small>
           </div>
-        </div>
-      ` : ""}
+      </div>
 
       <section class="tlpt-card-experience tlpt-card-experience-${experience.className}" aria-label="Card experience status">
         <div class="tlpt-card-experience-head">
@@ -4349,6 +4371,181 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
       </section>
     </div>
   `;
+}
+
+function playerCardCollectibleMarkup(player, players, edition, isSelected = false) {
+  const tierMeta = playerCardTierMeta(player, players);
+  const overall = playerCardOverallRating(player, players);
+  const attributes = playerCardAttributes(player, players);
+  const collectible = edition || {
+    id: "base",
+    className: "base",
+    icon: "♠",
+    eyebrow: "Base Edition",
+    label: "Original Career Card",
+    shortLabel: "BASE",
+    reason: "The original career card using the player's official tier finish."
+  };
+  const specialClass = edition
+    ? ` tlpt-player-card-special tlpt-player-card-special-${edition.className}`
+    : "";
+
+  return `
+    <button
+      type="button"
+      class="tlpt-card-collectible-button tlpt-player-card-${tierMeta.className}${specialClass}${isSelected ? " is-selected" : ""}"
+      data-card-edition-select="${escapeHtmlAttr(collectible.id)}"
+      aria-pressed="${isSelected ? "true" : "false"}"
+      aria-label="View ${escapeHtmlAttr(collectible.eyebrow)}, ${escapeHtmlAttr(collectible.label)}. ${escapeHtmlAttr(collectible.reason)}"
+      title="${escapeHtmlAttr(collectible.reason)}"
+    >
+      <span class="tlpt-card-collectible-frame" aria-hidden="true">
+        <span class="tlpt-card-collectible-inner">
+          <span class="tlpt-card-collectible-pattern"></span>
+
+          <span class="tlpt-card-collectible-head">
+            <span class="tlpt-card-collectible-rating">
+              <strong>${overall}</strong>
+              <small>${tierMeta.code}</small>
+            </span>
+            <span class="tlpt-card-collectible-edition">
+              <small>TLPT</small>
+              <strong>${collectible.shortLabel}</strong>
+            </span>
+            <img src="images/site/chip-T-1000.png" alt="" />
+          </span>
+
+          <span class="tlpt-card-collectible-portrait">
+            ${playerImageMarkup(player, "profile")}
+          </span>
+
+          <span class="tlpt-card-collectible-name">${displayPlayerName(player)}</span>
+
+          <span class="tlpt-card-collectible-stats">
+            ${attributes.map(attribute => `
+              <span><strong>${attribute.value}</strong><small>${attribute.code}</small></span>
+            `).join("")}
+          </span>
+
+          <span class="tlpt-card-collectible-stamp">
+            <b>${collectible.icon}</b>
+            <strong>${collectible.label}</strong>
+          </span>
+        </span>
+      </span>
+
+      <span class="tlpt-card-collectible-caption">
+        <strong>${collectible.eyebrow}</strong>
+        <small>${collectible.label}</small>
+      </span>
+      <span class="tlpt-card-collectible-selected">Viewing</span>
+    </button>
+  `;
+}
+
+function playerCardCollectionMarkup(player, players, editions) {
+  const collected = editions || [];
+  const featuredId = collected[0]?.id || "base";
+  const cards = [null, ...collected]
+    .map(edition => playerCardCollectibleMarkup(
+      player,
+      players,
+      edition,
+      (edition?.id || "base") === featuredId
+    ))
+    .join("");
+
+  return `
+    <section class="tlpt-card-collection" aria-labelledby="tlpt-card-collection-title">
+      <header class="tlpt-card-collection-head">
+        <div>
+          <span>Collectible Career Set</span>
+          <h2 id="tlpt-card-collection-title">Ultimate Card Editions</h2>
+          <p>Every earned finish stays in the collection. Choose a card to feature that edition above.</p>
+        </div>
+        <strong>${collected.length} Special Edition${collected.length === 1 ? "" : "s"} Collected</strong>
+      </header>
+
+      <div class="tlpt-card-collection-grid">
+        ${cards}
+      </div>
+
+      <p class="tlpt-card-collection-status" data-card-collection-status aria-live="polite">
+        ${collected[0]
+          ? `Viewing ${collected[0].eyebrow}: ${collected[0].label}.`
+          : "Viewing the Base Edition. Special editions unlock automatically as achievements are earned."}
+      </p>
+    </section>
+  `;
+}
+
+function wirePlayerCardEditionCollection(scope, player, editions) {
+  const card = scope.querySelector("[data-player-card]");
+  const banner = scope.querySelector("[data-card-special-banner]");
+  const buttons = [...scope.querySelectorAll("[data-card-edition-select]")];
+  if (!card || !banner || !buttons.length) return;
+
+  const collection = editions || [];
+  const specialClasses = ["hall", "infamy", "leader", "heater", "milestone"]
+    .map(className => `tlpt-player-card-special-${className}`);
+  const status = scope.querySelector("[data-card-collection-status]");
+  const icon = banner.querySelector("[data-card-special-icon]");
+  const eyebrow = banner.querySelector("[data-card-special-eyebrow]");
+  const label = banner.querySelector("[data-card-special-label]");
+  const reason = banner.querySelector("[data-card-special-reason]");
+
+  const applyEdition = editionId => {
+    const edition = collection.find(item => item.id === editionId) || null;
+
+    card.classList.remove("tlpt-player-card-special", ...specialClasses);
+    delete card.dataset.specialEdition;
+    card.dataset.cardEditionAria = "";
+
+    [...banner.classList]
+      .filter(className => className.startsWith("tlpt-card-special-banner-"))
+      .forEach(className => banner.classList.remove(className));
+
+    if (edition) {
+      card.classList.add(
+        "tlpt-player-card-special",
+        `tlpt-player-card-special-${edition.className}`
+      );
+      card.dataset.specialEdition = edition.id;
+      card.dataset.cardEditionAria = ` ${edition.eyebrow}: ${edition.label}. ${edition.reason}`;
+      banner.classList.add(`tlpt-card-special-banner-${edition.className}`);
+      banner.hidden = false;
+      if (icon) icon.textContent = edition.icon;
+      if (eyebrow) eyebrow.textContent = edition.eyebrow;
+      if (label) label.textContent = edition.label;
+      if (reason) reason.textContent = edition.reason;
+      if (status) status.textContent = `Viewing ${edition.eyebrow}: ${edition.label}.`;
+    } else {
+      banner.hidden = true;
+      if (status) status.textContent = "Viewing the Base Edition.";
+    }
+
+    buttons.forEach(button => {
+      const isSelected = button.dataset.cardEditionSelect === (edition?.id || "base");
+      button.classList.toggle("is-selected", isSelected);
+      button.setAttribute("aria-pressed", isSelected ? "true" : "false");
+    });
+
+    const viewLabel = card.dataset.cardView === "lastFive" ? "last five" : "career";
+    const overall = scope.querySelector("[data-card-overall]")?.textContent || "";
+    card.setAttribute(
+      "aria-label",
+      `${displayPlayerNamePlain(player)} ${viewLabel} player card. Overall rating ${overall}.${card.dataset.cardEditionAria}`
+    );
+    card.classList.remove("is-edition-changing");
+    void card.offsetWidth;
+    card.classList.add("is-edition-changing");
+  };
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => applyEdition(button.dataset.cardEditionSelect));
+  });
+
+  applyEdition(collection[0]?.id || "base");
 }
 
 function wirePlayerCardRatingControls(scope, cardViews, onViewChange) {
@@ -4401,7 +4598,7 @@ function wirePlayerCardRatingControls(scope, cardViews, onViewChange) {
       card.classList.add("is-view-changing");
       card.setAttribute(
         "aria-label",
-        `${card.dataset.cardPlayerName || "Player"} ${viewKey === "career" ? "career" : "last five"} player card. Overall rating ${view.overall}.`
+        `${card.dataset.cardPlayerName || "Player"} ${viewKey === "career" ? "career" : "last five"} player card. Overall rating ${view.overall}.${card.dataset.cardEditionAria || ""}`
       );
     }
 
@@ -4626,7 +4823,8 @@ function renderPlayerProfile(data) {
   const secondaryArchetype = archetypes.secondary;
   const tierMeta = playerCardTierMeta(player, players);
   const cardViews = playerCardViewData(player, players);
-  const specialEdition = playerCardSpecialEdition(player, data);
+  const specialEditions = playerCardSpecialEditions(player, data);
+  const specialEdition = specialEditions[0] || null;
 
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
     let valueClass = "";
@@ -4672,6 +4870,8 @@ function renderPlayerProfile(data) {
 
       ${playerCardComparisonMarkup(player, players, data)}
 
+      ${playerCardCollectionMarkup(player, players, specialEditions)}
+
       ${playerDnaMarkup(player)}
 
       ${archetypeMixMarkup(player)}
@@ -4687,6 +4887,7 @@ function renderPlayerProfile(data) {
   `;
 
   const comparisonController = wirePlayerCardComparison(container, player, players, data);
+  wirePlayerCardEditionCollection(container, player, specialEditions);
   wirePlayerCardRatingControls(
     container,
     cardViews,
