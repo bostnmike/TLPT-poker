@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import math
 from datetime import datetime
 from pathlib import Path
 
@@ -15,6 +16,11 @@ EVENTS_PATH = DATA_DIR / "events.json"
 OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
 CARD_FORM_WINDOW = 5
+CARD_MILESTONES = (10, 25, 50, 75, 100)
+CREW_PROVISIONAL_MIN_BUY_INS = 3
+CREW_ESTABLISHED_MIN_BUY_INS = 5
+HALL_PERCENTAGE = 0.25
+HALL_MIN_EVENTS = 10
 
 
 def load_json(path: Path):
@@ -410,6 +416,508 @@ def finalize_card_form_windows(windows):
         metrics.pop("luckProxy", None)
 
 
+def finalize_historical_metrics(players):
+    """Rebuild the live card inputs for one cumulative event checkpoint."""
+    for player in players:
+        cost = float(player["totalCost"])
+        buy_ins = float(player["buyIns"])
+        entries = float(player["entries"])
+
+        player["roi"] = (player["profit"] / cost) if cost else 0.0
+        player["cashRate"] = (player["timesPlaced"] / buy_ins) if buy_ins else 0.0
+        player["bubbleRate"] = (player["bubbles"] / buy_ins) if buy_ins else 0.0
+        player["hitRate"] = (player["hits"] / entries) if entries else 0.0
+        player["luckProxy"] = (
+            (0.40 * player["cashRate"])
+            + (0.20 * player["hitRate"])
+            + (0.40 * (1 - player["bubbleRate"]))
+        )
+
+    league_avg_proxy = (
+        sum(player["luckProxy"] for player in players)
+        / max(len(players), 1)
+    )
+
+    for player in players:
+        proxy_delta = player["luckProxy"] - league_avg_proxy
+        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
+        player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
+        player["luckIndex"] = round(
+            player["profit"] - player["expectedProfit"],
+            1
+        )
+
+        buy_ins = max(player["buyIns"], 1)
+        rebuy_rate = player["rebuys"] / buy_ins
+        player["clutchRaw"] = player["timesPlaced"] / buy_ins
+        player["aggressionRaw"] = player["hits"] / max(player["entries"], 1)
+        player["survivorRaw"] = (
+            (0.55 * player["cashRate"])
+            + (0.25 * (1 - player["bubbleRate"]))
+            + (0.20 * player["hitRate"])
+        )
+
+        base_composure = 100 * (
+            1 - ((0.70 * rebuy_rate) + (0.30 * player["bubbleRate"]))
+        )
+        sample_factor = min(player["buyIns"], 8) / 8.0
+        composure_score = 50 + ((base_composure - 50) * sample_factor)
+        player["tiltIndex"] = round(
+            max(0.0, min(100.0, composure_score)),
+            1
+        )
+
+    for key in ["roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"]:
+        normalize_stat(players, key)
+
+    for player in players:
+        player["clutchIndex"] = player["clutchRaw_norm"]
+        player["aggressionIndex"] = player["aggressionRaw_norm"]
+        player["survivorIndex"] = player["survivorRaw_norm"]
+        player["trueSkillScore"] = (
+            (player["roi_norm"] * 1.4)
+            + (player["clutchIndex"] * 1.2)
+            + player["aggressionIndex"]
+            + player["survivorIndex"]
+            + (player["luckIndex_norm"] * 0.5)
+            + (player["tiltIndex"] * 0.8)
+            + min(10, player["buyIns"])
+        )
+        player.pop("luckProxy", None)
+
+
+def js_round(value):
+    return int(math.floor(float(value) + 0.5))
+
+
+def historical_tier_score(player):
+    buy_ins = float(player.get("buyIns", 0))
+    rebuys = float(player.get("rebuys", 0))
+
+    if buy_ins >= 20:
+        sample_bonus = 3.0
+    elif buy_ins >= 15:
+        sample_bonus = 2.0
+    elif buy_ins >= 10:
+        sample_bonus = 1.0
+    elif buy_ins >= CREW_ESTABLISHED_MIN_BUY_INS:
+        sample_bonus = 0.25
+    elif buy_ins >= CREW_PROVISIONAL_MIN_BUY_INS:
+        sample_bonus = 0.0
+    else:
+        sample_bonus = -2.0
+
+    return (
+        (float(player.get("trueSkillScore", 0)) * 1.5)
+        + (float(player.get("clutchIndex", 0)) * 1.1)
+        + (float(player.get("aggressionIndex", 0)) * 0.65)
+        + float(player.get("survivorIndex", 0))
+        + (float(player.get("tiltIndex", 0)) * 1.25)
+        + sample_bonus
+        - (rebuys * 0.6)
+    )
+
+
+def historical_tier_meta(player, players):
+    appearances = int(player.get("buyIns", 0))
+    established = [
+        candidate
+        for candidate in players
+        if int(candidate.get("buyIns", 0)) >= CREW_ESTABLISHED_MIN_BUY_INS
+    ]
+    established = sorted(established, key=lambda item: -historical_tier_score(item))
+
+    if appearances < CREW_PROVISIONAL_MIN_BUY_INS:
+        return {
+            "code": "RKI",
+            "className": "rookie",
+            "status": "Rookie",
+            "rank": None,
+            "totalRanked": len(established)
+        }
+
+    if appearances < CREW_ESTABLISHED_MIN_BUY_INS:
+        return {
+            "code": "PRO",
+            "className": "provisional",
+            "status": "Provisional",
+            "rank": None,
+            "totalRanked": len(established)
+        }
+
+    rank = next(
+        (
+            index + 1
+            for index, candidate in enumerate(established)
+            if candidate["slug"] == player["slug"]
+        ),
+        None
+    )
+    percentile = (rank or (len(established) + 1)) / max(len(established), 1)
+
+    if percentile <= 0.15:
+        code, class_name = "S", "s"
+    elif percentile <= 0.35:
+        code, class_name = "A", "a"
+    elif percentile <= 0.60:
+        code, class_name = "B", "b"
+    elif percentile <= 0.80:
+        code, class_name = "C", "c"
+    else:
+        code, class_name = "D", "d"
+
+    return {
+        "code": code,
+        "className": class_name,
+        "status": "Established",
+        "rank": rank,
+        "totalRanked": len(established)
+    }
+
+
+def historical_card_benchmark_pool(players):
+    established = [
+        player
+        for player in players
+        if int(player.get("buyIns", 0)) >= CREW_ESTABLISHED_MIN_BUY_INS
+    ]
+    if len(established) >= 2:
+        return established
+
+    provisional = [
+        player
+        for player in players
+        if int(player.get("buyIns", 0)) >= CREW_PROVISIONAL_MIN_BUY_INS
+    ]
+    return provisional if len(provisional) >= 2 else players
+
+
+def historical_metric_rating(player, players, key, min_rating=40, max_rating=96):
+    pool = historical_card_benchmark_pool(players)
+    values = [float(candidate.get(key, 0)) for candidate in pool]
+    if not values:
+        return 68
+
+    min_value = min(values)
+    max_value = max(values)
+    value = float(player.get(key, 0))
+    normalized = 0.5 if max_value == min_value else (
+        (value - min_value) / (max_value - min_value)
+    )
+    bounded = max(0.0, min(1.0, normalized))
+    return max(1, min(99, js_round(
+        min_rating + (bounded * (max_rating - min_rating))
+    )))
+
+
+def historical_card_snapshot(player, players):
+    tier = historical_tier_meta(player, players)
+    return_rating = js_round(
+        (historical_metric_rating(player, players, "roi") * 0.65)
+        + (historical_metric_rating(player, players, "profit") * 0.35)
+    )
+    attributes = [
+        {"code": "RET", "label": "Return", "value": return_rating},
+        {
+            "code": "CLT",
+            "label": "Clutch",
+            "value": historical_metric_rating(player, players, "clutchIndex")
+        },
+        {
+            "code": "ITM",
+            "label": "In the Money",
+            "value": historical_metric_rating(player, players, "cashRate")
+        },
+        {
+            "code": "AGR",
+            "label": "Aggression",
+            "value": historical_metric_rating(player, players, "aggressionIndex")
+        },
+        {
+            "code": "HIT",
+            "label": "Hit Rate",
+            "value": historical_metric_rating(player, players, "hitRate")
+        },
+        {
+            "code": "SUR",
+            "label": "Survival",
+            "value": historical_metric_rating(player, players, "survivorIndex")
+        }
+    ]
+
+    return {
+        "overall": historical_metric_rating(
+            player,
+            players,
+            "trueSkillScore",
+            62,
+            95
+        ),
+        "tierCode": tier["code"],
+        "tierClassName": tier["className"],
+        "tierStatus": tier["status"],
+        "powerRank": tier["rank"],
+        "totalRanked": tier["totalRanked"],
+        "appearances": int(player.get("buyIns", 0)),
+        "attributes": attributes,
+        "metrics": {
+            "profit": player.get("profit", 0),
+            "roi": round(float(player.get("roi", 0)), 6),
+            "cashRate": round(float(player.get("cashRate", 0)), 6),
+            "hitRate": round(float(player.get("hitRate", 0)), 6),
+            "trueSkillScore": round(float(player.get("trueSkillScore", 0)), 3)
+        }
+    }
+
+
+def historical_leader(players, key, direction="desc"):
+    if not players:
+        return None
+
+    if direction == "asc":
+        return sorted(
+            players,
+            key=lambda player: (float(player.get(key, 0)), player["name"].lower())
+        )[0]
+
+    return sorted(
+        players,
+        key=lambda player: (-float(player.get(key, 0)), player["name"].lower())
+    )[0]
+
+
+def historical_money(value):
+    amount = float(value or 0)
+    sign = "-" if amount < 0 else ""
+    rounded = abs(js_round(amount))
+    return f"{sign}${rounded:,}"
+
+
+def historical_percent(value):
+    return f"{float(value or 0) * 100:.1f}%"
+
+
+def build_historical_card_collections(players, parsed_events):
+    """Replay parsed events and issue permanent, frozen collectible cards."""
+    metadata = {
+        player["slug"]: {
+            "name": player["name"],
+            "slug": player["slug"],
+            "image": player["image"],
+            "notes": player.get("notes", "")
+        }
+        for player in players
+    }
+    cumulative = {
+        slug: build_zero_player(player_meta)
+        for slug, player_meta in metadata.items()
+    }
+    collections = {slug: {} for slug in metadata}
+    streaks = {
+        slug: {
+            "current": 0,
+            "best": 0,
+            "startDate": None,
+            "startTitle": None,
+            "heaterId": None
+        }
+        for slug in metadata
+    }
+
+    hall_specs = [
+        ("hall-tax-collector", "profit", "desc"),
+        ("hall-direct-deposit", "cashRate", "desc"),
+        ("hall-billing-department", "knockoutRate", "desc"),
+        ("infamy-boy-in-the-bubble", "bubbles", "desc")
+    ]
+    leader_specs = [
+        ("leader-profit", "profit", "desc"),
+        ("leader-knockouts", "hits", "desc"),
+        ("leader-roi", "roi", "desc"),
+        ("leader-cash-rate", "cashRate", "desc")
+    ]
+    leader_labels = {
+        "profit": "career-profit",
+        "hits": "knockout",
+        "roi": "ROI",
+        "cashRate": "cash-rate"
+    }
+    hall_labels = {
+        "profit": "Hall career-profit",
+        "cashRate": "Hall cash-rate",
+        "knockoutRate": "Hall knockout-efficiency",
+        "bubbles": "Hall bubble"
+    }
+
+    def issue(slug, edition_id, event, reason, snapshot, priority):
+        if edition_id in collections[slug]:
+            return
+        collections[slug][edition_id] = {
+            "id": edition_id,
+            "earnedDate": event.get("date", ""),
+            "earnedEvent": event.get("title", ""),
+            "reason": reason,
+            "priority": priority,
+            "snapshot": snapshot
+        }
+
+    for event_index, event in enumerate(parsed_events, start=1):
+        event_rows = {
+            row.get("slug"): row
+            for row in event.get("players", [])
+            if (row.get("entries", 0) or 0) > 0 and row.get("slug") in cumulative
+        }
+
+        for slug, row in event_rows.items():
+            player = cumulative[slug]
+            for key in [
+                "entries", "buyIns", "rebuys", "hits", "timesPlaced",
+                "bubbles", "profit", "totalCost", "totalWinnings"
+            ]:
+                player[key] += row.get(key, 0) or 0
+
+            streak = streaks[slug]
+            if (row.get("timesPlaced", 0) or 0) > 0:
+                if streak["current"] == 0:
+                    streak["startDate"] = event.get("date", "")
+                    streak["startTitle"] = event.get("title", "")
+                streak["current"] += 1
+            else:
+                streak["current"] = 0
+                streak["startDate"] = None
+                streak["startTitle"] = None
+
+        checkpoint = [dict(cumulative[player["slug"]]) for player in players]
+        finalize_historical_metrics(checkpoint)
+        by_slug = {player["slug"]: player for player in checkpoint}
+
+        for slug, row in event_rows.items():
+            player = by_slug[slug]
+            appearances = int(player.get("buyIns", 0))
+
+            for milestone in CARD_MILESTONES:
+                if appearances < milestone:
+                    continue
+                issue(
+                    slug,
+                    f"milestone-{milestone}",
+                    event,
+                    f"Joined the {milestone}-Appearance Club at {event.get('title', 'a TLPT event')}.",
+                    historical_card_snapshot(player, checkpoint),
+                    1
+                )
+
+            streak = streaks[slug]
+            if streak["current"] >= 2 and streak["current"] > streak["best"]:
+                previous_id = streak.get("heaterId")
+                previous = collections[slug].pop(previous_id, None) if previous_id else None
+                streak["best"] = streak["current"]
+                heater_id = f"heater-{streak['best']}"
+                streak["heaterId"] = heater_id
+                first_date = previous.get("earnedDate") if previous else event.get("date", "")
+                first_event = previous.get("earnedEvent") if previous else event.get("title", "")
+                record = {
+                    "id": heater_id,
+                    "earnedDate": first_date,
+                    "earnedEvent": first_event,
+                    "reason": (
+                        f"Personal-best {streak['best']}-appearance cash streak from "
+                        f"{streak['startDate']} through {event.get('date', '')}."
+                    ),
+                    "priority": 2,
+                    "snapshot": historical_card_snapshot(player, checkpoint),
+                    "streakLength": streak["best"]
+                }
+                if previous:
+                    record["upgradedDate"] = event.get("date", "")
+                    record["upgradeEvent"] = event.get("title", "")
+                collections[slug][heater_id] = record
+
+        established = [
+            player
+            for player in checkpoint
+            if int(player.get("buyIns", 0)) >= CREW_ESTABLISHED_MIN_BUY_INS
+        ]
+        for edition_id, key, direction in leader_specs:
+            leader = historical_leader(established, key, direction)
+            if not leader:
+                continue
+            if key == "profit":
+                value = historical_money(leader.get(key, 0))
+            elif key in ("roi", "cashRate"):
+                value = historical_percent(leader.get(key, 0))
+            else:
+                value = f"{int(leader.get(key, 0))} hits"
+            issue(
+                leader["slug"],
+                edition_id,
+                event,
+                f"First claimed the established-player {leader_labels[key]} lead at {value}.",
+                historical_card_snapshot(leader, checkpoint),
+                3
+            )
+
+        hall_minimum = max(math.ceil(event_index * HALL_PERCENTAGE), HALL_MIN_EVENTS)
+        hall_pool = []
+        for player in checkpoint:
+            if int(player.get("buyIns", 0)) < hall_minimum:
+                continue
+            hall_player = dict(player)
+            hall_player["knockoutRate"] = (
+                hall_player["hits"] / hall_player["entries"]
+                if hall_player["entries"]
+                else 0.0
+            )
+            hall_pool.append(hall_player)
+
+        for edition_id, key, direction in hall_specs:
+            leader = historical_leader(hall_pool, key, direction)
+            if not leader:
+                continue
+            if key == "profit":
+                value = historical_money(leader.get(key, 0))
+            elif key == "cashRate":
+                value = historical_percent(leader.get(key, 0))
+            elif key == "knockoutRate":
+                value = f"{float(leader.get(key, 0)):.2f} knockouts per entry"
+            else:
+                value = f"{int(leader.get(key, 0))} bubbles"
+            issue(
+                leader["slug"],
+                edition_id,
+                event,
+                f"First claimed the {hall_labels[key]} distinction at {value}.",
+                historical_card_snapshot(leader, checkpoint),
+                4
+            )
+
+    fixed_order = {
+        "hall-tax-collector": 0,
+        "hall-direct-deposit": 1,
+        "hall-billing-department": 2,
+        "infamy-boy-in-the-bubble": 3,
+        "leader-profit": 10,
+        "leader-knockouts": 11,
+        "leader-roi": 12,
+        "leader-cash-rate": 13
+    }
+
+    def collection_sort_key(record):
+        edition_id = record["id"]
+        if edition_id.startswith("heater-"):
+            order = 20
+        elif edition_id.startswith("milestone-"):
+            order = 100 - int(edition_id.split("-")[-1])
+        else:
+            order = fixed_order.get(edition_id, 99)
+        return (-record["priority"], order, record["earnedDate"], edition_id)
+
+    return {
+        slug: sorted(records.values(), key=collection_sort_key)
+        for slug, records in collections.items()
+    }
+
+
 def build_card_form_payload(players, parsed_events, window_size=CARD_FORM_WINDOW):
     player_meta = {
         player["slug"]: {
@@ -639,8 +1147,10 @@ def main():
     player_lookup = build_player_lookup(players)
     parsed_events = sorted(parsed_events, key=parse_event_date)
     card_form = build_card_form_payload(players, parsed_events)
+    card_collections = build_historical_card_collections(players, parsed_events)
     for player in players:
         player["cardForm"] = card_form.get(player["slug"])
+        player["cardCollection"] = card_collections.get(player["slug"], [])
 
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 
@@ -651,7 +1161,21 @@ def main():
         "honors": honors,
         "records": records,
         "players": players,
-        "streaks": streaks
+        "streaks": streaks,
+        "cardLedger": {
+            "version": 1,
+            "source": "parsed-event-replay",
+            "eventCount": len(parsed_events),
+            "replayedThrough": parsed_events[-1].get("date", "") if parsed_events else "",
+            "rules": {
+                "base": "Live career card; recalculates whenever event data changes.",
+                "milestones": list(CARD_MILESTONES),
+                "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
+                "hall": "Permanent when first earned at the historical Hall qualification threshold.",
+                "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
+                "snapshot": "Overall, tier and all six attributes are frozen at issuance or upgrade."
+            }
+        }
     }
 
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
