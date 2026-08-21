@@ -193,7 +193,7 @@
   width:min(100%, 380px);
   aspect-ratio:.655;
   padding:3px;
-  background:linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%);
+  background:var(--card-frame,linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%));
   clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%);
   clip-path:url(#tlpt-player-card-shape);
   filter:
@@ -393,6 +393,15 @@
 .player-page .tlpt-card-edition strong{
   color:var(--card-ink);
   font-size:.7rem;
+  line-height:1.05;
+  text-align:center;
+}
+
+.player-page .tlpt-card-edition small{
+  color:var(--card-muted);
+  font-size:.48rem;
+  font-weight:1000;
+  letter-spacing:.12em;
 }
 
 .player-page .tlpt-card-movement{
@@ -915,6 +924,228 @@
   --special-deep:rgba(7,87,94,.44);
 }
 
+/* Every special edition receives a complete item shell, not a tier-colored tint. */
+
+.player-page [class*="tlpt-player-card-edition-hall-"],
+.player-page [class*="tlpt-compare-card-edition-hall-"]{
+  --card-edge:#d2ad53;
+  --card-surface-a:#fff9e8;
+  --card-surface-b:#d7c495;
+  --card-surface-c:#f4e7c2;
+  --card-ink:#2d2517;
+  --card-muted:#745f2f;
+  --card-line:rgba(86,65,23,.28);
+  --card-glow:rgba(255,220,126,.42);
+  --special-accent:#a77b20;
+  --special-soft:rgba(255,238,178,.58);
+  --special-deep:rgba(125,91,24,.20);
+  --card-frame:linear-gradient(145deg,#fffdf1 0%,#d8b75f 28%,#8c651c 54%,#f4d98c 76%,#fff7cf 100%);
+  --edition-blend:multiply;
+  --edition-opacity:.48;
+  --edition-overlay:
+    radial-gradient(ellipse at 50% 9%,rgba(255,255,255,.92),transparent 29%),
+    repeating-linear-gradient(90deg,transparent 0 11%,rgba(103,78,30,.07) 11.5% 12.2%,transparent 12.8% 22%),
+    conic-gradient(from 225deg at 50% 82%,transparent 0 18deg,rgba(160,119,34,.10) 20deg 24deg,transparent 26deg 42deg,rgba(160,119,34,.10) 44deg 48deg,transparent 50deg 360deg),
+    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.65) 45%,transparent 51% 100%);
+}
+
+.player-page [class*="tlpt-player-card-edition-leader-"],
+.player-page [class*="tlpt-compare-card-edition-leader-"]{
+  --card-edge:#dbeaff;
+  --card-surface-a:#071425;
+  --card-surface-b:#123b67;
+  --card-surface-c:#07111f;
+  --card-ink:#f4f9ff;
+  --card-muted:#bfd1e6;
+  --card-line:rgba(222,238,255,.26);
+  --card-glow:var(--special-soft);
+  --special-accent:#a8d8ff;
+  --special-soft:rgba(88,173,255,.36);
+  --special-deep:rgba(10,43,82,.58);
+  --card-frame:linear-gradient(145deg,#f4fbff 0%,var(--special-accent) 26%,#507392 48%,#dcecff 72%,var(--special-accent) 100%);
+  --edition-opacity:.78;
+  --edition-overlay:
+    conic-gradient(from 228deg at 50% 36%,transparent 0 10deg,var(--special-soft) 11deg 16deg,transparent 17deg 31deg,var(--special-soft) 32deg 37deg,transparent 38deg 360deg),
+    linear-gradient(122deg,transparent 0 30%,var(--special-soft) 31% 34%,transparent 35% 63%,rgba(255,255,255,.16) 64% 67%,transparent 68%),
+    radial-gradient(circle at 50% 86%,var(--special-deep),transparent 44%);
+}
+
+.player-page .tlpt-player-card-edition-leader-profit,
+.player-page .tlpt-compare-card-edition-leader-profit{
+  --special-accent:#65f0aa;
+  --special-soft:rgba(48,219,133,.35);
+  --special-deep:rgba(4,85,56,.58);
+}
+
+.player-page .tlpt-player-card-edition-leader-knockouts,
+.player-page .tlpt-compare-card-edition-leader-knockouts{
+  --special-accent:#ff7884;
+  --special-soft:rgba(255,67,83,.36);
+  --special-deep:rgba(103,3,21,.62);
+}
+
+.player-page .tlpt-player-card-edition-leader-roi,
+.player-page .tlpt-compare-card-edition-leader-roi{
+  --special-accent:#6de8ff;
+  --special-soft:rgba(41,207,244,.37);
+  --special-deep:rgba(3,72,101,.62);
+}
+
+.player-page .tlpt-player-card-edition-leader-cash-rate,
+.player-page .tlpt-compare-card-edition-leader-cash-rate{
+  --special-accent:#d29aff;
+  --special-soft:rgba(169,83,255,.38);
+  --special-deep:rgba(65,14,112,.62);
+}
+
+.player-page [class*="tlpt-player-card-edition-heater-"],
+.player-page [class*="tlpt-compare-card-edition-heater-"]{
+  --card-edge:#ffb347;
+  --card-surface-a:#080808;
+  --card-surface-b:#8d2109;
+  --card-surface-c:#1b0804;
+  --card-ink:#fff4dd;
+  --card-muted:#ffc47d;
+  --card-line:rgba(255,181,79,.30);
+  --card-glow:rgba(255,83,24,.48);
+  --special-accent:#ffb24c;
+  --special-soft:rgba(255,104,29,.45);
+  --special-deep:rgba(121,15,0,.64);
+  --card-frame:linear-gradient(145deg,#fff0b5 0%,#ffad3b 23%,#a92508 50%,#ff6324 72%,#ffe29a 100%);
+  --edition-opacity:.86;
+  --edition-overlay:
+    radial-gradient(ellipse at 24% 105%,rgba(255,219,73,.58),transparent 28%),
+    radial-gradient(ellipse at 55% 104%,rgba(255,59,12,.60),transparent 36%),
+    radial-gradient(ellipse at 82% 105%,rgba(255,172,42,.50),transparent 25%),
+    repeating-linear-gradient(104deg,transparent 0 18px,rgba(255,193,87,.12) 20px,transparent 23px),
+    linear-gradient(118deg,transparent 0 39%,rgba(255,219,142,.28) 44%,transparent 50% 100%);
+}
+
+.player-page .tlpt-player-card-edition-infamy-boy-in-the-bubble,
+.player-page .tlpt-compare-card-edition-infamy-boy-in-the-bubble{
+  --card-edge:#ff5b76;
+  --card-surface-a:#07060a;
+  --card-surface-b:#4b081d;
+  --card-surface-c:#10050b;
+  --card-ink:#fff1f4;
+  --card-muted:#ff9bac;
+  --card-line:rgba(255,105,131,.28);
+  --card-glow:rgba(255,34,92,.46);
+  --special-accent:#ff6385;
+  --special-soft:rgba(255,37,99,.38);
+  --special-deep:rgba(91,0,28,.66);
+  --card-frame:linear-gradient(145deg,#ffd0da 0%,#ff426d 22%,#3a0617 49%,#b70e3c 72%,#ff9ab0 100%);
+  --edition-opacity:.84;
+  --edition-overlay:
+    repeating-radial-gradient(circle at 50% 43%,transparent 0 34px,rgba(255,93,133,.13) 36px,transparent 39px 54px),
+    repeating-linear-gradient(132deg,transparent 0 20px,rgba(255,58,104,.13) 21px,transparent 24px),
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 44%);
+}
+
+.player-page .tlpt-player-card-edition-milestone-10,
+.player-page .tlpt-compare-card-edition-milestone-10{
+  --card-edge:#e7a66d;
+  --card-surface-a:#3c180d;
+  --card-surface-b:#ad5e31;
+  --card-surface-c:#4d2012;
+  --card-ink:#fff0dd;
+  --card-muted:#9ff0dc;
+  --card-line:rgba(155,239,217,.28);
+  --card-glow:rgba(54,210,177,.34);
+  --special-accent:#79e3c8;
+  --special-soft:rgba(65,205,174,.30);
+  --special-deep:rgba(48,17,8,.54);
+  --card-frame:linear-gradient(145deg,#ffe2c3 0%,#d78750 24%,#6a2c17 50%,#46bda1 74%,#f0b17d 100%);
+  --edition-opacity:.72;
+  --edition-overlay:
+    repeating-radial-gradient(circle at 50% 52%,transparent 0 17px,rgba(112,229,199,.12) 18px,transparent 20px 34px),
+    linear-gradient(118deg,transparent 0 40%,rgba(255,220,177,.25) 45%,transparent 51% 100%);
+}
+
+.player-page .tlpt-player-card-edition-milestone-25,
+.player-page .tlpt-compare-card-edition-milestone-25{
+  --card-edge:#dffcff;
+  --card-surface-a:#dcecef;
+  --card-surface-b:#79bfc7;
+  --card-surface-c:#ecf8f9;
+  --card-ink:#10292e;
+  --card-muted:#245d65;
+  --card-line:rgba(11,72,82,.27);
+  --card-glow:rgba(91,236,239,.40);
+  --special-accent:#1f8994;
+  --special-soft:rgba(81,226,232,.38);
+  --special-deep:rgba(17,104,116,.22);
+  --card-frame:linear-gradient(145deg,#ffffff 0%,#b8e9ed 23%,#5da8b2 50%,#dffcff 74%,#8ce5e5 100%);
+  --edition-blend:multiply;
+  --edition-opacity:.46;
+  --edition-overlay:
+    repeating-conic-gradient(from 45deg at 50% 45%,rgba(255,255,255,.30) 0 8deg,transparent 9deg 22deg,rgba(31,137,148,.08) 23deg 31deg,transparent 32deg 45deg),
+    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.70) 45%,transparent 51% 100%);
+}
+
+.player-page .tlpt-player-card-edition-milestone-50,
+.player-page .tlpt-compare-card-edition-milestone-50{
+  --card-edge:#f2cb67;
+  --card-surface-a:#05070a;
+  --card-surface-b:#242a31;
+  --card-surface-c:#080a0d;
+  --card-ink:#ffe9a1;
+  --card-muted:#d7bd69;
+  --card-line:rgba(242,203,103,.30);
+  --card-glow:rgba(247,198,62,.42);
+  --special-accent:#f3c956;
+  --special-soft:rgba(238,190,54,.34);
+  --special-deep:rgba(0,0,0,.66);
+  --card-frame:linear-gradient(145deg,#fff4bf 0%,#e1b33e 21%,#171b20 48%,#775915 69%,#ffe08a 100%);
+  --edition-opacity:.78;
+  --edition-overlay:
+    repeating-conic-gradient(from 45deg at 50% 44%,rgba(255,213,98,.10) 0 8deg,transparent 9deg 22deg,rgba(255,255,255,.05) 23deg 31deg,transparent 32deg 45deg),
+    radial-gradient(circle at 50% 88%,rgba(163,111,8,.30),transparent 41%);
+}
+
+.player-page .tlpt-player-card-edition-milestone-75,
+.player-page .tlpt-compare-card-edition-milestone-75{
+  --card-edge:#eee4ff;
+  --card-surface-a:#130720;
+  --card-surface-b:#6b2c9d;
+  --card-surface-c:#180926;
+  --card-ink:#fff8ff;
+  --card-muted:#e4c5ff;
+  --card-line:rgba(231,208,255,.29);
+  --card-glow:rgba(185,104,255,.46);
+  --special-accent:#dfb0ff;
+  --special-soft:rgba(175,79,255,.40);
+  --special-deep:rgba(57,4,88,.64);
+  --card-frame:linear-gradient(145deg,#fff8ff 0%,#d9b1f5 21%,#6f289f 47%,#58d7e5 70%,#f0caff 100%);
+  --edition-opacity:.82;
+  --edition-overlay:
+    conic-gradient(from 210deg at 50% 36%,transparent 0 18deg,rgba(102,222,239,.20) 19deg 26deg,transparent 27deg 51deg,rgba(223,176,255,.22) 52deg 60deg,transparent 61deg 360deg),
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 43%),
+    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.24) 45%,transparent 51% 100%);
+}
+
+.player-page .tlpt-player-card-edition-milestone-100,
+.player-page .tlpt-compare-card-edition-milestone-100{
+  --card-edge:#f1cb5f;
+  --card-surface-a:#ffffff;
+  --card-surface-b:#cbd0d7;
+  --card-surface-c:#f7f7f5;
+  --card-ink:#080a0d;
+  --card-muted:#4e4330;
+  --card-line:rgba(24,25,27,.28);
+  --card-glow:rgba(255,220,116,.52);
+  --special-accent:#b98516;
+  --special-soft:rgba(255,218,103,.46);
+  --special-deep:rgba(12,13,15,.22);
+  --card-frame:linear-gradient(145deg,#ffffff 0%,#efd16f 18%,#0a0d10 42%,#f8f8f4 63%,#c08d19 82%,#ffffff 100%);
+  --edition-blend:multiply;
+  --edition-opacity:.54;
+  --edition-overlay:
+    repeating-radial-gradient(circle at 50% 44%,transparent 0 23px,rgba(13,15,18,.08) 24px,transparent 27px 40px,rgba(185,133,22,.10) 41px,transparent 44px 60px),
+    conic-gradient(from 45deg at 50% 42%,rgba(92,222,235,.10),rgba(255,128,188,.10),rgba(255,220,91,.12),rgba(92,222,235,.10)),
+    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.92) 45%,transparent 51% 100%);
+}
+
 .player-page .tlpt-player-card-special .tlpt-player-card-inner::before,
 .player-page .tlpt-compare-card-special .tlpt-compare-card-inner::before{
   content:"";
@@ -922,28 +1153,31 @@
   inset:0;
   z-index:1;
   pointer-events:none;
-  background:
+  background:var(--edition-overlay,
     radial-gradient(circle at 50% 4%,var(--special-soft),transparent 25%),
     linear-gradient(118deg,transparent 0 37%,var(--special-soft) 43%,transparent 49% 100%),
-    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 38%);
-  mix-blend-mode:screen;
-  opacity:.72;
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 38%)
+  );
+  mix-blend-mode:var(--edition-blend,screen);
+  opacity:var(--edition-opacity,.72);
 }
 
 .player-page .tlpt-player-card-special-infamy .tlpt-player-card-inner::before,
 .player-page .tlpt-compare-card-special-infamy .tlpt-compare-card-inner::before{
-  background:
+  background:var(--edition-overlay,
     radial-gradient(circle at 50% 6%,var(--special-soft),transparent 25%),
     repeating-linear-gradient(128deg,transparent 0 18px,rgba(255,71,83,.10) 19px,transparent 22px),
-    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 42%);
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 42%)
+  );
 }
 
 .player-page .tlpt-player-card-special-heater .tlpt-player-card-inner::before,
 .player-page .tlpt-compare-card-special-heater .tlpt-compare-card-inner::before{
-  background:
+  background:var(--edition-overlay,
     radial-gradient(ellipse at 50% 100%,rgba(255,59,19,.36),transparent 46%),
     linear-gradient(118deg,transparent 0 36%,rgba(255,183,61,.22) 43%,transparent 50% 100%),
-    radial-gradient(circle at 50% 5%,var(--special-soft),transparent 25%);
+    radial-gradient(circle at 50% 5%,var(--special-soft),transparent 25%)
+  );
 }
 
 .player-page .tlpt-player-card-special .tlpt-card-header,
@@ -1004,6 +1238,51 @@
 .player-page .tlpt-card-special-banner-milestone{
   --special-accent:#8cf3ed;
   --special-soft:rgba(78,222,215,.22);
+}
+
+.player-page .tlpt-card-special-banner-edition-leader-profit{
+  --special-accent:#65f0aa;
+  --special-soft:rgba(48,219,133,.24);
+}
+
+.player-page .tlpt-card-special-banner-edition-leader-knockouts{
+  --special-accent:#ff7884;
+  --special-soft:rgba(255,67,83,.24);
+}
+
+.player-page .tlpt-card-special-banner-edition-leader-roi{
+  --special-accent:#6de8ff;
+  --special-soft:rgba(41,207,244,.24);
+}
+
+.player-page .tlpt-card-special-banner-edition-leader-cash-rate{
+  --special-accent:#d29aff;
+  --special-soft:rgba(169,83,255,.24);
+}
+
+.player-page .tlpt-card-special-banner-edition-milestone-10{
+  --special-accent:#79e3c8;
+  --special-soft:rgba(65,205,174,.22);
+}
+
+.player-page .tlpt-card-special-banner-edition-milestone-25{
+  --special-accent:#8ce5e5;
+  --special-soft:rgba(81,226,232,.22);
+}
+
+.player-page .tlpt-card-special-banner-edition-milestone-50{
+  --special-accent:#f3c956;
+  --special-soft:rgba(238,190,54,.23);
+}
+
+.player-page .tlpt-card-special-banner-edition-milestone-75{
+  --special-accent:#dfb0ff;
+  --special-soft:rgba(175,79,255,.23);
+}
+
+.player-page .tlpt-card-special-banner-edition-milestone-100{
+  --special-accent:#e7bc4b;
+  --special-soft:rgba(255,218,103,.24);
 }
 
 .player-page .tlpt-card-special-banner > span{
@@ -1148,7 +1427,7 @@
   width:100%;
   aspect-ratio:.655;
   padding:2px;
-  background:linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%);
+  background:var(--card-frame,linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%));
   clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%);
   filter:drop-shadow(0 13px 12px rgba(0,0,0,.34)) drop-shadow(0 0 10px var(--card-glow));
   transition:transform .22s ease,filter .22s ease;
@@ -1161,7 +1440,7 @@
 }
 
 .player-page .tlpt-card-collectible-button.is-selected .tlpt-card-collectible-frame{
-  background:linear-gradient(145deg,#fffbe0 0%,var(--special-accent,var(--card-edge)) 34%,#ffb81c 66%,#fff0ac 100%);
+  background:var(--card-frame-selected,var(--card-frame,linear-gradient(145deg,#fffbe0 0%,var(--special-accent,var(--card-edge)) 34%,#ffb81c 66%,#fff0ac 100%)));
 }
 
 .player-page .tlpt-card-collectible-inner{
@@ -1211,26 +1490,29 @@
   inset:0;
   z-index:1;
   pointer-events:none;
-  background:
+  background:var(--edition-overlay,
     radial-gradient(circle at 50% 4%,var(--special-soft),transparent 25%),
     linear-gradient(118deg,transparent 0 37%,var(--special-soft) 43%,transparent 49% 100%),
-    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 38%);
-  mix-blend-mode:screen;
-  opacity:.78;
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 38%)
+  );
+  mix-blend-mode:var(--edition-blend,screen);
+  opacity:var(--edition-opacity,.78);
 }
 
 .player-page .tlpt-player-card-special-infamy .tlpt-card-collectible-inner::before{
-  background:
+  background:var(--edition-overlay,
     radial-gradient(circle at 50% 6%,var(--special-soft),transparent 25%),
     repeating-linear-gradient(128deg,transparent 0 12px,rgba(255,71,83,.12) 13px,transparent 16px),
-    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 42%);
+    radial-gradient(circle at 50% 88%,var(--special-deep),transparent 42%)
+  );
 }
 
 .player-page .tlpt-player-card-special-heater .tlpt-card-collectible-inner::before{
-  background:
+  background:var(--edition-overlay,
     radial-gradient(ellipse at 50% 100%,rgba(255,59,19,.38),transparent 46%),
     linear-gradient(118deg,transparent 0 36%,rgba(255,183,61,.24) 43%,transparent 50% 100%),
-    radial-gradient(circle at 50% 5%,var(--special-soft),transparent 25%);
+    radial-gradient(circle at 50% 5%,var(--special-soft),transparent 25%)
+  );
 }
 
 .player-page .tlpt-card-collectible-head,
@@ -1659,7 +1941,7 @@
 .player-page .tlpt-compare-card{
   min-width:0;
   padding:2px;
-  background:linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%);
+  background:var(--card-frame,linear-gradient(145deg,#fff4c2 0%,var(--card-edge) 32%,#916411 63%,#ffeaa5 100%));
   clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%);
   filter:drop-shadow(0 18px 20px rgba(0,0,0,.38)) drop-shadow(0 0 14px var(--card-glow));
 }
@@ -1760,6 +2042,16 @@
 .player-page .tlpt-compare-edition strong{
   color:var(--card-ink);
   font-size:.63rem;
+  line-height:1.05;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-compare-edition small{
+  color:var(--card-muted);
+  font-size:.42rem;
+  font-weight:1000;
+  letter-spacing:.10em;
+  text-transform:uppercase;
 }
 
 .player-page .tlpt-compare-crest{
@@ -2373,6 +2665,14 @@
     font-size:2.6rem;
   }
 
+  .player-page .tlpt-card-edition strong{
+    font-size:.60rem;
+  }
+
+  .player-page .tlpt-card-edition small{
+    font-size:.40rem;
+  }
+
   .player-page .tlpt-card-crest{
     width:46px;
     height:46px;
@@ -2661,6 +2961,10 @@
 
   .player-page .tlpt-compare-edition strong{
     font-size:.45rem;
+  }
+
+  .player-page .tlpt-compare-edition small{
+    font-size:.32rem;
   }
 
   .player-page .tlpt-compare-crest{
