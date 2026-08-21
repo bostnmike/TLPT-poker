@@ -1083,6 +1083,7 @@
   grid-template-columns:62px minmax(0,1fr) 50px;
   gap:6px;
   align-items:start;
+  padding:12px 22px 0;
 }
 
 .player-page .tlpt-compare-overall{
@@ -1863,6 +1864,7 @@
   .player-page .tlpt-compare-card-head{
     grid-template-columns:42px minmax(0,1fr) 32px;
     gap:2px;
+    padding:8px 14px 0;
   }
 
   .player-page .tlpt-compare-overall > strong{
