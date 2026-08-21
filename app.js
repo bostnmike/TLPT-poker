@@ -2971,6 +2971,7 @@ function archetypeMeta(name) {
 
 function groupPlayersByArchetype(players, mode = "primary") {
   const groups = new Map();
+  const cardRatingSort = playerCardRatingComparator(players);
 
   players.forEach(player => {
     const archetypes = getPlayerArchetypes(player);
@@ -2993,7 +2994,7 @@ function groupPlayersByArchetype(players, mode = "primary") {
   return [...groups.values()]
     .map(group => ({
       ...group,
-      players: group.players.sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
+      players: group.players.sort(cardRatingSort)
     }))
     .sort((a, b) => b.players.length - a.players.length || a.title.localeCompare(b.title));
 }
@@ -3204,18 +3205,13 @@ function renderPlayers(data) {
   const shotMakers = [];
   const gamblers = [];
   const leagueSponsors = [];
+  const cardRatingSort = playerCardRatingComparator(data.players);
   const provisionalPlayers = fieldPlayers
     .filter(isCrewProvisional)
-    .sort((a, b) =>
-      Number(b?.buyIns ?? 0) - Number(a?.buyIns ?? 0) ||
-      String(a?.name || "").localeCompare(String(b?.name || ""))
-    );
+    .sort(cardRatingSort);
   const rookiePlayers = fieldPlayers
     .filter(isCrewRookie)
-    .sort((a, b) =>
-      Number(b?.buyIns ?? 0) - Number(a?.buyIns ?? 0) ||
-      String(a?.name || "").localeCompare(String(b?.name || ""))
-    );
+    .sort(cardRatingSort);
   const establishedPlayers = fieldPlayers.filter(isCrewEstablished);
 
   establishedPlayers.forEach(player => {
@@ -3234,13 +3230,11 @@ function renderPlayers(data) {
     }
   });
 
-  const tierSort = (a, b) => getPlayerTierScore(b) - getPlayerTierScore(a);
-
-  apexPredators.sort(tierSort);
-  tableCrushers.sort(tierSort);
-  shotMakers.sort(tierSort);
-  gamblers.sort(tierSort);
-  leagueSponsors.sort(tierSort);
+  apexPredators.sort(cardRatingSort);
+  tableCrushers.sort(cardRatingSort);
+  shotMakers.sort(cardRatingSort);
+  gamblers.sort(cardRatingSort);
+  leagueSponsors.sort(cardRatingSort);
 
   const tierAveragePower = group =>
     group.length
@@ -3490,6 +3484,13 @@ function playerCardTierMeta(player, players) {
 
 function playerCardOverallRating(player, players) {
   return playerCardMetricRating(player, players, "trueSkillScore", 62, 95);
+}
+
+function playerCardRatingComparator(players) {
+  return (a, b) =>
+    playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
+    getPlayerTierScore(b) - getPlayerTierScore(a) ||
+    String(a?.name || "").localeCompare(String(b?.name || ""));
 }
 
 function playerCardAttributes(player, players) {
