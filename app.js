@@ -3387,17 +3387,8 @@ function playerCardBenchmarkPool(players) {
   return crew.length >= 2 ? crew : (players || []);
 }
 
-function playerCardSampleAdjustedRating(player, rating) {
-  const appearances = Number(player?.buyIns ?? 0);
+function playerCardDisplayRating(rating) {
   const safeRating = Math.max(1, Math.min(99, Number(rating) || 0));
-
-  if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) return 64;
-
-  if (appearances < CREW_ESTABLISHED_MIN_BUY_INS) {
-    const provisionalCenter = 68;
-    return Math.round(provisionalCenter + ((safeRating - provisionalCenter) * 0.4));
-  }
-
   return Math.round(safeRating);
 }
 
@@ -3407,7 +3398,7 @@ function playerCardMetricRating(player, players, key, minRating = 40, maxRating 
     .map(item => Number(item?.[key]))
     .filter(Number.isFinite);
 
-  if (!values.length) return playerCardSampleAdjustedRating(player, 68);
+  if (!values.length) return playerCardDisplayRating(68);
 
   const minValue = Math.min(...values);
   const maxValue = Math.max(...values);
@@ -3420,7 +3411,7 @@ function playerCardMetricRating(player, players, key, minRating = 40, maxRating 
   const bounded = Math.max(0, Math.min(1, normalized));
   const rating = minRating + (bounded * (maxRating - minRating));
 
-  return playerCardSampleAdjustedRating(player, rating);
+  return playerCardDisplayRating(rating);
 }
 
 function playerCardTierMeta(player, players) {
