@@ -3680,9 +3680,139 @@ function playerCardEditionClassName(edition) {
     .replace(/^-+|-+$/g, "") || "base";
 }
 
+function playerCardEditionCatalogRecord(record) {
+  const id = String(record?.id || "");
+  const fixed = {
+    "hall-tax-collector": {
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "The Tax Collector",
+      cardLabel: "Tax Collector",
+      shortLabel: "HALL",
+      priority: 4
+    },
+    "hall-direct-deposit": {
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "Direct Deposit",
+      cardLabel: "Direct Deposit",
+      shortLabel: "HALL",
+      priority: 4
+    },
+    "hall-billing-department": {
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "The Billing Department",
+      cardLabel: "Billing Dept.",
+      shortLabel: "HALL",
+      priority: 4
+    },
+    "infamy-boy-in-the-bubble": {
+      className: "infamy",
+      icon: "🔥",
+      eyebrow: "Infamy Edition",
+      label: "Boy in the Bubble",
+      cardLabel: "Infamy",
+      shortLabel: "INFAMY",
+      priority: 4
+    },
+    "leader-profit": {
+      className: "leader",
+      icon: "💰",
+      eyebrow: "League Leader Edition",
+      label: "Profit Leader",
+      cardLabel: "Profit Leader",
+      shortLabel: "LEADER",
+      priority: 3
+    },
+    "leader-knockouts": {
+      className: "leader",
+      icon: "💥",
+      eyebrow: "League Leader Edition",
+      label: "Knockout Leader",
+      cardLabel: "KO Leader",
+      shortLabel: "LEADER",
+      priority: 3
+    },
+    "leader-roi": {
+      className: "leader",
+      icon: "📈",
+      eyebrow: "League Leader Edition",
+      label: "ROI Leader",
+      cardLabel: "ROI Leader",
+      shortLabel: "LEADER",
+      priority: 3
+    },
+    "leader-cash-rate": {
+      className: "leader",
+      icon: "🏧",
+      eyebrow: "League Leader Edition",
+      label: "Cash-Rate Leader",
+      cardLabel: "Cash Leader",
+      shortLabel: "LEADER",
+      priority: 3
+    }
+  };
+
+  let metadata = fixed[id] || null;
+
+  if (!metadata && /^heater-\d+$/.test(id)) {
+    const length = Number(record?.streakLength || id.split("-").pop() || 0);
+    metadata = {
+      className: "heater",
+      icon: "🔥",
+      eyebrow: "Heater Edition",
+      label: `${length}-Game Cash Streak`,
+      cardLabel: `${length}-Game Heater`,
+      shortLabel: "HEATER",
+      priority: 2
+    };
+  }
+
+  if (!metadata && /^milestone-(10|25|50|75|100)$/.test(id)) {
+    const milestone = Number(id.split("-").pop());
+    const milestoneIcons = {
+      10: "♦",
+      25: "◈",
+      50: "◆",
+      75: "✦",
+      100: "100"
+    };
+    metadata = {
+      className: "milestone",
+      icon: milestoneIcons[milestone],
+      eyebrow: "Milestone Edition",
+      label: `${milestone}-Appearance Club`,
+      cardLabel: `${milestone} Club`,
+      shortLabel: `${milestone} CLUB`,
+      priority: 1
+    };
+  }
+
+  return metadata ? { ...metadata, ...record, id } : null;
+}
+
+function playerCardEditionEarnedLabel(edition) {
+  const earned = playerCardWindowDate(edition?.earnedDate);
+  const upgraded = playerCardWindowDate(edition?.upgradedDate);
+
+  if (earned && upgraded) return `Earned ${earned} • Upgraded ${upgraded}`;
+  if (earned) return `Earned ${earned}`;
+  return "";
+}
+
 function playerCardSpecialEditions(player, data) {
   const players = data?.players || [];
   if (!player || !players.length) return [];
+
+  if (Array.isArray(player?.cardCollection)) {
+    return player.cardCollection
+      .map(playerCardEditionCatalogRecord)
+      .filter(Boolean);
+  }
 
   const samePlayer = candidate => candidate?.slug === player?.slug;
   const editions = [];
@@ -4355,6 +4485,10 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
             <strong data-card-special-eyebrow>${specialEdition?.eyebrow || "Special Edition"}</strong>
             <b data-card-special-label>${specialEdition?.label || "Career Card"}</b>
             <small data-card-special-reason>${specialEdition?.reason || ""}</small>
+            <em
+              data-card-special-earned
+              ${playerCardEditionEarnedLabel(specialEdition) ? "" : "hidden"}
+            >${playerCardEditionEarnedLabel(specialEdition) ? `Historic Collectible • ${playerCardEditionEarnedLabel(specialEdition)}` : ""}</em>
           </div>
       </div>
 
@@ -4400,9 +4534,18 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
 }
 
 function playerCardCollectibleMarkup(player, players, edition, isSelected = false) {
-  const tierMeta = playerCardTierMeta(player, players);
-  const overall = playerCardOverallRating(player, players);
-  const attributes = playerCardAttributes(player, players);
+  const liveTierMeta = playerCardTierMeta(player, players);
+  const snapshot = edition?.snapshot || null;
+  const tierMeta = snapshot
+    ? {
+        ...liveTierMeta,
+        code: snapshot.tierCode || liveTierMeta.code,
+        className: snapshot.tierClassName || liveTierMeta.className,
+        status: snapshot.tierStatus || liveTierMeta.status
+      }
+    : liveTierMeta;
+  const overall = snapshot?.overall ?? playerCardOverallRating(player, players);
+  const attributes = snapshot?.attributes || playerCardAttributes(player, players);
   const collectible = edition || {
     id: "base",
     className: "base",
@@ -4416,6 +4559,7 @@ function playerCardCollectibleMarkup(player, players, edition, isSelected = fals
   const specialClass = edition
     ? ` tlpt-player-card-special tlpt-player-card-special-${edition.className} tlpt-player-card-edition-${playerCardEditionClassName(edition)}`
     : "";
+  const earnedLabel = playerCardEditionEarnedLabel(edition);
 
   return `
     <button
@@ -4423,7 +4567,7 @@ function playerCardCollectibleMarkup(player, players, edition, isSelected = fals
       class="tlpt-card-collectible-button tlpt-player-card-${tierMeta.className}${specialClass}${isSelected ? " is-selected" : ""}"
       data-card-edition-select="${escapeHtmlAttr(collectible.id)}"
       aria-pressed="${isSelected ? "true" : "false"}"
-      aria-label="View ${escapeHtmlAttr(collectible.eyebrow)}, ${escapeHtmlAttr(collectible.label)}. ${escapeHtmlAttr(collectible.reason)}"
+      aria-label="View ${escapeHtmlAttr(collectible.eyebrow)}, ${escapeHtmlAttr(collectible.label)}. ${earnedLabel ? `${escapeHtmlAttr(earnedLabel)}. ` : ""}${escapeHtmlAttr(collectible.reason)}"
       title="${escapeHtmlAttr(collectible.reason)}"
     >
       <span class="tlpt-card-collectible-frame" aria-hidden="true">
@@ -4464,6 +4608,7 @@ function playerCardCollectibleMarkup(player, players, edition, isSelected = fals
       <span class="tlpt-card-collectible-caption">
         <strong>${collectible.eyebrow}</strong>
         <small>${collectible.label}</small>
+        ${earnedLabel ? `<em>${earnedLabel}</em>` : ""}
       </span>
       <span class="tlpt-card-collectible-selected">Viewing</span>
     </button>
@@ -4488,7 +4633,7 @@ function playerCardCollectionMarkup(player, players, editions) {
         <div>
           <span>Collectible Career Set</span>
           <h2 id="tlpt-card-collection-title">Ultimate Card Editions</h2>
-          <p>Every earned finish stays in the collection. Choose a card to feature that edition above.</p>
+          <p>Every earned finish stays in the collection with its original date and frozen ratings. Choose a card to feature that historic edition above.</p>
         </div>
         <strong>${collected.length} Special Edition${collected.length === 1 ? "" : "s"} Collected</strong>
       </header>
@@ -4506,7 +4651,7 @@ function playerCardCollectionMarkup(player, players, editions) {
   `;
 }
 
-function wirePlayerCardEditionCollection(scope, player, editions) {
+function wirePlayerCardEditionCollection(scope, player, editions, ratingController = null) {
   const card = scope.querySelector("[data-player-card]");
   const banner = scope.querySelector("[data-card-special-banner]");
   const buttons = [...scope.querySelectorAll("[data-card-edition-select]")];
@@ -4521,8 +4666,72 @@ function wirePlayerCardEditionCollection(scope, player, editions) {
   const eyebrow = banner.querySelector("[data-card-special-eyebrow]");
   const label = banner.querySelector("[data-card-special-label]");
   const reason = banner.querySelector("[data-card-special-reason]");
+  const earned = banner.querySelector("[data-card-special-earned]");
+  const overallControl = scope.querySelector(".tlpt-card-rating-block[data-card-rating-control]");
+  const overall = scope.querySelector("[data-card-overall]");
+  const tierCode = scope.querySelector(".tlpt-card-tier-code");
+  const liveTierCode = tierCode?.textContent || "—";
+  const editionPeriod = scope.querySelector("[data-card-edition]");
+  const movement = scope.querySelector("[data-card-movement]");
+  const context = scope.querySelector("[data-card-view-context]");
+  const caveat = scope.querySelector("[data-card-experience-caveat]");
+  card.dataset.liveCardView = card.dataset.cardView || "career";
 
-  const applyEdition = editionId => {
+  const applyHistoricSnapshot = edition => {
+    const snapshot = edition?.snapshot;
+    if (!snapshot) return false;
+
+    const earnedLabel = playerCardEditionEarnedLabel(edition);
+    const snapshotDate = playerCardWindowDate(
+      edition?.upgradedDate || edition?.earnedDate
+    );
+    const snapshotEvent = edition?.upgradeEvent || edition?.earnedEvent || "historical event";
+    const historicRaw = `Frozen collectible snapshot from ${snapshotEvent}${snapshotDate ? ` on ${snapshotDate}` : ""}.`;
+    const historicFormula = "Historic edition values are frozen at issuance or upgrade and do not recalculate with later results.";
+
+    card.dataset.historicEdition = edition.id;
+    card.dataset.cardView = "historic";
+    if (overall) overall.textContent = snapshot.overall;
+    if (tierCode) tierCode.textContent = snapshot.tierCode || "—";
+    if (editionPeriod) editionPeriod.textContent = "HISTORIC";
+    if (context) {
+      context.textContent = `${edition.eyebrow}${earnedLabel ? ` • ${earnedLabel}` : ""}`;
+    }
+    if (caveat) {
+      caveat.textContent = `${historicFormula} The Base Edition remains the live career card.`;
+    }
+    if (movement) {
+      movement.hidden = true;
+      movement.textContent = "";
+      movement.removeAttribute("title");
+    }
+
+    scope.querySelectorAll("[data-card-view-control]").forEach(button => {
+      button.classList.remove("is-active");
+      button.setAttribute("aria-pressed", "false");
+    });
+
+    if (overallControl) {
+      overallControl.dataset.ratingValue = snapshot.overall;
+      overallControl.dataset.ratingRaw = historicRaw;
+      overallControl.dataset.ratingFormula = historicFormula;
+    }
+
+    (snapshot.attributes || []).forEach(attribute => {
+      const control = scope.querySelector(`[data-card-attribute-code="${attribute.code}"]`);
+      if (!control) return;
+      control.dataset.ratingValue = attribute.value;
+      control.dataset.ratingRaw = `${attribute.code} was rated ${attribute.value}. ${historicRaw}`;
+      control.dataset.ratingFormula = historicFormula;
+      const displayedValue = control.querySelector("strong");
+      if (displayedValue) displayedValue.textContent = attribute.value;
+    });
+
+    if (overallControl) overallControl.click();
+    return true;
+  };
+
+  const applyEdition = (editionId, options = {}) => {
     const edition = collection.find(item => item.id === editionId) || null;
 
     card.classList.remove("tlpt-player-card-special", ...specialClasses);
@@ -4530,6 +4739,7 @@ function wirePlayerCardEditionCollection(scope, player, editions) {
       .filter(className => className.startsWith("tlpt-player-card-edition-"))
       .forEach(className => card.classList.remove(className));
     delete card.dataset.specialEdition;
+    delete card.dataset.historicEdition;
     card.dataset.cardEditionAria = "";
 
     [...banner.classList]
@@ -4555,11 +4765,22 @@ function wirePlayerCardEditionCollection(scope, player, editions) {
       if (eyebrow) eyebrow.textContent = edition.eyebrow;
       if (label) label.textContent = edition.label;
       if (reason) reason.textContent = edition.reason;
-      if (status) status.textContent = `Viewing ${edition.eyebrow}: ${edition.label}.`;
+      const earnedLabel = playerCardEditionEarnedLabel(edition);
+      if (earned) {
+        earned.hidden = !earnedLabel;
+        earned.textContent = earnedLabel ? `Historic Collectible • ${earnedLabel}` : "";
+      }
+      if (status) {
+        status.textContent = `Viewing ${edition.eyebrow}: ${edition.label}.${earnedLabel ? ` ${earnedLabel}.` : ""}`;
+      }
     } else {
       banner.hidden = true;
       if (cardEditionLabel) cardEditionLabel.textContent = "Base Card";
       if (status) status.textContent = "Viewing the Base Edition.";
+      if (earned) {
+        earned.hidden = true;
+        earned.textContent = "";
+      }
     }
 
     buttons.forEach(button => {
@@ -4568,11 +4789,19 @@ function wirePlayerCardEditionCollection(scope, player, editions) {
       button.setAttribute("aria-pressed", isSelected ? "true" : "false");
     });
 
-    const viewLabel = card.dataset.cardView === "lastFive" ? "last five" : "career";
-    const overall = scope.querySelector("[data-card-overall]")?.textContent || "";
+    const isHistoric = applyHistoricSnapshot(edition);
+    if (!isHistoric && tierCode) tierCode.textContent = liveTierCode;
+    if (!isHistoric && options.restoreView !== false) {
+      ratingController?.applyView(card.dataset.liveCardView || "career");
+    }
+
+    const viewLabel = isHistoric
+      ? "historic collectible"
+      : (card.dataset.cardView === "lastFive" ? "last five" : "career");
+    const overallValue = scope.querySelector("[data-card-overall]")?.textContent || "";
     card.setAttribute(
       "aria-label",
-      `${displayPlayerNamePlain(player)} ${viewLabel} player card. Overall rating ${overall}.${card.dataset.cardEditionAria}`
+      `${displayPlayerNamePlain(player)} ${viewLabel} player card. Overall rating ${overallValue}.${card.dataset.cardEditionAria}`
     );
     card.classList.remove("is-edition-changing");
     void card.offsetWidth;
@@ -4581,6 +4810,13 @@ function wirePlayerCardEditionCollection(scope, player, editions) {
 
   buttons.forEach(button => {
     button.addEventListener("click", () => applyEdition(button.dataset.cardEditionSelect));
+  });
+
+  scope.querySelectorAll("[data-card-view-control]").forEach(button => {
+    button.addEventListener("click", () => {
+      card.dataset.liveCardView = button.dataset.cardViewControl || "career";
+      applyEdition("base", { restoreView: false });
+    });
   });
 
   applyEdition(collection[0]?.id || "base");
@@ -4698,6 +4934,7 @@ function wirePlayerCardRatingControls(scope, cardViews, onViewChange) {
   const overallControl = scope.querySelector(".tlpt-card-rating-block[data-card-rating-control]");
   if (overallControl) activate(overallControl);
   if (typeof onViewChange === "function") onViewChange("career");
+  return { applyView };
 }
 
 function playerProfileStreakMeta(player, data) {
@@ -4925,11 +5162,16 @@ function renderPlayerProfile(data) {
   `;
 
   const comparisonController = wirePlayerCardComparison(container, player, players, data);
-  wirePlayerCardEditionCollection(container, player, specialEditions);
-  wirePlayerCardRatingControls(
+  const ratingController = wirePlayerCardRatingControls(
     container,
     cardViews,
     viewKey => comparisonController?.setView(viewKey)
+  );
+  wirePlayerCardEditionCollection(
+    container,
+    player,
+    specialEditions,
+    ratingController
   );
 
   const formulaDisplay = document.getElementById("player-formula-display");

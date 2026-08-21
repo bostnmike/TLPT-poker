@@ -1327,6 +1327,32 @@
   line-height:1.35;
 }
 
+.player-page .tlpt-card-special-banner em{
+  grid-column:1 / -1;
+  width:max-content;
+  max-width:100%;
+  margin-top:3px;
+  padding:3px 7px;
+  border:1px solid color-mix(in srgb,var(--special-accent) 58%,transparent);
+  border-radius:999px;
+  color:var(--special-accent);
+  background:color-mix(in srgb,var(--special-accent) 10%,rgba(4,8,12,.7));
+  font-size:.49rem;
+  font-style:normal;
+  font-weight:1000;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-special-banner em[hidden]{
+  display:none;
+}
+
+.player-page .tlpt-player-card[data-historic-edition] .tlpt-card-edition small{
+  color:var(--special-accent,var(--card-ink));
+  letter-spacing:.16em;
+}
+
 .player-page .tlpt-card-special-banner[hidden]{
   display:none;
 }
@@ -1709,6 +1735,18 @@
   font-size:.65rem;
   font-weight:800;
   text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-collectible-caption em{
+  overflow:hidden;
+  color:#8fa1af;
+  font-size:.49rem;
+  font-style:normal;
+  font-weight:900;
+  letter-spacing:.045em;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
   white-space:nowrap;
 }
 
@@ -2770,6 +2808,10 @@
     font-size:.52rem;
   }
 
+  .player-page .tlpt-card-special-banner em{
+    font-size:.44rem;
+  }
+
   .player-page .tlpt-card-collection{
     margin-bottom:22px;
     padding:14px 10px;
@@ -2843,6 +2885,10 @@
 
   .player-page .tlpt-card-collectible-caption small{
     font-size:.57rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption em{
+    font-size:.44rem;
   }
 
   .player-page .tlpt-player-summary{
