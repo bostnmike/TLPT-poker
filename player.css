@@ -230,11 +230,32 @@
 }
 
 .player-page .tlpt-card-rating-block{
+  appearance:none;
+  padding:2px;
+  border:0;
+  border-radius:9px;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
+  color:inherit;
+  background:transparent;
+  cursor:pointer;
+  font:inherit;
   line-height:1;
+  transition:background .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+
+.player-page .tlpt-card-rating-block:hover,
+.player-page .tlpt-card-rating-block.is-active{
+  background:rgba(255,255,255,.09);
+  box-shadow:0 0 0 1px var(--card-line), 0 0 13px var(--card-glow);
+  transform:translateY(-1px);
+}
+
+.player-page .tlpt-card-rating-block:focus-visible{
+  outline:2px solid var(--card-edge);
+  outline-offset:2px;
 }
 
 .player-page .tlpt-card-overall{
@@ -372,6 +393,7 @@
 }
 
 .player-page .tlpt-card-attribute{
+  appearance:none;
   position:relative;
   display:grid;
   grid-template-columns:36px minmax(0,1fr);
@@ -380,6 +402,27 @@
   column-gap:7px;
   row-gap:1px;
   min-width:0;
+  padding:3px 4px;
+  border:0;
+  border-radius:8px;
+  color:inherit;
+  background:transparent;
+  cursor:pointer;
+  font:inherit;
+  text-align:left;
+  transition:background .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+.player-page .tlpt-card-attribute:hover,
+.player-page .tlpt-card-attribute.is-active{
+  background:rgba(255,255,255,.09);
+  box-shadow:inset 0 0 0 1px var(--card-line), 0 0 11px var(--card-glow);
+  transform:translateY(-1px);
+}
+
+.player-page .tlpt-card-attribute:focus-visible{
+  outline:2px solid var(--card-edge);
+  outline-offset:1px;
 }
 
 .player-page .tlpt-card-attribute:nth-child(odd)::after{
@@ -443,6 +486,159 @@
   font-size:.78rem;
   line-height:1.45;
   text-align:center;
+}
+
+.player-page .tlpt-card-experience,
+.player-page .tlpt-card-rating-explainer{
+  width:min(100%, 380px);
+  margin-left:auto;
+  margin-right:auto;
+  border-radius:15px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 12px 24px rgba(0,0,0,.20);
+}
+
+.player-page .tlpt-card-experience{
+  --experience-accent:var(--gold);
+  margin-top:16px;
+  padding:13px 14px;
+  border:1px solid rgba(255,184,28,.24);
+  background:linear-gradient(145deg, rgba(255,184,28,.09), rgba(8,13,19,.90));
+}
+
+.player-page .tlpt-card-experience-rookie{
+  --experience-accent:#52de91;
+  border-color:rgba(82,222,145,.30);
+  background:linear-gradient(145deg, rgba(33,138,91,.20), rgba(8,18,14,.92));
+}
+
+.player-page .tlpt-card-experience-provisional{
+  --experience-accent:#72c5ff;
+  border-color:rgba(114,197,255,.30);
+  background:linear-gradient(145deg, rgba(45,119,168,.22), rgba(8,15,21,.92));
+}
+
+.player-page .tlpt-card-experience-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.player-page .tlpt-card-experience-head span{
+  color:var(--experience-accent);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-experience-head strong{
+  color:#fff;
+  font-size:.76rem;
+  line-height:1.2;
+  text-align:right;
+}
+
+.player-page .tlpt-card-experience-track{
+  height:8px;
+  margin:10px 0 9px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.10);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.42);
+}
+
+.player-page .tlpt-card-experience-track > span{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg, var(--experience-accent), rgba(255,255,255,.88));
+  box-shadow:0 0 12px var(--experience-accent);
+}
+
+.player-page .tlpt-card-experience p{
+  margin:0;
+  color:#edf5fb;
+  font-size:.72rem;
+  font-weight:800;
+  line-height:1.35;
+}
+
+.player-page .tlpt-card-experience small{
+  display:block;
+  margin-top:6px;
+  color:#aebdca;
+  font-size:.64rem;
+  line-height:1.4;
+}
+
+.player-page .tlpt-card-rating-explainer{
+  min-height:158px;
+  margin-top:10px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(circle at 100% 0, rgba(255,184,28,.10), transparent 36%),
+    linear-gradient(150deg, rgba(20,28,38,.97), rgba(9,14,20,.98));
+}
+
+.player-page .tlpt-card-rating-explainer-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:3px 12px;
+  align-items:center;
+}
+
+.player-page .tlpt-card-rating-explainer-head span{
+  color:var(--gold);
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.player-page .tlpt-card-rating-explainer-head strong{
+  min-width:0;
+  overflow:hidden;
+  color:#fff;
+  font-size:.95rem;
+  line-height:1.2;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.player-page .tlpt-card-rating-explainer-head b{
+  grid-column:2;
+  grid-row:1 / 3;
+  color:var(--gold);
+  font-size:2rem;
+  line-height:1;
+}
+
+.player-page .tlpt-card-rating-explainer > p{
+  margin:11px 0 6px;
+  color:#dce7f0;
+  font-size:.72rem;
+  font-weight:800;
+  line-height:1.35;
+}
+
+.player-page .tlpt-card-rating-explainer > small{
+  display:block;
+  color:#aebdca;
+  font-size:.65rem;
+  line-height:1.42;
+}
+
+.player-page .tlpt-card-rating-explainer > em{
+  display:block;
+  margin-top:8px;
+  color:#758594;
+  font-size:.59rem;
+  font-style:normal;
+  line-height:1.35;
 }
 
 /* Card finishes follow the live TLPT power tier. */
@@ -866,6 +1062,7 @@
     grid-template-columns:30px minmax(0,1fr);
     column-gap:5px;
     row-gap:0;
+    padding:2px;
   }
 
   .player-page .tlpt-card-attribute:nth-child(odd)::after{
@@ -883,6 +1080,25 @@
   .player-page .tlpt-card-attribute small{
     font-size:.46rem;
     line-height:1;
+  }
+
+  .player-page .tlpt-card-experience,
+  .player-page .tlpt-card-rating-explainer{
+    border-radius:13px;
+  }
+
+  .player-page .tlpt-card-experience-head{
+    display:grid;
+    gap:4px;
+  }
+
+  .player-page .tlpt-card-experience-head strong{
+    text-align:left;
+  }
+
+  .player-page .tlpt-card-rating-explainer{
+    min-height:0;
+    padding:13px;
   }
 
   .player-page .tlpt-player-summary{
@@ -914,7 +1130,9 @@
 
 @media (prefers-reduced-motion:reduce){
   .player-page .tlpt-player-card,
-  .player-page .tlpt-player-card-inner::after{
+  .player-page .tlpt-player-card-inner::after,
+  .player-page .tlpt-card-rating-block,
+  .player-page .tlpt-card-attribute{
     transition:none;
   }
 

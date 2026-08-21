@@ -68,10 +68,10 @@ const STAT_FORMULAS = {
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  trueSkillScore: "Power Index: (0.40 × ROI) + (0.40 × Cash Rate) + (0.20 × Hit Rate)",
+  trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10)",
   luckIndex: "Luck Index: Profit − Expected Profit, where Expected Profit is based on Cash Rate, Hit Rate, and Bubble Avoidance",
-  clutchIndex: "Clutch Index: (0.30 × ROI) + (0.30 × Cash Rate) + (0.20 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
-  aggressionIndex: "Aggression Index: Hits ÷ Entries",
+  clutchIndex: "Clutch Index: normalized career cash frequency (Times Placed ÷ Buy-ins)",
+  aggressionIndex: "Aggression Index: normalized knockouts per entry (Hits ÷ Entries)",
   survivorIndex: "Survivor Index: normalized weighted score from (0.55 × Cash Rate) + (0.25 × (1 − Bubble Rate)) + (0.20 × Hit Rate)",
   tiltIndex: "Composure Index: fixed 0–100 score rewarding fewer rebuys and fewer bubble finishes, softened toward 50 for small samples",
   expectedProfit: "Expected Profit: Total Cost × expected ROI derived from Cash Rate, Hit Rate, and Bubble Avoidance"
@@ -3489,50 +3489,109 @@ function playerCardAttributes(player, players) {
     (playerCardMetricRating(player, players, "roi") * 0.65) +
     (playerCardMetricRating(player, players, "profit") * 0.35)
   );
+  const appearances = Number(player?.buyIns ?? 0);
+  const entries = Number(player?.entries ?? 0);
+  const cashes = Number(player?.timesPlaced ?? 0);
+  const hits = Number(player?.hits ?? 0);
 
   return [
     {
       code: "RET",
       label: "Return",
       value: returnRating,
-      detail: "Return rating — ROI and career profit"
+      raw: `ROI ${fmtPct(player?.roi)} • Career Profit ${fmtMoney(player?.profit)}`,
+      formula: "65% of the ROI rating plus 35% of the Career Profit rating. Both components are scaled against established TLPT players."
     },
     {
       code: "CLT",
       label: "Clutch",
       value: playerCardMetricRating(player, players, "clutchIndex"),
-      detail: "Clutch rating — cashing and closing under pressure"
+      raw: `Clutch Index ${fmtNum(player?.clutchIndex)} • ${cashes} cash${cashes === 1 ? "" : "es"} in ${appearances} appearance${appearances === 1 ? "" : "s"}`,
+      formula: "Clutch Index is normalized career cash frequency: Times Placed ÷ Buy-ins. The result is then scaled to the card-rating range."
     },
     {
       code: "ITM",
       label: "In the Money",
       value: playerCardMetricRating(player, players, "cashRate"),
-      detail: "In-the-money rating — career cash rate"
+      raw: `Cash Rate ${fmtPct(player?.cashRate)} • ${cashes} of ${appearances} appearances`,
+      formula: "Cash Rate equals Times Placed ÷ Buy-ins, then scales against established TLPT players. Rebuys do not count as separate appearances."
     },
     {
       code: "AGR",
       label: "Aggression",
       value: playerCardMetricRating(player, players, "aggressionIndex"),
-      detail: "Aggression rating — knockouts per entry"
+      raw: `Aggression Index ${fmtNum(player?.aggressionIndex)} • ${hits} knockout${hits === 1 ? "" : "s"} in ${entries} entr${entries === 1 ? "y" : "ies"}`,
+      formula: "Aggression Index normalizes knockouts per entry: Hits ÷ Entries. Entries include the initial buy-in and any rebuys."
     },
     {
       code: "HIT",
       label: "Hit Rate",
       value: playerCardMetricRating(player, players, "hitRate"),
-      detail: "Hit rating — total knockouts relative to bullets fired"
+      raw: `Hit Rate ${fmtPct(player?.hitRate)} • ${hits} knockout${hits === 1 ? "" : "s"} in ${entries} entr${entries === 1 ? "y" : "ies"}`,
+      formula: "Hit Rate equals Hits ÷ Entries, then scales against established TLPT players. Every rebuy adds another entry to the denominator."
     },
     {
       code: "SUR",
       label: "Survival",
       value: playerCardMetricRating(player, players, "survivorIndex"),
-      detail: "Survival rating — cashing, bubble avoidance and hit rate"
+      raw: `Survival Index ${fmtNum(player?.survivorIndex)} • Cash ${fmtPct(player?.cashRate)} • Bubble ${fmtPct(player?.bubbleRate)} • Hit ${fmtPct(player?.hitRate)}`,
+      formula: "Survival starts with 55% Cash Rate, 25% Bubble Avoidance and 20% Hit Rate. That result is normalized and scaled to the card-rating range."
     }
   ];
+}
+
+function playerCardExperienceMeta(player, tierMeta) {
+  const appearances = Number(player?.buyIns ?? 0);
+
+  if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) {
+    const target = CREW_PROVISIONAL_MIN_BUY_INS;
+    return {
+      className: "rookie",
+      eyebrow: "RKI Sample Status",
+      progressNow: appearances,
+      progressMax: target,
+      progressLabel: `${appearances} of ${target} appearances to PRO`,
+      milestone: `${target - appearances} more ${target - appearances === 1 ? "appearance" : "appearances"} to unlock Provisional status`,
+      caveat: "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
+    };
+  }
+
+  if (appearances < CREW_ESTABLISHED_MIN_BUY_INS) {
+    const target = CREW_ESTABLISHED_MIN_BUY_INS;
+    return {
+      className: "provisional",
+      eyebrow: "PRO Sample Status",
+      progressNow: appearances,
+      progressMax: target,
+      progressLabel: `${appearances} of ${target} appearances to Established`,
+      milestone: `${target - appearances} more ${target - appearances === 1 ? "appearance" : "appearances"} to unlock Power Rank and an S–D tier`,
+      caveat: "Ratings reflect actual career results. PRO identifies a developing sample and does not receive an official Power Rank."
+    };
+  }
+
+  return {
+    className: "established",
+    eyebrow: "Established Sample",
+    progressNow: CREW_ESTABLISHED_MIN_BUY_INS,
+    progressMax: CREW_ESTABLISHED_MIN_BUY_INS,
+    progressLabel: `${appearances} career appearances`,
+    milestone: tierMeta.rank
+      ? `Official Power Rank #${tierMeta.rank} of ${tierMeta.totalRanked}`
+      : "Eligible for official Power Rank and S–D tiers",
+    caveat: "Ratings reflect actual career results and compare this player with the established TLPT benchmark pool."
+  };
 }
 
 function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
   const overall = playerCardOverallRating(player, players);
   const attributes = playerCardAttributes(player, players);
+  const experience = playerCardExperienceMeta(player, tierMeta);
+  const overallRaw = `Power Index ${fmtNum(player?.trueSkillScore)} • ${Number(player?.buyIns ?? 0)} career appearance${Number(player?.buyIns ?? 0) === 1 ? "" : "s"}`;
+  const overallFormula = `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 62–95 overall card rating against established TLPT players.`;
+  const progressPct = Math.max(
+    0,
+    Math.min(100, (experience.progressNow / Math.max(experience.progressMax, 1)) * 100)
+  );
 
   return `
     <div class="tlpt-card-stage">
@@ -3552,10 +3611,21 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
           <div class="tlpt-player-card-pattern" aria-hidden="true"></div>
 
           <header class="tlpt-card-header">
-            <div class="tlpt-card-rating-block">
+            <button
+              type="button"
+              class="tlpt-card-rating-block is-active"
+              data-card-rating-control
+              data-rating-title="OVR — Overall"
+              data-rating-value="${overall}"
+              data-rating-raw="${escapeHtmlAttr(overallRaw)}"
+              data-rating-formula="${escapeHtmlAttr(overallFormula)}"
+              aria-controls="tlpt-card-rating-explainer"
+              aria-pressed="true"
+              title="Explain the Overall rating"
+            >
               <span class="tlpt-card-overall">${overall}</span>
               <span class="tlpt-card-tier-code">${tierMeta.code}</span>
-            </div>
+            </button>
 
             <div class="tlpt-card-edition">
               <span>TLPT</span>
@@ -3583,11 +3653,22 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
 
           <div class="tlpt-card-attributes" aria-label="Player card attributes">
             ${attributes.map(attribute => `
-              <div class="tlpt-card-attribute" title="${attribute.detail}">
+              <button
+                type="button"
+                class="tlpt-card-attribute"
+                data-card-rating-control
+                data-rating-title="${escapeHtmlAttr(`${attribute.code} — ${attribute.label}`)}"
+                data-rating-value="${attribute.value}"
+                data-rating-raw="${escapeHtmlAttr(attribute.raw)}"
+                data-rating-formula="${escapeHtmlAttr(attribute.formula)}"
+                aria-controls="tlpt-card-rating-explainer"
+                aria-pressed="false"
+                title="Explain ${escapeHtmlAttr(attribute.label)}"
+              >
                 <strong>${attribute.value}</strong>
                 <span>${attribute.code}</span>
                 <small>${attribute.label}</small>
-              </div>
+              </button>
             `).join("")}
           </div>
 
@@ -3597,11 +3678,72 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
         </div>
       </article>
 
-      <p class="tlpt-card-rating-note">
-        Card ratings compare established TLPT players. Exact career statistics appear alongside the card.
-      </p>
+      <section class="tlpt-card-experience tlpt-card-experience-${experience.className}" aria-label="Card experience status">
+        <div class="tlpt-card-experience-head">
+          <span>${experience.eyebrow}</span>
+          <strong>${experience.progressLabel}</strong>
+        </div>
+        <div
+          class="tlpt-card-experience-track"
+          role="progressbar"
+          aria-label="${escapeHtmlAttr(experience.progressLabel)}"
+          aria-valuemin="0"
+          aria-valuemax="${experience.progressMax}"
+          aria-valuenow="${experience.progressNow}"
+        >
+          <span style="width:${progressPct}%"></span>
+        </div>
+        <p>${experience.milestone}</p>
+        <small>${experience.caveat}</small>
+      </section>
+
+      <section
+        id="tlpt-card-rating-explainer"
+        class="tlpt-card-rating-explainer"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="tlpt-card-rating-explainer-head">
+          <span>Rating Breakdown</span>
+          <strong data-card-rating-title>OVR — Overall</strong>
+          <b data-card-rating-value>${overall}</b>
+        </div>
+        <p data-card-rating-raw>${overallRaw}</p>
+        <small data-card-rating-formula>${overallFormula}</small>
+        <em>Choose the overall score or any attribute on the card to see its live calculation.</em>
+      </section>
     </div>
   `;
+}
+
+function wirePlayerCardRatingControls(scope) {
+  const controls = [...scope.querySelectorAll("[data-card-rating-control]")];
+  const explainer = scope.querySelector("#tlpt-card-rating-explainer");
+  if (!controls.length || !explainer) return;
+
+  const title = explainer.querySelector("[data-card-rating-title]");
+  const value = explainer.querySelector("[data-card-rating-value]");
+  const raw = explainer.querySelector("[data-card-rating-raw]");
+  const formula = explainer.querySelector("[data-card-rating-formula]");
+
+  const activate = control => {
+    controls.forEach(item => {
+      const isActive = item === control;
+      item.classList.toggle("is-active", isActive);
+      item.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (title) title.textContent = control.dataset.ratingTitle || "Rating";
+    if (value) value.textContent = control.dataset.ratingValue || "—";
+    if (raw) raw.textContent = control.dataset.ratingRaw || "";
+    if (formula) formula.textContent = control.dataset.ratingFormula || "";
+  };
+
+  controls.forEach(control => {
+    control.addEventListener("click", () => activate(control));
+    control.addEventListener("focus", () => activate(control));
+    control.addEventListener("mouseenter", () => activate(control));
+  });
 }
 
 function playerProfileStreakMeta(player, data) {
@@ -3820,6 +3962,8 @@ function renderPlayerProfile(data) {
       </div>
     </div>
   `;
+
+  wirePlayerCardRatingControls(container);
 
   const formulaDisplay = document.getElementById("player-formula-display");
   const statCards = container.querySelectorAll("[data-stat-formula]");
