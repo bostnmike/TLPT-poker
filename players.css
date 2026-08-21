@@ -443,6 +443,94 @@
   --crew-card-glow:rgba(61,220,132,.34);
 }
 
+/* Phase 2D special editions preserve the official tier color underneath. */
+
+.crew-page .crew-ultimate-card-special{
+  --crew-special-accent:#ffd36a;
+  --crew-special-soft:rgba(255,211,106,.28);
+  --crew-special-deep:rgba(117,71,0,.36);
+  --crew-card-glow:var(--crew-special-soft);
+}
+
+.crew-page .crew-ultimate-card-special-hall{
+  --crew-special-accent:#ffe995;
+  --crew-special-soft:rgba(255,214,91,.38);
+  --crew-special-deep:rgba(122,78,0,.44);
+}
+
+.crew-page .crew-ultimate-card-special-infamy{
+  --crew-special-accent:#ff6a76;
+  --crew-special-soft:rgba(255,66,82,.34);
+  --crew-special-deep:rgba(111,6,25,.46);
+}
+
+.crew-page .crew-ultimate-card-special-leader{
+  --crew-special-accent:#c99cff;
+  --crew-special-soft:rgba(166,93,255,.34);
+  --crew-special-deep:rgba(58,18,112,.46);
+}
+
+.crew-page .crew-ultimate-card-special-heater{
+  --crew-special-accent:#ffad4a;
+  --crew-special-soft:rgba(255,113,35,.38);
+  --crew-special-deep:rgba(129,34,0,.48);
+}
+
+.crew-page .crew-ultimate-card-special-milestone{
+  --crew-special-accent:#8cf3ed;
+  --crew-special-soft:rgba(78,222,215,.30);
+  --crew-special-deep:rgba(7,87,94,.42);
+}
+
+.crew-page .crew-ultimate-card-special .crew-ultimate-card-inner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 5%,var(--crew-special-soft),transparent 25%),
+    linear-gradient(118deg,transparent 0 37%,var(--crew-special-soft) 43%,transparent 49% 100%),
+    radial-gradient(circle at 50% 88%,var(--crew-special-deep),transparent 40%);
+  mix-blend-mode:screen;
+  opacity:.72;
+}
+
+.crew-page .crew-ultimate-card-special-infamy .crew-ultimate-card-inner::before{
+  background:
+    radial-gradient(circle at 50% 6%,var(--crew-special-soft),transparent 25%),
+    repeating-linear-gradient(128deg,transparent 0 14px,rgba(255,71,83,.11) 15px,transparent 18px),
+    radial-gradient(circle at 50% 88%,var(--crew-special-deep),transparent 42%);
+}
+
+.crew-page .crew-ultimate-card-special-heater .crew-ultimate-card-inner::before{
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(255,59,19,.36),transparent 46%),
+    linear-gradient(118deg,transparent 0 36%,rgba(255,183,61,.23) 43%,transparent 50% 100%),
+    radial-gradient(circle at 50% 5%,var(--crew-special-soft),transparent 25%);
+}
+
+.crew-page .crew-ultimate-edition em{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  max-width:72px;
+  margin-top:2px;
+  padding:2px 5px;
+  overflow:hidden;
+  border:1px solid var(--crew-special-accent,#80909d);
+  border-radius:999px;
+  color:var(--crew-special-accent,#d6e0e7);
+  background:rgba(6,10,14,.68);
+  font-size:.34rem;
+  font-style:normal;
+  line-height:1;
+  letter-spacing:.045em;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.18);
+}
+
 /* Developmental sections are visible, but deliberately unranked. */
 
 .crew-page .tier-section.tier-section-provisional{

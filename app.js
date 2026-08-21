@@ -2847,12 +2847,17 @@ function crewCardMarkup(player, data) {
   const tierMeta = playerCardTierMeta(player, players);
   const attributes = playerCardAttributes(player, players);
   const primaryArchetype = getPlayerArchetypes(player).primary;
+  const specialEdition = playerCardSpecialEdition(player, data);
+  const specialClass = specialEdition
+    ? ` crew-ultimate-card-special crew-ultimate-card-special-${specialEdition.className}`
+    : "";
 
   return `
     <a
-      class="crew-ultimate-card crew-ultimate-card-${tierMeta.className}"
+      class="crew-ultimate-card crew-ultimate-card-${tierMeta.className}${specialClass}"
       href="${playerUrl(player)}"
-      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}."
+      ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.className)}"` : ""}
+      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}.${specialEdition ? ` ${specialEdition.eyebrow}: ${specialEdition.label}. ${specialEdition.reason}` : ""}"
     >
       <div class="crew-ultimate-card-inner">
         <div class="crew-ultimate-metal" aria-hidden="true"></div>
@@ -2866,6 +2871,11 @@ function crewCardMarkup(player, data) {
           <div class="crew-ultimate-edition">
             <span>TLPT</span>
             <strong>CAREER</strong>
+            ${specialEdition ? `
+              <em title="${escapeHtmlAttr(specialEdition.reason)}">
+                ${specialEdition.icon} ${specialEdition.shortLabel}
+              </em>
+            ` : ""}
           </div>
 
           <img
@@ -3650,6 +3660,162 @@ function playerCardViewData(player, players) {
   };
 }
 
+function playerCardHistoricalEventCount(data) {
+  const streakCounts = Object.values(data?.streaks?.players || {})
+    .map(item => Number(item?.playedEvents || 0));
+  const appearanceCounts = (data?.players || [])
+    .map(item => Number(item?.buyIns || 0));
+
+  return Math.max(0, ...streakCounts, ...appearanceCounts);
+}
+
+function playerCardSpecialEdition(player, data) {
+  const players = data?.players || [];
+  if (!player || !players.length) return null;
+
+  const samePlayer = candidate => candidate?.slug === player?.slug;
+  const historicalEvents = playerCardHistoricalEventCount(data);
+  const hallPool = players
+    .filter(candidate => isHallEligible(candidate, historicalEvents))
+    .map(candidate => ({
+      ...candidate,
+      knockoutRate: Number(candidate?.entries || 0) > 0
+        ? Number(candidate?.hits || 0) / Number(candidate.entries)
+        : 0
+    }));
+
+  const hallEditions = [
+    {
+      key: "profit",
+      direction: "desc",
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "The Tax Collector",
+      shortLabel: "HALL",
+      reason: leader => `Highest Hall-qualified career profit at ${fmtMoney(leader?.profit)}.`
+    },
+    {
+      key: "cashRate",
+      direction: "desc",
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "Direct Deposit",
+      shortLabel: "HALL",
+      reason: leader => `Highest Hall-qualified career cash rate at ${fmtPct(leader?.cashRate)}.`
+    },
+    {
+      key: "knockoutRate",
+      direction: "desc",
+      className: "hall",
+      icon: "🏛️",
+      eyebrow: "Hall Edition",
+      label: "The Billing Department",
+      shortLabel: "HALL",
+      reason: leader => `Highest Hall-qualified knockout efficiency at ${Number(leader?.knockoutRate || 0).toFixed(2)} per entry.`
+    },
+    {
+      key: "bubbles",
+      direction: "desc",
+      className: "infamy",
+      icon: "🔥",
+      eyebrow: "Infamy Edition",
+      label: "Boy in the Bubble",
+      shortLabel: "INFAMY",
+      reason: leader => `Most Hall-qualified career bubbles with ${Number(leader?.bubbles || 0)} near misses.`
+    }
+  ];
+
+  for (const edition of hallEditions) {
+    const leader = getLeaderByRule(hallPool, edition, hallPool);
+    if (!samePlayer(leader)) continue;
+    return {
+      ...edition,
+      reason: edition.reason(leader),
+      priority: 4
+    };
+  }
+
+  const establishedPool = players.filter(isCrewEstablished);
+  const leaderEditions = [
+    {
+      key: "profit",
+      direction: "desc",
+      icon: "💰",
+      label: "Profit Leader",
+      shortLabel: "LEADER",
+      reason: leader => `Current established-player profit leader at ${fmtMoney(leader?.profit)}.`
+    },
+    {
+      key: "hits",
+      direction: "desc",
+      icon: "💥",
+      label: "Knockout Leader",
+      shortLabel: "LEADER",
+      reason: leader => `Current established-player knockout leader with ${Number(leader?.hits || 0)} hits.`
+    },
+    {
+      key: "roi",
+      direction: "desc",
+      icon: "📈",
+      label: "ROI Leader",
+      shortLabel: "LEADER",
+      reason: leader => `Current established-player ROI leader at ${fmtPct(leader?.roi)}.`
+    },
+    {
+      key: "cashRate",
+      direction: "desc",
+      icon: "🏧",
+      label: "Cash-Rate Leader",
+      shortLabel: "LEADER",
+      reason: leader => `Current established-player cash-rate leader at ${fmtPct(leader?.cashRate)}.`
+    }
+  ];
+
+  for (const edition of leaderEditions) {
+    const leader = getLeaderByRule(establishedPool, edition, establishedPool);
+    if (!samePlayer(leader)) continue;
+    return {
+      ...edition,
+      className: "leader",
+      eyebrow: "League Leader Edition",
+      reason: edition.reason(leader),
+      priority: 3
+    };
+  }
+
+  const cashStreak = data?.streaks?.players?.[player.slug]?.currentCashStreak;
+  const streakLength = Number(cashStreak?.length || 0);
+  if (streakLength >= 2) {
+    return {
+      className: "heater",
+      icon: "🔥",
+      eyebrow: "Heater Edition",
+      label: `${streakLength}-Game Cash Streak`,
+      shortLabel: "HEATER",
+      reason: `Active ${streakLength}-appearance cash streak from ${playerCardWindowDate(cashStreak?.startDate)} through ${playerCardWindowDate(cashStreak?.endDate)}.`,
+      priority: 2
+    };
+  }
+
+  const appearances = Number(player?.buyIns || 0);
+  const milestone = [50, 25, 10].find(target => appearances >= target);
+  if (milestone) {
+    return {
+      className: "milestone",
+      icon: "♦",
+      eyebrow: "Milestone Edition",
+      label: `${milestone}-Appearance Club`,
+      shortLabel: `${milestone} CLUB`,
+      reason: `${appearances} career tournament appearances and counting.`,
+      priority: 1
+    };
+  }
+
+  return null;
+}
+
 function playerCardComparisonCandidates(player, players) {
   const currentTier = playerCardTierMeta(player, players);
   const currentRating = playerCardOverallRating(player, players);
@@ -3699,9 +3865,13 @@ function playerCardComparisonDelta(value, opposingValue) {
   };
 }
 
-function playerCardComparisonCardMarkup(player, view, opposingView, players, sideLabel) {
+function playerCardComparisonCardMarkup(player, view, opposingView, players, data, sideLabel) {
   const tierMeta = playerCardTierMeta(player, players);
   const archetype = getPlayerArchetypes(player).primary;
+  const specialEdition = playerCardSpecialEdition(player, data);
+  const specialClass = specialEdition
+    ? ` tlpt-compare-card-special tlpt-compare-card-special-${specialEdition.className}`
+    : "";
   const opposingAttributes = Object.fromEntries(
     opposingView.attributes.map(attribute => [attribute.code, attribute])
   );
@@ -3712,9 +3882,10 @@ function playerCardComparisonCardMarkup(player, view, opposingView, players, sid
 
   return `
     <article
-      class="tlpt-compare-card tlpt-player-card-${tierMeta.className}"
+      class="tlpt-compare-card tlpt-player-card-${tierMeta.className}${specialClass}"
       data-compare-card-side="${sideLabel}"
-      aria-label="${escapeHtmlAttr(displayPlayerNamePlain(player))}, ${view.edition} rating ${view.overall}. ${overallDelta.description} than the opposing player."
+      ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.className)}"` : ""}
+      aria-label="${escapeHtmlAttr(displayPlayerNamePlain(player))}, ${view.edition} rating ${view.overall}. ${overallDelta.description} than the opposing player.${specialEdition ? ` ${specialEdition.eyebrow}: ${specialEdition.label}.` : ""}"
     >
       <div class="tlpt-compare-card-inner">
         <header class="tlpt-compare-card-head">
@@ -3738,6 +3909,20 @@ function playerCardComparisonCardMarkup(player, view, opposingView, players, sid
           <h3>${displayPlayerName(player)}</h3>
           <span>${archetype.emoji} ${archetype.name}</span>
         </div>
+
+        ${specialEdition ? `
+          <div class="tlpt-compare-special-tag" title="${escapeHtmlAttr(specialEdition.reason)}">
+            <span>${specialEdition.icon}</span>
+            <strong>${specialEdition.eyebrow}</strong>
+            <small>${specialEdition.label}</small>
+          </div>
+        ` : `
+          <div class="tlpt-compare-special-tag is-empty" aria-hidden="true">
+            <span>♦</span>
+            <strong>Standard Edition</strong>
+            <small>Career Card</small>
+          </div>
+        `}
 
         <div class="tlpt-compare-attributes" aria-label="Card attribute comparison">
           ${view.attributes.map(attribute => {
@@ -3772,7 +3957,7 @@ function playerCardComparisonCardMarkup(player, view, opposingView, players, sid
   `;
 }
 
-function playerCardComparisonMarkup(player, players) {
+function playerCardComparisonMarkup(player, players, data) {
   const candidates = playerCardComparisonCandidates(player, players);
   const opponent = candidates[0];
   if (!opponent) return "";
@@ -3824,16 +4009,16 @@ function playerCardComparisonMarkup(player, players) {
         </p>
 
         <div class="tlpt-card-compare-arena" data-card-compare-cards aria-live="polite">
-          ${playerCardComparisonCardMarkup(player, playerView, opponentView, players, "primary")}
+          ${playerCardComparisonCardMarkup(player, playerView, opponentView, players, data, "primary")}
           <div class="tlpt-card-compare-versus" aria-hidden="true">VS</div>
-          ${playerCardComparisonCardMarkup(opponent, opponentView, playerView, players, "opponent")}
+          ${playerCardComparisonCardMarkup(opponent, opponentView, playerView, players, data, "opponent")}
         </div>
       </div>
     </section>
   `;
 }
 
-function wirePlayerCardComparison(scope, player, players) {
+function wirePlayerCardComparison(scope, player, players, data) {
   const overlay = scope.querySelector("[data-card-compare-overlay]");
   const openButton = scope.querySelector("[data-card-compare-open]");
   const closeButton = overlay?.querySelector("[data-card-compare-close]");
@@ -3865,9 +4050,9 @@ function wirePlayerCardComparison(scope, player, players) {
     });
 
     cards.innerHTML = `
-      ${playerCardComparisonCardMarkup(player, playerView, opponentView, players, "primary")}
+      ${playerCardComparisonCardMarkup(player, playerView, opponentView, players, data, "primary")}
       <div class="tlpt-card-compare-versus" aria-hidden="true">VS</div>
-      ${playerCardComparisonCardMarkup(opponent, opponentView, playerView, players, "opponent")}
+      ${playerCardComparisonCardMarkup(opponent, opponentView, playerView, players, data, "opponent")}
     `;
   };
 
@@ -3981,7 +4166,7 @@ function playerCardExperienceMeta(player, tierMeta) {
   };
 }
 
-function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews) {
+function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews, specialEdition) {
   const careerView = cardViews?.career || playerCardViewData(player, players).career;
   const hasLastFive = Boolean(cardViews?.lastFive);
   const overall = careerView.overall;
@@ -3989,6 +4174,9 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
   const experience = playerCardExperienceMeta(player, tierMeta);
   const overallRaw = careerView.overallRaw;
   const overallFormula = careerView.overallFormula;
+  const specialClass = specialEdition
+    ? ` tlpt-player-card-special tlpt-player-card-special-${specialEdition.className}`
+    : "";
   const progressPct = Math.max(
     0,
     Math.min(100, (experience.progressNow / Math.max(experience.progressMax, 1)) * 100)
@@ -4032,10 +4220,11 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
       </svg>
 
       <article
-        class="tlpt-player-card tlpt-player-card-${tierMeta.className}"
+        class="tlpt-player-card tlpt-player-card-${tierMeta.className}${specialClass}"
         data-player-card
         data-card-player-name="${escapeHtmlAttr(displayPlayerNamePlain(player))}"
-        aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}."
+        ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.className)}"` : ""}
+        aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}.${specialEdition ? ` ${specialEdition.eyebrow}: ${specialEdition.label}. ${specialEdition.reason}` : ""}"
       >
         <div class="tlpt-player-card-inner">
           <div class="tlpt-player-card-pattern" aria-hidden="true"></div>
@@ -4109,6 +4298,17 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
           </div>
         </div>
       </article>
+
+      ${specialEdition ? `
+        <div class="tlpt-card-special-banner tlpt-card-special-banner-${specialEdition.className}">
+          <span aria-hidden="true">${specialEdition.icon}</span>
+          <div>
+            <strong>${specialEdition.eyebrow}</strong>
+            <b>${specialEdition.label}</b>
+            <small>${specialEdition.reason}</small>
+          </div>
+        </div>
+      ` : ""}
 
       <section class="tlpt-card-experience tlpt-card-experience-${experience.className}" aria-label="Card experience status">
         <div class="tlpt-card-experience-head">
@@ -4426,6 +4626,7 @@ function renderPlayerProfile(data) {
   const secondaryArchetype = archetypes.secondary;
   const tierMeta = playerCardTierMeta(player, players);
   const cardViews = playerCardViewData(player, players);
+  const specialEdition = playerCardSpecialEdition(player, data);
 
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
     let valueClass = "";
@@ -4458,7 +4659,7 @@ function renderPlayerProfile(data) {
   container.innerHTML = `
     <div class="profile-shell player-profile-shell">
       <div class="profile-hero profile-hero-wide player-profile-hero">
-        ${playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews)}
+        ${playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews, specialEdition)}
         ${playerProfileSnapshotMarkup(
           player,
           data,
@@ -4469,7 +4670,7 @@ function renderPlayerProfile(data) {
         )}
       </div>
 
-      ${playerCardComparisonMarkup(player, players)}
+      ${playerCardComparisonMarkup(player, players, data)}
 
       ${playerDnaMarkup(player)}
 
@@ -4485,7 +4686,7 @@ function renderPlayerProfile(data) {
     </div>
   `;
 
-  const comparisonController = wirePlayerCardComparison(container, player, players);
+  const comparisonController = wirePlayerCardComparison(container, player, players, data);
   wirePlayerCardRatingControls(
     container,
     cardViews,
