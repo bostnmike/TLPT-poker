@@ -3484,7 +3484,9 @@ function playerCardRatingComparator(players) {
     String(a?.name || "").localeCompare(String(b?.name || ""));
 }
 
-function playerCardAttributes(player, players) {
+function playerCardAttributes(player, players, options = {}) {
+  const periodLabel = options.periodLabel || "Career";
+  const periodDescription = options.periodDescription || "career";
   const returnRating = Math.round(
     (playerCardMetricRating(player, players, "roi") * 0.65) +
     (playerCardMetricRating(player, players, "profit") * 0.35)
@@ -3499,45 +3501,153 @@ function playerCardAttributes(player, players) {
       code: "RET",
       label: "Return",
       value: returnRating,
-      raw: `ROI ${fmtPct(player?.roi)} • Career Profit ${fmtMoney(player?.profit)}`,
-      formula: "65% of the ROI rating plus 35% of the Career Profit rating. Both components are scaled against established TLPT players."
+      raw: `ROI ${fmtPct(player?.roi)} • ${periodLabel} Profit ${fmtMoney(player?.profit)}`,
+      formula: `65% of the ROI rating plus 35% of the ${periodLabel} Profit rating. Both components are scaled against the comparable TLPT ${periodDescription} benchmark pool.`
     },
     {
       code: "CLT",
       label: "Clutch",
       value: playerCardMetricRating(player, players, "clutchIndex"),
       raw: `Clutch Index ${fmtNum(player?.clutchIndex)} • ${cashes} cash${cashes === 1 ? "" : "es"} in ${appearances} appearance${appearances === 1 ? "" : "s"}`,
-      formula: "Clutch Index is normalized career cash frequency: Times Placed ÷ Buy-ins. The result is then scaled to the card-rating range."
+      formula: `Clutch Index is normalized ${periodDescription} cash frequency: Times Placed ÷ Buy-ins. The result is then scaled to the card-rating range.`
     },
     {
       code: "ITM",
       label: "In the Money",
       value: playerCardMetricRating(player, players, "cashRate"),
       raw: `Cash Rate ${fmtPct(player?.cashRate)} • ${cashes} of ${appearances} appearances`,
-      formula: "Cash Rate equals Times Placed ÷ Buy-ins, then scales against established TLPT players. Rebuys do not count as separate appearances."
+      formula: `Cash Rate equals Times Placed ÷ Buy-ins, then scales against the comparable TLPT ${periodDescription} benchmark pool. Rebuys do not count as separate appearances.`
     },
     {
       code: "AGR",
       label: "Aggression",
       value: playerCardMetricRating(player, players, "aggressionIndex"),
       raw: `Aggression Index ${fmtNum(player?.aggressionIndex)} • ${hits} knockout${hits === 1 ? "" : "s"} in ${entries} entr${entries === 1 ? "y" : "ies"}`,
-      formula: "Aggression Index normalizes knockouts per entry: Hits ÷ Entries. Entries include the initial buy-in and any rebuys."
+      formula: `Aggression Index normalizes ${periodDescription} knockouts per entry: Hits ÷ Entries. Entries include the initial buy-in and any rebuys.`
     },
     {
       code: "HIT",
       label: "Hit Rate",
       value: playerCardMetricRating(player, players, "hitRate"),
       raw: `Hit Rate ${fmtPct(player?.hitRate)} • ${hits} knockout${hits === 1 ? "" : "s"} in ${entries} entr${entries === 1 ? "y" : "ies"}`,
-      formula: "Hit Rate equals Hits ÷ Entries, then scales against established TLPT players. Every rebuy adds another entry to the denominator."
+      formula: `Hit Rate equals Hits ÷ Entries, then scales against the comparable TLPT ${periodDescription} benchmark pool. Every rebuy adds another entry to the denominator.`
     },
     {
       code: "SUR",
       label: "Survival",
       value: playerCardMetricRating(player, players, "survivorIndex"),
       raw: `Survival Index ${fmtNum(player?.survivorIndex)} • Cash ${fmtPct(player?.cashRate)} • Bubble ${fmtPct(player?.bubbleRate)} • Hit ${fmtPct(player?.hitRate)}`,
-      formula: "Survival starts with 55% Cash Rate, 25% Bubble Avoidance and 20% Hit Rate. That result is normalized and scaled to the card-rating range."
+      formula: `Survival starts with 55% Cash Rate, 25% Bubble Avoidance and 20% Hit Rate. That result is normalized across the TLPT ${periodDescription} benchmark pool and scaled to the card-rating range.`
     }
   ];
+}
+
+function playerCardWindowMetrics(players, windowKey) {
+  return (players || [])
+    .map(player => player?.cardForm?.[windowKey])
+    .filter(window => Number(window?.eventCount || 0) > 0 && window?.metrics)
+    .map(window => window.metrics);
+}
+
+function playerCardWindowDate(value) {
+  const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return "";
+  return `${Number(match[2])}/${Number(match[3])}/${match[1].slice(2)}`;
+}
+
+function playerCardWindowRange(window) {
+  const start = playerCardWindowDate(window?.startDate);
+  const end = playerCardWindowDate(window?.endDate);
+  if (!start && !end) return "No appearances yet";
+  return start === end || !start ? (end || start) : `${start}–${end}`;
+}
+
+function playerCardMovementMeta(recentOverall, previousOverall, hasComparison) {
+  if (!hasComparison) {
+    return {
+      label: "NEW FORM",
+      className: "new",
+      title: "A complete preceding five-appearance window is required for movement."
+    };
+  }
+
+  const delta = recentOverall - previousOverall;
+  if (delta > 0) {
+    return {
+      label: `▲ +${delta}`,
+      className: "up",
+      title: `${delta} rating point${delta === 1 ? "" : "s"} above the preceding five appearances.`
+    };
+  }
+
+  if (delta < 0) {
+    return {
+      label: `▼ ${delta}`,
+      className: "down",
+      title: `${Math.abs(delta)} rating point${Math.abs(delta) === 1 ? "" : "s"} below the preceding five appearances.`
+    };
+  }
+
+  return {
+    label: "• 0",
+    className: "flat",
+    title: "Even with the preceding five appearances."
+  };
+}
+
+function playerCardViewData(player, players) {
+  const careerAppearances = Number(player?.buyIns ?? 0);
+  const careerOverall = playerCardOverallRating(player, players);
+  const career = {
+    key: "career",
+    edition: "CAREER",
+    overall: careerOverall,
+    attributes: playerCardAttributes(player, players),
+    overallRaw: `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
+    overallFormula: `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 62–95 overall card rating against established TLPT players.`,
+    context: `Career • ${careerAppearances} appearance${careerAppearances === 1 ? "" : "s"}`,
+    caveat: "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
+    movement: null
+  };
+
+  const recentWindow = player?.cardForm?.recent;
+  const recentMetrics = recentWindow?.metrics;
+  const recentCount = Number(recentWindow?.eventCount || 0);
+  if (!recentMetrics || recentCount < 1) {
+    return { career, lastFive: null };
+  }
+
+  const previousWindow = player?.cardForm?.previous;
+  const previousMetrics = previousWindow?.metrics;
+  const previousCount = Number(previousWindow?.eventCount || 0);
+  const recentPool = playerCardWindowMetrics(players, "recent");
+  const previousPool = playerCardWindowMetrics(players, "previous");
+  const recentOverall = playerCardOverallRating(recentMetrics, recentPool);
+  const hasComparison = recentCount === 5 && previousCount === 5 && previousMetrics;
+  const previousOverall = hasComparison
+    ? playerCardOverallRating(previousMetrics, previousPool)
+    : null;
+  const movement = playerCardMovementMeta(recentOverall, previousOverall, hasComparison);
+  const recentLabel = recentCount === 5 ? "Last Five" : `Last ${recentCount}`;
+  const range = playerCardWindowRange(recentWindow);
+
+  return {
+    career,
+    lastFive: {
+      key: "lastFive",
+      edition: recentCount === 5 ? "LAST FIVE" : `LAST ${recentCount}`,
+      overall: recentOverall,
+      attributes: playerCardAttributes(recentMetrics, recentPool, {
+        periodLabel: recentLabel,
+        periodDescription: "recent-form"
+      }),
+      overallRaw: `Form Power Index ${fmtNum(recentMetrics?.trueSkillScore)} • ${recentCount} recent appearance${recentCount === 1 ? "" : "s"} • ${range}`,
+      overallFormula: `${STAT_FORMULAS.trueSkillScore}. The form Power Index is scaled to a 62–95 rating against comparable recent TLPT samples. Movement compares this rating with the preceding five appearances.`,
+      context: `${recentLabel} • ${range}`,
+      caveat: `${recentLabel} view. Scores use only this player's most recent appearances; the card tier, official Power Rank and experience status remain career-based.`,
+      movement
+    }
+  };
 }
 
 function playerCardExperienceMeta(player, tierMeta) {
@@ -3582,12 +3692,14 @@ function playerCardExperienceMeta(player, tierMeta) {
   };
 }
 
-function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
-  const overall = playerCardOverallRating(player, players);
-  const attributes = playerCardAttributes(player, players);
+function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews) {
+  const careerView = cardViews?.career || playerCardViewData(player, players).career;
+  const hasLastFive = Boolean(cardViews?.lastFive);
+  const overall = careerView.overall;
+  const attributes = careerView.attributes;
   const experience = playerCardExperienceMeta(player, tierMeta);
-  const overallRaw = `Power Index ${fmtNum(player?.trueSkillScore)} • ${Number(player?.buyIns ?? 0)} career appearance${Number(player?.buyIns ?? 0) === 1 ? "" : "s"}`;
-  const overallFormula = `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 62–95 overall card rating against established TLPT players.`;
+  const overallRaw = careerView.overallRaw;
+  const overallFormula = careerView.overallFormula;
   const progressPct = Math.max(
     0,
     Math.min(100, (experience.progressNow / Math.max(experience.progressMax, 1)) * 100)
@@ -3595,6 +3707,24 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
 
   return `
     <div class="tlpt-card-stage">
+      <div class="tlpt-card-view-bar">
+        <div class="tlpt-card-view-switch" role="group" aria-label="Player card time period">
+          <button
+            type="button"
+            class="is-active"
+            data-card-view-control="career"
+            aria-pressed="true"
+          >Career</button>
+          <button
+            type="button"
+            data-card-view-control="lastFive"
+            aria-pressed="false"
+            ${hasLastFive ? "" : "disabled"}
+          >Last Five</button>
+        </div>
+        <p data-card-view-context>${careerView.context}</p>
+      </div>
+
       <svg class="tlpt-card-shape-defs" aria-hidden="true" focusable="false">
         <defs>
           <clipPath id="tlpt-player-card-shape" clipPathUnits="objectBoundingBox">
@@ -3605,6 +3735,8 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
 
       <article
         class="tlpt-player-card tlpt-player-card-${tierMeta.className}"
+        data-player-card
+        data-card-player-name="${escapeHtmlAttr(displayPlayerNamePlain(player))}"
         aria-label="${displayPlayerNamePlain(player)} career player card. Overall rating ${overall}."
       >
         <div class="tlpt-player-card-inner">
@@ -3623,13 +3755,14 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
               aria-pressed="true"
               title="Explain the Overall rating"
             >
-              <span class="tlpt-card-overall">${overall}</span>
+              <span class="tlpt-card-overall" data-card-overall>${overall}</span>
               <span class="tlpt-card-tier-code">${tierMeta.code}</span>
             </button>
 
             <div class="tlpt-card-edition">
               <span>TLPT</span>
-              <strong>CAREER</strong>
+              <strong data-card-edition>${careerView.edition}</strong>
+              <em data-card-movement hidden></em>
             </div>
 
             <div class="tlpt-card-crest-wrap">
@@ -3657,6 +3790,7 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
                 type="button"
                 class="tlpt-card-attribute"
                 data-card-rating-control
+                data-card-attribute-code="${attribute.code}"
                 data-rating-title="${escapeHtmlAttr(`${attribute.code} — ${attribute.label}`)}"
                 data-rating-value="${attribute.value}"
                 data-rating-raw="${escapeHtmlAttr(attribute.raw)}"
@@ -3694,7 +3828,10 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
           <span style="width:${progressPct}%"></span>
         </div>
         <p>${experience.milestone}</p>
-        <small>${experience.caveat}</small>
+        <small
+          data-card-experience-caveat
+          data-experience-base="${escapeHtmlAttr(experience.caveat)}"
+        >${experience.caveat} ${careerView.caveat}</small>
       </section>
 
       <section
@@ -3716,7 +3853,7 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta) {
   `;
 }
 
-function wirePlayerCardRatingControls(scope) {
+function wirePlayerCardRatingControls(scope, cardViews) {
   const controls = [...scope.querySelectorAll("[data-card-rating-control]")];
   const explainer = scope.querySelector("#tlpt-card-rating-explainer");
   if (!controls.length || !explainer) return;
@@ -3739,11 +3876,93 @@ function wirePlayerCardRatingControls(scope) {
     if (formula) formula.textContent = control.dataset.ratingFormula || "";
   };
 
+  const applyView = viewKey => {
+    const view = cardViews?.[viewKey];
+    if (!view) return;
+
+    const activeControl = controls.find(control => control.classList.contains("is-active"));
+    const activeAttributeCode = activeControl?.dataset.cardAttributeCode || null;
+    const overallControl = scope.querySelector(".tlpt-card-rating-block[data-card-rating-control]");
+    const card = scope.querySelector("[data-player-card]");
+    const overall = scope.querySelector("[data-card-overall]");
+    const edition = scope.querySelector("[data-card-edition]");
+    const movement = scope.querySelector("[data-card-movement]");
+    const context = scope.querySelector("[data-card-view-context]");
+    const caveat = scope.querySelector("[data-card-experience-caveat]");
+
+    scope.querySelectorAll("[data-card-view-control]").forEach(button => {
+      const isActive = button.dataset.cardViewControl === viewKey;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (card) {
+      card.dataset.cardView = viewKey;
+      card.classList.remove("is-view-changing");
+      void card.offsetWidth;
+      card.classList.add("is-view-changing");
+      card.setAttribute(
+        "aria-label",
+        `${card.dataset.cardPlayerName || "Player"} ${viewKey === "career" ? "career" : "last five"} player card. Overall rating ${view.overall}.`
+      );
+    }
+
+    if (overall) overall.textContent = view.overall;
+    if (edition) edition.textContent = view.edition;
+    if (context) context.textContent = view.context;
+    if (caveat) {
+      const base = caveat.dataset.experienceBase || "";
+      caveat.textContent = `${base} ${view.caveat}`.trim();
+    }
+
+    if (movement) {
+      movement.className = "tlpt-card-movement";
+      if (view.movement) {
+        movement.hidden = false;
+        movement.textContent = view.movement.label;
+        movement.title = view.movement.title;
+        movement.classList.add(`is-${view.movement.className}`);
+      } else {
+        movement.hidden = true;
+        movement.textContent = "";
+        movement.removeAttribute("title");
+      }
+    }
+
+    if (overallControl) {
+      overallControl.dataset.ratingValue = view.overall;
+      overallControl.dataset.ratingRaw = view.overallRaw;
+      overallControl.dataset.ratingFormula = view.overallFormula;
+    }
+
+    view.attributes.forEach(attribute => {
+      const control = scope.querySelector(`[data-card-attribute-code="${attribute.code}"]`);
+      if (!control) return;
+      control.dataset.ratingValue = attribute.value;
+      control.dataset.ratingRaw = attribute.raw;
+      control.dataset.ratingFormula = attribute.formula;
+      const displayedValue = control.querySelector("strong");
+      if (displayedValue) displayedValue.textContent = attribute.value;
+    });
+
+    const nextActive = activeAttributeCode
+      ? scope.querySelector(`[data-card-attribute-code="${activeAttributeCode}"]`)
+      : overallControl;
+    if (nextActive) activate(nextActive);
+  };
+
   controls.forEach(control => {
     control.addEventListener("click", () => activate(control));
     control.addEventListener("focus", () => activate(control));
     control.addEventListener("mouseenter", () => activate(control));
   });
+
+  scope.querySelectorAll("[data-card-view-control]").forEach(button => {
+    button.addEventListener("click", () => applyView(button.dataset.cardViewControl));
+  });
+
+  const overallControl = scope.querySelector(".tlpt-card-rating-block[data-card-rating-control]");
+  if (overallControl) activate(overallControl);
 }
 
 function playerProfileStreakMeta(player, data) {
@@ -3906,6 +4125,7 @@ function renderPlayerProfile(data) {
   const primaryArchetype = archetypes.primary;
   const secondaryArchetype = archetypes.secondary;
   const tierMeta = playerCardTierMeta(player, players);
+  const cardViews = playerCardViewData(player, players);
 
   const profileStats = PROFILE_STAT_CONFIG.map(config => {
     let valueClass = "";
@@ -3938,7 +4158,7 @@ function renderPlayerProfile(data) {
   container.innerHTML = `
     <div class="profile-shell player-profile-shell">
       <div class="profile-hero profile-hero-wide player-profile-hero">
-        ${playerCardMarkup(player, players, primaryArchetype, tierMeta)}
+        ${playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews)}
         ${playerProfileSnapshotMarkup(
           player,
           data,
@@ -3963,7 +4183,7 @@ function renderPlayerProfile(data) {
     </div>
   `;
 
-  wirePlayerCardRatingControls(container);
+  wirePlayerCardRatingControls(container, cardViews);
 
   const formulaDisplay = document.getElementById("player-formula-display");
   const statCards = container.querySelectorAll("[data-stat-formula]");
