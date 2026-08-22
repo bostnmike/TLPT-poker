@@ -1,106 +1,139 @@
-#!/usr/bin/env python3
+name: Set Featured Crew Card
 
-import json
-import sys
-from pathlib import Path
+permissions:
+  contents: write
 
+on:
+  workflow_dispatch:
+    inputs:
+      player:
+        description: "Player slug or exact name (example: bostnmike)"
+        required: true
+        type: string
+      edition:
+        description: "Card edition (the player must have earned it)"
+        required: true
+        default: "Automatic - best earned card"
+        type: choice
+        options:
+          - "Automatic - best earned card"
+          - "Base Edition"
+          - "Milestone - 10 Club"
+          - "Milestone - 25 Club"
+          - "Milestone - 50 Club"
+          - "Milestone - 75 Club"
+          - "Milestone - 100 Club"
+          - "Heater - 2-game cash streak"
+          - "Heater - 3-game cash streak"
+          - "Heater - 4-game cash streak"
+          - "Heater - 5-game cash streak"
+          - "Heater - 9-game cash streak"
+          - "Hall - Tax Collector"
+          - "Hall - Direct Deposit"
+          - "Hall - Billing Department"
+          - "Infamy - Boy in the Bubble"
+          - "Leader - Profit Leader"
+          - "Leader - Knockout Leader"
+          - "Leader - ROI Leader"
+          - "Leader - Cash Rate Leader"
 
-ROOT = Path(__file__).resolve().parent.parent
-CONFIG_PATH = ROOT / "data" / "featured-cards.json"
-SITE_DATA_PATH = ROOT / "data" / "generated" / "site-data.json"
+concurrency:
+  group: tlpt-data-pipeline-main
+  cancel-in-progress: false
 
+jobs:
+  set-featured-card:
+    runs-on: ubuntu-latest
 
-def load_json(path):
-    if not path.exists():
-        raise FileNotFoundError(f"Missing required file: {path}")
-    with path.open("r", encoding="utf-8") as handle:
-        return json.load(handle)
+    steps:
+      - name: Check out the latest site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-def resolve_player(players, requested):
-    normalized = str(requested or "").strip().lower()
-    matches = [
-        player for player in players
-        if normalized in {
-            str(player.get("slug") or "").strip().lower(),
-            str(player.get("name") or "").strip().lower()
-        }
-    ]
+      - name: Refresh all source-derived data
+        run: |
+          python scripts/parse-event-reports.py
+          node scripts/generate-event-index.js
+          python scripts/build-site-data.py
+          python scripts/build-knockouts.py
 
-    if len(matches) == 1:
-        return matches[0]
+      - name: Resolve selected card ID
+        id: card
+        env:
+          TLPT_CARD_OPTION: ${{ inputs.edition }}
+        run: |
+          case "$TLPT_CARD_OPTION" in
+            "Automatic - best earned card") edition_id="auto" ;;
+            "Base Edition") edition_id="base" ;;
+            "Milestone - 10 Club") edition_id="milestone-10" ;;
+            "Milestone - 25 Club") edition_id="milestone-25" ;;
+            "Milestone - 50 Club") edition_id="milestone-50" ;;
+            "Milestone - 75 Club") edition_id="milestone-75" ;;
+            "Milestone - 100 Club") edition_id="milestone-100" ;;
+            "Heater - 2-game cash streak") edition_id="heater-2" ;;
+            "Heater - 3-game cash streak") edition_id="heater-3" ;;
+            "Heater - 4-game cash streak") edition_id="heater-4" ;;
+            "Heater - 5-game cash streak") edition_id="heater-5" ;;
+            "Heater - 9-game cash streak") edition_id="heater-9" ;;
+            "Hall - Tax Collector") edition_id="hall-tax-collector" ;;
+            "Hall - Direct Deposit") edition_id="hall-direct-deposit" ;;
+            "Hall - Billing Department") edition_id="hall-billing-department" ;;
+            "Infamy - Boy in the Bubble") edition_id="infamy-boy-in-the-bubble" ;;
+            "Leader - Profit Leader") edition_id="leader-profit" ;;
+            "Leader - Knockout Leader") edition_id="leader-knockouts" ;;
+            "Leader - ROI Leader") edition_id="leader-roi" ;;
+            "Leader - Cash Rate Leader") edition_id="leader-cash-rate" ;;
+            *)
+              echo "::error::Unknown card option: $TLPT_CARD_OPTION"
+              exit 2
+              ;;
+          esac
+          echo "edition_id=$edition_id" >> "$GITHUB_OUTPUT"
 
-    valid_players = ", ".join(
-        player.get("slug", "")
-        for player in sorted(players, key=lambda item: item.get("slug", ""))
-    )
-    raise ValueError(
-        f"Unknown or ambiguous player '{requested}'. Valid player slugs: {valid_players}"
-    )
+      - name: Apply commissioner selection
+        env:
+          TLPT_PLAYER: ${{ inputs.player }}
+          TLPT_EDITION: ${{ steps.card.outputs.edition_id }}
+        run: python scripts/set-featured-card.py "$TLPT_PLAYER" "$TLPT_EDITION"
 
+      - name: Rebuild selected Crew design
+        run: python scripts/build-site-data.py
 
-def set_featured_card(player_input, edition_input):
-    data = load_json(SITE_DATA_PATH)
-    config = load_json(CONFIG_PATH)
-    players = data.get("players") or []
-    player = resolve_player(players, player_input)
-    slug = player["slug"]
-    edition = str(edition_input or "").strip().lower()
+      - name: Validate and audit the complete site
+        run: |
+          python scripts/validate-site-data.py
+          python scripts/audit-site-integrity.py
 
-    earned_cards = player.get("cardCollection") or []
-    earned_ids = [
-        str(card.get("id"))
-        for card in earned_cards
-        if card.get("id")
-    ]
-    valid_editions = {"auto", "base", *earned_ids}
+      - name: Publish featured-card selection
+        env:
+          TLPT_PLAYER: ${{ inputs.player }}
+          TLPT_EDITION: ${{ steps.card.outputs.edition_id }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-    if edition not in valid_editions:
-        valid_label = ", ".join(["auto", "base", *earned_ids])
-        raise ValueError(
-            f"'{edition_input}' is not an earned edition for {player['name']}. "
-            f"Valid choices: {valid_label}"
-        )
+          git add data/featured-cards.json
+          git add data/parsed/events/
+          git add data/generated/site-data.json
+          git add data/generated/validation-report.json
+          git add data/generated/integrity-report.json
+          git add data/generated/knockouts-generated.json
+          git add data/generated/knockouts.json
+          git add knockouts.json
+          git add knockout-events-full.json
+          git add knockout-name-map-full.json
 
-    featured_cards = config.setdefault("featuredCards", {})
-    if not isinstance(featured_cards, dict):
-        raise ValueError("featured-cards.json featuredCards must be an object")
+          if git diff --cached --quiet; then
+            echo "No featured-card changes to publish."
+            exit 0
+          fi
 
-    if edition == "auto":
-        featured_cards.pop(slug, None)
-        automatic = earned_ids[0] if earned_ids else "base"
-        result = f"Automatic prestige selection ({automatic})"
-    else:
-        featured_cards[slug] = edition
-        result = "Base Edition" if edition == "base" else edition
-
-    config["featuredCards"] = dict(sorted(featured_cards.items()))
-    with CONFIG_PATH.open("w", encoding="utf-8") as handle:
-        json.dump(config, handle, indent=2, ensure_ascii=False)
-        handle.write("\n")
-
-    try:
-        displayed_path = CONFIG_PATH.relative_to(ROOT)
-    except ValueError:
-        displayed_path = CONFIG_PATH
-
-    print(f"✔ Player: {player['name']} ({slug})")
-    print(f"✔ Featured Crew card: {result}")
-    print(f"✔ Updated: {displayed_path}")
-
-
-def main():
-    if len(sys.argv) != 3:
-        raise SystemExit(
-            "Usage: python scripts/set-featured-card.py PLAYER_SLUG EDITION_ID"
-        )
-
-    try:
-        set_featured_card(sys.argv[1], sys.argv[2])
-    except (FileNotFoundError, ValueError, json.JSONDecodeError) as error:
-        print(f"::error::{error}")
-        raise SystemExit(2) from error
-
-
-if __name__ == "__main__":
-    main()
+          git commit -m "Feature ${TLPT_EDITION} Crew card for ${TLPT_PLAYER}"
+          git push origin HEAD:main
