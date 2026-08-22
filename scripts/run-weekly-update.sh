@@ -20,6 +20,9 @@ python3 scripts/build-knockouts.py
 echo "🧪 Validating data..."
 python3 scripts/validate-site-data.py
 
+echo "🔎 Auditing source-to-page integrity..."
+python3 scripts/audit-site-integrity.py
+
 echo ""
 echo "✅ Weekly update complete."
 echo "Generated files:"
@@ -31,3 +34,4 @@ echo " - knockouts.json"
 echo " - knockout-events-full.json"
 echo " - knockout-name-map-full.json"
 echo " - data/generated/validation-report.json"
+echo " - data/generated/integrity-report.json"

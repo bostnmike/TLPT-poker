@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 GENERATED_PATH = DATA_DIR / "generated" / "site-data.json"
 OUTPUT_PATH = DATA_DIR / "generated" / "validation-report.json"
+PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 
 
 def load_json(path):
@@ -154,6 +155,42 @@ def validate_featured_card_summary(data, players):
     return errors
 
 
+def validate_source_coverage(data):
+    """Reject a mathematically valid but stale generated site snapshot."""
+    errors = []
+    parsed_files = sorted(
+        path for path in PARSED_EVENTS_DIR.glob("*.json")
+        if path.name != "index.json"
+    )
+    parsed_names = [path.name for path in parsed_files]
+    parsed_dates = [path.stem for path in parsed_files]
+    ledger = data.get("cardLedger") or {}
+
+    if ledger.get("eventCount") != len(parsed_files):
+        errors.append(
+            f"cardLedger eventCount is stale: "
+            f"{ledger.get('eventCount')} != {len(parsed_files)} parsed events"
+        )
+
+    latest_date = parsed_dates[-1] if parsed_dates else ""
+    if ledger.get("replayedThrough") != latest_date:
+        errors.append(
+            f"cardLedger replay date is stale: "
+            f"{ledger.get('replayedThrough')} != {latest_date}"
+        )
+
+    index_path = PARSED_EVENTS_DIR / "index.json"
+    try:
+        parsed_index = load_json(index_path)
+    except (FileNotFoundError, json.JSONDecodeError) as error:
+        errors.append(f"parsed event index could not be read: {error}")
+    else:
+        if parsed_index != parsed_names:
+            errors.append("parsed event index does not exactly match parsed event files")
+
+    return errors
+
+
 def main():
     data = load_json(GENERATED_PATH)
 
@@ -180,6 +217,11 @@ def main():
     if featured_errors:
         report["errors"]["_featuredCardConfig"] = featured_errors
         report["errorCount"] += len(featured_errors)
+
+    source_errors = validate_source_coverage(data)
+    if source_errors:
+        report["errors"]["_sourceCoverage"] = source_errors
+        report["errorCount"] += len(source_errors)
 
     if report["errorCount"] > 0:
         report["status"] = "FAIL"

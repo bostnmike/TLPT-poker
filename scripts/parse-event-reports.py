@@ -207,14 +207,27 @@ def extract_total_pot(html):
 
 
 def extract_paid_spots(html):
-    pattern = (
-        r'<td class="fieldname">Percentage:</td>\s*'
-        r'<td class="fieldvalue">\s*\$[^<]*</td>\s*'
-        r'<td class="fieldvalue">\s*\((\d+)\)\s*</td>'
+    # Prize structures can mix percentage and fixed awards. Reading only the
+    # Percentage row undercounts paid places whenever a fixed award is also
+    # present (for example, the 2026-05-01 and 2026-08-16 reports). The Total
+    # row inside the Prizes table is the authoritative count of paid spots.
+    prizes_table = re.search(
+        r'<td class="infotitle"[^>]*>\s*Prizes\s*</td>(.*?)</table>',
+        html,
+        flags=re.IGNORECASE | re.DOTALL
     )
-    m = re.search(pattern, html, flags=re.IGNORECASE | re.DOTALL)
-    if m:
-        return safe_int(m.group(1), 0)
+    if not prizes_table:
+        return 0
+
+    total_row = re.search(
+        r'<td class="fieldname">\s*Total:\s*</td>\s*'
+        r'<td class="fieldvalue">\s*\$[^<]*</td>\s*'
+        r'<td class="fieldvalue">\s*\((\d+)\)\s*</td>',
+        prizes_table.group(1),
+        flags=re.IGNORECASE | re.DOTALL
+    )
+    if total_row:
+        return safe_int(total_row.group(1), 0)
     return 0
 
 
@@ -339,7 +352,10 @@ def apply_event_specific_overrides(event_date, parsed_actions, payouts):
     warnings = []
     overrides = EVENT_OVERRIDES.get(event_date, {})
     force_single_killer = overrides.get("force_single_killer", {})
-    chop_finalists = set(overrides.get("chop_finalists", []))
+    # Preserve the configured order so warnings and parsed JSON are identical
+    # across repeated pipeline runs. The lists are tiny, so tuple membership is
+    # sufficient and avoids hash-order nondeterminism from a set.
+    chop_finalists = tuple(overrides.get("chop_finalists", []))
 
     cleaned_actions = list(parsed_actions)
 
@@ -358,18 +374,35 @@ def apply_event_specific_overrides(event_date, parsed_actions, payouts):
                     f"{event_date}: forced credited killer for victim {victim_slug} -> {forced_killer_slug}"
                 )
 
-    # Enforce explicit chop finalists for known dates
-    if chop_finalists:
+    def remove_terminal_bustout(chopped_slug, warning_prefix):
+        """Remove only the artificial final bust after a finalist's last entry."""
+        last_reentry_idx = -1
+        last_bust_idx = -1
+
         for idx, action in enumerate(cleaned_actions):
-            if action is None:
+            if not action or action.get("slug") != chopped_slug:
                 continue
-            if action.get("type") not in {"bustout", "bustout_uncredited"}:
-                continue
-            if action.get("slug") in chop_finalists:
-                cleaned_actions[idx] = None
-                warnings.append(
-                    f"{event_date}: removed bustout for chopped finalist {action.get('slug')} at {action.get('time_raw', 'unknown time')}"
-                )
+
+            if action.get("type") in {"buyin", "rebuy"}:
+                last_reentry_idx = idx
+
+            if action.get("type") in {"bustout", "bustout_uncredited"}:
+                last_bust_idx = idx
+
+        if last_bust_idx > last_reentry_idx:
+            removed = cleaned_actions[last_bust_idx]
+            cleaned_actions[last_bust_idx] = None
+            warnings.append(
+                f"{event_date}: {warning_prefix} removed terminal bustout for "
+                f"{chopped_slug} at {removed.get('time_raw', 'unknown time')}"
+            )
+
+    # Enforce explicit chop finalists for known dates. A chopped finalist may
+    # have busted and rebought earlier; that real elimination and credited hit
+    # must remain. Only the terminal report line created at the chop is removed.
+    if chop_finalists:
+        for chopped_slug in chop_finalists:
+            remove_terminal_bustout(chopped_slug, "explicit chop handling")
 
         cleaned_actions = [action for action in cleaned_actions if action is not None]
         return cleaned_actions, warnings
@@ -379,25 +412,7 @@ def apply_event_specific_overrides(event_date, parsed_actions, payouts):
     first_place_slugs = [p["slug"] for p in payouts if p.get("rank") == 1]
     if len(first_place_slugs) >= 2:
         for chopped_slug in first_place_slugs:
-            last_reentry_idx = -1
-            last_bust_idx = -1
-
-            for idx, action in enumerate(cleaned_actions):
-                if not action or action.get("slug") != chopped_slug:
-                    continue
-
-                if action.get("type") in {"buyin", "rebuy"}:
-                    last_reentry_idx = idx
-
-                if action.get("type") in {"bustout", "bustout_uncredited"}:
-                    last_bust_idx = idx
-
-            if last_bust_idx > last_reentry_idx >= -1:
-                removed = cleaned_actions[last_bust_idx]
-                cleaned_actions[last_bust_idx] = None
-                warnings.append(
-                    f"{event_date}: generic chop handling removed terminal bustout for {chopped_slug} at {removed.get('time_raw', 'unknown time')}"
-                )
+            remove_terminal_bustout(chopped_slug, "generic chop handling")
 
         cleaned_actions = [action for action in cleaned_actions if action is not None]
 
@@ -538,7 +553,7 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
         warnings.append(f"{event_date}: buy-in count mismatch: summary={buyins_count}, actions={action_buyins}")
     if action_rebuys != rebuys_count:
         warnings.append(f"{event_date}: rebuy count mismatch: summary={rebuys_count}, actions={action_rebuys}")
-    if paid_spots and len(payouts) != paid_spots:
+    if len(payouts) != paid_spots:
         warnings.append(f"{event_date}: paid spots mismatch: summary={paid_spots}, payouts={len(payouts)}")
 
     event = {

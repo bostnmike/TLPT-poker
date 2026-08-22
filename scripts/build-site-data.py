@@ -2,7 +2,7 @@
 
 import json
 import math
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -1226,7 +1226,7 @@ def main():
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 
     output = {
-        "generatedAt": datetime.utcnow().isoformat() + "Z",
+        "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "sourceMode": "event_reports",
         "events": events["events"],
         "honors": honors,
