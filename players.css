@@ -743,6 +743,12 @@
   box-shadow:0 2px 6px rgba(0,0,0,.18);
 }
 
+.crew-page .crew-ultimate-edition em.is-base-featured{
+  border-color:rgba(255,227,154,.42);
+  color:var(--crew-card-ink);
+  background:rgba(8,12,16,.58);
+}
+
 /* Developmental sections are visible, but deliberately unranked. */
 
 .crew-page .tier-section.tier-section-provisional{

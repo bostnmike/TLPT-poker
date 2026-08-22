@@ -177,7 +177,11 @@
     const cards = [];
 
     (data?.players || []).forEach(player => {
-      (player?.cardCollection || []).forEach(record => {
+      const collection = player?.cardCollection || [];
+      const configuredFeaturedId = String(player?.featuredCardEdition || "").trim();
+      const featuredId = configuredFeaturedId || collection[0]?.id || "base";
+
+      collection.forEach(record => {
         const edition = editionMetadata(record);
         if (!edition?.snapshot) return;
 
@@ -188,6 +192,8 @@
             slug: player.slug,
             image: player.image
           },
+          isFeatured: edition.id === featuredId,
+          featuredMode: player?.featuredCardMode || "automatic",
           activityDate: edition.upgradedDate || edition.earnedDate,
           year: String(edition.upgradedDate || edition.earnedDate || "").slice(0, 4)
         });
@@ -240,13 +246,14 @@
 
     return `
       <article
-        class="trophy-collection-item trophy-collection-${escapeHtml(card.className)} trophy-collection-edition-${editionClass}"
+        class="trophy-collection-item trophy-collection-${escapeHtml(card.className)} trophy-collection-edition-${editionClass}${card.isFeatured ? " is-featured-on-crew" : ""}"
         data-card-id="${escapeHtml(card.id)}"
+        data-featured-on-crew="${card.isFeatured ? "true" : "false"}"
       >
         <a
           class="trophy-card trophy-card-${escapeHtml(card.className)} trophy-card-edition-${editionClass}"
           href="${playerUrl}"
-          aria-label="${escapeHtml(card.player.name)}, ${escapeHtml(card.label)}, historic rating ${snapshot.overall}. ${escapeHtml(earnedLabel(card))}."
+          aria-label="${escapeHtml(card.player.name)}, ${escapeHtml(card.label)}, historic rating ${snapshot.overall}. ${escapeHtml(earnedLabel(card))}.${card.isFeatured ? " Featured on the Crew page." : ""}"
           title="Open ${escapeHtml(card.player.name)}'s Player Profile"
         >
           <span class="trophy-card-inner">
@@ -294,6 +301,12 @@
             <strong>${escapeHtml(card.label)}</strong>
           </div>
           <em>${escapeHtml(rarityLabel(card))}</em>
+          ${card.isFeatured ? `
+            <span
+              class="trophy-card-featured"
+              title="${card.featuredMode === "commissioner" ? "Commissioner selection" : "Automatic prestige selection"}"
+            >Featured on Crew</span>
+          ` : ""}
           <p>${escapeHtml(card.reason || "Permanent TLPT collectible.")}</p>
           <small>${escapeHtml(card.earnedEvent || "TLPT Event")}</small>
         </div>

@@ -711,6 +711,26 @@
   white-space:nowrap;
 }
 
+.trophy-room-page .trophy-card-featured{
+  grid-column:1 / -1;
+  justify-self:start;
+  padding:4px 8px;
+  border:1px solid rgba(101,240,170,.50);
+  border-radius:999px;
+  color:#bdfbd7;
+  background:rgba(10,49,34,.72);
+  box-shadow:0 0 12px rgba(61,226,139,.12),inset 0 1px 0 rgba(255,255,255,.07);
+  font-size:.46rem;
+  font-weight:1000;
+  letter-spacing:.075em;
+  line-height:1;
+  text-transform:uppercase;
+}
+
+.trophy-room-page .trophy-collection-item.is-featured-on-crew .trophy-card-plaque{
+  border-color:rgba(101,240,170,.22);
+}
+
 .trophy-room-page .trophy-card-plaque p{
   grid-column:1 / -1;
   display:-webkit-box;
