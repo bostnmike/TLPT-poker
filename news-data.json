@@ -14,11 +14,180 @@
   },
   "weeks": [
 {
+  "id": "week-08-21-2026",
+  "date": "08/21/2026",
+  "eventName": "River Rocky | 9-Max",
+  "title": "TWTW: River Rocky | 9-Max",
+  "featured": true,
+  "dek": "Berserk busted Berserker, the Tilt Raise and Tilt C-Bet went into production, Nitro returned just in time to bubble, and Ahmed stretched the cash streak to five before a three-way split.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "NASA Al / ProvidenceMike",
+      "value": "Berserk, Berserker & the Department of Tilt",
+      "copy": "Berserk drew first blood on Berserker, who rebought and immediately put the Tilt Raise and Tilt C-Bet into live testing.",
+      "avatars": [
+        {
+          "src": "images/players/nasa-al.jpg",
+          "alt": "NASA Al",
+          "fallback": "NA"
+        },
+        {
+          "src": "images/players/providencemike.jpg",
+          "alt": "ProvidenceMike",
+          "fallback": "PM"
+        }
+      ]
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "ProvidenceMike",
+      "copy": "NASA Al opened the Berserk-on-Berserker violence before ProvidenceMike fired the rebuy.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "BostnMike made Hiro the first player gone for good after a night that used all three available second chances.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killers",
+      "player": "Ahmed / NASA Al",
+      "value": "2 knockouts each",
+      "copy": "Ahmed removed Li-Fo and ProvidenceMike; Al handled ProvidenceMike and returning bubble boy Nitro.",
+      "avatars": [
+        {
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/nasa-al.jpg",
+          "alt": "NASA Al",
+          "fallback": "NA"
+        }
+      ]
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "10"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "3"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$300"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "3h 47m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:10:40 pm 08/21/2026",
+    "endTime": "10:58:30 pm 08/21/2026",
+    "durationLabel": "3h 47m",
+    "buyIns": 7,
+    "rebuys": 3,
+    "entries": 10,
+    "totalPot": 300,
+    "paidSpots": 3,
+    "winner": "Ahmed, BostnMike, NASA Al",
+    "firstOut": "ProvidenceMike",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "NASA Al / ProvidenceMike / Ahmed",
+    "fallback": "NPA",
+    "pills": [
+      "Berserk & Berserker",
+      "Tilt Raise™",
+      "Tilt C-Bet™",
+      "5 Straight Cashes"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/nasa-al.jpg",
+        "alt": "NASA Al",
+        "fallback": "NA"
+      },
+      {
+        "src": "images/players/providencemike.jpg",
+        "alt": "ProvidenceMike",
+        "fallback": "PM"
+      },
+      {
+        "src": "images/players/ahmed.jpg",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "First Blood",
+      "value": "ProvidenceMike",
+      "note": "Berserk got Berserker first: NASA Al sent ProvidenceMike to the rebuy desk."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "BostnMike delivered the first permanent exit when the game finally started shedding players for real."
+    },
+    {
+      "label": "Patent Pending",
+      "value": "Tilt Raise™ / Tilt C-Bet™",
+      "note": "ProvidenceMike turned emotional leakage into intellectual property and briefly got Li-Fo to sign the field test."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Ahmed / BostnMike / NASA Al split first",
+      "note": "Nitro bubbled in fourth, and the final three agreed to divide the $300 pot evenly."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-21.jpg\" alt=\"Poster for the 08/21/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>River Rocky introduced the league's newest tag team and immediately proved they are less a partnership than a public-safety concern. NASA Al is now Berserk. ProvidenceMike is Berserker. Naturally, Berserk's first major act was busting Berserker. ProvidenceMike hit the rail first, rebought five seconds later, and came back with two pieces of proprietary poker technology: the Tilt Raise™ and the Tilt C-Bet™. Most players try to hide emotional leakage. Providence apparently filed for patent protection.</p><p>The product launch briefly showed promise. ProvidenceMike's second life produced a knockout of Li-Fo, and for a while the Department of Tilt looked like it might have a viable business model. Then Ahmed showed up with the regulatory paperwork. He removed Li-Fo for good, shut down ProvidenceMike later, and quietly made the money for the fifth straight game. At three cashes it was a run. At four it was a streak. At five, Ahmed should probably stop pretending he is a guest at the payout window.</p><p>Nitro supplied the night's cruelest Rocky subplot. Back after a lengthy absence, he survived the rebuys, stayed out of the early Berserk/Berserker crossfire, and worked all the way to four-handed without needing a second life. Then NASA Al landed the punch that mattered most and sent him out on the bubble. Nitro went the distance, heard the final bell, and discovered the judges were only paying three.</p><p>That left Ahmed, BostnMike, and NASA Al, and less than six minutes later the fight was over by agreement. The three split the $300 pot evenly at $100 each. BostnMike had quietly made Hiro the first permanent casualty, Al had handled both ProvidenceMike and Nitro, and Ahmed had added two late knockouts to cash number five. Berserk and Berserker may have launched the franchise, but Ahmed once again ended the night with the recurring revenue.</p>",
+  "roastHtml": "<p>ProvidenceMike has now patented the Tilt Raise™ and Tilt C-Bet™, which is ambitious because most players try to correct their tilt instead of turning it into intellectual property. Berserk busted him first, Ahmed shut the product line down later, and somewhere in between Li-Fo apparently volunteered for the beta test.</p>",
+  "numbersThatMatter": [
+    "7 buy-ins, 3 rebuys, 10 total entries.",
+    "3h 47m of play from 7:10 pm to 10:58 pm.",
+    "$300 total pot split evenly: $100 each to Ahmed, BostnMike, and NASA Al.",
+    "Ahmed made it 5 straight cashes and added 2 late knockouts before the split."
+  ],
+  "quickHitsLeft": [
+    "NASA Al opened the night by busting ProvidenceMike and officially launching Berserk-on-Berserker violence.",
+    "ProvidenceMike's rebuy produced one clean receipt when he eliminated Li-Fo during the Tilt Technology field test.",
+    "Hiro used one of the three rebuys, but BostnMike eventually made his exit the first permanent one.",
+    "Nitro returned after a lengthy absence, used no rebuy, and still landed exactly one place short of getting paid."
+  ],
+  "quickHitsRight": [
+    "Ahmed removed Li-Fo and ProvidenceMike in the late stretch while extending the cash streak to five.",
+    "NASA Al finished with two knockouts of his own: ProvidenceMike first and Nitro on the bubble.",
+    "BostnMike's only named knockout was Hiro, and he still quietly wound up with one-third of first.",
+    "Once Nitro disappeared, the final three needed less than six more minutes to decide that $100 each was enough fighting."
+  ],
+  "tldr": "Berserk busted Berserker, Berserker responded by patenting tilt-based aggression, Nitro returned just in time to bubble, and Ahmed made it five straight cashes before Ahmed, BostnMike, and NASA Al split first."
+},
+{
   "id": "week-08-16-2026",
   "date": "08/16/2026",
   "eventName": "Raise Man | 9-Max",
   "title": "TWTW: Raise Man | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "The Commish pulled out all the stops and recruited an emergency veteran roster, old-school tight poker took over, and Ahmed made it four straight cashes before splitting first with the man who assembled the field.",
   "summaryCards": [
     {
@@ -176,7 +345,7 @@
     "The average age was well into the 50s, and the solver never got invited to the meeting."
   ],
   "tldr": "Raise Man should have been the AARP Invitational: BostnMike recruited a veteran-heavy table out of thin air, Dan K returned, old-school tight poker ruled, and Ahmed made it four straight cashes before splitting first with the GM who assembled the roster."
-},
+}
 {
   "id": "week-08-07-2026",
   "date": "08/07/2026",
