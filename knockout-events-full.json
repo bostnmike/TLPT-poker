@@ -2594,5 +2594,43 @@
       "sourceVictim": "Nasa Al",
       "sourceKiller": "Ahmed"
     }
+  ],
+  "2026-08-21": [
+    {
+      "victim": "providencemike",
+      "killer": "nasa-al",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "providencemike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "ahmed",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "nitro",
+      "killer": "nasa-al",
+      "sourceVictim": "Nitro",
+      "sourceKiller": "Nasa Al"
+    }
   ]
 }

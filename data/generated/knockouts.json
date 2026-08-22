@@ -107,7 +107,7 @@
     "hiro": {
       "ahmed": 9,
       "ai-dave": 4,
-      "bostnmike": 8,
+      "bostnmike": 9,
       "brad-r": 1,
       "gilmore": 1,
       "li-fo": 2,
@@ -135,7 +135,7 @@
       "buffalomike": 1
     },
     "li-fo": {
-      "ahmed": 6,
+      "ahmed": 7,
       "ai-dave": 1,
       "big-tim": 1,
       "bostnmike": 7,
@@ -144,7 +144,7 @@
       "griffin": 2,
       "hiro": 7,
       "nasa-al": 2,
-      "providencemike": 4,
+      "providencemike": 5,
       "red": 3,
       "the-architect": 1,
       "tim-s": 2,
@@ -170,6 +170,7 @@
       "cougar": 1,
       "hayden-d": 1,
       "li-fo": 2,
+      "nasa-al": 1,
       "red": 2,
       "vish": 2,
       "wild-bill": 1
@@ -190,7 +191,7 @@
       "red": 1
     },
     "providencemike": {
-      "ahmed": 1,
+      "ahmed": 2,
       "ai-dave": 3,
       "bostnmike": 9,
       "buffalomike": 1,
@@ -200,6 +201,7 @@
       "griffin": 2,
       "hiro": 1,
       "li-fo": 4,
+      "nasa-al": 1,
       "nitro": 1,
       "red": 3,
       "the-architect": 1,
@@ -283,10 +285,10 @@
       "griffin": 1,
       "hiro": 9,
       "kishan": 1,
-      "li-fo": 6,
+      "li-fo": 7,
       "nasa-al": 2,
       "phattedcalf": 1,
-      "providencemike": 1,
+      "providencemike": 2,
       "red": 2,
       "the-architect": 1
     },
@@ -315,7 +317,7 @@
       "chris-o": 2,
       "cougar": 2,
       "hayden-d": 1,
-      "hiro": 8,
+      "hiro": 9,
       "jeff-t": 1,
       "kishan": 1,
       "li-fo": 7,
@@ -444,6 +446,8 @@
       "hiro": 6,
       "jeff-t": 2,
       "li-fo": 2,
+      "nitro": 1,
+      "providencemike": 1,
       "red": 1,
       "vic": 1
     },
@@ -470,7 +474,7 @@
       "bostnmike": 3,
       "cougar": 1,
       "hiro": 10,
-      "li-fo": 4,
+      "li-fo": 5,
       "phattedcalf": 1,
       "red": 5,
       "the-architect": 1,
@@ -588,6 +592,7 @@
     "2026-07-26",
     "2026-08-01",
     "2026-08-07",
-    "2026-08-16"
+    "2026-08-16",
+    "2026-08-21"
   ]
 }
