@@ -1,45 +1,45 @@
 {
-  "generatedAt": "2026-08-22T04:23:08.466191Z",
+  "generatedAt": "2026-08-22T04:17:20.474275Z",
   "sourceMode": "event_reports",
   "events": [
     {
-      "title": "Top Stack | 9-Max",
+      "title": "River Rocky | 9-Max",
       "format": "40K Format",
       "day": "Friday",
-      "date": "Friday, August 28, 2026",
+      "date": "Friday, August 21, 2026",
       "structure": "Blinds start 100/200 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:30 PM",
       "location": "The Caahhd Room",
       "address": "OCW, in Cary",
-      "apple_invite_url": "https://www.icloud.com/invites/04d70JggM851ghewY2GhFcUaA",
+      "apple_invite_url": "https://www.icloud.com/invites/017kmjM3Uv7g89YZqSJzaFTPw",
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "tbd",
+        "ahmed": "yes",
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-o": "tbd",
-        "cougar": "tbd",
+        "chris-o": "no",
+        "cougar": "no",
         "dan-k": "tbd",
         "david-k": "tbd",
         "fabian": "tbd",
         "gilmore": "tbd",
         "griffin": "tbd",
         "hayden-d": "tbd",
-        "hiro": "tbd",
+        "hiro": "yes",
         "jeff-t": "no",
         "kishan": "tbd",
-        "li-fo": "tbd",
+        "li-fo": "yes",
         "max": "tbd",
-        "nasa-al": "tbd",
+        "nasa-al": "yes",
         "nitro": "tbd",
-        "phattedcalf": "tbd",
+        "phattedcalf": "no",
         "pat": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
-        "red": "tbd",
+        "providencemike": "yes",
+        "red": "no",
         "rob-f": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
@@ -63,7 +63,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "maybe",
+        "ahmed": "tbd",
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
@@ -75,12 +75,12 @@
         "gilmore": "tbd",
         "griffin": "tbd",
         "hayden-d": "tbd",
-        "hiro": "maybe",
+        "hiro": "tbd",
         "kishan": "tbd",
         "jeff-t": "no",
         "li-fo": "yes",
         "max": "tbd",
-        "nasa-al": "maybe",
+        "nasa-al": "tbd",
         "nitro": "tbd",
         "pat": "tbd",
         "phattedcalf": "no",
@@ -4570,7 +4570,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4625,7 +4625,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4680,7 +4680,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4735,7 +4735,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
