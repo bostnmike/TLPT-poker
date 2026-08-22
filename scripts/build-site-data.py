@@ -20,6 +20,8 @@ CARD_FORM_WINDOW = 5
 CARD_MILESTONES = (10, 25, 50, 75, 100)
 CREW_PROVISIONAL_MIN_BUY_INS = 3
 CREW_ESTABLISHED_MIN_BUY_INS = 5
+CARD_OVERALL_MIN_RATING = 40
+CARD_OVERALL_MAX_RATING = 99
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 
@@ -719,8 +721,8 @@ def historical_card_snapshot(player, players):
             player,
             players,
             "trueSkillScore",
-            62,
-            95
+            CARD_OVERALL_MIN_RATING,
+            CARD_OVERALL_MAX_RATING
         ),
         "tierCode": tier["code"],
         "tierClassName": tier["className"],

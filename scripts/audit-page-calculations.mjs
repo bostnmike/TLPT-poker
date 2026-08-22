@@ -137,7 +137,7 @@ const attributeSpecs = [
 
 for (const player of players) {
   check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
-  check(playerCardOverallRating(player, players) === manualRating(player, players, "trueSkillScore", 62, 95), `${player.slug}: live card overall rating differs from benchmark formula`);
+  check(playerCardOverallRating(player, players) === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
   const attributes = playerCardAttributes(player, players);
   const byCode = Object.fromEntries(attributes.map(attribute => [attribute.code, attribute.value]));
   const expectedReturn = Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);

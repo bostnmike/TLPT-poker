@@ -34,6 +34,8 @@ NORMALIZED_KEYS = ("roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRa
 CARD_MILESTONES = (10, 25, 50, 75, 100)
 PROVISIONAL_MIN = 3
 ESTABLISHED_MIN = 5
+CARD_OVERALL_MIN_RATING = 40
+CARD_OVERALL_MAX_RATING = 99
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 
@@ -251,7 +253,13 @@ def card_snapshot(player, players):
         {"code": "SUR", "label": "Survival", "value": metric_rating(player, players, "survivorIndex")},
     ]
     return {
-        "overall": metric_rating(player, players, "trueSkillScore", 62, 95),
+        "overall": metric_rating(
+            player,
+            players,
+            "trueSkillScore",
+            CARD_OVERALL_MIN_RATING,
+            CARD_OVERALL_MAX_RATING,
+        ),
         "tierCode": code,
         "tierClassName": class_name,
         "tierStatus": status,
