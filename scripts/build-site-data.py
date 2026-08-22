@@ -13,6 +13,7 @@ GENERATED_DIR = DATA_DIR / "generated"
 METADATA_PATH = DATA_DIR / "player-metadata.json"
 CONFIG_PATH = DATA_DIR / "league-config.json"
 EVENTS_PATH = DATA_DIR / "events.json"
+FEATURED_CARDS_PATH = DATA_DIR / "featured-cards.json"
 OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
 CARD_FORM_WINDOW = 5
@@ -26,6 +27,74 @@ HALL_MIN_EVENTS = 10
 def load_json(path: Path):
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def apply_featured_card_config(players, featured_card_config):
+    """Resolve each player's Crew-page design without changing live card data."""
+    if not isinstance(featured_card_config, dict):
+        raise ValueError("featured-cards.json must contain a JSON object")
+
+    configured = featured_card_config.get("featuredCards", {})
+    if not isinstance(configured, dict):
+        raise ValueError("featured-cards.json featuredCards must be an object")
+
+    players_by_slug = {player["slug"]: player for player in players}
+    unknown_slugs = sorted(set(configured) - set(players_by_slug))
+    if unknown_slugs:
+        raise ValueError(
+            "featured-cards.json contains unknown player slug(s): "
+            + ", ".join(unknown_slugs)
+        )
+
+    override_count = 0
+    for player in players:
+        slug = player["slug"]
+        requested = configured.get(slug, "auto")
+        if not isinstance(requested, str) or not requested.strip():
+            raise ValueError(
+                f"Featured card for {slug} must be auto, base, or an earned card id"
+            )
+
+        requested = requested.strip()
+        collection = player.get("cardCollection") or []
+        earned_ids = {
+            str(record.get("id"))
+            for record in collection
+            if record.get("id")
+        }
+
+        if requested == "auto":
+            resolved = collection[0]["id"] if collection else "base"
+            mode = "automatic"
+        elif requested == "base":
+            resolved = "base"
+            mode = "commissioner"
+            override_count += 1
+        elif requested in earned_ids:
+            resolved = requested
+            mode = "commissioner"
+            override_count += 1
+        else:
+            earned_label = ", ".join(sorted(earned_ids)) or "none"
+            raise ValueError(
+                f"Featured card '{requested}' is not earned by {slug}. "
+                f"Valid choices: auto, base, {earned_label}"
+            )
+
+        player["featuredCardEdition"] = resolved
+        player["featuredCardMode"] = mode
+
+    return {
+        "source": "data/featured-cards.json",
+        "version": int(featured_card_config.get("version", 1)),
+        "overrideCount": override_count,
+        "rules": {
+            "auto": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
+            "base": "Features the live Base Edition.",
+            "earnedEdition": "May reference only an id already earned in that player's permanent cardCollection.",
+            "liveData": "The selection changes the Crew-page design only; ratings and attributes remain live."
+        }
+    }
 
 
 def sort_players(players, key, direction="desc"):
@@ -976,6 +1045,7 @@ def main():
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
+    featured_card_config = load_json(FEATURED_CARDS_PATH)
 
     parsed_files = sorted(
         (f for f in PARSED_EVENTS_DIR.glob("*.json") if f.name != "index.json"),
@@ -1151,6 +1221,7 @@ def main():
     for player in players:
         player["cardForm"] = card_form.get(player["slug"])
         player["cardCollection"] = card_collections.get(player["slug"], [])
+    featured_card_summary = apply_featured_card_config(players, featured_card_config)
 
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 
@@ -1175,7 +1246,8 @@ def main():
                 "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
                 "snapshot": "Overall, tier and all six attributes are frozen at issuance or upgrade."
             }
-        }
+        },
+        "featuredCardConfig": featured_card_summary
     }
 
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)

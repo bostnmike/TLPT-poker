@@ -80,7 +80,77 @@ def validate_player(p):
             errors.append(
                 f"{key} out of expected range: {val} not between {min_allowed} and {max_allowed}"
             )
+
+    # -----------------------------
+    # Permanent card ledger + Crew feature selection (STRICT)
+    # -----------------------------
+    collection = p.get("cardCollection")
+    if not isinstance(collection, list):
+        errors.append("cardCollection missing or not a list")
+        collection = []
+
+    card_ids = []
+    for card in collection:
+        card_id = card.get("id") if isinstance(card, dict) else None
+        if not card_id:
+            errors.append("cardCollection contains a card without an id")
+            continue
+        card_ids.append(card_id)
+
+        snapshot = card.get("snapshot")
+        if not isinstance(snapshot, dict):
+            errors.append(f"{card_id} snapshot missing")
+            continue
+
+        if not isinstance(snapshot.get("overall"), (int, float)):
+            errors.append(f"{card_id} snapshot overall missing or not numeric")
+
+        attributes = snapshot.get("attributes")
+        if not isinstance(attributes, list) or len(attributes) != 6:
+            errors.append(f"{card_id} snapshot must contain six attributes")
+
+    if len(card_ids) != len(set(card_ids)):
+        errors.append("cardCollection contains duplicate card ids")
+
+    featured = p.get("featuredCardEdition")
+    valid_featured = {"base", *card_ids}
+    if featured not in valid_featured:
+        errors.append(
+            f"featuredCardEdition '{featured}' is not base or an earned card id"
+        )
+
+    featured_mode = p.get("featuredCardMode")
+    if featured_mode not in {"automatic", "commissioner"}:
+        errors.append("featuredCardMode must be automatic or commissioner")
+    elif featured_mode == "automatic":
+        expected_featured = card_ids[0] if card_ids else "base"
+        if featured != expected_featured:
+            errors.append(
+                f"automatic featuredCardEdition mismatch: {featured} != {expected_featured}"
+            )
             
+    return errors
+
+
+def validate_featured_card_summary(data, players):
+    errors = []
+    summary = data.get("featuredCardConfig")
+    if not isinstance(summary, dict):
+        return ["featuredCardConfig summary missing"]
+
+    if summary.get("source") != "data/featured-cards.json":
+        errors.append("featuredCardConfig source mismatch")
+
+    override_count = sum(
+        1 for player in players
+        if player.get("featuredCardMode") == "commissioner"
+    )
+    if summary.get("overrideCount") != override_count:
+        errors.append(
+            f"featuredCardConfig overrideCount mismatch: "
+            f"{summary.get('overrideCount')} != {override_count}"
+        )
+
     return errors
 
 
@@ -105,6 +175,11 @@ def main():
         if errors:
             report["errors"][slug] = errors
             report["errorCount"] += len(errors)
+
+    featured_errors = validate_featured_card_summary(data, players)
+    if featured_errors:
+        report["errors"]["_featuredCardConfig"] = featured_errors
+        report["errorCount"] += len(featured_errors)
 
     if report["errorCount"] > 0:
         report["status"] = "FAIL"
