@@ -15,7 +15,7 @@
     "rebuys": 1,
     "entries": 7,
     "totalPot": 210,
-    "paidSpots": 2
+    "paidSpots": 3
   },
   "winners": [
     {
@@ -588,7 +588,6 @@
   ],
   "warnings": [
     "2026-08-16: generic chop handling removed terminal bustout for ahmed at 8:56:51 pm 08/16/2026",
-    "2026-08-16: generic chop handling removed terminal bustout for bostnmike at 8:56:51 pm 08/16/2026",
-    "2026-08-16: paid spots mismatch: summary=2, payouts=3"
+    "2026-08-16: generic chop handling removed terminal bustout for bostnmike at 8:56:51 pm 08/16/2026"
   ]
 }

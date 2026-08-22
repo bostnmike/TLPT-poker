@@ -113,6 +113,16 @@
       "slug": "red"
     },
     {
+      "type": "bustout",
+      "time_raw": "8:15:40 pm 02/21/2026",
+      "player": "Ahmed",
+      "slug": "ahmed",
+      "by": "Li-Fo",
+      "bySlug": "li-fo",
+      "rawKillerText": "Li-Fo",
+      "sharedKillerSource": false
+    },
+    {
       "type": "rebuy",
       "time_raw": "8:15:46 pm 02/21/2026",
       "player": "Ahmed",
@@ -459,7 +469,7 @@
       "buyIns": 1,
       "rebuys": 0,
       "entries": 1,
-      "hits": 1,
+      "hits": 2,
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
@@ -637,8 +647,7 @@
     }
   ],
   "warnings": [
-    "2026-02-21: removed bustout for chopped finalist ahmed at 8:15:40 pm 02/21/2026",
-    "2026-02-21: removed bustout for chopped finalist ahmed at 10:55:54 pm 02/21/2026",
-    "2026-02-21: removed bustout for chopped finalist bostnmike at 10:55:54 pm 02/21/2026"
+    "2026-02-21: explicit chop handling removed terminal bustout for ahmed at 10:55:54 pm 02/21/2026",
+    "2026-02-21: explicit chop handling removed terminal bustout for bostnmike at 10:55:54 pm 02/21/2026"
   ]
 }

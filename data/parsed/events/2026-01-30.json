@@ -635,7 +635,7 @@
     }
   ],
   "warnings": [
-    "2026-01-30: removed bustout for chopped finalist bostnmike at 10:49:54 pm 01/30/2026",
-    "2026-01-30: removed bustout for chopped finalist wild-bill at 10:49:54 pm 01/30/2026"
+    "2026-01-30: explicit chop handling removed terminal bustout for bostnmike at 10:49:54 pm 01/30/2026",
+    "2026-01-30: explicit chop handling removed terminal bustout for wild-bill at 10:49:54 pm 01/30/2026"
   ]
 }
