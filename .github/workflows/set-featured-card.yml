@@ -1,0 +1,85 @@
+name: Set Featured Crew Card
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      player:
+        description: "Player slug or exact name (example: bostnmike)"
+        required: true
+        type: string
+      edition:
+        description: "auto, base, or an earned edition ID (example: milestone-25)"
+        required: true
+        default: "auto"
+        type: string
+
+concurrency:
+  group: tlpt-data-pipeline-main
+  cancel-in-progress: false
+
+jobs:
+  set-featured-card:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the latest site
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh all source-derived data
+        run: |
+          python scripts/parse-event-reports.py
+          node scripts/generate-event-index.js
+          python scripts/build-site-data.py
+          python scripts/build-knockouts.py
+
+      - name: Apply commissioner selection
+        env:
+          TLPT_PLAYER: ${{ inputs.player }}
+          TLPT_EDITION: ${{ inputs.edition }}
+        run: python scripts/set-featured-card.py "$TLPT_PLAYER" "$TLPT_EDITION"
+
+      - name: Rebuild selected Crew design
+        run: python scripts/build-site-data.py
+
+      - name: Validate and audit the complete site
+        run: |
+          python scripts/validate-site-data.py
+          python scripts/audit-site-integrity.py
+
+      - name: Publish featured-card selection
+        env:
+          TLPT_PLAYER: ${{ inputs.player }}
+          TLPT_EDITION: ${{ inputs.edition }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/featured-cards.json
+          git add data/parsed/events/
+          git add data/generated/site-data.json
+          git add data/generated/validation-report.json
+          git add data/generated/integrity-report.json
+          git add data/generated/knockouts-generated.json
+          git add data/generated/knockouts.json
+          git add knockouts.json
+          git add knockout-events-full.json
+          git add knockout-name-map-full.json
+
+          if git diff --cached --quiet; then
+            echo "No featured-card changes to publish."
+            exit 0
+          fi
+
+          git commit -m "Feature ${TLPT_EDITION} Crew card for ${TLPT_PLAYER}"
+          git push origin HEAD:main
