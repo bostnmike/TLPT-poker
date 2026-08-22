@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "description": "Commissioner-controlled card design shown on the Crew page. Career ratings and attributes remain live regardless of the selected design.",
+  "instructions": [
+    "Use a player slug as the key in featuredCards.",
+    "Use auto to keep the automatic highest-prestige earned edition.",
+    "Use base to feature the live Base Edition.",
+    "Or use the id of an edition already present in that player's cardCollection."
+  ],
+  "featuredCards": {}
+}
