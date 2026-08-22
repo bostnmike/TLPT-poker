@@ -924,7 +924,7 @@ function didPlayerPlayEvent(event, playerResult, playerSlug) {
 
     return (
       playerIsActor &&
-      ["buyin", "buy-in", "rebuy", "bustout", "payout"].includes(actionType)
+      ["buyin", "buy-in", "rebuy", "bustout", "bustout_uncredited", "payout"].includes(actionType)
     ) || (
       playerIsHitman &&
       ["bustout", "knockout"].includes(actionType)
@@ -1105,7 +1105,7 @@ function getFinishPositionFromFinalBustouts(event, playerSlug) {
 
   const finalBustouts = actions.filter((action, index) => {
     const actionType = String(action.type || "").toLowerCase();
-    if (actionType !== "bustout" && actionType !== "knockout") return false;
+    if (!["bustout", "bustout_uncredited", "knockout"].includes(actionType)) return false;
 
     const bustedSlug = canonicalSlug(action.slug || action.playerSlug || action.player || action.name || "");
     if (!bustedSlug) return false;

@@ -627,14 +627,14 @@ function buildHallHistoryMetrics(historyEvents = []) {
     const actions = Array.isArray(event?.actions) ? event.actions : [];
 
     actions.forEach(action => {
-      if (action?.type !== "bustout" || !action?.slug) return;
+      if (!["bustout", "bustout_uncredited"].includes(action?.type) || !action?.slug) return;
 
       const slug = String(action.slug).toLowerCase();
       timesBusted.set(slug, (timesBusted.get(slug) || 0) + 1);
     });
 
     const firstBustout = actions.find(
-      action => action?.type === "bustout" && action?.slug
+      action => ["bustout", "bustout_uncredited"].includes(action?.type) && action?.slug
     );
 
     const firstOutSlug = String(firstBustout?.slug || "").toLowerCase();

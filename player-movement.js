@@ -10,7 +10,7 @@ const DEFAULT_EVENT_FILES = [
   "2025-06-28.json",
   "2025-07-26.json",
   "2025-08-23.json",
-  "2025-10-03.json",
+  "2025-10-04.json",
   "2025-10-25.json",
   "2025-11-01.json",
   "2025-11-15.json",
@@ -267,7 +267,9 @@ function getEventModel(event) {
     }
   });
 
-  const bustouts = actions.filter(action => action.type === "bustout");
+  const bustouts = actions.filter(action =>
+    action.type === "bustout" || action.type === "bustout_uncredited"
+  );
 
   bustouts.forEach((action, index) => {
     const row = participantRows.find(r =>
