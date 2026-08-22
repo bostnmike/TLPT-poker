@@ -41,6 +41,8 @@ const SHOW_HOME_COMMISSIONER_REPORT = false;
 const CREW_ROOKIE_MIN_BUY_INS = 1;
 const CREW_PROVISIONAL_MIN_BUY_INS = 3;
 const CREW_ESTABLISHED_MIN_BUY_INS = 5;
+const CARD_OVERALL_MIN_RATING = 40;
+const CARD_OVERALL_MAX_RATING = 99;
 
 /*
  * Hall of Fame qualification:
@@ -3494,7 +3496,13 @@ function playerCardTierMeta(player, players) {
 }
 
 function playerCardOverallRating(player, players) {
-  return playerCardMetricRating(player, players, "trueSkillScore", 62, 95);
+  return playerCardMetricRating(
+    player,
+    players,
+    "trueSkillScore",
+    CARD_OVERALL_MIN_RATING,
+    CARD_OVERALL_MAX_RATING
+  );
 }
 
 function playerCardRatingComparator(players) {
@@ -3624,7 +3632,7 @@ function playerCardViewData(player, players) {
     overall: careerOverall,
     attributes: playerCardAttributes(player, players),
     overallRaw: `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
-    overallFormula: `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 62–95 overall card rating against established TLPT players.`,
+    overallFormula: `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
     context: `Career • ${careerAppearances} appearance${careerAppearances === 1 ? "" : "s"}`,
     caveat: "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
     movement: null
@@ -3662,7 +3670,7 @@ function playerCardViewData(player, players) {
         periodDescription: "recent-form"
       }),
       overallRaw: `Form Power Index ${fmtNum(recentMetrics?.trueSkillScore)} • ${recentCount} recent appearance${recentCount === 1 ? "" : "s"} • ${range}`,
-      overallFormula: `${STAT_FORMULAS.trueSkillScore}. The form Power Index is scaled to a 62–95 rating against comparable recent TLPT samples. Movement compares this rating with the preceding five appearances.`,
+      overallFormula: `${STAT_FORMULAS.trueSkillScore}. The form Power Index is scaled to a 40–99 rating against comparable recent TLPT samples. Movement compares this rating with the preceding five appearances.`,
       context: `${recentLabel} • ${range}`,
       caveat: `${recentLabel} view. Scores use only this player's most recent appearances; the card tier, official Power Rank and experience status remain career-based.`,
       movement
