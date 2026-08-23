@@ -19,14 +19,14 @@
   "eventName": "Risky Rebuys | 9-Max",
   "title": "TWTW: Risky Rebuys | 9-Max",
   "featured": true,
-  "dek": "Ahmed brought dinner and the league's hottest cash streak. NASA Al took the streak from him, then joined BostnMike in a new three-game race while Cougar grabbed half of first.",
+  "dek": "Ahmed brought dinner and the league's hottest cash streak. NASA Al ended the streak, came back from first out to split first with Cougar, and BostnMike quietly grabbed third.",
   "summaryCards": [
     {
       "tone": "green",
       "label": "📰 The Main Story",
-      "player": "NASA Al / BostnMike",
+      "player": "NASA Al / Ahmed",
       "value": "The cash-streak baton changes hands",
-      "copy": "Ahmed's run stopped at five, while Al and the Commish both left Risky Rebuys with three straight cashes.",
+      "copy": "Ahmed's five-game run ended at the hands of NASA Al, who had already been first out before rebuying his way back to half of first.",
       "avatars": [
         {
           "src": "images/players/nasa-al.jpg",
@@ -34,9 +34,9 @@
           "fallback": "NA"
         },
         {
-          "src": "images/players/bostnmike.jpg",
-          "alt": "BostnMike",
-          "fallback": "BM"
+          "src": "images/players/ahmed.jpg",
+          "alt": "Ahmed",
+          "fallback": "AH"
         }
       ]
     },
@@ -52,7 +52,7 @@
       "tone": "purple",
       "label": "🦤 First Rail Bird",
       "player": "Ahmed",
-      "copy": "Five straight cashes ended when NASA Al sent Ahmed out for good with the payout line still four players away.",
+      "copy": "Five straight cashes ended when NASA Al sent Ahmed out for good before the payout line.",
       "avatar": "images/players/ahmed.jpg",
       "fallback": "AH"
     },
@@ -102,13 +102,13 @@
     "firstPermanentOut": "Ahmed"
   },
   "spotlight": {
-    "player": "NASA Al / Ahmed / BostnMike",
-    "fallback": "NAB",
+    "player": "NASA Al / Ahmed / Cougar",
+    "fallback": "NAC",
     "pills": [
       "Ahmed Streak Ends at 5",
-      "Al: 3 Straight",
-      "BostnMike: 3 Straight",
-      "First Out to Split First"
+      "First Out to Split First",
+      "Cougar Rebuy Pays",
+      "Li-Fo: 3 Knockouts"
     ],
     "avatars": [
       {
@@ -122,9 +122,9 @@
         "fallback": "AH"
       },
       {
-        "src": "images/players/bostnmike.jpg",
-        "alt": "BostnMike",
-        "fallback": "BM"
+        "src": "images/players/cougar.jpg",
+        "alt": "Cougar",
+        "fallback": "CO"
       }
     ]
   },
@@ -150,13 +150,13 @@
       "note": "BostnMike took third, and the final two agreed to divide the remaining top money rather than force another knockout."
     }
   ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-22.jpg\" alt=\"Poster for the 08/22/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Ahmed came in carrying samosas, wings and the hottest active run in the room: five straight cashes. By 9:54, the food was still there and the streak was not. NASA Al personally ended it, sending Ahmed out as the first player gone for good and officially reopening a cash-streak race that had started to feel like Ahmed's private property.</p><p>The man who ended the streak had already spent the opening hour looking like an unlikely successor. Hiro busted NASA Al first at 7:28, Al rebought six seconds later, and Berserk started rebuilding. He eventually took Ahmed out for good, later removed Hiro, and survived all the way into a split first with Cougar. First out to half of first is already a useful night's work. Ending the league's hottest streak on the way there is how you take possession of the baton.</p><p>And suddenly Al is not alone. BostnMike quietly reached third without using a rebuy, which gives the commissioner three straight cashes as well. So Ahmed's five-game run did not leave behind one obvious replacement. It left a tie. NASA Al and BostnMike are now both sitting at three, staring at each other across the newly reopened cash-streak chat while Ahmed has been removed from the group administrator role.</p><p>Cougar deserves his share of the ending too. Li-Fo busted him once, Cougar rebought, then returned to eliminate Tony and later BostnMike before splitting first with Al. Li-Fo actually led the night's body count with three knockouts, including Hiro twice, but missed the money entirely. Risky Rebuys lived up to the title: four second chances were purchased, two of them reached first place, and the one streak everyone entered the night talking about never got another life at all.</p>",
-  "roastHtml": "<p>BostnMike will undoubtedly point out that he has now cashed three straight, which sounds considerably more impressive if you skip the part where this week's contribution was mostly staying alive until Cougar finally removed him in third. The commissioner has entered the cash-streak chat using the poker equivalent of reading every message and contributing almost nothing.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-22.jpg\" alt=\"Poster for the 08/22/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Ahmed came in carrying samosas, wings and the hottest active run in the room: five straight cashes. By 9:54, the food was still there and the streak was not. NASA Al personally ended it, sending Ahmed out as the first player gone for good and officially reopening a race that had started to feel like Ahmed's private property.</p><p>The man who ended the streak had already spent the opening hour looking like an unlikely successor. Hiro busted NASA Al first at 7:28, Al rebought six seconds later, and Berserk started rebuilding. He eventually took Ahmed out for good, later removed Hiro, and survived all the way into a split first with Cougar. First out to half of first is already a useful night's work. Ending the league's hottest streak on the way there makes it considerably louder.</p><p>BostnMike quietly took third without needing a rebuy, which leaves him and Al as the current three-game cashers now that Ahmed's five-game run is over. That is enough streak bookkeeping for one paragraph. The more interesting part of the night belonged to Cougar, who got bounced by Li-Fo, rebought, then came back to eliminate Tony and eventually the commissioner before sharing first with Al.</p><p>Li-Fo actually led the night's body count with three knockouts, including Hiro twice, and still missed the money entirely. Hiro somehow found two rebuys and managed to turn three separate exits into no payout at all. Risky Rebuys lived up to the title: four second chances were purchased, two of them reached first place, and the one streak everyone entered the night talking about never got another life.</p>",
+  "roastHtml": "<p>BostnMike will undoubtedly explain that third place was another example of disciplined tournament survival. Cougar may describe it differently, considering he simply waited until 10:53 and removed the commissioner before splitting the rest with Al. Sometimes \"staying alive\" is just a flattering way to say nobody had gotten around to you yet.</p>",
   "numbersThatMatter": [
     "6 buy-ins, 4 rebuys, 10 total entries.",
     "4h 25m of play from 6:37 pm to 11:02 pm.",
     "$300 total pot with Cougar and NASA Al taking $120 each and BostnMike taking $60.",
-    "Ahmed's 5-game cash streak ended while NASA Al and BostnMike both extended theirs to 3."
+    "Ahmed's five-game cash streak ended when NASA Al eliminated him at 9:54 pm."
   ],
   "quickHitsLeft": [
     "Hiro busted NASA Al first, then watched Al turn the rebuy into half of first.",
@@ -165,12 +165,12 @@
     "Cougar rebought after Tony got him, then came back to eliminate Tony himself."
   ],
   "quickHitsRight": [
-    "NASA Al ended Ahmed's five-game cash streak, then later removed Hiro to finish with two knockouts.",
+    "NASA Al followed the Ahmed knockout by later removing Hiro for good.",
     "Ahmed brought samosas and wings, so the streak may have died but table catering remained undefeated.",
-    "BostnMike used no rebuy and finished third to make it three consecutive cashes.",
-    "The five-game heater is dead. The new active leaderboard starts with NASA Al and BostnMike tied at three."
+    "BostnMike used no rebuy and quietly worked his way into third.",
+    "Hiro's two rebuys made him the night's most committed investor in negative returns."
   ],
-  "tldr": "Ahmed arrived with samosas, wings and a five-game cash streak, but NASA Al personally ended the run and then split first with Cougar. BostnMike took third, leaving Al and the Commish tied atop the new cash-streak chat at three straight."
+  "tldr": "Ahmed arrived with samosas, wings and a five-game cash streak, but NASA Al personally ended the run after recovering from first-out status. Al and Cougar split first, BostnMike took third, and Risky Rebuys gave the room a very different cash-streak conversation."
 },
 {
   "id": "week-08-21-2026",
