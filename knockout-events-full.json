@@ -2638,5 +2638,55 @@
       "sourceVictim": "Nitro",
       "sourceKiller": "Nasa Al"
     }
+  ],
+  "2026-08-22": [
+    {
+      "victim": "nasa-al",
+      "killer": "hiro",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "cougar",
+      "killer": "li-fo",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "nasa-al",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "cougar",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "hiro",
+      "killer": "nasa-al",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "cougar",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Cougar"
+    }
   ]
 }
