@@ -1,0 +1,178 @@
+/* Homepage League Snapshot only.
+   This file intentionally loads after style.css and players.css so the
+   homepage can reuse the established Ultimate Card skins without changing
+   the Crew or Player Profile pages. */
+
+#home-snapshot .home-snapshot-layout{
+  grid-template-columns:minmax(0,1fr) minmax(260px,.56fr);
+  align-items:stretch;
+}
+
+#home-snapshot .home-snapshot-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-content:stretch;
+}
+
+#home-snapshot .home-snapshot-grid .snapshot-card{
+  min-height:160px;
+}
+
+#home-snapshot .home-featured-player{
+  display:grid;
+  place-items:center;
+  min-width:0;
+}
+
+#home-snapshot .home-featured-ultimate-shell{
+  width:100%;
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:2px 8px;
+}
+
+#home-snapshot .home-featured-ultimate-kicker{
+  color:var(--gold);
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  line-height:1;
+  text-align:center;
+  text-transform:uppercase;
+  text-shadow:0 0 10px rgba(255,184,28,.20);
+}
+
+#home-snapshot .home-featured-ultimate-card{
+  width:185px;
+  max-width:100%;
+  flex:0 0 auto;
+  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%) !important;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-card-inner{
+  grid-template-rows:48px minmax(0,1fr) 62px;
+  padding:16px 14px 22px;
+  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%) !important;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-header{
+  grid-template-columns:40px minmax(0,1fr) 34px;
+  gap:4px;
+  padding:4px 8px 0;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-overall{
+  font-size:1.82rem;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-tier-code{
+  min-width:26px;
+  font-size:.63rem;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-edition{
+  padding-top:3px;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-edition strong{
+  font-size:.44rem;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-edition em{
+  max-width:58px;
+  padding:2px 4px;
+  font-size:.29rem;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-chip{
+  width:31px;
+  height:31px;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-portrait{
+  margin-top:-2px;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-portrait .player-avatar-wrap{
+  width:112px;
+  height:112px;
+  max-width:100%;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-identity{
+  padding:5px 4px 7px;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-identity h3{
+  font-size:.88rem;
+}
+
+#home-snapshot .home-featured-ultimate-card .crew-ultimate-identity > span{
+  margin-top:3px;
+  font-size:.43rem;
+}
+
+#home-snapshot .home-featured-profile-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  max-width:250px;
+  padding:7px 12px;
+  border:1px solid rgba(255,184,28,.24);
+  border-radius:999px;
+  color:#ffe29a;
+  background:rgba(255,184,28,.08);
+  font-size:.72rem;
+  font-weight:850;
+  line-height:1.25;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 6px 15px rgba(0,0,0,.18);
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+
+#home-snapshot .home-featured-profile-link:hover,
+#home-snapshot .home-featured-profile-link:focus-visible{
+  transform:translateY(-1px);
+  border-color:rgba(255,184,28,.48);
+  color:#fff4cf;
+  background:rgba(255,184,28,.14);
+}
+
+@media (max-width:1050px){
+  #home-snapshot .home-snapshot-layout{
+    grid-template-columns:1fr;
+  }
+
+  #home-snapshot .home-featured-ultimate-shell{
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+
+  #home-snapshot .home-featured-ultimate-card{
+    width:200px;
+  }
+}
+
+@media (max-width:520px){
+  #home-snapshot .home-snapshot-grid{
+    grid-template-columns:1fr;
+  }
+
+  #home-snapshot .home-snapshot-grid .snapshot-card{
+    min-height:142px;
+  }
+
+  #home-snapshot .home-featured-ultimate-card{
+    width:190px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  #home-snapshot .home-featured-profile-link{
+    transition:none;
+  }
+}

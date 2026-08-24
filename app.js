@@ -2570,85 +2570,74 @@ function getFeaturedPlayer(data) {
 function buildFeaturedPlayerCard(player, data) {
   if (!player) return "";
 
-  const archetypes = getPlayerArchetypes(player);
-  const primaryArchetype = archetypes.primary;
-  const secondaryArchetype = archetypes.secondary;
-  const tier = getPlayerTier(player, data?.players || []);
-
-  const crewBadgePool = (data?.players || []).filter(isCrewEligible);
-  const badges = badgeList(player, data, crewBadgePool).slice(0, 3);
-  const quote = ensureQuoted(player?.notes || "");
+  const players = data?.players || [];
+  const overall = playerCardOverallRating(player, players);
+  const tierMeta = playerCardTierMeta(player, players);
+  const primaryArchetype = getPlayerArchetypes(player).primary;
+  const featuredEditionId = playerCardFeaturedEditionId(player, data);
+  const specialEdition = playerCardSpecialEdition(player, data);
+  const specialClass = specialEdition
+    ? ` crew-ultimate-card-special crew-ultimate-card-special-${specialEdition.className} crew-ultimate-card-edition-${playerCardEditionClassName(specialEdition)}`
+    : "";
+  const featuredDesignLabel = specialEdition
+    ? `${specialEdition.eyebrow}: ${specialEdition.label}`
+    : "Base Edition";
 
   return `
-    <a class="featured-player-card" href="${playerUrl(player)}">
-      <div class="featured-player-kicker">🌟 Featured Player</div>
+    <div class="home-featured-ultimate-shell crew-page">
+      <div class="home-featured-ultimate-kicker">🌟 Featured Player</div>
 
-      <div class="featured-player-top">
-        <div class="featured-player-avatar">
-          ${playerImageMarkup(player, "crew")}
-        </div>
+      <a
+        class="crew-ultimate-card crew-ultimate-card-${tierMeta.className} home-featured-ultimate-card${specialClass}"
+        href="${playerUrl(player)}"
+        data-featured-edition="${escapeHtmlAttr(featuredEditionId)}"
+        ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
+        aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Featured design: ${escapeHtmlAttr(featuredDesignLabel)}."
+      >
+        <div class="crew-ultimate-card-inner">
+          <div class="crew-ultimate-metal" aria-hidden="true"></div>
 
-        <div class="featured-player-meta">
-          <h3>${displayPlayerNamePlain(player)}</h3>
-          <div class="featured-player-tier">${tier.emoji} ${tier.name}</div>
+          <header class="crew-ultimate-header">
+            <div class="crew-ultimate-rating-block">
+              <span class="crew-ultimate-overall">${overall}</span>
+              <span class="crew-ultimate-tier-code">${tierMeta.code}</span>
+            </div>
 
-          <div class="featured-player-archetype featured-player-archetype-primary ${primaryArchetype.key}">
-            <strong>Primary:</strong> ${primaryArchetype.emoji} ${primaryArchetype.name}
+            <div class="crew-ultimate-edition">
+              <span>TLPT</span>
+              <strong>${specialEdition?.shortLabel || "BASE"}</strong>
+              ${specialEdition ? `
+                <em title="${escapeHtmlAttr(featuredDesignLabel)}">
+                  ${specialEdition.icon} ${specialEdition.cardLabel || specialEdition.label}
+                </em>
+              ` : `
+                <em class="is-base-featured" title="Base Edition">♠ BASE</em>
+              `}
+            </div>
+
+            <img
+              class="crew-ultimate-chip"
+              src="images/site/chip-T-1000.png"
+              alt=""
+              aria-hidden="true"
+            />
+          </header>
+
+          <div class="crew-ultimate-portrait">
+            ${playerImageMarkup(player, "crew")}
           </div>
 
-          <div class="featured-player-archetype featured-player-archetype-secondary ${secondaryArchetype.key}">
-            <strong>Secondary:</strong> ${secondaryArchetype.emoji} ${secondaryArchetype.name}
+          <div class="crew-ultimate-identity">
+            <h3>${displayPlayerName(player)}</h3>
+            <span>${primaryArchetype.emoji} ${primaryArchetype.name}</span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <p class="featured-player-quote">${quote}</p>
-
-      <div class="featured-player-stats">
-        <div class="featured-player-stat featured-player-stat-green">
-          <span class="featured-player-stat-label">Entries</span>
-          <span class="featured-player-stat-value">${player.entries ?? "-"}</span>
-        </div>
-
-        <div class="featured-player-stat featured-player-stat-purple">
-          <span class="featured-player-stat-label">Cashes</span>
-          <span class="featured-player-stat-value">${player.timesPlaced ?? "-"}</span>
-        </div>
-
-        <div class="featured-player-stat featured-player-stat-yellow">
-          <span class="featured-player-stat-label">Bubbles</span>
-          <span class="featured-player-stat-value">${player.bubbles ?? "-"}</span>
-        </div>
-
-        <div class="featured-player-stat featured-player-stat-red">
-          <span class="featured-player-stat-label">Hits</span>
-          <span class="featured-player-stat-value">${player.hits ?? "-"}</span>
-        </div>
-
-        <div class="featured-player-stat featured-player-stat-blue">
-          <span class="featured-player-stat-label">Winnings</span>
-          <span class="featured-player-stat-value">${fmtMoney(player.totalWinnings)}</span>
-        </div>
-
-        <div class="featured-player-stat featured-player-stat-pink">
-          <span class="featured-player-stat-label">ROI</span>
-          <span class="featured-player-stat-value">${fmtPct(player.roi)}</span>
-        </div>
-      </div>
-
-      ${badges.length ? `
-        <div class="featured-player-badges">
-          ${badges.map(badge => `
-            <span class="featured-player-badge stat-badge-text badge-rarity-${badge.rarity} badge-tone-${badge.tone}">
-              <span class="stat-badge-icon">${badge.icon}</span>
-              <span class="stat-badge-label">${badge.label}</span>
-            </span>
-          `).join("")}
-        </div>
-      ` : ""}
-
-      <div class="featured-player-link">View full profile →</div>
-    </a>
+      <a class="home-featured-profile-link" href="${playerUrl(player)}">
+        See the full card on the player profile page →
+      </a>
+    </div>
   `;
 }
 
@@ -2661,11 +2650,7 @@ function renderLeagueSnapshot(data) {
 
   const totalEntries = players.reduce((sum, p) => sum + (Number(p.entries) || 0), 0);
   const totalRebuys = players.reduce((sum, p) => sum + (Number(p.rebuys) || 0), 0);
-  const totalHits = players.reduce((sum, p) => sum + (Number(p.hits) || 0), 0);
   const totalEntryFees = players.reduce((sum, p) => sum + (Number(p.totalCost) || 0), 0);
-  const avgROI =
-    players.reduce((sum, p) => sum + (Number(p.roi) || 0), 0) /
-    Math.max(players.length, 1);
 
   const cards = [
     {
@@ -2674,6 +2659,14 @@ function renderLeagueSnapshot(data) {
       value:players.length,
       className:"snapshot-purple",
       href:"players.html"
+    },
+    {
+      icon:"💰",
+      label:"Historical Prize Pool",
+      value:fmtMoney(totalEntryFees),
+      valueClass:"money",
+      className:"snapshot-green",
+      href:"dashboard.html"
     },
     {
       icon:"🎟️",
@@ -2688,27 +2681,6 @@ function renderLeagueSnapshot(data) {
       value:totalRebuys,
       className:"snapshot-blue",
       href:"dashboard.html"
-    },
-    {
-      icon:"💥",
-      label:"Knockouts",
-      value:totalHits,
-      className:"snapshot-yellow",
-      href:"dashboard.html"
-    },
-    {
-      icon:"💰",
-      label:"Historical Prize Pool",
-      value:fmtMoney(totalEntryFees),
-      className:"snapshot-green",
-      href:"dashboard.html"
-    },
-    {
-      icon:"📈",
-      label:"Avg ROI",
-      value:fmtPct(avgROI),
-      className:"snapshot-red",
-      href:"standings.html"
     }
   ];
 
@@ -2716,7 +2688,7 @@ container.innerHTML = cards.map(card => `
   <a class="snapshot-card ${card.className}" href="${card.href}">
     <div class="snapshot-icon">${card.icon}</div>
     <div
-      class="snapshot-value${card.label === "Total Entry Fees" ? " money" : ""}"
+      class="snapshot-value${card.valueClass ? ` ${card.valueClass}` : ""}"
       data-animate-count="true"
       data-target-value="${card.value}"
     >
