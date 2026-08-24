@@ -41,6 +41,27 @@ EXPECTED_FOOTER_TEXT = (
     "Site data fueled by The Tournament Director"
 )
 EXPECTED_FOOTER_URL = "https://thetournamentdirector.net/"
+EXPECTED_NAV_ACTIVE_LABELS = {
+    "champions.html": ["Roast Zone", "The Hall"],
+    "dashboard.html": ["The Metrics", "Dashboard"],
+    "form-lab.html": ["The Metrics", "The Form Lab"],
+    "gallery.html": ["Media", "The Gallery"],
+    "index.html": ["Home"],
+    "knockouts.html": ["The Metrics", "Knockout Central"],
+    "media.html": ["Media", "The Film"],
+    "news.html": ["Roast Zone", "The Week That Was"],
+    "player-movement.html": ["The Metrics", "The Heater Meter"],
+    "player.html": ["Members", "Player Profiles"],
+    "players.html": ["Members", "TLPT Crew"],
+    "rules.html": ["The Rules"],
+    "schedule.html": ["The Schedule"],
+    "standings.html": ["The Metrics", "Standings"],
+    "streaks.html": ["The Metrics", "Streak Tracker"],
+    "trophy-room.html": ["Members", "The Trophy Room"],
+}
+EXPECTED_NAV_CURRENT_LABEL = {
+    page: labels[-1] for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
+}
 
 
 def is_local_reference(value: str) -> bool:
@@ -68,6 +89,8 @@ class PageAuditParser(HTMLParser):
         self.has_viewport = False
         self.nav_depth = 0
         self.nav_links: list[str] = []
+        self.nav_link_records: list[dict[str, object]] = []
+        self.open_nav_link: dict[str, object] | None = None
         self.stylesheets: list[str] = []
         self.html_classes: set[str] = set()
         self.body_classes: set[str] = set()
@@ -113,6 +136,13 @@ class PageAuditParser(HTMLParser):
 
         if self.nav_depth and tag == "a" and attrs.get("href"):
             self.nav_links.append(urlsplit(attrs["href"]).path)
+            self.open_nav_link = {
+                "href": attrs["href"],
+                "classes": classes,
+                "aria_current": attrs.get("aria-current", "").lower(),
+                "text": [],
+            }
+            self.nav_link_records.append(self.open_nav_link)
 
         if tag == "button" and not attrs.get("type"):
             self.errors.append("button is missing an explicit type attribute")
@@ -153,10 +183,16 @@ class PageAuditParser(HTMLParser):
         self.end_counts[tag] += 1
         if tag == "nav" and self.nav_depth:
             self.nav_depth -= 1
+        if tag == "a" and self.open_nav_link is not None:
+            self.open_nav_link = None
         if tag == "footer" and self.site_footer_depth:
             self.site_footer_depth -= 1
 
     def handle_data(self, data: str) -> None:
+        if self.open_nav_link is not None:
+            text_parts = self.open_nav_link["text"]
+            assert isinstance(text_parts, list)
+            text_parts.append(data)
         if self.site_footer_depth:
             self.site_footer_text.append(data)
 
@@ -390,6 +426,33 @@ def main() -> int:
             parser.errors.append("primary navigation was not found")
         else:
             navigation_by_page[page.name] = parser.nav_links
+
+        nav_active_labels: list[str] = []
+        nav_current_labels: list[str] = []
+        for record in parser.nav_link_records:
+            text_parts = record["text"]
+            classes = record["classes"]
+            assert isinstance(text_parts, list)
+            assert isinstance(classes, set)
+            label = " ".join(" ".join(text_parts).split())
+            if "is-active" in classes:
+                nav_active_labels.append(label)
+            if record["aria_current"] == "page":
+                nav_current_labels.append(label)
+
+        expected_active_labels = EXPECTED_NAV_ACTIVE_LABELS.get(page.name, [])
+        if nav_active_labels != expected_active_labels:
+            parser.errors.append(
+                "active navigation labels must be: "
+                + " → ".join(expected_active_labels)
+            )
+
+        expected_current_label = EXPECTED_NAV_CURRENT_LABEL.get(page.name, "")
+        if nav_current_labels != [expected_current_label]:
+            parser.errors.append(
+                "navigation must expose exactly one aria-current page link: "
+                + expected_current_label
+            )
 
         expected_style_prefix = ["style.css"]
         if page.name == "rules.html":
