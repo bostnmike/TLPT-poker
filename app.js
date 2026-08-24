@@ -2635,7 +2635,7 @@ function buildFeaturedPlayerCard(player, data) {
       </a>
 
       <a class="home-featured-profile-link" href="${playerUrl(player)}">
-        See the full card on the player profile page →
+        View Full Card →
       </a>
     </div>
   `;
