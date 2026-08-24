@@ -4,6 +4,17 @@ This document records the shared page-shell contract introduced in Phase 2D.
 The site remains a static multi-page application; shared shell markup is kept
 consistent in each HTML file and verified by `scripts/audit-code-hygiene.py`.
 
+## Document head
+
+Every public page uses the same document-head foundation: English language,
+UTF-8 encoding, the canonical responsive viewport, the three shared favicon
+links, one page-specific title, and one page-specific description. Stylesheet
+ownership and order remain governed by `CSS-ARCHITECTURE.md`.
+
+The hygiene audit verifies each page's exact title and description as well as
+the shared language, encoding, viewport, and favicon contract. Head metadata is
+nonvisual and must not initialize page behavior or calculations.
+
 ## Shared header and navigation
 
 All 16 public pages use the same `.site-header` and `.nav` structure, link set,
@@ -42,3 +53,10 @@ Metrics pages that identified the dropdown parent instead of the actual page,
 and removes duplicate or incorrect `aria-current` markers from other dropdown
 parents. Existing `is-active` classes preserve the visual treatment while the
 navigation now exposes one unambiguous current page.
+
+## Phase 2D.2 document-head cleanup
+
+Phase 2D.2 adds a concise, unique description to all 16 public pages and turns
+the existing head conventions into an enforced contract. Titles and icon paths
+are unchanged. This phase has no body-markup, stylesheet, JavaScript, data, or
+calculation changes.
