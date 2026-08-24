@@ -105,6 +105,25 @@ EXPECTED_ICON_LINKS = [
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
 SHARED_SHELL_SCRIPT = "site-shell.js"
+JAVASCRIPT_INLINE_HANDLER = re.compile(
+    r"\bon[a-z]+\s*=\s*(['\"])",
+    flags=re.IGNORECASE,
+)
+JAVASCRIPT_HIDDEN_STYLE = re.compile(
+    r"style\s*=\s*(['\"])\s*display\s*:\s*none\s*;?\s*\1",
+    flags=re.IGNORECASE,
+)
+JAVASCRIPT_IMAGE_ERROR_ACTION = re.compile(
+    r'data-image-error-action="([a-z-]+)"',
+    flags=re.IGNORECASE,
+)
+EXPECTED_IMAGE_ERROR_ACTIONS = {
+    "candidate-list",
+    "fallback-source",
+    "mark-parent",
+    "replace-with-next",
+    "show-next",
+}
 
 
 def is_local_reference(value: str) -> bool:
@@ -460,6 +479,33 @@ def audit_css(path: Path) -> list[str]:
     return errors
 
 
+def audit_javascript(path: Path) -> list[str]:
+    """Reject executable or presentational HTML embedded in JS templates."""
+
+    errors: list[str] = []
+    text = path.read_text(encoding="utf-8")
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        if JAVASCRIPT_INLINE_HANDLER.search(line):
+            errors.append(
+                f"line {line_number}: generated inline event handler found; "
+                "use site-shell.js or addEventListener"
+            )
+        if JAVASCRIPT_HIDDEN_STYLE.search(line):
+            errors.append(
+                f"line {line_number}: generated display:none style found; "
+                "use the hidden attribute"
+            )
+        for match in JAVASCRIPT_IMAGE_ERROR_ACTION.finditer(line):
+            action = match.group(1).lower()
+            if action not in EXPECTED_IMAGE_ERROR_ACTIONS:
+                errors.append(
+                    f"line {line_number}: unknown data-image-error-action: {action}"
+                )
+
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     pages = sorted(ROOT.glob("*.html"))
@@ -633,6 +679,12 @@ def main() -> int:
                     f"{stylesheet.name}:{line}: {owned_selector} is owned by style.css"
                 )
 
+    scripts = sorted(ROOT.glob("*.js"))
+    for script in scripts:
+        errors.extend(
+            f"{script.name}: {message}" for message in audit_javascript(script)
+        )
+
     if errors:
         print(f"❌ Code hygiene audit failed with {len(errors)} issue(s):")
         for error in errors:
@@ -641,7 +693,8 @@ def main() -> int:
 
     print(
         f"✅ Code hygiene audit passed: {len(pages)} HTML pages and "
-        f"{len(list(ROOT.glob('*.css')))} stylesheets checked."
+        f"{len(list(ROOT.glob('*.css')))} stylesheets and "
+        f"{len(scripts)} JavaScript files checked."
     )
     return 0
 
