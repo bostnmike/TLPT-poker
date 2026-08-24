@@ -11,22 +11,24 @@
 
 .knockouts-header-shell .page-title-row{
   position:relative;
+  margin-bottom:18px !important;
+  padding-bottom:14px !important;
 }
 
 .knockouts-header-shell .page-title-row::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-12px;
-  height:3px;
-  border-radius:999px;
+  content:"" !important;
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:-7px !important;
+  height:3px !important;
+  border-radius:999px !important;
   background:linear-gradient(
     90deg,
-    rgba(255,184,28,.95),
-    rgba(255,184,28,.34) 58%,
+    rgba(239,68,68,.96),
+    rgba(248,113,113,.52) 68%,
     transparent 100%
-  );
+  ) !important;
 }
 
 .knockouts-header-shell .page-title-red{
@@ -35,6 +37,13 @@
   font-weight:900;
   line-height:1.1;
   text-shadow:0 0 8px rgba(239,68,68,.12);
+}
+
+.knockouts-header-shell .page-title-row + p,
+.knockouts-header-shell .page-kicker,
+.knockouts-header-shell .knockouts-helper-copy,
+.knockouts-header-shell .page-helper-copy{
+  margin-top:10px !important;
 }
 
 .knockouts-summary-grid{
@@ -602,36 +611,4 @@
     justify-content:center;
     text-align:center;
   }
-}
-
-/* =========================================
-   KNOCKOUT CENTRAL HEADER — RED ACCENT REFINEMENT
-========================================= */
-
-.knockouts-header-shell .page-title-row {
-  margin-bottom: 18px !important;
-  padding-bottom: 14px !important;
-}
-
-.knockouts-header-shell .page-title-row::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: -7px !important;
-  height: 3px !important;
-  border-radius: 999px !important;
-  background: linear-gradient(
-    90deg,
-    rgba(239,68,68,.96),
-    rgba(248,113,113,.52) 68%,
-    transparent 100%
-  ) !important;
-}
-
-.knockouts-header-shell .page-title-row + p,
-.knockouts-header-shell .page-kicker,
-.knockouts-header-shell .knockouts-helper-copy,
-.knockouts-header-shell .page-helper-copy {
-  margin-top: 10px !important;
 }

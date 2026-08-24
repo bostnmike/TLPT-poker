@@ -62,3 +62,10 @@ The Phase 2B.2 Player Movement pass consolidates all 13 repeated selector
 chains in `player-movement.css`. Seventeen superseded rule blocks and eight
 superseded `!important` declarations were removed while preserving all 480
 final component/property results across root and responsive contexts.
+
+### Knockout Central cleanup
+
+The Phase 2B.3 Knockout Central pass consolidates the two remaining repeated
+header selector chains in `knockouts.css`. The final header spacing and red
+accent declarations retain their existing specificity and `!important` status,
+so the cleanup changes source ownership without changing the rendered cascade.
