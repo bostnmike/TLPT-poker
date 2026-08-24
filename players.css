@@ -85,7 +85,7 @@
   align-self:center;
 }
 
-.crew-view-toolbar #players-help-copy[style*="display:none"]{
+.crew-view-toolbar #players-help-copy[hidden]{
   margin-left:0;
   padding-left:0;
 }

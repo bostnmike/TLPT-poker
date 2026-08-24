@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="style.css?v=20260824-11" />
   <link rel="stylesheet" href="site-tail.css?v=20260824-11" />
-  <link rel="stylesheet" href="players.css?v=20260824-3" />
+  <link rel="stylesheet" href="players.css?v=20260824-4" />
 </head>
 <body class="crew-page">
 <svg class="crew-card-shape-defs" width="0" height="0" aria-hidden="true" focusable="false">
@@ -79,11 +79,11 @@
   <main class="wrap">
     <div class="crew-header-shell">
       <div class="section-head page-title-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-25000.png" alt="T-25000 chip" onerror="this.style.display='none';" />
+        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-25000.png" alt="T-25000 chip" data-hide-on-error />
         <h2 class="page-title-red">Meet the Crew</h2>
       </div>
 
-      <div id="players-explainer" class="page-kicker" style="display:none;"></div>
+      <div id="players-explainer" class="page-kicker" hidden></div>
 
       <div class="crew-view-toolbar" data-sort-scope="crew-view">
         <button id="crew-view-tier" class="btn active" type="button">🎖️ Tier View</button>
@@ -97,7 +97,7 @@
 
         <button id="crew-view-archetype" class="btn" type="button">🫟 Archetype View</button>
 
-        <div id="players-help-copy" class="page-kicker" style="display:none;"></div>
+        <div id="players-help-copy" class="page-kicker" hidden></div>
       </div>
     </div>
 
@@ -123,6 +123,7 @@
   </div>
 </footer>
   
-  <script src="app.js?v=20260824-1"></script>
+  <script src="site-shell.js?v=20260824-1"></script>
+  <script src="app.js?v=20260824-2"></script>
 </body>
 </html>

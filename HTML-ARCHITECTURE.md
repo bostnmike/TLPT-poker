@@ -46,6 +46,17 @@ Do not move calculations, data rendering, card logic, or page initialization
 into the shared shell. Those behaviors remain owned by their existing
 JavaScript and generated-data pipeline.
 
+## Shared shell behavior
+
+Every public page loads `site-shell.js` once, before its page or feature
+scripts. The module owns small behavior shared by the static page shell; it
+does not initialize data, calculations, cards, filters, or page-specific UI.
+
+Static page-title chip images opt into the shared missing-asset fallback with
+`data-hide-on-error`. The module hides a failed chip without placing executable
+event-handler code in the HTML. Public-page markup must not contain inline
+event handlers or inline presentation styles.
+
 ## Phase 2D.1 navigation cleanup
 
 Phase 2D.1 normalizes the active state for every dropdown page. It corrects the
@@ -60,3 +71,16 @@ Phase 2D.2 adds a concise, unique description to all 16 public pages and turns
 the existing head conventions into an enforced contract. Titles and icon paths
 are unchanged. This phase has no body-markup, stylesheet, JavaScript, data, or
 calculation changes.
+
+## Phase 2D.3 inline shell-behavior cleanup
+
+Phase 2D.3 replaces the 13 repeated page-chip `onerror` attributes with one
+shared listener in `site-shell.js`. It also replaces the Crew page's two
+initial `style="display:none"` declarations with the semantic `hidden`
+attribute and updates the existing Crew view toggle to use that same state.
+
+The hygiene audit now rejects inline event handlers and inline `style`
+attributes in public-page HTML, requires `site-shell.js` before feature
+scripts, and verifies that static title-chip images retain the shared fallback
+contract. This phase changes no visible default state, data, calculations,
+card logic, or page content.

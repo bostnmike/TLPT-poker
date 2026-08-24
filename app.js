@@ -3157,12 +3157,12 @@ function renderPlayers(data) {
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
 
     if (helpCopy) {
-      helpCopy.style.display = "";
+      helpCopy.hidden = false;
       helpCopy.textContent = "Your primary & secondary brands of trouble.";
     }
 
     if (explainer) {
-      explainer.style.display = "none";
+      explainer.hidden = true;
       explainer.textContent = "";
     }
 
@@ -3274,12 +3274,12 @@ function renderPlayers(data) {
 
   if (helpCopy) {
     helpCopy.textContent = "";
-    helpCopy.style.display = "none";
+    helpCopy.hidden = true;
   }
 
   if (explainer) {
     explainer.textContent = "";
-    explainer.style.display = "none";
+    explainer.hidden = true;
   }
 
   if (visual) {
