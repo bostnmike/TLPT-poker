@@ -20,6 +20,9 @@ python3 scripts/build-knockouts.py
 echo "🧪 Validating data..."
 python3 scripts/validate-site-data.py
 
+echo "🧹 Auditing code hygiene..."
+python3 scripts/audit-code-hygiene.py
+
 echo "🔎 Auditing source-to-page integrity..."
 python3 scripts/audit-site-integrity.py
 
