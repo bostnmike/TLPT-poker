@@ -35,7 +35,7 @@ EXPECTED_PAGES = {
     "trophy-room.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
-STYLE_FOUNDATION_SELECTORS = {".page-title-row", ".site-footer"}
+STYLE_FOUNDATION_SELECTORS = {".page-title-row", ".site-footer", "body", "html"}
 
 
 def is_local_reference(value: str) -> bool:
@@ -64,6 +64,8 @@ class PageAuditParser(HTMLParser):
         self.nav_depth = 0
         self.nav_links: list[str] = []
         self.stylesheets: list[str] = []
+        self.html_classes: set[str] = set()
+        self.body_classes: set[str] = set()
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -77,6 +79,11 @@ class PageAuditParser(HTMLParser):
             self.has_viewport = True
 
         classes = set(attrs.get("class", "").split())
+        if tag == "html":
+            self.html_classes = classes
+        elif tag == "body":
+            self.body_classes = classes
+
         if tag == "nav" and "nav" in classes:
             self.nav_depth += 1
         elif self.nav_depth and tag == "nav":
@@ -337,6 +344,8 @@ def main() -> int:
             expected_style_prefix.append("home.css")
         elif page.name == "schedule.html":
             expected_style_prefix.append("schedule.css")
+        elif page.name == "news.html":
+            expected_style_prefix.append("news.css")
         if parser.stylesheets[: len(expected_style_prefix)] != expected_style_prefix:
             parser.errors.append(
                 "stylesheet ownership/order must begin with: "
@@ -351,6 +360,16 @@ def main() -> int:
             parser.errors.append("home.css may be loaded only by index.html")
         if page.name != "schedule.html" and "schedule.css" in parser.stylesheets:
             parser.errors.append("schedule.css may be loaded only by schedule.html")
+        if page.name != "news.html" and "news.css" in parser.stylesheets:
+            parser.errors.append("news.css may be loaded only by news.html")
+
+        if page.name == "news.html":
+            if "news-page" not in parser.html_classes:
+                parser.errors.append("News page <html> is missing the news-page class")
+            if "news-page" not in parser.body_classes:
+                parser.errors.append("News page <body> is missing the news-page class")
+        elif "news-page" in parser.html_classes or "news-page" in parser.body_classes:
+            parser.errors.append("news-page class may be used only by news.html")
 
         errors.extend(f"{page.name}: {message}" for message in parser.errors)
 
