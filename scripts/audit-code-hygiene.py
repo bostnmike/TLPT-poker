@@ -62,6 +62,7 @@ class PageAuditParser(HTMLParser):
         self.has_viewport = False
         self.nav_depth = 0
         self.nav_links: list[str] = []
+        self.stylesheets: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -107,6 +108,8 @@ class PageAuditParser(HTMLParser):
 
         if tag == "link" and "stylesheet" in attrs.get("rel", "").lower().split():
             href = attrs.get("href", "")
+            if is_local_reference(href):
+                self.stylesheets.append(urlsplit(href).path)
             if is_local_reference(href) and not urlsplit(href).query.startswith("v="):
                 self.errors.append(f"local stylesheet lacks a cache version: {href}")
 
@@ -184,6 +187,23 @@ def main() -> int:
             parser.errors.append("primary navigation was not found")
         else:
             navigation_by_page[page.name] = parser.nav_links
+
+        expected_style_prefix = ["style.css"]
+        if page.name == "rules.html":
+            expected_style_prefix.append("rules.css")
+        elif page.name == "media.html":
+            expected_style_prefix.append("media.css")
+        expected_style_prefix.append("site-tail.css")
+        if parser.stylesheets[: len(expected_style_prefix)] != expected_style_prefix:
+            parser.errors.append(
+                "stylesheet ownership/order must begin with: "
+                + " → ".join(expected_style_prefix)
+            )
+
+        if page.name != "rules.html" and "rules.css" in parser.stylesheets:
+            parser.errors.append("rules.css may be loaded only by rules.html")
+        if page.name != "media.html" and "media.css" in parser.stylesheets:
+            parser.errors.append("media.css may be loaded only by media.html")
 
         errors.extend(f"{page.name}: {message}" for message in parser.errors)
 
