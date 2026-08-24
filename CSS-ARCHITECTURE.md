@@ -159,3 +159,17 @@ cascade values. Two cross-file selector groups are eliminated, and Crew-only
 rule occurrences no longer load through
 the shared stylesheets. The Crew and Home card artwork contract remains
 unchanged.
+
+### Honors module ownership
+
+The Phase 2C.6 pass moves the Honors page's ID-scoped collection grids, card
+layout lock, section banner treatments, value colors, and responsive column
+breakpoints out of `style.css` and `site-tail.css` and into their existing
+owner, `champions.css`. Superseded shared accent declarations are removed, and
+the Honors-only rules no longer load through the shared stylesheets.
+
+Desktop and responsive behavior remain unchanged: the collection grids retain
+five columns by default, then step to four, three, two, and one column at the
+1280px, 1100px, 800px, and 640px breakpoints. The canonical shared 640px Honors
+page-header exception remains in `site-tail.css` pending a broader header-module
+review.

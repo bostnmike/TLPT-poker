@@ -6308,21 +6308,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   z-index:0;
 }
 
-#champions-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(34,197,94,.30), rgba(34,197,94,.14));
-  border-bottom:1px solid rgba(34,197,94,.34);
-}
-
-#leaders-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(59,130,246,.28), rgba(59,130,246,.14));
-  border-bottom:1px solid rgba(59,130,246,.32);
-}
-
-#records-list .honors-card::before{
-  background:linear-gradient(180deg, rgba(168,85,247,.28), rgba(168,85,247,.14));
-  border-bottom:1px solid rgba(168,85,247,.32);
-}
-
 .honors-card > *{
   position:relative;
   z-index:1;
@@ -6368,21 +6353,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   color:var(--gold);
 }
 
-#champions-list,
-#leaders-list,
-#records-list{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:2px;
-  margin:0;
-  padding:0;
-  border:none;
-  border-radius:0;
-  background:transparent;
-  box-shadow:none;
-}
-
 .leader-banner-top{
   display:flex;
   align-items:center;
@@ -6391,13 +6361,6 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin:-4px -4px 3px -4px;
   padding:3px 4px;
   text-align:center;
-}
-
-#leaders-list .leader-banner-top{
-  background:rgba(59,130,246,.26);
-  background-image:none;
-  border-bottom:1px solid rgba(59,130,246,.32);
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.18);
 }
 
 .champions-title{
