@@ -63,6 +63,27 @@ feature stylesheet without a visual regression review.
 The independent data and calculation audits remain separate and must continue
 to pass before CSS changes are deployed.
 
+## Phase 3A shared page-title system
+
+Phase 3A.1 introduces `.site-page-title` as the single shared typography
+primitive for the primary headings on the six Metrics pages: Standings,
+Dashboard, Form Lab, Knockout Central, Heater Meter, and Streak Tracker.
+
+`style.css` owns the title's responsive size, weight, line height, letter
+spacing, and wrapping. Page modules continue to own their header shell, title
+color, shadow, chip, accent line, helper copy, and controls. A page module must
+not redefine the primary title's size, weight, or line height.
+
+The shared title uses `clamp()` so it grows from a readable mobile size to the
+larger Trophy Room/Hall of Fame-inspired desktop scale without additional
+breakpoint overrides. Home, Crew, Player Profile, Schedule, Rules, News,
+Gallery, and Film Room remain unchanged until their distinct header structures
+are reviewed in later Phase 3A steps.
+
+The hygiene audit enforces exactly one `.site-page-title` heading on each of
+the six rollout pages, verifies its text contract, and reserves the exact root
+selector for `style.css`.
+
 ## Phase 2B hygiene
 
 Phase 2B begins with a zero-visual-change redundancy pass. Exact duplicate rule

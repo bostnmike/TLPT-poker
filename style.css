@@ -351,6 +351,16 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   text-align:left;
 }
 
+.site-page-title{
+  max-width:100%;
+  margin:0;
+  font-size:clamp(2rem, 4.5vw, 3.75rem);
+  font-weight:950;
+  line-height:.98;
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+
 .page-title-orange{
   color:#ffb15a;
 }

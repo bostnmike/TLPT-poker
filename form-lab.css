@@ -69,16 +69,16 @@
   text-transform: uppercase;
 }
 
-.fl-title-row h1,
+.fl-title-row h1 {
+  margin: 0;
+  color: #fff;
+}
+
 .fl-chart-head h2,
 .fl-events-head h2 {
   margin: 0;
   color: #fff;
   line-height: 1.08;
-}
-
-.fl-title-row h1 {
-  font-size: 2.2rem;
 }
 
 #fl-chart-subtitle {
@@ -489,10 +489,6 @@
     height: 58px;
   }
 
-  .fl-title-row h1 {
-    font-size: 1.7rem;
-  }
-
   .fl-control-grid,
   .fl-event-list,
   .fl-quadrant-legend,
@@ -528,9 +524,6 @@
 .fl-header-shell .fl-page-title {
   margin: 0;
   color: #c89af0;
-  font-size: 1.5em;
-  font-weight: 900;
-  line-height: 1.1;
   text-align: left;
   text-shadow: 0 0 8px rgba(168,85,247,.12);
 }
