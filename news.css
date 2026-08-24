@@ -52,10 +52,10 @@ body.news-page{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:46px;
-  height:46px;
-  flex:0 0 46px;
-  font-size:2rem;
+  width:64px;
+  height:64px;
+  flex:0 0 64px;
+  font-size:2.65rem;
   line-height:1;
   filter:drop-shadow(0 6px 10px rgba(0,0,0,.22));
 }

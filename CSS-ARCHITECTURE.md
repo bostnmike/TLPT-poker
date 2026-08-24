@@ -74,15 +74,33 @@ spacing, and wrapping. Page modules continue to own their header shell, title
 color, shadow, chip, accent line, helper copy, and controls. A page module must
 not redefine the primary title's size, weight, or line height.
 
+The shared `.site-page-title-long` modifier is available for unusually long
+primary titles. It preserves the same typography contract with a slightly
+lower desktop ceiling so the title stays on one line when the standard chip and
+section padding are present. Page modules must not recreate this modifier.
+
 The shared title uses `clamp()` so it grows from a readable mobile size to the
 larger Trophy Room/Hall of Fame-inspired desktop scale without additional
-breakpoint overrides. Home, Crew, Player Profile, Schedule, Rules, News,
-Gallery, and Film Room remain unchanged until their distinct header structures
-are reviewed in later Phase 3A steps.
+breakpoint overrides. Home, Crew, and Player Profile remain unchanged until
+their distinct header structures are reviewed in later Phase 3A steps.
 
 The hygiene audit enforces exactly one `.site-page-title` heading on each of
-the six rollout pages, verifies its text contract, and reserves the exact root
+the rollout pages, verifies its text contract, and reserves the exact root
 selector for `style.css`.
+
+### Phase 3A.2 structured content-page rollout
+
+Phase 3A.2 extends the same shared title typography to the five remaining
+content pages whose existing header shells already follow the shared page-title
+contract: Schedule, Rules, The Week That Was, The Gallery, and the Film Room.
+
+Only the primary heading adopts `.site-page-title`. Each page retains its
+existing title color, chip or emoji identity, accent line, shell background,
+kicker, content layout, and responsive header spacing. Schedule uses the shared
+long-title modifier, and the News emoji is scaled to balance the larger desktop
+heading while retaining its existing mobile size. No page-module title
+typography override is needed because those modules already defer primary
+heading size, weight, line height, and letter spacing to the shared foundation.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

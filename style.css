@@ -366,6 +366,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   text-wrap:balance;
 }
 
+.site-page-title-long{
+  font-size:clamp(2rem, 4vw, 3.3rem);
+}
+
 .page-title-orange{
   color:#ffb15a;
 }
