@@ -282,3 +282,8 @@
     transition:none;
   }
 }
+/* Keep intentionally dormant home-page modules out of the layout. */
+.home-jump-nav[hidden],
+#home-archetypes[hidden] {
+  display: none !important;
+}
