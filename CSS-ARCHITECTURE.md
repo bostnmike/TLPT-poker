@@ -117,6 +117,16 @@ rules retain their original order, specificity, values, and `!important`
 status. Partially overlapping rules and all page-module composition remain
 unchanged.
 
-Mobile page-header ownership remains deferred to Phase 2C.2 because those
-rules use overlapping selector groups across several pages and breakpoints and
-require visual regression testing in addition to cascade comparison.
+### Mobile page-header ownership
+
+The Phase 2C.2 pass consolidates three overlapping `max-width:640px` header
+groups in `site-tail.css` into one narrowly scoped primary-header rule, one
+Honors exception, and one shared accent-line rule. It removes broad
+`body:has()` ownership, an ineffective Rules-only margin override, and a final
+Home/Schedule/Media block whose normal-priority declarations were already
+superseded by earlier `!important` values.
+
+The canonical mobile owners now target the actual header shells used by Home,
+Standings, Dashboard, Crew, Schedule, Rules, Media, and Honors. Their final
+position, spacing, padding, accent position, and accent height remain
+unchanged at the 640px breakpoint.
