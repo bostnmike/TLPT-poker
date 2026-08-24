@@ -36,6 +36,11 @@ EXPECTED_PAGES = {
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
 STYLE_FOUNDATION_SELECTORS = {".page-title-row", ".site-footer", "body", "html"}
+EXPECTED_FOOTER_TEXT = (
+    "TLPT is a BostnMike Production... and all that, that entails. "
+    "Site data fueled by The Tournament Director"
+)
+EXPECTED_FOOTER_URL = "https://thetournamentdirector.net/"
 
 
 def is_local_reference(value: str) -> bool:
@@ -66,6 +71,11 @@ class PageAuditParser(HTMLParser):
         self.stylesheets: list[str] = []
         self.html_classes: set[str] = set()
         self.body_classes: set[str] = set()
+        self.site_footer_depth = 0
+        self.site_footer_count = 0
+        self.site_footer_inner_count = 0
+        self.site_footer_links: list[dict[str, str]] = []
+        self.site_footer_text: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -83,6 +93,18 @@ class PageAuditParser(HTMLParser):
             self.html_classes = classes
         elif tag == "body":
             self.body_classes = classes
+
+        if tag == "footer" and "site-footer" in classes:
+            self.site_footer_depth += 1
+            self.site_footer_count += 1
+        elif self.site_footer_depth and tag == "footer":
+            self.site_footer_depth += 1
+
+        if self.site_footer_depth:
+            if tag == "div" and "site-footer-inner" in classes:
+                self.site_footer_inner_count += 1
+            if tag == "a":
+                self.site_footer_links.append(attrs)
 
         if tag == "nav" and "nav" in classes:
             self.nav_depth += 1
@@ -131,6 +153,12 @@ class PageAuditParser(HTMLParser):
         self.end_counts[tag] += 1
         if tag == "nav" and self.nav_depth:
             self.nav_depth -= 1
+        if tag == "footer" and self.site_footer_depth:
+            self.site_footer_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self.site_footer_depth:
+            self.site_footer_text.append(data)
 
 
 def css_without_comments_or_strings(text: str) -> str:
@@ -324,6 +352,35 @@ def main() -> int:
                 )
         if not parser.has_viewport:
             parser.errors.append("missing viewport meta tag")
+
+        if parser.site_footer_count != 1:
+            parser.errors.append(
+                f"expected one site footer; found {parser.site_footer_count}"
+            )
+        if parser.site_footer_inner_count != 1:
+            parser.errors.append(
+                "site footer must contain exactly one .site-footer-inner wrapper"
+            )
+
+        footer_text = " ".join(" ".join(parser.site_footer_text).split())
+        if footer_text != EXPECTED_FOOTER_TEXT:
+            parser.errors.append("site footer text differs from the shared footer contract")
+
+        if len(parser.site_footer_links) != 1:
+            parser.errors.append(
+                "site footer must contain exactly one Tournament Director link"
+            )
+        else:
+            footer_link = parser.site_footer_links[0]
+            footer_rel = set(footer_link.get("rel", "").lower().split())
+            if footer_link.get("href") != EXPECTED_FOOTER_URL:
+                parser.errors.append("site footer has the wrong Tournament Director URL")
+            if footer_link.get("target", "").lower() != "_blank":
+                parser.errors.append("site footer link must open in a new tab")
+            if not {"noopener", "noreferrer"}.issubset(footer_rel):
+                parser.errors.append(
+                    'site footer link must use rel="noopener noreferrer"'
+                )
 
         duplicate_ids = sorted(item for item, count in Counter(parser.ids).items() if count > 1)
         if duplicate_ids:
