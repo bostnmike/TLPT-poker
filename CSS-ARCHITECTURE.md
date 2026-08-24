@@ -139,3 +139,12 @@ shared `site-tail.css` compatibility layer and into its existing owner,
 titles, and play overlays. Six exact cross-file selector groups are eliminated;
 the final values, selector specificity, responsive grid behavior, hover state,
 and 640px shared page-header override remain unchanged.
+
+### Rules module ownership
+
+The Phase 2C.4 pass moves the Rules page's remaining foundation declarations
+out of shared selector groups in `style.css` and into its existing owner,
+`rules.css`. The module now fully owns its rule cards, chip panel, blind sheet,
+and blind-table cell behavior. Five cross-file selector groups are eliminated;
+the final backgrounds, borders, radii, shadows, spacing, and table wrapping
+remain unchanged.

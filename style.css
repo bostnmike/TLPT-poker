@@ -282,10 +282,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .player-card,
 .event-card,
 .champ-card,
-.rule-card,
-.stat-card,
-.rules-chip-panel,
-.blind-sheet{
+.stat-card{
   background:var(--panel);
   border:1px solid var(--line);
   border-radius:18px;
@@ -3391,9 +3388,7 @@ td{
 }
 
 #standings-table th,
-#standings-table td,
-.blind-table th,
-.blind-table td{
+#standings-table td{
   white-space:nowrap;
 }
 

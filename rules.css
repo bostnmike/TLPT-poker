@@ -10,7 +10,9 @@
   padding:18px;
   background:
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.014) 22%, rgba(255,255,255,.01) 100%);
+  border:1px solid var(--line);
   border-color:rgba(255,255,255,.11);
+  border-radius:18px;
   box-shadow:
     0 0 0 1px rgba(255,255,255,.05),
     0 10px 24px rgba(0,0,0,.18);
@@ -316,6 +318,10 @@
 .rules-chip-panel{
   padding:16px;
   margin:14px 0 18px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
 }
 
 .rules-chip-grid{
@@ -571,7 +577,9 @@
   padding:16px;
   background:
     linear-gradient(180deg, rgba(255,184,28,.06), rgba(255,184,28,.015) 24%, rgba(255,255,255,.01) 100%);
+  border:1px solid var(--line);
   border-color:rgba(255,184,28,.14);
+  border-radius:18px;
   box-shadow:
     0 0 0 1px rgba(255,184,28,.06),
     0 10px 24px rgba(0,0,0,.18);
@@ -587,6 +595,7 @@
 .blind-table td{
   padding:12px 12px;
   border-bottom:1px solid rgba(255,255,255,.08);
+  white-space:nowrap;
 }
 
 .blind-table th{
@@ -622,4 +631,3 @@
   color:var(--muted);
   font-size:.92rem;
 }
-
