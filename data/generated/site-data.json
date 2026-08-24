@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T16:10:16.099049Z",
+  "generatedAt": "2026-08-24T16:20:00.760994Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -4562,7 +4562,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4617,7 +4617,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4672,7 +4672,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4727,7 +4727,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
