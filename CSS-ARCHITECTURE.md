@@ -76,3 +76,14 @@ The Phase 2B.4 News pass consolidates the two remaining split selector chains
 in `news.css`: the receipt header layout and the archive-list scrolling rules.
 The declarations retain their existing values, context, order, specificity,
 and `!important` status, so the rendered cascade is unchanged.
+
+### Global compatibility cleanup
+
+The Phase 2B.5 safe global pass removes three redundant Honors grid rules from
+`site-tail.css`; the same responsive values already appear earlier with equal
+or stronger priority. It also combines the two identical RSVP-button selector
+headers into one rule without changing any declaration value or priority.
+
+The overlapping mobile page-header rules remain intentionally untouched. They
+span several pages and should be consolidated only with page-by-page visual
+regression testing at the 1100px, 800px, and 640px breakpoints.
