@@ -32,6 +32,21 @@ and link order. Page differences are limited to the active-state attributes:
 The hygiene audit enforces the complete link order, the expected active labels,
 and exactly one current-page link on every page.
 
+## Primary page hero contract
+
+Phase 3A.3 introduces the Trophy Room-inspired `.site-page-hero` structure for
+chip-based primary page headers. Its static form contains one
+`.site-page-hero-copy` wrapper with a kicker, the primary title, and descriptive
+copy; one `.site-page-hero-chip` image on the far right; and, when the page has
+controls or summary content, one optional `.site-page-hero-lower` region that
+spans the full header width.
+
+Home and Crew use the static contract. Player Profile produces the same
+structure inside `playerProfileSnapshotMarkup()` because its title and summary
+content depend on the selected player. Trophy Room remains the isolated visual
+reference. The hygiene audit protects the static Home and Crew structure and
+the dynamic Player Profile template tokens independently.
+
 ## Shared footer
 
 Every `.site-footer` contains exactly one `.site-footer-inner` wrapper and the

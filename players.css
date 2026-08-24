@@ -2,6 +2,33 @@
    Crew-page shell and mini-card module. Home reuses the scoped card artwork
    for its featured-player card; Crew-only surfaces remain uniquely targeted. */
 
+.crew-page .crew-header-shell{
+  --site-page-hero-accent-rgb:239,68,68;
+  --site-page-hero-secondary-rgb:168,85,247;
+  margin:0 0 18px;
+}
+
+.crew-page .crew-header-shell .site-page-hero-title{
+  color:#fff;
+}
+
+.crew-page .crew-header-controls{
+  display:grid;
+  gap:12px;
+}
+
+.crew-page #players-help-copy{
+  margin:0;
+  color:#dfe7ef;
+  line-height:1.35;
+}
+
+.crew-page #players-explainer{
+  margin:0;
+  color:var(--gold);
+  line-height:1.5;
+}
+
 .crew-view-toolbar{
   position:relative;
   display:flex;

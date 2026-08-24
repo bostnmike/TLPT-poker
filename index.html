@@ -10,10 +10,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
  
-  <link rel="stylesheet" href="style.css?v=20260824-14" />
-  <link rel="stylesheet" href="site-tail.css?v=20260824-11" />
-  <link rel="stylesheet" href="home.css?v=20260824-1" />
-  <link rel="stylesheet" href="players.css?v=20260824-4" />
+  <link rel="stylesheet" href="style.css?v=20260824-15" />
+  <link rel="stylesheet" href="site-tail.css?v=20260824-12" />
+  <link rel="stylesheet" href="home.css?v=20260824-2" />
+  <link rel="stylesheet" href="players.css?v=20260824-5" />
   <link rel="stylesheet" href="home-snapshot.css?v=20260824-2" />
 </head>
 <body>
@@ -73,25 +73,28 @@
 
 <main class="wrap">
   <section class="hero-stack">
-    <section class="hero">
-      <div class="hero-copy hero-copy-enhanced hero-home-copy">
-        <div class="page-title-row home-welcome-row">
-          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-100.png" alt="T-100 chip" data-hide-on-error />
-          <div class="home-welcome-copy">
-            <h2 class="hero-title">Welcome to TLPT Poker League</h2>
-            <p class="hosts-copy home-hero-copy">Where the cards run cold, the takes run hot, and the stats never forget.</p>
+    <section class="hero site-page-hero home-page-hero" aria-labelledby="home-page-title">
+      <div class="site-page-hero-copy">
+        <span class="site-page-hero-kicker">The League. The Players. The Tilt.</span>
+        <h2 id="home-page-title" class="site-page-title site-page-hero-title">Welcome to TLPT Poker League</h2>
+        <p class="site-page-hero-description">Where the cards run cold, the takes run hot, and the stats never forget.</p>
 
-            <!-- Temporarily hidden; remove the hidden attribute to restore these shortcuts. -->
-            <div class="home-jump-nav" aria-label="Jump to home sections" hidden>
-              <a class="home-jump-pill" href="#home-games">📆 This Week</a>
-              <a class="home-jump-pill" href="#home-snapshot">📸 Snapshot</a>
-              <a class="home-jump-pill" href="#home-archetypes">🫟 Archetypes</a>
-              <a class="home-jump-pill" href="#home-archetypes">🎖️ Tiers</a>
-              <a class="home-jump-pill" href="news.html">✍🏼 The Week That Was</a>
-            </div>
-          </div>
+        <!-- Temporarily hidden; remove the hidden attribute to restore these shortcuts. -->
+        <div class="home-jump-nav" aria-label="Jump to home sections" hidden>
+          <a class="home-jump-pill" href="#home-games">📆 This Week</a>
+          <a class="home-jump-pill" href="#home-snapshot">📸 Snapshot</a>
+          <a class="home-jump-pill" href="#home-archetypes">🫟 Archetypes</a>
+          <a class="home-jump-pill" href="#home-archetypes">🎖️ Tiers</a>
+          <a class="home-jump-pill" href="news.html">✍🏼 The Week That Was</a>
         </div>
       </div>
+
+      <img
+        class="site-page-hero-chip"
+        src="images/site/chip-T-100.png"
+        alt="T-100 chip"
+        data-hide-on-error
+      />
     </section>
 
     <!--
@@ -190,6 +193,6 @@
 </footer>
 
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260824-3"></script>
+  <script src="app.js?v=20260824-4"></script>
 </body>
 </html>

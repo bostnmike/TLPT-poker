@@ -3,6 +3,20 @@
    Loaded only by index.html after the shared compatibility layer.
    ========================================================= */
 
+.home-page-hero{
+  --site-page-hero-accent-rgb:255,184,28;
+  --site-page-hero-secondary-rgb:34,197,94;
+  margin:0;
+}
+
+.home-page-hero .site-page-hero-description{
+  color:#f4cb65;
+  font-weight:700;
+  text-shadow:
+    0 0 10px rgba(255,184,28,.20),
+    0 0 22px rgba(255,184,28,.10);
+}
+
 .events-header-stack{
   position:relative;
   display:flex;

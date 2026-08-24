@@ -81,8 +81,8 @@ section padding are present. Page modules must not recreate this modifier.
 
 The shared title uses `clamp()` so it grows from a readable mobile size to the
 larger Trophy Room/Hall of Fame-inspired desktop scale without additional
-breakpoint overrides. Home, Crew, and Player Profile remain unchanged until
-their distinct header structures are reviewed in later Phase 3A steps.
+breakpoint overrides. Home, Crew, and Player Profile receive their tailored
+structural treatment in Phase 3A.3.
 
 The hygiene audit enforces exactly one `.site-page-title` heading on each of
 the rollout pages, verifies its text contract, and reserves the exact root
@@ -101,6 +101,28 @@ long-title modifier, and the News emoji is scaled to balance the larger desktop
 heading while retaining its existing mobile size. No page-module title
 typography override is needed because those modules already defer primary
 heading size, weight, line height, and letter spacing to the shared foundation.
+
+### Phase 3A.3 Trophy-inspired tailored page heroes
+
+Phase 3A.3 establishes the Trophy Room as the visual reference for chip-based
+primary page headers. `style.css` owns the reusable `.site-page-hero` structure:
+a left-side kicker/title/description stack, an enlarged chip on the far right,
+an optional full-width lower region, the larger hero-title scale, and the
+Trophy Room-aligned 820px and 560px responsive transitions.
+
+Home and Crew adopt the shared structure directly in their HTML. Home keeps its
+gold/green identity in `home.css`; Crew keeps its red/purple identity and owns
+its header controls in `players.css`. Player Profile applies the same structure
+inside its dynamically rendered career-summary panel in `app.js`, with
+`player.css` retaining the profile-specific surface, status cards, statistics,
+archetypes, and badges. The Trophy Room remains unchanged and isolated as the
+reference implementation.
+
+This step deliberately removes the obsolete Home-only hero selectors and the
+old Crew title-row shell from the shared compatibility layers. The remaining
+ten chip-header pages retain their current shells until subsequent Phase 3A
+rollout steps migrate them to the new component in visually reviewable batches.
+No data, rankings, card-selection rules, or calculations are changed.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

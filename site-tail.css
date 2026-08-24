@@ -567,14 +567,6 @@
     line-height:1.45;
   }
 
-  .hero-title{
-    font-size:1.7rem;
-  }
-
-  .home-hero-copy{
-    font-size:.96rem;
-  }
-
   .dashboard-studio-chip,
   .standings-race-chip{
     width:100%;
@@ -882,11 +874,6 @@
   background:linear-gradient(90deg, rgba(255,255,255,.18), transparent 100%);
 }
 
-.home-welcome-row::after{
-  content:none !important;
-  display:none !important;
-}
-
 .page-title-row:has(.page-title-orange)::after{
   background:linear-gradient(90deg, rgba(255,184,28,.9), rgba(255,184,28,.18) 58%, transparent 100%);
 }
@@ -1088,10 +1075,8 @@
 
 @media (max-width:640px){
   /* Canonical mobile spacing for the primary page-header shells. */
-  .home-welcome-row,
   .standings-top-shell .page-title-row,
   .dashboard-top-shell .page-title-row,
-  .crew-header-shell .page-title-row,
   .section.schedule-hero .page-title-row,
   .section.rules-header .page-title-row,
   .section.media-header .page-title-row{
@@ -1117,21 +1102,14 @@
     min-width:0;
   }
   
-  .home-welcome-row::after,
   .standings-top-shell .page-title-row::after,
   .dashboard-top-shell .page-title-row::after,
-  .crew-header-shell .page-title-row::after,
   .section.schedule-hero .page-title-row::after,
   .section.rules-header .page-title-row::after,
   .section.media-header .page-title-row::after,
   .honors-page-shell .page-title-row::after{
     bottom:-12px !important;
     height:3px !important;
-  }
-
-  .home-welcome-row::after{
-    content:none !important;
-    display:none !important;
   }
 }
 

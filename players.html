@@ -10,9 +10,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20260824-14" />
-  <link rel="stylesheet" href="site-tail.css?v=20260824-11" />
-  <link rel="stylesheet" href="players.css?v=20260824-4" />
+  <link rel="stylesheet" href="style.css?v=20260824-15" />
+  <link rel="stylesheet" href="site-tail.css?v=20260824-12" />
+  <link rel="stylesheet" href="players.css?v=20260824-5" />
 </head>
 <body class="crew-page">
 <svg class="crew-card-shape-defs" width="0" height="0" aria-hidden="true" focusable="false">
@@ -77,29 +77,41 @@
 </header>
   
   <main class="wrap">
-    <div class="crew-header-shell">
-      <div class="section-head page-title-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-25000.png" alt="T-25000 chip" data-hide-on-error />
-        <h2 class="page-title-red">Meet the Crew</h2>
+    <section class="crew-header-shell site-page-hero" aria-labelledby="crew-page-title">
+      <div class="site-page-hero-copy">
+        <span class="site-page-hero-kicker">TLPT Ultimate Player Cards</span>
+        <h2 id="crew-page-title" class="site-page-title site-page-hero-title">Meet the Crew</h2>
+        <p class="site-page-hero-description">
+          The league roster, ranked by Power Tier and wearing the highest-priority card edition each player has earned.
+        </p>
       </div>
 
-      <div id="players-explainer" class="page-kicker" hidden></div>
+      <img
+        class="site-page-hero-chip"
+        src="images/site/chip-T-25000.png"
+        alt="T-25000 chip"
+        data-hide-on-error
+      />
 
-      <div class="crew-view-toolbar" data-sort-scope="crew-view">
-        <button id="crew-view-tier" class="btn active" type="button">🎖️ Tier View</button>
+      <div class="site-page-hero-lower crew-header-controls">
+        <div id="players-explainer" class="page-kicker" hidden></div>
 
-        <label class="crew-view-switch" for="crew-view-switch-input" aria-label="Toggle between Tier View and Archetype View">
-          <input id="crew-view-switch-input" type="checkbox" />
-          <span class="crew-view-switch-track">
-            <span class="crew-view-switch-thumb"></span>
-          </span>
-        </label>
+        <div class="crew-view-toolbar" data-sort-scope="crew-view">
+          <button id="crew-view-tier" class="btn active" type="button">🎖️ Tier View</button>
 
-        <button id="crew-view-archetype" class="btn" type="button">🫟 Archetype View</button>
+          <label class="crew-view-switch" for="crew-view-switch-input" aria-label="Toggle between Tier View and Archetype View">
+            <input id="crew-view-switch-input" type="checkbox" />
+            <span class="crew-view-switch-track">
+              <span class="crew-view-switch-thumb"></span>
+            </span>
+          </label>
 
-        <div id="players-help-copy" class="page-kicker" hidden></div>
+          <button id="crew-view-archetype" class="btn" type="button">🫟 Archetype View</button>
+
+          <div id="players-help-copy" class="page-kicker" hidden></div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <section class="section">
       <div id="players-visual"></div>
@@ -124,6 +136,6 @@
 </footer>
   
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260824-3"></script>
+  <script src="app.js?v=20260824-4"></script>
 </body>
 </html>

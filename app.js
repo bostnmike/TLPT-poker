@@ -5017,65 +5017,71 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
   ];
 
   return `
-    <section class="tlpt-player-summary" aria-labelledby="tlpt-player-summary-title">
-      <div class="kicker tlpt-player-summary-kicker">TLPT Ultimate Player Card</div>
-
-      <div class="tlpt-player-summary-title-row">
-        <div>
-          <h2 id="tlpt-player-summary-title">${displayPlayerName(player)}</h2>
-          <p class="tlpt-player-summary-quote">${quote}</p>
-        </div>
+    <section class="tlpt-player-summary site-page-hero" aria-labelledby="tlpt-player-summary-title">
+      <div class="site-page-hero-copy">
+        <span class="site-page-hero-kicker">TLPT Ultimate Player Card</span>
+        <h2 id="tlpt-player-summary-title" class="site-page-title site-page-hero-title">${displayPlayerName(player)}</h2>
+        <p class="site-page-hero-description tlpt-player-summary-quote">${quote}</p>
       </div>
 
-      <div class="tlpt-player-status-row">
-        <div class="tlpt-player-status-card">
-          <span>Power Rank</span>
-          <strong>${rankValue}</strong>
-          <small>${rankDetail}</small>
-        </div>
+      <img
+        class="site-page-hero-chip"
+        src="images/site/chip-T-1000.png"
+        alt="T-1000 chip"
+        data-hide-on-error
+      />
 
-        <div class="tlpt-player-status-card">
-          <span>Power Tier</span>
-          <strong>${tierMeta.emoji} ${tierMeta.name}</strong>
-          <small>${tierMeta.desc}</small>
-        </div>
-
-        <div class="tlpt-player-status-card tlpt-player-status-${streak.tone}">
-          <span>${streak.label}</span>
-          <strong>${streak.value}</strong>
-          <small>${tierMeta.status}: ${tierMeta.statusDetail}</small>
-        </div>
-      </div>
-
-      <div class="tlpt-player-snapshot-grid" aria-label="Career snapshot">
-        ${snapshotStats.map(stat => `
-          <div class="tlpt-player-snapshot-stat">
-            <span>${stat.label}</span>
-            <strong class="${stat.className || ""}">${stat.value}</strong>
+      <div class="site-page-hero-lower tlpt-player-summary-lower">
+        <div class="tlpt-player-status-row">
+          <div class="tlpt-player-status-card">
+            <span>Power Rank</span>
+            <strong>${rankValue}</strong>
+            <small>${rankDetail}</small>
           </div>
-        `).join("")}
-      </div>
 
-      <div class="tlpt-player-archetype-pair">
-        <div class="tlpt-player-archetype-card primary">
-          <span>Primary Archetype</span>
-          <strong>${primaryArchetype.emoji} ${primaryArchetype.name}</strong>
-          <small>${primaryArchetype.desc}</small>
+          <div class="tlpt-player-status-card">
+            <span>Power Tier</span>
+            <strong>${tierMeta.emoji} ${tierMeta.name}</strong>
+            <small>${tierMeta.desc}</small>
+          </div>
+
+          <div class="tlpt-player-status-card tlpt-player-status-${streak.tone}">
+            <span>${streak.label}</span>
+            <strong>${streak.value}</strong>
+            <small>${tierMeta.status}: ${tierMeta.statusDetail}</small>
+          </div>
         </div>
 
-        <div class="tlpt-player-archetype-card secondary">
-          <span>Secondary Archetype</span>
-          <strong>${secondaryArchetype.emoji} ${secondaryArchetype.name}</strong>
-          <small>${secondaryArchetype.desc}</small>
+        <div class="tlpt-player-snapshot-grid" aria-label="Career snapshot">
+          ${snapshotStats.map(stat => `
+            <div class="tlpt-player-snapshot-stat">
+              <span>${stat.label}</span>
+              <strong class="${stat.className || ""}">${stat.value}</strong>
+            </div>
+          `).join("")}
         </div>
-      </div>
 
-      <div class="tlpt-player-summary-badges">
-        ${badgesMarkup(
-          player,
-          data,
-          (data?.players || []).filter(isCrewEligible)
-        )}
+        <div class="tlpt-player-archetype-pair">
+          <div class="tlpt-player-archetype-card primary">
+            <span>Primary Archetype</span>
+            <strong>${primaryArchetype.emoji} ${primaryArchetype.name}</strong>
+            <small>${primaryArchetype.desc}</small>
+          </div>
+
+          <div class="tlpt-player-archetype-card secondary">
+            <span>Secondary Archetype</span>
+            <strong>${secondaryArchetype.emoji} ${secondaryArchetype.name}</strong>
+            <small>${secondaryArchetype.desc}</small>
+          </div>
+        </div>
+
+        <div class="tlpt-player-summary-badges">
+          ${badgesMarkup(
+            player,
+            data,
+            (data?.players || []).filter(isCrewEligible)
+          )}
+        </div>
       </div>
     </section>
   `;
