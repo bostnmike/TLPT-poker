@@ -334,6 +334,8 @@ def main() -> int:
         expected_style_prefix.append("site-tail.css")
         if page.name == "index.html":
             expected_style_prefix.append("home.css")
+        elif page.name == "schedule.html":
+            expected_style_prefix.append("schedule.css")
         if parser.stylesheets[: len(expected_style_prefix)] != expected_style_prefix:
             parser.errors.append(
                 "stylesheet ownership/order must begin with: "
@@ -346,6 +348,8 @@ def main() -> int:
             parser.errors.append("media.css may be loaded only by media.html")
         if page.name != "index.html" and "home.css" in parser.stylesheets:
             parser.errors.append("home.css may be loaded only by index.html")
+        if page.name != "schedule.html" and "schedule.css" in parser.stylesheets:
+            parser.errors.append("schedule.css may be loaded only by schedule.html")
 
         errors.extend(f"{page.name}: {message}" for message in parser.errors)
 
