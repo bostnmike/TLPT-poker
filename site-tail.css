@@ -173,8 +173,6 @@
   .standings-formula-display{
     width:100%;
   }
-  .crew-view-toolbar,
-  #players-visual,
   .home-snapshot-layout,
   .home-cluster-stack,
   .home-cluster-stack-3,
@@ -577,7 +575,6 @@
     margin-bottom:14px;
   }
 
-  .crew-view-toolbar,
   .format-toggle,
   .home-snapshot-layout,
   .home-pulse-head,
@@ -974,67 +971,7 @@
 }
 
 /* -------------------------
-   2) Players page shell polish
-   ------------------------- */
-.crew-view-toolbar{
-  position:relative;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:nowrap;
-  padding:14px 16px;
-  border:1px solid rgba(239,68,68,.22);
-  border-radius:16px;
-  background:
-    radial-gradient(circle at top right, rgba(239,68,68,.12), transparent 34%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 28%),
-    linear-gradient(180deg, rgba(20,26,34,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 24px rgba(0,0,0,.20),
-    0 0 18px rgba(239,68,68,.08);
-}
-
-.crew-view-toolbar #players-help-copy{
-  margin-left:18px;
-  padding-left:4px;
-  color:#dfe7ef;
-  font-size:.92rem;
-  font-weight:700;
-  letter-spacing:0;
-  text-transform:none;
-  white-space:normal;
-  flex:0 1 420px;
-  min-width:260px;
-  align-self:center;
-}
-
-.crew-view-toolbar #players-help-copy[style*="display:none"]{
-  margin-left:0;
-  padding-left:0;
-}
-
-.crew-view-toolbar::before{
-  content:none;
-}
-
-#players-visual{
-  margin-top:16px;
-  padding:16px 18px;
-  border:1px solid rgba(239,68,68,.18);
-  border-radius:18px;
-  background:
-    radial-gradient(circle at top right, rgba(239,68,68,.10), transparent 32%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 26%),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 12px 28px rgba(0,0,0,.22),
-    0 0 18px rgba(239,68,68,.08);
-}
-
-/* -------------------------
-   3) Home page polish
+   2) Home page polish
    ------------------------- */
 .league-ticker{
   position:relative;
@@ -1290,11 +1227,10 @@
 }
 
 /* -------------------------
-   6) Unify stronger “featured / control shell” feel
+   5) Unify stronger “featured / control shell” feel
    ------------------------- */
 .dashboard-sort-shell,
 .standings-sort-shell,
-.crew-view-toolbar,
 .format-toggle,
 .league-ticker,
 .events-header-stack,

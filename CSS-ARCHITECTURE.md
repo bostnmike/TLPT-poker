@@ -148,3 +148,14 @@ out of shared selector groups in `style.css` and into its existing owner,
 and blind-table cell behavior. Five cross-file selector groups are eliminated;
 the final backgrounds, borders, radii, shadows, spacing, and table wrapping
 remain unchanged.
+
+### Crew module ownership
+
+The Phase 2C.5 pass moves the Crew toolbar and tier/archetype visual-container
+rules out of `style.css` and `site-tail.css` and into their existing owner,
+`players.css`. Root styling, controls, help copy, accent treatment, responsive
+padding, and the shared control-shell blur are consolidated with their final
+cascade values. Two cross-file selector groups are eliminated, and Crew-only
+rule occurrences no longer load through
+the shared stylesheets. The Crew and Home card artwork contract remains
+unchanged.
