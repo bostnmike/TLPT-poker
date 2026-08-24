@@ -55,3 +55,10 @@ repeated selector/declaration block inside the same media/support context.
 Non-identical override sequences remain intentional until reviewed one page at
 a time. Consolidate those only when the final computed cascade can be proven or
 visually regression-tested; do not remove `!important` merely to reduce a count.
+
+### Player Movement cleanup
+
+The Phase 2B.2 Player Movement pass consolidates all 13 repeated selector
+chains in `player-movement.css`. Seventeen superseded rule blocks and eight
+superseded `!important` declarations were removed while preserving all 480
+final component/property results across root and responsive contexts.

@@ -46,15 +46,17 @@
 
 /* CONTROLS */
 .pm-controls-shell {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .pm-controls-left {
   display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
@@ -106,16 +108,19 @@
 
 /* FORMULA FIX */
 .pm-formula {
-  font-size: 14px;
-  color: #ddd;
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
 
-  text-align: right;
-
-  white-space: nowrap;        /* 🔥 FORCE ONE LINE */
+  max-width: 520px;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 
-  max-width: 600px;           /* 🔥 give it room */
+  font-size: 15px;
+  line-height: 1.3;
+  color: #ddd;
+  text-align: right;
 }
 
 .pm-formula-sub {
@@ -134,10 +139,12 @@
 
 /* CARD */
 .pm-player-card {
+  position: relative;
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* HEADER */
@@ -158,6 +165,12 @@
 .pm-badges {
   margin: 8px 0;
   font-size: 16px;
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* STATS */
@@ -191,60 +204,10 @@
 
 .pm-legend {
   display: flex;
-  gap: 16px;
-  font-size: 12px;
+  gap: 14px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.pm-legend span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.pm-badges {
-  margin: 8px 0;
-  font-size: 16px;
-  display: flex;
-  gap: 6px;
-  align-items: center;
-}
-
-/* =========================================
-   🎛 CONTROLS LAYOUT FIX
-========================================= */
-.pm-controls-shell {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start; /* 🔥 important */
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-/* LEFT SIDE STACK */
-.pm-controls-left {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* BUTTON ROW */
-.pm-button-row {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* =========================================
-   📘 LEGEND (BIGGER + CLEAN)
-========================================= */
-.pm-legend {
-  display: flex;
-  gap: 14px;
-  font-size: 13px;      /* 🔥 slightly bigger */
-  color: var(--muted);
   flex-wrap: wrap;
 }
 
@@ -254,31 +217,11 @@
   gap: 5px;
 }
 
-/* =========================================
-   🧠 FORMULA (RIGHT SIDE FIX)
-========================================= */
-.pm-formula {
-  max-width: 420px;
-  font-size: 15px;
-  text-align: right;
-  line-height: 1.4;
-}
-
-/* =========================================
-   📍 BADGE POSITION (BOTTOM RIGHT)
-========================================= */
-.pm-player-card {
-  position: relative;
-}
-
-.pm-badges {
-  position: absolute;
-  bottom: 10px;
-  right: 12px;
-
+/* BUTTON ROW */
+.pm-button-row {
   display: flex;
-  gap: 6px;
-  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* =========================================
@@ -293,7 +236,8 @@
    🔥 STREAK GLOW (STRONG)
 ========================================= */
 .pm-streak {
-  text-shadow: 0 0 8px #ff5722;
+  text-shadow: 0 0 10px #ff5722;
+  animation: flameFlicker 1.2s infinite;
 }
 
 /* =========================================
@@ -316,11 +260,6 @@
   100% { transform: scale(1); }
 }
 
-.pm-streak {
-  text-shadow: 0 0 10px #ff5722;
-  animation: flameFlicker 1.2s infinite;
-}
-
 /* =========================================
    🏆 WIN PULSE
 ========================================= */
@@ -337,31 +276,9 @@
 /* =========================================
    🎴 CARD HOVER POLISH
 ========================================= */
-.pm-player-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
 .pm-player-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-}
-
-/* =========================================
-   🧠 FORMULA (FINAL LAYOUT)
-========================================= */
-.pm-controls-shell {
-  position: relative; /* 🔥 anchor point */
-}
-
-.pm-formula {
-  position: absolute;
-  bottom: 16px;
-  right: 18px;
-
-  text-align: right;
-  max-width: 520px;
-
-  line-height: 1.3;
 }
 
 /* LINE STYLES */
@@ -547,6 +464,10 @@
   grid-column: 1;
   grid-row: 1;
   align-self: start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
 }
 
 .pm-page .pm-legend {
@@ -594,13 +515,6 @@
 /* =========================================
    🔥 HEATER METER BUTTONS — TLPT CONTROL STYLE
 ========================================= */
-
-.pm-page .pm-button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-}
 
 .pm-page .pm-btn {
   min-height: 42px;
@@ -676,14 +590,6 @@
   border-color: rgba(91,255,137,.45);
 }
 
-/* 🎢 Volatile */
-.pm-page .pm-btn.volatile {
-  background:
-    radial-gradient(circle at 22% 20%, rgba(255,255,255,.18), transparent 24%),
-    linear-gradient(180deg, rgba(59,80,103,.96), rgba(20,34,51,.95));
-  border-color: rgba(255,213,74,.30);
-}
-
 /* Active state — same family as The Crew buttons */
 .pm-page .pm-btn.active {
   box-shadow:
@@ -721,17 +627,8 @@
     0 8px 18px rgba(0,0,0,.28);
 }
 
-.pm-page .pm-btn.volatile.active {
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.20),
-    inset 0 -14px 24px rgba(15,25,38,.42),
-    0 0 0 2px rgba(255,213,74,.14),
-    0 0 18px rgba(255,213,74,.18),
-    0 8px 18px rgba(0,0,0,.28);
-}
-
 /* =========================================
-   🎢 VOLATILE BUTTON FIX — YELLOW THEME
+   🎢 VOLATILE BUTTON — YELLOW THEME
 ========================================= */
 
 .pm-page .pm-btn.volatile {
@@ -1091,38 +988,6 @@
     right: auto;
     justify-content: flex-start;
   }
-}
-
-/* =========================================
-   HEATER METER HEADER ALIGNMENT
-========================================= */
-
-.pm-page .pm-title-chip,
-.pm-page .page-chip,
-.pm-page .page-chip-dashboard {
-  width: 82px !important;
-  height: 82px !important;
-  min-width: 82px !important;
-  min-height: 82px !important;
-  border-radius: 50%;
-  object-fit: cover;
-  flex: 0 0 auto;
-}
-
-/* =========================================
-   HEATER METER TITLE — CHAMPIONS STYLE
-========================================= */
-
-.pm-page .pm-title-row h1,
-.pm-page .pm-page-title,
-.pm-page h1 {
-  margin: 0;
-  color: #c88a00 !important;
-  font-size: 1.5em !important;
-  font-weight: 900 !important;
-  line-height: 1.1 !important;
-  text-align: left;
-  text-shadow: 0 0 8px rgba(200,138,0,.10);
 }
 
 /* =========================================
