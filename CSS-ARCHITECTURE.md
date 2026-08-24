@@ -100,3 +100,23 @@ every affected property remain unchanged.
 After this pass, every stylesheet has zero internally repeated selector
 headers. Cross-file selector ownership and the overlapping mobile page-header
 rules remain deferred to a separate visual-regression phase.
+
+## Phase 2C ownership cleanup
+
+Phase 2C audits selector ownership across the complete stylesheet chain loaded
+by each public page. A cross-file match is not automatically an error: shared
+foundations, page modules, and the compatibility layer may intentionally
+compose different properties for the same component.
+
+### Dead shared-foundation declarations
+
+The Phase 2C.1 pass removes 26 component-rule occurrences from `style.css`
+whose complete declaration sets were superseded later by the exact same
+selector and media context in `site-tail.css`. The surviving compatibility
+rules retain their original order, specificity, values, and `!important`
+status. Partially overlapping rules and all page-module composition remain
+unchanged.
+
+Mobile page-header ownership remains deferred to Phase 2C.2 because those
+rules use overlapping selector groups across several pages and breakpoints and
+require visual regression testing in addition to cascade comparison.
