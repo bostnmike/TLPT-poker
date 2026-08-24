@@ -358,15 +358,6 @@
     grid-template-columns:1fr;
   }
 
-  .home-jump-nav{
-  flex-direction:column;
-  }
-
-  .home-jump-pill{
-    width:100%;
-    justify-content:center;
-  }
-  
   .archetype-section.archetype-hitman,
   .archetype-section.archetype-closer,
   .archetype-section.archetype-grinder,
@@ -471,11 +462,6 @@
     width:230px;
     height:230px;
     font-size:3rem;
-  }
-
-  .page-chip-dashboard{
-    width:64px;
-    height:64px;
   }
 
   .player-formula-display,

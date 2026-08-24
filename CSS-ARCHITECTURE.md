@@ -46,8 +46,12 @@ feature stylesheet without a visual regression review.
 The independent data and calculation audits remain separate and must continue
 to pass before CSS changes are deployed.
 
-## Deferred Phase 2B work
+## Phase 2B hygiene
 
-Phase 2A changes ownership without rewriting declarations. Phase 2B can reduce
-duplicate selector blocks and `!important` chains inside one page at a time,
-using the Phase 2A split and automated checks as its safety boundary.
+Phase 2B begins with a zero-visual-change redundancy pass. Exact duplicate rule
+blocks have been removed, and `scripts/audit-code-hygiene.py` now rejects a
+repeated selector/declaration block inside the same media/support context.
+
+Non-identical override sequences remain intentional until reviewed one page at
+a time. Consolidate those only when the final computed cascade can be proven or
+visually regression-tested; do not remove `!important` merely to reduce a count.
