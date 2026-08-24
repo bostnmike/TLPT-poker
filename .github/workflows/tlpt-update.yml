@@ -8,7 +8,6 @@ on:
     paths:
       - "data/raw/events/**"
       - "scripts/**"
-      - "data/parsed/**"
   workflow_dispatch:
 
 concurrency:
@@ -66,6 +65,12 @@ jobs:
       - name: Validate site data
         run: python scripts/validate-site-data.py
 
+      - name: Audit code hygiene
+        run: python scripts/audit-code-hygiene.py
+
+      - name: Audit source-to-page calculations
+        run: python scripts/audit-site-integrity.py
+
       # -----------------------------------------
       # 💾 Commit + push generated data
       # -----------------------------------------
@@ -93,10 +98,17 @@ jobs:
           echo "🧪 Re-validating site data..."
           python scripts/validate-site-data.py
 
+          echo "🧹 Auditing code hygiene..."
+          python scripts/audit-code-hygiene.py
+
+          echo "🔎 Auditing source-to-page calculations..."
+          python scripts/audit-site-integrity.py
+
           echo "📦 Staging generated outputs..."
           git add data/parsed/events/
           git add data/generated/site-data.json
           git add data/generated/validation-report.json
+          git add data/generated/integrity-report.json
           git add data/generated/knockouts-generated.json
           git add data/generated/knockouts.json
           git add knockouts.json

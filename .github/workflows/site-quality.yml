@@ -1,0 +1,58 @@
+name: TLPT Site Quality Gate
+
+on:
+  push:
+    paths:
+      - "*.html"
+      - "*.css"
+      - "*.js"
+      - "scripts/**"
+      - "data/league-config.json"
+      - "data/player-metadata.json"
+      - "data/featured-cards.json"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "*.html"
+      - "*.css"
+      - "*.js"
+      - "scripts/**"
+      - "data/league-config.json"
+      - "data/player-metadata.json"
+      - "data/featured-cards.json"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tlpt-site-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Audit HTML, CSS, assets, and navigation
+        run: python scripts/audit-code-hygiene.py
+
+      - name: Validate generated site data
+        run: python scripts/validate-site-data.py
+
+      - name: Audit source-to-page calculations
+        run: python scripts/audit-site-integrity.py
