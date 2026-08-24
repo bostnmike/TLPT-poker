@@ -35,7 +35,13 @@ EXPECTED_PAGES = {
     "trophy-room.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
-STYLE_FOUNDATION_SELECTORS = {".page-title-row", ".site-footer", "body", "html"}
+STYLE_FOUNDATION_SELECTORS = {
+    ".page-title-row",
+    ".site-footer",
+    ".site-page-title",
+    "body",
+    "html",
+}
 EXPECTED_FOOTER_TEXT = (
     "TLPT is a BostnMike Production... and all that, that entails. "
     "Site data fueled by The Tournament Director"
@@ -79,6 +85,14 @@ EXPECTED_PAGE_TITLES = {
     "standings.html": "TLPT Standings",
     "streaks.html": "TLPT Streak Tracker",
     "trophy-room.html": "TLPT Trophy Room",
+}
+UNIFIED_TITLE_PAGES = {
+    "dashboard.html": "TLPT Metrics",
+    "form-lab.html": "The Form Lab",
+    "knockouts.html": "Knockout Central",
+    "player-movement.html": "The Heater Meter",
+    "standings.html": "Sortable League Standings",
+    "streaks.html": "TLPT Streak Tracker",
 }
 EXPECTED_META_DESCRIPTIONS = {
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
@@ -168,6 +182,10 @@ class PageAuditParser(HTMLParser):
         self.site_footer_inner_count = 0
         self.site_footer_links: list[dict[str, str]] = []
         self.site_footer_text: list[str] = []
+        self.site_page_title_count = 0
+        self.site_page_title_tag = ""
+        self.site_page_title_depth = 0
+        self.site_page_title_text: list[str] = []
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -190,6 +208,12 @@ class PageAuditParser(HTMLParser):
             self.title_depth += 1
 
         classes = set(attrs.get("class", "").split())
+        if "site-page-title" in classes:
+            self.site_page_title_count += 1
+            self.site_page_title_tag = tag
+            self.site_page_title_depth += 1
+            if tag not in {"h1", "h2"}:
+                self.errors.append("site-page-title must be applied to an h1 or h2")
         if tag == "html":
             self.html_classes = classes
             self.html_lang = attrs.get("lang", "")
@@ -302,6 +326,11 @@ class PageAuditParser(HTMLParser):
             self.title_depth -= 1
         if tag == "footer" and self.site_footer_depth:
             self.site_footer_depth -= 1
+        if (
+            self.site_page_title_depth
+            and tag == self.site_page_title_tag
+        ):
+            self.site_page_title_depth -= 1
 
     def handle_data(self, data: str) -> None:
         if self.title_depth:
@@ -312,6 +341,8 @@ class PageAuditParser(HTMLParser):
             text_parts.append(data)
         if self.site_footer_depth:
             self.site_footer_text.append(data)
+        if self.site_page_title_depth:
+            self.site_page_title_text.append(data)
 
 
 def css_without_comments_or_strings(text: str) -> str:
@@ -542,6 +573,24 @@ def main() -> int:
         page_title = " ".join(" ".join(parser.title_text).split())
         if page_title != EXPECTED_PAGE_TITLES.get(page.name, ""):
             parser.errors.append("document title differs from the page-head contract")
+
+        expected_site_page_title = UNIFIED_TITLE_PAGES.get(page.name)
+        rendered_site_page_title = " ".join(
+            " ".join(parser.site_page_title_text).split()
+        )
+        if expected_site_page_title:
+            if parser.site_page_title_count != 1:
+                parser.errors.append(
+                    "expected exactly one shared site-page-title heading"
+                )
+            elif rendered_site_page_title != expected_site_page_title:
+                parser.errors.append(
+                    "shared site-page-title text differs from the page contract"
+                )
+        elif parser.site_page_title_count:
+            parser.errors.append(
+                "site-page-title is reserved for the current Metrics-page rollout"
+            )
 
         expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
         if parser.descriptions != [expected_description]:
