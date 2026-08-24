@@ -130,3 +130,12 @@ The canonical mobile owners now target the actual header shells used by Home,
 Standings, Dashboard, Crew, Schedule, Rules, Media, and Honors. Their final
 position, spacing, padding, accent position, and accent height remain
 unchanged at the 640px breakpoint.
+
+### Film Room module ownership
+
+The Phase 2C.3 pass moves the Film Room's root-level polish rules out of the
+shared `site-tail.css` compatibility layer and into its existing owner,
+`media.css`. The module now owns its header treatment, cards, accent bars,
+titles, and play overlays. Six exact cross-file selector groups are eliminated;
+the final values, selector specificity, responsive grid behavior, hover state,
+and 640px shared page-header override remain unchanged.
