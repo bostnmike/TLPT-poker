@@ -4,7 +4,7 @@
    the Crew or Player Profile pages. */
 
 #home-snapshot .home-snapshot-layout{
-  grid-template-columns:minmax(0,1fr) minmax(260px,.56fr);
+  grid-template-columns:minmax(0,1fr) minmax(430px,.72fr);
   align-items:stretch;
 }
 
@@ -31,7 +31,7 @@
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding:2px 8px;
+  padding:4px 8px;
 }
 
 #home-snapshot .home-featured-ultimate-kicker{
@@ -45,10 +45,20 @@
   text-shadow:0 0 10px rgba(255,184,28,.20);
 }
 
+#home-snapshot .home-featured-card-stage{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(170px,200px) minmax(190px,1fr);
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+}
+
 #home-snapshot .home-featured-ultimate-card{
-  width:185px;
+  width:200px;
   max-width:100%;
   flex:0 0 auto;
+  justify-self:center;
   clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%) !important;
 }
 
@@ -115,6 +125,82 @@
   font-size:.43rem;
 }
 
+#home-snapshot .home-featured-attributes{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+
+#home-snapshot .home-featured-attribute{
+  position:relative;
+  min-width:0;
+  min-height:76px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:5px;
+  padding:10px 11px;
+  overflow:hidden;
+  border:1px solid rgba(255,184,28,.20);
+  border-radius:12px;
+  color:#fff4cf;
+  background:
+    radial-gradient(circle at top right,rgba(255,184,28,.13),transparent 46%),
+    linear-gradient(180deg,rgba(26,31,39,.98),rgba(12,16,22,.99));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 6px 14px rgba(0,0,0,.18);
+}
+
+#home-snapshot .home-featured-attribute::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:11px;
+  width:34px;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--gold),rgba(255,184,28,.16));
+}
+
+#home-snapshot .home-featured-attribute-score{
+  display:flex;
+  align-items:baseline;
+  gap:5px;
+  min-width:0;
+  line-height:1;
+}
+
+#home-snapshot .home-featured-attribute-score strong{
+  color:#fff0b6;
+  font-size:1.55rem;
+  font-weight:950;
+  letter-spacing:-.045em;
+  text-shadow:0 0 12px rgba(255,184,28,.18);
+}
+
+#home-snapshot .home-featured-attribute-score span{
+  color:var(--gold);
+  font-size:.62rem;
+  font-weight:950;
+  letter-spacing:.055em;
+}
+
+#home-snapshot .home-featured-attribute small{
+  max-width:100%;
+  overflow:hidden;
+  color:#b9c5d2;
+  font-size:.54rem;
+  font-weight:850;
+  letter-spacing:.045em;
+  line-height:1.15;
+  text-overflow:ellipsis;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
 #home-snapshot .home-featured-profile-link{
   display:inline-flex;
   align-items:center;
@@ -130,6 +216,7 @@
   line-height:1.25;
   text-align:center;
   text-decoration:none;
+  white-space:nowrap;
   box-shadow:0 6px 15px rgba(0,0,0,.18);
   transition:transform .18s ease,border-color .18s ease,background .18s ease;
 }
@@ -152,8 +239,12 @@
     padding-bottom:8px;
   }
 
+  #home-snapshot .home-featured-card-stage{
+    max-width:540px;
+  }
+
   #home-snapshot .home-featured-ultimate-card{
-    width:200px;
+    width:205px;
   }
 }
 
@@ -166,8 +257,23 @@
     min-height:142px;
   }
 
+  #home-snapshot .home-featured-card-stage{
+    max-width:360px;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
   #home-snapshot .home-featured-ultimate-card{
     width:190px;
+  }
+
+  #home-snapshot .home-featured-attributes{
+    max-width:340px;
+    justify-self:center;
+  }
+
+  #home-snapshot .home-featured-attribute{
+    min-height:68px;
   }
 }
 

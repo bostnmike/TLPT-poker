@@ -2574,6 +2574,7 @@ function buildFeaturedPlayerCard(player, data) {
   const overall = playerCardOverallRating(player, players);
   const tierMeta = playerCardTierMeta(player, players);
   const primaryArchetype = getPlayerArchetypes(player).primary;
+  const attributes = playerCardAttributes(player, players);
   const featuredEditionId = playerCardFeaturedEditionId(player, data);
   const specialEdition = playerCardSpecialEdition(player, data);
   const specialClass = specialEdition
@@ -2587,55 +2588,72 @@ function buildFeaturedPlayerCard(player, data) {
     <div class="home-featured-ultimate-shell crew-page">
       <div class="home-featured-ultimate-kicker">🌟 Featured Player</div>
 
-      <a
-        class="crew-ultimate-card crew-ultimate-card-${tierMeta.className} home-featured-ultimate-card${specialClass}"
-        href="${playerUrl(player)}"
-        data-featured-edition="${escapeHtmlAttr(featuredEditionId)}"
-        ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
-        aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Featured design: ${escapeHtmlAttr(featuredDesignLabel)}."
-      >
-        <div class="crew-ultimate-card-inner">
-          <div class="crew-ultimate-metal" aria-hidden="true"></div>
+      <div class="home-featured-card-stage">
+        <a
+          class="crew-ultimate-card crew-ultimate-card-${tierMeta.className} home-featured-ultimate-card${specialClass}"
+          href="${playerUrl(player)}"
+          data-featured-edition="${escapeHtmlAttr(featuredEditionId)}"
+          ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
+          aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Featured design: ${escapeHtmlAttr(featuredDesignLabel)}."
+        >
+          <div class="crew-ultimate-card-inner">
+            <div class="crew-ultimate-metal" aria-hidden="true"></div>
 
-          <header class="crew-ultimate-header">
-            <div class="crew-ultimate-rating-block">
-              <span class="crew-ultimate-overall">${overall}</span>
-              <span class="crew-ultimate-tier-code">${tierMeta.code}</span>
+            <header class="crew-ultimate-header">
+              <div class="crew-ultimate-rating-block">
+                <span class="crew-ultimate-overall">${overall}</span>
+                <span class="crew-ultimate-tier-code">${tierMeta.code}</span>
+              </div>
+
+              <div class="crew-ultimate-edition">
+                <span>TLPT</span>
+                <strong>${specialEdition?.shortLabel || "BASE"}</strong>
+                ${specialEdition ? `
+                  <em title="${escapeHtmlAttr(featuredDesignLabel)}">
+                    ${specialEdition.icon} ${specialEdition.cardLabel || specialEdition.label}
+                  </em>
+                ` : `
+                  <em class="is-base-featured" title="Base Edition">♠ BASE</em>
+                `}
+              </div>
+
+              <img
+                class="crew-ultimate-chip"
+                src="images/site/chip-T-1000.png"
+                alt=""
+                aria-hidden="true"
+              />
+            </header>
+
+            <div class="crew-ultimate-portrait">
+              ${playerImageMarkup(player, "crew")}
             </div>
 
-            <div class="crew-ultimate-edition">
-              <span>TLPT</span>
-              <strong>${specialEdition?.shortLabel || "BASE"}</strong>
-              ${specialEdition ? `
-                <em title="${escapeHtmlAttr(featuredDesignLabel)}">
-                  ${specialEdition.icon} ${specialEdition.cardLabel || specialEdition.label}
-                </em>
-              ` : `
-                <em class="is-base-featured" title="Base Edition">♠ BASE</em>
-              `}
+            <div class="crew-ultimate-identity">
+              <h3>${displayPlayerName(player)}</h3>
+              <span>${primaryArchetype.emoji} ${primaryArchetype.name}</span>
             </div>
-
-            <img
-              class="crew-ultimate-chip"
-              src="images/site/chip-T-1000.png"
-              alt=""
-              aria-hidden="true"
-            />
-          </header>
-
-          <div class="crew-ultimate-portrait">
-            ${playerImageMarkup(player, "crew")}
           </div>
+        </a>
 
-          <div class="crew-ultimate-identity">
-            <h3>${displayPlayerName(player)}</h3>
-            <span>${primaryArchetype.emoji} ${primaryArchetype.name}</span>
-          </div>
+        <div class="home-featured-attributes" aria-label="Featured player card attributes">
+          ${attributes.map(attribute => `
+            <div
+              class="home-featured-attribute"
+              title="${escapeHtmlAttr(`${attribute.label}: ${attribute.raw}. ${attribute.formula}`)}"
+            >
+              <div class="home-featured-attribute-score">
+                <strong>${attribute.value}</strong>
+                <span>${attribute.code}</span>
+              </div>
+              <small>${attribute.label}</small>
+            </div>
+          `).join("")}
         </div>
-      </a>
+      </div>
 
       <a class="home-featured-profile-link" href="${playerUrl(player)}">
-        View Full Card →
+        View Full Player Profile →
       </a>
     </div>
   `;
