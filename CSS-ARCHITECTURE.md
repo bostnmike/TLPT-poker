@@ -249,3 +249,16 @@ order, and two-element scope contract. It also reserves exact root `html` and
 `body` ownership for `style.css`. This eliminates the final two root-context
 cross-file selector groups; page-qualified and responsive composition remain
 available where intentional.
+
+### Shared footer markup contract
+
+The Phase 2C.11 pass normalizes the footer markup across all 16 public pages.
+Every `.site-footer` now contains exactly one `.site-footer-inner` wrapper and
+the same attribution text and Tournament Director link. This corrects the Film
+Room's missing inner width wrapper and removes equivalent-but-different source
+formatting from Form Lab and the Trophy Room.
+
+The hygiene audit now enforces the shared wrapper, text, URL, new-tab target,
+and `noopener noreferrer` relationship. Footer presentation remains owned by
+`style.css`; page-specific stylesheets must not redefine the root footer
+primitive.
