@@ -259,9 +259,9 @@ function renderGameSpotlight(week) {
             alt="${player}"
             loading="lazy"
             decoding="async"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            data-image-error-action="show-next"
           />
-          <span class="player-avatar-fallback table" style="display:none;">
+          <span class="player-avatar-fallback table" hidden>
             ${escapeHtml(spotlight?.fallback || getInitials(player))}
           </span>
         </span>
@@ -356,9 +356,9 @@ function renderRoastSection(week) {
               alt="BostnMike"
               loading="lazy"
               decoding="async"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-image-error-action="show-next"
             />
-            <span class="player-avatar-fallback table" style="display:none;">BM</span>
+            <span class="player-avatar-fallback table" hidden>BM</span>
           </span>
           ${html}
         </div>
@@ -440,9 +440,9 @@ function renderAvatar(avatar) {
         alt="${alt}"
         loading="lazy"
         decoding="async"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        data-image-error-action="show-next"
       />
-      <span class="player-avatar-fallback table" style="display:none;">${fallback}</span>
+      <span class="player-avatar-fallback table" hidden>${fallback}</span>
     </span>
   `;
 }

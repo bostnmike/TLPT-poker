@@ -44,9 +44,9 @@ function renderAvatar(person) {
         alt="${alt}"
         loading="lazy"
         decoding="async"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        data-image-error-action="show-next"
       />
-      <span class="player-avatar-fallback table" style="display:none;">${fallback}</span>
+      <span class="player-avatar-fallback table" hidden>${fallback}</span>
     </span>
   `;
 }

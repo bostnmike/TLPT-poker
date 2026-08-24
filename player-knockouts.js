@@ -71,8 +71,9 @@ function findPlayerByRequest(players, requestedName) {
         class="knockout-avatar ${sizeClass}"
         src="${image}"
         alt="${name}"
-        onerror="this.outerHTML='<div class=&quot;knockout-avatar-fallback ${sizeClass}&quot; aria-hidden=&quot;true&quot;>${initials}</div>';"
+        data-image-error-action="replace-with-next"
       />
+      <div class="knockout-avatar-fallback ${sizeClass}" aria-hidden="true" hidden>${initials}</div>
     `;
   }
 

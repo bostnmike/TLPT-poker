@@ -1203,9 +1203,9 @@ function playerImageMarkup(player, size = "medium") {
           alt="${player.name}"
           loading="lazy"
           decoding="async"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          data-image-error-action="show-next"
         />
-        <span class="player-avatar-fallback ${size}" style="display:none;">${initialsFromName(player.name)}</span>
+        <span class="player-avatar-fallback ${size}" hidden>${initialsFromName(player.name)}</span>
       </span>
     `;
   }
@@ -5771,28 +5771,6 @@ function buildChipImageCandidates(chip) {
   return [...new Set(candidates.filter(Boolean))];
 }
 
-window.tlptHandleRuleChipError = function tlptHandleRuleChipError(img) {
-  const candidates = String(img.dataset.candidates || "")
-    .split("|")
-    .map(item => item.trim())
-    .filter(Boolean);
-
-  const currentIndex = Number(img.dataset.candidateIndex || 0);
-  const nextIndex = currentIndex + 1;
-
-  if (nextIndex < candidates.length) {
-    img.dataset.candidateIndex = String(nextIndex);
-    img.src = candidates[nextIndex];
-    return;
-  }
-
-  img.classList.add("is-missing");
-  const fallback = img.nextElementSibling;
-  if (fallback && fallback.classList.contains("rules-chip-fallback")) {
-    fallback.classList.add("is-visible");
-  }
-};
-
 function buildRulesChipCard(chip, formatKey) {
   const candidates = buildChipImageCandidates(chip);
   const firstCandidate = escapeHtmlAttr(candidates[0] || "");
@@ -5809,9 +5787,9 @@ function buildRulesChipCard(chip, formatKey) {
         alt="${label}"
         data-candidates="${candidateAttr}"
         data-candidate-index="0"
+        data-image-error-action="candidate-list"
         loading="lazy"
         decoding="async"
-        onerror="window.tlptHandleRuleChipError(this)"
       >
       <div class="rules-chip-fallback">${label}</div>
       <div class="rules-chip-label">${label}</div>

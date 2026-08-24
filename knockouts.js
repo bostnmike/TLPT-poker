@@ -42,8 +42,9 @@ const KNOCKOUTS_URLS = [
         class="knockouts-avatar ${sizeClass}"
         src="${image}"
         alt="${name}"
-        onerror="this.outerHTML='<div class=&quot;knockouts-avatar-fallback ${sizeClass}&quot; aria-hidden=&quot;true&quot;>${initials}</div>';"
+        data-image-error-action="replace-with-next"
       />
+      <div class="knockouts-avatar-fallback ${sizeClass}" aria-hidden="true" hidden>${initials}</div>
     `;
   }
 

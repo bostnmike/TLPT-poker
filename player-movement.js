@@ -697,7 +697,8 @@ function createCard(player) {
         <img
           class="pm-avatar"
           src="${escapeHtml(player.image || "images/players/default.jpg")}"
-          onerror="this.src='images/players/default.jpg';"
+          data-image-error-action="fallback-source"
+          data-image-fallback-src="images/players/default.jpg"
         />
         <div class="pm-player-heading">
           <strong>${escapeHtml(player.name)}</strong>

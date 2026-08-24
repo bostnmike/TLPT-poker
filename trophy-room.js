@@ -231,9 +231,9 @@
           alt="${name}"
           loading="lazy"
           decoding="async"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+          data-image-error-action="show-next"
         />
-        <span class="trophy-card-avatar-fallback" style="display:none;">${fallback}</span>
+        <span class="trophy-card-avatar-fallback" hidden>${fallback}</span>
       </span>
     `;
   }

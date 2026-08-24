@@ -1255,9 +1255,9 @@ function playerAvatarMarkup(player) {
           alt="${escapeAttr(name)}"
           loading="lazy"
           decoding="async"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          data-image-error-action="show-next"
         />
-        <span class="fl-player-avatar-fallback" style="display:none;">${escapeHtml(initialsFromName(name))}</span>
+        <span class="fl-player-avatar-fallback" hidden>${escapeHtml(initialsFromName(name))}</span>
       ` : `
         <span class="fl-player-avatar-fallback">${escapeHtml(initialsFromName(name))}</span>
       `}

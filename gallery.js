@@ -142,7 +142,8 @@ function buildGalleryWinnerBadgesMarkup(poster) {
                 alt="${escapeGalleryHtml(player.name)}"
                 loading="lazy"
                 decoding="async"
-                onerror="this.style.display='none'; this.parentElement.classList.add('is-missing-avatar');"
+                data-image-error-action="mark-parent"
+                data-image-error-parent-class="is-missing-avatar"
               />
             ` : ""}
             <span class="gallery-winner-avatar-fallback">?</span>
