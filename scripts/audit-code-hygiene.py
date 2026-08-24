@@ -40,6 +40,7 @@ STYLE_FOUNDATION_SELECTORS = {
     ".page-title-row",
     ".site-footer",
     ".site-page-title",
+    ".site-page-title-long",
     "body",
     "html",
 }
@@ -90,8 +91,13 @@ EXPECTED_PAGE_TITLES = {
 UNIFIED_TITLE_PAGES = {
     "dashboard.html": "TLPT Metrics",
     "form-lab.html": "The Form Lab",
+    "gallery.html": "The Gallery",
     "knockouts.html": "Knockout Central",
+    "media.html": "TLPT Film Room",
+    "news.html": "The Week That Was",
     "player-movement.html": "The Heater Meter",
+    "rules.html": "TLPT Rules & Structures",
+    "schedule.html": "The Caahhd Room’s Upcoming Events",
     "standings.html": "Sortable League Standings",
     "streaks.html": "TLPT Streak Tracker",
 }
@@ -590,7 +596,7 @@ def main() -> int:
                 )
         elif parser.site_page_title_count:
             parser.errors.append(
-                "site-page-title is reserved for the current Metrics-page rollout"
+                "site-page-title is reserved for the current Phase 3A rollout"
             )
 
         expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
