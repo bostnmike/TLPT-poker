@@ -84,6 +84,18 @@ The hygiene audit enforces exactly one `.site-page-title` heading on each of
 the six rollout pages, verifies its text contract, and reserves the exact root
 selector for `style.css`.
 
+### Phase 3A.1.1 avatar fallback hotfix
+
+The shared foundation owns the root `[hidden]` visibility contract. It uses
+`display:none !important` so component rules such as avatar fallbacks may
+define their visible `flex` or `block` layout without accidentally overriding
+the semantic hidden state.
+
+Avatar markup continues to render a real image followed by a hidden initials
+fallback. `site-shell.js` reveals that fallback only when the image fails. Page
+modules must not redefine the exact root `[hidden]` selector, and the hygiene
+audit verifies both its ownership and required declaration.
+
 ## Phase 2B hygiene
 
 Phase 2B begins with a zero-visual-change redundancy pass. Exact duplicate rule

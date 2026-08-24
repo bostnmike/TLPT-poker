@@ -22,6 +22,11 @@
   box-sizing:border-box;
 }
 
+/* Preserve the HTML hidden-state contract against component display rules. */
+[hidden]{
+  display:none !important;
+}
+
 html,
 body{
   width:100%;
