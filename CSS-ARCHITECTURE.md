@@ -69,3 +69,10 @@ The Phase 2B.3 Knockout Central pass consolidates the two remaining repeated
 header selector chains in `knockouts.css`. The final header spacing and red
 accent declarations retain their existing specificity and `!important` status,
 so the cleanup changes source ownership without changing the rendered cascade.
+
+### The Week That Was cleanup
+
+The Phase 2B.4 News pass consolidates the two remaining split selector chains
+in `news.css`: the receipt header layout and the archive-list scrolling rules.
+The declarations retain their existing values, context, order, specificity,
+and `!important` status, so the rendered cascade is unchanged.
