@@ -62,6 +62,48 @@ EXPECTED_NAV_ACTIVE_LABELS = {
 EXPECTED_NAV_CURRENT_LABEL = {
     page: labels[-1] for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
 }
+EXPECTED_PAGE_TITLES = {
+    "champions.html": "TLPT Hall of In-FAM[E]-Y",
+    "dashboard.html": "TLPT Dashboard",
+    "form-lab.html": "The Form Lab | TLPT",
+    "gallery.html": "The Gallery | TLPT Poker League",
+    "index.html": "TLPT Poker League",
+    "knockouts.html": "Knockout Central | TLPT Poker League",
+    "media.html": "TLPT Film Room",
+    "news.html": "TLPT News",
+    "player-movement.html": "The Heater Meter | TLPT",
+    "player.html": "Player Profile | TLPT Poker League",
+    "players.html": "TLPT Players",
+    "rules.html": "TLPT Rules",
+    "schedule.html": "TLPT Schedule",
+    "standings.html": "TLPT Standings",
+    "streaks.html": "TLPT Streak Tracker",
+    "trophy-room.html": "TLPT Trophy Room",
+}
+EXPECTED_META_DESCRIPTIONS = {
+    "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
+    "dashboard.html": "Explore TLPT Poker League standings, player performance, rankings, trends, and league-wide metrics.",
+    "form-lab.html": "Track recent TLPT Poker League player form, momentum, and performance across the latest events.",
+    "gallery.html": "Browse photos and memories from TLPT Poker League events in The Gallery.",
+    "index.html": "Follow the TLPT Poker League schedule, players, standings, statistics, honors, and latest league stories.",
+    "knockouts.html": "Explore TLPT Poker League knockout totals, hit leaders, event eliminations, and head-to-head damage.",
+    "media.html": "Watch TLPT Poker League films, highlights, and featured videos in the Film Room.",
+    "news.html": "Read The Week That Was for TLPT Poker League event recaps, featured stories, spotlights, and quick hits.",
+    "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
+    "player.html": "View a TLPT Poker League player profile, Ultimate Player Card, statistics, honors, and card collection.",
+    "players.html": "Meet the TLPT Poker League crew and compare tiered Ultimate Player Cards, ratings, and play styles.",
+    "rules.html": "Review TLPT Poker League rules, structures, rebuy policies, blind levels, and room etiquette.",
+    "schedule.html": "View upcoming TLPT Poker League events, formats, dates, and RSVP information.",
+    "standings.html": "Sort and compare TLPT Poker League standings, profits, results, entries, and performance statistics.",
+    "streaks.html": "Track TLPT Poker League cashing, appearance, and performance streaks.",
+    "trophy-room.html": "Browse collectible TLPT Poker League special-edition player cards and career achievements in the Trophy Room.",
+}
+EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
+EXPECTED_ICON_LINKS = [
+    ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
+    ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
+    ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
+]
 
 
 def is_local_reference(value: str) -> bool:
@@ -86,7 +128,13 @@ class PageAuditParser(HTMLParser):
         self.start_counts: Counter[str] = Counter()
         self.end_counts: Counter[str] = Counter()
         self.ids: list[str] = []
-        self.has_viewport = False
+        self.html_lang = ""
+        self.charsets: list[str] = []
+        self.viewports: list[str] = []
+        self.descriptions: list[str] = []
+        self.title_depth = 0
+        self.title_text: list[str] = []
+        self.icon_links: list[tuple[str, str, str, str]] = []
         self.nav_depth = 0
         self.nav_links: list[str] = []
         self.nav_link_records: list[dict[str, object]] = []
@@ -108,14 +156,36 @@ class PageAuditParser(HTMLParser):
         if "id" in attrs:
             self.ids.append(attrs["id"])
 
-        if tag == "meta" and attrs.get("name", "").lower() == "viewport":
-            self.has_viewport = True
+        if tag == "meta":
+            if "charset" in attrs:
+                self.charsets.append(attrs["charset"])
+            meta_name = attrs.get("name", "").lower()
+            if meta_name == "viewport":
+                self.viewports.append(attrs.get("content", ""))
+            elif meta_name == "description":
+                self.descriptions.append(attrs.get("content", "").strip())
+
+        if tag == "title":
+            self.title_depth += 1
 
         classes = set(attrs.get("class", "").split())
         if tag == "html":
             self.html_classes = classes
+            self.html_lang = attrs.get("lang", "")
         elif tag == "body":
             self.body_classes = classes
+
+        if tag == "link":
+            rel = attrs.get("rel", "").lower()
+            if rel in {"icon", "apple-touch-icon"}:
+                self.icon_links.append(
+                    (
+                        rel,
+                        attrs.get("href", ""),
+                        attrs.get("type", ""),
+                        attrs.get("sizes", ""),
+                    )
+                )
 
         if tag == "footer" and "site-footer" in classes:
             self.site_footer_depth += 1
@@ -185,10 +255,14 @@ class PageAuditParser(HTMLParser):
             self.nav_depth -= 1
         if tag == "a" and self.open_nav_link is not None:
             self.open_nav_link = None
+        if tag == "title" and self.title_depth:
+            self.title_depth -= 1
         if tag == "footer" and self.site_footer_depth:
             self.site_footer_depth -= 1
 
     def handle_data(self, data: str) -> None:
+        if self.title_depth:
+            self.title_text.append(data)
         if self.open_nav_link is not None:
             text_parts = self.open_nav_link["text"]
             assert isinstance(text_parts, list)
@@ -386,8 +460,25 @@ def main() -> int:
                     f"expected one <{tag}> and one </{tag}>; found "
                     f"{parser.start_counts[tag]} and {parser.end_counts[tag]}"
                 )
-        if not parser.has_viewport:
-            parser.errors.append("missing viewport meta tag")
+        if parser.html_lang.lower() != "en":
+            parser.errors.append('root <html> must use lang="en"')
+        if parser.charsets != ["UTF-8"]:
+            parser.errors.append('document must contain exactly one charset="UTF-8" meta tag')
+        if parser.viewports != [EXPECTED_VIEWPORT]:
+            parser.errors.append(
+                "document must contain exactly one canonical viewport meta tag"
+            )
+
+        page_title = " ".join(" ".join(parser.title_text).split())
+        if page_title != EXPECTED_PAGE_TITLES.get(page.name, ""):
+            parser.errors.append("document title differs from the page-head contract")
+
+        expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
+        if parser.descriptions != [expected_description]:
+            parser.errors.append("meta description differs from the page-head contract")
+
+        if parser.icon_links != EXPECTED_ICON_LINKS:
+            parser.errors.append("favicon links differ from the shared page-head contract")
 
         if parser.site_footer_count != 1:
             parser.errors.append(
