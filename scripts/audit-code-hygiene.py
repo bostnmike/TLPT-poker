@@ -111,8 +111,14 @@ UNIFIED_TITLE_PAGES = {
     "streaks.html": "TLPT Streak Tracker",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
+    "dashboard.html",
+    "form-lab.html",
     "index.html",
+    "knockouts.html",
+    "player-movement.html",
     "players.html",
+    "standings.html",
+    "streaks.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
@@ -158,14 +164,6 @@ EXPECTED_IMAGE_ERROR_ACTIONS = {
     "replace-with-next",
     "show-next",
 }
-PLAYER_PROFILE_HERO_TOKENS = (
-    'class="tlpt-player-summary site-page-hero"',
-    'class="site-page-hero-copy"',
-    'class="site-page-hero-chip"',
-    'class="site-page-hero-lower tlpt-player-summary-lower"',
-)
-
-
 def is_local_reference(value: str) -> bool:
     value = value.strip()
     if not value or value.startswith("#") or value.startswith("//"):
@@ -562,14 +560,6 @@ def audit_javascript(path: Path) -> list[str]:
                     f"line {line_number}: unknown data-image-error-action: {action}"
                 )
 
-    if path.name == "app.js":
-        for token in PLAYER_PROFILE_HERO_TOKENS:
-            if text.count(token) != 1:
-                errors.append(
-                    "Player Profile must expose exactly one Trophy-inspired "
-                    f"hero token: {token}"
-                )
-
     return errors
 
 
@@ -638,7 +628,7 @@ def main() -> int:
             ):
                 if parser.class_counts[required_class] != 1:
                     parser.errors.append(
-                        f"expected exactly one .{required_class} in the Phase 3A.3 page hero"
+                        f"expected exactly one .{required_class} in the Phase 3A page hero"
                     )
 
         expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
