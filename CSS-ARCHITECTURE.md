@@ -16,7 +16,8 @@ Every public page begins its stylesheet chain with:
 3. `site-tail.css` — shared value helpers, footer, responsive behavior, and the
    later compatibility/polish layer.
 4. Any existing feature stylesheet for that page, such as `home.css`,
-   `players.css`, `player.css`, `champions.css`, or `gallery.css`.
+   `schedule.css`, `players.css`, `player.css`, `champions.css`, or
+   `gallery.css`.
 
 The ordering is intentional. Do not move `site-tail.css` after an existing
 feature stylesheet without a visual regression review.
@@ -26,6 +27,7 @@ feature stylesheet without a visual regression review.
 - Put genuinely reusable primitives and components in `style.css`.
 - Put Rules-page selectors in `rules.css`.
 - Put Film Room selectors in `media.css`.
+- Put Schedule header-shell selectors in `schedule.css`.
 - Treat `site-tail.css` as a compatibility layer. New page features should not
   be appended there merely because it loads last.
 - Prefer an existing page stylesheet for page-only changes.
@@ -42,6 +44,8 @@ feature stylesheet without a visual regression review.
 - `rules.css` is loaded only by `rules.html`;
 - `media.css` is loaded only by `media.html`;
 - `home.css` is loaded only by `index.html`, immediately after
+  `site-tail.css`;
+- `schedule.css` is loaded only by `schedule.html`, immediately after
   `site-tail.css`;
 - local CSS references exist and carry cache versions.
 
@@ -190,3 +194,18 @@ pseudo-element's unreachable accent geometry are removed. The shared
 stylesheets no longer participate in these six Home selector groups, and
 `scripts/audit-code-hygiene.py` now enforces the new module's page ownership
 and load order.
+
+### Schedule shell ownership
+
+The Phase 2C.8 pass creates `schedule.css` as the owner of the Schedule-only
+header shell. Its container treatment, page-title row, title color, accent
+line, kicker spacing, and blur now live together in one page module loaded only
+by `schedule.html` after `site-tail.css`.
+
+The desktop cascade and canonical shared 640px header exceptions remain
+unchanged. A dead descendant rule for `.section.schedule-hero #schedule-list`
+is removed: the schedule list is a sibling immediately after the hero in the
+document, and the application only populates that existing sibling rather than
+moving it inside the hero. The shared stylesheets no longer participate in the
+Schedule shell's root-level selector groups, and the hygiene audit enforces the
+new module's ownership and load order.

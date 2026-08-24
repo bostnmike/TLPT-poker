@@ -1092,52 +1092,12 @@
 }
 
 /* -------------------------
-   5) Schedule page polish
-   ------------------------- */
-.section.schedule-hero{
-  border-color:rgba(244,114,182,.24);
-  background:
-    radial-gradient(circle at top right, rgba(244,114,182,.16), transparent 32%),
-    radial-gradient(circle at left center, rgba(59,130,246,.08), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(255,184,28,.06), transparent 24%),
-    linear-gradient(180deg, rgba(20,26,34,.97), rgba(12,15,20,.99));
-  box-shadow:
-    0 0 0 1px rgba(244,114,182,.12),
-    0 12px 30px rgba(0,0,0,.24),
-    0 0 26px rgba(244,114,182,.12);
-}
-
-.section.schedule-hero .page-title-row{
-  position:relative;
-  margin-bottom:14px;
-  padding:0 0 12px;
-}
-
-.section.schedule-hero .page-title-row::before{
-  content:none;
-}
-
-.section.schedule-hero #schedule-list{
-  position:relative;
-  padding:14px;
-  border:1px solid rgba(244,114,182,.16);
-  border-radius:18px;
-  background:
-    linear-gradient(180deg, rgba(244,114,182,.08), rgba(244,114,182,.02)),
-    linear-gradient(180deg, rgba(18,24,32,.98), rgba(12,15,20,.99));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.04),
-    0 10px 24px rgba(0,0,0,.18);
-}
-
-/* -------------------------
    5) Unify stronger “featured / control shell” feel
    ------------------------- */
 .dashboard-sort-shell,
 .standings-sort-shell,
 .format-toggle,
-.home-snapshot-layout,
-.section.schedule-hero .page-title-row{
+.home-snapshot-layout{
   backdrop-filter:blur(2px);
 }
 
