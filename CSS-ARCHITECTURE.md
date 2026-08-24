@@ -15,8 +15,8 @@ Every public page begins its stylesheet chain with:
    - `media.css` only on `media.html`
 3. `site-tail.css` — shared value helpers, footer, responsive behavior, and the
    later compatibility/polish layer.
-4. Any existing feature stylesheet for that page, such as `players.css`,
-   `player.css`, `champions.css`, or `gallery.css`.
+4. Any existing feature stylesheet for that page, such as `home.css`,
+   `players.css`, `player.css`, `champions.css`, or `gallery.css`.
 
 The ordering is intentional. Do not move `site-tail.css` after an existing
 feature stylesheet without a visual regression review.
@@ -41,6 +41,8 @@ feature stylesheet without a visual regression review.
 - all 16 public pages load `style.css` and `site-tail.css` in the required order;
 - `rules.css` is loaded only by `rules.html`;
 - `media.css` is loaded only by `media.html`;
+- `home.css` is loaded only by `index.html`, immediately after
+  `site-tail.css`;
 - local CSS references exist and carry cache versions.
 
 The independent data and calculation audits remain separate and must continue
@@ -173,3 +175,18 @@ five columns by default, then step to four, three, two, and one column at the
 1280px, 1100px, 800px, and 640px breakpoints. The canonical shared 640px Honors
 page-header exception remains in `site-tail.css` pending a broader header-module
 review.
+
+### Home shell ownership
+
+The Phase 2C.7 pass creates `home.css` as the owner of six Home-only shell
+selector groups: the weekly-events header and its disabled accent, the league
+ticker shell, the two cluster containers, and the pulse header. Their formerly
+split foundation, compatibility, blur, and responsive declarations are now
+consolidated in one page module loaded only by `index.html`.
+
+The final desktop values and the 980px, 800px, and 640px behavior are preserved.
+An ineffective 980px cluster-padding rule and the disabled events-header
+pseudo-element's unreachable accent geometry are removed. The shared
+stylesheets no longer participate in these six Home selector groups, and
+`scripts/audit-code-hygiene.py` now enforces the new module's page ownership
+and load order.
