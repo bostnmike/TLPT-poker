@@ -12,6 +12,13 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="players.css?v=20260821-8" />
   <link rel="stylesheet" href="home-snapshot.css?v=20260824-1" />
+  <style>
+    /* Keep temporarily hidden home modules hidden even when layout CSS sets display. */
+    .home-jump-nav[hidden],
+    #home-archetypes[hidden] {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
 <header class="site-header">
