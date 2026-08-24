@@ -61,8 +61,10 @@ a:hover{
 }
 
 .site-footer{
-  margin-top:32px;
+  margin-top:30px;
   padding:0 20px 32px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
 }
 
 .site-footer-inner{
@@ -334,6 +336,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .section-head.page-title-row,
 .page-title-row,
 .compact-page-title-row{
+  position:relative;
   display:flex;
   justify-content:flex-start !important;
   align-items:center;

@@ -68,18 +68,6 @@
   color:#fff !important;
 }
 
-/* footer */
-
-.site-footer{
-  border-top:1px solid var(--line);
-  margin-top:30px;
-  color:var(--muted);
-}
-
-.site-footer .wrap{
-  padding:20px;
-}
-
 /* responsive */
 
 @media (max-width:1280px){
@@ -882,10 +870,6 @@
 /* -------------------------
    1) Page-title accent bars
    ------------------------- */
-.page-title-row{
-  position:relative;
-}
-
 .page-title-row::after{
   content:"";
   position:absolute;

@@ -25,6 +25,9 @@ feature stylesheet without a visual regression review.
 ## Ownership rules
 
 - Put genuinely reusable primitives and components in `style.css`.
+- Keep the root `.page-title-row` and `.site-footer` primitives in
+  `style.css`; page modules may target qualified variants without redefining
+  those exact root selectors.
 - Put Rules-page selectors in `rules.css`.
 - Put Film Room selectors in `media.css`.
 - Put Schedule header-shell selectors in `schedule.css`.
@@ -47,6 +50,8 @@ feature stylesheet without a visual regression review.
   `site-tail.css`;
 - `schedule.css` is loaded only by `schedule.html`, immediately after
   `site-tail.css`;
+- the exact root `.page-title-row` and `.site-footer` selectors are owned by
+  `style.css` and may not be reintroduced in another stylesheet;
 - local CSS references exist and carry cache versions.
 
 The independent data and calculation audits remain separate and must continue
@@ -209,3 +214,18 @@ document, and the application only populates that existing sibling rather than
 moving it inside the hero. The shared stylesheets no longer participate in the
 Schedule shell's root-level selector groups, and the hygiene audit enforces the
 new module's ownership and load order.
+
+### Shared primitive ownership
+
+The Phase 2C.9 pass consolidates the exact root `.page-title-row` and
+`.site-footer` selector groups in `style.css`. The final title-row positioning
+and footer spacing, border, padding, and color are unchanged; only their source
+ownership moves out of the later compatibility layer.
+
+The dead `.site-footer .wrap` rule is also removed. Every public page uses
+`.site-footer-inner` inside the footer, and neither the HTML nor JavaScript
+creates a footer `.wrap` descendant. The hygiene audit now prevents the two
+shared foundation selectors from being reintroduced in another stylesheet.
+The only remaining root-context cross-file groups are the News page's
+intentional `html` and `body` canvas overrides, which remain isolated for a
+later page-specific review.
