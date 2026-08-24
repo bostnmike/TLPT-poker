@@ -2,8 +2,8 @@
    NEWS PAGE — PRODUCTION CSS
    ========================================= */
 
-html,
-body{
+html.news-page,
+body.news-page{
   background:#0a0d12;
 }
 

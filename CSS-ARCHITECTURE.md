@@ -16,8 +16,8 @@ Every public page begins its stylesheet chain with:
 3. `site-tail.css` — shared value helpers, footer, responsive behavior, and the
    later compatibility/polish layer.
 4. Any existing feature stylesheet for that page, such as `home.css`,
-   `schedule.css`, `players.css`, `player.css`, `champions.css`, or
-   `gallery.css`.
+   `schedule.css`, `news.css`, `players.css`, `player.css`, `champions.css`,
+   or `gallery.css`.
 
 The ordering is intentional. Do not move `site-tail.css` after an existing
 feature stylesheet without a visual regression review.
@@ -31,6 +31,8 @@ feature stylesheet without a visual regression review.
 - Put Rules-page selectors in `rules.css`.
 - Put Film Room selectors in `media.css`.
 - Put Schedule header-shell selectors in `schedule.css`.
+- Put News-page selectors in `news.css`, scoped through `.news-page` when they
+  target document-level elements.
 - Treat `site-tail.css` as a compatibility layer. New page features should not
   be appended there merely because it loads last.
 - Prefer an existing page stylesheet for page-only changes.
@@ -50,8 +52,12 @@ feature stylesheet without a visual regression review.
   `site-tail.css`;
 - `schedule.css` is loaded only by `schedule.html`, immediately after
   `site-tail.css`;
+- `news.css` is loaded only by `news.html`, immediately after `site-tail.css`,
+  and the page carries `news-page` on both `<html>` and `<body>`;
 - the exact root `.page-title-row` and `.site-footer` selectors are owned by
   `style.css` and may not be reintroduced in another stylesheet;
+- the exact root `html` and `body` selectors are owned by `style.css`; page
+  modules must qualify document-level overrides with their page scope;
 - local CSS references exist and carry cache versions.
 
 The independent data and calculation audits remain separate and must continue
@@ -229,3 +235,17 @@ shared foundation selectors from being reintroduced in another stylesheet.
 The only remaining root-context cross-file groups are the News page's
 intentional `html` and `body` canvas overrides, which remain isolated for a
 later page-specific review.
+
+### News canvas ownership
+
+The Phase 2C.10 pass scopes the News page's flat canvas treatment through a
+dedicated `news-page` class on both `<html>` and `<body>`. `news.css` now uses
+`html.news-page` and `body.news-page`, preserving the same final background
+while no longer redefining the shared foundation's exact root `html` and
+`body` selectors.
+
+The hygiene audit now enforces the News stylesheet's page ownership, load
+order, and two-element scope contract. It also reserves exact root `html` and
+`body` ownership for `style.css`. This eliminates the final two root-context
+cross-file selector groups; page-qualified and responsive composition remain
+available where intentional.
