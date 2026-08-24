@@ -81,8 +81,8 @@ section padding are present. Page modules must not recreate this modifier.
 
 The shared title uses `clamp()` so it grows from a readable mobile size to the
 larger Trophy Room/Hall of Fame-inspired desktop scale without additional
-breakpoint overrides. Home, Crew, and Player Profile receive their tailored
-structural treatment in Phase 3A.3.
+breakpoint overrides. Home and Crew receive their tailored structural
+treatment in Phase 3A.3; the six Metrics pages follow in Phase 3A.4.
 
 The hygiene audit enforces exactly one `.site-page-title` heading on each of
 the rollout pages, verifies its text contract, and reserves the exact root
@@ -112,17 +112,37 @@ Trophy Room-aligned 820px and 560px responsive transitions.
 
 Home and Crew adopt the shared structure directly in their HTML. Home keeps its
 gold/green identity in `home.css`; Crew keeps its red/purple identity and owns
-its header controls in `players.css`. Player Profile applies the same structure
-inside its dynamically rendered career-summary panel in `app.js`, with
-`player.css` retaining the profile-specific surface, status cards, statistics,
-archetypes, and badges. The Trophy Room remains unchanged and isolated as the
-reference implementation.
+its header controls in `players.css`. Phase 3A.3 briefly applied the same
+structure to Player Profile for review; Phase 3A.4 restores that page's
+purpose-built card-and-summary composition. The Trophy Room remains unchanged
+and isolated as the reference implementation.
 
 This step deliberately removes the obsolete Home-only hero selectors and the
 old Crew title-row shell from the shared compatibility layers. The remaining
-ten chip-header pages retain their current shells until subsequent Phase 3A
-rollout steps migrate them to the new component in visually reviewable batches.
-No data, rankings, card-selection rules, or calculations are changed.
+chip-header pages retain their current shells until subsequent Phase 3A rollout
+steps migrate them to the new component in visually reviewable batches. No
+data, rankings, card-selection rules, or calculations are changed.
+
+### Phase 3A.4 Metrics header rollout and profile rollback
+
+Phase 3A.4 moves all six Metrics pages—Dashboard, Form Lab, Heater Meter,
+Streak Tracker, Knockout Central, and Standings—onto `.site-page-hero`. Their
+chips now sit on the far right, their existing helper copy becomes the shared
+description beneath the primary title, and pages with controls or definitions
+use `.site-page-hero-lower` for a full-width second row.
+
+`style.css` owns five reusable color modifiers (`orange`, `purple`, `fire`,
+`red`, and `blue`) by setting only the shared hero variables. Page modules no
+longer carry duplicate title-row, chip-size, accent-line, or helper-copy rules
+for these six headers; they continue to own all controls, cards, tables, charts,
+and responsive feature layouts below the hero.
+
+Player Profile intentionally returns to its pre-3A.3 summary treatment. Its
+full collectible card already supplies the strong visual anchor, so the
+adjacent name, status, snapshot, archetype, and badge panel remains a
+profile-specific component owned by `player.css` rather than a site-page hero.
+This rollback changes presentation only and restores the prior template
+structure without changing player data or calculations.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

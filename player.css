@@ -2346,7 +2346,6 @@
    ========================================= */
 
 .player-page .tlpt-player-summary{
-  --site-page-hero-secondary-rgb:34,197,94;
   min-width:0;
   padding:28px;
   border:1px solid rgba(255,184,28,.22);
@@ -2357,6 +2356,22 @@
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.04),
     0 18px 34px rgba(0,0,0,.24);
+}
+
+.player-page .tlpt-player-summary-kicker{
+  color:var(--gold);
+}
+
+.player-page .tlpt-player-summary-title-row{
+  margin:8px 0 22px;
+}
+
+.player-page .tlpt-player-summary-title-row h2{
+  margin:0;
+  color:#fff;
+  font-size:clamp(2.2rem, 4.2vw, 3.55rem);
+  line-height:1;
+  letter-spacing:-.035em;
 }
 
 .player-page .tlpt-player-summary-quote{
@@ -2909,6 +2924,10 @@
   .player-page .tlpt-player-summary{
     padding:18px;
     border-radius:16px;
+  }
+
+  .player-page .tlpt-player-summary-title-row h2{
+    font-size:2.15rem;
   }
 
   .player-page .tlpt-player-snapshot-stat > strong{

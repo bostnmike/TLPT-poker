@@ -41,11 +41,17 @@ copy; one `.site-page-hero-chip` image on the far right; and, when the page has
 controls or summary content, one optional `.site-page-hero-lower` region that
 spans the full header width.
 
-Home and Crew use the static contract. Player Profile produces the same
-structure inside `playerProfileSnapshotMarkup()` because its title and summary
-content depend on the selected player. Trophy Room remains the isolated visual
-reference. The hygiene audit protects the static Home and Crew structure and
-the dynamic Player Profile template tokens independently.
+Home, Crew, and all six Metrics pages use the static contract. Dashboard,
+Standings, and Streak Tracker also use the optional lower region for controls,
+status, or definitions. Trophy Room remains the isolated visual reference.
+The hygiene audit protects exactly one complete static hero structure on each
+page in the rollout.
+
+Player Profile is an intentional exception. Phase 3A.4 restores its original
+dynamic `.tlpt-player-summary` template because the full collectible card is
+already the page's dominant visual. Its name, quote, status, career snapshot,
+archetypes, and badges remain adjacent to that card without a second chip or
+page-hero wrapper.
 
 ## Shared footer
 

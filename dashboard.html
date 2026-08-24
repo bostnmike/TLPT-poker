@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20260824-15" />
-  <link rel="stylesheet" href="site-tail.css?v=20260824-12" />
+  <link rel="stylesheet" href="style.css?v=20260824-16" />
+  <link rel="stylesheet" href="site-tail.css?v=20260824-13" />
 </head>
 <body>
 <header class="site-header">
@@ -71,15 +71,17 @@
 
   <main class="wrap">
     <section class="dashboard-page-stack">
-      <section class="section dashboard-top-shell">
-        <div class="section-head page-title-row compact-page-title-row dashboard-header-row">
-          <img class="page-chip page-chip-dashboard" src="images/site/chip-T-10000.png" alt="T-10000 chip" data-hide-on-error />
-          <h2 class="page-title-orange site-page-title">TLPT Metrics</h2>
+      <section class="section dashboard-top-shell site-page-hero site-page-hero-orange" aria-labelledby="dashboard-page-title">
+        <div class="site-page-hero-copy">
+          <span class="site-page-hero-kicker">Performance Dashboard</span>
+          <h2 id="dashboard-page-title" class="site-page-title site-page-hero-title">TLPT Metrics</h2>
+          <p class="site-page-hero-description">Sort the board by any stat to reshuffle the field &amp; see who’s running the hottest.</p>
         </div>
 
-        <div class="page-kicker dashboard-page-kicker">Sort the board by any stat to reshuffle the field &amp; see who’s running the hottest.</div>
+        <img class="site-page-hero-chip" src="images/site/chip-T-10000.png" alt="T-10000 chip" data-hide-on-error />
 
-        <div class="dashboard-buttons-shell">
+        <div class="site-page-hero-lower dashboard-hero-lower">
+          <div class="dashboard-buttons-shell">
           <div class="dashboard-button-groups" data-sort-scope="dashboard">
             <div class="button-row dashboard-buttons">
               <button class="btn active" data-dashboard-sort="profit" type="button"><span class="btn-emoji">💰</span><span class="btn-label">Profit</span></button>
@@ -101,14 +103,15 @@
               <button class="btn" data-dashboard-sort="tiltIndex" type="button"><span class="btn-emoji">🧊</span><span class="btn-label">Composure</span></button>
             </div>
           </div>
-        </div>
+          </div>
 
-        <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
+          <div id="dashboard-studio-strip" class="dashboard-studio-strip dashboard-studio-strip-inline"></div>
 
-        <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
-          <div id="dashboard-current-stat" class="dashboard-current-stat"></div>
-          <div class="dashboard-formula-panel dashboard-formula-panel-inline">
-            <div id="dashboard-formula-display" class="dashboard-formula-display">Click a stat button to reveal the calculation formula.</div>
+          <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
+            <div id="dashboard-current-stat" class="dashboard-current-stat"></div>
+            <div class="dashboard-formula-panel dashboard-formula-panel-inline">
+              <div id="dashboard-formula-display" class="dashboard-formula-display">Click a stat button to reveal the calculation formula.</div>
+            </div>
           </div>
         </div>
       </section>
@@ -136,6 +139,6 @@
 </footer>
 
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260824-4"></script>
+  <script src="app.js?v=20260824-5"></script>
 </body>
 </html>

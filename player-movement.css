@@ -3,7 +3,6 @@
 }
 
 /* SHELLS */
-.pm-page .pm-header-shell,
 .pm-page .pm-section-shell,
 .pm-page .pm-controls-shell {
   background: var(--panel);
@@ -14,33 +13,8 @@
   box-shadow: var(--shadow);
 }
 
-/* HEADER */
-.pm-title-row {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.pm-title-chip {
-  width: 82px;
-  height: 82px;
-}
-
-.pm-page h1 {
-  margin: 0;
-}
-
-.pm-accent-line {
-  height: 4px;
-  margin-top: 14px;
-  width: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--gold) 0%,
-    var(--gold) 35%,
-    rgba(255, 215, 0, 0.4) 65%,
-    transparent 100%
-  );
+.pm-page .pm-header-shell {
+  margin-bottom: 24px;
 }
 
 /* CONTROLS */
@@ -426,18 +400,6 @@
 }
 
 /* =========================================
-   🔥 HEATER METER HEADER POLISH
-========================================= */
-
-.pm-page .pm-header-shell .pm-accent-line {
-  margin-bottom: 16px;
-}
-
-.pm-page .pm-header-shell .page-kicker {
-  margin-top: 0;
-}
-
-/* =========================================
    🔥 HEATER METER FORMULA CLEAN ALIGN + WRAP
 ========================================= */
 
@@ -763,21 +725,10 @@
     gap: 18px;
   }
 
-  .pm-page .pm-header-shell,
   .pm-page .pm-controls-shell,
   .pm-page .pm-section-shell {
     padding: 18px;
     border-radius: 18px;
-  }
-
-  .pm-page .pm-title-row {
-    align-items: center;
-    gap: 12px;
-  }
-
-  .pm-page .pm-title-chip {
-    width: 56px;
-    height: 56px;
   }
 
   .pm-page .page-kicker {
@@ -898,20 +849,10 @@
 
 /* Small phones */
 @media (max-width: 480px) {
-  .pm-page .pm-header-shell,
   .pm-page .pm-controls-shell,
   .pm-page .pm-section-shell {
     padding: 15px;
     border-radius: 16px;
-  }
-
-  .pm-page .pm-title-row {
-    gap: 10px;
-  }
-
-  .pm-page .pm-title-chip {
-    width: 48px;
-    height: 48px;
   }
 
   .pm-page .pm-button-row {
@@ -992,34 +933,4 @@ main.wrap .pm-page {
 /* The header shell itself should sit right under the normal page wrap spacing */
 .pm-page .pm-header-shell {
   margin-top: 0 !important;
-}
-
-/* Match Champions / The TLPT (Dis)Honors title treatment */
-.pm-page .pm-title-row h1,
-.pm-page .pm-page-title,
-.pm-page h1 {
-  margin: 0 !important;
-  color: #fde68a !important;
-  text-align: left !important;
-  text-shadow: 0 0 8px rgba(250,204,21,.14) !important;
-}
-
-/* Keep the chip at the same page-header size as the rest of the site */
-.pm-page .pm-title-chip,
-.pm-page .page-chip,
-.pm-page .page-chip-dashboard {
-  width: 82px !important;
-  height: 82px !important;
-  min-width: 82px !important;
-  min-height: 82px !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  flex: 0 0 auto !important;
-}
-
-/* Keep title/chip alignment consistent with other header shells */
-.pm-page .pm-title-row {
-  display: flex !important;
-  align-items: center !important;
-  gap: 14px !important;
 }
