@@ -35,6 +35,7 @@ EXPECTED_PAGES = {
     "trophy-room.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
+STYLE_FOUNDATION_SELECTORS = {".page-title-row", ".site-footer"}
 
 
 def is_local_reference(value: str) -> bool:
@@ -360,6 +361,18 @@ def main() -> int:
 
     for stylesheet in sorted(ROOT.glob("*.css")):
         errors.extend(f"{stylesheet.name}: {message}" for message in audit_css(stylesheet))
+        if stylesheet.name == "style.css":
+            continue
+        for context, selector, _body, line in css_rule_blocks(
+            stylesheet.read_text(encoding="utf-8")
+        ):
+            if context:
+                continue
+            selector_parts = {part.strip() for part in selector.split(",")}
+            for owned_selector in sorted(STYLE_FOUNDATION_SELECTORS & selector_parts):
+                errors.append(
+                    f"{stylesheet.name}:{line}: {owned_selector} is owned by style.css"
+                )
 
     if errors:
         print(f"❌ Code hygiene audit failed with {len(errors)} issue(s):")
