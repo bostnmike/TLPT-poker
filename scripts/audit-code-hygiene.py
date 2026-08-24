@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import re
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -130,6 +130,139 @@ def css_without_comments_or_strings(text: str) -> str:
     return re.sub(r"(['\"])(?:\\.|(?!\1).)*\1", '""', text, flags=re.DOTALL)
 
 
+def normalize_css_fragment(value: str) -> str:
+    value = re.sub(r"/\*.*?\*/", " ", value, flags=re.DOTALL)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def matching_css_brace(text: str, opening: int) -> int:
+    depth = 1
+    quote: str | None = None
+    escaped = False
+    in_comment = False
+    index = opening + 1
+
+    while index < len(text):
+        char = text[index]
+        following = text[index + 1] if index + 1 < len(text) else ""
+        if in_comment:
+            if char == "*" and following == "/":
+                in_comment = False
+                index += 2
+                continue
+        elif quote:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = None
+        elif char == "/" and following == "*":
+            in_comment = True
+            index += 2
+            continue
+        elif char in "'\"":
+            quote = char
+        elif char == "{":
+            depth += 1
+        elif char == "}":
+            depth -= 1
+            if depth == 0:
+                return index
+        index += 1
+
+    raise ValueError(f"unclosed CSS block at character {opening}")
+
+
+def css_rule_blocks(text: str) -> list[tuple[tuple[str, ...], str, str, int]]:
+    blocks: list[tuple[tuple[str, ...], str, str, int]] = []
+
+    def parse_range(start: int, end: int, context: tuple[str, ...]) -> None:
+        cursor = start
+        while cursor < end:
+            while cursor < end and text[cursor].isspace():
+                cursor += 1
+            if text.startswith("/*", cursor):
+                close_comment = text.find("*/", cursor + 2, end)
+                cursor = end if close_comment < 0 else close_comment + 2
+                continue
+            if cursor >= end:
+                break
+
+            header_start = cursor
+            quote: str | None = None
+            escaped = False
+            in_comment = False
+            delimiter = ""
+            while cursor < end:
+                char = text[cursor]
+                following = text[cursor + 1] if cursor + 1 < end else ""
+                if in_comment:
+                    if char == "*" and following == "/":
+                        in_comment = False
+                        cursor += 2
+                        continue
+                elif quote:
+                    if escaped:
+                        escaped = False
+                    elif char == "\\":
+                        escaped = True
+                    elif char == quote:
+                        quote = None
+                elif char == "/" and following == "*":
+                    in_comment = True
+                    cursor += 2
+                    continue
+                elif char in "'\"":
+                    quote = char
+                elif char in "{;}":
+                    delimiter = char
+                    break
+                cursor += 1
+
+            if not delimiter:
+                break
+            header = normalize_css_fragment(text[header_start:cursor])
+            if delimiter == ";":
+                cursor += 1
+                continue
+
+            close = matching_css_brace(text, cursor)
+            body_start = cursor + 1
+            if header.startswith(("@media", "@supports", "@container", "@layer")):
+                parse_range(body_start, close, (*context, header))
+            elif not header.startswith("@"):
+                blocks.append(
+                    (
+                        context,
+                        header,
+                        normalize_css_fragment(text[body_start:close]),
+                        text.count("\n", 0, header_start) + 1,
+                    )
+                )
+            cursor = close + 1
+
+    parse_range(0, len(text), ())
+    return blocks
+
+
+def exact_duplicate_css_blocks(text: str) -> list[str]:
+    grouped: dict[tuple[tuple[str, ...], str, str], list[int]] = defaultdict(list)
+    for context, selector, body, line in css_rule_blocks(text):
+        grouped[(context, selector, body)].append(line)
+
+    errors: list[str] = []
+    for (context, selector, _body), lines in grouped.items():
+        if len(lines) < 2:
+            continue
+        location = " > ".join(context) or "root"
+        line_list = ", ".join(str(line) for line in lines)
+        errors.append(
+            f"exact duplicate CSS block at lines {line_list} ({location}): {selector}"
+        )
+    return sorted(errors)
+
+
 def audit_css(path: Path) -> list[str]:
     errors: list[str] = []
     text = path.read_text(encoding="utf-8")
@@ -141,6 +274,11 @@ def audit_css(path: Path) -> list[str]:
         )
     if ":contains(" in text:
         errors.append("unsupported :contains() selector found")
+
+    try:
+        errors.extend(exact_duplicate_css_blocks(text))
+    except ValueError as exc:
+        errors.append(str(exc))
 
     for match in re.finditer(r"url\(\s*(['\"]?)(.*?)\1\s*\)", text, flags=re.IGNORECASE):
         value = match.group(2).strip()
