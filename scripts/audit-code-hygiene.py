@@ -104,6 +104,7 @@ EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
+SHARED_SHELL_SCRIPT = "site-shell.js"
 
 
 def is_local_reference(value: str) -> bool:
@@ -140,6 +141,7 @@ class PageAuditParser(HTMLParser):
         self.nav_link_records: list[dict[str, object]] = []
         self.open_nav_link: dict[str, object] | None = None
         self.stylesheets: list[str] = []
+        self.scripts: list[str] = []
         self.html_classes: set[str] = set()
         self.body_classes: set[str] = set()
         self.site_footer_depth = 0
@@ -228,6 +230,26 @@ class PageAuditParser(HTMLParser):
         if tag == "script" and not attrs.get("src"):
             self.errors.append("inline <script> block found; move it to a JavaScript file")
 
+        if "style" in attrs:
+            self.errors.append("inline style attribute found; move presentation to CSS or use semantic state")
+
+        inline_handlers = sorted(
+            attr_name for attr_name in attrs if re.fullmatch(r"on[a-z]+", attr_name)
+        )
+        for attr_name in inline_handlers:
+            self.errors.append(
+                f"inline {attr_name} handler found; move behavior to a JavaScript module"
+            )
+
+        if (
+            tag == "img"
+            and attrs.get("src", "").startswith("images/site/chip-T-")
+            and "data-hide-on-error" not in attrs
+        ):
+            self.errors.append(
+                "static title-chip image is missing data-hide-on-error"
+            )
+
         for attr_name in ("href", "src"):
             value = attrs.get(attr_name)
             if not value or not is_local_reference(value):
@@ -245,6 +267,8 @@ class PageAuditParser(HTMLParser):
 
         if tag == "script":
             src = attrs.get("src", "")
+            if src and is_local_reference(src):
+                self.scripts.append(urlsplit(src).path)
             if is_local_reference(src) and not urlsplit(src).query.startswith("v="):
                 self.errors.append(f"local script lacks a cache version: {src}")
 
@@ -562,6 +586,11 @@ def main() -> int:
                 "stylesheet ownership/order must begin with: "
                 + " → ".join(expected_style_prefix)
             )
+
+        if parser.scripts.count(SHARED_SHELL_SCRIPT) != 1:
+            parser.errors.append("site-shell.js must be loaded exactly once")
+        elif parser.scripts[0] != SHARED_SHELL_SCRIPT:
+            parser.errors.append("site-shell.js must load before page and feature scripts")
 
         if page.name != "rules.html" and "rules.css" in parser.stylesheets:
             parser.errors.append("rules.css may be loaded only by rules.html")
