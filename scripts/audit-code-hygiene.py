@@ -36,6 +36,7 @@ EXPECTED_PAGES = {
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
 STYLE_FOUNDATION_SELECTORS = {
+    "[hidden]",
     ".page-title-row",
     ".site-footer",
     ".site-page-title",
@@ -714,11 +715,29 @@ def main() -> int:
             errors.append(f"{page_name}: primary navigation links/order differ from index.html")
 
     for stylesheet in sorted(ROOT.glob("*.css")):
+        stylesheet_text = stylesheet.read_text(encoding="utf-8")
         errors.extend(f"{stylesheet.name}: {message}" for message in audit_css(stylesheet))
         if stylesheet.name == "style.css":
+            hidden_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context and selector == "[hidden]"
+            ]
+            if len(hidden_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one root [hidden] visibility rule"
+                )
+            elif not re.search(
+                r"(?:^|;)\s*display\s*:\s*none\s*!important\s*(?:;|$)",
+                hidden_rules[0][0],
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    "style.css: root [hidden] rule must enforce display:none !important"
+                )
             continue
         for context, selector, _body, line in css_rule_blocks(
-            stylesheet.read_text(encoding="utf-8")
+            stylesheet_text
         ):
             if context:
                 continue
