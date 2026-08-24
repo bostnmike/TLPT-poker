@@ -38,6 +38,13 @@ EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
 STYLE_FOUNDATION_SELECTORS = {
     "[hidden]",
     ".page-title-row",
+    ".site-page-hero",
+    ".site-page-hero-chip",
+    ".site-page-hero-copy",
+    ".site-page-hero-description",
+    ".site-page-hero-kicker",
+    ".site-page-hero-lower",
+    ".site-page-hero-title",
     ".site-footer",
     ".site-page-title",
     ".site-page-title-long",
@@ -92,14 +99,20 @@ UNIFIED_TITLE_PAGES = {
     "dashboard.html": "TLPT Metrics",
     "form-lab.html": "The Form Lab",
     "gallery.html": "The Gallery",
+    "index.html": "Welcome to TLPT Poker League",
     "knockouts.html": "Knockout Central",
     "media.html": "TLPT Film Room",
     "news.html": "The Week That Was",
     "player-movement.html": "The Heater Meter",
+    "players.html": "Meet the Crew",
     "rules.html": "TLPT Rules & Structures",
     "schedule.html": "The Caahhd Room’s Upcoming Events",
     "standings.html": "Sortable League Standings",
     "streaks.html": "TLPT Streak Tracker",
+}
+TROPHY_INSPIRED_HERO_PAGES = {
+    "index.html",
+    "players.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
@@ -145,6 +158,12 @@ EXPECTED_IMAGE_ERROR_ACTIONS = {
     "replace-with-next",
     "show-next",
 }
+PLAYER_PROFILE_HERO_TOKENS = (
+    'class="tlpt-player-summary site-page-hero"',
+    'class="site-page-hero-copy"',
+    'class="site-page-hero-chip"',
+    'class="site-page-hero-lower tlpt-player-summary-lower"',
+)
 
 
 def is_local_reference(value: str) -> bool:
@@ -184,6 +203,7 @@ class PageAuditParser(HTMLParser):
         self.scripts: list[str] = []
         self.html_classes: set[str] = set()
         self.body_classes: set[str] = set()
+        self.class_counts: Counter[str] = Counter()
         self.site_footer_depth = 0
         self.site_footer_count = 0
         self.site_footer_inner_count = 0
@@ -215,6 +235,7 @@ class PageAuditParser(HTMLParser):
             self.title_depth += 1
 
         classes = set(attrs.get("class", "").split())
+        self.class_counts.update(classes)
         if "site-page-title" in classes:
             self.site_page_title_count += 1
             self.site_page_title_tag = tag
@@ -541,6 +562,14 @@ def audit_javascript(path: Path) -> list[str]:
                     f"line {line_number}: unknown data-image-error-action: {action}"
                 )
 
+    if path.name == "app.js":
+        for token in PLAYER_PROFILE_HERO_TOKENS:
+            if text.count(token) != 1:
+                errors.append(
+                    "Player Profile must expose exactly one Trophy-inspired "
+                    f"hero token: {token}"
+                )
+
     return errors
 
 
@@ -598,6 +627,19 @@ def main() -> int:
             parser.errors.append(
                 "site-page-title is reserved for the current Phase 3A rollout"
             )
+
+        if page.name in TROPHY_INSPIRED_HERO_PAGES:
+            for required_class in (
+                "site-page-hero",
+                "site-page-hero-copy",
+                "site-page-hero-kicker",
+                "site-page-hero-title",
+                "site-page-hero-chip",
+            ):
+                if parser.class_counts[required_class] != 1:
+                    parser.errors.append(
+                        f"expected exactly one .{required_class} in the Phase 3A.3 page hero"
+                    )
 
         expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
         if parser.descriptions != [expected_description]:
