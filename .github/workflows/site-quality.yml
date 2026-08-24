@@ -51,6 +51,9 @@ jobs:
       - name: Audit HTML, CSS, assets, and navigation
         run: python scripts/audit-code-hygiene.py
 
+      - name: Test shared shell image fallbacks
+        run: node scripts/test-site-shell.mjs
+
       - name: Validate generated site data
         run: python scripts/validate-site-data.py
 
