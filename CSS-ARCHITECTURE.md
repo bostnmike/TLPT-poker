@@ -87,3 +87,16 @@ headers into one rule without changing any declaration value or priority.
 The overlapping mobile page-header rules remain intentionally untouched. They
 span several pages and should be consolidated only with page-by-page visual
 regression testing at the 1100px, 800px, and 640px breakpoints.
+
+### Shared foundation cleanup
+
+The Phase 2B.6 shared-foundation pass consolidates the six remaining repeated
+selector chains inside `style.css`: the archetype header, responsive dashboard
+button shell, Honors grids, Honors banner layout, League Leader banner, and
+Crew title. Earlier declarations were either repeated in or fully superseded by
+their later rule, so the final value, context, specificity, and priority of
+every affected property remain unchanged.
+
+After this pass, every stylesheet has zero internally repeated selector
+headers. Cross-file selector ownership and the overlapping mobile page-header
+rules remain deferred to a separate visual-regression phase.

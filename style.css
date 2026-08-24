@@ -4960,10 +4960,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     0 0 22px rgba(255,122,122,.08);
 }
 
-.archetype-visual-head{
-  grid-area:head;
-}
-
 .archetype-mode-toggle{
   grid-area:mode;
   display:flex;
@@ -5811,10 +5807,6 @@ body:has(#dashboard-grid) .page-title-row::after{
     grid-template-columns:repeat(2, minmax(0,1fr));
   }
   
-  .dashboard-buttons-shell{
-    padding:10px;
-  }
-  
   .dashboard-buttons-shell .dashboard-buttons{
     padding:10px;
   }
@@ -6605,38 +6597,11 @@ body:has(#dashboard-grid) .page-title-row::after{
   position:relative;
   display:grid;
   grid-template-columns:repeat(5, minmax(0,1fr));
-  gap:8px;
-  padding:0;
-  border-radius:0;
-  box-shadow:none;
-}
-
-.leader-banner-top{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  margin:-8px -8px 8px -8px;
-  padding:6px 8px;
-  text-align:center;
-}
-
-#leaders-list .leader-banner-top{
-  background:linear-gradient(180deg, rgba(59,130,246,.38), rgba(59,130,246,.22));
-  border-bottom:1px solid rgba(59,130,246,.38);
-  box-shadow:inset 0 -1px 0 rgba(59,130,246,.22);
-}
-
-#champions-list,
-#leaders-list,
-#records-list{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(5, minmax(0,1fr));
   gap:2px;
   margin:0;
   padding:0;
   border:none;
+  border-radius:0;
   background:transparent;
   box-shadow:none;
 }
@@ -6683,9 +6648,6 @@ body:has(#dashboard-grid) .page-title-row::after{
 
 .crew-header-shell .page-title-red{
   color:#e86a6a;
-}
-
-.crew-header-shell .page-title-red{
   font-size:1.5em;
 }
 
