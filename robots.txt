@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /NewReports/
+Disallow: /data/
+Disallow: /scripts/
+Disallow: /knockout-events-full.json
+Disallow: /knockout-name-map-full.json
+Disallow: /knockouts.json
+Disallow: /news-data.json
+
+Sitemap: https://tlpt.org/sitemap.xml

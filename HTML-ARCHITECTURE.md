@@ -596,3 +596,23 @@ header-chip, Film Room, card-crest, Hall decoration, Rules chip, and cache
 delivery contracts. Image files, page copy, cards, player data, statistics,
 ordering, calculations, filters, navigation, fallbacks, layout, styling, and
 responsive presentation remain unchanged.
+
+## Phase 3E.1 search-discovery foundation
+
+Phase 3E begins discoverability hardening with two root-level crawler files.
+`robots.txt` allows the public site while excluding operational source folders
+and raw JSON data files from crawler requests, and advertises the absolute
+`https://tlpt.org/sitemap.xml` location.
+
+The XML sitemap publishes the 15 stable, user-facing page URLs with absolute
+HTTPS locations. The query-driven `player.html` profile shell is intentionally
+excluded: individual player URLs require a later dynamic canonical-metadata
+contract and should not be represented by one misleading base URL. No
+`lastmod`, `changefreq`, or `priority` values are emitted, avoiding metadata
+that the static deployment cannot keep reliably current.
+
+`scripts/audit-code-hygiene.py` now validates the exact crawler policy, sitemap
+namespace, URL order, uniqueness, matching local page files, and deliberate
+profile exclusion. Page markup, navigation, content, cards, player data,
+statistics, calculations, image delivery, styling, interactions, and
+responsive behavior remain unchanged.
