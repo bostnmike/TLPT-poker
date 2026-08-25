@@ -41,28 +41,10 @@ jobs:
           node-version: "22"
 
       # -----------------------------------------
-      # 🔄 Parse ALL events
+      # 🏗️ Run authoritative data build
       # -----------------------------------------
-      - name: Parse all event reports
-        run: python scripts/parse-event-reports.py
-
-      # -----------------------------------------
-      # 🔥 Generate index
-      # -----------------------------------------
-      - name: Generate event index
-        run: node scripts/generate-event-index.js
-
-      # -----------------------------------------
-      # 🧠 Build site data
-      # -----------------------------------------
-      - name: Build site data
-        run: python scripts/build-site-data.py
-
-      # -----------------------------------------
-      # 💀 Build knockout data
-      # -----------------------------------------
-      - name: Build knockout data
-        run: python scripts/build-knockouts.py
+      - name: Build all TLPT generated data
+        run: bash scripts/run-data-build.sh
 
       # -----------------------------------------
       # ✅ Run complete quality gates
@@ -82,17 +64,8 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
-          echo "📥 Re-running parser after sync..."
-          python scripts/parse-event-reports.py
-
-          echo "🔥 Re-generating parsed event index..."
-          node scripts/generate-event-index.js
-
-          echo "📊 Rebuilding site data..."
-          python scripts/build-site-data.py
-
-          echo "💀 Rebuilding knockout data..."
-          python scripts/build-knockouts.py
+          echo "🏗️ Re-running authoritative data build after sync..."
+          bash scripts/run-data-build.sh
 
           echo "✅ Running complete TLPT quality gates..."
           bash scripts/run-quality-gates.sh
