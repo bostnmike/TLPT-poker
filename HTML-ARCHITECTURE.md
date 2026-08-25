@@ -297,3 +297,19 @@ The page references advance to `form-lab.css?v=20260825-1` and
 point role, keyboard focus, accessible name, pressed state, event-list state,
 focus treatment, and both cache versions. Form Lab formulas, chart scales,
 event rows, defaults, layout, and responsive behavior remain unchanged.
+
+## Phase 3C.3 selected-state control contract
+
+Dashboard and Standings metric buttons, Rules format buttons, Crew view and
+archetype controls, and Heater Meter filters now expose the same selected state
+to assistive technology that their existing `active` styling shows visually.
+Every group publishes one correct initial `aria-pressed` value and synchronizes
+that value whenever the existing control logic changes the active option.
+
+The shared application reference advances to `app.js?v=20260825-2` across all
+eight consumers, and Heater Meter advances to
+`player-movement.js?v=20260825-4`. `scripts/audit-code-hygiene.py` enforces each
+group's complete button set, default visual/semantic agreement, runtime state
+synchronization, dynamic Crew controls, and both cache-delivery contracts.
+Button labels, ordering, styling, defaults, calculations, data, and responsive
+behavior remain unchanged.

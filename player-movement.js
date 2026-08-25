@@ -594,6 +594,14 @@ function applyRanking(players, mode) {
 function bindControls(players) {
   const buttons = document.querySelectorAll(".pm-btn");
 
+  const setActiveButton = activeButton => {
+    buttons.forEach(button => {
+      const isActive = button === activeButton;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  };
+
   const update = (mode, label, emoji) => {
     const ranked = applyRanking(players, mode);
 
@@ -609,8 +617,7 @@ function bindControls(players) {
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      button.classList.add("active");
+      setActiveButton(button);
 
       const type = button.dataset.sort;
 
@@ -629,8 +636,7 @@ function bindControls(players) {
 
   const hotButton = document.querySelector('.pm-btn[data-sort="momentum"]');
   if (hotButton) {
-    buttons.forEach(b => b.classList.remove("active"));
-    hotButton.classList.add("active");
+    setActiveButton(hotButton);
   }
 
   update("momentum", "5 Biggest Heaters", "🔥");

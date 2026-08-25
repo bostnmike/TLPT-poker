@@ -3029,6 +3029,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
           type="button"
           class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
           data-archetype-mode="primary"
+          aria-pressed="${mode === "primary" ? "true" : "false"}"
         >
           Primary
         </button>
@@ -3052,6 +3053,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
           type="button"
           class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
           data-archetype-mode="secondary"
+          aria-pressed="${mode === "secondary" ? "true" : "false"}"
         >
           Secondary
         </button>
@@ -3063,6 +3065,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
             type="button"
             class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
             data-archetype-filter="all"
+            aria-pressed="${activeFilter === "all" ? "true" : "false"}"
           >
             View All
             <span>${totalPlayers}</span>
@@ -3073,6 +3076,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
               type="button"
               class="archetype-filter-pill ${activeFilter === group.title ? "active" : ""} ${group.className}"
               data-archetype-filter="${group.title}"
+              aria-pressed="${activeFilter === group.title ? "true" : "false"}"
             >
               ${group.emoji} ${group.title}
               <span>${group.players.length}</span>
@@ -3141,8 +3145,16 @@ function renderPlayers(data) {
   const archetypeBtn = document.getElementById("crew-view-archetype");
   const crewViewSwitch = document.getElementById("crew-view-switch-input");
 
-  if (tierBtn) tierBtn.classList.toggle("active", currentCrewView === "tier");
-  if (archetypeBtn) archetypeBtn.classList.toggle("active", currentCrewView === "archetype");
+  if (tierBtn) {
+    const isActive = currentCrewView === "tier";
+    tierBtn.classList.toggle("active", isActive);
+    tierBtn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  }
+  if (archetypeBtn) {
+    const isActive = currentCrewView === "archetype";
+    archetypeBtn.classList.toggle("active", isActive);
+    archetypeBtn.setAttribute("aria-pressed", isActive ? "true" : "false");
+  }
   if (crewViewSwitch) crewViewSwitch.checked = currentCrewView === "archetype";
 
   if (!grid || !data?.players) return;
@@ -5898,7 +5910,11 @@ function buildRulesBlindTable(format) {
 function setActiveFormatButton(formatKey) {
   ["40k", "500k"].forEach(key => {
     const btn = document.getElementById(`format-btn-${key}`);
-    if (btn) btn.classList.toggle("active", key === formatKey);
+    if (btn) {
+      const isActive = key === formatKey;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    }
   });
 
   const toggle = document.getElementById("format-switch-input");
@@ -5956,7 +5972,9 @@ function initRulesPage() {
 function setActiveSortButton(scope, sortKey) {
   document.querySelectorAll(`[data-sort-scope="${scope}"] [data-sort], [data-${scope}-sort]`).forEach(btn => {
     const key = btn.dataset.sort || btn.dataset[`${scope}Sort`];
-    btn.classList.toggle("active", key === sortKey);
+    const isActive = key === sortKey;
+    btn.classList.toggle("active", isActive);
+    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
 }
 
