@@ -173,7 +173,7 @@ EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-3"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
@@ -227,6 +227,17 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
         {"momentum", "cold", "consistent", "volatile"},
         "momentum",
     ),
+}
+EXPECTED_CONTROL_GROUPS = {
+    "dashboard.html": ("dashboard-button-groups", "Dashboard metric"),
+    "standings.html": ("standings-buttons", "Standings metric"),
+    "rules.html": ("format-toggle", "Tournament structure"),
+    "players.html": ("crew-view-toolbar", "Crew view"),
+    "player-movement.html": ("pm-button-row", "Heater Meter view"),
+}
+EXPECTED_SWITCH_INPUT_LABELS = {
+    "rules.html": ("format-switch-input", "Saturday 500K structure"),
+    "players.html": ("crew-view-switch-input", "Archetype crew view"),
 }
 JAVASCRIPT_INLINE_HANDLER = re.compile(
     r"\bon[a-z]+\s*=\s*(['\"])",
@@ -300,6 +311,7 @@ class PageAuditParser(HTMLParser):
         self.skip_link_records: list[dict[str, object]] = []
         self.open_skip_link: dict[str, object] | None = None
         self.button_records: list[dict[str, object]] = []
+        self.element_records: list[dict[str, object]] = []
         self.gallery_lightbox_attrs: dict[str, str] | None = None
         self.gallery_lightbox_dialog_attrs: list[dict[str, str]] = []
         self.gallery_lightbox_backdrop_attrs: dict[str, str] | None = None
@@ -325,6 +337,7 @@ class PageAuditParser(HTMLParser):
             self.title_depth += 1
 
         classes = set(attrs.get("class", "").split())
+        self.element_records.append({"tag": tag, "attrs": attrs, "classes": classes})
         self.class_counts.update(classes)
         if tag == "main" and attrs.get("id") == "main-content":
             self.main_content_count += 1
@@ -741,6 +754,29 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Crew archetype mode and filter controls must expose selected state"
             )
+        for group_markup, label in (
+            (
+                '<div class="archetype-mode-toggle" role="group" '
+                'aria-label="Archetype mode">',
+                "Crew archetype mode controls",
+            ),
+            (
+                '<div class="archetype-filter-row" role="group" '
+                'aria-label="Archetype filter">',
+                "Crew archetype filter controls",
+            ),
+        ):
+            if group_markup not in archetype_source:
+                errors.append(f"{label} must expose a named group")
+        if not re.search(
+            r'id="archetype-mode-switch-input".*?'
+            r'aria-label="Secondary archetypes"',
+            archetype_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Crew archetype mode switch must expose its own accessible name"
+            )
 
     if path.name == "form-lab.js":
         point_contract = re.search(
@@ -986,6 +1022,51 @@ def main() -> int:
                 if active_values != pressed_values:
                     parser.errors.append(
                         "selected-state button group visual and semantic defaults differ"
+                    )
+
+        expected_control_group = EXPECTED_CONTROL_GROUPS.get(page.name)
+        if expected_control_group:
+            group_class, group_label = expected_control_group
+            matching_groups = [
+                record
+                for record in parser.element_records
+                if group_class in record["classes"]
+            ]
+            if len(matching_groups) != 1:
+                parser.errors.append(
+                    f"expected exactly one .{group_class} control group"
+                )
+            else:
+                group_attrs = matching_groups[0]["attrs"]
+                assert isinstance(group_attrs, dict)
+                if group_attrs.get("role", "").lower() != "group":
+                    parser.errors.append(
+                        f".{group_class} must expose role=group"
+                    )
+                if group_attrs.get("aria-label") != group_label:
+                    parser.errors.append(
+                        f".{group_class} accessible name differs from the control-group contract"
+                    )
+
+        expected_switch = EXPECTED_SWITCH_INPUT_LABELS.get(page.name)
+        if expected_switch:
+            switch_id, switch_label = expected_switch
+            matching_switches = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "input"
+                and record["attrs"].get("id") == switch_id
+            ]
+            if len(matching_switches) != 1:
+                parser.errors.append(
+                    f"expected exactly one #{switch_id} switch input"
+                )
+            else:
+                switch_attrs = matching_switches[0]["attrs"]
+                assert isinstance(switch_attrs, dict)
+                if switch_attrs.get("aria-label") != switch_label:
+                    parser.errors.append(
+                        f"#{switch_id} must expose its own accessible name"
                     )
 
         if len(parser.skip_link_records) != 1:
