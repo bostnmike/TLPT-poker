@@ -155,6 +155,17 @@ EXPECTED_ICON_LINKS = [
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
 SHARED_SHELL_SCRIPT = "site-shell.js"
+SHARED_APP_SCRIPT = "app.js"
+EXPECTED_APP_SCRIPT_PAGES = {
+    "champions.html",
+    "dashboard.html",
+    "index.html",
+    "player.html",
+    "players.html",
+    "rules.html",
+    "schedule.html",
+    "standings.html",
+}
 JAVASCRIPT_INLINE_HANDLER = re.compile(
     r"\bon[a-z]+\s*=\s*(['\"])",
     flags=re.IGNORECASE,
@@ -209,6 +220,7 @@ class PageAuditParser(HTMLParser):
         self.open_nav_link: dict[str, object] | None = None
         self.stylesheets: list[str] = []
         self.scripts: list[str] = []
+        self.script_references: list[str] = []
         self.html_classes: set[str] = set()
         self.body_classes: set[str] = set()
         self.class_counts: Counter[str] = Counter()
@@ -348,6 +360,7 @@ class PageAuditParser(HTMLParser):
             src = attrs.get("src", "")
             if src and is_local_reference(src):
                 self.scripts.append(urlsplit(src).path)
+                self.script_references.append(src)
             if is_local_reference(src) and not urlsplit(src).query.startswith("v="):
                 self.errors.append(f"local script lacks a cache version: {src}")
 
@@ -586,6 +599,7 @@ def main() -> int:
         errors.append(f"site: unexpected root pages: {', '.join(unexpected_pages)}")
 
     navigation_by_page: dict[str, list[str]] = {}
+    app_script_references_by_page: dict[str, list[str]] = {}
     for page in pages:
         parser = PageAuditParser(page)
         parser.feed(page.read_text(encoding="utf-8"))
@@ -736,6 +750,14 @@ def main() -> int:
         elif parser.scripts[0] != SHARED_SHELL_SCRIPT:
             parser.errors.append("site-shell.js must load before page and feature scripts")
 
+        app_script_references = [
+            reference
+            for reference in parser.script_references
+            if urlsplit(reference).path == SHARED_APP_SCRIPT
+        ]
+        if app_script_references:
+            app_script_references_by_page[page.name] = app_script_references
+
         if page.name != "rules.html" and "rules.css" in parser.stylesheets:
             parser.errors.append("rules.css may be loaded only by rules.html")
         if page.name != "media.html" and "media.css" in parser.stylesheets:
@@ -761,6 +783,34 @@ def main() -> int:
     for page_name, nav_links in sorted(navigation_by_page.items()):
         if nav_links != reference_nav:
             errors.append(f"{page_name}: primary navigation links/order differ from index.html")
+
+    actual_app_script_pages = set(app_script_references_by_page)
+    missing_app_script_pages = sorted(
+        EXPECTED_APP_SCRIPT_PAGES - actual_app_script_pages
+    )
+    unexpected_app_script_pages = sorted(
+        actual_app_script_pages - EXPECTED_APP_SCRIPT_PAGES
+    )
+    if missing_app_script_pages:
+        errors.append(
+            "site: pages missing app.js: " + ", ".join(missing_app_script_pages)
+        )
+    if unexpected_app_script_pages:
+        errors.append(
+            "site: unexpected app.js consumers: "
+            + ", ".join(unexpected_app_script_pages)
+        )
+
+    single_app_script_references: set[str] = set()
+    for page_name, references in sorted(app_script_references_by_page.items()):
+        if len(references) != 1:
+            errors.append(f"{page_name}: app.js must be loaded exactly once")
+        else:
+            single_app_script_references.add(references[0])
+    if len(single_app_script_references) != 1:
+        errors.append(
+            "site: app.js consumers must use one shared cache-version reference"
+        )
 
     for stylesheet in sorted(ROOT.glob("*.css")):
         stylesheet_text = stylesheet.read_text(encoding="utf-8")
