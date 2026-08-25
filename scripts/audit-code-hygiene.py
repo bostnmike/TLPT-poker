@@ -327,6 +327,27 @@ EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "node scripts/test-site-shell.mjs",
     "node scripts/test-app-load-failure.mjs",
 ]
+EXPECTED_WORKFLOW_ACTIONS = {
+    "build-gallery-manifest.yml": [
+        "actions/checkout@v7",
+        "actions/setup-node@v7",
+    ],
+    "site-quality.yml": [
+        "actions/checkout@v7",
+        "actions/setup-python@v7",
+        "actions/setup-node@v7",
+    ],
+    "tlpt-update.yml": [
+        "actions/checkout@v7",
+        "actions/setup-python@v7",
+        "actions/setup-node@v7",
+    ],
+}
+EXPECTED_WORKFLOW_NODE_VERSIONS = {
+    "build-gallery-manifest.yml": ["24"],
+    "site-quality.yml": ["22"],
+    "tlpt-update.yml": ["22"],
+}
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
@@ -1878,6 +1899,46 @@ def audit_site_quality_workflow() -> list[str]:
     return errors
 
 
+def audit_workflow_runtimes() -> list[str]:
+    errors: list[str] = []
+    workflows_root = ROOT / ".github" / "workflows"
+
+    for workflow_name, expected_actions in EXPECTED_WORKFLOW_ACTIONS.items():
+        workflow_path = workflows_root / workflow_name
+        if not workflow_path.is_file():
+            errors.append(f"workflow runtimes: missing required workflow: {workflow_name}")
+            continue
+
+        workflow_text = workflow_path.read_text(encoding="utf-8")
+        actual_actions = re.findall(
+            r"uses:\s*(actions/(?:checkout|setup-node|setup-python)@v\d+)",
+            workflow_text,
+        )
+        if actual_actions != expected_actions:
+            errors.append(
+                f"workflow runtimes: {workflow_name}: expected action sequence "
+                + ", ".join(expected_actions)
+                + "; found "
+                + (", ".join(actual_actions) or "none")
+            )
+
+        actual_node_versions = re.findall(
+            r'^\s*node-version:\s*["\']?([^"\'\s]+)',
+            workflow_text,
+            flags=re.MULTILINE,
+        )
+        expected_node_versions = EXPECTED_WORKFLOW_NODE_VERSIONS[workflow_name]
+        if actual_node_versions != expected_node_versions:
+            errors.append(
+                f"workflow runtimes: {workflow_name}: expected Node version sequence "
+                + ", ".join(expected_node_versions)
+                + "; found "
+                + (", ".join(actual_node_versions) or "none")
+            )
+
+    return errors
+
+
 def audit_search_discovery() -> list[str]:
     errors: list[str] = []
 
@@ -1942,6 +2003,7 @@ def audit_search_discovery() -> list[str]:
 def main() -> int:
     errors: list[str] = []
     errors.extend(audit_site_quality_workflow())
+    errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
