@@ -155,6 +155,10 @@ EXPECTED_NAV_LABELS = [
     "Film Room",
     "Art Gallery",
 ]
+EXPECTED_SHELL_REVISION_MARKERS = {
+    "dashboard.html": "20260825-3g3",
+    "streaks.html": "20260825-3g3",
+}
 EXPECTED_NAV_ACTIVE_LABELS = {
     "404.html": [],
     "champions.html": ["Roast Zone", "Hall of Fame"],
@@ -2027,8 +2031,20 @@ def main() -> int:
     app_script_references_by_page: dict[str, list[str]] = {}
     for page in pages:
         parser = PageAuditParser(page)
-        parser.feed(page.read_text(encoding="utf-8"))
+        page_text = page.read_text(encoding="utf-8")
+        parser.feed(page_text)
         parser.close()
+
+        expected_shell_revision = EXPECTED_SHELL_REVISION_MARKERS.get(page.name)
+        if expected_shell_revision:
+            marker = (
+                f'<meta name="tlpt-shell-revision" '
+                f'content="{expected_shell_revision}" />'
+            )
+            if marker not in page_text:
+                parser.errors.append(
+                    "page shell revision marker is missing or stale"
+                )
 
         for tag in ("html", "head", "body"):
             if parser.start_counts[tag] != 1 or parser.end_counts[tag] != 1:
