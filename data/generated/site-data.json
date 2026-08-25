@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T00:45:54.248428Z",
+  "generatedAt": "2026-08-25T00:54:33.850090Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -4562,7 +4562,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4617,7 +4617,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4672,7 +4672,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -4727,7 +4727,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.055
+              "trueSkillScore": 392.064
             }
           }
         },
@@ -13488,13 +13488,13 @@
   },
   "featuredCardConfig": {
     "source": "data/featured-cards.json",
-    "version": 1,
+    "version": 2,
+    "mode": "automatic",
     "overrideCount": 0,
     "rules": {
-      "auto": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
-      "base": "Features the live Base Edition.",
-      "earnedEdition": "May reference only an id already earned in that player's permanent cardCollection.",
-      "liveData": "The selection changes the Crew-page design only; ratings and attributes remain live."
+      "activeSkin": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
+      "manualOverrides": "Not supported.",
+      "liveData": "The automatic skin changes presentation only; ratings, tier placement, Crew ordering and ownership remain unchanged."
     }
   }
 }
