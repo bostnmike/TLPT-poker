@@ -163,10 +163,25 @@ long-title modifier, and returns to the standard shared hero-title scale on
 desktop and mobile. The Schedule module retains only its chip-clearance padding
 at the smallest breakpoint.
 
-The shared Home/Schedule RSVP table avatars increase to 144px on desktop and
-64px in the compact three-column mobile grid. `style.css` continues to own the
-desktop seat and avatar geometry, while `site-tail.css` owns the coordinated
-mobile seat, wrapper, avatar, and fallback dimensions.
+The shared Home/Schedule RSVP table initially targeted 144px desktop seats and
+avatars, with 64px avatars in the compact three-column mobile grid. A later
+generic table-avatar rule still limited the visible desktop photos; Phase
+3B.2.1 corrects that cascade. `style.css` continues to own the desktop seat and
+avatar geometry, while `site-tail.css` owns the coordinated mobile seat,
+wrapper, avatar, and fallback dimensions.
+
+### Phase 3B.2.1 desktop RSVP avatar cascade correction
+
+The shared Home/Schedule RSVP table now uses 96px desktop seats, wrappers, and
+avatars. The RSVP image rule includes the generated `.table` class so it has
+higher specificity than the later generic 44px table-avatar rule. This makes
+the larger photos visible without `!important`, while preserving safe spacing
+around the fixed 700px by 350px table layout. The mobile grid remains 64px.
+
+`index.html` and `schedule.html` advance both shared stylesheet cache keys so
+the coordinated desktop and mobile rules are requested immediately after
+deployment. The code hygiene audit protects the RSVP-specific selectors and
+their 96px desktop and 64px mobile dimensions from future cascade regressions.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

@@ -2842,8 +2842,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:144px;
-  height:144px;
+  width:96px;
+  height:96px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -2854,18 +2854,18 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-rsvp-seat-player .player-avatar-wrap{
-  width:144px;
-  height:144px;
+  width:96px;
+  height:96px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.event-rsvp-avatar-row .player-avatar,
-.event-rsvp-avatar-row .player-avatar-fallback{
-  width:144px;
-  height:144px;
-  font-size:1.68rem;
+.event-rsvp-avatar-row .player-avatar.table,
+.event-rsvp-avatar-row .player-avatar-fallback.table{
+  width:96px;
+  height:96px;
+  font-size:1.35rem;
   border-width:3px;
 }
 

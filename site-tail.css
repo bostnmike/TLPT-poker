@@ -464,8 +464,8 @@
     height:64px;
   }
   
-  .event-rsvp-avatar-row .player-avatar,
-  .event-rsvp-avatar-row .player-avatar-fallback{
+  .event-rsvp-avatar-row .player-avatar.table,
+  .event-rsvp-avatar-row .player-avatar-fallback.table{
     width:64px;
     height:64px;
     font-size:1.12rem;
