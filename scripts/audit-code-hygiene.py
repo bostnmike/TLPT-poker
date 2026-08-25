@@ -38,6 +38,7 @@ EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
 STYLE_FOUNDATION_SELECTORS = {
     "[hidden]",
     ".page-title-row",
+    ".skip-link",
     ".site-page-hero",
     ".site-page-hero-chip",
     ".site-page-hero-copy",
@@ -149,6 +150,8 @@ EXPECTED_META_DESCRIPTIONS = {
     "trophy-room.html": "Browse collectible TLPT Poker League special-edition player cards and career achievements in the Trophy Room.",
 }
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
+EXPECTED_SKIP_LINK_HREF = "#main-content"
+EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -235,6 +238,9 @@ class PageAuditParser(HTMLParser):
         self.site_page_title_tag = ""
         self.site_page_title_depth = 0
         self.site_page_title_text: list[str] = []
+        self.main_content_count = 0
+        self.skip_link_records: list[dict[str, object]] = []
+        self.open_skip_link: dict[str, object] | None = None
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -258,6 +264,14 @@ class PageAuditParser(HTMLParser):
 
         classes = set(attrs.get("class", "").split())
         self.class_counts.update(classes)
+        if tag == "main" and attrs.get("id") == "main-content":
+            self.main_content_count += 1
+        if tag == "a" and "skip-link" in classes:
+            self.open_skip_link = {
+                "href": attrs.get("href", ""),
+                "text": [],
+            }
+            self.skip_link_records.append(self.open_skip_link)
         if "site-page-title" in classes:
             self.site_page_title_count += 1
             self.site_page_title_tag = tag
@@ -374,6 +388,8 @@ class PageAuditParser(HTMLParser):
             self.nav_depth -= 1
         if tag == "a" and self.open_nav_link is not None:
             self.open_nav_link = None
+        if tag == "a" and self.open_skip_link is not None:
+            self.open_skip_link = None
         if tag == "title" and self.title_depth:
             self.title_depth -= 1
         if tag == "footer" and self.site_footer_depth:
@@ -389,6 +405,10 @@ class PageAuditParser(HTMLParser):
             self.title_text.append(data)
         if self.open_nav_link is not None:
             text_parts = self.open_nav_link["text"]
+            assert isinstance(text_parts, list)
+            text_parts.append(data)
+        if self.open_skip_link is not None:
+            text_parts = self.open_skip_link["text"]
             assert isinstance(text_parts, list)
             text_parts.append(data)
         if self.site_footer_depth:
@@ -703,6 +723,20 @@ def main() -> int:
         if parser.icon_links != EXPECTED_ICON_LINKS:
             parser.errors.append("favicon links differ from the shared page-head contract")
 
+        if len(parser.skip_link_records) != 1:
+            parser.errors.append("expected exactly one shared skip link")
+        else:
+            skip_link = parser.skip_link_records[0]
+            skip_text_parts = skip_link["text"]
+            assert isinstance(skip_text_parts, list)
+            skip_text = " ".join(" ".join(skip_text_parts).split())
+            if skip_link["href"] != EXPECTED_SKIP_LINK_HREF:
+                parser.errors.append("skip link must target #main-content")
+            if skip_text != EXPECTED_SKIP_LINK_TEXT:
+                parser.errors.append("skip link text differs from the shared contract")
+        if parser.main_content_count != 1:
+            parser.errors.append("expected exactly one <main id=\"main-content\"> target")
+
         if parser.site_footer_count != 1:
             parser.errors.append(
                 f"expected one site footer; found {parser.site_footer_count}"
@@ -912,6 +946,59 @@ def main() -> int:
                 errors.append(
                     "style.css: root [hidden] rule must enforce display:none !important"
                 )
+            skip_link_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if selector == ".skip-link"
+            ]
+            if len(skip_link_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one root .skip-link rule"
+                )
+            else:
+                skip_body, skip_line = skip_link_rules[0]
+                for property_name, property_value in (
+                    ("position", "fixed"),
+                    ("z-index", "10000"),
+                    ("transform", "translateY(calc(-100% - 24px))"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        skip_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{skip_line}: .skip-link must use "
+                            f"{property_name}:{property_value}"
+                        )
+            skip_focus_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if selector == ".skip-link:focus"
+            ]
+            if len(skip_focus_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one root .skip-link:focus rule"
+                )
+            else:
+                focus_body, focus_line = skip_focus_rules[0]
+                if not re.search(
+                    r"(?:^|;)\s*transform\s*:\s*translateY\(0\)\s*(?:;|$)",
+                    focus_body,
+                    flags=re.IGNORECASE,
+                ):
+                    errors.append(
+                        f"style.css:{focus_line}: focused skip link must be visible"
+                    )
+                if not re.search(
+                    r"(?:^|;)\s*outline\s*:\s*3px\s+solid\s+var\(--white\)\s*(?:;|$)",
+                    focus_body,
+                    flags=re.IGNORECASE,
+                ):
+                    errors.append(
+                        f"style.css:{focus_line}: focused skip link must keep its outline"
+                    )
             rsvp_avatar_rules = [
                 (body, line)
                 for selector, body, line in root_style_rules
