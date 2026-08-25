@@ -492,9 +492,18 @@ function renderFatalError(error) {
   const quadrant = document.getElementById("fl-quadrant-legend");
 
   if (title) title.textContent = "Form Lab could not load.";
-  if (subtitle) subtitle.textContent = error && error.message ? error.message : "Check the console for details.";
+  if (subtitle) subtitle.textContent = "The latest event data is unavailable. Check your connection and try again.";
   if (chart) chart.innerHTML = "";
-  if (playerCard) playerCard.innerHTML = "";
+  if (playerCard) {
+    playerCard.innerHTML = `
+      <div class="fl-empty-state" role="alert">
+        <button class="btn active" type="button" data-form-lab-retry>Try Again</button>
+      </div>
+    `;
+    playerCard.querySelector("[data-form-lab-retry]")?.addEventListener("click", () => {
+      window.location.reload();
+    });
+  }
   if (detail) detail.innerHTML = `<p class="fl-empty-state">No event selected.</p>`;
   if (readout) readout.innerHTML = `<p class="fl-empty-state">The chart did not initialize.</p>`;
   if (list) list.innerHTML = "";

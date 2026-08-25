@@ -518,9 +518,15 @@ function renderErrorState(blogFeed, summaryGrid, statbarShell, archiveList) {
           <div class="news-post-dateline">Load error</div>
         </div>
         <h3 class="news-post-title">Could not load the archive</h3>
-        <p class="news-post-dek">Check news-data.json for valid JSON and the new event-based schema.</p>
+        <p class="news-post-dek">The latest stories couldn’t be loaded. Check your connection and try again.</p>
+        <div class="hero-actions">
+          <button class="btn active" type="button" data-news-retry>Try Again</button>
+        </div>
       </article>
     `;
+    blogFeed.querySelector('[data-news-retry]')?.addEventListener('click', () => {
+      window.location.reload();
+    });
   }
 }
 

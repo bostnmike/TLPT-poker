@@ -243,8 +243,23 @@ async function initStreakTracker() {
   } catch (error) {
     console.error("Streak Tracker failed to load:", error);
 
+    const primaryContainer = document.getElementById("active-cash-board");
+    if (primaryContainer) {
+      primaryContainer.innerHTML = `
+        <div class="streak-empty" role="alert">
+          <strong>The Streak Tracker couldn’t load the latest results.</strong>
+          <span>Check your connection and try again.</span>
+          <div class="hero-actions">
+            <button class="btn active" type="button" data-streaks-retry>Try Again</button>
+          </div>
+        </div>
+      `;
+      primaryContainer.querySelector("[data-streaks-retry]")?.addEventListener("click", () => {
+        window.location.reload();
+      });
+    }
+
     [
-      "active-cash-board",
       "active-drought-board",
       "top-cash-board",
       "top-drought-board",
@@ -252,7 +267,7 @@ async function initStreakTracker() {
     ].forEach((id) => {
       const container = document.getElementById(id);
       if (container) {
-        container.innerHTML = `<div class="streak-empty">Could not load streak data.</div>`;
+        container.innerHTML = `<div class="streak-empty">Streak data is temporarily unavailable.</div>`;
       }
     });
   }

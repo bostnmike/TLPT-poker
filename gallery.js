@@ -490,7 +490,17 @@ async function loadGallery() {
     console.error("Gallery load error:", err);
     if (empty) {
       empty.hidden = false;
-      empty.textContent = "Unable to load gallery posters.";
+      empty.setAttribute("role", "alert");
+      empty.innerHTML = `
+        <strong>The Gallery couldn’t load the poster collection.</strong>
+        <span>Check your connection and try again.</span>
+        <div class="hero-actions">
+          <button class="btn active" type="button" data-gallery-retry>Try Again</button>
+        </div>
+      `;
+      empty.querySelector("[data-gallery-retry]")?.addEventListener("click", () => {
+        window.location.reload();
+      });
     }
   }
 }

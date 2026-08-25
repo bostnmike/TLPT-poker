@@ -138,10 +138,17 @@ async function init() {
     const grid = document.getElementById("pm-player-grid");
     if (grid) {
       grid.innerHTML = `
-        <div class="pm-error">
-          Player Form could not load. Check the browser console for details.
+        <div class="pm-error" role="alert">
+          <strong>The Heater Meter couldn’t load the latest results.</strong>
+          <span>Check your connection and try again.</span>
+          <div class="hero-actions">
+            <button class="btn active" type="button" data-player-movement-retry>Try Again</button>
+          </div>
         </div>
       `;
+      grid.querySelector("[data-player-movement-retry]")?.addEventListener("click", () => {
+        window.location.reload();
+      });
     }
   }
 }

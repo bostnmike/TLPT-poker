@@ -435,19 +435,25 @@ const KNOCKOUTS_URLS = [
     throw lastError || new Error(`Unable to load ${label}`);
   }
 
-  function showKnockoutsError(message) {
+  function showKnockoutsError() {
     const root = document.getElementById("knockouts-page");
     if (!root) return;
 
     root.innerHTML = `
-      <section class="section knockouts-shell">
+      <section class="section knockouts-shell" role="alert">
         <div class="knockouts-shell-head">
           <h3>⚠️ Knockout data failed to load</h3>
-          <p class="muted">The page shell loaded, but the data request failed.</p>
+          <p class="muted">The latest knockout results couldn’t be loaded. Check your connection and try again.</p>
         </div>
-        <div class="knockouts-empty">${message}</div>
+        <div class="hero-actions">
+          <button class="btn active" type="button" data-knockouts-retry>Try Again</button>
+        </div>
       </section>
     `;
+
+    root.querySelector("[data-knockouts-retry]")?.addEventListener("click", () => {
+      window.location.reload();
+    });
   }
 
   function renderKnockoutCentral(siteData, knockouts) {
@@ -498,7 +504,7 @@ const KNOCKOUTS_URLS = [
       renderKnockoutCentral(siteData, knockouts);
     } catch (err) {
       console.error("Failed to initialize Knockout Central:", err);
-      showKnockoutsError(String(err.message || err));
+      showKnockoutsError();
     }
   }
 
