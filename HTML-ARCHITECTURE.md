@@ -225,3 +225,17 @@ restores Hiro's four July 26, 2025 leader snapshots to the established
 ownership, prestige ordering, and card artwork remain unchanged. The integrity
 audit uses the same order-stable reduction while continuing to recompute every
 checkpoint independently from parsed events.
+
+## Phase 3B.7 Player Movement data freshness lock
+
+Player Movement now gives its live `site-data.json`, parsed-event index, and
+parsed-event file requests one shared version token per page load and fetches
+all three source classes with `cache: "no-store"`. The main data response is
+also checked before JSON parsing. This prevents a previously cached player list
+or partial historical event set from being combined with newly deployed data.
+
+The page script reference advances to `player-movement.js?v=20260825-1` so the
+freshness behavior reaches existing browsers immediately. The code-hygiene
+audit enforces the single request token and all three versioned, no-store JSON
+fetches. Player Movement formulas, default fallback files, controls, markup,
+styling, player data, and card behavior remain unchanged.

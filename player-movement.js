@@ -1,4 +1,9 @@
 const DATA_URL = "data/generated/site-data.json";
+const DATA_REQUEST_VERSION = Date.now();
+
+function versionedDataUrl(path) {
+  return `${path}?v=${DATA_REQUEST_VERSION}`;
+}
 
 let players = [];
 let previousRanks = {};
@@ -116,7 +121,8 @@ function isSamePlayerRow(player, row) {
 
 async function init() {
   try {
-    const res = await fetch(DATA_URL);
+    const res = await fetch(versionedDataUrl(DATA_URL), { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load ${DATA_URL} (${res.status})`);
     const data = await res.json();
 
     players = data.players || [];
@@ -124,7 +130,7 @@ async function init() {
     let eventFiles = [...DEFAULT_EVENT_FILES];
 
     try {
-      const indexRes = await fetch("data/parsed/events/index.json");
+      const indexRes = await fetch(versionedDataUrl("data/parsed/events/index.json"), { cache: "no-store" });
 
       if (indexRes && indexRes.ok) {
         const indexJson = await indexRes.json();
@@ -139,7 +145,7 @@ async function init() {
 
     const eventData = (await Promise.all(
       eventFiles.map(file =>
-        fetch(`data/parsed/events/${file}`)
+        fetch(versionedDataUrl(`data/parsed/events/${file}`), { cache: "no-store" })
           .then(response => {
             if (!response.ok) throw new Error(`Missing event file: ${file}`);
             return response.json();
