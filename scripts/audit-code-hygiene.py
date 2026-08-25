@@ -179,12 +179,12 @@ EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-8"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-9"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-1"
-EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20260825-1"
+EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20260825-2"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -476,6 +476,17 @@ class PageAuditParser(HTMLParser):
                 self.errors.append(
                     "static title-chip image must be hidden from assistive technology"
                 )
+            for attribute, value in (
+                ("loading", "eager"),
+                ("decoding", "async"),
+                ("fetchpriority", "auto"),
+                ("width", "112"),
+                ("height", "112"),
+            ):
+                if attrs.get(attribute, "").lower() != value:
+                    self.errors.append(
+                        f"static title-chip image must use {attribute}={value}"
+                    )
 
         for attr_name in ("href", "src"):
             value = attrs.get(attr_name)
@@ -944,6 +955,62 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Only the primary Player Profile portrait may request high fetch priority"
             )
+        decorative_image_contracts = (
+            (
+                "featured and Crew card crests",
+                r'<img\s+class="crew-ultimate-chip"[^>]*loading="lazy"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="38"[^>]*'
+                r'height="38"[^>]*/?>',
+                2,
+            ),
+            (
+                "Player comparison crest",
+                r'<img\s+class="tlpt-compare-crest"[^>]*loading="lazy"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="46"[^>]*'
+                r'height="46"[^>]*/?>',
+                1,
+            ),
+            (
+                "primary Player Card crest",
+                r'<img\s+class="tlpt-card-crest"[^>]*loading="eager"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="56"[^>]*'
+                r'height="56"[^>]*/?>',
+                1,
+            ),
+            (
+                "collectible card crest",
+                r'<span\s+class="tlpt-card-collectible-head">.*?'
+                r'<img[^>]*loading="lazy"[^>]*decoding="async"[^>]*'
+                r'fetchpriority="auto"[^>]*width="28"[^>]*height="28"[^>]*/?>',
+                1,
+            ),
+            (
+                "Hall laurel images",
+                r'<img\s+class="hall-laurel-image[^>]*loading="lazy"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="632"[^>]*'
+                r'height="1024"[^>]*/?>',
+                2,
+            ),
+            (
+                "Hall prop images",
+                r'<img\s+class="hall-plaque-prop[^>]*loading="lazy"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="512"[^>]*'
+                r'height="512"[^>]*/?>',
+                2,
+            ),
+            (
+                "Rules chip images",
+                r'<img\s+class="rules-chip-image"[^>]*loading="lazy"[^>]*'
+                r'decoding="async"[^>]*fetchpriority="auto"[^>]*width="76"[^>]*'
+                r'height="76"[^>]*>',
+                1,
+            ),
+        )
+        for label, pattern, expected_count in decorative_image_contracts:
+            if len(re.findall(pattern, text, flags=re.DOTALL)) != expected_count:
+                errors.append(
+                    f"{label} differ from the decorative image-delivery contract"
+                )
         reduced_motion_source = function_source("prefersReducedMotion")
         if (
             'window.matchMedia("(prefers-reduced-motion: reduce)").matches'
@@ -1230,6 +1297,18 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Trophy Room portraits must use lazy loading, asynchronous decoding, "
                 "and 128-pixel intrinsic dimensions"
+            )
+        trophy_crest_contract = re.search(
+            r'<img\s+src="images/site/chip-T-1000\.png"[^>]*'
+            r'loading="lazy"[^>]*decoding="async"[^>]*fetchpriority="auto"[^>]*'
+            r'width="38"[^>]*height="38"[^>]*/?>',
+            text,
+            flags=re.DOTALL,
+        )
+        if not trophy_crest_contract:
+            errors.append(
+                "Trophy Room card crests must remain lazy, asynchronous, automatic-priority, "
+                "and 38 pixels"
             )
 
     if path.name == "gallery.js":
@@ -1522,6 +1601,17 @@ def main() -> int:
                 if thumbnail_attrs.get("decoding", "").lower() != "async":
                     parser.errors.append(
                         "Film Room Nitro thumbnail must decode asynchronously"
+                    )
+                if thumbnail_attrs.get("fetchpriority", "").lower() != "auto":
+                    parser.errors.append(
+                        "Film Room Nitro thumbnail must retain automatic fetch priority"
+                    )
+                if (
+                    thumbnail_attrs.get("width") != "1536"
+                    or thumbnail_attrs.get("height") != "1024"
+                ):
+                    parser.errors.append(
+                        "Film Room Nitro thumbnail must publish its source aspect ratio"
                     )
 
         if page.name == "gallery.html":
