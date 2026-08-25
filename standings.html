@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20260825-3" />
+  <link rel="stylesheet" href="style.css?v=20260825-4" />
   <link rel="stylesheet" href="site-tail.css?v=20260825-1" />
 </head>
 <body>
@@ -99,20 +99,20 @@
       </section>
 
       <section class="section standings-table-shell">
-        <div class="table-wrap">
-          <table id="standings-table">
+        <div class="table-wrap" role="region" aria-label="Scrollable TLPT standings" tabindex="0">
+          <table id="standings-table" aria-label="TLPT standings sorted by the selected metric">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Player</th>
-                <th>Gross Winnings</th>
-                <th>Profit</th>
-                <th>Cashes</th>
-                <th>Bubbles</th>
-                <th>Hits</th>
-                <th>Buy-Ins</th>
-                <th>Rebuys</th>
-                <th>Entries</th>
+                <th scope="col">#</th>
+                <th scope="col">Player</th>
+                <th scope="col" data-standings-column="totalWinnings" aria-sort="descending">Gross Winnings</th>
+                <th scope="col" data-standings-column="profit">Profit</th>
+                <th scope="col" data-standings-column="timesPlaced">Cashes</th>
+                <th scope="col" data-standings-column="bubbles">Bubbles</th>
+                <th scope="col" data-standings-column="hits">Hits</th>
+                <th scope="col" data-standings-column="buyIns">Buy-Ins</th>
+                <th scope="col" data-standings-column="rebuys">Rebuys</th>
+                <th scope="col" data-standings-column="entries">Entries</th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -139,6 +139,6 @@
 </footer>
 
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260825-4"></script>
+  <script src="app.js?v=20260825-5"></script>
 </body>
 </html>

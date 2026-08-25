@@ -374,3 +374,21 @@ dynamic control relationship, verifies that static targets exist, protects the
 three restrained live-status contracts, and enforces cache delivery. Visible
 copy, selected states, styling, focus treatment, behavior, layout, cards,
 calculations, data, and responsive presentation remain unchanged.
+
+## Phase 3C.8 accessible data-table contract
+
+The two user-facing data tables—Standings and the generated Rules blind
+sheet—now expose accessible names, scoped column headers, and row-header
+relationships. Standings publishes its active descending sort column and keeps
+native table-row semantics while retaining the existing clickable-row mouse
+behavior and player-profile link. Raw Tournament Director source reports are
+inputs and remain unchanged.
+
+Both wide tables now sit inside named, keyboard-focusable horizontal scroll
+regions with a shared visible-focus outline. The shared references advance to
+`style.css?v=20260825-4` on all 16 pages and `app.js?v=20260825-5` across all
+eight consumers. `scripts/audit-code-hygiene.py` enforces table names, column
+and row headers, sort state, scroll-region semantics, responsive overflow,
+visible focus, native row ownership, and cache delivery. Table values, sorting,
+mouse interaction, rules content, calculations, data, and visual styling remain
+unchanged.

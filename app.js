@@ -2746,18 +2746,23 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   const sorted = sortPlayers(eligiblePlayers, sortKey);
   table.dataset.activeStat = sortKey;
 
+  table.querySelectorAll("thead th[data-standings-column]").forEach(header => {
+    if (header.dataset.standingsColumn === sortKey) {
+      header.setAttribute("aria-sort", "descending");
+    } else {
+      header.removeAttribute("aria-sort");
+    }
+  });
+
   renderStandingsRaceStrip(sortKey, sorted);
 
   tbody.innerHTML = sorted.map((player, index) => `
     <tr
       class="standings-row-link"
       data-href="${playerUrl(player)}"
-      tabindex="0"
-      role="link"
-      aria-label="Open ${displayPlayerNamePlain(player)} profile"
     >
       <td>${index + 1}</td>
-      <td>${playerInlineMarkup(player, "standings")}</td>
+      <td role="rowheader">${playerInlineMarkup(player, "standings")}</td>
       <td>${fmtMoney(player.totalWinnings)}</td>
       <td class="${statValueClass(player, "profit")}">${fmtMoney(player.profit)}</td>
       <td>${player.timesPlaced ?? "-"}</td>
@@ -2781,12 +2786,6 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
       window.location.href = href;
     });
 
-    row.addEventListener("keydown", event => {
-      if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        window.location.href = href;
-      }
-    });
   });
 }
 
@@ -5880,6 +5879,7 @@ function buildRulesTimerRail(format) {
 
 function buildRulesBlindTable(format) {
   let rowIndex = 0;
+  const tableLabel = `${format.title} blind levels`;
   const rows = format.levels.map(row => {
     if (row.type === "break") {
       return `<tr class="blind-break"><td colspan="5">${row.note}</td></tr>`;
@@ -5888,7 +5888,7 @@ function buildRulesBlindTable(format) {
     rowIndex += 1;
     return `
       <tr class="${zebra}">
-        <td>${row.level}</td>
+        <td role="rowheader">${row.level}</td>
         <td>${row.sb}</td>
         <td>${row.bb}</td>
         <td>${row.ante}</td>
@@ -5899,18 +5899,20 @@ function buildRulesBlindTable(format) {
 
   return `
     <div class="blind-sheet">
-      <table class="blind-table">
-        <thead>
-          <tr>
-            <th>Level</th>
-            <th>Small Blind</th>
-            <th>Big Blind</th>
-            <th>Ante</th>
-            <th>Effective BB</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
+      <div class="blind-table-scroll" role="region" aria-label="Scrollable ${escapeHtmlAttr(tableLabel)}" tabindex="0">
+        <table class="blind-table" aria-label="${escapeHtmlAttr(tableLabel)}">
+          <thead>
+            <tr>
+              <th scope="col">Level</th>
+              <th scope="col">Small Blind</th>
+              <th scope="col">Big Blind</th>
+              <th scope="col">Ante</th>
+              <th scope="col">Effective BB</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
       <p class="blind-note">Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels.</p>
     </div>
   `;

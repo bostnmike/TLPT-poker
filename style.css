@@ -3447,6 +3447,17 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   overflow-x:auto;
 }
 
+.blind-table-scroll{
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
+}
+
+.standings-table-shell .table-wrap:focus-visible,
+.blind-table-scroll:focus-visible{
+  outline:3px solid var(--white);
+  outline-offset:-3px;
+}
+
 table{
   width:100%;
   border-collapse:collapse;
@@ -3785,7 +3796,8 @@ td{
 }
 
 .standings-table-shell .table-wrap{
-  overflow:hidden;
+  overflow-x:auto;
+  overscroll-behavior-inline:contain;
 }
 
 .standings-table-shell #standings-table thead th{
