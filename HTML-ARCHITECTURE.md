@@ -269,3 +269,17 @@ reference advances to `player-movement.js?v=20260825-3`, and the integrity audit
 permanently rejects per-event suppression. Player formulas, aliases, controls,
 cards, markup, responsive styling, source events, and generated ledger remain
 unchanged.
+
+## Phase 3C.1 keyboard bypass-navigation foundation
+
+All 16 pages now expose one visible-on-focus “Skip to main content” link before
+the fixed site header. The link targets the page's single `main-content`
+landmark, allowing keyboard users to bypass the repeated primary navigation
+without changing its structure, order, links, or responsive behavior.
+
+The shared focus treatment lives in `style.css`, above the fixed header, and the
+site-wide stylesheet reference advances to `style.css?v=20260825-2` so the new
+state reaches existing browsers immediately. `scripts/audit-code-hygiene.py`
+requires the link text, target, destination landmark, and shared cache version
+on every page. Page layouts, content, cards, data, calculations, and JavaScript
+behavior remain unchanged.
