@@ -1130,6 +1130,48 @@ def main() -> int:
                     "Player Profile accessibility stylesheet cache version is stale"
                 )
 
+        if page.name == "media.html":
+            film_embeds = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "iframe"
+                and record["attrs"].get("src", "").startswith(
+                    "https://www.youtube.com/embed/"
+                )
+            ]
+            if len(film_embeds) != 8:
+                parser.errors.append(
+                    "Film Room must contain the eight approved YouTube embeds"
+                )
+            elif any(
+                record["attrs"].get("loading", "").lower() != "lazy"
+                for record in film_embeds
+            ):
+                parser.errors.append(
+                    "Every Film Room YouTube embed must use native lazy loading"
+                )
+            film_thumbnails = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "img"
+                and record["attrs"].get("src")
+                == "images/site/TheNitroStrikesBack.png"
+            ]
+            if len(film_thumbnails) != 1:
+                parser.errors.append(
+                    "Film Room must contain the approved Nitro thumbnail"
+                )
+            else:
+                thumbnail_attrs = film_thumbnails[0]["attrs"]
+                if thumbnail_attrs.get("loading", "").lower() != "lazy":
+                    parser.errors.append(
+                        "Film Room Nitro thumbnail must use native lazy loading"
+                    )
+                if thumbnail_attrs.get("decoding", "").lower() != "async":
+                    parser.errors.append(
+                        "Film Room Nitro thumbnail must decode asynchronously"
+                    )
+
         if page.name == "gallery.html":
             if EXPECTED_GALLERY_STYLESHEET not in parser.stylesheet_references:
                 parser.errors.append(
