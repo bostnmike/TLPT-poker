@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "phase": "3H.8",
+  "phase": "3H.9",
   "publicPageCount": 17,
   "sharedCssAsset": "site-tail.css",
   "sharedCssVersion": "20260825-4",
@@ -17,6 +17,11 @@
     "siteQualityWorkflow": ".github/workflows/site-quality.yml",
     "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
   },
+  "qualityTriggerPaths": [
+    "audit-code-hygiene.py",
+    "maintenance-baseline.json",
+    "MAINTENANCE-RUNBOOK.md"
+  ],
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",
     "scripts/audit-code-hygiene.py",
