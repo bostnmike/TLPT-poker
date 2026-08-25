@@ -1206,6 +1206,64 @@ function playerUrl(player) {
   return `player.html?name=${encodeURIComponent(player.name)}`;
 }
 
+const TLPT_SITE_ORIGIN = "https://tlpt.org";
+const PLAYER_PROFILE_FALLBACK_IMAGE = "images/site/chip-T-1000.png";
+
+function upsertPageMetadata(attribute, key, content) {
+  if (!document.head) return;
+
+  let tag = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute(attribute, key);
+    document.head.append(tag);
+  }
+  tag.setAttribute("content", content);
+}
+
+function upsertCanonicalLink(href) {
+  if (!document.head) return;
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.append(canonical);
+  }
+  canonical.setAttribute("href", href);
+}
+
+function updatePlayerProfileMetadata(player) {
+  if (!player?.name) return;
+
+  const playerName = displayPlayerNamePlain(player);
+  const title = `${playerName} | TLPT Player Profile`;
+  const description = `View ${playerName}'s TLPT Poker League Ultimate Player Card, statistics, honors, knockouts, and card collection.`;
+  const canonicalUrl = new URL("/player.html", TLPT_SITE_ORIGIN);
+  canonicalUrl.searchParams.set("name", player.name);
+  const imageUrl = new URL(
+    player.image || PLAYER_PROFILE_FALLBACK_IMAGE,
+    `${TLPT_SITE_ORIGIN}/`
+  ).href;
+  const imageAlt = `${playerName} TLPT player portrait`;
+
+  document.title = title;
+  upsertCanonicalLink(canonicalUrl.href);
+  upsertPageMetadata("name", "description", description);
+  upsertPageMetadata("property", "og:type", "profile");
+  upsertPageMetadata("property", "og:site_name", "TLPT Poker League");
+  upsertPageMetadata("property", "og:title", title);
+  upsertPageMetadata("property", "og:description", description);
+  upsertPageMetadata("property", "og:url", canonicalUrl.href);
+  upsertPageMetadata("property", "og:image", imageUrl);
+  upsertPageMetadata("property", "og:image:alt", imageAlt);
+  upsertPageMetadata("name", "twitter:card", "summary");
+  upsertPageMetadata("name", "twitter:title", title);
+  upsertPageMetadata("name", "twitter:description", description);
+  upsertPageMetadata("name", "twitter:image", imageUrl);
+  upsertPageMetadata("name", "twitter:image:alt", imageAlt);
+}
+
 const PLAYER_AVATAR_INTRINSIC_SIZES = Object.freeze({
   small: 44,
   medium: 44,
@@ -5225,6 +5283,8 @@ function renderPlayerProfile(data) {
   const player =
     players.find(p => normalizeName(p.name) === normalizeName(requestedName)) ||
     defaultPlayer;
+
+  updatePlayerProfileMetadata(player);
 
   const index = players.findIndex(p => p.name === player.name);
   const prev = players[(index - 1 + players.length) % players.length];

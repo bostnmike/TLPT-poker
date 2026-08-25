@@ -637,3 +637,30 @@ pages. `scripts/audit-code-hygiene.py` enforces the exact nine-seat clockwise
 coordinate contract and cache delivery. Navigation, page content, player data,
 statistics, calculations, cards, image delivery, styling outside the seat
 coordinates, and responsive behavior remain unchanged.
+
+## Phase 3E.2 canonical and social-metadata contract
+
+The 15 stable pages listed in `sitemap.xml` now publish one absolute,
+self-referential canonical URL using the production `https://tlpt.org` origin.
+Their matching Open Graph URLs use the same values, keeping the sitemap,
+canonical, and social-sharing identities aligned. Each page also publishes its
+existing title and description through Open Graph and Twitter summary metadata,
+with an absolute URL for the poker-chip image already associated with that page
+where available.
+
+The query-driven Player Profile intentionally has no static canonical or
+Open Graph URL in its source. After the requested player is resolved, the shared
+runtime creates a canonical `player.html?name=...` URL, applies that same value
+to `og:url`, and updates the document title, description, Open Graph fields, and
+Twitter fields with the resolved player name and portrait. This prevents every
+individual profile from incorrectly identifying the generic profile shell as
+its canonical page.
+
+The shared application reference advances to `app.js?v=20260825-10` across all
+eight consumers. `scripts/audit-code-hygiene.py` enforces the stable-page
+canonical inventory, complete page-specific social metadata, local image
+targets, deliberate absence of static Player Profile canonical fields, dynamic
+profile metadata behavior, and cache delivery. Page copy, visible layout,
+navigation, RSVP table placement, toggle spacing, player data, statistics,
+calculations, cards, image delivery, interactions, and responsive behavior
+remain unchanged.
