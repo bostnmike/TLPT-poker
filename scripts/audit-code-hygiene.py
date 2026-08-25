@@ -90,6 +90,17 @@ RSVP_DESKTOP_AVATAR_SELECTORS = {
 }
 RSVP_DESKTOP_AVATAR_SIZE = "96px"
 RSVP_MOBILE_AVATAR_SIZE = "64px"
+RSVP_DESKTOP_SEAT_POSITIONS = {
+    1: (2, "50%", "87%"),
+    2: (3, "30%", "84%"),
+    3: (4, "14%", "61%"),
+    4: (5, "21%", "27%"),
+    5: (6, "40%", "13%"),
+    6: (7, "60%", "13%"),
+    7: (8, "79%", "27%"),
+    8: (9, "86%", "61%"),
+    9: (10, "70%", "84%"),
+}
 ACCESSIBLE_CONTROL_FOCUS_SELECTORS = {
     "[data-dashboard-sort]:focus-visible",
     "[data-standings-sort]:focus-visible",
@@ -204,7 +215,7 @@ EXPECTED_META_DESCRIPTIONS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-5"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-6"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -2304,6 +2315,37 @@ def main() -> int:
                     errors.append(
                         f"style.css:{rsvp_line}: RSVP desktop avatar rule must not use !important"
                     )
+            for seat_number, (child_number, expected_x, expected_y) in (
+                RSVP_DESKTOP_SEAT_POSITIONS.items()
+            ):
+                selector = (
+                    f".event-rsvp-avatar-row > :nth-child({child_number})"
+                )
+                seat_rules = [
+                    (body, line)
+                    for rule_selector, body, line in root_style_rules
+                    if rule_selector == selector
+                ]
+                if len(seat_rules) != 1:
+                    errors.append(
+                        f"style.css: expected exactly one desktop RSVP Seat {seat_number} rule"
+                    )
+                    continue
+                seat_body, seat_line = seat_rules[0]
+                for property_name, property_value in (
+                    ("--seat-x", expected_x),
+                    ("--seat-y", expected_y),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        seat_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{seat_line}: RSVP Seat {seat_number} must use "
+                            f"{property_name}:{property_value}"
+                        )
             control_focus_rules = [
                 (body, line)
                 for selector, body, line in root_style_rules
