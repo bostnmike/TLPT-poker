@@ -104,10 +104,10 @@
       <div class="pm-controls-left">
 
         <div class="pm-button-row" role="group" aria-label="Heater Meter view">
-          <button type="button" class="pm-btn hot active" data-sort="momentum" aria-pressed="true">🔥 Hot</button>
-          <button type="button" class="pm-btn cold" data-sort="cold" aria-pressed="false">❄️ Cold</button>
-          <button type="button" class="pm-btn consistent" data-sort="consistent" aria-pressed="false">🟢 Consistent</button>
-          <button type="button" class="pm-btn volatile" data-sort="volatile" aria-pressed="false">🎢 Volatile</button>
+          <button type="button" class="pm-btn hot active" data-sort="momentum" aria-pressed="true" aria-controls="pm-top-movers pm-player-grid">🔥 Hot</button>
+          <button type="button" class="pm-btn cold" data-sort="cold" aria-pressed="false" aria-controls="pm-top-movers pm-player-grid">❄️ Cold</button>
+          <button type="button" class="pm-btn consistent" data-sort="consistent" aria-pressed="false" aria-controls="pm-top-movers pm-player-grid">🟢 Consistent</button>
+          <button type="button" class="pm-btn volatile" data-sort="volatile" aria-pressed="false" aria-controls="pm-top-movers pm-player-grid">🎢 Volatile</button>
         </div>
 
         <div class="pm-legend">
@@ -133,7 +133,7 @@
 
     <!-- TOP -->
     <section class="pm-section-shell">
-      <h2 id="pm-top-title">🔥 5 Biggest Heaters</h2>
+      <h2 id="pm-top-title" role="status" aria-live="polite" aria-atomic="true">🔥 5 Biggest Heaters</h2>
       <div id="pm-top-movers" class="pm-movers-grid"></div>
     </section>
 

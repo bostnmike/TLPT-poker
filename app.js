@@ -1695,6 +1695,10 @@ function ensureStandingsHeadline(sortKey) {
     headline.className = "standings-current-stat";
   }
 
+  headline.setAttribute("role", "status");
+  headline.setAttribute("aria-live", "polite");
+  headline.setAttribute("aria-atomic", "true");
+
   if (!formula) {
     formula = document.createElement("div");
     formula.id = "standings-formula-display";
@@ -3030,6 +3034,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
           class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
           data-archetype-mode="primary"
           aria-pressed="${mode === "primary" ? "true" : "false"}"
+          aria-controls="players-visual players-grid"
         >
           Primary
         </button>
@@ -3042,6 +3047,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
             id="archetype-mode-switch-input"
             type="checkbox"
             aria-label="Secondary archetypes"
+            aria-controls="players-visual players-grid"
             ${mode === "secondary" ? "checked" : ""}
           />
           <span class="archetype-mode-switch-track">
@@ -3054,6 +3060,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
           class="archetype-mode-btn ${mode === "secondary" ? "active" : ""}"
           data-archetype-mode="secondary"
           aria-pressed="${mode === "secondary" ? "true" : "false"}"
+          aria-controls="players-visual players-grid"
         >
           Secondary
         </button>
@@ -3066,6 +3073,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
             class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"
             data-archetype-filter="all"
             aria-pressed="${activeFilter === "all" ? "true" : "false"}"
+            aria-controls="players-visual players-grid"
           >
             View All
             <span>${totalPlayers}</span>
@@ -3077,6 +3085,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
               class="archetype-filter-pill ${activeFilter === group.title ? "active" : ""} ${group.className}"
               data-archetype-filter="${group.title}"
               aria-pressed="${activeFilter === group.title ? "true" : "false"}"
+              aria-controls="players-visual players-grid"
             >
               ${group.emoji} ${group.title}
               <span>${group.players.length}</span>

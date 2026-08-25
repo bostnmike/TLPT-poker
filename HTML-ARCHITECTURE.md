@@ -359,3 +359,18 @@ names, both static switch names, two dynamic Crew groups, the dynamic Crew
 switch name, and cache delivery. Control text, ordering, selected states,
 styling, focus treatment, behavior, layout, content, cards, calculations, data,
 and responsive presentation remain unchanged.
+
+## Phase 3C.7 control-to-result relationship contract
+
+Dashboard, Standings, Rules, Crew, Crew archetype, and Heater Meter controls now
+identify the stable result regions they update through `aria-controls`.
+Dashboard, Standings, and Heater Meter reuse their existing short status
+headings as polite, atomic live regions, announcing only the selected view or
+metric instead of re-reading full tables, card grids, or rules content.
+
+The shared application reference advances to `app.js?v=20260825-4` across all
+eight consumers. `scripts/audit-code-hygiene.py` enforces every static and
+dynamic control relationship, verifies that static targets exist, protects the
+three restrained live-status contracts, and enforces cache delivery. Visible
+copy, selected states, styling, focus treatment, behavior, layout, cards,
+calculations, data, and responsive presentation remain unchanged.
