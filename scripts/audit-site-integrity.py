@@ -777,6 +777,12 @@ def audit_pages(audit, metadata):
         "pages",
         "Heater Meter must require the authoritative parsed-event index",
     )
+    audit.check(
+        "Could not load event file:" not in movement
+        and "Event payload does not match index file:" in movement,
+        "pages",
+        "Heater Meter must reject incomplete or mismatched indexed event batches",
+    )
 
     for path in sorted(ROOT.glob("*.js")):
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)
