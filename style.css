@@ -776,6 +776,26 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   box-shadow:0 6px 16px rgba(0,0,0,.22);
 }
 
+[data-dashboard-sort]:focus-visible,
+[data-standings-sort]:focus-visible,
+#format-btn-40k:focus-visible,
+#format-btn-500k:focus-visible,
+#crew-view-tier:focus-visible,
+#crew-view-archetype:focus-visible,
+.archetype-mode-btn:focus-visible,
+.archetype-filter-pill:focus-visible,
+.pm-btn:focus-visible{
+  outline:3px solid var(--white);
+  outline-offset:3px;
+}
+
+.format-switch input:focus-visible + .format-switch-track,
+.crew-view-switch input:focus-visible + .crew-view-switch-track,
+.archetype-mode-switch input:focus-visible + .archetype-mode-switch-track{
+  outline:3px solid var(--white);
+  outline-offset:3px;
+}
+
 .dashboard-button-groups .dashboard-buttons{
   display:grid;
   gap:5px;

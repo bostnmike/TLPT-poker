@@ -330,3 +330,17 @@ ownership, labelling, initial hidden state, focus entry, focus containment,
 focus restoration, visible focus, trigger wiring, and cache delivery. Gallery
 content, posters, winner badges, navigation behavior, layout, and responsive
 presentation remain unchanged.
+
+## Phase 3C.5 shared visible-focus control contract
+
+Dashboard and Standings metric buttons, Rules format buttons, Crew view and
+archetype controls, and Heater Meter filters now share one high-contrast
+`:focus-visible` outline. The three custom format and Crew switches transfer
+that keyboard-only outline to their visible tracks, so the hidden native inputs
+retain a clear on-screen focus location.
+
+The site-wide stylesheet reference advances to `style.css?v=20260825-3` on all
+16 pages. `scripts/audit-code-hygiene.py` enforces the complete selector sets,
+outline treatment, switch-track treatment, and cache delivery. Ordinary mouse
+and touch styling, selected states, labels, control behavior, layout, content,
+cards, calculations, data, and responsive presentation remain unchanged.
