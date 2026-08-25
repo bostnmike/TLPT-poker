@@ -50,6 +50,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/trophy-room.html",
 ]
 EXPECTED_PAGES = {
+    "404.html",
     "champions.html",
     "dashboard.html",
     "form-lab.html",
@@ -128,6 +129,7 @@ EXPECTED_FOOTER_TEXT = (
 )
 EXPECTED_FOOTER_URL = "https://thetournamentdirector.net/"
 EXPECTED_NAV_ACTIVE_LABELS = {
+    "404.html": [],
     "champions.html": ["Roast Zone", "The Hall"],
     "dashboard.html": ["The Metrics", "Dashboard"],
     "form-lab.html": ["The Metrics", "The Form Lab"],
@@ -146,9 +148,11 @@ EXPECTED_NAV_ACTIVE_LABELS = {
     "trophy-room.html": ["Members", "The Trophy Room"],
 }
 EXPECTED_NAV_CURRENT_LABEL = {
-    page: labels[-1] for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
+    page: labels[-1] if labels else ""
+    for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
 }
 EXPECTED_PAGE_TITLES = {
+    "404.html": "Page Not Found | TLPT Poker League",
     "champions.html": "TLPT Hall of In-FAM[E]-Y",
     "dashboard.html": "TLPT Dashboard",
     "form-lab.html": "The Form Lab | TLPT",
@@ -167,6 +171,7 @@ EXPECTED_PAGE_TITLES = {
     "trophy-room.html": "TLPT Trophy Room",
 }
 UNIFIED_TITLE_PAGES = {
+    "404.html": "This Hand Went Missing",
     "dashboard.html": "TLPT Metrics",
     "form-lab.html": "The Form Lab",
     "gallery.html": "The Gallery",
@@ -182,6 +187,7 @@ UNIFIED_TITLE_PAGES = {
     "streaks.html": "TLPT Streak Tracker",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
+    "404.html",
     "dashboard.html",
     "form-lab.html",
     "gallery.html",
@@ -196,6 +202,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "streaks.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
+    "404.html": "The requested TLPT Poker League page could not be found. Return home or view the upcoming schedule.",
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
     "dashboard.html": "Explore TLPT Poker League standings, player performance, rankings, trends, and league-wide metrics.",
     "form-lab.html": "Track recent TLPT Poker League player form, momentum, and performance across the latest events.",
@@ -1788,6 +1795,10 @@ def main() -> int:
         if parser.descriptions != [expected_description]:
             parser.errors.append("meta description differs from the page-head contract")
 
+        expected_robots_metadata = ["noindex"] if page.name == "404.html" else []
+        if parser.meta_names.get("robots", []) != expected_robots_metadata:
+            parser.errors.append("robots metadata differs from the page-head contract")
+
         expected_canonical = EXPECTED_CANONICAL_URLS.get(page.name)
         if expected_canonical:
             if parser.canonical_links != [expected_canonical]:
@@ -1796,12 +1807,12 @@ def main() -> int:
                 )
         elif parser.canonical_links:
             parser.errors.append(
-                "query-driven Player Profile must not publish a static canonical URL"
+                "page must not publish a static canonical URL"
             )
 
         expected_social_image = EXPECTED_SOCIAL_IMAGES.get(page.name, "")
         expected_image_alt = EXPECTED_SOCIAL_IMAGE_ALT.get(page.name, "")
-        expected_og_metadata = {
+        expected_og_metadata = {} if page.name == "404.html" else {
             "og:type": "profile" if page.name == "player.html" else "website",
             "og:site_name": "TLPT Poker League",
             "og:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
@@ -1823,7 +1834,7 @@ def main() -> int:
                 + ", ".join(unexpected_og_properties)
             )
 
-        expected_twitter_metadata = {
+        expected_twitter_metadata = {} if page.name == "404.html" else {
             "twitter:card": "summary",
             "twitter:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
             "twitter:description": expected_description,
@@ -1834,9 +1845,21 @@ def main() -> int:
             if parser.meta_names.get(key, []) != [value]:
                 parser.errors.append(f"{key} differs from the social-metadata contract")
 
-        social_image_path = urlsplit(expected_social_image).path.lstrip("/")
-        if not social_image_path or not (ROOT / social_image_path).is_file():
-            parser.errors.append("social preview image does not resolve to a local asset")
+        unexpected_twitter_metadata = sorted(
+            key
+            for key in parser.meta_names
+            if key.startswith("twitter:") and key not in expected_twitter_metadata
+        )
+        if unexpected_twitter_metadata:
+            parser.errors.append(
+                "unexpected Twitter metadata: "
+                + ", ".join(unexpected_twitter_metadata)
+            )
+
+        if expected_social_image:
+            social_image_path = urlsplit(expected_social_image).path.lstrip("/")
+            if not social_image_path or not (ROOT / social_image_path).is_file():
+                parser.errors.append("social preview image does not resolve to a local asset")
 
         parsed_structured_data: list[object] = []
         for block in parser.structured_data_blocks:
@@ -1848,7 +1871,7 @@ def main() -> int:
         if expected_json_ld is None:
             if parsed_structured_data:
                 parser.errors.append(
-                    "query-driven Player Profile must not publish static structured data"
+                    "page must not publish static structured data"
                 )
         elif parsed_structured_data != [expected_json_ld]:
             parser.errors.append(
@@ -2305,10 +2328,11 @@ def main() -> int:
             )
 
         expected_current_label = EXPECTED_NAV_CURRENT_LABEL.get(page.name, "")
-        if nav_current_labels != [expected_current_label]:
+        expected_current_labels = [expected_current_label] if expected_current_label else []
+        if nav_current_labels != expected_current_labels:
             parser.errors.append(
-                "navigation must expose exactly one aria-current page link: "
-                + expected_current_label
+                "aria-current navigation labels must be: "
+                + " → ".join(expected_current_labels)
             )
 
         expected_style_prefix = ["style.css"]

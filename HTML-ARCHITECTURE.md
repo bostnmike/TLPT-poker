@@ -693,3 +693,27 @@ No stylesheet or application-runtime change is required. Visible layout,
 navigation, RSVP table placement, Home toggle spacing, player data, statistics,
 calculations, Player Cards, image delivery, interactions, and responsive
 behavior remain unchanged.
+
+## Phase 3F.1 custom missing-route recovery
+
+Phase 3F begins resilience hardening with a static `404.html` that GitHub Pages
+can serve for any missing route. The recovery page uses the shared TLPT header,
+complete navigation, footer, poker-chip hero, responsive layout, focus behavior,
+and image fallback shell. It deliberately does not load `app.js` or any site
+data, so a broken route cannot be compounded by a data dependency. Visitors get
+direct links back to Home and the Schedule while the HTTP response remains a
+real 404.
+
+The missing-route page publishes one `noindex` directive and is deliberately
+excluded from the sitemap, canonical inventory, social preview metadata, and
+structured data. This keeps an error response out of search results and avoids
+assigning a false public identity to arbitrary missing URLs.
+
+`scripts/audit-code-hygiene.py` and its repository-root mirror now enforce the
+17-page inventory, the exact 404 title and description, its `noindex`-only
+discovery treatment, absence of an active navigation item, shared shell parity,
+dependency-free runtime, and reuse of the established page-hero contract. The
+independent site-integrity audit also recognizes the expanded root-page
+inventory. No existing page markup, stylesheet, application runtime,
+navigation destination, player data, statistics, calculations, cards, RSVP
+layout, interactions, or responsive behavior changes in this step.
