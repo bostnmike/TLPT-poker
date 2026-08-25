@@ -154,6 +154,8 @@ EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
+EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-2"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
@@ -281,6 +283,9 @@ class PageAuditParser(HTMLParser):
         self.skip_link_records: list[dict[str, object]] = []
         self.open_skip_link: dict[str, object] | None = None
         self.button_records: list[dict[str, object]] = []
+        self.gallery_lightbox_attrs: dict[str, str] | None = None
+        self.gallery_lightbox_dialog_attrs: list[dict[str, str]] = []
+        self.gallery_lightbox_backdrop_attrs: dict[str, str] | None = None
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -306,6 +311,12 @@ class PageAuditParser(HTMLParser):
         self.class_counts.update(classes)
         if tag == "main" and attrs.get("id") == "main-content":
             self.main_content_count += 1
+        if tag == "div" and attrs.get("id") == "gallery-lightbox":
+            self.gallery_lightbox_attrs = attrs
+        if tag == "div" and "gallery-lightbox-dialog" in classes:
+            self.gallery_lightbox_dialog_attrs.append(attrs)
+        if tag == "div" and attrs.get("id") == "gallery-lightbox-backdrop":
+            self.gallery_lightbox_backdrop_attrs = attrs
         if tag == "a" and "skip-link" in classes:
             self.open_skip_link = {
                 "href": attrs.get("href", ""),
@@ -739,6 +750,47 @@ def audit_javascript(path: Path) -> list[str]:
                 "Form Lab event-list buttons must expose their selected state"
             )
 
+    if path.name == "gallery.js":
+        focus_source = function_source("focusGalleryLightbox")
+        if "getGalleryLightboxFocusable" not in focus_source or ".focus(" not in focus_source:
+            errors.append(
+                "Gallery lightbox must move focus into the modal when opened"
+            )
+        trap_source = function_source("trapGalleryLightboxFocus")
+        if (
+            'event.key !== "Tab"' not in trap_source
+            or "event.preventDefault()" not in trap_source
+            or trap_source.count(".focus(") < 3
+        ):
+            errors.append(
+                "Gallery lightbox must contain forward and reverse Tab focus"
+            )
+        open_source = function_source("openLightbox")
+        if (
+            "galleryLightboxReturnFocus" not in open_source
+            or "focusGalleryLightbox" not in open_source
+        ):
+            errors.append(
+                "Gallery lightbox must remember its trigger and focus the modal"
+            )
+        close_source = function_source("closeLightbox")
+        if (
+            "galleryLightboxReturnFocus = null" not in close_source
+            or "returnFocus.focus(" not in close_source
+        ):
+            errors.append(
+                "Gallery lightbox must restore focus to its trigger when closed"
+            )
+        poster_source = function_source("createPosterCard")
+        if "openLightbox(poster, button)" not in poster_source:
+            errors.append(
+                "Gallery poster controls must pass their focus origin to the lightbox"
+            )
+        if "trapGalleryLightboxFocus(e, lightbox)" not in text:
+            errors.append(
+                "Gallery lightbox keydown handling must invoke the focus trap"
+            )
+
     return errors
 
 
@@ -830,6 +882,39 @@ def main() -> int:
                 parser.errors.append(
                     "Form Lab accessibility script cache version is stale"
                 )
+
+        if page.name == "gallery.html":
+            if EXPECTED_GALLERY_STYLESHEET not in parser.stylesheet_references:
+                parser.errors.append(
+                    "Gallery lightbox focus stylesheet cache version is stale"
+                )
+            if EXPECTED_GALLERY_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Gallery lightbox focus script cache version is stale"
+                )
+            lightbox = parser.gallery_lightbox_attrs
+            if not lightbox:
+                parser.errors.append("Gallery lightbox modal wrapper is missing")
+            else:
+                if lightbox.get("role", "").lower() != "dialog":
+                    parser.errors.append("Gallery lightbox wrapper must own dialog role")
+                if lightbox.get("aria-modal", "").lower() != "true":
+                    parser.errors.append("Gallery lightbox wrapper must be aria-modal")
+                if lightbox.get("aria-labelledby") != "gallery-lightbox-title":
+                    parser.errors.append("Gallery lightbox has the wrong accessible title")
+                if lightbox.get("aria-describedby") != "gallery-lightbox-date":
+                    parser.errors.append("Gallery lightbox has the wrong description")
+                if "hidden" not in lightbox:
+                    parser.errors.append("Gallery lightbox must be hidden by default")
+            if len(parser.gallery_lightbox_dialog_attrs) != 1:
+                parser.errors.append("Gallery lightbox must contain one visual dialog shell")
+            elif "role" in parser.gallery_lightbox_dialog_attrs[0]:
+                parser.errors.append(
+                    "Gallery visual dialog shell must not exclude sibling controls from the modal"
+                )
+            backdrop = parser.gallery_lightbox_backdrop_attrs
+            if not backdrop or backdrop.get("aria-hidden", "").lower() != "true":
+                parser.errors.append("Gallery lightbox backdrop must be decorative")
 
         if page.name in EXPECTED_APP_SCRIPT_PAGES:
             if EXPECTED_APP_SCRIPT_REFERENCE not in parser.script_references:
@@ -1231,6 +1316,45 @@ def main() -> int:
                     errors.append(
                         f"form-lab.css:{focus_line}: chart-point keyboard focus "
                         "must use a 4px stroke"
+                    )
+        if stylesheet.name == "gallery.css":
+            gallery_rules = [
+                (selector, body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+            ]
+            poster_focus_rules = [
+                (body, line)
+                for selector, body, line in gallery_rules
+                if selector == ".gallery-poster-button:focus-visible"
+            ]
+            modal_focus_selectors = {
+                ".gallery-lightbox-close:focus-visible",
+                ".gallery-lightbox-nav:focus-visible",
+            }
+            modal_focus_rules = [
+                (body, line)
+                for selector, body, line in gallery_rules
+                if modal_focus_selectors.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(poster_focus_rules) != 1:
+                errors.append(
+                    "gallery.css: expected exactly one poster-button focus-visible rule"
+                )
+            if len(modal_focus_rules) != 1:
+                errors.append(
+                    "gallery.css: expected exactly one modal-control focus-visible rule"
+                )
+            for body, line in poster_focus_rules + modal_focus_rules:
+                if not re.search(
+                    r"(?:^|;)\s*outline\s*:\s*3px\s+solid\s+[^;]+(?:;|$)",
+                    body,
+                    flags=re.IGNORECASE,
+                ):
+                    errors.append(
+                        f"gallery.css:{line}: Gallery focus-visible rule must keep a 3px outline"
                     )
         for context, selector, _body, line in css_rule_blocks(
             stylesheet_text
