@@ -474,3 +474,18 @@ The page script advances to `player-movement.js?v=20260825-6`.
 asynchronous decoding, intrinsic dimensions, and cache-delivery contract.
 Player inclusion, ranking, momentum formulas, card content, fallback behavior,
 avatars, styling, layout, and responsive presentation remain unchanged.
+
+## Phase 3D.3 knockout portrait-delivery contract
+
+Knockout Central and the Player Profile knockout panels now defer their
+below-the-fold player portraits with native lazy loading and asynchronous
+decoding. Each generated image also publishes intrinsic square dimensions that
+match its existing CSS size class: 68, 72, and 40 pixels on Knockout Central,
+and 108 or 42 pixels on Player Profile. The existing styles remain authoritative
+for rendered desktop and mobile dimensions.
+
+The page references advance to `knockouts.js?v=20260825-1` and
+`player-knockouts.js?v=20260825-1`. `scripts/audit-code-hygiene.py` enforces
+both portrait-delivery contracts, their size mappings, and cache delivery.
+Knockout data, leaders, rivalries, body counts, avatars, fallbacks, profile
+content, layout, styling, and responsive behavior remain unchanged.

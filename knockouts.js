@@ -24,6 +24,12 @@ const KNOCKOUTS_URLS = [
     return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   }
 
+  function avatarIntrinsicSize(sizeClass) {
+    if (sizeClass === "knockouts-avatar-lg") return 68;
+    if (sizeClass === "knockouts-avatar-sm") return 40;
+    return 72;
+  }
+
   function avatarMarkup(player, sizeClass = "knockouts-avatar-md") {
     if (!player) {
       return `<div class="knockouts-avatar-fallback ${sizeClass}" aria-hidden="true">?</div>`;
@@ -32,6 +38,7 @@ const KNOCKOUTS_URLS = [
     const image = player.image || "";
     const name = player.name || "Unknown";
     const initials = getInitials(name);
+    const intrinsicSize = avatarIntrinsicSize(sizeClass);
 
     if (!image) {
       return `<div class="knockouts-avatar-fallback ${sizeClass}" aria-hidden="true">${initials}</div>`;
@@ -42,6 +49,10 @@ const KNOCKOUTS_URLS = [
         class="knockouts-avatar ${sizeClass}"
         src="${image}"
         alt="${name}"
+        loading="lazy"
+        decoding="async"
+        width="${intrinsicSize}"
+        height="${intrinsicSize}"
         data-image-error-action="replace-with-next"
       />
       <div class="knockouts-avatar-fallback ${sizeClass}" aria-hidden="true" hidden>${initials}</div>

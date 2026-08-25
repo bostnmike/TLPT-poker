@@ -49,6 +49,10 @@ function findPlayerByRequest(players, requestedName) {
     return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   }
 
+  function avatarIntrinsicSize(sizeClass) {
+    return sizeClass === "knockout-avatar-lg" ? 108 : 42;
+  }
+
   function avatarMarkup(player, sizeClass = "") {
     if (!player) {
       return `
@@ -59,6 +63,7 @@ function findPlayerByRequest(players, requestedName) {
     const image = player.image || "";
     const name = player.name || "Unknown";
     const initials = getInitials(name);
+    const intrinsicSize = avatarIntrinsicSize(sizeClass);
 
     if (!image) {
       return `
@@ -71,6 +76,10 @@ function findPlayerByRequest(players, requestedName) {
         class="knockout-avatar ${sizeClass}"
         src="${image}"
         alt="${name}"
+        loading="lazy"
+        decoding="async"
+        width="${intrinsicSize}"
+        height="${intrinsicSize}"
         data-image-error-action="replace-with-next"
       />
       <div class="knockout-avatar-fallback ${sizeClass}" aria-hidden="true" hidden>${initials}</div>
