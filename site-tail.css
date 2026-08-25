@@ -1275,3 +1275,23 @@
   text-align: center !important;
   white-space: nowrap;
 }
+
+
+/* =========================================
+   PHASE 3G.4 — RSVP CONTROL BREATHING ROOM
+   Keep table/chairs/avatar at the approved
+   3G.2 lift; lower only controls on desktop.
+========================================= */
+
+@media (min-width:981px){
+  /* Home: lower the pagination dots without moving the table/avatar. */
+  #home-events-list .home-rotator-nav-inline{
+    transform:translateY(8px);
+  }
+
+  /* Home + Schedule: lower the RSVP-count pill rail for breathing room. */
+  #home-events-list .event-rsvp-summary-wrap,
+  #schedule-list .event-rsvp-summary-wrap{
+    transform:translateY(10px);
+  }
+}

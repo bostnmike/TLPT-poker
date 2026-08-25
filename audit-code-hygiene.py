@@ -2014,6 +2014,7 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_phase_3g4_rsvp_control_spacing())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
 
@@ -3472,6 +3473,40 @@ def main() -> int:
         f"{len(scripts)} JavaScript files checked."
     )
     return 0
+
+
+
+
+def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
+    """Phase 3G.4: preserve table/avatar lift; lower only desktop dots/pill rails."""
+    errors: list[str] = []
+    css_path = ROOT / "site-tail.css"
+    css = css_path.read_text(encoding="utf-8")
+    required = [
+        "@media (min-width:981px)",
+        "#home-events-list .home-rotator-nav-inline",
+        "transform:translateY(8px);",
+        "#home-events-list .event-rsvp-summary-wrap,",
+        "#schedule-list .event-rsvp-summary-wrap",
+        "transform:translateY(10px);",
+        "#home-events-list .event-rsvp-block,",
+        "#schedule-list .event-rsvp-block{",
+        "transform:translateY(-18px);",
+    ]
+    for token in required:
+        if token not in css:
+            errors.append(f"site-tail.css: Phase 3G.4 spacing contract missing: {token}")
+
+    phase = css.split("PHASE 3G.4 — RSVP CONTROL BREATHING ROOM", 1)[-1]
+    forbidden = [
+        ("#home-events-list .event-rsvp-avatar-row", "Home table/chairs/avatar geometry"),
+        ("#schedule-list .event-rsvp-avatar-row", "Schedule table/chairs/avatar geometry"),
+        (".event-details-col", "left event details"),
+    ]
+    for token, label in forbidden:
+        if token in phase:
+            errors.append(f"site-tail.css: Phase 3G.4 must not move or restyle the {label}")
+    return errors
 
 
 if __name__ == "__main__":
