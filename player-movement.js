@@ -110,19 +110,20 @@ async function init() {
       throw new Error("Parsed event index contains no event files");
     }
 
-    const eventData = (await Promise.all(
-      eventFiles.map(file =>
-        fetch(versionedDataUrl(`data/parsed/events/${file}`), { cache: "no-store" })
-          .then(response => {
-            if (!response.ok) throw new Error(`Missing event file: ${file}`);
-            return response.json();
-          })
-          .catch(err => {
-            console.warn("Could not load event file:", file, err);
-            return null;
-          })
-      )
-    )).filter(Boolean);
+    const eventData = await Promise.all(
+      eventFiles.map(async file => {
+        const response = await fetch(versionedDataUrl(`data/parsed/events/${file}`), { cache: "no-store" });
+        if (!response.ok) throw new Error(`Missing event file: ${file}`);
+
+        const event = await response.json();
+        const expectedEventId = file.replace(/\.json$/, "");
+        const actualEventId = String(event.date || event.eventId || "");
+        if (actualEventId !== expectedEventId) {
+          throw new Error(`Event payload does not match index file: ${file}`);
+        }
+        return event;
+      })
+    );
 
     eventData.sort((a, b) =>
       new Date(a.date || a.eventId) - new Date(b.date || b.eventId)

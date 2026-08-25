@@ -254,3 +254,18 @@ The source-to-page integrity audit rejects any return of the partial static
 fallback and requires the authoritative index contract. Player calculations,
 aliases, controls, card presentation, page markup, responsive styling, and the
 49 parsed event files remain unchanged.
+
+## Phase 3B.9 Player Movement complete event-batch lock
+
+Player Movement now treats the authoritative parsed-event index as an
+all-or-nothing batch. Every indexed file must return successfully, parse as
+JSON, and identify itself with the same date/event ID encoded in its filename.
+The retired per-file recovery path returned `null` and filtered failed requests,
+which could still publish rankings from incomplete history after Phase 3B.8.
+
+Any missing or mismatched indexed event now reaches the page's existing visible
+load-error state instead of rendering partial analytics. The page script
+reference advances to `player-movement.js?v=20260825-3`, and the integrity audit
+permanently rejects per-event suppression. Player formulas, aliases, controls,
+cards, markup, responsive styling, source events, and generated ledger remain
+unchanged.
