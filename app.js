@@ -2667,6 +2667,11 @@ function buildFeaturedPlayerCard(player, data) {
                 src="images/site/chip-T-1000.png"
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="auto"
+                width="38"
+                height="38"
               />
             </header>
 
@@ -2927,6 +2932,11 @@ function crewCardMarkup(player, data) {
             src="images/site/chip-T-1000.png"
             alt=""
             aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="auto"
+            width="38"
+            height="38"
           />
         </header>
 
@@ -4162,7 +4172,7 @@ function playerCardComparisonCardMarkup(player, view, opposingView, players, dat
             <strong>${specialEdition?.cardLabel || view.edition}</strong>
             ${specialEdition ? `<small>${view.edition}</small>` : ""}
           </div>
-          <img class="tlpt-compare-crest" src="images/site/chip-T-1000.png" alt="" aria-hidden="true" />
+          <img class="tlpt-compare-crest" src="images/site/chip-T-1000.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="auto" width="46" height="46" />
         </header>
 
         <div class="tlpt-compare-portrait">
@@ -4524,6 +4534,11 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
                 src="images/site/chip-T-1000.png"
                 alt=""
                 aria-hidden="true"
+                loading="eager"
+                decoding="async"
+                fetchpriority="auto"
+                width="56"
+                height="56"
               />
             </div>
           </header>
@@ -4684,7 +4699,7 @@ function playerCardCollectibleMarkup(
               <small>TLPT</small>
               <strong>${collectible.shortLabel}</strong>
             </span>
-            <img src="images/site/chip-T-1000.png" alt="" />
+            <img src="images/site/chip-T-1000.png" alt="" loading="lazy" decoding="async" fetchpriority="auto" width="28" height="28" />
           </span>
 
           <span class="tlpt-card-collectible-portrait">
@@ -5456,12 +5471,22 @@ function hallLaurelMarkup(tone = "best") {
         class="hall-laurel-image hall-laurel-image-left"
         src="${leafSrc}"
         alt=""
+        loading="lazy"
+        decoding="async"
+        fetchpriority="auto"
+        width="632"
+        height="1024"
       />
 
       <img
         class="hall-laurel-image hall-laurel-image-right"
         src="${leafSrc}"
         alt=""
+        loading="lazy"
+        decoding="async"
+        fetchpriority="auto"
+        width="632"
+        height="1024"
       />
 
     </div>
@@ -5544,6 +5569,11 @@ function hallCardMarkup(player, rule, tone = "best") {
       src="${rule.propLeft}"
       alt=""
       aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="auto"
+      width="512"
+      height="512"
     />
   ` : ""}
 
@@ -5576,6 +5606,11 @@ function hallCardMarkup(player, rule, tone = "best") {
       src="${rule.propRight}"
       alt=""
       aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="auto"
+      width="512"
+      height="512"
     />
   ` : ""}
 
@@ -5889,6 +5924,9 @@ function buildRulesChipCard(chip, formatKey) {
         data-image-error-action="candidate-list"
         loading="lazy"
         decoding="async"
+        fetchpriority="auto"
+        width="76"
+        height="76"
       >
       <div class="rules-chip-fallback">${label}</div>
       <div class="rules-chip-label">${label}</div>

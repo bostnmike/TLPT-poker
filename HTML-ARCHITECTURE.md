@@ -570,3 +570,29 @@ single high-priority image, Trophy Room dimensions, and cache delivery. News
 content, featured-story selection, poster embeds, avatar mappings, collectible
 cards, filters, sorting, rarity, card ownership, navigation, fallbacks, layout,
 styling, and responsive presentation remain unchanged.
+
+## Phase 3D.8 decorative image-delivery closeout
+
+The 13 large page-header chips now explicitly retain eager loading while
+decoding asynchronously at automatic fetch priority. Each publishes the
+established 112-by-112 desktop reservation; the existing shared and Trophy Room
+styles remain authoritative for tablet and mobile sizes. The Film Room's lazy
+Nitro thumbnail now publishes its native 1536-by-1024 ratio and automatic fetch
+priority.
+
+Repeated card crests also reserve their established rendered dimensions:
+38 pixels for Home, Crew, and Trophy Room cards; 46 pixels for Player Card
+comparisons; 56 pixels for the primary Player Card; and 28 pixels for
+collectible cards. The visible primary crest remains eager at automatic
+priority, while card collections and comparisons stay lazy. Hall laurels
+publish their native 632-by-1024 ratio, Hall props remain square at 512 pixels,
+and Rules chip-set images reserve 76-by-76 pixels; all three below-the-fold
+groups remain lazy and decode asynchronously.
+
+The shared application reference advances to `app.js?v=20260825-9` across all
+eight consumers, and Trophy Room advances to
+`trophy-room.js?v=20260825-2`. `scripts/audit-code-hygiene.py` enforces the
+header-chip, Film Room, card-crest, Hall decoration, Rules chip, and cache
+delivery contracts. Image files, page copy, cards, player data, statistics,
+ordering, calculations, filters, navigation, fallbacks, layout, styling, and
+responsive presentation remain unchanged.

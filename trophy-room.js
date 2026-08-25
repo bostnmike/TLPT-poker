@@ -271,7 +271,7 @@
                 <em>Historic</em>
               </span>
 
-              <img src="images/site/chip-T-1000.png" alt="" aria-hidden="true" />
+              <img src="images/site/chip-T-1000.png" alt="" aria-hidden="true" loading="lazy" decoding="async" fetchpriority="auto" width="38" height="38" />
             </span>
 
             <span class="trophy-card-portrait">${avatarMarkup(card)}</span>
