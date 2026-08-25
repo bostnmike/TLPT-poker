@@ -2021,6 +2021,8 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_phase_3h8_maintenance_baseline())
+    errors.extend(audit_phase_3h7_data_build_runner())
     errors.extend(audit_phase_3h5_single_source_audit())
     errors.extend(audit_phase_3h6_single_source_quality_runner())
     errors.extend(audit_phase_3h4_cache_rotation_automation())
@@ -3709,6 +3711,98 @@ def audit_phase_3h5_single_source_audit() -> list[str]:
             )
             break
     return errors
+
+
+def audit_phase_3h7_data_build_runner() -> list[str]:
+    """Phase 3H.7: keep the generated-data build sequence authoritative in one runner."""
+    errors: list[str] = []
+    runner = ROOT / "scripts" / "run-data-build.sh"
+    weekly = ROOT / "scripts" / "run-weekly-update.sh"
+    pipeline = ROOT / ".github" / "workflows" / "tlpt-update.yml"
+
+    if not runner.exists():
+        errors.append("scripts/run-data-build.sh: authoritative data-build runner is missing")
+        return errors
+
+    runner_text = runner.read_text(encoding="utf-8")
+    required_runner_tokens = (
+        'scripts/parse-event-reports.py',
+        'scripts/generate-event-index.js',
+        'scripts/build-site-data.py',
+        'scripts/build-knockouts.py',
+        'set -euo pipefail',
+    )
+    for token in required_runner_tokens:
+        if runner_text.count(token) != 1:
+            errors.append(
+                f"scripts/run-data-build.sh: expected exactly one authoritative build step `{token}`"
+            )
+
+    weekly_text = weekly.read_text(encoding="utf-8")
+    pipeline_text = pipeline.read_text(encoding="utf-8")
+
+    if weekly_text.count("bash scripts/run-data-build.sh") != 1:
+        errors.append(
+            "scripts/run-weekly-update.sh: must call the authoritative data-build runner exactly once"
+        )
+    if pipeline_text.count("bash scripts/run-data-build.sh") != 2:
+        errors.append(
+            ".github/workflows/tlpt-update.yml: data pipeline must call the authoritative data-build runner exactly twice"
+        )
+
+    forbidden_direct = (
+        "scripts/parse-event-reports.py",
+        "scripts/generate-event-index.js",
+        "scripts/build-site-data.py",
+        "scripts/build-knockouts.py",
+    )
+    for path, content in ((weekly, weekly_text), (pipeline, pipeline_text)):
+        for token in forbidden_direct:
+            if token in content:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: must not bypass run-data-build.sh with `{token}`"
+                )
+    return errors
+
+
+
+def audit_phase_3h8_maintenance_baseline() -> list[str]:
+    """Phase 3H.8: keep the maintenance runbook and baseline verifier active."""
+    errors: list[str] = []
+    required_files = (
+        ROOT / "MAINTENANCE-RUNBOOK.md",
+        ROOT / "maintenance-baseline.json",
+        ROOT / "scripts" / "verify-maintenance-baseline.py",
+    )
+    for path in required_files:
+        if not path.is_file():
+            errors.append(f"{path.relative_to(ROOT)}: maintenance closeout file is missing")
+
+    quality = ROOT / "scripts" / "run-quality-gates.sh"
+    if quality.is_file():
+        quality_text = quality.read_text(encoding="utf-8")
+        if quality_text.count("scripts/verify-maintenance-baseline.py") != 1:
+            errors.append(
+                "scripts/run-quality-gates.sh: must verify the maintenance baseline exactly once"
+            )
+
+    baseline = ROOT / "maintenance-baseline.json"
+    if baseline.is_file():
+        try:
+            contract = json.loads(baseline.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            errors.append(f"maintenance-baseline.json: invalid JSON ({exc})")
+        else:
+            if contract.get("schemaVersion") != 1:
+                errors.append("maintenance-baseline.json: schemaVersion must remain 1")
+            if contract.get("publicPageCount") != 17:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 17")
+            if contract.get("sharedCssVersion") != "20260825-4":
+                errors.append(
+                    "maintenance-baseline.json: sharedCssVersion must match the deployed 3H.3 baseline"
+                )
+    return errors
+
 
 if __name__ == "__main__":
     sys.exit(main())

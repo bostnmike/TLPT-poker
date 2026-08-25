@@ -15,6 +15,9 @@ if ! command -v node >/dev/null 2>&1; then
   exit 127
 fi
 
+echo "🧭 Verifying maintenance baseline..."
+"$PYTHON_BIN" scripts/verify-maintenance-baseline.py
+
 echo "🧹 Auditing code hygiene..."
 "$PYTHON_BIN" scripts/audit-code-hygiene.py
 
