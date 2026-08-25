@@ -113,10 +113,14 @@ UNIFIED_TITLE_PAGES = {
 TROPHY_INSPIRED_HERO_PAGES = {
     "dashboard.html",
     "form-lab.html",
+    "gallery.html",
     "index.html",
     "knockouts.html",
+    "media.html",
     "player-movement.html",
     "players.html",
+    "rules.html",
+    "schedule.html",
     "standings.html",
     "streaks.html",
 }
