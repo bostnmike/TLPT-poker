@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "phase": "3H.8",
+  "publicPageCount": 17,
+  "sharedCssAsset": "site-tail.css",
+  "sharedCssVersion": "20260825-4",
+  "authoritative": {
+    "dataBuild": "scripts/run-data-build.sh",
+    "qualityGates": "scripts/run-quality-gates.sh",
+    "codeHygiene": "scripts/audit-code-hygiene.py",
+    "codeHygieneCompatibilityLauncher": "audit-code-hygiene.py",
+    "sharedCssCacheRotation": "scripts/rotate-shared-css-cache.py"
+  },
+  "maintenancePaths": {
+    "weeklyUpdate": "scripts/run-weekly-update.sh",
+    "dataPipelineWorkflow": ".github/workflows/tlpt-update.yml",
+    "siteQualityWorkflow": ".github/workflows/site-quality.yml",
+    "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
+  },
+  "requiredQualityGates": [
+    "scripts/verify-maintenance-baseline.py",
+    "scripts/audit-code-hygiene.py",
+    "scripts/test-site-shell.mjs",
+    "scripts/test-app-load-failure.mjs",
+    "scripts/validate-site-data.py",
+    "scripts/audit-site-integrity.py",
+    "scripts/audit-page-calculations.mjs"
+  ]
+}
