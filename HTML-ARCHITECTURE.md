@@ -444,3 +444,17 @@ interactive-chart, redundant-graphic, stat announcement, focus treatment, and
 cache-delivery contracts. Page copy, player data, ratings, tiers, card skins,
 Crew order, calculations, navigation, interactions, layout, and responsive
 presentation remain unchanged.
+
+## Phase 3D.1 Film Room deferred-media contract
+
+Phase 3D begins browser-delivery hardening with the Film Room's heaviest
+non-critical resources. All eight YouTube embeds now use native
+`loading="lazy"`, so their external players are requested only as the visitor
+approaches the video grid. The 2.7 MB Nitro thumbnail follows the same lazy-load
+contract and uses asynchronous image decoding.
+
+The page hero and its chip remain eager, preserving the existing above-the-fold
+composition. Video sources, titles, playback controls, thumbnail artwork,
+outbound link, page copy, layout, styling, and responsive behavior are
+unchanged. `scripts/audit-code-hygiene.py` enforces the approved eight-embed
+inventory, lazy-loading behavior, and thumbnail decoding contract.
