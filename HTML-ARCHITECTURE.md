@@ -392,3 +392,26 @@ and row headers, sort state, scroll-region semantics, responsive overflow,
 visible focus, native row ownership, and cache delivery. Table values, sorting,
 mouse interaction, rules content, calculations, data, and visual styling remain
 unchanged.
+
+## Phase 3C.9 site-wide reduced-motion contract
+
+The shared stylesheet now honors `prefers-reduced-motion: reduce` across every
+page, collapsing CSS animation and transition durations, removing staggered
+animation delays, limiting animation loops to one pass, and disabling smooth
+scroll behavior. This covers ticker movement, pulse and shimmer effects, RSVP
+seat entry, Heater Meter effects, card transitions, and later page-specific
+motion even when those stylesheets load after the shared foundation.
+
+The shared application also reads the same preference before running count-up
+or Commissioner typing effects. Reduced-motion users receive final counter and
+report text immediately, and rotating reports bypass the fade delay. Sticky
+news positioning and profile-shell polling remain unchanged because they are
+layout and readiness behavior rather than visual animation.
+
+The shared references advance to `style.css?v=20260825-5` on all 16 pages and
+`app.js?v=20260825-6` across all eight consumers.
+`scripts/audit-code-hygiene.py` enforces the global CSS preference block, every
+motion-limiting property, the application preference helper, both immediate
+content paths, report-rotation protection, and cache delivery. Default motion,
+visible styling, content rotation, interactions, calculations, data, layout,
+and responsive presentation remain unchanged for users without the preference.

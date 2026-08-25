@@ -6705,3 +6705,16 @@ body:has(#dashboard-grid) .page-title-row::after{
   margin-top:8px;
   margin-bottom:10px;
 }
+
+@media (prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    animation-delay:0ms !important;
+    transition-duration:.01ms !important;
+    transition-delay:0ms !important;
+    scroll-behavior:auto !important;
+  }
+}

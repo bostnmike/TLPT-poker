@@ -30,6 +30,11 @@ const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "profit";
 const SHOW_HOME_COMMISSIONER_REPORT = false;
 
+function prefersReducedMotion() {
+  return typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 /*
  * Crew experience bands use separate tournament appearances.
  * buyIns counts initial tournament entries; rebuys do not count.
@@ -461,6 +466,11 @@ function animateCountUp(el, duration = 1100) {
   if (!meta) return;
 
   el.dataset.countAnimated = "true";
+
+  if (prefersReducedMotion()) {
+    el.textContent = meta.raw;
+    return;
+  }
 
   const startTime = performance.now();
 
@@ -6041,6 +6051,12 @@ window.showFormat = showFormat;
 function typeTextIntoElement(element, text, speed = 18) {
   if (!element) return;
 
+  if (prefersReducedMotion()) {
+    element.textContent = text;
+    element.classList.add("is-typing-done");
+    return;
+  }
+
   element.textContent = "";
   element.classList.remove("is-typing-done");
 
@@ -6142,6 +6158,13 @@ document.addEventListener("DOMContentLoaded", () => {
       function renderNewReport() {
         const result = getRandomCommissionerReport(currentIndex);
         currentIndex = result.index;
+
+        if (prefersReducedMotion()) {
+          reportEls.forEach(reportEl => {
+            typeTextIntoElement(reportEl, result.text, 10);
+          });
+          return;
+        }
 
         reportEls.forEach(reportEl => {
           reportEl.classList.add("is-fading");
