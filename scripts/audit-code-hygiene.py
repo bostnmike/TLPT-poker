@@ -176,7 +176,7 @@ EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-5"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
@@ -1067,6 +1067,57 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Gallery poster controls must pass their focus origin to the lightbox"
             )
+        for fragment, message in (
+            (
+                'const loading = isLeadPoster ? "eager" : "lazy";',
+                "Gallery must load its lead poster eagerly and defer archive posters",
+            ),
+            (
+                'loading="${loading}"',
+                "Gallery posters must publish their selected loading priority",
+            ),
+            (
+                'decoding="async"',
+                "Gallery posters must decode asynchronously",
+            ),
+            (
+                'fetchpriority="${isLeadPoster ? "high" : "auto"}"',
+                "Gallery must prioritize only its lead poster",
+            ),
+            (
+                'width="1024"',
+                "Gallery posters must publish their intrinsic width",
+            ),
+            (
+                'height="1536"',
+                "Gallery posters must publish their intrinsic height",
+            ),
+        ):
+            if fragment not in poster_source:
+                errors.append(message)
+        year_source = function_source("createYearGroup")
+        if "createPosterCard(poster, poster.src === leadPosterSource)" not in year_source:
+            errors.append(
+                "Gallery year groups must identify the single lead poster"
+            )
+        if (
+            'const leadPosterSource = galleryPosters[0]?.src || "";' not in text
+            or "createYearGroup(year, posters, leadPosterSource)" not in text
+        ):
+            errors.append(
+                "Gallery rendering must pass the newest poster as its lead image"
+            )
+        winner_source = function_source("buildGalleryWinnerBadgesMarkup")
+        for fragment in (
+            "const intrinsicAvatarSize = winners.length === 1 ? 46 : 34;",
+            'width="${intrinsicAvatarSize}"',
+            'height="${intrinsicAvatarSize}"',
+        ):
+            if fragment not in winner_source:
+                errors.append(
+                    "Gallery winner avatars must publish dimensions matching their badge layout"
+                )
+                break
         if "trapGalleryLightboxFocus(e, lightbox)" not in text:
             errors.append(
                 "Gallery lightbox keydown handling must invoke the focus trap"
@@ -1261,8 +1312,29 @@ def main() -> int:
                 )
             if EXPECTED_GALLERY_SCRIPT not in parser.script_references:
                 parser.errors.append(
-                    "Gallery lightbox focus script cache version is stale"
+                    "Gallery poster-delivery script cache version is stale"
                 )
+            lightbox_images = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "img"
+                and record["attrs"].get("id") == "gallery-lightbox-image"
+            ]
+            if len(lightbox_images) != 1:
+                parser.errors.append("Gallery lightbox image is missing")
+            else:
+                lightbox_image_attrs = lightbox_images[0]["attrs"]
+                if lightbox_image_attrs.get("decoding", "").lower() != "async":
+                    parser.errors.append(
+                        "Gallery lightbox image must decode asynchronously"
+                    )
+                if (
+                    lightbox_image_attrs.get("width") != "1024"
+                    or lightbox_image_attrs.get("height") != "1536"
+                ):
+                    parser.errors.append(
+                        "Gallery lightbox image must publish its poster aspect ratio"
+                    )
             lightbox = parser.gallery_lightbox_attrs
             if not lightbox:
                 parser.errors.append("Gallery lightbox modal wrapper is missing")
