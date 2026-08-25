@@ -7,6 +7,7 @@ HTML/CSS/asset contract around the existing, separately validated data model.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import Counter, defaultdict
@@ -212,6 +213,76 @@ EXPECTED_META_DESCRIPTIONS = {
     "streaks.html": "Track TLPT Poker League cashing, appearance, and performance streaks.",
     "trophy-room.html": "Browse collectible TLPT Poker League special-edition player cards and career achievements in the Trophy Room.",
 }
+SITE_ORIGIN = "https://tlpt.org"
+EXPECTED_CANONICAL_URLS = {
+    "champions.html": f"{SITE_ORIGIN}/champions.html",
+    "dashboard.html": f"{SITE_ORIGIN}/dashboard.html",
+    "form-lab.html": f"{SITE_ORIGIN}/form-lab.html",
+    "gallery.html": f"{SITE_ORIGIN}/gallery.html",
+    "index.html": f"{SITE_ORIGIN}/",
+    "knockouts.html": f"{SITE_ORIGIN}/knockouts.html",
+    "media.html": f"{SITE_ORIGIN}/media.html",
+    "news.html": f"{SITE_ORIGIN}/news.html",
+    "player-movement.html": f"{SITE_ORIGIN}/player-movement.html",
+    "players.html": f"{SITE_ORIGIN}/players.html",
+    "rules.html": f"{SITE_ORIGIN}/rules.html",
+    "schedule.html": f"{SITE_ORIGIN}/schedule.html",
+    "standings.html": f"{SITE_ORIGIN}/standings.html",
+    "streaks.html": f"{SITE_ORIGIN}/streaks.html",
+    "trophy-room.html": f"{SITE_ORIGIN}/trophy-room.html",
+}
+EXPECTED_SOCIAL_IMAGES = {
+    "champions.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+    "dashboard.html": f"{SITE_ORIGIN}/images/site/chip-T-10000.png",
+    "form-lab.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
+    "gallery.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
+    "index.html": f"{SITE_ORIGIN}/images/site/chip-T-100.png",
+    "knockouts.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+    "media.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
+    "news.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
+    "player-movement.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
+    "player.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
+    "players.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+    "rules.html": f"{SITE_ORIGIN}/images/site/chip-T-25.png",
+    "schedule.html": f"{SITE_ORIGIN}/images/site/chip-T-100000.png",
+    "standings.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
+    "streaks.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
+    "trophy-room.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+}
+EXPECTED_SOCIAL_IMAGE_ALT = {
+    "champions.html": "TLPT 25,000 tournament poker chip",
+    "dashboard.html": "TLPT 10,000 tournament poker chip",
+    "form-lab.html": "TLPT 500 tournament poker chip",
+    "gallery.html": "TLPT 5,000 tournament poker chip",
+    "index.html": "TLPT 100 tournament poker chip",
+    "knockouts.html": "TLPT 25,000 tournament poker chip",
+    "media.html": "TLPT 500 tournament poker chip",
+    "news.html": "TLPT 1,000 tournament poker chip",
+    "player-movement.html": "TLPT 1,000 tournament poker chip",
+    "player.html": "TLPT 1,000 tournament poker chip",
+    "players.html": "TLPT 25,000 tournament poker chip",
+    "rules.html": "TLPT 25 tournament poker chip",
+    "schedule.html": "TLPT 100,000 tournament poker chip",
+    "standings.html": "TLPT 5,000 tournament poker chip",
+    "streaks.html": "TLPT 1,000 tournament poker chip",
+    "trophy-room.html": "TLPT 25,000 tournament poker chip",
+}
+EXPECTED_BREADCRUMB_LABELS = {
+    "champions.html": "The Hall",
+    "dashboard.html": "Dashboard",
+    "form-lab.html": "The Form Lab",
+    "gallery.html": "The Gallery",
+    "knockouts.html": "Knockout Central",
+    "media.html": "The Film",
+    "news.html": "The Week That Was",
+    "player-movement.html": "The Heater Meter",
+    "players.html": "TLPT Crew",
+    "rules.html": "The Rules",
+    "schedule.html": "The Schedule",
+    "standings.html": "Standings",
+    "streaks.html": "Streak Tracker",
+    "trophy-room.html": "The Trophy Room",
+}
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
@@ -222,7 +293,7 @@ EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-9"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-10"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
@@ -233,6 +304,54 @@ EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
+
+
+def expected_structured_data(page_name: str) -> dict[str, object] | None:
+    if page_name == "index.html":
+        return {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SportsOrganization",
+                    "@id": f"{SITE_ORIGIN}/#organization",
+                    "name": "TLPT Poker League",
+                    "alternateName": "TLPT",
+                    "url": f"{SITE_ORIGIN}/",
+                    "description": EXPECTED_META_DESCRIPTIONS["index.html"],
+                    "sport": "Poker",
+                    "slogan": "The League. The Players. The Tilt.",
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": f"{SITE_ORIGIN}/#website",
+                    "url": f"{SITE_ORIGIN}/",
+                    "name": "TLPT Poker League",
+                    "alternateName": "TLPT",
+                    "publisher": {"@id": f"{SITE_ORIGIN}/#organization"},
+                },
+            ],
+        }
+
+    breadcrumb_label = EXPECTED_BREADCRUMB_LABELS.get(page_name)
+    if not breadcrumb_label:
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": f"{SITE_ORIGIN}/",
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": breadcrumb_label,
+            },
+        ],
+    }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
 SHARED_APP_SCRIPT = "app.js"
@@ -353,13 +472,19 @@ class PageAuditParser(HTMLParser):
         self.end_counts: Counter[str] = Counter()
         self.heading_counts: Counter[str] = Counter()
         self.ids: list[str] = []
+        self.head_depth = 0
         self.html_lang = ""
         self.charsets: list[str] = []
         self.viewports: list[str] = []
         self.descriptions: list[str] = []
+        self.meta_names: dict[str, list[str]] = defaultdict(list)
+        self.meta_properties: dict[str, list[str]] = defaultdict(list)
         self.title_depth = 0
         self.title_text: list[str] = []
         self.icon_links: list[tuple[str, str, str, str]] = []
+        self.canonical_links: list[str] = []
+        self.structured_data_blocks: list[list[str]] = []
+        self.open_structured_data: list[str] | None = None
         self.nav_depth = 0
         self.nav_links: list[str] = []
         self.nav_link_records: list[dict[str, object]] = []
@@ -393,6 +518,8 @@ class PageAuditParser(HTMLParser):
         tag = tag.lower()
         attrs = {key.lower(): (value or "") for key, value in attrs_list}
         self.start_counts[tag] += 1
+        if tag == "head":
+            self.head_depth += 1
         if re.fullmatch(r"h[1-6]", tag):
             self.heading_counts[tag] += 1
 
@@ -403,6 +530,13 @@ class PageAuditParser(HTMLParser):
             if "charset" in attrs:
                 self.charsets.append(attrs["charset"])
             meta_name = attrs.get("name", "").lower()
+            meta_property = attrs.get("property", "").lower()
+            if meta_name:
+                self.meta_names[meta_name].append(attrs.get("content", "").strip())
+            if meta_property:
+                self.meta_properties[meta_property].append(
+                    attrs.get("content", "").strip()
+                )
             if meta_name == "viewport":
                 self.viewports.append(attrs.get("content", ""))
             elif meta_name == "description":
@@ -442,6 +576,8 @@ class PageAuditParser(HTMLParser):
 
         if tag == "link":
             rel = attrs.get("rel", "").lower()
+            if rel == "canonical":
+                self.canonical_links.append(attrs.get("href", "").strip())
             if rel in {"icon", "apple-touch-icon"}:
                 self.icon_links.append(
                     (
@@ -493,7 +629,15 @@ class PageAuditParser(HTMLParser):
             self.errors.append("inline <style> block found; move it to a page stylesheet")
 
         if tag == "script" and not attrs.get("src"):
-            self.errors.append("inline <script> block found; move it to a JavaScript file")
+            if attrs.get("type", "").lower() == "application/ld+json":
+                if not self.head_depth:
+                    self.errors.append("JSON-LD structured data must be inside <head>")
+                if self.open_structured_data is not None:
+                    self.errors.append("nested JSON-LD script block found")
+                self.open_structured_data = []
+                self.structured_data_blocks.append(self.open_structured_data)
+            else:
+                self.errors.append("inline <script> block found; move it to a JavaScript file")
 
         if "style" in attrs:
             self.errors.append("inline style attribute found; move presentation to CSS or use semantic state")
@@ -568,6 +712,10 @@ class PageAuditParser(HTMLParser):
             self.title_depth -= 1
         if tag == "footer" and self.site_footer_depth:
             self.site_footer_depth -= 1
+        if tag == "script" and self.open_structured_data is not None:
+            self.open_structured_data = None
+        if tag == "head" and self.head_depth:
+            self.head_depth -= 1
         if (
             self.site_page_title_depth
             and tag == self.site_page_title_tag
@@ -575,6 +723,8 @@ class PageAuditParser(HTMLParser):
             self.site_page_title_depth -= 1
 
     def handle_data(self, data: str) -> None:
+        if self.open_structured_data is not None:
+            self.open_structured_data.append(data)
         if self.title_depth:
             self.title_text.append(data)
         if self.open_nav_link is not None:
@@ -917,6 +1067,45 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "app.js":
+        metadata_source = function_source("updatePlayerProfileMetadata")
+        for fragment, message in (
+            (
+                'const canonicalUrl = new URL("/player.html", TLPT_SITE_ORIGIN);',
+                "Player Profile metadata must build its canonical from the production origin",
+            ),
+            (
+                'canonicalUrl.searchParams.set("name", player.name);',
+                "Player Profile canonical URL must preserve the resolved player identity",
+            ),
+            (
+                "player.image || PLAYER_PROFILE_FALLBACK_IMAGE",
+                "Player Profile social image must prefer the resolved player portrait",
+            ),
+            (
+                "upsertCanonicalLink(canonicalUrl.href);",
+                "Player Profile metadata must publish its query-aware canonical URL",
+            ),
+            (
+                'upsertPageMetadata("property", "og:url", canonicalUrl.href);',
+                "Player Profile Open Graph URL must match its canonical URL",
+            ),
+            (
+                'upsertPageMetadata("name", "twitter:image", imageUrl);',
+                "Player Profile social metadata must publish its resolved portrait",
+            ),
+            (
+                "document.title = title;",
+                "Player Profile document title must identify the resolved player",
+            ),
+        ):
+            if fragment not in metadata_source:
+                errors.append(message)
+        profile_source = function_source("renderPlayerProfile")
+        if "updatePlayerProfileMetadata(player);" not in profile_source:
+            errors.append(
+                "Player Profile render must synchronize query-aware head metadata"
+            )
+
         size_source = function_source("playerAvatarIntrinsicSize")
         for fragment in (
             "const numericSize = Number(requestedSize);",
@@ -1598,6 +1787,73 @@ def main() -> int:
         expected_description = EXPECTED_META_DESCRIPTIONS.get(page.name, "")
         if parser.descriptions != [expected_description]:
             parser.errors.append("meta description differs from the page-head contract")
+
+        expected_canonical = EXPECTED_CANONICAL_URLS.get(page.name)
+        if expected_canonical:
+            if parser.canonical_links != [expected_canonical]:
+                parser.errors.append(
+                    "self-referential canonical URL differs from the page-head contract"
+                )
+        elif parser.canonical_links:
+            parser.errors.append(
+                "query-driven Player Profile must not publish a static canonical URL"
+            )
+
+        expected_social_image = EXPECTED_SOCIAL_IMAGES.get(page.name, "")
+        expected_image_alt = EXPECTED_SOCIAL_IMAGE_ALT.get(page.name, "")
+        expected_og_metadata = {
+            "og:type": "profile" if page.name == "player.html" else "website",
+            "og:site_name": "TLPT Poker League",
+            "og:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
+            "og:description": expected_description,
+            "og:image": expected_social_image,
+            "og:image:alt": expected_image_alt,
+        }
+        if expected_canonical:
+            expected_og_metadata["og:url"] = expected_canonical
+        for key, value in expected_og_metadata.items():
+            if parser.meta_properties.get(key, []) != [value]:
+                parser.errors.append(f"{key} differs from the social-metadata contract")
+        unexpected_og_properties = sorted(
+            set(parser.meta_properties) - set(expected_og_metadata)
+        )
+        if unexpected_og_properties:
+            parser.errors.append(
+                "unexpected Open Graph metadata: "
+                + ", ".join(unexpected_og_properties)
+            )
+
+        expected_twitter_metadata = {
+            "twitter:card": "summary",
+            "twitter:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
+            "twitter:description": expected_description,
+            "twitter:image": expected_social_image,
+            "twitter:image:alt": expected_image_alt,
+        }
+        for key, value in expected_twitter_metadata.items():
+            if parser.meta_names.get(key, []) != [value]:
+                parser.errors.append(f"{key} differs from the social-metadata contract")
+
+        social_image_path = urlsplit(expected_social_image).path.lstrip("/")
+        if not social_image_path or not (ROOT / social_image_path).is_file():
+            parser.errors.append("social preview image does not resolve to a local asset")
+
+        parsed_structured_data: list[object] = []
+        for block in parser.structured_data_blocks:
+            try:
+                parsed_structured_data.append(json.loads("".join(block)))
+            except json.JSONDecodeError as exc:
+                parser.errors.append(f"invalid JSON-LD structured data: {exc}")
+        expected_json_ld = expected_structured_data(page.name)
+        if expected_json_ld is None:
+            if parsed_structured_data:
+                parser.errors.append(
+                    "query-driven Player Profile must not publish static structured data"
+                )
+        elif parsed_structured_data != [expected_json_ld]:
+            parser.errors.append(
+                "JSON-LD structured data differs from the page-head contract"
+            )
 
         if parser.icon_links != EXPECTED_ICON_LINKS:
             parser.errors.append("favicon links differ from the shared page-head contract")
