@@ -197,3 +197,16 @@ remain unchanged.
 each consumer to load `app.js` exactly once, and requires every consumer to use
 the same full cache-version reference. Future cache rotations must therefore be
 applied consistently across all eight pages.
+
+## Phase 3B.5 shared stylesheet cache lock
+
+All 16 pages use the same versioned references for the two global stylesheets:
+`style.css?v=20260825-1` and `site-tail.css?v=20260825-1`. This removes the
+three cache generations previously used for each stylesheet and ensures every
+page receives the same deployed global presentation rules. No stylesheet rules,
+page content, calculations, generated data, or JavaScript behavior change.
+
+`scripts/audit-code-hygiene.py` now enforces complete, exactly-once, uniform
+cache references for `style.css`, `site-tail.css`, and `site-shell.js` across
+all expected pages. The shared shell script was already consistent and remains
+at its existing version; it is included in the contract to prevent later drift.
