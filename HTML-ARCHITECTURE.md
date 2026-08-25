@@ -717,3 +717,25 @@ independent site-integrity audit also recognizes the expanded root-page
 inventory. No existing page markup, stylesheet, application runtime,
 navigation destination, player data, statistics, calculations, cards, RSVP
 layout, interactions, or responsive behavior changes in this step.
+
+## Phase 3F.1.1 nested missing-route correction
+
+Live validation confirmed the branded `404.html` response and its genuine HTTP
+404 status, but also exposed a nested-route resolution defect. Relative local
+URLs on a response such as `/missing/route` resolve beneath `/missing/`, which
+prevented the shared styles, chip, shell script, navigation, and recovery links
+from reaching their root-level files.
+
+Every path-bearing local `href` and `src` in `404.html` is now root-absolute.
+The fragment-only skip link remains local to the rendered error document, while
+the external Tournament Director URL remains unchanged. The shared stylesheets,
+icons, chip, shell script, navigation destinations, and Home and Schedule
+recovery actions therefore resolve identically at every missing-route depth.
+
+Both code-hygiene audit copies now normalize root-relative paths for shared
+navigation and asset-parity comparisons while requiring every path-bearing
+local 404 reference to begin at the site root. The independent integrity audit
+normalizes the Members-menu target before preserving the Trophy Room's third
+position. No existing page, stylesheet, application runtime, data file, card,
+statistic, calculation, RSVP layout, interaction, or responsive rule changes in
+this correction.
