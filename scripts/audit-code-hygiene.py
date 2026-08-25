@@ -333,8 +333,7 @@ EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-11"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
-    "node scripts/test-site-shell.mjs",
-    "node scripts/test-app-load-failure.mjs",
+    "bash scripts/run-quality-gates.sh",
 ]
 EXPECTED_WORKFLOW_ACTIONS = {
     "build-gallery-manifest.yml": [
@@ -351,11 +350,17 @@ EXPECTED_WORKFLOW_ACTIONS = {
         "actions/setup-python@v7",
         "actions/setup-node@v7",
     ],
+    "rotate-shared-css-cache.yml": [
+        "actions/checkout@v7",
+        "actions/setup-python@v7",
+        "actions/setup-node@v7",
+    ],
 }
 EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "build-gallery-manifest.yml": ["24"],
     "site-quality.yml": ["22"],
     "tlpt-update.yml": ["22"],
+    "rotate-shared-css-cache.yml": ["22"],
 }
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
@@ -1893,7 +1898,8 @@ def audit_site_quality_workflow() -> list[str]:
             continue
         command_positions.append(workflow_text.index(command_line))
 
-        script_path = ROOT / command.removeprefix("node ")
+        script_rel = command.removeprefix("node ").removeprefix("bash ")
+        script_path = ROOT / script_rel
         if not script_path.is_file():
             errors.append(
                 "site-quality workflow: test command targets a missing script: "
@@ -2016,6 +2022,7 @@ def main() -> int:
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
     errors.extend(audit_phase_3h5_single_source_audit())
+    errors.extend(audit_phase_3h6_single_source_quality_runner())
     errors.extend(audit_phase_3h4_cache_rotation_automation())
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
@@ -3521,30 +3528,35 @@ def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
 
 
 def audit_phase_3h2_validation_parity() -> list[str]:
-    """Phase 3H.2: every maintenance path must run the same recovery/calculation gates."""
+    """Phase 3H.2/3H.6: maintenance paths must use the same authoritative quality runner."""
     errors: list[str] = []
+    runner = "bash scripts/run-quality-gates.sh"
     targets = (
-        (ROOT / ".github" / "workflows" / "site-quality.yml", 1, "python"),
-        (ROOT / ".github" / "workflows" / "tlpt-update.yml", 2, "python"),
-        (ROOT / "scripts" / "run-weekly-update.sh", 1, "python3"),
+        (ROOT / ".github" / "workflows" / "site-quality.yml", 1),
+        (ROOT / ".github" / "workflows" / "tlpt-update.yml", 2),
+        (ROOT / "scripts" / "run-weekly-update.sh", 1),
+        (ROOT / ".github" / "workflows" / "rotate-shared-css-cache.yml", 1),
     )
-    for path, expected_count, python_cmd in targets:
+    legacy_commands = (
+        "scripts/test-site-shell.mjs",
+        "scripts/test-app-load-failure.mjs",
+        "scripts/validate-site-data.py",
+        "scripts/audit-site-integrity.py",
+        "scripts/audit-page-calculations.mjs",
+    )
+    for path, expected_count in targets:
         text = path.read_text(encoding="utf-8")
-        required_commands = (
-            "node scripts/test-site-shell.mjs",
-            "node scripts/test-app-load-failure.mjs",
-            f"{python_cmd} scripts/audit-site-integrity.py",
-            "node scripts/audit-page-calculations.mjs",
-        )
-        for command in required_commands:
-            actual = text.count(command)
-            if actual != expected_count:
+        actual = text.count(runner)
+        if actual != expected_count:
+            errors.append(
+                f"{path.relative_to(ROOT)}: expected {expected_count} authoritative quality-runner call(s), found {actual}"
+            )
+        for command in legacy_commands:
+            if command in text:
                 errors.append(
-                    f"{path.relative_to(ROOT)}: expected {expected_count} occurrence(s) "
-                    f"of maintenance gate `{command}`, found {actual}"
+                    f"{path.relative_to(ROOT)}: quality-gate command is duplicated outside scripts/run-quality-gates.sh: {command}"
                 )
     return errors
-
 
 
 def audit_phase_3h3_home_dot_centering() -> list[str]:
@@ -3625,7 +3637,7 @@ def audit_phase_3h4_cache_rotation_automation() -> list[str]:
             "contents: write",
             'python scripts/rotate-shared-css-cache.py --version "${{ inputs.version }}"',
             'python scripts/rotate-shared-css-cache.py --check "${{ inputs.version }}"',
-            "python scripts/audit-code-hygiene.py",
+            "bash scripts/run-quality-gates.sh",
             'git add -- "*.html"',
             "git diff --cached --quiet",
             "git push origin HEAD:main",
@@ -3637,6 +3649,33 @@ def audit_phase_3h4_cache_rotation_automation() -> list[str]:
                 )
     return errors
 
+
+
+def audit_phase_3h6_single_source_quality_runner() -> list[str]:
+    """Phase 3H.6: one script owns the complete TLPT validation suite."""
+    errors: list[str] = []
+    runner = ROOT / "scripts" / "run-quality-gates.sh"
+    if not runner.is_file():
+        return ["scripts/run-quality-gates.sh: authoritative quality-gate runner is missing"]
+
+    text = runner.read_text(encoding="utf-8")
+    required = (
+        'scripts/audit-code-hygiene.py',
+        'scripts/test-site-shell.mjs',
+        'scripts/test-app-load-failure.mjs',
+        'scripts/validate-site-data.py',
+        'scripts/audit-site-integrity.py',
+        'scripts/audit-page-calculations.mjs',
+        'set -euo pipefail',
+        'command -v python3',
+        'command -v node',
+    )
+    for token in required:
+        if text.count(token) != 1:
+            errors.append(
+                f"scripts/run-quality-gates.sh: expected exactly one quality-gate contract token: {token}"
+            )
+    return errors
 
 def audit_phase_3h5_single_source_audit() -> list[str]:
     """Phase 3H.5: root audit remains a compatibility launcher, not a second implementation."""
