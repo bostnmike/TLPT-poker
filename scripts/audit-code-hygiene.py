@@ -586,6 +586,41 @@ def audit_javascript(path: Path) -> list[str]:
                     f"line {line_number}: unknown data-image-error-action: {action}"
                 )
 
+    if path.name == "player-movement.js":
+        if not re.search(
+            r"\bconst\s+DATA_REQUEST_VERSION\s*=\s*Date\.now\(\)\s*;",
+            text,
+        ):
+            errors.append(
+                "Player Movement must create one data request version per page load"
+            )
+        if not re.search(
+            r"function\s+versionedDataUrl\(path\)\s*\{\s*"
+            r"return\s+`\$\{path\}\?v=\$\{DATA_REQUEST_VERSION\}`\s*;\s*\}",
+            text,
+        ):
+            errors.append(
+                "Player Movement versionedDataUrl helper differs from the freshness contract"
+            )
+
+        fetch_lines = [
+            line.strip()
+            for line in text.splitlines()
+            if re.search(r"\bfetch\s*\(", line)
+        ]
+        if len(fetch_lines) != 3:
+            errors.append(
+                "Player Movement must contain exactly three JSON fetch operations"
+            )
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if not re.search(r"\bfetch\s*\(", line):
+                continue
+            if "versionedDataUrl(" not in line or 'cache: "no-store"' not in line:
+                errors.append(
+                    f"line {line_number}: Player Movement JSON fetch must use "
+                    "versionedDataUrl and cache:no-store"
+                )
+
     return errors
 
 
