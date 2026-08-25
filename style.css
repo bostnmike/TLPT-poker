@@ -2842,8 +2842,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
 .event-rsvp-avatar-row > .event-empty-seat{
   position:absolute;
-  width:116px;
-  height:116px;
+  width:132px;
+  height:132px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -2854,8 +2854,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-rsvp-seat-player .player-avatar-wrap{
-  width:116px;
-  height:116px;
+  width:132px;
+  height:132px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -2863,9 +2863,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .event-rsvp-avatar-row .player-avatar,
 .event-rsvp-avatar-row .player-avatar-fallback{
-  width:116px;
-  height:116px;
-  font-size:1.38rem;
+  width:132px;
+  height:132px;
+  font-size:1.55rem;
   border-width:3px;
 }
 
