@@ -98,6 +98,12 @@ const isCrewEstablished = app.get("isCrewEstablished");
 const getLeaderByRule = app.get("getLeaderByRule");
 const getHallPlayers = app.get("getHallPlayers");
 const getHallMinimumAppearances = app.get("getHallMinimumAppearances");
+const playerCardSpecialEditions = app.get("playerCardSpecialEditions");
+const playerCardFeaturedEditionId = app.get("playerCardFeaturedEditionId");
+const playerCardSpecialEdition = app.get("playerCardSpecialEdition");
+const buildFeaturedPlayerCard = app.get("buildFeaturedPlayerCard");
+const crewCardMarkup = app.get("crewCardMarkup");
+const playerCardCollectionMarkup = app.get("playerCardCollectionMarkup");
 
 const players = data.players || [];
 const established = players.filter(player => Number(player.buyIns || 0) >= 5);
@@ -210,6 +216,135 @@ check(
   JSON.stringify(skinNeutralOrder) === JSON.stringify(crewOrder.map(player => player.slug)),
   "Special-edition skins must not affect Crew ordering"
 );
+
+for (const player of players) {
+  const collection = player.cardCollection || [];
+  const expectedIds = collection.map(card => card.id);
+  const expectedSkinId = expectedIds[0] || "base";
+  const editions = playerCardSpecialEditions(player, data);
+  const actualIds = editions.map(edition => edition.id);
+  const activeEdition = playerCardSpecialEdition(player, data);
+  const overall = playerCardOverallRating(player, players);
+  const tierCode = playerCardTierMeta(player, players).code;
+
+  check(
+    JSON.stringify(actualIds) === JSON.stringify(expectedIds),
+    `${player.slug}: Profile renderer collection differs from the permanent ledger`
+  );
+  check(
+    playerCardFeaturedEditionId(player, data) === expectedSkinId,
+    `${player.slug}: UI active Crew skin differs from collection priority`
+  );
+  check(
+    (activeEdition?.id || "base") === expectedSkinId,
+    `${player.slug}: active Crew skin artwork differs from collection priority`
+  );
+
+  const crewMarkup = crewCardMarkup(player, data);
+  check(
+    crewMarkup.includes(`data-featured-edition="${expectedSkinId}"`),
+    `${player.slug}: Crew card does not identify the automatic skin`
+  );
+  check(
+    crewMarkup.includes(`crew-ultimate-overall">${overall}</span>`),
+    `${player.slug}: Crew skin changed the live overall rating`
+  );
+  check(
+    crewMarkup.includes(`crew-ultimate-tier-code">${tierCode}</span>`),
+    `${player.slug}: Crew skin changed the live tier code`
+  );
+  check(
+    crewMarkup.includes("Active Crew Skin:"),
+    `${player.slug}: Crew card is missing the shared active-skin terminology`
+  );
+
+  const homeMarkup = buildFeaturedPlayerCard(player, data);
+  check(
+    homeMarkup.includes(`data-featured-edition="${expectedSkinId}"`),
+    `${player.slug}: Home card does not identify the automatic skin`
+  );
+  check(
+    homeMarkup.includes(`crew-ultimate-overall">${overall}</span>`),
+    `${player.slug}: Home skin changed the live overall rating`
+  );
+  check(
+    homeMarkup.includes(`crew-ultimate-tier-code">${tierCode}</span>`),
+    `${player.slug}: Home skin changed the live tier code`
+  );
+  check(
+    homeMarkup.includes("Active Crew Skin:"),
+    `${player.slug}: Home card is missing the shared active-skin terminology`
+  );
+
+  const collectionMarkup = playerCardCollectionMarkup(
+    player,
+    players,
+    editions,
+    expectedSkinId
+  );
+  const collectionButtons = [...collectionMarkup.matchAll(
+    /<button\b[^>]*data-card-edition-select="([^"]+)"[^>]*data-card-featured-on-crew="(true|false)"[^>]*>/g
+  )];
+  check(
+    JSON.stringify(collectionButtons.map(match => match[1]))
+      === JSON.stringify(["base", ...expectedIds]),
+    `${player.slug}: Profile collection cards are missing, duplicated, or out of order`
+  );
+  check(
+    collectionButtons.filter(match => match[2] === "true").length === 1
+      && collectionButtons.find(match => match[2] === "true")?.[1] === expectedSkinId,
+    `${player.slug}: Profile collection active-skin marker is incorrect`
+  );
+}
+
+const trophy = loadScript("trophy-room.js", source => source.replace(
+  /\n\}\)\(\);\s*$/,
+  `\n  globalThis.__TLPT_TROPHY_AUDIT__ = { flattenCollections, cardMarkup };\n})();\n`
+));
+const trophyAudit = trophy.get("__TLPT_TROPHY_AUDIT__");
+const trophyCards = trophyAudit.flattenCollections(data);
+const expectedTrophyCount = players.reduce(
+  (total, player) => total + (player.cardCollection || []).length,
+  0
+);
+check(
+  trophyCards.length === expectedTrophyCount,
+  "Trophy Room card count differs from the permanent collection ledger"
+);
+
+const trophyCardsByKey = new Map(
+  trophyCards.map(card => [`${card.player.slug}/${card.id}`, card])
+);
+for (const player of players) {
+  const expectedSkinId = player.cardCollection?.[0]?.id || "base";
+  for (const record of player.cardCollection || []) {
+    const key = `${player.slug}/${record.id}`;
+    const card = trophyCardsByKey.get(key);
+    check(Boolean(card), `${key}: Trophy Room omitted a permanent collectible`);
+    if (!card) continue;
+    check(
+      JSON.stringify(card.snapshot) === JSON.stringify(record.snapshot),
+      `${key}: Trophy Room changed the frozen historic snapshot`
+    );
+    check(
+      card.isFeatured === (record.id === expectedSkinId),
+      `${key}: Trophy Room active-skin marker differs from collection priority`
+    );
+    const markup = trophyAudit.cardMarkup(card);
+    check(
+      markup.includes(`data-card-id="${record.id}"`),
+      `${key}: Trophy Room markup lost the edition id`
+    );
+    check(
+      markup.includes(`trophy-card-rating">\n                <strong>${record.snapshot.overall}</strong>`),
+      `${key}: Trophy Room markup changed the frozen overall rating`
+    );
+    check(
+      markup.includes(`data-featured-on-crew="${record.id === expectedSkinId ? "true" : "false"}"`),
+      `${key}: Trophy Room markup active-skin state is incorrect`
+    );
+  }
+}
 
 const sortableKeys = [
   "totalWinnings", "profit", "hits", "timesPlaced", "bubbles", "hitRate",
