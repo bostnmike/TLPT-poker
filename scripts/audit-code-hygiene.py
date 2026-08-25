@@ -106,7 +106,7 @@ UNIFIED_TITLE_PAGES = {
     "player-movement.html": "The Heater Meter",
     "players.html": "Meet the Crew",
     "rules.html": "TLPT Rules & Structures",
-    "schedule.html": "The Caahhd Room’s Upcoming Events",
+    "schedule.html": "Next at Caahhd Room",
     "standings.html": "Sortable League Standings",
     "streaks.html": "TLPT Streak Tracker",
 }
