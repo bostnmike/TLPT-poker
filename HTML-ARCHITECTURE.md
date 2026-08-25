@@ -616,3 +616,24 @@ namespace, URL order, uniqueness, matching local page files, and deliberate
 profile exclusion. Page markup, navigation, content, cards, player data,
 statistics, calculations, image delivery, styling, interactions, and
 responsive behavior remain unchanged.
+
+## Phase 3E.1.1 RSVP seat-orientation correction
+
+Before the canonical-metadata work planned for Phase 3E.2, the shared desktop
+RSVP table map is rotated 180 degrees. Seat 1 now occupies bottom center, and
+Seats 2 through 9 continue clockwise around the table. This produces three
+bottom seats, two side seats, and four top seats while preserving the
+established oval spacing. The bottom-center seat uses the existing lower-row
+baseline so its 96-pixel avatar retains clean clearance above the RSVP summary.
+
+The Home and Schedule pages continue using the same shared RSVP markup and the
+same 96-pixel desktop avatars. The mobile three-column RSVP grid remains
+unchanged because its responsive rules replace the absolute desktop seat map.
+RSVP response order, player assignment, empty-chair behavior, table artwork,
+summary counts, animation timing, and hover behavior are unchanged.
+
+The shared stylesheet reference advances to `style.css?v=20260825-6` on all 16
+pages. `scripts/audit-code-hygiene.py` enforces the exact nine-seat clockwise
+coordinate contract and cache delivery. Navigation, page content, player data,
+statistics, calculations, cards, image delivery, styling outside the seat
+coordinates, and responsive behavior remain unchanged.
