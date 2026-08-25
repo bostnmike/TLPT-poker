@@ -532,7 +532,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260825-3"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260825-4"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2017,6 +2017,7 @@ def main() -> int:
     errors.extend(audit_search_discovery())
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
+    errors.extend(audit_phase_3h3_home_dot_centering())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
 
@@ -2783,7 +2784,7 @@ def main() -> int:
             )
         if asset_path == "site-tail.css" and single_asset_references != {EXPECTED_SITE_TAIL_REFERENCE}:
             errors.append(
-                "site: site-tail.css consumers must use the Phase 3H.1 cache reference "
+                "site: site-tail.css consumers must use the current Phase 3H.3 cache reference "
                 + EXPECTED_SITE_TAIL_REFERENCE
             )
 
@@ -3542,6 +3543,50 @@ def audit_phase_3h2_validation_parity() -> list[str]:
                 )
     return errors
 
+
+
+def audit_phase_3h3_home_dot_centering() -> list[str]:
+    """Phase 3H.3: Home rotator dots center across the full right visual column."""
+    errors: list[str] = []
+    css = (ROOT / "site-tail.css").read_text(encoding="utf-8")
+    phase = css.split("PHASE 3G.4 — RSVP CONTROL BREATHING ROOM", 1)[-1]
+    rule_match = re.search(
+        r"#home-events-list\s+\.home-rotator-nav-inline\s*\{([^}]*)\}",
+        phase,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if not rule_match:
+        errors.append("site-tail.css: Phase 3H.3 Home dot-control rule is missing")
+        return errors
+
+    rule_body = rule_match.group(1)
+    required_properties = (
+        ("width", "100%"),
+        ("box-sizing", "border-box"),
+        ("transform", "translateY(8px)"),
+    )
+    for property_name, property_value in required_properties:
+        if not re.search(
+            rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*{re.escape(property_value)}\s*(?:;|$)",
+            rule_body,
+            flags=re.IGNORECASE,
+        ):
+            errors.append(
+                f"site-tail.css: Phase 3H.3 Home dot-control rule must keep "
+                f"{property_name}:{property_value}"
+            )
+
+    forbidden = (
+        "#home-events-list .event-rsvp-avatar-row",
+        "#schedule-list .event-rsvp-avatar-row",
+        ".event-details-col",
+    )
+    for token in forbidden:
+        if token in phase:
+            errors.append(
+                f"site-tail.css: Phase 3H.3 must not move table/avatar or left-column geometry: {token}"
+            )
+    return errors
 
 if __name__ == "__main__":
     sys.exit(main())
