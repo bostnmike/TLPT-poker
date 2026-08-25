@@ -210,3 +210,18 @@ page content, calculations, generated data, or JavaScript behavior change.
 cache references for `style.css`, `site-tail.css`, and `site-shell.js` across
 all expected pages. The shared shell script was already consistent and remains
 at its existing version; it is included in the contract to prevent later drift.
+
+## Phase 3B.6 cross-runtime calculation determinism lock
+
+The live, card-form, and historic card calculations now use `math.fsum` for
+league-wide floating-point `luckProxy` averages. This removes a small Python
+runtime-dependent rounding boundary that allowed the Python 3.11 deployment
+pipeline and a Python 3.12 independent replay to produce different frozen
+snapshot values from the same event ledger.
+
+The published card ledger is rebuilt from the unchanged 49-event source and
+restores Hiro's four July 26, 2025 leader snapshots to the established
+`trueSkillScore` of `392.064`. Formulas, player statistics, ratings, tiers,
+ownership, prestige ordering, and card artwork remain unchanged. The integrity
+audit uses the same order-stable reduction while continuing to recompute every
+checkpoint independently from parsed events.
