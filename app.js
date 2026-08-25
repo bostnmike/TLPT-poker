@@ -34,12 +34,13 @@ const SHOW_HOME_COMMISSIONER_REPORT = false;
  * Crew experience bands use separate tournament appearances.
  * buyIns counts initial tournament entries; rebuys do not count.
  *
- * 1–2 appearances: RKI / Rookie — visible in the field, unranked.
- * 3–4 appearances: PRO / Provisional — visible in the field, unranked.
- * 5+ appearances: Established — eligible for Power Rank and power tiers.
+ * 1–2 appearances: RKI / Rookie — visible prospect, not Crew-eligible.
+ * 3–4 appearances: PRO / Provisional — Crew-eligible, still unranked.
+ * 5+ appearances: Established — Crew-eligible for Power Rank and power tiers.
  */
 const CREW_ROOKIE_MIN_BUY_INS = 1;
-const CREW_PROVISIONAL_MIN_BUY_INS = 3;
+const CREW_ELIGIBLE_MIN_BUY_INS = 3;
+const CREW_PROVISIONAL_MIN_BUY_INS = CREW_ELIGIBLE_MIN_BUY_INS;
 const CREW_ESTABLISHED_MIN_BUY_INS = 5;
 const CARD_OVERALL_MIN_RATING = 40;
 const CARD_OVERALL_MAX_RATING = 99;
@@ -566,7 +567,7 @@ function isCrewProvisional(player) {
 
 /* Existing site leader pools continue to use the 3-appearance qualification. */
 function isCrewEligible(player) {
-  return Number(player?.buyIns ?? 0) >= CREW_PROVISIONAL_MIN_BUY_INS;
+  return Number(player?.buyIns ?? 0) >= CREW_ELIGIBLE_MIN_BUY_INS;
 }
 
 /* Only established players participate in Power Rank and percentile tiers. */
@@ -578,13 +579,15 @@ function isCrewEstablished(player) {
  * Hall qualification:
  * Uses separate tournament appearances, not entries.
  */
-function isHallEligible(player, totalEvents = 0) {
-  const minimumEvents = Math.max(
+function getHallMinimumAppearances(totalEvents = 0) {
+  return Math.max(
     Math.ceil(totalEvents * HALL_PERCENTAGE),
     HALL_MIN_EVENTS
   );
+}
 
-  return Number(player?.buyIns ?? 0) >= minimumEvents;
+function isHallEligible(player, totalEvents = 0) {
+  return Number(player?.buyIns ?? 0) >= getHallMinimumAppearances(totalEvents);
 }
 
 async function loadHallHistoryData(data) {
@@ -3495,11 +3498,31 @@ function playerCardOverallRating(player, players) {
   );
 }
 
+const PLAYER_CARD_TIER_PRIORITY = Object.freeze({
+  S: 0,
+  A: 1,
+  B: 2,
+  C: 3,
+  D: 4,
+  PRO: 5,
+  RKI: 6
+});
+
+function playerCardTierPriority(player, players) {
+  const tierCode = playerCardTierMeta(player, players).code;
+  return PLAYER_CARD_TIER_PRIORITY[tierCode] ?? 7;
+}
+
 function playerCardRatingComparator(players) {
-  return (a, b) =>
-    playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
-    getPlayerTierScore(b) - getPlayerTierScore(a) ||
-    String(a?.name || "").localeCompare(String(b?.name || ""));
+  return (a, b) => {
+    const tierDifference =
+      playerCardTierPriority(a, players) - playerCardTierPriority(b, players);
+
+    return tierDifference ||
+      playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
+      getPlayerTierScore(b) - getPlayerTierScore(a) ||
+      String(a?.name || "").localeCompare(String(b?.name || ""));
+  };
 }
 
 function playerCardAttributes(player, players, options = {}) {

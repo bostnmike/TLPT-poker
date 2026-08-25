@@ -128,3 +128,27 @@ The hygiene audit now also scans root JavaScript modules for generated inline
 event handlers and generated `display:none` attributes. The Site Quality Gate
 runs `scripts/test-site-shell.mjs` to verify every shared image-error action,
 including the second-failure guard on the default-avatar retry.
+
+## Phase 3B.1 player-card rule lock
+
+Crew experience is based on `buyIns`, which counts separate tournament
+appearances and never rebuys. Players with one or two appearances remain
+visible as green RKI prospects but are excluded from competitive Crew pools.
+Crew eligibility begins at three appearances, the PRO band covers three and
+four appearances, and official Power Rank plus S–D tiers begin at five.
+
+Crew cards sort by underlying tier priority first and calculated 40–99 rating
+second. Automatic special-edition skins remain purely visual and cannot move a
+card. Permanent collectible ownership and every frozen issuance snapshot stay
+independent of later live ordering changes.
+
+Hall qualification remains dynamic: 25% of completed historical events,
+rounded up, with a minimum floor of 10 appearances. This produced a threshold
+of 12 after 47 events and 13 after 49 events. A higher live threshold does not
+remove a permanent Hall edition that was earned at an earlier historical
+checkpoint.
+
+`scripts/audit-page-calculations.mjs` enforces the visibility, eligibility,
+experience-band, rating-range, tier-first ordering, skin-independence, and Hall
+threshold contracts. `scripts/audit-site-integrity.py` independently replays
+historical card ownership and frozen snapshots.
