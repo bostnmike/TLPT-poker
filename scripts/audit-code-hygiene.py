@@ -174,7 +174,7 @@ EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-5"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
@@ -182,6 +182,7 @@ EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
+EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-1"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -1007,6 +1008,17 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(message)
 
     if path.name == "form-lab.js":
+        avatar_source = function_source("playerAvatarMarkup")
+        if not re.search(
+            r'<img\s+class="fl-player-avatar".*?loading="lazy".*?'
+            r'decoding="async".*?width="54".*?height="54"',
+            avatar_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Form Lab portraits must use lazy loading, asynchronous decoding, "
+                "and 54-pixel intrinsic dimensions"
+            )
         point_contract = re.search(
             r'<g\s+class="fl-point".*?tabindex="0".*?role="button".*?'
             r'aria-pressed="\$\{selected \? "true" : "false"\}".*?'
@@ -1029,6 +1041,19 @@ def audit_javascript(path: Path) -> list[str]:
         if not event_card_contract:
             errors.append(
                 "Form Lab event-list buttons must expose their selected state"
+            )
+
+    if path.name == "streaks.js":
+        avatar_source = function_source("renderAvatar")
+        if not re.search(
+            r'<img\s+class="player-avatar table".*?loading="lazy".*?'
+            r'decoding="async".*?width="46".*?height="46"',
+            avatar_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Streak Tracker portraits must use lazy loading, asynchronous decoding, "
+                "and 46-pixel intrinsic dimensions"
             )
 
     if path.name == "gallery.js":
@@ -1224,7 +1249,7 @@ def main() -> int:
                 )
             if EXPECTED_FORM_LAB_SCRIPT not in parser.script_references:
                 parser.errors.append(
-                    "Form Lab accessibility script cache version is stale"
+                    "Form Lab portrait-delivery script cache version is stale"
                 )
             form_lab_charts = [
                 record
@@ -1246,6 +1271,12 @@ def main() -> int:
                     parser.errors.append(
                         "Form Lab chart must use the visible title and subtitle as its name"
                     )
+
+        if page.name == "streaks.html":
+            if EXPECTED_STREAKS_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Streak Tracker portrait-delivery script cache version is stale"
+                )
 
         if page.name == "player.html":
             if EXPECTED_PLAYER_STYLESHEET not in parser.stylesheet_references:
@@ -2063,6 +2094,61 @@ def main() -> int:
                         f"form-lab.css:{focus_line}: chart-point keyboard focus "
                         "must use a 4px stroke"
                     )
+            avatar_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+                and {".fl-player-card img", ".fl-player-avatar-fallback"}.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(avatar_rules) != 1:
+                errors.append(
+                    "form-lab.css: expected exactly one player-avatar dimension rule"
+                )
+            else:
+                avatar_body, avatar_line = avatar_rules[0]
+                for dimension in ("width", "height"):
+                    if not re.search(
+                        rf"(?:^|;)\s*{dimension}\s*:\s*54px\s*(?:;|$)",
+                        avatar_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"form-lab.css:{avatar_line}: Form Lab portrait {dimension} "
+                            "must remain 54px"
+                        )
+        if stylesheet.name == "streaks.css":
+            streak_avatar_selectors = {
+                ".streak-row .player-avatar.table",
+                ".streak-row .player-avatar-fallback.table",
+                ".streak-player-summary .player-avatar.table",
+                ".streak-player-summary .player-avatar-fallback.table",
+            }
+            avatar_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+                and streak_avatar_selectors.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(avatar_rules) != 1:
+                errors.append(
+                    "streaks.css: expected exactly one streak-avatar dimension rule"
+                )
+            else:
+                avatar_body, avatar_line = avatar_rules[0]
+                for dimension in ("width", "height", "min-width", "min-height"):
+                    if not re.search(
+                        rf"(?:^|;)\s*{dimension}\s*:\s*46px\s*(?:;|$)",
+                        avatar_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"streaks.css:{avatar_line}: Streak Tracker portrait "
+                            f"{dimension} must remain 46px"
+                        )
         if stylesheet.name == "gallery.css":
             gallery_rules = [
                 (selector, body, line)
