@@ -154,6 +154,8 @@ EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-2"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -171,6 +173,41 @@ EXPECTED_APP_SCRIPT_PAGES = {
     "rules.html",
     "schedule.html",
     "standings.html",
+}
+EXPECTED_PRESSED_BUTTON_GROUPS = {
+    "dashboard.html": (
+        "data-dashboard-sort",
+        {
+            "profit", "hits", "timesPlaced", "bubbles", "hitRate",
+            "cashRate", "bubbleRate", "roi", "trueSkillScore",
+            "luckIndex", "clutchIndex", "aggressionIndex",
+            "survivorIndex", "tiltIndex",
+        },
+        "profit",
+    ),
+    "standings.html": (
+        "data-standings-sort",
+        {
+            "totalWinnings", "profit", "timesPlaced", "bubbles",
+            "hits", "buyIns", "rebuys", "entries",
+        },
+        "totalWinnings",
+    ),
+    "rules.html": (
+        "id",
+        {"format-btn-40k", "format-btn-500k"},
+        "format-btn-40k",
+    ),
+    "players.html": (
+        "id",
+        {"crew-view-tier", "crew-view-archetype"},
+        "crew-view-tier",
+    ),
+    "player-movement.html": (
+        "data-sort",
+        {"momentum", "cold", "consistent", "volatile"},
+        "momentum",
+    ),
 }
 JAVASCRIPT_INLINE_HANDLER = re.compile(
     r"\bon[a-z]+\s*=\s*(['\"])",
@@ -243,6 +280,7 @@ class PageAuditParser(HTMLParser):
         self.main_content_count = 0
         self.skip_link_records: list[dict[str, object]] = []
         self.open_skip_link: dict[str, object] | None = None
+        self.button_records: list[dict[str, object]] = []
 
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         tag = tag.lower()
@@ -325,8 +363,10 @@ class PageAuditParser(HTMLParser):
             }
             self.nav_link_records.append(self.open_nav_link)
 
-        if tag == "button" and not attrs.get("type"):
-            self.errors.append("button is missing an explicit type attribute")
+        if tag == "button":
+            self.button_records.append({"attrs": attrs, "classes": classes})
+            if not attrs.get("type"):
+                self.errors.append("button is missing an explicit type attribute")
 
         if tag == "a" and attrs.get("target", "").lower() == "_blank":
             rel_tokens = set(attrs.get("rel", "").lower().split())
@@ -590,6 +630,15 @@ def audit_javascript(path: Path) -> list[str]:
     errors: list[str] = []
     text = path.read_text(encoding="utf-8")
 
+    def function_source(name: str) -> str:
+        match = re.search(
+            rf"^function\s+{re.escape(name)}\([^\n]*\)\s*\{{.*?"
+            r"(?=^function\s+|\Z)",
+            text,
+            flags=re.DOTALL | re.MULTILINE,
+        )
+        return match.group(0) if match else ""
+
     for line_number, line in enumerate(text.splitlines(), start=1):
         if JAVASCRIPT_INLINE_HANDLER.search(line):
             errors.append(
@@ -642,6 +691,28 @@ def audit_javascript(path: Path) -> list[str]:
                     f"line {line_number}: Player Movement JSON fetch must use "
                     "versionedDataUrl and cache:no-store"
                 )
+        controls_source = function_source("bindControls")
+        if 'setAttribute("aria-pressed"' not in controls_source:
+            errors.append(
+                "Heater Meter controls must synchronize visual and aria-pressed state"
+            )
+
+    if path.name == "app.js":
+        for function_name, label in (
+            ("setActiveSortButton", "Dashboard and Standings sort controls"),
+            ("setActiveFormatButton", "Rules format controls"),
+            ("renderPlayers", "Crew view controls"),
+        ):
+            source = function_source(function_name)
+            if 'setAttribute("aria-pressed"' not in source:
+                errors.append(
+                    f"{label} must synchronize visual and aria-pressed state"
+                )
+        archetype_source = function_source("archetypeFilterMarkup")
+        if archetype_source.count('aria-pressed="${') < 4:
+            errors.append(
+                "Crew archetype mode and filter controls must expose selected state"
+            )
 
     if path.name == "form-lab.js":
         point_contract = re.search(
@@ -759,6 +830,57 @@ def main() -> int:
                 parser.errors.append(
                     "Form Lab accessibility script cache version is stale"
                 )
+
+        if page.name in EXPECTED_APP_SCRIPT_PAGES:
+            if EXPECTED_APP_SCRIPT_REFERENCE not in parser.script_references:
+                parser.errors.append(
+                    "shared selected-state app script cache version is stale"
+                )
+        if page.name == "player-movement.html":
+            if EXPECTED_PLAYER_MOVEMENT_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Heater Meter selected-state script cache version is stale"
+                )
+
+        pressed_group = EXPECTED_PRESSED_BUTTON_GROUPS.get(page.name)
+        if pressed_group:
+            identifier, expected_values, default_value = pressed_group
+            records: dict[str, dict[str, object]] = {}
+            for record in parser.button_records:
+                attrs = record["attrs"]
+                assert isinstance(attrs, dict)
+                value = attrs.get(identifier, "")
+                if value in expected_values:
+                    records[value] = record
+            if set(records) != expected_values:
+                parser.errors.append(
+                    "selected-state button group differs from the page contract"
+                )
+            else:
+                pressed_values: set[str] = set()
+                active_values: set[str] = set()
+                for value, record in records.items():
+                    attrs = record["attrs"]
+                    classes = record["classes"]
+                    assert isinstance(attrs, dict)
+                    assert isinstance(classes, set)
+                    pressed = attrs.get("aria-pressed", "").lower()
+                    if pressed not in {"true", "false"}:
+                        parser.errors.append(
+                            f"{value} must expose a boolean aria-pressed state"
+                        )
+                    if pressed == "true":
+                        pressed_values.add(value)
+                    if "active" in classes:
+                        active_values.add(value)
+                if pressed_values != {default_value}:
+                    parser.errors.append(
+                        "selected-state button group has the wrong initial pressed option"
+                    )
+                if active_values != pressed_values:
+                    parser.errors.append(
+                        "selected-state button group visual and semantic defaults differ"
+                    )
 
         if len(parser.skip_link_records) != 1:
             parser.errors.append("expected exactly one shared skip link")
