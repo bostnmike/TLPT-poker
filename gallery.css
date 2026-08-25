@@ -211,6 +211,12 @@
   text-align:left;
 }
 
+.gallery-poster-button:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+  border-radius:12px;
+}
+
 .gallery-poster-frame{
   position:relative;
   aspect-ratio:2 / 3;
@@ -549,6 +555,12 @@
     inset 0 1px 0 rgba(255,255,255,.06),
     0 12px 28px rgba(0,0,0,.38),
     0 0 0 1px rgba(196,170,120,.16);
+}
+
+.gallery-lightbox-close:focus-visible,
+.gallery-lightbox-nav:focus-visible{
+  outline:3px solid #ffffff;
+  outline-offset:4px;
 }
 
 .gallery-lightbox-nav:disabled{

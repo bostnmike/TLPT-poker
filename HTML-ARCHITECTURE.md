@@ -313,3 +313,20 @@ group's complete button set, default visual/semantic agreement, runtime state
 synchronization, dynamic Crew controls, and both cache-delivery contracts.
 Button labels, ordering, styling, defaults, calculations, data, and responsive
 behavior remain unchanged.
+
+## Phase 3C.4 Gallery lightbox focus contract
+
+Opening a Gallery poster now remembers the originating poster control, moves
+focus to the lightbox's first available control, and contains forward and
+reverse Tab navigation while the modal is open. Escape, the close button, and
+the backdrop restore focus to the originating poster. The modal role now lives
+on the wrapper that contains the close, previous, and next controls, and the
+decorative backdrop is removed from the accessibility tree.
+
+Dedicated `:focus-visible` outlines cover poster triggers and lightbox controls.
+The page references advance to `gallery.css?v=20260825-1` and
+`gallery.js?v=20260825-1`. `scripts/audit-code-hygiene.py` enforces modal
+ownership, labelling, initial hidden state, focus entry, focus containment,
+focus restoration, visible focus, trigger wiring, and cache delivery. Gallery
+content, posters, winner badges, navigation behavior, layout, and responsive
+presentation remain unchanged.

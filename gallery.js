@@ -7,6 +7,7 @@ let galleryPosters = [];
 let currentPosterIndex = -1;
 let galleryParsedEventsByDate = new Map();
 let galleryPlayers = [];
+let galleryLightboxReturnFocus = null;
 
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
@@ -236,6 +237,44 @@ async function loadGalleryParsedEvents() {
   }
 }
 
+function getGalleryLightboxFocusable(lightbox) {
+  if (!lightbox) return [];
+
+  return [...lightbox.querySelectorAll(
+    'button:not(:disabled), a[href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])'
+  )].filter(element => !element.hidden);
+}
+
+function focusGalleryLightbox(lightbox) {
+  const [first] = getGalleryLightboxFocusable(lightbox);
+  first?.focus({ preventScroll: true });
+}
+
+function trapGalleryLightboxFocus(event, lightbox) {
+  if (event.key !== "Tab") return;
+
+  const focusable = getGalleryLightboxFocusable(lightbox);
+  if (!focusable.length) {
+    event.preventDefault();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const activeIndex = focusable.indexOf(document.activeElement);
+
+  if (activeIndex === -1) {
+    event.preventDefault();
+    (event.shiftKey ? last : first).focus({ preventScroll: true });
+  } else if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus({ preventScroll: true });
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus({ preventScroll: true });
+  }
+}
+
 function updateLightboxNav() {
   const prevBtn = document.getElementById("gallery-lightbox-prev");
   const nextBtn = document.getElementById("gallery-lightbox-next");
@@ -270,10 +309,15 @@ function openLightboxByIndex(index) {
   updateLightboxNav();
 }
 
-function openLightbox(poster) {
+function openLightbox(poster, trigger = null) {
   const index = galleryPosters.findIndex(item => item.src === poster.src);
   if (index !== -1) {
+    const focusOrigin = trigger || document.activeElement;
+    galleryLightboxReturnFocus = typeof focusOrigin?.focus === "function"
+      ? focusOrigin
+      : null;
     openLightboxByIndex(index);
+    focusGalleryLightbox(document.getElementById("gallery-lightbox"));
   }
 }
 
@@ -299,6 +343,12 @@ function closeLightbox() {
   image.src = "";
   document.body.style.overflow = "";
   currentPosterIndex = -1;
+
+  const returnFocus = galleryLightboxReturnFocus;
+  galleryLightboxReturnFocus = null;
+  if (returnFocus?.isConnected !== false && typeof returnFocus?.focus === "function") {
+    returnFocus.focus({ preventScroll: true });
+  }
 }
 
 function createPosterCard(poster) {
@@ -327,7 +377,7 @@ function createPosterCard(poster) {
     </div>
   `;
 
-  button.addEventListener("click", () => openLightbox(poster));
+  button.addEventListener("click", () => openLightbox(poster, button));
   article.appendChild(button);
 
   return article;
@@ -452,7 +502,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!lightbox || lightbox.hidden) return;
 
     if (e.key === "Escape") {
+      e.preventDefault();
       closeLightbox();
+    } else if (e.key === "Tab") {
+      trapGalleryLightboxFocus(e, lightbox);
     } else if (e.key === "ArrowLeft") {
       showPrevPoster();
     } else if (e.key === "ArrowRight") {
