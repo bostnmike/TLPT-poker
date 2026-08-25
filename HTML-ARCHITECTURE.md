@@ -524,3 +524,27 @@ contracts, their matching CSS dimensions, and cache delivery. Player data,
 form calculations, streak calculations, chart behavior, leader ordering,
 fallback initials, layout, styling, and responsive presentation remain
 unchanged.
+
+## Phase 3D.6 shared player-portrait delivery contract
+
+The shared `playerImageMarkup` helper now publishes intrinsic square dimensions
+for every portrait it generates across Home, Schedule, Standings, Crew,
+Dashboard, Hall of In-FAM[E]-Y, and Player Profile. The helper's defaults match
+the established table, standings, Crew, Dashboard, honors, Hall, and profile
+size classes, while context overrides preserve the 96-pixel RSVP seats,
+142-pixel comparison cards, 210-pixel primary profile card, and 88-pixel
+collectible cards.
+
+All shared portraits continue decoding asynchronously and default to native
+lazy loading with automatic fetch priority. The initially visible primary
+Player Profile portrait is the sole exception: it now loads eagerly with high
+fetch priority. Existing CSS remains authoritative for mobile overrides and
+rendered dimensions.
+
+The shared application reference advances to `app.js?v=20260825-8` across all
+eight consumers. `scripts/audit-code-hygiene.py` enforces the size mapping,
+context overrides, loading and priority defaults, single high-priority image,
+intrinsic dimensions, and cache delivery. Player data, RSVP placement, Crew
+ordering, ratings, tiers, skins, card ownership, statistics, calculations,
+fallback initials, navigation, layout, styling, and responsive presentation
+remain unchanged.

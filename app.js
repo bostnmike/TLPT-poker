@@ -1206,7 +1206,32 @@ function playerUrl(player) {
   return `player.html?name=${encodeURIComponent(player.name)}`;
 }
 
-function playerImageMarkup(player, size = "medium") {
+const PLAYER_AVATAR_INTRINSIC_SIZES = Object.freeze({
+  small: 44,
+  medium: 44,
+  table: 44,
+  standings: 44,
+  crew: 128,
+  dashboard: 82,
+  honors: 76,
+  hall: 114,
+  profile: 340
+});
+
+function playerAvatarIntrinsicSize(size, requestedSize) {
+  const numericSize = Number(requestedSize);
+  if (Number.isFinite(numericSize) && numericSize > 0) {
+    return Math.round(numericSize);
+  }
+
+  return PLAYER_AVATAR_INTRINSIC_SIZES[size] || 44;
+}
+
+function playerImageMarkup(player, size = "medium", options = {}) {
+  const intrinsicSize = playerAvatarIntrinsicSize(size, options.intrinsicSize);
+  const loading = options.loading === "eager" ? "eager" : "lazy";
+  const fetchPriority = options.fetchPriority === "high" ? "high" : "auto";
+
   if (player?.image) {
     return `
       <span class="player-avatar-wrap">
@@ -1214,8 +1239,11 @@ function playerImageMarkup(player, size = "medium") {
           class="player-avatar ${size}"
           src="${player.image}"
           alt="${player.name}"
-          loading="lazy"
+          loading="${loading}"
           decoding="async"
+          fetchpriority="${fetchPriority}"
+          width="${intrinsicSize}"
+          height="${intrinsicSize}"
           data-image-error-action="show-next"
         />
         <span class="player-avatar-fallback ${size}" hidden>${initialsFromName(player.name)}</span>
@@ -1475,7 +1503,7 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
           const displayName = displayPlayerNamePlain(player);
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
-              ${playerImageMarkup(player, "table")}
+              ${playerImageMarkup(player, "table", { intrinsicSize: 96 })}
             </span>
           `;
         }).join("")}
@@ -4138,7 +4166,7 @@ function playerCardComparisonCardMarkup(player, view, opposingView, players, dat
         </header>
 
         <div class="tlpt-compare-portrait">
-          ${playerImageMarkup(player, "profile")}
+          ${playerImageMarkup(player, "profile", { intrinsicSize: 142 })}
         </div>
 
         <div class="tlpt-compare-identity">
@@ -4501,7 +4529,11 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
           </header>
 
           <div class="tlpt-card-portrait">
-            ${playerImageMarkup(player, "profile")}
+            ${playerImageMarkup(player, "profile", {
+              intrinsicSize: 210,
+              loading: "eager",
+              fetchPriority: "high"
+            })}
           </div>
 
           <div class="tlpt-card-identity">
@@ -4656,7 +4688,7 @@ function playerCardCollectibleMarkup(
           </span>
 
           <span class="tlpt-card-collectible-portrait">
-            ${playerImageMarkup(player, "profile")}
+            ${playerImageMarkup(player, "profile", { intrinsicSize: 88 })}
           </span>
 
           <span class="tlpt-card-collectible-name">${displayPlayerName(player)}</span>
