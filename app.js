@@ -3024,7 +3024,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
         </div>
       </div>
 
-      <div class="archetype-mode-toggle">
+      <div class="archetype-mode-toggle" role="group" aria-label="Archetype mode">
         <button
           type="button"
           class="archetype-mode-btn ${mode === "primary" ? "active" : ""}"
@@ -3037,11 +3037,11 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
         <label
           class="archetype-mode-switch"
           for="archetype-mode-switch-input"
-          aria-label="Toggle between Primary and Secondary archetypes"
         >
           <input
             id="archetype-mode-switch-input"
             type="checkbox"
+            aria-label="Secondary archetypes"
             ${mode === "secondary" ? "checked" : ""}
           />
           <span class="archetype-mode-switch-track">
@@ -3060,7 +3060,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
       </div>
 
       <div class="archetype-filters-stack">
-        <div class="archetype-filter-row">
+        <div class="archetype-filter-row" role="group" aria-label="Archetype filter">
           <button
             type="button"
             class="archetype-filter-pill ${activeFilter === "all" ? "active" : ""}"

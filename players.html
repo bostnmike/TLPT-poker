@@ -97,11 +97,11 @@
       <div class="site-page-hero-lower crew-header-controls">
         <div id="players-explainer" class="page-kicker" hidden></div>
 
-        <div class="crew-view-toolbar" data-sort-scope="crew-view">
+        <div class="crew-view-toolbar" data-sort-scope="crew-view" role="group" aria-label="Crew view">
           <button id="crew-view-tier" class="btn active" type="button" aria-pressed="true">🎖️ Tier View</button>
 
-          <label class="crew-view-switch" for="crew-view-switch-input" aria-label="Toggle between Tier View and Archetype View">
-            <input id="crew-view-switch-input" type="checkbox" />
+          <label class="crew-view-switch" for="crew-view-switch-input">
+            <input id="crew-view-switch-input" type="checkbox" aria-label="Archetype crew view" />
             <span class="crew-view-switch-track">
               <span class="crew-view-switch-thumb"></span>
             </span>
@@ -137,6 +137,6 @@
 </footer>
   
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260825-2"></script>
+  <script src="app.js?v=20260825-3"></script>
 </body>
 </html>

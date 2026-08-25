@@ -344,3 +344,18 @@ The site-wide stylesheet reference advances to `style.css?v=20260825-3` on all
 outline treatment, switch-track treatment, and cache delivery. Ordinary mouse
 and touch styling, selected states, labels, control behavior, layout, content,
 cards, calculations, data, and responsive presentation remain unchanged.
+
+## Phase 3C.6 named control-group contract
+
+Dashboard and Standings metric selectors, Rules format controls, Crew view
+controls, and Heater Meter filters now expose named semantic groups. The
+dynamically rendered Crew archetype mode and filter controls follow the same
+contract. Each custom checkbox switch also owns its accessible name directly,
+so its purpose is announced even though the visible track contains no text.
+
+The shared application reference advances to `app.js?v=20260825-3` across all
+eight consumers. `scripts/audit-code-hygiene.py` enforces the five static group
+names, both static switch names, two dynamic Crew groups, the dynamic Crew
+switch name, and cache delivery. Control text, ordering, selected states,
+styling, focus treatment, behavior, layout, content, cards, calculations, data,
+and responsive presentation remain unchanged.
