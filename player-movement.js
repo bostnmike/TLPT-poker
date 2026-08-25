@@ -8,41 +8,6 @@ function versionedDataUrl(path) {
 let players = [];
 let previousRanks = {};
 
-const DEFAULT_EVENT_FILES = [
-  "2025-05-24.json",
-  "2025-06-14.json",
-  "2025-06-21.json",
-  "2025-06-28.json",
-  "2025-07-26.json",
-  "2025-08-23.json",
-  "2025-10-04.json",
-  "2025-10-25.json",
-  "2025-11-01.json",
-  "2025-11-15.json",
-  "2025-11-30.json",
-  "2025-12-06.json",
-  "2025-12-13.json",
-  "2025-12-21.json",
-  "2025-12-27.json",
-  "2026-01-03.json",
-  "2026-01-17.json",
-  "2026-01-24.json",
-  "2026-01-30.json",
-  "2026-02-07.json",
-  "2026-02-13.json",
-  "2026-02-21.json",
-  "2026-02-27.json",
-  "2026-03-07.json",
-  "2026-03-13.json",
-  "2026-03-14.json",
-  "2026-03-27.json",
-  "2026-03-28.json",
-  "2026-04-04.json",
-  "2026-04-17.json",
-  "2026-04-18.json",
-  "2026-04-24.json"
-];
-
 const KNOWN_PLAYER_ALIASES = {
   "buffalomike": ["mike-g", "mikeg", "buffalo mike"],
   "ai-dave": ["a.i. dave", "ai dave", "aidave"],
@@ -127,20 +92,22 @@ async function init() {
 
     players = data.players || [];
 
-    let eventFiles = [...DEFAULT_EVENT_FILES];
+    const indexRes = await fetch(versionedDataUrl("data/parsed/events/index.json"), { cache: "no-store" });
+    if (!indexRes.ok) {
+      throw new Error(`Failed to load parsed event index (${indexRes.status})`);
+    }
 
-    try {
-      const indexRes = await fetch(versionedDataUrl("data/parsed/events/index.json"), { cache: "no-store" });
+    const indexJson = await indexRes.json();
+    if (!Array.isArray(indexJson)) {
+      throw new Error("Parsed event index is not an array");
+    }
 
-      if (indexRes && indexRes.ok) {
-        const indexJson = await indexRes.json();
+    const eventFiles = [...new Set(indexJson)]
+      .map(file => String(file || ""))
+      .filter(file => /^\d{4}-\d{2}-\d{2}\.json$/.test(file));
 
-        if (Array.isArray(indexJson) && indexJson.length) {
-          eventFiles = [...new Set([...DEFAULT_EVENT_FILES, ...indexJson])];
-        }
-      }
-    } catch (err) {
-      console.warn("No data/parsed/events/index.json found. Using built-in event file list.");
+    if (!eventFiles.length) {
+      throw new Error("Parsed event index contains no event files");
     }
 
     const eventData = (await Promise.all(

@@ -239,3 +239,18 @@ freshness behavior reaches existing browsers immediately. The code-hygiene
 audit enforces the single request token and all three versioned, no-store JSON
 fetches. Player Movement formulas, default fallback files, controls, markup,
 styling, player data, and card behavior remain unchanged.
+
+## Phase 3B.8 Player Movement authoritative event-index lock
+
+Player Movement now requires the generated `data/parsed/events/index.json`
+ledger and validates that it is a non-empty array of dated JSON event files.
+The retired built-in fallback covered only 32 of the 49 parsed events and could
+therefore publish incomplete movement analytics when the index request failed.
+The page now shows its existing load-error state instead of silently calculating
+rankings from partial history.
+
+The page script reference advances to `player-movement.js?v=20260825-2`.
+The source-to-page integrity audit rejects any return of the partial static
+fallback and requires the authoritative index contract. Player calculations,
+aliases, controls, card presentation, page markup, responsive styling, and the
+49 parsed event files remain unchanged.
