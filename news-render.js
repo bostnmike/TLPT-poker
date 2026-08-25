@@ -65,6 +65,10 @@ function renderAuthor(author, container) {
           src: safeAuthor.avatar || '',
           alt: safeAuthor.name || 'BostnMike',
           fallback: safeAuthor.fallback || getInitials(safeAuthor.name || 'BostnMike')
+        }, {
+          intrinsicSize: 68,
+          loading: 'eager',
+          fetchPriority: 'high'
         })}
       </div>
 
@@ -107,7 +111,7 @@ function renderSummaryCard(card) {
     headHtml = `
       <div class="news-summary-head news-summary-head-multi">
         <div class="news-summary-avatar-row">
-          ${card.avatars.map((avatar) => renderAvatar(avatar)).join('')}
+          ${card.avatars.map((avatar) => renderAvatar(avatar, { intrinsicSize: 38 })).join('')}
         </div>
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
@@ -122,7 +126,7 @@ function renderSummaryCard(card) {
           src: card.avatar,
           alt: card.player || '',
           fallback: card.fallback || getInitials(card.player || '')
-        })}
+        }, { intrinsicSize: 46 })}
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
           ${valueHtml}
@@ -247,7 +251,7 @@ function renderGameSpotlight(week) {
   const avatarBlock = hasMulti
     ? `
       <div class="news-receipt-avatar-row${isThreeAvatarSpotlight ? ' news-receipt-avatar-row-three' : ''}">
-        ${spotlight.avatars.map((avatar) => renderAvatar(avatar)).join('')}
+        ${spotlight.avatars.map((avatar) => renderAvatar(avatar, { intrinsicSize: 42 })).join('')}
       </div>
     `
     : `
@@ -259,6 +263,9 @@ function renderGameSpotlight(week) {
             alt="${player}"
             loading="lazy"
             decoding="async"
+            fetchpriority="auto"
+            width="42"
+            height="42"
             data-image-error-action="show-next"
           />
           <span class="player-avatar-fallback table" hidden>
@@ -356,6 +363,9 @@ function renderRoastSection(week) {
               alt="BostnMike"
               loading="lazy"
               decoding="async"
+              fetchpriority="auto"
+              width="44"
+              height="44"
               data-image-error-action="show-next"
             />
             <span class="player-avatar-fallback table" hidden>BM</span>
@@ -427,10 +437,16 @@ function renderArchiveList(weeks, container) {
     .join('');
 }
 
-function renderAvatar(avatar) {
+function renderAvatar(avatar, options = {}) {
   const src = escapeHtml(avatar?.src || '');
   const alt = escapeHtml(avatar?.alt || '');
   const fallback = escapeHtml(avatar?.fallback || getInitials(avatar?.alt || ''));
+  const numericSize = Number(options.intrinsicSize);
+  const intrinsicSize = Number.isFinite(numericSize) && numericSize > 0
+    ? Math.round(numericSize)
+    : 44;
+  const loading = options.loading === 'eager' ? 'eager' : 'lazy';
+  const fetchPriority = options.fetchPriority === 'high' ? 'high' : 'auto';
 
   return `
     <span class="player-avatar-wrap">
@@ -438,8 +454,11 @@ function renderAvatar(avatar) {
         class="player-avatar table"
         src="${src}"
         alt="${alt}"
-        loading="lazy"
+        loading="${loading}"
         decoding="async"
+        fetchpriority="${fetchPriority}"
+        width="${intrinsicSize}"
+        height="${intrinsicSize}"
         data-image-error-action="show-next"
       />
       <span class="player-avatar-fallback table" hidden>${fallback}</span>

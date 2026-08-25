@@ -229,6 +229,8 @@
           alt="${name}"
           loading="lazy"
           decoding="async"
+          width="128"
+          height="128"
           data-image-error-action="show-next"
         />
         <span class="trophy-card-avatar-fallback" hidden>${fallback}</span>

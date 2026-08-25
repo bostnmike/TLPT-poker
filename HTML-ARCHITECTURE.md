@@ -548,3 +548,25 @@ intrinsic dimensions, and cache delivery. Player data, RSVP placement, Crew
 ordering, ratings, tiers, skins, card ownership, statistics, calculations,
 fallback initials, navigation, layout, styling, and responsive presentation
 remain unchanged.
+
+## Phase 3D.7 News and Trophy Room portrait-delivery contract
+
+The remaining standalone portrait helpers now publish intrinsic dimensions
+that match their established desktop layouts. News reserves 68 pixels for the
+visible author, 46 pixels for single-player summaries, 38 pixels for
+multi-player summaries, 42 pixels for Featured Actor spotlights, and 44 pixels
+for the Host Roast. Trophy Room collection cards reserve their existing
+128-pixel portrait space.
+
+News and Trophy Room portraits continue decoding asynchronously. Below-the-fold
+content remains lazy loaded with automatic priority; the visible News author is
+the sole eager, high-priority image in these two runtimes. Existing CSS remains
+authoritative for mobile size overrides and rendered dimensions.
+
+The page references advance to `news-render.js?v=20260825-1` and
+`trophy-room.js?v=20260825-1`. `scripts/audit-code-hygiene.py` enforces each
+context size, its matching desktop CSS rule, loading and priority behavior,
+single high-priority image, Trophy Room dimensions, and cache delivery. News
+content, featured-story selection, poster embeds, avatar mappings, collectible
+cards, filters, sorting, rarity, card ownership, navigation, fallbacks, layout,
+styling, and responsive presentation remain unchanged.
