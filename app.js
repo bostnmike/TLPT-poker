@@ -26,6 +26,40 @@ async function loadSiteData() {
   };
 }
 
+function renderSiteLoadFailure() {
+  const existingPanel = document.getElementById("site-load-error");
+  if (existingPanel) return existingPanel;
+
+  const mainContent = document.getElementById("main-content");
+  if (!mainContent) return null;
+
+  const failurePanel = document.createElement("section");
+  failurePanel.id = "site-load-error";
+  failurePanel.className = "section";
+  failurePanel.setAttribute("role", "alert");
+  failurePanel.setAttribute("aria-labelledby", "site-load-error-title");
+  failurePanel.innerHTML = `
+    <div class="section-head page-title-row compact-page-title-row">
+      <h2 id="site-load-error-title" class="page-title-gold">The Cards Didn’t Load</h2>
+    </div>
+    <p class="muted">
+      The latest league data couldn’t be loaded. Check your connection and try again.
+    </p>
+    <div class="hero-actions">
+      <button class="btn active" type="button" data-site-load-retry>Try Again</button>
+      <a class="btn" href="/index.html">Return Home</a>
+    </div>
+  `;
+
+  const retryButton = failurePanel.querySelector("[data-site-load-retry]");
+  retryButton?.addEventListener("click", () => {
+    window.location.reload();
+  });
+
+  mainContent.prepend(failurePanel);
+  return failurePanel;
+}
+
 const DEFAULT_STANDINGS_SORT = "totalWinnings";
 const DEFAULT_DASHBOARD_SORT = "profit";
 const SHOW_HOME_COMMISSIONER_REPORT = false;
@@ -6332,5 +6366,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => {
       console.error("TLPT site load failed:", error);
+      renderSiteLoadFailure();
     });
 });

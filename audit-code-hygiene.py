@@ -300,7 +300,7 @@ EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-10"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-11"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
@@ -1074,6 +1074,53 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "app.js":
+        load_failure_source = function_source("renderSiteLoadFailure")
+        for fragment, message in (
+            (
+                'document.getElementById("site-load-error")',
+                "Shared data-load recovery must prevent duplicate failure panels",
+            ),
+            (
+                'document.getElementById("main-content")',
+                "Shared data-load recovery must target the primary page content",
+            ),
+            (
+                'failurePanel.setAttribute("role", "alert");',
+                "Shared data-load recovery must announce its failure state",
+            ),
+            (
+                'failurePanel.setAttribute("aria-labelledby", "site-load-error-title");',
+                "Shared data-load recovery must expose an accessible name",
+            ),
+            (
+                'type="button" data-site-load-retry',
+                "Shared data-load recovery must provide an explicit retry button",
+            ),
+            (
+                'href="/index.html">Return Home</a>',
+                "Shared data-load recovery must provide a root-safe Home link",
+            ),
+            (
+                'window.location.reload();',
+                "Shared data-load recovery retry must reload the current page",
+            ),
+            (
+                "mainContent.prepend(failurePanel);",
+                "Shared data-load recovery must lead the primary page content",
+            ),
+        ):
+            if fragment not in load_failure_source:
+                errors.append(message)
+        if not re.search(
+            r'\.catch\(error => \{\s*'
+            r'console\.error\("TLPT site load failed:", error\);\s*'
+            r'renderSiteLoadFailure\(\);\s*\}\);',
+            text,
+        ):
+            errors.append(
+                "Shared app startup failures must log diagnostics and render recovery UI"
+            )
+
         metadata_source = function_source("updatePlayerProfileMetadata")
         for fragment, message in (
             (

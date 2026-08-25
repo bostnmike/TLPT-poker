@@ -739,3 +739,31 @@ normalizes the Members-menu target before preserving the Trophy Room's third
 position. No existing page, stylesheet, application runtime, data file, card,
 statistic, calculation, RSVP layout, interaction, or responsive rule changes in
 this correction.
+
+## Phase 3F.2 shared data-load recovery
+
+The eight pages that depend on `app.js` now receive a visible recovery state if
+the shared `site-data.json` or `events.json` startup request fails, returns an
+HTTP error, or cannot be parsed. The existing diagnostic remains in the browser
+console, while visitors receive a fixed, non-technical message at the beginning
+of `#main-content` instead of an apparently empty or unfinished data module.
+
+The generated recovery panel reuses the established shared section, title,
+button, spacing, focus, and responsive styles, so no new stylesheet or
+page-specific override is required. It exposes an alert role and labelled
+heading, provides a real `type="button"` retry control that reloads the current
+page, and includes a root-safe Home link. Repeated failures reuse the existing
+panel rather than creating duplicates, and a missing main-content target fails
+safely.
+
+The shared application reference advances to `app.js?v=20260825-11` across all
+eight consumers. Both code-hygiene audit copies enforce the recovery renderer,
+accessible semantics, retry behavior, Home destination, leading placement, and
+startup-catch integration. `scripts/test-app-load-failure.mjs` exercises panel
+creation, visitor copy, alert labelling, retry reload, deduplication, and the
+missing-container guard; the site-quality workflow runs it with the existing
+shared-shell test.
+
+No source data, generated data, player statistic, calculation, card treatment,
+Crew ordering, navigation destination, RSVP layout, existing successful-load
+render path, page-specific layout, or responsive rule changes in this phase.
