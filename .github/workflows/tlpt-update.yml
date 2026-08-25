@@ -65,16 +65,10 @@ jobs:
         run: python scripts/build-knockouts.py
 
       # -----------------------------------------
-      # 🧪 Validate generated site data
+      # ✅ Run complete quality gates
       # -----------------------------------------
-      - name: Validate site data
-        run: python scripts/validate-site-data.py
-
-      - name: Audit code hygiene
-        run: python scripts/audit-code-hygiene.py
-
-      - name: Audit source-to-page calculations
-        run: python scripts/audit-site-integrity.py
+      - name: Run complete TLPT quality gates
+        run: bash scripts/run-quality-gates.sh
 
       # -----------------------------------------
       # 💾 Commit + push generated data
@@ -100,14 +94,8 @@ jobs:
           echo "💀 Rebuilding knockout data..."
           python scripts/build-knockouts.py
 
-          echo "🧪 Re-validating site data..."
-          python scripts/validate-site-data.py
-
-          echo "🧹 Auditing code hygiene..."
-          python scripts/audit-code-hygiene.py
-
-          echo "🔎 Auditing source-to-page calculations..."
-          python scripts/audit-site-integrity.py
+          echo "✅ Running complete TLPT quality gates..."
+          bash scripts/run-quality-gates.sh
 
           echo "📦 Staging generated outputs..."
           git add data/parsed/events/
