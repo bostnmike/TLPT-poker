@@ -272,7 +272,20 @@
 
 @media (max-width:700px){
   body{
-    padding-top:138px;
+    padding-top:0;
+  }
+
+  .site-header{
+    position:relative;
+    top:auto;
+    left:auto;
+    width:calc(100% - 24px);
+    margin:12px auto 0;
+    transform:none;
+  }
+
+  .site-header .wrap.header-inner{
+    padding:12px 0;
   }
 
   .logo{
@@ -286,11 +299,13 @@
 
   .nav{
     gap:5px;
+    flex-wrap:wrap;
+    overflow:visible;
   }
 
   .nav > a,
   .nav-dropdown-parent{
-    min-height:34px;
+    min-height:44px;
     padding:6px 10px;
     font-size:.94rem;
   }
@@ -298,6 +313,11 @@
   .nav-dropdown-menu{
     top:calc(100% + 6px);
     min-width:200px;
+  }
+
+  .nav-dropdown:last-child .nav-dropdown-menu{
+    right:0;
+    left:auto;
   }
 }
 

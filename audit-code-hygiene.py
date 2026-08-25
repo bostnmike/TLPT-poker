@@ -3076,6 +3076,65 @@ def main() -> int:
                         )
             continue
         if stylesheet.name == "site-tail.css":
+            mobile_header_rules = [
+                (selector, body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if any("@media (max-width:700px)" == scope for scope in context)
+                and selector in {"body", ".site-header", ".nav"}
+            ]
+            mobile_header_by_selector = {
+                selector: (body, line)
+                for selector, body, line in mobile_header_rules
+            }
+            mobile_header_contract = {
+                "body": (("padding-top", "0"),),
+                ".site-header": (
+                    ("position", "relative"),
+                    ("width", "calc(100% - 24px)"),
+                    ("transform", "none"),
+                ),
+                ".nav": (
+                    ("flex-wrap", "wrap"),
+                    ("overflow", "visible"),
+                ),
+            }
+            for selector, properties in mobile_header_contract.items():
+                if selector not in mobile_header_by_selector:
+                    errors.append(
+                        f"site-tail.css: missing 700px mobile navigation rule for {selector}"
+                    )
+                    continue
+                rule_body, rule_line = mobile_header_by_selector[selector]
+                for property_name, property_value in properties:
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        rule_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"site-tail.css:{rule_line}: {selector} mobile navigation "
+                            f"must use {property_name}:{property_value}"
+                        )
+            mobile_nav_target_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if any("@media (max-width:700px)" == scope for scope in context)
+                and {part.strip() for part in selector.split(",")}
+                == {".nav > a", ".nav-dropdown-parent"}
+            ]
+            if len(mobile_nav_target_rules) != 1:
+                errors.append(
+                    "site-tail.css: expected exactly one 700px mobile navigation tap-target rule"
+                )
+            elif not re.search(
+                r"(?:^|;)\s*min-height\s*:\s*44px\s*(?:;|$)",
+                mobile_nav_target_rules[0][0],
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    "site-tail.css: mobile navigation tap targets must be at least 44px high"
+                )
             rsvp_mobile_rules = [
                 (body, line)
                 for context, selector, body, line in css_rule_blocks(stylesheet_text)
