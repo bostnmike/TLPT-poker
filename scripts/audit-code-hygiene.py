@@ -92,6 +92,11 @@ RSVP_DESKTOP_AVATAR_SELECTORS = {
 }
 RSVP_DESKTOP_AVATAR_SIZE = "96px"
 RSVP_MOBILE_AVATAR_SIZE = "64px"
+RSVP_VISUAL_GROUP_SELECTORS = {
+    "#home-events-list .event-rsvp-block",
+    "#schedule-list .event-rsvp-block",
+}
+RSVP_VISUAL_GROUP_SHIFT = "-18px"
 RSVP_DESKTOP_SEAT_POSITIONS = {
     1: (2, "50%", "87%"),
     2: (3, "30%", "84%"),
@@ -3134,6 +3139,52 @@ def main() -> int:
             ):
                 errors.append(
                     "site-tail.css: mobile navigation tap targets must be at least 44px high"
+                )
+            rsvp_visual_group_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if any("@media (min-width:981px)" == scope for scope in context)
+                and {part.strip() for part in selector.split(",")}
+                == RSVP_VISUAL_GROUP_SELECTORS
+            ]
+            if len(rsvp_visual_group_rules) != 1:
+                errors.append(
+                    "site-tail.css: expected exactly one 981px desktop Home/Schedule RSVP visual-group lift rule"
+                )
+            else:
+                visual_body, visual_line = rsvp_visual_group_rules[0]
+                if not re.search(
+                    rf"(?:^|;)\s*transform\s*:\s*translateY\(\s*{re.escape(RSVP_VISUAL_GROUP_SHIFT)}\s*\)\s*(?:;|$)",
+                    visual_body,
+                    flags=re.IGNORECASE,
+                ):
+                    errors.append(
+                        f"site-tail.css:{visual_line}: Home/Schedule RSVP visual group must use "
+                        f"transform:translateY({RSVP_VISUAL_GROUP_SHIFT})"
+                    )
+            misplaced_rsvp_lift_rules = [
+                (context, selector, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if "event-rsvp-block" in selector
+                and re.search(r"(?:^|;)\s*transform\s*:\s*translateY\(", body, flags=re.IGNORECASE)
+                and not (
+                    any("@media (min-width:981px)" == scope for scope in context)
+                    and {part.strip() for part in selector.split(",")} == RSVP_VISUAL_GROUP_SELECTORS
+                )
+            ]
+            if misplaced_rsvp_lift_rules:
+                errors.append(
+                    "site-tail.css: RSVP visual-group lift must remain desktop-only and scoped only to Home/Schedule"
+                )
+            shifted_event_detail_rules = [
+                line
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if "event-details-col" in selector
+                and re.search(r"(?:^|;)\s*transform\s*:\s*translateY\(", body, flags=re.IGNORECASE)
+            ]
+            if shifted_event_detail_rules:
+                errors.append(
+                    "site-tail.css: Home/Schedule event details must not receive a vertical translate"
                 )
             rsvp_mobile_rules = [
                 (body, line)
