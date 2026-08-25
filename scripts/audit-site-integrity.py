@@ -155,7 +155,9 @@ def finalize_metrics(records):
             + 0.40 * (1 - player["bubbleRate"])
         )
 
-    league_proxy = sum(player["luckProxy"] for player in records) / max(len(records), 1)
+    league_proxy = math.fsum(
+        player["luckProxy"] for player in records
+    ) / max(len(records), 1)
     for player in records:
         proxy_delta = player["luckProxy"] - league_proxy
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))

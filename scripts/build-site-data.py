@@ -400,7 +400,7 @@ def finalize_card_form_windows(windows):
         )
 
     league_avg_proxy = (
-        sum(metrics["luckProxy"] for metrics in active_metrics)
+        math.fsum(metrics["luckProxy"] for metrics in active_metrics)
         / max(len(active_metrics), 1)
     )
 
@@ -473,7 +473,7 @@ def finalize_historical_metrics(players):
         )
 
     league_avg_proxy = (
-        sum(player["luckProxy"] for player in players)
+        math.fsum(player["luckProxy"] for player in players)
         / max(len(players), 1)
     )
 
@@ -1087,7 +1087,9 @@ def main():
             + (0.40 * (1 - p["bubbleRate"]))
         )
 
-    league_avg_proxy = sum(p["luckProxy"] for p in players) / max(len(players), 1)
+    league_avg_proxy = math.fsum(
+        p["luckProxy"] for p in players
+    ) / max(len(players), 1)
 
     for p in players:
         proxy_delta = p["luckProxy"] - league_avg_proxy
