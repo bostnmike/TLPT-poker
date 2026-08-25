@@ -1124,6 +1124,17 @@
 }
 
 /* =========================================
+   PHASE 3G — DESKTOP RSVP VISUAL GROUP LIFT
+========================================= */
+
+@media (min-width:981px){
+  #home-events-list .event-rsvp-block,
+  #schedule-list .event-rsvp-block{
+    transform:translateY(-18px);
+  }
+}
+
+/* =========================================
    TABLE FORECAST — FINAL CLEAN DISPLAY
 ========================================= */
 
