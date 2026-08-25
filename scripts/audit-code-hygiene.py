@@ -155,6 +155,7 @@ EXPECTED_ICON_LINKS = [
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
 SHARED_SHELL_SCRIPT = "site-shell.js"
+GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -219,6 +220,7 @@ class PageAuditParser(HTMLParser):
         self.nav_link_records: list[dict[str, object]] = []
         self.open_nav_link: dict[str, object] | None = None
         self.stylesheets: list[str] = []
+        self.stylesheet_references: list[str] = []
         self.scripts: list[str] = []
         self.script_references: list[str] = []
         self.html_classes: set[str] = set()
@@ -353,6 +355,7 @@ class PageAuditParser(HTMLParser):
             href = attrs.get("href", "")
             if is_local_reference(href):
                 self.stylesheets.append(urlsplit(href).path)
+                self.stylesheet_references.append(href)
             if is_local_reference(href) and not urlsplit(href).query.startswith("v="):
                 self.errors.append(f"local stylesheet lacks a cache version: {href}")
 
@@ -599,6 +602,9 @@ def main() -> int:
         errors.append(f"site: unexpected root pages: {', '.join(unexpected_pages)}")
 
     navigation_by_page: dict[str, list[str]] = {}
+    global_asset_references_by_path: dict[str, dict[str, list[str]]] = {
+        asset_path: {} for asset_path in GLOBAL_SHARED_ASSETS
+    }
     app_script_references_by_page: dict[str, list[str]] = {}
     for page in pages:
         parser = PageAuditParser(page)
@@ -750,6 +756,13 @@ def main() -> int:
         elif parser.scripts[0] != SHARED_SHELL_SCRIPT:
             parser.errors.append("site-shell.js must load before page and feature scripts")
 
+        for reference in parser.stylesheet_references + parser.script_references:
+            asset_path = urlsplit(reference).path
+            if asset_path in global_asset_references_by_path:
+                global_asset_references_by_path[asset_path].setdefault(
+                    page.name, []
+                ).append(reference)
+
         app_script_references = [
             reference
             for reference in parser.script_references
@@ -783,6 +796,32 @@ def main() -> int:
     for page_name, nav_links in sorted(navigation_by_page.items()):
         if nav_links != reference_nav:
             errors.append(f"{page_name}: primary navigation links/order differ from index.html")
+
+    for asset_path, references_by_page in global_asset_references_by_path.items():
+        actual_asset_pages = set(references_by_page)
+        missing_asset_pages = sorted(EXPECTED_PAGES - actual_asset_pages)
+        unexpected_asset_pages = sorted(actual_asset_pages - EXPECTED_PAGES)
+        if missing_asset_pages:
+            errors.append(
+                f"site: pages missing {asset_path}: " + ", ".join(missing_asset_pages)
+            )
+        if unexpected_asset_pages:
+            errors.append(
+                f"site: unexpected {asset_path} consumers: "
+                + ", ".join(unexpected_asset_pages)
+            )
+
+        single_asset_references: set[str] = set()
+        for page_name, references in sorted(references_by_page.items()):
+            if len(references) != 1:
+                errors.append(f"{page_name}: {asset_path} must be loaded exactly once")
+            else:
+                single_asset_references.add(references[0])
+        if len(single_asset_references) != 1:
+            errors.append(
+                f"site: {asset_path} consumers must use one shared "
+                "cache-version reference"
+            )
 
     actual_app_script_pages = set(app_script_references_by_page)
     missing_app_script_pages = sorted(
