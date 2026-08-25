@@ -283,3 +283,17 @@ state reaches existing browsers immediately. `scripts/audit-code-hygiene.py`
 requires the link text, target, destination landmark, and shared cache version
 on every page. Page layouts, content, cards, data, calculations, and JavaScript
 behavior remain unchanged.
+
+## Phase 3C.2 Form Lab keyboard-control semantics
+
+Every keyboard-focusable event point in the Form Lab scatter chart now exposes
+button semantics, a complete event-and-metric accessible name, and its current
+selected state. The matching event-list buttons expose the same selected state,
+while a dedicated `:focus-visible` treatment makes the active chart point clear
+without changing its size, position, data, or selection behavior.
+
+The page references advance to `form-lab.css?v=20260825-1` and
+`form-lab.js?v=20260825-1`. `scripts/audit-code-hygiene.py` enforces the chart
+point role, keyboard focus, accessible name, pressed state, event-list state,
+focus treatment, and both cache versions. Form Lab formulas, chart scales,
+event rows, defaults, layout, and responsive behavior remain unchanged.

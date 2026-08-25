@@ -676,9 +676,23 @@ function renderScatter(rows) {
       const cy = yScale(row[yKey]);
       const selected = row.id === FL_STATE.selectedEventId;
       const tone = row.profit >= 0 ? "positive" : row.bubbleFlag ? "bubble" : "negative";
+      const pointLabel = [
+        `Select ${formatDate(row.dateIso || row.dateRaw)}`,
+        `${xMeta.label}: ${xMeta.format(row[xKey])}`,
+        `${yMeta.label}: ${yMeta.format(row[yKey])}`,
+        `Finish: ${row.finishPosition ? `${ordinal(row.finishPosition)} of ${row.fieldSize}` : "not recorded"}`,
+        `Profit: ${moneyFmt(row.profit)}`
+      ].join(". ");
 
       return `
-        <g class="fl-point" data-event-id="${escapeAttr(row.id)}" tabindex="0">
+        <g
+          class="fl-point"
+          data-event-id="${escapeAttr(row.id)}"
+          tabindex="0"
+          role="button"
+          aria-pressed="${selected ? "true" : "false"}"
+          aria-label="${escapeAttr(pointLabel)}"
+        >
           <circle class="fl-point-dot fl-point-${tone}${selected ? " is-selected" : ""}" cx="${cx}" cy="${cy}" r="${selected ? 9 : 7}"></circle>
           ${FL_STATE.showLabels ? `<text class="fl-point-label" x="${cx + 11}" y="${cy - 10}">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</text>` : ""}
         </g>
@@ -836,7 +850,12 @@ function renderEventList(rows) {
   if (!el) return;
 
   el.innerHTML = rows.map(row => `
-    <button class="fl-event-card${row.id === FL_STATE.selectedEventId ? " is-selected" : ""}" type="button" data-event-id="${escapeAttr(row.id)}">
+    <button
+      class="fl-event-card${row.id === FL_STATE.selectedEventId ? " is-selected" : ""}"
+      type="button"
+      data-event-id="${escapeAttr(row.id)}"
+      aria-pressed="${row.id === FL_STATE.selectedEventId ? "true" : "false"}"
+    >
       <span class="fl-event-card-date">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</span>
       <span class="fl-event-card-title">${escapeHtml(row.title || "Event")}</span>
       <span class="fl-event-card-metrics">

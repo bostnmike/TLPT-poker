@@ -245,6 +245,13 @@
   stroke-width: 3;
 }
 
+.fl-point:focus-visible .fl-point-dot {
+  fill: #fff2b8;
+  stroke: #ffffff;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 8px rgba(255,184,28,.90));
+}
+
 .fl-point-label {
   font-size: 11px;
   font-weight: 900;
