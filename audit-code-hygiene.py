@@ -7,6 +7,7 @@ HTML/CSS/asset contract around the existing, separately validated data model.
 
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import Counter, defaultdict
@@ -266,6 +267,22 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "streaks.html": "TLPT 1,000 tournament poker chip",
     "trophy-room.html": "TLPT 25,000 tournament poker chip",
 }
+EXPECTED_BREADCRUMB_LABELS = {
+    "champions.html": "The Hall",
+    "dashboard.html": "Dashboard",
+    "form-lab.html": "The Form Lab",
+    "gallery.html": "The Gallery",
+    "knockouts.html": "Knockout Central",
+    "media.html": "The Film",
+    "news.html": "The Week That Was",
+    "player-movement.html": "The Heater Meter",
+    "players.html": "TLPT Crew",
+    "rules.html": "The Rules",
+    "schedule.html": "The Schedule",
+    "standings.html": "Standings",
+    "streaks.html": "Streak Tracker",
+    "trophy-room.html": "The Trophy Room",
+}
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
@@ -287,6 +304,54 @@ EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
     ("apple-touch-icon", "images/site/apple-touch-icon.png", "", "180x180"),
 ]
+
+
+def expected_structured_data(page_name: str) -> dict[str, object] | None:
+    if page_name == "index.html":
+        return {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "SportsOrganization",
+                    "@id": f"{SITE_ORIGIN}/#organization",
+                    "name": "TLPT Poker League",
+                    "alternateName": "TLPT",
+                    "url": f"{SITE_ORIGIN}/",
+                    "description": EXPECTED_META_DESCRIPTIONS["index.html"],
+                    "sport": "Poker",
+                    "slogan": "The League. The Players. The Tilt.",
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": f"{SITE_ORIGIN}/#website",
+                    "url": f"{SITE_ORIGIN}/",
+                    "name": "TLPT Poker League",
+                    "alternateName": "TLPT",
+                    "publisher": {"@id": f"{SITE_ORIGIN}/#organization"},
+                },
+            ],
+        }
+
+    breadcrumb_label = EXPECTED_BREADCRUMB_LABELS.get(page_name)
+    if not breadcrumb_label:
+        return None
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": f"{SITE_ORIGIN}/",
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": breadcrumb_label,
+            },
+        ],
+    }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
 SHARED_APP_SCRIPT = "app.js"
@@ -407,6 +472,7 @@ class PageAuditParser(HTMLParser):
         self.end_counts: Counter[str] = Counter()
         self.heading_counts: Counter[str] = Counter()
         self.ids: list[str] = []
+        self.head_depth = 0
         self.html_lang = ""
         self.charsets: list[str] = []
         self.viewports: list[str] = []
@@ -417,6 +483,8 @@ class PageAuditParser(HTMLParser):
         self.title_text: list[str] = []
         self.icon_links: list[tuple[str, str, str, str]] = []
         self.canonical_links: list[str] = []
+        self.structured_data_blocks: list[list[str]] = []
+        self.open_structured_data: list[str] | None = None
         self.nav_depth = 0
         self.nav_links: list[str] = []
         self.nav_link_records: list[dict[str, object]] = []
@@ -450,6 +518,8 @@ class PageAuditParser(HTMLParser):
         tag = tag.lower()
         attrs = {key.lower(): (value or "") for key, value in attrs_list}
         self.start_counts[tag] += 1
+        if tag == "head":
+            self.head_depth += 1
         if re.fullmatch(r"h[1-6]", tag):
             self.heading_counts[tag] += 1
 
@@ -559,7 +629,15 @@ class PageAuditParser(HTMLParser):
             self.errors.append("inline <style> block found; move it to a page stylesheet")
 
         if tag == "script" and not attrs.get("src"):
-            self.errors.append("inline <script> block found; move it to a JavaScript file")
+            if attrs.get("type", "").lower() == "application/ld+json":
+                if not self.head_depth:
+                    self.errors.append("JSON-LD structured data must be inside <head>")
+                if self.open_structured_data is not None:
+                    self.errors.append("nested JSON-LD script block found")
+                self.open_structured_data = []
+                self.structured_data_blocks.append(self.open_structured_data)
+            else:
+                self.errors.append("inline <script> block found; move it to a JavaScript file")
 
         if "style" in attrs:
             self.errors.append("inline style attribute found; move presentation to CSS or use semantic state")
@@ -634,6 +712,10 @@ class PageAuditParser(HTMLParser):
             self.title_depth -= 1
         if tag == "footer" and self.site_footer_depth:
             self.site_footer_depth -= 1
+        if tag == "script" and self.open_structured_data is not None:
+            self.open_structured_data = None
+        if tag == "head" and self.head_depth:
+            self.head_depth -= 1
         if (
             self.site_page_title_depth
             and tag == self.site_page_title_tag
@@ -641,6 +723,8 @@ class PageAuditParser(HTMLParser):
             self.site_page_title_depth -= 1
 
     def handle_data(self, data: str) -> None:
+        if self.open_structured_data is not None:
+            self.open_structured_data.append(data)
         if self.title_depth:
             self.title_text.append(data)
         if self.open_nav_link is not None:
@@ -1753,6 +1837,23 @@ def main() -> int:
         social_image_path = urlsplit(expected_social_image).path.lstrip("/")
         if not social_image_path or not (ROOT / social_image_path).is_file():
             parser.errors.append("social preview image does not resolve to a local asset")
+
+        parsed_structured_data: list[object] = []
+        for block in parser.structured_data_blocks:
+            try:
+                parsed_structured_data.append(json.loads("".join(block)))
+            except json.JSONDecodeError as exc:
+                parser.errors.append(f"invalid JSON-LD structured data: {exc}")
+        expected_json_ld = expected_structured_data(page.name)
+        if expected_json_ld is None:
+            if parsed_structured_data:
+                parser.errors.append(
+                    "query-driven Player Profile must not publish static structured data"
+                )
+        elif parsed_structured_data != [expected_json_ld]:
+            parser.errors.append(
+                "JSON-LD structured data differs from the page-head contract"
+            )
 
         if parser.icon_links != EXPECTED_ICON_LINKS:
             parser.errors.append("favicon links differ from the shared page-head contract")
