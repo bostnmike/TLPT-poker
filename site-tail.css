@@ -1286,6 +1286,8 @@
 @media (min-width:981px){
   /* Home: lower the pagination dots without moving the table/avatar. */
   #home-events-list .home-rotator-nav-inline{
+    width:100%;
+    box-sizing:border-box;
     transform:translateY(8px);
   }
 
