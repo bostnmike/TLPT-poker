@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T02:45:22.937599Z",
+  "generatedAt": "2026-08-25T02:48:49.073172Z",
   "status": "PASS",
   "scope": {
     "rawEvents": 49,
@@ -8,7 +8,7 @@
     "publicPages": 16,
     "collectibleCards": 62
   },
-  "checksRun": 12531,
+  "checksRun": 12532,
   "checksBySection": {
     "assets": 509,
     "cardForm": 64,
@@ -18,7 +18,7 @@
     "knockouts": 36,
     "leaderboards": 2,
     "pageCalculations": 4768,
-    "pages": 34,
+    "pages": 35,
     "playerAggregates": 962,
     "sources": 6,
     "streaks": 1
