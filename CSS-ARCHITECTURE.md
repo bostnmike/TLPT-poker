@@ -183,6 +183,19 @@ the coordinated desktop and mobile rules are requested immediately after
 deployment. The code hygiene audit protects the RSVP-specific selectors and
 their 96px desktop and 64px mobile dimensions from future cascade regressions.
 
+### Phase 3B.3.1 desktop RSVP seat redistribution
+
+The nine Home/Schedule desktop seat coordinates now follow a balanced,
+symmetrical ring around the fixed 700px by 350px table. The approved 96px
+avatar diameter, chair treatment, hover animation, seat capacity, and table
+artwork remain unchanged. Adjacent seat-center spacing is tightened from the
+former uneven 99.5px–182.5px range to approximately 128.7px–141.7px, giving
+avatars and empty chairs a more consistent visual rhythm around the rail.
+
+The compact `max-width:640px` layout remains a static three-column grid with
+64px avatars, so desktop coordinate changes do not affect mobile stacking.
+`index.html` and `schedule.html` advance only the shared `style.css` cache key.
+
 ### Phase 3A.1.1 avatar fallback hotfix
 
 The shared foundation owns the root `[hidden]` visibility contract. It uses

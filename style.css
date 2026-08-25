@@ -3217,14 +3217,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .event-rsvp-avatar-row > :nth-child(2){ --seat-x:50%; --seat-y:10%; }
-.event-rsvp-avatar-row > :nth-child(3){ --seat-x:76%; --seat-y:14%; }
-.event-rsvp-avatar-row > :nth-child(4){ --seat-x:87%; --seat-y:32%; }
-.event-rsvp-avatar-row > :nth-child(5){ --seat-x:86%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(6){ --seat-x:62%; --seat-y:88%; }
-.event-rsvp-avatar-row > :nth-child(7){ --seat-x:38%; --seat-y:88%; }
-.event-rsvp-avatar-row > :nth-child(8){ --seat-x:14%; --seat-y:74%; }
-.event-rsvp-avatar-row > :nth-child(9){ --seat-x:13%; --seat-y:32%; }
-.event-rsvp-avatar-row > :nth-child(10){ --seat-x:24%; --seat-y:14%; }
+.event-rsvp-avatar-row > :nth-child(3){ --seat-x:70%; --seat-y:16%; }
+.event-rsvp-avatar-row > :nth-child(4){ --seat-x:86%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(5){ --seat-x:79%; --seat-y:73%; }
+.event-rsvp-avatar-row > :nth-child(6){ --seat-x:60%; --seat-y:87%; }
+.event-rsvp-avatar-row > :nth-child(7){ --seat-x:40%; --seat-y:87%; }
+.event-rsvp-avatar-row > :nth-child(8){ --seat-x:21%; --seat-y:73%; }
+.event-rsvp-avatar-row > :nth-child(9){ --seat-x:14%; --seat-y:39%; }
+.event-rsvp-avatar-row > :nth-child(10){ --seat-x:30%; --seat-y:16%; }
 
 .event-rsvp-avatar-row.is-hot-table .player-avatar,
 .event-rsvp-avatar-row.is-hot-table .player-avatar-fallback{
