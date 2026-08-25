@@ -2015,6 +2015,7 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_phase_3h4_cache_rotation_automation())
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
     errors.extend(audit_phase_3h3_home_dot_centering())
@@ -3587,6 +3588,54 @@ def audit_phase_3h3_home_dot_centering() -> list[str]:
                 f"site-tail.css: Phase 3H.3 must not move table/avatar or left-column geometry: {token}"
             )
     return errors
+
+
+def audit_phase_3h4_cache_rotation_automation() -> list[str]:
+    """Phase 3H.4: cache rotation must remain one safe, audited maintenance action."""
+    errors: list[str] = []
+    script = ROOT / "scripts" / "rotate-shared-css-cache.py"
+    workflow = ROOT / ".github" / "workflows" / "rotate-shared-css-cache.yml"
+
+    if not script.exists():
+        errors.append("scripts/rotate-shared-css-cache.py: shared-cache rotation helper is missing")
+    else:
+        text = script.read_text(encoding="utf-8")
+        required = (
+            'ASSET = "site-tail.css"',
+            'ROOT.glob("*.html")',
+            "--version",
+            "--check",
+            "--dry-run",
+            "expected exactly one",
+            "post-write verification failed",
+        )
+        for token in required:
+            if token not in text:
+                errors.append(
+                    f"scripts/rotate-shared-css-cache.py: required safety contract missing: {token}"
+                )
+
+    if not workflow.exists():
+        errors.append(".github/workflows/rotate-shared-css-cache.yml: manual cache-rotation workflow is missing")
+    else:
+        text = workflow.read_text(encoding="utf-8")
+        required = (
+            "workflow_dispatch:",
+            "contents: write",
+            'python scripts/rotate-shared-css-cache.py --version "${{ inputs.version }}"',
+            'python scripts/rotate-shared-css-cache.py --check "${{ inputs.version }}"',
+            "python scripts/audit-code-hygiene.py",
+            'git add -- "*.html"',
+            "git diff --cached --quiet",
+            "git push origin HEAD:main",
+        )
+        for token in required:
+            if token not in text:
+                errors.append(
+                    f".github/workflows/rotate-shared-css-cache.yml: required automation contract missing: {token}"
+                )
+    return errors
+
 
 if __name__ == "__main__":
     sys.exit(main())
