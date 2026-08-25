@@ -177,8 +177,9 @@ EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-6"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
+EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-5"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -302,6 +303,7 @@ class PageAuditParser(HTMLParser):
         self.errors: list[str] = []
         self.start_counts: Counter[str] = Counter()
         self.end_counts: Counter[str] = Counter()
+        self.heading_counts: Counter[str] = Counter()
         self.ids: list[str] = []
         self.html_lang = ""
         self.charsets: list[str] = []
@@ -343,6 +345,8 @@ class PageAuditParser(HTMLParser):
         tag = tag.lower()
         attrs = {key.lower(): (value or "") for key, value in attrs_list}
         self.start_counts[tag] += 1
+        if re.fullmatch(r"h[1-6]", tag):
+            self.heading_counts[tag] += 1
 
         if "id" in attrs:
             self.ids.append(attrs["id"])
@@ -454,14 +458,19 @@ class PageAuditParser(HTMLParser):
                 f"inline {attr_name} handler found; move behavior to a JavaScript module"
             )
 
-        if (
-            tag == "img"
-            and attrs.get("src", "").startswith("images/site/chip-T-")
-            and "data-hide-on-error" not in attrs
-        ):
-            self.errors.append(
-                "static title-chip image is missing data-hide-on-error"
-            )
+        if tag == "img" and attrs.get("src", "").startswith("images/site/chip-T-"):
+            if "data-hide-on-error" not in attrs:
+                self.errors.append(
+                    "static title-chip image is missing data-hide-on-error"
+                )
+            if "alt" not in attrs or attrs.get("alt") != "":
+                self.errors.append(
+                    "static title-chip image must use empty alternative text"
+                )
+            if attrs.get("aria-hidden", "").lower() != "true":
+                self.errors.append(
+                    "static title-chip image must be hidden from assistive technology"
+                )
 
         for attr_name in ("href", "src"):
             value = attrs.get(attr_name)
@@ -760,6 +769,23 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Heater Meter controls must synchronize visual and aria-pressed state"
             )
+        card_source = function_source("createCard")
+        if not re.search(
+            r'<img\s+class="pm-avatar".*?alt="".*?aria-hidden="true"',
+            card_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Heater Meter player portraits must be decorative beside the visible player name"
+            )
+        if not re.search(
+            r'<canvas\s+class="pm-sparkline".*?aria-hidden="true"',
+            card_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Heater Meter sparkline canvas must be hidden when the same trend data is written out"
+            )
 
     if path.name == "app.js":
         reduced_motion_source = function_source("prefersReducedMotion")
@@ -886,6 +912,27 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             if fragment not in blind_table_source:
                 errors.append(message)
+        player_profile_source = function_source("renderPlayerProfile")
+        for fragment, message in (
+            (
+                'data-stat-formula="${escapeHtmlAttr(formula)}"',
+                "Player Profile stat formulas must be escaped before entering markup",
+            ),
+            (
+                'role="group"',
+                "Player Profile focusable stat cards must expose group semantics",
+            ),
+            (
+                'aria-label="${escapeHtmlAttr(accessibleLabel)}"',
+                "Player Profile stat cards must announce the value and calculation",
+            ),
+            (
+                "Mouse over or focus any stat to reveal the calculation.",
+                "Player Profile stat help must identify both pointer and keyboard access",
+            ),
+        ):
+            if fragment not in player_profile_source:
+                errors.append(message)
 
     if path.name == "form-lab.js":
         point_contract = re.search(
@@ -984,6 +1031,10 @@ def main() -> int:
                     f"expected one <{tag}> and one </{tag}>; found "
                     f"{parser.start_counts[tag]} and {parser.end_counts[tag]}"
                 )
+        if parser.heading_counts["h1"] != 1:
+            parser.errors.append(
+                "document must contain exactly one site-brand h1 heading"
+            )
         if parser.html_lang.lower() != "en":
             parser.errors.append('root <html> must use lang="en"')
         if parser.charsets != ["UTF-8"]:
@@ -1009,6 +1060,10 @@ def main() -> int:
             if parser.site_page_title_count != 1:
                 parser.errors.append(
                     "expected exactly one shared site-page-title heading"
+                )
+            elif parser.site_page_title_tag != "h2":
+                parser.errors.append(
+                    "shared site-page-title must preserve the site-brand h1 hierarchy as h2"
                 )
             elif rendered_site_page_title != expected_site_page_title:
                 parser.errors.append(
@@ -1047,6 +1102,32 @@ def main() -> int:
             if EXPECTED_FORM_LAB_SCRIPT not in parser.script_references:
                 parser.errors.append(
                     "Form Lab accessibility script cache version is stale"
+                )
+            form_lab_charts = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "svg"
+                and record["attrs"].get("id") == "fl-chart"
+            ]
+            if len(form_lab_charts) != 1:
+                parser.errors.append("Form Lab must contain exactly one #fl-chart")
+            else:
+                chart_attrs = form_lab_charts[0]["attrs"]
+                if chart_attrs.get("role", "").lower() != "group":
+                    parser.errors.append(
+                        "Form Lab chart must expose its interactive points as a group"
+                    )
+                if chart_attrs.get("aria-labelledby") != (
+                    "fl-chart-title fl-chart-subtitle"
+                ):
+                    parser.errors.append(
+                        "Form Lab chart must use the visible title and subtitle as its name"
+                    )
+
+        if page.name == "player.html":
+            if EXPECTED_PLAYER_STYLESHEET not in parser.stylesheet_references:
+                parser.errors.append(
+                    "Player Profile accessibility stylesheet cache version is stale"
                 )
 
         if page.name == "gallery.html":
@@ -1825,6 +1906,36 @@ def main() -> int:
                     errors.append(
                         f"gallery.css:{line}: Gallery focus-visible rule must keep a 3px outline"
                     )
+        if stylesheet.name == "player.css":
+            player_stat_focus_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+                and selector == (
+                    ".player-page .player-stat-grid-enhanced "
+                    ".player-stat-card:focus-visible"
+                )
+            ]
+            if len(player_stat_focus_rules) != 1:
+                errors.append(
+                    "player.css: expected exactly one Player Profile stat-card focus-visible rule"
+                )
+            else:
+                focus_body, focus_line = player_stat_focus_rules[0]
+                for property_name, property_value in (
+                    ("outline", "3px solid #ffe39a"),
+                    ("outline-offset", "3px"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        focus_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"player.css:{focus_line}: Player Profile stat focus rule "
+                            f"must use {property_name}:{property_value}"
+                        )
         for context, selector, _body, line in css_rule_blocks(
             stylesheet_text
         ):
