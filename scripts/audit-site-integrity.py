@@ -765,11 +765,18 @@ def audit_pages(audit, metadata):
     audit.check(set(actual_posters) == set(manifest_posters), "assets", "Gallery manifest and poster files differ")
     audit.check(all((ROOT / "images" / "twtw" / name).exists() for name in manifest_posters), "assets", "Gallery manifest references a missing poster")
 
-    index_names = set(load_json(PARSED_DIR / "index.json"))
     movement = (ROOT / "player-movement.js").read_text(encoding="utf-8")
-    default_block = re.search(r"const DEFAULT_EVENT_FILES = \[(.*?)\];", movement, flags=re.DOTALL)
-    defaults = set(re.findall(r'"(\d{4}-\d{2}-\d{2}\.json)"', default_block.group(1) if default_block else ""))
-    audit.check(defaults <= index_names, "pages", "Heater Meter fallback list contains an event file that does not exist")
+    audit.check(
+        "DEFAULT_EVENT_FILES" not in movement,
+        "pages",
+        "Heater Meter must not use a partial static event fallback",
+    )
+    audit.check(
+        "data/parsed/events/index.json" in movement
+        and "Parsed event index contains no event files" in movement,
+        "pages",
+        "Heater Meter must require the authoritative parsed-event index",
+    )
 
     for path in sorted(ROOT.glob("*.js")):
         result = subprocess.run(["node", "--check", str(path)], capture_output=True, text=True)
