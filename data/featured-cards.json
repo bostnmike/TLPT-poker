@@ -1,11 +1,10 @@
 {
-  "version": 1,
-  "description": "Commissioner-controlled card design shown on the Crew page. Career ratings and attributes remain live regardless of the selected design.",
-  "instructions": [
-    "Use a player slug as the key in featuredCards.",
-    "Use auto to keep the automatic highest-prestige earned edition.",
-    "Use base to feature the live Base Edition.",
-    "Or use the id of an edition already present in that player's cardCollection."
-  ],
-  "featuredCards": {}
+  "version": 2,
+  "mode": "automatic",
+  "description": "The Crew page automatically applies each player's highest-priority earned card skin. Manual featured-card overrides are not supported.",
+  "rules": [
+    "The first edition in the permanent prestige-ordered cardCollection becomes the Active Crew Skin.",
+    "Players without a special edition use the live Base Edition.",
+    "The selected skin never changes live ratings, tier placement, Crew ordering, or permanent card ownership."
+  ]
 }
