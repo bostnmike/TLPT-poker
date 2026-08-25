@@ -58,6 +58,22 @@ RSVP_DESKTOP_AVATAR_SELECTORS = {
 }
 RSVP_DESKTOP_AVATAR_SIZE = "96px"
 RSVP_MOBILE_AVATAR_SIZE = "64px"
+ACCESSIBLE_CONTROL_FOCUS_SELECTORS = {
+    "[data-dashboard-sort]:focus-visible",
+    "[data-standings-sort]:focus-visible",
+    "#format-btn-40k:focus-visible",
+    "#format-btn-500k:focus-visible",
+    "#crew-view-tier:focus-visible",
+    "#crew-view-archetype:focus-visible",
+    ".archetype-mode-btn:focus-visible",
+    ".archetype-filter-pill:focus-visible",
+    ".pm-btn:focus-visible",
+}
+ACCESSIBLE_SWITCH_FOCUS_SELECTORS = {
+    ".format-switch input:focus-visible + .format-switch-track",
+    ".crew-view-switch input:focus-visible + .crew-view-switch-track",
+    ".archetype-mode-switch input:focus-visible + .archetype-mode-switch-track",
+}
 EXPECTED_FOOTER_TEXT = (
     "TLPT is a BostnMike Production... and all that, that entails. "
     "Site data fueled by The Tournament Director"
@@ -152,6 +168,7 @@ EXPECTED_META_DESCRIPTIONS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-3"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -830,6 +847,10 @@ def main() -> int:
             parser.errors.append(
                 "document must contain exactly one canonical viewport meta tag"
             )
+        if EXPECTED_SHARED_STYLESHEET not in parser.stylesheet_references:
+            parser.errors.append(
+                "shared visible-focus stylesheet cache version is stale"
+            )
 
         page_title = " ".join(" ".join(parser.title_text).split())
         if page_title != EXPECTED_PAGE_TITLES.get(page.name, ""):
@@ -1270,6 +1291,60 @@ def main() -> int:
                     errors.append(
                         f"style.css:{rsvp_line}: RSVP desktop avatar rule must not use !important"
                     )
+            control_focus_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if ACCESSIBLE_CONTROL_FOCUS_SELECTORS.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(control_focus_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one shared visible-focus control rule"
+                )
+            else:
+                focus_body, focus_line = control_focus_rules[0]
+                for property_name, property_value in (
+                    ("outline", "3px solid var(--white)"),
+                    ("outline-offset", "3px"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        focus_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{focus_line}: shared control focus rule must use "
+                            f"{property_name}:{property_value}"
+                        )
+            switch_focus_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if ACCESSIBLE_SWITCH_FOCUS_SELECTORS.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(switch_focus_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one shared visible-focus switch-track rule"
+                )
+            else:
+                focus_body, focus_line = switch_focus_rules[0]
+                for property_name, property_value in (
+                    ("outline", "3px solid var(--white)"),
+                    ("outline-offset", "3px"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        focus_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{focus_line}: shared switch focus rule must use "
+                            f"{property_name}:{property_value}"
+                        )
             continue
         if stylesheet.name == "site-tail.css":
             rsvp_mobile_rules = [
