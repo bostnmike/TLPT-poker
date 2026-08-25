@@ -2015,6 +2015,7 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_phase_3h5_single_source_audit())
     errors.extend(audit_phase_3h4_cache_rotation_automation())
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
@@ -3636,6 +3637,39 @@ def audit_phase_3h4_cache_rotation_automation() -> list[str]:
                 )
     return errors
 
+
+def audit_phase_3h5_single_source_audit() -> list[str]:
+    """Phase 3H.5: root audit remains a compatibility launcher, not a second implementation."""
+    errors: list[str] = []
+    root_audit = ROOT / "audit-code-hygiene.py"
+    if not root_audit.exists():
+        return ["audit-code-hygiene.py: compatibility launcher is missing"]
+
+    text = root_audit.read_text(encoding="utf-8")
+    required = (
+        'Path(__file__).resolve().parent / "scripts" / "audit-code-hygiene.py"',
+        'AUDIT.is_file()',
+        'runpy.run_path(str(AUDIT), run_name="__main__")',
+    )
+    for token in required:
+        if token not in text:
+            errors.append(
+                f"audit-code-hygiene.py: single-source compatibility contract missing: {token}"
+            )
+
+    forbidden = (
+        "def audit_javascript(",
+        "def css_rule_blocks(",
+        "def audit_workflow_runtimes(",
+        "def audit_phase_3h4_cache_rotation_automation(",
+    )
+    for token in forbidden:
+        if token in text:
+            errors.append(
+                "audit-code-hygiene.py: root launcher must not duplicate the authoritative audit implementation"
+            )
+            break
+    return errors
 
 if __name__ == "__main__":
     sys.exit(main())
