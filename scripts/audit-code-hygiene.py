@@ -128,23 +128,45 @@ EXPECTED_FOOTER_TEXT = (
     "Site data fueled by The Tournament Director"
 )
 EXPECTED_FOOTER_URL = "https://thetournamentdirector.net/"
+EXPECTED_NAV_LABELS = [
+    "Home",
+    "Metrics",
+    "Dashboard",
+    "Form Lab",
+    "Heater Meter",
+    "Streak Tracker",
+    "Knockout Central",
+    "Standings",
+    "Members",
+    "TLPT Crew",
+    "Player Profiles",
+    "The Trophy Room",
+    "The Schedule",
+    "Roast Zone",
+    "The Hall",
+    "The Week That Was",
+    "The Rules",
+    "Media",
+    "The Film",
+    "The Gallery",
+]
 EXPECTED_NAV_ACTIVE_LABELS = {
     "404.html": [],
     "champions.html": ["Roast Zone", "The Hall"],
-    "dashboard.html": ["The Metrics", "Dashboard"],
-    "form-lab.html": ["The Metrics", "The Form Lab"],
+    "dashboard.html": ["Metrics", "Dashboard"],
+    "form-lab.html": ["Metrics", "Form Lab"],
     "gallery.html": ["Media", "The Gallery"],
     "index.html": ["Home"],
-    "knockouts.html": ["The Metrics", "Knockout Central"],
+    "knockouts.html": ["Metrics", "Knockout Central"],
     "media.html": ["Media", "The Film"],
     "news.html": ["Roast Zone", "The Week That Was"],
-    "player-movement.html": ["The Metrics", "The Heater Meter"],
+    "player-movement.html": ["Metrics", "Heater Meter"],
     "player.html": ["Members", "Player Profiles"],
     "players.html": ["Members", "TLPT Crew"],
     "rules.html": ["The Rules"],
     "schedule.html": ["The Schedule"],
-    "standings.html": ["The Metrics", "Standings"],
-    "streaks.html": ["The Metrics", "Streak Tracker"],
+    "standings.html": ["Metrics", "Standings"],
+    "streaks.html": ["Metrics", "Streak Tracker"],
     "trophy-room.html": ["Members", "The Trophy Room"],
 }
 EXPECTED_NAV_CURRENT_LABEL = {
@@ -172,7 +194,7 @@ EXPECTED_PAGE_TITLES = {
 }
 UNIFIED_TITLE_PAGES = {
     "404.html": "This Hand Went Missing",
-    "dashboard.html": "TLPT Metrics",
+    "dashboard.html": "The Dashboard",
     "form-lab.html": "The Form Lab",
     "gallery.html": "The Gallery",
     "index.html": "Welcome to TLPT Poker League",
@@ -184,7 +206,7 @@ UNIFIED_TITLE_PAGES = {
     "rules.html": "TLPT Rules & Structures",
     "schedule.html": "Next at Caahhd Room",
     "standings.html": "Sortable League Standings",
-    "streaks.html": "TLPT Streak Tracker",
+    "streaks.html": "The Streak Tracker",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
     "404.html",
@@ -277,12 +299,12 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
 EXPECTED_BREADCRUMB_LABELS = {
     "champions.html": "The Hall",
     "dashboard.html": "Dashboard",
-    "form-lab.html": "The Form Lab",
+    "form-lab.html": "Form Lab",
     "gallery.html": "The Gallery",
     "knockouts.html": "Knockout Central",
     "media.html": "The Film",
     "news.html": "The Week That Was",
-    "player-movement.html": "The Heater Meter",
+    "player-movement.html": "Heater Meter",
     "players.html": "TLPT Crew",
     "rules.html": "The Rules",
     "schedule.html": "The Schedule",
@@ -295,17 +317,136 @@ EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-6"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-2"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-11"
+EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
+    "node scripts/test-site-shell.mjs",
+    "node scripts/test-app-load-failure.mjs",
+]
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
-EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-1"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
+EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-2"
 EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20260825-2"
+INDEPENDENT_LOADER_RECOVERY_CONTRACTS = {
+    "player-movement.js": (
+        ('role="alert"', "Heater Meter failure state must be announced"),
+        (
+            "The Heater Meter couldn’t load the latest results.",
+            "Heater Meter failure state must use visitor-facing copy",
+        ),
+        (
+            "data-player-movement-retry",
+            "Heater Meter failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "Heater Meter retry control must reload the current page",
+        ),
+    ),
+    "form-lab.js": (
+        ('role="alert"', "Form Lab failure state must be announced"),
+        (
+            "The latest event data is unavailable. Check your connection and try again.",
+            "Form Lab failure state must use visitor-facing copy",
+        ),
+        (
+            "data-form-lab-retry",
+            "Form Lab failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "Form Lab retry control must reload the current page",
+        ),
+    ),
+    "streaks.js": (
+        ('role="alert"', "Streak Tracker failure state must be announced"),
+        (
+            "The Streak Tracker couldn’t load the latest results.",
+            "Streak Tracker failure state must use visitor-facing copy",
+        ),
+        (
+            "data-streaks-retry",
+            "Streak Tracker failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "Streak Tracker retry control must reload the current page",
+        ),
+    ),
+    "knockouts.js": (
+        ('role="alert"', "Knockout Central failure state must be announced"),
+        (
+            "The latest knockout results couldn’t be loaded. Check your connection and try again.",
+            "Knockout Central failure state must use visitor-facing copy",
+        ),
+        (
+            "data-knockouts-retry",
+            "Knockout Central failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "Knockout Central retry control must reload the current page",
+        ),
+    ),
+    "trophy-room.js": (
+        (
+            "The Trophy Room vault would not open.",
+            "Trophy Room failure state must remain visitor-facing",
+        ),
+        (
+            "Please refresh after the latest site-data update finishes.",
+            "Trophy Room failure state must retain its recovery guidance",
+        ),
+    ),
+    "news-render.js": (
+        (
+            "The latest stories couldn’t be loaded. Check your connection and try again.",
+            "News failure state must use visitor-facing copy",
+        ),
+        (
+            "data-news-retry",
+            "News failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "News retry control must reload the current page",
+        ),
+    ),
+    "gallery.js": (
+        ('setAttribute("role", "alert")', "Gallery failure state must be announced"),
+        (
+            "The Gallery couldn’t load the poster collection.",
+            "Gallery failure state must use visitor-facing copy",
+        ),
+        (
+            "data-gallery-retry",
+            "Gallery failure state must provide a retry control",
+        ),
+        (
+            "window.location.reload();",
+            "Gallery retry control must reload the current page",
+        ),
+    ),
+}
+INDEPENDENT_LOADER_TECHNICAL_COPY = {
+    "player-movement.js": (
+        "Check the browser console for details.",
+    ),
+    "form-lab.js": (
+        'error && error.message ? error.message : "Check the console for details."',
+    ),
+    "knockouts.js": (
+        "showKnockoutsError(String(err.message || err));",
+    ),
+    "news-render.js": (
+        "Check news-data.json for valid JSON and the new event-based schema.",
+    ),
+}
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -945,6 +1086,17 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     f"line {line_number}: unknown data-image-error-action: {action}"
                 )
+
+    recovery_contract = INDEPENDENT_LOADER_RECOVERY_CONTRACTS.get(path.name, ())
+    for fragment, message in recovery_contract:
+        if fragment not in text:
+            errors.append(message)
+
+    for fragment in INDEPENDENT_LOADER_TECHNICAL_COPY.get(path.name, ()):
+        if fragment in text:
+            errors.append(
+                f"{path.name} failure state exposes implementation details to visitors"
+            )
 
     if path.name == "player-movement.js":
         if not re.search(
@@ -1692,6 +1844,40 @@ def audit_javascript(path: Path) -> list[str]:
     return errors
 
 
+def audit_site_quality_workflow() -> list[str]:
+    errors: list[str] = []
+    workflow_path = ROOT / ".github" / "workflows" / "site-quality.yml"
+    if not workflow_path.is_file():
+        return ["site-quality workflow: missing required quality gate"]
+
+    workflow_text = workflow_path.read_text(encoding="utf-8")
+    command_positions: list[int] = []
+    for command in EXPECTED_SITE_QUALITY_TEST_COMMANDS:
+        command_line = f"run: {command}"
+        if workflow_text.count(command_line) != 1:
+            errors.append(
+                "site-quality workflow: expected exactly one test command: "
+                + command
+            )
+            continue
+        command_positions.append(workflow_text.index(command_line))
+
+        script_path = ROOT / command.removeprefix("node ")
+        if not script_path.is_file():
+            errors.append(
+                "site-quality workflow: test command targets a missing script: "
+                + command
+            )
+
+    if len(command_positions) == len(EXPECTED_SITE_QUALITY_TEST_COMMANDS):
+        if command_positions != sorted(command_positions):
+            errors.append(
+                "site-quality workflow: shared behavior tests differ from the approved order"
+            )
+
+    return errors
+
+
 def audit_search_discovery() -> list[str]:
     errors: list[str] = []
 
@@ -1755,6 +1941,7 @@ def audit_search_discovery() -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_site_quality_workflow())
     errors.extend(audit_search_discovery())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
@@ -2384,6 +2571,7 @@ def main() -> int:
         else:
             navigation_by_page[page.name] = parser.nav_links
 
+        nav_labels: list[str] = []
         nav_active_labels: list[str] = []
         nav_current_labels: list[str] = []
         for record in parser.nav_link_records:
@@ -2392,10 +2580,16 @@ def main() -> int:
             assert isinstance(text_parts, list)
             assert isinstance(classes, set)
             label = " ".join(" ".join(text_parts).split())
+            nav_labels.append(label)
             if "is-active" in classes:
                 nav_active_labels.append(label)
             if record["aria_current"] == "page":
                 nav_current_labels.append(label)
+
+        if nav_labels != EXPECTED_NAV_LABELS:
+            parser.errors.append(
+                "primary navigation labels/order differ from the shared contract"
+            )
 
         expected_active_labels = EXPECTED_NAV_ACTIVE_LABELS.get(page.name, [])
         if nav_active_labels != expected_active_labels:
