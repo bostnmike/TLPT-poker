@@ -1,0 +1,55 @@
+name: Rotate Shared CSS Cache
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "New site-tail.css cache key (example: 20260825-5)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tlpt-shared-css-cache
+  cancel-in-progress: false
+
+jobs:
+  rotate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Rotate shared CSS cache key
+        run: python scripts/rotate-shared-css-cache.py --version "${{ inputs.version }}"
+
+      - name: Verify shared CSS cache key
+        run: python scripts/rotate-shared-css-cache.py --check "${{ inputs.version }}"
+
+      - name: Run code hygiene audit
+        run: python scripts/audit-code-hygiene.py
+
+      - name: Commit cache-key rotation
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add -- "*.html"
+
+          if git diff --cached --quiet; then
+            echo "No cache-key changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Rotate shared CSS cache key to ${{ inputs.version }}"
+          git push origin HEAD:main
