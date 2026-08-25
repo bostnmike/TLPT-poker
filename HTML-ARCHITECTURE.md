@@ -489,3 +489,23 @@ The page references advance to `knockouts.js?v=20260825-1` and
 both portrait-delivery contracts, their size mappings, and cache delivery.
 Knockout data, leaders, rivalries, body counts, avatars, fallbacks, profile
 content, layout, styling, and responsive behavior remain unchanged.
+
+## Phase 3D.4 Gallery poster-delivery contract
+
+The Gallery now separates its newest, initially visible poster from the full
+177 MB archive. The lead poster loads eagerly with high fetch priority, while
+all older poster cards retain native lazy loading. Every poster decodes
+asynchronously and publishes a 1024-by-1536 intrinsic ratio, matching the
+existing two-by-three frame without changing its rendered crop or size.
+
+Winner badges continue loading lazily and decoding asynchronously, and now
+publish the existing 46-pixel single-winner or 34-pixel chop-winner dimensions.
+The interaction-only lightbox image also publishes the poster ratio and decodes
+asynchronously once a visitor opens it.
+
+The Gallery script reference advances to `gallery.js?v=20260825-2`.
+`scripts/audit-code-hygiene.py` enforces the single lead-poster priority,
+deferred archive, poster and badge dimensions, lightbox delivery, and cache
+contract. Poster files, manifest ordering, winner data, titles, lightbox
+navigation, focus behavior, layout, styling, and responsive presentation remain
+unchanged.

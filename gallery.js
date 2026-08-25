@@ -131,6 +131,7 @@ function buildGalleryWinnerBadgesMarkup(poster) {
     const label = winners.length === 1
       ? `Winner: ${winners[0].name}`
       : `Chop winners: ${winners.map(player => player.name).join(", ")}`;
+    const intrinsicAvatarSize = winners.length === 1 ? 46 : 34;
 
     return `
       <div class="gallery-winner-badges ${badgeClass}" aria-label="${escapeGalleryHtml(label)}">
@@ -143,6 +144,8 @@ function buildGalleryWinnerBadgesMarkup(poster) {
                 alt="${escapeGalleryHtml(player.name)}"
                 loading="lazy"
                 decoding="async"
+                width="${intrinsicAvatarSize}"
+                height="${intrinsicAvatarSize}"
                 data-image-error-action="mark-parent"
                 data-image-error-parent-class="is-missing-avatar"
               />
@@ -351,7 +354,7 @@ function closeLightbox() {
   }
 }
 
-function createPosterCard(poster) {
+function createPosterCard(poster, isLeadPoster = false) {
   const article = document.createElement("article");
   article.className = "gallery-card";
 
@@ -359,6 +362,7 @@ function createPosterCard(poster) {
   button.className = "gallery-poster-button";
   button.type = "button";
   button.setAttribute("aria-label", `Open poster for ${poster.title}`);
+  const loading = isLeadPoster ? "eager" : "lazy";
 
   button.innerHTML = `
     <div class="gallery-poster-frame">
@@ -366,7 +370,11 @@ function createPosterCard(poster) {
         class="gallery-poster-image"
         src="${escapeGalleryHtml(poster.src)}"
         alt="${escapeGalleryHtml(poster.title)}"
-        loading="lazy"
+        loading="${loading}"
+        decoding="async"
+        fetchpriority="${isLeadPoster ? "high" : "auto"}"
+        width="1024"
+        height="1536"
       />
     </div>
     <div class="gallery-card-meta has-winner-badges">
@@ -383,7 +391,7 @@ function createPosterCard(poster) {
   return article;
 }
 
-function createYearGroup(year, posters) {
+function createYearGroup(year, posters, leadPosterSource) {
   const section = document.createElement("section");
   section.className = "gallery-year-group";
 
@@ -399,7 +407,9 @@ function createYearGroup(year, posters) {
   `;
 
   const grid = section.querySelector(".gallery-year-grid");
-  posters.forEach(poster => grid.appendChild(createPosterCard(poster)));
+  posters.forEach(poster => grid.appendChild(
+    createPosterCard(poster, poster.src === leadPosterSource)
+  ));
 
   return section;
 }
@@ -468,10 +478,11 @@ async function loadGallery() {
     if (empty) empty.hidden = true;
 
     const grouped = groupPostersByYear(galleryPosters);
+    const leadPosterSource = galleryPosters[0]?.src || "";
     const fragment = document.createDocumentFragment();
 
     grouped.forEach(([year, posters]) => {
-      fragment.appendChild(createYearGroup(year, posters));
+      fragment.appendChild(createYearGroup(year, posters, leadPosterSource));
     });
 
     grid.appendChild(fragment);
