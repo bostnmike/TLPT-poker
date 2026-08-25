@@ -179,7 +179,7 @@ EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-5"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -785,6 +785,40 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             errors.append(
                 "Heater Meter sparkline canvas must be hidden when the same trend data is written out"
+            )
+        for fragment, message in (
+            (
+                'const imageLoading = options.imageLoading === "eager" ? "eager" : "lazy";',
+                "Heater Meter cards must default portraits to lazy loading",
+            ),
+            (
+                'loading="${imageLoading}"',
+                "Heater Meter portraits must publish their selected loading priority",
+            ),
+            (
+                'decoding="async"',
+                "Heater Meter portraits must decode asynchronously",
+            ),
+            (
+                'width="52"',
+                "Heater Meter portraits must publish an intrinsic width",
+            ),
+            (
+                'height="52"',
+                "Heater Meter portraits must publish an intrinsic height",
+            ),
+        ):
+            if fragment not in card_source:
+                errors.append(message)
+        top_movers_source = function_source("renderTopMovers")
+        if '.map(player => createCard(player, { imageLoading: "eager" }))' not in top_movers_source:
+            errors.append(
+                "Heater Meter visible top movers must keep eager portrait loading"
+            )
+        all_players_source = function_source("renderAllPlayers")
+        if '.map(player => createCard(player, { imageLoading: "lazy" }))' not in all_players_source:
+            errors.append(
+                "Heater Meter full-board portraits must use lazy loading"
             )
 
     if path.name == "app.js":
