@@ -664,3 +664,32 @@ profile metadata behavior, and cache delivery. Page copy, visible layout,
 navigation, RSVP table placement, toggle spacing, player data, statistics,
 calculations, cards, image delivery, interactions, and responsive behavior
 remain unchanged.
+
+## Phase 3E.3 structured-data foundation
+
+The Home page now publishes one JSON-LD graph that identifies the league as a
+`SportsOrganization` associated with poker and identifies the canonical site as
+a `WebSite` named `TLPT Poker League`, with `TLPT` as its alternate name. The
+graph reuses the established production origin, Home description, and visible
+site slogan; it does not invent a physical address, contact information, social
+account, or logo claim that the site does not currently support.
+
+Each of the 14 stable interior pages in `sitemap.xml` publishes one
+`BreadcrumbList` containing Home and the page's established navigation label.
+The final breadcrumb deliberately omits its `item` URL so the containing page's
+canonical URL remains authoritative. The query-driven `player.html` shell is
+excluded from static structured data, matching its existing sitemap and
+canonical treatment.
+
+The deployed Phase 3E.2 snapshot retained the approved page metadata and
+runtime but contained the older audit script. This package restores the complete
+Phase 3E.2 canonical, social, dynamic-profile, and `app.js?v=20260825-10` audit
+contract before extending it for Phase 3E.3. The audit now permits only
+non-executable `application/ld+json` inline scripts, parses every block as JSON,
+and enforces the exact Home graph, 14 breadcrumb trails, and Player Profile
+exclusion.
+
+No stylesheet or application-runtime change is required. Visible layout,
+navigation, RSVP table placement, Home toggle spacing, player data, statistics,
+calculations, Player Cards, image delivery, interactions, and responsive
+behavior remain unchanged.
