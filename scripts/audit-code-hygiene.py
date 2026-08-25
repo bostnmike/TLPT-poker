@@ -13,9 +13,41 @@ from collections import Counter, defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
+from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
+EXPECTED_ROBOTS_LINES = [
+    "User-agent: *",
+    "Allow: /",
+    "Disallow: /NewReports/",
+    "Disallow: /data/",
+    "Disallow: /scripts/",
+    "Disallow: /knockout-events-full.json",
+    "Disallow: /knockout-name-map-full.json",
+    "Disallow: /knockouts.json",
+    "Disallow: /news-data.json",
+    "",
+    "Sitemap: https://tlpt.org/sitemap.xml",
+]
+SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
+EXPECTED_SITEMAP_URLS = [
+    "https://tlpt.org/",
+    "https://tlpt.org/champions.html",
+    "https://tlpt.org/dashboard.html",
+    "https://tlpt.org/form-lab.html",
+    "https://tlpt.org/gallery.html",
+    "https://tlpt.org/knockouts.html",
+    "https://tlpt.org/media.html",
+    "https://tlpt.org/news.html",
+    "https://tlpt.org/player-movement.html",
+    "https://tlpt.org/players.html",
+    "https://tlpt.org/rules.html",
+    "https://tlpt.org/schedule.html",
+    "https://tlpt.org/standings.html",
+    "https://tlpt.org/streaks.html",
+    "https://tlpt.org/trophy-room.html",
+]
 EXPECTED_PAGES = {
     "champions.html",
     "dashboard.html",
@@ -1406,8 +1438,70 @@ def audit_javascript(path: Path) -> list[str]:
     return errors
 
 
+def audit_search_discovery() -> list[str]:
+    errors: list[str] = []
+
+    robots_path = ROOT / "robots.txt"
+    if not robots_path.exists():
+        errors.append("robots.txt: missing search-crawler policy")
+    else:
+        robots_lines = robots_path.read_text(encoding="utf-8").splitlines()
+        if robots_lines != EXPECTED_ROBOTS_LINES:
+            errors.append(
+                "robots.txt: crawler rules or sitemap declaration differ from the approved contract"
+            )
+
+    sitemap_path = ROOT / "sitemap.xml"
+    if not sitemap_path.exists():
+        errors.append("sitemap.xml: missing stable-page discovery inventory")
+        return errors
+
+    try:
+        sitemap_root = ElementTree.parse(sitemap_path).getroot()
+    except ElementTree.ParseError as exc:
+        errors.append(f"sitemap.xml: invalid XML: {exc}")
+        return errors
+
+    expected_root_tag = f"{{{SITEMAP_NAMESPACE}}}urlset"
+    if sitemap_root.tag != expected_root_tag:
+        errors.append("sitemap.xml: urlset namespace differs from the sitemap protocol")
+        return errors
+
+    sitemap_urls: list[str] = []
+    url_tag = f"{{{SITEMAP_NAMESPACE}}}url"
+    loc_tag = f"{{{SITEMAP_NAMESPACE}}}loc"
+    for entry in list(sitemap_root):
+        if entry.tag != url_tag:
+            errors.append("sitemap.xml: urlset contains an unsupported child element")
+            continue
+        children = list(entry)
+        if len(children) != 1 or children[0].tag != loc_tag:
+            errors.append("sitemap.xml: every URL entry must contain exactly one loc element")
+            continue
+        location = (children[0].text or "").strip()
+        if not location:
+            errors.append("sitemap.xml: empty loc element")
+            continue
+        sitemap_urls.append(location)
+
+    if sitemap_urls != EXPECTED_SITEMAP_URLS:
+        errors.append(
+            "sitemap.xml: stable-page URL inventory differs from the approved 15-page order"
+        )
+    if len(sitemap_urls) != len(set(sitemap_urls)):
+        errors.append("sitemap.xml: duplicate URL found")
+
+    for location in sitemap_urls:
+        relative_path = urlsplit(location).path.lstrip("/") or "index.html"
+        if not (ROOT / relative_path).is_file():
+            errors.append(f"sitemap.xml: URL has no matching site file: {location}")
+
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_search_discovery())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
 
