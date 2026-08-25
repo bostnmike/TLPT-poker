@@ -32,12 +32,18 @@ CORE_KEYS = (
 )
 NORMALIZED_KEYS = ("roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw")
 CARD_MILESTONES = (10, 25, 50, 75, 100)
-PROVISIONAL_MIN = 3
+CREW_ELIGIBLE_MIN = 3
+PROVISIONAL_MIN = CREW_ELIGIBLE_MIN
 ESTABLISHED_MIN = 5
 CARD_OVERALL_MIN_RATING = 40
 CARD_OVERALL_MAX_RATING = 99
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
+
+
+def hall_minimum_appearances(event_count):
+    """Mirror the published dynamic Hall threshold independently."""
+    return max(math.ceil(event_count * HALL_PERCENTAGE), HALL_MIN_EVENTS)
 
 
 def load_json(path: Path):
@@ -625,7 +631,7 @@ def audit_cards(audit, metadata, events, site_data):
                 current_streak[slug] = 0
 
         established = [player for player in checkpoint if int(player["buyIns"]) >= ESTABLISHED_MIN]
-        hall_minimum = max(math.ceil(event_index * HALL_PERCENTAGE), HALL_MIN_EVENTS)
+        hall_minimum = hall_minimum_appearances(event_index)
         hall = []
         for player in checkpoint:
             if int(player["buyIns"]) < hall_minimum:

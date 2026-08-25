@@ -90,8 +90,14 @@ const playerCardOverallRating = app.get("playerCardOverallRating");
 const playerCardAttributes = app.get("playerCardAttributes");
 const playerCardTierMeta = app.get("playerCardTierMeta");
 const playerCardRatingComparator = app.get("playerCardRatingComparator");
+const isCrewVisible = app.get("isCrewVisible");
+const isCrewRookie = app.get("isCrewRookie");
+const isCrewProvisional = app.get("isCrewProvisional");
+const isCrewEligible = app.get("isCrewEligible");
+const isCrewEstablished = app.get("isCrewEstablished");
 const getLeaderByRule = app.get("getLeaderByRule");
 const getHallPlayers = app.get("getHallPlayers");
+const getHallMinimumAppearances = app.get("getHallMinimumAppearances");
 
 const players = data.players || [];
 const established = players.filter(player => Number(player.buyIns || 0) >= 5);
@@ -137,7 +143,9 @@ const attributeSpecs = [
 
 for (const player of players) {
   check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
-  check(playerCardOverallRating(player, players) === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
+  const overallRating = playerCardOverallRating(player, players);
+  check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
+  check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
   const attributes = playerCardAttributes(player, players);
   const byCode = Object.fromEntries(attributes.map(attribute => [attribute.code, attribute.value]));
   const expectedReturn = Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);
@@ -148,6 +156,11 @@ for (const player of players) {
 
   const meta = playerCardTierMeta(player, players);
   const appearances = Number(player.buyIns || 0);
+  check(isCrewVisible(player) === (appearances >= 1), `${player.slug}: Crew visibility threshold is incorrect`);
+  check(isCrewRookie(player) === (appearances >= 1 && appearances < 3), `${player.slug}: RKI band is incorrect`);
+  check(isCrewProvisional(player) === (appearances >= 3 && appearances < 5), `${player.slug}: PRO band is incorrect`);
+  check(isCrewEligible(player) === (appearances >= 3), `${player.slug}: Crew eligibility threshold is incorrect`);
+  check(isCrewEstablished(player) === (appearances >= 5), `${player.slug}: established threshold is incorrect`);
   if (appearances < 3) {
     check(meta.code === "RKI" && meta.rank === null, `${player.slug}: Rookie card status/rank is incorrect`);
   } else if (appearances < 5) {
@@ -160,14 +173,38 @@ for (const player of players) {
   }
 }
 
-const crewOrder = players.filter(player => Number(player.buyIns || 0) >= 1).sort(playerCardRatingComparator(players));
-for (let indexPos = 1; indexPos < crewOrder.length; indexPos += 1) {
-  const before = crewOrder[indexPos - 1];
-  const after = crewOrder[indexPos];
-  const beforeRating = playerCardOverallRating(before, players);
-  const afterRating = playerCardOverallRating(after, players);
-  check(beforeRating > afterRating || (beforeRating === afterRating && manualTierScore(before) >= manualTierScore(after)), `Crew card order is inconsistent near ${before.slug}/${after.slug}`);
-}
+const tierPriority = { S: 0, A: 1, B: 2, C: 3, D: 4, PRO: 5, RKI: 6 };
+const manualCrewOrder = [...players]
+  .filter(player => Number(player.buyIns || 0) >= 1)
+  .sort((a, b) => {
+    const aTier = playerCardTierMeta(a, players).code;
+    const bTier = playerCardTierMeta(b, players).code;
+    return (tierPriority[aTier] ?? 7) - (tierPriority[bTier] ?? 7) ||
+      playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
+      manualTierScore(b) - manualTierScore(a) ||
+      String(a.name).localeCompare(String(b.name));
+  });
+const crewOrder = [...players]
+  .filter(isCrewVisible)
+  .sort(playerCardRatingComparator(players));
+check(
+  JSON.stringify(crewOrder.map(player => player.slug)) === JSON.stringify(manualCrewOrder.map(player => player.slug)),
+  "Crew card order must use tier priority first and rating second"
+);
+
+const skinNeutralPlayers = players.map(player => ({
+  ...player,
+  featuredCardEdition: "base",
+  featuredCardMode: "automatic"
+}));
+const skinNeutralOrder = [...skinNeutralPlayers]
+  .filter(isCrewVisible)
+  .sort(playerCardRatingComparator(skinNeutralPlayers))
+  .map(player => player.slug);
+check(
+  JSON.stringify(skinNeutralOrder) === JSON.stringify(crewOrder.map(player => player.slug)),
+  "Special-edition skins must not affect Crew ordering"
+);
 
 const sortableKeys = [
   "totalWinnings", "profit", "hits", "timesPlaced", "bubbles", "hitRate",
@@ -190,6 +227,7 @@ for (const rule of config.honors || []) {
 
 const hallPlayers = getHallPlayers(data, { eventCount: events.length, events });
 const hallMinimum = Math.max(Math.ceil(events.length * 0.25), 10);
+check(getHallMinimumAppearances(events.length) === hallMinimum, "Hall minimum must remain 25% of completed events with a floor of 10");
 const expectedHallSlugs = players.filter(player => Number(player.buyIns || 0) >= hallMinimum).map(player => player.slug).sort();
 check(JSON.stringify(hallPlayers.map(player => player.slug).sort()) === JSON.stringify(expectedHallSlugs), "Hall qualification pool is incorrect");
 for (const hallPlayer of hallPlayers) {

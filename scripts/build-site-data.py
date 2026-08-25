@@ -18,12 +18,18 @@ OUTPUT_PATH = GENERATED_DIR / "site-data.json"
 
 CARD_FORM_WINDOW = 5
 CARD_MILESTONES = (10, 25, 50, 75, 100)
-CREW_PROVISIONAL_MIN_BUY_INS = 3
+CREW_ELIGIBLE_MIN_BUY_INS = 3
+CREW_PROVISIONAL_MIN_BUY_INS = CREW_ELIGIBLE_MIN_BUY_INS
 CREW_ESTABLISHED_MIN_BUY_INS = 5
 CARD_OVERALL_MIN_RATING = 40
 CARD_OVERALL_MAX_RATING = 99
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
+
+
+def hall_minimum_appearances(event_count):
+    """Return the live 25%-of-history Hall threshold, with its floor."""
+    return max(math.ceil(event_count * HALL_PERCENTAGE), HALL_MIN_EVENTS)
 
 
 def load_json(path: Path):
@@ -928,7 +934,7 @@ def build_historical_card_collections(players, parsed_events):
                 3
             )
 
-        hall_minimum = max(math.ceil(event_index * HALL_PERCENTAGE), HALL_MIN_EVENTS)
+        hall_minimum = hall_minimum_appearances(event_index)
         hall_pool = []
         for player in checkpoint:
             if int(player.get("buyIns", 0)) < hall_minimum:
