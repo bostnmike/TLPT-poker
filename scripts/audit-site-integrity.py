@@ -748,7 +748,7 @@ def audit_pages(audit, metadata):
         menus = re.findall(r'<div class="nav-dropdown-menu"[^>]*>(.*?)</div>', text, flags=re.IGNORECASE | re.DOTALL)
         members = next((menu for menu in menus if "players.html" in menu), "")
         links = re.findall(r'href=["\']([^"\']+)', members, flags=re.IGNORECASE)
-        audit.check(len(links) >= 3 and links[2].split("?")[0] == "trophy-room.html", "pages", f"{path.name}: Trophy Room is not the third Members item")
+        audit.check(len(links) >= 3 and links[2].split("?")[0].lstrip("/") == "trophy-room.html", "pages", f"{path.name}: Trophy Room is not the third Members item")
         for reference in local_ref_pattern.findall(text):
             clean = reference.split("#", 1)[0].split("?", 1)[0]
             if not clean or clean.startswith(("http://", "https://", "mailto:", "tel:", "javascript:", "data:")):

@@ -613,7 +613,7 @@ class PageAuditParser(HTMLParser):
             self.nav_depth += 1
 
         if self.nav_depth and tag == "a" and attrs.get("href"):
-            self.nav_links.append(urlsplit(attrs["href"]).path)
+            self.nav_links.append(urlsplit(attrs["href"]).path.lstrip("/"))
             self.open_nav_link = {
                 "href": attrs["href"],
                 "classes": classes,
@@ -693,7 +693,7 @@ class PageAuditParser(HTMLParser):
         if tag == "link" and "stylesheet" in attrs.get("rel", "").lower().split():
             href = attrs.get("href", "")
             if is_local_reference(href):
-                self.stylesheets.append(urlsplit(href).path)
+                self.stylesheets.append(urlsplit(href).path.lstrip("/"))
                 self.stylesheet_references.append(href)
             if is_local_reference(href) and not urlsplit(href).query.startswith("v="):
                 self.errors.append(f"local stylesheet lacks a cache version: {href}")
@@ -701,7 +701,7 @@ class PageAuditParser(HTMLParser):
         if tag == "script":
             src = attrs.get("src", "")
             if src and is_local_reference(src):
-                self.scripts.append(urlsplit(src).path)
+                self.scripts.append(urlsplit(src).path.lstrip("/"))
                 self.script_references.append(src)
             if is_local_reference(src) and not urlsplit(src).query.startswith("v="):
                 self.errors.append(f"local script lacks a cache version: {src}")
@@ -1747,10 +1747,32 @@ def main() -> int:
             parser.errors.append(
                 "document must contain exactly one canonical viewport meta tag"
             )
-        if EXPECTED_SHARED_STYLESHEET not in parser.stylesheet_references:
+        expected_shared_stylesheet = (
+            f"/{EXPECTED_SHARED_STYLESHEET}"
+            if page.name == "404.html"
+            else EXPECTED_SHARED_STYLESHEET
+        )
+        if expected_shared_stylesheet not in parser.stylesheet_references:
             parser.errors.append(
                 "shared visible-focus stylesheet cache version is stale"
             )
+
+        if page.name == "404.html":
+            for record in parser.element_records:
+                attrs = record["attrs"]
+                assert isinstance(attrs, dict)
+                for attribute in ("href", "src"):
+                    reference = attrs.get(attribute, "")
+                    reference_path = urlsplit(reference).path
+                    if (
+                        reference_path
+                        and is_local_reference(reference)
+                        and not reference_path.startswith("/")
+                    ):
+                        parser.errors.append(
+                            "404 recovery references must be root-absolute: "
+                            + reference
+                        )
 
         page_title = " ".join(" ".join(parser.title_text).split())
         if page_title != EXPECTED_PAGE_TITLES.get(page.name, ""):
@@ -1878,7 +1900,15 @@ def main() -> int:
                 "JSON-LD structured data differs from the page-head contract"
             )
 
-        if parser.icon_links != EXPECTED_ICON_LINKS:
+        expected_icon_links = (
+            [
+                (rel, f"/{href}", icon_type, sizes)
+                for rel, href, icon_type, sizes in EXPECTED_ICON_LINKS
+            ]
+            if page.name == "404.html"
+            else EXPECTED_ICON_LINKS
+        )
+        if parser.icon_links != expected_icon_links:
             parser.errors.append("favicon links differ from the shared page-head contract")
 
         if page.name == "form-lab.html":
@@ -2359,7 +2389,7 @@ def main() -> int:
             parser.errors.append("site-shell.js must load before page and feature scripts")
 
         for reference in parser.stylesheet_references + parser.script_references:
-            asset_path = urlsplit(reference).path
+            asset_path = urlsplit(reference).path.lstrip("/")
             if asset_path in global_asset_references_by_path:
                 global_asset_references_by_path[asset_path].setdefault(
                     page.name, []
@@ -2368,7 +2398,7 @@ def main() -> int:
         app_script_references = [
             reference
             for reference in parser.script_references
-            if urlsplit(reference).path == SHARED_APP_SCRIPT
+            if urlsplit(reference).path.lstrip("/") == SHARED_APP_SCRIPT
         ]
         if app_script_references:
             app_script_references_by_page[page.name] = app_script_references
@@ -2418,7 +2448,7 @@ def main() -> int:
             if len(references) != 1:
                 errors.append(f"{page_name}: {asset_path} must be loaded exactly once")
             else:
-                single_asset_references.add(references[0])
+                single_asset_references.add(references[0].lstrip("/"))
         if len(single_asset_references) != 1:
             errors.append(
                 f"site: {asset_path} consumers must use one shared "
