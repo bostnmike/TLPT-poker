@@ -532,6 +532,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260825-3"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2778,6 +2779,11 @@ def main() -> int:
             errors.append(
                 f"site: {asset_path} consumers must use one shared "
                 "cache-version reference"
+            )
+        if asset_path == "site-tail.css" and single_asset_references != {EXPECTED_SITE_TAIL_REFERENCE}:
+            errors.append(
+                "site: site-tail.css consumers must use the Phase 3H.1 cache reference "
+                + EXPECTED_SITE_TAIL_REFERENCE
             )
 
     actual_app_script_pages = set(app_script_references_by_page)
