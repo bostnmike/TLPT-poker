@@ -168,3 +168,19 @@ the Trophy Room resolves the active skin directly from collection priority.
 Base Crew cards now display the same explicit `BASE` edition marker used by the
 other card surfaces. Ratings, tiers, ordering, permanent ownership, historic
 snapshots, and all special-edition artwork remain unchanged.
+
+## Phase 3B.3 cross-surface card-rendering lock
+
+Home and Crew now use the established “Active Crew Skin” terminology in card
+hover and accessibility text instead of the retired “Featured design” wording.
+The visible artwork, card dimensions, ratings, tiers, and Crew order do not
+change.
+
+The page-calculation audit now executes the real Home, Crew, Player Profile,
+and Trophy Room renderers against the generated permanent collection. It
+verifies that each surface resolves the same automatic skin, that Crew-facing
+cards retain live ratings and tier codes, that every Profile collectible is
+present exactly once in prestige order, and that every Trophy Room card keeps
+its frozen historic snapshot and active-skin marker. This prevents later UI
+work from silently diverging from the card ledger without adding a second
+edition-selection system.

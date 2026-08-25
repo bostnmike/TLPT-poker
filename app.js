@@ -2583,7 +2583,7 @@ function buildFeaturedPlayerCard(player, data) {
   const specialClass = specialEdition
     ? ` crew-ultimate-card-special crew-ultimate-card-special-${specialEdition.className} crew-ultimate-card-edition-${playerCardEditionClassName(specialEdition)}`
     : "";
-  const featuredDesignLabel = specialEdition
+  const activeCrewSkinLabel = specialEdition
     ? `${specialEdition.eyebrow}: ${specialEdition.label}`
     : "Base Edition";
 
@@ -2597,7 +2597,7 @@ function buildFeaturedPlayerCard(player, data) {
           href="${playerUrl(player)}"
           data-featured-edition="${escapeHtmlAttr(featuredEditionId)}"
           ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
-          aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Featured design: ${escapeHtmlAttr(featuredDesignLabel)}."
+          aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Active Crew Skin: ${escapeHtmlAttr(activeCrewSkinLabel)}."
         >
           <div class="crew-ultimate-card-inner">
             <div class="crew-ultimate-metal" aria-hidden="true"></div>
@@ -2612,11 +2612,11 @@ function buildFeaturedPlayerCard(player, data) {
                 <span>TLPT</span>
                 <strong>${specialEdition?.shortLabel || "BASE"}</strong>
                 ${specialEdition ? `
-                  <em title="${escapeHtmlAttr(featuredDesignLabel)}">
+                  <em title="${escapeHtmlAttr(`Active Crew Skin: ${activeCrewSkinLabel}`)}">
                     ${specialEdition.icon} ${specialEdition.cardLabel || specialEdition.label}
                   </em>
                 ` : `
-                  <em class="is-base-featured" title="Base Edition">♠ BASE</em>
+                  <em class="is-base-featured" title="Active Crew Skin: Base Edition">♠ BASE</em>
                 `}
               </div>
 
@@ -2858,7 +2858,7 @@ function crewCardMarkup(player, data) {
       href="${playerUrl(player)}"
       data-featured-edition="${escapeHtmlAttr(featuredEditionId)}"
       ${specialEdition ? `data-special-edition="${escapeHtmlAttr(specialEdition.id)}"` : ""}
-      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Featured design: ${specialEdition ? `${specialEdition.eyebrow}, ${specialEdition.label}` : "Base Edition"}.${specialEditions.length ? ` ${specialEditions.length} special edition${specialEditions.length === 1 ? "" : "s"} collected: ${specialCollectionLabel}.` : ""}"
+      aria-label="Open ${displayPlayerNamePlain(player)} profile. Overall rating ${overall}. ${tierMeta.status} ${tierMeta.name}. Active Crew Skin: ${specialEdition ? `${specialEdition.eyebrow}, ${specialEdition.label}` : "Base Edition"}.${specialEditions.length ? ` ${specialEditions.length} special edition${specialEditions.length === 1 ? "" : "s"} collected: ${specialCollectionLabel}.` : ""}"
     >
       <div class="crew-ultimate-card-inner">
         <div class="crew-ultimate-metal" aria-hidden="true"></div>
@@ -2873,11 +2873,11 @@ function crewCardMarkup(player, data) {
             <span>TLPT</span>
             <strong>CAREER</strong>
             ${specialEdition ? `
-              <em title="${escapeHtmlAttr(`${specialEditions.length} collected: ${specialCollectionLabel}`)}">
+              <em title="${escapeHtmlAttr(`Active Crew Skin: ${specialEdition.eyebrow}: ${specialEdition.label} • ${specialEditions.length} collected`)}">
                 ${specialEdition.icon} ${specialEdition.shortLabel}${specialEditions.length > 1 ? ` +${specialEditions.length - 1}` : ""}
               </em>
             ` : `
-              <em class="is-base-featured" title="Base Edition">♠ BASE</em>
+              <em class="is-base-featured" title="Active Crew Skin: Base Edition">♠ BASE</em>
             `}
           </div>
 
