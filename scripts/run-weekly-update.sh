@@ -5,17 +5,8 @@ echo ""
 echo "🔄 TLPT Weekly Update (HTML Pipeline)"
 echo "------------------------------------"
 
-echo "📥 Parsing event summaries..."
-python3 scripts/parse-event-reports.py
-
-echo "🔥 Generating parsed event index..."
-node scripts/generate-event-index.js
-
-echo "📊 Building site data..."
-python3 scripts/build-site-data.py
-
-echo "💀 Building knockouts..."
-python3 scripts/build-knockouts.py
+echo "🏗️ Running authoritative TLPT data build..."
+bash scripts/run-data-build.sh
 
 echo "✅ Running complete TLPT quality gates..."
 bash scripts/run-quality-gates.sh
