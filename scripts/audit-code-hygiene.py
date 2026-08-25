@@ -74,6 +74,10 @@ ACCESSIBLE_SWITCH_FOCUS_SELECTORS = {
     ".crew-view-switch input:focus-visible + .crew-view-switch-track",
     ".archetype-mode-switch input:focus-visible + .archetype-mode-switch-track",
 }
+TABLE_SCROLL_FOCUS_SELECTORS = {
+    ".standings-table-shell .table-wrap:focus-visible",
+    ".blind-table-scroll:focus-visible",
+}
 EXPECTED_FOOTER_TEXT = (
     "TLPT is a BostnMike Production... and all that, that entails. "
     "Site data fueled by The Tournament Director"
@@ -168,12 +172,12 @@ EXPECTED_META_DESCRIPTIONS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-3"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-4"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-5"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
@@ -812,6 +816,44 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     f"Standings status headline must use {attribute}={value}"
                 )
+        standings_source = function_source("renderStandings")
+        for fragment, message in (
+            ('<td role="rowheader">', "Standings player cells must be row headers"),
+            (
+                'header.setAttribute("aria-sort", "descending")',
+                "Standings must expose the active descending sort column",
+            ),
+            (
+                'header.removeAttribute("aria-sort")',
+                "Standings must clear inactive sort-column state",
+            ),
+        ):
+            if fragment not in standings_source:
+                errors.append(message)
+        if 'role="link"' in standings_source or 'tabindex="0"' in standings_source:
+            errors.append(
+                "Standings rows must preserve table-row semantics instead of impersonating links"
+            )
+        blind_table_source = function_source("buildRulesBlindTable")
+        if blind_table_source.count('scope="col"') != 5:
+            errors.append("Rules blind table must expose five scoped column headers")
+        for fragment, message in (
+            ('<td role="rowheader">${row.level}</td>', "Rules levels must be row headers"),
+            (
+                'class="blind-table-scroll" role="region"',
+                "Rules blind table must use a named scroll region",
+            ),
+            (
+                'aria-label="Scrollable ${escapeHtmlAttr(tableLabel)}" tabindex="0"',
+                "Rules blind table scroll region must be named and keyboard focusable",
+            ),
+            (
+                'class="blind-table" aria-label="${escapeHtmlAttr(tableLabel)}"',
+                "Rules blind table must expose an accessible name",
+            ),
+        ):
+            if fragment not in blind_table_source:
+                errors.append(message)
 
     if path.name == "form-lab.js":
         point_contract = re.search(
@@ -1007,6 +1049,71 @@ def main() -> int:
             backdrop = parser.gallery_lightbox_backdrop_attrs
             if not backdrop or backdrop.get("aria-hidden", "").lower() != "true":
                 parser.errors.append("Gallery lightbox backdrop must be decorative")
+
+        if page.name == "standings.html":
+            standings_tables = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "table"
+                and record["attrs"].get("id") == "standings-table"
+            ]
+            if len(standings_tables) != 1:
+                parser.errors.append("expected exactly one #standings-table")
+            else:
+                table_attrs = standings_tables[0]["attrs"]
+                assert isinstance(table_attrs, dict)
+                if table_attrs.get("aria-label") != "TLPT standings sorted by the selected metric":
+                    parser.errors.append("Standings table accessible name differs from the contract")
+
+            standings_scroll_regions = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "div"
+                and "table-wrap" in record["classes"]
+            ]
+            if len(standings_scroll_regions) != 1:
+                parser.errors.append("expected exactly one Standings table scroll region")
+            else:
+                region_attrs = standings_scroll_regions[0]["attrs"]
+                assert isinstance(region_attrs, dict)
+                for attribute, value in (
+                    ("role", "region"),
+                    ("aria-label", "Scrollable TLPT standings"),
+                    ("tabindex", "0"),
+                ):
+                    if region_attrs.get(attribute) != value:
+                        parser.errors.append(
+                            f"Standings table scroll region must use {attribute}={value}"
+                        )
+
+            standings_headers = [
+                record
+                for record in parser.element_records
+                if record["tag"] == "th"
+            ]
+            if len(standings_headers) != 10:
+                parser.errors.append("Standings table must expose ten column headers")
+            elif any(
+                record["attrs"].get("scope", "").lower() != "col"
+                for record in standings_headers
+            ):
+                parser.errors.append("Every Standings header must use scope=col")
+            sortable_headers = {
+                record["attrs"].get("data-standings-column", ""):
+                record["attrs"].get("aria-sort", "")
+                for record in standings_headers
+                if record["attrs"].get("data-standings-column")
+            }
+            expected_sortable_headers = {
+                "totalWinnings", "profit", "timesPlaced", "bubbles",
+                "hits", "buyIns", "rebuys", "entries",
+            }
+            if set(sortable_headers) != expected_sortable_headers:
+                parser.errors.append("Standings sortable columns differ from the table contract")
+            elif sortable_headers.get("totalWinnings") != "descending" or any(
+                value for key, value in sortable_headers.items() if key != "totalWinnings"
+            ):
+                parser.errors.append("Standings initial aria-sort state differs from the default")
 
         if page.name in EXPECTED_APP_SCRIPT_PAGES:
             if EXPECTED_APP_SCRIPT_REFERENCE not in parser.script_references:
@@ -1501,6 +1608,67 @@ def main() -> int:
                     ):
                         errors.append(
                             f"style.css:{focus_line}: shared switch focus rule must use "
+                            f"{property_name}:{property_value}"
+                        )
+            table_scroll_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if selector == ".standings-table-shell .table-wrap"
+            ]
+            if len(table_scroll_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one Standings responsive table-scroll rule"
+                )
+            elif not re.search(
+                r"(?:^|;)\s*overflow-x\s*:\s*auto\s*(?:;|$)",
+                table_scroll_rules[0][0],
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    "style.css: Standings table wrapper must allow horizontal scrolling"
+                )
+            blind_scroll_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if selector == ".blind-table-scroll"
+            ]
+            if len(blind_scroll_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one Rules blind-table scroll rule"
+                )
+            elif not re.search(
+                r"(?:^|;)\s*overflow-x\s*:\s*auto\s*(?:;|$)",
+                blind_scroll_rules[0][0],
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    "style.css: Rules blind-table wrapper must allow horizontal scrolling"
+                )
+            table_focus_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if TABLE_SCROLL_FOCUS_SELECTORS.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(table_focus_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one table-scroll visible-focus rule"
+                )
+            else:
+                focus_body, focus_line = table_focus_rules[0]
+                for property_name, property_value in (
+                    ("outline", "3px solid var(--white)"),
+                    ("outline-offset", "-3px"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        focus_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{focus_line}: table-scroll focus rule must use "
                             f"{property_name}:{property_value}"
                         )
             continue
