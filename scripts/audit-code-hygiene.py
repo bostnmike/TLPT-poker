@@ -172,12 +172,12 @@ EXPECTED_META_DESCRIPTIONS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-4"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-5"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-5"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-6"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
@@ -762,6 +762,38 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "app.js":
+        reduced_motion_source = function_source("prefersReducedMotion")
+        if (
+            'window.matchMedia("(prefers-reduced-motion: reduce)").matches'
+            not in reduced_motion_source
+        ):
+            errors.append(
+                "Shared app motion helper must read the reduced-motion preference"
+            )
+        count_up_source = function_source("animateCountUp")
+        if not re.search(
+            r"if\s*\(prefersReducedMotion\(\)\)\s*\{\s*"
+            r"el\.textContent\s*=\s*meta\.raw;\s*return;\s*\}",
+            count_up_source,
+        ):
+            errors.append(
+                "Animated counters must render their final value immediately for reduced motion"
+            )
+        typing_source = function_source("typeTextIntoElement")
+        if not re.search(
+            r"if\s*\(prefersReducedMotion\(\)\)\s*\{\s*"
+            r"element\.textContent\s*=\s*text;.*?"
+            r"element\.classList\.add\(\"is-typing-done\"\);\s*return;\s*\}",
+            typing_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Commissioner copy must bypass typing animation for reduced motion"
+            )
+        if text.count("if (prefersReducedMotion())") != 3:
+            errors.append(
+                "Shared app must protect counters, typing, and report rotation from motion"
+            )
         for function_name, label in (
             ("setActiveSortButton", "Dashboard and Standings sort controls"),
             ("setActiveFormatButton", "Rules format controls"),
@@ -1454,11 +1486,47 @@ def main() -> int:
         stylesheet_text = stylesheet.read_text(encoding="utf-8")
         errors.extend(f"{stylesheet.name}: {message}" for message in audit_css(stylesheet))
         if stylesheet.name == "style.css":
+            style_rule_blocks = css_rule_blocks(stylesheet_text)
             root_style_rules = [
                 (selector, body, line)
-                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                for context, selector, body, line in style_rule_blocks
                 if not context
             ]
+            reduced_motion_rules = [
+                (body, line)
+                for context, selector, body, line in style_rule_blocks
+                if any(
+                    re.sub(r"\s+", "", scope).lower()
+                    == "@media(prefers-reduced-motion:reduce)"
+                    for scope in context
+                )
+                and {part.strip() for part in selector.split(",")}
+                == {"*", "*::before", "*::after"}
+            ]
+            if len(reduced_motion_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one shared reduced-motion safety rule"
+                )
+            else:
+                motion_body, motion_line = reduced_motion_rules[0]
+                for property_name, property_value in (
+                    ("animation-duration", ".01ms !important"),
+                    ("animation-iteration-count", "1 !important"),
+                    ("animation-delay", "0ms !important"),
+                    ("transition-duration", ".01ms !important"),
+                    ("transition-delay", "0ms !important"),
+                    ("scroll-behavior", "auto !important"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        motion_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{motion_line}: reduced-motion rule must use "
+                            f"{property_name}:{property_value}"
+                        )
             hidden_rules = [
                 (body, line)
                 for selector, body, line in root_style_rules
