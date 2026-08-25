@@ -152,6 +152,8 @@ EXPECTED_META_DESCRIPTIONS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
+EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -641,6 +643,31 @@ def audit_javascript(path: Path) -> list[str]:
                     "versionedDataUrl and cache:no-store"
                 )
 
+    if path.name == "form-lab.js":
+        point_contract = re.search(
+            r'<g\s+class="fl-point".*?tabindex="0".*?role="button".*?'
+            r'aria-pressed="\$\{selected \? "true" : "false"\}".*?'
+            r'aria-label="\$\{escapeAttr\(pointLabel\)\}"',
+            text,
+            flags=re.DOTALL,
+        )
+        if not point_contract:
+            errors.append(
+                "Form Lab chart points must expose button role, keyboard focus, "
+                "accessible name, and selected state"
+            )
+        event_card_contract = re.search(
+            r'<button\s+class="fl-event-card.*?aria-pressed="\$\{'
+            r'row\.id === FL_STATE\.selectedEventId \? "true" : "false"'
+            r'\}"',
+            text,
+            flags=re.DOTALL,
+        )
+        if not event_card_contract:
+            errors.append(
+                "Form Lab event-list buttons must expose their selected state"
+            )
+
     return errors
 
 
@@ -722,6 +749,16 @@ def main() -> int:
 
         if parser.icon_links != EXPECTED_ICON_LINKS:
             parser.errors.append("favicon links differ from the shared page-head contract")
+
+        if page.name == "form-lab.html":
+            if EXPECTED_FORM_LAB_STYLESHEET not in parser.stylesheet_references:
+                parser.errors.append(
+                    "Form Lab accessibility stylesheet cache version is stale"
+                )
+            if EXPECTED_FORM_LAB_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Form Lab accessibility script cache version is stale"
+                )
 
         if len(parser.skip_link_records) != 1:
             parser.errors.append("expected exactly one shared skip link")
@@ -1052,6 +1089,27 @@ def main() -> int:
                             f"site-tail.css:{rsvp_line}: RSVP mobile avatar {dimension} "
                             f"must be {RSVP_MOBILE_AVATAR_SIZE}"
                         )
+        if stylesheet.name == "form-lab.css":
+            point_focus_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context and selector == ".fl-point:focus-visible .fl-point-dot"
+            ]
+            if len(point_focus_rules) != 1:
+                errors.append(
+                    "form-lab.css: expected exactly one chart-point focus-visible rule"
+                )
+            else:
+                focus_body, focus_line = point_focus_rules[0]
+                if not re.search(
+                    r"(?:^|;)\s*stroke-width\s*:\s*4\s*(?:;|$)",
+                    focus_body,
+                    flags=re.IGNORECASE,
+                ):
+                    errors.append(
+                        f"form-lab.css:{focus_line}: chart-point keyboard focus "
+                        "must use a 4px stroke"
+                    )
         for context, selector, _body, line in css_rule_blocks(
             stylesheet_text
         ):
