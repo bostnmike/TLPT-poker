@@ -88,6 +88,19 @@ def main() -> int:
             if quality_text.count(gate) != 1:
                 errors.append(f"quality runner must contain exactly one `{gate}`")
 
+    # Maintenance-contract changes must trigger the site-quality workflow.
+    site_quality = ROOT / maintenance_paths.get("siteQualityWorkflow", "")
+    if site_quality.is_file():
+        quality_workflow_text = site_quality.read_text(encoding="utf-8")
+        for rel in baseline.get("qualityTriggerPaths", []):
+            expected = f'"{rel}"'
+            actual = quality_workflow_text.count(expected)
+            if actual != 2:
+                errors.append(
+                    f"{site_quality.relative_to(ROOT)}: expected `{rel}` in both push and "
+                    f"pull_request path filters, found {actual} occurrence(s)"
+                )
+
     # Public pages must remain one shared CSS generation.
     pages = sorted(ROOT.glob("*.html"))
     expected_page_count = baseline.get("publicPageCount")
@@ -114,6 +127,7 @@ def main() -> int:
     print(
         f"PASS: maintenance baseline verified — {len(pages)} public pages, "
         f"{len(baseline.get('requiredQualityGates', []))} quality gates, "
+        f"{len(baseline.get('qualityTriggerPaths', []))} protected maintenance paths, "
         f"shared CSS {asset}?v={version}"
     )
     return 0
