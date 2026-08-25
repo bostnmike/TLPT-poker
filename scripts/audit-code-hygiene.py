@@ -173,7 +173,7 @@ EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-3"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-4"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-4"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
@@ -235,9 +235,28 @@ EXPECTED_CONTROL_GROUPS = {
     "players.html": ("crew-view-toolbar", "Crew view"),
     "player-movement.html": ("pm-button-row", "Heater Meter view"),
 }
+EXPECTED_CONTROLLED_RESULTS = {
+    "dashboard.html": "dashboard-current-stat dashboard-formula-display dashboard-grid",
+    "standings.html": "standings-race-strip standings-table",
+    "rules.html": "format-content",
+    "players.html": "players-visual players-grid",
+    "player-movement.html": "pm-top-movers pm-player-grid",
+}
 EXPECTED_SWITCH_INPUT_LABELS = {
-    "rules.html": ("format-switch-input", "Saturday 500K structure"),
-    "players.html": ("crew-view-switch-input", "Archetype crew view"),
+    "rules.html": (
+        "format-switch-input",
+        "Saturday 500K structure",
+        "format-content",
+    ),
+    "players.html": (
+        "crew-view-switch-input",
+        "Archetype crew view",
+        "players-visual players-grid",
+    ),
+}
+EXPECTED_LIVE_STATUSES = {
+    "dashboard.html": "dashboard-current-stat",
+    "player-movement.html": "pm-top-title",
 }
 JAVASCRIPT_INLINE_HANDLER = re.compile(
     r"\bon[a-z]+\s*=\s*(['\"])",
@@ -777,6 +796,22 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Crew archetype mode switch must expose its own accessible name"
             )
+        if archetype_source.count(
+            'aria-controls="players-visual players-grid"'
+        ) != 5:
+            errors.append(
+                "Crew archetype controls must identify both controlled result regions"
+            )
+        standings_headline_source = function_source("ensureStandingsHeadline")
+        for attribute, value in (
+            ("role", "status"),
+            ("aria-live", "polite"),
+            ("aria-atomic", "true"),
+        ):
+            if f'headline.setAttribute("{attribute}", "{value}")' not in standings_headline_source:
+                errors.append(
+                    f"Standings status headline must use {attribute}={value}"
+                )
 
     if path.name == "form-lab.js":
         point_contract = re.search(
@@ -1015,6 +1050,11 @@ def main() -> int:
                         pressed_values.add(value)
                     if "active" in classes:
                         active_values.add(value)
+                    expected_results = EXPECTED_CONTROLLED_RESULTS[page.name]
+                    if attrs.get("aria-controls") != expected_results:
+                        parser.errors.append(
+                            f"{value} controlled results differ from the page contract"
+                        )
                 if pressed_values != {default_value}:
                     parser.errors.append(
                         "selected-state button group has the wrong initial pressed option"
@@ -1050,7 +1090,7 @@ def main() -> int:
 
         expected_switch = EXPECTED_SWITCH_INPUT_LABELS.get(page.name)
         if expected_switch:
-            switch_id, switch_label = expected_switch
+            switch_id, switch_label, switch_controls = expected_switch
             matching_switches = [
                 record
                 for record in parser.element_records
@@ -1068,6 +1108,34 @@ def main() -> int:
                     parser.errors.append(
                         f"#{switch_id} must expose its own accessible name"
                     )
+                if switch_attrs.get("aria-controls") != switch_controls:
+                    parser.errors.append(
+                        f"#{switch_id} controlled results differ from the page contract"
+                    )
+
+        expected_status_id = EXPECTED_LIVE_STATUSES.get(page.name)
+        if expected_status_id:
+            matching_statuses = [
+                record
+                for record in parser.element_records
+                if record["attrs"].get("id") == expected_status_id
+            ]
+            if len(matching_statuses) != 1:
+                parser.errors.append(
+                    f"expected exactly one #{expected_status_id} live status"
+                )
+            else:
+                status_attrs = matching_statuses[0]["attrs"]
+                assert isinstance(status_attrs, dict)
+                for attribute, value in (
+                    ("role", "status"),
+                    ("aria-live", "polite"),
+                    ("aria-atomic", "true"),
+                ):
+                    if status_attrs.get(attribute, "").lower() != value:
+                        parser.errors.append(
+                            f"#{expected_status_id} must use {attribute}={value}"
+                        )
 
         if len(parser.skip_link_records) != 1:
             parser.errors.append("expected exactly one shared skip link")
@@ -1115,6 +1183,15 @@ def main() -> int:
         duplicate_ids = sorted(item for item, count in Counter(parser.ids).items() if count > 1)
         if duplicate_ids:
             parser.errors.append(f"duplicate id values: {', '.join(duplicate_ids)}")
+
+        for record in parser.element_records:
+            attrs = record["attrs"]
+            assert isinstance(attrs, dict)
+            for controlled_id in attrs.get("aria-controls", "").split():
+                if controlled_id not in parser.ids:
+                    parser.errors.append(
+                        f"aria-controls references missing id: {controlled_id}"
+                    )
 
         if not parser.nav_links:
             parser.errors.append("primary navigation was not found")
