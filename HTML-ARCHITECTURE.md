@@ -509,3 +509,18 @@ deferred archive, poster and badge dimensions, lightbox delivery, and cache
 contract. Poster files, manifest ordering, winner data, titles, lightbox
 navigation, focus behavior, layout, styling, and responsive presentation remain
 unchanged.
+
+## Phase 3D.5 Form Lab and Streak Tracker portrait-delivery contract
+
+The two remaining page-specific metrics portrait helpers now publish intrinsic
+square dimensions matching their existing layouts. Form Lab player cards use
+54-by-54 dimensions, while Streak Tracker leader rows and player summaries use
+46-by-46 dimensions. Both pages retain native lazy loading and asynchronous
+decoding so their below-the-fold portrait collections remain deferred.
+
+The page references advance to `form-lab.js?v=20260825-2` and
+`streaks.js?v=20260825-1`. `scripts/audit-code-hygiene.py` enforces both image
+contracts, their matching CSS dimensions, and cache delivery. Player data,
+form calculations, streak calculations, chart behavior, leader ordering,
+fallback initials, layout, styling, and responsive presentation remain
+unchanged.

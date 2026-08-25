@@ -44,6 +44,8 @@ function renderAvatar(person) {
         alt="${alt}"
         loading="lazy"
         decoding="async"
+        width="46"
+        height="46"
         data-image-error-action="show-next"
       />
       <span class="player-avatar-fallback table" hidden>${fallback}</span>

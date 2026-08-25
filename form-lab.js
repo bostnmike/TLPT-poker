@@ -1274,6 +1274,8 @@ function playerAvatarMarkup(player) {
           alt="${escapeAttr(name)}"
           loading="lazy"
           decoding="async"
+          width="54"
+          height="54"
           data-image-error-action="show-next"
         />
         <span class="fl-player-avatar-fallback" hidden>${escapeHtml(initialsFromName(name))}</span>
