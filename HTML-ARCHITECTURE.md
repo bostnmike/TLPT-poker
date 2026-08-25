@@ -767,3 +767,21 @@ shared-shell test.
 No source data, generated data, player statistic, calculation, card treatment,
 Crew ordering, navigation destination, RSVP layout, existing successful-load
 render path, page-specific layout, or responsive rule changes in this phase.
+
+## Phase 3F.2.1 recovery-test workflow repair
+
+Deployment validation confirmed that the Phase 3F.2 runtime, all eight
+`app.js?v=20260825-11` consumers, both audit copies, and the automated failure
+test reached production. The site-quality workflow itself retained its earlier
+form, however, so `scripts/test-app-load-failure.mjs` was present without being
+executed by the GitHub quality gate.
+
+The missing workflow step is restored immediately after the existing shared
+image-fallback test. Both code-hygiene audit copies now require exactly one
+invocation of each shared behavior test, require their approved order, and
+verify that both referenced test scripts exist. A future deployment cannot omit
+the recovery test while still passing the hygiene audit.
+
+No HTML page, stylesheet, application runtime, data file, calculation, card,
+navigation destination, RSVP layout, interaction, or responsive rule changes
+in this repair.

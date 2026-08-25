@@ -301,6 +301,10 @@ EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-11"
+EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
+    "node scripts/test-site-shell.mjs",
+    "node scripts/test-app-load-failure.mjs",
+]
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
@@ -1692,6 +1696,40 @@ def audit_javascript(path: Path) -> list[str]:
     return errors
 
 
+def audit_site_quality_workflow() -> list[str]:
+    errors: list[str] = []
+    workflow_path = ROOT / ".github" / "workflows" / "site-quality.yml"
+    if not workflow_path.is_file():
+        return ["site-quality workflow: missing required quality gate"]
+
+    workflow_text = workflow_path.read_text(encoding="utf-8")
+    command_positions: list[int] = []
+    for command in EXPECTED_SITE_QUALITY_TEST_COMMANDS:
+        command_line = f"run: {command}"
+        if workflow_text.count(command_line) != 1:
+            errors.append(
+                "site-quality workflow: expected exactly one test command: "
+                + command
+            )
+            continue
+        command_positions.append(workflow_text.index(command_line))
+
+        script_path = ROOT / command.removeprefix("node ")
+        if not script_path.is_file():
+            errors.append(
+                "site-quality workflow: test command targets a missing script: "
+                + command
+            )
+
+    if len(command_positions) == len(EXPECTED_SITE_QUALITY_TEST_COMMANDS):
+        if command_positions != sorted(command_positions):
+            errors.append(
+                "site-quality workflow: shared behavior tests differ from the approved order"
+            )
+
+    return errors
+
+
 def audit_search_discovery() -> list[str]:
     errors: list[str] = []
 
@@ -1755,6 +1793,7 @@ def audit_search_discovery() -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_site_quality_workflow())
     errors.extend(audit_search_discovery())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
