@@ -658,7 +658,8 @@ function rankArrowMarkup(player) {
   return `<span class="pm-rank-badge pm-rank-flat"><span class="pm-rank-arrow">→</span><span class="pm-rank-number">0</span></span>`;
 }
 
-function createCard(player) {
+function createCard(player, options = {}) {
+  const imageLoading = options.imageLoading === "eager" ? "eager" : "lazy";
   const finishHistory = player.finishes
     .map(finish => escapeHtml(finish))
     .join(" | ");
@@ -679,6 +680,10 @@ function createCard(player) {
           src="${escapeHtml(player.image || "images/players/default.jpg")}"
           alt=""
           aria-hidden="true"
+          loading="${imageLoading}"
+          decoding="async"
+          width="52"
+          height="52"
           data-image-error-action="fallback-source"
           data-image-fallback-src="images/players/default.jpg"
         />
@@ -788,7 +793,7 @@ function renderTopMovers(players) {
 
   el.innerHTML = players
     .slice(0, 5)
-    .map(createCard)
+    .map(player => createCard(player, { imageLoading: "eager" }))
     .join("");
 }
 
@@ -797,7 +802,7 @@ function renderAllPlayers(players) {
   if (!el) return;
 
   el.innerHTML = players
-    .map(createCard)
+    .map(player => createCard(player, { imageLoading: "lazy" }))
     .join("");
 
   drawAllSparklines();

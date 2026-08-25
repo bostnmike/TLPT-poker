@@ -458,3 +458,19 @@ composition. Video sources, titles, playback controls, thumbnail artwork,
 outbound link, page copy, layout, styling, and responsive behavior are
 unchanged. `scripts/audit-code-hygiene.py` enforces the approved eight-embed
 inventory, lazy-loading behavior, and thumbnail decoding contract.
+
+## Phase 3D.2 Heater Meter portrait-delivery contract
+
+The Heater Meter now separates above-the-fold and offscreen portrait delivery.
+The five visible Top Movers keep eager loading, while the complete player board
+uses native lazy loading so portraits are requested only as the visitor nears
+those cards. All Heater Meter portraits decode asynchronously and publish their
+52-by-52 intrinsic dimensions to reserve a stable square before the image
+finishes loading; existing responsive CSS continues controlling the rendered
+size at each breakpoint.
+
+The page script advances to `player-movement.js?v=20260825-6`.
+`scripts/audit-code-hygiene.py` enforces the eager Top Movers, lazy full board,
+asynchronous decoding, intrinsic dimensions, and cache-delivery contract.
+Player inclusion, ranking, momentum formulas, card content, fallback behavior,
+avatars, styling, layout, and responsive presentation remain unchanged.
