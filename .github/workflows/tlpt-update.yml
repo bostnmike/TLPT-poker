@@ -23,7 +23,7 @@ jobs:
       # 🧾 Checkout repo
       # -----------------------------------------
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -31,9 +31,14 @@ jobs:
       # 🐍 Setup Python
       # -----------------------------------------
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.11"
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
 
       # -----------------------------------------
       # 🔄 Parse ALL events
