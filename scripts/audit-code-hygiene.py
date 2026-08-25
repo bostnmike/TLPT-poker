@@ -178,11 +178,13 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-8"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-1"
+EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20260825-1"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
     ("icon", "images/site/favicon-16.png", "image/png", "16x16"),
@@ -1137,6 +1139,99 @@ def audit_javascript(path: Path) -> list[str]:
                 "and 46-pixel intrinsic dimensions"
             )
 
+    if path.name == "news-render.js":
+        avatar_source = function_source("renderAvatar")
+        for fragment, message in (
+            (
+                "const numericSize = Number(options.intrinsicSize);",
+                "News portraits must resolve an approved intrinsic size",
+            ),
+            (
+                "const loading = options.loading === 'eager' ? 'eager' : 'lazy';",
+                "News portraits must default to lazy loading",
+            ),
+            (
+                "const fetchPriority = options.fetchPriority === 'high' ? 'high' : 'auto';",
+                "News portraits must default to automatic fetch priority",
+            ),
+            ('loading="${loading}"', "News portraits must publish loading priority"),
+            ('decoding="async"', "News portraits must decode asynchronously"),
+            (
+                'fetchpriority="${fetchPriority}"',
+                "News portraits must publish fetch priority",
+            ),
+            ('width="${intrinsicSize}"', "News portraits must publish intrinsic width"),
+            ('height="${intrinsicSize}"', "News portraits must publish intrinsic height"),
+        ):
+            if fragment not in avatar_source:
+                errors.append(message)
+        author_source = function_source("renderAuthor")
+        if not re.search(
+            r"renderAvatar\(\{.*?\},\s*\{\s*intrinsicSize:\s*68,\s*"
+            r"loading:\s*'eager',\s*fetchPriority:\s*'high'\s*\}\)",
+            author_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Visible News author portrait must be eager, high-priority, and 68 pixels"
+            )
+        summary_source = function_source("renderSummaryCard")
+        for fragment, message in (
+            (
+                "renderAvatar(avatar, { intrinsicSize: 38 })",
+                "News multi-player summaries must reserve 38-pixel portraits",
+            ),
+            (
+                "}, { intrinsicSize: 46 })",
+                "News single-player summaries must reserve 46-pixel portraits",
+            ),
+        ):
+            if fragment not in summary_source:
+                errors.append(message)
+        spotlight_source = function_source("renderGameSpotlight")
+        for fragment, message in (
+            (
+                "renderAvatar(avatar, { intrinsicSize: 42 })",
+                "News multi-player spotlights must reserve 42-pixel portraits",
+            ),
+            (
+                'fetchpriority="auto"',
+                "News single-player spotlights must retain automatic fetch priority",
+            ),
+            ('width="42"', "News single-player spotlights must reserve 42-pixel width"),
+            ('height="42"', "News single-player spotlights must reserve 42-pixel height"),
+        ):
+            if fragment not in spotlight_source:
+                errors.append(message)
+        roast_source = function_source("renderRoastSection")
+        for fragment in (
+            'fetchpriority="auto"',
+            'width="44"',
+            'height="44"',
+        ):
+            if fragment not in roast_source:
+                errors.append(
+                    "News roast portrait must retain automatic priority and 44-pixel dimensions"
+                )
+                break
+        if text.count("fetchPriority: 'high'") != 1:
+            errors.append(
+                "Only the visible News author portrait may request high fetch priority"
+            )
+
+    if path.name == "trophy-room.js":
+        trophy_avatar_contract = re.search(
+            r"function\s+avatarMarkup\(card\).*?<img.*?loading=\"lazy\".*?"
+            r"decoding=\"async\".*?width=\"128\".*?height=\"128\"",
+            text,
+            flags=re.DOTALL,
+        )
+        if not trophy_avatar_contract:
+            errors.append(
+                "Trophy Room portraits must use lazy loading, asynchronous decoding, "
+                "and 128-pixel intrinsic dimensions"
+            )
+
     if path.name == "gallery.js":
         focus_source = function_source("focusGalleryLightbox")
         if "getGalleryLightboxFocusable" not in focus_source or ".focus(" not in focus_source:
@@ -1357,6 +1452,18 @@ def main() -> int:
             if EXPECTED_STREAKS_SCRIPT not in parser.script_references:
                 parser.errors.append(
                     "Streak Tracker portrait-delivery script cache version is stale"
+                )
+
+        if page.name == "news.html":
+            if EXPECTED_NEWS_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "News portrait-delivery script cache version is stale"
+                )
+
+        if page.name == "trophy-room.html":
+            if EXPECTED_TROPHY_ROOM_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Trophy Room portrait-delivery script cache version is stale"
                 )
 
         if page.name == "player.html":
@@ -2230,6 +2337,78 @@ def main() -> int:
                             f"streaks.css:{avatar_line}: Streak Tracker portrait "
                             f"{dimension} must remain 46px"
                         )
+        if stylesheet.name == "news.css":
+            news_avatar_contracts = (
+                ({
+                    ".news-author-strip .player-avatar.table",
+                    ".news-author-strip .player-avatar-fallback.table",
+                }, 68, "author"),
+                ({
+                    ".news-summary-head .player-avatar.table",
+                    ".news-summary-head .player-avatar-fallback.table",
+                }, 46, "single-player summary"),
+                ({
+                    ".news-summary-avatar-row .player-avatar.table",
+                    ".news-summary-avatar-row .player-avatar-fallback.table",
+                }, 38, "multi-player summary"),
+                ({
+                    ".news-receipt-top .player-avatar.table",
+                    ".news-receipt-top .player-avatar-fallback.table",
+                }, 42, "spotlight"),
+                ({
+                    ".news-pull-quote-row .player-avatar.table",
+                    ".news-pull-quote-row .player-avatar-fallback.table",
+                }, 44, "roast"),
+            )
+            news_rules = [
+                (selector, body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+            ]
+            for selectors, expected_size, label in news_avatar_contracts:
+                matches = [
+                    (body, line)
+                    for selector, body, line in news_rules
+                    if selectors.issubset(
+                        {part.strip() for part in selector.split(",")}
+                    )
+                ]
+                if len(matches) != 1:
+                    errors.append(
+                        f"news.css: expected exactly one {label} portrait dimension rule"
+                    )
+                    continue
+                avatar_body, avatar_line = matches[0]
+                for dimension in ("width", "height"):
+                    if not re.search(
+                        rf"(?:^|;)\s*{dimension}\s*:\s*{expected_size}px\s*(?:;|$)",
+                        avatar_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"news.css:{avatar_line}: News {label} portrait {dimension} "
+                            f"must remain {expected_size}px"
+                        )
+        if stylesheet.name == "trophy-room.css":
+            trophy_avatar_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+                and selector == ".trophy-room-page .trophy-card-avatar-wrap"
+            ]
+            if len(trophy_avatar_rules) != 1:
+                errors.append(
+                    "trophy-room.css: expected exactly one card-avatar dimension rule"
+                )
+            elif not re.search(
+                r"(?:^|;)\s*width\s*:\s*min\(\s*128px\s*,\s*100%\s*\)\s*(?:;|$)",
+                trophy_avatar_rules[0][0],
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    f"trophy-room.css:{trophy_avatar_rules[0][1]}: Trophy Room "
+                    "portrait width must remain capped at 128px"
+                )
         if stylesheet.name == "gallery.css":
             gallery_rules = [
                 (selector, body, line)
