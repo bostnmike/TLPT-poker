@@ -440,7 +440,7 @@
     width:auto;
     height:auto;
     display:grid;
-    grid-template-columns:repeat(3, 54px);
+    grid-template-columns:repeat(3, 64px);
     justify-content:center;
     gap:12px 16px;
     margin:0;
@@ -454,21 +454,21 @@
   .event-rsvp-avatar-row > .event-rsvp-seat-player,
   .event-rsvp-avatar-row > .event-empty-seat{
     position:static;
-    width:54px;
-    height:54px;
+    width:64px;
+    height:64px;
     transform:none !important;
   }
 
   .event-rsvp-seat-player .player-avatar-wrap{
-    width:54px;
-    height:54px;
+    width:64px;
+    height:64px;
   }
   
   .event-rsvp-avatar-row .player-avatar,
   .event-rsvp-avatar-row .player-avatar-fallback{
-    width:54px;
-    height:54px;
-    font-size:1rem;
+    width:64px;
+    height:64px;
+    font-size:1.12rem;
   }
 
   .event-empty-seat{

@@ -96,8 +96,8 @@ contract: Schedule, Rules, The Week That Was, The Gallery, and the Film Room.
 
 Only the primary heading adopts `.site-page-title`. Each page retains its
 existing title color, chip or emoji identity, accent line, shell background,
-kicker, content layout, and responsive header spacing. Schedule uses the shared
-long-title modifier, and the News emoji is scaled to balance the larger desktop
+kicker, content layout, and responsive header spacing. Schedule initially used
+the shared long-title modifier, and the News emoji is scaled to balance the larger desktop
 heading while retaining its existing mobile size. No page-module title
 typography override is needed because those modules already defer primary
 heading size, weight, line height, and letter spacing to the shared foundation.
@@ -151,10 +151,22 @@ the far right and integrating the copy beneath the primary title.
 
 Rules and Film Room separate their existing content into adjacent page-owned
 sections so the shared hero remains a true header rather than absorbing the
-rule cards or video library. Schedule retains the long-title modifier with a
-mobile spacing safeguard, and Gallery keeps its warm archive palette. Player
+rule cards or video library. Schedule initially retained the long-title
+modifier with a mobile spacing safeguard, and Gallery keeps its warm archive palette. Player
 Profile, Trophy Room, navigation, data, calculations, and card behavior remain
 unchanged.
+
+### Phase 3B.1.1 Schedule and RSVP sizing refinement
+
+The Schedule hero title is shortened to “Next at Caahhd Room,” removes the
+long-title modifier, and returns to the standard shared hero-title scale on
+desktop and mobile. The Schedule module retains only its chip-clearance padding
+at the smallest breakpoint.
+
+The shared Home/Schedule RSVP table avatars increase to 144px on desktop and
+64px in the compact three-column mobile grid. `style.css` continues to own the
+desktop seat and avatar geometry, while `site-tail.css` owns the coordinated
+mobile seat, wrapper, avatar, and fallback dimensions.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

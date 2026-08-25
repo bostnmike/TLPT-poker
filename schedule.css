@@ -14,8 +14,4 @@
   .section.schedule-hero .site-page-hero-copy{
     padding-right:68px;
   }
-
-  .section.schedule-hero .site-page-hero-title{
-    font-size:clamp(1.95rem,10vw,2.3rem);
-  }
 }
