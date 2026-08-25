@@ -5210,16 +5210,27 @@ function renderPlayerProfile(data) {
     };
   });
 
-  const statsMarkup = profileStats.map(stat => `
-    <div class="profile-stat player-stat-card" data-stat-formula="${STAT_FORMULAS[stat.key] || ""}" tabindex="0">
-      <span class="kicker player-stat-kicker">${statIcon(stat.key)} ${stat.label}</span>
+  const statsMarkup = profileStats.map(stat => {
+    const formula = STAT_FORMULAS[stat.key] || "";
+    const accessibleLabel = `${stat.label}: ${stat.value}. ${formula ? `Calculation: ${formula}` : "Calculation not available."}`;
+
+    return `
       <div
-        class="metric player-stat-metric ${stat.valueClass || ""}"
-        data-animate-count="true"
-        data-target-value="${stat.value}"
-      >${stat.value}</div>
-    </div>
-  `).join("");
+        class="profile-stat player-stat-card"
+        data-stat-formula="${escapeHtmlAttr(formula)}"
+        tabindex="0"
+        role="group"
+        aria-label="${escapeHtmlAttr(accessibleLabel)}"
+      >
+        <span class="kicker player-stat-kicker">${statIcon(stat.key)} ${stat.label}</span>
+        <div
+          class="metric player-stat-metric ${stat.valueClass || ""}"
+          data-animate-count="true"
+          data-target-value="${stat.value}"
+        >${stat.value}</div>
+      </div>
+    `;
+  }).join("");
 
   container.innerHTML = `
     <div class="profile-shell player-profile-shell">
@@ -5245,7 +5256,7 @@ function renderPlayerProfile(data) {
 
       <div id="player-formula-display" class="player-formula-display">&nbsp;</div>
 
-            <p class="player-formula-help muted">Mouse over any stat to reveal the calculation.</p>
+            <p class="player-formula-help muted">Mouse over or focus any stat to reveal the calculation.</p>
 
       <div class="profile-grid player-stat-grid-enhanced">
         ${statsMarkup}

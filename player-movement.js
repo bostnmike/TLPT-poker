@@ -677,6 +677,8 @@ function createCard(player) {
         <img
           class="pm-avatar"
           src="${escapeHtml(player.image || "images/players/default.jpg")}"
+          alt=""
+          aria-hidden="true"
           data-image-error-action="fallback-source"
           data-image-fallback-src="images/players/default.jpg"
         />
@@ -689,6 +691,7 @@ function createCard(player) {
       <canvas
         class="pm-sparkline"
         data-trend="${player.trend.join(",")}"
+        aria-hidden="true"
       ></canvas>
 
       <div class="pm-card-metrics">

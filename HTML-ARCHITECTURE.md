@@ -415,3 +415,32 @@ motion-limiting property, the application preference helper, both immediate
 content paths, report-rotation protection, and cache delivery. Default motion,
 visible styling, content rotation, interactions, calculations, data, layout,
 and responsive presentation remain unchanged for users without the preference.
+
+## Phase 3C.10 accessibility semantic closeout
+
+The final Phase 3C pass closes the remaining semantic gaps without changing
+visible design or behavior. Form Lab, Heater Meter, and Streak Tracker now use
+the same page-heading hierarchy as the other pages: the persistent site-brand
+heading remains the single `h1`, and each visible page title is its `h2`.
+
+All 13 large header-chip images are now explicitly decorative with empty
+alternative text and `aria-hidden="true"`; the title, kicker, and supporting
+copy continue carrying the page meaning. The interactive Form Lab SVG is a
+named group rather than one opaque image, ensuring its keyboard-focusable event
+buttons remain exposed to assistive technology. Heater Meter portraits and
+sparklines are hidden as redundant visual content because each card already
+writes out the player name and recent finishes.
+
+Player Profile stat cards now announce their label, value, and calculation as
+one focusable group. The existing formula reveal works for both pointer and
+keyboard focus, and a dedicated high-contrast `:focus-visible` outline makes
+the focused stat unambiguous.
+
+The shared application reference advances to `app.js?v=20260825-7` across all
+eight consumers. Player Profile advances to `player.css?v=20260825-1`, and
+Heater Meter advances to `player-movement.js?v=20260825-5`.
+`scripts/audit-code-hygiene.py` enforces the heading, decorative-image,
+interactive-chart, redundant-graphic, stat announcement, focus treatment, and
+cache-delivery contracts. Page copy, player data, ratings, tiers, card skins,
+Crew order, calculations, navigation, interactions, layout, and responsive
+presentation remain unchanged.

@@ -75,7 +75,7 @@
   <section class="fl-header-shell site-page-hero site-page-hero-purple" aria-labelledby="form-lab-page-title">
     <div class="site-page-hero-copy">
       <span class="site-page-hero-kicker">Interactive Player Analysis</span>
-      <h1 id="form-lab-page-title" class="site-page-title site-page-hero-title">The Form Lab</h1>
+      <h2 id="form-lab-page-title" class="site-page-title site-page-hero-title">The Form Lab</h2>
       <p class="site-page-hero-description">
         Interactive player trend analysis, scatter plots, and deeply unnecessary evidence.
       </p>
@@ -84,7 +84,8 @@
     <img
       src="images/site/chip-T-500.png"
       class="site-page-hero-chip"
-      alt="T-500 chip"
+      alt=""
+      aria-hidden="true"
       data-hide-on-error
     />
   </section>
@@ -151,7 +152,7 @@
     </div>
 
     <div class="fl-chart-stage">
-      <svg id="fl-chart" class="fl-chart" role="img" aria-label="Form Lab scatter chart"></svg>
+      <svg id="fl-chart" class="fl-chart" role="group" aria-labelledby="fl-chart-title fl-chart-subtitle"></svg>
       <div id="fl-tooltip" class="fl-tooltip" hidden></div>
     </div>
 

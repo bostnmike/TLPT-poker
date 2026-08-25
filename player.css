@@ -52,6 +52,11 @@
   z-index:1;
 }
 
+.player-page .player-stat-grid-enhanced .player-stat-card:focus-visible{
+  outline:3px solid #ffe39a;
+  outline-offset:3px;
+}
+
 .player-page .player-profile-hero.profile-hero-wide{
   display:grid;
   grid-template-columns:minmax(320px, 390px) minmax(0,1fr);
