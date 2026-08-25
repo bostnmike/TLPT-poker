@@ -184,3 +184,16 @@ present exactly once in prestige order, and that every Trophy Room card keeps
 its frozen historic snapshot and active-skin marker. This prevents later UI
 work from silently diverging from the card ledger without adding a second
 edition-selection system.
+
+## Phase 3B.4 shared app-runtime cache lock
+
+The eight pages that consume `app.js` use one shared versioned reference:
+`app.js?v=20260825-1`. This prevents navigation between pages from mixing
+different cached generations of the common data and card-rendering runtime.
+The application script, page content, styling, calculations, and generated data
+remain unchanged.
+
+`scripts/audit-code-hygiene.py` enforces the complete consumer set, requires
+each consumer to load `app.js` exactly once, and requires every consumer to use
+the same full cache-version reference. Future cache rotations must therefore be
+applied consistently across all eight pages.
