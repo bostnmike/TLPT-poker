@@ -177,8 +177,10 @@ EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-1"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
+EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
 EXPECTED_ICON_LINKS = [
     ("icon", "images/site/favicon-32.png", "image/png", "32x32"),
@@ -821,6 +823,42 @@ def audit_javascript(path: Path) -> list[str]:
                 "Heater Meter full-board portraits must use lazy loading"
             )
 
+    if path.name in {"knockouts.js", "player-knockouts.js"}:
+        avatar_class = (
+            "knockouts-avatar" if path.name == "knockouts.js" else "knockout-avatar"
+        )
+        avatar_contract = re.search(
+            rf'<img\s+class="{avatar_class} \$\{{sizeClass\}}".*?'
+            r'loading="lazy".*?decoding="async".*?'
+            r'width="\$\{intrinsicSize\}".*?height="\$\{intrinsicSize\}"',
+            text,
+            flags=re.DOTALL,
+        )
+        if not avatar_contract:
+            errors.append(
+                "Knockout portraits must use lazy loading, asynchronous decoding, "
+                "and matched intrinsic dimensions"
+            )
+        if "const intrinsicSize = avatarIntrinsicSize(sizeClass);" not in text:
+            errors.append(
+                "Knockout portraits must derive intrinsic size from their visual size class"
+            )
+        if path.name == "knockouts.js":
+            for fragment in (
+                'if (sizeClass === "knockouts-avatar-lg") return 68;',
+                'if (sizeClass === "knockouts-avatar-sm") return 40;',
+                "return 72;",
+            ):
+                if fragment not in text:
+                    errors.append(
+                        "Knockout Central portrait dimensions differ from its CSS contract"
+                    )
+                    break
+        elif 'return sizeClass === "knockout-avatar-lg" ? 108 : 42;' not in text:
+            errors.append(
+                "Player knockout portrait dimensions differ from the large/small CSS contract"
+            )
+
     if path.name == "app.js":
         reduced_motion_source = function_source("prefersReducedMotion")
         if (
@@ -1162,6 +1200,16 @@ def main() -> int:
             if EXPECTED_PLAYER_STYLESHEET not in parser.stylesheet_references:
                 parser.errors.append(
                     "Player Profile accessibility stylesheet cache version is stale"
+                )
+            if EXPECTED_PLAYER_KNOCKOUTS_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Player Profile knockout portrait script cache version is stale"
+                )
+
+        if page.name == "knockouts.html":
+            if EXPECTED_KNOCKOUTS_SCRIPT not in parser.script_references:
+                parser.errors.append(
+                    "Knockout Central portrait script cache version is stale"
                 )
 
         if page.name == "media.html":
