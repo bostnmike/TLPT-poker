@@ -178,8 +178,7 @@
 
     (data?.players || []).forEach(player => {
       const collection = player?.cardCollection || [];
-      const configuredFeaturedId = String(player?.featuredCardEdition || "").trim();
-      const featuredId = configuredFeaturedId || collection[0]?.id || "base";
+      const featuredId = collection[0]?.id || "base";
 
       collection.forEach(record => {
         const edition = editionMetadata(record);
@@ -193,7 +192,6 @@
             image: player.image
           },
           isFeatured: edition.id === featuredId,
-          featuredMode: player?.featuredCardMode || "automatic",
           activityDate: edition.upgradedDate || edition.earnedDate,
           year: String(edition.upgradedDate || edition.earnedDate || "").slice(0, 4)
         });
@@ -253,7 +251,7 @@
         <a
           class="trophy-card trophy-card-${escapeHtml(card.className)} trophy-card-edition-${editionClass}"
           href="${playerUrl}"
-          aria-label="${escapeHtml(card.player.name)}, ${escapeHtml(card.label)}, historic rating ${snapshot.overall}. ${escapeHtml(earnedLabel(card))}.${card.isFeatured ? " Featured on the Crew page." : ""}"
+          aria-label="${escapeHtml(card.player.name)}, ${escapeHtml(card.label)}, historic rating ${snapshot.overall}. ${escapeHtml(earnedLabel(card))}.${card.isFeatured ? " Active automatic Crew skin." : ""}"
           title="Open ${escapeHtml(card.player.name)}'s Player Profile"
         >
           <span class="trophy-card-inner">
@@ -304,8 +302,8 @@
           ${card.isFeatured ? `
             <span
               class="trophy-card-featured"
-              title="${card.featuredMode === "commissioner" ? "Commissioner selection" : "Automatic prestige selection"}"
-            >Featured on Crew</span>
+              title="Automatically selected as this player's highest-priority earned Crew skin"
+            >Active Crew Skin</span>
           ` : ""}
           <p>${escapeHtml(card.reason || "Permanent TLPT collectible.")}</p>
           <small>${escapeHtml(card.earnedEvent || "TLPT Event")}</small>

@@ -152,3 +152,19 @@ checkpoint.
 experience-band, rating-range, tier-first ordering, skin-independence, and Hall
 threshold contracts. `scripts/audit-site-integrity.py` independently replays
 historical card ownership and frozen snapshots.
+
+## Phase 3B.2 automatic Crew-skin consistency
+
+The automatic highest-priority skin rule is now enforced from source data
+through presentation. `data/featured-cards.json` is a policy manifest rather
+than a player selector: manual overrides are rejected, every generated player
+uses `featuredCardMode: "automatic"`, and `featuredCardEdition` must match the
+first edition in the permanent prestige-ordered collection (or `base` when the
+collection is empty).
+
+Crew, Player Profile, and Trophy Room use the shared visible label “Active Crew
+Skin.” The Profile collection explains that the selection is automatic, and
+the Trophy Room resolves the active skin directly from collection priority.
+Base Crew cards now display the same explicit `BASE` edition marker used by the
+other card surfaces. Ratings, tiers, ordering, permanent ownership, historic
+snapshots, and all special-edition artwork remain unchanged.

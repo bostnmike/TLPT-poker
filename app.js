@@ -2876,11 +2876,9 @@ function crewCardMarkup(player, data) {
               <em title="${escapeHtmlAttr(`${specialEditions.length} collected: ${specialCollectionLabel}`)}">
                 ${specialEdition.icon} ${specialEdition.shortLabel}${specialEditions.length > 1 ? ` +${specialEditions.length - 1}` : ""}
               </em>
-            ` : specialEditions.length ? `
-              <em class="is-base-featured" title="${escapeHtmlAttr(`Base Edition featured • ${specialEditions.length} special edition${specialEditions.length === 1 ? "" : "s"} collected`)}">
-                ♠ BASE +${specialEditions.length}
-              </em>
-            ` : ""}
+            ` : `
+              <em class="is-base-featured" title="Base Edition">♠ BASE</em>
+            `}
           </div>
 
           <img
@@ -4020,13 +4018,6 @@ function playerCardSpecialEdition(player, data) {
 
 function playerCardFeaturedEditionId(player, data) {
   const editions = playerCardSpecialEditions(player, data);
-  const configured = String(player?.featuredCardEdition || "").trim();
-
-  if (configured === "base") return "base";
-  if (configured && editions.some(edition => edition.id === configured)) {
-    return configured;
-  }
-
   return editions[0]?.id || "base";
 }
 
@@ -4659,7 +4650,7 @@ function playerCardCollectibleMarkup(
         ${earnedLabel ? `<em>${earnedLabel}</em>` : ""}
       </span>
       <span class="tlpt-card-collectible-selected">Viewing</span>
-      ${isFeatured ? `<span class="tlpt-card-collectible-featured" title="This design is currently shown on the Crew page">Featured on Crew</span>` : ""}
+      ${isFeatured ? `<span class="tlpt-card-collectible-featured" title="Automatically selected as this player's highest-priority earned Crew skin">Active Crew Skin</span>` : ""}
     </button>
   `;
 }
@@ -4683,7 +4674,7 @@ function playerCardCollectionMarkup(player, players, editions, featuredId = "bas
         <div>
           <span>Collectible Career Set</span>
           <h2 id="tlpt-card-collection-title">Ultimate Card Editions</h2>
-          <p>Every earned finish stays in the collection with its original date and frozen ratings. Select a card to preview it above; the design marked Featured on Crew is controlled in the shared commissioner settings.</p>
+          <p>Every earned finish stays in the collection with its original date and frozen ratings. The highest-priority earned edition becomes the Active Crew Skin automatically; select any card here to preview it above.</p>
         </div>
         <strong>${collected.length} Special Edition${collected.length === 1 ? "" : "s"} Collected</strong>
       </header>
@@ -4694,8 +4685,8 @@ function playerCardCollectionMarkup(player, players, editions, featuredId = "bas
 
       <p class="tlpt-card-collection-status" data-card-collection-status aria-live="polite">
         ${featuredEdition
-          ? `Viewing ${featuredEdition.eyebrow}: ${featuredEdition.label}. Featured on Crew.`
-          : `Viewing the Base Edition. Featured on Crew.${collected.length ? " Select any collectible to preview its frozen historic ratings." : " Special editions unlock automatically as achievements are earned."}`}
+          ? `Viewing ${featuredEdition.eyebrow}: ${featuredEdition.label}. Active Crew Skin.`
+          : `Viewing the Base Edition. Active Crew Skin.${collected.length ? " Select any collectible to preview its frozen historic ratings." : " Special editions unlock automatically as achievements are earned."}`}
       </p>
     </section>
   `;
@@ -4717,6 +4708,11 @@ function wirePlayerCardEditionCollection(
   const specialClasses = ["hall", "infamy", "leader", "heater", "milestone"]
     .map(className => `tlpt-player-card-special-${className}`);
   const status = scope.querySelector("[data-card-collection-status]");
+  const activeCrewSkinId = initialEditionId;
+  const activeCrewEdition = collection.find(edition => edition.id === activeCrewSkinId) || null;
+  const activeCrewSkinLabel = activeCrewEdition
+    ? `${activeCrewEdition.eyebrow}: ${activeCrewEdition.label}`
+    : "Base Edition";
   const cardEditionLabel = card.querySelector("[data-card-edition-label]");
   const icon = banner.querySelector("[data-card-special-icon]");
   const eyebrow = banner.querySelector("[data-card-special-eyebrow]");
@@ -4827,12 +4823,19 @@ function wirePlayerCardEditionCollection(
         earned.textContent = earnedLabel ? `Historic Collectible • ${earnedLabel}` : "";
       }
       if (status) {
-        status.textContent = `Viewing ${edition.eyebrow}: ${edition.label}.${earnedLabel ? ` ${earnedLabel}.` : ""}`;
+        const activeCrewSuffix = edition.id === activeCrewSkinId
+          ? " Active Crew Skin."
+          : ` Active Crew Skin: ${activeCrewSkinLabel}.`;
+        status.textContent = `Viewing ${edition.eyebrow}: ${edition.label}.${earnedLabel ? ` ${earnedLabel}.` : ""}${activeCrewSuffix}`;
       }
     } else {
       banner.hidden = true;
       if (cardEditionLabel) cardEditionLabel.textContent = "Base Card";
-      if (status) status.textContent = "Viewing the Base Edition.";
+      if (status) {
+        status.textContent = activeCrewSkinId === "base"
+          ? "Viewing the Base Edition. Active Crew Skin."
+          : `Viewing the Base Edition. Active Crew Skin: ${activeCrewSkinLabel}.`;
+      }
       if (earned) {
         earned.hidden = true;
         earned.textContent = "";
