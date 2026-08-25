@@ -156,6 +156,9 @@ for (const player of players) {
 
   const meta = playerCardTierMeta(player, players);
   const appearances = Number(player.buyIns || 0);
+  const expectedCrewSkin = player.cardCollection?.[0]?.id || "base";
+  check(player.featuredCardMode === "automatic", `${player.slug}: Crew skin mode must remain automatic`);
+  check(player.featuredCardEdition === expectedCrewSkin, `${player.slug}: active Crew skin must be the highest-priority earned edition`);
   check(isCrewVisible(player) === (appearances >= 1), `${player.slug}: Crew visibility threshold is incorrect`);
   check(isCrewRookie(player) === (appearances >= 1 && appearances < 3), `${player.slug}: RKI band is incorrect`);
   check(isCrewProvisional(player) === (appearances >= 3 && appearances < 5), `${player.slug}: PRO band is incorrect`);
@@ -174,6 +177,8 @@ for (const player of players) {
 }
 
 const tierPriority = { S: 0, A: 1, B: 2, C: 3, D: 4, PRO: 5, RKI: 6 };
+check(data.featuredCardConfig?.mode === "automatic", "Generated Crew skin policy must remain automatic");
+check(data.featuredCardConfig?.overrideCount === 0, "Generated Crew skin policy must reject manual overrides");
 const manualCrewOrder = [...players]
   .filter(player => Number(player.buyIns || 0) >= 1)
   .sort((a, b) => {

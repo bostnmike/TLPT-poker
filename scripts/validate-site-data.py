@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -8,6 +9,16 @@ DATA_DIR = ROOT / "data"
 GENERATED_PATH = DATA_DIR / "generated" / "site-data.json"
 OUTPUT_PATH = DATA_DIR / "generated" / "validation-report.json"
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
+CARD_FIXED_ORDER = {
+    "hall-tax-collector": (4, 0),
+    "hall-direct-deposit": (4, 1),
+    "hall-billing-department": (4, 2),
+    "infamy-boy-in-the-bubble": (4, 3),
+    "leader-profit": (3, 10),
+    "leader-knockouts": (3, 11),
+    "leader-roi": (3, 12),
+    "leader-cash-rate": (3, 13),
+}
 
 
 def load_json(path):
@@ -23,6 +34,19 @@ def safe_div(a, b):
 
 def approx_equal(a, b, tol=0.01):
     return abs(a - b) <= tol
+
+
+def card_prestige_key(card):
+    card_id = str(card.get("id", ""))
+    if card_id in CARD_FIXED_ORDER:
+        priority, order = CARD_FIXED_ORDER[card_id]
+    elif re.fullmatch(r"heater-\d+", card_id):
+        priority, order = 2, 20
+    elif re.fullmatch(r"milestone-(10|25|50|75|100)", card_id):
+        priority, order = 1, 100 - int(card_id.split("-")[-1])
+    else:
+        return None
+    return (-priority, order, str(card.get("earnedDate", "")), card_id)
 
 
 def validate_player(p):
@@ -98,6 +122,14 @@ def validate_player(p):
             continue
         card_ids.append(card_id)
 
+        prestige_key = card_prestige_key(card)
+        if prestige_key is None:
+            errors.append(f"{card_id} is not a recognized card edition")
+        elif card.get("priority") != -prestige_key[0]:
+            errors.append(
+                f"{card_id} priority mismatch: {card.get('priority')} != {-prestige_key[0]}"
+            )
+
         snapshot = card.get("snapshot")
         if not isinstance(snapshot, dict):
             errors.append(f"{card_id} snapshot missing")
@@ -113,6 +145,16 @@ def validate_player(p):
     if len(card_ids) != len(set(card_ids)):
         errors.append("cardCollection contains duplicate card ids")
 
+    if all(
+        isinstance(card, dict) and card_prestige_key(card) is not None
+        for card in collection
+    ):
+        expected_card_ids = [
+            card["id"] for card in sorted(collection, key=card_prestige_key)
+        ]
+        if card_ids != expected_card_ids:
+            errors.append("cardCollection is not in permanent prestige order")
+
     featured = p.get("featuredCardEdition")
     valid_featured = {"base", *card_ids}
     if featured not in valid_featured:
@@ -121,14 +163,14 @@ def validate_player(p):
         )
 
     featured_mode = p.get("featuredCardMode")
-    if featured_mode not in {"automatic", "commissioner"}:
-        errors.append("featuredCardMode must be automatic or commissioner")
-    elif featured_mode == "automatic":
-        expected_featured = card_ids[0] if card_ids else "base"
-        if featured != expected_featured:
-            errors.append(
-                f"automatic featuredCardEdition mismatch: {featured} != {expected_featured}"
-            )
+    if featured_mode != "automatic":
+        errors.append("featuredCardMode must be automatic")
+
+    expected_featured = card_ids[0] if card_ids else "base"
+    if featured != expected_featured:
+        errors.append(
+            f"automatic featuredCardEdition mismatch: {featured} != {expected_featured}"
+        )
             
     return errors
 
@@ -142,15 +184,14 @@ def validate_featured_card_summary(data, players):
     if summary.get("source") != "data/featured-cards.json":
         errors.append("featuredCardConfig source mismatch")
 
-    override_count = sum(
-        1 for player in players
-        if player.get("featuredCardMode") == "commissioner"
-    )
-    if summary.get("overrideCount") != override_count:
-        errors.append(
-            f"featuredCardConfig overrideCount mismatch: "
-            f"{summary.get('overrideCount')} != {override_count}"
-        )
+    if summary.get("mode") != "automatic":
+        errors.append("featuredCardConfig mode must be automatic")
+
+    if summary.get("overrideCount") != 0:
+        errors.append("featuredCardConfig overrideCount must be 0")
+
+    if any(player.get("featuredCardMode") != "automatic" for player in players):
+        errors.append("all players must use automatic featuredCardMode")
 
     return errors
 

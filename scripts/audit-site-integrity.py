@@ -39,11 +39,34 @@ CARD_OVERALL_MIN_RATING = 40
 CARD_OVERALL_MAX_RATING = 99
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
+CARD_FIXED_ORDER = {
+    "hall-tax-collector": (4, 0),
+    "hall-direct-deposit": (4, 1),
+    "hall-billing-department": (4, 2),
+    "infamy-boy-in-the-bubble": (4, 3),
+    "leader-profit": (3, 10),
+    "leader-knockouts": (3, 11),
+    "leader-roi": (3, 12),
+    "leader-cash-rate": (3, 13),
+}
 
 
 def hall_minimum_appearances(event_count):
     """Mirror the published dynamic Hall threshold independently."""
     return max(math.ceil(event_count * HALL_PERCENTAGE), HALL_MIN_EVENTS)
+
+
+def card_prestige_key(card):
+    card_id = str(card.get("id", ""))
+    if card_id in CARD_FIXED_ORDER:
+        priority, order = CARD_FIXED_ORDER[card_id]
+    elif re.fullmatch(r"heater-\d+", card_id):
+        priority, order = 2, 20
+    elif re.fullmatch(r"milestone-(10|25|50|75|100)", card_id):
+        priority, order = 1, 100 - int(card_id.split("-")[-1])
+    else:
+        return None
+    return (-priority, order, str(card.get("earnedDate", "")), card_id)
 
 
 def load_json(path: Path):
@@ -583,17 +606,26 @@ def audit_cards(audit, metadata, events, site_data):
     actual_cards = {}
     for slug, player in actual_by_slug.items():
         seen = set()
-        for record in player.get("cardCollection") or []:
+        collection = player.get("cardCollection") or []
+        for record in collection:
             card_id = record.get("id")
             audit.check(bool(card_id) and card_id not in seen, "cards", f"{slug}: duplicate or blank card id")
             seen.add(card_id)
             actual_cards[(slug, card_id)] = record
+            prestige_key = card_prestige_key(record)
+            audit.check(prestige_key is not None, "cards", f"{slug}/{card_id}: unrecognized card edition")
+            if prestige_key is not None:
+                audit.check(record.get("priority") == -prestige_key[0], "cards", f"{slug}/{card_id}: card priority is incorrect")
             activity_date = record.get("upgradedDate") or record.get("earnedDate")
             checkpoint = checkpoints.get(activity_date)
             audit.check(checkpoint is not None, "cards", f"{slug}/{card_id}: card date is not an event date")
             if checkpoint:
                 expected_player = next(player for player in checkpoint if player["slug"] == slug)
                 audit.check(deep_equal(record.get("snapshot"), card_snapshot(expected_player, checkpoint)), "cards", f"{slug}/{card_id}: frozen snapshot differs from its issuance checkpoint")
+        if all(card_prestige_key(record) is not None for record in collection):
+            expected_ids = [record["id"] for record in sorted(collection, key=card_prestige_key)]
+            actual_ids = [record["id"] for record in collection]
+            audit.check(actual_ids == expected_ids, "cards", f"{slug}: cardCollection is not in permanent prestige order")
 
     expected_cards = {}
     first_heater_date = {}
@@ -660,16 +692,16 @@ def audit_cards(audit, metadata, events, site_data):
             expected_upgrade = final_date if final_date != earned_date else None
             audit.check(record.get("upgradedDate") == expected_upgrade, "cards", f"{key[0]}/{key[1]}: heater upgrade date is incorrect")
 
-    configured = load_json(DATA / "featured-cards.json").get("featuredCards", {})
-    overrides = 0
+    featured_policy = load_json(DATA / "featured-cards.json")
+    audit.check(featured_policy.get("mode") == "automatic", "cards", "Crew-skin policy is not automatic")
+    audit.check("featuredCards" not in featured_policy, "cards", "Manual featured-card overrides must not be present")
     for slug, player in actual_by_slug.items():
         ids = [record["id"] for record in player.get("cardCollection") or []]
-        request = configured.get(slug, "auto")
-        expected = ids[0] if request == "auto" and ids else "base" if request == "auto" else request
-        mode = "automatic" if request == "auto" else "commissioner"
-        overrides += mode == "commissioner"
-        audit.check(player.get("featuredCardEdition") == expected and player.get("featuredCardMode") == mode, "cards", f"{slug}: featured Crew card resolution is incorrect")
-    audit.check((site_data.get("featuredCardConfig") or {}).get("overrideCount") == overrides, "cards", "Featured-card override count is incorrect")
+        expected = ids[0] if ids else "base"
+        audit.check(player.get("featuredCardEdition") == expected and player.get("featuredCardMode") == "automatic", "cards", f"{slug}: automatic Crew skin resolution is incorrect")
+    featured_summary = site_data.get("featuredCardConfig") or {}
+    audit.check(featured_summary.get("mode") == "automatic", "cards", "Generated Crew-skin policy is not automatic")
+    audit.check(featured_summary.get("overrideCount") == 0, "cards", "Featured-card override count must remain zero")
 
 
 def audit_knockouts(audit, events, site_data):

@@ -37,70 +37,32 @@ def load_json(path: Path):
         return json.load(f)
 
 
-def apply_featured_card_config(players, featured_card_config):
-    """Resolve each player's Crew-page design without changing live card data."""
-    if not isinstance(featured_card_config, dict):
+def apply_featured_card_policy(players, featured_card_policy):
+    """Apply the locked automatic Crew-skin policy without changing live card data."""
+    if not isinstance(featured_card_policy, dict):
         raise ValueError("featured-cards.json must contain a JSON object")
 
-    configured = featured_card_config.get("featuredCards", {})
-    if not isinstance(configured, dict):
-        raise ValueError("featured-cards.json featuredCards must be an object")
-
-    players_by_slug = {player["slug"]: player for player in players}
-    unknown_slugs = sorted(set(configured) - set(players_by_slug))
-    if unknown_slugs:
+    if featured_card_policy.get("mode") != "automatic":
+        raise ValueError("featured-cards.json mode must be automatic")
+    if "featuredCards" in featured_card_policy:
         raise ValueError(
-            "featured-cards.json contains unknown player slug(s): "
-            + ", ".join(unknown_slugs)
+            "featured-cards.json must not contain manual featuredCards overrides"
         )
 
-    override_count = 0
     for player in players:
-        slug = player["slug"]
-        requested = configured.get(slug, "auto")
-        if not isinstance(requested, str) or not requested.strip():
-            raise ValueError(
-                f"Featured card for {slug} must be auto, base, or an earned card id"
-            )
-
-        requested = requested.strip()
         collection = player.get("cardCollection") or []
-        earned_ids = {
-            str(record.get("id"))
-            for record in collection
-            if record.get("id")
-        }
-
-        if requested == "auto":
-            resolved = collection[0]["id"] if collection else "base"
-            mode = "automatic"
-        elif requested == "base":
-            resolved = "base"
-            mode = "commissioner"
-            override_count += 1
-        elif requested in earned_ids:
-            resolved = requested
-            mode = "commissioner"
-            override_count += 1
-        else:
-            earned_label = ", ".join(sorted(earned_ids)) or "none"
-            raise ValueError(
-                f"Featured card '{requested}' is not earned by {slug}. "
-                f"Valid choices: auto, base, {earned_label}"
-            )
-
-        player["featuredCardEdition"] = resolved
-        player["featuredCardMode"] = mode
+        player["featuredCardEdition"] = collection[0]["id"] if collection else "base"
+        player["featuredCardMode"] = "automatic"
 
     return {
         "source": "data/featured-cards.json",
-        "version": int(featured_card_config.get("version", 1)),
-        "overrideCount": override_count,
+        "version": int(featured_card_policy.get("version", 2)),
+        "mode": "automatic",
+        "overrideCount": 0,
         "rules": {
-            "auto": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
-            "base": "Features the live Base Edition.",
-            "earnedEdition": "May reference only an id already earned in that player's permanent cardCollection.",
-            "liveData": "The selection changes the Crew-page design only; ratings and attributes remain live."
+            "activeSkin": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
+            "manualOverrides": "Not supported.",
+            "liveData": "The automatic skin changes presentation only; ratings, tier placement, Crew ordering and ownership remain unchanged."
         }
     }
 
@@ -1053,7 +1015,7 @@ def main():
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
-    featured_card_config = load_json(FEATURED_CARDS_PATH)
+    featured_card_policy = load_json(FEATURED_CARDS_PATH)
 
     parsed_files = sorted(
         (f for f in PARSED_EVENTS_DIR.glob("*.json") if f.name != "index.json"),
@@ -1229,7 +1191,7 @@ def main():
     for player in players:
         player["cardForm"] = card_form.get(player["slug"])
         player["cardCollection"] = card_collections.get(player["slug"], [])
-    featured_card_summary = apply_featured_card_config(players, featured_card_config)
+    featured_card_summary = apply_featured_card_policy(players, featured_card_policy)
 
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
 
