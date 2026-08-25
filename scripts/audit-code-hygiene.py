@@ -178,7 +178,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-7"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-8"
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20260825-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-6"
@@ -861,6 +861,87 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "app.js":
+        size_source = function_source("playerAvatarIntrinsicSize")
+        for fragment in (
+            "const numericSize = Number(requestedSize);",
+            "return Math.round(numericSize);",
+            "return PLAYER_AVATAR_INTRINSIC_SIZES[size] || 44;",
+        ):
+            if fragment not in size_source:
+                errors.append(
+                    "Shared player portraits must resolve an approved intrinsic size"
+                )
+                break
+        for fragment in (
+            "small: 44",
+            "medium: 44",
+            "table: 44",
+            "standings: 44",
+            "crew: 128",
+            "dashboard: 82",
+            "honors: 76",
+            "hall: 114",
+            "profile: 340",
+        ):
+            if fragment not in text:
+                errors.append(
+                    "Shared player portrait size mapping differs from the visual contract"
+                )
+                break
+        image_source = function_source("playerImageMarkup")
+        for fragment, message in (
+            (
+                "const intrinsicSize = playerAvatarIntrinsicSize(size, options.intrinsicSize);",
+                "Shared player portraits must resolve their intrinsic dimensions",
+            ),
+            (
+                'const loading = options.loading === "eager" ? "eager" : "lazy";',
+                "Shared player portraits must default to lazy loading",
+            ),
+            (
+                'const fetchPriority = options.fetchPriority === "high" ? "high" : "auto";',
+                "Shared player portraits must default to automatic fetch priority",
+            ),
+            ('loading="${loading}"', "Shared player portraits must publish loading priority"),
+            ('decoding="async"', "Shared player portraits must decode asynchronously"),
+            (
+                'fetchpriority="${fetchPriority}"',
+                "Shared player portraits must publish fetch priority",
+            ),
+            ('width="${intrinsicSize}"', "Shared player portraits must publish intrinsic width"),
+            ('height="${intrinsicSize}"', "Shared player portraits must publish intrinsic height"),
+        ):
+            if fragment not in image_source:
+                errors.append(message)
+        rsvp_source = function_source("eventRsvpAvatarMarkup")
+        if 'playerImageMarkup(player, "table", { intrinsicSize: 96 })' not in rsvp_source:
+            errors.append(
+                "RSVP seats must retain their 96-pixel desktop portrait reservation"
+            )
+        comparison_source = function_source("playerCardComparisonCardMarkup")
+        if 'playerImageMarkup(player, "profile", { intrinsicSize: 142 })' not in comparison_source:
+            errors.append(
+                "Player comparison cards must retain their 142-pixel portrait reservation"
+            )
+        profile_card_source = function_source("playerCardMarkup")
+        if not re.search(
+            r'playerImageMarkup\(player,\s*"profile",\s*\{\s*'
+            r'intrinsicSize:\s*210,\s*loading:\s*"eager",\s*'
+            r'fetchPriority:\s*"high"\s*\}\)',
+            profile_card_source,
+            flags=re.DOTALL,
+        ):
+            errors.append(
+                "Primary Player Profile portrait must be eager, high-priority, and 210 pixels"
+            )
+        if 'playerImageMarkup(player, "profile", { intrinsicSize: 88 })' not in text:
+            errors.append(
+                "Collectible cards must retain their 88-pixel portrait reservation"
+            )
+        if text.count('fetchPriority: "high"') != 1:
+            errors.append(
+                "Only the primary Player Profile portrait may request high fetch priority"
+            )
         reduced_motion_source = function_source("prefersReducedMotion")
         if (
             'window.matchMedia("(prefers-reduced-motion: reduce)").matches'
