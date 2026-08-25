@@ -5,61 +5,21 @@
 }
 
 .gallery-hero{
-  margin-top:0;
-  padding-top:22px;
-  border-color:rgba(196,170,120,.16);
-  background:
-    radial-gradient(circle at 50% 0%, rgba(255,233,190,.07), transparent 26%),
-    radial-gradient(circle at top right, rgba(255,214,140,.04), transparent 20%),
-    radial-gradient(circle at bottom left, rgba(255,255,255,.02), transparent 18%),
-    linear-gradient(180deg, rgba(24,25,27,.985), rgba(11,12,14,.995));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.025),
-    inset 0 0 0 1px rgba(255,255,255,.015),
-    0 14px 34px rgba(0,0,0,.28),
-    0 0 0 1px rgba(196,170,120,.06);
-}
-
-.gallery-title-row{
-  position:relative;
-  padding:0 0 6px;
-  margin-bottom:6px;
-}
-
-.gallery-hero .gallery-title-row::before{
-  content:none;
-}
-
-.gallery-hero .gallery-title-row::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-8px;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg, rgba(255,255,255,.96), rgba(255,255,255,.34) 62%, transparent 100%);
+  --site-page-hero-accent-rgb:196,170,120;
+  --site-page-hero-secondary-rgb:168,85,247;
+  margin:0;
 }
 
 .gallery-page-title{
-  margin:0;
   color:#ffffff;
 }
 
-.gallery-page-subtitle{
-  margin:7px 0 0;
+.gallery-hero .site-page-hero-description{
   color:#cec7bb;
-  font-family:Georgia, "Times New Roman", serif;
-  font-size:1rem;
-  font-style:italic;
-  letter-spacing:.01em;
-}
-
-.gallery-page-kicker{
-  margin:16px 0 10px 2px;
 }
 
 .gallery-shell{
+  margin:0;
   border-color:rgba(196,170,120,.14);
   background:
     radial-gradient(circle at 18% 0%, rgba(255,236,196,.07), transparent 20%),

@@ -118,10 +118,8 @@ purpose-built card-and-summary composition. The Trophy Room remains unchanged
 and isolated as the reference implementation.
 
 This step deliberately removes the obsolete Home-only hero selectors and the
-old Crew title-row shell from the shared compatibility layers. The remaining
-chip-header pages retain their current shells until subsequent Phase 3A rollout
-steps migrate them to the new component in visually reviewable batches. No
-data, rankings, card-selection rules, or calculations are changed.
+old Crew title-row shell from the shared compatibility layers. No data,
+rankings, card-selection rules, or calculations are changed.
 
 ### Phase 3A.4 Metrics header rollout and profile rollback
 
@@ -143,6 +141,20 @@ adjacent name, status, snapshot, archetype, and badge panel remains a
 profile-specific component owned by `player.css` rather than a site-page hero.
 This rollback changes presentation only and restores the prior template
 structure without changing player data or calculations.
+
+### Phase 3A.5 remaining chip-header rollout
+
+Phase 3A.5 moves Schedule, Rules, Film Room, and Gallery onto
+`.site-page-hero`. Each page keeps its established chip denomination, title,
+supporting copy, accent palette, and content modules while moving the chip to
+the far right and integrating the copy beneath the primary title.
+
+Rules and Film Room separate their existing content into adjacent page-owned
+sections so the shared hero remains a true header rather than absorbing the
+rule cards or video library. Schedule retains the long-title modifier with a
+mobile spacing safeguard, and Gallery keeps its warm archive palette. Player
+Profile, Trophy Room, navigation, data, calculations, and card behavior remain
+unchanged.
 
 ### Phase 3A.1.1 avatar fallback hotfix
 

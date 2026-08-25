@@ -41,11 +41,11 @@ copy; one `.site-page-hero-chip` image on the far right; and, when the page has
 controls or summary content, one optional `.site-page-hero-lower` region that
 spans the full header width.
 
-Home, Crew, and all six Metrics pages use the static contract. Dashboard,
-Standings, and Streak Tracker also use the optional lower region for controls,
-status, or definitions. Trophy Room remains the isolated visual reference.
-The hygiene audit protects exactly one complete static hero structure on each
-page in the rollout.
+Home, Crew, all six Metrics pages, Schedule, Rules, Film Room, and Gallery use
+the static contract. Dashboard, Standings, and Streak Tracker also use the
+optional lower region for controls, status, or definitions. Trophy Room remains
+the isolated visual reference. The hygiene audit protects exactly one complete
+static hero structure on each page in the rollout.
 
 Player Profile is an intentional exception. Phase 3A.4 restores its original
 dynamic `.tlpt-player-summary` template because the full collectible card is

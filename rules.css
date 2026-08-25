@@ -1,5 +1,21 @@
 /* rules */
 
+.section.rules-header{
+  --site-page-hero-accent-rgb:34,197,94;
+  --site-page-hero-secondary-rgb:168,85,247;
+  margin:0 0 22px;
+}
+
+.section.rules-header .site-page-hero-description{
+  color:#b9c9c0;
+}
+
+@media (max-width:560px){
+  .section.rules-header .site-page-hero-copy{
+    padding-right:64px;
+  }
+}
+
 .rules-grid{
   display:grid !important;
   grid-template-columns:repeat(4, minmax(0,1fr)) !important;

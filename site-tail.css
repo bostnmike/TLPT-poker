@@ -1074,15 +1074,6 @@
 
 
 @media (max-width:640px){
-  /* Canonical mobile spacing for the primary page-header shells. */
-  .section.schedule-hero .page-title-row,
-  .section.rules-header .page-title-row,
-  .section.media-header .page-title-row{
-    position:relative !important;
-    margin-bottom:14px !important;
-    padding:0 !important;
-  }
-
   /* Honors already owns its inline/top padding; only its mobile bottom edge resets. */
   .honors-page-shell .page-title-row{
     position:relative !important;
@@ -1100,9 +1091,6 @@
     min-width:0;
   }
   
-  .section.schedule-hero .page-title-row::after,
-  .section.rules-header .page-title-row::after,
-  .section.media-header .page-title-row::after,
   .honors-page-shell .page-title-row::after{
     bottom:-12px !important;
     height:3px !important;

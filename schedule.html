@@ -10,9 +10,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20260824-16" />
-  <link rel="stylesheet" href="site-tail.css?v=20260824-13" />
-  <link rel="stylesheet" href="schedule.css?v=20260824-1" />
+  <link rel="stylesheet" href="style.css?v=20260824-17" />
+  <link rel="stylesheet" href="site-tail.css?v=20260824-14" />
+  <link rel="stylesheet" href="schedule.css?v=20260824-2" />
 </head>
 <body>
 <header class="site-header">
@@ -70,12 +70,19 @@
 </header>
 
   <main class="wrap">
-    <section class="section schedule-hero">
-      <div class="section-head page-title-row">
-        <img class="page-chip page-chip-dashboard" src="images/site/chip-T-100000.png" alt="T-100000 chip" data-hide-on-error />
-        <h2 class="schedule-page-title site-page-title site-page-title-long">The Caahhd Room’s Upcoming Events</h2>
+    <section class="section schedule-hero site-page-hero" aria-labelledby="schedule-page-title">
+      <div class="site-page-hero-copy">
+        <span class="site-page-hero-kicker">Dates, Formats &amp; RSVP</span>
+        <h2 id="schedule-page-title" class="schedule-page-title site-page-title site-page-title-long site-page-hero-title">The Caahhd Room’s Upcoming Events</h2>
+        <p class="site-page-hero-description">Track the next nights in the room, check the format, and lock in your RSVP plans.</p>
       </div>
-      <div class="page-kicker">Track the next nights in the room, check the format, and lock in your RSVP plans.</div>
+
+      <img
+        class="site-page-hero-chip"
+        src="images/site/chip-T-100000.png"
+        alt="T-100000 chip"
+        data-hide-on-error
+      />
     </section>
 
     <div id="schedule-list"></div>
