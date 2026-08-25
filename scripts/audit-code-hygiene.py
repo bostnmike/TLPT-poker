@@ -51,6 +51,12 @@ STYLE_FOUNDATION_SELECTORS = {
     "body",
     "html",
 }
+RSVP_DESKTOP_AVATAR_SELECTORS = {
+    ".event-rsvp-avatar-row .player-avatar.table",
+    ".event-rsvp-avatar-row .player-avatar-fallback.table",
+}
+RSVP_DESKTOP_AVATAR_SIZE = "96px"
+RSVP_MOBILE_AVATAR_SIZE = "64px"
 EXPECTED_FOOTER_TEXT = (
     "TLPT is a BostnMike Production... and all that, that entails. "
     "Site data fueled by The Tournament Director"
@@ -760,10 +766,15 @@ def main() -> int:
         stylesheet_text = stylesheet.read_text(encoding="utf-8")
         errors.extend(f"{stylesheet.name}: {message}" for message in audit_css(stylesheet))
         if stylesheet.name == "style.css":
+            root_style_rules = [
+                (selector, body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+            ]
             hidden_rules = [
                 (body, line)
-                for context, selector, body, line in css_rule_blocks(stylesheet_text)
-                if not context and selector == "[hidden]"
+                for selector, body, line in root_style_rules
+                if selector == "[hidden]"
             ]
             if len(hidden_rules) != 1:
                 errors.append(
@@ -777,7 +788,59 @@ def main() -> int:
                 errors.append(
                     "style.css: root [hidden] rule must enforce display:none !important"
                 )
+            rsvp_avatar_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if RSVP_DESKTOP_AVATAR_SELECTORS.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(rsvp_avatar_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one RSVP-specific desktop table-avatar rule"
+                )
+            else:
+                rsvp_body, rsvp_line = rsvp_avatar_rules[0]
+                for dimension in ("width", "height"):
+                    if not re.search(
+                        rf"(?:^|;)\s*{dimension}\s*:\s*{re.escape(RSVP_DESKTOP_AVATAR_SIZE)}\s*(?:;|$)",
+                        rsvp_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{rsvp_line}: RSVP desktop avatar {dimension} "
+                            f"must be {RSVP_DESKTOP_AVATAR_SIZE}"
+                        )
+                if "!important" in rsvp_body.lower():
+                    errors.append(
+                        f"style.css:{rsvp_line}: RSVP desktop avatar rule must not use !important"
+                    )
             continue
+        if stylesheet.name == "site-tail.css":
+            rsvp_mobile_rules = [
+                (body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if any("@media (max-width:640px)" == scope for scope in context)
+                and RSVP_DESKTOP_AVATAR_SELECTORS.issubset(
+                    {part.strip() for part in selector.split(",")}
+                )
+            ]
+            if len(rsvp_mobile_rules) != 1:
+                errors.append(
+                    "site-tail.css: expected exactly one RSVP-specific 640px table-avatar rule"
+                )
+            else:
+                rsvp_body, rsvp_line = rsvp_mobile_rules[0]
+                for dimension in ("width", "height"):
+                    if not re.search(
+                        rf"(?:^|;)\s*{dimension}\s*:\s*{re.escape(RSVP_MOBILE_AVATAR_SIZE)}\s*(?:;|$)",
+                        rsvp_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"site-tail.css:{rsvp_line}: RSVP mobile avatar {dimension} "
+                            f"must be {RSVP_MOBILE_AVATAR_SIZE}"
+                        )
         for context, selector, _body, line in css_rule_blocks(
             stylesheet_text
         ):
