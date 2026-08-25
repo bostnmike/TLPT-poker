@@ -23,8 +23,17 @@ python3 scripts/validate-site-data.py
 echo "🧹 Auditing code hygiene..."
 python3 scripts/audit-code-hygiene.py
 
+echo "🧭 Testing shared shell image fallbacks..."
+node scripts/test-site-shell.mjs
+
+echo "🛟 Testing app data-load recovery..."
+node scripts/test-app-load-failure.mjs
+
 echo "🔎 Auditing source-to-page integrity..."
 python3 scripts/audit-site-integrity.py
+
+echo "🧮 Auditing rendered page calculations..."
+node scripts/audit-page-calculations.mjs
 
 echo ""
 echo "✅ Weekly update complete."

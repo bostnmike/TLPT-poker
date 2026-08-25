@@ -2015,6 +2015,7 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
     pages = sorted(ROOT.glob("*.html"))
     page_names = {page.name for page in pages}
@@ -3512,6 +3513,33 @@ def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
     for token, label in forbidden:
         if token in phase:
             errors.append(f"site-tail.css: Phase 3G.4 must not move or restyle the {label}")
+    return errors
+
+
+
+def audit_phase_3h2_validation_parity() -> list[str]:
+    """Phase 3H.2: every maintenance path must run the same recovery/calculation gates."""
+    errors: list[str] = []
+    targets = (
+        (ROOT / ".github" / "workflows" / "site-quality.yml", 1, "python"),
+        (ROOT / ".github" / "workflows" / "tlpt-update.yml", 2, "python"),
+        (ROOT / "scripts" / "run-weekly-update.sh", 1, "python3"),
+    )
+    for path, expected_count, python_cmd in targets:
+        text = path.read_text(encoding="utf-8")
+        required_commands = (
+            "node scripts/test-site-shell.mjs",
+            "node scripts/test-app-load-failure.mjs",
+            f"{python_cmd} scripts/audit-site-integrity.py",
+            "node scripts/audit-page-calculations.mjs",
+        )
+        for command in required_commands:
+            actual = text.count(command)
+            if actual != expected_count:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: expected {expected_count} occurrence(s) "
+                    f"of maintenance gate `{command}`, found {actual}"
+                )
     return errors
 
 
