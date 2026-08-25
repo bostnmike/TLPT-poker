@@ -54,6 +54,9 @@ jobs:
       - name: Test shared shell image fallbacks
         run: node scripts/test-site-shell.mjs
 
+      - name: Test shared app data-load recovery
+        run: node scripts/test-app-load-failure.mjs
+
       - name: Validate generated site data
         run: python scripts/validate-site-data.py
 
