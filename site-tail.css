@@ -1299,182 +1299,122 @@
 }
 
 /* =========================================
-   POST-FREEZE — PAGE TITLE WATERMARK
-   Page-specific placement tuned from the
-   full desktop hero audit on 2026-08-26.
-   Visual layer only: hero dimensions, copy,
-   chips, controls, data and behavior stay put.
+   POST-FREEZE — LOCKED PAGE TITLE WATERMARK SYSTEM
+   Standard heroes use one size, one opacity,
+   and a fixed relationship to the poker chip.
 ========================================= */
 
+:root{
+  --tlpt-watermark-opacity:.08;
+  --tlpt-watermark-desktop-h:112px;
+  --tlpt-watermark-desktop-w:246px;
+  --tlpt-watermark-desktop-gap:28px;
+  --tlpt-watermark-tablet-h:78px;
+  --tlpt-watermark-tablet-w:171px;
+  --tlpt-watermark-tablet-gap:20px;
+  --tlpt-watermark-mobile-h:58px;
+  --tlpt-watermark-mobile-w:128px;
+  --tlpt-watermark-mobile-gap:16px;
+}
+
+/* Shared decorative foundation. Hall of Fame intentionally excluded. */
 .site-page-hero::after,
 .news-header-shell::before,
 .trophy-room-page .trophy-room-hero::after,
 .player-page #player-profile .tlpt-player-summary::before{
   content:"";
-  position:absolute;
   pointer-events:none;
   background-image:url("images/site/MutedLogo.png");
   background-repeat:no-repeat;
-  background-position:right center;
+  background-position:center;
   background-size:contain;
   mix-blend-mode:screen;
   z-index:0;
 }
 
-/* Default fallback for shared heroes not called out below (principally 404). */
+/* Desktop shared heroes.
+   The pseudo-element occupies the SAME grid row as the chip, so align-self:center
+   centers it vertically against the chip regardless of lower hero controls.
+   The existing 22px grid gap + 8px spare space in the 120px chip column = 30px;
+   a -2px margin produces the approved 28px logo-to-chip gap. */
 .site-page-hero::after{
-  top:12%;
-  right:180px;
-  bottom:auto;
-  left:auto;
-  width:min(30%, 360px);
-  height:76%;
-  opacity:.085;
+  position:relative;
+  grid-column:1;
+  grid-row:1;
+  justify-self:end;
+  align-self:center;
+  width:var(--tlpt-watermark-desktop-w);
+  height:var(--tlpt-watermark-desktop-h);
+  margin-right:-2px;
+  opacity:var(--tlpt-watermark-opacity);
 }
 
-/* Home — preserve the successful short-hero treatment, slightly farther right. */
-.home-page-hero::after{
-  top:11%;
-  right:208px;
-  width:min(28.5%, 342px);
-  height:74%;
-  opacity:.09;
+.site-page-hero-copy,
+.site-page-hero-chip,
+.site-page-hero-lower{
+  position:relative;
+  z-index:1;
 }
 
-/* Dashboard — final polish: slightly smaller, higher and farther right. */
-.dashboard-top-shell::after{
-  top:5%;
-  right:136px;
-  width:min(40%, 470px);
-  height:40%;
-  max-height:162px;
-  opacity:.075;
+/* Long supporting copy wraps before entering the watermark lane. */
+@media (min-width:821px){
+  .site-page-hero-description{
+    max-width:720px;
+  }
 }
 
-/* Form Lab — short hero with ample open space between title and chip. */
-.fl-header-shell::after{
-  top:10%;
-  right:190px;
-  width:min(31%, 370px);
-  height:78%;
-  opacity:.085;
-}
-
-/* Heater Meter — keep clear of the long title, use the open right-hand lane. */
-.pm-header-shell::after{
-  top:10%;
-  right:190px;
-  width:min(31%, 370px);
-  height:78%;
-  opacity:.085;
-}
-
-/* Streak Tracker — tiny final polish on the successful tall-hero composition. */
-.streak-header-shell::after{
-  top:6%;
-  right:150px;
-  width:min(42%, 495px);
-  height:42%;
-  max-height:171px;
-  opacity:.075;
-}
-
-/* Knockout Central — smaller and farther right to clear the title. */
-.knockouts-header-shell::after{
-  top:12%;
-  right:225px;
-  width:min(27.5%, 332px);
-  height:70%;
-  opacity:.08;
-}
-
-/* Standings — long title: compact upper-right mark, fully above the controls. */
-.standings-top-shell::after{
-  top:4%;
-  right:120px;
-  width:min(32%, 375px);
-  height:30%;
-  max-height:118px;
-  opacity:.06;
-}
-
-/* Crew — final polish: slightly smaller and farther into the open right lane. */
-.crew-header-shell::after{
-  top:6%;
-  right:136px;
-  width:min(40%, 480px);
-  height:40%;
-  max-height:165px;
-  opacity:.075;
-}
-
-/* Schedule — final polish: smaller, higher and farther right of the long title. */
-.schedule-hero::after{
-  top:7%;
-  right:190px;
-  width:min(24%, 290px);
-  height:62%;
-  opacity:.08;
-}
-
-/* Rules — longest collision risk: smallest standard-page watermark. */
-.rules-header::after{
-  top:14%;
-  right:180px;
-  width:min(21%, 252px);
-  height:63%;
-  opacity:.062;
-}
-
-/* Film Room — modest reduction and right shift. */
-.media-header::after{
-  top:10%;
-  right:190px;
-  width:min(29%, 350px);
-  height:76%;
-  opacity:.08;
-}
-
-/* Art Gallery — compact and farther right to clear the long description. */
-.gallery-hero::after{
-  top:9%;
-  right:195px;
-  width:min(23.5%, 280px);
-  height:65%;
-  opacity:.07;
-}
-
-/* The Week That Was — intentionally isolated in the open right rail. */
-.news-header-shell::before{
-  top:18px;
-  right:50px;
-  width:min(25%, 270px);
-  height:108px;
-  opacity:.06;
-}
-
-/* Trophy Room — final polish: compact upper-right mark clear of the paragraph. */
+/* Trophy Room uses the same two-column hero geometry, so use the same row lock. */
 .trophy-room-page .trophy-room-hero::after{
-  top:4%;
-  right:172px;
-  bottom:auto;
-  left:auto;
-  width:min(26%, 310px);
-  height:32%;
-  max-height:105px;
-  opacity:.065;
+  position:relative;
+  grid-column:1;
+  grid-row:1;
+  justify-self:end;
+  align-self:center;
+  width:var(--tlpt-watermark-desktop-w);
+  height:var(--tlpt-watermark-desktop-h);
+  margin-right:-2px;
+  opacity:var(--tlpt-watermark-opacity);
 }
 
-/* Hall of Fame intentionally has no watermark; its bespoke hero stands on its own. */
+.trophy-room-page .trophy-room-hero-copy,
+.trophy-room-page .trophy-room-chip,
+.trophy-room-page .trophy-room-summary{
+  position:relative;
+  z-index:1;
+}
 
+@media (min-width:821px){
+  .trophy-room-page .trophy-room-hero-copy p{
+    max-width:720px;
+  }
+}
+
+/* The Week That Was has no chip. Keep the SAME locked size and opacity,
+   vertically centered in its open right rail. */
+.news-header-shell::before{
+  position:absolute;
+  top:50%;
+  right:40px;
+  width:var(--tlpt-watermark-desktop-w);
+  height:var(--tlpt-watermark-desktop-h);
+  transform:translateY(-50%);
+  opacity:var(--tlpt-watermark-opacity);
+}
+
+.news-header-shell > *{
+  position:relative;
+  z-index:1;
+}
+
+/* Player Profile remains bespoke and is intentionally not normalized. */
 .player-page #player-profile .tlpt-player-summary{
   position:relative;
   overflow:hidden;
   isolation:isolate;
 }
 
-/* Player Profile was already balanced in the visual audit; preserve it. */
 .player-page #player-profile .tlpt-player-summary::before{
+  position:absolute;
   top:14px;
   right:18px;
   width:min(72%, 620px);
@@ -1482,125 +1422,94 @@
   opacity:.085;
 }
 
-/* Special-shell content stays above the decorative watermark. */
-.news-header-shell > *,
 .player-page #player-profile .tlpt-player-summary > *{
   position:relative;
   z-index:1;
 }
 
-@media (max-width:820px){
+/* Tablet.
+   Existing 22px grid gap + 4px spare space in the 82px chip column = 26px;
+   a -6px margin produces the approved 20px logo-to-chip gap. */
+@media (max-width:820px) and (min-width:561px){
   .site-page-hero::after{
-    right:82px;
-    width:min(42%, 350px);
-    height:64%;
-    opacity:.07;
+    width:var(--tlpt-watermark-tablet-w);
+    height:var(--tlpt-watermark-tablet-h);
+    margin-right:-6px;
+    opacity:var(--tlpt-watermark-opacity);
   }
 
-  .dashboard-top-shell::after,
-  .streak-header-shell::after,
-  .crew-header-shell::after{
-    top:8%;
-    right:76px;
-    width:min(48%, 390px);
-    height:38%;
-    max-height:145px;
-    opacity:.06;
-  }
-
-  .standings-top-shell::after{
-    top:6%;
-    right:68px;
-    width:min(40%, 330px);
-    height:28%;
-    max-height:110px;
-    opacity:.052;
-  }
-
-  .rules-header::after,
-  .schedule-hero::after,
-  .gallery-hero::after{
-    right:74px;
-    width:min(36%, 300px);
-    height:54%;
-    opacity:.058;
+  .site-page-hero-description{
+    max-width:620px;
   }
 
   .trophy-room-page .trophy-room-hero::after{
-    top:7%;
-    right:80px;
-    width:min(40%, 330px);
-    height:34%;
-    max-height:115px;
-    opacity:.055;
+    width:var(--tlpt-watermark-tablet-w);
+    height:var(--tlpt-watermark-tablet-h);
+    margin-right:-6px;
+    opacity:var(--tlpt-watermark-opacity);
+  }
+
+  .trophy-room-page .trophy-room-hero-copy p{
+    max-width:620px;
   }
 
   .news-header-shell::before{
-    right:38px;
-    width:min(31%, 235px);
-    height:104px;
-    opacity:.05;
-  }
-
-  .player-page #player-profile .tlpt-player-summary::before{
-    opacity:.072;
+    top:50%;
+    right:28px;
+    width:var(--tlpt-watermark-tablet-w);
+    height:var(--tlpt-watermark-tablet-h);
+    transform:translateY(-50%);
+    opacity:var(--tlpt-watermark-opacity);
   }
 }
 
+/* Mobile.
+   The chip becomes absolute at right 18px and 58px wide.
+   Put the 128x58 watermark 16px to its left: 18 + 58 + 16 = 92px. */
 @media (max-width:560px){
   .site-page-hero::after{
-    top:18%;
-    right:48px;
-    width:50%;
-    height:50%;
-    opacity:.05;
+    position:absolute;
+    top:18px;
+    right:92px;
+    width:var(--tlpt-watermark-mobile-w);
+    height:var(--tlpt-watermark-mobile-h);
+    margin-right:0;
+    opacity:var(--tlpt-watermark-opacity);
   }
 
-  .dashboard-top-shell::after,
-  .streak-header-shell::after,
-  .crew-header-shell::after{
-    top:12%;
-    right:38px;
-    width:56%;
-    height:30%;
-    max-height:108px;
-    opacity:.05;
+  .site-page-hero-title{
+    max-width:calc(100% - 190px);
   }
 
-  .standings-top-shell::after{
-    top:12%;
-    right:34px;
-    width:48%;
-    height:24%;
-    max-height:92px;
-    opacity:.045;
-  }
-
-  .rules-header::after,
-  .schedule-hero::after,
-  .gallery-hero::after{
-    top:16%;
-    right:38px;
-    width:46%;
-    height:38%;
-    opacity:.045;
+  .site-page-hero-description{
+    max-width:100%;
   }
 
   .trophy-room-page .trophy-room-hero::after{
-    top:10%;
-    right:42px;
-    width:48%;
-    height:28%;
-    max-height:96px;
-    opacity:.045;
+    position:absolute;
+    top:18px;
+    right:92px;
+    width:var(--tlpt-watermark-mobile-w);
+    height:var(--tlpt-watermark-mobile-h);
+    margin-right:0;
+    opacity:var(--tlpt-watermark-opacity);
+  }
+
+  .trophy-room-page .trophy-room-hero h2{
+    max-width:calc(100% - 190px);
+  }
+
+  .trophy-room-page .trophy-room-hero-copy p{
+    max-width:100%;
   }
 
   .news-header-shell::before{
-    top:14px;
-    right:24px;
-    width:38%;
-    height:88px;
-    opacity:.045;
+    top:18px;
+    right:18px;
+    width:var(--tlpt-watermark-mobile-w);
+    height:var(--tlpt-watermark-mobile-h);
+    transform:none;
+    opacity:var(--tlpt-watermark-opacity);
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
@@ -1608,3 +1517,4 @@
     opacity:.06;
   }
 }
+

@@ -3,7 +3,7 @@
   "phase": "3H.9",
   "publicPageCount": 17,
   "sharedCssAsset": "site-tail.css",
-  "sharedCssVersion": "20260826-6",
+  "sharedCssVersion": "20260826-7",
   "authoritative": {
     "dataBuild": "scripts/run-data-build.sh",
     "qualityGates": "scripts/run-quality-gates.sh",
