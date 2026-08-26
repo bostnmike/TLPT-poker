@@ -1300,14 +1300,13 @@
 
 /* =========================================
    POST-FREEZE — PAGE TITLE WATERMARK
-   Visual layer only: existing hero layout,
-   typography, spacing, chips and controls stay put.
+   Refined placement: use unused hero space,
+   keep controls/copy clear, and preserve layout.
 ========================================= */
 
 .site-page-hero::after,
 .news-header-shell::before,
 .trophy-room-page .trophy-room-hero::after,
-.hall-page .hall-page-hero::before,
 .player-page #player-profile .tlpt-player-summary::before{
   content:"";
   position:absolute;
@@ -1321,41 +1320,55 @@
   z-index:0;
 }
 
-/* Shared Phase 3 heroes: keep the watermark in the title/copy lane and clear of the chip. */
+/* Standard / short heroes: retain the approved scale, nudged into unused space. */
 .site-page-hero::after{
   top:12%;
   right:132px;
   bottom:10%;
   left:27%;
+  background-position:58% center;
 }
 
-/* Special page-title shells that pre-date the shared Phase 3 hero. */
-.news-header-shell::before{
-  top:14px;
-  right:8%;
-  width:min(62%, 620px);
-  height:118px;
-}
-
-.trophy-room-page .trophy-room-hero::after{
-  top:12%;
+/* Tall heroes with controls below: confine branding to the title/copy zone. */
+.dashboard-top-shell::after,
+.standings-top-shell::after,
+.streak-header-shell::after,
+.crew-header-shell::after{
+  top:7%;
   right:132px;
-  bottom:42%;
-  left:27%;
+  bottom:auto;
+  left:auto;
+  width:min(44%, 520px);
+  height:44%;
+  max-height:180px;
+  background-position:right center;
+  opacity:.075;
 }
 
-.hall-page .hall-page-hero{
-  overflow:hidden;
-  isolation:isolate;
+/* The Week That Was: use the open right rail instead of sitting behind the title. */
+.news-header-shell::before{
+  top:18px;
+  right:32px;
+  width:min(28%, 300px);
+  height:120px;
+  background-position:right center;
+  opacity:.075;
 }
 
-.hall-page .hall-page-hero::before{
-  top:3px;
-  left:50%;
-  width:min(68%, 650px);
-  height:118px;
-  transform:translateX(-50%);
+/* Trophy Room: ceremonial but compact, above the summary-card divider. */
+.trophy-room-page .trophy-room-hero::after{
+  top:7%;
+  right:150px;
+  bottom:auto;
+  left:auto;
+  width:min(36%, 440px);
+  height:45%;
+  max-height:150px;
+  background-position:right center;
+  opacity:.07;
 }
+
+/* Hall of Fame intentionally has no watermark; its bespoke hero stands on its own. */
 
 .player-page #player-profile .tlpt-player-summary{
   position:relative;
@@ -1363,6 +1376,7 @@
   isolation:isolate;
 }
 
+/* Player Profile was visually balanced already; preserve its existing treatment. */
 .player-page #player-profile .tlpt-player-summary::before{
   top:14px;
   right:18px;
@@ -1372,41 +1386,99 @@
 
 /* Special-shell content stays above the decorative watermark. */
 .news-header-shell > *,
-.hall-page .hall-page-hero > *,
 .player-page #player-profile .tlpt-player-summary > *{
   position:relative;
   z-index:1;
 }
 
 @media (max-width:820px){
-  .site-page-hero::after,
-  .trophy-room-page .trophy-room-hero::after{
+  .site-page-hero::after{
     right:88px;
     left:22%;
+    background-position:60% center;
     opacity:.085;
   }
 
-  .news-header-shell::before,
-  .hall-page .hall-page-hero::before,
+  .dashboard-top-shell::after,
+  .standings-top-shell::after,
+  .streak-header-shell::after,
+  .crew-header-shell::after{
+    top:8%;
+    right:82px;
+    bottom:auto;
+    left:auto;
+    width:min(52%, 420px);
+    height:40%;
+    max-height:150px;
+    background-position:right center;
+    opacity:.065;
+  }
+
+  .trophy-room-page .trophy-room-hero::after{
+    top:8%;
+    right:96px;
+    bottom:auto;
+    left:auto;
+    width:min(44%, 380px);
+    height:42%;
+    opacity:.06;
+  }
+
+  .news-header-shell::before{
+    right:24px;
+    width:min(34%, 260px);
+    opacity:.065;
+  }
+
   .player-page #player-profile .tlpt-player-summary::before{
     opacity:.085;
   }
 }
 
 @media (max-width:560px){
-  .site-page-hero::after,
-  .trophy-room-page .trophy-room-hero::after{
+  .site-page-hero::after{
     top:18%;
     right:54px;
     bottom:18%;
     left:18%;
+    background-position:62% center;
   }
 
-  .news-header-shell::before,
-  .hall-page .hall-page-hero::before,
+  .dashboard-top-shell::after,
+  .standings-top-shell::after,
+  .streak-header-shell::after,
+  .crew-header-shell::after{
+    top:12%;
+    right:42px;
+    bottom:auto;
+    left:auto;
+    width:62%;
+    height:34%;
+    max-height:120px;
+    background-position:right center;
+    opacity:.055;
+  }
+
+  .trophy-room-page .trophy-room-hero::after{
+    top:11%;
+    right:48px;
+    bottom:auto;
+    left:auto;
+    width:52%;
+    height:34%;
+    opacity:.055;
+  }
+
+  .news-header-shell::before{
+    top:14px;
+    right:18px;
+    width:42%;
+    height:96px;
+    opacity:.055;
+  }
+
   .player-page #player-profile .tlpt-player-summary::before{
     width:76%;
     opacity:.07;
   }
 }
-
