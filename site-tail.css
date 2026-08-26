@@ -1341,13 +1341,13 @@
   opacity:.09;
 }
 
-/* Dashboard — already balanced; only a modest rightward nudge. */
+/* Dashboard — final polish: slightly smaller, higher and farther right. */
 .dashboard-top-shell::after{
-  top:7%;
-  right:112px;
-  width:min(44%, 520px);
-  height:44%;
-  max-height:180px;
+  top:5%;
+  right:136px;
+  width:min(40%, 470px);
+  height:40%;
+  max-height:162px;
   opacity:.075;
 }
 
@@ -1369,13 +1369,13 @@
   opacity:.085;
 }
 
-/* Streak Tracker — reference tall-hero composition from the visual audit. */
+/* Streak Tracker — tiny final polish on the successful tall-hero composition. */
 .streak-header-shell::after{
-  top:7%;
-  right:132px;
-  width:min(44%, 520px);
-  height:44%;
-  max-height:180px;
+  top:6%;
+  right:150px;
+  width:min(42%, 495px);
+  height:42%;
+  max-height:171px;
   opacity:.075;
 }
 
@@ -1398,22 +1398,22 @@
   opacity:.06;
 }
 
-/* Crew — retain the successful title-zone composition, nudged right. */
+/* Crew — final polish: slightly smaller and farther into the open right lane. */
 .crew-header-shell::after{
-  top:7%;
-  right:112px;
-  width:min(44%, 520px);
-  height:44%;
-  max-height:180px;
+  top:6%;
+  right:136px;
+  width:min(40%, 480px);
+  height:40%;
+  max-height:165px;
   opacity:.075;
 }
 
-/* Schedule — long title: compact mark in the title-to-chip gap. */
+/* Schedule — final polish: smaller, higher and farther right of the long title. */
 .schedule-hero::after{
-  top:10%;
-  right:150px;
-  width:min(28%, 340px);
-  height:72%;
+  top:7%;
+  right:190px;
+  width:min(24%, 290px);
+  height:62%;
   opacity:.08;
 }
 
@@ -1453,15 +1453,15 @@
   opacity:.075;
 }
 
-/* Trophy Room — compact ceremonial mark above the summary-card divider. */
+/* Trophy Room — final polish: compact upper-right mark clear of the paragraph. */
 .trophy-room-page .trophy-room-hero::after{
-  top:6%;
-  right:130px;
+  top:4%;
+  right:172px;
   bottom:auto;
   left:auto;
-  width:min(32%, 380px);
-  height:40%;
-  max-height:130px;
+  width:min(26%, 310px);
+  height:32%;
+  max-height:105px;
   opacity:.065;
 }
 
