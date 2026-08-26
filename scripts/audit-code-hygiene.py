@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-8"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-9"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-8":
+            if contract.get("sharedCssVersion") != "20260826-9":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3807,7 +3807,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
 
 
 def audit_post_freeze_title_watermark() -> list[str]:
-    """Protect the locked chip-relative page-title watermark system."""
+    """Protect the locked chip/watermark brand-pair system."""
     errors: list[str] = []
     asset = ROOT / "images" / "site" / "MutedLogo.png"
     stylesheet = ROOT / "site-tail.css"
@@ -3822,88 +3822,68 @@ def audit_post_freeze_title_watermark() -> list[str]:
     text = stylesheet.read_text(encoding="utf-8")
 
     for fragment in (
-        "--tlpt-watermark-opacity:.08;",
+        "--tlpt-watermark-opacity:.09;",
         "--tlpt-watermark-desktop-h:112px;",
         "--tlpt-watermark-desktop-w:246px;",
-        "--tlpt-watermark-desktop-gap:28px;",
+        "--tlpt-watermark-desktop-gap:40px;",
         "--tlpt-watermark-tablet-h:78px;",
         "--tlpt-watermark-tablet-w:171px;",
-        "--tlpt-watermark-tablet-gap:20px;",
+        "--tlpt-watermark-tablet-gap:28px;",
         "--tlpt-watermark-mobile-h:58px;",
         "--tlpt-watermark-mobile-w:128px;",
-        "--tlpt-watermark-mobile-gap:16px;",
+        "--tlpt-watermark-mobile-gap:20px;",
+        ".site-page-hero-brand{",
+        ".site-page-hero-brand::before{",
+        ".site-page-hero-watermark{",
+        "rgba(var(--site-page-hero-accent-rgb),.42)",
         'background-image:url("images/site/MutedLogo.png");',
+        "right:calc(100% + var(--tlpt-watermark-desktop-gap));",
         ".news-header-shell::before{",
+        ".player-page #player-profile .tlpt-player-summary::before{",
+        "opacity:var(--tlpt-watermark-opacity);",
     ):
         if fragment not in text:
-            errors.append(
-                f"site-tail.css: locked page-title watermark contract missing `{fragment}`"
-            )
+            errors.append(f"site-tail.css: locked brand-pair contract missing `{fragment}`")
 
-    # The shared and Trophy Room marks must be absolute grid-positioned children:
-    # they may reference grid lines, but must never participate in grid auto-placement.
-    selector_contracts = {
-        ".site-page-hero::after": (
-            "position:absolute;",
-            "inset:auto;",
-            "grid-column:1;",
-            "grid-row:1;",
-            "justify-self:end;",
-            "align-self:center;",
-            "width:var(--tlpt-watermark-desktop-w);",
-            "height:var(--tlpt-watermark-desktop-h);",
-            "opacity:var(--tlpt-watermark-opacity);",
-        ),
-        ".trophy-room-page .trophy-room-hero::after": (
-            "position:absolute;",
-            "inset:auto;",
-            "grid-column:1;",
-            "grid-row:1;",
-            "justify-self:end;",
-            "align-self:center;",
-            "width:var(--tlpt-watermark-desktop-w);",
-            "height:var(--tlpt-watermark-desktop-h);",
-            "opacity:var(--tlpt-watermark-opacity);",
-        ),
-    }
-    for selector, fragments in selector_contracts.items():
-        match = re.search(re.escape(selector) + r"\s*\{([^}]*)\}", text, re.S)
-        if not match:
-            errors.append(f"site-tail.css: locked watermark selector missing `{selector}`")
+    brand_pattern = re.compile(
+        r'<div\s+class="site-page-hero-brand"\s+aria-hidden="true">\s*'
+        r'<span\s+class="site-page-hero-watermark"></span>\s*'
+        r'<img\b[^>]*class="site-page-hero-chip"[^>]*/>\s*</div>',
+        flags=re.DOTALL,
+    )
+    for page_name in sorted(TROPHY_INSPIRED_HERO_PAGES):
+        page = ROOT / page_name
+        if not page.is_file():
             continue
-        block = match.group(1)
-        for fragment in fragments:
-            if fragment not in block:
-                errors.append(
-                    f"site-tail.css: `{selector}` missing locked declaration `{fragment}`"
-                )
-        if "position:relative;" in block:
+        source = page.read_text(encoding="utf-8")
+        if len(brand_pattern.findall(source)) != 1:
             errors.append(
-                f"site-tail.css: `{selector}` must not participate in grid layout"
+                f"{page_name}: shared hero must contain exactly one locked watermark/chip brand pair"
             )
 
-    # These structural selectors remain owned by style.css.
-    for selector in (
-        ".site-page-hero-copy,",
-        ".site-page-hero-chip,",
-        ".site-page-hero-lower{",
-    ):
-        if selector in text:
+    trophy_page = ROOT / "trophy-room.html"
+    if trophy_page.is_file():
+        source = trophy_page.read_text(encoding="utf-8")
+        trophy_pattern = re.compile(
+            r'<div\s+class="site-page-hero-brand trophy-room-brand"\s+aria-hidden="true">\s*'
+            r'<span\s+class="site-page-hero-watermark"></span>\s*'
+            r'<img\b[^>]*class="trophy-room-chip"[^>]*/>\s*</div>',
+            flags=re.DOTALL,
+        )
+        if len(trophy_pattern.findall(source)) != 1:
             errors.append(
-                f"site-tail.css: `{selector.rstrip(',{')}` must remain owned by style.css"
+                "trophy-room.html: Trophy Room must contain exactly one locked watermark/chip brand pair"
             )
 
-    # Hall of Fame stays bespoke and watermark-free.
     for forbidden in (
+        ".site-page-hero::after",
+        ".trophy-room-page .trophy-room-hero::after",
         ".hall-page .hall-page-hero::before",
         ".hall-page .hall-page-hero::after",
     ):
         if forbidden in text:
-            errors.append(
-                f"site-tail.css: Hall of Fame must remain watermark-free (`{forbidden}` found)"
-            )
+            errors.append(f"site-tail.css: obsolete or forbidden watermark selector found `{forbidden}`")
 
-    # Do not reintroduce per-page geometry for shared heroes.
     for selector in (
         ".home-page-hero::after{",
         ".dashboard-top-shell::after{",
@@ -3920,8 +3900,17 @@ def audit_post_freeze_title_watermark() -> list[str]:
     ):
         if selector in text:
             errors.append(
-                f"site-tail.css: shared watermark geometry must remain locked; "
-                f"page-specific override found `{selector}`"
+                f"site-tail.css: page-specific watermark geometry must remain removed (`{selector}` found)"
+            )
+
+    for selector in (
+        ".site-page-hero-chip{",
+        ".site-page-hero-copy{",
+        ".site-page-hero-lower{",
+    ):
+        if selector in text:
+            errors.append(
+                f"site-tail.css: exact root `{selector[:-1]}` remains owned by style.css"
             )
 
     return errors
