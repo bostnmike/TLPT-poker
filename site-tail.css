@@ -1297,3 +1297,116 @@
     transform:translateY(10px);
   }
 }
+
+/* =========================================
+   POST-FREEZE — PAGE TITLE WATERMARK
+   Visual layer only: existing hero layout,
+   typography, spacing, chips and controls stay put.
+========================================= */
+
+.site-page-hero::after,
+.news-header-shell::before,
+.trophy-room-page .trophy-room-hero::after,
+.hall-page .hall-page-hero::before,
+.player-page #player-profile .tlpt-player-summary::before{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  background-image:url("images/site/MutedLogo.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+  opacity:.10;
+  mix-blend-mode:screen;
+  z-index:0;
+}
+
+/* Shared Phase 3 heroes: keep the watermark in the title/copy lane and clear of the chip. */
+.site-page-hero::after{
+  top:12%;
+  right:132px;
+  bottom:10%;
+  left:27%;
+}
+
+/* Special page-title shells that pre-date the shared Phase 3 hero. */
+.news-header-shell::before{
+  top:14px;
+  right:8%;
+  width:min(62%, 620px);
+  height:118px;
+}
+
+.trophy-room-page .trophy-room-hero::after{
+  top:12%;
+  right:132px;
+  bottom:42%;
+  left:27%;
+}
+
+.hall-page .hall-page-hero{
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.hall-page .hall-page-hero::before{
+  top:3px;
+  left:50%;
+  width:min(68%, 650px);
+  height:118px;
+  transform:translateX(-50%);
+}
+
+.player-page #player-profile .tlpt-player-summary{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.player-page #player-profile .tlpt-player-summary::before{
+  top:14px;
+  right:18px;
+  width:min(72%, 620px);
+  height:132px;
+}
+
+/* Special-shell content stays above the decorative watermark. */
+.news-header-shell > *,
+.hall-page .hall-page-hero > *,
+.player-page #player-profile .tlpt-player-summary > *{
+  position:relative;
+  z-index:1;
+}
+
+@media (max-width:820px){
+  .site-page-hero::after,
+  .trophy-room-page .trophy-room-hero::after{
+    right:88px;
+    left:22%;
+    opacity:.085;
+  }
+
+  .news-header-shell::before,
+  .hall-page .hall-page-hero::before,
+  .player-page #player-profile .tlpt-player-summary::before{
+    opacity:.085;
+  }
+}
+
+@media (max-width:560px){
+  .site-page-hero::after,
+  .trophy-room-page .trophy-room-hero::after{
+    top:18%;
+    right:54px;
+    bottom:18%;
+    left:18%;
+  }
+
+  .news-header-shell::before,
+  .hall-page .hall-page-hero::before,
+  .player-page #player-profile .tlpt-player-summary::before{
+    width:76%;
+    opacity:.07;
+  }
+}
+
