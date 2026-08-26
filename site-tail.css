@@ -1450,7 +1450,7 @@
   right:50px;
   width:min(25%, 270px);
   height:108px;
-  opacity:.038;
+  opacity:.06;
 }
 
 /* Trophy Room — final polish: compact upper-right mark clear of the paragraph. */
@@ -1539,7 +1539,7 @@
     right:38px;
     width:min(31%, 235px);
     height:104px;
-    opacity:.033;
+    opacity:.05;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
@@ -1600,7 +1600,7 @@
     right:24px;
     width:38%;
     height:88px;
-    opacity:.028;
+    opacity:.045;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
