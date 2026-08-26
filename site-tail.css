@@ -1335,9 +1335,9 @@
 /* Home — preserve the successful short-hero treatment, slightly farther right. */
 .home-page-hero::after{
   top:11%;
-  right:180px;
-  width:min(30%, 360px);
-  height:78%;
+  right:208px;
+  width:min(28.5%, 342px);
+  height:74%;
   opacity:.09;
 }
 
@@ -1382,19 +1382,19 @@
 /* Knockout Central — smaller and farther right to clear the title. */
 .knockouts-header-shell::after{
   top:12%;
-  right:190px;
-  width:min(29%, 350px);
-  height:74%;
+  right:225px;
+  width:min(27.5%, 332px);
+  height:70%;
   opacity:.08;
 }
 
 /* Standings — long title: compact upper-right mark, fully above the controls. */
 .standings-top-shell::after{
   top:4%;
-  right:90px;
-  width:min(34%, 400px);
-  height:32%;
-  max-height:125px;
+  right:120px;
+  width:min(32%, 375px);
+  height:30%;
+  max-height:118px;
   opacity:.06;
 }
 
@@ -1420,9 +1420,9 @@
 /* Rules — longest collision risk: smallest standard-page watermark. */
 .rules-header::after{
   top:14%;
-  right:135px;
-  width:min(23%, 280px);
-  height:70%;
+  right:180px;
+  width:min(21%, 252px);
+  height:63%;
   opacity:.062;
 }
 
@@ -1438,19 +1438,19 @@
 /* Art Gallery — compact and farther right to clear the long description. */
 .gallery-hero::after{
   top:9%;
-  right:155px;
-  width:min(26%, 310px);
-  height:72%;
+  right:195px;
+  width:min(23.5%, 280px);
+  height:65%;
   opacity:.07;
 }
 
 /* The Week That Was — intentionally isolated in the open right rail. */
 .news-header-shell::before{
   top:18px;
-  right:32px;
-  width:min(28%, 300px);
-  height:120px;
-  opacity:.075;
+  right:50px;
+  width:min(25%, 270px);
+  height:108px;
+  opacity:.038;
 }
 
 /* Trophy Room — final polish: compact upper-right mark clear of the paragraph. */
@@ -1479,7 +1479,7 @@
   right:18px;
   width:min(72%, 620px);
   height:132px;
-  opacity:.10;
+  opacity:.085;
 }
 
 /* Special-shell content stays above the decorative watermark. */
@@ -1536,13 +1536,14 @@
   }
 
   .news-header-shell::before{
-    right:24px;
-    width:min(34%, 260px);
-    opacity:.06;
+    right:38px;
+    width:min(31%, 235px);
+    height:104px;
+    opacity:.033;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
-    opacity:.085;
+    opacity:.072;
   }
 }
 
@@ -1596,14 +1597,14 @@
 
   .news-header-shell::before{
     top:14px;
-    right:18px;
-    width:42%;
-    height:96px;
-    opacity:.05;
+    right:24px;
+    width:38%;
+    height:88px;
+    opacity:.028;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
     width:76%;
-    opacity:.07;
+    opacity:.06;
   }
 }
