@@ -1300,8 +1300,10 @@
 
 /* =========================================
    POST-FREEZE — PAGE TITLE WATERMARK
-   Refined placement: use unused hero space,
-   keep controls/copy clear, and preserve layout.
+   Page-specific placement tuned from the
+   full desktop hero audit on 2026-08-26.
+   Visual layer only: hero dimensions, copy,
+   chips, controls, data and behavior stay put.
 ========================================= */
 
 .site-page-hero::after,
@@ -1313,59 +1315,154 @@
   pointer-events:none;
   background-image:url("images/site/MutedLogo.png");
   background-repeat:no-repeat;
-  background-position:center;
+  background-position:right center;
   background-size:contain;
-  opacity:.10;
   mix-blend-mode:screen;
   z-index:0;
 }
 
-/* Standard / short heroes: retain the approved scale, nudged into unused space. */
+/* Default fallback for shared heroes not called out below (principally 404). */
 .site-page-hero::after{
   top:12%;
-  right:132px;
-  bottom:10%;
-  left:27%;
-  background-position:58% center;
-}
-
-/* Tall heroes with controls below: confine branding to the title/copy zone. */
-.dashboard-top-shell::after,
-.standings-top-shell::after,
-.streak-header-shell::after,
-.crew-header-shell::after{
-  top:7%;
-  right:132px;
+  right:180px;
   bottom:auto;
   left:auto;
+  width:min(30%, 360px);
+  height:76%;
+  opacity:.085;
+}
+
+/* Home — preserve the successful short-hero treatment, slightly farther right. */
+.home-page-hero::after{
+  top:11%;
+  right:180px;
+  width:min(30%, 360px);
+  height:78%;
+  opacity:.09;
+}
+
+/* Dashboard — already balanced; only a modest rightward nudge. */
+.dashboard-top-shell::after{
+  top:7%;
+  right:112px;
   width:min(44%, 520px);
   height:44%;
   max-height:180px;
-  background-position:right center;
   opacity:.075;
 }
 
-/* The Week That Was: use the open right rail instead of sitting behind the title. */
+/* Form Lab — short hero with ample open space between title and chip. */
+.fl-header-shell::after{
+  top:10%;
+  right:190px;
+  width:min(31%, 370px);
+  height:78%;
+  opacity:.085;
+}
+
+/* Heater Meter — keep clear of the long title, use the open right-hand lane. */
+.pm-header-shell::after{
+  top:10%;
+  right:190px;
+  width:min(31%, 370px);
+  height:78%;
+  opacity:.085;
+}
+
+/* Streak Tracker — reference tall-hero composition from the visual audit. */
+.streak-header-shell::after{
+  top:7%;
+  right:132px;
+  width:min(44%, 520px);
+  height:44%;
+  max-height:180px;
+  opacity:.075;
+}
+
+/* Knockout Central — smaller and farther right to clear the title. */
+.knockouts-header-shell::after{
+  top:12%;
+  right:190px;
+  width:min(29%, 350px);
+  height:74%;
+  opacity:.08;
+}
+
+/* Standings — long title: compact upper-right mark, fully above the controls. */
+.standings-top-shell::after{
+  top:4%;
+  right:90px;
+  width:min(34%, 400px);
+  height:32%;
+  max-height:125px;
+  opacity:.06;
+}
+
+/* Crew — retain the successful title-zone composition, nudged right. */
+.crew-header-shell::after{
+  top:7%;
+  right:112px;
+  width:min(44%, 520px);
+  height:44%;
+  max-height:180px;
+  opacity:.075;
+}
+
+/* Schedule — long title: compact mark in the title-to-chip gap. */
+.schedule-hero::after{
+  top:10%;
+  right:150px;
+  width:min(28%, 340px);
+  height:72%;
+  opacity:.08;
+}
+
+/* Rules — longest collision risk: smallest standard-page watermark. */
+.rules-header::after{
+  top:14%;
+  right:135px;
+  width:min(23%, 280px);
+  height:70%;
+  opacity:.062;
+}
+
+/* Film Room — modest reduction and right shift. */
+.media-header::after{
+  top:10%;
+  right:190px;
+  width:min(29%, 350px);
+  height:76%;
+  opacity:.08;
+}
+
+/* Art Gallery — compact and farther right to clear the long description. */
+.gallery-hero::after{
+  top:9%;
+  right:155px;
+  width:min(26%, 310px);
+  height:72%;
+  opacity:.07;
+}
+
+/* The Week That Was — intentionally isolated in the open right rail. */
 .news-header-shell::before{
   top:18px;
   right:32px;
   width:min(28%, 300px);
   height:120px;
-  background-position:right center;
   opacity:.075;
 }
 
-/* Trophy Room: ceremonial but compact, above the summary-card divider. */
+/* Trophy Room — compact ceremonial mark above the summary-card divider. */
 .trophy-room-page .trophy-room-hero::after{
-  top:7%;
-  right:150px;
+  top:6%;
+  right:130px;
   bottom:auto;
   left:auto;
-  width:min(36%, 440px);
-  height:45%;
-  max-height:150px;
-  background-position:right center;
-  opacity:.07;
+  width:min(32%, 380px);
+  height:40%;
+  max-height:130px;
+  opacity:.065;
 }
 
 /* Hall of Fame intentionally has no watermark; its bespoke hero stands on its own. */
@@ -1376,12 +1473,13 @@
   isolation:isolate;
 }
 
-/* Player Profile was visually balanced already; preserve its existing treatment. */
+/* Player Profile was already balanced in the visual audit; preserve it. */
 .player-page #player-profile .tlpt-player-summary::before{
   top:14px;
   right:18px;
   width:min(72%, 620px);
   height:132px;
+  opacity:.10;
 }
 
 /* Special-shell content stays above the decorative watermark. */
@@ -1393,41 +1491,54 @@
 
 @media (max-width:820px){
   .site-page-hero::after{
-    right:88px;
-    left:22%;
-    background-position:60% center;
-    opacity:.085;
+    right:82px;
+    width:min(42%, 350px);
+    height:64%;
+    opacity:.07;
   }
 
   .dashboard-top-shell::after,
-  .standings-top-shell::after,
   .streak-header-shell::after,
   .crew-header-shell::after{
     top:8%;
-    right:82px;
-    bottom:auto;
-    left:auto;
-    width:min(52%, 420px);
-    height:40%;
-    max-height:150px;
-    background-position:right center;
-    opacity:.065;
+    right:76px;
+    width:min(48%, 390px);
+    height:38%;
+    max-height:145px;
+    opacity:.06;
+  }
+
+  .standings-top-shell::after{
+    top:6%;
+    right:68px;
+    width:min(40%, 330px);
+    height:28%;
+    max-height:110px;
+    opacity:.052;
+  }
+
+  .rules-header::after,
+  .schedule-hero::after,
+  .gallery-hero::after{
+    right:74px;
+    width:min(36%, 300px);
+    height:54%;
+    opacity:.058;
   }
 
   .trophy-room-page .trophy-room-hero::after{
-    top:8%;
-    right:96px;
-    bottom:auto;
-    left:auto;
-    width:min(44%, 380px);
-    height:42%;
-    opacity:.06;
+    top:7%;
+    right:80px;
+    width:min(40%, 330px);
+    height:34%;
+    max-height:115px;
+    opacity:.055;
   }
 
   .news-header-shell::before{
     right:24px;
     width:min(34%, 260px);
-    opacity:.065;
+    opacity:.06;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
@@ -1438,35 +1549,49 @@
 @media (max-width:560px){
   .site-page-hero::after{
     top:18%;
-    right:54px;
-    bottom:18%;
-    left:18%;
-    background-position:62% center;
+    right:48px;
+    width:50%;
+    height:50%;
+    opacity:.05;
   }
 
   .dashboard-top-shell::after,
-  .standings-top-shell::after,
   .streak-header-shell::after,
   .crew-header-shell::after{
     top:12%;
-    right:42px;
-    bottom:auto;
-    left:auto;
-    width:62%;
-    height:34%;
-    max-height:120px;
-    background-position:right center;
-    opacity:.055;
+    right:38px;
+    width:56%;
+    height:30%;
+    max-height:108px;
+    opacity:.05;
+  }
+
+  .standings-top-shell::after{
+    top:12%;
+    right:34px;
+    width:48%;
+    height:24%;
+    max-height:92px;
+    opacity:.045;
+  }
+
+  .rules-header::after,
+  .schedule-hero::after,
+  .gallery-hero::after{
+    top:16%;
+    right:38px;
+    width:46%;
+    height:38%;
+    opacity:.045;
   }
 
   .trophy-room-page .trophy-room-hero::after{
-    top:11%;
-    right:48px;
-    bottom:auto;
-    left:auto;
-    width:52%;
-    height:34%;
-    opacity:.055;
+    top:10%;
+    right:42px;
+    width:48%;
+    height:28%;
+    max-height:96px;
+    opacity:.045;
   }
 
   .news-header-shell::before{
@@ -1474,7 +1599,7 @@
     right:18px;
     width:42%;
     height:96px;
-    opacity:.055;
+    opacity:.05;
   }
 
   .player-page #player-profile .tlpt-player-summary::before{
