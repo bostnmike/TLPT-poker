@@ -206,7 +206,7 @@ UNIFIED_TITLE_PAGES = {
     "dashboard.html": "The Dashboard",
     "form-lab.html": "The Form Lab",
     "gallery.html": "The Art Gallery",
-    "index.html": "Welcome to TLPT Poker League",
+    "index.html": "Twin Lakes Poker Tour",
     "knockouts.html": "Knockout Central",
     "media.html": "The Film Room",
     "news.html": "The Week That Was",
@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260825-4"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-1"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2021,6 +2021,7 @@ def main() -> int:
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
+    errors.extend(audit_post_freeze_title_watermark())
     errors.extend(audit_phase_3h8_maintenance_baseline())
     errors.extend(audit_phase_3h7_data_build_runner())
     errors.extend(audit_phase_3h5_single_source_audit())
@@ -3797,10 +3798,43 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260825-4":
+            if contract.get("sharedCssVersion") != "20260826-1":
                 errors.append(
-                    "maintenance-baseline.json: sharedCssVersion must match the deployed 3H.3 baseline"
+                    "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
+    return errors
+
+
+
+def audit_post_freeze_title_watermark() -> list[str]:
+    """Protect the intentionally minimal site-wide page-title watermark treatment."""
+    errors: list[str] = []
+    asset = ROOT / "images" / "site" / "MutedLogo.png"
+    stylesheet = ROOT / "site-tail.css"
+
+    if not asset.is_file():
+        errors.append("images/site/MutedLogo.png: page-title watermark asset is missing")
+        return errors
+    if not stylesheet.is_file():
+        errors.append("site-tail.css: shared page-title watermark stylesheet is missing")
+        return errors
+
+    text = stylesheet.read_text(encoding="utf-8")
+    required_fragments = (
+        ".site-page-hero::after,",
+        ".news-header-shell::before,",
+        ".trophy-room-page .trophy-room-hero::after,",
+        ".hall-page .hall-page-hero::before,",
+        ".player-page #player-profile .tlpt-player-summary::before{",
+        'background-image:url("images/site/MutedLogo.png");',
+        "mix-blend-mode:screen;",
+        "opacity:.10;",
+    )
+    for fragment in required_fragments:
+        if fragment not in text:
+            errors.append(
+                f"site-tail.css: page-title watermark contract missing `{fragment}`"
+            )
     return errors
 
 
