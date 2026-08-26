@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-7"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-8"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-7":
+            if contract.get("sharedCssVersion") != "20260826-8":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3820,7 +3820,8 @@ def audit_post_freeze_title_watermark() -> list[str]:
         return errors
 
     text = stylesheet.read_text(encoding="utf-8")
-    required_fragments = (
+
+    for fragment in (
         "--tlpt-watermark-opacity:.08;",
         "--tlpt-watermark-desktop-h:112px;",
         "--tlpt-watermark-desktop-w:246px;",
@@ -3832,32 +3833,67 @@ def audit_post_freeze_title_watermark() -> list[str]:
         "--tlpt-watermark-mobile-w:128px;",
         "--tlpt-watermark-mobile-gap:16px;",
         'background-image:url("images/site/MutedLogo.png");',
-        ".site-page-hero::after{",
-        "grid-column:1;",
-        "grid-row:1;",
-        "justify-self:end;",
-        "align-self:center;",
-        "width:var(--tlpt-watermark-desktop-w);",
-        "height:var(--tlpt-watermark-desktop-h);",
-        "margin-right:-2px;",
-        "opacity:var(--tlpt-watermark-opacity);",
-        "width:var(--tlpt-watermark-tablet-w);",
-        "height:var(--tlpt-watermark-tablet-h);",
-        "margin-right:-6px;",
-        "right:92px;",
-        "width:var(--tlpt-watermark-mobile-w);",
-        "height:var(--tlpt-watermark-mobile-h);",
-        ".trophy-room-page .trophy-room-hero::after{",
         ".news-header-shell::before{",
-        ".site-page-hero-description{",
-        "max-width:720px;",
-    )
-    for fragment in required_fragments:
+    ):
         if fragment not in text:
             errors.append(
                 f"site-tail.css: locked page-title watermark contract missing `{fragment}`"
             )
 
+    # The shared and Trophy Room marks must be absolute grid-positioned children:
+    # they may reference grid lines, but must never participate in grid auto-placement.
+    selector_contracts = {
+        ".site-page-hero::after": (
+            "position:absolute;",
+            "inset:auto;",
+            "grid-column:1;",
+            "grid-row:1;",
+            "justify-self:end;",
+            "align-self:center;",
+            "width:var(--tlpt-watermark-desktop-w);",
+            "height:var(--tlpt-watermark-desktop-h);",
+            "opacity:var(--tlpt-watermark-opacity);",
+        ),
+        ".trophy-room-page .trophy-room-hero::after": (
+            "position:absolute;",
+            "inset:auto;",
+            "grid-column:1;",
+            "grid-row:1;",
+            "justify-self:end;",
+            "align-self:center;",
+            "width:var(--tlpt-watermark-desktop-w);",
+            "height:var(--tlpt-watermark-desktop-h);",
+            "opacity:var(--tlpt-watermark-opacity);",
+        ),
+    }
+    for selector, fragments in selector_contracts.items():
+        match = re.search(re.escape(selector) + r"\s*\{([^}]*)\}", text, re.S)
+        if not match:
+            errors.append(f"site-tail.css: locked watermark selector missing `{selector}`")
+            continue
+        block = match.group(1)
+        for fragment in fragments:
+            if fragment not in block:
+                errors.append(
+                    f"site-tail.css: `{selector}` missing locked declaration `{fragment}`"
+                )
+        if "position:relative;" in block:
+            errors.append(
+                f"site-tail.css: `{selector}` must not participate in grid layout"
+            )
+
+    # These structural selectors remain owned by style.css.
+    for selector in (
+        ".site-page-hero-copy,",
+        ".site-page-hero-chip,",
+        ".site-page-hero-lower{",
+    ):
+        if selector in text:
+            errors.append(
+                f"site-tail.css: `{selector.rstrip(',{')}` must remain owned by style.css"
+            )
+
+    # Hall of Fame stays bespoke and watermark-free.
     for forbidden in (
         ".hall-page .hall-page-hero::before",
         ".hall-page .hall-page-hero::after",
@@ -3867,6 +3903,7 @@ def audit_post_freeze_title_watermark() -> list[str]:
                 f"site-tail.css: Hall of Fame must remain watermark-free (`{forbidden}` found)"
             )
 
+    # Do not reintroduce per-page geometry for shared heroes.
     for selector in (
         ".home-page-hero::after{",
         ".dashboard-top-shell::after{",
