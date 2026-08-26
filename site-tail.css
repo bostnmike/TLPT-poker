@@ -1382,18 +1382,18 @@
 .news-header-shell::before{
   content:"";
   position:absolute;
-  top:50%;
-  right:56px;
+  top:32px;
+  right:52px;
   width:var(--tlpt-watermark-desktop-w);
   height:var(--tlpt-watermark-desktop-h);
-  transform:translateY(-50%);
+  transform:none;
   pointer-events:none;
   background-image:url("images/site/MutedLogo.png");
   background-repeat:no-repeat;
   background-position:center;
   background-size:contain;
   mix-blend-mode:screen;
-  opacity:var(--tlpt-watermark-opacity);
+  opacity:.14;
   z-index:0;
 }
 
@@ -1419,7 +1419,7 @@
   pointer-events:none;
   background-image:url("images/site/MutedLogo.png");
   background-repeat:no-repeat;
-  background-position:center;
+  background-position:right center;
   background-size:contain;
   mix-blend-mode:screen;
   opacity:var(--tlpt-watermark-opacity);
@@ -1458,9 +1458,11 @@
   }
 
   .news-header-shell::before{
+    top:26px;
     right:32px;
     width:var(--tlpt-watermark-tablet-w);
     height:var(--tlpt-watermark-tablet-h);
+    opacity:.14;
   }
 }
 
@@ -1517,6 +1519,7 @@
     width:var(--tlpt-watermark-mobile-w);
     height:var(--tlpt-watermark-mobile-h);
     transform:none;
+    opacity:.14;
   }
 }
 
