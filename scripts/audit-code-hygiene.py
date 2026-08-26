@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-1"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-2"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-1":
+            if contract.get("sharedCssVersion") != "20260826-2":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3807,7 +3807,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
 
 
 def audit_post_freeze_title_watermark() -> list[str]:
-    """Protect the intentionally minimal site-wide page-title watermark treatment."""
+    """Protect the refined page-title watermark placement and special-page exceptions."""
     errors: list[str] = []
     asset = ROOT / "images" / "site" / "MutedLogo.png"
     stylesheet = ROOT / "site-tail.css"
@@ -3824,17 +3824,66 @@ def audit_post_freeze_title_watermark() -> list[str]:
         ".site-page-hero::after,",
         ".news-header-shell::before,",
         ".trophy-room-page .trophy-room-hero::after,",
-        ".hall-page .hall-page-hero::before,",
         ".player-page #player-profile .tlpt-player-summary::before{",
         'background-image:url("images/site/MutedLogo.png");',
         "mix-blend-mode:screen;",
-        "opacity:.10;",
     )
     for fragment in required_fragments:
         if fragment not in text:
             errors.append(
                 f"site-tail.css: page-title watermark contract missing `{fragment}`"
             )
+
+    placement_contracts = {
+        "standard hero right-shift": """.site-page-hero::after{
+  top:12%;
+  right:132px;
+  bottom:10%;
+  left:27%;
+  background-position:58% center;
+}""",
+        "tall hero title-zone treatment": """.dashboard-top-shell::after,
+.standings-top-shell::after,
+.streak-header-shell::after,
+.crew-header-shell::after{
+  top:7%;
+  right:132px;
+  bottom:auto;
+  left:auto;
+  width:min(44%, 520px);
+  height:44%;
+  max-height:180px;
+  background-position:right center;
+  opacity:.075;
+}""",
+        "Week That Was right-rail treatment": """.news-header-shell::before{
+  top:18px;
+  right:32px;
+  width:min(28%, 300px);
+  height:120px;
+  background-position:right center;
+  opacity:.075;
+}""",
+        "Trophy Room compact treatment": """.trophy-room-page .trophy-room-hero::after{
+  top:7%;
+  right:150px;
+  bottom:auto;
+  left:auto;
+  width:min(36%, 440px);
+  height:45%;
+  max-height:150px;
+  background-position:right center;
+  opacity:.07;
+}""",
+    }
+    for label, contract in placement_contracts.items():
+        if contract not in text:
+            errors.append(f"site-tail.css: {label} differs from the approved watermark layout")
+
+    if ".hall-page .hall-page-hero::before" in text:
+        errors.append(
+            "site-tail.css: Hall of Fame must remain free of the page-title watermark"
+        )
     return errors
 
 
