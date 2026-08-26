@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-3"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-4"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-3":
+            if contract.get("sharedCssVersion") != "20260826-4":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3835,19 +3835,19 @@ def audit_post_freeze_title_watermark() -> list[str]:
 
     page_contracts = {
         ".home-page-hero::after": ("right:180px;", "width:min(30%, 360px);", "opacity:.09;"),
-        ".dashboard-top-shell::after": ("right:112px;", "width:min(44%, 520px);", "opacity:.075;"),
+        ".dashboard-top-shell::after": ("top:5%;", "right:136px;", "width:min(40%, 470px);", "max-height:162px;", "opacity:.075;"),
         ".fl-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
         ".pm-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
-        ".streak-header-shell::after": ("right:132px;", "width:min(44%, 520px);", "opacity:.075;"),
+        ".streak-header-shell::after": ("top:6%;", "right:150px;", "width:min(42%, 495px);", "max-height:171px;", "opacity:.075;"),
         ".knockouts-header-shell::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
         ".standings-top-shell::after": ("right:90px;", "width:min(34%, 400px);", "max-height:125px;", "opacity:.06;"),
-        ".crew-header-shell::after": ("right:112px;", "width:min(44%, 520px);", "opacity:.075;"),
-        ".schedule-hero::after": ("right:150px;", "width:min(28%, 340px);", "opacity:.08;"),
+        ".crew-header-shell::after": ("top:6%;", "right:136px;", "width:min(40%, 480px);", "max-height:165px;", "opacity:.075;"),
+        ".schedule-hero::after": ("top:7%;", "right:190px;", "width:min(24%, 290px);", "height:62%;", "opacity:.08;"),
         ".rules-header::after": ("right:135px;", "width:min(23%, 280px);", "opacity:.062;"),
         ".media-header::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
         ".gallery-hero::after": ("right:155px;", "width:min(26%, 310px);", "opacity:.07;"),
         ".news-header-shell::before": ("right:32px;", "width:min(28%, 300px);", "opacity:.075;"),
-        ".trophy-room-page .trophy-room-hero::after": ("right:130px;", "width:min(32%, 380px);", "max-height:130px;", "opacity:.065;"),
+        ".trophy-room-page .trophy-room-hero::after": ("top:4%;", "right:172px;", "width:min(26%, 310px);", "max-height:105px;", "opacity:.065;"),
         ".player-page #player-profile .tlpt-player-summary::before": ("right:18px;", "width:min(72%, 620px);", "opacity:.10;"),
     }
 
