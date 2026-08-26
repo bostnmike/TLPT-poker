@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-9"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-9":
+            if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3807,7 +3807,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
 
 
 def audit_post_freeze_title_watermark() -> list[str]:
-    """Protect the locked chip/watermark brand-pair system."""
+    """Protect the locked brand-pair system and the two bespoke header exceptions."""
     errors: list[str] = []
     asset = ROOT / "images" / "site" / "MutedLogo.png"
     stylesheet = ROOT / "site-tail.css"
@@ -3838,13 +3838,11 @@ def audit_post_freeze_title_watermark() -> list[str]:
         "rgba(var(--site-page-hero-accent-rgb),.42)",
         'background-image:url("images/site/MutedLogo.png");',
         "right:calc(100% + var(--tlpt-watermark-desktop-gap));",
-        ".news-header-shell::before{",
-        ".player-page #player-profile .tlpt-player-summary::before{",
-        "opacity:var(--tlpt-watermark-opacity);",
     ):
         if fragment not in text:
             errors.append(f"site-tail.css: locked brand-pair contract missing `{fragment}`")
 
+    # Standard hero markup contract.
     brand_pattern = re.compile(
         r'<div\s+class="site-page-hero-brand"\s+aria-hidden="true">\s*'
         r'<span\s+class="site-page-hero-watermark"></span>\s*'
@@ -3874,6 +3872,44 @@ def audit_post_freeze_title_watermark() -> list[str]:
             errors.append(
                 "trophy-room.html: Trophy Room must contain exactly one locked watermark/chip brand pair"
             )
+
+    # Bespoke TWTW desktop treatment: explicit title-zone placement and stronger opacity.
+    news_match = re.search(r"\.news-header-shell::before\s*\{([^}]*)\}", text, re.S)
+    if not news_match:
+        errors.append("site-tail.css: TWTW watermark selector is missing")
+    else:
+        block = news_match.group(1)
+        for fragment in (
+            "top:32px;",
+            "right:52px;",
+            "width:var(--tlpt-watermark-desktop-w);",
+            "height:var(--tlpt-watermark-desktop-h);",
+            "transform:none;",
+            "opacity:.14;",
+        ):
+            if fragment not in block:
+                errors.append(f"site-tail.css: TWTW watermark missing `{fragment}`")
+
+    # Bespoke Player Profile: same shared opacity, but image must be right-justified.
+    profile_match = re.search(
+        r"\.player-page #player-profile \.tlpt-player-summary::before\s*\{([^}]*)\}",
+        text,
+        re.S,
+    )
+    if not profile_match:
+        errors.append("site-tail.css: Player Profile watermark selector is missing")
+    else:
+        block = profile_match.group(1)
+        for fragment in (
+            "top:14px;",
+            "right:18px;",
+            "width:min(72%, 620px);",
+            "height:132px;",
+            "background-position:right center;",
+            "opacity:var(--tlpt-watermark-opacity);",
+        ):
+            if fragment not in block:
+                errors.append(f"site-tail.css: Player Profile watermark missing `{fragment}`")
 
     for forbidden in (
         ".site-page-hero::after",
