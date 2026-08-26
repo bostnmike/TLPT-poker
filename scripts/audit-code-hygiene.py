@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-5"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-6"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-5":
+            if contract.get("sharedCssVersion") != "20260826-6":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3846,7 +3846,7 @@ def audit_post_freeze_title_watermark() -> list[str]:
         ".rules-header::after": ("right:180px;", "width:min(21%, 252px);", "height:63%;", "opacity:.062;"),
         ".media-header::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
         ".gallery-hero::after": ("right:195px;", "width:min(23.5%, 280px);", "height:65%;", "opacity:.07;"),
-        ".news-header-shell::before": ("right:50px;", "width:min(25%, 270px);", "height:108px;", "opacity:.038;"),
+        ".news-header-shell::before": ("right:50px;", "width:min(25%, 270px);", "height:108px;", "opacity:.06;"),
         ".trophy-room-page .trophy-room-hero::after": ("top:4%;", "right:172px;", "width:min(26%, 310px);", "max-height:105px;", "opacity:.065;"),
         ".player-page #player-profile .tlpt-player-summary::before": ("right:18px;", "width:min(72%, 620px);", "opacity:.085;"),
     }
