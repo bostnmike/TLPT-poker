@@ -212,9 +212,9 @@ UNIFIED_TITLE_PAGES = {
     "news.html": "The Week That Was",
     "player-movement.html": "The Heater Meter",
     "players.html": "Meet the Crew",
-    "rules.html": "TLPT Rules & Structures",
+    "rules.html": "Rules & Structure",
     "schedule.html": "Next at Caahhd Room",
-    "standings.html": "Sortable League Standings",
+    "standings.html": "The Standings",
     "streaks.html": "The Streak Tracker",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-6"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-7"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-6":
+            if contract.get("sharedCssVersion") != "20260826-7":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3807,7 +3807,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
 
 
 def audit_post_freeze_title_watermark() -> list[str]:
-    """Protect the page-specific page-title watermark geometry and exceptions."""
+    """Protect the locked chip-relative page-title watermark system."""
     errors: list[str] = []
     asset = ROOT / "images" / "site" / "MutedLogo.png"
     stylesheet = ROOT / "site-tail.css"
@@ -3820,57 +3820,73 @@ def audit_post_freeze_title_watermark() -> list[str]:
         return errors
 
     text = stylesheet.read_text(encoding="utf-8")
-    for fragment in (
-        ".site-page-hero::after,",
-        ".news-header-shell::before,",
-        ".trophy-room-page .trophy-room-hero::after,",
-        ".player-page #player-profile .tlpt-player-summary::before{",
+    required_fragments = (
+        "--tlpt-watermark-opacity:.08;",
+        "--tlpt-watermark-desktop-h:112px;",
+        "--tlpt-watermark-desktop-w:246px;",
+        "--tlpt-watermark-desktop-gap:28px;",
+        "--tlpt-watermark-tablet-h:78px;",
+        "--tlpt-watermark-tablet-w:171px;",
+        "--tlpt-watermark-tablet-gap:20px;",
+        "--tlpt-watermark-mobile-h:58px;",
+        "--tlpt-watermark-mobile-w:128px;",
+        "--tlpt-watermark-mobile-gap:16px;",
         'background-image:url("images/site/MutedLogo.png");',
-        "mix-blend-mode:screen;",
-    ):
+        ".site-page-hero::after{",
+        "grid-column:1;",
+        "grid-row:1;",
+        "justify-self:end;",
+        "align-self:center;",
+        "width:var(--tlpt-watermark-desktop-w);",
+        "height:var(--tlpt-watermark-desktop-h);",
+        "margin-right:-2px;",
+        "opacity:var(--tlpt-watermark-opacity);",
+        "width:var(--tlpt-watermark-tablet-w);",
+        "height:var(--tlpt-watermark-tablet-h);",
+        "margin-right:-6px;",
+        "right:92px;",
+        "width:var(--tlpt-watermark-mobile-w);",
+        "height:var(--tlpt-watermark-mobile-h);",
+        ".trophy-room-page .trophy-room-hero::after{",
+        ".news-header-shell::before{",
+        ".site-page-hero-description{",
+        "max-width:720px;",
+    )
+    for fragment in required_fragments:
         if fragment not in text:
             errors.append(
-                f"site-tail.css: page-title watermark contract missing `{fragment}`"
+                f"site-tail.css: locked page-title watermark contract missing `{fragment}`"
             )
 
-    page_contracts = {
-        ".home-page-hero::after": ("right:208px;", "width:min(28.5%, 342px);", "height:74%;", "opacity:.09;"),
-        ".dashboard-top-shell::after": ("top:5%;", "right:136px;", "width:min(40%, 470px);", "max-height:162px;", "opacity:.075;"),
-        ".fl-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
-        ".pm-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
-        ".streak-header-shell::after": ("top:6%;", "right:150px;", "width:min(42%, 495px);", "max-height:171px;", "opacity:.075;"),
-        ".knockouts-header-shell::after": ("right:225px;", "width:min(27.5%, 332px);", "height:70%;", "opacity:.08;"),
-        ".standings-top-shell::after": ("right:120px;", "width:min(32%, 375px);", "max-height:118px;", "opacity:.06;"),
-        ".crew-header-shell::after": ("top:6%;", "right:136px;", "width:min(40%, 480px);", "max-height:165px;", "opacity:.075;"),
-        ".schedule-hero::after": ("top:7%;", "right:190px;", "width:min(24%, 290px);", "height:62%;", "opacity:.08;"),
-        ".rules-header::after": ("right:180px;", "width:min(21%, 252px);", "height:63%;", "opacity:.062;"),
-        ".media-header::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
-        ".gallery-hero::after": ("right:195px;", "width:min(23.5%, 280px);", "height:65%;", "opacity:.07;"),
-        ".news-header-shell::before": ("right:50px;", "width:min(25%, 270px);", "height:108px;", "opacity:.06;"),
-        ".trophy-room-page .trophy-room-hero::after": ("top:4%;", "right:172px;", "width:min(26%, 310px);", "max-height:105px;", "opacity:.065;"),
-        ".player-page #player-profile .tlpt-player-summary::before": ("right:18px;", "width:min(72%, 620px);", "opacity:.085;"),
-    }
-
-    for selector, required_values in page_contracts.items():
-        matches = list(re.finditer(
-            rf"{re.escape(selector)}\s*\{{(.*?)\}}",
-            text,
-            flags=re.DOTALL,
-        ))
-        if not matches:
-            errors.append(f"site-tail.css: missing page-specific watermark rule `{selector}`")
-            continue
-        blocks = [match.group(1) for match in matches]
-        if not any(all(value in block for value in required_values) for block in blocks):
-            missing = ", ".join(required_values)
+    for forbidden in (
+        ".hall-page .hall-page-hero::before",
+        ".hall-page .hall-page-hero::after",
+    ):
+        if forbidden in text:
             errors.append(
-                f"site-tail.css: `{selector}` lacks the approved desktop watermark geometry ({missing})"
+                f"site-tail.css: Hall of Fame must remain watermark-free (`{forbidden}` found)"
             )
 
-    if ".hall-page .hall-page-hero::before" in text:
-        errors.append(
-            "site-tail.css: Hall of Fame must remain free of the page-title watermark"
-        )
+    for selector in (
+        ".home-page-hero::after{",
+        ".dashboard-top-shell::after{",
+        ".fl-header-shell::after{",
+        ".pm-header-shell::after{",
+        ".streak-header-shell::after{",
+        ".knockouts-header-shell::after{",
+        ".standings-top-shell::after{",
+        ".crew-header-shell::after{",
+        ".schedule-hero::after{",
+        ".rules-header::after{",
+        ".media-header::after{",
+        ".gallery-hero::after{",
+    ):
+        if selector in text:
+            errors.append(
+                f"site-tail.css: shared watermark geometry must remain locked; "
+                f"page-specific override found `{selector}`"
+            )
+
     return errors
 
 if __name__ == "__main__":
