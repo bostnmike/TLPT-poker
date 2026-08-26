@@ -1338,7 +1338,8 @@
    The existing 22px grid gap + 8px spare space in the 120px chip column = 30px;
    a -2px margin produces the approved 28px logo-to-chip gap. */
 .site-page-hero::after{
-  position:relative;
+  position:absolute;
+  inset:auto;
   grid-column:1;
   grid-row:1;
   justify-self:end;
@@ -1347,13 +1348,6 @@
   height:var(--tlpt-watermark-desktop-h);
   margin-right:-2px;
   opacity:var(--tlpt-watermark-opacity);
-}
-
-.site-page-hero-copy,
-.site-page-hero-chip,
-.site-page-hero-lower{
-  position:relative;
-  z-index:1;
 }
 
 /* Long supporting copy wraps before entering the watermark lane. */
@@ -1365,7 +1359,8 @@
 
 /* Trophy Room uses the same two-column hero geometry, so use the same row lock. */
 .trophy-room-page .trophy-room-hero::after{
-  position:relative;
+  position:absolute;
+  inset:auto;
   grid-column:1;
   grid-row:1;
   justify-self:end;
