@@ -537,7 +537,7 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
 GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
-EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-2"
+EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-3"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3798,7 +3798,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
             if contract.get("publicPageCount") != 17:
                 errors.append("maintenance-baseline.json: publicPageCount must remain 17")
-            if contract.get("sharedCssVersion") != "20260826-2":
+            if contract.get("sharedCssVersion") != "20260826-3":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
                 )
@@ -3807,7 +3807,7 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
 
 
 def audit_post_freeze_title_watermark() -> list[str]:
-    """Protect the refined page-title watermark placement and special-page exceptions."""
+    """Protect the page-specific page-title watermark geometry and exceptions."""
     errors: list[str] = []
     asset = ROOT / "images" / "site" / "MutedLogo.png"
     stylesheet = ROOT / "site-tail.css"
@@ -3820,72 +3820,58 @@ def audit_post_freeze_title_watermark() -> list[str]:
         return errors
 
     text = stylesheet.read_text(encoding="utf-8")
-    required_fragments = (
+    for fragment in (
         ".site-page-hero::after,",
         ".news-header-shell::before,",
         ".trophy-room-page .trophy-room-hero::after,",
         ".player-page #player-profile .tlpt-player-summary::before{",
         'background-image:url("images/site/MutedLogo.png");',
         "mix-blend-mode:screen;",
-    )
-    for fragment in required_fragments:
+    ):
         if fragment not in text:
             errors.append(
                 f"site-tail.css: page-title watermark contract missing `{fragment}`"
             )
 
-    placement_contracts = {
-        "standard hero right-shift": """.site-page-hero::after{
-  top:12%;
-  right:132px;
-  bottom:10%;
-  left:27%;
-  background-position:58% center;
-}""",
-        "tall hero title-zone treatment": """.dashboard-top-shell::after,
-.standings-top-shell::after,
-.streak-header-shell::after,
-.crew-header-shell::after{
-  top:7%;
-  right:132px;
-  bottom:auto;
-  left:auto;
-  width:min(44%, 520px);
-  height:44%;
-  max-height:180px;
-  background-position:right center;
-  opacity:.075;
-}""",
-        "Week That Was right-rail treatment": """.news-header-shell::before{
-  top:18px;
-  right:32px;
-  width:min(28%, 300px);
-  height:120px;
-  background-position:right center;
-  opacity:.075;
-}""",
-        "Trophy Room compact treatment": """.trophy-room-page .trophy-room-hero::after{
-  top:7%;
-  right:150px;
-  bottom:auto;
-  left:auto;
-  width:min(36%, 440px);
-  height:45%;
-  max-height:150px;
-  background-position:right center;
-  opacity:.07;
-}""",
+    page_contracts = {
+        ".home-page-hero::after": ("right:180px;", "width:min(30%, 360px);", "opacity:.09;"),
+        ".dashboard-top-shell::after": ("right:112px;", "width:min(44%, 520px);", "opacity:.075;"),
+        ".fl-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
+        ".pm-header-shell::after": ("right:190px;", "width:min(31%, 370px);", "opacity:.085;"),
+        ".streak-header-shell::after": ("right:132px;", "width:min(44%, 520px);", "opacity:.075;"),
+        ".knockouts-header-shell::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
+        ".standings-top-shell::after": ("right:90px;", "width:min(34%, 400px);", "max-height:125px;", "opacity:.06;"),
+        ".crew-header-shell::after": ("right:112px;", "width:min(44%, 520px);", "opacity:.075;"),
+        ".schedule-hero::after": ("right:150px;", "width:min(28%, 340px);", "opacity:.08;"),
+        ".rules-header::after": ("right:135px;", "width:min(23%, 280px);", "opacity:.062;"),
+        ".media-header::after": ("right:190px;", "width:min(29%, 350px);", "opacity:.08;"),
+        ".gallery-hero::after": ("right:155px;", "width:min(26%, 310px);", "opacity:.07;"),
+        ".news-header-shell::before": ("right:32px;", "width:min(28%, 300px);", "opacity:.075;"),
+        ".trophy-room-page .trophy-room-hero::after": ("right:130px;", "width:min(32%, 380px);", "max-height:130px;", "opacity:.065;"),
+        ".player-page #player-profile .tlpt-player-summary::before": ("right:18px;", "width:min(72%, 620px);", "opacity:.10;"),
     }
-    for label, contract in placement_contracts.items():
-        if contract not in text:
-            errors.append(f"site-tail.css: {label} differs from the approved watermark layout")
+
+    for selector, required_values in page_contracts.items():
+        matches = list(re.finditer(
+            rf"{re.escape(selector)}\s*\{{(.*?)\}}",
+            text,
+            flags=re.DOTALL,
+        ))
+        if not matches:
+            errors.append(f"site-tail.css: missing page-specific watermark rule `{selector}`")
+            continue
+        blocks = [match.group(1) for match in matches]
+        if not any(all(value in block for value in required_values) for block in blocks):
+            missing = ", ".join(required_values)
+            errors.append(
+                f"site-tail.css: `{selector}` lacks the approved desktop watermark geometry ({missing})"
+            )
 
     if ".hall-page .hall-page-hero::before" in text:
         errors.append(
             "site-tail.css: Hall of Fame must remain free of the page-title watermark"
         )
     return errors
-
 
 if __name__ == "__main__":
     sys.exit(main())
