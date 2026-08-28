@@ -201,6 +201,103 @@ def finalize_metrics(records):
     return records
 
 
+def finalize_career_metrics(records):
+    # Independent career calculation excluding metadata-only zero-game players.
+    active = [
+        player for player in records
+        if int(player.get("buyIns", 0) or 0) > 0
+    ]
+    inactive = [
+        player for player in records
+        if int(player.get("buyIns", 0) or 0) <= 0
+    ]
+
+    for player in inactive:
+        for key in (
+            "roi", "cashRate", "bubbleRate", "hitRate",
+            "expectedProfit", "luckIndex",
+            "clutchRaw", "aggressionRaw", "survivorRaw",
+            "tiltScoreDirect", "tiltIndex", "trueSkillScore",
+            "roi_norm", "luckIndex_norm", "clutchRaw_norm",
+            "aggressionRaw_norm", "survivorRaw_norm",
+            "clutchIndex", "aggressionIndex", "survivorIndex",
+        ):
+            player[key] = 0.0
+        player["tier"] = "C"
+
+    if not active:
+        return records
+
+    for player in active:
+        cost = float(player["totalCost"])
+        buy_in = float(player["buyIns"])
+        entries = float(player["entries"])
+        player["roi"] = player["profit"] / cost if cost else 0.0
+        player["cashRate"] = player["timesPlaced"] / buy_in if buy_in else 0.0
+        player["bubbleRate"] = player["bubbles"] / buy_in if buy_in else 0.0
+        player["hitRate"] = player["hits"] / entries if entries else 0.0
+        player["luckProxy"] = (
+            0.40 * player["cashRate"]
+            + 0.20 * player["hitRate"]
+            + 0.40 * (1 - player["bubbleRate"])
+        )
+
+    league_proxy = math.fsum(player["luckProxy"] for player in active) / len(active)
+
+    for player in active:
+        proxy_delta = player["luckProxy"] - league_proxy
+        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
+        player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
+        player["luckIndex"] = round(player["profit"] - player["expectedProfit"], 1)
+
+        buy_in = max(player["buyIns"], 1)
+        rebuy_rate = player["rebuys"] / buy_in
+        player["clutchRaw"] = player["timesPlaced"] / buy_in
+        player["aggressionRaw"] = player["hits"] / max(player["entries"], 1)
+        player["survivorRaw"] = (
+            0.55 * player["cashRate"]
+            + 0.25 * (1 - player["bubbleRate"])
+            + 0.20 * player["hitRate"]
+        )
+        base_composure = 100 * (
+            1 - (0.70 * rebuy_rate + 0.30 * player["bubbleRate"])
+        )
+        sample_factor = min(player["buyIns"], 8) / 8.0
+        direct = 50 + (base_composure - 50) * sample_factor
+        player["tiltScoreDirect"] = max(0.0, min(100.0, direct))
+        player["tiltIndex"] = round(player["tiltScoreDirect"], 1)
+
+    for key in NORMALIZED_KEYS:
+        normalize(active, key)
+
+    for player in active:
+        player["clutchIndex"] = player["clutchRaw_norm"]
+        player["aggressionIndex"] = player["aggressionRaw_norm"]
+        player["survivorIndex"] = player["survivorRaw_norm"]
+        player["trueSkillScore"] = (
+            player["roi_norm"] * 1.4
+            + player["clutchIndex"] * 1.2
+            + player["aggressionIndex"]
+            + player["survivorIndex"]
+            + player["luckIndex_norm"] * 0.5
+            + player["tiltIndex"] * 0.8
+            + min(10, player["buyIns"])
+        )
+        player.pop("luckProxy", None)
+
+    ranked = sorted(active, key=lambda player: -player["trueSkillScore"])
+    for index, player in enumerate(ranked):
+        percentile = index / max(len(ranked) - 1, 1)
+        player["tier"] = (
+            "S" if percentile <= 0.15
+            else "A" if percentile <= 0.35
+            else "B" if percentile <= 0.65
+            else "C"
+        )
+
+    return records
+
+
 def tier_score(player):
     buy_ins = float(player.get("buyIns", 0))
     if buy_ins >= 20:
@@ -511,11 +608,7 @@ def aggregate_players(metadata, events):
             for key in CORE_KEYS:
                 totals[slug][key] += row.get(key, 0) or 0
     records = list(totals.values())
-    finalize_metrics(records)
-    ranked = sorted(records, key=lambda player: -player["trueSkillScore"])
-    for index, player in enumerate(ranked):
-        percentile = index / max(len(ranked) - 1, 1)
-        player["tier"] = "S" if percentile <= 0.15 else "A" if percentile <= 0.35 else "B" if percentile <= 0.65 else "C"
+    finalize_career_metrics(records)
     return records
 
 
@@ -526,17 +619,37 @@ def audit_players(audit, expected_players, site_data, config):
     audit.check(list(actual_by_slug) == sorted(actual_by_slug, key=lambda slug: actual_by_slug[slug]["name"].lower()), "playerAggregates", "Published players are not alphabetically ordered")
     audit.check(set(actual_by_slug) == set(expected_by_slug), "playerAggregates", "Published player set differs from source metadata")
     numeric_keys = (*CORE_KEYS, "roi", "cashRate", "bubbleRate", "hitRate", "expectedProfit", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw", "tiltScoreDirect", "tiltIndex", "trueSkillScore", "roi_norm", "luckIndex_norm", "clutchRaw_norm", "aggressionRaw_norm", "survivorRaw_norm", "clutchIndex", "aggressionIndex", "survivorIndex")
+    zero_game_derived_keys = (
+        "roi", "cashRate", "bubbleRate", "hitRate",
+        "expectedProfit", "luckIndex",
+        "clutchRaw", "aggressionRaw", "survivorRaw",
+        "tiltScoreDirect", "tiltIndex", "trueSkillScore",
+        "roi_norm", "luckIndex_norm", "clutchRaw_norm",
+        "aggressionRaw_norm", "survivorRaw_norm",
+        "clutchIndex", "aggressionIndex", "survivorIndex",
+    )
     for slug, expected in expected_by_slug.items():
         actual_player = actual_by_slug.get(slug, {})
         for key in numeric_keys:
             audit.check(deep_equal(actual_player.get(key), expected.get(key)), "playerAggregates", f"{slug}: {key} differs from independent recomputation")
         audit.check(actual_player.get("tier") == expected.get("tier"), "playerAggregates", f"{slug}: published tier differs from formula")
+        if int(expected.get("buyIns", 0) or 0) == 0:
+            for key in zero_game_derived_keys:
+                audit.check(
+                    deep_equal(actual_player.get(key), 0.0),
+                    "zeroGamePlayers",
+                    f"{slug}: zero-game player has nonzero {key}",
+                )
 
     qualified = [player for player in expected_players if player["entries"] >= config["qualification_thresholds"]["leaders_min_entries"]]
     def leader(pool, key, direction):
         return sorted(pool, key=(lambda p: (float(p.get(key, 0)), p["name"].lower())) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), p["name"].lower())))[0]
     expected_honors = [{"type": rule["type"], "name": leader(qualified, rule["key"], rule["direction"])["name"], "note": rule.get("note", "")} for rule in config["honors"]]
-    expected_records = [{"label": rule["label"], "name": leader(expected_players, rule["key"], rule["direction"])["name"], "value": str(round(leader(expected_players, rule["key"], rule["direction"])[rule["key"]], 2))} for rule in config["records"]]
+    record_pool = [
+        player for player in expected_players
+        if int(player.get("buyIns", 0) or 0) > 0
+    ]
+    expected_records = [{"label": rule["label"], "name": leader(record_pool, rule["key"], rule["direction"])["name"], "value": str(round(leader(record_pool, rule["key"], rule["direction"])[rule["key"]], 2))} for rule in config["records"]]
     audit.check(site_data.get("honors") == expected_honors, "leaderboards", "Honors do not match qualification and sorting rules")
     audit.check(site_data.get("records") == expected_records, "leaderboards", "Records do not match sorting rules")
 

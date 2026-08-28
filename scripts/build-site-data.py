@@ -87,6 +87,117 @@ def normalize_stat(players, key):
         p[f"{key}_norm"] = 100 * (float(p[key]) - min_val) / (max_val - min_val)
 
 
+def finalize_career_metrics(players):
+    # Calculate career metrics without letting zero-game metadata affect the league.
+    active_players = [
+        player for player in players
+        if int(player.get("buyIns", 0) or 0) > 0
+    ]
+    inactive_players = [
+        player for player in players
+        if int(player.get("buyIns", 0) or 0) <= 0
+    ]
+
+    for player in inactive_players:
+        for key in (
+            "roi", "cashRate", "bubbleRate", "hitRate",
+            "expectedProfit", "luckIndex",
+            "clutchRaw", "aggressionRaw", "survivorRaw",
+            "tiltScoreDirect", "tiltIndex", "trueSkillScore",
+            "roi_norm", "luckIndex_norm", "clutchRaw_norm",
+            "aggressionRaw_norm", "survivorRaw_norm",
+            "clutchIndex", "aggressionIndex", "survivorIndex",
+        ):
+            player[key] = 0.0
+        player["tier"] = "C"
+
+    if not active_players:
+        return players
+
+    for player in active_players:
+        cost = float(player["totalCost"])
+        buyins = float(player["buyIns"])
+        entries = float(player["entries"])
+
+        player["roi"] = (player["profit"] / cost) if cost else 0.0
+        player["cashRate"] = (player["timesPlaced"] / buyins) if buyins else 0.0
+        player["bubbleRate"] = (player["bubbles"] / buyins) if buyins else 0.0
+        player["hitRate"] = (player["hits"] / entries) if entries else 0.0
+        player["luckProxy"] = (
+            (0.40 * player["cashRate"])
+            + (0.20 * player["hitRate"])
+            + (0.40 * (1 - player["bubbleRate"]))
+        )
+
+    league_avg_proxy = (
+        math.fsum(player["luckProxy"] for player in active_players)
+        / len(active_players)
+    )
+
+    for player in active_players:
+        proxy_delta = player["luckProxy"] - league_avg_proxy
+        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
+        player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
+        player["luckIndex"] = round(player["profit"] - player["expectedProfit"], 1)
+
+        cash_rate = player["cashRate"]
+        bubble_rate = player["bubbleRate"]
+        hit_rate = player["hitRate"]
+        buy_ins = max(player["buyIns"], 1)
+        rebuy_rate = player["rebuys"] / buy_ins
+
+        player["clutchRaw"] = player["timesPlaced"] / buy_ins
+        player["aggressionRaw"] = player["hits"] / max(player["entries"], 1)
+        player["survivorRaw"] = (
+            (0.55 * cash_rate)
+            + (0.25 * (1 - bubble_rate))
+            + (0.20 * hit_rate)
+        )
+
+        base_composure = 100 * (
+            1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate))
+        )
+        sample_factor = min(player["buyIns"], 8) / 8.0
+        composure_score = 50 + ((base_composure - 50) * sample_factor)
+        player["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
+
+    for key in ("roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"):
+        normalize_stat(active_players, key)
+
+    for player in active_players:
+        player["clutchIndex"] = player["clutchRaw_norm"]
+        player["aggressionIndex"] = player["aggressionRaw_norm"]
+        player["survivorIndex"] = player["survivorRaw_norm"]
+        player["tiltIndex"] = round(player["tiltScoreDirect"], 1)
+
+        sample_bonus = min(10, player["buyIns"])
+        player["trueSkillScore"] = (
+            (player["roi_norm"] * 1.4)
+            + (player["clutchIndex"] * 1.2)
+            + player["aggressionIndex"]
+            + player["survivorIndex"]
+            + (player["luckIndex_norm"] * 0.5)
+            + (player["tiltIndex"] * 0.8)
+            + sample_bonus
+        )
+        player.pop("luckProxy", None)
+
+    ranked = sorted(active_players, key=lambda player: -player["trueSkillScore"])
+    total_ranked = len(ranked)
+    for index, player in enumerate(ranked):
+        percentile = index / max(total_ranked - 1, 1)
+        if percentile <= 0.15:
+            player["tier"] = "S"
+        elif percentile <= 0.35:
+            player["tier"] = "A"
+        elif percentile <= 0.65:
+            player["tier"] = "B"
+        else:
+            player["tier"] = "C"
+
+    return players
+
+
 def build_zero_player(meta):
     return {
         "name": meta["name"],
@@ -1069,95 +1180,7 @@ def main():
                 p[key] += ep.get(key, 0)
 
     players = list(players_by_slug.values())
-
-    for p in players:
-        cost = float(p["totalCost"])
-        buyins = float(p["buyIns"])
-        entries = float(p["entries"])
-
-        p["roi"] = (p["profit"] / cost) if cost else 0.0
-        p["cashRate"] = (p["timesPlaced"] / buyins) if buyins else 0.0
-        p["bubbleRate"] = (p["bubbles"] / buyins) if buyins else 0.0
-        p["hitRate"] = (p["hits"] / entries) if entries else 0.0
-
-    for p in players:
-        p["luckProxy"] = (
-            (0.40 * p["cashRate"])
-            + (0.20 * p["hitRate"])
-            + (0.40 * (1 - p["bubbleRate"]))
-        )
-
-    league_avg_proxy = math.fsum(
-        p["luckProxy"] for p in players
-    ) / max(len(players), 1)
-
-    for p in players:
-        proxy_delta = p["luckProxy"] - league_avg_proxy
-        expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
-        p["expectedProfit"] = round(p["totalCost"] * expected_roi, 1)
-        p["luckIndex"] = round(p["profit"] - p["expectedProfit"], 1)
-
-    for p in players:
-        cash_rate = p["cashRate"]
-        bubble_rate = p["bubbleRate"]
-        hit_rate = p["hitRate"]
-
-        buy_ins = max(p["buyIns"], 1)
-        rebuy_rate = p["rebuys"] / buy_ins
-
-        p["clutchRaw"] = p["timesPlaced"] / buy_ins
-        p["aggressionRaw"] = p["hits"] / max(p["entries"], 1)
-        p["survivorRaw"] = (
-            (0.55 * cash_rate)
-            + (0.25 * (1 - bubble_rate))
-            + (0.20 * hit_rate)
-        )
-
-        base_composure = 100 * (1 - ((0.70 * rebuy_rate) + (0.30 * bubble_rate)))
-        sample_factor = min(p["buyIns"], 8) / 8.0
-        composure_score = 50 + ((base_composure - 50) * sample_factor)
-        p["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
-
-    normalize_stat(players, "roi")
-    normalize_stat(players, "luckIndex")
-    normalize_stat(players, "clutchRaw")
-    normalize_stat(players, "aggressionRaw")
-    normalize_stat(players, "survivorRaw")
-
-    for p in players:
-        p["clutchIndex"] = p["clutchRaw_norm"]
-        p["aggressionIndex"] = p["aggressionRaw_norm"]
-        p["survivorIndex"] = p["survivorRaw_norm"]
-        p["tiltIndex"] = round(p["tiltScoreDirect"], 1)
-
-        sample_bonus = min(10, p["buyIns"])
-
-        p["trueSkillScore"] = (
-            (p["roi_norm"] * 1.4)
-            + (p["clutchIndex"] * 1.2)
-            + (p["aggressionIndex"] * 1.0)
-            + (p["survivorIndex"] * 1.0)
-            + (p["luckIndex_norm"] * 0.5)
-            + (p["tiltIndex"] * 0.8)
-            + sample_bonus
-        )
-
-    sorted_by_skill = sorted(players, key=lambda p: -p["trueSkillScore"])
-    total_players = len(sorted_by_skill)
-
-    for idx, p in enumerate(sorted_by_skill):
-        percentile = idx / max(total_players - 1, 1)
-
-        if percentile <= 0.15:
-            tier = "S"
-        elif percentile <= 0.35:
-            tier = "A"
-        elif percentile <= 0.65:
-            tier = "B"
-        else:
-            tier = "C"
-
-        p["tier"] = tier
+    finalize_career_metrics(players)
 
     qualified = [
         p for p in players
@@ -1174,8 +1197,12 @@ def main():
         })
 
     records = []
+    record_pool = [
+        player for player in players
+        if int(player.get("buyIns", 0) or 0) > 0
+    ]
     for rule in config["records"]:
-        leader = sort_players(players, rule["key"], rule["direction"])[0]
+        leader = sort_players(record_pool, rule["key"], rule["direction"])[0]
         records.append({
             "label": rule["label"],
             "name": leader["name"],
