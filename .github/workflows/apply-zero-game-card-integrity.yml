@@ -1,0 +1,470 @@
+name: Apply Zero-Game Card Integrity Fix
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tlpt-zero-game-card-integrity
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+
+      - name: Sync to latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Apply zero-game card integrity patch
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          ROOT = Path('.')
+          APP = ROOT / 'app.js'
+          PAGE_AUDIT = ROOT / 'scripts' / 'audit-page-calculations.mjs'
+          HYGIENE = ROOT / 'scripts' / 'audit-code-hygiene.py'
+
+
+          def replace_once(text, old, new, label):
+              count = text.count(old)
+              if count != 1:
+                  raise RuntimeError(f'{label}: expected exactly one match, found {count}')
+              return text.replace(old, new, 1)
+
+
+          # app.js — generic zero-appearance / unscouted card behavior
+          app = APP.read_text(encoding='utf-8')
+
+          app = replace_once(
+              app,
+              '''const CARD_OVERALL_MIN_RATING = 40;
+          const CARD_OVERALL_MAX_RATING = 99;
+          ''',
+              '''const CARD_OVERALL_MIN_RATING = 40;
+          const CARD_OVERALL_MAX_RATING = 99;
+
+          function isPlayerUnscouted(player) {
+            return Number(player?.buyIns ?? 0) <= 0;
+          }
+          ''',
+              'app.js unscouted helper',
+          )
+
+          app = replace_once(
+              app,
+              '''function getPlayerArchetypeScores(player) {
+            if (!player) return [];
+          ''',
+              '''function getPlayerArchetypeScores(player) {
+            if (!player || isPlayerUnscouted(player)) return [];
+          ''',
+              'app.js archetype zero-game guard',
+          )
+
+          app = replace_once(
+              app,
+              '''  const primary = ranked[0] || {
+              key: "unknown",
+              emoji: "🧍",
+              name: "Unknown",
+              desc: "still figuring out which end of the deck is up.",
+              score: 0
+            };
+          ''',
+              '''  const primary = ranked[0] || {
+              key: "unscouted",
+              emoji: "🔭",
+              name: "Unscouted",
+              desc: "waiting for a first TLPT appearance before assigning a play style.",
+              score: 0
+            };
+          ''',
+              'app.js unscouted archetype fallback',
+          )
+
+          app = replace_once(
+              app,
+              '''function getPlayerTierScore(player) {
+            if (!player) return -999;
+          ''',
+              '''function getPlayerTierScore(player) {
+            if (!player) return -999;
+            if (isPlayerUnscouted(player)) return 0;
+          ''',
+              'app.js zero-game tier score guard',
+          )
+
+          app = replace_once(
+              app,
+              '''function badgeList(player, data, comparisonPlayers = null) {
+          ''',
+              '''function badgeList(player, data, comparisonPlayers = null) {
+            if (isPlayerUnscouted(player)) return [];
+          ''',
+              'app.js zero-game badge guard',
+          )
+
+          app = replace_once(
+              app,
+              '''  const crew = (players || []).filter(isCrewEligible);
+            return crew.length >= 2 ? crew : (players || []);
+          }
+
+          function playerCardDisplayRating(rating) {
+          ''',
+              '''  const crew = (players || []).filter(isCrewEligible);
+            const played = (players || []).filter(player => !isPlayerUnscouted(player));
+            return crew.length >= 2 ? crew : played;
+          }
+
+          function playerCardDisplayRating(rating) {
+          ''',
+              'app.js card benchmark zero-game exclusion',
+          )
+
+          app = replace_once(
+              app,
+              '''function playerCardOverallRating(player, players) {
+            return playerCardMetricRating(
+          ''',
+              '''function playerCardOverallRating(player, players) {
+            if (isPlayerUnscouted(player)) return "NR";
+
+            return playerCardMetricRating(
+          ''',
+              'app.js unrated overall guard',
+          )
+
+          app = replace_once(
+              app,
+              '''      playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
+          ''',
+              '''      (Number(playerCardOverallRating(b, players)) || 0) -
+                  (Number(playerCardOverallRating(a, players)) || 0) ||
+          ''',
+              'app.js card comparator NR safety',
+          )
+
+          app = replace_once(
+              app,
+              '''function playerCardAttributes(player, players, options = {}) {
+            const periodLabel = options.periodLabel || "Career";
+          ''',
+              '''function playerCardAttributes(player, players, options = {}) {
+            if (isPlayerUnscouted(player)) {
+              const raw = "Unrated • 0 career appearances";
+              const formula = "Ratings begin after the player's first TLPT appearance.";
+              return [
+                { code: "RET", label: "Return", value: "—", raw, formula },
+                { code: "CLT", label: "Clutch", value: "—", raw, formula },
+                { code: "ITM", label: "In the Money", value: "—", raw, formula },
+                { code: "AGR", label: "Aggression", value: "—", raw, formula },
+                { code: "HIT", label: "Hit Rate", value: "—", raw, formula },
+                { code: "SUR", label: "Survival", value: "—", raw, formula }
+              ];
+            }
+
+            const periodLabel = options.periodLabel || "Career";
+          ''',
+              'app.js unrated attributes guard',
+          )
+
+          app = replace_once(
+              app,
+              '''  const careerAppearances = Number(player?.buyIns ?? 0);
+            const careerOverall = playerCardOverallRating(player, players);
+            const career = {
+          ''',
+              '''  const careerAppearances = Number(player?.buyIns ?? 0);
+            const careerOverall = playerCardOverallRating(player, players);
+            const unscouted = isPlayerUnscouted(player);
+            const career = {
+          ''',
+              'app.js player card view unscouted state',
+          )
+
+          app = replace_once(
+              app,
+              '''    overallRaw: `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
+              overallFormula: `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
+          ''',
+              '''    overallRaw: unscouted
+                ? "Unrated • 0 career appearances"
+                : `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
+              overallFormula: unscouted
+                ? "Ultimate Player Card ratings begin after the player's first TLPT appearance. No benchmark rating is assigned before then."
+                : `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
+          ''',
+              'app.js unrated overall explainer',
+          )
+
+          app = replace_once(
+              app,
+              '''    caveat: "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
+          ''',
+              '''    caveat: unscouted
+                ? "Unscouted. Career card ratings and archetypes activate after the first TLPT appearance."
+                : "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
+          ''',
+              'app.js unscouted career caveat',
+          )
+
+          app = replace_once(
+              app,
+              '''function playerCardComparisonCandidates(player, players) {
+            const currentTier = playerCardTierMeta(player, players);
+          ''',
+              '''function playerCardComparisonCandidates(player, players) {
+            if (isPlayerUnscouted(player)) return [];
+
+            const currentTier = playerCardTierMeta(player, players);
+          ''',
+              'app.js zero-game compare guard',
+          )
+
+          app = replace_once(
+              app,
+              '''    .filter(candidate => candidate?.slug !== player?.slug)
+          ''',
+              '''    .filter(candidate =>
+                candidate?.slug !== player?.slug && !isPlayerUnscouted(candidate)
+              )
+          ''',
+              'app.js comparison candidate zero-game exclusion',
+          )
+
+          app = replace_once(
+              app,
+              '''      caveat: "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
+          ''',
+              '''      caveat: appearances === 0
+                  ? "Unscouted. Ratings and archetypes begin after the first TLPT appearance; no benchmark score is assigned before then."
+                  : "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
+          ''',
+              'app.js rookie experience caveat',
+          )
+
+          APP.write_text(app, encoding='utf-8')
+
+
+          # audit-page-calculations.mjs — protect the zero-game card rule
+          audit = PAGE_AUDIT.read_text(encoding='utf-8')
+
+          audit = replace_once(
+              audit,
+              '''const playerCardAttributes = app.get("playerCardAttributes");
+          ''',
+              '''const playerCardAttributes = app.get("playerCardAttributes");
+          const playerCardViewData = app.get("playerCardViewData");
+          const getPlayerArchetypes = app.get("getPlayerArchetypes");
+          const badgeList = app.get("badgeList");
+          const playerCardComparisonCandidates = app.get("playerCardComparisonCandidates");
+          ''',
+              'page audit load zero-game helpers',
+          )
+
+          audit = replace_once(
+              audit,
+              '''const established = players.filter(player => Number(player.buyIns || 0) >= 5);
+          ''',
+              '''const established = players.filter(player => Number(player.buyIns || 0) >= 5);
+          const isUnscouted = player => Number(player?.buyIns || 0) <= 0;
+          ''',
+              'page audit unscouted helper',
+          )
+
+          audit = replace_once(
+              audit,
+              '''function manualTierScore(player) {
+            const buyIns = Number(player.buyIns || 0);
+          ''',
+              '''function manualTierScore(player) {
+            const buyIns = Number(player.buyIns || 0);
+            if (buyIns <= 0) return 0;
+          ''',
+              'page audit zero-game tier score',
+          )
+
+          audit = replace_once(
+              audit,
+              '''  const provisional = allPlayers.filter(player => Number(player.buyIns || 0) >= 3);
+            return provisional.length >= 2 ? provisional : allPlayers;
+          }
+          ''',
+              '''  const provisional = allPlayers.filter(player => Number(player.buyIns || 0) >= 3);
+            const played = allPlayers.filter(player => !isUnscouted(player));
+            return provisional.length >= 2 ? provisional : played;
+          }
+          ''',
+              'page audit benchmark zero-game exclusion',
+          )
+
+          audit = replace_once(
+              audit,
+              '''for (const player of players) {
+            check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
+            const overallRating = playerCardOverallRating(player, players);
+          ''',
+              '''for (const player of players) {
+            const appearances = Number(player.buyIns || 0);
+            check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
+            const overallRating = playerCardOverallRating(player, players);
+          ''',
+              'page audit appearance placement',
+          )
+
+          audit = replace_once(
+              audit,
+              '''  check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
+            check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
+          ''',
+              '''  if (appearances === 0) {
+              check(overallRating === "NR", `${player.slug}: zero-game card overall must be NR`);
+            } else {
+              check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
+              check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
+            }
+          ''',
+              'page audit zero-game overall assertion',
+          )
+
+          audit = replace_once(
+              audit,
+              '''  const expectedReturn = Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);
+            check(byCode.RET === expectedReturn, `${player.slug}: RET card rating differs from formula`);
+            for (const [code, key] of attributeSpecs) {
+              check(byCode[code] === manualRating(player, players, key), `${player.slug}: ${code} card rating differs from formula`);
+            }
+
+            const meta = playerCardTierMeta(player, players);
+            const appearances = Number(player.buyIns || 0);
+          ''',
+              '''  const expectedReturn = appearances === 0
+              ? null
+              : Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);
+
+            if (appearances === 0) {
+              check(
+                attributes.length === 6 && attributes.every(attribute => attribute.value === "—"),
+                `${player.slug}: zero-game card attributes must all be unrated`
+              );
+
+              const cardView = playerCardViewData(player, players).career;
+              check(cardView.overall === "NR", `${player.slug}: zero-game career card view must be NR`);
+              check(
+                cardView.attributes.every(attribute => attribute.value === "—"),
+                `${player.slug}: zero-game career card view attributes must be unrated`
+              );
+              check(
+                String(cardView.overallRaw || "").includes("Unrated") &&
+                  String(cardView.overallFormula || "").includes("first TLPT appearance"),
+                `${player.slug}: zero-game rating breakdown must explain the unrated state`
+              );
+
+              const archetype = getPlayerArchetypes(player).primary;
+              check(
+                archetype?.key === "unscouted" && archetype?.name === "Unscouted",
+                `${player.slug}: zero-game player must use the Unscouted archetype`
+              );
+              check(
+                badgeList(player, data).length === 0,
+                `${player.slug}: zero-game player must not receive performance badges`
+              );
+              check(
+                playerCardComparisonCandidates(player, players).length === 0,
+                `${player.slug}: zero-game player must not receive card comparison candidates`
+              );
+            } else {
+              check(byCode.RET === expectedReturn, `${player.slug}: RET card rating differs from formula`);
+              for (const [code, key] of attributeSpecs) {
+                check(byCode[code] === manualRating(player, players, key), `${player.slug}: ${code} card rating differs from formula`);
+              }
+
+              const playedOnly = players.filter(candidate => !isUnscouted(candidate));
+              check(
+                playerCardOverallRating(player, players) === playerCardOverallRating(player, playedOnly),
+                `${player.slug}: adding zero-game metadata must not alter an active player's card rating`
+              );
+            }
+
+            const meta = playerCardTierMeta(player, players);
+          ''',
+              'page audit zero-game attribute/archetype/badge contract',
+          )
+
+          PAGE_AUDIT.write_text(audit, encoding='utf-8')
+
+
+          # audit-code-hygiene.py + HTML cache rotation
+          hygiene = HYGIENE.read_text(encoding='utf-8')
+          hygiene = replace_once(
+              hygiene,
+              'EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260825-11"',
+              'EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260828-12"',
+              'hygiene app cache lock',
+          )
+          HYGIENE.write_text(hygiene, encoding='utf-8')
+
+          rotated = []
+          for page in sorted(ROOT.glob('*.html')):
+              source = page.read_text(encoding='utf-8')
+              if 'app.js?v=20260825-11' not in source:
+                  continue
+              source = source.replace('app.js?v=20260825-11', 'app.js?v=20260828-12')
+              page.write_text(source, encoding='utf-8')
+              rotated.append(page.name)
+
+          if not rotated:
+              raise RuntimeError('HTML app.js cache rotation: no pages were updated')
+
+          print('PASS: zero-game card integrity patch applied')
+          print('Rotated app.js cache on:', ', '.join(rotated))
+          PY
+
+      - name: Syntax checks
+        run: |
+          node --check app.js
+          node --check scripts/audit-page-calculations.mjs
+          python -m py_compile scripts/audit-code-hygiene.py
+
+      - name: Run complete TLPT quality gates
+        run: bash scripts/run-quality-gates.sh
+
+      - name: Confirm generic zero-game card contract
+        run: node scripts/audit-page-calculations.mjs
+
+      - name: Commit permanent fix and remove one-time workflow
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git rm .github/workflows/apply-zero-game-card-integrity.yml
+
+          git add app.js
+          git add scripts/audit-page-calculations.mjs
+          git add scripts/audit-code-hygiene.py
+          git add '*.html'
+
+          git commit -m "Enforce unrated cards for zero-game players"
+          git push origin HEAD:main
