@@ -84,6 +84,10 @@ const CREW_ESTABLISHED_MIN_BUY_INS = 5;
 const CARD_OVERALL_MIN_RATING = 40;
 const CARD_OVERALL_MAX_RATING = 99;
 
+function isPlayerUnscouted(player) {
+  return Number(player?.buyIns ?? 0) <= 0;
+}
+
 /*
  * Hall of Fame qualification:
  * Players must have participated in 25% of TLPT history.
@@ -825,7 +829,7 @@ function displayPlayerNamePlain(player) {
 }
 
 function getPlayerArchetypeScores(player) {
-  if (!player) return [];
+  if (!player || isPlayerUnscouted(player)) return [];
 
   const aggression = Number(player?.aggressionIndex ?? 0);
   const clutch = Number(player?.clutchIndex ?? 0);
@@ -895,10 +899,10 @@ function getPlayerArchetypes(player) {
   const ranked = getPlayerArchetypeScores(player);
 
   const primary = ranked[0] || {
-    key: "unknown",
-    emoji: "🧍",
-    name: "Unknown",
-    desc: "still figuring out which end of the deck is up.",
+    key: "unscouted",
+    emoji: "🔭",
+    name: "Unscouted",
+    desc: "waiting for a first TLPT appearance before assigning a play style.",
     score: 0
   };
 
@@ -957,6 +961,7 @@ function getHallScore(player, players = []) {
 
 function getPlayerTierScore(player) {
   if (!player) return -999;
+  if (isPlayerUnscouted(player)) return 0;
 
   /*
    * Use buyIns for sample size because buyIns represent separate tournament
@@ -1374,6 +1379,7 @@ function badgeMetaFromLabel(label) {
 }
 
 function badgeList(player, data, comparisonPlayers = null) {
+  if (isPlayerUnscouted(player)) return [];
   const hasCustomPool = Array.isArray(comparisonPlayers);
   const players = hasCustomPool
     ? comparisonPlayers
@@ -3557,7 +3563,8 @@ function playerCardBenchmarkPool(players) {
   if (established.length >= 2) return established;
 
   const crew = (players || []).filter(isCrewEligible);
-  return crew.length >= 2 ? crew : (players || []);
+  const played = (players || []).filter(player => !isPlayerUnscouted(player));
+  return crew.length >= 2 ? crew : played;
 }
 
 function playerCardDisplayRating(rating) {
@@ -3647,6 +3654,8 @@ function playerCardTierMeta(player, players) {
 }
 
 function playerCardOverallRating(player, players) {
+  if (isPlayerUnscouted(player)) return "NR";
+
   return playerCardMetricRating(
     player,
     players,
@@ -3677,13 +3686,27 @@ function playerCardRatingComparator(players) {
       playerCardTierPriority(a, players) - playerCardTierPriority(b, players);
 
     return tierDifference ||
-      playerCardOverallRating(b, players) - playerCardOverallRating(a, players) ||
+      (Number(playerCardOverallRating(b, players)) || 0) -
+        (Number(playerCardOverallRating(a, players)) || 0) ||
       getPlayerTierScore(b) - getPlayerTierScore(a) ||
       String(a?.name || "").localeCompare(String(b?.name || ""));
   };
 }
 
 function playerCardAttributes(player, players, options = {}) {
+  if (isPlayerUnscouted(player)) {
+    const raw = "Unrated • 0 career appearances";
+    const formula = "Ratings begin after the player's first TLPT appearance.";
+    return [
+      { code: "RET", label: "Return", value: "—", raw, formula },
+      { code: "CLT", label: "Clutch", value: "—", raw, formula },
+      { code: "ITM", label: "In the Money", value: "—", raw, formula },
+      { code: "AGR", label: "Aggression", value: "—", raw, formula },
+      { code: "HIT", label: "Hit Rate", value: "—", raw, formula },
+      { code: "SUR", label: "Survival", value: "—", raw, formula }
+    ];
+  }
+
   const periodLabel = options.periodLabel || "Career";
   const periodDescription = options.periodDescription || "career";
   const returnRating = Math.round(
@@ -3797,15 +3820,22 @@ function playerCardMovementMeta(recentOverall, previousOverall, hasComparison) {
 function playerCardViewData(player, players) {
   const careerAppearances = Number(player?.buyIns ?? 0);
   const careerOverall = playerCardOverallRating(player, players);
+  const unscouted = isPlayerUnscouted(player);
   const career = {
     key: "career",
     edition: "CAREER",
     overall: careerOverall,
     attributes: playerCardAttributes(player, players),
-    overallRaw: `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
-    overallFormula: `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
+    overallRaw: unscouted
+      ? "Unrated • 0 career appearances"
+      : `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
+    overallFormula: unscouted
+      ? "Ultimate Player Card ratings begin after the player's first TLPT appearance. No benchmark rating is assigned before then."
+      : `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
     context: `Career • ${careerAppearances} appearance${careerAppearances === 1 ? "" : "s"}`,
-    caveat: "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
+    caveat: unscouted
+      ? "Unscouted. Career card ratings and archetypes activate after the first TLPT appearance."
+      : "Career view. The card tier, overall Power Rank and experience status use the full career sample.",
     movement: null
   };
 
@@ -4182,11 +4212,15 @@ function playerCardFeaturedEditionId(player, data) {
 }
 
 function playerCardComparisonCandidates(player, players) {
+  if (isPlayerUnscouted(player)) return [];
+
   const currentTier = playerCardTierMeta(player, players);
   const currentRating = playerCardOverallRating(player, players);
 
   return (players || [])
-    .filter(candidate => candidate?.slug !== player?.slug)
+    .filter(candidate =>
+      candidate?.slug !== player?.slug && !isPlayerUnscouted(candidate)
+    )
     .sort((a, b) => {
       const aTier = playerCardTierMeta(a, players);
       const bTier = playerCardTierMeta(b, players);
@@ -4502,7 +4536,9 @@ function playerCardExperienceMeta(player, tierMeta) {
       progressMax: target,
       progressLabel: `${appearances} of ${target} appearances to PRO`,
       milestone: `${target - appearances} more ${target - appearances === 1 ? "appearance" : "appearances"} to unlock Provisional status`,
-      caveat: "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
+      caveat: appearances === 0
+        ? "Unscouted. Ratings and archetypes begin after the first TLPT appearance; no benchmark score is assigned before then."
+        : "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
     };
   }
 

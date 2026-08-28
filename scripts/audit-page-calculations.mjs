@@ -88,6 +88,10 @@ const sortPlayers = app.get("sortPlayers");
 const getPlayerTierScore = app.get("getPlayerTierScore");
 const playerCardOverallRating = app.get("playerCardOverallRating");
 const playerCardAttributes = app.get("playerCardAttributes");
+const playerCardViewData = app.get("playerCardViewData");
+const getPlayerArchetypes = app.get("getPlayerArchetypes");
+const badgeList = app.get("badgeList");
+const playerCardComparisonCandidates = app.get("playerCardComparisonCandidates");
 const playerCardTierMeta = app.get("playerCardTierMeta");
 const playerCardRatingComparator = app.get("playerCardRatingComparator");
 const isCrewVisible = app.get("isCrewVisible");
@@ -107,9 +111,11 @@ const playerCardCollectionMarkup = app.get("playerCardCollectionMarkup");
 
 const players = data.players || [];
 const established = players.filter(player => Number(player.buyIns || 0) >= 5);
+const isUnscouted = player => Number(player?.buyIns || 0) <= 0;
 
 function manualTierScore(player) {
   const buyIns = Number(player.buyIns || 0);
+  if (buyIns <= 0) return 0;
   let sample = -2;
   if (buyIns >= 20) sample = 3;
   else if (buyIns >= 15) sample = 2;
@@ -129,7 +135,8 @@ function ratingPool(allPlayers) {
   const primary = allPlayers.filter(player => Number(player.buyIns || 0) >= 5);
   if (primary.length >= 2) return primary;
   const provisional = allPlayers.filter(player => Number(player.buyIns || 0) >= 3);
-  return provisional.length >= 2 ? provisional : allPlayers;
+  const played = allPlayers.filter(player => !isUnscouted(player));
+  return provisional.length >= 2 ? provisional : played;
 }
 
 function manualRating(player, allPlayers, key, minRating = 40, maxRating = 96) {
@@ -148,20 +155,66 @@ const attributeSpecs = [
 ];
 
 for (const player of players) {
+  const appearances = Number(player.buyIns || 0);
   check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
   const overallRating = playerCardOverallRating(player, players);
-  check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
-  check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
+  if (appearances === 0) {
+    check(overallRating === "NR", `${player.slug}: zero-game card overall must be NR`);
+  } else {
+    check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
+    check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
+  }
   const attributes = playerCardAttributes(player, players);
   const byCode = Object.fromEntries(attributes.map(attribute => [attribute.code, attribute.value]));
-  const expectedReturn = Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);
-  check(byCode.RET === expectedReturn, `${player.slug}: RET card rating differs from formula`);
-  for (const [code, key] of attributeSpecs) {
-    check(byCode[code] === manualRating(player, players, key), `${player.slug}: ${code} card rating differs from formula`);
+  const expectedReturn = appearances === 0
+    ? null
+    : Math.round(manualRating(player, players, "roi") * 0.65 + manualRating(player, players, "profit") * 0.35);
+
+  if (appearances === 0) {
+    check(
+      attributes.length === 6 && attributes.every(attribute => attribute.value === "—"),
+      `${player.slug}: zero-game card attributes must all be unrated`
+    );
+
+    const cardView = playerCardViewData(player, players).career;
+    check(cardView.overall === "NR", `${player.slug}: zero-game career card view must be NR`);
+    check(
+      cardView.attributes.every(attribute => attribute.value === "—"),
+      `${player.slug}: zero-game career card view attributes must be unrated`
+    );
+    check(
+      String(cardView.overallRaw || "").includes("Unrated") &&
+        String(cardView.overallFormula || "").includes("first TLPT appearance"),
+      `${player.slug}: zero-game rating breakdown must explain the unrated state`
+    );
+
+    const archetype = getPlayerArchetypes(player).primary;
+    check(
+      archetype?.key === "unscouted" && archetype?.name === "Unscouted",
+      `${player.slug}: zero-game player must use the Unscouted archetype`
+    );
+    check(
+      badgeList(player, data).length === 0,
+      `${player.slug}: zero-game player must not receive performance badges`
+    );
+    check(
+      playerCardComparisonCandidates(player, players).length === 0,
+      `${player.slug}: zero-game player must not receive card comparison candidates`
+    );
+  } else {
+    check(byCode.RET === expectedReturn, `${player.slug}: RET card rating differs from formula`);
+    for (const [code, key] of attributeSpecs) {
+      check(byCode[code] === manualRating(player, players, key), `${player.slug}: ${code} card rating differs from formula`);
+    }
+
+    const playedOnly = players.filter(candidate => !isUnscouted(candidate));
+    check(
+      playerCardOverallRating(player, players) === playerCardOverallRating(player, playedOnly),
+      `${player.slug}: adding zero-game metadata must not alter an active player's card rating`
+    );
   }
 
   const meta = playerCardTierMeta(player, players);
-  const appearances = Number(player.buyIns || 0);
   const expectedCrewSkin = player.cardCollection?.[0]?.id || "base";
   check(player.featuredCardMode === "automatic", `${player.slug}: Crew skin mode must remain automatic`);
   check(player.featuredCardEdition === expectedCrewSkin, `${player.slug}: active Crew skin must be the highest-priority earned edition`);
