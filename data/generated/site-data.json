@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-28T16:10:43.654811Z",
+  "generatedAt": "2026-08-28T17:53:05.356167Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -20,7 +20,7 @@
         "ai-dave": "yes",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-f": "tbd",
+        "chris-f": "no",
         "chris-o": "no",
         "cougar": "tbd",
         "dan-k": "tbd",
@@ -64,7 +64,7 @@
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-f": "maybe",
+        "chris-f": "no",
         "chris-o": "no",
         "cougar": "yes",
         "dan-k": "tbd",
