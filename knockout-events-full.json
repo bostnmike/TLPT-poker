@@ -2688,5 +2688,61 @@
       "sourceVictim": "BostnMike",
       "sourceKiller": "Cougar"
     }
+  ],
+  "2026-08-29": [
+    {
+      "victim": "li-fo",
+      "killer": "cougar",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "cougar",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "li-fo",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "hiro",
+      "killer": "cougar",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "ahmed",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "providencemike",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "li-fo",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "cougar",
+      "killer": "providencemike",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "ProvidenceMike"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "providencemike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "ProvidenceMike"
+    }
   ]
 }
