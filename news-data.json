@@ -13,153 +13,153 @@
     "blurb": "A lightly biased narrator of rebuys, bad timing, table nonsense, bad beats, and whatever else the felt decided to reveal that week."
   },
   "weeks": [
+{
+  "id": "week-08-29-2026",
+  "date": "08/29/2026",
+  "eventName": "The Shuffling | 9-Max",
+  "title": "TWTW: The Shuffling | 9-Max",
+  "featured": true,
+  "dek": "The final three locked up $75 each, then ProvidenceMike won the remaining $75 by clearing Cougar and Li-Fo. Behind them, BostnMike went 0-for-3 in races and returned to the bubble.",
+  "summaryCards": [
     {
-      "id": "week-08-29-2026",
-      "date": "08/29/2026",
-      "eventName": "The Shuffling | 9-Max",
-      "title": "TWTW: The Shuffling | 9-Max",
-      "featured": true,
-      "dek": "The final three locked up $75 each, then ProvidenceMike won the remaining $75 by clearing Cougar and Li-Fo. Behind them, BostnMike went 0-for-3 in races and returned to the bubble.",
-      "summaryCards": [
-        {
-          "tone": "green",
-          "label": "📰 The Main Story",
-          "player": "ProvidenceMike",
-          "value": "The Last $75",
-          "copy": "ProvidenceMike secured $75 with the final-three deal, then took the extra $75 winner-take-all by eliminating Cougar and Li-Fo.",
-          "avatar": "images/players/providencemike.jpg",
-          "fallback": "PM"
-        },
-        {
-          "tone": "blue",
-          "label": "🩸 First Casualty",
-          "player": "Li-Fo",
-          "copy": "Cougar sent Tony out first, but the rebuy turned that opening loss into a trip all the way to the final three.",
-          "avatar": "images/players/li-fo.jpg",
-          "fallback": "LF"
-        },
-        {
-          "tone": "purple",
-          "label": "🦤 First Rail Bird",
-          "player": "Hiro",
-          "copy": "Cougar made Hiro the first exit that stuck after the table spent the early stages burning through second chances.",
-          "avatar": "images/players/hiro.jpg",
-          "fallback": "HI"
-        },
-        {
-          "tone": "red",
-          "label": "🪓 Table Killers",
-          "player": "Cougar / ProvidenceMike",
-          "value": "3 knockouts each",
-          "copy": "Cougar did the early damage; ProvidenceMike handled Ahmed and then both opponents after the final-three deal.",
-          "avatars": [
-            {
-              "src": "images/players/cougar.jpg",
-              "alt": "Cougar",
-              "fallback": "CO"
-            },
-            {
-              "src": "images/players/providencemike.jpg",
-              "alt": "ProvidenceMike",
-              "fallback": "PM"
-            }
-          ]
-        }
-      ],
-      "statPills": [
-        {
-          "icon": "🎟️",
-          "label": "Total Entries",
-          "value": "10"
-        },
-        {
-          "icon": "♻️",
-          "label": "Rebuys",
-          "value": "3"
-        },
-        {
-          "icon": "💰",
-          "label": "Prize Pool",
-          "value": "$300"
-        },
-        {
-          "icon": "⏱️",
-          "label": "Play Time",
-          "value": "4h 17m"
-        }
-      ],
-      "summary": {
-        "startTime": "6:33:19 pm 08/29/2026",
-        "endTime": "10:50:28 pm 08/29/2026",
-        "durationLabel": "4h 17m",
-        "buyIns": 7,
-        "rebuys": 3,
-        "entries": 10,
-        "totalPot": 300,
-        "paidSpots": 3,
-        "winner": "ProvidenceMike",
-        "firstOut": "Li-Fo",
-        "firstPermanentOut": "Hiro"
-      },
-      "spotlight": {
-        "player": "ProvidenceMike / Cougar / Li-Fo",
-        "fallback": "PCL",
-        "pills": [
-          "Providence: No Rebuy",
-          "Cougar: 3 Early Knockouts",
-          "Li-Fo: First Out to Final Three",
-          "Final Three Played for $75 More"
-        ],
-        "avatars": [
-          {
-            "src": "images/players/providencemike.jpg",
-            "alt": "ProvidenceMike",
-            "fallback": "PM"
-          },
-          {
-            "src": "images/players/cougar.jpg",
-            "alt": "Cougar",
-            "fallback": "CO"
-          },
-          {
-            "src": "images/players/li-fo.jpg",
-            "alt": "Li-Fo",
-            "fallback": "LF"
-          }
-        ]
-      },
-      "feltSaid": [
-        {
-          "label": "Rebuy Champion",
-          "value": "NASA Al",
-          "note": "Two rebuys kept Berserk alive until Ahmed finally made the third exit permanent."
-        },
-        {
-          "label": "Bubble",
-          "value": "BostnMike",
-          "note": "Li-Fo sent the commissioner out in fourth and restored him to familiar administrative territory."
-        },
-        {
-          "label": "Streak Funeral",
-          "value": "NASA Al / BostnMike",
-          "note": "Both active three-game cash streaks ended before the payout line."
-        },
-        {
-          "label": "How It Ended",
-          "value": "ProvidenceMike took the extra $75",
-          "note": "The final three first locked up $75 each, then played winner-take-all for the remaining $75."
-        }
-      ],
-      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-29.jpg\" alt=\"Poster for the 08/29/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Shuffling was already guaranteed a place in the archive before the first card came off the deck: this was the 50th event in TLPT's 'Modern Era' history. Naturally, the milestone did not end with a speech, commemorative plaque, or tasteful ceremony. It ended with the money mostly settled and one last $75 still sitting in the middle. ProvidenceMike, Li-Fo, and Cougar reached the final three and agreed to lock up $75 each, leaving that final $75 winner-take-all. Nobody was playing for his guaranteed share anymore. The last fight was for the bonus, and ProvidenceMike took all of it.</p><p>ProvidenceMike got there without using a rebuy and did his best work late. He removed Ahmed at 9:55, watched Li-Fo send BostnMike back to the bubble twelve minutes later, then entered the three-way deal with Cougar and Li-Fo. After the money was secured, ProvidenceMike eliminated Cougar and then Li-Fo to turn a $75 lockup into a $150 night.</p><p>Cougar had owned the earlier action. He sent Li-Fo out first, clipped NASA Al on his first life, and made Hiro the first player gone for good. Li-Fo recovered from that opening bust to survive all the way into the final three, while NASA Al used two rebuys before Ahmed finally ended his night. Al's three-game cash streak ended there, one of two active runs that disappeared before the payouts.</p><p>The other belonged to BostnMike, who spent the night discovering that getting it in ahead is apparently just a more elaborate way to lose. Three times the commissioner got the money in good; three times the race went bad. Li-Fo finally sent him out in fourth, ending Mike's own three-game cash streak and returning him to the bubble just in time to watch ProvidenceMike win the last $75.</p>",
-      "roastHtml": "<p>Fifty events into TLPT history, BostnMike celebrated the milestone the only way a commissioner truly can: by going 0-for-3 in races and finishing exactly one seat from payroll. No trophy, no commemorative plaque, just the ceremonial return of the bubble. Welcome to Event No. 50, Mr. Commissioner.</p>",
-      "numbersThatMatter": [
-        "7 buy-ins, 3 rebuys, 10 total entries.",
-        "4h 17m of play from 6:33 pm to 10:50 pm.",
-        "$300 total pot: $75 was locked up for each finalist, and ProvidenceMike won the remaining $75 for $150 total.",
-        "Both active three-game cash streaks ended before the payouts: NASA Al's and BostnMike's."
-      ],
-      "tldr": "The final three locked up $75 each, ProvidenceMike won the extra $75, and BostnMike's three lost races ended with a familiar fourth-place bubble. NASA Al's and the commissioner's three-game cash streaks both ended with them."
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "ProvidenceMike",
+      "value": "The Last $75",
+      "copy": "ProvidenceMike secured $75 with the final-three deal, then took the extra $75 winner-take-all by eliminating Cougar and Li-Fo.",
+      "avatar": "images/players/providencemike.jpg",
+      "fallback": "PM"
     },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Li-Fo",
+      "copy": "Cougar sent Tony out first, but the rebuy turned that opening loss into a trip all the way to the final three.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Hiro",
+      "copy": "Cougar made Hiro the first exit that stuck after the table spent the early stages burning through second chances.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killers",
+      "player": "Cougar / ProvidenceMike",
+      "value": "3 knockouts each",
+      "copy": "Cougar did the early damage; ProvidenceMike handled Ahmed and then both opponents after the final-three deal.",
+      "avatars": [
+        {
+          "src": "images/players/cougar.jpg",
+          "alt": "Cougar",
+          "fallback": "CO"
+        },
+        {
+          "src": "images/players/providencemike.jpg",
+          "alt": "ProvidenceMike",
+          "fallback": "PM"
+        }
+      ]
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "10"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "3"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$300"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 17m"
+    }
+  ],
+  "summary": {
+    "startTime": "6:33:19 pm 08/29/2026",
+    "endTime": "10:50:28 pm 08/29/2026",
+    "durationLabel": "4h 17m",
+    "buyIns": 7,
+    "rebuys": 3,
+    "entries": 10,
+    "totalPot": 300,
+    "paidSpots": 3,
+    "winner": "ProvidenceMike",
+    "firstOut": "Li-Fo",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "ProvidenceMike / Cougar / Li-Fo",
+    "fallback": "PCL",
+    "pills": [
+      "Providence: No Rebuy",
+      "Cougar: 3 Early Knockouts",
+      "Li-Fo: First Out to Final Three",
+      "Final Three Played for $75 More"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/providencemike.jpg",
+        "alt": "ProvidenceMike",
+        "fallback": "PM"
+      },
+      {
+        "src": "images/players/cougar.jpg",
+        "alt": "Cougar",
+        "fallback": "CO"
+      },
+      {
+        "src": "images/players/li-fo.jpg",
+        "alt": "Li-Fo",
+        "fallback": "LF"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "Rebuy Champion",
+      "value": "NASA Al",
+      "note": "Two rebuys kept Berserk alive until Ahmed finally made the third exit permanent."
+    },
+    {
+      "label": "Bubble",
+      "value": "BostnMike",
+      "note": "Li-Fo sent the commissioner out in fourth and restored him to familiar administrative territory."
+    },
+    {
+      "label": "Streak Funeral",
+      "value": "NASA Al / BostnMike",
+      "note": "Both active three-game cash streaks ended before the payout line."
+    },
+    {
+      "label": "How It Ended",
+      "value": "ProvidenceMike took the extra $75",
+      "note": "The final three first locked up $75 each, then played winner-take-all for the remaining $75."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-29.jpg\" alt=\"Poster for the 08/29/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Shuffling already had a place in the archive before the first card came off the deck. After nearly two decades of TLPT poker, interrupted by one Covid-initiated and Bone Marrow Transplant prolonged hiatus, Saturday night marked the <strong>50th game of the Modern Era</strong>. Fifty nights of rebuys, ridiculous runouts, grudges, chops, heaters, bubbles, bad decisions, worse rivers, and enough table mythology to make the whole thing feel considerably older than the spreadsheet says it is.</p><p>Naturally, Game 50 did not end with a ceremonial toast or commemorative plaque. It ended with ProvidenceMike, Li-Fo, and Cougar locking up $75 each and leaving one final $75 in the middle, winner-take-all. ProvidenceMike had survived the entire night without a rebuy, then did his best work when the room got short. He removed Ahmed to get the table to four, watched Li-Fo send BostnMike back to the bubble, then took over after the three-way deal. Cougar went first, Li-Fo followed, and Providence walked away with $150 and the right to put his name next to one of the league's cleaner milestone finishes.</p><p>Cougar had done most of the early damage. He sent Li-Fo out first, clipped NASA Al on his first life, and made Hiro the first player gone for good. Li-Fo recovered from that opening bust and somehow rode the second life all the way to the final three. NASA Al went the opposite direction: two rebuys, three total exits, and eventually Ahmed closed the file for good. That also ended Al's three-game cash streak.</p><p>The other three-game streak belonged to the Commissioner, who chose Game 50 to rediscover the bubble in the most statistically annoying way possible. Three separate times BostnMike got the money in ahead. Three separate times the race went the wrong way. Li-Fo finally finished the job, handing Mike 4th place, ending the streak and returning the Commish to familiar administrative territory: close enough to supervise the payouts, not close enough to receive one.</p><p>So the 50th Modern-Era game did not produce one giant cinematic moment. It produced something much more TLPT: an early wrecking crew, multiple second lives, two cash streaks dying at once, a Commissioner bubble, and one last $75 left on the table after everybody had already secured some money. Fifty games into the Modern Era, apparently the league has learned absolutely nothing.</p>",
+  "roastHtml": "<p>The Commissioner has now presided over 50 games of the TLPT Modern Era, which feels like the kind of milestone that should come with a plaque, a speech, maybe even a little dignity. Instead, BostnMike celebrated by going 0-for-3 in races and bubbling the event. Fifty games of institutional knowledge, and the anniversary lesson was still: <em>nice hand, shame about the runout.</em></p>",
+  "numbersThatMatter": [
+    "7 buy-ins, 3 rebuys, 10 total entries.",
+    "4h 17m of play from 6:33 pm to 10:50 pm.",
+    "$300 total pot: $75 was locked up for each finalist, and ProvidenceMike won the remaining $75 for $150 total.",
+    "Both active three-game cash streaks ended before the payouts: NASA Al's and BostnMike's."
+  ],
+  "tldr": "The 50th game of the TLPT Modern Era ended with ProvidenceMike taking the extra $75 after the final three locked up $75 each, while BostnMike's three lost races ended in a familiar fourth-place bubble and both active three-game cash streaks died before the payouts."
+},
     {
       "id": "week-08-22-2026",
       "date": "08/22/2026",
