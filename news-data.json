@@ -13,300 +13,385 @@
     "blurb": "A lightly biased narrator of rebuys, bad timing, table nonsense, bad beats, and whatever else the felt decided to reveal that week."
   },
   "weeks": [
-{
-  "id": "week-08-29-2026",
-  "date": "08/29/2026",
-  "eventName": "The Shuffling | 9-Max",
-  "title": "TWTW: The Shuffling | 9-Max",
-  "featured": true,
-  "dek": "The final three locked up $75 each, then ProvidenceMike won the remaining $75 by clearing Cougar and Li-Fo. Behind them, BostnMike went 0-for-3 in races and returned to the bubble.",
-  "summaryCards": [
     {
-      "tone": "green",
-      "label": "📰 The Main Story",
-      "player": "ProvidenceMike",
-      "value": "The Last $75",
-      "copy": "ProvidenceMike secured $75 with the final-three deal, then took the extra $75 winner-take-all by eliminating Cougar and Li-Fo.",
-      "avatar": "images/players/providencemike.jpg",
-      "fallback": "PM"
-    },
-    {
-      "tone": "blue",
-      "label": "🩸 First Casualty",
-      "player": "Li-Fo",
-      "copy": "Cougar sent Tony out first, but the rebuy turned that opening loss into a trip all the way to the final three.",
-      "avatar": "images/players/li-fo.jpg",
-      "fallback": "LF"
-    },
-    {
-      "tone": "purple",
-      "label": "🦤 First Rail Bird",
-      "player": "Hiro",
-      "copy": "Cougar made Hiro the first exit that stuck after the table spent the early stages burning through second chances.",
-      "avatar": "images/players/hiro.jpg",
-      "fallback": "HI"
-    },
-    {
-      "tone": "red",
-      "label": "🪓 Table Killers",
-      "player": "Cougar / ProvidenceMike",
-      "value": "3 knockouts each",
-      "copy": "Cougar did the early damage; ProvidenceMike handled Ahmed and then both opponents after the final-three deal.",
-      "avatars": [
+      "id": "week-08-29-2026",
+      "date": "08/29/2026",
+      "eventName": "The Shuffling | 9-Max",
+      "title": "TWTW: The Shuffling | 9-Max",
+      "featured": true,
+      "dek": "The final three locked up $75 each, then ProvidenceMike won the remaining $75 by clearing Cougar and Li-Fo. Behind them, BostnMike went 0-for-3 in races and returned to the bubble.",
+      "summaryCards": [
         {
-          "src": "images/players/cougar.jpg",
-          "alt": "Cougar",
-          "fallback": "CO"
+          "tone": "green",
+          "label": "📰 The Main Story",
+          "player": "ProvidenceMike",
+          "value": "The Last $75",
+          "copy": "ProvidenceMike secured $75 with the final-three deal, then took the extra $75 winner-take-all by eliminating Cougar and Li-Fo.",
+          "avatar": "images/players/providencemike.jpg",
+          "fallback": "PM"
         },
         {
-          "src": "images/players/providencemike.jpg",
-          "alt": "ProvidenceMike",
-          "fallback": "PM"
-        }
-      ]
-    }
-  ],
-  "statPills": [
-    {
-      "icon": "🎟️",
-      "label": "Total Entries",
-      "value": "10"
-    },
-    {
-      "icon": "♻️",
-      "label": "Rebuys",
-      "value": "3"
-    },
-    {
-      "icon": "💰",
-      "label": "Prize Pool",
-      "value": "$300"
-    },
-    {
-      "icon": "⏱️",
-      "label": "Play Time",
-      "value": "4h 17m"
-    }
-  ],
-  "summary": {
-    "startTime": "6:33:19 pm 08/29/2026",
-    "endTime": "10:50:28 pm 08/29/2026",
-    "durationLabel": "4h 17m",
-    "buyIns": 7,
-    "rebuys": 3,
-    "entries": 10,
-    "totalPot": 300,
-    "paidSpots": 3,
-    "winner": "ProvidenceMike",
-    "firstOut": "Li-Fo",
-    "firstPermanentOut": "Hiro"
-  },
-  "spotlight": {
-    "player": "ProvidenceMike / Cougar / Li-Fo",
-    "fallback": "PCL",
-    "pills": [
-      "Providence: No Rebuy",
-      "Cougar: 3 Early Knockouts",
-      "Li-Fo: First Out to Final Three",
-      "Final Three Played for $75 More"
-    ],
-    "avatars": [
-      {
-        "src": "images/players/providencemike.jpg",
-        "alt": "ProvidenceMike",
-        "fallback": "PM"
-      },
-      {
-        "src": "images/players/cougar.jpg",
-        "alt": "Cougar",
-        "fallback": "CO"
-      },
-      {
-        "src": "images/players/li-fo.jpg",
-        "alt": "Li-Fo",
-        "fallback": "LF"
-      }
-    ]
-  },
-  "feltSaid": [
-    {
-      "label": "Rebuy Champion",
-      "value": "NASA Al",
-      "note": "Two rebuys kept Berserk alive until Ahmed finally made the third exit permanent."
-    },
-    {
-      "label": "Bubble",
-      "value": "BostnMike",
-      "note": "Li-Fo sent the commissioner out in fourth and restored him to familiar administrative territory."
-    },
-    {
-      "label": "Streak Funeral",
-      "value": "NASA Al / BostnMike",
-      "note": "Both active three-game cash streaks ended before the payout line."
-    },
-    {
-      "label": "How It Ended",
-      "value": "ProvidenceMike took the extra $75",
-      "note": "The final three first locked up $75 each, then played winner-take-all for the remaining $75."
-    }
-  ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-29.jpg\" alt=\"Poster for the 08/29/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Shuffling found its cleanest story after the money was mostly settled. ProvidenceMike, Li-Fo, and Cougar reached the final three and agreed to lock up $75 each, leaving one last $75 on the table for a winner-take-all finish. Nobody was playing for his guaranteed share anymore. The last fight was for the bonus, and ProvidenceMike took all of it.</p><p>ProvidenceMike got there without using a rebuy and did his best work late. He removed Ahmed at 9:55, watched Li-Fo send BostnMike back to the bubble twelve minutes later, then entered the three-way deal with Cougar and Li-Fo. After the money was secured, ProvidenceMike eliminated Cougar and then Li-Fo to turn a $75 lockup into a $150 night.</p><p>Cougar had owned the earlier action. He sent Li-Fo out first, clipped NASA Al on his first life, and made Hiro the first player gone for good. Li-Fo recovered from that opening bust to survive all the way into the final three, while NASA Al used two rebuys before Ahmed finally ended his night. Al's three-game cash streak ended there, one of two active runs that disappeared before the payouts.</p><p>The other belonged to BostnMike, who spent the night discovering that getting it in ahead is apparently just a more elaborate way to lose. Three times the commissioner got the money in good; three times the race went bad. Li-Fo finally sent him out in fourth, ending Mike's own three-game cash streak and returning him to the bubble just in time to watch ProvidenceMike win the last $75.</p>",
-  "roastHtml": "<p>The commissioner spent the closing stretch exactly one seat from payroll, which is really the perfect management position: close enough to audit the payouts, far enough away not to receive one. Welcome back to the bubble, Mr. Commissioner.</p>",
-  "numbersThatMatter": [
-    "7 buy-ins, 3 rebuys, 10 total entries.",
-    "4h 17m of play from 6:33 pm to 10:50 pm.",
-    "$300 total pot: $75 was locked up for each finalist, and ProvidenceMike won the remaining $75 for $150 total.",
-    "Both active three-game cash streaks ended before the payouts: NASA Al's and BostnMike's."
-  ],
-  "tldr": "The final three locked up $75 each, ProvidenceMike won the extra $75, and BostnMike's three lost races ended with a familiar fourth-place bubble. NASA Al's and the commissioner's three-game cash streaks both ended with them."
-},
-{
-  "id": "week-08-22-2026",
-  "date": "08/22/2026",
-  "eventName": "Risky Rebuys | 9-Max",
-  "title": "TWTW: Risky Rebuys | 9-Max",
-  "featured": false,
-  "dek": "Ahmed brought dinner and the league's hottest cash streak. NASA Al ended the streak, came back from first out to split first with Cougar, and BostnMike quietly grabbed third.",
-  "summaryCards": [
-    {
-      "tone": "green",
-      "label": "📰 The Main Story",
-      "player": "NASA Al / Ahmed",
-      "value": "The cash-streak baton changes hands",
-      "copy": "Ahmed's five-game run ended at the hands of NASA Al, who had already been first out before rebuying his way back to half of first.",
-      "avatars": [
+          "tone": "blue",
+          "label": "🩸 First Casualty",
+          "player": "Li-Fo",
+          "copy": "Cougar sent Tony out first, but the rebuy turned that opening loss into a trip all the way to the final three.",
+          "avatar": "images/players/li-fo.jpg",
+          "fallback": "LF"
+        },
         {
-          "src": "images/players/nasa-al.jpg",
-          "alt": "NASA Al",
+          "tone": "purple",
+          "label": "🦤 First Rail Bird",
+          "player": "Hiro",
+          "copy": "Cougar made Hiro the first exit that stuck after the table spent the early stages burning through second chances.",
+          "avatar": "images/players/hiro.jpg",
+          "fallback": "HI"
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killers",
+          "player": "Cougar / ProvidenceMike",
+          "value": "3 knockouts each",
+          "copy": "Cougar did the early damage; ProvidenceMike handled Ahmed and then both opponents after the final-three deal.",
+          "avatars": [
+            {
+              "src": "images/players/cougar.jpg",
+              "alt": "Cougar",
+              "fallback": "CO"
+            },
+            {
+              "src": "images/players/providencemike.jpg",
+              "alt": "ProvidenceMike",
+              "fallback": "PM"
+            }
+          ]
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "10"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "3"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$300"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "4h 17m"
+        }
+      ],
+      "summary": {
+        "startTime": "6:33:19 pm 08/29/2026",
+        "endTime": "10:50:28 pm 08/29/2026",
+        "durationLabel": "4h 17m",
+        "buyIns": 7,
+        "rebuys": 3,
+        "entries": 10,
+        "totalPot": 300,
+        "paidSpots": 3,
+        "winner": "ProvidenceMike",
+        "firstOut": "Li-Fo",
+        "firstPermanentOut": "Hiro"
+      },
+      "spotlight": {
+        "player": "ProvidenceMike / Cougar / Li-Fo",
+        "fallback": "PCL",
+        "pills": [
+          "Providence: No Rebuy",
+          "Cougar: 3 Early Knockouts",
+          "Li-Fo: First Out to Final Three",
+          "Final Three Played for $75 More"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/providencemike.jpg",
+            "alt": "ProvidenceMike",
+            "fallback": "PM"
+          },
+          {
+            "src": "images/players/cougar.jpg",
+            "alt": "Cougar",
+            "fallback": "CO"
+          },
+          {
+            "src": "images/players/li-fo.jpg",
+            "alt": "Li-Fo",
+            "fallback": "LF"
+          }
+        ]
+      },
+      "feltSaid": [
+        {
+          "label": "Rebuy Champion",
+          "value": "NASA Al",
+          "note": "Two rebuys kept Berserk alive until Ahmed finally made the third exit permanent."
+        },
+        {
+          "label": "Bubble",
+          "value": "BostnMike",
+          "note": "Li-Fo sent the commissioner out in fourth and restored him to familiar administrative territory."
+        },
+        {
+          "label": "Streak Funeral",
+          "value": "NASA Al / BostnMike",
+          "note": "Both active three-game cash streaks ended before the payout line."
+        },
+        {
+          "label": "How It Ended",
+          "value": "ProvidenceMike took the extra $75",
+          "note": "The final three first locked up $75 each, then played winner-take-all for the remaining $75."
+        }
+      ],
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-29.jpg\" alt=\"Poster for the 08/29/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>The Shuffling was already guaranteed a place in the archive before the first card came off the deck: this was the 50th event in TLPT history. Naturally, the milestone did not end with a speech, commemorative plaque, or tasteful ceremony. It ended with the money mostly settled and one last $75 still sitting in the middle. ProvidenceMike, Li-Fo, and Cougar reached the final three and agreed to lock up $75 each, leaving that final $75 winner-take-all. Nobody was playing for his guaranteed share anymore. The last fight was for the bonus, and ProvidenceMike took all of it.</p><p>ProvidenceMike got there without using a rebuy and did his best work late. He removed Ahmed at 9:55, watched Li-Fo send BostnMike back to the bubble twelve minutes later, then entered the three-way deal with Cougar and Li-Fo. After the money was secured, ProvidenceMike eliminated Cougar and then Li-Fo to turn a $75 lockup into a $150 night.</p><p>Cougar had owned the earlier action. He sent Li-Fo out first, clipped NASA Al on his first life, and made Hiro the first player gone for good. Li-Fo recovered from that opening bust to survive all the way into the final three, while NASA Al used two rebuys before Ahmed finally ended his night. Al's three-game cash streak ended there, one of two active runs that disappeared before the payouts.</p><p>The other belonged to BostnMike, who spent the night discovering that getting it in ahead is apparently just a more elaborate way to lose. Three times the commissioner got the money in good; three times the race went bad. Li-Fo finally sent him out in fourth, ending Mike's own three-game cash streak and returning him to the bubble just in time to watch ProvidenceMike win the last $75.</p>",
+      "roastHtml": "<p>Fifty events into TLPT history, BostnMike celebrated the milestone the only way a commissioner truly can: by going 0-for-3 in races and finishing exactly one seat from payroll. No trophy, no commemorative plaque, just the ceremonial return of the bubble. Welcome to Event No. 50, Mr. Commissioner.</p>",
+      "numbersThatMatter": [
+        "7 buy-ins, 3 rebuys, 10 total entries.",
+        "4h 17m of play from 6:33 pm to 10:50 pm.",
+        "$300 total pot: $75 was locked up for each finalist, and ProvidenceMike won the remaining $75 for $150 total.",
+        "Both active three-game cash streaks ended before the payouts: NASA Al's and BostnMike's."
+      ],
+      "tldr": "The final three locked up $75 each, ProvidenceMike won the extra $75, and BostnMike's three lost races ended with a familiar fourth-place bubble. NASA Al's and the commissioner's three-game cash streaks both ended with them."
+    },
+    {
+      "id": "week-08-22-2026",
+      "date": "08/22/2026",
+      "eventName": "Risky Rebuys | 9-Max",
+      "title": "TWTW: Risky Rebuys | 9-Max",
+      "featured": false,
+      "dek": "Ahmed brought dinner and the league's hottest cash streak. NASA Al ended the streak, came back from first out to split first with Cougar, and BostnMike quietly grabbed third.",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "📰 The Main Story",
+          "player": "NASA Al / Ahmed",
+          "value": "The cash-streak baton changes hands",
+          "copy": "Ahmed's five-game run ended at the hands of NASA Al, who had already been first out before rebuying his way back to half of first.",
+          "avatars": [
+            {
+              "src": "images/players/nasa-al.jpg",
+              "alt": "NASA Al",
+              "fallback": "NA"
+            },
+            {
+              "src": "images/players/ahmed.jpg",
+              "alt": "Ahmed",
+              "fallback": "AH"
+            }
+          ]
+        },
+        {
+          "tone": "blue",
+          "label": "🩸 First Casualty",
+          "player": "NASA Al",
+          "copy": "Hiro sent Berserk out first, but Al rebought six seconds later and turned the opening loss into a shared win.",
+          "avatar": "images/players/nasa-al.jpg",
           "fallback": "NA"
         },
         {
-          "src": "images/players/ahmed.jpg",
-          "alt": "Ahmed",
+          "tone": "purple",
+          "label": "🦤 First Rail Bird",
+          "player": "Ahmed",
+          "copy": "Five straight cashes ended when NASA Al sent Ahmed out for good before the payout line.",
+          "avatar": "images/players/ahmed.jpg",
           "fallback": "AH"
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killer",
+          "player": "Li-Fo",
+          "value": "3 knockouts",
+          "copy": "Tony removed Hiro twice and Cougar once, but Cougar came back to make sure none of that resulted in a cash.",
+          "avatar": "images/players/li-fo.jpg",
+          "fallback": "LF"
         }
-      ]
-    },
-    {
-      "tone": "blue",
-      "label": "🩸 First Casualty",
-      "player": "NASA Al",
-      "copy": "Hiro sent Berserk out first, but Al rebought six seconds later and turned the opening loss into a shared win.",
-      "avatar": "images/players/nasa-al.jpg",
-      "fallback": "NA"
-    },
-    {
-      "tone": "purple",
-      "label": "🦤 First Rail Bird",
-      "player": "Ahmed",
-      "copy": "Five straight cashes ended when NASA Al sent Ahmed out for good before the payout line.",
-      "avatar": "images/players/ahmed.jpg",
-      "fallback": "AH"
-    },
-    {
-      "tone": "red",
-      "label": "🪓 Table Killer",
-      "player": "Li-Fo",
-      "value": "3 knockouts",
-      "copy": "Tony removed Hiro twice and Cougar once, but Cougar came back to make sure none of that resulted in a cash.",
-      "avatar": "images/players/li-fo.jpg",
-      "fallback": "LF"
-    }
-  ],
-  "statPills": [
-    {
-      "icon": "🎟️",
-      "label": "Total Entries",
-      "value": "10"
-    },
-    {
-      "icon": "♻️",
-      "label": "Rebuys",
-      "value": "4"
-    },
-    {
-      "icon": "💰",
-      "label": "Prize Pool",
-      "value": "$300"
-    },
-    {
-      "icon": "⏱️",
-      "label": "Play Time",
-      "value": "4h 25m"
-    }
-  ],
-  "summary": {
-    "startTime": "6:37:33 pm 08/22/2026",
-    "endTime": "11:02:37 pm 08/22/2026",
-    "durationLabel": "4h 25m",
-    "buyIns": 6,
-    "rebuys": 4,
-    "entries": 10,
-    "totalPot": 300,
-    "paidSpots": 3,
-    "winner": "Cougar, NASA Al",
-    "firstOut": "NASA Al",
-    "firstPermanentOut": "Ahmed"
-  },
-  "spotlight": {
-    "player": "NASA Al / Ahmed / Cougar",
-    "fallback": "NAC",
-    "pills": [
-      "Ahmed Streak Ends at 5",
-      "First Out to Split First",
-      "Cougar Rebuy Pays",
-      "Li-Fo: 3 Knockouts"
-    ],
-    "avatars": [
-      {
-        "src": "images/players/nasa-al.jpg",
-        "alt": "NASA Al",
-        "fallback": "NA"
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "10"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "4"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$300"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "4h 25m"
+        }
+      ],
+      "summary": {
+        "startTime": "6:37:33 pm 08/22/2026",
+        "endTime": "11:02:37 pm 08/22/2026",
+        "durationLabel": "4h 25m",
+        "buyIns": 6,
+        "rebuys": 4,
+        "entries": 10,
+        "totalPot": 300,
+        "paidSpots": 3,
+        "winner": "Cougar, NASA Al",
+        "firstOut": "NASA Al",
+        "firstPermanentOut": "Ahmed"
       },
-      {
-        "src": "images/players/ahmed.jpg",
-        "alt": "Ahmed",
-        "fallback": "AH"
+      "spotlight": {
+        "player": "NASA Al / Ahmed / Cougar",
+        "fallback": "NAC",
+        "pills": [
+          "Ahmed Streak Ends at 5",
+          "First Out to Split First",
+          "Cougar Rebuy Pays",
+          "Li-Fo: 3 Knockouts"
+        ],
+        "avatars": [
+          {
+            "src": "images/players/nasa-al.jpg",
+            "alt": "NASA Al",
+            "fallback": "NA"
+          },
+          {
+            "src": "images/players/ahmed.jpg",
+            "alt": "Ahmed",
+            "fallback": "AH"
+          },
+          {
+            "src": "images/players/cougar.jpg",
+            "alt": "Cougar",
+            "fallback": "CO"
+          }
+        ]
       },
-      {
-        "src": "images/players/cougar.jpg",
-        "alt": "Cougar",
-        "fallback": "CO"
-      }
-    ]
-  },
-  "feltSaid": [
-    {
-      "label": "First Blood",
-      "value": "NASA Al",
-      "note": "Hiro knocked out Berserk first, and Al needed only six seconds to decide that retirement was premature."
+      "feltSaid": [
+        {
+          "label": "First Blood",
+          "value": "NASA Al",
+          "note": "Hiro knocked out Berserk first, and Al needed only six seconds to decide that retirement was premature."
+        },
+        {
+          "label": "First Gone For Good",
+          "value": "Ahmed",
+          "note": "NASA Al personally ended the five-game cash streak and reopened the race for everybody else."
+        },
+        {
+          "label": "Rebuy Champion",
+          "value": "Hiro",
+          "note": "Two rebuys produced three separate exits and exactly zero dollars in prize money."
+        },
+        {
+          "label": "How It Ended",
+          "value": "Cougar / NASA Al split first",
+          "note": "BostnMike took third, and the final two agreed to divide the remaining top money rather than force another knockout."
+        }
+      ],
+      "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-22.jpg\" alt=\"Poster for the 08/22/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Ahmed came in carrying samosas, wings and the hottest active run in the room: five straight cashes. By 9:54, the food was still there and the streak was not. NASA Al personally ended it, sending Ahmed out as the first player gone for good and officially reopening a race that had started to feel like Ahmed's private property.</p><p>The man who ended the streak had already spent the opening hour looking like an unlikely successor. Hiro busted NASA Al first at 7:28, Al rebought six seconds later, and Berserk started rebuilding. He eventually took Ahmed out for good, later removed Hiro, and survived all the way into a split first with Cougar. First out to half of first is already a useful night's work. Ending the league's hottest streak on the way there makes it considerably louder.</p><p>BostnMike quietly took third without needing a rebuy, which leaves him and Al as the current three-game cashers now that Ahmed's five-game run is over. That is enough streak bookkeeping for one paragraph. The more interesting part of the night belonged to Cougar, who got bounced by Li-Fo, rebought, then came back to eliminate Tony and eventually the commissioner before sharing first with Al.</p><p>Li-Fo actually led the night's body count with three knockouts, including Hiro twice, and still missed the money entirely. Hiro somehow found two rebuys and managed to turn three separate exits into no payout at all. Risky Rebuys lived up to the title: four second chances were purchased, two of them reached first place, and the one streak everyone entered the night talking about never got another life.</p>",
+      "roastHtml": "<p>BostnMike will undoubtedly explain that third place was another example of disciplined tournament survival. Cougar may describe it differently, considering he simply waited until 10:53 and removed the commissioner before splitting the rest with Al. Sometimes \"staying alive\" is just a flattering way to say nobody had gotten around to you yet.</p>",
+      "numbersThatMatter": [
+        "6 buy-ins, 4 rebuys, 10 total entries.",
+        "4h 25m of play from 6:37 pm to 11:02 pm.",
+        "$300 total pot with Cougar and NASA Al taking $120 each and BostnMike taking $60.",
+        "Ahmed's five-game cash streak ended when NASA Al eliminated him at 9:54 pm."
+      ],
+      "tldr": "Ahmed arrived with samosas, wings and a five-game cash streak, but NASA Al personally ended the run after recovering from first-out status. Al and Cougar split first, BostnMike took third, and Risky Rebuys gave the room a very different cash-streak conversation."
     },
     {
-      "label": "First Gone For Good",
-      "value": "Ahmed",
-      "note": "NASA Al personally ended the five-game cash streak and reopened the race for everybody else."
-    },
-    {
-      "label": "Rebuy Champion",
-      "value": "Hiro",
-      "note": "Two rebuys produced three separate exits and exactly zero dollars in prize money."
-    },
-    {
-      "label": "How It Ended",
-      "value": "Cougar / NASA Al split first",
-      "note": "BostnMike took third, and the final two agreed to divide the remaining top money rather than force another knockout."
-    }
-  ],
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-08-22.jpg\" alt=\"Poster for the 08/22/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Ahmed came in carrying samosas, wings and the hottest active run in the room: five straight cashes. By 9:54, the food was still there and the streak was not. NASA Al personally ended it, sending Ahmed out as the first player gone for good and officially reopening a race that had started to feel like Ahmed's private property.</p><p>The man who ended the streak had already spent the opening hour looking like an unlikely successor. Hiro busted NASA Al first at 7:28, Al rebought six seconds later, and Berserk started rebuilding. He eventually took Ahmed out for good, later removed Hiro, and survived all the way into a split first with Cougar. First out to half of first is already a useful night's work. Ending the league's hottest streak on the way there makes it considerably louder.</p><p>BostnMike quietly took third without needing a rebuy, which leaves him and Al as the current three-game cashers now that Ahmed's five-game run is over. That is enough streak bookkeeping for one paragraph. The more interesting part of the night belonged to Cougar, who got bounced by Li-Fo, rebought, then came back to eliminate Tony and eventually the commissioner before sharing first with Al.</p><p>Li-Fo actually led the night's body count with three knockouts, including Hiro twice, and still missed the money entirely. Hiro somehow found two rebuys and managed to turn three separate exits into no payout at all. Risky Rebuys lived up to the title: four second chances were purchased, two of them reached first place, and the one streak everyone entered the night talking about never got another life.</p>",
-  "roastHtml": "<p>BostnMike will undoubtedly explain that third place was another example of disciplined tournament survival. Cougar may describe it differently, considering he simply waited until 10:53 and removed the commissioner before splitting the rest with Al. Sometimes \"staying alive\" is just a flattering way to say nobody had gotten around to you yet.</p>",
-  "numbersThatMatter": [
-    "6 buy-ins, 4 rebuys, 10 total entries.",
-    "4h 25m of play from 6:37 pm to 11:02 pm.",
-    "$300 total pot with Cougar and NASA Al taking $120 each and BostnMike taking $60.",
-    "Ahmed's five-game cash streak ended when NASA Al eliminated him at 9:54 pm."
-  ],
-  "tldr": "Ahmed arrived with samosas, wings and a five-game cash streak, but NASA Al personally ended the run after recovering from first-out status. Al and Cougar split first, BostnMike took third, and Risky Rebuys gave the room a very different cash-streak conversation."
-},
+      "id": "week-08-21-2026",
+      "date": "08/21/2026",
+      "eventName": "River Rocky | 9-Max",
+      "title": "TWTW: River Rocky | 9-Max",
+      "featured": false,
+      "dek": "Berserk busted Berserker, the Tilt Raise and Tilt C-Bet went into production, Nitro returned just in time to bubble, and Ahmed stretched the cash streak to five before a three-way split.",
+      "summaryCards": [
+        {
+          "tone": "green",
+          "label": "📰 The Main Story",
+          "player": "NASA Al / ProvidenceMike",
+          "value": "Berserk, Berserker & the Department of Tilt",
+          "copy": "Berserk drew first blood on Berserker, who rebought and immediately put the Tilt Raise and Tilt C-Bet into live testing.",
+          "avatars": [
+            {
+              "src": "images/players/nasa-al.jpg",
+              "alt": "NASA Al",
+              "fallback": "NA"
+            },
+            {
+              "src": "images/players/providencemike.jpg",
+              "alt": "ProvidenceMike",
+              "fallback": "PM"
+            }
+          ]
+        },
+        {
+          "tone": "blue",
+          "label": "🩸 First Casualty",
+          "player": "ProvidenceMike",
+          "copy": "NASA Al opened the Berserk-on-Berserker violence before ProvidenceMike fired the rebuy.",
+          "avatar": "images/players/providencemike.jpg",
+          "fallback": "PM"
+        },
+        {
+          "tone": "purple",
+          "label": "🦤 First Rail Bird",
+          "player": "Hiro",
+          "copy": "BostnMike made Hiro the first player gone for good after a night that used all three available second chances.",
+          "avatar": "images/players/hiro.jpg",
+          "fallback": "HI"
+        },
+        {
+          "tone": "red",
+          "label": "🪓 Table Killers",
+          "player": "Ahmed / NASA Al",
+          "value": "2 knockouts each",
+          "copy": "Ahmed removed Li-Fo and ProvidenceMike; Al handled ProvidenceMike and returning bubble boy Nitro.",
+          "avatars": [
+            {
+              "src": "images/players/ahmed.jpg",
+              "alt": "Ahmed",
+              "fallback": "AH"
+            },
+            {
+              "src": "images/players/nasa-al.jpg",
+              "alt": "NASA Al",
+              "fallback": "NA"
+            }
+          ]
+        }
+      ],
+      "statPills": [
+        {
+          "icon": "🎟️",
+          "label": "Total Entries",
+          "value": "10"
+        },
+        {
+          "icon": "♻️",
+          "label": "Rebuys",
+          "value": "3"
+        },
+        {
+          "icon": "💰",
+          "label": "Prize Pool",
+          "value": "$300"
+        },
+        {
+          "icon": "⏱️",
+          "label": "Play Time",
+          "value": "3h 47m"
+        }
+      ],
       "summary": {
         "startTime": "7:10:40 pm 08/21/2026",
         "endTime": "10:58:30 pm 08/21/2026",
