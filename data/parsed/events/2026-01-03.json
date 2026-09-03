@@ -318,6 +318,19 @@
       "profit": -30
     },
     {
+      "name": "Alex C",
+      "slug": "alex-c",
+      "buyIns": 0,
+      "rebuys": 0,
+      "entries": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "profit": 0
+    },
+    {
       "name": "Big Tim",
       "slug": "big-tim",
       "buyIns": 0,

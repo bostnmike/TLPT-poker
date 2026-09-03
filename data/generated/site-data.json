@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T22:18:16.781642Z",
+  "generatedAt": "2026-09-03T22:58:53.245382Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -17,7 +17,7 @@
         "bostnmike": "yes",
         "buffalomike": "tbd",
         "ahmed": "tbd",
-        "alex": "tbd",
+        "alex-c": "yes",
         "ai-dave": "no",
         "big-tim": "tbd",
         "brad-r": "tbd",
@@ -62,7 +62,7 @@
         "bostnmike": "yes",
         "buffalomike": "tbd",
         "ahmed": "tbd",
-        "alex": "tbd",
+        "alex-c": "tbd",
         "ai-dave": "no",
         "big-tim": "tbd",
         "brad-r": "tbd",
@@ -465,7 +465,7 @@
               "roi": -0.083333,
               "cashRate": 0.318182,
               "hitRate": 0.821429,
-              "trueSkillScore": 194.896
+              "trueSkillScore": 195.108
             }
           },
           "streakLength": 2
@@ -521,7 +521,7 @@
               "roi": -0.197917,
               "cashRate": 0.28,
               "hitRate": 0.78125,
-              "trueSkillScore": 178.948
+              "trueSkillScore": 179.147
             }
           }
         },
@@ -576,7 +576,7 @@
               "roi": 0.0,
               "cashRate": 0.3,
               "hitRate": 0.833333,
-              "trueSkillScore": 216.805
+              "trueSkillScore": 217.086
             }
           }
         }
@@ -876,7 +876,7 @@
               "roi": 0.227273,
               "cashRate": 0.4,
               "hitRate": 1.181818,
-              "trueSkillScore": 250.37
+              "trueSkillScore": 250.79
             }
           }
         },
@@ -931,7 +931,7 @@
               "roi": 0.057971,
               "cashRate": 0.35,
               "hitRate": 0.956522,
-              "trueSkillScore": 222.113
+              "trueSkillScore": 222.675
             }
           }
         },
@@ -986,7 +986,7 @@
               "roi": 0.364035,
               "cashRate": 0.454545,
               "hitRate": 1.052632,
-              "trueSkillScore": 260.526
+              "trueSkillScore": 260.932
             }
           },
           "streakLength": 5,
@@ -1044,7 +1044,7 @@
               "roi": -0.011494,
               "cashRate": 0.32,
               "hitRate": 0.965517,
-              "trueSkillScore": 210.803
+              "trueSkillScore": 211.119
             }
           }
         },
@@ -1099,12 +1099,118 @@
               "roi": 0.227273,
               "cashRate": 0.4,
               "hitRate": 1.181818,
-              "trueSkillScore": 250.37
+              "trueSkillScore": 250.79
             }
           }
         }
       ],
       "featuredCardEdition": "hall-billing-department",
+      "featuredCardMode": "automatic"
+    },
+    {
+      "name": "Alex C",
+      "slug": "alex-c",
+      "image": "images/players/alex-c.jpg",
+      "notes": "",
+      "entries": 0,
+      "buyIns": 0,
+      "rebuys": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "profit": 0,
+      "roi": 0.0,
+      "cashRate": 0.0,
+      "bubbleRate": 0.0,
+      "hitRate": 0.0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "expectedProfit": 0.0,
+      "luckIndex": 0.0,
+      "clutchIndex": 0.0,
+      "aggressionIndex": 0.0,
+      "survivorIndex": 0.0,
+      "tiltIndex": 0.0,
+      "trueSkillScore": 0.0,
+      "clutchRaw": 0.0,
+      "aggressionRaw": 0.0,
+      "survivorRaw": 0.0,
+      "tiltScoreDirect": 0.0,
+      "roi_norm": 0.0,
+      "luckIndex_norm": 0.0,
+      "clutchRaw_norm": 0.0,
+      "aggressionRaw_norm": 0.0,
+      "survivorRaw_norm": 0.0,
+      "tier": "C",
+      "cardForm": {
+        "windowSize": 5,
+        "recent": {
+          "eventCount": 0,
+          "startDate": null,
+          "endDate": null,
+          "metrics": {
+            "name": "Alex C",
+            "slug": "alex-c",
+            "image": "images/players/alex-c.jpg",
+            "notes": "",
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "roi": 0.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 0,
+            "totalWinnings": 0,
+            "expectedProfit": 0.0,
+            "luckIndex": 0.0,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 0.0,
+            "tiltIndex": 0.0,
+            "trueSkillScore": 0.0
+          },
+          "events": []
+        },
+        "previous": {
+          "eventCount": 0,
+          "startDate": null,
+          "endDate": null,
+          "metrics": {
+            "name": "Alex C",
+            "slug": "alex-c",
+            "image": "images/players/alex-c.jpg",
+            "notes": "",
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "roi": 0.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 0,
+            "totalWinnings": 0,
+            "expectedProfit": 0.0,
+            "luckIndex": 0.0,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 0.0,
+            "tiltIndex": 0.0,
+            "trueSkillScore": 0.0
+          },
+          "events": []
+        }
+      },
+      "cardCollection": [],
+      "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
     {
@@ -1787,7 +1893,7 @@
               "roi": 0.416667,
               "cashRate": 0.4,
               "hitRate": 0.8,
-              "trueSkillScore": 270.738
+              "trueSkillScore": 270.666
             }
           }
         },
@@ -2076,7 +2182,7 @@
           "reason": "Joined the 25-Appearance Club at ChatGPT AI Stat Pack Aftermath Part I | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 85,
+            "overall": 84,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -2175,7 +2281,7 @@
               "roi": 0.416667,
               "cashRate": 0.4,
               "hitRate": 0.8,
-              "trueSkillScore": 270.738
+              "trueSkillScore": 270.666
             }
           }
         }
@@ -2847,7 +2953,7 @@
               "roi": 0.601852,
               "cashRate": 0.5,
               "hitRate": 1.111111,
-              "trueSkillScore": 240.086
+              "trueSkillScore": 241.039
             }
           }
         },
@@ -2902,7 +3008,7 @@
               "roi": 0.484848,
               "cashRate": 0.6,
               "hitRate": 1.090909,
-              "trueSkillScore": 242.769
+              "trueSkillScore": 243.129
             }
           },
           "streakLength": 3,
@@ -2960,7 +3066,7 @@
               "roi": 0.601852,
               "cashRate": 0.5,
               "hitRate": 1.111111,
-              "trueSkillScore": 240.086
+              "trueSkillScore": 241.039
             }
           }
         }
@@ -3260,7 +3366,7 @@
               "roi": 0.666667,
               "cashRate": 0.5,
               "hitRate": 0.777778,
-              "trueSkillScore": 301.831
+              "trueSkillScore": 302.254
             }
           }
         },
@@ -3315,7 +3421,7 @@
               "roi": 0.777778,
               "cashRate": 1.0,
               "hitRate": 0.333333,
-              "trueSkillScore": 305.826
+              "trueSkillScore": 306.143
             }
           },
           "streakLength": 2
@@ -3371,7 +3477,7 @@
               "roi": 0.363636,
               "cashRate": 0.4,
               "hitRate": 0.636364,
-              "trueSkillScore": 258.514
+              "trueSkillScore": 258.798
             }
           }
         }
@@ -4122,7 +4228,7 @@
               "roi": 1.433333,
               "cashRate": 1.0,
               "hitRate": 1.8,
-              "trueSkillScore": 352.864
+              "trueSkillScore": 354.046
             }
           },
           "streakLength": 2
@@ -4727,7 +4833,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.018
+              "trueSkillScore": 391.963
             }
           }
         },
@@ -4782,7 +4888,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.018
+              "trueSkillScore": 391.963
             }
           }
         },
@@ -4837,7 +4943,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.018
+              "trueSkillScore": 391.963
             }
           }
         },
@@ -4892,7 +4998,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 392.018
+              "trueSkillScore": 391.963
             }
           }
         },
@@ -4959,7 +5065,7 @@
           "reason": "Joined the 25-Appearance Club at WrestleMania Eve | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 59,
+            "overall": 58,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -5003,7 +5109,7 @@
               "roi": -0.097222,
               "cashRate": 0.36,
               "hitRate": 0.777778,
-              "trueSkillScore": 191.961
+              "trueSkillScore": 191.592
             }
           }
         },
@@ -5441,7 +5547,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2026-03-27 through 2026-04-04.",
           "priority": 2,
           "snapshot": {
-            "overall": 95,
+            "overall": 96,
             "tierCode": "RKI",
             "tierClassName": "rookie",
             "tierStatus": "Rookie",
@@ -5485,7 +5591,7 @@
               "roi": 1.0,
               "cashRate": 1.0,
               "hitRate": 1.5,
-              "trueSkillScore": 351.208
+              "trueSkillScore": 352.75
             }
           },
           "streakLength": 2
@@ -5786,7 +5892,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.61
+              "trueSkillScore": 298.484
             }
           }
         },
@@ -5841,7 +5947,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.61
+              "trueSkillScore": 298.484
             }
           }
         },
@@ -5896,7 +6002,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.61
+              "trueSkillScore": 298.484
             }
           }
         },
@@ -5951,7 +6057,7 @@
               "roi": 0.854167,
               "cashRate": 0.571429,
               "hitRate": 1.25,
-              "trueSkillScore": 309.516
+              "trueSkillScore": 309.571
             }
           }
         },
@@ -6006,7 +6112,7 @@
               "roi": 0.72549,
               "cashRate": 0.727273,
               "hitRate": 1.058824,
-              "trueSkillScore": 325.326
+              "trueSkillScore": 325.129
             }
           }
         },
@@ -6061,7 +6167,7 @@
               "roi": 0.854167,
               "cashRate": 0.571429,
               "hitRate": 1.25,
-              "trueSkillScore": 309.516
+              "trueSkillScore": 309.571
             }
           }
         },
@@ -6171,7 +6277,7 @@
               "roi": 0.72549,
               "cashRate": 0.727273,
               "hitRate": 1.058824,
-              "trueSkillScore": 325.326
+              "trueSkillScore": 325.129
             }
           },
           "streakLength": 5,
@@ -6229,7 +6335,7 @@
               "roi": 0.276515,
               "cashRate": 0.6,
               "hitRate": 0.636364,
-              "trueSkillScore": 236.532
+              "trueSkillScore": 236.196
             }
           }
         },
@@ -6284,7 +6390,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.61
+              "trueSkillScore": 298.484
             }
           }
         }
@@ -6584,7 +6690,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 342.214
+              "trueSkillScore": 343.28
             }
           }
         },
@@ -6639,7 +6745,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 346.356
+              "trueSkillScore": 347.51
             }
           }
         },
@@ -6694,7 +6800,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 346.356
+              "trueSkillScore": 347.51
             }
           }
         },
@@ -6749,7 +6855,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 342.214
+              "trueSkillScore": 343.28
             }
           }
         },
@@ -6804,7 +6910,7 @@
               "roi": 0.740741,
               "cashRate": 0.714286,
               "hitRate": 1.0,
-              "trueSkillScore": 316.552
+              "trueSkillScore": 317.032
             }
           }
         },
@@ -6859,7 +6965,7 @@
               "roi": 0.309524,
               "cashRate": 0.6,
               "hitRate": 1.0,
-              "trueSkillScore": 236.894
+              "trueSkillScore": 236.58
             }
           }
         },
@@ -6914,7 +7020,7 @@
               "roi": 1.287879,
               "cashRate": 0.777778,
               "hitRate": 1.363636,
-              "trueSkillScore": 363.467
+              "trueSkillScore": 364.433
             }
           },
           "streakLength": 4,
@@ -6972,7 +7078,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 346.356
+              "trueSkillScore": 347.51
             }
           }
         }
@@ -7272,7 +7378,7 @@
               "roi": -0.714286,
               "cashRate": 0.1,
               "hitRate": 0.357143,
-              "trueSkillScore": 111.217
+              "trueSkillScore": 111.786
             }
           }
         }
@@ -8104,7 +8210,7 @@
               "roi": -0.174797,
               "cashRate": 0.36,
               "hitRate": 0.682927,
-              "trueSkillScore": 167.112
+              "trueSkillScore": 166.872
             }
           }
         },
@@ -8415,7 +8521,7 @@
           "reason": "First claimed the established-player knockout lead at 32 hits.",
           "priority": 3,
           "snapshot": {
-            "overall": 58,
+            "overall": 57,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8514,7 +8620,7 @@
               "roi": 0.533333,
               "cashRate": 0.5,
               "hitRate": 1.6,
-              "trueSkillScore": 273.781
+              "trueSkillScore": 274.224
             }
           },
           "streakLength": 2
@@ -8570,7 +8676,7 @@
               "roi": -0.196078,
               "cashRate": 0.3,
               "hitRate": 0.882353,
-              "trueSkillScore": 161.033
+              "trueSkillScore": 161.356
             }
           }
         }
@@ -8814,7 +8920,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2025-12-27 through 2026-01-03.",
           "priority": 2,
           "snapshot": {
-            "overall": 86,
+            "overall": 87,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -8858,7 +8964,7 @@
               "roi": 0.214286,
               "cashRate": 0.6,
               "hitRate": 1.0,
-              "trueSkillScore": 247.246
+              "trueSkillScore": 247.364
             }
           },
           "streakLength": 2
@@ -9449,7 +9555,7 @@
               "roi": -0.359649,
               "cashRate": 0.3,
               "hitRate": 0.578947,
-              "trueSkillScore": 136.92
+              "trueSkillScore": 137.502
             }
           }
         }
@@ -11854,6 +11960,14 @@
             }
           ]
         }
+      },
+      "alex-c": {
+        "playedEvents": 0,
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
+        "bestDroughtStreak": null,
+        "currentDroughtStreak": null
       },
       "big-tim": {
         "playedEvents": 1,
