@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T22:58:53.245382Z",
+  "generatedAt": "2026-09-03T23:12:14.368888Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -16,7 +16,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "tbd",
+        "ahmed": "no",
         "alex-c": "yes",
         "ai-dave": "no",
         "big-tim": "tbd",
