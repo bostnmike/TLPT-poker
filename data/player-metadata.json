@@ -225,6 +225,13 @@
       "aliases": ["chris f", "chris-f"]
     },
     {
+      "name": "Alex C",
+      "slug": "alex-c",
+      "image": "images/players/alex-c.jpg",
+      "notes": "",
+      "aliases": ["alex"]
+    },
+    {
       "name": "David K",
       "slug": "david-k",
       "image": "images/players/david-k.jpg",
