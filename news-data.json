@@ -14,11 +14,159 @@
   },
   "weeks": [
 {
+  "id": "week-09-04-2026",
+  "date": "09/04/2026",
+  "eventName": "Pot Predator | 9-Max",
+  "title": "TWTW: Pot Predator | 9-Max",
+  "featured": true,
+  "dek": "Alex C arrived as Sasha, left as the Mad Russian, and won his TLPT debut with five knockouts. Along the way, Tony and Red both found quad eights and Kishan quietly earned a new title: the Silent Assassin.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Alex C",
+      "value": "From Russia, With Chips",
+      "copy": "The Mad Russian won his TLPT debut outright, taking five knockouts and the $210 first-place payout.",
+      "avatar": "images/players/alex.jpg",
+      "fallback": "AC"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Hiro",
+      "copy": "Li-Fo sent Hiro out first. The rebuy bought him another two hours, but BostnMike eventually made the second exit permanent.",
+      "avatar": "images/players/hiro.jpg",
+      "fallback": "HI"
+    },
+    {
+      "tone": "purple",
+      "label": "🎱 Double Quads",
+      "player": "Li-Fo / Red",
+      "value": "Quad 8s × 2",
+      "copy": "Tony and Red both found quad eights in the same game, because apparently one statistical insult was not enough.",
+      "avatars": [
+        {
+          "src": "images/players/li-fo.jpg",
+          "alt": "Li-Fo",
+          "fallback": "LF"
+        },
+        {
+          "src": "images/players/red.jpg",
+          "alt": "Red",
+          "fallback": "RE"
+        }
+      ]
+    },
+    {
+      "tone": "red",
+      "label": "🥷 Silent Assassin",
+      "player": "Kishan",
+      "value": "Ahmed made it official",
+      "copy": "Kishan rebought, quietly removed Li-Fo, and reached fourth before the Mad Russian finally found him.",
+      "avatar": "images/players/kishan.jpg",
+      "fallback": "KI"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "14"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "5"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$420"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 40m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:14:36 pm 09/04/2026",
+    "endTime": "11:55:05 pm 09/04/2026",
+    "durationLabel": "4h 40m",
+    "buyIns": 9,
+    "rebuys": 5,
+    "entries": 14,
+    "totalPot": 420,
+    "paidSpots": 3,
+    "winner": "Alex C",
+    "firstOut": "Hiro",
+    "firstPermanentOut": "Hiro"
+  },
+  "spotlight": {
+    "player": "Alex C / Red / Kishan",
+    "fallback": "ARK",
+    "pills": [
+      "Debut Win",
+      "5 Knockouts",
+      "Red: Runner-Up",
+      "Silent Assassin"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/alex.jpg",
+        "alt": "Alex C",
+        "fallback": "AC"
+      },
+      {
+        "src": "images/players/red.jpg",
+        "alt": "Red",
+        "fallback": "RE"
+      },
+      {
+        "src": "images/players/kishan.jpg",
+        "alt": "Kishan",
+        "fallback": "KI"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "Rebuy Champion",
+      "value": "Red",
+      "note": "Two rebuys, quad eights, three knockouts, and a runner-up finish. Red used every available plot device except the win."
+    },
+    {
+      "label": "First Gone For Good",
+      "value": "Hiro",
+      "note": "Li-Fo got the first bust; BostnMike made Hiro the first permanent exit a little over two hours later."
+    },
+    {
+      "label": "New Nickname",
+      "value": "The Silent Assassin",
+      "note": "Ahmed christened Kishan, who backed it up by quietly reaching fourth and sending Li-Fo home."
+    },
+    {
+      "label": "How It Ended",
+      "value": "The Mad Russian over Red",
+      "note": "Alex removed Kishan, BostnMike, and finally Red in the closing stretch to win his first TLPT appearance."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-09-04.jpg\" alt=\"Poster for the 09/04/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Most players need a few nights to learn the room. Alex C needed one. Introduced as Alex, also answering to Sasha and already carrying the Mad Russian label, the newest TLPT player walked into Pot Predator and won the thing outright. He did not spend the night dominating every chapter. He simply kept appearing at the moments that mattered, then took over the ending with five recorded knockouts and $210 in first-place money.</p><p>The table gave him plenty of noise to hide behind. Red burned through two rebuys, still found quad eights, and kept collecting bodies on the way to second. Li-Fo somehow produced the matching freak show with quad eights of his own. Two players, same quads, same night — and neither won. That feels less like probability and more like the Deckmate filing a formal complaint against subtlety.</p><p>Kishan supplied the quieter subplot. Ahmed officially dubbed him the <strong>Silent Assassin</strong>, which immediately felt annoyingly accurate. Kish rebought after Red got him once, stayed mostly out of the theatrical nonsense, then quietly removed Li-Fo and worked all the way to four-handed. The nickname survived the night even if the stack did not: Alex finally caught him at 11:37 and moved on to the money.</p><p>From there the debut stopped being cute. Alex removed BostnMike six minutes later, then finished Red on the final hand to seal the win. Red took $125, the Commissioner collected $85 for third, and the new guy took the rest. Pot Predator started with a full table, five rebuys and two sets of quad eights. It ended with everybody learning the same thing: Sasha may have been new to TLPT, but the Mad Russian did not come for orientation.</p>",
+  "roastHtml": "<p>BostnMike finally escaped the bubble and made the money, which would normally qualify as progress. Unfortunately, the Commissioner then became part of the new guy's debut highlight reel, getting removed six minutes before Red suffered the same fate. Nothing says strong league leadership like recruiting fresh talent and immediately paying him $210 to knock you out.</p>",
+  "numbersThatMatter": [
+    "9 buy-ins, 5 rebuys, 14 total entries.",
+    "4h 40m of play from 7:14 pm to 11:55 pm.",
+    "$420 total pot: Alex C $210, Red $125, BostnMike $85.",
+    "Alex C won his TLPT debut with 5 knockouts; Tony and Red both made quad eights."
+  ],
+  "tldr": "Alex C — Sasha, the Mad Russian — won his TLPT debut with five knockouts and $210. Red finished second after two rebuys and quad eights, Tony found the same quads, and Kishan quietly earned the Silent Assassin nickname before finishing fourth."
+},
+{
   "id": "week-08-29-2026",
   "date": "08/29/2026",
   "eventName": "The Shuffling | 9-Max",
   "title": "TWTW: The Shuffling | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "The final three locked up $75 each, then ProvidenceMike won the remaining $75 by clearing Cougar and Li-Fo. Behind them, BostnMike went 0-for-3 in races and returned to the bubble.",
   "summaryCards": [
     {
