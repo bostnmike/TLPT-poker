@@ -1,3 +1,62 @@
+let playerAvatarLookup = new Map();
+
+function normalizePlayerLookupKey(value) {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
+}
+
+function buildPlayerAvatarLookup(metadata) {
+  const lookup = new Map();
+  const players = Array.isArray(metadata?.players) ? metadata.players : [];
+
+  players.forEach((player) => {
+    const image = String(player?.image || '').trim();
+    if (!image) return;
+
+    const keys = [
+      player?.slug,
+      player?.name,
+      ...(Array.isArray(player?.aliases) ? player.aliases : [])
+    ];
+
+    keys.forEach((value) => {
+      const key = normalizePlayerLookupKey(value);
+      if (key) lookup.set(key, image);
+    });
+  });
+
+  return lookup;
+}
+
+async function loadPlayerAvatarLookup() {
+  try {
+    const response = await fetch('data/player-metadata.json', { cache: 'no-store' });
+    if (!response.ok) {
+      throw new Error(`Failed to load player-metadata.json (${response.status})`);
+    }
+
+    playerAvatarLookup = buildPlayerAvatarLookup(await response.json());
+  } catch (error) {
+    playerAvatarLookup = new Map();
+    console.warn('Player avatar metadata unavailable; using story fallbacks.', error);
+  }
+}
+
+function resolvePlayerAvatar(avatar) {
+  const candidates = [avatar?.slug, avatar?.alt];
+
+  for (const candidate of candidates) {
+    const key = normalizePlayerLookupKey(candidate);
+    const image = key ? playerAvatarLookup.get(key) : '';
+
+    if (image) return image;
+  }
+
+  return String(avatar?.src || '');
+}
+
 async function renderNewsPage() {
   const pageTitle = document.getElementById('news-page-title');
   const pageEmoji = document.getElementById('news-page-emoji');
@@ -12,7 +71,10 @@ async function renderNewsPage() {
   if (!blogFeed) return;
 
   try {
-    const response = await fetch('news-data.json', { cache: 'no-store' });
+    const [response] = await Promise.all([
+      fetch('news-data.json', { cache: 'no-store' }),
+      loadPlayerAvatarLookup()
+    ]);
     if (!response.ok) {
       throw new Error(`Failed to load news-data.json (${response.status})`);
     }
@@ -103,7 +165,13 @@ function renderSummaryCard(card) {
   const valueHtml = value ? `<div class="news-summary-value">${value}</div>` : '';
 
   const hasMulti = Array.isArray(card?.avatars) && card.avatars.length;
-  const hasSingle = !!card?.avatar;
+  const singleAvatar = {
+    src: card?.avatar || '',
+    slug: card?.playerSlug || card?.slug || '',
+    alt: card?.player || '',
+    fallback: card?.fallback || getInitials(card?.player || '')
+  };
+  const hasSingle = !!resolvePlayerAvatar(singleAvatar);
 
   let headHtml = '';
 
@@ -122,11 +190,7 @@ function renderSummaryCard(card) {
   } else if (hasSingle) {
     headHtml = `
       <div class="news-summary-head">
-        ${renderAvatar({
-          src: card.avatar,
-          alt: card.player || '',
-          fallback: card.fallback || getInitials(card.player || '')
-        }, { intrinsicSize: 46 })}
+        ${renderAvatar(singleAvatar, { intrinsicSize: 46 })}
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
           ${valueHtml}
@@ -256,22 +320,12 @@ function renderGameSpotlight(week) {
     `
     : `
       <div class="news-receipt-avatar-row">
-        <span class="player-avatar-wrap">
-          <img
-            class="player-avatar table"
-            src="${escapeHtml(spotlight?.avatar || '')}"
-            alt="${player}"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="auto"
-            width="42"
-            height="42"
-            data-image-error-action="show-next"
-          />
-          <span class="player-avatar-fallback table" hidden>
-            ${escapeHtml(spotlight?.fallback || getInitials(player))}
-          </span>
-        </span>
+        ${renderAvatar({
+          src: spotlight?.avatar || '',
+          slug: spotlight?.playerSlug || spotlight?.slug || '',
+          alt: spotlight?.player || '',
+          fallback: spotlight?.fallback || getInitials(spotlight?.player || '')
+        }, { intrinsicSize: 42 })}
       </div>
     `;
 
@@ -438,7 +492,7 @@ function renderArchiveList(weeks, container) {
 }
 
 function renderAvatar(avatar, options = {}) {
-  const src = escapeHtml(avatar?.src || '');
+  const src = escapeHtml(resolvePlayerAvatar(avatar));
   const alt = escapeHtml(avatar?.alt || '');
   const fallback = escapeHtml(avatar?.fallback || getInitials(avatar?.alt || ''));
   const numericSize = Number(options.intrinsicSize);
