@@ -190,7 +190,12 @@ function renderSummaryCard(card) {
   } else if (hasSingle) {
     headHtml = `
       <div class="news-summary-head">
-        ${renderAvatar(singleAvatar, { intrinsicSize: 46 })}
+        ${renderAvatar({
+          src: singleAvatar.src,
+          slug: singleAvatar.slug,
+          alt: singleAvatar.alt,
+          fallback: singleAvatar.fallback
+        }, { intrinsicSize: 46 })}
         <div class="news-summary-head-copy">
           <div class="news-summary-player">${player}</div>
           ${valueHtml}
@@ -320,12 +325,26 @@ function renderGameSpotlight(week) {
     `
     : `
       <div class="news-receipt-avatar-row">
-        ${renderAvatar({
-          src: spotlight?.avatar || '',
-          slug: spotlight?.playerSlug || spotlight?.slug || '',
-          alt: spotlight?.player || '',
-          fallback: spotlight?.fallback || getInitials(spotlight?.player || '')
-        }, { intrinsicSize: 42 })}
+        <span class="player-avatar-wrap">
+          <img
+            class="player-avatar table"
+            src="${escapeHtml(resolvePlayerAvatar({
+              src: spotlight?.avatar || '',
+              slug: spotlight?.playerSlug || spotlight?.slug || '',
+              alt: spotlight?.player || ''
+            }))}"
+            alt="${player}"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="auto"
+            width="42"
+            height="42"
+            data-image-error-action="show-next"
+          />
+          <span class="player-avatar-fallback table" hidden>
+            ${escapeHtml(spotlight?.fallback || getInitials(spotlight?.player || ''))}
+          </span>
+        </span>
       </div>
     `;
 
