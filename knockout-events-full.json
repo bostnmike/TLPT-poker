@@ -2744,5 +2744,85 @@
       "sourceVictim": "Li-Fo",
       "sourceKiller": "ProvidenceMike"
     }
+  ],
+  "2026-09-04": [
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "red",
+      "killer": "bostnmike",
+      "sourceVictim": "Red",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "red",
+      "killer": "alex-c",
+      "sourceVictim": "Red",
+      "sourceKiller": "Alex C"
+    },
+    {
+      "victim": "kishan",
+      "killer": "red",
+      "sourceVictim": "Kishan",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "nasa-al",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Nasa Al"
+    },
+    {
+      "victim": "hiro",
+      "killer": "bostnmike",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "phattedcalf",
+      "killer": "red",
+      "sourceVictim": "PhattedCalf",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "alex-c",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Alex C"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "kishan",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Kishan"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "red",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "kishan",
+      "killer": "alex-c",
+      "sourceVictim": "Kishan",
+      "sourceKiller": "Alex C"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "alex-c",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Alex C"
+    },
+    {
+      "victim": "red",
+      "killer": "alex-c",
+      "sourceVictim": "Red",
+      "sourceKiller": "Alex C"
+    }
   ]
 }
