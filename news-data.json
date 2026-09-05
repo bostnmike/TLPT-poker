@@ -27,7 +27,7 @@
       "player": "Alex C",
       "value": "From Russia, With Chips",
       "copy": "The Mad Russian won his TLPT debut outright, taking five knockouts and the $210 first-place payout.",
-      "avatar": "images/players/alex.jpg",
+      "avatar": "images/players/alex-c.jpg",
       "fallback": "AC"
     },
     {
@@ -113,7 +113,7 @@
     ],
     "avatars": [
       {
-        "src": "images/players/alex.jpg",
+        "src": "images/players/alex-c.jpg",
         "alt": "Alex C",
         "fallback": "AC"
       },
