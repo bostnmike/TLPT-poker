@@ -14,11 +14,142 @@
   },
   "weeks": [
 {
+  "id": "week-09-05-2026",
+  "date": "09/05/2026",
+  "eventName": "Bluff Runner | 9-Max",
+  "title": "TWTW: Bluff Runner | 9-Max",
+  "featured": true,
+  "dek": "For the second night in a row, New Blood took down TLPT: Chris F won his debut after a 5h 28m marathon that featured a Deckmate family scandal, a late-night shuffler emergency, and the Commish bubbling like a gracious host.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "📰 The Main Story",
+      "player": "Chris F",
+      "value": "New Blood, Same Result",
+      "copy": "One night after Alex won in his debut, Chris F repeated the trick — no rebuy, $165 for first, and another rough night for the regulars.",
+      "fallback": "CF"
+    },
+    {
+      "tone": "blue",
+      "label": "🩸 First Casualty",
+      "player": "Ahmed",
+      "copy": "Li-Fo sent Ahmed out first, but the rebuy turned the opener into a runner-up finish and four-knockout night.",
+      "avatar": "images/players/ahmed.jpg",
+      "fallback": "AH"
+    },
+    {
+      "tone": "purple",
+      "label": "🦤 First Rail Bird",
+      "player": "Cougar",
+      "copy": "Ahmed got him once, ProvidenceMike made the second exit permanent, and Cougar became the first player actually done for the night.",
+      "avatar": "images/players/cougar.jpg",
+      "fallback": "CO"
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Ahmed",
+      "value": "4 knockouts",
+      "copy": "Ahmed removed Cougar, ProvidenceMike, BostnMike and Li-Fo before Chris F finally stopped the run heads-up.",
+      "avatar": "images/players/ahmed.jpg",
+      "fallback": "AH"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "11"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "4"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$330"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "5h 28m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:06:04 pm 09/05/2026",
+    "endTime": "12:34:28 am 09/06/2026",
+    "durationLabel": "5h 28m",
+    "buyIns": 7,
+    "rebuys": 4,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Chris F",
+    "firstOut": "Ahmed",
+    "firstPermanentOut": "Cougar"
+  },
+  "spotlight": {
+    "player": "Chris F / Ahmed / BostnMike",
+    "fallback": "CAB",
+    "pills": [
+      "Second Straight Debut Winner",
+      "Chris F: No Rebuy",
+      "Ahmed: 4 Knockouts",
+      "Commish: Bubble & Shuffler Surgeon"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/ahmed.jpg",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      },
+      {
+        "src": "images/players/bostnmike.jpg",
+        "alt": "BostnMike",
+        "fallback": "BM"
+      }
+    ]
+  },
+  "feltSaid": [
+    {
+      "label": "Deckmate Family Feud",
+      "value": "ProvidenceMike / Li-Fo",
+      "note": "Card-dead Providence accused the Deckmate of thinking he'd slept with its wife. Tony claimed he'd slept with its daughter. Then the conversation wisely stopped being documented."
+    },
+    {
+      "label": "Emergency Surgery",
+      "value": "Deckmate",
+      "note": "Four-handed, the Commish wedged a cut card into the machine and forced the Neanderthals to hand shuffle into the wee hours. Surgery was successful; the patient has made a full recovery."
+    },
+    {
+      "label": "Bubble",
+      "value": "BostnMike",
+      "note": "After hosting the marathon and disabling the shuffler, the Commissioner completed the service package by finishing fourth."
+    },
+    {
+      "label": "How It Ended",
+      "value": "Chris F over Ahmed",
+      "note": "Ahmed cleared BostnMike and Li-Fo in four minutes, but Chris F finished Ahmed six minutes later to win his first TLPT appearance."
+    }
+  ],
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/twtw/twtw26-09-05.jpg\" alt=\"Poster for the 09/05/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Apparently the easiest way to beat the TLPT regulars right now is to have never played with them before. One night after Alex C walked in and won his debut, Chris F showed up for Bluff Runner and made it two straight New Blood victories. He did it without a rebuy, survived a 5h 28m marathon, then finished Ahmed heads-up for $165. Two nights, two first-time winners. The scouting department may want to stop recruiting until the incumbents figure out what is happening.</p><p>The veterans spent plenty of time creating distractions. ProvidenceMike was so card dead he accused the Deckmate of thinking he had slept with its wife. Li-Fo, refusing to be outdone, announced that he had slept with its daughter. Then it got weird. Somewhere around all of that, Ahmed recovered from being first out, started collecting bodies, and eventually put together the loudest knockout line of the night: Cougar, ProvidenceMike, BostnMike and Li-Fo all went through him before Chris F finally ended the run.</p><p>The session already had marathon legs thanks to an extra-long Samosa Break, but four-handed the Commissioner found a way to extend the evening technologically. BostnMike managed to wedge a cut card into the Deckmate, forcing the remaining Neanderthals to hand shuffle deep into the night. The good news is that the operation was a success: the obstruction was removed, the patient survived, and the Deckmate has already made a full recovery. The players, after more than five hours, were less fortunate.</p><p>By midnight the blind levels had gotten so high the room was expecting drug-sniffing K-9s. BostnMike completed his super-host performance by bubbling at 12:24, Ahmed sent Li-Fo out four minutes later, and Chris F needed only six more minutes to finish Ahmed and end the marathon. Bluff Runner started as another Saturday game and ended as a warning to the regulars: if New Blood keeps winning on arrival, orientation night may need to become a closed practice.</p>",
+  "roastHtml": "<p>BostnMike hosted for five and a half hours, extended the Samosa Break, jammed a cut card into the Deckmate four-handed, condemned the survivors to manual labor, and then bubbled before the payouts. That is not tournament management. That is causing the accident, directing traffic around it, and leaving the scene before the insurance adjuster arrives.</p>",
+  "numbersThatMatter": [
+    "7 buy-ins, 4 rebuys, 11 total entries.",
+    "5h 28m of play from 7:06 pm to 12:34 am.",
+    "$330 total pot: Chris F $165, Ahmed $100, Li-Fo $65.",
+    "Two straight TLPT events were won by debuting players: Alex C on 09/04 and Chris F on 09/05."
+  ],
+  "tldr": "Chris F made it two debut winners in two nights, surviving a 5h 28m marathon without a rebuy to beat Ahmed heads-up. Along the way the Deckmate got dragged into a family scandal, required emergency cut-card surgery, and BostnMike hosted his way straight onto the bubble."
+},
+{
   "id": "week-09-04-2026",
   "date": "09/04/2026",
   "eventName": "Pot Predator | 9-Max",
   "title": "TWTW: Pot Predator | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "Alex C arrived as Sasha, left as the Mad Russian, and won his TLPT debut with five knockouts. Along the way, Tony and Red both found quad eights and Kishan quietly earned a new title: the Silent Assassin.",
   "summaryCards": [
     {
