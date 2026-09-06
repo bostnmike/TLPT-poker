@@ -16,7 +16,25 @@ const sandbox = {
 vm.createContext(sandbox);
 vm.runInContext(source, sandbox, { filename: 'news-render.js', timeout: 5000 });
 
-const sectionTitles = (html) => [...html.matchAll(/<h4>([^<]*)<\/h4>/g)].map((match) => match[1]);
+const sectionTitles = (html) => [...String(html).matchAll(/<h4\b[^>]*>([\s\S]*?)<\/h4>/g)]
+  .map((match) => match[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+const imageTags = (html) => [...String(html).matchAll(/<img\b[^>]*>/g)].map((match) => match[0]);
+
+function assertImageContract(html, expectedAttributes, label, expectedCount = 1) {
+  const tags = imageTags(html);
+  assert.equal(tags.length, expectedCount, `${label}: image count`);
+
+  for (const tag of tags) {
+    const attributes = Object.fromEntries(
+      [...tag.matchAll(/([A-Za-z][\w:-]*)="([^"]*)"/g)]
+        .map(([, name, value]) => [name.toLowerCase(), value])
+    );
+
+    for (const [name, expected] of Object.entries(expectedAttributes)) {
+      assert.equal(attributes[name], String(expected), `${label}: ${name}`);
+    }
+  }
+}
 const order = ['📰 The Main Story', '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
 const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*(?:Felt Whispers|Quick Hits)/;
 const fixture = {
@@ -41,6 +59,82 @@ const freshFixture = { ...fixture };
 for (const key of ['feltSaid', 'tldr', 'quickHitsLeft', 'quickHitsRight']) delete freshFixture[key];
 assert.equal(sandbox.renderWeekBody(freshFixture), sandbox.renderWeekBody(fixture), 'New format needs no legacy keys');
 assert.equal(sandbox.renderWeekBody({}).trim(), '', 'Empty optional sections stay absent');
+
+const portraitMarkup = [];
+const defaultAvatar = sandbox.renderAvatar({ src: 'images/players/example.jpg', alt: 'Example' });
+portraitMarkup.push(defaultAvatar);
+assertImageContract(defaultAvatar, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 44, height: 44
+}, 'Default News avatar');
+
+const author = { innerHTML: '' };
+sandbox.renderAuthor({
+  name: 'Example Author', avatar: 'images/players/author.jpg', fallback: 'EA'
+}, author);
+portraitMarkup.push(author.innerHTML);
+assertImageContract(author.innerHTML, {
+  loading: 'eager', decoding: 'async', fetchpriority: 'high', width: 68, height: 68
+}, 'Visible News author');
+
+const singleSummary = sandbox.renderSummaryCard({
+  tone: 'blue', label: 'Single', player: 'Single Player',
+  avatar: 'images/players/single.jpg', fallback: 'SP'
+});
+portraitMarkup.push(singleSummary);
+assertImageContract(singleSummary, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 46, height: 46
+}, 'Single-player summary');
+
+const multiSummary = sandbox.renderSummaryCard({
+  tone: 'blue', label: 'Multi', player: 'One / Two',
+  avatars: [
+    { src: 'images/players/one.jpg', alt: 'One' },
+    { src: 'images/players/two.jpg', alt: 'Two' }
+  ]
+});
+portraitMarkup.push(multiSummary);
+assertImageContract(multiSummary, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 38, height: 38
+}, 'Multi-player summary', 2);
+
+const singleSpotlight = sandbox.renderGameSpotlight({
+  spotlight: {
+    player: 'Single Player', avatar: 'images/players/single.jpg',
+    fallback: 'SP', pills: ['One']
+  }
+});
+portraitMarkup.push(singleSpotlight);
+assertImageContract(singleSpotlight, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 42, height: 42
+}, 'Single-player spotlight');
+
+const multiSpotlight = sandbox.renderGameSpotlight({
+  spotlight: {
+    player: 'One / Two', pills: ['One'],
+    avatars: [
+      { src: 'images/players/one.jpg', alt: 'One' },
+      { src: 'images/players/two.jpg', alt: 'Two' }
+    ]
+  }
+});
+portraitMarkup.push(multiSpotlight);
+assertImageContract(multiSpotlight, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 42, height: 42
+}, 'Multi-player spotlight', 2);
+
+const hostRoast = sandbox.renderRoastSection({
+  roastHtml: '<p>The host remains the target.</p>'
+});
+portraitMarkup.push(hostRoast);
+assertImageContract(hostRoast, {
+  loading: 'lazy', decoding: 'async', fetchpriority: 'auto', width: 44, height: 44
+}, 'Host Roast');
+
+assert.equal(
+  (portraitMarkup.join('').match(/fetchpriority="high"/g) || []).length,
+  1,
+  'Only the visible News author requests high fetch priority'
+);
 
 assert.ok(Array.isArray(data.weeks) && data.weeks.length, 'Story archive must exist');
 const original = JSON.stringify(data);
