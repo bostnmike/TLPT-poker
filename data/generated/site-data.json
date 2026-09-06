@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T12:27:54.046729Z",
+  "generatedAt": "2026-09-06T22:29:40.524962Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -38,7 +38,7 @@
         "pat": "tbd",
         "pittsburghbill": "tbd",
         "providencemike": "tbd",
-        "red": "tbd",
+        "red": "yes",
         "rob-f": "tbd",
         "the-architect": "tbd",
         "tim-s": "tbd",
