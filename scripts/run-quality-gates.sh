@@ -27,6 +27,9 @@ node scripts/test-site-shell.mjs
 echo "🛟 Testing app data-load recovery..."
 node scripts/test-app-load-failure.mjs
 
+echo "📰 Testing TWTW story layout..."
+node scripts/test-news-layout.mjs
+
 echo "🧪 Validating generated site data..."
 "$PYTHON_BIN" scripts/validate-site-data.py
 
