@@ -241,7 +241,7 @@ EXPECTED_META_DESCRIPTIONS = {
     "index.html": "Follow the TLPT Poker League schedule, players, standings, statistics, honors, and latest league stories.",
     "knockouts.html": "Explore TLPT Poker League knockout totals, hit leaders, event eliminations, and head-to-head damage.",
     "media.html": "Watch TLPT Poker League films, highlights, and featured videos in the Film Room.",
-    "news.html": "Read The Week That Was for TLPT Poker League event recaps, featured stories, spotlights, and quick hits.",
+    "news.html": "Read The Week That Was for TLPT Poker League event recaps, game spotlights, numbers that matter, and host roasts.",
     "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
     "player.html": "View a TLPT Poker League player profile, Ultimate Player Card, statistics, honors, and card collection.",
     "players.html": "Meet the TLPT Poker League crew and compare tiered Ultimate Player Cards, ratings, and play styles.",
@@ -330,7 +330,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260905-1"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260828-12"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
