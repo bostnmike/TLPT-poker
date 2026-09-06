@@ -27,6 +27,7 @@
     "scripts/audit-code-hygiene.py",
     "scripts/test-site-shell.mjs",
     "scripts/test-app-load-failure.mjs",
+    "scripts/test-news-layout.mjs",
     "scripts/validate-site-data.py",
     "scripts/audit-site-integrity.py",
     "scripts/audit-page-calculations.mjs"

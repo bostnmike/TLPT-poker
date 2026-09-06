@@ -283,14 +283,12 @@ function renderWeek(week, index, isFeatured) {
 }
 
 function renderWeekBody(week) {
+  // One layout for featured and archived stories. See TWTW-WRITING-GUIDE.md.
   return `
     ${renderMainStory(week)}
     ${renderGameSpotlight(week)}
-    ${renderWhatTheFeltSaid(week)}
-    ${renderRoastSection(week)}
     ${renderNumbersThatMatter(week)}
-    ${renderQuickHits(week)}
-    ${renderTLDR(week)}
+    ${renderRoastSection(week)}
   `;
 }
 
@@ -370,56 +368,6 @@ function renderGameSpotlight(week) {
   `;
 }
 
-function renderWhatTheFeltSaid(week) {
-  const items = Array.isArray(week?.feltSaid) ? week.feltSaid.slice(0, 4) : [];
-  if (!items.length) return '';
-
-  return `
-    <section class="news-story-section">
-      <h4>👂🏼 Felt Whispers</h4>
-      <div class="news-felt-grid">
-        ${items
-          .map((item) => {
-            const label = item?.label || '';
-            const icon = escapeHtml(item?.icon || getFeltWhisperIcon(label));
-
-            return `
-              <div class="news-felt-card news-felt-card-${getFeltWhisperTone(label)}">
-                <div class="news-felt-label-row">
-                  <span class="news-felt-icon">${icon}</span>
-                  <div class="news-felt-label">${escapeHtml(label)}</div>
-                </div>
-                <div class="news-felt-value">${escapeHtml(item?.value || '')}</div>
-                <p class="news-felt-note">${escapeHtml(item?.note || '')}</p>
-              </div>
-            `;
-          })
-          .join('')}
-      </div>
-    </section>
-  `;
-}
-
-function getFeltWhisperTone(label) {
-  const normalized = String(label || '').toLowerCase();
-
-  if (normalized.includes('first blood')) return 'blood';
-  if (normalized.includes('first gone')) return 'rail';
-  if (normalized.includes('table killer')) return 'killer';
-  if (normalized.includes('how it ended')) return 'ending';
-  return 'default';
-}
-
-function getFeltWhisperIcon(label) {
-  const normalized = String(label || '').toLowerCase();
-
-  if (normalized.includes('first blood')) return '🩸';
-  if (normalized.includes('first gone')) return '☠️';
-  if (normalized.includes('table killer')) return '🪓';
-  if (normalized.includes('how it ended')) return '🏁';
-  return '🃏';
-}
-
 function renderRoastSection(week) {
   const html = typeof week?.roastHtml === 'string' ? week.roastHtml : '';
   if (!html) return '';
@@ -460,34 +408,6 @@ function renderNumbersThatMatter(week) {
       <ul>
         ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
       </ul>
-    </section>
-  `;
-}
-
-function renderQuickHits(week) {
-  const left = Array.isArray(week?.quickHitsLeft) ? week.quickHitsLeft : [];
-  const right = Array.isArray(week?.quickHitsRight) ? week.quickHitsRight : [];
-  if (!left.length && !right.length) return '';
-
-  return `
-    <section class="news-story-section">
-      <h4>🥊 Quick Hits</h4>
-      <div class="news-quickhits-grid">
-        <ul>${left.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-        <ul>${right.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-      </div>
-    </section>
-  `;
-}
-
-function renderTLDR(week) {
-  const tldr = escapeHtml(week?.tldr || '');
-  if (!tldr) return '';
-
-  return `
-    <section class="news-story-section">
-      <div class="news-section-divider"><span>TL;DR</span></div>
-      <p>${tldr}</p>
     </section>
   `;
 }
