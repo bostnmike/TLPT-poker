@@ -61,7 +61,7 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Align two News audit constants and restore normal read-only workflow
+      - name: Align two News audit constants and validate against the normal workflow
         run: |
           python3 - <<'PY'
           import hashlib
@@ -87,10 +87,12 @@ jobs:
       - name: Run complete TLPT quality gates
         run: bash scripts/run-quality-gates.sh
 
-      - name: Commit validated constants and restored workflow to the test branch only
+      - name: Commit validated audit constants to the test branch only
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/audit-code-hygiene.py .github/workflows/site-quality.yml
-          git commit -m "Align News audit contracts and restore read-only quality workflow"
+          git add scripts/audit-code-hygiene.py
+          git commit -m "Align News audit description and cache-version expectations"
           git push origin HEAD:maintenance/twtw-four-section-layout-20260906
+          echo "Validated audit blob: $(git rev-parse HEAD:scripts/audit-code-hygiene.py)"
+          echo "Test branch commit: $(git rev-parse HEAD)"
