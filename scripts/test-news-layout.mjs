@@ -35,8 +35,8 @@ function assertImageContract(html, expectedAttributes, label, expectedCount = 1)
     }
   }
 }
-const order = ['📰 The Main Story', '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
-const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*(?:Felt Whispers|Quick Hits)/;
+const order = ['👂🏼 Felt Whispers', '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
+const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*Quick Hits/;
 const fixture = {
   id: 'test-four-section-story', date: '09/06/2026', title: 'TWTW: Test', featured: true,
   mainStoryHtml: '<p>Story content stays intact.</p>',
@@ -52,6 +52,7 @@ const fixture = {
 assert.deepEqual(sectionTitles(sandbox.renderWeekBody(fixture)), order, 'Full story section order');
 assert.doesNotMatch(sandbox.renderWeekBody(fixture), /RETIRED_|TL;DR/, 'Old fields must never render');
 assert.doesNotMatch(sandbox.renderWeekBody(fixture), deprecatedMarkup, 'Removed section markup');
+assert.doesNotMatch(sandbox.renderWeekBody(fixture), /The Main Story/, 'Old narrative heading must stay retired');
 for (const name of ['renderWhatTheFeltSaid', 'getFeltWhisperTone', 'getFeltWhisperIcon', 'renderQuickHits', 'renderTLDR']) {
   assert.equal(typeof sandbox[name], 'undefined', `Retired function must stay removed: ${name}`);
 }
@@ -144,6 +145,12 @@ assert.equal(data.weeks.filter((week) => week.featured === true).length, 1, 'Exa
 assert.equal(data.weeks[0].featured, true, 'Newest story remains first and featured');
 const missingRoasts = [];
 
+for (const week of data.weeks) {
+  const labels = (week.summaryCards || []).map((card) => String(card?.label || ''));
+  assert.ok(labels.includes('👂🏼 Felt Whispers'), `Felt Whispers summary label: ${week.id}`);
+  assert.ok(labels.every((label) => !label.includes('Main Story')), `Legacy Main Story summary label: ${week.id}`);
+}
+
 for (const [index, week] of data.weeks.entries()) {
   const expected = [];
   if (typeof week.mainStoryHtml === 'string' && week.mainStoryHtml) expected.push(order[0]);
@@ -190,5 +197,5 @@ assert.equal(sandbox.resolvePlayerAvatar({ alt: 'Unknown', src: 'images/players/
 assert.match(sandbox.renderAvatar({ alt: 'Unknown', fallback: 'UN' }), /player-avatar-fallback/);
 assert.equal(JSON.stringify(data), original, 'Rendering must not mutate story data');
 
-console.log(`TWTW layout PASS: ${data.weeks.length} stories; correct order in featured and archive modes; no TL;DR, Felt Whispers or Quick Hits; links, cards, stat pills and avatars retained.`);
+console.log(`TWTW layout PASS: ${data.weeks.length} stories; Felt Whispers narrative heading in featured and archive modes; no TL;DR, legacy feltSaid card grid or Quick Hits; links, cards, stat pills and avatars retained.`);
 if (missingRoasts.length) console.log(`Preserved existing missing Host Roast content (not invented): ${missingRoasts.join(', ')}`);
