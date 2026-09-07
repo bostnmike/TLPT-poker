@@ -298,7 +298,7 @@ function renderMainStory(week) {
 
   return `
     <section class="news-story-section">
-      <h4>📰 The Main Story</h4>
+      <h4>👂🏼 Felt Whispers</h4>
       ${html}
     </section>
   `;
