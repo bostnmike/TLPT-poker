@@ -17,7 +17,7 @@ Every public page begins its stylesheet chain with:
    later compatibility/polish layer.
 4. Any existing feature stylesheet for that page, such as `home.css`,
    `schedule.css`, `news.css`, `players.css`, `player.css`, `champions.css`,
-   or `gallery.css`.
+   `gallery.css`, or `voice-of-god.css`.
 
 The ordering is intentional. Do not move `site-tail.css` after an existing
 feature stylesheet without a visual regression review.
@@ -33,6 +33,8 @@ feature stylesheet without a visual regression review.
 - Put Schedule header-shell selectors in `schedule.css`.
 - Put News-page selectors in `news.css`, scoped through `.news-page` when they
   target document-level elements.
+- Put Voice of God player and archive selectors in `voice-of-god.css`, scoped
+  through `.voice-of-god-page` when they target document-level elements.
 - Treat `site-tail.css` as a compatibility layer. New page features should not
   be appended there merely because it loads last.
 - Prefer an existing page stylesheet for page-only changes.
@@ -45,7 +47,7 @@ feature stylesheet without a visual regression review.
 
 `scripts/audit-code-hygiene.py` checks that:
 
-- all 16 public pages load `style.css` and `site-tail.css` in the required order;
+- all 17 public pages load `style.css` and `site-tail.css` in the required order;
 - `rules.css` is loaded only by `rules.html`;
 - `media.css` is loaded only by `media.html`;
 - `home.css` is loaded only by `index.html`, immediately after
@@ -54,6 +56,8 @@ feature stylesheet without a visual regression review.
   `site-tail.css`;
 - `news.css` is loaded only by `news.html`, immediately after `site-tail.css`,
   and the page carries `news-page` on both `<html>` and `<body>`;
+- `voice-of-god.css` is loaded only by `voice-of-god.html`, immediately after
+  `site-tail.css`;
 - the exact root `.page-title-row` and `.site-footer` selectors are owned by
   `style.css` and may not be reintroduced in another stylesheet;
 - the exact root `html` and `body` selectors are owned by `style.css`; page

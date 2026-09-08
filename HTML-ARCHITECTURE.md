@@ -17,7 +17,7 @@ nonvisual and must not initialize page behavior or calculations.
 
 ## Shared header and navigation
 
-All 16 public pages use the same `.site-header` and `.nav` structure, link set,
+All 17 public pages use the same `.site-header` and `.nav` structure, link set,
 and link order. Page differences are limited to the active-state attributes:
 
 - A direct top-level page uses one `is-active` link with
@@ -41,9 +41,9 @@ copy; one `.site-page-hero-chip` image on the far right; and, when the page has
 controls or summary content, one optional `.site-page-hero-lower` region that
 spans the full header width.
 
-Home, Crew, all six Metrics pages, Schedule, Rules, Film Room, and Gallery use
-the static contract. Dashboard, Standings, and Streak Tracker also use the
-optional lower region for controls, status, or definitions. Trophy Room remains
+Home, Crew, all six Metrics pages, Schedule, Rules, Film Room, Gallery, and
+Voice of God use the static contract. Dashboard, Standings, and Streak Tracker
+also use the optional lower region for controls, status, or definitions. Trophy Room remains
 the isolated visual reference. The hygiene audit protects exactly one complete
 static hero structure on each page in the rollout.
 
@@ -66,6 +66,14 @@ Page-specific content remains inside each page's existing `<main>` structure.
 Do not move calculations, data rendering, card logic, or page initialization
 into the shared shell. Those behaviors remain owned by their existing
 JavaScript and generated-data pipeline.
+
+## Phase 3I.1 Voice of God archive
+
+The Voice of God is a first-class Media page backed by
+`data/voice-of-god.json`. Its page module owns search, player and category
+filters, ordering, incremental results, random selection, and the single shared
+audio player. Clip IDs remain the permanent three-digit archive keys; reserved
+IDs 607 and 661 are excluded from the published list until they are backfilled.
 
 ## Shared shell behavior
 

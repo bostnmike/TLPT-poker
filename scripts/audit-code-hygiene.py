@@ -48,6 +48,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/standings.html",
     "https://tlpt.org/streaks.html",
     "https://tlpt.org/trophy-room.html",
+    "https://tlpt.org/voice-of-god.html",
 ]
 EXPECTED_PAGES = {
     "404.html",
@@ -67,6 +68,7 @@ EXPECTED_PAGES = {
     "standings.html",
     "streaks.html",
     "trophy-room.html",
+    "voice-of-god.html",
 }
 EXTERNAL_SCHEMES = {"data", "http", "https", "mailto", "tel"}
 STYLE_FOUNDATION_SELECTORS = {
@@ -153,6 +155,7 @@ EXPECTED_NAV_LABELS = [
     "Rules",
     "Media",
     "Film Room",
+    "Voice of God",
     "Art Gallery",
 ]
 EXPECTED_SHELL_REVISION_MARKERS = {
@@ -177,6 +180,7 @@ EXPECTED_NAV_ACTIVE_LABELS = {
     "standings.html": ["Metrics", "Standings"],
     "streaks.html": ["Metrics", "Streak Tracker"],
     "trophy-room.html": ["Members", "Trophy Room"],
+    "voice-of-god.html": ["Media", "Voice of God"],
 }
 EXPECTED_NAV_CURRENT_LABEL = {
     page: labels[-1] if labels else ""
@@ -200,6 +204,7 @@ EXPECTED_PAGE_TITLES = {
     "standings.html": "TLPT Standings",
     "streaks.html": "TLPT Streak Tracker",
     "trophy-room.html": "TLPT Trophy Room",
+    "voice-of-god.html": "The Voice of God | TLPT Poker League",
 }
 UNIFIED_TITLE_PAGES = {
     "404.html": "This Hand Went Missing",
@@ -216,6 +221,7 @@ UNIFIED_TITLE_PAGES = {
     "schedule.html": "Next at Caahhd Room",
     "standings.html": "The Standings",
     "streaks.html": "The Streak Tracker",
+    "voice-of-god.html": "The Voice of God",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
     "404.html",
@@ -231,6 +237,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "schedule.html",
     "standings.html",
     "streaks.html",
+    "voice-of-god.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
     "404.html": "The requested TLPT Poker League page could not be found. Return home or view the upcoming schedule.",
@@ -250,6 +257,7 @@ EXPECTED_META_DESCRIPTIONS = {
     "standings.html": "Sort and compare TLPT Poker League standings, profits, results, entries, and performance statistics.",
     "streaks.html": "Track TLPT Poker League cashing, appearance, and performance streaks.",
     "trophy-room.html": "Browse collectible TLPT Poker League special-edition player cards and career achievements in the Trophy Room.",
+    "voice-of-god.html": "Hear the Voice of God call out the TLPT Poker League with hundreds of searchable player roasts and table announcements.",
 }
 SITE_ORIGIN = "https://tlpt.org"
 EXPECTED_CANONICAL_URLS = {
@@ -268,6 +276,7 @@ EXPECTED_CANONICAL_URLS = {
     "standings.html": f"{SITE_ORIGIN}/standings.html",
     "streaks.html": f"{SITE_ORIGIN}/streaks.html",
     "trophy-room.html": f"{SITE_ORIGIN}/trophy-room.html",
+    "voice-of-god.html": f"{SITE_ORIGIN}/voice-of-god.html",
 }
 EXPECTED_SOCIAL_IMAGES = {
     "champions.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
@@ -286,6 +295,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "standings.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
     "streaks.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "trophy-room.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+    "voice-of-god.html": f"{SITE_ORIGIN}/images/site/chip-T-250000.png",
 }
 EXPECTED_SOCIAL_IMAGE_ALT = {
     "champions.html": "TLPT 25,000 tournament poker chip",
@@ -304,6 +314,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "standings.html": "TLPT 5,000 tournament poker chip",
     "streaks.html": "TLPT 1,000 tournament poker chip",
     "trophy-room.html": "TLPT 25,000 tournament poker chip",
+    "voice-of-god.html": "TLPT 250,000 tournament poker chip",
 }
 EXPECTED_BREADCRUMB_LABELS = {
     "champions.html": "Hall of Fame",
@@ -320,6 +331,7 @@ EXPECTED_BREADCRUMB_LABELS = {
     "standings.html": "Standings",
     "streaks.html": "Streak Tracker",
     "trophy-room.html": "Trophy Room",
+    "voice-of-god.html": "Voice of God",
 }
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
@@ -329,6 +341,8 @@ EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
+EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260907-8"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260828-12"
@@ -2335,6 +2349,105 @@ def main() -> int:
             if not backdrop or backdrop.get("aria-hidden", "").lower() != "true":
                 parser.errors.append("Gallery lightbox backdrop must be decorative")
 
+        if page.name == "voice-of-god.html":
+            if EXPECTED_VOICE_OF_GOD_STYLESHEET not in parser.stylesheet_references:
+                parser.errors.append("Voice of God stylesheet cache version is stale")
+            if EXPECTED_VOICE_OF_GOD_SCRIPT not in parser.script_references:
+                parser.errors.append("Voice of God archive script cache version is stale")
+
+            required_ids = {
+                "vog-audio",
+                "vog-current-victims",
+                "vog-current-transcript",
+                "vog-search",
+                "vog-player-filter",
+                "vog-category-filter",
+                "vog-sort",
+                "vog-clip-grid",
+                "vog-load-more",
+                "vog-status",
+            }
+            missing_ids = sorted(required_ids - set(parser.ids))
+            if missing_ids:
+                parser.errors.append(
+                    "Voice of God is missing required controls: "
+                    + ", ".join(missing_ids)
+                )
+
+            archive_path = ROOT / "data" / "voice-of-god.json"
+            if not archive_path.is_file():
+                parser.errors.append("Voice of God archive data is missing")
+            else:
+                try:
+                    archive = json.loads(archive_path.read_text(encoding="utf-8"))
+                except json.JSONDecodeError as exc:
+                    parser.errors.append(f"Voice of God archive JSON is invalid: {exc}")
+                else:
+                    clips = archive.get("clips", [])
+                    clip_ids = [clip.get("id") for clip in clips]
+                    if archive.get("activeClipCount") != 836 or len(clips) != 836:
+                        parser.errors.append("Voice of God must publish exactly 836 active clips")
+                    if archive.get("ignoredClipIds") != ["607", "661"]:
+                        parser.errors.append(
+                            "Voice of God reserved clip IDs must remain 607 and 661"
+                        )
+                    if len(clip_ids) != len(set(clip_ids)):
+                        parser.errors.append("Voice of God clip IDs must be unique")
+                    if {"607", "661"} & set(clip_ids):
+                        parser.errors.append(
+                            "Voice of God reserved clip IDs must not be published"
+                        )
+                    required_fields = {
+                        "id",
+                        "file",
+                        "transcript",
+                        "canonicalPlayersMentioned",
+                        "category",
+                        "keywords",
+                        "duration",
+                    }
+                    for clip in clips:
+                        if not required_fields.issubset(clip):
+                            parser.errors.append(
+                                f"Voice of God clip {clip.get('id', '?')} is incomplete"
+                            )
+                            continue
+                        audio_path = ROOT / str(clip["file"])
+                        if not audio_path.is_file():
+                            parser.errors.append(
+                                f"Voice of God audio is missing: {clip['file']}"
+                            )
+                    transcripts = "\n".join(
+                        str(clip.get("transcript", "")) for clip in clips
+                    )
+                    noncanonical_deckmate = any(
+                        match.group(0) != "DeckMate"
+                        for match in re.finditer(r"\bdeckmate\b", transcripts, re.IGNORECASE)
+                    )
+                    if noncanonical_deckmate or re.search(
+                        r"\bSquadouche\b|\bwham boozle\b|\bMatt\b|\bBoston Mike\b",
+                        transcripts,
+                        re.IGNORECASE,
+                    ):
+                        parser.errors.append(
+                            "Voice of God archive contains a noncanonical spelling"
+                        )
+                    untagged_deckmate_clips = [
+                        str(clip.get("id", "?"))
+                        for clip in clips
+                        if re.search(
+                            r"\b(?:shuffler|dealer|deckmate)\b",
+                            str(clip.get("transcript", "")),
+                            re.IGNORECASE,
+                        )
+                        and "deckmate" not in clip.get("canonicalPlayersMentioned", [])
+                    ]
+                    if untagged_deckmate_clips:
+                        parser.errors.append(
+                            "Voice of God DeckMate clips are missing the DeckMate tag: "
+                            + ", ".join(untagged_deckmate_clips)
+                        )
+
         if page.name == "standings.html":
             standings_tables = [
                 record
@@ -2637,6 +2750,8 @@ def main() -> int:
             expected_style_prefix.append("schedule.css")
         elif page.name == "news.html":
             expected_style_prefix.append("news.css")
+        elif page.name == "voice-of-god.html":
+            expected_style_prefix.append("voice-of-god.css")
         if parser.stylesheets[: len(expected_style_prefix)] != expected_style_prefix:
             parser.errors.append(
                 "stylesheet ownership/order must begin with: "
@@ -2673,6 +2788,8 @@ def main() -> int:
             parser.errors.append("schedule.css may be loaded only by schedule.html")
         if page.name != "news.html" and "news.css" in parser.stylesheets:
             parser.errors.append("news.css may be loaded only by news.html")
+        if page.name != "voice-of-god.html" and "voice-of-god.css" in parser.stylesheets:
+            parser.errors.append("voice-of-god.css may be loaded only by voice-of-god.html")
 
         if page.name == "news.html":
             if "news-page" not in parser.html_classes:
@@ -3716,8 +3833,8 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
         else:
             if contract.get("schemaVersion") != 1:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
-            if contract.get("publicPageCount") != 17:
-                errors.append("maintenance-baseline.json: publicPageCount must remain 17")
+            if contract.get("publicPageCount") != 18:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 18")
             if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
