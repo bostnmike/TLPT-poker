@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T02:44:17Z",
+  "generatedAt": "2026-09-08T15:08:37Z",
   "archiveStatus": "transcribed_normalized_ready_for_page_build",
   "activeClipCount": 850,
   "ignoredClipIds": [],
@@ -15542,7 +15542,7 @@
       "id": "704",
       "filename": "704.mp3",
       "file": "audio/voice-of-god/704.mp3",
-      "transcript": "Cougar calls the game Texas catch them. That may explain why every strategy meeting appears to begin after the flop.",
+      "transcript": "Cougar calls the game Texas Catchem. That may explain why every strategy meeting appears to begin after the flop.",
       "canonicalPlayersMentioned": [
         "cougar"
       ],
@@ -15553,10 +15553,10 @@
       "keywords": [
         "call",
         "flop",
+        "catchem",
         "appears",
         "begin",
-        "meeting",
-        "texas"
+        "meeting"
       ],
       "duration": 6.687
     },
