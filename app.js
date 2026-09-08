@@ -269,7 +269,7 @@ const HALL_RULES = {
       visualClass: "the-killer",
       description: "Most career bust-outs suffered among Hall-qualified players.",
       displayLabel: "Times Knocked Out",
-      note: "Everyone gets a turn.",
+      note: "Always gets back up swinging.",
 
       propLeft: "images/site/hall/props/hall-prop-boxing-glove-single.png",
       propRight: "images/site/hall/props/hall-prop-boxing-glove-single.png",
