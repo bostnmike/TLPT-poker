@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const PAGE_SIZE = 24;
   const DATA_URL = "data/voice-of-god.json?v=20260907-6";
   const PLAYER_DATA_URL = "data/player-metadata.json?v=20260907-1";
+  const CORRECTIONS_URL = "data/voice-of-god-corrections.json?v=20260908-1";
 
   const audio = document.querySelector("#vog-audio");
   const currentTitle = document.querySelector("#vog-now-playing-title");
@@ -235,22 +236,29 @@ document.addEventListener("DOMContentLoaded", async () => {
   };
 
   try {
-    const [archiveResponse, playerResponse] = await Promise.all([
+    const [archiveResponse, playerResponse, correctionsResponse] = await Promise.all([
       fetch(DATA_URL, { cache: "no-store" }),
       fetch(PLAYER_DATA_URL, { cache: "no-store" }),
+      fetch(CORRECTIONS_URL, { cache: "no-store" }),
     ]);
     if (!archiveResponse.ok || !playerResponse.ok) {
       throw new Error("Archive data could not be loaded.");
     }
 
-    const [archive, playerData] = await Promise.all([
+    const [archive, playerData, corrections] = await Promise.all([
       archiveResponse.json(),
       playerResponse.json(),
+      correctionsResponse.ok ? correctionsResponse.json() : Promise.resolve({}),
     ]);
     playerProfiles = new Map(
       (playerData.players || []).map(player => [player.slug, player])
     );
-    allClips = (archive.clips || []).filter(clip => clip && clip.id && clip.file && clip.transcript);
+    allClips = (archive.clips || [])
+      .filter(clip => clip && clip.id && clip.file && clip.transcript)
+      .map(clip => {
+        const correction = corrections?.[clip.id];
+        return correction?.transcript ? { ...clip, transcript: correction.transcript } : clip;
+      });
     filteredClips = [...allClips];
 
     const playerCounts = new Map();
