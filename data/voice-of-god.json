@@ -1,12 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T00:29:06.147568+00:00",
+  "generatedAt": "2026-09-08T01:17:03Z",
   "archiveStatus": "transcribed_normalized_ready_for_page_build",
-  "activeClipCount": 836,
-  "ignoredClipIds": [
-    "607",
-    "661"
-  ],
+  "activeClipCount": 850,
+  "ignoredClipIds": [],
   "clips": [
     {
       "id": "001",
@@ -13349,6 +13346,28 @@
       "duration": 8.803
     },
     {
+      "id": "607",
+      "filename": "607.mp3",
+      "file": "audio/voice-of-god/607.mp3",
+      "transcript": "Nat approaches poker like an Arsenal season: plenty of belief, some attractive passages, and a finish that needs explaining.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "Nat"
+      ],
+      "category": "roast",
+      "keywords": [
+        "poker",
+        "arsenal",
+        "season",
+        "belief",
+        "passages",
+        "finish"
+      ],
+      "duration": 7.184
+    },
+    {
       "id": "608",
       "filename": "608.mp3",
       "file": "audio/voice-of-god/608.mp3",
@@ -14540,6 +14559,28 @@
         "release"
       ],
       "duration": 7.288
+    },
+    {
+      "id": "661",
+      "filename": "661.mp3",
+      "file": "audio/voice-of-god/661.mp3",
+      "transcript": "The PhattedCalf's poker face is like his music: deeply personal, slightly overproduced, and mostly appreciated by the person making it.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "PhattedCalf"
+      ],
+      "category": "roast",
+      "keywords": [
+        "poker",
+        "music",
+        "personal",
+        "overproduced",
+        "appreciated",
+        "making"
+      ],
+      "duration": 8.176
     },
     {
       "id": "662",
@@ -18584,6 +18625,269 @@
         "loose"
       ],
       "duration": 15.543
+    },
+    {
+      "id": "839",
+      "filename": "839.mp3",
+      "file": "audio/voice-of-god/839.mp3",
+      "transcript": "The Architect spends all night building a stack, then discovers the river never approved the permits.",
+      "canonicalPlayersMentioned": [
+        "the-architect"
+      ],
+      "aliasesDetected": [
+        "The Architect"
+      ],
+      "category": "roast",
+      "keywords": [
+        "stack",
+        "river",
+        "building",
+        "approved",
+        "permits",
+        "spends"
+      ],
+      "duration": 5.851
+    },
+    {
+      "id": "840",
+      "filename": "840.mp3",
+      "file": "audio/voice-of-god/840.mp3",
+      "transcript": "Chris O treats his first stack like a free trial. The charges begin when everyone else thinks he's gone.",
+      "canonicalPlayersMentioned": [
+        "chris-o"
+      ],
+      "aliasesDetected": [
+        "Chris O"
+      ],
+      "category": "roast",
+      "keywords": [
+        "stack",
+        "charges",
+        "trial",
+        "thinks",
+        "free",
+        "gone"
+      ],
+      "duration": 5.799
+    },
+    {
+      "id": "841",
+      "filename": "841.mp3",
+      "file": "audio/voice-of-god/841.mp3",
+      "transcript": "Nat can read sheet music, but somehow he still can't read a board.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "Nat"
+      ],
+      "category": "roast",
+      "keywords": [
+        "board",
+        "sheet",
+        "music",
+        "somehow",
+        "read"
+      ],
+      "duration": 3.944
+    },
+    {
+      "id": "842",
+      "filename": "842.mp3",
+      "file": "audio/voice-of-god/842.mp3",
+      "transcript": "When Nat says he's found his rhythm, the table knows the next three beats are check, call, regret.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "Nat"
+      ],
+      "category": "roast",
+      "keywords": [
+        "check",
+        "call",
+        "rhythm",
+        "beats",
+        "regret",
+        "table"
+      ],
+      "duration": 6.165
+    },
+    {
+      "id": "843",
+      "filename": "843.mp3",
+      "file": "audio/voice-of-god/843.mp3",
+      "transcript": "The PhattedCalf builds a stack like Arsenal builds expectations: beautifully, carefully, and never quite to the ending he imagined.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "PhattedCalf"
+      ],
+      "category": "roast",
+      "keywords": [
+        "stack",
+        "arsenal",
+        "expectations",
+        "beautifully",
+        "carefully",
+        "ending"
+      ],
+      "duration": 8.594
+    },
+    {
+      "id": "844",
+      "filename": "844.mp3",
+      "file": "audio/voice-of-god/844.mp3",
+      "transcript": "Billy can turn one bad river into a full zoning dispute. By the end of the hand, even the chips need legal representation.",
+      "canonicalPlayersMentioned": [
+        "the-architect"
+      ],
+      "aliasesDetected": [
+        "Billy"
+      ],
+      "category": "roast",
+      "keywords": [
+        "river",
+        "chips",
+        "zoning",
+        "dispute",
+        "legal",
+        "representation"
+      ],
+      "duration": 7.184
+    },
+    {
+      "id": "845",
+      "filename": "845.mp3",
+      "file": "audio/voice-of-god/845.mp3",
+      "transcript": "Chris O doesn't chase losses. He circles back with another stack and asks whether they're still available.",
+      "canonicalPlayersMentioned": [
+        "chris-o"
+      ],
+      "aliasesDetected": [
+        "Chris O"
+      ],
+      "category": "roast",
+      "keywords": [
+        "stack",
+        "losses",
+        "available",
+        "circles",
+        "asks",
+        "chase"
+      ],
+      "duration": 6.531
+    },
+    {
+      "id": "846",
+      "filename": "846.mp3",
+      "file": "audio/voice-of-god/846.mp3",
+      "transcript": "Nat has perfect pitch—especially when pitching the table an explanation for why that call made sense.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "Nat"
+      ],
+      "category": "roast",
+      "keywords": [
+        "call",
+        "pitch",
+        "table",
+        "perfect",
+        "explanation",
+        "sense"
+      ],
+      "duration": 5.46
+    },
+    {
+      "id": "847",
+      "filename": "847.mp3",
+      "file": "audio/voice-of-god/847.mp3",
+      "transcript": "Nat's range has more covers than an acoustic set and about the same number of original hits.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "Nat"
+      ],
+      "category": "roast",
+      "keywords": [
+        "range",
+        "acoustic",
+        "original",
+        "covers",
+        "hits",
+        "same"
+      ],
+      "duration": 5.146
+    },
+    {
+      "id": "848",
+      "filename": "848.mp3",
+      "file": "audio/voice-of-god/848.mp3",
+      "transcript": "The PhattedCalf treats every bluff like a guitar solo: too long, easy to spot, and applauded only because it's over.",
+      "canonicalPlayersMentioned": [
+        "phattedcalf"
+      ],
+      "aliasesDetected": [
+        "PhattedCalf"
+      ],
+      "category": "roast",
+      "keywords": [
+        "bluff",
+        "guitar",
+        "solo",
+        "applauded",
+        "long",
+        "spot"
+      ],
+      "duration": 6.87
+    },
+    {
+      "id": "849",
+      "filename": "849.mp3",
+      "file": "audio/voice-of-god/849.mp3",
+      "transcript": "The Architect's favorite project is a big stack with an open floor plan and absolutely no structural support.",
+      "canonicalPlayersMentioned": [
+        "the-architect"
+      ],
+      "aliasesDetected": [
+        "The Architect"
+      ],
+      "category": "roast",
+      "keywords": [
+        "stack",
+        "project",
+        "structural",
+        "support",
+        "floor",
+        "plan"
+      ],
+      "duration": 5.695
+    },
+    {
+      "id": "850",
+      "filename": "850.mp3",
+      "file": "audio/voice-of-god/850.mp3",
+      "transcript": "Chris O has more tournament lives than a casino cat, and every one of them seems to land on somebody else's chips.",
+      "canonicalPlayersMentioned": [
+        "chris-o"
+      ],
+      "aliasesDetected": [
+        "Chris O"
+      ],
+      "category": "roast",
+      "keywords": [
+        "tournament",
+        "chips",
+        "casino",
+        "lives",
+        "somebody",
+        "land"
+      ],
+      "duration": 6.034
     }
   ]
 }

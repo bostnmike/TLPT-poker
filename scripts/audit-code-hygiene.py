@@ -2385,17 +2385,16 @@ def main() -> int:
                 else:
                     clips = archive.get("clips", [])
                     clip_ids = [clip.get("id") for clip in clips]
-                    if archive.get("activeClipCount") != 836 or len(clips) != 836:
-                        parser.errors.append("Voice of God must publish exactly 836 active clips")
-                    if archive.get("ignoredClipIds") != ["607", "661"]:
-                        parser.errors.append(
-                            "Voice of God reserved clip IDs must remain 607 and 661"
-                        )
+                    if archive.get("activeClipCount") != 850 or len(clips) != 850:
+                        parser.errors.append("Voice of God must publish exactly 850 active clips")
+                    if archive.get("ignoredClipIds") != []:
+                        parser.errors.append("Voice of God must not have reserved clip IDs")
                     if len(clip_ids) != len(set(clip_ids)):
                         parser.errors.append("Voice of God clip IDs must be unique")
-                    if {"607", "661"} & set(clip_ids):
+                    expected_clip_ids = [f"{number:03d}" for number in range(1, 851)]
+                    if clip_ids != expected_clip_ids:
                         parser.errors.append(
-                            "Voice of God reserved clip IDs must not be published"
+                            "Voice of God clip IDs must cover the complete 001-850 sequence"
                         )
                     required_fields = {
                         "id",
