@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T01:17:03Z",
+  "generatedAt": "2026-09-08T01:50:58Z",
   "archiveStatus": "transcribed_normalized_ready_for_page_build",
   "activeClipCount": 850,
   "ignoredClipIds": [],
@@ -3184,13 +3184,11 @@
       "transcript": "Lazar just asked the shuffler for the Nitro. The shuffler replied, I'm sorry, Dave. I can't do that.",
       "canonicalPlayersMentioned": [
         "deckmate",
-        "nitro",
-        "ai-dave"
+        "nitro"
       ],
       "aliasesDetected": [
         "DeckMate",
-        "nitro",
-        "Dave"
+        "nitro"
       ],
       "category": "roast",
       "keywords": [
