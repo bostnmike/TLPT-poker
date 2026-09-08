@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T01:57:35Z",
+  "generatedAt": "2026-09-08T02:06:20Z",
   "archiveStatus": "transcribed_normalized_ready_for_page_build",
   "activeClipCount": 850,
   "ignoredClipIds": [],
@@ -1438,14 +1438,12 @@
       "id": "067",
       "filename": "067.mp3",
       "file": "audio/voice-of-god/067.mp3",
-      "transcript": "Providence Mike is Hiro calling with CMO level confidence. All spin and no substance.",
+      "transcript": "Providence Mike is hero calling with CMO level confidence. All spin and no substance.",
       "canonicalPlayersMentioned": [
-        "providencemike",
-        "hiro"
+        "providencemike"
       ],
       "aliasesDetected": [
-        "Providence Mike",
-        "hero"
+        "Providence Mike"
       ],
       "category": "roast",
       "keywords": [
