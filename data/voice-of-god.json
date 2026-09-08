@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-08T02:06:20Z",
+  "generatedAt": "2026-09-08T02:13:34Z",
   "archiveStatus": "transcribed_normalized_ready_for_page_build",
   "activeClipCount": 850,
   "ignoredClipIds": [],
@@ -2234,14 +2234,12 @@
       "id": "104",
       "filename": "104.mp3",
       "file": "audio/voice-of-god/104.mp3",
-      "transcript": "Providence Mike is Hiro calling like it's a New England Patriots documentary finale.",
+      "transcript": "Providence Mike is hero calling like it's a New England Patriots documentary finale.",
       "canonicalPlayersMentioned": [
-        "providencemike",
-        "hiro"
+        "providencemike"
       ],
       "aliasesDetected": [
-        "Providence Mike",
-        "hero"
+        "Providence Mike"
       ],
       "category": "roast",
       "keywords": [
@@ -5814,7 +5812,7 @@
       "id": "265",
       "filename": "265.mp3",
       "file": "audio/voice-of-god/265.mp3",
-      "transcript": "Vish quietly whispers, Vamo. Hiro just informed the table that's German for something reckless is about to happen.",
+      "transcript": "Vish quietly whispers, Vamos. Hiro just informed the table that's German for something reckless is about to happen.",
       "canonicalPlayersMentioned": [
         "vish",
         "hiro"
@@ -5829,7 +5827,7 @@
         "informed",
         "german",
         "reckless",
-        "vamo",
+        "vamos",
         "whispers"
       ],
       "duration": 7.784
@@ -6724,7 +6722,7 @@
       "id": "306",
       "filename": "306.mp3",
       "file": "audio/voice-of-god/306.mp3",
-      "transcript": "Tony plays like he's trying to solve the game, whereas Vish plays like he's avoiding it. Vamo.",
+      "transcript": "Tony plays like he's trying to solve the game, whereas Vish plays like he's avoiding it. Vamos.",
       "canonicalPlayersMentioned": [
         "li-fo",
         "vish"
@@ -6738,7 +6736,7 @@
         "solve",
         "whereas",
         "avoiding",
-        "vamo",
+        "vamos",
         "trying",
         "game"
       ],
@@ -7912,7 +7910,7 @@
       "id": "360",
       "filename": "360.mp3",
       "file": "audio/voice-of-god/360.mp3",
-      "transcript": "Hiro keeps the game tight, and everyone else keeps it interesting by singing fuck v a r.",
+      "transcript": "Hiro keeps the game tight, and everyone else keeps it interesting by singing fuck VAR.",
       "canonicalPlayersMentioned": [
         "hiro"
       ],
@@ -8941,7 +8939,7 @@
       "id": "408",
       "filename": "408.mp3",
       "file": "audio/voice-of-god/408.mp3",
-      "transcript": "Vish sees risk the way most people see seasoning. Vamo.",
+      "transcript": "Vish sees risk the way most people see seasoning. Vamos.",
       "canonicalPlayersMentioned": [
         "vish"
       ],
@@ -8952,7 +8950,7 @@
       "keywords": [
         "seasoning",
         "risk",
-        "vamo",
+        "vamos",
         "sees"
       ],
       "duration": 3.526
@@ -12807,7 +12805,7 @@
       "id": "583",
       "filename": "583.mp3",
       "file": "audio/voice-of-god/583.mp3",
-      "transcript": "Cougar and Vish both enjoy action. Cougar arrives with explosives. Vish arrives whispering Vamo like an accomplice.",
+      "transcript": "Cougar and Vish both enjoy action. Cougar arrives with explosives. Vish arrives whispering Vamos like an accomplice.",
       "canonicalPlayersMentioned": [
         "cougar",
         "vish"
@@ -12822,7 +12820,7 @@
         "explosives",
         "accomplice",
         "enjoy",
-        "vamo",
+        "vamos",
         "whispering"
       ],
       "duration": 6.635
@@ -15166,7 +15164,7 @@
       "id": "687",
       "filename": "687.mp3",
       "file": "audio/voice-of-god/687.mp3",
-      "transcript": "Hiro, Ahmed, and Vish make a fascinating table dynamic. One wants order, one wants action, and one quietly whispers vamo while both things collapse.",
+      "transcript": "Hiro, Ahmed, and Vish make a fascinating table dynamic. One wants order, one wants action, and one quietly whispers Vamos while both things collapse.",
       "canonicalPlayersMentioned": [
         "hiro",
         "ahmed",
@@ -15183,7 +15181,7 @@
         "dynamic",
         "collapse",
         "fascinating",
-        "vamo",
+        "vamos",
         "whispers"
       ],
       "duration": 11.285
