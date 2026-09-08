@@ -22,7 +22,11 @@ CREW_ELIGIBLE_MIN_BUY_INS = 3
 CREW_PROVISIONAL_MIN_BUY_INS = CREW_ELIGIBLE_MIN_BUY_INS
 CREW_ESTABLISHED_MIN_BUY_INS = 5
 CARD_OVERALL_MIN_RATING = 40
-CARD_OVERALL_MAX_RATING = 99
+CARD_OVERALL_MAX_RATING = 97
+CARD_OVERALL_BASELINE_POWER = 160.0
+CARD_OVERALL_BASELINE_RATING = 70.0
+CARD_OVERALL_POWER_PER_RATING = 4.5
+CARD_OVERALL_CONFIDENCE_APPEARANCES = 5.0
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 
@@ -760,6 +764,25 @@ def historical_metric_rating(player, players, key, min_rating=40, max_rating=96)
     )))
 
 
+def historical_card_overall_rating(player):
+    appearances = max(0.0, float(player.get("buyIns", 0)))
+    power_index = float(player.get("trueSkillScore", 0))
+    confidence = appearances / (
+        appearances + CARD_OVERALL_CONFIDENCE_APPEARANCES
+    )
+    adjusted_power = CARD_OVERALL_BASELINE_POWER + (
+        confidence * (power_index - CARD_OVERALL_BASELINE_POWER)
+    )
+    rating = CARD_OVERALL_BASELINE_RATING + (
+        (adjusted_power - CARD_OVERALL_BASELINE_POWER)
+        / CARD_OVERALL_POWER_PER_RATING
+    )
+    return max(
+        CARD_OVERALL_MIN_RATING,
+        min(CARD_OVERALL_MAX_RATING, js_round(rating))
+    )
+
+
 def historical_card_snapshot(player, players):
     tier = historical_tier_meta(player, players)
     return_rating = js_round(
@@ -796,13 +819,7 @@ def historical_card_snapshot(player, players):
     ]
 
     return {
-        "overall": historical_metric_rating(
-            player,
-            players,
-            "trueSkillScore",
-            CARD_OVERALL_MIN_RATING,
-            CARD_OVERALL_MAX_RATING
-        ),
+        "overall": historical_card_overall_rating(player),
         "tierCode": tier["code"],
         "tierClassName": tier["className"],
         "tierStatus": tier["status"],
@@ -1233,7 +1250,7 @@ def main():
         "players": players,
         "streaks": streaks,
         "cardLedger": {
-            "version": 1,
+            "version": 2,
             "source": "parsed-event-replay",
             "eventCount": len(parsed_events),
             "replayedThrough": parsed_events[-1].get("date", "") if parsed_events else "",
@@ -1243,7 +1260,7 @@ def main():
                 "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
                 "hall": "Permanent when first earned at the historical Hall qualification threshold.",
                 "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
-                "snapshot": "Overall, tier and all six attributes are frozen at issuance or upgrade."
+                "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale."
             }
         },
         "featuredCardConfig": featured_card_summary

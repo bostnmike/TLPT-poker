@@ -148,6 +148,14 @@ function manualRating(player, allPlayers, key, minRating = 40, maxRating = 96) {
   return Math.max(1, Math.min(99, Math.round(minRating + Math.max(0, Math.min(1, normalized)) * (maxRating - minRating))));
 }
 
+function manualOverallRating(player) {
+  const appearances = Math.max(0, Number(player?.buyIns || 0));
+  const powerIndex = Number(player?.trueSkillScore || 0);
+  const confidence = appearances / (appearances + 5);
+  const adjustedPower = 160 + confidence * (powerIndex - 160);
+  return Math.max(40, Math.min(97, Math.round(70 + (adjustedPower - 160) / 4.5)));
+}
+
 const establishedRank = [...established].sort((a, b) => manualTierScore(b) - manualTierScore(a));
 const attributeSpecs = [
   ["CLT", "clutchIndex"], ["ITM", "cashRate"], ["AGR", "aggressionIndex"],
@@ -161,8 +169,8 @@ for (const player of players) {
   if (appearances === 0) {
     check(overallRating === "NR", `${player.slug}: zero-game card overall must be NR`);
   } else {
-    check(overallRating === manualRating(player, players, "trueSkillScore", 40, 99), `${player.slug}: live card overall rating differs from benchmark formula`);
-    check(overallRating >= 40 && overallRating <= 99, `${player.slug}: live card overall rating is outside the locked 40–99 range`);
+    check(overallRating === manualOverallRating(player), `${player.slug}: live card overall rating differs from the fixed sample-adjusted formula`);
+    check(overallRating >= 40 && overallRating <= 97, `${player.slug}: live card overall rating is outside the fixed 40–97 range`);
   }
   const attributes = playerCardAttributes(player, players);
   const byCode = Object.fromEntries(attributes.map(attribute => [attribute.code, attribute.value]));
@@ -234,6 +242,31 @@ for (const player of players) {
     check(meta.rank === rank && meta.code === expectedCode, `${player.slug}: established Crew rank/tier is incorrect`);
   }
 }
+
+const currentLeader = [...established].sort(
+  (a, b) => Number(b.trueSkillScore || 0) - Number(a.trueSkillScore || 0)
+)[0];
+if (currentLeader) {
+  const leaderRating = playerCardOverallRating(currentLeader, players);
+  const outlierPool = [
+    ...players,
+    { name: "Scale Outlier", slug: "scale-outlier", buyIns: 100, trueSkillScore: 1000 }
+  ];
+  check(
+    leaderRating === playerCardOverallRating(currentLeader, outlierPool),
+    "Live OVR must not change when the comparison pool changes"
+  );
+}
+check(
+  playerCardOverallRating({ buyIns: 1, trueSkillScore: 250 }, players)
+    < playerCardOverallRating({ buyIns: 20, trueSkillScore: 250 }, players),
+  "OVR confidence adjustment must temper small-sample ratings"
+);
+check(
+  playerCardOverallRating({ buyIns: 1, trueSkillScore: 160 }, players) === 70
+    && playerCardOverallRating({ buyIns: 50, trueSkillScore: 160 }, players) === 70,
+  "The fixed 160 Power Index baseline must always map to 70 OVR"
+);
 
 const tierPriority = { S: 0, A: 1, B: 2, C: 3, D: 4, PRO: 5, RKI: 6 };
 check(data.featuredCardConfig?.mode === "automatic", "Generated Crew skin policy must remain automatic");

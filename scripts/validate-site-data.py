@@ -137,6 +137,10 @@ def validate_player(p):
 
         if not isinstance(snapshot.get("overall"), (int, float)):
             errors.append(f"{card_id} snapshot overall missing or not numeric")
+        elif not 40 <= snapshot["overall"] <= 97:
+            errors.append(
+                f"{card_id} snapshot overall is outside the fixed 40–97 range"
+            )
 
         attributes = snapshot.get("attributes")
         if not isinstance(attributes, list) or len(attributes) != 6:
@@ -206,6 +210,12 @@ def validate_source_coverage(data):
     parsed_names = [path.name for path in parsed_files]
     parsed_dates = [path.stem for path in parsed_files]
     ledger = data.get("cardLedger") or {}
+
+    if ledger.get("version") != 2:
+        errors.append(
+            f"cardLedger rating-model version is stale: "
+            f"{ledger.get('version')} != 2"
+        )
 
     if ledger.get("eventCount") != len(parsed_files):
         errors.append(

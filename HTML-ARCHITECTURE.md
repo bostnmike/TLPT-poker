@@ -145,10 +145,15 @@ visible as green RKI prospects but are excluded from competitive Crew pools.
 Crew eligibility begins at three appearances, the PRO band covers three and
 four appearances, and official Power Rank plus S–D tiers begin at five.
 
-Crew cards sort by underlying tier priority first and calculated 40–99 rating
-second. Automatic special-edition skins remain purely visual and cannot move a
-card. Permanent collectible ownership and every frozen issuance snapshot stay
-independent of later live ordering changes.
+Crew cards sort by underlying tier priority first and calculated rating second.
+OVR uses a fixed, sample-adjusted scale: 160 Power Index anchors 70 OVR,
+appearances ÷ (appearances + 5) supplies the confidence adjustment, and every
+4.5 adjusted Power Index points moves the card one OVR point. Ratings are
+limited to 40–97, reserving 98–99 for future exceptional standards. Automatic
+special-edition skins remain purely visual and cannot move a card. Permanent
+collectible ownership remains independent of later live ordering changes.
+Historical OVR is rebuilt from the stats frozen at issuance or upgrade so all
+cards use the same fixed scale; tier and all six attributes remain frozen.
 
 Hall qualification remains dynamic: 25% of completed historical events,
 rounded up, with a minimum floor of 10 appearances. This produced a threshold

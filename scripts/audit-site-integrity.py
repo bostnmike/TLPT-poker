@@ -36,7 +36,11 @@ CREW_ELIGIBLE_MIN = 3
 PROVISIONAL_MIN = CREW_ELIGIBLE_MIN
 ESTABLISHED_MIN = 5
 CARD_OVERALL_MIN_RATING = 40
-CARD_OVERALL_MAX_RATING = 99
+CARD_OVERALL_MAX_RATING = 97
+CARD_OVERALL_BASELINE_POWER = 160.0
+CARD_OVERALL_BASELINE_RATING = 70.0
+CARD_OVERALL_POWER_PER_RATING = 4.5
+CARD_OVERALL_CONFIDENCE_APPEARANCES = 5.0
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 CARD_FIXED_ORDER = {
@@ -366,6 +370,25 @@ def metric_rating(player, players, key, low=40, high=96):
     return max(1, min(99, js_round(low + scaled * (high - low))))
 
 
+def overall_rating(player):
+    appearances = max(0.0, float(player.get("buyIns", 0)))
+    power_index = float(player.get("trueSkillScore", 0))
+    confidence = appearances / (
+        appearances + CARD_OVERALL_CONFIDENCE_APPEARANCES
+    )
+    adjusted_power = CARD_OVERALL_BASELINE_POWER + (
+        confidence * (power_index - CARD_OVERALL_BASELINE_POWER)
+    )
+    rating = CARD_OVERALL_BASELINE_RATING + (
+        (adjusted_power - CARD_OVERALL_BASELINE_POWER)
+        / CARD_OVERALL_POWER_PER_RATING
+    )
+    return max(
+        CARD_OVERALL_MIN_RATING,
+        min(CARD_OVERALL_MAX_RATING, js_round(rating))
+    )
+
+
 def card_snapshot(player, players):
     code, class_name, status, rank, total = tier_meta(player, players)
     ret = js_round(
@@ -381,13 +404,7 @@ def card_snapshot(player, players):
         {"code": "SUR", "label": "Survival", "value": metric_rating(player, players, "survivorIndex")},
     ]
     return {
-        "overall": metric_rating(
-            player,
-            players,
-            "trueSkillScore",
-            CARD_OVERALL_MIN_RATING,
-            CARD_OVERALL_MAX_RATING,
-        ),
+        "overall": overall_rating(player),
         "tierCode": code,
         "tierClassName": class_name,
         "tierStatus": status,
@@ -539,6 +556,7 @@ def audit_sources(audit, metadata, config, events, site_data):
     audit.check(site_data.get("sourceMode") == "event_reports", "sources", "site-data sourceMode is not event_reports")
     audit.check(site_data.get("events") == events.get("events"), "sources", "Published schedule differs from data/events.json")
     ledger = site_data.get("cardLedger") or {}
+    audit.check(ledger.get("version") == 2, "sources", "Card ledger rating-model version is stale")
     audit.check(ledger.get("eventCount") == len(parsed_files), "sources", "Card ledger event count is stale")
     audit.check(ledger.get("replayedThrough") == parsed_dates[-1], "sources", "Card ledger replay date is stale")
     return parsed_files

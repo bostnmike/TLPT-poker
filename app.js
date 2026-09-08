@@ -82,7 +82,11 @@ const CREW_ELIGIBLE_MIN_BUY_INS = 3;
 const CREW_PROVISIONAL_MIN_BUY_INS = CREW_ELIGIBLE_MIN_BUY_INS;
 const CREW_ESTABLISHED_MIN_BUY_INS = 5;
 const CARD_OVERALL_MIN_RATING = 40;
-const CARD_OVERALL_MAX_RATING = 99;
+const CARD_OVERALL_MAX_RATING = 97;
+const CARD_OVERALL_BASELINE_POWER = 160;
+const CARD_OVERALL_BASELINE_RATING = 70;
+const CARD_OVERALL_POWER_PER_RATING = 4.5;
+const CARD_OVERALL_CONFIDENCE_APPEARANCES = 5;
 
 function isPlayerUnscouted(player) {
   return Number(player?.buyIns ?? 0) <= 0;
@@ -3656,12 +3660,19 @@ function playerCardTierMeta(player, players) {
 function playerCardOverallRating(player, players) {
   if (isPlayerUnscouted(player)) return "NR";
 
-  return playerCardMetricRating(
-    player,
-    players,
-    "trueSkillScore",
+  const appearances = Math.max(0, Number(player?.buyIns ?? 0));
+  const powerIndex = Number(player?.trueSkillScore ?? 0);
+  const confidence = appearances /
+    (appearances + CARD_OVERALL_CONFIDENCE_APPEARANCES);
+  const adjustedPower = CARD_OVERALL_BASELINE_POWER +
+    (confidence * (powerIndex - CARD_OVERALL_BASELINE_POWER));
+  const rating = CARD_OVERALL_BASELINE_RATING +
+    ((adjustedPower - CARD_OVERALL_BASELINE_POWER) /
+      CARD_OVERALL_POWER_PER_RATING);
+
+  return Math.max(
     CARD_OVERALL_MIN_RATING,
-    CARD_OVERALL_MAX_RATING
+    Math.min(CARD_OVERALL_MAX_RATING, playerCardDisplayRating(rating))
   );
 }
 
@@ -3831,7 +3842,7 @@ function playerCardViewData(player, players) {
       : `Power Index ${fmtNum(player?.trueSkillScore)} • ${careerAppearances} career appearance${careerAppearances === 1 ? "" : "s"}`,
     overallFormula: unscouted
       ? "Ultimate Player Card ratings begin after the player's first TLPT appearance. No benchmark rating is assigned before then."
-      : `${STAT_FORMULAS.trueSkillScore}. The Power Index is scaled to a 40–99 overall card rating against established TLPT players.`,
+      : `${STAT_FORMULAS.trueSkillScore}. The fixed overall scale anchors a 160 Power Index at 70 OVR, adjusts confidence by appearances ÷ (appearances + 5), and moves one OVR point per 4.5 adjusted Power Index points. Ratings are limited to 40–97, reserving 98–99 for future exceptional standards.`,
     context: `Career • ${careerAppearances} appearance${careerAppearances === 1 ? "" : "s"}`,
     caveat: unscouted
       ? "Unscouted. Career card ratings and archetypes activate after the first TLPT appearance."
@@ -3871,7 +3882,7 @@ function playerCardViewData(player, players) {
         periodDescription: "recent-form"
       }),
       overallRaw: `Form Power Index ${fmtNum(recentMetrics?.trueSkillScore)} • ${recentCount} recent appearance${recentCount === 1 ? "" : "s"} • ${range}`,
-      overallFormula: `${STAT_FORMULAS.trueSkillScore}. The form Power Index is scaled to a 40–99 rating against comparable recent TLPT samples. Movement compares this rating with the preceding five appearances.`,
+      overallFormula: `${STAT_FORMULAS.trueSkillScore}. The form Power Index uses the same fixed, sample-adjusted 40–97 overall scale as the career card. Movement compares this rating with the preceding five appearances.`,
       context: `${recentLabel} • ${range}`,
       caveat: `${recentLabel} view. Scores use only this player's most recent appearances; the card tier, official Power Rank and experience status remain career-based.`,
       movement
@@ -4944,7 +4955,7 @@ function wirePlayerCardEditionCollection(
     );
     const snapshotEvent = edition?.upgradeEvent || edition?.earnedEvent || "historical event";
     const historicRaw = `Frozen collectible snapshot from ${snapshotEvent}${snapshotDate ? ` on ${snapshotDate}` : ""}.`;
-    const historicFormula = "Historic edition values are frozen at issuance or upgrade and do not recalculate with later results.";
+    const historicFormula = "Historic edition stats, tier and attributes are frozen at issuance or upgrade. OVR uses the current fixed, sample-adjusted scale with those frozen stats; later results do not affect it.";
 
     card.dataset.historicEdition = edition.id;
     card.dataset.cardView = "historic";

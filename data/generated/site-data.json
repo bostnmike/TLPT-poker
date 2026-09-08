@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-08T01:29:49.301179Z",
+  "generatedAt": "2026-09-08T13:34:48.722852Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -421,7 +421,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2026-05-30 through 2026-06-05.",
           "priority": 2,
           "snapshot": {
-            "overall": 68,
+            "overall": 76,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -477,7 +477,7 @@
           "reason": "Joined the 25-Appearance Club at DRAWS! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 64,
+            "overall": 74,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -532,7 +532,7 @@
           "reason": "Joined the 10-Appearance Club at Where's the Tylenol?!?! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 71,
+            "overall": 78,
             "tierCode": "D",
             "tierClassName": "d",
             "tierStatus": "Established",
@@ -832,7 +832,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 1.18 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 81,
+            "overall": 83,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -887,7 +887,7 @@
           "reason": "First claimed the Hall bubble distinction at 6 bubbles.",
           "priority": 4,
           "snapshot": {
-            "overall": 70,
+            "overall": 81,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -942,7 +942,7 @@
           "reason": "Personal-best 5-appearance cash streak from 2026-07-26 through 2026-08-21.",
           "priority": 2,
           "snapshot": {
-            "overall": 87,
+            "overall": 89,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -1000,7 +1000,7 @@
           "reason": "Joined the 25-Appearance Club at Inglorious Bluffs: A Poker Movie | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 71,
+            "overall": 79,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -1055,7 +1055,7 @@
           "reason": "Joined the 10-Appearance Club at Back from Broadway | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 81,
+            "overall": 83,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -1815,7 +1815,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 0.95 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 95,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -1870,7 +1870,7 @@
           "reason": "First claimed the Hall bubble distinction at 3 bubbles.",
           "priority": 4,
           "snapshot": {
-            "overall": 76,
+            "overall": 86,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -1925,7 +1925,7 @@
           "reason": "First claimed the established-player career-profit lead at $175.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 89,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -2035,7 +2035,7 @@
           "reason": "First claimed the established-player ROI lead at 83.3%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 89,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -2090,7 +2090,7 @@
           "reason": "Personal-best 9-appearance cash streak from 2026-05-01 through 2026-06-20.",
           "priority": 2,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -2148,7 +2148,7 @@
           "reason": "Joined the 50-Appearance Club at The Shuffling | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -2203,7 +2203,7 @@
           "reason": "Joined the 25-Appearance Club at ChatGPT AI Stat Pack Aftermath Part I | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 84,
+            "overall": 93,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -2258,7 +2258,7 @@
           "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 76,
+            "overall": 86,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -3364,7 +3364,7 @@
           "reason": "First claimed the established-player ROI lead at 66.7%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 89,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -3419,7 +3419,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2025-10-04 through 2025-10-25.",
           "priority": 2,
           "snapshot": {
-            "overall": 99,
+            "overall": 79,
             "tierCode": "RKI",
             "tierClassName": "rookie",
             "tierStatus": "Rookie",
@@ -3475,7 +3475,7 @@
           "reason": "Joined the 10-Appearance Club at Super Bowl Eve | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 87,
+            "overall": 85,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -4226,7 +4226,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2026-05-09 through 2026-05-23.",
           "priority": 2,
           "snapshot": {
-            "overall": 99,
+            "overall": 82,
             "tierCode": "RKI",
             "tierClassName": "rookie",
             "tierStatus": "Rookie",
@@ -4666,7 +4666,7 @@
           "reason": "First claimed the Hall career-profit distinction at $135.",
           "priority": 4,
           "snapshot": {
-            "overall": 66,
+            "overall": 82,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4721,7 +4721,7 @@
           "reason": "First claimed the Hall cash-rate distinction at 50.0%.",
           "priority": 4,
           "snapshot": {
-            "overall": 66,
+            "overall": 82,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4776,7 +4776,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 1.31 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 66,
+            "overall": 82,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4831,7 +4831,7 @@
           "reason": "First claimed the established-player career-profit lead at $225.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 96,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -4886,7 +4886,7 @@
           "reason": "First claimed the established-player knockout lead at 11 hits.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 96,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -4941,7 +4941,7 @@
           "reason": "First claimed the established-player ROI lead at 125.0%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 96,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -4996,7 +4996,7 @@
           "reason": "First claimed the established-player cash-rate lead at 60.0%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 96,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -5051,7 +5051,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2025-11-01 through 2025-11-15.",
           "priority": 2,
           "snapshot": {
-            "overall": 66,
+            "overall": 82,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -5107,7 +5107,7 @@
           "reason": "Joined the 25-Appearance Club at WrestleMania Eve | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 58,
+            "overall": 76,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -5162,7 +5162,7 @@
           "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 66,
+            "overall": 82,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -5601,7 +5601,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2026-03-27 through 2026-04-04.",
           "priority": 2,
           "snapshot": {
-            "overall": 96,
+            "overall": 82,
             "tierCode": "RKI",
             "tierClassName": "rookie",
             "tierStatus": "Rookie",
@@ -5902,7 +5902,7 @@
           "reason": "First claimed the Hall career-profit distinction at $305.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 91,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -5957,7 +5957,7 @@
           "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 91,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6012,7 +6012,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 1.13 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 91,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6067,7 +6067,7 @@
           "reason": "First claimed the established-player career-profit lead at $205.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 89,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -6122,7 +6122,7 @@
           "reason": "First claimed the established-player knockout lead at 18 hits.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 95,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6177,7 +6177,7 @@
           "reason": "First claimed the established-player ROI lead at 85.4%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 89,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -6232,7 +6232,7 @@
           "reason": "First claimed the established-player cash-rate lead at 60.0%.",
           "priority": 3,
           "snapshot": {
-            "overall": 87,
+            "overall": 90,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -6287,7 +6287,7 @@
           "reason": "Personal-best 5-appearance cash streak from 2025-11-01 through 2025-12-13.",
           "priority": 2,
           "snapshot": {
-            "overall": 99,
+            "overall": 95,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6345,7 +6345,7 @@
           "reason": "Joined the 25-Appearance Club at Stranger Bluffs! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 73,
+            "overall": 84,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -6400,7 +6400,7 @@
           "reason": "Joined the 10-Appearance Club at $hitter's Full | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 99,
+            "overall": 91,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6700,7 +6700,7 @@
           "reason": "First claimed the Hall career-profit distinction at $395.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6755,7 +6755,7 @@
           "reason": "First claimed the Hall cash-rate distinction at 70.0%.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6810,7 +6810,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 1.42 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6865,7 +6865,7 @@
           "reason": "First claimed the established-player career-profit lead at $395.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6920,7 +6920,7 @@
           "reason": "First claimed the established-player ROI lead at 74.1%.",
           "priority": 3,
           "snapshot": {
-            "overall": 99,
+            "overall": 90,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6975,7 +6975,7 @@
           "reason": "First claimed the established-player cash-rate lead at 60.0%.",
           "priority": 3,
           "snapshot": {
-            "overall": 74,
+            "overall": 79,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -7030,7 +7030,7 @@
           "reason": "Personal-best 4-appearance cash streak from 2025-11-01 through 2026-03-28.",
           "priority": 2,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -7088,7 +7088,7 @@
           "reason": "Joined the 10-Appearance Club at Sabres in the Playoffs?! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 99,
+            "overall": 97,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -7388,7 +7388,7 @@
           "reason": "Joined the 10-Appearance Club at March Sadness Part I | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 41,
+            "overall": 63,
             "tierCode": "D",
             "tierClassName": "d",
             "tierStatus": "Established",
@@ -8174,7 +8174,7 @@
           "reason": "Personal-best 3-appearance cash streak from 2026-01-30 through 2026-02-13.",
           "priority": 2,
           "snapshot": {
-            "overall": 54,
+            "overall": 70,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8232,7 +8232,7 @@
           "reason": "Joined the 25-Appearance Club at You're All Suspects | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 58,
+            "overall": 71,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8287,7 +8287,7 @@
           "reason": "Joined the 10-Appearance Club at Back from Broadway | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 62,
+            "overall": 73,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8587,7 +8587,7 @@
           "reason": "First claimed the established-player knockout lead at 32 hits.",
           "priority": 3,
           "snapshot": {
-            "overall": 57,
+            "overall": 74,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8642,7 +8642,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2026-01-03 through 2026-01-24.",
           "priority": 2,
           "snapshot": {
-            "overall": 93,
+            "overall": 81,
             "tierCode": "PRO",
             "tierClassName": "provisional",
             "tierStatus": "Provisional",
@@ -8698,7 +8698,7 @@
           "reason": "Joined the 10-Appearance Club at March Sadness Part I | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 54,
+            "overall": 70,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -8986,7 +8986,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2025-12-27 through 2026-01-03.",
           "priority": 2,
           "snapshot": {
-            "overall": 87,
+            "overall": 80,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -9577,7 +9577,7 @@
           "reason": "Joined the 10-Appearance Club at Should We Let Him Win? | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 47,
+            "overall": 67,
             "tierCode": "D",
             "tierClassName": "d",
             "tierStatus": "Established",
@@ -13716,7 +13716,7 @@
     }
   },
   "cardLedger": {
-    "version": 1,
+    "version": 2,
     "source": "parsed-event-replay",
     "eventCount": 52,
     "replayedThrough": "2026-09-05",
@@ -13732,7 +13732,7 @@
       "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
       "hall": "Permanent when first earned at the historical Hall qualification threshold.",
       "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
-      "snapshot": "Overall, tier and all six attributes are frozen at issuance or upgrade."
+      "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale."
     }
   },
   "featuredCardConfig": {
