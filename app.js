@@ -265,7 +265,7 @@ const HALL_RULES = {
 
   worsts: [
     {
-      title: "The Punch Dummy",
+      title: "Standing 8 Count",
       visualClass: "the-killer",
       description: "Most career bust-outs suffered among Hall-qualified players.",
       displayLabel: "Times Knocked Out",
