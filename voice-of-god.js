@@ -51,9 +51,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const specialPlayerLabels = new Map([
     ["deckmate", "DeckMate"],
+    ["nasa-al", "NASA Al"],
   ]);
 
-  const playerLabel = slug => playerProfiles.get(slug)?.name || specialPlayerLabels.get(slug) || slug
+  const playerLabel = slug => specialPlayerLabels.get(slug) || playerProfiles.get(slug)?.name || slug
     .split("-")
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");

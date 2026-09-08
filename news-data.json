@@ -2193,7 +2193,7 @@
         {
           "tone": "blue",
           "label": "🩸 First Casualty",
-          "player": "Nasa Al",
+          "player": "NASA Al",
           "copy": "BostnMike got the opening bust before Al came roaring back with a suspicious heater.",
           "avatar": "images/players/nasa-al.jpg",
           "fallback": "NA"
@@ -2211,7 +2211,7 @@
           "label": "🪓 Bounty Hunter",
           "player": "Griffin",
           "value": "5 knockouts",
-          "copy": "Removed Nasa Al twice, ProvidenceMike, BostnMike, and Li-Fo to close the whole thing.",
+          "copy": "Removed NASA Al twice, ProvidenceMike, BostnMike, and Li-Fo to close the whole thing.",
           "avatar": "images/players/grif.jpg",
           "fallback": "GR"
         }
@@ -2248,7 +2248,7 @@
         "totalPot": 450,
         "paidSpots": 3,
         "winner": "Griffin",
-        "firstOut": "Nasa Al",
+        "firstOut": "NASA Al",
         "firstPermanentOut": "Hiro"
       },
       "spotlight": {
@@ -2281,7 +2281,7 @@
       "feltSaid": [
         {
           "label": "First Blood",
-          "value": "Nasa Al",
+          "value": "NASA Al",
           "note": "BostnMike got the opening bust, which turned out to be more delay than defeat."
         },
         {
@@ -2292,7 +2292,7 @@
         {
           "label": "Table Killer",
           "value": "Griffin",
-          "note": "Removed Nasa Al twice, ProvidenceMike, BostnMike, and Li-Fo on the way to the win."
+          "note": "Removed NASA Al twice, ProvidenceMike, BostnMike, and Li-Fo on the way to the win."
         },
         {
           "label": "How It Ended",
@@ -3451,7 +3451,7 @@
         "entries": 11,
         "totalPot": 330,
         "paidSpots": 3,
-        "winner": "Nasa Al",
+        "winner": "NASA Al",
         "firstOut": "Hiro, Li-Fo",
         "firstPermanentOut": "ProvidenceMike"
       },
@@ -3932,7 +3932,7 @@
         "entries": 10,
         "totalPot": 300,
         "paidSpots": 3,
-        "winner": "Cougar, Nasa Al, ProvidenceMike",
+        "winner": "Cougar, NASA Al, ProvidenceMike",
         "firstOut": "Vic",
         "firstPermanentOut": "Hiro"
       },
@@ -5990,7 +5990,7 @@
         "totalPot": 300,
         "paidSpots": 3,
         "winner": "BostnMike",
-        "firstOut": "Nasa Al",
+        "firstOut": "NASA Al",
         "firstPermanentOut": "Fabian"
       },
       "spotlight": {
@@ -6008,7 +6008,7 @@
       "feltSaid": [
         {
           "label": "First Blood",
-          "value": "Nasa Al",
+          "value": "NASA Al",
           "note": "BostnMike got the first bust before NASA Al rebought."
         },
         {
@@ -6105,7 +6105,7 @@
         "entries": 7,
         "totalPot": 210,
         "paidSpots": 2,
-        "winner": "Nasa Al",
+        "winner": "NASA Al",
         "firstOut": "Ai-Dave",
         "firstPermanentOut": "Chris O"
       },
@@ -6222,7 +6222,7 @@
         "totalPot": 210,
         "paidSpots": 2,
         "winner": "Hiro",
-        "firstOut": "Nasa Al",
+        "firstOut": "NASA Al",
         "firstPermanentOut": "BostnMike"
       },
       "spotlight": {
@@ -6240,7 +6240,7 @@
       "feltSaid": [
         {
           "label": "First Blood",
-          "value": "Nasa Al",
+          "value": "NASA Al",
           "note": "A.I. Dave got the first bust before NASA Al rebought."
         },
         {
@@ -6255,7 +6255,7 @@
         },
         {
           "label": "How It Ended",
-          "value": "Hiro over Nasa Al",
+          "value": "Hiro over NASA Al",
           "note": "Only two spots got paid in the five-player format."
         }
       ],
