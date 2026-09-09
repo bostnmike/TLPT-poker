@@ -12907,13 +12907,11 @@
       "id": "587",
       "filename": "587.mp3",
       "file": "audio/voice-of-god/587.mp3",
-      "transcript": "And that, Lon, is the beauty of the TLPT. Engineers ignore math. Comedians tempt fate. NASA Al embraces superstition. And somehow Tony is still thinking.",
+      "transcript": "And that, Lon, is the beauty of the TLPT. Engineers ignore math. Comedians tempt fate. NASA embraces superstition. And somehow Tony is still thinking.",
       "canonicalPlayersMentioned": [
-        "nasa-al",
         "li-fo"
       ],
       "aliasesDetected": [
-        "NASA",
         "Li-Fo"
       ],
       "category": "roast",

@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-7"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-8"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2504,6 +2504,20 @@ def main() -> int:
                     if str(clip_526.get("transcript", "")) != expected_clip_526:
                         parser.errors.append(
                             "Voice of God clip 526 must retain its approved transcript"
+                        )
+                    clip_587 = clips_by_id.get("587", {})
+                    expected_clip_587 = (
+                        "And that, Lon, is the beauty of the TLPT. Engineers ignore "
+                        "math. Comedians tempt fate. NASA embraces superstition. And "
+                        "somehow Tony is still thinking."
+                    )
+                    if (
+                        str(clip_587.get("transcript", "")) != expected_clip_587
+                        or clip_587.get("canonicalPlayersMentioned") != ["li-fo"]
+                        or clip_587.get("aliasesDetected") != ["Li-Fo"]
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 587 must retain its approved transcript and tags"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
