@@ -17973,7 +17973,7 @@
       "id": "810",
       "filename": "810.mp3",
       "file": "audio/voice-of-god/810.mp3",
-      "transcript": "Nat and BostnMike have a history that goes so far back that the next doctor Nat calls should specialize in mic removal.",
+      "transcript": "Nat and BostnMike have a history that goes so far back that the next doctor Nat calls should specialize in Mike removal.",
       "canonicalPlayersMentioned": [
         "phattedcalf",
         "bostnmike"
@@ -18150,17 +18150,17 @@
       "id": "818",
       "filename": "818.mp3",
       "file": "audio/voice-of-god/818.mp3",
-      "transcript": "The trophy room celebrates excellence. The street tracker documents suffering. Finally, a website structured like my romantic life.",
+      "transcript": "The Trophy Room celebrates excellence. The Streak Tracker documents suffering. Finally, a website structured like my romantic life.",
       "canonicalPlayersMentioned": [],
       "aliasesDetected": [],
       "category": "league-wide",
       "keywords": [
+        "trophy room",
+        "streak tracker",
         "celebrates",
         "excellence",
         "documents",
-        "suffering",
-        "structured",
-        "romantic"
+        "suffering"
       ],
       "duration": 8.542
     },

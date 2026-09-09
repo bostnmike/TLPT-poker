@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-11"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-12"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2572,6 +2572,35 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 738 must retain its approved transcript and tags"
+                        )
+                    clip_810 = clips_by_id.get("810", {})
+                    expected_clip_810 = (
+                        "Nat and BostnMike have a history that goes so far back that "
+                        "the next doctor Nat calls should specialize in Mike removal."
+                    )
+                    if (
+                        str(clip_810.get("transcript", "")) != expected_clip_810
+                        or clip_810.get("canonicalPlayersMentioned")
+                        != ["phattedcalf", "bostnmike"]
+                        or clip_810.get("aliasesDetected")
+                        != ["Nat", "BostnMike"]
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 810 must retain its approved transcript and tags"
+                        )
+                    clip_818 = clips_by_id.get("818", {})
+                    expected_clip_818 = (
+                        "The Trophy Room celebrates excellence. The Streak Tracker "
+                        "documents suffering. Finally, a website structured like my "
+                        "romantic life."
+                    )
+                    if (
+                        str(clip_818.get("transcript", "")) != expected_clip_818
+                        or clip_818.get("canonicalPlayersMentioned") != []
+                        or clip_818.get("category") != "league-wide"
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 818 must retain its approved league-wide transcript"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
