@@ -107,7 +107,7 @@ async function renderNewsPage() {
 function renderPageMeta(page, pageTitle, pageEmoji, pageKicker, introNote) {
   const safePage = page || {};
 
-  if (pageTitle) pageTitle.textContent = safePage.title || 'The Week That Was';
+  if (pageTitle) pageTitle.textContent = safePage.title || 'Felt Whispers';
   if (pageEmoji) pageEmoji.textContent = safePage.emoji || '🧑🏻‍💻';
   if (pageKicker) pageKicker.textContent = safePage.kicker || '';
   if (introNote) {
