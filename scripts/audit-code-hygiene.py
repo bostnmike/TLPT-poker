@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260907-8"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-1"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2424,12 +2424,76 @@ def main() -> int:
                         for match in re.finditer(r"\bdeckmate\b", transcripts, re.IGNORECASE)
                     )
                     if noncanonical_deckmate or re.search(
-                        r"\bSquadouche\b|\bwham boozle\b|\bMatt\b|\bBoston Mike\b",
+                        r"\bSquadouche\b|\bwham boozle\b|\bMatt\b|\bBoston Mike\b|\bLaser\b",
                         transcripts,
                         re.IGNORECASE,
                     ):
                         parser.errors.append(
                             "Voice of God archive contains a noncanonical spelling"
+                        )
+                    clips_by_id = {
+                        str(clip.get("id", "")): clip for clip in clips
+                    }
+                    for lazar_clip_id in ("148", "522"):
+                        lazar_clip = clips_by_id.get(lazar_clip_id, {})
+                        if (
+                            "Lazar" not in str(lazar_clip.get("transcript", ""))
+                            or "Lazar" not in lazar_clip.get("aliasesDetected", [])
+                        ):
+                            parser.errors.append(
+                                f"Voice of God clip {lazar_clip_id} must use canonical Lazar"
+                            )
+                    unbalanced_dialogue = [
+                        str(clip.get("id", "?"))
+                        for clip in clips
+                        if str(clip.get("transcript", "")).count("‘")
+                        != str(clip.get("transcript", "")).count("’")
+                    ]
+                    if unbalanced_dialogue:
+                        parser.errors.append(
+                            "Voice of God clips have unbalanced dialogue punctuation: "
+                            + ", ".join(unbalanced_dialogue)
+                        )
+
+                    catchphrases = (
+                        "any two cards",
+                        "one more card",
+                        "skill game",
+                        "priced in",
+                        "I had a feeling",
+                        "tight is right",
+                        "can I see the river",
+                        "last in, first out",
+                        "Vamos",
+                        "I shove",
+                        "Don't do that",
+                        "What's the worst that can happen",
+                        "On my big blind",
+                        "Come on, aces",
+                        "You got me",
+                    )
+                    unquoted_catchphrases = []
+                    for clip in clips:
+                        transcript = str(clip.get("transcript", ""))
+                        folded_transcript = transcript.casefold()
+                        for catchphrase in catchphrases:
+                            folded_catchphrase = catchphrase.casefold()
+                            start = 0
+                            while True:
+                                start = folded_transcript.find(folded_catchphrase, start)
+                                if start < 0:
+                                    break
+                                opening = transcript.rfind("‘", 0, start + 1)
+                                closing = transcript.rfind("’", 0, start + 1)
+                                if opening <= closing or "’" not in transcript[start:]:
+                                    unquoted_catchphrases.append(
+                                        f"{clip.get('id', '?')}:{catchphrase}"
+                                    )
+                                start += len(folded_catchphrase)
+                    if unquoted_catchphrases:
+                        parser.errors.append(
+                            "Voice of God catchphrases must use nested quotation marks: "
+                            + ", ".join(unquoted_catchphrases)
                         )
                     untagged_deckmate_clips = [
                         str(clip.get("id", "?"))

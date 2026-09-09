@@ -2,6 +2,15 @@
   "101": {
     "transcript": "Vish's ‘Vamos’ is echoing through the felt like encouragement from destiny."
   },
+  "106": {
+    "transcript": "Is it me, or is Cougar's toy card protector looking traumatized?"
+  },
+  "107": {
+    "transcript": "Red is playing cash-game poker and tournament chaos simultaneously."
+  },
+  "110": {
+    "transcript": "Dave is trusting the open-ended straight draw like it's from The Good Book."
+  },
   "111": {
     "transcript": "Bill remains optimistic. The Jets have prepared him well for this."
   },
@@ -9,10 +18,16 @@
     "transcript": "Providence Mike is exploring the limits of ‘why not.’ The river explains why."
   },
   "120": {
-    "transcript": "Red is insisting that tradition beats logic. Should we remind him of the 0 & 4 Buffalo Bills?"
+    "transcript": "Red is insisting that tradition beats logic. Should we remind him of the 0–4 Buffalo Bills?"
   },
   "123": {
-    "transcript": "Bill is still smiling after the ugly river while reminding himself ‘it's a skill game.’"
+    "transcript": "Bill is still smiling after the ugly river while reminding himself ‘It's a skill game.’"
+  },
+  "128": {
+    "transcript": "Red is playing ‘any two cards’ with the scientific curiosity of Pavlov."
+  },
+  "130": {
+    "transcript": "Nitro: eyeing the shuffler like it owes him a suited king."
   },
   "131": {
     "transcript": "Bill just said, ‘Come on, aces,’ with the optimism of a man who's bombed on stage before."
@@ -20,23 +35,53 @@
   "132": {
     "transcript": "Tony is still thinking. Somewhere, a nature documentary narrator is whispering, ‘And here we observe the cautious Albanian in his natural habitat.’"
   },
+  "134": {
+    "transcript": "BostnMike: protecting chips like they're limited-edition Brad Marchand memorabilia."
+  },
+  "135": {
+    "transcript": "Cougar's bet just introduced itself before landing."
+  },
   "137": {
-    "transcript": "Hiro caught bluffing again and politely says, ‘You got me,’ which may be the most honest thing he said all night."
+    "transcript": "Hiro—caught bluffing again—politely says, ‘You got me,’ which may be the most honest thing he said all night."
   },
   "139": {
-    "transcript": "Bill declares ‘it's a skill game’ as fate shuffles behind him."
+    "transcript": "Bill declares ‘It's a skill game’ as fate shuffles behind him."
   },
   "144": {
     "transcript": "Red says, ‘Let's see a flop.’ That's science demanding research."
   },
+  "146": {
+    "transcript": "Tony's thinking so hard the table just lost IQ points."
+  },
   "148": {
     "transcript": "Lazar just asked the shuffler for the Nitro. The shuffler replied, ‘I'm sorry, Dave. I can't do that.’"
+  },
+  "153": {
+    "transcript": "Cougar's overbets are so big I think they qualify as architecture."
   },
   "156": {
     "transcript": "Bill once again asks, ‘What's the worst that can happen?’ The river says, ‘Hold my beer.’"
   },
+  "157": {
+    "transcript": "Providence Mike: loose-calling like it's a subscription service."
+  },
+  "159": {
+    "transcript": "I hear that Tony's post-fold explanation now has a sequel."
+  },
+  "161": {
+    "transcript": "Providence Mike is now entering the ‘I had a feeling’ phase of the tournament."
+  },
+  "162": {
+    "transcript": "Here's a twist: Tony is now tanking with dramatic pauses."
+  },
   "168": {
     "transcript": "Red says, ‘Why not?’ The statistics say, ‘Why.’"
+  },
+  "171": {
+    "transcript": "There goes BostnMike analyzing the flop like it's finals week."
+  },
+  "172": {
+    "transcript": "Tony's tank has entered sudden-death overtime."
   },
   "174": {
     "transcript": "Red says, ‘This is the perfect time to play any two cards.’ Timing has left the chat."
@@ -47,11 +92,26 @@
   "180": {
     "transcript": "Jeff just asked, ‘On my big blind?’ Yes, Jeff. That is how the big blind works."
   },
+  "181": {
+    "transcript": "NASA Al is rubbing his cards for luck. Somewhere, Mission Control is concerned."
+  },
   "183": {
-    "transcript": "BostnMike saying, ‘What's the worst that can happen?’ And now historians are taking notes."
+    "transcript": "BostnMike: saying, ‘What's the worst that can happen?’ And now historians are taking notes."
+  },
+  "186": {
+    "transcript": "Reminder: acting out of turn makes Hiro sad, and you wouldn't like Hiro when he's sad."
+  },
+  "193": {
+    "transcript": "Bill is a stand-up comic. Tonight, the punch line is river variance."
+  },
+  "197": {
+    "transcript": "Hiro just three-bet, and NASA Al just announced, ‘Houston, we have a bluff.’"
   },
   "198": {
     "transcript": "Hiro speaks many languages. Tonight's new word is ‘Whamboozle.’"
+  },
+  "200": {
+    "transcript": "Dave is chasing suited connectors like my ex-wives chase alimony payments."
   },
   "202": {
     "transcript": "Providence Mike says he's ‘priced in,’ which is comforting because BostnMike hasn't paid that price since 2019."
@@ -60,10 +120,16 @@
     "transcript": "Red says, ‘Any two cards can win.’ Interesting. That's the same theory Providence Mike uses after he calls."
   },
   "207": {
-    "transcript": "Hope in stereo. Nitro is whispering ‘one more card’ while AI Dave is calculating the straight possibilities preflop."
+    "transcript": "Hope in stereo: Nitro is whispering ‘one more card’ while AI Dave is calculating the straight possibilities preflop."
+  },
+  "210": {
+    "transcript": "Vish just min-raised, which Tony will now study like a doctoral thesis."
   },
   "213": {
     "transcript": "Hiro is caught bluffing and says, ‘You got me,’ which BostnMike immediately believes. It's funny, really."
+  },
+  "214": {
+    "transcript": "Nitro doesn't believe Tony's bet, which, including Tony, now means two people at the table don't buy what he's selling."
   },
   "216": {
     "transcript": "Red says he's ‘priced in’ again, which is poker language for ‘This seemed like a good idea five seconds ago.’"
@@ -71,62 +137,224 @@
   "219": {
     "transcript": "Vish says ‘Vamos,’ and Cougar responds by betting like the pot insulted his family."
   },
+  "220": {
+    "transcript": "BostnMike is studying the table so intently you'd swear he's writing a dissertation on other people's mistakes."
+  },
   "221": {
-    "transcript": "Nitro whispering ‘one more card,’ while Providence Mike says, ‘Why not four?’"
+    "transcript": "Nitro: whispering ‘one more card,’ while Providence Mike says, ‘Why not four?’"
   },
   "222": {
-    "transcript": "Bill reminded the table ‘it's a skill game,’ while Red demonstrates the opposite."
+    "transcript": "Bill reminded the table, ‘It's a skill game,’ while Red demonstrates the opposite."
+  },
+  "223": {
+    "transcript": "BostnMike just folded again; meanwhile, Red looks confused that folding is even allowed."
+  },
+  "226": {
+    "transcript": "Providence Mike: calling again. And now BostnMike is staring like a man watching a slow motion car crash."
+  },
+  "233": {
+    "transcript": "Hiro is so focused on restoring order he didn't notice Ahmed burning it down."
   },
   "234": {
-    "transcript": "Bill smiling about the skill game, while Providence Mike demonstrates the optimism call. And BostnMike just shakes his head and wonders, ‘Have they learned nothing?’"
+    "transcript": "Bill: smiling about the ‘skill game,’ while Providence Mike demonstrates the optimism call. And BostnMike just shakes his head and wonders, ‘Have they learned nothing?’"
   },
   "240": {
-    "transcript": "Bill is waiting for aces, while Providence Mike refuses to wait for anything. If you listen carefully, you can hear Hiro whispering, ‘The order, the order,’ like he's in apocalypse now."
+    "transcript": "Bill is waiting for aces, while Providence Mike refuses to wait for anything. If you listen carefully, you can hear Hiro whispering, ‘The order, the order,’ like he's in Apocalypse Now."
   },
   "243": {
-    "transcript": "Vish whispers, softly, and Tony wonders if that means ‘all in.’ No, Tony. It means ‘stop tanking.’ Signed the rest of the table."
+    "transcript": "Vish whispers softly, and Tony wonders if that means ‘all in.’ No, Tony. It means ‘stop tanking.’ Signed, the rest of the table."
+  },
+  "245": {
+    "transcript": "Nitro: hoping for destiny, while BostnMike hopes for discipline."
   },
   "247": {
     "transcript": "Providence Mike says he shouldn't call, which is the most honest thing he said all night right before calling. Hiro reminds him, ‘You have outs.’"
+  },
+  "248": {
+    "transcript": "BostnMike folded so tight you'd think the chips were insured."
+  },
+  "249": {
+    "transcript": "Cougar just bet so big the toy Cougar looked embarrassed."
+  },
+  "250": {
+    "transcript": "Red is playing ‘any two cards’ again. Apparently, the DeckMate owes him money."
+  },
+  "251": {
+    "transcript": "Hiro is telling people not to act out of turn, which is cute since Tony is mid-speech."
   },
   "252": {
     "transcript": "Nitro is whispering ‘one more card,’ which Providence Mike has interpreted as ‘call everything.’"
   },
   "253": {
-    "transcript": "Bill shouting, ‘Come on, aces.’ Yeah. Like, shuffler hasn't heard that one before."
+    "transcript": "Bill: shouting, ‘Come on, aces.’ Yeah, like Shuffler hasn't heard that one before."
+  },
+  "255": {
+    "transcript": "Vish is min-raising like he's afraid the chips might bite."
+  },
+  "257": {
+    "transcript": "Tony's tank is so long the rest of the table has visibly aged."
   },
   "258": {
     "transcript": "Providence Mike says he's ‘priced in,’ which in this game means ‘I'm about to donate.’"
   },
+  "259": {
+    "transcript": "BostnMike is studying the table like a man preparing for a role in Rounders 2. He doesn't know the producer's already passed on his headshot."
+  },
+  "261": {
+    "transcript": "Hiro—caught bluffing again—calmly admits it, which is more honesty than the table deserves."
+  },
   "265": {
     "transcript": "Vish quietly whispers, ‘Vamos.’ Hiro just informed the table that's German for ‘something reckless is about to happen.’"
   },
+  "268": {
+    "transcript": "And there goes BostnMike folding again. Risk management has entered the chat."
+  },
+  "269": {
+    "transcript": "Cougar is overbetting big enough to frighten the furniture."
+  },
+  "270": {
+    "transcript": "Hiro is policing the table again. Someone please tell him variance doesn't respect authority."
+  },
+  "271": {
+    "transcript": "Tony has been thinking so long the shuffler just asked if this hand qualifies for overtime."
+  },
+  "273": {
+    "transcript": "BostnMike: staring at the table like there's a hidden camera. Mike, it's your house. You know where all the cameras are."
+  },
   "274": {
-    "transcript": "Bill just said, ‘What's the worst that can happen?’ Which, historically speaking, has been a bad question."
+    "transcript": "Bill just said, ‘What's the worst that can happen?’ which, historically speaking, has been a bad question."
   },
   "275": {
     "transcript": "BostnMike is encouraging action with ‘What's the worst that can happen?’ Someone please tell him that he's shorter and less funny than Bill, and he should stick to folding."
   },
+  "278": {
+    "transcript": "Vish just politely min-raised, which is the table's cue to prepare for something questionable."
+  },
+  "281": {
+    "transcript": "Providence Mike has now entered the curiosity-over-discipline phase of the evening."
+  },
+  "285": {
+    "transcript": "The table is now staring at the shuffler like it's hiding something from them. BostnMike assures them it's all legit."
+  },
+  "287": {
+    "transcript": "BostnMike folding again: seventeen years to build a table image, and consistency is his greatest weapon."
+  },
   "296": {
-    "transcript": "Tony just said, ‘What's the worst that can happen?’ Which is how most disasters start."
+    "transcript": "Tony just said, ‘What's the worst that can happen?’ which is how most disasters start."
+  },
+  "302": {
+    "transcript": "It would seem that BostnMike treats every chip like it matters. Alternatively, Red treats every chip like it's replaceable. Can you say ‘rebuy’?"
+  },
+  "303": {
+    "transcript": "AI Dave trusts the long run, and Nitro trusts the next card."
   },
   "306": {
     "transcript": "Tony plays like he's trying to solve the game, whereas Vish plays like he's avoiding it. ‘Vamos.’"
   },
+  "310": {
+    "transcript": "Jeff folds like he's protecting a lead, and Cougar plays like he's already behind."
+  },
   "324": {
-    "transcript": "BostnMike avoids chaos, and Bill schedules it. Meanwhile, Hiro cries quietly in the corner like he's colonel Kurtz at the end of heart of darkness. ‘The order. The order.’"
+    "transcript": "BostnMike avoids chaos, and Bill schedules it. Meanwhile, Hiro cries quietly in the corner like he's Colonel Kurtz at the end of Heart of Darkness. ‘The order. The order.’"
+  },
+  "335": {
+    "transcript": "Nitro doesn't play too many hands; he just plays all the wrong ones consistently."
+  },
+  "338": {
+    "transcript": "Tony's biggest edge isn't skill. It's surviving long enough for everyone else to self-destruct."
+  },
+  "342": {
+    "transcript": "Providence Mike calls like he's ‘priced in,’ even when the price is his whole stack."
+  },
+  "343": {
+    "transcript": "Red's first buy-in has a shorter life expectancy than the dealer button, but, hey, that's why we have rebuys."
+  },
+  "346": {
+    "transcript": "Vish doesn't get bluffed; he just pays to confirm it."
+  },
+  "348": {
+    "transcript": "AI Dave and Bill calculate odds and then personally test the worst-case scenario."
+  },
+  "351": {
+    "transcript": "Cougar builds pots like a contractor, and then in typical contractor fashion, he abandons them mid-project."
+  },
+  "358": {
+    "transcript": "Nitro times his moves perfectly—if they were for last week's game."
+  },
+  "360": {
+    "transcript": "Hiro keeps the game tight, and everyone else keeps it interesting by singing, ‘Fuck VAR.’"
+  },
+  "362": {
+    "transcript": "Providence Mike has this incredible ability to arrive at the wrong conclusion through perfectly reasonable logic."
+  },
+  "363": {
+    "transcript": "Cougar's bets always feel like they were determined moments before they happened."
+  },
+  "377": {
+    "transcript": "Hiro is one bad acting-out-of-turn away from becoming a full-time referee."
+  },
+  "378": {
+    "transcript": "Ahmed treats uncertainty like an invitation."
+  },
+  "388": {
+    "transcript": "BostnMike and Red continue their months-long debate over whether patience is necessary."
   },
   "408": {
     "transcript": "Vish sees risk the way most people see seasoning. ‘Vamos.’"
+  },
+  "412": {
+    "transcript": "Providence Mike hears ‘bad idea’ and immediately wants more details."
+  },
+  "413": {
+    "transcript": "Vish's optimism survives deeper into tournaments than his chip stack."
+  },
+  "418": {
+    "transcript": "Nitro has played enough king-five suited that it may qualify as a dependent."
+  },
+  "423": {
+    "transcript": "Ahmed loves action so much I'm surprised he doesn't raise the blinds himself."
+  },
+  "426": {
+    "transcript": "Providence Mike has a remarkable ability to turn ‘I should fold’ into a full conversation."
+  },
+  "433": {
+    "transcript": "AI Dave often looks like he's debugging the table with ChatGPT version one."
+  },
+  "439": {
+    "transcript": "Ahmed loves action so much that check-folding might violate his personal beliefs."
+  },
+  "448": {
+    "transcript": "Bill approaches poker the way some people approach karaoke: enthusiasm first and consequences later."
+  },
+  "455": {
+    "transcript": "Red has somehow turned optimism into a preflop strategy."
+  },
+  "460": {
+    "transcript": "Ahmed approaches poker the same way some people approach buffets: the answer is usually yes."
+  },
+  "472": {
+    "transcript": "Red treats preflop hand selection the way toddlers treat bedtime."
+  },
+  "480": {
+    "transcript": "Red has two tournament speeds: chip leader and asking what time everybody's leaving."
+  },
+  "483": {
+    "transcript": "The Architect has become very good at building stacks, mostly from the rubble of other people."
   },
   "486": {
     "transcript": "Wild Bill says, ‘It's a skill game.’ The great thing about comedy is you can say anything with a straight face."
   },
   "487": {
-    "transcript": "Vish can go from soft spoken to ‘I shove’ so quickly it's like watching NPR get acquired by ESPN."
+    "transcript": "Vish can go from soft-spoken to ‘I shove’ so quickly it's like watching NPR get acquired by ESPN."
   },
   "488": {
     "transcript": "Hiro speaks several languages, but somehow ‘Don't do that’ remains the most important one at this table."
+  },
+  "489": {
+    "transcript": "Providence Mike has a marketing background, which explains how he keeps selling himself on calls nobody else would buy."
+  },
+  "490": {
+    "transcript": "BostnMike collects game-used hockey memorabilia. At the poker table, he prefers his chips factory sealed."
   },
   "491": {
     "transcript": "Cougar calls it ‘Texas Catch'em,’ which is helpful because ‘Texas Hold'em’ was clearly creating unrealistic expectations."
@@ -134,11 +362,44 @@
   "493": {
     "transcript": "Nitro is a project manager, so naturally every bad hand comes with a timeline extension and ‘one more card.’"
   },
+  "497": {
+    "transcript": "Chris O has mastered the rare poker technique known as ‘die twice, become final boss.’"
+  },
+  "498": {
+    "transcript": "The Architect occasionally shows up and starts eliminating regulars like the building has been condemned."
+  },
   "502": {
-    "transcript": "Wild Bill Roots for the Jets, Yankees, and Hurricanes. Poker variance looked at that resume and said, ‘He can take it.’"
+    "transcript": "Wild Bill roots for the Jets, Yankees, and Hurricanes. Poker variance looked at that resume and said, ‘He can take it.’"
+  },
+  "505": {
+    "transcript": "Vish works in social media, which explains the min-raise: tiny engagement, disproportionate reaction."
+  },
+  "506": {
+    "transcript": "Cougar has a toy Cougar protecting his cards. At this point, the toy has seen enough to qualify for counseling."
+  },
+  "509": {
+    "transcript": "Tony's nickname is ‘last in, first out,’ which would be more convincing if he didn't spend half the evening refusing to leave a decision."
+  },
+  "511": {
+    "transcript": "NASA Al is an old-school Celtics fan. He remembers when fundamentals mattered, which must make this table unbearable."
   },
   "514": {
     "transcript": "Providence Mike has a gift for saying, ‘I shouldn't be in this hand,’ like he's reporting from inside a burning building."
+  },
+  "515": {
+    "transcript": "Chris O's tournament strategy occasionally resembles a horror movie. You're absolutely certain he's dead; then the music starts again."
+  },
+  "516": {
+    "transcript": "The Architect doesn't always make the final table, but when he does, several other players apparently fail inspection."
+  },
+  "519": {
+    "transcript": "Hiro runs a travel company specializing in cruises, which is fitting because when he gets table-police mode going, everybody feels trapped on the same ship."
+  },
+  "521": {
+    "transcript": "AI Dave squeezes pots from time to time. It's nice to see the software guy occasionally remember there's a hardware button marked ‘raise.’"
+  },
+  "522": {
+    "transcript": "Nitro's real name is Lazar, but the group calls him Nitro. Apparently, one explosive nickname wasn't enough for king-five suited."
   },
   "526": {
     "transcript": "Ahmed says, ‘Yeah, man, a lot,’ usually immediately before or after something requiring more serious analysis."
@@ -146,41 +407,167 @@
   "527": {
     "transcript": "Jeff's ‘On my big blind?’ has the emotional weight of a man discovering taxation."
   },
+  "528": {
+    "transcript": "Vish likes when people gamble. There's a technical term for that, Lon: having very generous friends."
+  },
+  "530": {
+    "transcript": "The Architect's nickname sounds sophisticated until you realize half his blueprints end with somebody else getting demolished."
+  },
   "531": {
     "transcript": "Wild Bill's ‘What's the worst that can happen?’ is not a question. It's foreshadowing."
+  },
+  "532": {
+    "transcript": "BostnMike is a Brad Marchand fanboy. Marchand plays on the edge. Mike studies the edge, labels it, and backs slowly away."
+  },
+  "534": {
+    "transcript": "Cougar asked about bathroom breaks with the urgency most players reserve for all-ins. Priorities are a form of discipline."
+  },
+  "535": {
+    "transcript": "AI Dave looks genuinely pained when somebody raises before he can see a flop. That's not poker frustration; that's separation anxiety."
+  },
+  "537": {
+    "transcript": "Red's ‘any two cards’ philosophy is admirable. So was the Charge of the Light Brigade."
   },
   "538": {
     "transcript": "Providence Mike's reckless calls have reached the point where ‘I'm priced in’ should be printed on his player card as a medical alert."
   },
+  "539": {
+    "transcript": "Tony can bluff, tank, speech, and value-bet. He's essentially a Swiss Army knife that takes twelve minutes to open."
+  },
+  "542": {
+    "transcript": "Jeff folds small pocket pairs while Red plays ‘any two.’ Lon, between them, we almost have one complete poker player. Almost."
+  },
   "543": {
-    "transcript": "Vish poker voice is so soft that ‘I shove’ sounds less like a threat and more like he's asking whether you want a receipt."
+    "transcript": "Vish's poker voice is so soft that ‘I shove’ sounds less like a threat and more like he's asking whether you want a receipt."
+  },
+  "545": {
+    "transcript": "The Architect and Cougar approach pots very differently. One builds them; the other violates zoning laws."
+  },
+  "546": {
+    "transcript": "Wild Bill is a stand-up comic, which makes him uniquely qualified to recognize when the river is setting up a punch line."
+  },
+  "547": {
+    "transcript": "BostnMike and Ahmed represent the two great schools of poker: risk avoidance and whatever the hell Ahmed is doing."
+  },
+  "549": {
+    "transcript": "AI Dave and NASA Al are the two technical minds at the table. One trusts algorithms; the other rubs plastic playing cards for luck. Yeah. You try and figure it out."
+  },
+  "550": {
+    "transcript": "Nitro and Providence Mike both enjoy ‘one more card.’ The difference is Nitro whispers it and Providence Mike finances it."
   },
   "552": {
-    "transcript": "Cougar's ‘Nice hand. You suck’ remains the league's most efficient posthand analysis. Praise, insult, no unnecessary mathematics."
+    "transcript": "Cougar's ‘Nice hand. You suck’ remains the league's most efficient post-hand analysis. Praise, insult, no unnecessary mathematics."
+  },
+  "555": {
+    "transcript": "NASA Al's card-rubbing superstition would be ridiculous if this table hadn't already produced much worse theories."
   },
   "557": {
     "transcript": "Wild Bill says, ‘Come on, aces.’ Jeff gets aces and probably asks whether there's a safer option."
   },
+  "558": {
+    "transcript": "BostnMike and The Architect both believe in preservation. Mike preserves chips. The Architect preserves nothing in his path."
+  },
+  "559": {
+    "transcript": "Hiro's trivia-night experience helps here. Category: things players should know better. Answer: apparently none."
+  },
+  "563": {
+    "transcript": "Jeff running a cash game while claiming he never bluffs is like owning a bar and announcing you don't drink. Suspiciously wholesome."
+  },
+  "568": {
+    "transcript": "Ahmed doesn't understand Deep South accents. Fortunately, ‘all in’ translates cleanly in every dialect."
+  },
+  "569": {
+    "transcript": "Vish's occasional confusion is actually useful camouflage. Nobody can put you on a hand if you're still putting yourself on one."
+  },
+  "570": {
+    "transcript": "The Architect may be the only player whose nickname makes a bad beat sound like a municipal planning failure."
+  },
   "571": {
-    "transcript": "Wild Bill's fandom includes the Jets. When he says, ‘What's the worst that can happen?’ he's speaking from decades of peer reviewed research."
+    "transcript": "Wild Bill's fandom includes the Jets. When he says, ‘What's the worst that can happen?’ he's speaking from decades of peer-reviewed research."
+  },
+  "572": {
+    "transcript": "BostnMike's hockey collection is obnoxiously extensive. His bluff collection remains considerably more exclusive."
   },
   "573": {
     "transcript": "Hiro's response when caught bluffing is ‘You got me.’ Red's response is essentially, ‘Wanna try again?’"
   },
+  "574": {
+    "transcript": "Cougar's overbets and Jeff's underparticipation are proof that poker ecosystems eventually balance themselves."
+  },
+  "576": {
+    "transcript": "Nitro calls king-five suited ‘the Nitro.’ Naming a hand is usually the first sign the relationship has become unhealthy."
+  },
+  "577": {
+    "transcript": "Providence Mike and Chris O both understand second chances. One budgets for them; the other seems to weaponize them."
+  },
+  "582": {
+    "transcript": "The Architect and AI Dave have both shown they can close tournaments. One builds the finish; the other debugs everyone else out of it."
+  },
   "583": {
     "transcript": "Cougar and Vish both enjoy action. Cougar arrives with explosives. Vish arrives whispering ‘Vamos’ like an accomplice."
+  },
+  "587": {
+    "transcript": "And that, Lon, is the beauty of the TLPT. Engineers ignore math. Comedians tempt fate. NASA Al embraces superstition. And somehow Tony is still thinking."
+  },
+  "592": {
+    "transcript": "The Architect has a way of showing up quietly and leaving several stacks structurally unsound."
   },
   "598": {
     "transcript": "Jeff has turned ‘maybe not’ into a complete poker philosophy."
   },
+  "600": {
+    "transcript": "AI Dave often looks like he knows what the board is supposed to do. The board thinks, ‘Oh, you're cute.’"
+  },
   "602": {
-    "transcript": "Vish is so chill, he can make ‘I shove’ sound like he's confirming a dentist appointment."
+    "transcript": "Vish is so chill he can make ‘I shove’ sound like he's confirming a dentist appointment."
+  },
+  "612": {
+    "transcript": "Jeff and Cougar may actually be perfect tablemates. One refuses to put chips in; the other is happy to cover the difference."
   },
   "615": {
     "transcript": "Wild Bill says, ‘Poker is a skill game,’ which is exactly the kind of thing a comedian says before the punchline."
   },
+  "617": {
+    "transcript": "The Architect doesn't need a nickname anymore. The pile of rubble explains it."
+  },
+  "620": {
+    "transcript": "Providence Mike is very good at recognizing when he's licked, although it's usually from inside the pot."
+  },
+  "623": {
+    "transcript": "Ahmed talks to ugly flops like they're old friends who disappointed him."
+  },
   "626": {
     "transcript": "Cougar calls it ‘Texas Catch'em.’ It's actually a very efficient description of his defensive strategy."
+  },
+  "628": {
+    "transcript": "AI Dave, getting raised off a cheap flop, has the same expression as a golfer watching a four-footer lip out."
+  },
+  "630": {
+    "transcript": "Vish works in social media so the min-raise makes sense: just enough engagement to start an argument."
+  },
+  "631": {
+    "transcript": "Wild Bill rooting for the Jets has given him a level of emotional resilience poker simply cannot teach."
+  },
+  "639": {
+    "transcript": "The Architect has the unique ability to make somebody else's tournament look like a teardown."
+  },
+  "642": {
+    "transcript": "Cougar never seems particularly interested in how a pot started. He's more of a ‘how large can we make this problem?’ guy."
+  },
+  "649": {
+    "transcript": "Providence Mike and Nitro both love ‘one more card.’ Mike just tends to say it with more chips already committed."
+  },
+  "650": {
+    "transcript": "NASA Al and Wild Bill approach uncertainty differently. Al models it; Bill gives it a punch line."
+  },
+  "652": {
+    "transcript": "Red and Wild Bill have sports fandoms built around pain. Poker is really just cross-training."
+  },
+  "653": {
+    "transcript": "Tony's speeches are interesting because by the end, you've learned the hand, his range, and occasionally Albanian foreign policy."
+  },
+  "655": {
+    "transcript": "Providence Mike's marketing background is obvious. Nobody has ever sold ‘I know this is reckless’ more convincingly."
   },
   "657": {
     "transcript": "Jeff's ‘On my big blind?’ remains one of the great expressions of personal betrayal in modern poker."
@@ -188,32 +575,83 @@
   "662": {
     "transcript": "Nitro is a project manager who keeps requesting ‘one more card.’ Ladies and gentlemen, Scope Creep has entered the poker room."
   },
+  "663": {
+    "transcript": "NASA Al is old-school Boston sports to his core. He remembers when athletes had fundamentals and poker players apparently folded."
+  },
   "666": {
     "transcript": "Wild Bill yelling, ‘Come on, aces,’ has the energy of a man ordering from a menu the DeckMate does not use."
+  },
+  "668": {
+    "transcript": "The Architect showing up in a pot has increasingly become a building code issue."
+  },
+  "669": {
+    "transcript": "Providence Mike's greatest poker talent may be surviving decisions that sounded questionable when he made them and worse when he explained them."
+  },
+  "673": {
+    "transcript": "BostnMike has been around long enough that the table knows exactly how careful he is, which makes the approximately once-a-decade aggression genuinely terrifying."
+  },
+  "674": {
+    "transcript": "Tony gets called Li-Fo—‘last in, first out’—which is a spectacular nickname for a man who could spend forever on one decision."
+  },
+  "678": {
+    "transcript": "Red and AI Dave both believe the next card can improve things. One has calculations; the other has Red."
   },
   "679": {
     "transcript": "Jeff and Wild Bill are tremendous together. Bill asks, ‘What's the worst that can happen?’ and Jeff has already folded before finding out."
   },
+  "681": {
+    "transcript": "Nitro and The Architect have very different project management styles. Nitro wants another phase. The Architect wants demolition."
+  },
+  "684": {
+    "transcript": "NASA Al, AI Dave, and Red give you the full spectrum of analytical poker: aerospace science, software logic, and chemical engineering freestyle."
+  },
+  "685": {
+    "transcript": "BostnMike, Jeff, and Cougar could host a seminar called ‘Three Completely Different Reactions to a Marginal Hand.’"
+  },
+  "686": {
+    "transcript": "Tony, Chris O, and NASA Al have all figured out different ways to stay relevant late. Tony waits; Chris regenerates; Al just refuses to disappear."
+  },
   "687": {
-    "transcript": "Hiro, Ahmed, and Vish make a fascinating table dynamic. One wants order, one wants action, and one quietly whispers ‘Vamos’ while both things collapse."
+    "transcript": "Hiro, Ahmed, and Vish make a fascinating table dynamic. One wants order; one wants action; and one quietly whispers ‘Vamos’ while both things collapse."
+  },
+  "688": {
+    "transcript": "The remarkable thing about this group is that everybody has a system. Some are mathematical; some are disciplined; some are instinctive; and some systems appear to have been purchased at a yard sale. Lon, I'll let you figure out who's who, but here's a hint: Red loves a good deal on a bad idea."
+  },
+  "692": {
+    "transcript": "Red's luck numbers are ugly enough that even Manchester United supporters are saying, ‘Boy, that seems unfair.’"
   },
   "695": {
     "transcript": "Providence Mike has survived so many questionable decisions that his player profile should simply say, ‘Do not attempt at home.’"
   },
   "697": {
-    "transcript": "Chris O asks, ‘Can I still rebuy?’ With the confidence of a man who already knows this is only act one."
+    "transcript": "Chris O asks, ‘Can I still rebuy?’ with the confidence of a man who already knows this is only act one."
+  },
+  "699": {
+    "transcript": "The Architect complains, ‘How do you get there every time?’ apparently forgetting he personally designed the road."
+  },
+  "700": {
+    "transcript": "Nat: the PhattedCalf's greeting of ‘doctor, doctor, and doctor.’ At this point, he doesn't need another opinion. He needs a tournament life specialist."
   },
   "701": {
     "transcript": "Wild Bill calls poker ‘a skill game.’ That's why he's a comedian, folks. Timing."
   },
   "703": {
-    "transcript": "Vish says, ‘I just wanna gamble.’ So softly, you almost missed the sound of his stack entering witness protection."
+    "transcript": "Vish says, ‘I just wanna gamble’ so softly you almost missed the sound of his stack entering witness protection."
   },
   "704": {
     "transcript": "Cougar calls the game ‘Texas Catch'em.’ That may explain why every strategy meeting appears to begin after the flop."
   },
+  "705": {
+    "transcript": "Nitro's best long-term relationship remains king-five suited, which has now lasted longer than several of my marriages."
+  },
+  "707": {
+    "transcript": "BostnMike leads in knockouts, which is a remarkable development for a man whose public brand is essentially, ‘Can we just wait for aces?’"
+  },
   "710": {
     "transcript": "Hiro's results have taken enough punishment that ‘You got me’ is beginning to sound less like a bluff confession and more like an annual report."
+  },
+  "711": {
+    "transcript": "Tony keeps accumulating good results despite spending half the night conducting oral arguments before the Supreme Court of Fold."
   },
   "712": {
     "transcript": "Providence Mike's greatest statistical achievement may be proving that ‘I definitely should not be in this hand’ is not legally binding."
@@ -224,29 +662,140 @@
   "715": {
     "transcript": "Ahmed has removed Hiro enough times that Hiro's famous ‘Don't do that’ clearly lacks enforcement authority."
   },
+  "718": {
+    "transcript": "Ahmed and Tony have built quite a history together. One promotes action; the other promotes discussion. Both somehow end with chips moving toward Ahmed."
+  },
   "719": {
     "transcript": "Vish has developed a disturbing habit of sending BostnMike packing. Somewhere, Vish's famous phrase, ‘I shove,’ is now listed as a hostile takeover."
+  },
+  "720": {
+    "transcript": "NASA Al and Hiro have traded enough damage that Mission Control is asking why the cruise director keeps getting involved."
   },
   "724": {
     "transcript": "AI Dave and Providence Mike have exchanged enough knockouts to prove there are two ways to get into trouble. Calculate it carefully or say, ‘I guess I'm priced in.’"
   },
+  "726": {
+    "transcript": "Ahmed and BostnMike may be opposite strategically, but Ahmed has sent him home often enough to make ‘tight is right’ sound more like a customer complaint."
+  },
+  "727": {
+    "transcript": "Tony and Hiro have been knocking each other around for so long their hands should come with diplomatic immunity."
+  },
+  "729": {
+    "transcript": "Wild Bill and Hiro have exchanged enough damage that Tuesday trivia should include the category ‘People Who Have Sent Me Home.’"
+  },
+  "730": {
+    "transcript": "The Architect and AI Dave keep colliding. One designs marketing software. The other apparently designs the wreckage."
+  },
+  "732": {
+    "transcript": "NASA Al and BostnMike have traded enough eliminations that old-school Boston sports now includes checking one another into the rail."
+  },
+  "735": {
+    "transcript": "Jeff's knockout list is a little shorter than some others—hard to collect bodies when you keep declining the invitation to the crime scene."
+  },
+  "736": {
+    "transcript": "Nat seems to have encountered BostnMike at the wrong end of enough hands that ‘doctor, doctor, doctor’ should perhaps include an undertaker."
+  },
   "738": {
-    "transcript": "Ahmed has caused enough misery for Li-Fo, Hiro, and BostnMike that his famous invitation of ‘You should get in there, man’ now sounds like a threat."
+    "transcript": "Ahmed has caused enough misery for Li-Fo, Hiro, and BostnMike that his famous invitation, ‘You should get in there, man,’ now sounds like a threat."
+  },
+  "739": {
+    "transcript": "The league recently watched BostnMike break the DeckMate, repair the DeckMate, and then bubble. That's commissioner efficiency: create problem, solve problem, become problem."
+  },
+  "743": {
+    "transcript": "The regulars recently watched newcomers walk in and win immediately. Apparently, TLPT orientation consists of ‘Here are the chips; there are the veterans; please embarrass them.’"
+  },
+  "748": {
+    "transcript": "NASA Al knows how to put objects into orbit. The TLPT has taught him the harder skill: keeping poker chips on Earth."
+  },
+  "755": {
+    "transcript": "Vish works in social media, which makes sense. Every min-raise is basically engagement clickbait."
+  },
+  "759": {
+    "transcript": "NASA Al's old-school Celtics memories go back decades. His card-rubbing superstition apparently goes back to before the scientific method."
+  },
+  "761": {
+    "transcript": "Wild Bill roots for the Jets and Yankees. That's enough emotional contradiction to qualify as mixed-game training."
   },
   "767": {
     "transcript": "Ahmed's bubble record and knockout record together say one thing: ‘He'll happily ruin everyone's evening right up until the moment he ruins his own.’"
   },
+  "775": {
+    "transcript": "The Architect has caused enough damage to justify the nickname. The building inspector, however, has concerns."
+  },
+  "776": {
+    "transcript": "Vish quietly collects enough bodies that the soft-spoken thing is starting to feel like camouflage."
+  },
+  "778": {
+    "transcript": "Jeff may not dominate the knockout tables, but he does provide something every league needs: untouched cards in excellent condition."
+  },
+  "779": {
+    "transcript": "Wild Bill can laugh through variance because, unlike the rest of these people, he's professionally trained to perform in front of silence."
+  },
+  "780": {
+    "transcript": "Ahmed encourages everyone to rebuy. The prize pool calls him a philanthropist. The players' spouses may use another term."
+  },
   "783": {
-    "transcript": "BostnMike's stats say ‘killer.’ His reputation says ‘nit.’ Congratulations, Mike. You've invented passive aggressive homicide."
+    "transcript": "BostnMike's stats say ‘killer.’ His reputation says ‘nit.’ Congratulations, Mike. You've invented passive-aggressive homicide."
+  },
+  "785": {
+    "transcript": "Tony has been near the top often enough that Li-Fo is beginning to sound less like ‘last in, first out’ and more like ‘last irritant, frequently outstanding.’"
+  },
+  "788": {
+    "transcript": "NASA Al and Griffin both tend to be dangerous late. One has aerospace credentials; the other apparently has fewer excuses."
+  },
+  "789": {
+    "transcript": "BostnMike and Ahmed sit near opposite ends of the patience spectrum, yet both collect bodies. Poker remains an offensive insult to consistency."
+  },
+  "790": {
+    "transcript": "Red and Griffin illustrate two approaches to success. One lets the data speak; the other shouts over it."
   },
   "792": {
-    "transcript": "Providence Mike and Jeff could jointly publish the complete guide to marginal hands. One chapter says ‘call’; the other says ‘absolutely not.’"
+    "transcript": "Providence Mike and Jeff could jointly publish ‘The Complete Guide to Marginal Hands.’ One chapter says ‘call’; the other says ‘absolutely not.’"
+  },
+  "796": {
+    "transcript": "Hiro and Wild Bill both host audiences. One: trivia; one: comedy. Only Hiro seems surprised when everyone gets the answer wrong."
   },
   "797": {
-    "transcript": "Vish and Nitro both love one more card. Vish says, ‘Vamos.’ Nitro whispers. The bankroll hears both just fine."
+    "transcript": "Vish and Nitro both love ‘one more card.’ Vish says, ‘Vamos.’ Nitro whispers. The bankroll hears both just fine."
+  },
+  "799": {
+    "transcript": "BostnMike and Griffin occupy the leaderboard like two different tax brackets. One has accumulated everything; the other showed up with superior analytics."
+  },
+  "807": {
+    "transcript": "Vish and BostnMike are wonderful opposites. One whispers his aggression; the other whispers everything until suddenly you're dead."
+  },
+  "809": {
+    "transcript": "Jeff and Ahmed would make a fascinating instructional video called ‘Every Possible Amount of Participation.’"
+  },
+  "811": {
+    "transcript": "Nitro and Tony have the league's finest trust exercise. Tony bets; Nitro immediately decides trust was a terrible idea."
   },
   "812": {
-    "transcript": "The architect and Cougar can both make pots structurally unsound. Billy asks who designed it. Cougar says, ‘More.’"
+    "transcript": "The Architect and Cougar can both make pots structurally unsound. Billy asks who designed it. Cougar says, ‘More.’"
+  },
+  "814": {
+    "transcript": "The TLPT website has a dashboard, a street tracker, a trophy room, and an entire analytics system. All this technology to document grown men saying, ‘Can I see the river?’"
+  },
+  "816": {
+    "transcript": "There is enough statistical analysis on TLPT.org to launch a hedge fund, yet Red still prefers ‘any two cards’ and a squeeze play from the button."
+  },
+  "828": {
+    "transcript": "Cougar's analytics could be summarized as ‘Something happened—usually something large.’"
+  },
+  "830": {
+    "transcript": "Vish's knockout history is the quietest crime spree in Cary."
+  },
+  "832": {
+    "transcript": "The Architect's numbers suggest Billy actually knows how to finish projects. That may be the least realistic thing about construction."
+  },
+  "834": {
+    "transcript": "Wild Bill has been around long enough to know tournament poker is not always a ‘skill game.’ Fortunately, as a comedian, saying it still gets a laugh."
+  },
+  "837": {
+    "transcript": "Red, Providence Mike, and Vish could run a seminar titled ‘Why Fold When Tomorrow Isn't Guaranteed?’"
+  },
+  "838": {
+    "transcript": "And that's the TLPT, Lon. NASA Al has superstition. IT has faith. Marketing has loose calls. Engineering has bad luck. The commissioner has all the profit, and somehow everybody still thinks the DeckMate is the problem."
   },
   "002": {
     "transcript": "Providence Mike says he's ‘priced in’ again, which in marketing terms means buyer's remorse."
@@ -261,7 +810,7 @@
     "transcript": "Nitro is whispering ‘one more card’ like it's a prayer and not a strategy."
   },
   "022": {
-    "transcript": "Once again, Wild Bill announcing ‘it's a skill game’ right before fate checks in."
+    "transcript": "Once again, Wild Bill announcing ‘It's a skill game’ right before fate checks in."
   },
   "023": {
     "transcript": "Jeff once again asked, ‘On my big blind?’ like it's a philosophical question."
@@ -282,10 +831,10 @@
     "transcript": "Cougar once again playing ‘Texas Catch'em’ and betting like he's an outfielder for the Mets."
   },
   "058": {
-    "transcript": "Hiro saying, ‘Don't do that,’ which only encourages it, whatever that is."
+    "transcript": "Hiro: saying, ‘Don't do that,’ which only encourages it, whatever that is."
   },
   "059": {
-    "transcript": "Nitro's under the breath optimism of ‘one more card’ has entered phase two. I wonder if he realizes there's no 6th Street in Hold'em."
+    "transcript": "Nitro's under-the-breath optimism of ‘one more card’ has entered phase two. I wonder if he realizes there's no Sixth Street in Hold'em."
   },
   "061": {
     "transcript": "Bill's Jets and Hurricanes fandom has prepared him well for heartbreak on the river."
@@ -295,5 +844,104 @@
   },
   "099": {
     "transcript": "Bill is muttering, ‘Tournament poker, yeehaw,’ which feels suspiciously optimistic."
+  },
+  "005": {
+    "transcript": "Red insists ‘any two cards’ can work. His engineering degree says yes. Statistics say Squadoosh."
+  },
+  "076": {
+    "transcript": "Vish is calling to see ‘one more card’ showing big-sequel energy."
+  },
+  "082": {
+    "transcript": "Red remains loyal to ‘any two cards’ like a Man U fan to the leaky Old Trafford roof."
+  },
+  "007": {
+    "transcript": "Nitro is staring at his hole cards like they might secretly be king-five suited in disguise."
+  },
+  "014": {
+    "transcript": "Tony's tank has reached director's-cut territory, featuring localized commentary in Albanian."
+  },
+  "017": {
+    "transcript": "Cougar's overbet is so large it just applied for a building permit."
+  },
+  "019": {
+    "transcript": "Hiro is in table-police mode, and somewhere, a prime number nods approvingly."
+  },
+  "021": {
+    "transcript": "AI Dave: trusting the runout the way golfers trust a downhill putt with more emotion and less math."
+  },
+  "024": {
+    "transcript": "NASA Al is calculating odds while still believing in card friction. Yeah—science is complicated."
+  },
+  "026": {
+    "transcript": "There goes Ahmed, once again encouraging preflop action like a cruise director for chaos."
+  },
+  "028": {
+    "transcript": "Providence Mike is treating pot odds like a suggestion box. Take them or leave them."
+  },
+  "032": {
+    "transcript": "Hiro: correcting someone mid-action. And somewhere, Messi approves of the discipline."
+  },
+  "035": {
+    "transcript": "Wild Bill: chasing the open-ended straight draw like it's 2009 and Black Friday never happened."
+  },
+  "037": {
+    "transcript": "NASA Al and BostnMike: referencing the good old days of Bird and Orr. Ladies and gentlemen, nostalgia meets no limit."
+  },
+  "039": {
+    "transcript": "It's impressive how Ahmed multitasks another tournament on his phone. It's variance squared."
+  },
+  "042": {
+    "transcript": "BostnMike is protecting chips like they're backup files at work."
+  },
+  "045": {
+    "transcript": "If you listen carefully, you'll hear Hiro's beer-snob energy judging the table's decisions."
+  },
+  "047": {
+    "transcript": "Dave: once again contemplating the Squeeze Play like it's modern art."
+  },
+  "052": {
+    "transcript": "Ahmed is off to the kitchen to reheat coffee and reload confidence simultaneously."
+  },
+  "057": {
+    "transcript": "Red is calculating opponents' stack totals while ignoring stack self-preservation."
+  },
+  "065": {
+    "transcript": "Ahmed: pretending he hit the flop. The ‘for your consideration’ Oscar video is now pending."
+  },
+  "066": {
+    "transcript": "Tony's button bet comes with mystery, a side of Whamboozle, and an extra helping of nuclear Squadoosh."
+  },
+  "070": {
+    "transcript": "Lon, Red hating Boston sports while seated at a Boston-heavy table—that's a bold strategy."
+  },
+  "072": {
+    "transcript": "Dave: still believing every near miss is destiny's warm-up."
+  },
+  "073": {
+    "transcript": "Bill's preflop optimism could power a small Vermont town."
+  },
+  "078": {
+    "transcript": "Tony: saying the inside part out loud again, the audiobook edition of hesitation."
+  },
+  "084": {
+    "transcript": "Nitro is still skeptical of Tony's aggression. That's world-class project management in action."
+  },
+  "087": {
+    "transcript": "Both BostnMike and Jeff—discipline remains undefeated and unprofitable."
+  },
+  "089": {
+    "transcript": "Vish: soft-spoken but fearless. Volume does not equal variance."
+  },
+  "091": {
+    "transcript": "In the next release, Tony's speeches and tanks will feature bonus content."
+  },
+  "093": {
+    "transcript": "BostnMike is preserving chips like they're signed hockey pucks."
+  },
+  "010": {
+    "transcript": "Jeff just folded a small pair so fast Duke is offering him a scholarship in caution."
+  },
+  "040": {
+    "transcript": "Tony is tanking so long the blinds are considering early retirement."
   }
 }
