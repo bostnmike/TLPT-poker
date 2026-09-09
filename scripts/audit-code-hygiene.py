@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-12"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2521,7 +2521,7 @@ def main() -> int:
                         )
                     clip_669 = clips_by_id.get("669", {})
                     expected_clip_669 = (
-                        "Providence Mike's greatest poker talent may be surviving "
+                        "ProvidenceMike's greatest poker talent may be surviving "
                         "decisions that sounded questionable when he made them and "
                         "worse when he explains them."
                     )
@@ -2531,7 +2531,7 @@ def main() -> int:
                         )
                     clip_712 = clips_by_id.get("712", {})
                     expected_clip_712 = (
-                        "Providence Mike's greatest statistical achievement may be "
+                        "ProvidenceMike's greatest statistical achievement may be "
                         "proving that ‘I definitely should not be in this hand’ is "
                         "not legally binding."
                     )
@@ -2542,6 +2542,20 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 712 must remain the approved Providence Mike transcript"
+                        )
+                    noncanonical_providence_mike = [
+                        str(clip.get("id", "?"))
+                        for clip in clips
+                        if re.search(
+                            r"\bProvidence\s+Mike\b",
+                            str(clip.get("transcript", "")),
+                            flags=re.IGNORECASE,
+                        )
+                    ]
+                    if noncanonical_providence_mike:
+                        parser.errors.append(
+                            "Voice of God transcripts must use ProvidenceMike: "
+                            + ", ".join(noncanonical_providence_mike)
                         )
                     clip_713 = clips_by_id.get("713", {})
                     expected_clip_713 = (
