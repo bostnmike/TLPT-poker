@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-4"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-5"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2477,6 +2477,15 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 263 must retain its approved Hiro transcript and tag"
+                        )
+                    clip_429 = clips_by_id.get("429", {})
+                    expected_clip_429 = (
+                        "Red approaches every tournament like this is finally the one "
+                        "where the deck apologizes."
+                    )
+                    if str(clip_429.get("transcript", "")) != expected_clip_429:
+                        parser.errors.append(
+                            "Voice of God clip 429 must retain its approved transcript"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
