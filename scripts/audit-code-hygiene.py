@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-1"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-2"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2443,6 +2443,15 @@ def main() -> int:
                             parser.errors.append(
                                 f"Voice of God clip {lazar_clip_id} must use canonical Lazar"
                             )
+                    wit_sec_clip = clips_by_id.get("176", {})
+                    if (
+                        "wit-sec protection"
+                        not in str(wit_sec_clip.get("transcript", "")).casefold()
+                        or "wit-sec" not in wit_sec_clip.get("keywords", [])
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 176 must use canonical wit-sec"
+                        )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
                         for clip in clips
