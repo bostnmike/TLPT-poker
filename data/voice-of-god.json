@@ -5765,23 +5765,21 @@
       "id": "263",
       "filename": "263.mp3",
       "file": "audio/voice-of-god/263.mp3",
-      "transcript": "AI Dave convinced the straight draw is inevitable, like death, taxes, gravity, or Providence Mike calling.",
+      "transcript": "Hiro caught bluffing again, and calmly admits it, which is more honesty than the table deserves.",
       "canonicalPlayersMentioned": [
-        "ai-dave",
-        "providencemike"
+        "hiro"
       ],
       "aliasesDetected": [
-        "AI Dave",
-        "Providence Mike"
+        "Hiro"
       ],
       "category": "roast",
       "keywords": [
-        "call",
-        "draw",
-        "straight",
-        "inevitable",
-        "taxes",
-        "gravity"
+        "bluff",
+        "table",
+        "admits",
+        "honesty",
+        "calmly",
+        "deserves"
       ],
       "duration": 7.184
     },
