@@ -2,9 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", async () => {
   const PAGE_SIZE = 24;
-  const DATA_URL = "data/voice-of-god.json?v=20260909-8";
+  const DATA_URL = "data/voice-of-god.json?v=20260909-9";
   const PLAYER_DATA_URL = "data/player-metadata.json?v=20260907-1";
-  const CORRECTIONS_URL = "data/voice-of-god-corrections.json?v=20260909-8";
+  const CORRECTIONS_URL = "data/voice-of-god-corrections.json?v=20260909-9";
 
   const audio = document.querySelector("#vog-audio");
   const currentTitle = document.querySelector("#vog-now-playing-title");

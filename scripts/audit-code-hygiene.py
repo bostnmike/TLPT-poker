@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-8"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-9"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2518,6 +2518,16 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 587 must retain its approved transcript and tags"
+                        )
+                    clip_669 = clips_by_id.get("669", {})
+                    expected_clip_669 = (
+                        "Providence Mike's greatest poker talent may be surviving "
+                        "decisions that sounded questionable when he made them and "
+                        "worse when he explains them."
+                    )
+                    if str(clip_669.get("transcript", "")) != expected_clip_669:
+                        parser.errors.append(
+                            "Voice of God clip 669 must retain its approved transcript"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
