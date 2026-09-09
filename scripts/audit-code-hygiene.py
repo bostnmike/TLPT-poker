@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-2"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-3"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2451,6 +2451,19 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 176 must use canonical wit-sec"
+                        )
+                    clip_243 = clips_by_id.get("243", {})
+                    expected_clip_243 = (
+                        "Vish whispers, ‘Vamos,’ softly, and Tony wonders if that "
+                        "means ‘all in.’ No, Tony. It means ‘stop tanking.’ Signed, "
+                        "the rest of the table."
+                    )
+                    if (
+                        str(clip_243.get("transcript", "")) != expected_clip_243
+                        or "vamos" not in clip_243.get("keywords", [])
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 243 must retain its approved transcript"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
