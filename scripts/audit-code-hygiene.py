@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-9"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-10"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2528,6 +2528,34 @@ def main() -> int:
                     if str(clip_669.get("transcript", "")) != expected_clip_669:
                         parser.errors.append(
                             "Voice of God clip 669 must retain its approved transcript"
+                        )
+                    clip_712 = clips_by_id.get("712", {})
+                    expected_clip_712 = (
+                        "Providence Mike's greatest statistical achievement may be "
+                        "proving that ‘I definitely should not be in this hand’ is "
+                        "not legally binding."
+                    )
+                    if (
+                        str(clip_712.get("transcript", "")) != expected_clip_712
+                        or clip_712.get("canonicalPlayersMentioned")
+                        != ["providencemike"]
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 712 must remain the approved Providence Mike transcript"
+                        )
+                    clip_713 = clips_by_id.get("713", {})
+                    expected_clip_713 = (
+                        "AI Dave has plenty of hits, but not as much profit as you'd "
+                        "expect. He's basically running a successful business, with "
+                        "NO accounting department."
+                    )
+                    if (
+                        str(clip_713.get("transcript", "")) != expected_clip_713
+                        or clip_713.get("canonicalPlayersMentioned") != ["ai-dave"]
+                        or clip_713.get("aliasesDetected") != ["AI Dave"]
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 713 must retain its approved AI Dave transcript and tag"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
