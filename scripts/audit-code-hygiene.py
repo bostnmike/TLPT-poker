@@ -342,7 +342,7 @@ EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-10"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-11"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260906-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
@@ -2556,6 +2556,22 @@ def main() -> int:
                     ):
                         parser.errors.append(
                             "Voice of God clip 713 must retain its approved AI Dave transcript and tag"
+                        )
+                    clip_738 = clips_by_id.get("738", {})
+                    expected_clip_738 = (
+                        "Ahmed has caused enough misery for Li-Fo, Hiro, and BostnMike "
+                        "that his famous invitation of, ‘You should get in there, man,’ "
+                        "now sounds like a threat."
+                    )
+                    if (
+                        str(clip_738.get("transcript", "")) != expected_clip_738
+                        or clip_738.get("canonicalPlayersMentioned")
+                        != ["ahmed", "li-fo", "hiro", "bostnmike"]
+                        or clip_738.get("aliasesDetected")
+                        != ["Ahmed", "Li-Fo", "Hiro", "BostnMike"]
+                    ):
+                        parser.errors.append(
+                            "Voice of God clip 738 must retain its approved transcript and tags"
                         )
                     unbalanced_dialogue = [
                         str(clip.get("id", "?"))
