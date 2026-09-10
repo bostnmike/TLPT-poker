@@ -162,7 +162,7 @@ unchanged.
 
 ### Phase 3B.1.1 Schedule and RSVP sizing refinement
 
-The Schedule hero title is shortened to “Next at Caahhd Room,” removes the
+The Schedule hero title is shortened to “Next @ the Caahhd Room,” removes the
 long-title modifier, and returns to the standard shared hero-title scale on
 desktop and mobile. The Schedule module retains only its chip-clearance padding
 at the smallest breakpoint.
