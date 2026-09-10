@@ -187,24 +187,24 @@ EXPECTED_NAV_CURRENT_LABEL = {
     for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
 }
 EXPECTED_PAGE_TITLES = {
-    "404.html": "Page Not Found | TLPT Poker League",
-    "champions.html": "TLPT Hall of In-FAM[E]-Y",
-    "dashboard.html": "TLPT Dashboard",
-    "form-lab.html": "The Form Lab | TLPT",
-    "gallery.html": "The Gallery | TLPT Poker League",
-    "index.html": "TLPT Poker League",
-    "knockouts.html": "Knockout Central | TLPT Poker League",
-    "media.html": "TLPT Film Room",
-    "news.html": "Felt Whispers | TLPT Poker League",
-    "player-movement.html": "The Heater Meter | TLPT",
-    "player.html": "Player Profile | TLPT Poker League",
-    "players.html": "TLPT Players",
-    "rules.html": "TLPT Rules",
-    "schedule.html": "TLPT Schedule",
-    "standings.html": "TLPT Standings",
-    "streaks.html": "TLPT Streak Tracker",
-    "trophy-room.html": "TLPT Trophy Room",
-    "voice-of-god.html": "The Voice of God | TLPT Poker League",
+    "404.html": "This Hand Went Missing | TLPT.org",
+    "champions.html": "Hall of In-FAM[E]-Y | TLPT.org",
+    "dashboard.html": "The Dashboard | TLPT.org",
+    "form-lab.html": "The Form Lab | TLPT.org",
+    "gallery.html": "The Art Gallery | TLPT.org",
+    "index.html": "Twin Lakes Poker Tour | TLPT.org",
+    "knockouts.html": "Knockout Central | TLPT.org",
+    "media.html": "The Film Room | TLPT.org",
+    "news.html": "Felt Whispers | TLPT.org",
+    "player-movement.html": "The Heater Meter | TLPT.org",
+    "player.html": "Player Profile | TLPT.org",
+    "players.html": "Meet the Crew | TLPT.org",
+    "rules.html": "Rules & Structure | TLPT.org",
+    "schedule.html": "Next at Caahhd Room | TLPT.org",
+    "standings.html": "The Standings | TLPT.org",
+    "streaks.html": "The Streak Tracker | TLPT.org",
+    "trophy-room.html": "The Trophy Room | TLPT.org",
+    "voice-of-god.html": "The Voice of God | TLPT.org",
 }
 UNIFIED_TITLE_PAGES = {
     "404.html": "This Hand Went Missing",
@@ -248,7 +248,7 @@ EXPECTED_META_DESCRIPTIONS = {
     "index.html": "Follow the TLPT Poker League schedule, players, standings, statistics, honors, and latest league stories.",
     "knockouts.html": "Explore TLPT Poker League knockout totals, hit leaders, event eliminations, and head-to-head damage.",
     "media.html": "Watch TLPT Poker League films, highlights, and featured videos in the Film Room.",
-    "news.html": "Read Felt Whispers for TLPT Poker League event recaps, game spotlights, numbers that matter, and host roasts.",
+    "news.html": "Read Felt Whispers for TLPT Poker League event recaps, game spotlights, By the Numbers, and host roasts.",
     "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
     "player.html": "View a TLPT Poker League player profile, Ultimate Player Card, statistics, honors, and card collection.",
     "players.html": "Meet the TLPT Poker League crew and compare tiered Ultimate Player Cards, ratings, and play styles.",
@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260908-3"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260909-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1332,6 +1332,10 @@ def audit_javascript(path: Path) -> list[str]:
             (
                 'canonicalUrl.searchParams.set("name", player.name);',
                 "Player Profile canonical URL must preserve the resolved player identity",
+            ),
+            (
+                'const title = `${playerName} | TLPT.org`;',
+                "Player Profile document title must use the shared TLPT.org suffix",
             ),
             (
                 "player.image || PLAYER_PROFILE_FALLBACK_IMAGE",

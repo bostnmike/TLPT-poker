@@ -1280,7 +1280,7 @@ function updatePlayerProfileMetadata(player) {
   if (!player?.name) return;
 
   const playerName = displayPlayerNamePlain(player);
-  const title = `${playerName} | TLPT Player Profile`;
+  const title = `${playerName} | TLPT.org`;
   const description = `View ${playerName}'s TLPT Poker League Ultimate Player Card, statistics, honors, knockouts, and card collection.`;
   const canonicalUrl = new URL("/player.html", TLPT_SITE_ORIGIN);
   canonicalUrl.searchParams.set("name", player.name);
