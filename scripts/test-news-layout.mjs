@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Verify the shared TWTW layout against every story, without browser dependencies. */
+/** Verify the shared Felt Whispers layout against every story, without browser dependencies. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -35,7 +35,7 @@ function assertImageContract(html, expectedAttributes, label, expectedCount = 1)
     }
   }
 }
-const order = ['👂🏼 Felt Whispers', '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
+const order = ["📖 Here's the story...", '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
 const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*Quick Hits/;
 const fixture = {
   id: 'test-four-section-story', date: '09/06/2026', title: 'TWTW: Test', featured: true,
@@ -143,11 +143,12 @@ const ids = data.weeks.map((week) => week.id);
 assert.equal(new Set(ids).size, ids.length, 'No duplicate story IDs');
 assert.equal(data.weeks.filter((week) => week.featured === true).length, 1, 'Exactly one featured story');
 assert.equal(data.weeks[0].featured, true, 'Newest story remains first and featured');
+assert.ok(data.weeks.every((week) => !/^TWTW:\s*/i.test(String(week?.title || ''))), 'Story titles omit the legacy TWTW prefix');
 const missingRoasts = [];
 
 for (const week of data.weeks) {
   const labels = (week.summaryCards || []).map((card) => String(card?.label || ''));
-  assert.ok(labels.includes('👂🏼 Felt Whispers'), `Felt Whispers summary label: ${week.id}`);
+  assert.equal(labels[0], '🏆 The Big Winner', `Big Winner summary label: ${week.id}`);
   assert.ok(labels.every((label) => !label.includes('Main Story')), `Legacy Main Story summary label: ${week.id}`);
 }
 
@@ -168,6 +169,8 @@ for (const [index, week] of data.weeks.entries()) {
     assert.deepEqual(sectionTitles(article), expected, `Featured/archive layout: ${week.id}`);
     assert.ok(article.includes(`id="${week.id}"`), `Stable story anchor: ${week.id}`);
     assert.equal(article.includes(' news-post-featured'), isFeatured, `Featured styling: ${week.id}`);
+    assert.doesNotMatch(article, /<h3 class="news-post-title">TWTW:/i, `Legacy title prefix: ${week.id}`);
+    assert.doesNotMatch(article, /The Week That Was|news-post-kicker/i, `Legacy story kicker: ${week.id}`);
   }
 }
 
@@ -197,5 +200,5 @@ assert.equal(sandbox.resolvePlayerAvatar({ alt: 'Unknown', src: 'images/players/
 assert.match(sandbox.renderAvatar({ alt: 'Unknown', fallback: 'UN' }), /player-avatar-fallback/);
 assert.equal(JSON.stringify(data), original, 'Rendering must not mutate story data');
 
-console.log(`TWTW layout PASS: ${data.weeks.length} stories; Felt Whispers narrative heading in featured and archive modes; no TL;DR, legacy feltSaid card grid or Quick Hits; links, cards, stat pills and avatars retained.`);
+console.log(`Felt Whispers layout PASS: ${data.weeks.length} stories; clean event titles and updated story headings in featured and archive modes; no TL;DR, legacy feltSaid card grid or Quick Hits; links, cards, stat pills and avatars retained.`);
 if (missingRoasts.length) console.log(`Preserved existing missing Host Roast content (not invented): ${missingRoasts.join(', ')}`);

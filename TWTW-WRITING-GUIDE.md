@@ -1,19 +1,19 @@
-# The Week That Was — writing and publishing guide
+# Felt Whispers — writing and publishing guide
 
-Updated September 6, 2026. These instructions supersede all earlier TWTW prompts wherever section order or retired sections conflict.
+Updated September 9, 2026. These instructions supersede all earlier news-story prompts wherever section order or retired sections conflict.
 
 ## Permanent page layout
 
 Every featured and archived story uses this body order:
 
-1. Felt Whispers
+1. Here's the story...
 2. Game Spotlight
 3. Numbers That Matter
 4. Host Roast
 
-The page header, author strip, This Week at a Glance (four summary cards), four event-total stat pills, story title/date/dek, and Story Archive navigation stay in place. They are not additional body sections.
+The page header, author strip, Last Week's Highlights (four summary cards), four event-total stat pills, Latest Stories heading, story title/date/dek, and Story Archive navigation stay in place. They are not additional body sections. Do not add a publication-name kicker above individual stories; the date line and event title are sufficient.
 
-TL;DR, the old four-card Felt Whispers grid (stored historically as `feltSaid` and also formerly called Felt Said / What the Felt Said), and Quick Hits are permanently retired. **Felt Whispers now means the long-form narrative article section backed by `mainStoryHtml`; it does NOT restore the old `feltSaid` grid.** Never generate `tldr`, `feltSaid`, `quickHitsLeft`, or `quickHitsRight` in a new story. Do not recreate the removed card-grid sections under different names, embed them in HTML, or move all of their content into another section.
+TL;DR, the old four-card Felt Whispers grid (stored historically as `feltSaid` and also formerly called Felt Said / What the Felt Said), and Quick Hits are permanently retired. **Felt Whispers is now the page name; the long-form narrative section is labeled `Here's the story...` and backed by `mainStoryHtml`.** Never generate `tldr`, `feltSaid`, `quickHitsLeft`, or `quickHitsRight` in a new story. Do not recreate the removed card-grid sections under different names, embed them in HTML, or move all of their content into another section.
 
 Historical objects can retain those unused source fields without displaying them: the shared renderer ignores them. A routine weekly update must not rewrite or clean the entire archive. Existing missing optional archive content stays missing unless Mike requests an editorial backfill; do not invent a roast or an empty placeholder merely to fill a box.
 
@@ -39,10 +39,10 @@ Nicknames, food, table jokes, and equipment incidents belong to the event where 
 
 Tone: witty, sharp, specific, slightly savage, poker-literate TLPT insider copy. Funny because the details are real; avoid generic poker filler and forced recurring jokes.
 
-- Summary cards: exactly four short headline facts identifying major players/outcomes. Do not tell the whole story in each card.
+- Summary cards: exactly four short headline facts identifying major players/outcomes. The first card is labeled `🏆 The Big Winner`. Do not tell the whole story in each card.
 - Stat pills: entries, rebuys, prize pool, and elapsed duration only.
 - Dek: one brief hook, not an inventory of every subplot.
-- Felt Whispers: usually three or four paragraphs. Establish the central hook, develop the winner/pivotal action, use the strongest supporting table storyline, and finish with a fresh ending. Each paragraph has a different purpose. Use the weekly poster first.
+- Here's the story...: usually three or four paragraphs. Establish the central hook, develop the winner/pivotal action, use the strongest supporting table storyline, and finish with a fresh ending. Each paragraph has a different purpose. Use the weekly poster first.
 - Game Spotlight: one to three central people. Use compact context pills and accurate avatar mapping; no second miniature article.
 - Numbers That Matter: exactly four meaningful, mostly factual items. Different dimensions of the event, not four restatements of the headline. Payout breakdown belongs here when useful.
 - Host Roast: always BostnMike/the Commissioner, never ProvidenceMike by mistake. One fresh, short closing joke, not a summary of Felt Whispers or a repeated punchline.
@@ -56,7 +56,7 @@ Keep the existing compatible field shapes. A new story contains:
 - `id`: `week-MM-DD-YYYY`
 - `date`: `MM/DD/YYYY`
 - `eventName`: the report's event name
-- `title`: begins `TWTW:`
+- `title`: the event name only, with no `TWTW:`, `FW:`, or other publication prefix
 - `featured`: boolean
 - `dek`: brief hook
 - `summaryCards`: exactly four card objects, using the current renderer's `tone`, `label`, `player`, `value` (when useful), `copy`, `avatar` or `avatars`, and `fallback` shapes

@@ -261,14 +261,14 @@ function renderWeeks(weeks, container) {
 function renderWeek(week, index, isFeatured) {
   const id = escapeHtml(week?.id || `week-${index}`);
   const date = escapeHtml(week?.date || '');
-  const title = escapeHtml(week?.title || `TWTW: ${week?.eventName || 'Event'}`);
+  const rawTitle = week?.title || week?.eventName || 'Event';
+  const title = escapeHtml(String(rawTitle).replace(/^TWTW:\s*/i, ''));
   const dek = escapeHtml(week?.dek || '');
   const bodyHtml = renderWeekBody(week);
 
   return `
     <article id="${id}" class="news-post-card${isFeatured ? ' news-post-featured' : ''}">
       <div class="news-post-meta">
-        <div class="news-post-kicker">The Week That Was</div>
         <div class="news-post-dateline">Date Line: ${date}</div>
       </div>
 
@@ -298,7 +298,7 @@ function renderMainStory(week) {
 
   return `
     <section class="news-story-section">
-      <h4>👂🏼 Felt Whispers</h4>
+      <h4>📖 Here's the story...</h4>
       ${html}
     </section>
   `;
@@ -486,7 +486,6 @@ function renderEmptyState(summaryGrid, statbarShell, blogFeed, archiveList) {
     blogFeed.innerHTML = `
       <article class="news-post-card news-post-featured">
         <div class="news-post-meta">
-          <div class="news-post-kicker">The Week That Was</div>
           <div class="news-post-dateline">No entries yet</div>
         </div>
         <h3 class="news-post-title">No News Yet</h3>
@@ -507,7 +506,6 @@ function renderErrorState(blogFeed, summaryGrid, statbarShell, archiveList) {
     blogFeed.innerHTML = `
       <article class="news-post-card news-post-featured">
         <div class="news-post-meta">
-          <div class="news-post-kicker">The Week That Was</div>
           <div class="news-post-dateline">Load error</div>
         </div>
         <h3 class="news-post-title">Could not load the archive</h3>
