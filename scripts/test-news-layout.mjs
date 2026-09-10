@@ -35,7 +35,7 @@ function assertImageContract(html, expectedAttributes, label, expectedCount = 1)
     }
   }
 }
-const order = ["📖 Here's the story...", '🔦 Game Spotlight', '🔢 Numbers That Matter', '🎙️ Host Roast'];
+const order = ["📖 Here's the story...", '🔦 Game Spotlight', '🔢 By the Numbers', '🎙️ Host Roast'];
 const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*Quick Hits/;
 const fixture = {
   id: 'test-four-section-story', date: '09/06/2026', title: 'TWTW: Test', featured: true,

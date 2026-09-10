@@ -404,7 +404,7 @@ function renderNumbersThatMatter(week) {
 
   return `
     <section class="news-story-section">
-      <h4>🔢 Numbers That Matter</h4>
+      <h4>🔢 By the Numbers</h4>
       <ul>
         ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
       </ul>

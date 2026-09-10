@@ -8,7 +8,7 @@ Every featured and archived story uses this body order:
 
 1. Here's the story...
 2. Game Spotlight
-3. Numbers That Matter
+3. By the Numbers
 4. Host Roast
 
 The page header, author strip, Last Week's Highlights (four summary cards), four event-total stat pills, Latest Stories heading, story title/date/dek, and Story Archive navigation stay in place. They are not additional body sections. Do not add a publication-name kicker above individual stories; the date line and event title are sufficient.
@@ -44,7 +44,7 @@ Tone: witty, sharp, specific, slightly savage, poker-literate TLPT insider copy.
 - Dek: one brief hook, not an inventory of every subplot.
 - Here's the story...: usually three or four paragraphs. Establish the central hook, develop the winner/pivotal action, use the strongest supporting table storyline, and finish with a fresh ending. Each paragraph has a different purpose. Use the weekly poster first.
 - Game Spotlight: one to three central people. Use compact context pills and accurate avatar mapping; no second miniature article.
-- Numbers That Matter: exactly four meaningful, mostly factual items. Different dimensions of the event, not four restatements of the headline. Payout breakdown belongs here when useful.
+- By the Numbers: exactly four meaningful, mostly factual items. Different dimensions of the event, not four restatements of the headline. Payout breakdown belongs here when useful.
 - Host Roast: always BostnMike/the Commissioner, never ProvidenceMike by mistake. One fresh, short closing joke, not a summary of Felt Whispers or a repeated punchline.
 
 Allocate each anecdote or punchline to one main home. Essential outcome overlap between a card and narrative is fine; repeating the same joke, payout, nickname, streak or finish across every section is not. End with the Host Roast: no TL;DR, closing checklist, bonus recap, or renamed replacement for a removed section.
