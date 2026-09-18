@@ -336,7 +336,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-7"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-8"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -4190,6 +4190,9 @@ def audit_rsvp_table_switch() -> list[str]:
         ".event-rsvp-tables-two{",
         ".event-rsvp-table-heading{",
         ".event-rsvp-avatar-row.is-two-table-row{",
+        "grid-template-columns:420px minmax(0, 1fr);",
+        "height:210px;",
+        "flex-direction:column;",
         "@media (max-width:760px)",
     ):
         if token not in css:
