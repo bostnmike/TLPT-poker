@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-6"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-7"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1641,6 +1641,38 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append("Two Table Bonanza must retain all five scheduled breaks")
             if two_table_source.count('note: "15-MINUTE BREAK — Chip up"') != 4:
                 errors.append("Two Table Bonanza must retain four 15-minute breaks")
+            two_table_levels = {
+                int(match.group("level")): {
+                    "bb": int(match.group("bb").replace(",", "")),
+                    "eff": match.group("eff"),
+                }
+                for match in re.finditer(
+                    r'\{ type: "level", level: "(?P<level>\d+)", '
+                    r'sb: "[\d,]+", bb: "(?P<bb>[\d,]+)", '
+                    r'ante: "[\d,]+", eff: "(?P<eff>[^"]+)" \}',
+                    two_table_source,
+                )
+            }
+            if len(two_table_levels) != 29:
+                errors.append(
+                    "Every Two Table Bonanza level must define its Effective BB state"
+                )
+            else:
+                for level in range(1, 16):
+                    expected_effective_bb = (
+                        f'{50_000 // two_table_levels[level]["bb"]} BB'
+                    )
+                    if two_table_levels[level]["eff"] != expected_effective_bb:
+                        errors.append(
+                            "Two Table Bonanza Level "
+                            f"{level} Effective BB must be {expected_effective_bb}"
+                        )
+                for level in range(16, 30):
+                    if two_table_levels[level]["eff"] != "Rebuys Closed":
+                        errors.append(
+                            "Two Table Bonanza must show Rebuys Closed from "
+                            f"Level 16 onward (Level {level} differs)"
+                        )
             for fragment, message in (
                 (
                     'levelMinutes: 30,',
@@ -1673,6 +1705,11 @@ def audit_javascript(path: Path) -> list[str]:
                 (
                     'Rebuys do not carry an additional bounty.',
                     "Two Table Bonanza must limit the bounty to each first buy-in",
+                ),
+                (
+                    'Effective BB uses the 50K starting stack; rebuys are open '
+                    'through Level 15 and closed beginning with Level 16.',
+                    "Two Table Bonanza must explain its Effective BB and rebuy window",
                 ),
                 (
                     'level: "11", sb: "1,000", '
