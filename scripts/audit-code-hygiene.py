@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-6"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-7"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1756,8 +1756,9 @@ def audit_javascript(path: Path) -> list[str]:
                     f"{format_key} must pay the top three places",
                 ),
                 (
-                    'payoutLabel: "1st 50% • 2nd 30% • 3rd 20%",',
-                    f"{format_key} must display the approved 50/30/20 payout schedule",
+                    'payoutLabel: "$360 • 1st $180 (50%) • 2nd $110 (30%) '
+                    '• 3rd $70 (20%)",',
+                    f"{format_key} must display the approved $360 projected payouts",
                 ),
             ):
                 if fragment not in format_source:
@@ -1883,16 +1884,16 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack rounds must default to 25 minutes",
                 ),
                 (
-                    'levelLengthLabel: "25 min (1–20) • 60 min (21)",',
-                    "Two-Table 50K Deep Stack must explain its 25/60-minute level timing",
+                    'levelLengthLabel: "25 min",',
+                    "Two-Table 50K Deep Stack header must show its standard 25-minute levels",
                 ),
                 (
                     'breakMinutes: 20,',
                     "Two-Table 50K Deep Stack breaks must remain 20 minutes",
                 ),
                 (
-                    'runtimeLabel: "10 hrs 45 min",',
-                    "Two-Table 50K Deep Stack runtime pill must remain on one line",
+                    'runtimeLabel: "9 hrs 20 min",',
+                    "Two-Table 50K Deep Stack projection must exclude contingency Levels 20–21",
                 ),
                 (
                     'durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up"',
