@@ -45,7 +45,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260825-6" />
-  <link rel="stylesheet" href="rules.css?v=20260824-4" />
+  <link rel="stylesheet" href="rules.css?v=20260917-1" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
 </head>
 <body>
@@ -149,7 +149,7 @@
         <h3>Structure</h3>
       </div>
     </div>
-    <p>Whether it’s 40K on Friday or 500K on Saturday, the structure is there to give everyone a chance before the deck turns into a crime scene. Use the tables below for the full blind sheet and chip set.</p>
+    <p>Whether it’s 40K on Friday, 500K on Saturday, or a Two Table Bonanza, the structure is there to give everyone a chance before the deck turns into a crime scene. Use the tables below for the full blind sheet and available chip-set details.</p>
   </div>
 
   <div class="rule-card">
@@ -175,22 +175,19 @@
     </section>
 
     <section class="section rules-table-bg">
-        <div class="page-kicker">Choose either format below to view the full blind sheet and chip set</div>
+        <div class="page-kicker">Choose a format below to view its full blind sheet and available chip-set details</div>
 
         <div class="format-toggle" role="group" aria-label="Tournament structure">
-          <button class="btn btn-format active" id="format-btn-40k" type="button" aria-pressed="true" aria-controls="format-content">
+          <button class="btn btn-format active" id="format-btn-40k" type="button" data-rules-format="40k" aria-pressed="true" aria-controls="format-content">
             Friday's 40K Structure
           </button>
 
-          <label class="format-switch" for="format-switch-input">
-            <input id="format-switch-input" type="checkbox" aria-label="Saturday 500K structure" aria-controls="format-content" />
-            <span class="format-switch-track">
-              <span class="format-switch-thumb"></span>
-            </span>
-          </label>
-
-          <button class="btn btn-format" id="format-btn-500k" type="button" aria-pressed="false" aria-controls="format-content">
+          <button class="btn btn-format" id="format-btn-500k" type="button" data-rules-format="500k" aria-pressed="false" aria-controls="format-content">
             Saturday's 500K Structure
+          </button>
+
+          <button class="btn btn-format" id="format-btn-two-table" type="button" data-rules-format="two-table" aria-pressed="false" aria-controls="format-content">
+            Two Table Bonanza
           </button>
         </div>
 
@@ -217,6 +214,6 @@
 </footer>
 
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20260909-1"></script>
+  <script src="app.js?v=20260917-1"></script>
 </body>
 </html>

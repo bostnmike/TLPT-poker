@@ -359,6 +359,8 @@ const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
     runtimeMinutes: 300,
+    levelMinutes: 20,
+    breakMinutes: 10,
     chips: [
       { label: "T-25", image: "images/site/chip-T-25.png" },
       { label: "T-100", image: "images/site/chip-T-100.png" },
@@ -395,6 +397,8 @@ const RULES_FORMATS = {
   "500k": {
     title: "500K Small Blind Ante",
     runtimeMinutes: 300,
+    levelMinutes: 20,
+    breakMinutes: 10,
     chips: [
       { label: "T-500", image: "images/site/chip-T-500.png" },
       { label: "T-1000", image: "images/site/chip-T-1000.png" },
@@ -425,6 +429,50 @@ const RULES_FORMATS = {
       { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "Rebuys Closed" },
       { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "Rebuys Closed" },
       { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "Rebuys Closed" }
+    ]
+  },
+  "two-table": {
+    title: "Two Table Bonanza",
+    description: "A two-table structure designed for fields of up to 18 players, with 30-minute rounds and 15-minute breaks. Starting-stack and chip-set details will be added once finalized.",
+    runtimeLabel: "Varies by field",
+    levelMinutes: 30,
+    levelLengthLabel: "30 min (Round 11: 60 min)",
+    breakMinutes: 15,
+    showEffectiveBb: false,
+    blindNote: "Gold rows mark 15-minute breaks and chip-up points. Live rounds are 30 minutes except Round 11, which is 60 minutes.",
+    levels: [
+      { type: "level", level: "1", sb: "50", bb: "100", ante: "0" },
+      { type: "level", level: "2", sb: "75", bb: "150", ante: "0" },
+      { type: "level", level: "3", sb: "100", bb: "200", ante: "0" },
+      { type: "level", level: "4", sb: "125", bb: "250", ante: "0" },
+      { type: "level", level: "5", sb: "150", bb: "300", ante: "0" },
+      { type: "break", note: "15-MINUTE BREAK — Chip up" },
+      { type: "level", level: "6", sb: "200", bb: "400", ante: "200" },
+      { type: "level", level: "7", sb: "300", bb: "600", ante: "300" },
+      { type: "level", level: "8", sb: "400", bb: "800", ante: "400" },
+      { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500" },
+      { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600" },
+      { type: "break", note: "15-MINUTE BREAK — Chip up" },
+      { type: "level", level: "11", duration: "60 min", sb: "1,000", bb: "2,000", ante: "1,000" },
+      { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500" },
+      { type: "level", level: "13", sb: "2,000", bb: "4,000", ante: "2,000" },
+      { type: "level", level: "14", sb: "2,500", bb: "5,000", ante: "2,500" },
+      { type: "level", level: "15", sb: "3,000", bb: "6,000", ante: "3,000" },
+      { type: "break", note: "15-MINUTE BREAK — Chip up" },
+      { type: "level", level: "16", sb: "4,000", bb: "8,000", ante: "4,000" },
+      { type: "level", level: "17", sb: "5,000", bb: "10,000", ante: "5,000" },
+      { type: "level", level: "18", sb: "6,000", bb: "12,000", ante: "6,000" },
+      { type: "level", level: "19", sb: "8,000", bb: "16,000", ante: "8,000" },
+      { type: "level", level: "20", sb: "10,000", bb: "20,000", ante: "10,000" },
+      { type: "break", note: "15-MINUTE BREAK — Chip up" },
+      { type: "level", level: "21", sb: "15,000", bb: "30,000", ante: "15,000" },
+      { type: "level", level: "22", sb: "20,000", bb: "40,000", ante: "20,000" },
+      { type: "level", level: "23", sb: "25,000", bb: "50,000", ante: "25,000" },
+      { type: "level", level: "24", sb: "30,000", bb: "60,000", ante: "30,000" },
+      { type: "level", level: "25", sb: "40,000", bb: "80,000", ante: "40,000" },
+      { type: "break", note: "15-MINUTE BREAK — Chip up" },
+      { type: "level", level: "26", sb: "50,000", bb: "100,000", ante: "50,000" },
+      { type: "level", level: "27", sb: "60,000", bb: "120,000", ante: "60,000" }
     ]
   }
 };
@@ -6077,6 +6125,8 @@ function buildRulesChipCard(chip, formatKey) {
 }
 
 function buildRulesChipPanel(format, formatKey) {
+  if (!Array.isArray(format?.chips) || !format.chips.length) return "";
+
   return `
     <div class="rules-chip-panel">
       <div class="rules-chip-grid">
@@ -6087,9 +6137,10 @@ function buildRulesChipPanel(format, formatKey) {
 }
 
 function buildRulesTimerRail(format) {
-  const runtime = Number(format?.runtimeMinutes ?? 300);
-  const levelMinutes = 20;
-  const breakMinutes = 10;
+  const levelMinutes = Number(format?.levelMinutes ?? 20);
+  const breakMinutes = Number(format?.breakMinutes ?? 10);
+  const levelLengthLabel = format?.levelLengthLabel || `${levelMinutes} min`;
+  const runtimeLabel = format?.runtimeLabel || `${Number(format?.runtimeMinutes ?? 300)} min`;
 
   const breaks = Array.isArray(format?.levels)
     ? format.levels.filter(row => row.type === "break").length
@@ -6102,9 +6153,9 @@ function buildRulesTimerRail(format) {
   return `
     <div class="timer-rail">
       <div class="timer-pill"><strong>Levels:</strong> ${playableLevels}</div>
-      <div class="timer-pill"><strong>Level Length:</strong> ${levelMinutes} min</div>
+      <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
       <div class="timer-pill"><strong>Breaks:</strong> ${breaks} × ${breakMinutes} min</div>
-      <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtime} min</div>
+      <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
     </div>
   `;
 }
@@ -6112,19 +6163,25 @@ function buildRulesTimerRail(format) {
 function buildRulesBlindTable(format) {
   let rowIndex = 0;
   const tableLabel = `${format.title} blind levels`;
+  const showEffectiveBb = format.showEffectiveBb !== false;
+  const columnCount = showEffectiveBb ? 6 : 5;
+  const effectiveBbHeader = showEffectiveBb ? '<th scope="col">Effective BB</th>' : "";
   const rows = format.levels.map(row => {
     if (row.type === "break") {
-      return `<tr class="blind-break"><td colspan="5">${row.note}</td></tr>`;
+      return `<tr class="blind-break"><td colspan="${columnCount}">${row.note}</td></tr>`;
     }
     const zebra = rowIndex % 2 === 0 ? "blind-row-dark" : "blind-row-light";
+    const duration = row.duration || `${Number(format.levelMinutes ?? 20)} min`;
+    const effectiveBbCell = showEffectiveBb ? `<td>${row.eff}</td>` : "";
     rowIndex += 1;
     return `
       <tr class="${zebra}">
         <td role="rowheader">${row.level}</td>
+        <td>${duration}</td>
         <td>${row.sb}</td>
         <td>${row.bb}</td>
         <td>${row.ante}</td>
-        <td>${row.eff}</td>
+        ${effectiveBbCell}
       </tr>
     `;
   }).join("");
@@ -6136,22 +6193,23 @@ function buildRulesBlindTable(format) {
           <thead>
             <tr>
               <th scope="col">Level</th>
+              <th scope="col">Duration</th>
               <th scope="col">Small Blind</th>
               <th scope="col">Big Blind</th>
               <th scope="col">Ante</th>
-              <th scope="col">Effective BB</th>
+              ${effectiveBbHeader}
             </tr>
           </thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
-      <p class="blind-note">Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels.</p>
+      <p class="blind-note">${format.blindNote || `Gold rows mark ${Number(format.breakMinutes ?? 10)}-minute breaks and chip-up points. Black and gray rows are ${Number(format.levelMinutes ?? 20)}-minute live levels.`}</p>
     </div>
   `;
 }
 
 function setActiveFormatButton(formatKey) {
-  ["40k", "500k"].forEach(key => {
+  Object.keys(RULES_FORMATS).forEach(key => {
     const btn = document.getElementById(`format-btn-${key}`);
     if (btn) {
       const isActive = key === formatKey;
@@ -6160,10 +6218,6 @@ function setActiveFormatButton(formatKey) {
     }
   });
 
-  const toggle = document.getElementById("format-switch-input");
-  if (toggle) {
-    toggle.checked = formatKey === "500k";
-  }
 }
 
 function showFormat(formatKey) {
@@ -6178,6 +6232,7 @@ function showFormat(formatKey) {
       <div class="format-head">
         <div>
           <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
+          ${format.description ? `<p class="format-description">${format.description}</p>` : ""}
         </div>
       </div>
       ${buildRulesTimerRail(format)}
@@ -6191,23 +6246,9 @@ function initRulesPage() {
   const host = document.getElementById("format-content");
   if (!host) return;
 
-  const btn40 = document.getElementById("format-btn-40k");
-  const btn500 = document.getElementById("format-btn-500k");
-  const toggle = document.getElementById("format-switch-input");
-
-  if (btn40) {
-    btn40.addEventListener("click", () => showFormat("40k"));
-  }
-
-  if (btn500) {
-    btn500.addEventListener("click", () => showFormat("500k"));
-  }
-
-  if (toggle) {
-    toggle.addEventListener("change", () => {
-      showFormat(toggle.checked ? "500k" : "40k");
-    });
-  }
+  document.querySelectorAll("[data-rules-format]").forEach(button => {
+    button.addEventListener("click", () => showFormat(button.dataset.rulesFormat));
+  });
 
   showFormat("40k");
 }

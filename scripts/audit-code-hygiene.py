@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260909-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -584,7 +584,7 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
     ),
     "rules.html": (
         "id",
-        {"format-btn-40k", "format-btn-500k"},
+        {"format-btn-40k", "format-btn-500k", "format-btn-two-table"},
         "format-btn-40k",
     ),
     "players.html": (
@@ -613,11 +613,6 @@ EXPECTED_CONTROLLED_RESULTS = {
     "player-movement.html": "pm-top-movers pm-player-grid",
 }
 EXPECTED_SWITCH_INPUT_LABELS = {
-    "rules.html": (
-        "format-switch-input",
-        "Saturday 500K structure",
-        "format-content",
-    ),
     "players.html": (
         "crew-view-switch-input",
         "Archetype crew view",
@@ -1608,10 +1603,14 @@ def audit_javascript(path: Path) -> list[str]:
                 "Standings rows must preserve table-row semantics instead of impersonating links"
             )
         blind_table_source = function_source("buildRulesBlindTable")
-        if blind_table_source.count('scope="col"') != 5:
-            errors.append("Rules blind table must expose five scoped column headers")
+        if blind_table_source.count('scope="col"') != 6:
+            errors.append(
+                "Rules blind table must expose five required scoped headers and "
+                "the optional Effective BB header"
+            )
         for fragment, message in (
             ('<td role="rowheader">${row.level}</td>', "Rules levels must be row headers"),
+            ('<th scope="col">Duration</th>', "Rules blind table must expose round duration"),
             (
                 'class="blind-table-scroll" role="region"',
                 "Rules blind table must use a named scroll region",
@@ -1627,6 +1626,41 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             if fragment not in blind_table_source:
                 errors.append(message)
+        two_table_match = re.search(
+            r'"two-table":\s*\{(?P<body>.*?)\n\s*\}\n\};',
+            text,
+            flags=re.DOTALL,
+        )
+        if not two_table_match:
+            errors.append("Shared app must define the Two Table Bonanza structure")
+        else:
+            two_table_source = two_table_match.group("body")
+            if two_table_source.count('{ type: "level"') != 27:
+                errors.append("Two Table Bonanza must retain all 27 blind rounds")
+            if two_table_source.count('{ type: "break"') != 5:
+                errors.append("Two Table Bonanza must retain all five scheduled breaks")
+            for fragment, message in (
+                (
+                    'levelMinutes: 30,',
+                    "Two Table Bonanza rounds must default to 30 minutes",
+                ),
+                (
+                    'breakMinutes: 15,',
+                    "Two Table Bonanza breaks must remain 15 minutes",
+                ),
+                (
+                    'level: "11", duration: "60 min", sb: "1,000", '
+                    'bb: "2,000", ante: "1,000"',
+                    "Two Table Bonanza Round 11 must retain its 60-minute timing",
+                ),
+                (
+                    'level: "27", sb: "60,000", bb: "120,000", '
+                    'ante: "60,000"',
+                    "Two Table Bonanza final round differs from the source export",
+                ),
+            ):
+                if fragment not in two_table_source:
+                    errors.append(message)
         player_profile_source = function_source("renderPlayerProfile")
         for fragment, message in (
             (
