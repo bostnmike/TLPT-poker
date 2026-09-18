@@ -472,9 +472,9 @@ const RULES_FORMATS = {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
     },
-    runtimeLabel: "9 hrs 45 min",
-    levelMinutes: 30,
-    levelLengthLabel: "30 min (1–15) • 25 min (16–17)",
+    runtimeLabel: "9 hrs 20 min",
+    levelMinutes: 25,
+    levelLengthLabel: "25 min",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
     blindNote: "Gold rows mark scheduled breaks and chip-up points. Green rows mark projected payout territory. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as nine players remain.",
@@ -498,8 +498,10 @@ const RULES_FORMATS = {
       { type: "level", level: "14", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed", remaining: "8" },
       { type: "level", level: "15", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed", remaining: "6" },
       { type: "break", note: "20-MINUTE BREAK — Chip up" },
-      { type: "level", level: "16", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "4", duration: "25 min" },
-      { type: "level", level: "17", sb: "30,000", bb: "60,000", ante: "30,000", eff: "Rebuys Closed", remaining: "2", duration: "25 min" }
+      { type: "level", level: "16", sb: "8,000", bb: "16,000", ante: "8,000", eff: "Rebuys Closed", remaining: "5" },
+      { type: "level", level: "17", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed", remaining: "4" },
+      { type: "level", level: "18", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "3" },
+      { type: "level", level: "19", sb: "20,000", bb: "40,000", ante: "20,000", eff: "Rebuys Closed", remaining: "2" }
     ]
   }
 };

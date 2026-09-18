@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-3"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-4"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1785,8 +1785,8 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append("Shared app must define the Two-Table 50K Deep Stack structure")
         else:
             two_table_source = two_table_match.group("body")
-            if two_table_source.count('{ type: "level"') != 17:
-                errors.append("Two-Table 50K Deep Stack must retain all 17 blind rounds")
+            if two_table_source.count('{ type: "level"') != 19:
+                errors.append("Two-Table 50K Deep Stack must retain all 19 blind rounds")
             if two_table_source.count('{ type: "break"') != 3:
                 errors.append("Two-Table 50K Deep Stack must retain all three scheduled breaks")
             if two_table_source.count('note: "20-MINUTE BREAK — Chip up"') != 2:
@@ -1796,7 +1796,7 @@ def audit_javascript(path: Path) -> list[str]:
                     "bb": int(match.group("bb").replace(",", "")),
                     "eff": match.group("eff"),
                     "remaining": match.group("remaining"),
-                    "duration": match.group("duration") or "30 min",
+                    "duration": match.group("duration") or "25 min",
                 }
                 for match in re.finditer(
                     r'\{ type: "level", level: "(?P<level>\d+)", '
@@ -1807,7 +1807,7 @@ def audit_javascript(path: Path) -> list[str]:
                     two_table_source,
                 )
             }
-            if len(two_table_levels) != 17:
+            if len(two_table_levels) != 19:
                 errors.append(
                     "Every Two-Table 50K Deep Stack level must define Effective BB and "
                     "typical-player states"
@@ -1822,7 +1822,7 @@ def audit_javascript(path: Path) -> list[str]:
                             "Two-Table 50K Deep Stack Level "
                             f"{level} Effective BB must be {expected_effective_bb}"
                         )
-                for level in range(12, 18):
+                for level in range(12, 20):
                     if two_table_levels[level]["eff"] != "Rebuys Closed":
                         errors.append(
                             "Two-Table 50K Deep Stack must show Rebuys Closed from "
@@ -1844,8 +1844,10 @@ def audit_javascript(path: Path) -> list[str]:
                     13: "9 — MERGE",
                     14: "8",
                     15: "6",
-                    16: "4",
-                    17: "2",
+                    16: "5",
+                    17: "4",
+                    18: "3",
+                    19: "2",
                 }
                 for level, expected_remaining in expected_remaining_players.items():
                     if two_table_levels[level]["remaining"] != expected_remaining:
@@ -1854,16 +1856,10 @@ def audit_javascript(path: Path) -> list[str]:
                             f"{level} typical-player estimate must be "
                             f"{expected_remaining}"
                         )
-                for level in range(1, 16):
-                    if two_table_levels[level]["duration"] != "30 min":
-                        errors.append(
-                            f"Two-Table 50K Deep Stack Level {level} must remain 30 minutes"
-                        )
-                for level in range(16, 18):
+                for level in range(1, 20):
                     if two_table_levels[level]["duration"] != "25 min":
                         errors.append(
-                            "Two-Table 50K Deep Stack closing Levels 16–17 must remain "
-                            f"25 minutes (Level {level} differs)"
+                            f"Two-Table 50K Deep Stack Level {level} must remain 25 minutes"
                         )
             for fragment, message in (
                 (
@@ -1871,20 +1867,19 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-table format must retain its approved display name",
                 ),
                 (
-                    'levelMinutes: 30,',
-                    "Two-Table 50K Deep Stack rounds must default to 30 minutes",
+                    'levelMinutes: 25,',
+                    "Two-Table 50K Deep Stack rounds must default to 25 minutes",
                 ),
                 (
-                    'levelLengthLabel: "30 min (1–15) • '
-                    '25 min (16–17)",',
-                    "Two-Table 50K Deep Stack must explain its 30/25-minute level timing",
+                    'levelLengthLabel: "25 min",',
+                    "Two-Table 50K Deep Stack must show one 25-minute level length",
                 ),
                 (
                     'breakMinutes: 20,',
                     "Two-Table 50K Deep Stack breaks must remain 20 minutes",
                 ),
                 (
-                    'runtimeLabel: "9 hrs 45 min",',
+                    'runtimeLabel: "9 hrs 20 min",',
                     "Two-Table 50K Deep Stack runtime pill must remain on one line",
                 ),
                 (
@@ -1932,12 +1927,26 @@ def audit_javascript(path: Path) -> list[str]:
                 (
                     'level: "11", sb: "1,000", '
                     'bb: "2,000", ante: "1,000"',
-                    "Two-Table 50K Deep Stack Round 11 must remain a standard 30-minute round",
+                    "Two-Table 50K Deep Stack Round 11 must retain its approved blinds",
                 ),
                 (
-                    'level: "17", sb: "30,000", bb: "60,000", '
-                    'ante: "30,000", eff: "Rebuys Closed", remaining: "2", '
-                    'duration: "25 min"',
+                    'level: "16", sb: "8,000", bb: "16,000", '
+                    'ante: "8,000", eff: "Rebuys Closed", remaining: "5"',
+                    "Two-Table 50K Deep Stack Level 16 differs from the approved structure",
+                ),
+                (
+                    'level: "17", sb: "10,000", bb: "20,000", '
+                    'ante: "10,000", eff: "Rebuys Closed", remaining: "4"',
+                    "Two-Table 50K Deep Stack Level 17 differs from the approved structure",
+                ),
+                (
+                    'level: "18", sb: "15,000", bb: "30,000", '
+                    'ante: "15,000", eff: "Rebuys Closed", remaining: "3"',
+                    "Two-Table 50K Deep Stack Level 18 differs from the approved structure",
+                ),
+                (
+                    'level: "19", sb: "20,000", bb: "40,000", '
+                    'ante: "20,000", eff: "Rebuys Closed", remaining: "2"',
                     "Two-Table 50K Deep Stack final round differs from the approved structure",
                 ),
             ):
