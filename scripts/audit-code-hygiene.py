@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-17"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1782,15 +1782,15 @@ def audit_javascript(path: Path) -> list[str]:
             flags=re.DOTALL,
         )
         if not two_table_match:
-            errors.append("Shared app must define the Two Table Bonanza structure")
+            errors.append("Shared app must define the Two-Table 50K Deep Stack structure")
         else:
             two_table_source = two_table_match.group("body")
             if two_table_source.count('{ type: "level"') != 17:
-                errors.append("Two Table Bonanza must retain all 17 blind rounds")
+                errors.append("Two-Table 50K Deep Stack must retain all 17 blind rounds")
             if two_table_source.count('{ type: "break"') != 3:
-                errors.append("Two Table Bonanza must retain all three scheduled breaks")
+                errors.append("Two-Table 50K Deep Stack must retain all three scheduled breaks")
             if two_table_source.count('note: "20-MINUTE BREAK — Chip up"') != 2:
-                errors.append("Two Table Bonanza must retain two 20-minute breaks")
+                errors.append("Two-Table 50K Deep Stack must retain two 20-minute breaks")
             two_table_levels = {
                 int(match.group("level")): {
                     "bb": int(match.group("bb").replace(",", "")),
@@ -1809,7 +1809,7 @@ def audit_javascript(path: Path) -> list[str]:
             }
             if len(two_table_levels) != 17:
                 errors.append(
-                    "Every Two Table Bonanza level must define Effective BB and "
+                    "Every Two-Table 50K Deep Stack level must define Effective BB and "
                     "typical-player states"
                 )
             else:
@@ -1819,13 +1819,13 @@ def audit_javascript(path: Path) -> list[str]:
                     )
                     if two_table_levels[level]["eff"] != expected_effective_bb:
                         errors.append(
-                            "Two Table Bonanza Level "
+                            "Two-Table 50K Deep Stack Level "
                             f"{level} Effective BB must be {expected_effective_bb}"
                         )
                 for level in range(12, 18):
                     if two_table_levels[level]["eff"] != "Rebuys Closed":
                         errors.append(
-                            "Two Table Bonanza must show Rebuys Closed from "
+                            "Two-Table 50K Deep Stack must show Rebuys Closed from "
                             f"Level 12 onward (Level {level} differs)"
                         )
                 expected_remaining_players = {
@@ -1850,91 +1850,95 @@ def audit_javascript(path: Path) -> list[str]:
                 for level, expected_remaining in expected_remaining_players.items():
                     if two_table_levels[level]["remaining"] != expected_remaining:
                         errors.append(
-                            "Two Table Bonanza Level "
+                            "Two-Table 50K Deep Stack Level "
                             f"{level} typical-player estimate must be "
                             f"{expected_remaining}"
                         )
                 for level in range(1, 16):
                     if two_table_levels[level]["duration"] != "30 min":
                         errors.append(
-                            f"Two Table Bonanza Level {level} must remain 30 minutes"
+                            f"Two-Table 50K Deep Stack Level {level} must remain 30 minutes"
                         )
                 for level in range(16, 18):
                     if two_table_levels[level]["duration"] != "25 min":
                         errors.append(
-                            "Two Table Bonanza closing Levels 16–17 must remain "
+                            "Two-Table 50K Deep Stack closing Levels 16–17 must remain "
                             f"25 minutes (Level {level} differs)"
                         )
             for fragment, message in (
                 (
+                    'title: "Two-Table 50K Deep Stack",',
+                    "Two-table format must retain its approved display name",
+                ),
+                (
                     'levelMinutes: 30,',
-                    "Two Table Bonanza rounds must default to 30 minutes",
+                    "Two-Table 50K Deep Stack rounds must default to 30 minutes",
                 ),
                 (
                     'levelLengthLabel: "30 min (1–15) • '
                     '25 min (16–17)",',
-                    "Two Table Bonanza must explain its 30/25-minute level timing",
+                    "Two-Table 50K Deep Stack must explain its 30/25-minute level timing",
                 ),
                 (
                     'breakMinutes: 20,',
-                    "Two Table Bonanza breaks must remain 20 minutes",
+                    "Two-Table 50K Deep Stack breaks must remain 20 minutes",
                 ),
                 (
                     'runtimeLabel: "9 hrs 45 min",',
-                    "Two Table Bonanza runtime pill must remain on one line",
+                    "Two-Table 50K Deep Stack runtime pill must remain on one line",
                 ),
                 (
                     'durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up"',
-                    "Two Table Bonanza second break must remain the 45-minute Dinner Break",
+                    "Two-Table 50K Deep Stack second break must remain the 45-minute Dinner Break",
                 ),
                 (
                     'note: "20-MINUTE BREAK — Chip up"',
-                    "Two Table Bonanza must retain its untimed 20-minute breaks",
+                    "Two-Table 50K Deep Stack must retain its untimed 20-minute breaks",
                 ),
                 (
                     'assumption: "Assumptions: 16 starting players and 6 rebuys.",',
-                    "Two Table Bonanza must state its player and rebuy assumptions",
+                    "Two-Table 50K Deep Stack must state its player and rebuy assumptions",
                 ),
                 (
                     'payoutPlaces: 6,',
-                    "Two Table Bonanza must pay the top six places",
+                    "Two-Table 50K Deep Stack must pay the top six places",
                 ),
                 (
                     'showTypicalRemainingPlayers: true,',
-                    "Two Table Bonanza must display typical remaining players",
+                    "Two-Table 50K Deep Stack must display typical remaining players",
                 ),
                 (
                     'chips: RULES_TWO_TABLE_CHIPS,',
-                    "Two Table Bonanza must use its dedicated 50K chip set",
+                    "Two-Table 50K Deep Stack must use its dedicated 50K chip set",
                 ),
                 (
                     'title: "$10 First Buy-In Bounty"',
-                    "Two Table Bonanza must display the $10 first-buy-in bounty",
+                    "Two-Table 50K Deep Stack must display the $10 first-buy-in bounty",
                 ),
                 (
                     'Rebuys do not carry an additional bounty.',
-                    "Two Table Bonanza must limit the bounty to each first buy-in",
+                    "Two-Table 50K Deep Stack must limit the bounty to each first buy-in",
                 ),
                 (
                     'rebuys are open through Level 11 at 25 BB and closed '
                     'beginning with Level 12.',
-                    "Two Table Bonanza must preserve the 25-BB rebuy floor",
+                    "Two-Table 50K Deep Stack must preserve the 25-BB rebuy floor",
                 ),
                 (
                     'Typical remaining players is a planning estimate; merge to '
                     'one table as soon as eight players remain.',
-                    "Two Table Bonanza must explain its attrition estimate and merge",
+                    "Two-Table 50K Deep Stack must explain its attrition estimate and merge",
                 ),
                 (
                     'level: "11", sb: "1,000", '
                     'bb: "2,000", ante: "1,000"',
-                    "Two Table Bonanza Round 11 must remain a standard 30-minute round",
+                    "Two-Table 50K Deep Stack Round 11 must remain a standard 30-minute round",
                 ),
                 (
                     'level: "17", sb: "30,000", bb: "60,000", '
                     'ante: "30,000", eff: "Rebuys Closed", remaining: "2", '
                     'duration: "25 min"',
-                    "Two Table Bonanza final round differs from the approved structure",
+                    "Two-Table 50K Deep Stack final round differs from the approved structure",
                 ),
             ):
                 if fragment not in two_table_source:
@@ -1945,11 +1949,11 @@ def audit_javascript(path: Path) -> list[str]:
                 in two_table_source
             ):
                 errors.append(
-                    "Two Table Bonanza must not repeat its structure summary"
+                    "Two-Table 50K Deep Stack must not repeat its structure summary"
                 )
             if re.search(r"\b\d{1,2}:\d{2}\b", two_table_source):
                 errors.append(
-                    "Two Table Bonanza must not hardcode event or break times of day"
+                    "Two-Table 50K Deep Stack must not hardcode event or break times of day"
                 )
         two_table_chip_count_match = re.search(
             r'const RULES_TWO_TABLE_CHIP_COUNTS = Object\.freeze\(\{'
@@ -1967,19 +1971,19 @@ def audit_javascript(path: Path) -> list[str]:
             "T-25000": 0,
         }
         if not two_table_chip_count_match:
-            errors.append("Shared app must define the Two Table Bonanza chip counts")
+            errors.append("Shared app must define the Two-Table 50K Deep Stack chip counts")
         else:
             chip_count_source = two_table_chip_count_match.group("body")
             for label, count in expected_two_table_chip_counts.items():
                 if f'"{label}": {count}' not in chip_count_source:
                     errors.append(
-                        f"Two Table Bonanza {label} starting count must remain {count}"
+                        f"Two-Table 50K Deep Stack {label} starting count must remain {count}"
                     )
             if sum(
                 int(label.removeprefix("T-")) * count
                 for label, count in expected_two_table_chip_counts.items()
             ) != 50_000:
-                errors.append("Two Table Bonanza chip counts must total 50,000")
+                errors.append("Two-Table 50K Deep Stack chip counts must total 50,000")
         two_table_chip_list_match = re.search(
             r'const RULES_TWO_TABLE_CHIPS = Object\.freeze\(\['
             r'(?P<body>.*?)\n\]\);',
@@ -1990,7 +1994,7 @@ def audit_javascript(path: Path) -> list[str]:
             not two_table_chip_list_match
             or two_table_chip_list_match.group("body").count('{ label: "T-') != 7
         ):
-            errors.append("Two Table Bonanza must display exactly seven chip denominations")
+            errors.append("Two-Table 50K Deep Stack must display exactly seven chip denominations")
         rules_callout_source = function_source("buildRulesFormatCallout")
         for fragment, message in (
             (
