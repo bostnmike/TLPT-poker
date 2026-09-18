@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T03:16:41.508046Z",
+  "generatedAt": "2026-09-18T03:24:47.910263Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -15,7 +15,7 @@
       "apple_invite_url": "https://www.icloud.com/invites/04flhel2Lnhx73g3YZaTc3VQg",
       "rsvps": {
         "bostnmike": "yes",
-        "buffalomike": "yes",
+        "buffalomike": "tbd",
         "ahmed": "tbd",
         "alex-c": "tbd",
         "ai-dave": "no",
@@ -76,21 +76,21 @@
         "griffin": "tbd",
         "hiro": "no",
         "kishan": "tbd",
-        "jeff-t": "yes",
-        "li-fo": "yes",
-        "nasa-al": "yes",
-        "nitro": "yes",
-        "pat": "yes",
-        "phattedcalf": "yes",
-        "pittsburghbill": "yes",
+        "jeff-t": "no",
+        "li-fo": "no",
+        "nasa-al": "tbd",
+        "nitro": "tbd",
+        "pat": "tbd",
+        "phattedcalf": "no",
+        "pittsburghbill": "tbd",
         "providencemike": "yes",
-        "red": "yes",
-        "rob-f": "yes",
-        "the-architect": "yes",
-        "tim-s": "yes",
-        "vic": "yes",
-        "vish": "yes",
-        "wild-bill": "yes"
+        "red": "no",
+        "rob-f": "tbd",
+        "the-architect": "tbd",
+        "tim-s": "tbd",
+        "vic": "tbd",
+        "vish": "tbd",
+        "wild-bill": "tbd"
       }
     }
   ],
