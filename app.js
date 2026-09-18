@@ -454,51 +454,38 @@ const RULES_FORMATS = {
   },
   "two-table": {
     title: "Two Table Bonanza",
-    description: "A two-table structure designed for fields of up to 18 players, using a 50K starting stack.",
+    description: "A two-table structure for 16 players, using a 50K starting stack and targeting a 1:00 PM–10:45 PM tournament day.",
     bounty: {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
     },
-    runtimeLabel: "8 hrs (including breaks)",
+    runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",
     levelMinutes: 30,
     breakMinutes: 15,
-    blindNote: "Gold rows mark scheduled breaks and chip-up points. All live rounds are 30 minutes. Effective BB uses the 50K starting stack; rebuys are open through Level 12 and closed beginning with Level 13.",
+    showTypicalRemainingPlayers: true,
+    blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate based on 16 starters and six rebuys; merge to one table as soon as eight players remain.",
     chips: RULES_TWO_TABLE_CHIPS,
     levels: [
-      { type: "level", level: "1", sb: "50", bb: "100", ante: "0", eff: "500 BB" },
-      { type: "level", level: "2", sb: "75", bb: "150", ante: "0", eff: "333 BB" },
-      { type: "level", level: "3", sb: "100", bb: "200", ante: "0", eff: "250 BB" },
-      { type: "level", level: "4", sb: "125", bb: "250", ante: "0", eff: "200 BB" },
-      { type: "level", level: "5", sb: "150", bb: "300", ante: "0", eff: "166 BB" },
-      { type: "break", note: "15-MINUTE BREAK — Chip up" },
-      { type: "level", level: "6", sb: "200", bb: "400", ante: "200", eff: "125 BB" },
-      { type: "level", level: "7", sb: "300", bb: "600", ante: "300", eff: "83 BB" },
-      { type: "level", level: "8", sb: "400", bb: "800", ante: "400", eff: "62 BB" },
-      { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500", eff: "50 BB" },
-      { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600", eff: "41 BB" },
-      { type: "break", durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up" },
-      { type: "level", level: "11", sb: "1,000", bb: "2,000", ante: "1,000", eff: "25 BB" },
-      { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500", eff: "16 BB" },
-      { type: "level", level: "13", sb: "2,000", bb: "4,000", ante: "2,000", eff: "Rebuys Closed" },
-      { type: "level", level: "14", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed" },
-      { type: "level", level: "15", sb: "3,000", bb: "6,000", ante: "3,000", eff: "Rebuys Closed" },
-      { type: "break", note: "15-MINUTE BREAK — Chip up" },
-      { type: "level", level: "16", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed" },
-      { type: "level", level: "17", sb: "5,000", bb: "10,000", ante: "5,000", eff: "Rebuys Closed" },
-      { type: "level", level: "18", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed" },
-      { type: "level", level: "19", sb: "8,000", bb: "16,000", ante: "8,000", eff: "Rebuys Closed" },
-      { type: "level", level: "20", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed" },
-      { type: "break", note: "15-MINUTE BREAK — Chip up" },
-      { type: "level", level: "21", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed" },
-      { type: "level", level: "22", sb: "20,000", bb: "40,000", ante: "20,000", eff: "Rebuys Closed" },
-      { type: "level", level: "23", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed" },
-      { type: "level", level: "24", sb: "30,000", bb: "60,000", ante: "30,000", eff: "Rebuys Closed" },
-      { type: "level", level: "25", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed" },
-      { type: "break", note: "15-MINUTE BREAK — Chip up" },
-      { type: "level", level: "26", sb: "50,000", bb: "100,000", ante: "50,000", eff: "Rebuys Closed" },
-      { type: "level", level: "27", sb: "60,000", bb: "120,000", ante: "60,000", eff: "Rebuys Closed" },
-      { type: "level", level: "28", sb: "80,000", bb: "160,000", ante: "80,000", eff: "Rebuys Closed" },
-      { type: "level", level: "29", sb: "100,000", bb: "200,000", ante: "200,000", eff: "Rebuys Closed" }
+      { type: "level", level: "1", sb: "50", bb: "100", ante: "0", eff: "500 BB", remaining: "16 (2 × 8)" },
+      { type: "level", level: "2", sb: "75", bb: "150", ante: "0", eff: "333 BB", remaining: "16 (2 × 8)" },
+      { type: "level", level: "3", sb: "100", bb: "200", ante: "0", eff: "250 BB", remaining: "16 (2 × 8)" },
+      { type: "level", level: "4", sb: "125", bb: "250", ante: "0", eff: "200 BB", remaining: "16 (2 × 8)" },
+      { type: "level", level: "5", sb: "150", bb: "300", ante: "0", eff: "166 BB", remaining: "16 (2 × 8)" },
+      { type: "break", note: "15-MINUTE BREAK • 3:30–3:45 PM — Chip up" },
+      { type: "level", level: "6", sb: "200", bb: "400", ante: "200", eff: "125 BB", remaining: "15" },
+      { type: "level", level: "7", sb: "300", bb: "600", ante: "300", eff: "83 BB", remaining: "15" },
+      { type: "level", level: "8", sb: "400", bb: "800", ante: "400", eff: "62 BB", remaining: "14" },
+      { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500", eff: "50 BB", remaining: "13" },
+      { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600", eff: "41 BB", remaining: "12" },
+      { type: "break", durationMinutes: 45, note: "45-MINUTE DINNER BREAK • 6:15–7:00 PM — Chip up" },
+      { type: "level", level: "11", sb: "1,000", bb: "2,000", ante: "1,000", eff: "25 BB", remaining: "11" },
+      { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500", eff: "Rebuys Closed", remaining: "10" },
+      { type: "level", level: "13", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed", remaining: "9" },
+      { type: "level", level: "14", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed", remaining: "8 — MERGE" },
+      { type: "level", level: "15", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed", remaining: "6" },
+      { type: "break", note: "15-MINUTE BREAK • 9:30–9:45 PM — Chip up" },
+      { type: "level", level: "16", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "4" },
+      { type: "level", level: "17", sb: "30,000", bb: "60,000", ante: "30,000", eff: "Rebuys Closed", remaining: "2" }
     ]
   }
 };
@@ -6214,8 +6201,12 @@ function buildRulesBlindTable(format) {
   let rowIndex = 0;
   const tableLabel = `${format.title} blind levels`;
   const showEffectiveBb = format.showEffectiveBb !== false;
-  const columnCount = showEffectiveBb ? 6 : 5;
+  const showTypicalRemainingPlayers = format.showTypicalRemainingPlayers === true;
+  const columnCount = 5 + Number(showEffectiveBb) + Number(showTypicalRemainingPlayers);
   const effectiveBbHeader = showEffectiveBb ? '<th scope="col">Effective BB</th>' : "";
+  const typicalRemainingHeader = showTypicalRemainingPlayers
+    ? '<th scope="col">Typical Remaining Players</th>'
+    : "";
   const rows = format.levels.map(row => {
     if (row.type === "break") {
       return `<tr class="blind-break"><td colspan="${columnCount}">${row.note}</td></tr>`;
@@ -6223,6 +6214,9 @@ function buildRulesBlindTable(format) {
     const zebra = rowIndex % 2 === 0 ? "blind-row-dark" : "blind-row-light";
     const duration = row.duration || `${Number(format.levelMinutes ?? 20)} min`;
     const effectiveBbCell = showEffectiveBb ? `<td>${row.eff}</td>` : "";
+    const typicalRemainingCell = showTypicalRemainingPlayers
+      ? `<td>${row.remaining}</td>`
+      : "";
     rowIndex += 1;
     return `
       <tr class="${zebra}">
@@ -6232,6 +6226,7 @@ function buildRulesBlindTable(format) {
         <td>${row.bb}</td>
         <td>${row.ante}</td>
         ${effectiveBbCell}
+        ${typicalRemainingCell}
       </tr>
     `;
   }).join("");
@@ -6248,6 +6243,7 @@ function buildRulesBlindTable(format) {
               <th scope="col">Big Blind</th>
               <th scope="col">Ante</th>
               ${effectiveBbHeader}
+              ${typicalRemainingHeader}
             </tr>
           </thead>
           <tbody>${rows}</tbody>

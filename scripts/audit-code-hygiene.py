@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-8"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-9"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1603,10 +1603,10 @@ def audit_javascript(path: Path) -> list[str]:
                 "Standings rows must preserve table-row semantics instead of impersonating links"
             )
         blind_table_source = function_source("buildRulesBlindTable")
-        if blind_table_source.count('scope="col"') != 6:
+        if blind_table_source.count('scope="col"') != 7:
             errors.append(
                 "Rules blind table must expose five required scoped headers and "
-                "the optional Effective BB header"
+                "the optional Effective BB and typical-player headers"
             )
         for fragment, message in (
             ('<td role="rowheader">${row.level}</td>', "Rules levels must be row headers"),
@@ -1623,6 +1623,14 @@ def audit_javascript(path: Path) -> list[str]:
                 'class="blind-table" aria-label="${escapeHtmlAttr(tableLabel)}"',
                 "Rules blind table must expose an accessible name",
             ),
+            (
+                '<th scope="col">Typical Remaining Players</th>',
+                "Rules blind table must support the typical-player projection column",
+            ),
+            (
+                '<td>${row.remaining}</td>',
+                "Rules blind table must render typical-player projections by level",
+            ),
         ):
             if fragment not in blind_table_source:
                 errors.append(message)
@@ -1635,30 +1643,33 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append("Shared app must define the Two Table Bonanza structure")
         else:
             two_table_source = two_table_match.group("body")
-            if two_table_source.count('{ type: "level"') != 29:
-                errors.append("Two Table Bonanza must retain all 29 blind rounds")
-            if two_table_source.count('{ type: "break"') != 5:
-                errors.append("Two Table Bonanza must retain all five scheduled breaks")
-            if two_table_source.count('note: "15-MINUTE BREAK — Chip up"') != 4:
-                errors.append("Two Table Bonanza must retain four 15-minute breaks")
+            if two_table_source.count('{ type: "level"') != 17:
+                errors.append("Two Table Bonanza must retain all 17 blind rounds")
+            if two_table_source.count('{ type: "break"') != 3:
+                errors.append("Two Table Bonanza must retain all three scheduled breaks")
+            if two_table_source.count('note: "15-MINUTE BREAK •') != 2:
+                errors.append("Two Table Bonanza must retain two 15-minute breaks")
             two_table_levels = {
                 int(match.group("level")): {
                     "bb": int(match.group("bb").replace(",", "")),
                     "eff": match.group("eff"),
+                    "remaining": match.group("remaining"),
                 }
                 for match in re.finditer(
                     r'\{ type: "level", level: "(?P<level>\d+)", '
                     r'sb: "[\d,]+", bb: "(?P<bb>[\d,]+)", '
-                    r'ante: "[\d,]+", eff: "(?P<eff>[^"]+)" \}',
+                    r'ante: "[\d,]+", eff: "(?P<eff>[^"]+)", '
+                    r'remaining: "(?P<remaining>[^"]+)" \}',
                     two_table_source,
                 )
             }
-            if len(two_table_levels) != 29:
+            if len(two_table_levels) != 17:
                 errors.append(
-                    "Every Two Table Bonanza level must define its Effective BB state"
+                    "Every Two Table Bonanza level must define Effective BB and "
+                    "typical-player states"
                 )
             else:
-                for level in range(1, 13):
+                for level in range(1, 12):
                     expected_effective_bb = (
                         f'{50_000 // two_table_levels[level]["bb"]} BB'
                     )
@@ -1667,11 +1678,37 @@ def audit_javascript(path: Path) -> list[str]:
                             "Two Table Bonanza Level "
                             f"{level} Effective BB must be {expected_effective_bb}"
                         )
-                for level in range(13, 30):
+                for level in range(12, 18):
                     if two_table_levels[level]["eff"] != "Rebuys Closed":
                         errors.append(
                             "Two Table Bonanza must show Rebuys Closed from "
-                            f"Level 13 onward (Level {level} differs)"
+                            f"Level 12 onward (Level {level} differs)"
+                        )
+                expected_remaining_players = {
+                    1: "16 (2 × 8)",
+                    2: "16 (2 × 8)",
+                    3: "16 (2 × 8)",
+                    4: "16 (2 × 8)",
+                    5: "16 (2 × 8)",
+                    6: "15",
+                    7: "15",
+                    8: "14",
+                    9: "13",
+                    10: "12",
+                    11: "11",
+                    12: "10",
+                    13: "9",
+                    14: "8 — MERGE",
+                    15: "6",
+                    16: "4",
+                    17: "2",
+                }
+                for level, expected_remaining in expected_remaining_players.items():
+                    if two_table_levels[level]["remaining"] != expected_remaining:
+                        errors.append(
+                            "Two Table Bonanza Level "
+                            f"{level} typical-player estimate must be "
+                            f"{expected_remaining}"
                         )
             for fragment, message in (
                 (
@@ -1683,16 +1720,23 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza breaks must remain 15 minutes",
                 ),
                 (
-                    'runtimeLabel: "8 hrs (including breaks)",',
-                    "Two Table Bonanza runtime must remain eight hours including breaks",
+                    'runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",',
+                    "Two Table Bonanza must retain its 1:00 PM–10:45 PM runtime",
                 ),
                 (
-                    'durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up"',
+                    'durationMinutes: 45, note: "45-MINUTE DINNER BREAK • '
+                    '6:15–7:00 PM — Chip up"',
                     "Two Table Bonanza second break must remain the 45-minute Dinner Break",
                 ),
                 (
-                    'description: "A two-table structure designed for fields of up to 18 players, using a 50K starting stack.",',
-                    "Two Table Bonanza must identify its 50K starting stack",
+                    'description: "A two-table structure for 16 players, using a '
+                    '50K starting stack and targeting a 1:00 PM–10:45 PM '
+                    'tournament day.",',
+                    "Two Table Bonanza must identify its field, stack, and schedule",
+                ),
+                (
+                    'showTypicalRemainingPlayers: true,',
+                    "Two Table Bonanza must display typical remaining players",
                 ),
                 (
                     'chips: RULES_TWO_TABLE_CHIPS,',
@@ -1707,9 +1751,15 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza must limit the bounty to each first buy-in",
                 ),
                 (
-                    'Effective BB uses the 50K starting stack; rebuys are open '
-                    'through Level 12 and closed beginning with Level 13.',
-                    "Two Table Bonanza must explain its Effective BB and rebuy window",
+                    'rebuys are open through Level 11 at 25 BB and closed '
+                    'beginning with Level 12.',
+                    "Two Table Bonanza must preserve the 25-BB rebuy floor",
+                ),
+                (
+                    'Typical remaining players is a planning estimate based on '
+                    '16 starters and six rebuys; merge to one table as soon as '
+                    'eight players remain.',
+                    "Two Table Bonanza must explain its attrition estimate and merge",
                 ),
                 (
                     'level: "11", sb: "1,000", '
@@ -1717,14 +1767,9 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza Round 11 must remain a standard 30-minute round",
                 ),
                 (
-                    'level: "28", sb: "80,000", bb: "160,000", '
-                    'ante: "80,000"',
-                    "Two Table Bonanza Level 28 differs from the approved structure",
-                ),
-                (
-                    'level: "29", sb: "100,000", bb: "200,000", '
-                    'ante: "200,000"',
-                    "Two Table Bonanza Level 29 differs from the approved structure",
+                    'level: "17", sb: "30,000", bb: "60,000", '
+                    'ante: "30,000", eff: "Rebuys Closed", remaining: "2"',
+                    "Two Table Bonanza final round differs from the approved structure",
                 ),
             ):
                 if fragment not in two_table_source:
