@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-11"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-12"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1812,8 +1812,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza rounds must default to 30 minutes",
                 ),
                 (
-                    'levelLengthLabel: "30 min (Levels 1–15) • '
-                    '25 min (Levels 16–17)",',
+                    'levelLengthLabel: "30 min (1–15) • '
+                    '25 min (16–17)",',
                     "Two Table Bonanza must explain its 30/25-minute level timing",
                 ),
                 (
@@ -1899,6 +1899,9 @@ def audit_javascript(path: Path) -> list[str]:
             "T-500": 15,
             "T-1000": 15,
             "T-5000": 5,
+            "T-10000": 0,
+            "T-25000": 0,
+            "T-100000": 0,
         }
         if not two_table_chip_count_match:
             errors.append("Shared app must define the Two Table Bonanza chip counts")
@@ -1922,9 +1925,9 @@ def audit_javascript(path: Path) -> list[str]:
         )
         if (
             not two_table_chip_list_match
-            or two_table_chip_list_match.group("body").count('{ label: "T-') != 5
+            or two_table_chip_list_match.group("body").count('{ label: "T-') != 8
         ):
-            errors.append("Two Table Bonanza must display exactly five chip denominations")
+            errors.append("Two Table Bonanza must display exactly eight chip denominations")
         rules_callout_source = function_source("buildRulesFormatCallout")
         for fragment, message in (
             (

@@ -349,7 +349,10 @@ const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
   "T-100": 21,
   "T-500": 15,
   "T-1000": 15,
-  "T-5000": 5
+  "T-5000": 5,
+  "T-10000": 0,
+  "T-25000": 0,
+  "T-100000": 0
 });
 
 const CHIP_SET_TEXT = {
@@ -381,7 +384,10 @@ const RULES_TWO_TABLE_CHIPS = Object.freeze([
   { label: "T-100", image: "images/site/chip-T-100.png" },
   { label: "T-500", image: "images/site/chip-T-500.png" },
   { label: "T-1000", image: "images/site/chip-T-1000.png" },
-  { label: "T-5000", image: "images/site/chip-T-5000.png" }
+  { label: "T-5000", image: "images/site/chip-T-5000.png" },
+  { label: "T-10000", image: "images/site/chip-T-10000.png" },
+  { label: "T-25000", image: "images/site/chip-T-25000.png" },
+  { label: "T-100000", image: "images/site/chip-T-100000.png" }
 ]);
 
 const RULES_FORMATS = {
@@ -468,7 +474,7 @@ const RULES_FORMATS = {
     },
     runtimeLabel: "9 hrs 45 min",
     levelMinutes: 30,
-    levelLengthLabel: "30 min (Levels 1–15) • 25 min (Levels 16–17)",
+    levelLengthLabel: "30 min (1–15) • 25 min (16–17)",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
     blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as eight players remain.",
