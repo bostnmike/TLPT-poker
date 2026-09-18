@@ -393,6 +393,7 @@ const RULES_FORMATS = {
     title: "40K Small Blind Ante",
     assumption: "Assumptions: 8 starting players and 4 rebuys.",
     payoutPlaces: 3,
+    payoutLabel: "1st 50% • 2nd 30% • 3rd 20%",
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
@@ -427,6 +428,7 @@ const RULES_FORMATS = {
     title: "500K Small Blind Ante",
     assumption: "Assumptions: 8 starting players and 4 rebuys.",
     payoutPlaces: 3,
+    payoutLabel: "1st 50% • 2nd 30% • 3rd 20%",
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
@@ -468,7 +470,7 @@ const RULES_FORMATS = {
     title: "Two-Table 50K Deep Stack",
     assumption: "Assumptions: 16 starting players, 7 rebuys, and a $920 prize pool.",
     payoutPlaces: 6,
-    payoutLabel: "$920 pool • 1st $330 • 2nd $210 • 3rd $140 • 4th $110 • 5th $90 • 6th $40",
+    payoutLabel: "$920 • 1st $330 • 2nd $210 • 3rd $140 • 4th $110 • 5th $90 • 6th $40",
     bounty: {
       title: "$10 First-Entry Bounty",
       text: "The initial entry is $40 plus a separate $10 bounty. Knock out that entry to collect it; $40 rebuys carry no bounty."
@@ -6270,7 +6272,7 @@ function buildRulesTimerRail(format) {
       <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
       <div class="timer-pill"><strong>Breaks:</strong> ${breakLengthLabel}</div>
       <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
-      ${payoutLabel ? `<div class="timer-pill${format?.payoutLabel ? " timer-pill-payouts" : ""}"><strong>Payouts:</strong> <span>${escapeHtmlAttr(payoutLabel)}</span></div>` : ""}
+      ${payoutLabel ? `<div class="timer-pill${format?.payoutLabel ? " timer-pill-payouts" : ""}"><strong>Projected Prize Pool:</strong> <span>${escapeHtmlAttr(payoutLabel)}</span></div>` : ""}
     </div>
   `;
 }
