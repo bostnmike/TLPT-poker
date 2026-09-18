@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-7"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-8"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1686,6 +1686,10 @@ def audit_javascript(path: Path) -> list[str]:
             "rgba(34,197,94,.24)",
             ".timer-pill-payouts{",
             "flex:1 1 100%;",
+            ".rules-money-callout{",
+            "grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);",
+            ".rules-money-section + .rules-money-section{",
+            "@media (max-width:760px){",
         ):
             if token not in rules_css:
                 errors.append(
@@ -1918,6 +1922,10 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must display its approved payout schedule",
                 ),
                 (
+                    'combinePayoutAndBounty: true,',
+                    "Two-Table 50K Deep Stack must combine its payout and bounty details",
+                ),
+                (
                     'showTypicalRemainingPlayers: true,',
                     "Two-Table 50K Deep Stack must display typical remaining players",
                 ),
@@ -2039,7 +2047,23 @@ def audit_javascript(path: Path) -> list[str]:
         for fragment, message in (
             (
                 'class="rules-bounty-callout" role="note"',
-                "Rules bounty details must render as an accessible note",
+                "Rules standalone bounty details must retain an accessible fallback",
+            ),
+            (
+                'class="rules-money-callout" role="note"',
+                "Rules combined money details must render as one accessible note",
+            ),
+            (
+                'format.combinePayoutAndBounty && format.payoutLabel',
+                "Rules money callout must be driven by the selected format",
+            ),
+            (
+                '<h4>Projected Prize Pool</h4>',
+                "Rules combined money callout must identify the projected prize pool",
+            ),
+            (
+                'escapeHtmlAttr(format.payoutLabel)',
+                "Rules combined payout copy must be escaped before entering markup",
             ),
             (
                 'escapeHtmlAttr(format.bounty.text)',
@@ -2067,6 +2091,10 @@ def audit_javascript(path: Path) -> list[str]:
             (
                 'timer-pill-payouts',
                 "Rules timer rail must style detailed payouts for responsive wrapping",
+            ),
+            (
+                'const showPayoutInRail = payoutLabel && !format?.combinePayoutAndBounty;',
+                "Rules timer rail must suppress payouts included in the combined money callout",
             ),
             (
                 '<strong>Projected Prize Pool:</strong>',

@@ -773,10 +773,83 @@
   line-height:1.5;
 }
 
+.rules-money-callout{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  margin:0 18px 18px;
+  overflow:hidden;
+  border:1px solid rgba(255,213,108,.32);
+  border-radius:16px;
+  background:
+    radial-gradient(circle at top left, rgba(239,68,68,.11), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(34,197,94,.11), transparent 38%),
+    rgba(10,17,24,.72);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 8px 20px rgba(0,0,0,.18),
+    0 0 16px rgba(255,184,28,.07);
+}
+
+.rules-money-section{
+  display:flex;
+  min-width:0;
+  align-items:flex-start;
+  gap:12px;
+  padding:16px 18px;
+}
+
+.rules-money-section + .rules-money-section{
+  border-left:1px solid rgba(255,255,255,.12);
+}
+
+.rules-money-icon{
+  flex:0 0 auto;
+  font-size:1.8rem;
+  line-height:1;
+}
+
+.rules-money-callout h4{
+  margin:0 0 6px;
+  font-size:1.06rem;
+}
+
+.rules-money-prize h4{
+  color:#fda4af;
+}
+
+.rules-money-bounty h4{
+  color:#ffe29a;
+}
+
+.rules-money-callout p{
+  margin:0;
+  color:#eef3f8;
+  line-height:1.5;
+}
+
+@media (max-width:760px){
+  .rules-money-callout{
+    grid-template-columns:1fr;
+  }
+
+  .rules-money-section + .rules-money-section{
+    border-top:1px solid rgba(255,255,255,.12);
+    border-left:0;
+  }
+}
+
 @media (max-width:560px){
-  .rules-bounty-callout{
+  .rules-bounty-callout,
+  .rules-money-callout{
     margin-right:12px;
     margin-left:12px;
+  }
+
+  .rules-bounty-callout{
+    padding:14px;
+  }
+
+  .rules-money-section{
     padding:14px;
   }
 }
