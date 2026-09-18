@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-16"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-17"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1892,11 +1892,6 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza must retain its untimed 20-minute breaks",
                 ),
                 (
-                    'description: "A two-table structure for 16 players, using a '
-                    '50K starting stack and a relaxed Small Blind Ante schedule.",',
-                    "Two Table Bonanza must identify its field, stack, and schedule",
-                ),
-                (
                     'assumption: "Assumptions: 16 starting players and 6 rebuys.",',
                     "Two Table Bonanza must state its player and rebuy assumptions",
                 ),
@@ -1944,6 +1939,14 @@ def audit_javascript(path: Path) -> list[str]:
             ):
                 if fragment not in two_table_source:
                     errors.append(message)
+            if (
+                "A two-table structure for 16 players, using a 50K starting stack "
+                "and a relaxed Small Blind Ante schedule."
+                in two_table_source
+            ):
+                errors.append(
+                    "Two Table Bonanza must not repeat its structure summary"
+                )
             if re.search(r"\b\d{1,2}:\d{2}\b", two_table_source):
                 errors.append(
                     "Two Table Bonanza must not hardcode event or break times of day"
