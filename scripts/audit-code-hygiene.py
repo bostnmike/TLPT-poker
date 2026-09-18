@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-13"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-14"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1764,7 +1764,7 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append("Two Table Bonanza must retain all 17 blind rounds")
             if two_table_source.count('{ type: "break"') != 3:
                 errors.append("Two Table Bonanza must retain all three scheduled breaks")
-            if two_table_source.count('note: "20-MINUTE BREAK •') != 2:
+            if two_table_source.count('note: "20-MINUTE BREAK — Chip up"') != 2:
                 errors.append("Two Table Bonanza must retain two 20-minute breaks")
             two_table_levels = {
                 int(match.group("level")): {
@@ -1859,22 +1859,16 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza runtime pill must remain on one line",
                 ),
                 (
-                    'durationMinutes: 45, note: "45-MINUTE DINNER BREAK • '
-                    '6:20–7:05 PM — Chip up"',
+                    'durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up"',
                     "Two Table Bonanza second break must remain the 45-minute Dinner Break",
                 ),
                 (
-                    'note: "20-MINUTE BREAK • 3:30–3:50 PM — Chip up"',
-                    "Two Table Bonanza first break must retain its scheduled time",
-                ),
-                (
-                    'note: "20-MINUTE BREAK • 9:35–9:55 PM — Chip up"',
-                    "Two Table Bonanza third break must retain its scheduled time",
+                    'note: "20-MINUTE BREAK — Chip up"',
+                    "Two Table Bonanza must retain its untimed 20-minute breaks",
                 ),
                 (
                     'description: "A two-table structure for 16 players, using a '
-                    '50K starting stack and targeting a 1:00 PM–10:45 PM '
-                    'tournament day.",',
+                    '50K starting stack and a relaxed Small Blind Ante schedule.",',
                     "Two Table Bonanza must identify its field, stack, and schedule",
                 ),
                 (
@@ -1921,6 +1915,10 @@ def audit_javascript(path: Path) -> list[str]:
             ):
                 if fragment not in two_table_source:
                     errors.append(message)
+            if re.search(r"\b\d{1,2}:\d{2}\b", two_table_source):
+                errors.append(
+                    "Two Table Bonanza must not hardcode event or break times of day"
+                )
         two_table_chip_count_match = re.search(
             r'const RULES_TWO_TABLE_CHIP_COUNTS = Object\.freeze\(\{'
             r'(?P<body>.*?)\n\}\);',
