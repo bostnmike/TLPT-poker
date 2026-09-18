@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-5"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-6"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1635,8 +1635,8 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append("Shared app must define the Two Table Bonanza structure")
         else:
             two_table_source = two_table_match.group("body")
-            if two_table_source.count('{ type: "level"') != 27:
-                errors.append("Two Table Bonanza must retain all 27 blind rounds")
+            if two_table_source.count('{ type: "level"') != 29:
+                errors.append("Two Table Bonanza must retain all 29 blind rounds")
             if two_table_source.count('{ type: "break"') != 5:
                 errors.append("Two Table Bonanza must retain all five scheduled breaks")
             if two_table_source.count('note: "15-MINUTE BREAK — Chip up"') != 4:
@@ -1680,9 +1680,14 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza Round 11 must remain a standard 30-minute round",
                 ),
                 (
-                    'level: "27", sb: "60,000", bb: "120,000", '
-                    'ante: "60,000"',
-                    "Two Table Bonanza final round differs from the source export",
+                    'level: "28", sb: "80,000", bb: "160,000", '
+                    'ante: "80,000"',
+                    "Two Table Bonanza Level 28 differs from the approved structure",
+                ),
+                (
+                    'level: "29", sb: "100,000", bb: "200,000", '
+                    'ante: "200,000"',
+                    "Two Table Bonanza Level 29 differs from the approved structure",
                 ),
             ):
                 if fragment not in two_table_source:

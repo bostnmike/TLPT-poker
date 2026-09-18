@@ -497,7 +497,9 @@ const RULES_FORMATS = {
       { type: "level", level: "25", sb: "40,000", bb: "80,000", ante: "40,000" },
       { type: "break", note: "15-MINUTE BREAK — Chip up" },
       { type: "level", level: "26", sb: "50,000", bb: "100,000", ante: "50,000" },
-      { type: "level", level: "27", sb: "60,000", bb: "120,000", ante: "60,000" }
+      { type: "level", level: "27", sb: "60,000", bb: "120,000", ante: "60,000" },
+      { type: "level", level: "28", sb: "80,000", bb: "160,000", ante: "80,000" },
+      { type: "level", level: "29", sb: "100,000", bb: "200,000", ante: "200,000" }
     ]
   }
 };
