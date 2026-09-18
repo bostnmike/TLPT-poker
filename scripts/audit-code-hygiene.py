@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-8"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-9"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1917,7 +1917,11 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must pay the top six places",
                 ),
                 (
-                    'payoutLabel: "$920 • 1st $330 • 2nd $210 • 3rd $140 '
+                    'projectedPool: "$920",',
+                    "Two-Table 50K Deep Stack must display its projected prize-pool value",
+                ),
+                (
+                    'payoutLabel: "1st $330 • 2nd $210 • 3rd $140 '
                     '• 4th $110 • 5th $90 • 6th $40",',
                     "Two-Table 50K Deep Stack must display its approved payout schedule",
                 ),
@@ -2054,12 +2058,16 @@ def audit_javascript(path: Path) -> list[str]:
                 "Rules combined money details must render as one accessible note",
             ),
             (
-                'format.combinePayoutAndBounty && format.payoutLabel',
+                'format.combinePayoutAndBounty && format.payoutLabel && format.projectedPool',
                 "Rules money callout must be driven by the selected format",
             ),
             (
-                '<h4>Projected Prize Pool</h4>',
-                "Rules combined money callout must identify the projected prize pool",
+                '<h4>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h4>',
+                "Rules combined money callout must put the pool value in its heading",
+            ),
+            (
+                'escapeHtmlAttr(format.projectedPool)',
+                "Rules projected prize-pool value must be escaped before entering markup",
             ),
             (
                 'escapeHtmlAttr(format.payoutLabel)',

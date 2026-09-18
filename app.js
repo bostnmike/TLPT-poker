@@ -470,7 +470,8 @@ const RULES_FORMATS = {
     title: "Two-Table 50K Deep Stack",
     assumption: "Assumptions: 16 starting players, 7 rebuys, and a $920 prize pool.",
     payoutPlaces: 6,
-    payoutLabel: "$920 • 1st $330 • 2nd $210 • 3rd $140 • 4th $110 • 5th $90 • 6th $40",
+    projectedPool: "$920",
+    payoutLabel: "1st $330 • 2nd $210 • 3rd $140 • 4th $110 • 5th $90 • 6th $40",
     combinePayoutAndBounty: true,
     bounty: {
       title: "$10 First-Entry Bounty",
@@ -6230,13 +6231,13 @@ function buildRulesChipPanel(format, formatKey) {
 function buildRulesFormatCallout(format) {
   if (!format?.bounty) return "";
 
-  if (format.combinePayoutAndBounty && format.payoutLabel) {
+  if (format.combinePayoutAndBounty && format.payoutLabel && format.projectedPool) {
     return `
       <aside class="rules-money-callout" role="note" aria-label="Projected Prize Pool and ${escapeHtmlAttr(format.bounty.title)}">
         <div class="rules-money-section rules-money-prize">
           <div class="rules-money-icon" aria-hidden="true">🏆</div>
           <div>
-            <h4>Projected Prize Pool</h4>
+            <h4>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h4>
             <p>${escapeHtmlAttr(format.payoutLabel)}</p>
           </div>
         </div>
