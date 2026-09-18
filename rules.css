@@ -346,6 +346,12 @@
   gap:14px !important;
 }
 
+@media (min-width:801px){
+  .rules-chip-grid.rules-chip-grid-5{
+    grid-template-columns:repeat(5, minmax(0,1fr)) !important;
+  }
+}
+
 .rules-chip-card{
   border:1px solid rgba(255,255,255,.10);
   border-radius:14px;

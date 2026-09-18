@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-5"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1655,12 +1655,16 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza runtime must remain eight hours including breaks",
                 ),
                 (
-                    'durationMinutes: 45, note: "45-MINUTE BREAK — Chip up"',
-                    "Two Table Bonanza second break must remain 45 minutes",
+                    'durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up"',
+                    "Two Table Bonanza second break must remain the 45-minute Dinner Break",
                 ),
                 (
-                    'chips: RULES_40K_CHIPS,',
-                    "Two Table Bonanza must reuse the 40K starting chip set",
+                    'description: "A two-table structure designed for fields of up to 18 players, using a 50K starting stack.",',
+                    "Two Table Bonanza must identify its 50K starting stack",
+                ),
+                (
+                    'chips: RULES_TWO_TABLE_CHIPS,',
+                    "Two Table Bonanza must use its dedicated 50K chip set",
                 ),
                 (
                     'title: "$10 First Buy-In Bounty"',
@@ -1683,6 +1687,44 @@ def audit_javascript(path: Path) -> list[str]:
             ):
                 if fragment not in two_table_source:
                     errors.append(message)
+        two_table_chip_count_match = re.search(
+            r'const RULES_TWO_TABLE_CHIP_COUNTS = Object\.freeze\(\{'
+            r'(?P<body>.*?)\n\}\);',
+            text,
+            flags=re.DOTALL,
+        )
+        expected_two_table_chip_counts = {
+            "T-25": 16,
+            "T-100": 21,
+            "T-500": 15,
+            "T-1000": 15,
+            "T-5000": 5,
+        }
+        if not two_table_chip_count_match:
+            errors.append("Shared app must define the Two Table Bonanza chip counts")
+        else:
+            chip_count_source = two_table_chip_count_match.group("body")
+            for label, count in expected_two_table_chip_counts.items():
+                if f'"{label}": {count}' not in chip_count_source:
+                    errors.append(
+                        f"Two Table Bonanza {label} starting count must remain {count}"
+                    )
+            if sum(
+                int(label.removeprefix("T-")) * count
+                for label, count in expected_two_table_chip_counts.items()
+            ) != 50_000:
+                errors.append("Two Table Bonanza chip counts must total 50,000")
+        two_table_chip_list_match = re.search(
+            r'const RULES_TWO_TABLE_CHIPS = Object\.freeze\(\['
+            r'(?P<body>.*?)\n\]\);',
+            text,
+            flags=re.DOTALL,
+        )
+        if (
+            not two_table_chip_list_match
+            or two_table_chip_list_match.group("body").count('{ label: "T-') != 5
+        ):
+            errors.append("Two Table Bonanza must display exactly five chip denominations")
         rules_callout_source = function_source("buildRulesFormatCallout")
         for fragment, message in (
             (

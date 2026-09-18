@@ -344,6 +344,14 @@ const RULES_40K_CHIP_COUNTS = Object.freeze({
   "T-25000": 0
 });
 
+const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
+  "T-25": 16,
+  "T-100": 21,
+  "T-500": 15,
+  "T-1000": 15,
+  "T-5000": 5
+});
+
 const CHIP_SET_TEXT = {
   "40k": RULES_40K_CHIP_COUNTS,
   "500k": {
@@ -355,7 +363,7 @@ const CHIP_SET_TEXT = {
     "T-100000": 1,
     "T-250000": 0
   },
-  "two-table": RULES_40K_CHIP_COUNTS
+  "two-table": RULES_TWO_TABLE_CHIP_COUNTS
 };
 
 const RULES_40K_CHIPS = Object.freeze([
@@ -366,6 +374,14 @@ const RULES_40K_CHIPS = Object.freeze([
   { label: "T-5000", image: "images/site/chip-T-5000.png" },
   { label: "T-10000", image: "images/site/chip-T-10000.png" },
   { label: "T-25000", image: "images/site/chip-T-25000.png" }
+]);
+
+const RULES_TWO_TABLE_CHIPS = Object.freeze([
+  { label: "T-25", image: "images/site/chip-T-25.png" },
+  { label: "T-100", image: "images/site/chip-T-100.png" },
+  { label: "T-500", image: "images/site/chip-T-500.png" },
+  { label: "T-1000", image: "images/site/chip-T-1000.png" },
+  { label: "T-5000", image: "images/site/chip-T-5000.png" }
 ]);
 
 const RULES_FORMATS = {
@@ -438,7 +454,7 @@ const RULES_FORMATS = {
   },
   "two-table": {
     title: "Two Table Bonanza",
-    description: "A two-table structure designed for fields of up to 18 players, using the same 40K starting stack and chip set as the Friday format.",
+    description: "A two-table structure designed for fields of up to 18 players, using a 50K starting stack.",
     bounty: {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
@@ -448,7 +464,7 @@ const RULES_FORMATS = {
     breakMinutes: 15,
     showEffectiveBb: false,
     blindNote: "Gold rows mark scheduled breaks and chip-up points. All live rounds are 30 minutes.",
-    chips: RULES_40K_CHIPS,
+    chips: RULES_TWO_TABLE_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0" },
       { type: "level", level: "2", sb: "75", bb: "150", ante: "0" },
@@ -461,7 +477,7 @@ const RULES_FORMATS = {
       { type: "level", level: "8", sb: "400", bb: "800", ante: "400" },
       { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500" },
       { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600" },
-      { type: "break", durationMinutes: 45, note: "45-MINUTE BREAK — Chip up" },
+      { type: "break", durationMinutes: 45, note: "45-MINUTE DINNER BREAK — Chip up" },
       { type: "level", level: "11", sb: "1,000", bb: "2,000", ante: "1,000" },
       { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500" },
       { type: "level", level: "13", sb: "2,000", bb: "4,000", ante: "2,000" },
@@ -6138,7 +6154,7 @@ function buildRulesChipPanel(format, formatKey) {
 
   return `
     <div class="rules-chip-panel">
-      <div class="rules-chip-grid">
+      <div class="rules-chip-grid rules-chip-grid-${format.chips.length}">
         ${format.chips.map(chip => buildRulesChipCard(chip, formatKey)).join("")}
       </div>
     </div>
