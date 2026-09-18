@@ -461,7 +461,8 @@ const RULES_FORMATS = {
     },
     runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",
     levelMinutes: 30,
-    breakMinutes: 15,
+    levelLengthLabel: "30 min (Levels 1–15) • 25 min (Levels 16–17)",
+    breakMinutes: 20,
     showTypicalRemainingPlayers: true,
     blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate based on 16 starters and six rebuys; merge to one table as soon as eight players remain.",
     chips: RULES_TWO_TABLE_CHIPS,
@@ -471,21 +472,21 @@ const RULES_FORMATS = {
       { type: "level", level: "3", sb: "100", bb: "200", ante: "0", eff: "250 BB", remaining: "16 (2 × 8)" },
       { type: "level", level: "4", sb: "125", bb: "250", ante: "0", eff: "200 BB", remaining: "16 (2 × 8)" },
       { type: "level", level: "5", sb: "150", bb: "300", ante: "0", eff: "166 BB", remaining: "16 (2 × 8)" },
-      { type: "break", note: "15-MINUTE BREAK • 3:30–3:45 PM — Chip up" },
+      { type: "break", note: "20-MINUTE BREAK • 3:30–3:50 PM — Chip up" },
       { type: "level", level: "6", sb: "200", bb: "400", ante: "200", eff: "125 BB", remaining: "15" },
       { type: "level", level: "7", sb: "300", bb: "600", ante: "300", eff: "83 BB", remaining: "15" },
       { type: "level", level: "8", sb: "400", bb: "800", ante: "400", eff: "62 BB", remaining: "14" },
       { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500", eff: "50 BB", remaining: "13" },
       { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600", eff: "41 BB", remaining: "12" },
-      { type: "break", durationMinutes: 45, note: "45-MINUTE DINNER BREAK • 6:15–7:00 PM — Chip up" },
+      { type: "break", durationMinutes: 45, note: "45-MINUTE DINNER BREAK • 6:20–7:05 PM — Chip up" },
       { type: "level", level: "11", sb: "1,000", bb: "2,000", ante: "1,000", eff: "25 BB", remaining: "11" },
       { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500", eff: "Rebuys Closed", remaining: "10" },
       { type: "level", level: "13", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed", remaining: "9" },
       { type: "level", level: "14", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed", remaining: "8 — MERGE" },
       { type: "level", level: "15", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed", remaining: "6" },
-      { type: "break", note: "15-MINUTE BREAK • 9:30–9:45 PM — Chip up" },
-      { type: "level", level: "16", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "4" },
-      { type: "level", level: "17", sb: "30,000", bb: "60,000", ante: "30,000", eff: "Rebuys Closed", remaining: "2" }
+      { type: "break", note: "20-MINUTE BREAK • 9:35–9:55 PM — Chip up" },
+      { type: "level", level: "16", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "4", duration: "25 min" },
+      { type: "level", level: "17", sb: "30,000", bb: "60,000", ante: "30,000", eff: "Rebuys Closed", remaining: "2", duration: "25 min" }
     ]
   }
 };

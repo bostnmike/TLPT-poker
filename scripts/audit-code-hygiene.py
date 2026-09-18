@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-9"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-10"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1647,19 +1647,21 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append("Two Table Bonanza must retain all 17 blind rounds")
             if two_table_source.count('{ type: "break"') != 3:
                 errors.append("Two Table Bonanza must retain all three scheduled breaks")
-            if two_table_source.count('note: "15-MINUTE BREAK •') != 2:
-                errors.append("Two Table Bonanza must retain two 15-minute breaks")
+            if two_table_source.count('note: "20-MINUTE BREAK •') != 2:
+                errors.append("Two Table Bonanza must retain two 20-minute breaks")
             two_table_levels = {
                 int(match.group("level")): {
                     "bb": int(match.group("bb").replace(",", "")),
                     "eff": match.group("eff"),
                     "remaining": match.group("remaining"),
+                    "duration": match.group("duration") or "30 min",
                 }
                 for match in re.finditer(
                     r'\{ type: "level", level: "(?P<level>\d+)", '
                     r'sb: "[\d,]+", bb: "(?P<bb>[\d,]+)", '
                     r'ante: "[\d,]+", eff: "(?P<eff>[^"]+)", '
-                    r'remaining: "(?P<remaining>[^"]+)" \}',
+                    r'remaining: "(?P<remaining>[^"]+)"'
+                    r'(?:, duration: "(?P<duration>[^"]+)")? \}',
                     two_table_source,
                 )
             }
@@ -1710,14 +1712,30 @@ def audit_javascript(path: Path) -> list[str]:
                             f"{level} typical-player estimate must be "
                             f"{expected_remaining}"
                         )
+                for level in range(1, 16):
+                    if two_table_levels[level]["duration"] != "30 min":
+                        errors.append(
+                            f"Two Table Bonanza Level {level} must remain 30 minutes"
+                        )
+                for level in range(16, 18):
+                    if two_table_levels[level]["duration"] != "25 min":
+                        errors.append(
+                            "Two Table Bonanza closing Levels 16–17 must remain "
+                            f"25 minutes (Level {level} differs)"
+                        )
             for fragment, message in (
                 (
                     'levelMinutes: 30,',
                     "Two Table Bonanza rounds must default to 30 minutes",
                 ),
                 (
-                    'breakMinutes: 15,',
-                    "Two Table Bonanza breaks must remain 15 minutes",
+                    'levelLengthLabel: "30 min (Levels 1–15) • '
+                    '25 min (Levels 16–17)",',
+                    "Two Table Bonanza must explain its 30/25-minute level timing",
+                ),
+                (
+                    'breakMinutes: 20,',
+                    "Two Table Bonanza breaks must remain 20 minutes",
                 ),
                 (
                     'runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",',
@@ -1725,8 +1743,16 @@ def audit_javascript(path: Path) -> list[str]:
                 ),
                 (
                     'durationMinutes: 45, note: "45-MINUTE DINNER BREAK • '
-                    '6:15–7:00 PM — Chip up"',
+                    '6:20–7:05 PM — Chip up"',
                     "Two Table Bonanza second break must remain the 45-minute Dinner Break",
+                ),
+                (
+                    'note: "20-MINUTE BREAK • 3:30–3:50 PM — Chip up"',
+                    "Two Table Bonanza first break must retain its scheduled time",
+                ),
+                (
+                    'note: "20-MINUTE BREAK • 9:35–9:55 PM — Chip up"',
+                    "Two Table Bonanza third break must retain its scheduled time",
                 ),
                 (
                     'description: "A two-table structure for 16 players, using a '
@@ -1768,7 +1794,8 @@ def audit_javascript(path: Path) -> list[str]:
                 ),
                 (
                     'level: "17", sb: "30,000", bb: "60,000", '
-                    'ante: "30,000", eff: "Rebuys Closed", remaining: "2"',
+                    'ante: "30,000", eff: "Rebuys Closed", remaining: "2", '
+                    'duration: "25 min"',
                     "Two Table Bonanza final round differs from the approved structure",
                 ),
             ):
