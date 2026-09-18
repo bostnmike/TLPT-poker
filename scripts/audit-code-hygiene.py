@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-2"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1841,8 +1841,8 @@ def audit_javascript(path: Path) -> list[str]:
                     10: "12",
                     11: "11",
                     12: "10",
-                    13: "9",
-                    14: "8 — MERGE",
+                    13: "9 — MERGE",
+                    14: "8",
                     15: "6",
                     16: "4",
                     17: "2",
@@ -1926,7 +1926,7 @@ def audit_javascript(path: Path) -> list[str]:
                 ),
                 (
                     'Typical remaining players is a planning estimate; merge to '
-                    'one table as soon as eight players remain.',
+                    'one table as soon as nine players remain.',
                     "Two-Table 50K Deep Stack must explain its attrition estimate and merge",
                 ),
                 (
