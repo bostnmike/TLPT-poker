@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-5"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1684,10 +1684,12 @@ def audit_javascript(path: Path) -> list[str]:
         for token in (
             ".blind-table tr.blind-row-payout td{",
             "rgba(34,197,94,.24)",
+            ".timer-pill-payouts{",
+            "flex:1 1 100%;",
         ):
             if token not in rules_css:
                 errors.append(
-                    f"rules.css: projected payout-row styling missing: {token}"
+                    f"rules.css: payout styling missing: {token}"
                 )
         show_format_source = function_source("showFormat")
         if (
@@ -1785,8 +1787,8 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append("Shared app must define the Two-Table 50K Deep Stack structure")
         else:
             two_table_source = two_table_match.group("body")
-            if two_table_source.count('{ type: "level"') != 19:
-                errors.append("Two-Table 50K Deep Stack must retain all 19 blind rounds")
+            if two_table_source.count('{ type: "level"') != 21:
+                errors.append("Two-Table 50K Deep Stack must retain all 21 blind rounds")
             if two_table_source.count('{ type: "break"') != 3:
                 errors.append("Two-Table 50K Deep Stack must retain all three scheduled breaks")
             if two_table_source.count('note: "20-MINUTE BREAK — Chip up"') != 2:
@@ -1807,7 +1809,7 @@ def audit_javascript(path: Path) -> list[str]:
                     two_table_source,
                 )
             }
-            if len(two_table_levels) != 19:
+            if len(two_table_levels) != 21:
                 errors.append(
                     "Every Two-Table 50K Deep Stack level must define Effective BB and "
                     "typical-player states"
@@ -1822,7 +1824,7 @@ def audit_javascript(path: Path) -> list[str]:
                             "Two-Table 50K Deep Stack Level "
                             f"{level} Effective BB must be {expected_effective_bb}"
                         )
-                for level in range(12, 20):
+                for level in range(12, 22):
                     if two_table_levels[level]["eff"] != "Rebuys Closed":
                         errors.append(
                             "Two-Table 50K Deep Stack must show Rebuys Closed from "
@@ -1848,6 +1850,8 @@ def audit_javascript(path: Path) -> list[str]:
                     17: "4",
                     18: "3",
                     19: "2",
+                    20: "2",
+                    21: "2",
                 }
                 for level, expected_remaining in expected_remaining_players.items():
                     if two_table_levels[level]["remaining"] != expected_remaining:
@@ -1856,11 +1860,15 @@ def audit_javascript(path: Path) -> list[str]:
                             f"{level} typical-player estimate must be "
                             f"{expected_remaining}"
                         )
-                for level in range(1, 20):
+                for level in range(1, 21):
                     if two_table_levels[level]["duration"] != "25 min":
                         errors.append(
                             f"Two-Table 50K Deep Stack Level {level} must remain 25 minutes"
                         )
+                if two_table_levels[21]["duration"] != "60 min":
+                    errors.append(
+                        "Two-Table 50K Deep Stack Level 21 must remain 60 minutes"
+                    )
             for fragment, message in (
                 (
                     'title: "Two-Table 50K Deep Stack",',
@@ -1871,15 +1879,15 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack rounds must default to 25 minutes",
                 ),
                 (
-                    'levelLengthLabel: "25 min",',
-                    "Two-Table 50K Deep Stack must show one 25-minute level length",
+                    'levelLengthLabel: "25 min (1–20) • 60 min (21)",',
+                    "Two-Table 50K Deep Stack must explain its 25/60-minute level timing",
                 ),
                 (
                     'breakMinutes: 20,',
                     "Two-Table 50K Deep Stack breaks must remain 20 minutes",
                 ),
                 (
-                    'runtimeLabel: "9 hrs 20 min",',
+                    'runtimeLabel: "10 hrs 45 min",',
                     "Two-Table 50K Deep Stack runtime pill must remain on one line",
                 ),
                 (
@@ -1891,12 +1899,18 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must retain its untimed 20-minute breaks",
                 ),
                 (
-                    'assumption: "Assumptions: 16 starting players and 7 rebuys.",',
-                    "Two-Table 50K Deep Stack must state its player and rebuy assumptions",
+                    'assumption: "Assumptions: 16 starting players, 7 rebuys, '
+                    'and a $920 prize pool.",',
+                    "Two-Table 50K Deep Stack must state its field, rebuy, and prize-pool assumptions",
                 ),
                 (
                     'payoutPlaces: 6,',
                     "Two-Table 50K Deep Stack must pay the top six places",
+                ),
+                (
+                    'payoutLabel: "$920 pool • 1st $330 • 2nd $210 • 3rd $140 '
+                    '• 4th $110 • 5th $90 • 6th $40",',
+                    "Two-Table 50K Deep Stack must display its approved payout schedule",
                 ),
                 (
                     'showTypicalRemainingPlayers: true,',
@@ -1907,12 +1921,13 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must use its dedicated 50K chip set",
                 ),
                 (
-                    'title: "$10 First Buy-In Bounty"',
-                    "Two-Table 50K Deep Stack must display the $10 first-buy-in bounty",
+                    'title: "$10 First-Entry Bounty"',
+                    "Two-Table 50K Deep Stack must display the $10 first-entry bounty",
                 ),
                 (
-                    'Rebuys do not carry an additional bounty.',
-                    "Two-Table 50K Deep Stack must limit the bounty to each first buy-in",
+                    'The initial entry is $40 plus a separate $10 bounty. '
+                    'Knock out that entry to collect it; $40 rebuys carry no bounty.',
+                    "Two-Table 50K Deep Stack must keep the bounty separate from the $40 entry",
                 ),
                 (
                     'rebuys are open through Level 11 at 25 BB and closed '
@@ -1947,7 +1962,18 @@ def audit_javascript(path: Path) -> list[str]:
                 (
                     'level: "19", sb: "20,000", bb: "40,000", '
                     'ante: "20,000", eff: "Rebuys Closed", remaining: "2"',
-                    "Two-Table 50K Deep Stack final round differs from the approved structure",
+                    "Two-Table 50K Deep Stack Level 19 differs from the approved structure",
+                ),
+                (
+                    'level: "20", sb: "40,000", bb: "80,000", '
+                    'ante: "40,000", eff: "Rebuys Closed", remaining: "2"',
+                    "Two-Table 50K Deep Stack Level 20 differs from the approved structure",
+                ),
+                (
+                    'level: "21", sb: "50,000", bb: "100,000", '
+                    'ante: "50,000", eff: "Rebuys Closed", remaining: "2", '
+                    'duration: "60 min"',
+                    "Two-Table 50K Deep Stack Level 21 differs from the approved structure",
                 ),
             ):
                 if fragment not in two_table_source:
@@ -2022,12 +2048,20 @@ def audit_javascript(path: Path) -> list[str]:
         timer_rail_source = function_source("buildRulesTimerRail")
         for fragment, message in (
             (
-                '<strong>Payouts:</strong> Top ${Number(format.payoutPlaces)}',
-                "Rules timer rail must identify the number of paid places",
+                'const payoutLabel = format?.payoutLabel',
+                "Rules timer rail must support detailed payout schedules",
             ),
             (
-                'format?.payoutPlaces',
-                "Rules payout pill must be driven by the selected format",
+                '`Top ${Number(format.payoutPlaces)}`',
+                "Rules payout pill must retain its paid-place fallback",
+            ),
+            (
+                'escapeHtmlAttr(payoutLabel)',
+                "Rules payout copy must be escaped before entering markup",
+            ),
+            (
+                'timer-pill-payouts',
+                "Rules timer rail must style detailed payouts for responsive wrapping",
             ),
         ):
             if fragment not in timer_rail_source:

@@ -340,6 +340,15 @@
   color:#fca5a5;
 }
 
+.timer-pill-payouts{
+  flex:1 1 100%;
+  flex-wrap:wrap;
+  padding-right:14px;
+  padding-left:14px;
+  line-height:1.4;
+  text-align:center;
+}
+
 .timer-pill:hover{
   transform:translateY(-1px);
   box-shadow:

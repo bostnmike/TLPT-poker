@@ -466,15 +466,16 @@ const RULES_FORMATS = {
   },
   "two-table": {
     title: "Two-Table 50K Deep Stack",
-    assumption: "Assumptions: 16 starting players and 7 rebuys.",
+    assumption: "Assumptions: 16 starting players, 7 rebuys, and a $920 prize pool.",
     payoutPlaces: 6,
+    payoutLabel: "$920 pool • 1st $330 • 2nd $210 • 3rd $140 • 4th $110 • 5th $90 • 6th $40",
     bounty: {
-      title: "$10 First Buy-In Bounty",
-      text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
+      title: "$10 First-Entry Bounty",
+      text: "The initial entry is $40 plus a separate $10 bounty. Knock out that entry to collect it; $40 rebuys carry no bounty."
     },
-    runtimeLabel: "9 hrs 20 min",
+    runtimeLabel: "10 hrs 45 min",
     levelMinutes: 25,
-    levelLengthLabel: "25 min",
+    levelLengthLabel: "25 min (1–20) • 60 min (21)",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
     blindNote: "Gold rows mark scheduled breaks and chip-up points. Green rows mark projected payout territory. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as nine players remain.",
@@ -501,7 +502,9 @@ const RULES_FORMATS = {
       { type: "level", level: "16", sb: "8,000", bb: "16,000", ante: "8,000", eff: "Rebuys Closed", remaining: "5" },
       { type: "level", level: "17", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed", remaining: "4" },
       { type: "level", level: "18", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "3" },
-      { type: "level", level: "19", sb: "20,000", bb: "40,000", ante: "20,000", eff: "Rebuys Closed", remaining: "2" }
+      { type: "level", level: "19", sb: "20,000", bb: "40,000", ante: "20,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "20", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "21", sb: "50,000", bb: "100,000", ante: "50,000", eff: "Rebuys Closed", remaining: "2", duration: "60 min" }
     ]
   }
 };
@@ -6258,6 +6261,8 @@ function buildRulesTimerRail(format) {
   const playableLevels = Array.isArray(format?.levels)
     ? format.levels.filter(row => row.type === "level").length
     : 0;
+  const payoutLabel = format?.payoutLabel
+    || (format?.payoutPlaces ? `Top ${Number(format.payoutPlaces)}` : "");
 
   return `
     <div class="timer-rail">
@@ -6265,7 +6270,7 @@ function buildRulesTimerRail(format) {
       <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
       <div class="timer-pill"><strong>Breaks:</strong> ${breakLengthLabel}</div>
       <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
-      ${format?.payoutPlaces ? `<div class="timer-pill"><strong>Payouts:</strong> Top ${Number(format.payoutPlaces)}</div>` : ""}
+      ${payoutLabel ? `<div class="timer-pill${format?.payoutLabel ? " timer-pill-payouts" : ""}"><strong>Payouts:</strong> <span>${escapeHtmlAttr(payoutLabel)}</span></div>` : ""}
     </div>
   `;
 }
