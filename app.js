@@ -334,16 +334,18 @@ const TIER_GUIDE = [
   { emoji: "🍣", name: "The League Sponsor" }
 ];
 
+const RULES_40K_CHIP_COUNTS = Object.freeze({
+  "T-25": 20,
+  "T-100": 20,
+  "T-500": 15,
+  "T-1000": 15,
+  "T-5000": 3,
+  "T-10000": 0,
+  "T-25000": 0
+});
+
 const CHIP_SET_TEXT = {
-  "40k": {
-    "T-25": 20,
-    "T-100": 20,
-    "T-500": 15,
-    "T-1000": 15,
-    "T-5000": 3,
-    "T-10000": 0,
-    "T-25000": 0
-  },
+  "40k": RULES_40K_CHIP_COUNTS,
   "500k": {
     "T-500": 20,
     "T-1000": 20,
@@ -352,8 +354,19 @@ const CHIP_SET_TEXT = {
     "T-25000": 6,
     "T-100000": 1,
     "T-250000": 0
-  }
+  },
+  "two-table": RULES_40K_CHIP_COUNTS
 };
+
+const RULES_40K_CHIPS = Object.freeze([
+  { label: "T-25", image: "images/site/chip-T-25.png" },
+  { label: "T-100", image: "images/site/chip-T-100.png" },
+  { label: "T-500", image: "images/site/chip-T-500.png" },
+  { label: "T-1000", image: "images/site/chip-T-1000.png" },
+  { label: "T-5000", image: "images/site/chip-T-5000.png" },
+  { label: "T-10000", image: "images/site/chip-T-10000.png" },
+  { label: "T-25000", image: "images/site/chip-T-25000.png" }
+]);
 
 const RULES_FORMATS = {
   "40k": {
@@ -361,15 +374,7 @@ const RULES_FORMATS = {
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
-    chips: [
-      { label: "T-25", image: "images/site/chip-T-25.png" },
-      { label: "T-100", image: "images/site/chip-T-100.png" },
-      { label: "T-500", image: "images/site/chip-T-500.png" },
-      { label: "T-1000", image: "images/site/chip-T-1000.png" },
-      { label: "T-5000", image: "images/site/chip-T-5000.png" },
-      { label: "T-10000", image: "images/site/chip-T-10000.png" },
-      { label: "T-25000", image: "images/site/chip-T-25000.png" }
-    ],
+    chips: RULES_40K_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
       { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB" },
@@ -433,13 +438,18 @@ const RULES_FORMATS = {
   },
   "two-table": {
     title: "Two Table Bonanza",
-    description: "A two-table structure designed for fields of up to 18 players, with 30-minute rounds and 15-minute breaks. Starting-stack and chip-set details will be added once finalized.",
+    description: "A two-table structure designed for fields of up to 18 players, using the same 40K starting stack and chip set as the Friday format.",
+    bounty: {
+      title: "$10 First Buy-In Bounty",
+      text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
+    },
     runtimeLabel: "Varies by field",
     levelMinutes: 30,
     levelLengthLabel: "30 min (Round 11: 60 min)",
     breakMinutes: 15,
     showEffectiveBb: false,
     blindNote: "Gold rows mark 15-minute breaks and chip-up points. Live rounds are 30 minutes except Round 11, which is 60 minutes.",
+    chips: RULES_40K_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0" },
       { type: "level", level: "2", sb: "75", bb: "150", ante: "0" },
@@ -6136,6 +6146,20 @@ function buildRulesChipPanel(format, formatKey) {
   `;
 }
 
+function buildRulesFormatCallout(format) {
+  if (!format?.bounty) return "";
+
+  return `
+    <aside class="rules-bounty-callout" role="note" aria-label="${escapeHtmlAttr(format.bounty.title)}">
+      <div class="rules-bounty-icon" aria-hidden="true">💵</div>
+      <div>
+        <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
+        <p>${escapeHtmlAttr(format.bounty.text)}</p>
+      </div>
+    </aside>
+  `;
+}
+
 function buildRulesTimerRail(format) {
   const levelMinutes = Number(format?.levelMinutes ?? 20);
   const breakMinutes = Number(format?.breakMinutes ?? 10);
@@ -6236,6 +6260,7 @@ function showFormat(formatKey) {
         </div>
       </div>
       ${buildRulesTimerRail(format)}
+      ${buildRulesFormatCallout(format)}
       ${buildRulesChipPanel(format, formatKey)}
       ${buildRulesBlindTable(format)}
     </div>

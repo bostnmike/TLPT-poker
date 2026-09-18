@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-2"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1649,6 +1649,18 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza breaks must remain 15 minutes",
                 ),
                 (
+                    'chips: RULES_40K_CHIPS,',
+                    "Two Table Bonanza must reuse the 40K starting chip set",
+                ),
+                (
+                    'title: "$10 First Buy-In Bounty"',
+                    "Two Table Bonanza must display the $10 first-buy-in bounty",
+                ),
+                (
+                    'Rebuys do not carry an additional bounty.',
+                    "Two Table Bonanza must limit the bounty to each first buy-in",
+                ),
+                (
                     'level: "11", duration: "60 min", sb: "1,000", '
                     'bb: "2,000", ante: "1,000"',
                     "Two Table Bonanza Round 11 must retain its 60-minute timing",
@@ -1661,6 +1673,21 @@ def audit_javascript(path: Path) -> list[str]:
             ):
                 if fragment not in two_table_source:
                     errors.append(message)
+        rules_callout_source = function_source("buildRulesFormatCallout")
+        for fragment, message in (
+            (
+                'class="rules-bounty-callout" role="note"',
+                "Rules bounty details must render as an accessible note",
+            ),
+            (
+                'escapeHtmlAttr(format.bounty.text)',
+                "Rules bounty copy must be escaped before entering markup",
+            ),
+        ):
+            if fragment not in rules_callout_source:
+                errors.append(message)
+        if '${buildRulesFormatCallout(format)}' not in function_source("showFormat"):
+            errors.append("Rules formats must render their format-specific callout")
         player_profile_source = function_source("renderPlayerProfile")
         for fragment, message in (
             (
