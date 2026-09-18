@@ -445,10 +445,9 @@ const RULES_FORMATS = {
     },
     runtimeLabel: "8 hrs (including breaks)",
     levelMinutes: 30,
-    levelLengthLabel: "30 min (Round 11: 60 min)",
     breakMinutes: 15,
     showEffectiveBb: false,
-    blindNote: "Gold rows mark 15-minute breaks and chip-up points. Live rounds are 30 minutes except Round 11, which is 60 minutes.",
+    blindNote: "Gold rows mark scheduled breaks and chip-up points. All live rounds are 30 minutes.",
     chips: RULES_40K_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0" },
@@ -462,8 +461,8 @@ const RULES_FORMATS = {
       { type: "level", level: "8", sb: "400", bb: "800", ante: "400" },
       { type: "level", level: "9", sb: "500", bb: "1,000", ante: "500" },
       { type: "level", level: "10", sb: "600", bb: "1,200", ante: "600" },
-      { type: "break", note: "15-MINUTE BREAK — Chip up" },
-      { type: "level", level: "11", duration: "60 min", sb: "1,000", bb: "2,000", ante: "1,000" },
+      { type: "break", durationMinutes: 45, note: "45-MINUTE BREAK — Chip up" },
+      { type: "level", level: "11", sb: "1,000", bb: "2,000", ante: "1,000" },
       { type: "level", level: "12", sb: "1,500", bb: "3,000", ante: "1,500" },
       { type: "level", level: "13", sb: "2,000", bb: "4,000", ante: "2,000" },
       { type: "level", level: "14", sb: "2,500", bb: "5,000", ante: "2,500" },
@@ -6166,9 +6165,19 @@ function buildRulesTimerRail(format) {
   const levelLengthLabel = format?.levelLengthLabel || `${levelMinutes} min`;
   const runtimeLabel = format?.runtimeLabel || `${Number(format?.runtimeMinutes ?? 300)} min`;
 
-  const breaks = Array.isArray(format?.levels)
-    ? format.levels.filter(row => row.type === "break").length
-    : 0;
+  const breakRows = Array.isArray(format?.levels)
+    ? format.levels.filter(row => row.type === "break")
+    : [];
+
+  const breakDurationCounts = breakRows.reduce((counts, row) => {
+    const duration = Number(row.durationMinutes ?? breakMinutes);
+    counts.set(duration, (counts.get(duration) || 0) + 1);
+    return counts;
+  }, new Map());
+
+  const breakLengthLabel = [...breakDurationCounts.entries()]
+    .map(([duration, count]) => `${count} × ${duration} min`)
+    .join(" + ");
 
   const playableLevels = Array.isArray(format?.levels)
     ? format.levels.filter(row => row.type === "level").length
@@ -6178,7 +6187,7 @@ function buildRulesTimerRail(format) {
     <div class="timer-rail">
       <div class="timer-pill"><strong>Levels:</strong> ${playableLevels}</div>
       <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
-      <div class="timer-pill"><strong>Breaks:</strong> ${breaks} × ${breakMinutes} min</div>
+      <div class="timer-pill"><strong>Breaks:</strong> ${breakLengthLabel}</div>
       <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
     </div>
   `;

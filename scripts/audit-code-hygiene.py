@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-3"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-4"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1639,6 +1639,8 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append("Two Table Bonanza must retain all 27 blind rounds")
             if two_table_source.count('{ type: "break"') != 5:
                 errors.append("Two Table Bonanza must retain all five scheduled breaks")
+            if two_table_source.count('note: "15-MINUTE BREAK — Chip up"') != 4:
+                errors.append("Two Table Bonanza must retain four 15-minute breaks")
             for fragment, message in (
                 (
                     'levelMinutes: 30,',
@@ -1653,6 +1655,10 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza runtime must remain eight hours including breaks",
                 ),
                 (
+                    'durationMinutes: 45, note: "45-MINUTE BREAK — Chip up"',
+                    "Two Table Bonanza second break must remain 45 minutes",
+                ),
+                (
                     'chips: RULES_40K_CHIPS,',
                     "Two Table Bonanza must reuse the 40K starting chip set",
                 ),
@@ -1665,9 +1671,9 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza must limit the bounty to each first buy-in",
                 ),
                 (
-                    'level: "11", duration: "60 min", sb: "1,000", '
+                    'level: "11", sb: "1,000", '
                     'bb: "2,000", ante: "1,000"',
-                    "Two Table Bonanza Round 11 must retain its 60-minute timing",
+                    "Two Table Bonanza Round 11 must remain a standard 30-minute round",
                 ),
                 (
                     'level: "27", sb: "60,000", bb: "120,000", '
