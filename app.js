@@ -392,6 +392,7 @@ const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
     assumption: "Assumptions: 8 starting players and 4 rebuys.",
+    payoutPlaces: 3,
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
@@ -425,6 +426,7 @@ const RULES_FORMATS = {
   "500k": {
     title: "500K Small Blind Ante",
     assumption: "Assumptions: 8 starting players and 4 rebuys.",
+    payoutPlaces: 3,
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
@@ -466,6 +468,7 @@ const RULES_FORMATS = {
     title: "Two Table Bonanza",
     description: "A two-table structure for 16 players, using a 50K starting stack and a relaxed Small Blind Ante schedule.",
     assumption: "Assumptions: 16 starting players and 6 rebuys.",
+    payoutPlaces: 6,
     bounty: {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
@@ -6261,6 +6264,7 @@ function buildRulesTimerRail(format) {
       <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
       <div class="timer-pill"><strong>Breaks:</strong> ${breakLengthLabel}</div>
       <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
+      ${format?.payoutPlaces ? `<div class="timer-pill"><strong>Payouts:</strong> Top ${Number(format.payoutPlaces)}</div>` : ""}
     </div>
   `;
 }

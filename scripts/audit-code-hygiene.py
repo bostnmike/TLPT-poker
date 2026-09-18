@@ -336,7 +336,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-8"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-9"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-14"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-15"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1728,6 +1728,10 @@ def audit_javascript(path: Path) -> list[str]:
                     'actual attrition varies.',
                     f"{format_key} must identify the attrition column as an estimate",
                 ),
+                (
+                    'payoutPlaces: 3,',
+                    f"{format_key} must pay the top three places",
+                ),
             ):
                 if fragment not in format_source:
                     errors.append(message)
@@ -1876,6 +1880,10 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza must state its player and rebuy assumptions",
                 ),
                 (
+                    'payoutPlaces: 6,',
+                    "Two Table Bonanza must pay the top six places",
+                ),
+                (
                     'showTypicalRemainingPlayers: true,',
                     "Two Table Bonanza must display typical remaining players",
                 ),
@@ -1974,6 +1982,19 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(message)
         if '${buildRulesFormatCallout(format)}' not in function_source("showFormat"):
             errors.append("Rules formats must render their format-specific callout")
+        timer_rail_source = function_source("buildRulesTimerRail")
+        for fragment, message in (
+            (
+                '<strong>Payouts:</strong> Top ${Number(format.payoutPlaces)}',
+                "Rules timer rail must identify the number of paid places",
+            ),
+            (
+                'format?.payoutPlaces',
+                "Rules payout pill must be driven by the selected format",
+            ),
+        ):
+            if fragment not in timer_rail_source:
+                errors.append(message)
         player_profile_source = function_source("renderPlayerProfile")
         for fragment, message in (
             (
@@ -4193,6 +4214,8 @@ def audit_rsvp_table_switch() -> list[str]:
         "grid-template-columns:420px minmax(0, 1fr);",
         "height:210px;",
         "flex-direction:column;",
+        "grid-row:1 / span 2;",
+        ".event-rsvp-block-two-table .home-rotator-nav-inline{",
         "@media (max-width:760px)",
     ):
         if token not in css:

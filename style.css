@@ -3243,6 +3243,41 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     margin-top:20px;
   }
 
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-tables-two{
+    grid-column:1;
+    grid-row:1;
+  }
+
+  #schedule-list .event-rsvp-block-two-table .event-rsvp-summary-wrap{
+    grid-column:2;
+    grid-row:1;
+  }
+
+  #home-events-list .event-rsvp-block-two-table{
+    grid-template-rows:repeat(2, minmax(0, 1fr));
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-tables-two{
+    grid-column:1;
+    grid-row:1 / span 2;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .event-rsvp-summary-wrap{
+    grid-column:2;
+    grid-row:1;
+    align-self:end;
+  }
+
+  #home-events-list .event-rsvp-block-two-table .home-rotator-nav-inline{
+    grid-column:2;
+    grid-row:2;
+    align-self:start;
+    width:100%;
+    box-sizing:border-box;
+    margin-top:10px;
+    transform:none;
+  }
+
   #home-events-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row,
   #schedule-list .event-rsvp-block-two-table .event-rsvp-avatar-row.is-two-table-row{
     width:420px;
