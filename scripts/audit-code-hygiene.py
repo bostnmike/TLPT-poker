@@ -336,7 +336,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260825-6"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-7"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-12"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-13"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1413,11 +1413,45 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             if fragment not in image_source:
                 errors.append(message)
-        rsvp_source = function_source("eventRsvpAvatarMarkup")
-        if 'playerImageMarkup(player, "table", { intrinsicSize: 96 })' not in rsvp_source:
+        rsvp_table_source = function_source("eventRsvpTableMarkup")
+        if 'playerImageMarkup(player, "table", { intrinsicSize: 96 })' not in rsvp_table_source:
             errors.append(
                 "RSVP seats must retain their 96-pixel desktop portrait reservation"
             )
+        event_table_count_source = function_source("getEventTableCount")
+        for fragment, message in (
+            (
+                "Number.parseInt(event?.tables, 10)",
+                "RSVP table mode must read the events.json tables switch",
+            ),
+            (
+                "return tableCount === 2 ? 2 : 1;",
+                "RSVP table mode must default safely to the one-table layout",
+            ),
+        ):
+            if fragment not in event_table_count_source:
+                errors.append(message)
+        rsvp_source = function_source("eventRsvpAvatarMarkup")
+        for fragment, message in (
+            (
+                "const tableCount = getEventTableCount(event);",
+                "RSVP rendering must use the event table-count switch",
+            ),
+            (
+                'class="event-rsvp-tables event-rsvp-tables-two"',
+                "Two-table RSVP rendering must expose its layout hook",
+            ),
+            (
+                "tablePlayers[index % tableCount].push(player);",
+                "Two-table RSVP seating must distribute confirmed players evenly",
+            ),
+            (
+                "eventRsvpTableMarkup(confirmedPlayers, maxSeats)",
+                "One-table RSVP rendering must preserve the existing table path",
+            ),
+        ):
+            if fragment not in rsvp_source:
+                errors.append(message)
         comparison_source = function_source("playerCardComparisonCardMarkup")
         if 'playerImageMarkup(player, "profile", { intrinsicSize: 142 })' not in comparison_source:
             errors.append(
@@ -1901,7 +1935,6 @@ def audit_javascript(path: Path) -> list[str]:
             "T-5000": 5,
             "T-10000": 0,
             "T-25000": 0,
-            "T-100000": 0,
         }
         if not two_table_chip_count_match:
             errors.append("Shared app must define the Two Table Bonanza chip counts")
@@ -1925,9 +1958,9 @@ def audit_javascript(path: Path) -> list[str]:
         )
         if (
             not two_table_chip_list_match
-            or two_table_chip_list_match.group("body").count('{ label: "T-') != 8
+            or two_table_chip_list_match.group("body").count('{ label: "T-') != 7
         ):
-            errors.append("Two Table Bonanza must display exactly eight chip denominations")
+            errors.append("Two Table Bonanza must display exactly seven chip denominations")
         rules_callout_source = function_source("buildRulesFormatCallout")
         for fragment, message in (
             (
@@ -2272,6 +2305,7 @@ def audit_search_discovery() -> list[str]:
 
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_rsvp_table_switch())
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
     errors.extend(audit_search_discovery())
@@ -4119,6 +4153,50 @@ def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
     for token, label in forbidden:
         if token in phase:
             errors.append(f"site-tail.css: Phase 3G.4 must not move or restyle the {label}")
+    return errors
+
+
+def audit_rsvp_table_switch() -> list[str]:
+    """Keep Saturday's one/two-table RSVP switch and responsive layout intact."""
+    errors: list[str] = []
+    events_path = ROOT / "data" / "events.json"
+    try:
+        events = json.loads(events_path.read_text(encoding="utf-8")).get("events", [])
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"data/events.json: unable to audit RSVP table switch: {exc}"]
+
+    saturday_events = [
+        event
+        for event in events
+        if str(event.get("day", "")).strip().lower() == "saturday"
+    ]
+    if not saturday_events:
+        errors.append("data/events.json: Saturday event is missing")
+
+    for event in events:
+        if "tables" in event and (
+            type(event["tables"]) is not int or event["tables"] not in (1, 2)
+        ):
+            errors.append(
+                f"data/events.json: {event.get('day', 'event')} tables must be 1 or 2"
+            )
+
+    for event in saturday_events:
+        if event.get("tables") not in (1, 2):
+            errors.append(
+                "data/events.json: Saturday must declare tables as either 1 or 2"
+            )
+
+    css = (ROOT / "style.css").read_text(encoding="utf-8")
+    for token in (
+        ".event-rsvp-tables-two{",
+        ".event-rsvp-table-heading{",
+        ".event-rsvp-avatar-row.is-two-table-row{",
+        "@media (max-width:760px)",
+    ):
+        if token not in css:
+            errors.append(f"style.css: two-table RSVP layout contract missing: {token}")
+
     return errors
 
 

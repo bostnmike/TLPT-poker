@@ -351,8 +351,7 @@ const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
   "T-1000": 15,
   "T-5000": 5,
   "T-10000": 0,
-  "T-25000": 0,
-  "T-100000": 0
+  "T-25000": 0
 });
 
 const CHIP_SET_TEXT = {
@@ -386,8 +385,7 @@ const RULES_TWO_TABLE_CHIPS = Object.freeze([
   { label: "T-1000", image: "images/site/chip-T-1000.png" },
   { label: "T-5000", image: "images/site/chip-T-5000.png" },
   { label: "T-10000", image: "images/site/chip-T-10000.png" },
-  { label: "T-25000", image: "images/site/chip-T-25000.png" },
-  { label: "T-100000", image: "images/site/chip-T-100000.png" }
+  { label: "T-25000", image: "images/site/chip-T-25000.png" }
 ]);
 
 const RULES_FORMATS = {
@@ -1659,24 +1657,38 @@ function buildRsvpSummaryMarkup(event, extraClass = "") {
   `;
 }
 
-function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
-  const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
-  const emptySeats = Math.max(maxSeats - confirmedPlayers.length, 0);
-  const isHotTable = confirmedPlayers.length / maxSeats >= 0.8;
+function getEventTableCount(event) {
+  const tableCount = Number.parseInt(event?.tables, 10);
+  return tableCount === 2 ? 2 : 1;
+}
 
+function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
   const {
-    showRotatorNav = false,
-    showRotatorLabel = true,
-    rotatorDay = "",
-    rotatorDotsMarkup = "",
-    summaryPlacement = "bottom"
+    tableNumber = 1,
+    showTableHeading = false,
+    compact = false
   } = options;
+  const seatedPlayers = players.slice(0, maxSeats);
+  const emptySeats = Math.max(maxSeats - seatedPlayers.length, 0);
+  const isHotTable = seatedPlayers.length / maxSeats >= 0.8;
+  const tableLabel = `Table ${tableNumber}`;
+  const rowClass = [
+    "event-rsvp-avatar-row",
+    isHotTable ? "is-hot-table" : "",
+    compact ? "is-two-table-row" : ""
+  ].filter(Boolean).join(" ");
 
   return `
-    <div class="event-rsvp-block">
-      <div class="event-rsvp-avatar-row${isHotTable ? " is-hot-table" : ""}">
+    <div class="event-rsvp-table${compact ? " is-two-table" : ""}">
+      ${showTableHeading ? `
+        <div class="event-rsvp-table-heading">
+          <span>${tableLabel}</span>
+          <span>${seatedPlayers.length} / ${maxSeats} seats locked</span>
+        </div>
+      ` : ""}
+      <div class="${rowClass}" aria-label="${tableLabel}: ${seatedPlayers.length} of ${maxSeats} seats locked">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
-        ${confirmedPlayers.map(player => {
+        ${seatedPlayers.map(player => {
           const displayName = displayPlayerNamePlain(player);
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
@@ -1688,6 +1700,45 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
           <span class="event-empty-seat" aria-hidden="true">🪑</span>
         `).join("")}
       </div>
+    </div>
+  `;
+}
+
+function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
+  const tableCount = getEventTableCount(event);
+  const confirmedPlayers = getConfirmedRsvpPlayers(event, data)
+    .slice(0, maxSeats * tableCount);
+
+  const {
+    showRotatorNav = false,
+    showRotatorLabel = true,
+    rotatorDay = "",
+    rotatorDotsMarkup = "",
+    summaryPlacement = "bottom"
+  } = options;
+
+  const tableMarkup = tableCount === 1
+    ? eventRsvpTableMarkup(confirmedPlayers, maxSeats)
+    : (() => {
+        const tablePlayers = Array.from({ length: tableCount }, () => []);
+        confirmedPlayers.forEach((player, index) => {
+          tablePlayers[index % tableCount].push(player);
+        });
+
+        return `
+          <div class="event-rsvp-tables event-rsvp-tables-two" aria-label="Two-table RSVP seating">
+            ${tablePlayers.map((players, index) => eventRsvpTableMarkup(players, maxSeats, {
+              tableNumber: index + 1,
+              showTableHeading: true,
+              compact: true
+            })).join("")}
+          </div>
+        `;
+      })();
+
+  return `
+    <div class="event-rsvp-block${tableCount === 2 ? " event-rsvp-block-two-table" : ""}">
+      ${tableMarkup}
 
       ${showRotatorNav ? `
         <div class="home-rotator-nav-inline">
@@ -1709,25 +1760,28 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
 
 function projectedTableSize(event, maxSeats = 9) {
   const counts = getRsvpCounts(event);
-  const minPlayers = Math.min(counts.yes, maxSeats);
-  const maxPlayers = Math.min(counts.yes + counts.maybe + counts.tbd, maxSeats);
+  const seatCapacity = maxSeats * getEventTableCount(event);
+  const minPlayers = Math.min(counts.yes, seatCapacity);
+  const maxPlayers = Math.min(counts.yes + counts.maybe + counts.tbd, seatCapacity);
   return minPlayers === maxPlayers ? `${minPlayers} players` : `${minPlayers}–${maxPlayers} players`;
 }
 
 function tableFillPercent(event, maxSeats = 9) {
   const counts = getRsvpCounts(event);
-  return Math.min((counts.yes / maxSeats) * 100, 100);
+  const seatCapacity = maxSeats * getEventTableCount(event);
+  return Math.min((counts.yes / seatCapacity) * 100, 100);
 }
 
 function tableFillMarkup(event, maxSeats = 9) {
   const counts = getRsvpCounts(event);
+  const seatCapacity = maxSeats * getEventTableCount(event);
   const fillPct = tableFillPercent(event, maxSeats);
 
   return `
     <div class="fill-widget">
       <div class="fill-header">
         <span class="fill-label">Table Fill</span>
-        <span class="fill-seats">${counts.yes} / ${maxSeats} seats locked</span>
+        <span class="fill-seats">${counts.yes} / ${seatCapacity} seats locked</span>
       </div>
       <div class="fill-bar"><div class="fill-bar-value" style="width:${fillPct}%"></div></div>
     </div>

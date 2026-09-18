@@ -3146,6 +3146,95 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
     0 10px 24px rgba(0,0,0,.18);
 }
 
+/* Two-table RSVP mode: two compact nine-seat maps, selected by events.json. */
+.event-rsvp-tables-two{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  align-items:start;
+  gap:12px;
+  width:100%;
+  max-width:680px;
+  margin-top:20px;
+}
+
+.event-rsvp-table.is-two-table{
+  min-width:0;
+}
+
+.event-rsvp-table-heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin:0 6px 6px;
+  color:rgba(255,255,255,.72);
+  font-size:.76rem;
+  font-weight:850;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.event-rsvp-table-heading span:first-child{
+  color:#bbf7d0;
+  letter-spacing:.10em;
+}
+
+@media (min-width:641px){
+  .event-rsvp-avatar-row.is-two-table-row{
+    width:330px;
+    height:165px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row::before{
+    background-size:330px 165px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row::after{
+    inset:24px 40px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-rsvp-center-name{
+    min-width:120px;
+    font-size:1.02rem;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row > .event-rsvp-seat-player,
+  .event-rsvp-avatar-row.is-two-table-row > .event-empty-seat{
+    width:48px;
+    height:48px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-rsvp-seat-player .player-avatar-wrap{
+    width:48px;
+    height:48px;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .player-avatar.table,
+  .event-rsvp-avatar-row.is-two-table-row .player-avatar-fallback.table{
+    width:48px;
+    height:48px;
+    border-width:2px;
+    font-size:.78rem;
+  }
+
+  .event-rsvp-avatar-row.is-two-table-row .event-empty-seat{
+    font-size:1.65rem;
+  }
+}
+
+@media (max-width:760px){
+  .event-rsvp-tables-two{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:18px;
+  }
+
+  .event-rsvp-table.is-two-table{
+    width:100%;
+    max-width:342px;
+  }
+}
+
   .event-title-kicker{
     font-size:1.72rem;
     font-weight:900;
