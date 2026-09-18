@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-7"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-8"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1658,7 +1658,7 @@ def audit_javascript(path: Path) -> list[str]:
                     "Every Two Table Bonanza level must define its Effective BB state"
                 )
             else:
-                for level in range(1, 16):
+                for level in range(1, 13):
                     expected_effective_bb = (
                         f'{50_000 // two_table_levels[level]["bb"]} BB'
                     )
@@ -1667,11 +1667,11 @@ def audit_javascript(path: Path) -> list[str]:
                             "Two Table Bonanza Level "
                             f"{level} Effective BB must be {expected_effective_bb}"
                         )
-                for level in range(16, 30):
+                for level in range(13, 30):
                     if two_table_levels[level]["eff"] != "Rebuys Closed":
                         errors.append(
                             "Two Table Bonanza must show Rebuys Closed from "
-                            f"Level 16 onward (Level {level} differs)"
+                            f"Level 13 onward (Level {level} differs)"
                         )
             for fragment, message in (
                 (
@@ -1708,7 +1708,7 @@ def audit_javascript(path: Path) -> list[str]:
                 ),
                 (
                     'Effective BB uses the 50K starting stack; rebuys are open '
-                    'through Level 15 and closed beginning with Level 16.',
+                    'through Level 12 and closed beginning with Level 13.',
                     "Two Table Bonanza must explain its Effective BB and rebuy window",
                 ),
                 (
