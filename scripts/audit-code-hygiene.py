@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-10"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-11"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1634,6 +1634,89 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             if fragment not in blind_table_source:
                 errors.append(message)
+        show_format_source = function_source("showFormat")
+        if (
+            'format.assumption ? `<p class="format-description"><strong>'
+            '${format.assumption}</strong></p>` : ""'
+            not in show_format_source
+        ):
+            errors.append("Rules formats must display their assumptions above the table")
+        expected_single_table_remaining = {
+            1: "8",
+            2: "8",
+            3: "8",
+            4: "8",
+            5: "8",
+            6: "8",
+            7: "8",
+            8: "8",
+            9: "7",
+            10: "6",
+            11: "5",
+            12: "4",
+            13: "3",
+            14: "2",
+            15: "2",
+            16: "2",
+            17: "2",
+        }
+        rules_formats_marker = "const RULES_FORMATS = {"
+        rules_formats_source = (
+            text.split(rules_formats_marker, 1)[1]
+            if rules_formats_marker in text
+            else ""
+        )
+        for format_key, next_format_key, expected_level_count in (
+            ("40k", "500k", 17),
+            ("500k", "two-table", 16),
+        ):
+            format_match = re.search(
+                rf'"{re.escape(format_key)}":\s*\{{(?P<body>.*?)'
+                rf'\n\s*\}},\n\s*"{re.escape(next_format_key)}":',
+                rules_formats_source,
+                flags=re.DOTALL,
+            )
+            if not format_match:
+                errors.append(f"Shared app must define the {format_key} rules format")
+                continue
+            format_source = format_match.group("body")
+            for fragment, message in (
+                (
+                    'assumption: "Assumptions: 8 starting players and 4 rebuys.",',
+                    f"{format_key} must state its player and rebuy assumptions",
+                ),
+                (
+                    'showTypicalRemainingPlayers: true,',
+                    f"{format_key} must display typical remaining players",
+                ),
+                (
+                    'Typical remaining players is a planning estimate; '
+                    'actual attrition varies.',
+                    f"{format_key} must identify the attrition column as an estimate",
+                ),
+            ):
+                if fragment not in format_source:
+                    errors.append(message)
+            remaining_by_level = {
+                int(match.group("level")): match.group("remaining")
+                for match in re.finditer(
+                    r'\{ type: "level", level: "(?P<level>\d+)", [^\n]*?'
+                    r'remaining: "(?P<remaining>[^"]+)" \}',
+                    format_source,
+                )
+            }
+            if len(remaining_by_level) != expected_level_count:
+                errors.append(
+                    f"Every {format_key} level must define typical remaining players"
+                )
+                continue
+            for level in range(1, expected_level_count + 1):
+                expected_remaining = expected_single_table_remaining[level]
+                if remaining_by_level[level] != expected_remaining:
+                    errors.append(
+                        f"{format_key} Level {level} typical-player estimate must be "
+                        f"{expected_remaining}"
+                    )
         two_table_match = re.search(
             r'"two-table":\s*\{(?P<body>.*?)\n\s*\}\n\};',
             text,
@@ -1738,8 +1821,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza breaks must remain 20 minutes",
                 ),
                 (
-                    'runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",',
-                    "Two Table Bonanza must retain its 1:00 PM–10:45 PM runtime",
+                    'runtimeLabel: "9 hrs 45 min",',
+                    "Two Table Bonanza runtime pill must remain on one line",
                 ),
                 (
                     'durationMinutes: 45, note: "45-MINUTE DINNER BREAK • '
@@ -1759,6 +1842,10 @@ def audit_javascript(path: Path) -> list[str]:
                     '50K starting stack and targeting a 1:00 PM–10:45 PM '
                     'tournament day.",',
                     "Two Table Bonanza must identify its field, stack, and schedule",
+                ),
+                (
+                    'assumption: "Assumptions: 16 starting players and 6 rebuys.",',
+                    "Two Table Bonanza must state its player and rebuy assumptions",
                 ),
                 (
                     'showTypicalRemainingPlayers: true,',
@@ -1782,9 +1869,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two Table Bonanza must preserve the 25-BB rebuy floor",
                 ),
                 (
-                    'Typical remaining players is a planning estimate based on '
-                    '16 starters and six rebuys; merge to one table as soon as '
-                    'eight players remain.',
+                    'Typical remaining players is a planning estimate; merge to '
+                    'one table as soon as eight players remain.',
                     "Two Table Bonanza must explain its attrition estimate and merge",
                 ),
                 (

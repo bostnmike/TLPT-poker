@@ -387,39 +387,45 @@ const RULES_TWO_TABLE_CHIPS = Object.freeze([
 const RULES_FORMATS = {
   "40k": {
     title: "40K Small Blind Ante",
+    assumption: "Assumptions: 8 starting players and 4 rebuys.",
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
+    showTypicalRemainingPlayers: true,
+    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
     chips: RULES_40K_CHIPS,
     levels: [
-      { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB" },
-      { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB" },
-      { type: "level", level: "3", sb: "125", bb: "250", ante: "", eff: "160 BB" },
-      { type: "level", level: "4", sb: "200", bb: "400", ante: "", eff: "100 BB" },
+      { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB", remaining: "8" },
+      { type: "level", level: "2", sb: "75", bb: "150", ante: "", eff: "266 BB", remaining: "8" },
+      { type: "level", level: "3", sb: "125", bb: "250", ante: "", eff: "160 BB", remaining: "8" },
+      { type: "level", level: "4", sb: "200", bb: "400", ante: "", eff: "100 BB", remaining: "8" },
       { type: "break", note: "BREAK — Chip up T-25" },
-      { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB" },
-      { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB" },
-      { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB" },
+      { type: "level", level: "5", sb: "300", bb: "600", ante: "300", eff: "66 BB", remaining: "8" },
+      { type: "level", level: "6", sb: "500", bb: "1,000", ante: "500", eff: "40 BB", remaining: "8" },
+      { type: "level", level: "7", sb: "800", bb: "1,600", ante: "800", eff: "25 BB", remaining: "8" },
       { type: "break", note: "BREAK — Chip up T-100" },
-      { type: "level", level: "8", sb: "1,000", bb: "2,000", ante: "1000", eff: "Rebuys Closed" },
-      { type: "level", level: "9", sb: "1,500", bb: "3,000", ante: "1,500", eff: "Rebuys Closed" },
-      { type: "level", level: "10", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed" },
+      { type: "level", level: "8", sb: "1,000", bb: "2,000", ante: "1000", eff: "Rebuys Closed", remaining: "8" },
+      { type: "level", level: "9", sb: "1,500", bb: "3,000", ante: "1,500", eff: "Rebuys Closed", remaining: "7" },
+      { type: "level", level: "10", sb: "2,500", bb: "5,000", ante: "2,500", eff: "Rebuys Closed", remaining: "6" },
       { type: "break", note: "BREAK — Chip up T-500" },
-      { type: "level", level: "11", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed" },
-      { type: "level", level: "12", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed" },
-      { type: "level", level: "13", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed" },
-      { type: "level", level: "14", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed" },
+      { type: "level", level: "11", sb: "4,000", bb: "8,000", ante: "4,000", eff: "Rebuys Closed", remaining: "5" },
+      { type: "level", level: "12", sb: "6,000", bb: "12,000", ante: "6,000", eff: "Rebuys Closed", remaining: "4" },
+      { type: "level", level: "13", sb: "10,000", bb: "20,000", ante: "10,000", eff: "Rebuys Closed", remaining: "3" },
+      { type: "level", level: "14", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "2" },
       { type: "break", note: "BREAK — Chip up T-1000 & T-5000" },
-      { type: "level", level: "15", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed" },
-      { type: "level", level: "16", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed" },
-      { type: "level", level: "17", sb: "50,000", bb: "100,000", ante: "60,000", eff: "Rebuys Closed" }
+      { type: "level", level: "15", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "16", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "17", sb: "50,000", bb: "100,000", ante: "60,000", eff: "Rebuys Closed", remaining: "2" }
     ]
   },
   "500k": {
     title: "500K Small Blind Ante",
+    assumption: "Assumptions: 8 starting players and 4 rebuys.",
     runtimeMinutes: 300,
     levelMinutes: 20,
     breakMinutes: 10,
+    showTypicalRemainingPlayers: true,
+    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
     chips: [
       { label: "T-500", image: "images/site/chip-T-500.png" },
       { label: "T-1000", image: "images/site/chip-T-1000.png" },
@@ -430,41 +436,42 @@ const RULES_FORMATS = {
       { label: "T-250000", image: "images/site/chip-T-250000.png" }
     ],
     levels: [
-      { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB" },
-      { type: "level", level: "2", sb: "1,000", bb: "2,000", ante: "", eff: "250 BB" },
-      { type: "level", level: "3", sb: "1,500", bb: "3,000", ante: "", eff: "166 BB" },
-      { type: "level", level: "4", sb: "2,500", bb: "5,000", ante: "", eff: "100 BB" },
+      { type: "level", level: "1", sb: "500", bb: "1,000", ante: "", eff: "500 BB", remaining: "8" },
+      { type: "level", level: "2", sb: "1,000", bb: "2,000", ante: "", eff: "250 BB", remaining: "8" },
+      { type: "level", level: "3", sb: "1,500", bb: "3,000", ante: "", eff: "166 BB", remaining: "8" },
+      { type: "level", level: "4", sb: "2,500", bb: "5,000", ante: "", eff: "100 BB", remaining: "8" },
       { type: "break", note: "BREAK — Chip up T-500" },
-      { type: "level", level: "5", sb: "4,000", bb: "8,000", ante: "4,000", eff: "62 BB" },
-      { type: "level", level: "6", sb: "6,000", bb: "12,000", ante: "6,000", eff: "41 BB" },
-      { type: "level", level: "7", sb: "10,000", bb: "20,000", ante: "10,000", eff: "25 BB" },
+      { type: "level", level: "5", sb: "4,000", bb: "8,000", ante: "4,000", eff: "62 BB", remaining: "8" },
+      { type: "level", level: "6", sb: "6,000", bb: "12,000", ante: "6,000", eff: "41 BB", remaining: "8" },
+      { type: "level", level: "7", sb: "10,000", bb: "20,000", ante: "10,000", eff: "25 BB", remaining: "8" },
       { type: "break", note: "BREAK — Chip up T-1000" },
-      { type: "level", level: "8", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed" },
-      { type: "level", level: "9", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed" },
-      { type: "level", level: "10", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed" },
+      { type: "level", level: "8", sb: "15,000", bb: "30,000", ante: "15,000", eff: "Rebuys Closed", remaining: "8" },
+      { type: "level", level: "9", sb: "25,000", bb: "50,000", ante: "25,000", eff: "Rebuys Closed", remaining: "7" },
+      { type: "level", level: "10", sb: "40,000", bb: "80,000", ante: "40,000", eff: "Rebuys Closed", remaining: "6" },
       { type: "break", note: "BREAK — Chip up T-5000" },
-      { type: "level", level: "11", sb: "60,000", bb: "120,000", ante: "60,000", eff: "Rebuys Closed" },
-      { type: "level", level: "12", sb: "100,000", bb: "200,000", ante: "100,000", eff: "Rebuys Closed" },
-      { type: "level", level: "13", sb: "150,000", bb: "300,000", ante: "150,000", eff: "Rebuys Closed" },
+      { type: "level", level: "11", sb: "60,000", bb: "120,000", ante: "60,000", eff: "Rebuys Closed", remaining: "5" },
+      { type: "level", level: "12", sb: "100,000", bb: "200,000", ante: "100,000", eff: "Rebuys Closed", remaining: "4" },
+      { type: "level", level: "13", sb: "150,000", bb: "300,000", ante: "150,000", eff: "Rebuys Closed", remaining: "3" },
       { type: "break", note: "BREAK — Chip up T-10000" },
-      { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "Rebuys Closed" },
-      { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "Rebuys Closed" },
-      { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "Rebuys Closed" }
+      { type: "level", level: "14", sb: "200,000", bb: "400,000", ante: "200,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "15", sb: "300,000", bb: "600,000", ante: "300,000", eff: "Rebuys Closed", remaining: "2" },
+      { type: "level", level: "16", sb: "500,000", bb: "1,000,000", ante: "500,000", eff: "Rebuys Closed", remaining: "2" }
     ]
   },
   "two-table": {
     title: "Two Table Bonanza",
     description: "A two-table structure for 16 players, using a 50K starting stack and targeting a 1:00 PM–10:45 PM tournament day.",
+    assumption: "Assumptions: 16 starting players and 6 rebuys.",
     bounty: {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
     },
-    runtimeLabel: "9 hrs 45 min (1:00 PM–10:45 PM)",
+    runtimeLabel: "9 hrs 45 min",
     levelMinutes: 30,
     levelLengthLabel: "30 min (Levels 1–15) • 25 min (Levels 16–17)",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
-    blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate based on 16 starters and six rebuys; merge to one table as soon as eight players remain.",
+    blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as eight players remain.",
     chips: RULES_TWO_TABLE_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0", eff: "500 BB", remaining: "16 (2 × 8)" },
@@ -6280,6 +6287,7 @@ function showFormat(formatKey) {
         <div>
           <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
           ${format.description ? `<p class="format-description">${format.description}</p>` : ""}
+          ${format.assumption ? `<p class="format-description"><strong>${format.assumption}</strong></p>` : ""}
         </div>
       </div>
       ${buildRulesTimerRail(format)}
