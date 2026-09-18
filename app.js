@@ -466,7 +466,7 @@ const RULES_FORMATS = {
   },
   "two-table": {
     title: "Two-Table 50K Deep Stack",
-    assumption: "Assumptions: 16 starting players and 6 rebuys.",
+    assumption: "Assumptions: 16 starting players and 7 rebuys.",
     payoutPlaces: 6,
     bounty: {
       title: "$10 First Buy-In Bounty",
