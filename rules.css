@@ -657,6 +657,21 @@
   background:rgba(255,184,28,.05);
 }
 
+.blind-table tr.blind-row-payout td{
+  color:#ecfdf5;
+  border-bottom-color:rgba(134,239,172,.18);
+  background:
+    linear-gradient(180deg, rgba(34,197,94,.24), rgba(22,101,52,.22)),
+    rgba(5,46,22,.55);
+  box-shadow:inset 0 1px 0 rgba(187,247,208,.04);
+}
+
+.blind-table tr.blind-row-payout td:first-child,
+.blind-table tr.blind-row-payout td:last-child{
+  color:#86efac;
+  font-weight:900;
+}
+
 .blind-break td{
   color:#171717;
   font-weight:800;

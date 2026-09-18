@@ -397,7 +397,7 @@ const RULES_FORMATS = {
     levelMinutes: 20,
     breakMinutes: 10,
     showTypicalRemainingPlayers: true,
-    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
+    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Green rows mark projected payout territory. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
     chips: RULES_40K_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "", eff: "400 BB", remaining: "8" },
@@ -431,7 +431,7 @@ const RULES_FORMATS = {
     levelMinutes: 20,
     breakMinutes: 10,
     showTypicalRemainingPlayers: true,
-    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
+    blindNote: "Gold rows mark 10-minute breaks and chip-up points. Green rows mark projected payout territory. Black and gray rows are 20-minute live levels. Typical remaining players is a planning estimate; actual attrition varies.",
     chips: [
       { label: "T-500", image: "images/site/chip-T-500.png" },
       { label: "T-1000", image: "images/site/chip-T-1000.png" },
@@ -478,7 +478,7 @@ const RULES_FORMATS = {
     levelLengthLabel: "30 min (1–15) • 25 min (16–17)",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
-    blindNote: "Gold rows mark scheduled breaks and chip-up points. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as eight players remain.",
+    blindNote: "Gold rows mark scheduled breaks and chip-up points. Green rows mark projected payout territory. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as eight players remain.",
     chips: RULES_TWO_TABLE_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0", eff: "500 BB", remaining: "16 (2 × 8)" },
@@ -6272,6 +6272,7 @@ function buildRulesTimerRail(format) {
 function buildRulesBlindTable(format) {
   let rowIndex = 0;
   const tableLabel = `${format.title} blind levels`;
+  const payoutPlaces = Number(format?.payoutPlaces ?? 0);
   const showEffectiveBb = format.showEffectiveBb !== false;
   const showTypicalRemainingPlayers = format.showTypicalRemainingPlayers === true;
   const columnCount = 5 + Number(showEffectiveBb) + Number(showTypicalRemainingPlayers);
@@ -6284,6 +6285,11 @@ function buildRulesBlindTable(format) {
       return `<tr class="blind-break"><td colspan="${columnCount}">${row.note}</td></tr>`;
     }
     const zebra = rowIndex % 2 === 0 ? "blind-row-dark" : "blind-row-light";
+    const typicalRemaining = Number.parseInt(String(row.remaining ?? ""), 10);
+    const isPayoutRow = payoutPlaces > 0
+      && Number.isFinite(typicalRemaining)
+      && typicalRemaining <= payoutPlaces;
+    const rowClass = `${zebra}${isPayoutRow ? " blind-row-payout" : ""}`;
     const duration = row.duration || `${Number(format.levelMinutes ?? 20)} min`;
     const effectiveBbCell = showEffectiveBb ? `<td>${row.eff}</td>` : "";
     const typicalRemainingCell = showTypicalRemainingPlayers
@@ -6291,7 +6297,7 @@ function buildRulesBlindTable(format) {
       : "";
     rowIndex += 1;
     return `
-      <tr class="${zebra}">
+      <tr class="${rowClass}">
         <td role="rowheader">${row.level}</td>
         <td>${duration}</td>
         <td>${row.sb}</td>

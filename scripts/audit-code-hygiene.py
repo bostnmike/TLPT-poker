@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-15"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-16"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1665,9 +1665,30 @@ def audit_javascript(path: Path) -> list[str]:
                 '<td>${row.remaining}</td>',
                 "Rules blind table must render typical-player projections by level",
             ),
+            (
+                'const payoutPlaces = Number(format?.payoutPlaces ?? 0);',
+                "Rules blind table must read each format's payout threshold",
+            ),
+            (
+                'typicalRemaining <= payoutPlaces',
+                "Rules blind table must mark projected payout levels",
+            ),
+            (
+                '" blind-row-payout"',
+                "Rules blind table must assign its payout-row class",
+            ),
         ):
             if fragment not in blind_table_source:
                 errors.append(message)
+        rules_css = (ROOT / "rules.css").read_text(encoding="utf-8")
+        for token in (
+            ".blind-table tr.blind-row-payout td{",
+            "rgba(34,197,94,.24)",
+        ):
+            if token not in rules_css:
+                errors.append(
+                    f"rules.css: projected payout-row styling missing: {token}"
+                )
         show_format_source = function_source("showFormat")
         if (
             'format.assumption ? `<p class="format-description"><strong>'
