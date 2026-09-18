@@ -443,7 +443,7 @@ const RULES_FORMATS = {
       title: "$10 First Buy-In Bounty",
       text: "Every player’s first buy-in carries one $10 bounty. Knock a player out of that first entry and you collect the $10 bonus. Rebuys do not carry an additional bounty."
     },
-    runtimeLabel: "Varies by field",
+    runtimeLabel: "8 hrs (including breaks)",
     levelMinutes: 30,
     levelLengthLabel: "30 min (Round 11: 60 min)",
     breakMinutes: 15,

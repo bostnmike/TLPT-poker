@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260917-3"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1647,6 +1647,10 @@ def audit_javascript(path: Path) -> list[str]:
                 (
                     'breakMinutes: 15,',
                     "Two Table Bonanza breaks must remain 15 minutes",
+                ),
+                (
+                    'runtimeLabel: "8 hrs (including breaks)",',
+                    "Two Table Bonanza runtime must remain eight hours including breaks",
                 ),
                 (
                     'chips: RULES_40K_CHIPS,',
