@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T21:26:47.253518Z",
+  "generatedAt": "2026-09-19T01:38:55.514811Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -51,7 +51,7 @@
       "title": "Fatal Action | 9-Max",
       "format": "500K Format",
       "day": "Saturday",
-      "tables": 1,
+      "tables": 2,
       "date": "Saturday, September 19, 2026",
       "structure": "Blinds start 500/1000 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
