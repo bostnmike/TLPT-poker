@@ -345,7 +345,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260918-9"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260919-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -2066,6 +2066,18 @@ def audit_javascript(path: Path) -> list[str]:
                 "Rules combined money callout must put the pool value in its heading",
             ),
             (
+                '<div class="rules-money-icon" aria-hidden="true">💵</div>',
+                "Rules combined prize-pool details must use the money emoji",
+            ),
+            (
+                '<div class="rules-money-icon" aria-hidden="true">🏴‍☠️</div>',
+                "Rules combined bounty details must use the pirate flag emoji",
+            ),
+            (
+                '<div class="rules-bounty-icon" aria-hidden="true">🏴‍☠️</div>',
+                "Rules standalone bounty details must use the pirate flag emoji",
+            ),
+            (
                 'escapeHtmlAttr(format.projectedPool)',
                 "Rules projected prize-pool value must be escaped before entering markup",
             ),
@@ -2105,8 +2117,8 @@ def audit_javascript(path: Path) -> list[str]:
                 "Rules timer rail must suppress payouts included in the combined money callout",
             ),
             (
-                '<strong>Projected Prize Pool:</strong>',
-                "Rules payout pill must use the approved Projected Prize Pool heading",
+                '<strong>💵 Projected Prize Pool:</strong>',
+                "Rules payout pill must lead the Projected Prize Pool heading with the money emoji",
             ),
         ):
             if fragment not in timer_rail_source:

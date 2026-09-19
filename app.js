@@ -6235,14 +6235,14 @@ function buildRulesFormatCallout(format) {
     return `
       <aside class="rules-money-callout" role="note" aria-label="Projected Prize Pool and ${escapeHtmlAttr(format.bounty.title)}">
         <div class="rules-money-section rules-money-prize">
-          <div class="rules-money-icon" aria-hidden="true">🏆</div>
+          <div class="rules-money-icon" aria-hidden="true">💵</div>
           <div>
             <h4>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h4>
             <p>${escapeHtmlAttr(format.payoutLabel)}</p>
           </div>
         </div>
         <div class="rules-money-section rules-money-bounty">
-          <div class="rules-money-icon" aria-hidden="true">💵</div>
+          <div class="rules-money-icon" aria-hidden="true">🏴‍☠️</div>
           <div>
             <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
             <p>${escapeHtmlAttr(format.bounty.text)}</p>
@@ -6254,7 +6254,7 @@ function buildRulesFormatCallout(format) {
 
   return `
     <aside class="rules-bounty-callout" role="note" aria-label="${escapeHtmlAttr(format.bounty.title)}">
-      <div class="rules-bounty-icon" aria-hidden="true">💵</div>
+      <div class="rules-bounty-icon" aria-hidden="true">🏴‍☠️</div>
       <div>
         <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
         <p>${escapeHtmlAttr(format.bounty.text)}</p>
@@ -6296,7 +6296,7 @@ function buildRulesTimerRail(format) {
       <div class="timer-pill"><strong>Level Length:</strong> ${levelLengthLabel}</div>
       <div class="timer-pill"><strong>Breaks:</strong> ${breakLengthLabel}</div>
       <div class="timer-pill"><strong>Estimated Runtime:</strong> ${runtimeLabel}</div>
-      ${showPayoutInRail ? `<div class="timer-pill${format?.payoutLabel ? " timer-pill-payouts" : ""}"><strong>Projected Prize Pool:</strong> <span>${escapeHtmlAttr(payoutLabel)}</span></div>` : ""}
+      ${showPayoutInRail ? `<div class="timer-pill${format?.payoutLabel ? " timer-pill-payouts" : ""}"><strong>💵 Projected Prize Pool:</strong> <span>${escapeHtmlAttr(payoutLabel)}</span></div>` : ""}
     </div>
   `;
 }
