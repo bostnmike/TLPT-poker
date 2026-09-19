@@ -808,6 +808,13 @@
   line-height:1;
 }
 
+.rules-money-bounty .rules-money-icon,
+.rules-bounty-icon{
+  filter:
+    drop-shadow(0 0 1px rgba(255,255,255,.95))
+    drop-shadow(0 0 6px rgba(255,184,28,.85));
+}
+
 .rules-money-callout h4{
   margin:0 0 6px;
   font-size:1.06rem;
