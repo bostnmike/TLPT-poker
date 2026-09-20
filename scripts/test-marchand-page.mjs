@@ -110,10 +110,16 @@ const row58 = payload.records.find((record) => record.sourceSheet === "Goals & G
 const row60 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 60);
 const exhibit334 = payload.records.find((record) => record.inventoryId === 334);
 const exhibit335 = payload.records.find((record) => record.inventoryId === 335);
+const exhibit42 = payload.records.find((record) => record.inventoryId === 42);
+const exhibit316 = payload.records.find((record) => record.inventoryId === 316);
 assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
+assert.equal(exhibit42?.goalType, "PPG", "Exhibit 42 must be identified as a power-play goal");
+assert.equal(exhibit316?.puckType, "Game Used Puck", "Exhibit 316 must remain a game-used milestone puck");
+assert.equal(exhibit316?.goalType, "", "Exhibit 316 must not inherit the goal-type detail from exhibit 42");
+assert.equal(exhibit316?.sourceData.find((field) => field.label === "Notes")?.value, "", "Exhibit 316 canonical notes must remain milestone-only");
 
 for (const id of [
   "collection-search",
