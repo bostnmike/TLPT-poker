@@ -105,9 +105,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-16/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-17/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-13/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-16/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-17/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -151,6 +151,9 @@ for (const asset of ["marchand-hero-boston.jpg", "marchand-hero-florida.png", "m
   assert.match(html, new RegExp(`images/site/${asset.replace(".", "\\.")}`), `${asset} is not wired into the hero montage`);
 }
 assert.equal((html.match(/class="marchand-era-portrait /g) || []).length, 3, "the opening hero must contain all three uniform portraits");
+for (const credit of html.matchAll(/class="marchand-era-portrait[^>]*data-credit="([^"]+)"/g)) {
+  assert.equal(credit[1], "Collector supplied", "replacement hero portraits need accurate source credits");
+}
 assert.match(css, /data-era="boston"\] \.marchand-era-portrait-boston/, "Boston filtering must expand the Bruins portrait");
 assert.match(css, /data-era="florida"\] \.marchand-era-portrait-florida/, "Florida filtering must expand the Panthers portrait");
 assert.match(css, /data-era="canada"\] \.marchand-era-portrait-canada/, "Canada filtering must expand the Team Canada portrait");
@@ -194,7 +197,14 @@ assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific mu
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 assert.match(css, /\.marchand-deep-dive-button\{[\s\S]*border-radius:50%/, "Deep Dive control must use the circular puck treatment");
 assert.match(css, /\.marchand-opponent-logo\{[\s\S]*border-radius:50%;[\s\S]*#f3f0e7/, "opponent logos need an off-white circular backing");
+assert.match(css, /\.marchand-opponent-logo\{[\s\S]*width:58px;[\s\S]*height:58px;/, "opponent logo circles must match the 58px Deep Dive puck");
+assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, "Boston header mark must match Canada's apparent size");
+assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-watch-button\{[\s\S]*width:44px;[\s\S]*border-radius:50%/, "Watch controls must use the circular icon treatment");
 assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is missing");
+
+const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
+assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
+assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);

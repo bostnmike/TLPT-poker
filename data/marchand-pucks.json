@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "3c7acf2ffc9fec514c6da441bf3eb31432025d7a2c08502c17d8794f2f85ae99",
+    "sourceSha256": "d6b0709f10b535c77a22f35d4b6619a97ff8bde8a63e92a6255490aacbe81b8a",
     "records": 114,
     "goalsAndGames": 71,
     "milestones": 35,
@@ -5734,7 +5734,7 @@
       "opponent": "Seattle Kraken",
       "period": "2",
       "time": "10:28",
-      "goalType": "",
+      "goalType": "PS",
       "primaryAssist": "Unassisted",
       "secondaryAssist": "",
       "score": "Boston 1 @ Seattle 5",
@@ -5807,7 +5807,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "PS",
           "url": ""
         },
         {

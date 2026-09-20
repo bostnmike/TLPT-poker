@@ -719,16 +719,16 @@
 
 .marchand-opponent{
   display:grid;
-  min-width:180px;
-  grid-template-columns:38px minmax(0,1fr);
+  min-width:202px;
+  grid-template-columns:58px minmax(0,1fr);
   align-items:center;
   gap:10px;
 }
 
 .marchand-opponent-logo{
   display:grid;
-  width:36px;
-  height:36px;
+  width:58px;
+  height:58px;
   place-items:center;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.58);
@@ -742,7 +742,7 @@
 }
 
 .marchand-opponent-logo > *{grid-area:1 / 1}
-.marchand-opponent-logo img{width:29px;height:29px;object-fit:contain}
+.marchand-opponent-logo img{width:46px;height:46px;object-fit:contain}
 .marchand-opponent strong{color:#f5f7f8;font-size:.75rem;line-height:1.25}
 
 .marchand-players-cell{min-width:250px}
@@ -1128,6 +1128,8 @@
 .marchand-team-crest svg,
 .marchand-crest img,
 .marchand-crest svg{display:block;width:100%;height:100%;object-fit:contain}
+.marchand-team-crest-boston img{transform:scale(1.82);transform-origin:center}
+.marchand-team-crest-florida img{transform:scale(2.08);transform-origin:center}
 .marchand-team-crest-canada svg path,
 .marchand-crest svg path{fill:#d80621}
 .marchand-team-crest:hover{transform:translateY(-3px);border-color:rgba(var(--museum-accent-rgb),.78);box-shadow:0 0 24px rgba(var(--museum-accent-rgb),.20),0 13px 26px rgba(0,0,0,.42)}
@@ -1675,7 +1677,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   width:42%;
   clip-path:polygon(0 0,100% 0,79% 100%,0 100%);
 }
-.marchand-era-portrait-boston img{object-position:56% center}
+.marchand-era-portrait-boston img{object-position:center 44%}
 .marchand-era-portrait-boston::after{background:linear-gradient(180deg,rgba(255,184,28,.04),rgba(0,0,0,.12) 50%,rgba(0,0,0,.78))}
 
 .marchand-era-portrait-florida{
@@ -1685,7 +1687,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   clip-path:polygon(21% 0,100% 0,79% 100%,0 100%);
   background:radial-gradient(circle at 50% 24%,#a50b2b,#4d0717 54%,#041e42 100%);
 }
-.marchand-era-portrait-florida img{object-position:center 42%}
+.marchand-era-portrait-florida img{object-position:center 44%}
 .marchand-era-portrait-florida::after{background:linear-gradient(180deg,rgba(200,16,46,.05),rgba(4,30,66,.08) 48%,rgba(4,12,25,.78))}
 
 .marchand-era-portrait-canada{
@@ -1694,7 +1696,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   width:42%;
   clip-path:polygon(21% 0,100% 0,100% 100%,0 100%);
 }
-.marchand-era-portrait-canada img{object-position:72% center}
+.marchand-era-portrait-canada img{object-position:42% center}
 .marchand-era-portrait-canada::after{background:linear-gradient(180deg,rgba(216,6,33,.03),rgba(50,0,9,.06) 48%,rgba(48,0,9,.76))}
 
 .marchand-page:not([data-era="all"]) .marchand-era-portrait{
@@ -1714,16 +1716,16 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   transform:scale(1);
 }
 
-.marchand-page[data-era="boston"] .marchand-era-portrait-boston img{object-position:58% center;transform:scale(1.03)}
+.marchand-page[data-era="boston"] .marchand-era-portrait-boston img{object-position:center 42%;transform:scale(1.02)}
 .marchand-page[data-era="florida"] .marchand-era-portrait-florida{
   background:linear-gradient(108deg,#041e42 0 18%,#8f102c 42%,#c8102e 64%,#041e42 100%);
 }
 .marchand-page[data-era="florida"] .marchand-era-portrait-florida img{
-  object-fit:contain;
-  object-position:center;
-  transform:scale(.94);
+  object-fit:cover;
+  object-position:center 44%;
+  transform:scale(1.02);
 }
-.marchand-page[data-era="canada"] .marchand-era-portrait-canada img{object-position:72% center;transform:scale(1.02)}
+.marchand-page[data-era="canada"] .marchand-era-portrait-canada img{object-position:42% center;transform:scale(1.02)}
 
 .marchand-crest-stack{
   top:12px;
