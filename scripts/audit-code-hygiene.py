@@ -2562,13 +2562,14 @@ def main() -> int:
             " ".join(parser.site_page_title_text).split()
         )
         if expected_site_page_title:
+            expected_site_page_title_tag = "h1" if page.name == "marchand.html" else "h2"
             if parser.site_page_title_count != 1:
                 parser.errors.append(
                     "expected exactly one shared site-page-title heading"
                 )
-            elif parser.site_page_title_tag != "h2":
+            elif parser.site_page_title_tag != expected_site_page_title_tag:
                 parser.errors.append(
-                    "shared site-page-title must preserve the site-brand h1 hierarchy as h2"
+                    "shared site-page-title uses the wrong heading level for its page shell"
                 )
             elif rendered_site_page_title != expected_site_page_title:
                 parser.errors.append(
@@ -3451,9 +3452,9 @@ def main() -> int:
                         f"aria-controls references missing id: {controlled_id}"
                     )
 
-        if not parser.nav_links:
+        if not parser.nav_links and page.name != "marchand.html":
             parser.errors.append("primary navigation was not found")
-        else:
+        elif parser.nav_links:
             navigation_by_page[page.name] = parser.nav_links
 
         nav_labels: list[str] = []
@@ -3471,7 +3472,7 @@ def main() -> int:
             if record["aria_current"] == "page":
                 nav_current_labels.append(label)
 
-        if nav_labels != EXPECTED_NAV_LABELS:
+        if page.name != "marchand.html" and nav_labels != EXPECTED_NAV_LABELS:
             parser.errors.append(
                 "primary navigation labels/order differ from the shared contract"
             )

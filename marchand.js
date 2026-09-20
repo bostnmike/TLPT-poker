@@ -30,6 +30,7 @@
     insightGoals: document.getElementById("insight-goals"),
     insightTimeline: document.getElementById("insight-timeline"),
     insightArenas: document.getElementById("insight-arenas"),
+    themeKicker: document.getElementById("marchand-theme-kicker"),
     dialog: document.getElementById("artifact-dialog"),
     dialogClose: document.getElementById("artifact-dialog-close"),
     dialogCrest: document.getElementById("artifact-dialog-crest"),
@@ -114,6 +115,13 @@
 
   function setEra(era, updateTeamFilter = true) {
     elements.body.dataset.era = era;
+    const kickerByEra = {
+      all: "The Private Collection · Exhibit 63",
+      boston: "Boston Bruins Collection · Exhibit 63",
+      florida: "Florida Panthers Collection · Exhibit 63",
+      canada: "Team Canada Collection · Exhibit 63",
+    };
+    elements.themeKicker.textContent = kickerByEra[era] || kickerByEra.all;
     for (const button of document.querySelectorAll("[data-era-button]")) {
       const active = button.dataset.eraButton === era;
       button.classList.toggle("is-active", active);

@@ -79,14 +79,18 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-3/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-3/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-4/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-4/, "Marchand script cache key drifted");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
+assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
 assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /marchand\.html/, "hidden page must not link to itself from public navigation");
 
 assert.match(css, /\.marchand-page\[data-era="boston"\]/, "Boston museum theme is missing");
 assert.match(css, /\.marchand-page\[data-era="florida"\]/, "Florida museum theme is missing");
 assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme is missing");
+assert.match(css, /content:"BOSTON"/, "Boston theme identity is missing");
+assert.match(css, /content:"FLORIDA"/, "Florida theme identity is missing");
+assert.match(css, /content:"CANADA"/, "Canada theme identity is missing");
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/BOS_light\.svg/, "Boston team mark is missing");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/FLA_light\.svg/, "Florida team mark is missing");
@@ -99,6 +103,7 @@ assert.match(script, /decodedNames\(record\)/, "decoded player names must partic
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
 assert.match(script, /renderPuckPhoto\(record\)/, "puck photo slot is not wired into artifact deep dives");
 assert.match(script, /record\.imageUrl/, "future puck image URLs are not supported");
+assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 
 console.log(`PASS: Marchand museum page — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
