@@ -1127,3 +1127,74 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   .marchand-person-card{grid-template-columns:88px minmax(0,1fr)}
   .marchand-person-portrait{min-height:104px}
 }
+
+/* Team Canada crest and future puck-photography exhibit */
+.marchand-team-crest-canada{padding:4px}
+.marchand-media-grid{
+  display:grid;
+  grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr);
+  gap:18px;
+  align-items:stretch;
+  margin:0 0 28px;
+}
+
+.marchand-media-grid.has-no-video{grid-template-columns:minmax(280px,540px);justify-content:center}
+.marchand-media-grid .marchand-video-panel{height:100%;margin:0}
+.marchand-puck-photo{
+  display:grid;
+  min-height:100%;
+  grid-template-rows:1fr auto;
+  margin:0;
+  padding:12px;
+  border:1px solid rgba(var(--museum-accent-rgb),.30);
+  background:#020304;
+}
+
+.marchand-puck-photo > img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:contain;
+  background:radial-gradient(circle,rgba(var(--museum-accent-rgb),.10),transparent 58%),#080b0f;
+}
+
+.marchand-puck-placeholder{
+  display:grid;
+  min-height:260px;
+  place-items:center;
+  align-content:center;
+  gap:19px;
+  padding:24px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0 / 34px 34px,
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0 / 34px 34px,
+    radial-gradient(circle at 50% 35%,rgba(var(--museum-accent-rgb),.11),transparent 54%),
+    #080b0f;
+  text-align:center;
+}
+
+.marchand-puck-placeholder[hidden]{display:none}
+.marchand-photo-puck{
+  display:grid;
+  width:112px;
+  height:112px;
+  place-items:center;
+  border:3px solid #30363b;
+  border-radius:50%;
+  background:radial-gradient(circle at 38% 30%,#33383c,#111314 38%,#030404 78%);
+  box-shadow:inset 0 0 0 10px #090a0b,inset 0 0 0 12px rgba(var(--museum-accent-rgb),.42),0 14px 0 #010101,0 24px 30px rgba(0,0,0,.55);
+  transform:rotate(-7deg);
+}
+
+.marchand-photo-puck i{color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:2.6rem;font-style:normal;text-shadow:0 2px 0 #000}
+.marchand-puck-placeholder div{display:grid;gap:5px}
+.marchand-puck-placeholder small{color:var(--museum-accent);font-size:.58rem;font-weight:1000;letter-spacing:.17em;text-transform:uppercase}
+.marchand-puck-placeholder strong{color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.12rem;font-weight:400}
+.marchand-puck-placeholder div span{color:#7f8b95;font-size:.67rem;font-weight:900;letter-spacing:.10em;text-transform:uppercase}
+.marchand-puck-photo figcaption{padding:11px 3px 2px;color:#75828d;font-size:.64rem;line-height:1.4;text-align:center}
+
+@media (max-width:780px){
+  .marchand-media-grid,.marchand-media-grid.has-no-video{grid-template-columns:1fr}
+  .marchand-puck-photo > img,.marchand-puck-placeholder{min-height:230px}
+}

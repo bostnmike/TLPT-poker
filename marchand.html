@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260917-9">
-  <link rel="stylesheet" href="marchand.css?v=20260920-2">
+  <link rel="stylesheet" href="marchand.css?v=20260920-3">
   <link rel="stylesheet" href="site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -103,7 +103,7 @@
         <span class="marchand-team-crest marchand-team-crest-boston" data-crest="boston"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg" alt=""></span>
         <span class="marchand-team-crest marchand-team-crest-florida" data-crest="florida"><img src="https://assets.nhle.com/logos/nhl/svg/FLA_light.svg" alt=""></span>
         <span class="marchand-team-crest marchand-team-crest-canada" data-crest="canada">
-          <svg viewBox="0 0 100 112" role="img" aria-label="Red maple leaf"><path d="M50 1 58 20 72 11 68 31 89 27 81 46 99 53 76 66 82 82 57 77 58 111 42 111 43 77 18 82 24 66 1 53 19 46 11 27 32 31 28 11 42 20Z"/></svg>
+          <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Hockey_Canada.svg" alt="">
         </span>
       </div>
       <span class="site-page-hero-chip marchand-puck-mark" aria-hidden="true">
@@ -214,11 +214,21 @@
       <h3 id="artifact-dialog-title">Artifact detail</h3>
       <p id="artifact-dialog-subtitle"></p>
     </div>
-    <div id="artifact-video-panel" class="marchand-video-panel" hidden>
-      <div class="marchand-video-stage">
-        <iframe id="artifact-video" title="Goal video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div id="artifact-media-grid" class="marchand-media-grid">
+      <figure id="artifact-puck-photo" class="marchand-puck-photo">
+        <img id="artifact-puck-image" alt="" hidden>
+        <div id="artifact-puck-placeholder" class="marchand-puck-placeholder">
+          <span class="marchand-photo-puck" aria-hidden="true"><i>63</i></span>
+          <div><small>Collection photography</small><strong>Puck portrait coming soon</strong><span id="artifact-puck-photo-id">Artifact No. —</span></div>
+        </div>
+        <figcaption>Reserved for the authenticated puck photograph.</figcaption>
+      </figure>
+      <div id="artifact-video-panel" class="marchand-video-panel" hidden>
+        <div class="marchand-video-stage">
+          <iframe id="artifact-video" title="Goal video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <a id="artifact-video-source" class="marchand-source-link" href="#" target="_blank" rel="noopener noreferrer">Open source video <span aria-hidden="true">↗</span></a>
       </div>
-      <a id="artifact-video-source" class="marchand-source-link" href="#" target="_blank" rel="noopener noreferrer">Open source video <span aria-hidden="true">↗</span></a>
     </div>
     <div id="artifact-dialog-facts" class="marchand-fact-grid"></div>
     <section id="artifact-personnel" class="marchand-dialog-section" hidden>
@@ -247,6 +257,6 @@
 </footer>
 
 <script src="site-shell.js?v=20260824-2"></script>
-<script src="marchand.js?v=20260920-2"></script>
+<script src="marchand.js?v=20260920-3"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@
     sortKey: "date",
     sortDirection: "desc",
   };
+  const TEAM_CANADA_CREST = "https://upload.wikimedia.org/wikipedia/en/5/5f/Hockey_Canada.svg";
 
   const elements = {
     body: document.body,
@@ -43,6 +44,10 @@
     personnelGrid: document.getElementById("artifact-personnel-grid"),
     provenance: document.getElementById("artifact-provenance"),
     sourceGrid: document.getElementById("artifact-source-grid"),
+    mediaGrid: document.getElementById("artifact-media-grid"),
+    puckImage: document.getElementById("artifact-puck-image"),
+    puckPlaceholder: document.getElementById("artifact-puck-placeholder"),
+    puckPhotoId: document.getElementById("artifact-puck-photo-id"),
     videoPanel: document.getElementById("artifact-video-panel"),
     videoFrame: document.getElementById("artifact-video"),
     videoSource: document.getElementById("artifact-video-source"),
@@ -341,13 +346,10 @@
     const crest = document.createElement("span");
     crest.className = `marchand-crest ${className}`.trim();
     if (era === "canada") {
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("viewBox", "0 0 100 112");
-      svg.setAttribute("aria-label", "Red maple leaf");
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", "M50 1 58 20 72 11 68 31 89 27 81 46 99 53 76 66 82 82 57 77 58 111 42 111 43 77 18 82 24 66 1 53 19 46 11 27 32 31 28 11 42 20Z");
-      svg.append(path);
-      crest.append(svg);
+      const image = document.createElement("img");
+      image.src = TEAM_CANADA_CREST;
+      image.alt = "Hockey Canada crest";
+      crest.append(image);
       return crest;
     }
     const team = era === "florida" ? { code: "FLA", name: "Florida Panthers" } : { code: "BOS", name: "Boston Bruins" };
@@ -452,6 +454,28 @@
     elements.sourceGrid.replaceChildren(fragment);
   }
 
+  function showPuckPlaceholder(record) {
+    elements.puckImage.hidden = true;
+    elements.puckImage.removeAttribute("src");
+    elements.puckImage.alt = "";
+    elements.puckPlaceholder.hidden = false;
+    elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
+  }
+
+  function renderPuckPhoto(record) {
+    const imageUrl = normalize(record.imageUrl);
+    if (!imageUrl) {
+      showPuckPlaceholder(record);
+      return;
+    }
+    elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
+    elements.puckPlaceholder.hidden = true;
+    elements.puckImage.hidden = false;
+    elements.puckImage.alt = `Artifact ${record.inventoryId} puck photograph`;
+    elements.puckImage.onerror = () => showPuckPlaceholder(record);
+    elements.puckImage.src = imageUrl;
+  }
+
   function closeArtifact() {
     elements.videoFrame.removeAttribute("src");
     if (elements.dialog.open) elements.dialog.close();
@@ -466,6 +490,7 @@
     elements.dialogTitle.textContent = recordTitle(record);
     elements.dialogSubtitle.textContent = [displayDate(record.date), record.arena, record.opponent].filter(Boolean).join(" · ");
     elements.dialogFacts.replaceChildren();
+    renderPuckPhoto(record);
 
     addFact("Collection wing", record.sourceSheet);
     addFact("Team", record.team);
@@ -494,6 +519,7 @@
 
     const playerUrl = embedUrl(record);
     elements.videoPanel.hidden = !playerUrl;
+    elements.mediaGrid.classList.toggle("has-no-video", !playerUrl);
     if (playerUrl) {
       elements.videoFrame.src = playerUrl;
       elements.videoSource.href = record.videoUrl;

@@ -69,13 +69,18 @@ for (const id of [
   "artifact-source-grid",
   "artifact-dialog-crest",
   "insight-timeline",
+  "artifact-media-grid",
+  "artifact-puck-photo",
+  "artifact-puck-image",
+  "artifact-puck-placeholder",
+  "artifact-puck-photo-id",
 ]) {
   assert.match(html, new RegExp(`id=["']${id}["']`), `marchand.html is missing #${id}`);
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-2/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-2/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-3/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-3/, "Marchand script cache key drifted");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /marchand\.html/, "hidden page must not link to itself from public navigation");
 
@@ -85,12 +90,15 @@ assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme i
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/BOS_light\.svg/, "Boston team mark is missing");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/FLA_light\.svg/, "Florida team mark is missing");
-assert.match(html, /Red maple leaf/, "Canada maple leaf mark is missing");
+assert.match(html, /upload\.wikimedia\.org\/wikipedia\/en\/5\/5f\/Hockey_Canada\.svg/, "Hockey Canada crest is missing");
 assert.match(script, /youtube-nocookie\.com\/embed/, "privacy-enhanced YouTube player is missing");
 assert.match(script, /players\.brightcove\.net\/6415718365001/, "official NHL Brightcove player is missing");
 assert.match(script, /data\/marchand-pucks\.json/, "collection data source is missing");
 assert.match(script, /data\/marchand-players\.json/, "player decoder source is missing");
 assert.match(script, /decodedNames\(record\)/, "decoded player names must participate in search");
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
+assert.match(script, /renderPuckPhoto\(record\)/, "puck photo slot is not wired into artifact deep dives");
+assert.match(script, /record\.imageUrl/, "future puck image URLs are not supported");
+assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 
 console.log(`PASS: Marchand museum page — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
