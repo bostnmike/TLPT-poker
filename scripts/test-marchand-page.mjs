@@ -92,7 +92,7 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-7/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-8/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-7/, "Marchand script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -104,7 +104,9 @@ assert.match(css, /\.marchand-page\[data-era="florida"\]/, "Florida museum theme
 assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme is missing");
 assert.match(css, /content:"BOSTON"/, "Boston theme identity is missing");
 assert.match(css, /content:"FLORIDA"/, "Florida theme identity is missing");
-assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#2f6eb5/, "Florida title must use Panthers blue");
+assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#041e42/, "Florida title must use Panthers navy");
+assert.match(css, /data-era="florida"\]\{[\s\S]*--gold:#c8102e;[\s\S]*--museum-accent:#c8102e;[\s\S]*--museum-secondary:#ffffff;/, "Florida accents must use Panthers red and white");
+assert.doesNotMatch(css, /d4af37|212,175,55/i, "Florida surfaces must not retain the old gold accent");
 assert.match(css, /content:"CANADA"/, "Canada theme identity is missing");
 assert.match(css, /data-era="canada"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#d80621/, "Canada title must use red");
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");

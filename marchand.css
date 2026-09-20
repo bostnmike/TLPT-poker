@@ -53,13 +53,17 @@
 }
 
 .marchand-page[data-era="florida"]{
-  --museum-accent:#d4af37;
-  --museum-accent-rgb:212,175,55;
-  --museum-secondary:#c8102e;
-  --museum-secondary-rgb:200,16,46;
+  --accent:#c8102e;
+  --gold:#c8102e;
+  --gold-soft:#ff5a73;
+  --gold-deep:#870b21;
+  --museum-accent:#c8102e;
+  --museum-accent-rgb:200,16,46;
+  --museum-secondary:#ffffff;
+  --museum-secondary-rgb:255,255,255;
   --museum-deep:#041e42;
   --museum-velvet:#071c3c;
-  --museum-border:rgba(212,175,55,.32);
+  --museum-border:rgba(200,16,46,.42);
   --museum-glow:rgba(200,16,46,.24);
   --museum-page-top:#020f22;
   --museum-page-middle:#071a36;
@@ -67,7 +71,7 @@
   --museum-panel-top:#0b2449;
   --museum-panel-bottom:#031126;
   --museum-control:#04172f;
-  --museum-stripe:linear-gradient(90deg,#041e42 0 35%,#c8102e 35% 65%,#d4af37 65% 69%,#041e42 69% 100%);
+  --museum-stripe:linear-gradient(90deg,#041e42 0 36%,#c8102e 36% 66%,#fff 66% 70%,#041e42 70% 100%);
 }
 
 .marchand-page[data-era="canada"]{
@@ -151,12 +155,12 @@
 }
 
 .marchand-page[data-era="florida"] .marchand-hero .site-page-hero-title::first-line{
-  color:#2f6eb5;
-  -webkit-text-stroke:2px #d4af37;
+  color:#041e42;
+  -webkit-text-stroke:2px #fff;
   paint-order:stroke fill;
   text-shadow:
     0 4px 0 #020913,
-    0 0 46px rgba(47,110,181,.48);
+    0 0 46px rgba(200,16,46,.44);
 }
 
 .marchand-page[data-era="canada"] .marchand-hero .site-page-hero-title::first-line{
@@ -1323,14 +1327,14 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 }
 
 .marchand-page[data-era="florida"] .marchand-hero{
-  border-color:rgba(212,175,55,.48);
+  border-color:rgba(200,16,46,.52);
   background:
     linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px) 0 0 / 74px 74px,
     linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px) 0 0 / 74px 74px,
     linear-gradient(112deg,transparent 0 66%,rgba(200,16,46,.25) 66% 72%,transparent 72%),
     radial-gradient(circle at 84% 25%,rgba(200,16,46,.28),transparent 22rem),
     linear-gradient(126deg,#020d1d 0%,#082653 58%,#030b17 100%);
-  box-shadow:inset 0 0 0 6px rgba(0,0,0,.40),inset 0 0 0 7px rgba(212,175,55,.22),0 32px 90px rgba(0,0,0,.50);
+  box-shadow:inset 0 0 0 6px rgba(0,0,0,.40),inset 0 0 0 7px rgba(200,16,46,.24),0 32px 90px rgba(0,0,0,.50);
 }
 
 .marchand-page[data-era="canada"] .marchand-hero{
@@ -1369,7 +1373,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-page[data-era="boston"] .marchand-insights,
 .marchand-page[data-era="boston"] .marchand-archive{box-shadow:0 28px 80px rgba(0,0,0,.54),0 0 0 1px rgba(255,184,28,.07)}
 .marchand-page[data-era="florida"] .marchand-insights,
-.marchand-page[data-era="florida"] .marchand-archive{box-shadow:0 28px 80px rgba(0,0,0,.48),0 0 0 1px rgba(212,175,55,.09)}
+.marchand-page[data-era="florida"] .marchand-archive{box-shadow:0 28px 80px rgba(0,0,0,.48),0 0 0 1px rgba(200,16,46,.12)}
 .marchand-page[data-era="canada"] .marchand-insights,
 .marchand-page[data-era="canada"] .marchand-archive{box-shadow:0 28px 80px rgba(0,0,0,.50),0 0 0 1px rgba(255,255,255,.10)}
 
@@ -1381,8 +1385,8 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 }
 
 .marchand-dialog[data-team="florida"]{
-  --museum-accent:#d4af37;
-  --museum-accent-rgb:212,175,55;
+  --museum-accent:#c8102e;
+  --museum-accent-rgb:200,16,46;
   --museum-panel-top:#0b2449;
   --museum-panel-bottom:#031126;
 }
