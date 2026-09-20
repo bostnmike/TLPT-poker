@@ -1267,6 +1267,7 @@
 a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--museum-accent-rgb),.55)}
 .marchand-person-portrait{display:grid;min-height:112px;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(var(--museum-accent-rgb),.24),transparent 56%),#111820;color:var(--museum-accent);font-family:Impact,"Arial Black",sans-serif;font-size:2rem}
 .marchand-person-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.marchand-person-card[data-player="BM63"][data-era="boston"] .marchand-person-portrait img{transform:scale(2.05);transform-origin:50% 0}
 .marchand-person-card[data-player="BM63"][data-era="canada"] .marchand-person-portrait img{transform:scale(1.72);transform-origin:50% 13%}
 .marchand-person-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:16px}
 .marchand-person-copy small{color:var(--museum-accent);font-size:.58rem;font-weight:1000;letter-spacing:.15em;text-transform:uppercase}
