@@ -780,7 +780,8 @@
 
 .marchand-player-chip-portrait > *{grid-area:1 / 1}
 .marchand-player-chip-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.marchand-player-chip[data-player="BM63"][data-era="canada"] .marchand-player-chip-portrait img{transform:scale(1.8);transform-origin:50% 13%}
+.marchand-player-chip[data-player="BM63"][data-era="boston"] .marchand-player-chip-portrait img{transform:scale(2.1);transform-origin:50% 0}
+.marchand-player-chip[data-player="BM63"][data-era="canada"] .marchand-player-chip-portrait img{transform:scale(2);transform-origin:50% 0}
 .marchand-player-chip strong{font-size:.61rem;letter-spacing:.07em}
 .marchand-team-artifact{color:#7f8a94;font-size:.65rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
 
