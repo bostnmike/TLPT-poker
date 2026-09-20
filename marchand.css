@@ -1593,6 +1593,203 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-watch-dialog h3{margin:8px 60px 5px 0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.55rem,3vw,2.45rem);font-weight:400;line-height:1.12}
 .marchand-watch-dialog p{margin:0 60px 22px 0;color:#96a2ac;line-height:1.5}
 
+/* Three-uniform hero portrait exhibit */
+.marchand-hero{
+  grid-template-columns:minmax(0,1fr) minmax(390px,.72fr);
+  gap:28px;
+}
+
+.marchand-identity-stage{
+  width:100%;
+  min-height:310px;
+  align-self:stretch;
+  isolation:isolate;
+}
+
+.marchand-photo-montage{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.15);
+  background:#05070a;
+  box-shadow:0 22px 42px rgba(0,0,0,.42),inset 0 0 0 1px rgba(var(--museum-accent-rgb),.10);
+  pointer-events:none;
+}
+
+.marchand-photo-montage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:5;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.04) 38%,rgba(0,0,0,.64) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.18),transparent 32%,transparent 68%,rgba(0,0,0,.18));
+  box-shadow:inset 0 0 38px rgba(0,0,0,.48);
+  pointer-events:none;
+}
+
+.marchand-era-portrait{
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:0;
+  overflow:hidden;
+  background:#0a0d11;
+  opacity:1;
+  filter:saturate(.93) contrast(1.04);
+  transform:scale(1.01);
+  transition:inset .45s ease,width .45s ease,opacity .32s ease,transform .45s ease,filter .32s ease;
+}
+
+.marchand-era-portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .55s ease,filter .35s ease;
+}
+
+.marchand-era-portrait::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.12) 48%,rgba(0,0,0,.72));
+}
+
+.marchand-era-portrait > span{
+  position:absolute;
+  bottom:16px;
+  left:20px;
+  z-index:2;
+  color:#fff;
+  font-size:.59rem;
+  font-weight:1000;
+  letter-spacing:.18em;
+  text-shadow:0 2px 9px #000;
+  text-transform:uppercase;
+}
+
+.marchand-era-portrait-boston{
+  left:0;
+  z-index:1;
+  width:42%;
+  clip-path:polygon(0 0,100% 0,79% 100%,0 100%);
+}
+.marchand-era-portrait-boston img{object-position:56% center}
+.marchand-era-portrait-boston::after{background:linear-gradient(180deg,rgba(255,184,28,.04),rgba(0,0,0,.12) 50%,rgba(0,0,0,.78))}
+
+.marchand-era-portrait-florida{
+  left:29%;
+  z-index:2;
+  width:43%;
+  clip-path:polygon(21% 0,100% 0,79% 100%,0 100%);
+  background:radial-gradient(circle at 50% 24%,#a50b2b,#4d0717 54%,#041e42 100%);
+}
+.marchand-era-portrait-florida img{object-position:center 42%}
+.marchand-era-portrait-florida::after{background:linear-gradient(180deg,rgba(200,16,46,.05),rgba(4,30,66,.08) 48%,rgba(4,12,25,.78))}
+
+.marchand-era-portrait-canada{
+  left:58%;
+  z-index:3;
+  width:42%;
+  clip-path:polygon(21% 0,100% 0,100% 100%,0 100%);
+}
+.marchand-era-portrait-canada img{object-position:72% center}
+.marchand-era-portrait-canada::after{background:linear-gradient(180deg,rgba(216,6,33,.03),rgba(50,0,9,.06) 48%,rgba(48,0,9,.76))}
+
+.marchand-page:not([data-era="all"]) .marchand-era-portrait{
+  opacity:0;
+  transform:scale(.96);
+}
+
+.marchand-page[data-era="boston"] .marchand-era-portrait-boston,
+.marchand-page[data-era="florida"] .marchand-era-portrait-florida,
+.marchand-page[data-era="canada"] .marchand-era-portrait-canada{
+  left:0;
+  z-index:3;
+  width:100%;
+  opacity:1;
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+  filter:saturate(1.02) contrast(1.05);
+  transform:scale(1);
+}
+
+.marchand-page[data-era="boston"] .marchand-era-portrait-boston img{object-position:58% center;transform:scale(1.03)}
+.marchand-page[data-era="florida"] .marchand-era-portrait-florida{
+  background:linear-gradient(108deg,#041e42 0 18%,#8f102c 42%,#c8102e 64%,#041e42 100%);
+}
+.marchand-page[data-era="florida"] .marchand-era-portrait-florida img{
+  object-fit:contain;
+  object-position:center;
+  transform:scale(.94);
+}
+.marchand-page[data-era="canada"] .marchand-era-portrait-canada img{object-position:72% center;transform:scale(1.02)}
+
+.marchand-crest-stack{
+  top:12px;
+  right:13px;
+  left:auto;
+  z-index:7;
+  width:206px;
+  transform:none;
+}
+
+.marchand-team-crest{
+  height:58px;
+  background:linear-gradient(145deg,rgba(10,13,17,.82),rgba(0,0,0,.58));
+  backdrop-filter:blur(8px);
+}
+
+.marchand-identity-stage .marchand-puck-mark{
+  position:absolute;
+  right:19px;
+  bottom:16px;
+  z-index:7;
+  width:112px;
+  height:112px;
+}
+.marchand-identity-stage .marchand-puck-mark strong{font-size:3.05rem}
+.marchand-identity-stage .marchand-puck-mark small{bottom:17px}
+
+@media (max-width:1100px){
+  .marchand-hero{grid-template-columns:minmax(0,1fr) minmax(320px,.65fr);padding-right:34px;padding-left:34px}
+  .marchand-identity-stage{min-height:285px}
+  .marchand-crest-stack{width:184px}
+  .marchand-team-crest{height:52px}
+}
+
+@media (max-width:900px){
+  .marchand-hero{grid-template-columns:minmax(0,1fr) minmax(250px,.56fr);gap:20px}
+  .marchand-hero .site-page-hero-title{font-size:clamp(3.5rem,8.2vw,5.2rem)}
+  .marchand-identity-stage{min-height:248px}
+  .marchand-crest-stack{width:156px}
+  .marchand-team-crest{height:46px;padding:5px}
+  .marchand-identity-stage .marchand-puck-mark{right:13px;bottom:13px;width:90px;height:90px}
+  .marchand-identity-stage .marchand-puck-mark strong{font-size:2.5rem}
+  .marchand-identity-stage .marchand-puck-mark small{bottom:13px}
+}
+
+@media (max-width:680px){
+  .marchand-hero{grid-template-columns:1fr;gap:18px}
+  .marchand-hero .site-page-hero-copy{padding-right:0}
+  .marchand-identity-stage{position:relative;top:auto;right:auto;width:100%;min-height:205px;align-self:auto}
+  .marchand-crest-stack{top:10px;right:10px;width:160px;grid-template-columns:repeat(3,1fr);gap:4px}
+  .marchand-team-crest{height:44px;padding:5px}
+  .marchand-identity-stage .marchand-puck-mark{top:auto;right:12px;bottom:12px;width:76px;height:76px;opacity:1}
+  .marchand-identity-stage .marchand-puck-mark strong{font-size:2.1rem}
+  .marchand-identity-stage .marchand-puck-mark small{display:block;bottom:10px;font-size:.43rem}
+  .marchand-era-portrait > span{bottom:12px;left:14px;font-size:.52rem}
+}
+
+@media (max-width:430px){
+  .marchand-identity-stage{min-height:176px}
+  .marchand-crest-stack{width:132px}
+  .marchand-team-crest{height:37px;padding:4px}
+  .marchand-identity-stage .marchand-puck-mark{width:66px;height:66px}
+  .marchand-identity-stage .marchand-puck-mark strong{font-size:1.8rem}
+  .marchand-era-portrait > span{font-size:.45rem;letter-spacing:.12em}
+}
+
 /* Dedicated Inside the Vault exhibit */
 .marchand-vault-page{min-height:calc(100vh - 120px)}
 .marchand-vault-page-header{
