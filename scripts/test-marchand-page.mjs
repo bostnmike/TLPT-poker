@@ -10,6 +10,7 @@ const html = fs.readFileSync(path.join(root, "marchand.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "marchand.css"), "utf8");
 const script = fs.readFileSync(path.join(root, "marchand.js"), "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
+const canadaCrest = fs.readFileSync(path.join(root, "images", "site", "hockey-canada-crest.png"));
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 
@@ -92,8 +93,8 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-8/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-7/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-9/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-8/, "Marchand script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
@@ -112,7 +113,12 @@ assert.match(css, /data-era="canada"[\s\S]*site-page-hero-title::first-line[\s\S
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/BOS_light\.svg/, "Boston team mark is missing");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/FLA_light\.svg/, "Florida team mark is missing");
-assert.match(html, /upload\.wikimedia\.org\/wikipedia\/en\/5\/5f\/Hockey_Canada\.svg/, "Hockey Canada crest is missing");
+assert.equal((html.match(/images\/site\/hockey-canada-crest\.png/g) || []).length, 2, "both Canada filter controls must use the transparent PNG crest");
+assert.match(script, /TEAM_CANADA_CREST = "images\/site\/hockey-canada-crest\.png"/, "Canada deep dives must use the transparent PNG crest");
+assert.equal(canadaCrest.subarray(1, 4).toString("ascii"), "PNG", "Hockey Canada crest must be a PNG asset");
+assert.equal(canadaCrest[25], 6, "Hockey Canada PNG must include an alpha channel");
+assert.doesNotMatch(html + script, /Hockey_Canada\.svg/, "the white-backed Canada SVG must not remain in the page");
+assert.doesNotMatch(css, /marchand-(?:team-crest-canada|dialog\[data-team="canada"\] \.marchand-dialog-crest)\{background:#fff\}/, "Canada crests must not have white tile backgrounds");
 assert.equal((html.match(/class="marchand-team-crest[^\"]*"[^>]*data-era-button=/g) || []).length, 3, "all three header crests must be team-filter buttons");
 assert.match(html, /aria-label="Show the Boston Bruins collection"/, "Boston crest needs an accessible filter label");
 assert.match(html, /aria-label="Show the Florida Panthers collection"/, "Florida crest needs an accessible filter label");

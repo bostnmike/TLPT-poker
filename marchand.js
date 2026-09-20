@@ -11,7 +11,7 @@
     insightGoalType: "",
     insightYear: "",
   };
-  const TEAM_CANADA_CREST = "https://upload.wikimedia.org/wikipedia/en/5/5f/Hockey_Canada.svg";
+  const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
 
   const elements = {
     body: document.body,

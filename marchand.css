@@ -1055,7 +1055,6 @@
 .marchand-team-crest svg,
 .marchand-crest img,
 .marchand-crest svg{display:block;width:100%;height:100%;object-fit:contain}
-.marchand-team-crest-canada{background:#fff}
 .marchand-team-crest-canada svg path,
 .marchand-crest svg path{fill:#d80621}
 .marchand-team-crest:hover{transform:translateY(-3px);border-color:rgba(var(--museum-accent-rgb),.78);box-shadow:0 0 24px rgba(var(--museum-accent-rgb),.20),0 13px 26px rgba(0,0,0,.42)}
@@ -1140,7 +1139,6 @@
   background:rgba(255,255,255,.06);
 }
 
-.marchand-dialog[data-team="canada"] .marchand-dialog-crest{background:#fff}
 .marchand-dialog-section{margin-top:30px;padding-top:27px;border-top:1px solid rgba(255,255,255,.11)}
 .marchand-dialog-section h4{margin:0 0 18px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;font-weight:400}
 .marchand-personnel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -1293,7 +1291,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   object-fit:contain;
 }
 
-.marchand-era-button[data-era-button="canada"] > img{padding:3px;background:#fff}
+.marchand-era-button[data-era-button="canada"] > img{padding:1px;background:transparent}
 .marchand-era-button:has(img) > span{grid-column:2}
 .marchand-era-button:has(img) > strong{grid-column:3;grid-row:1 / 3;align-self:center}
 
