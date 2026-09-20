@@ -20,10 +20,10 @@ const heroCanada = fs.readFileSync(path.join(root, "images", "site", "marchand-h
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 
-assert.equal(payload.meta.records, 114, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 115, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 71, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 35, "milestone count drifted");
-assert.equal(payload.meta.roadToHistory, 8, "Road to History count drifted");
+assert.equal(payload.meta.roadToHistory, 9, "Road to History count drifted");
 assert.equal(payload.meta.videos, 100, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
@@ -46,7 +46,7 @@ for (const record of payload.records) {
   assert.ok(record.category, `${record.key} needs a category`);
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
-  const expectedFields = { "Goals & Games": 19, Milestones: 9, "Road to History": 15 }[record.sourceSheet];
+  const expectedFields = { "Goals & Games": 19, Milestones: 9, "Road to History": 16 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
@@ -61,11 +61,33 @@ for (const record of payload.records) {
   assert.match(record.videoUrl, /^https:\/\/(?:www\.)?(?:youtube\.com|nhl\.com)\//, `${record.key} has an unexpected video host`);
 }
 
+const roadToHistory = payload.records.filter((record) => record.sourceSheet === "Road to History");
 assert.deepEqual(
-  payload.records.filter((record) => record.sourceSheet === "Road to History").map((record) => record.inventoryId),
-  [501, 502, 503, 504, 505, 506, 507, 508],
-  "Road to History inventory is incomplete",
+  roadToHistory.map((record) => record.inventoryId),
+  [501, 502, 503, 509, 504, 505, 506, 507, 508],
+  "Road to History inventory must follow the canonical chronology without renumbering established artifacts",
 );
+const expectedRoadDetails = new Map([
+  [501, [75, "58-12-5", 121]],
+  [502, [76, "59-12-5", 123]],
+  [503, [77, "60-12-5", 125]],
+  [509, [77, "60-12-5", 125]],
+  [504, [78, "61-12-5", 127]],
+  [505, [79, "62-12-5", 129]],
+  [506, [80, "63-12-5", 131]],
+  [507, [81, "64-12-5", 133]],
+  [508, [82, "64-12-5", 133]],
+]);
+for (const record of roadToHistory) {
+  const [game, seasonRecord, points] = expectedRoadDetails.get(record.inventoryId) || [];
+  assert.equal(record.game, game, `${record.key} game number drifted`);
+  assert.equal(record.seasonRecord, seasonRecord, `${record.key} season record drifted`);
+  assert.equal(record.points, points, `${record.key} points drifted`);
+  const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
+  assert.equal(sourceFields.OTL, "5", `${record.key} must preserve overtime losses in the canonical record`);
+}
+assert.equal(roadToHistory.find((record) => record.inventoryId === 503)?.puckType, "Warm-Up Used Puck", "Game 77 warm-up puck is missing");
+assert.equal(roadToHistory.find((record) => record.inventoryId === 509)?.puckType, "Game Used Puck", "Game 77 game-used puck is missing");
 
 assert.equal(decoder.meta.profileCount, 53, "player profile count drifted");
 assert.equal(decoder.meta.codeCount, 55, "player code decoder count drifted");
@@ -111,7 +133,7 @@ for (const id of [
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
 assert.match(html, /marchand\.css\?v=20260920-22/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-16/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-17/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260920-22/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
@@ -246,5 +268,8 @@ for (const record of payload.records.filter((item) => item.sourceSheet === "Goal
 const topGoalies = [...goalieCounts].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])).slice(0, 5);
 assert.deepEqual(topGoalies, [["Cam Talbot", 5], ["Andrei Vasilevskiy", 3], ["Petr Mrazek", 3], ["Sergei Bobrovsky", 3], ["Alexandar Georgiev", 2]], "top-five goalie leaderboard drifted from the canonical goal records");
 assert.match(script, /addFact\("Goalie scored against", record\.goalieScoredAgainst\)/, "deep dives must feature the researched goalie");
+assert.match(script, /addFact\("Game number", record\.game\)/, "Road to History deep dives must feature the game number");
+assert.match(script, /addFact\("Season record", record\.seasonRecord\)/, "Road to History deep dives must feature the complete season record");
+assert.match(script, /addFact\("Season points", record\.points\)/, "Road to History deep dives must feature season points");
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);

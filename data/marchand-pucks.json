@@ -1,16 +1,16 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "56870a7ac47fc48620417431daab03ed114383ed5842c0401e42f89615d281e6",
-    "records": 114,
+    "sourceSha256": "8d645d217acda4045840fd82a40219992a823d3ff7c7a908d9a137fece2a46bb",
+    "records": 115,
     "goalsAndGames": 71,
     "milestones": 35,
-    "roadToHistory": 8,
+    "roadToHistory": 9,
     "videos": 100,
     "sourceSheets": {
       "Goals & Games": 71,
       "Milestones": 35,
-      "Road to History": 8
+      "Road to History": 9
     }
   },
   "records": [
@@ -12336,10 +12336,13 @@
       "videoId": "",
       "notes": "",
       "game": 75,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 58,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "58-12-5",
+      "points": 121,
       "playerCodes": [],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12388,17 +12391,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "58",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "121",
           "url": ""
         },
         {
@@ -12416,8 +12424,7 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-502",
@@ -12429,7 +12436,7 @@
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Goal Puck CM73 from PZ18 & TB59",
+      "description": "CM73 from PZ18 & TB59",
       "date": "2023-04-01",
       "arena": "PPG Paints Arena",
       "opponent": "Pittsburgh Penguins",
@@ -12446,14 +12453,17 @@
       "videoId": "6335758570112",
       "notes": "",
       "game": 76,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 59,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "59-12-5",
+      "points": 123,
       "playerCodes": [
         "CM73",
         "PZ18",
         "TB59"
       ],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12477,7 +12487,7 @@
         },
         {
           "label": "Description",
-          "value": "Goal Puck CM73 from PZ18 & TB59",
+          "value": "CM73 from PZ18 & TB59",
           "url": ""
         },
         {
@@ -12502,17 +12512,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "59",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "123",
           "url": ""
         },
         {
@@ -12530,8 +12545,7 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-503",
@@ -12543,7 +12557,7 @@
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Warm Up Puck",
+      "description": "Warm-Up Used Puck",
       "date": "2023-04-02",
       "arena": "Enterprise Center",
       "opponent": "St. Louis Blues",
@@ -12560,10 +12574,13 @@
       "videoId": "",
       "notes": "",
       "game": 77,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 60,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "60-12-5",
+      "points": 125,
       "playerCodes": [],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12587,7 +12604,7 @@
         },
         {
           "label": "Description",
-          "value": "Warm Up Puck",
+          "value": "Warm-Up Used Puck",
           "url": ""
         },
         {
@@ -12612,17 +12629,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "60",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "125",
           "url": ""
         },
         {
@@ -12640,20 +12662,136 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
+    },
+    {
+      "key": "history-509",
+      "sourceSheet": "Road to History",
+      "sourceRow": 5,
+      "inventoryId": 509,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Road to History",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Game Used Puck",
+      "date": "2023-04-02",
+      "arena": "Enterprise Center",
+      "opponent": "St. Louis Blues",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "Boston 4 @ St. Louis 3 - SO",
+      "puckType": "Game Used Puck",
+      "videoLabel": "",
+      "videoUrl": "",
+      "videoProvider": "",
+      "videoId": "",
+      "notes": "",
+      "game": 77,
+      "wins": 60,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "60-12-5",
+      "points": 125,
+      "playerCodes": [],
+      "goalieScoredAgainst": "",
+      "sourceData": [
+        {
+          "label": "Inventory ID",
+          "value": "509",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Road to History",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-04-02",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Enterprise Center",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "St. Louis Blues",
+          "url": ""
+        },
+        {
+          "label": "Game",
+          "value": "77",
+          "url": ""
+        },
+        {
+          "label": "W",
+          "value": "60",
+          "url": ""
+        },
+        {
+          "label": "L",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
+          "url": ""
+        },
+        {
+          "label": "Pts",
+          "value": "125",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 4 @ St. Louis 3 - SO",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        }
+      ]
     },
     {
       "key": "history-504",
       "sourceSheet": "Road to History",
-      "sourceRow": 5,
+      "sourceRow": 6,
       "inventoryId": 504,
       "homeRoad": "Home",
       "team": "Boston Bruins",
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Goal Puck CC13 from BC25",
+      "description": "CC13 from BC25",
       "date": "2023-04-06",
       "arena": "TD Garden",
       "opponent": "Toronto Maple Leafs",
@@ -12670,13 +12808,16 @@
       "videoId": "6335757256112",
       "notes": "",
       "game": 78,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 61,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "61-12-5",
+      "points": 127,
       "playerCodes": [
         "CC13",
         "BC25"
       ],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12700,7 +12841,7 @@
         },
         {
           "label": "Description",
-          "value": "Goal Puck CC13 from BC25",
+          "value": "CC13 from BC25",
           "url": ""
         },
         {
@@ -12725,17 +12866,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "61",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "127",
           "url": ""
         },
         {
@@ -12753,20 +12899,19 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-505",
       "sourceSheet": "Road to History",
-      "sourceRow": 6,
+      "sourceRow": 7,
       "inventoryId": 505,
       "homeRoad": "Home",
       "team": "Boston Bruins",
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Bruins Tie Record for Most Wins Game Puck",
+      "description": "Bruins Tie Record for Most Wins",
       "date": "2023-04-08",
       "arena": "TD Garden",
       "opponent": "New Jersey Devils",
@@ -12783,10 +12928,13 @@
       "videoId": "",
       "notes": "",
       "game": 79,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 62,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "62-12-5",
+      "points": 129,
       "playerCodes": [],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12810,7 +12958,7 @@
         },
         {
           "label": "Description",
-          "value": "Bruins Tie Record for Most Wins Game Puck",
+          "value": "Bruins Tie Record for Most Wins",
           "url": ""
         },
         {
@@ -12835,17 +12983,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "62",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "129",
           "url": ""
         },
         {
@@ -12863,20 +13016,19 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-506",
       "sourceSheet": "Road to History",
-      "sourceRow": 7,
+      "sourceRow": 8,
       "inventoryId": 506,
       "homeRoad": "Road",
       "team": "Boston Bruins",
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Bruins Set Record for Most Wins Goal Puck CC13 from CC58",
+      "description": "Bruins Set Record for Most Wins",
       "date": "2023-04-09",
       "arena": "Wells Fargo Center",
       "opponent": "Philadelphia Flyers",
@@ -12891,15 +13043,18 @@
       "videoUrl": "https://www.nhl.com/video/6335756132112",
       "videoProvider": "nhl",
       "videoId": "6335756132112",
-      "notes": "",
+      "notes": "CC13 from CC58",
       "game": 80,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 63,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "63-12-5",
+      "points": 131,
       "playerCodes": [
         "CC13",
         "CC58"
       ],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -12923,7 +13078,7 @@
         },
         {
           "label": "Description",
-          "value": "Bruins Set Record for Most Wins Goal Puck CC13 from CC58",
+          "value": "Bruins Set Record for Most Wins",
           "url": ""
         },
         {
@@ -12948,17 +13103,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "63",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "131",
           "url": ""
         },
         {
@@ -12973,23 +13133,22 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "CC13 from CC58",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-507",
       "sourceSheet": "Road to History",
-      "sourceRow": 8,
+      "sourceRow": 9,
       "inventoryId": 507,
       "homeRoad": "Home",
       "team": "Boston Bruins",
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Bruins Set Record for Most Points Game Puck",
+      "description": "Bruins Set Record for Most Points",
       "date": "2023-04-11",
       "arena": "TD Garden",
       "opponent": "Washington Capitals",
@@ -13006,10 +13165,13 @@
       "videoId": "",
       "notes": "",
       "game": 81,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 64,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "64-12-5",
+      "points": 133,
       "playerCodes": [],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -13033,7 +13195,7 @@
         },
         {
           "label": "Description",
-          "value": "Bruins Set Record for Most Points Game Puck",
+          "value": "Bruins Set Record for Most Points",
           "url": ""
         },
         {
@@ -13058,17 +13220,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "64",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "133",
           "url": ""
         },
         {
@@ -13086,20 +13253,19 @@
           "value": "",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     },
     {
       "key": "history-508",
       "sourceSheet": "Road to History",
-      "sourceRow": 9,
+      "sourceRow": 10,
       "inventoryId": 508,
       "homeRoad": "Road",
       "team": "Boston Bruins",
       "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
-      "description": "NHL Record for Most Points & Wins Goal Puck DP88 from DO81 &TB59",
+      "description": "NHL Record for Most Points & Wins",
       "date": "2023-04-13",
       "arena": "Bell Centre",
       "opponent": "Montreal Canadiens",
@@ -13114,16 +13280,19 @@
       "videoUrl": "https://www.nhl.com/video/6335756072112",
       "videoProvider": "nhl",
       "videoId": "6335756072112",
-      "notes": "",
+      "notes": "DP88 from DO81 & TB59",
       "game": 82,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "wins": 64,
+      "losses": 12,
+      "overtimeLosses": 5,
+      "seasonRecord": "64-12-5",
+      "points": 133,
       "playerCodes": [
         "DP88",
         "DO81",
         "TB59"
       ],
+      "goalieScoredAgainst": "",
       "sourceData": [
         {
           "label": "Inventory ID",
@@ -13147,7 +13316,7 @@
         },
         {
           "label": "Description",
-          "value": "NHL Record for Most Points & Wins Goal Puck DP88 from DO81 &TB59",
+          "value": "NHL Record for Most Points & Wins",
           "url": ""
         },
         {
@@ -13172,17 +13341,22 @@
         },
         {
           "label": "W",
-          "value": "",
+          "value": "64",
           "url": ""
         },
         {
           "label": "L",
-          "value": "",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
           "url": ""
         },
         {
           "label": "Pts",
-          "value": "",
+          "value": "133",
           "url": ""
         },
         {
@@ -13197,11 +13371,10 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "DP88 from DO81 & TB59",
           "url": ""
         }
-      ],
-      "goalieScoredAgainst": ""
+      ]
     }
   ]
 }

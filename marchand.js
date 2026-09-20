@@ -674,10 +674,9 @@
     addFact("Home / road", record.homeRoad);
     addFact("Career stat", record.careerStat == null ? "" : `#${record.careerStat}`);
     addFact("Season stat", record.seasonStat == null ? "" : `#${record.seasonStat}`);
-    addFact("Game", record.game);
-    addFact("Wins", record.wins);
-    addFact("Losses", record.losses);
-    addFact("Points", record.points);
+    addFact("Game number", record.game);
+    addFact("Season record", record.seasonRecord);
+    addFact("Season points", record.points);
     addFact("Period", record.period);
     addFact("Time", record.time);
     addFact("Goal type", record.goalType);
@@ -688,7 +687,9 @@
     renderSourceRecord(record);
 
     elements.dialogNotes.hidden = !record.notes;
-    elements.dialogNotes.textContent = record.notes ? `Collection note: ${record.notes}` : "";
+    elements.dialogNotes.textContent = record.notes
+      ? `${record.sourceSheet === "Road to History" ? "Road to History detail" : "Collection note"}: ${record.notes}`
+      : "";
 
     const playerUrl = embedUrl(record);
     elements.videoPanel.hidden = !playerUrl;
