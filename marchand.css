@@ -932,3 +932,198 @@
   .marchand-era-button,
   .marchand-table tbody tr{transition:none}
 }
+
+/* Deep-dive museum expansion */
+.marchand-page[data-era="canada"]{
+  background:
+    radial-gradient(circle at 14% 11%,rgba(255,255,255,.13),transparent 24rem),
+    radial-gradient(circle at 90% 23%,rgba(216,6,33,.28),transparent 28rem),
+    linear-gradient(180deg,#6f0011 0%,#2b020a 48%,#0d0709 100%);
+}
+
+.marchand-page[data-era="canada"] .marchand-hero{
+  border-color:rgba(255,255,255,.38);
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px) 0 0 / 74px 74px,
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0 / 74px 74px,
+    radial-gradient(circle at 82% 26%,rgba(255,255,255,.20),transparent 20rem),
+    linear-gradient(126deg,#860016 0%,#4f000c 58%,#180307 100%);
+}
+
+.marchand-identity-stage{
+  position:relative;
+  z-index:1;
+  display:grid;
+  min-height:230px;
+  place-items:end center;
+  align-self:center;
+}
+
+.marchand-crest-stack{
+  position:absolute;
+  top:0;
+  left:50%;
+  z-index:2;
+  display:grid;
+  width:218px;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+  transform:translateX(-50%);
+}
+
+.marchand-team-crest,
+.marchand-crest{display:grid;place-items:center;overflow:hidden}
+.marchand-team-crest{
+  height:67px;
+  padding:8px;
+  border:1px solid rgba(255,255,255,.18);
+  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(0,0,0,.46));
+  box-shadow:0 10px 24px rgba(0,0,0,.34);
+  transition:opacity .28s ease,transform .28s ease;
+}
+
+.marchand-team-crest img,
+.marchand-team-crest svg,
+.marchand-crest img,
+.marchand-crest svg{display:block;width:100%;height:100%;object-fit:contain}
+.marchand-team-crest-canada{background:#fff}
+.marchand-team-crest-canada svg path,
+.marchand-crest svg path{fill:#d80621}
+.marchand-page:not([data-era="all"]) .marchand-team-crest{opacity:.15;transform:scale(.78)}
+.marchand-page[data-era="boston"] [data-crest="boston"],
+.marchand-page[data-era="florida"] [data-crest="florida"],
+.marchand-page[data-era="canada"] [data-crest="canada"]{
+  opacity:1;
+  transform:scale(1.12);
+  border-color:rgba(var(--museum-accent-rgb),.72);
+  box-shadow:0 0 30px rgba(var(--museum-accent-rgb),.18),0 12px 26px rgba(0,0,0,.45);
+}
+
+.marchand-identity-stage .marchand-puck-mark{width:142px;height:142px}
+.marchand-identity-stage .marchand-puck-mark strong{font-size:3.7rem}
+.marchand-identity-stage .marchand-puck-mark small{bottom:22px}
+.marchand-stat-wing{grid-template-columns:repeat(5,minmax(0,1fr))}
+
+.marchand-insights{
+  padding:0;
+  overflow:hidden;
+  border-color:rgba(255,255,255,.10);
+  border-radius:4px;
+  background:linear-gradient(180deg,rgba(16,21,27,.98),rgba(7,10,14,.99));
+  box-shadow:0 24px 62px rgba(0,0,0,.31);
+}
+
+.marchand-insights::after{display:none}
+.marchand-insights-heading{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:24px;
+  padding:30px 34px 24px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  background:radial-gradient(circle at 90% 0,rgba(var(--museum-accent-rgb),.09),transparent 22rem);
+}
+
+.marchand-insights-heading h3{margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3.4vw,2.9rem);font-weight:400}
+.marchand-insights-heading p{max-width:470px;margin:0;color:#8f9ba6;line-height:1.5;text-align:right}
+.marchand-insight-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.marchand-insight-card{
+  min-height:270px;
+  padding:25px 27px;
+  border-right:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(145deg,rgba(var(--museum-accent-rgb),.035),transparent 48%);
+}
+
+.marchand-insight-card:nth-child(2),.marchand-insight-card:last-child{border-right:0}
+.marchand-insight-wide{grid-column:span 2}
+.marchand-insight-card h4{margin:0 0 20px;color:#eef1f4;font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;font-weight:400}
+.marchand-bars{display:grid;gap:13px}
+.marchand-bar-row > div{display:flex;justify-content:space-between;gap:14px;color:#aab3bb;font-size:.72rem}
+.marchand-bar-row strong{color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:.9rem;font-weight:400}
+.marchand-bar-row > i{display:block;height:5px;margin-top:6px;overflow:hidden;background:#202933}
+.marchand-bar-row > i b{display:block;height:100%;background:linear-gradient(90deg,var(--museum-accent),var(--museum-secondary));box-shadow:0 0 14px rgba(var(--museum-accent-rgb),.4)}
+.marchand-timeline{display:flex;min-height:190px;align-items:end;gap:8px;overflow-x:auto;padding:20px 4px 0}
+.marchand-year{display:grid;min-width:38px;height:165px;grid-template-rows:20px 1fr 22px;justify-items:center;align-items:end}
+.marchand-year strong{color:#d8dee3;font-size:.64rem}
+.marchand-year i{width:17px;min-height:8px;background:linear-gradient(180deg,var(--museum-accent),rgba(var(--museum-secondary-rgb),.55));box-shadow:0 0 14px rgba(var(--museum-accent-rgb),.20)}
+.marchand-year span{align-self:center;color:#798692;font-size:.58rem;font-weight:900;transform:rotate(-45deg)}
+.marchand-controls{grid-template-columns:minmax(245px,1.7fr) repeat(5,minmax(115px,1fr)) auto auto}
+
+.marchand-dialog-header{padding-right:185px}
+.marchand-dialog-crest{
+  position:absolute;
+  top:30px;
+  right:88px;
+  width:78px;
+  height:78px;
+  padding:8px;
+  border:1px solid rgba(var(--museum-accent-rgb),.35);
+  background:rgba(255,255,255,.06);
+}
+
+.marchand-dialog[data-team="canada"] .marchand-dialog-crest{background:#fff}
+.marchand-dialog-section{margin-top:30px;padding-top:27px;border-top:1px solid rgba(255,255,255,.11)}
+.marchand-dialog-section h4{margin:0 0 18px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;font-weight:400}
+.marchand-personnel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.marchand-person-card{
+  display:grid;
+  grid-template-columns:104px minmax(0,1fr);
+  min-height:112px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.11);
+  background:linear-gradient(135deg,rgba(var(--museum-accent-rgb),.10),rgba(255,255,255,.025));
+  color:inherit;
+  text-decoration:none;
+  transition:transform .18s ease,border-color .18s ease;
+}
+
+a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--museum-accent-rgb),.55)}
+.marchand-person-portrait{display:grid;min-height:112px;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(var(--museum-accent-rgb),.24),transparent 56%),#111820;color:var(--museum-accent);font-family:Impact,"Arial Black",sans-serif;font-size:2rem}
+.marchand-person-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.marchand-person-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:16px}
+.marchand-person-copy small{color:var(--museum-accent);font-size:.58rem;font-weight:1000;letter-spacing:.15em;text-transform:uppercase}
+.marchand-person-copy strong{margin:5px 0 4px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.15rem;font-weight:400}
+.marchand-person-copy > span{color:#88949e;font-size:.69rem;font-weight:800;text-transform:uppercase}
+.marchand-provenance{margin:-10px 0 17px;color:#87939e;font-size:.7rem;letter-spacing:.04em}
+.marchand-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10)}
+.marchand-source-field{min-height:88px;padding:15px 16px;border-right:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.015)}
+.marchand-source-field span{display:block;margin-bottom:7px;color:#74818c;font-size:.57rem;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
+.marchand-source-field strong,.marchand-source-field a{color:#eef1f3;font-size:.82rem;line-height:1.45;overflow-wrap:anywhere}
+.marchand-source-field a{color:var(--museum-accent);font-weight:900}
+
+@media (max-width:1180px){
+  .marchand-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media (max-width:900px){
+  .marchand-stat-card:first-child{grid-column:span 2}
+  .marchand-insight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .marchand-insight-wide{grid-column:span 2}
+  .marchand-identity-stage{min-height:180px}
+  .marchand-crest-stack{width:162px}
+  .marchand-team-crest{height:52px;padding:6px}
+  .marchand-identity-stage .marchand-puck-mark{width:112px;height:112px}
+  .marchand-identity-stage .marchand-puck-mark strong{font-size:3rem}
+}
+
+@media (max-width:680px){
+  .marchand-identity-stage{position:absolute;top:20px;right:18px;min-height:92px;width:86px}
+  .marchand-crest-stack{top:0;width:86px;grid-template-columns:repeat(3,1fr);gap:2px}
+  .marchand-team-crest{height:28px;padding:3px}
+  .marchand-identity-stage .marchand-puck-mark{top:34px;right:7px;width:64px;height:64px}
+  .marchand-identity-stage .marchand-puck-mark strong{font-size:1.8rem}
+  .marchand-dialog-header{padding-right:105px}
+  .marchand-dialog-crest{top:24px;right:67px;width:56px;height:56px}
+  .marchand-personnel-grid{grid-template-columns:1fr}
+  .marchand-insights-heading{align-items:start;padding:25px 22px 20px}
+  .marchand-insights-heading p{display:none}
+  .marchand-insight-card{padding:22px 18px}
+}
+
+@media (max-width:430px){
+  .marchand-stat-card:first-child{grid-column:span 2}
+  .marchand-source-grid{grid-template-columns:1fr}
+  .marchand-person-card{grid-template-columns:88px minmax(0,1fr)}
+  .marchand-person-portrait{min-height:104px}
+}

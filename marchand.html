@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260917-9">
-  <link rel="stylesheet" href="marchand.css?v=20260920-1">
+  <link rel="stylesheet" href="marchand.css?v=20260920-2">
   <link rel="stylesheet" href="site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -98,11 +98,20 @@
       </div>
     </div>
 
-    <span class="site-page-hero-chip marchand-puck-mark" aria-hidden="true">
-      <span class="marchand-puck-edge"></span>
-      <strong>63</strong>
-      <small>BM</small>
-    </span>
+    <div class="marchand-identity-stage" aria-label="Boston Bruins, Florida Panthers, and Team Canada collection identities">
+      <div class="marchand-crest-stack" aria-hidden="true">
+        <span class="marchand-team-crest marchand-team-crest-boston" data-crest="boston"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg" alt=""></span>
+        <span class="marchand-team-crest marchand-team-crest-florida" data-crest="florida"><img src="https://assets.nhle.com/logos/nhl/svg/FLA_light.svg" alt=""></span>
+        <span class="marchand-team-crest marchand-team-crest-canada" data-crest="canada">
+          <svg viewBox="0 0 100 112" role="img" aria-label="Red maple leaf"><path d="M50 1 58 20 72 11 68 31 89 27 81 46 99 53 76 66 82 82 57 77 58 111 42 111 43 77 18 82 24 66 1 53 19 46 11 27 32 31 28 11 42 20Z"/></svg>
+        </span>
+      </div>
+      <span class="site-page-hero-chip marchand-puck-mark" aria-hidden="true">
+        <span class="marchand-puck-edge"></span>
+        <strong>63</strong>
+        <small>BM</small>
+      </span>
+    </div>
 
     <div class="site-page-hero-lower marchand-hero-lower">
       <p class="marchand-curator-note"><span>Curator’s note</span> Select an era to change the gallery colors and isolate that chapter of the collection.</p>
@@ -119,7 +128,21 @@
     <article class="marchand-stat-card"><span>Catalogued artifacts</span><strong id="stat-records">—</strong><small>in the vault</small></article>
     <article class="marchand-stat-card"><span>Goals &amp; games</span><strong id="stat-goals">—</strong><small>on the ice</small></article>
     <article class="marchand-stat-card"><span>Career milestones</span><strong id="stat-milestones">—</strong><small>history preserved</small></article>
+    <article class="marchand-stat-card"><span>Road to history</span><strong id="stat-history">—</strong><small>record-setting run</small></article>
     <article class="marchand-stat-card marchand-stat-card-featured"><span>Film archive</span><strong id="stat-videos">—</strong><small>moments to watch</small></article>
+  </section>
+
+  <section class="section marchand-insights" aria-labelledby="insights-title">
+    <div class="marchand-insights-heading">
+      <div><span class="marchand-eyebrow">Live collection intelligence</span><h3 id="insights-title">Inside the Vault</h3></div>
+      <p>Every display below is recalculated from the 114 catalogued puck records.</p>
+    </div>
+    <div class="marchand-insight-grid">
+      <article class="marchand-insight-card"><h4>Collection wings</h4><div id="insight-sheets" class="marchand-bars"></div></article>
+      <article class="marchand-insight-card"><h4>Goal signatures</h4><div id="insight-goals" class="marchand-bars"></div></article>
+      <article class="marchand-insight-card marchand-insight-wide"><h4>Career timeline</h4><div id="insight-timeline" class="marchand-timeline" aria-label="Artifacts by year"></div></article>
+      <article class="marchand-insight-card marchand-insight-wide"><h4>Most represented arenas</h4><div id="insight-arenas" class="marchand-arena-list"></div></article>
+    </div>
   </section>
 
   <section class="section marchand-archive" aria-labelledby="archive-title">
@@ -141,6 +164,7 @@
         <span class="marchand-search-shell"><span aria-hidden="true">⌕</span><input id="collection-search" type="search" placeholder="Player, arena, opponent, milestone…" autocomplete="off"></span>
       </label>
       <label><span>Team</span><select id="team-filter"><option value="">All teams</option></select></label>
+      <label><span>Collection wing</span><select id="sheet-filter"><option value="">All collection wings</option></select></label>
       <label><span>Category</span><select id="category-filter"><option value="">All categories</option></select></label>
       <label><span>Arena</span><select id="arena-filter"><option value="">All arenas</option></select></label>
       <label><span>Puck type</span><select id="puck-filter"><option value="">All puck types</option></select></label>
@@ -184,6 +208,7 @@
   <div class="marchand-dialog-frame">
     <button id="artifact-dialog-close" class="marchand-dialog-close" type="button" aria-label="Close artifact details">×</button>
     <div class="marchand-dialog-header">
+      <div id="artifact-dialog-crest" class="marchand-dialog-crest" aria-hidden="true"></div>
       <span id="artifact-dialog-number" class="marchand-dialog-number">No. —</span>
       <span id="artifact-dialog-team" class="marchand-team-badge">Collection</span>
       <h3 id="artifact-dialog-title">Artifact detail</h3>
@@ -196,6 +221,17 @@
       <a id="artifact-video-source" class="marchand-source-link" href="#" target="_blank" rel="noopener noreferrer">Open source video <span aria-hidden="true">↗</span></a>
     </div>
     <div id="artifact-dialog-facts" class="marchand-fact-grid"></div>
+    <section id="artifact-personnel" class="marchand-dialog-section" hidden>
+      <span class="marchand-eyebrow">Names behind the codes</span>
+      <h4 id="artifact-personnel-title">Assist gallery</h4>
+      <div id="artifact-personnel-grid" class="marchand-personnel-grid"></div>
+    </section>
+    <section class="marchand-dialog-section marchand-complete-record" aria-labelledby="complete-record-title">
+      <span class="marchand-eyebrow">Authoritative source</span>
+      <h4 id="complete-record-title">Complete spreadsheet record</h4>
+      <p id="artifact-provenance" class="marchand-provenance"></p>
+      <div id="artifact-source-grid" class="marchand-source-grid"></div>
+    </section>
     <div id="artifact-dialog-notes" class="marchand-dialog-notes" hidden></div>
   </div>
 </dialog>
@@ -211,6 +247,6 @@
 </footer>
 
 <script src="site-shell.js?v=20260824-2"></script>
-<script src="marchand.js?v=20260920-1"></script>
+<script src="marchand.js?v=20260920-2"></script>
 </body>
 </html>
