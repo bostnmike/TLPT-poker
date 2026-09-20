@@ -7,8 +7,10 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const html = fs.readFileSync(path.join(root, "marchand.html"), "utf8");
+const vaultHtml = fs.readFileSync(path.join(root, "marchand-vault", "index.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "marchand.css"), "utf8");
 const script = fs.readFileSync(path.join(root, "marchand.js"), "utf8");
+const vaultScript = fs.readFileSync(path.join(root, "marchand-vault.js"), "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const canadaCrest = fs.readFileSync(path.join(root, "images", "site", "hockey-canada-crest.png"));
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
@@ -79,10 +81,12 @@ for (const id of [
   "collection-body",
   "artifact-dialog",
   "artifact-video",
+  "artifact-video-dialog",
+  "artifact-video-only",
+  "artifact-video-only-source",
   "artifact-personnel-grid",
   "artifact-source-grid",
   "artifact-dialog-crest",
-  "insight-timeline",
   "artifact-media-grid",
   "artifact-puck-photo",
   "artifact-puck-image",
@@ -93,12 +97,23 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-10/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-8/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
+assert.match(html, /marchand\.css\?v=20260920-12/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-9/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-12/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
+assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");
 assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
+assert.doesNotMatch(vaultHtml, /<header class="site-header">/, "the standalone vault exhibit must not include the TLPT masthead");
 assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /marchand\.html/, "hidden page must not link to itself from public navigation");
+assert.doesNotMatch(html, /id="insights-title"/, "Inside the Vault analytics must not delay the collection registry");
+assert.match(html, /href="marchand-vault\/"/, "collection page must link to the dedicated Inside the Vault exhibit");
+assert.match(vaultHtml, /href="\.\.\/marchand\.html"/, "Inside the Vault exhibit must link back to the collection");
+for (const id of ["vault-insights", "vault-result-count", "insight-sheets", "insight-goals", "insight-timeline", "insight-arenas"]) {
+  assert.match(vaultHtml, new RegExp(`id=["']${id}["']`), `vault exhibit is missing #${id}`);
+}
 
 assert.match(css, /\.marchand-page\[data-era="boston"\]/, "Boston museum theme is missing");
 assert.match(css, /\.marchand-page\[data-era="florida"\]/, "Florida museum theme is missing");
@@ -134,11 +149,17 @@ assert.match(script, /decodedNames\(record\)/, "decoded player names must partic
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
 assert.match(script, /renderPuckPhoto\(record\)/, "puck photo slot is not wired into artifact deep dives");
 assert.match(script, /record\.imageUrl/, "future puck image URLs are not supported");
-assert.match(script, /row\.setAttribute\("aria-pressed"/, "vault bars must expose their active filter state");
-assert.match(script, /item\.setAttribute\("aria-pressed"/, "vault timeline years must expose their active filter state");
-assert.match(script, /renderInsights\(state\.filtered\)/, "vault statistics must recalculate from the active gallery");
+assert.match(script, /deepDive\.addEventListener\("click", \(\) => openArtifact\(record\)\)/, "puck-shaped Deep Dive control must open the existing artifact view");
+assert.match(script, /watch\.addEventListener\("click", \(\) => openVideo\(record\)\)/, "Watch control must open the standalone video player");
+assert.match(script, /watch\.disabled = !record\.videoUrl/, "records without film must disable the Watch control");
+assert.doesNotMatch(script, /Watch video and explore/, "Watch and Deep Dive actions must remain separate");
+assert.match(vaultScript, /row\.setAttribute\("aria-pressed"/, "vault bars must expose their active filter state");
+assert.match(vaultScript, /item\.setAttribute\("aria-pressed"/, "vault timeline years must expose their active filter state");
+assert.match(vaultScript, /const records = filteredRecords\(\)/, "vault statistics must recalculate from the active exhibit lens");
 assert.match(script, /payload\.records\.filter\(\(record\) => record\.videoUrl\)\.length/, "film archive total must be calculated from records");
 assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
+assert.match(css, /\.marchand-deep-dive-button\{[\s\S]*border-radius:50%/, "Deep Dive control must use the circular puck treatment");
+assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is missing");
 
-console.log(`PASS: Marchand museum page — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
+console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);

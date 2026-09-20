@@ -8,8 +8,6 @@
     players: {},
     sortKey: "date",
     sortDirection: "desc",
-    insightGoalType: "",
-    insightYear: "",
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
 
@@ -28,11 +26,8 @@
     tableBody: document.getElementById("collection-body"),
     empty: document.getElementById("empty-state"),
     resultCount: document.getElementById("result-count"),
-    insightSheets: document.getElementById("insight-sheets"),
-    insightGoals: document.getElementById("insight-goals"),
-    insightTimeline: document.getElementById("insight-timeline"),
-    insightArenas: document.getElementById("insight-arenas"),
     themeKicker: document.getElementById("marchand-theme-kicker"),
+    vaultLink: document.getElementById("vault-insights-link"),
     dialog: document.getElementById("artifact-dialog"),
     dialogClose: document.getElementById("artifact-dialog-close"),
     dialogCrest: document.getElementById("artifact-dialog-crest"),
@@ -54,6 +49,12 @@
     videoPanel: document.getElementById("artifact-video-panel"),
     videoFrame: document.getElementById("artifact-video"),
     videoSource: document.getElementById("artifact-video-source"),
+    watchDialog: document.getElementById("artifact-video-dialog"),
+    watchDialogClose: document.getElementById("artifact-video-dialog-close"),
+    watchDialogTitle: document.getElementById("artifact-video-dialog-title"),
+    watchDialogSubtitle: document.getElementById("artifact-video-dialog-subtitle"),
+    watchFrame: document.getElementById("artifact-video-only"),
+    watchSource: document.getElementById("artifact-video-only-source"),
   };
 
   const normalize = (value) => String(value ?? "").trim();
@@ -124,6 +125,9 @@
       canada: "Team Canada Collection · Exhibit 63",
     };
     elements.themeKicker.textContent = kickerByEra[era] || kickerByEra.all;
+    if (elements.vaultLink) {
+      elements.vaultLink.href = era === "all" ? "marchand-vault/" : `marchand-vault/?team=${era}`;
+    }
     for (const button of document.querySelectorAll("[data-era-button]")) {
       const active = button.dataset.eraButton === era;
       button.classList.toggle("is-active", active);
@@ -163,78 +167,6 @@
     return [...counts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
   }
 
-  function renderBars(container, entries, selectedValue, onSelect) {
-    const maximum = Math.max(...entries.map((entry) => entry[1]), 1);
-    const fragment = document.createDocumentFragment();
-    for (const [label, count] of entries) {
-      const row = document.createElement("button");
-      row.type = "button";
-      row.className = "marchand-bar-row";
-      const active = label === selectedValue;
-      row.setAttribute("aria-pressed", String(active));
-      row.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${label}: ${count} artifacts`);
-      row.addEventListener("click", () => onSelect(active ? "" : label));
-      const heading = document.createElement("span");
-      heading.className = "marchand-bar-row-heading";
-      const name = document.createElement("span");
-      name.textContent = label;
-      const value = document.createElement("strong");
-      value.textContent = count;
-      heading.append(name, value);
-      const track = document.createElement("i");
-      const fill = document.createElement("b");
-      fill.style.width = `${Math.max((count / maximum) * 100, 4)}%`;
-      track.append(fill);
-      row.append(heading, track);
-      fragment.append(row);
-    }
-    container.replaceChildren(fragment);
-  }
-
-  function renderInsights(records) {
-    renderBars(elements.insightSheets, countBy(records, (record) => record.sourceSheet), elements.sheet.value, (value) => {
-      elements.sheet.value = value;
-      render();
-    });
-    renderBars(elements.insightGoals, countBy(
-      records.filter((record) => record.sourceSheet === "Goals & Games"),
-      (record) => record.goalType || "Even strength / unmarked",
-    ), state.insightGoalType, (value) => {
-      state.insightGoalType = value;
-      render();
-    });
-
-    const yearEntries = countBy(records, (record) => /^\d{4}-/.test(record.date) ? record.date.slice(0, 4) : "")
-      .sort((left, right) => Number(left[0]) - Number(right[0]));
-    const yearMax = Math.max(...yearEntries.map((entry) => entry[1]), 1);
-    const timeline = document.createDocumentFragment();
-    for (const [year, count] of yearEntries) {
-      const item = document.createElement("button");
-      item.type = "button";
-      item.className = "marchand-year";
-      const active = year === state.insightYear;
-      item.setAttribute("aria-pressed", String(active));
-      item.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${year}: ${count} artifacts`);
-      item.addEventListener("click", () => {
-        state.insightYear = active ? "" : year;
-        render();
-      });
-      const countLabel = document.createElement("strong");
-      countLabel.textContent = count;
-      const bar = document.createElement("i");
-      bar.style.height = `${Math.max((count / yearMax) * 100, 8)}%`;
-      const yearLabel = document.createElement("span");
-      yearLabel.textContent = year;
-      item.append(countLabel, bar, yearLabel);
-      timeline.append(item);
-    }
-    elements.insightTimeline.replaceChildren(timeline);
-    renderBars(elements.insightArenas, countBy(records, (record) => record.arena).slice(0, 8), elements.arena.value, (value) => {
-      elements.arena.value = value;
-      render();
-    });
-  }
-
   function decodedNames(record) {
     return (record.playerCodes || []).map((code) => {
       const player = state.players[code];
@@ -256,9 +188,6 @@
       if (elements.arena.value && record.arena !== elements.arena.value) return false;
       if (elements.puck.value && record.puckType !== elements.puck.value) return false;
       if (elements.video.checked && !record.videoUrl) return false;
-      if (state.insightGoalType
-        && (record.sourceSheet !== "Goals & Games" || (record.goalType || "Even strength / unmarked") !== state.insightGoalType)) return false;
-      if (state.insightYear && (!/^\d{4}-/.test(record.date) || record.date.slice(0, 4) !== state.insightYear)) return false;
       return !query || searchableText(record).includes(query);
     });
   }
@@ -293,6 +222,18 @@
     for (const record of records) {
       const row = document.createElement("tr");
       row.dataset.team = teamEra(record.team);
+
+      const deepDiveCell = document.createElement("td");
+      deepDiveCell.className = "marchand-deep-dive-cell";
+      const deepDive = document.createElement("button");
+      deepDive.type = "button";
+      deepDive.className = "marchand-deep-dive-button";
+      deepDive.setAttribute("aria-label", `Deep dive into artifact ${record.inventoryId}`);
+      deepDive.innerHTML = "<span>Deep</span><span>Dive</span>";
+      deepDive.addEventListener("click", () => openArtifact(record));
+      deepDiveCell.append(deepDive);
+      row.append(deepDiveCell);
+
       row.append(cell(String(record.inventoryId), "marchand-id"));
       row.append(cell(displayDate(record.date), "marchand-date"));
 
@@ -324,16 +265,17 @@
       puckCell.append(puckPill);
       row.append(puckCell);
 
-      const actionCell = document.createElement("td");
-      const action = document.createElement("button");
-      action.type = "button";
-      action.className = "marchand-open-button";
-      action.dataset.hasVideo = String(Boolean(record.videoUrl));
-      action.setAttribute("aria-label", `${record.videoUrl ? "Watch video and explore" : "Explore"} artifact ${record.inventoryId}`);
-      action.textContent = record.videoUrl ? "▶ Deep dive" : "Deep dive";
-      action.addEventListener("click", () => openArtifact(record));
-      actionCell.append(action);
-      row.append(actionCell);
+      const watchCell = document.createElement("td");
+      watchCell.className = "marchand-watch-cell";
+      const watch = document.createElement("button");
+      watch.type = "button";
+      watch.className = "marchand-watch-button";
+      watch.disabled = !record.videoUrl;
+      watch.setAttribute("aria-label", record.videoUrl ? `Watch video for artifact ${record.inventoryId}` : `No film available for artifact ${record.inventoryId}`);
+      watch.innerHTML = record.videoUrl ? '<span aria-hidden="true">▶</span> Watch' : "No film";
+      if (record.videoUrl) watch.addEventListener("click", () => openVideo(record));
+      watchCell.append(watch);
+      row.append(watchCell);
       fragment.append(row);
     }
     elements.tableBody.replaceChildren(fragment);
@@ -358,7 +300,6 @@
     elements.tableShell.hidden = count === 0;
     elements.empty.hidden = count !== 0;
     renderRows(state.filtered);
-    renderInsights(state.filtered);
     updateSortLabels();
   }
 
@@ -370,8 +311,6 @@
     elements.arena.value = "";
     elements.puck.value = "";
     elements.video.checked = false;
-    state.insightGoalType = "";
-    state.insightYear = "";
     setEra("all", false);
     render();
   }
@@ -521,6 +460,24 @@
     if (elements.dialog.open) elements.dialog.close();
   }
 
+  function closeVideo() {
+    elements.watchFrame.removeAttribute("src");
+    if (elements.watchDialog.open) elements.watchDialog.close();
+  }
+
+  function openVideo(record) {
+    const playerUrl = embedUrl(record);
+    if (!playerUrl) return;
+    elements.watchDialog.dataset.team = teamEra(record.team);
+    elements.watchDialogTitle.textContent = recordTitle(record);
+    elements.watchDialogSubtitle.textContent = [displayDate(record.date), record.team, record.opponent, record.arena].filter(Boolean).join(" · ");
+    elements.watchFrame.src = playerUrl;
+    elements.watchFrame.title = `${recordTitle(record)} video`;
+    elements.watchSource.href = record.videoUrl;
+    if (typeof elements.watchDialog.showModal === "function") elements.watchDialog.showModal();
+    else elements.watchDialog.setAttribute("open", "");
+  }
+
   function openArtifact(record) {
     const era = teamEra(record.team);
     elements.dialog.dataset.team = era;
@@ -614,6 +571,8 @@
       setOptions(elements.arena, state.records, "arena", "All arenas");
       setOptions(elements.puck, state.records, "puckType", "All puck types");
       updateHero(payload);
+      const requestedEra = new URLSearchParams(window.location.search).get("team");
+      if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);
       render();
     } catch (error) {
       console.error("Could not load Marchand collection:", error);
@@ -657,6 +616,15 @@
     const inside = event.clientX >= bounds.left && event.clientX <= bounds.right
       && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
     if (!inside) closeArtifact();
+  });
+  elements.watchDialogClose.addEventListener("click", closeVideo);
+  elements.watchDialog.addEventListener("close", () => elements.watchFrame.removeAttribute("src"));
+  elements.watchDialog.addEventListener("click", (event) => {
+    if (event.target !== elements.watchDialog) return;
+    const bounds = elements.watchDialog.getBoundingClientRect();
+    const inside = event.clientX >= bounds.left && event.clientX <= bounds.right
+      && event.clientY >= bounds.top && event.clientY <= bounds.bottom;
+    if (!inside) closeVideo();
   });
 
   loadCollection();

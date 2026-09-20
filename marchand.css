@@ -1102,6 +1102,7 @@
   background:radial-gradient(circle at 90% 0,rgba(var(--museum-accent-rgb),.09),transparent 22rem);
 }
 
+.marchand-insights-heading h2,
 .marchand-insights-heading h3{margin:0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,3.4vw,2.9rem);font-weight:400}
 .marchand-insights-heading p{max-width:470px;margin:0;color:#8f9ba6;line-height:1.5;text-align:right}
 .marchand-insight-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
@@ -1115,6 +1116,7 @@
 
 .marchand-insight-card:nth-child(2),.marchand-insight-card:last-child{border-right:0}
 .marchand-insight-wide{grid-column:span 2}
+.marchand-insight-card h3,
 .marchand-insight-card h4{margin:0 0 20px;color:#eef1f4;font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;font-weight:400}
 .marchand-bars{display:grid;gap:13px}
 .marchand-bar-row{width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer}
@@ -1431,4 +1433,151 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   .marchand-page[data-era="boston"] .marchand-hero::before,
   .marchand-page[data-era="florida"] .marchand-hero::before,
   .marchand-page[data-era="canada"] .marchand-hero::before{right:14px;bottom:12px;font-size:4.7rem}
+}
+
+/* Exhibit navigation and separated collection actions */
+.marchand-exhibit-nav{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin:0 0 22px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(180deg,var(--museum-panel-top),var(--museum-panel-bottom));
+  box-shadow:0 16px 38px rgba(0,0,0,.28);
+}
+
+.marchand-exhibit-nav > *{
+  display:flex;
+  min-height:72px;
+  align-items:center;
+  gap:9px;
+  padding:15px 22px;
+  color:#fff;
+  font-size:.78rem;
+  font-weight:1000;
+  letter-spacing:.10em;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+
+.marchand-exhibit-nav > * + *{border-left:1px solid rgba(255,255,255,.10)}
+.marchand-exhibit-nav small{color:#8f9aa4;font-size:.56rem;letter-spacing:.14em}
+.marchand-exhibit-current{box-shadow:inset 0 -3px 0 var(--museum-accent)}
+.marchand-exhibit-nav a{justify-content:flex-end;background:rgba(var(--museum-accent-rgb),.045);color:var(--museum-accent)}
+.marchand-exhibit-nav a:hover{background:rgba(var(--museum-accent-rgb),.12)}
+.marchand-exhibit-nav a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+.marchand-deep-dive-heading > span,
+.marchand-watch-heading > span{justify-content:center !important}
+.marchand-deep-dive-cell,.marchand-watch-cell{text-align:center}
+.marchand-deep-dive-cell{width:86px;padding-left:12px !important;padding-right:12px !important}
+.marchand-watch-cell{width:112px}
+
+.marchand-deep-dive-button{
+  position:relative;
+  display:grid;
+  width:58px;
+  height:58px;
+  margin:auto;
+  place-content:center;
+  border:3px solid #2e3438;
+  border-radius:50%;
+  background:
+    repeating-radial-gradient(circle,transparent 0 5px,rgba(255,255,255,.025) 6px 7px),
+    radial-gradient(circle at 36% 28%,#353a3d,#111314 39%,#030404 76%);
+  color:#fff;
+  box-shadow:inset 0 0 0 2px #050606,inset 0 0 0 4px rgba(var(--museum-accent-rgb),.72),0 7px 0 #010101,0 12px 17px rgba(0,0,0,.48);
+  font-size:.54rem;
+  font-weight:1000;
+  letter-spacing:.09em;
+  line-height:1.05;
+  text-transform:uppercase;
+  cursor:pointer;
+  transform:rotate(-5deg);
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+
+.marchand-deep-dive-button span{display:block}
+.marchand-deep-dive-button:hover{filter:brightness(1.18);transform:rotate(0) translateY(-2px);box-shadow:inset 0 0 0 2px #050606,inset 0 0 0 4px var(--museum-accent),0 8px 0 #010101,0 15px 22px rgba(0,0,0,.55)}
+
+.marchand-watch-button{
+  display:inline-flex;
+  min-width:88px;
+  min-height:38px;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:7px 11px;
+  border:1px solid var(--museum-accent);
+  background:var(--museum-accent);
+  color:#07090b;
+  font-size:.64rem;
+  font-weight:1000;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.marchand-watch-button:hover{filter:brightness(1.14)}
+.marchand-watch-button:disabled{border-color:#3c4650;background:transparent;color:#74808a;cursor:not-allowed;filter:none}
+
+.marchand-watch-dialog{width:min(920px,calc(100% - 30px))}
+.marchand-watch-dialog-frame{position:relative;padding:34px}
+.marchand-watch-dialog-frame::before{content:"";position:absolute;inset:9px;border:1px solid rgba(var(--museum-accent-rgb),.10);pointer-events:none}
+.marchand-watch-dialog .marchand-eyebrow{padding-top:5px}
+.marchand-watch-dialog h3{margin:8px 60px 5px 0;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.55rem,3vw,2.45rem);font-weight:400;line-height:1.12}
+.marchand-watch-dialog p{margin:0 60px 22px 0;color:#96a2ac;line-height:1.5}
+
+/* Dedicated Inside the Vault exhibit */
+.marchand-vault-page{min-height:calc(100vh - 120px)}
+.marchand-vault-page-header{
+  position:relative;
+  overflow:hidden;
+  margin-bottom:16px;
+  padding:40px 42px 34px;
+  border:1px solid var(--museum-border);
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0 / 62px 62px,
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0 / 62px 62px,
+    radial-gradient(circle at 88% 20%,rgba(var(--museum-accent-rgb),.19),transparent 22rem),
+    linear-gradient(126deg,var(--museum-panel-top),var(--museum-panel-bottom));
+  box-shadow:inset 0 0 0 6px rgba(0,0,0,.3),0 28px 70px rgba(0,0,0,.35);
+}
+
+.marchand-vault-page-header::after{content:"63";position:absolute;right:32px;bottom:-40px;color:rgba(var(--museum-accent-rgb),.06);font-family:Impact,"Arial Black",sans-serif;font-size:12rem;line-height:1;pointer-events:none}
+.marchand-vault-page-header-copy{position:relative;z-index:1;max-width:760px}
+.marchand-vault-page-header h1{margin:9px 0 12px;color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:clamp(3.2rem,7vw,6.5rem);letter-spacing:-.035em;line-height:.88;text-transform:uppercase;text-shadow:0 4px 0 rgba(0,0,0,.65)}
+.marchand-vault-page-header p{max-width:680px;margin:0;color:#c4cbd1;font-family:Georgia,"Times New Roman",serif;font-size:1.04rem;line-height:1.6}
+.marchand-vault-back{display:inline-flex;margin-bottom:17px;align-items:center;gap:8px;color:var(--museum-accent);font-size:.64rem;font-weight:1000;letter-spacing:.14em;text-decoration:none;text-transform:uppercase}
+.marchand-vault-back:hover{text-decoration:underline}
+.marchand-vault-back:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.marchand-vault-toolbar{display:flex;position:relative;z-index:1;margin-top:27px;align-items:stretch;justify-content:space-between;gap:18px}
+.marchand-vault-era-switcher{display:grid;max-width:760px;flex:1;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid rgba(255,255,255,.13);background:rgba(0,0,0,.30)}
+.marchand-vault-era-switcher .marchand-era-button{min-height:66px}
+.marchand-vault-plaque{display:grid;min-width:150px;align-content:center;padding:10px 18px;border:1px solid var(--museum-border);background:rgba(0,0,0,.30);text-align:center}
+.marchand-vault-plaque span{color:#9aa5ae;font-size:.58rem;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}
+.marchand-vault-plaque strong{margin-top:3px;color:var(--museum-accent);font-family:Impact,"Arial Black",sans-serif;font-size:2rem;font-weight:400}
+.marchand-vault-reset{display:block;margin:16px 0 0 auto;padding:9px 13px;border:1px solid rgba(var(--museum-accent-rgb),.52);background:transparent;color:var(--museum-accent);font-size:.62rem;font-weight:1000;letter-spacing:.10em;text-transform:uppercase;cursor:pointer}
+.marchand-vault-reset:hover{background:rgba(var(--museum-accent-rgb),.10)}
+.marchand-vault-reset:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.marchand-vault-loading{min-height:360px}
+
+@media (max-width:780px){
+  .marchand-stat-wing{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .marchand-exhibit-nav{grid-template-columns:1fr}
+  .marchand-exhibit-nav > *{min-height:62px;padding:13px 17px}
+  .marchand-exhibit-nav > * + *{border-top:1px solid rgba(255,255,255,.10);border-left:0}
+  .marchand-exhibit-nav a{justify-content:flex-start}
+  .marchand-table{min-width:1080px}
+  .marchand-watch-dialog-frame{padding:24px 17px}
+  .marchand-vault-page-header{padding:30px 22px 24px}
+  .marchand-vault-toolbar{display:grid}
+  .marchand-vault-era-switcher{grid-template-columns:1fr 1fr}
+  .marchand-vault-plaque{min-height:70px}
+}
+
+@media (max-width:430px){
+  .marchand-exhibit-nav small{display:none}
+  .marchand-vault-page-header h1{font-size:3.2rem}
+  .marchand-vault-era-switcher .marchand-era-button{min-height:58px;padding:9px}
+  .marchand-vault-era-switcher .marchand-era-button span{font-size:.54rem}
 }

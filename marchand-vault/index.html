@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the collection intelligence behind the private Brad Marchand puck museum.">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Inside the Marchand Puck Vault | TLPT.org</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/site/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/site/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="../style.css?v=20260917-9">
+  <link rel="stylesheet" href="../marchand.css?v=20260920-12">
+  <link rel="stylesheet" href="../site-tail.css?v=20260826-10">
+</head>
+<body class="marchand-page" data-era="all">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<main id="main-content" class="wrap marchand-museum marchand-vault-page">
+  <header class="marchand-vault-page-header">
+    <div class="marchand-vault-page-header-copy">
+      <a id="vault-back-link" class="marchand-vault-back" href="../marchand.html"><span aria-hidden="true">←</span> Browse the collection</a>
+      <span class="marchand-eyebrow">Live collection intelligence · Exhibit 63</span>
+      <h1>Inside the Vault</h1>
+      <p>Read the collection by chapter, goal signature, year, and arena. Every number is calculated directly from the museum's authoritative puck registry.</p>
+    </div>
+    <div class="marchand-vault-toolbar">
+      <div class="marchand-vault-era-switcher" role="group" aria-label="Collection team">
+        <button class="marchand-era-button is-active" type="button" data-vault-era-button="all" aria-pressed="true"><span>Complete Vault</span><strong id="vault-count-all">—</strong></button>
+        <button class="marchand-era-button" type="button" data-vault-era-button="boston" aria-pressed="false"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg" alt=""><span>Boston Bruins</span><strong id="vault-count-boston">—</strong></button>
+        <button class="marchand-era-button" type="button" data-vault-era-button="florida" aria-pressed="false"><img src="https://assets.nhle.com/logos/nhl/svg/FLA_light.svg" alt=""><span>Florida Panthers</span><strong id="vault-count-florida">—</strong></button>
+        <button class="marchand-era-button" type="button" data-vault-era-button="canada" aria-pressed="false"><img src="../images/site/hockey-canada-crest.png" alt=""><span>Team Canada</span><strong id="vault-count-canada">—</strong></button>
+      </div>
+      <div class="marchand-vault-plaque"><span>In this view</span><strong id="vault-result-count">—</strong></div>
+    </div>
+  </header>
+
+  <div id="vault-state" class="marchand-loading marchand-vault-loading" role="status" aria-live="polite">
+    <span class="marchand-loader-puck" aria-hidden="true">63</span>
+    <p>Reading the collection…</p>
+  </div>
+
+  <section id="vault-insights" class="section marchand-insights" aria-labelledby="insights-title" hidden>
+    <div class="marchand-insights-heading">
+      <div><span class="marchand-eyebrow">Interactive exhibit</span><h2 id="insights-title">The Collection at a Glance</h2></div>
+      <div>
+        <p>Select any bar or year to recalculate the exhibit through that lens.</p>
+        <button id="vault-reset" class="marchand-vault-reset" type="button">Reset exhibit</button>
+      </div>
+    </div>
+    <div class="marchand-insight-grid">
+      <article class="marchand-insight-card"><h3>Collection wings</h3><div id="insight-sheets" class="marchand-bars"></div></article>
+      <article class="marchand-insight-card"><h3>Goal signatures</h3><div id="insight-goals" class="marchand-bars"></div></article>
+      <article class="marchand-insight-card marchand-insight-wide"><h3>Career timeline</h3><div id="insight-timeline" class="marchand-timeline" aria-label="Artifacts by year"></div></article>
+      <article class="marchand-insight-card marchand-insight-wide"><h3>Most represented arenas</h3><div id="insight-arenas" class="marchand-arena-list"></div></article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>
+      TLPT is a BostnMike Production... and all that, that entails.
+      Site data fueled by
+      <a href="https://thetournamentdirector.net/" target="_blank" rel="noopener noreferrer">The Tournament Director</a>
+    </p>
+  </div>
+</footer>
+
+<script src="../site-shell.js?v=20260824-2"></script>
+<script src="../marchand-vault.js?v=20260920-1"></script>
+</body>
+</html>

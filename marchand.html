@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260917-9">
-  <link rel="stylesheet" href="marchand.css?v=20260920-10">
+  <link rel="stylesheet" href="marchand.css?v=20260920-12">
   <link rel="stylesheet" href="site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -77,18 +77,10 @@
     <article class="marchand-stat-card marchand-stat-card-featured"><span>Film archive</span><strong id="stat-videos">—</strong><small>moments to watch</small></article>
   </section>
 
-  <section class="section marchand-insights" aria-labelledby="insights-title">
-    <div class="marchand-insights-heading">
-      <div><span class="marchand-eyebrow">Live collection intelligence</span><h3 id="insights-title">Inside the Vault</h3></div>
-      <p>Every display below is recalculated from the artifacts currently on display. Select any bar or year to filter the gallery.</p>
-    </div>
-    <div class="marchand-insight-grid">
-      <article class="marchand-insight-card"><h4>Collection wings</h4><div id="insight-sheets" class="marchand-bars"></div></article>
-      <article class="marchand-insight-card"><h4>Goal signatures</h4><div id="insight-goals" class="marchand-bars"></div></article>
-      <article class="marchand-insight-card marchand-insight-wide"><h4>Career timeline</h4><div id="insight-timeline" class="marchand-timeline" aria-label="Artifacts by year"></div></article>
-      <article class="marchand-insight-card marchand-insight-wide"><h4>Most represented arenas</h4><div id="insight-arenas" class="marchand-arena-list"></div></article>
-    </div>
-  </section>
+  <nav class="marchand-exhibit-nav" aria-label="Puck Vault exhibits">
+    <span class="marchand-exhibit-current"><small>Now viewing</small> Collection registry</span>
+    <a id="vault-insights-link" href="marchand-vault/"><small>Explore the numbers</small> Inside the Vault <span aria-hidden="true">→</span></a>
+  </nav>
 
   <section class="section marchand-archive" aria-labelledby="archive-title">
     <div class="marchand-archive-heading">
@@ -126,6 +118,7 @@
       <table class="marchand-table">
         <thead>
           <tr>
+            <th scope="col" class="marchand-deep-dive-heading"><span>Deep Dive</span></th>
             <th scope="col"><button type="button" data-sort="inventoryId">ID <span aria-hidden="true">↕</span></button></th>
             <th scope="col"><button type="button" data-sort="date">Date <span aria-hidden="true">↓</span></button></th>
             <th scope="col"><button type="button" data-sort="team">Team <span aria-hidden="true">↕</span></button></th>
@@ -133,7 +126,7 @@
             <th scope="col"><button type="button" data-sort="opponent">Opponent <span aria-hidden="true">↕</span></button></th>
             <th scope="col"><button type="button" data-sort="arena">Arena <span aria-hidden="true">↕</span></button></th>
             <th scope="col">Puck</th>
-            <th scope="col"><span class="visually-hidden">Open record</span></th>
+            <th scope="col" class="marchand-watch-heading"><span>Watch</span></th>
           </tr>
         </thead>
         <tbody id="collection-body"></tbody>
@@ -190,6 +183,19 @@
   </div>
 </dialog>
 
+<dialog id="artifact-video-dialog" class="marchand-dialog marchand-watch-dialog" aria-labelledby="artifact-video-dialog-title">
+  <div class="marchand-watch-dialog-frame">
+    <button id="artifact-video-dialog-close" class="marchand-dialog-close" type="button" aria-label="Close video player">×</button>
+    <span class="marchand-eyebrow">Film archive</span>
+    <h3 id="artifact-video-dialog-title">Goal film</h3>
+    <p id="artifact-video-dialog-subtitle"></p>
+    <div class="marchand-video-stage">
+      <iframe id="artifact-video-only" title="Goal video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <a id="artifact-video-only-source" class="marchand-source-link" href="#" target="_blank" rel="noopener noreferrer">Open source video <span aria-hidden="true">↗</span></a>
+  </div>
+</dialog>
+
 <footer class="site-footer">
   <div class="site-footer-inner">
     <p>
@@ -201,6 +207,6 @@
 </footer>
 
 <script src="site-shell.js?v=20260824-2"></script>
-<script src="marchand.js?v=20260920-8"></script>
+<script src="marchand.js?v=20260920-9"></script>
 </body>
 </html>
