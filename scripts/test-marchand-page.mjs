@@ -27,8 +27,13 @@ for (const record of payload.records) {
   assert.ok(Number.isFinite(record.inventoryId), `${record.key} needs a numeric inventory ID`);
   assert.ok(record.team, `${record.key} needs a team`);
   assert.ok(record.category, `${record.key} needs a category`);
+  assert.ok(record.opponent, `${record.key} needs an opponent`);
+  assert.ok(record.arena, `${record.key} needs an arena`);
   const expectedFields = { "Goals & Games": 18, Milestones: 9, "Road to History": 15 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
+  const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
+  assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
+  assert.ok(sourceFields.Arena, `${record.key} must expose its arena in the complete record`);
   if (!record.videoUrl) continue;
   assert.ok(["youtube", "nhl"].includes(record.videoProvider), `${record.key} has an unsupported video provider`);
   assert.ok(record.videoId, `${record.key} is missing its embed video ID`);
@@ -79,8 +84,8 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-4/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-4/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-5/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-5/, "Marchand script cache key drifted");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
 assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /marchand\.html/, "hidden page must not link to itself from public navigation");
@@ -90,6 +95,7 @@ assert.match(css, /\.marchand-page\[data-era="florida"\]/, "Florida museum theme
 assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme is missing");
 assert.match(css, /content:"BOSTON"/, "Boston theme identity is missing");
 assert.match(css, /content:"FLORIDA"/, "Florida theme identity is missing");
+assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#c8102e/, "Florida title must use Panthers red");
 assert.match(css, /content:"CANADA"/, "Canada theme identity is missing");
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/BOS_light\.svg/, "Boston team mark is missing");

@@ -150,6 +150,15 @@
   color:var(--museum-accent);
 }
 
+.marchand-page[data-era="florida"] .marchand-hero .site-page-hero-title::first-line{
+  color:#c8102e;
+  -webkit-text-stroke:2px #d4af37;
+  paint-order:stroke fill;
+  text-shadow:
+    0 4px 0 #020913,
+    0 0 46px rgba(200,16,46,.38);
+}
+
 .marchand-hero .site-page-hero-description{
   max-width:710px;
   color:#d2d7dc;

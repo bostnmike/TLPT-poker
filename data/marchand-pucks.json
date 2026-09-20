@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "ac2d6049a0f5a4637ed0a6a52c151fa29290b730b96666c755554f5c97860e7e",
+    "sourceSha256": "25da3691d3382066695c214ff4f0d4dedb0a9358d62d7a90e079cb5cc56a44a0",
     "records": 114,
     "goalsAndGames": 71,
     "milestones": 35,
@@ -9012,8 +9012,8 @@
       "seasonStat": null,
       "description": "BM63 Ties RM16 All Time SHG Goals",
       "date": "2019-02-26",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "San Jose Sharks",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9062,12 +9062,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "San Jose Sharks",
           "url": ""
         },
         {
@@ -9094,8 +9094,8 @@
       "seasonStat": null,
       "description": "BM63 Career Assist #500",
       "date": "2023-11-18",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Montreal Canadiens",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9143,12 +9143,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Montreal Canadiens",
           "url": ""
         },
         {
@@ -9175,8 +9175,8 @@
       "seasonStat": null,
       "description": "BM63 Passes RM16 5th All-Time Points 899",
       "date": "2024-01-08",
-      "arena": "",
-      "opponent": "",
+      "arena": "Ball Arena",
+      "opponent": "Colorado Avalanche",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9225,12 +9225,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Ball Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Colorado Avalanche",
           "url": ""
         },
         {
@@ -9257,7 +9257,7 @@
       "seasonStat": null,
       "description": "BM63 Career Point #900",
       "date": "2024-01-13",
-      "arena": "",
+      "arena": "Enterprise Center",
       "opponent": "St. Louis Blues",
       "period": "",
       "time": "",
@@ -9306,7 +9306,7 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Enterprise Center",
           "url": ""
         },
         {
@@ -9338,7 +9338,7 @@
       "seasonStat": null,
       "description": "BM63 Career Point #900",
       "date": "2024-01-13",
-      "arena": "",
+      "arena": "Enterprise Center",
       "opponent": "St. Louis Blues",
       "period": "",
       "time": "",
@@ -9387,7 +9387,7 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Enterprise Center",
           "url": ""
         },
         {
@@ -9419,8 +9419,8 @@
       "seasonStat": null,
       "description": "BM63 Record 11th Straight Season 20+ Goals",
       "date": "2024-01-20",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Montreal Canadiens",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9468,12 +9468,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Montreal Canadiens",
           "url": ""
         },
         {
@@ -9500,8 +9500,8 @@
       "seasonStat": null,
       "description": "BM63 Passes RB77 5th All-Time Goals 396",
       "date": "2024-01-25",
-      "arena": "",
-      "opponent": "",
+      "arena": "Canadian Tire Centre",
+      "opponent": "Ottawa Senators",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9550,12 +9550,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Canadian Tire Centre",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Ottawa Senators",
           "url": ""
         },
         {
@@ -9582,8 +9582,8 @@
       "seasonStat": null,
       "description": "BM63 Career Game #1000",
       "date": "2024-02-13",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Tampa Bay Lightning",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9631,12 +9631,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Tampa Bay Lightning",
           "url": ""
         },
         {
@@ -9663,8 +9663,8 @@
       "seasonStat": null,
       "description": "BM63 Career Goal #400",
       "date": "2024-04-04",
-      "arena": "",
-      "opponent": "",
+      "arena": "PNC Arena",
+      "opponent": "Carolina Hurricanes",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9712,12 +9712,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "PNC Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Carolina Hurricanes",
           "url": ""
         },
         {
@@ -9744,8 +9744,8 @@
       "seasonStat": null,
       "description": "BM63 Passes DK46 2nd All-Time PO Points 130",
       "date": "2024-04-20",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9794,12 +9794,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -9826,8 +9826,8 @@
       "seasonStat": null,
       "description": "BM63 Passes CN8 1st All-Time PO GWG 12",
       "date": "2024-04-24",
-      "arena": "",
-      "opponent": "",
+      "arena": "Scotiabank Arena",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9876,12 +9876,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Scotiabank Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -9908,8 +9908,8 @@
       "seasonStat": null,
       "description": "BM63 Passes CN8 1st All-Time PO Goals 56",
       "date": "2024-04-27",
-      "arena": "",
-      "opponent": "",
+      "arena": "Scotiabank Arena",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -9958,12 +9958,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Scotiabank Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -9990,8 +9990,8 @@
       "seasonStat": null,
       "description": "BM63 First Career Point vs Utah Mammoth",
       "date": "2024-10-19",
-      "arena": "",
-      "opponent": "",
+      "arena": "Delta Center",
+      "opponent": "Utah Hockey Club",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10039,12 +10039,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Delta Center",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Utah Hockey Club",
           "url": ""
         },
         {
@@ -10071,8 +10071,8 @@
       "seasonStat": null,
       "description": "BM63 Ties RM16 4th All-Time Goals 402",
       "date": "2024-10-26",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10121,12 +10121,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -10153,8 +10153,8 @@
       "seasonStat": null,
       "description": "BM63 Passes PE7 3rd All-Time GWG 77",
       "date": "2024-10-26",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10203,12 +10203,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -10235,8 +10235,8 @@
       "seasonStat": null,
       "description": "BM63 Passes RM16 4th All-Time Goals 403",
       "date": "2024-10-31",
-      "arena": "",
-      "opponent": "",
+      "arena": "Lenovo Center",
+      "opponent": "Carolina Hurricanes",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10285,12 +10285,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Lenovo Center",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Carolina Hurricanes",
           "url": ""
         },
         {
@@ -10317,8 +10317,8 @@
       "seasonStat": null,
       "description": "BM63 Passes PE7 3rd All-Time GWG 77",
       "date": "2024-11-07",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Calgary Flames",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10367,12 +10367,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Calgary Flames",
           "url": ""
         },
         {
@@ -10399,8 +10399,8 @@
       "seasonStat": null,
       "description": "BM63 Game Winning Goal 3rd All-Time 80",
       "date": "2024-11-23",
-      "arena": "",
-      "opponent": "",
+      "arena": "Little Caesars Arena",
+      "opponent": "Detroit Red Wings",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10448,12 +10448,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Little Caesars Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Detroit Red Wings",
           "url": ""
         },
         {
@@ -10480,8 +10480,8 @@
       "seasonStat": null,
       "description": "BM63 Career Game 1053 3rd All-Time",
       "date": "2024-11-27",
-      "arena": "",
-      "opponent": "",
+      "arena": "UBS Arena",
+      "opponent": "New York Islanders",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10529,12 +10529,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "UBS Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "New York Islanders",
           "url": ""
         },
         {
@@ -10561,8 +10561,8 @@
       "seasonStat": null,
       "description": "BM63 64th Multi-Goal Game 4th All-Time",
       "date": "2024-11-27",
-      "arena": "",
-      "opponent": "",
+      "arena": "UBS Arena",
+      "opponent": "New York Islanders",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10610,12 +10610,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "UBS Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "New York Islanders",
           "url": ""
         },
         {
@@ -10642,8 +10642,8 @@
       "seasonStat": null,
       "description": "BM63 Ties PB10 for Most Penalty Shot Goals",
       "date": "2024-12-01",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Montreal Canadiens",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10692,12 +10692,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Montreal Canadiens",
           "url": ""
         },
         {
@@ -10724,8 +10724,8 @@
       "seasonStat": null,
       "description": "BM63 Ties PB37 2th All-Time GWG 81",
       "date": "2024-12-04",
-      "arena": "",
-      "opponent": "",
+      "arena": "United Center",
+      "opponent": "Chicago Blackhawks",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10774,12 +10774,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "United Center",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Chicago Blackhawks",
           "url": ""
         },
         {
@@ -10806,8 +10806,8 @@
       "seasonStat": null,
       "description": "BM63 Final Home Game as a Boston Bruin",
       "date": "2025-02-27",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "New York Islanders",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10855,12 +10855,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "New York Islanders",
           "url": ""
         },
         {
@@ -10887,8 +10887,8 @@
       "seasonStat": null,
       "description": "BM63 Final Home Game as a Boston Bruin",
       "date": "2025-02-27",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "New York Islanders",
       "period": "",
       "time": "",
       "goalType": "",
@@ -10936,12 +10936,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "New York Islanders",
           "url": ""
         },
         {
@@ -11211,8 +11211,8 @@
       "seasonStat": null,
       "description": "BM63 First Game as a Florida Panther",
       "date": "2025-03-28",
-      "arena": "",
-      "opponent": "",
+      "arena": "Amerant Bank Arena",
+      "opponent": "Utah Hockey Club",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11260,12 +11260,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Amerant Bank Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Utah Hockey Club",
           "url": ""
         },
         {
@@ -11292,8 +11292,8 @@
       "seasonStat": null,
       "description": "BM63 First Game as a Florida Panther",
       "date": "2025-03-28",
-      "arena": "",
-      "opponent": "",
+      "arena": "Amerant Bank Arena",
+      "opponent": "Utah Hockey Club",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11341,12 +11341,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Amerant Bank Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Utah Hockey Club",
           "url": ""
         },
         {
@@ -11373,8 +11373,8 @@
       "seasonStat": null,
       "description": "BM63 First Goal as a Florida Panther",
       "date": "2025-04-10",
-      "arena": "",
-      "opponent": "",
+      "arena": "Amerant Bank Arena",
+      "opponent": "Detroit Red Wings",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11422,12 +11422,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Amerant Bank Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Detroit Red Wings",
           "url": ""
         },
         {
@@ -11454,8 +11454,8 @@
       "seasonStat": null,
       "description": "BM63 Career Game #1100",
       "date": "2025-04-15",
-      "arena": "",
-      "opponent": "",
+      "arena": "Amalie Arena",
+      "opponent": "Tampa Bay Lightning",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11503,12 +11503,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Amalie Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Tampa Bay Lightning",
           "url": ""
         },
         {
@@ -11535,8 +11535,8 @@
       "seasonStat": null,
       "description": "BM63 1st Playoff Point as a Florida Panther",
       "date": "2025-04-22",
-      "arena": "",
-      "opponent": "",
+      "arena": "Amalie Arena",
+      "opponent": "Tampa Bay Lightning",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11584,12 +11584,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Amalie Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Tampa Bay Lightning",
           "url": ""
         },
         {
@@ -11860,8 +11860,8 @@
       "seasonStat": null,
       "description": "Bruins Clinch President’s Trophy",
       "date": "2023-03-30",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Columbus Blue Jackets",
       "period": "",
       "time": "",
       "goalType": "",
@@ -11912,12 +11912,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Columbus Blue Jackets",
           "url": ""
         },
         {
@@ -11969,8 +11969,8 @@
       "seasonStat": null,
       "description": "Goal Puck CM73 from PZ18 & TB59",
       "date": "2023-04-01",
-      "arena": "",
-      "opponent": "",
+      "arena": "PPG Paints Arena",
+      "opponent": "Pittsburgh Penguins",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12025,12 +12025,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "PPG Paints Arena",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Pittsburgh Penguins",
           "url": ""
         },
         {
@@ -12082,8 +12082,8 @@
       "seasonStat": null,
       "description": "Warm Up Puck",
       "date": "2023-04-02",
-      "arena": "",
-      "opponent": "",
+      "arena": "Enterprise Center",
+      "opponent": "St. Louis Blues",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12134,12 +12134,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Enterprise Center",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "St. Louis Blues",
           "url": ""
         },
         {
@@ -12191,8 +12191,8 @@
       "seasonStat": null,
       "description": "Goal Puck CC13 from BC25",
       "date": "2023-04-06",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12246,12 +12246,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Toronto Maple Leafs",
           "url": ""
         },
         {
@@ -12303,8 +12303,8 @@
       "seasonStat": null,
       "description": "Bruins Tie Record for Most Wins Game Puck",
       "date": "2023-04-08",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "New Jersey Devils",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12355,12 +12355,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "New Jersey Devils",
           "url": ""
         },
         {
@@ -12412,8 +12412,8 @@
       "seasonStat": null,
       "description": "Bruins Set Record for Most Wins Goal Puck CC13 from CC58",
       "date": "2023-04-09",
-      "arena": "",
-      "opponent": "",
+      "arena": "Wells Fargo Center",
+      "opponent": "Philadelphia Flyers",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12467,12 +12467,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Wells Fargo Center",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Philadelphia Flyers",
           "url": ""
         },
         {
@@ -12524,8 +12524,8 @@
       "seasonStat": null,
       "description": "Bruins Set Record for Most Points Game Puck",
       "date": "2023-04-11",
-      "arena": "",
-      "opponent": "",
+      "arena": "TD Garden",
+      "opponent": "Washington Capitals",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12576,12 +12576,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "TD Garden",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Washington Capitals",
           "url": ""
         },
         {
@@ -12633,8 +12633,8 @@
       "seasonStat": null,
       "description": "NHL Record for Most Points & Wins Goal Puck DP88 from DO81 &TB59",
       "date": "2023-04-13",
-      "arena": "",
-      "opponent": "",
+      "arena": "Bell Centre",
+      "opponent": "Montreal Canadiens",
       "period": "",
       "time": "",
       "goalType": "",
@@ -12689,12 +12689,12 @@
         },
         {
           "label": "Arena",
-          "value": "",
+          "value": "Bell Centre",
           "url": ""
         },
         {
           "label": "Opponent",
-          "value": "",
+          "value": "Montreal Canadiens",
           "url": ""
         },
         {
