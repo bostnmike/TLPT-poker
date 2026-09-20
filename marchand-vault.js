@@ -6,6 +6,7 @@
     team: "",
     sheet: "",
     goalType: "",
+    goalie: "",
     year: "",
     arena: "",
   };
@@ -19,6 +20,7 @@
     back: document.getElementById("vault-back-link"),
     sheets: document.getElementById("insight-sheets"),
     goals: document.getElementById("insight-goals"),
+    goalies: document.getElementById("insight-goalies"),
     timeline: document.getElementById("insight-timeline"),
     arenas: document.getElementById("insight-arenas"),
   };
@@ -43,6 +45,13 @@
     return [...counts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
   }
 
+  function isMarchandGoal(record) {
+    return record.sourceSheet === "Goals & Games"
+      && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category)
+      && record.goalieScoredAgainst
+      && record.goalieScoredAgainst !== "Empty net (no goaltender)";
+  }
+
   function setEra(era) {
     const normalizedEra = ["boston", "florida", "canada"].includes(era) ? era : "all";
     const teamByEra = { all: "", boston: "Boston Bruins", florida: "Florida Panthers", canada: "Canada" };
@@ -61,6 +70,7 @@
       if (state.team && record.team !== state.team) return false;
       if (state.sheet && record.sourceSheet !== state.sheet) return false;
       if (state.goalType && (record.sourceSheet !== "Goals & Games" || (record.goalType || "Even strength / unmarked") !== state.goalType)) return false;
+      if (state.goalie && (!isMarchandGoal(record) || record.goalieScoredAgainst !== state.goalie)) return false;
       if (state.year && (!/^\d{4}-/.test(record.date) || record.date.slice(0, 4) !== state.year)) return false;
       if (state.arena && record.arena !== state.arena) return false;
       return true;
@@ -108,6 +118,13 @@
       (record) => record.goalType || "Even strength / unmarked",
     ), state.goalType, (value) => {
       state.goalType = value;
+      render();
+    });
+    renderBars(elements.goalies, countBy(
+      records.filter(isMarchandGoal),
+      (record) => record.goalieScoredAgainst,
+    ).slice(0, 5), state.goalie, (value) => {
+      state.goalie = value;
       render();
     });
 
@@ -158,6 +175,7 @@
   function resetExhibit() {
     state.sheet = "";
     state.goalType = "";
+    state.goalie = "";
     state.year = "";
     state.arena = "";
     setEra("all");
@@ -200,6 +218,7 @@
     button.addEventListener("click", () => {
       state.sheet = "";
       state.goalType = "";
+      state.goalie = "";
       state.year = "";
       state.arena = "";
       setEra(button.dataset.vaultEraButton);

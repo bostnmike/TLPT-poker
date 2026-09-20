@@ -110,10 +110,10 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-21/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-22/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-16/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-21/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-22/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");
@@ -123,8 +123,12 @@ assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /
 assert.doesNotMatch(html, /id="insights-title"/, "Inside the Vault analytics must not delay the collection registry");
 assert.match(html, /href="marchand-vault\/"/, "collection page must link to the dedicated Inside the Vault exhibit");
 assert.match(vaultHtml, /href="\.\.\/marchand\.html"/, "Inside the Vault exhibit must link back to the collection");
-for (const id of ["vault-insights", "vault-result-count", "insight-sheets", "insight-goals", "insight-timeline", "insight-arenas"]) {
+for (const id of ["vault-insights", "vault-result-count", "insight-sheets", "insight-goals", "insight-timeline", "insight-arenas", "insight-goalies"]) {
   assert.match(vaultHtml, new RegExp(`id=["']${id}["']`), `vault exhibit is missing #${id}`);
+}
+assert.equal((vaultHtml.match(/class="marchand-vault-collage-panel /g) || []).length, 3, "Inside the Vault must feature all three Marchand uniform portraits");
+for (const asset of ["marchand-hero-boston.jpg", "marchand-hero-florida.png", "marchand-hero-canada-cropped.png"]) {
+  assert.ok(vaultHtml.includes(`../images/site/${asset}`), `${asset} is not wired into the vault collage`);
 }
 
 assert.match(css, /\.marchand-page\[data-era="boston"\]/, "Boston museum theme is missing");
@@ -203,6 +207,9 @@ assert.doesNotMatch(script, /Watch video and explore/, "Watch and Deep Dive acti
 assert.match(vaultScript, /row\.setAttribute\("aria-pressed"/, "vault bars must expose their active filter state");
 assert.match(vaultScript, /item\.setAttribute\("aria-pressed"/, "vault timeline years must expose their active filter state");
 assert.match(vaultScript, /const records = filteredRecords\(\)/, "vault statistics must recalculate from the active exhibit lens");
+assert.match(vaultScript, /function isMarchandGoal\(record\)/, "goalie rankings must distinguish Marchand goals from assists");
+assert.match(vaultScript, /record\.goalieScoredAgainst !== "Empty net \(no goaltender\)"/, "goalie rankings must exclude empty-net goals");
+assert.match(vaultScript, /records\.filter\(isMarchandGoal\)[\s\S]*\.slice\(0, 5\)/, "the goalie graph must display only the top five goalies");
 assert.match(script, /payload\.records\.filter\(\(record\) => record\.videoUrl\)\.length/, "film archive total must be calculated from records");
 assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
@@ -215,8 +222,11 @@ assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, 
 assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston img\{transform:scale\(1\.82\)/, "Boston deep-dive crest must match Canada's apparent size");
 assert.match(css, /\.marchand-dialog-crest \.marchand-crest-florida img\{transform:scale\(2\.08\)/, "Florida deep-dive crest must match Canada's apparent size");
-assert.match(css, /\.marchand-era-button\[data-era-button="boston"\] > img\{transform:scale\(1\.82\)/, "Boston team button mark must match Canada's apparent size");
-assert.match(css, /\.marchand-era-button\[data-era-button="florida"\] > img\{transform:scale\(2\.08\)/, "Florida team button mark must match Canada's apparent size");
+assert.match(css, /\.marchand-era-button\[data-era-button="boston"\] > img,[\s\S]*data-vault-era-button="boston"[\s\S]*transform:scale\(1\.82\)/, "Boston team button marks must match Canada's apparent size across both exhibits");
+assert.match(css, /\.marchand-era-button\[data-era-button="florida"\] > img,[\s\S]*data-vault-era-button="florida"[\s\S]*transform:scale\(2\.08\)/, "Florida team button marks must match Canada's apparent size across both exhibits");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston,[\s\S]*\.marchand-dialog-crest \.marchand-crest-florida\{overflow:visible\}/, "scaled deep-dive crests must not clip at their inner frame");
+assert.match(css, /\.marchand-vault-page-header\{[\s\S]*grid-template-columns:minmax\(0,1\.35fr\) minmax\(360px,\.85fr\)/, "Inside the Vault header must reserve a museum panel for the collage");
+assert.match(css, /\.marchand-vault-collage\{[\s\S]*min-height:250px;/, "Inside the Vault collage needs a substantial exhibit footprint");
 assert.match(script, /crest\.className = `marchand-crest marchand-crest-\$\{era\}/, "deep-dive team crests need era-specific sizing hooks");
 assert.match(script, /function addOpponentFact\(record\)/, "deep dives need a dedicated opponent identity fact");
 assert.match(script, /crest\.classList\.add\("marchand-opponent-logo-compact"\)/, "deep-dive opponent facts need a compact crest");
@@ -229,6 +239,12 @@ assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalt
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
 assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 71, "every goal/assist artifact needs a researched goalie result");
 assert.equal(payload.records.filter((record) => record.goalieScoredAgainst === "Empty net (no goaltender)").length, 6, "empty-net goalie accounting drifted");
+const goalieCounts = new Map();
+for (const record of payload.records.filter((item) => item.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(item.category) && item.goalieScoredAgainst !== "Empty net (no goaltender)")) {
+  goalieCounts.set(record.goalieScoredAgainst, (goalieCounts.get(record.goalieScoredAgainst) || 0) + 1);
+}
+const topGoalies = [...goalieCounts].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])).slice(0, 5);
+assert.deepEqual(topGoalies, [["Cam Talbot", 5], ["Andrei Vasilevskiy", 3], ["Petr Mrazek", 3], ["Sergei Bobrovsky", 3], ["Alexandar Georgiev", 2]], "top-five goalie leaderboard drifted from the canonical goal records");
 assert.match(script, /addFact\("Goalie scored against", record\.goalieScoredAgainst\)/, "deep dives must feature the researched goalie");
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
