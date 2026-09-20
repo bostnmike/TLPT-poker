@@ -10,7 +10,7 @@
     sortDirection: "desc",
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
-  const SWEDEN_CREST = "https://commons.wikimedia.org/wiki/Special:FilePath/Sweden%20national%20ice%20hockey%20team%20badge.svg";
+  const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";
   const CATEGORY_LABELS = Object.freeze({
     "4NF Goal": "4 Nations Faceoff",
     Assist: "Assist",
@@ -312,6 +312,7 @@
     const code = OPPONENT_CODES[record.opponent] || "NHL";
     const logo = document.createElement("span");
     logo.className = "marchand-opponent-logo";
+    if (code === "SWE") logo.classList.add("marchand-opponent-logo-sweden");
     const fallback = document.createElement("span");
     fallback.textContent = code;
     const image = document.createElement("img");

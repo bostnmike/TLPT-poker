@@ -13,6 +13,7 @@ const script = fs.readFileSync(path.join(root, "marchand.js"), "utf8");
 const vaultScript = fs.readFileSync(path.join(root, "marchand-vault.js"), "utf8");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const canadaCrest = fs.readFileSync(path.join(root, "images", "site", "hockey-canada-crest.png"));
+const swedenCrest = fs.readFileSync(path.join(root, "images", "site", "team-sweden-three-crowns.png"));
 const heroBoston = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-boston.jpg"));
 const heroFlorida = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-florida.png"));
 const heroCanada = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-canada-cropped.png"));
@@ -109,9 +110,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-19/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-14/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-19/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-20/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-15/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-20/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -148,6 +149,9 @@ assert.equal((html.match(/images\/site\/hockey-canada-crest\.png/g) || []).lengt
 assert.match(script, /TEAM_CANADA_CREST = "images\/site\/hockey-canada-crest\.png"/, "Canada deep dives must use the transparent PNG crest");
 assert.equal(canadaCrest.subarray(1, 4).toString("ascii"), "PNG", "Hockey Canada crest must be a PNG asset");
 assert.equal(canadaCrest[25], 6, "Hockey Canada PNG must include an alpha channel");
+assert.match(script, /SWEDEN_CREST = "images\/site\/team-sweden-three-crowns\.png"/, "Sweden must use the collector-supplied three-crown mark");
+assert.equal(swedenCrest.subarray(1, 4).toString("ascii"), "PNG", "Sweden crest must be a PNG asset");
+assert.doesNotMatch(script, /Sweden%20national%20ice%20hockey%20team%20badge/, "retired remote Sweden badge must not remain");
 assert.equal(heroBoston.subarray(0, 3).toString("hex"), "ffd8ff", "Boston hero portrait must be a JPEG asset");
 assert.equal(heroFlorida.subarray(1, 4).toString("ascii"), "PNG", "Florida hero portrait must be a PNG asset");
 assert.equal(heroCanada.subarray(1, 4).toString("ascii"), "PNG", "cropped Canada hero portrait must be a PNG asset");
@@ -205,6 +209,8 @@ assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling
 assert.match(css, /\.marchand-deep-dive-button\{[\s\S]*border-radius:50%/, "Deep Dive control must use the circular puck treatment");
 assert.match(css, /\.marchand-opponent-logo\{[\s\S]*border-radius:50%;[\s\S]*#f3f0e7/, "opponent logos need an off-white circular backing");
 assert.match(css, /\.marchand-opponent-logo\{[\s\S]*width:52px;[\s\S]*height:52px;/, "opponent logo circles need the same visual diameter as the Deep Dive puck");
+assert.match(css, /\.marchand-opponent-logo-sweden\{[\s\S]*background:#ffd500;/, "Sweden's three crowns need their Swedish-yellow circular field");
+assert.match(script, /code === "SWE"[\s\S]*marchand-opponent-logo-sweden/, "Sweden opponent rows need the dedicated crest treatment");
 assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, "Boston header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-watch-button\{[\s\S]*width:44px;[\s\S]*border-radius:50%/, "Watch controls must use the circular icon treatment");

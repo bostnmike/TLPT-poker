@@ -743,6 +743,11 @@
 
 .marchand-opponent-logo > *{grid-area:1 / 1}
 .marchand-opponent-logo img{width:41px;height:41px;object-fit:contain}
+.marchand-opponent-logo-sweden{
+  border-color:rgba(255,213,0,.82);
+  background:#ffd500;
+}
+.marchand-opponent-logo-sweden img{width:48px;height:auto}
 .marchand-opponent strong{color:#f5f7f8;font-size:.75rem;line-height:1.25}
 
 .marchand-players-cell{min-width:250px}
