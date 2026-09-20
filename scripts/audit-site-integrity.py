@@ -870,7 +870,7 @@ def audit_knockouts(audit, events, site_data):
 
 def audit_pages(audit, metadata):
     html_files = sorted(ROOT.glob("*.html"))
-    audit.check(len(html_files) == 18, "pages", f"Expected 18 public HTML pages; found {len(html_files)}")
+    audit.check(len(html_files) == 19, "pages", f"Expected 19 public HTML pages; found {len(html_files)}")
     local_ref_pattern = re.compile(r'(?:href|src)=["\']([^"\']+)["\']', re.IGNORECASE)
     for path in html_files:
         text = path.read_text(encoding="utf-8")

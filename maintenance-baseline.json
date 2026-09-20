@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "phase": "3I.1",
-  "publicPageCount": 18,
+  "publicPageCount": 19,
   "sharedCssAsset": "site-tail.css",
   "sharedCssVersion": "20260826-10",
   "authoritative": {
@@ -28,6 +28,7 @@
     "scripts/test-site-shell.mjs",
     "scripts/test-app-load-failure.mjs",
     "scripts/test-news-layout.mjs",
+    "scripts/test-marchand-page.mjs",
     "scripts/validate-site-data.py",
     "scripts/audit-site-integrity.py",
     "scripts/audit-page-calculations.mjs"

@@ -58,6 +58,7 @@ EXPECTED_PAGES = {
     "gallery.html",
     "index.html",
     "knockouts.html",
+    "marchand.html",
     "media.html",
     "news.html",
     "player-movement.html",
@@ -170,6 +171,7 @@ EXPECTED_NAV_ACTIVE_LABELS = {
     "gallery.html": ["Media", "Art Gallery"],
     "index.html": ["Home"],
     "knockouts.html": ["Metrics", "Knockout Central"],
+    "marchand.html": [],
     "media.html": ["Media", "Film Room"],
     "news.html": ["Roast Zone", "Felt Whispers"],
     "player-movement.html": ["Metrics", "Heater Meter"],
@@ -194,6 +196,7 @@ EXPECTED_PAGE_TITLES = {
     "gallery.html": "The Art Gallery | TLPT.org",
     "index.html": "Twin Lakes Poker Tour | TLPT.org",
     "knockouts.html": "Knockout Central | TLPT.org",
+    "marchand.html": "Marchand Puck Vault | TLPT.org",
     "media.html": "The Film Room | TLPT.org",
     "news.html": "Felt Whispers | TLPT.org",
     "player-movement.html": "The Heater Meter | TLPT.org",
@@ -213,6 +216,7 @@ UNIFIED_TITLE_PAGES = {
     "gallery.html": "The Art Gallery",
     "index.html": "Twin Lakes Poker Tour",
     "knockouts.html": "Knockout Central",
+    "marchand.html": "Marchand Puck Vault",
     "media.html": "The Film Room",
     "news.html": "Felt Whispers",
     "player-movement.html": "The Heater Meter",
@@ -247,6 +251,7 @@ EXPECTED_META_DESCRIPTIONS = {
     "gallery.html": "Browse photos and memories from TLPT Poker League events in The Gallery.",
     "index.html": "Follow the TLPT Poker League schedule, players, standings, statistics, honors, and latest league stories.",
     "knockouts.html": "Explore TLPT Poker League knockout totals, hit leaders, event eliminations, and head-to-head damage.",
+    "marchand.html": "Explore the private Brad Marchand puck collection, career milestones, and goal videos in an interactive digital museum.",
     "media.html": "Watch TLPT Poker League films, highlights, and featured videos in the Film Room.",
     "news.html": "Read Felt Whispers for TLPT Poker League event recaps, game spotlights, By the Numbers, and host roasts.",
     "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
@@ -267,6 +272,7 @@ EXPECTED_CANONICAL_URLS = {
     "gallery.html": f"{SITE_ORIGIN}/gallery.html",
     "index.html": f"{SITE_ORIGIN}/",
     "knockouts.html": f"{SITE_ORIGIN}/knockouts.html",
+    "marchand.html": f"{SITE_ORIGIN}/marchand.html",
     "media.html": f"{SITE_ORIGIN}/media.html",
     "news.html": f"{SITE_ORIGIN}/news.html",
     "player-movement.html": f"{SITE_ORIGIN}/player-movement.html",
@@ -285,6 +291,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "gallery.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
     "index.html": f"{SITE_ORIGIN}/images/site/chip-T-100.png",
     "knockouts.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
+    "marchand.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
     "media.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
     "news.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "player-movement.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
@@ -304,6 +311,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "gallery.html": "TLPT 5,000 tournament poker chip",
     "index.html": "TLPT 100 tournament poker chip",
     "knockouts.html": "TLPT 25,000 tournament poker chip",
+    "marchand.html": "TLPT 500 tournament poker chip",
     "media.html": "TLPT 500 tournament poker chip",
     "news.html": "TLPT 1,000 tournament poker chip",
     "player-movement.html": "TLPT 1,000 tournament poker chip",
@@ -2588,7 +2596,12 @@ def main() -> int:
         if parser.descriptions != [expected_description]:
             parser.errors.append("meta description differs from the page-head contract")
 
-        expected_robots_metadata = ["noindex"] if page.name == "404.html" else []
+        if page.name == "404.html":
+            expected_robots_metadata = ["noindex"]
+        elif page.name == "marchand.html":
+            expected_robots_metadata = ["noindex,nofollow,noarchive"]
+        else:
+            expected_robots_metadata = []
         if parser.meta_names.get("robots", []) != expected_robots_metadata:
             parser.errors.append("robots metadata differs from the page-head contract")
 
@@ -3483,6 +3496,8 @@ def main() -> int:
             expected_style_prefix.append("rules.css")
         elif page.name == "media.html":
             expected_style_prefix.append("media.css")
+        elif page.name == "marchand.html":
+            expected_style_prefix.append("marchand.css")
         expected_style_prefix.append("site-tail.css")
         if page.name == "index.html":
             expected_style_prefix.append("home.css")
@@ -3522,6 +3537,8 @@ def main() -> int:
             parser.errors.append("rules.css may be loaded only by rules.html")
         if page.name != "media.html" and "media.css" in parser.stylesheets:
             parser.errors.append("media.css may be loaded only by media.html")
+        if page.name != "marchand.html" and "marchand.css" in parser.stylesheets:
+            parser.errors.append("marchand.css may be loaded only by marchand.html")
         if page.name != "index.html" and "home.css" in parser.stylesheets:
             parser.errors.append("home.css may be loaded only by index.html")
         if page.name != "schedule.html" and "schedule.css" in parser.stylesheets:
@@ -4622,8 +4639,8 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
         else:
             if contract.get("schemaVersion") != 1:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
-            if contract.get("publicPageCount") != 18:
-                errors.append("maintenance-baseline.json: publicPageCount must remain 18")
+            if contract.get("publicPageCount") != 19:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 19")
             if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
