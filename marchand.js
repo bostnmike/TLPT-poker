@@ -7,7 +7,7 @@
     meta: null,
     players: {},
     sortKey: "date",
-    sortDirection: "desc",
+    sortDirection: "asc",
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
   const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";

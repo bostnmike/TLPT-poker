@@ -48,6 +48,7 @@ for (const record of payload.records) {
   assert.ok(record.category, `${record.key} needs a category`);
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
+  assert.match(record.date, /^\d{4}-\d{2}-\d{2}$/, `${record.key} needs a sortable ISO date`);
   const expectedFields = { "Goals & Games": 19, Milestones: 9, "Road to History": 16 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
@@ -108,9 +109,11 @@ assert.deepEqual(missingCodes, [], "every player code used by the workbook must 
 const row58 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 58);
 const row60 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 60);
 const exhibit334 = payload.records.find((record) => record.inventoryId === 334);
+const exhibit335 = payload.records.find((record) => record.inventoryId === 335);
 assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
+assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 
 for (const id of [
   "collection-search",
@@ -149,7 +152,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20260920-28/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-20/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-21/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260920-28/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
@@ -222,6 +225,7 @@ assert.match(script, /data\/marchand-pucks\.json/, "collection data source is mi
 assert.match(script, /data\/marchand-players\.json/, "player decoder source is missing");
 assert.match(script, /decodedNames\(record\)/, "decoded player names must participate in search");
 assert.match(script, /JSON\.stringify\(record\), displayDate\(record\.date\)/, "displayed dates must participate in search");
+assert.match(script, /sortKey: "date",\s*sortDirection: "asc"/, "the collection must load in oldest-to-newest chronological order");
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
 assert.match(script, /playerHeadshot\(player, code, record\)/, "player portraits must be selected from the artifact's team era");
 assert.match(script, /player\.headshotsByEra\?\.\[teamEra\(record\?\.team\)\]/, "Brad's era-specific headshot mapping is not wired into the page");
