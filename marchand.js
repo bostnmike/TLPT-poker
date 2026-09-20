@@ -663,6 +663,7 @@
     addFact("Period", record.period);
     addFact("Time", record.time);
     addFact("Goal type", record.goalType);
+    addFact("Goalie scored against", record.goalieScoredAgainst);
     addFact("Final score", record.score);
 
     renderPersonnel(record);

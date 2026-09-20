@@ -45,11 +45,15 @@ for (const record of payload.records) {
   assert.ok(record.category, `${record.key} needs a category`);
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
-  const expectedFields = { "Goals & Games": 18, Milestones: 9, "Road to History": 15 }[record.sourceSheet];
+  const expectedFields = { "Goals & Games": 19, Milestones: 9, "Road to History": 15 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
   assert.ok(sourceFields.Arena, `${record.key} must expose its arena in the complete record`);
+  if (record.sourceSheet === "Goals & Games") {
+    assert.ok(sourceFields["Goalie Scored Against"], `${record.key} must expose the goalie scored against`);
+    assert.equal(record.goalieScoredAgainst, sourceFields["Goalie Scored Against"], `${record.key} goalie field drifted from the canonical record`);
+  }
   if (!record.videoUrl) continue;
   assert.ok(["youtube", "nhl"].includes(record.videoProvider), `${record.key} has an unsupported video provider`);
   assert.ok(record.videoId, `${record.key} is missing its embed video ID`);
@@ -105,9 +109,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-18/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-13/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-18/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-19/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-14/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-19/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -156,6 +160,7 @@ for (const credit of html.matchAll(/class="marchand-era-portrait[^>]*data-credit
 }
 assert.match(css, /data-era="boston"\] \.marchand-era-portrait-boston/, "Boston filtering must expand the Bruins portrait");
 assert.match(css, /data-era="florida"\] \.marchand-era-portrait-florida/, "Florida filtering must expand the Panthers portrait");
+assert.match(css, /data-era="all"\] \.marchand-era-portrait-florida img\{object-position:60% 44%\}/, "Florida montage portrait must center Marchand's face");
 assert.match(css, /data-era="canada"\] \.marchand-era-portrait-canada/, "Canada filtering must expand the Team Canada portrait");
 assert.match(css, /\.marchand-photo-montage\{[\s\S]*left:70px;/, "the portrait montage must reserve a left rail for the team crests");
 assert.match(css, /\.marchand-crest-stack\{[\s\S]*left:0;[\s\S]*grid-template-columns:1fr;/, "header crests must sit vertically to the left of the portraits");
@@ -208,5 +213,8 @@ assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is
 const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
 assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
+assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 71, "every goal/assist artifact needs a researched goalie result");
+assert.equal(payload.records.filter((record) => record.goalieScoredAgainst === "Empty net (no goaltender)").length, 6, "empty-net goalie accounting drifted");
+assert.match(script, /addFact\("Goalie scored against", record\.goalieScoredAgainst\)/, "deep dives must feature the researched goalie");
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);

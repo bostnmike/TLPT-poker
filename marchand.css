@@ -1691,6 +1691,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:radial-gradient(circle at 50% 24%,#a50b2b,#4d0717 54%,#041e42 100%);
 }
 .marchand-era-portrait-florida img{object-position:center 44%}
+.marchand-page[data-era="all"] .marchand-era-portrait-florida img{object-position:60% 44%}
 .marchand-era-portrait-florida::after{background:linear-gradient(180deg,rgba(200,16,46,.05),rgba(4,30,66,.08) 48%,rgba(4,12,25,.78))}
 
 .marchand-era-portrait-canada{

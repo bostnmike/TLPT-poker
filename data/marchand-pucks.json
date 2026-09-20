@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "d6b0709f10b535c77a22f35d4b6619a97ff8bde8a63e92a6255490aacbe81b8a",
+    "sourceSha256": "56870a7ac47fc48620417431daab03ed114383ed5842c0401e42f89615d281e6",
     "records": 114,
     "goalsAndGames": 71,
     "milestones": 35,
@@ -138,8 +138,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Karri Ramo",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Karri Ramo"
     },
     {
       "key": "goal-2",
@@ -264,8 +270,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jaroslav Halak",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Jaroslav Halak"
     },
     {
       "key": "goal-3",
@@ -391,8 +403,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-4",
@@ -518,8 +536,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Joonas Korpisalo",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Joonas Korpisalo"
     },
     {
       "key": "goal-5",
@@ -645,8 +669,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Kari Lehtonen",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Kari Lehtonen"
     },
     {
       "key": "goal-6",
@@ -772,8 +802,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Malcolm Subban",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Malcolm Subban"
     },
     {
       "key": "goal-7",
@@ -899,8 +935,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Robin Lehner",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Robin Lehner"
     },
     {
       "key": "goal-8",
@@ -1026,8 +1068,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Carey Price",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Carey Price"
     },
     {
       "key": "goal-9",
@@ -1152,8 +1200,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Martin Jones",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Martin Jones"
     },
     {
       "key": "goal-10",
@@ -1278,8 +1332,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Darcy Kuemper",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Darcy Kuemper"
     },
     {
       "key": "goal-11",
@@ -1405,8 +1465,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Marc-Andre Fleury",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Marc-Andre Fleury"
     },
     {
       "key": "goal-12",
@@ -1532,8 +1598,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Henrik Lundqvist",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Henrik Lundqvist"
     },
     {
       "key": "goal-13",
@@ -1658,8 +1730,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Carter Hart",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Carter Hart"
     },
     {
       "key": "goal-14",
@@ -1784,8 +1862,14 @@
           "label": "Notes",
           "value": "Milestone PT #600",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Carey Price",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Carey Price"
     },
     {
       "key": "goal-15",
@@ -1911,8 +1995,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Anders Nilsson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Anders Nilsson"
     },
     {
       "key": "goal-16",
@@ -2038,8 +2128,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Mackenzie Blackwood",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Mackenzie Blackwood"
     },
     {
       "key": "goal-17",
@@ -2164,8 +2260,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-18",
@@ -2291,8 +2393,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cam Talbot",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Cam Talbot"
     },
     {
       "key": "goal-19",
@@ -2417,8 +2525,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-20",
@@ -2544,8 +2658,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Brian Elliott",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Brian Elliott"
     },
     {
       "key": "goal-21",
@@ -2671,8 +2791,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Kaapo Kahkonen",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Kaapo Kahkonen"
     },
     {
       "key": "goal-22",
@@ -2798,8 +2924,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "James Reimer",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "James Reimer"
     },
     {
       "key": "goal-23",
@@ -2925,8 +3057,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Connor Hellebuyck",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Connor Hellebuyck"
     },
     {
       "key": "goal-24",
@@ -3052,8 +3190,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Nico Daws",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Nico Daws"
     },
     {
       "key": "goal-25",
@@ -3179,8 +3323,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Tristan Jarry",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Tristan Jarry"
     },
     {
       "key": "goal-26",
@@ -3306,8 +3456,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "John Gibson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "John Gibson"
     },
     {
       "key": "goal-27",
@@ -3433,8 +3589,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Andrei Vasilevskiy",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Andrei Vasilevskiy"
     },
     {
       "key": "goal-28",
@@ -3559,8 +3721,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Juuse Saros",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Juuse Saros"
     },
     {
       "key": "goal-29",
@@ -3686,8 +3854,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Philipp Grubauer",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Philipp Grubauer"
     },
     {
       "key": "goal-30",
@@ -3813,8 +3987,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Arturs Silovs",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Arturs Silovs"
     },
     {
       "key": "goal-31",
@@ -3939,8 +4119,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Kaapo Kahkonen",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Kaapo Kahkonen"
     },
     {
       "key": "goal-32",
@@ -4066,8 +4252,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cam Talbot",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Cam Talbot"
     },
     {
       "key": "goal-33",
@@ -4192,8 +4384,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-34",
@@ -4319,8 +4517,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jake Oettinger",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Jake Oettinger"
     },
     {
       "key": "goal-35",
@@ -4446,8 +4650,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Samuel Montembeault",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Samuel Montembeault"
     },
     {
       "key": "goal-36",
@@ -4573,8 +4783,14 @@
           "label": "Notes",
           "value": "Milestone PT #898",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Alexandar Georgiev",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Alexandar Georgiev"
     },
     {
       "key": "goal-37",
@@ -4700,8 +4916,14 @@
           "label": "Notes",
           "value": "Milestone PT #899",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Alexandar Georgiev",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Alexandar Georgiev"
     },
     {
       "key": "goal-38",
@@ -4827,8 +5049,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jordan Binnington",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Jordan Binnington"
     },
     {
       "key": "goal-39",
@@ -4954,8 +5182,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Spencer Martin",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Spencer Martin"
     },
     {
       "key": "goal-40",
@@ -5081,8 +5315,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Stuart Skinner",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Stuart Skinner"
     },
     {
       "key": "goal-41",
@@ -5207,8 +5447,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Tristan Jarry",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Tristan Jarry"
     },
     {
       "key": "goal-42",
@@ -5334,8 +5580,14 @@
           "label": "Notes",
           "value": "Milestone",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Pyotr Kochetkov",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Pyotr Kochetkov"
     },
     {
       "key": "goal-43",
@@ -5461,8 +5713,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cam Talbot",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Cam Talbot"
     },
     {
       "key": "goal-44",
@@ -5588,8 +5846,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Petr Mrazek",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Petr Mrazek"
     },
     {
       "key": "goal-45",
@@ -5715,8 +5979,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Petr Mrazek",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Petr Mrazek"
     },
     {
       "key": "goal-46",
@@ -5839,8 +6109,14 @@
           "label": "Notes",
           "value": "Milestone Pen Shot #7",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Philipp Grubauer",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Philipp Grubauer"
     },
     {
       "key": "goal-47",
@@ -5965,8 +6241,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Andrei Vasilevskiy",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Andrei Vasilevskiy"
     },
     {
       "key": "goal-48",
@@ -6092,8 +6374,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Ukko-Pekka Luukkonen",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Ukko-Pekka Luukkonen"
     },
     {
       "key": "goal-49",
@@ -6219,8 +6507,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Petr Mrazek",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Petr Mrazek"
     },
     {
       "key": "goal-50",
@@ -6346,8 +6640,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Brian Boucher",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Brian Boucher"
     },
     {
       "key": "goal-51",
@@ -6473,8 +6773,14 @@
           "label": "Notes",
           "value": "Perfection line",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Craig Anderson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Craig Anderson"
     },
     {
       "key": "goal-52",
@@ -6599,8 +6905,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Frederik Andersen",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Frederik Andersen"
     },
     {
       "key": "goal-53",
@@ -6725,8 +7037,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "James Reimer",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "James Reimer"
     },
     {
       "key": "goal-54",
@@ -6852,8 +7170,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Andrei Vasilevskiy",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Andrei Vasilevskiy"
     },
     {
       "key": "goal-55",
@@ -6979,8 +7303,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Ilya Samsonov",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Ilya Samsonov"
     },
     {
       "key": "goal-56",
@@ -7106,8 +7436,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Sergei Bobrovsky",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Sergei Bobrovsky"
     },
     {
       "key": "goal-57",
@@ -7230,8 +7566,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Connor Ingram",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Connor Ingram"
     },
     {
       "key": "goal-58",
@@ -7357,8 +7699,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Filip Gustavsson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Filip Gustavsson"
     },
     {
       "key": "goal-59",
@@ -7481,8 +7829,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jeremy Swayman",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Jeremy Swayman"
     },
     {
       "key": "goal-60",
@@ -7608,8 +7962,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Sergei Bobrovsky",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Sergei Bobrovsky"
     },
     {
       "key": "goal-61",
@@ -7735,8 +8095,14 @@
           "label": "Notes",
           "value": "Milestone",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cam Talbot",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Cam Talbot"
     },
     {
       "key": "goal-62",
@@ -7861,8 +8227,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cam Talbot",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Cam Talbot"
     },
     {
       "key": "goal-63",
@@ -7987,8 +8359,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Lukas Dostal",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Lukas Dostal"
     },
     {
       "key": "goal-64",
@@ -8113,8 +8491,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Anton Forsberg",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Anton Forsberg"
     },
     {
       "key": "goal-65",
@@ -8237,8 +8621,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-66",
@@ -8364,8 +8754,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jonas Johansson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Jonas Johansson"
     },
     {
       "key": "goal-67",
@@ -8490,8 +8886,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Empty net (no goaltender)"
     },
     {
       "key": "goal-68",
@@ -8616,8 +9018,14 @@
           "label": "Notes",
           "value": "OT GWG",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Filip Gustavsson",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Filip Gustavsson"
     },
     {
       "key": "goal-69",
@@ -8743,8 +9151,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Sergei Bobrovsky",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Sergei Bobrovsky"
     },
     {
       "key": "goal-70",
@@ -8870,8 +9284,14 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Louis Domingue",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Louis Domingue"
     },
     {
       "key": "goal-71",
@@ -8997,8 +9417,14 @@
           "label": "Notes",
           "value": "Perfection line",
           "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Henrik Lundqvist",
+          "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": "Henrik Lundqvist"
     },
     {
       "key": "milestone-301",
@@ -9080,7 +9506,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-302",
@@ -9161,7 +9588,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-303",
@@ -9243,7 +9671,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-304",
@@ -9324,7 +9753,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-305",
@@ -9405,7 +9835,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-306",
@@ -9486,7 +9917,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-307",
@@ -9568,7 +10000,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-308",
@@ -9649,7 +10082,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-309",
@@ -9730,7 +10164,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-310",
@@ -9812,7 +10247,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-311",
@@ -9894,7 +10330,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-312",
@@ -9976,7 +10413,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-313",
@@ -10057,7 +10495,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-314",
@@ -10139,7 +10578,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-315",
@@ -10221,7 +10661,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-316",
@@ -10303,7 +10744,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-317",
@@ -10385,7 +10827,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-318",
@@ -10466,7 +10909,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-319",
@@ -10547,7 +10991,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-320",
@@ -10628,7 +11073,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-321",
@@ -10710,7 +11156,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-322",
@@ -10792,7 +11239,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-323",
@@ -10873,7 +11321,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-324",
@@ -10954,7 +11403,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-325",
@@ -11035,7 +11485,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-326",
@@ -11116,7 +11567,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-327",
@@ -11197,7 +11649,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-328",
@@ -11278,7 +11731,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-329",
@@ -11359,7 +11813,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-330",
@@ -11440,7 +11895,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-331",
@@ -11521,7 +11977,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-332",
@@ -11602,7 +12059,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-333",
@@ -11684,7 +12142,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-334",
@@ -11765,7 +12224,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-335",
@@ -11846,7 +12306,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-501",
@@ -11955,7 +12416,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-502",
@@ -12068,7 +12530,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-503",
@@ -12177,7 +12640,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-504",
@@ -12289,7 +12753,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-505",
@@ -12398,7 +12863,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-506",
@@ -12510,7 +12976,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-507",
@@ -12619,7 +13086,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     },
     {
       "key": "history-508",
@@ -12732,7 +13200,8 @@
           "value": "",
           "url": ""
         }
-      ]
+      ],
+      "goalieScoredAgainst": ""
     }
   ]
 }
