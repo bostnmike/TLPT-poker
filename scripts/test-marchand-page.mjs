@@ -15,7 +15,7 @@ const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const canadaCrest = fs.readFileSync(path.join(root, "images", "site", "hockey-canada-crest.png"));
 const heroBoston = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-boston.jpg"));
 const heroFlorida = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-florida.png"));
-const heroCanada = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-canada.jpg"));
+const heroCanada = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-canada-cropped.png"));
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 
@@ -105,9 +105,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-17/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-18/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-13/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-17/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-18/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -146,8 +146,8 @@ assert.equal(canadaCrest.subarray(1, 4).toString("ascii"), "PNG", "Hockey Canada
 assert.equal(canadaCrest[25], 6, "Hockey Canada PNG must include an alpha channel");
 assert.equal(heroBoston.subarray(0, 3).toString("hex"), "ffd8ff", "Boston hero portrait must be a JPEG asset");
 assert.equal(heroFlorida.subarray(1, 4).toString("ascii"), "PNG", "Florida hero portrait must be a PNG asset");
-assert.equal(heroCanada.subarray(0, 3).toString("hex"), "ffd8ff", "Canada hero portrait must be a JPEG asset");
-for (const asset of ["marchand-hero-boston.jpg", "marchand-hero-florida.png", "marchand-hero-canada.jpg"]) {
+assert.equal(heroCanada.subarray(1, 4).toString("ascii"), "PNG", "cropped Canada hero portrait must be a PNG asset");
+for (const asset of ["marchand-hero-boston.jpg", "marchand-hero-florida.png", "marchand-hero-canada-cropped.png"]) {
   assert.match(html, new RegExp(`images/site/${asset.replace(".", "\\.")}`), `${asset} is not wired into the hero montage`);
 }
 assert.equal((html.match(/class="marchand-era-portrait /g) || []).length, 3, "the opening hero must contain all three uniform portraits");
@@ -157,6 +157,8 @@ for (const credit of html.matchAll(/class="marchand-era-portrait[^>]*data-credit
 assert.match(css, /data-era="boston"\] \.marchand-era-portrait-boston/, "Boston filtering must expand the Bruins portrait");
 assert.match(css, /data-era="florida"\] \.marchand-era-portrait-florida/, "Florida filtering must expand the Panthers portrait");
 assert.match(css, /data-era="canada"\] \.marchand-era-portrait-canada/, "Canada filtering must expand the Team Canada portrait");
+assert.match(css, /\.marchand-photo-montage\{[\s\S]*left:70px;/, "the portrait montage must reserve a left rail for the team crests");
+assert.match(css, /\.marchand-crest-stack\{[\s\S]*left:0;[\s\S]*grid-template-columns:1fr;/, "header crests must sit vertically to the left of the portraits");
 assert.doesNotMatch(html + script, /Hockey_Canada\.svg/, "the white-backed Canada SVG must not remain in the page");
 assert.doesNotMatch(css, /marchand-(?:team-crest-canada|dialog\[data-team="canada"\] \.marchand-dialog-crest)\{background:#fff\}/, "Canada crests must not have white tile backgrounds");
 assert.equal((html.match(/class="marchand-team-crest[^\"]*"[^>]*data-era-button=/g) || []).length, 3, "all three header crests must be team-filter buttons");
@@ -197,7 +199,7 @@ assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific mu
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 assert.match(css, /\.marchand-deep-dive-button\{[\s\S]*border-radius:50%/, "Deep Dive control must use the circular puck treatment");
 assert.match(css, /\.marchand-opponent-logo\{[\s\S]*border-radius:50%;[\s\S]*#f3f0e7/, "opponent logos need an off-white circular backing");
-assert.match(css, /\.marchand-opponent-logo\{[\s\S]*width:58px;[\s\S]*height:58px;/, "opponent logo circles must match the 58px Deep Dive puck");
+assert.match(css, /\.marchand-opponent-logo\{[\s\S]*width:52px;[\s\S]*height:52px;/, "opponent logo circles need the same visual diameter as the Deep Dive puck");
 assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, "Boston header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-watch-button\{[\s\S]*width:44px;[\s\S]*border-radius:50%/, "Watch controls must use the circular icon treatment");
