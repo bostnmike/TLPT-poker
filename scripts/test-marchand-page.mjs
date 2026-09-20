@@ -93,7 +93,7 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-9/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-10/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-8/, "Marchand script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -106,7 +106,10 @@ assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme i
 assert.match(css, /content:"BOSTON"/, "Boston theme identity is missing");
 assert.match(css, /content:"FLORIDA"/, "Florida theme identity is missing");
 assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#041e42/, "Florida title must use Panthers navy");
-assert.match(css, /data-era="florida"\]\{[\s\S]*--gold:#c8102e;[\s\S]*--museum-accent:#c8102e;[\s\S]*--museum-secondary:#ffffff;/, "Florida accents must use Panthers red and white");
+assert.match(css, /data-era="florida"\]\{[\s\S]*--gold:#ffffff;[\s\S]*--museum-accent:#c8102e;[\s\S]*--museum-page-top:#a30725;/, "Florida theme must use a red backdrop with high-contrast white links");
+assert.match(css, /linear-gradient\(180deg,#a30725 0%,#680016 48%,#21040b 100%\)/, "Florida page backdrop must be Panthers red");
+assert.match(css, /linear-gradient\(126deg,#a80a29 0%,#790017 58%,#31050e 100%\)/, "Florida hero must use the red museum treatment");
+assert.match(css, /data-era="florida"[\s\S]*marchand-era-button\.is-active[\s\S]*color:#fff;/, "Florida team controls need high-contrast active text");
 assert.doesNotMatch(css, /d4af37|212,175,55/i, "Florida surfaces must not retain the old gold accent");
 assert.match(css, /content:"CANADA"/, "Canada theme identity is missing");
 assert.match(css, /data-era="canada"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#d80621/, "Canada title must use red");

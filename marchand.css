@@ -54,20 +54,20 @@
 
 .marchand-page[data-era="florida"]{
   --accent:#c8102e;
-  --gold:#c8102e;
-  --gold-soft:#ff5a73;
-  --gold-deep:#870b21;
+  --gold:#ffffff;
+  --gold-soft:#d8e6f5;
+  --gold-deep:#041e42;
   --museum-accent:#c8102e;
   --museum-accent-rgb:200,16,46;
   --museum-secondary:#ffffff;
   --museum-secondary-rgb:255,255,255;
   --museum-deep:#041e42;
   --museum-velvet:#071c3c;
-  --museum-border:rgba(200,16,46,.42);
-  --museum-glow:rgba(200,16,46,.24);
-  --museum-page-top:#020f22;
-  --museum-page-middle:#071a36;
-  --museum-page-bottom:#020913;
+  --museum-border:rgba(255,255,255,.28);
+  --museum-glow:rgba(255,255,255,.20);
+  --museum-page-top:#a30725;
+  --museum-page-middle:#680016;
+  --museum-page-bottom:#21040b;
   --museum-panel-top:#0b2449;
   --museum-panel-bottom:#031126;
   --museum-control:#04172f;
@@ -159,8 +159,8 @@
   -webkit-text-stroke:2px #fff;
   paint-order:stroke fill;
   text-shadow:
-    0 4px 0 #020913,
-    0 0 46px rgba(200,16,46,.44);
+    0 4px 0 rgba(0,0,0,.48),
+    0 0 38px rgba(255,255,255,.18);
 }
 
 .marchand-page[data-era="canada"] .marchand-hero .site-page-hero-title::first-line{
@@ -999,6 +999,13 @@
 }
 
 /* Deep-dive museum expansion */
+.marchand-page[data-era="florida"]{
+  background:
+    radial-gradient(circle at 12% 9%,rgba(255,255,255,.12),transparent 23rem),
+    radial-gradient(circle at 90% 24%,rgba(4,30,66,.38),transparent 30rem),
+    linear-gradient(180deg,#a30725 0%,#680016 48%,#21040b 100%);
+}
+
 .marchand-page[data-era="canada"]{
   background:
     radial-gradient(circle at 14% 11%,rgba(255,255,255,.13),transparent 24rem),
@@ -1325,14 +1332,29 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 }
 
 .marchand-page[data-era="florida"] .marchand-hero{
-  border-color:rgba(200,16,46,.52);
+  border-color:rgba(255,255,255,.44);
   background:
-    linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px) 0 0 / 74px 74px,
-    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px) 0 0 / 74px 74px,
-    linear-gradient(112deg,transparent 0 66%,rgba(200,16,46,.25) 66% 72%,transparent 72%),
-    radial-gradient(circle at 84% 25%,rgba(200,16,46,.28),transparent 22rem),
-    linear-gradient(126deg,#020d1d 0%,#082653 58%,#030b17 100%);
-  box-shadow:inset 0 0 0 6px rgba(0,0,0,.40),inset 0 0 0 7px rgba(200,16,46,.24),0 32px 90px rgba(0,0,0,.50);
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0 / 74px 74px,
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0 / 74px 74px,
+    linear-gradient(112deg,transparent 0 64%,rgba(4,30,66,.58) 64% 72%,transparent 72%),
+    radial-gradient(circle at 84% 25%,rgba(4,30,66,.45),transparent 23rem),
+    linear-gradient(126deg,#a80a29 0%,#790017 58%,#31050e 100%);
+  box-shadow:inset 0 0 0 6px rgba(0,0,0,.30),inset 0 0 0 7px rgba(255,255,255,.22),0 32px 90px rgba(0,0,0,.52);
+}
+
+.marchand-page[data-era="florida"] .marchand-hero::after{border-color:rgba(255,255,255,.22)}
+.marchand-page[data-era="florida"] .marchand-hero .site-page-hero-kicker,
+.marchand-page[data-era="florida"] .marchand-curator-note span{color:#fff;text-shadow:0 1px 9px rgba(0,0,0,.34)}
+.marchand-page[data-era="florida"] .marchand-hero .site-page-hero-description,
+.marchand-page[data-era="florida"] .marchand-era-line,
+.marchand-page[data-era="florida"] .marchand-curator-note{color:#f7f9fc}
+.marchand-page[data-era="florida"] .marchand-era-line i{background:#d8e6f5;box-shadow:0 0 9px rgba(255,255,255,.28)}
+.marchand-page[data-era="florida"] .marchand-era-switcher{border-color:rgba(255,255,255,.24);background:rgba(3,17,39,.78);box-shadow:0 16px 34px rgba(0,0,0,.20)}
+.marchand-page[data-era="florida"] .marchand-era-button{color:#d8e1ec}
+.marchand-page[data-era="florida"] .marchand-era-button.is-active{
+  background:linear-gradient(135deg,rgba(200,16,46,.72),rgba(4,30,66,.86));
+  color:#fff;
+  box-shadow:inset 0 -3px 0 #fff;
 }
 
 .marchand-page[data-era="canada"] .marchand-hero{
@@ -1366,6 +1388,12 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   transform:none;
   background:none;
   pointer-events:none;
+}
+
+.marchand-page[data-era="florida"] .marchand-hero::before{color:rgba(4,30,66,.26)}
+.marchand-page[data-era="florida"] [data-crest="florida"]{
+  border-color:rgba(255,255,255,.82);
+  box-shadow:0 0 30px rgba(255,255,255,.18),0 12px 26px rgba(0,0,0,.45);
 }
 
 .marchand-page[data-era="boston"] .marchand-insights,
