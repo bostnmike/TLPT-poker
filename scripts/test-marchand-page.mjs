@@ -17,10 +17,18 @@ assert.equal(payload.meta.records, 114, "collection total must match the authori
 assert.equal(payload.meta.goalsAndGames, 71, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 35, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 8, "Road to History count drifted");
-assert.equal(payload.meta.videos, 71, "video count drifted");
+assert.equal(payload.meta.videos, 99, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
+
+const scoringArtifacts = payload.records.filter((record) => {
+  if (record.sourceSheet === "Goals & Games") return true;
+  if (record.inventoryId === 507) return false;
+  return /goal|gwg|assist|point|20\+|multi-goal/i.test(record.description || "") || record.puckType === "Goal Scored Puck";
+});
+assert.ok(scoringArtifacts.length > payload.meta.goalsAndGames, "scoring-event audit must include milestone and record-run pucks");
+assert.deepEqual(scoringArtifacts.filter((record) => !record.videoUrl), [], "every scoring-event puck needs a video");
 
 for (const record of payload.records) {
   assert.ok(record.key, "every record needs a key");
@@ -84,8 +92,9 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-5/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-5/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-6/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-6/, "Marchand script cache key drifted");
+assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
 assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /marchand\.html/, "hidden page must not link to itself from public navigation");
@@ -109,6 +118,10 @@ assert.match(script, /decodedNames\(record\)/, "decoded player names must partic
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
 assert.match(script, /renderPuckPhoto\(record\)/, "puck photo slot is not wired into artifact deep dives");
 assert.match(script, /record\.imageUrl/, "future puck image URLs are not supported");
+assert.match(script, /row\.setAttribute\("aria-pressed"/, "vault bars must expose their active filter state");
+assert.match(script, /item\.setAttribute\("aria-pressed"/, "vault timeline years must expose their active filter state");
+assert.match(script, /renderInsights\(state\.filtered\)/, "vault statistics must recalculate from the active gallery");
+assert.match(script, /payload\.records\.filter\(\(record\) => record\.videoUrl\)\.length/, "film archive total must be calculated from records");
 assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 

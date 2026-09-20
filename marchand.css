@@ -1091,15 +1091,21 @@
 .marchand-insight-wide{grid-column:span 2}
 .marchand-insight-card h4{margin:0 0 20px;color:#eef1f4;font-family:Georgia,"Times New Roman",serif;font-size:1.08rem;font-weight:400}
 .marchand-bars{display:grid;gap:13px}
-.marchand-bar-row > div{display:flex;justify-content:space-between;gap:14px;color:#aab3bb;font-size:.72rem}
+.marchand-bar-row{width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer}
+.marchand-bar-row-heading{display:flex;justify-content:space-between;gap:14px;color:#aab3bb;font-size:.72rem}
 .marchand-bar-row strong{color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:.9rem;font-weight:400}
 .marchand-bar-row > i{display:block;height:5px;margin-top:6px;overflow:hidden;background:#202933}
 .marchand-bar-row > i b{display:block;height:100%;background:linear-gradient(90deg,var(--museum-accent),var(--museum-secondary));box-shadow:0 0 14px rgba(var(--museum-accent-rgb),.4)}
+.marchand-bar-row:hover .marchand-bar-row-heading,.marchand-bar-row:focus-visible .marchand-bar-row-heading,.marchand-bar-row[aria-pressed="true"] .marchand-bar-row-heading{color:#fff}
+.marchand-bar-row:hover > i,.marchand-bar-row:focus-visible > i,.marchand-bar-row[aria-pressed="true"] > i{outline:1px solid rgba(var(--museum-accent-rgb),.8);outline-offset:2px}
+.marchand-bar-row:focus-visible,.marchand-year:focus-visible{outline:2px solid var(--museum-accent);outline-offset:5px}
 .marchand-timeline{display:flex;min-height:190px;align-items:end;gap:8px;overflow-x:auto;padding:20px 4px 0}
-.marchand-year{display:grid;min-width:38px;height:165px;grid-template-rows:20px 1fr 22px;justify-items:center;align-items:end}
+.marchand-year{display:grid;min-width:38px;height:165px;padding:0;border:0;background:none;grid-template-rows:20px 1fr 22px;justify-items:center;align-items:end;cursor:pointer}
 .marchand-year strong{color:#d8dee3;font-size:.64rem}
 .marchand-year i{width:17px;min-height:8px;background:linear-gradient(180deg,var(--museum-accent),rgba(var(--museum-secondary-rgb),.55));box-shadow:0 0 14px rgba(var(--museum-accent-rgb),.20)}
 .marchand-year span{align-self:center;color:#798692;font-size:.58rem;font-weight:900;transform:rotate(-45deg)}
+.marchand-year:hover i,.marchand-year:focus-visible i,.marchand-year[aria-pressed="true"] i{filter:brightness(1.35);box-shadow:0 0 20px rgba(var(--museum-accent-rgb),.65)}
+.marchand-year[aria-pressed="true"] span,.marchand-year[aria-pressed="true"] strong{color:#fff}
 .marchand-controls{grid-template-columns:minmax(245px,1.7fr) repeat(5,minmax(115px,1fr)) auto auto}
 
 .marchand-dialog-header{padding-right:185px}

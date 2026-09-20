@@ -8,6 +8,8 @@
     players: {},
     sortKey: "date",
     sortDirection: "desc",
+    insightGoalType: "",
+    insightYear: "",
   };
   const TEAM_CANADA_CREST = "https://upload.wikimedia.org/wikipedia/en/5/5f/Hockey_Canada.svg";
 
@@ -134,17 +136,18 @@
   }
 
   function updateHero(payload) {
+    const sourceCounts = Object.fromEntries(countBy(payload.records, (record) => record.sourceSheet));
     const totals = {
       all: payload.records.length,
       boston: payload.records.filter((record) => teamEra(record.team) === "boston").length,
       florida: payload.records.filter((record) => teamEra(record.team) === "florida").length,
       canada: payload.records.filter((record) => teamEra(record.team) === "canada").length,
     };
-    document.getElementById("stat-records").textContent = payload.meta.records;
-    document.getElementById("stat-goals").textContent = payload.meta.goalsAndGames;
-    document.getElementById("stat-milestones").textContent = payload.meta.milestones;
-    document.getElementById("stat-history").textContent = payload.meta.roadToHistory;
-    document.getElementById("stat-videos").textContent = payload.meta.videos;
+    document.getElementById("stat-records").textContent = payload.records.length;
+    document.getElementById("stat-goals").textContent = sourceCounts["Goals & Games"] || 0;
+    document.getElementById("stat-milestones").textContent = sourceCounts.Milestones || 0;
+    document.getElementById("stat-history").textContent = sourceCounts["Road to History"] || 0;
+    document.getElementById("stat-videos").textContent = payload.records.filter((record) => record.videoUrl).length;
     for (const [era, count] of Object.entries(totals)) {
       document.getElementById(`era-count-${era}`).textContent = count;
     }
@@ -160,13 +163,19 @@
     return [...counts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
   }
 
-  function renderBars(container, entries) {
+  function renderBars(container, entries, selectedValue, onSelect) {
     const maximum = Math.max(...entries.map((entry) => entry[1]), 1);
     const fragment = document.createDocumentFragment();
     for (const [label, count] of entries) {
-      const row = document.createElement("div");
+      const row = document.createElement("button");
+      row.type = "button";
       row.className = "marchand-bar-row";
-      const heading = document.createElement("div");
+      const active = label === selectedValue;
+      row.setAttribute("aria-pressed", String(active));
+      row.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${label}: ${count} artifacts`);
+      row.addEventListener("click", () => onSelect(active ? "" : label));
+      const heading = document.createElement("span");
+      heading.className = "marchand-bar-row-heading";
       const name = document.createElement("span");
       name.textContent = label;
       const value = document.createElement("strong");
@@ -183,19 +192,33 @@
   }
 
   function renderInsights(records) {
-    renderBars(elements.insightSheets, countBy(records, (record) => record.sourceSheet));
+    renderBars(elements.insightSheets, countBy(records, (record) => record.sourceSheet), elements.sheet.value, (value) => {
+      elements.sheet.value = value;
+      render();
+    });
     renderBars(elements.insightGoals, countBy(
       records.filter((record) => record.sourceSheet === "Goals & Games"),
       (record) => record.goalType || "Even strength / unmarked",
-    ));
+    ), state.insightGoalType, (value) => {
+      state.insightGoalType = value;
+      render();
+    });
 
     const yearEntries = countBy(records, (record) => /^\d{4}-/.test(record.date) ? record.date.slice(0, 4) : "")
       .sort((left, right) => Number(left[0]) - Number(right[0]));
     const yearMax = Math.max(...yearEntries.map((entry) => entry[1]), 1);
     const timeline = document.createDocumentFragment();
     for (const [year, count] of yearEntries) {
-      const item = document.createElement("div");
+      const item = document.createElement("button");
+      item.type = "button";
       item.className = "marchand-year";
+      const active = year === state.insightYear;
+      item.setAttribute("aria-pressed", String(active));
+      item.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${year}: ${count} artifacts`);
+      item.addEventListener("click", () => {
+        state.insightYear = active ? "" : year;
+        render();
+      });
       const countLabel = document.createElement("strong");
       countLabel.textContent = count;
       const bar = document.createElement("i");
@@ -206,7 +229,10 @@
       timeline.append(item);
     }
     elements.insightTimeline.replaceChildren(timeline);
-    renderBars(elements.insightArenas, countBy(records, (record) => record.arena).slice(0, 8));
+    renderBars(elements.insightArenas, countBy(records, (record) => record.arena).slice(0, 8), elements.arena.value, (value) => {
+      elements.arena.value = value;
+      render();
+    });
   }
 
   function decodedNames(record) {
@@ -230,6 +256,9 @@
       if (elements.arena.value && record.arena !== elements.arena.value) return false;
       if (elements.puck.value && record.puckType !== elements.puck.value) return false;
       if (elements.video.checked && !record.videoUrl) return false;
+      if (state.insightGoalType
+        && (record.sourceSheet !== "Goals & Games" || (record.goalType || "Even strength / unmarked") !== state.insightGoalType)) return false;
+      if (state.insightYear && (!/^\d{4}-/.test(record.date) || record.date.slice(0, 4) !== state.insightYear)) return false;
       return !query || searchableText(record).includes(query);
     });
   }
@@ -329,6 +358,7 @@
     elements.tableShell.hidden = count === 0;
     elements.empty.hidden = count !== 0;
     renderRows(state.filtered);
+    renderInsights(state.filtered);
     updateSortLabels();
   }
 
@@ -340,6 +370,8 @@
     elements.arena.value = "";
     elements.puck.value = "";
     elements.video.checked = false;
+    state.insightGoalType = "";
+    state.insightYear = "";
     setEra("all", false);
     render();
   }
@@ -582,7 +614,6 @@
       setOptions(elements.arena, state.records, "arena", "All arenas");
       setOptions(elements.puck, state.records, "puckType", "All puck types");
       updateHero(payload);
-      renderInsights(state.records);
       render();
     } catch (error) {
       console.error("Could not load Marchand collection:", error);
