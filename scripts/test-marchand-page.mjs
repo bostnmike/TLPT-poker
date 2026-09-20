@@ -17,6 +17,8 @@ const swedenCrest = fs.readFileSync(path.join(root, "images", "site", "team-swed
 const heroBoston = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-boston.jpg"));
 const heroFlorida = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-florida.png"));
 const heroCanada = fs.readFileSync(path.join(root, "images", "site", "marchand-hero-canada-cropped.png"));
+const headshotBoston = fs.readFileSync(path.join(root, "images", "site", "brad-marchand-headshot-boston.jpg"));
+const headshotCanada = fs.readFileSync(path.join(root, "images", "site", "brad-marchand-headshot-canada.jpg"));
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 
@@ -92,6 +94,13 @@ assert.equal(roadToHistory.find((record) => record.inventoryId === 509)?.puckTyp
 assert.equal(decoder.meta.profileCount, 53, "player profile count drifted");
 assert.equal(decoder.meta.codeCount, 55, "player code decoder count drifted");
 assert.ok(Object.values(decoder.players).every((player) => player.name && player.headshot && player.nhlProfileUrl), "every decoded player needs a name, official headshot, and profile");
+assert.deepEqual(decoder.players.BM63.headshotsByEra, {
+  boston: "images/site/brad-marchand-headshot-boston.jpg",
+  florida: decoder.players.BM63.headshot,
+  canada: "images/site/brad-marchand-headshot-canada.jpg",
+}, "Brad Marchand must use the correct portrait for each collection era");
+assert.equal(headshotBoston.subarray(0, 3).toString("hex"), "ffd8ff", "Boston Marchand portrait must be a JPEG asset");
+assert.equal(headshotCanada.subarray(0, 3).toString("hex"), "ffd8ff", "Team Canada Marchand portrait must be a JPEG asset");
 const usedPlayerCodes = new Set(payload.records.flatMap((record) => record.playerCodes || []));
 const missingCodes = [...usedPlayerCodes].filter((code) => !decoder.players[code]);
 assert.deepEqual(missingCodes, [], "every player code used by the workbook must be decoded");
@@ -132,9 +141,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-22/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-17/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-22/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-25/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-20/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-25/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -205,7 +214,13 @@ assert.match(script, /players\.brightcove\.net\/6415718365001/, "official NHL Br
 assert.match(script, /data\/marchand-pucks\.json/, "collection data source is missing");
 assert.match(script, /data\/marchand-players\.json/, "player decoder source is missing");
 assert.match(script, /decodedNames\(record\)/, "decoded player names must participate in search");
+assert.match(script, /JSON\.stringify\(record\), displayDate\(record\.date\)/, "displayed dates must participate in search");
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
+assert.match(script, /playerHeadshot\(player, code, record\)/, "player portraits must be selected from the artifact's team era");
+assert.match(script, /player\.headshotsByEra\?\.\[teamEra\(record\?\.team\)\]/, "Brad's era-specific headshot mapping is not wired into the page");
+assert.match(script, /record\.sourceSheet === "Goals & Games"[\s\S]*personnel\.push\(\["BM63"/, "goal and assist deep dives must include Brad's era-specific portrait");
+assert.match(script, /card\.dataset\.era = teamEra\(record\?\.team\)/, "deep-dive player cards must expose their team era for portrait treatment");
+assert.match(script, /chip\.dataset\.era = teamEra\(record\?\.team\)/, "archive player chips must expose their team era for portrait treatment");
 assert.match(script, /const CATEGORY_LABELS = Object\.freeze/, "expanded category names are missing");
 for (const label of ["4 Nations Faceoff", "Assist", "Milestone", "Playoff Goal", "Road to History", "Regular Season Goal", "Regular Season Point"]) {
   assert.ok(script.includes(`"${label}"`) || script.includes(`${label}:`), `${label} category label is missing`);
@@ -242,11 +257,13 @@ assert.match(css, /\.marchand-opponent-logo-sweden\{[\s\S]*background:#ffd500;/,
 assert.match(script, /code === "SWE"[\s\S]*marchand-opponent-logo-sweden/, "Sweden opponent rows need the dedicated crest treatment");
 assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, "Boston header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
-assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston img\{transform:scale\(1\.82\)/, "Boston deep-dive crest must match Canada's apparent size");
-assert.match(css, /\.marchand-dialog-crest \.marchand-crest-florida img\{transform:scale\(2\.08\)/, "Florida deep-dive crest must match Canada's apparent size");
+assert.match(css, /\.marchand-dialog-crest\{[\s\S]*overflow:hidden;/, "deep-dive crest frame must contain every team mark");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston img\{transform:scale\(1\.44\)\}/, "Boston deep-dive crest must match Canada's apparent size without clipping");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-florida img\{transform:scale\(1\.68\)\}/, "Florida deep-dive crest must match Canada's apparent size without clipping");
+assert.match(css, /\.marchand-person-card\[data-player="BM63"\]\[data-era="canada"\][\s\S]*transform:scale\(1\.72\)/, "Team Canada deep-dive portrait must crop Brad prominently");
 assert.match(css, /\.marchand-era-button\[data-era-button="boston"\] > img,[\s\S]*data-vault-era-button="boston"[\s\S]*transform:scale\(1\.82\)/, "Boston team button marks must match Canada's apparent size across both exhibits");
 assert.match(css, /\.marchand-era-button\[data-era-button="florida"\] > img,[\s\S]*data-vault-era-button="florida"[\s\S]*transform:scale\(2\.08\)/, "Florida team button marks must match Canada's apparent size across both exhibits");
-assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston,[\s\S]*\.marchand-dialog-crest \.marchand-crest-florida\{overflow:visible\}/, "scaled deep-dive crests must not clip at their inner frame");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston,[\s\S]*\.marchand-dialog-crest \.marchand-crest-florida\{overflow:hidden\}/, "deep-dive crests must stay inside their museum frame");
 assert.match(css, /\.marchand-vault-page-header\{[\s\S]*grid-template-columns:minmax\(0,1\.35fr\) minmax\(360px,\.85fr\)/, "Inside the Vault header must reserve a museum panel for the collage");
 assert.match(css, /\.marchand-vault-collage\{[\s\S]*min-height:250px;/, "Inside the Vault collage needs a substantial exhibit footprint");
 assert.match(script, /crest\.className = `marchand-crest marchand-crest-\$\{era\}/, "deep-dive team crests need era-specific sizing hooks");

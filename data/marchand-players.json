@@ -103,6 +103,11 @@
       "playerId": 8473419,
       "position": "L",
       "headshot": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8473419.png",
+      "headshotsByEra": {
+        "boston": "images/site/brad-marchand-headshot-boston.jpg",
+        "florida": "https://assets.nhle.com/mugs/nhl/20262027/FLA/8473419.png",
+        "canada": "images/site/brad-marchand-headshot-canada.jpg"
+      },
       "heroImage": "https://assets.nhle.com/mugs/actionshots/1296x729/8473419.jpg",
       "currentTeamAbbrev": "FLA",
       "currentSweaterNumber": 63,

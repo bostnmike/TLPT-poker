@@ -263,7 +263,7 @@
 
   function searchableText(record) {
     const source = (record.sourceData || []).flatMap((field) => [field.label, field.value, field.url]);
-    return lower([JSON.stringify(record), categoryLabel(record.category), arenaLocation(record.arena), ...source, ...decodedNames(record)].join(" "));
+    return lower([JSON.stringify(record), displayDate(record.date), categoryLabel(record.category), arenaLocation(record.arena), ...source, ...decodedNames(record)].join(" "));
   }
 
   function filteredRecords() {
@@ -342,10 +342,19 @@
     return [...new Set(codes)];
   }
 
-  function playerChip(code) {
+  function playerHeadshot(player, code, record) {
+    if (!player) return "";
+    if (code !== "BM63") return player.headshot || "";
+    return player.headshotsByEra?.[teamEra(record?.team)] || player.headshot || "";
+  }
+
+  function playerChip(code, record) {
     const player = state.players[code];
+    const headshot = playerHeadshot(player, code, record);
     const chip = document.createElement("span");
     chip.className = "marchand-player-chip";
+    chip.dataset.player = code;
+    chip.dataset.era = teamEra(record?.team);
     chip.title = player?.name || code;
     chip.setAttribute("aria-label", player ? `${code}, ${player.name}` : code);
     const portrait = document.createElement("span");
@@ -353,13 +362,13 @@
     const fallback = document.createElement("span");
     fallback.textContent = code.slice(0, 2).toUpperCase();
     portrait.append(fallback);
-    if (player?.headshot) {
+    if (headshot) {
       const image = document.createElement("img");
       image.alt = "";
       image.loading = "lazy";
       image.addEventListener("load", () => { fallback.hidden = true; }, { once: true });
       image.addEventListener("error", () => { image.remove(); }, { once: true });
-      image.src = player.headshot;
+      image.src = headshot;
       portrait.append(image);
     }
     const label = document.createElement("strong");
@@ -381,7 +390,7 @@
     }
     const roster = document.createElement("span");
     roster.className = "marchand-player-roster";
-    roster.append(...codes.map(playerChip));
+    roster.append(...codes.map((code) => playerChip(code, record)));
     td.append(roster);
     return td;
   }
@@ -523,10 +532,13 @@
     elements.dialogFacts.append(fact);
   }
 
-  function createPersonnelCard(code, role) {
+  function createPersonnelCard(code, role, record) {
     const player = state.players[code];
+    const headshot = playerHeadshot(player, code, record);
     const card = document.createElement(player?.nhlProfileUrl ? "a" : "article");
     card.className = "marchand-person-card";
+    card.dataset.player = code;
+    card.dataset.era = teamEra(record?.team);
     if (player?.nhlProfileUrl) {
       card.href = player.nhlProfileUrl;
       card.target = "_blank";
@@ -534,9 +546,9 @@
     }
     const portrait = document.createElement("span");
     portrait.className = "marchand-person-portrait";
-    if (player?.headshot) {
+    if (headshot) {
       const image = document.createElement("img");
-      image.src = player.headshot;
+      image.src = headshot;
       image.alt = `${player.name} headshot`;
       image.loading = "lazy";
       image.addEventListener("error", () => {
@@ -562,6 +574,9 @@
 
   function renderPersonnel(record) {
     const personnel = [];
+    if (record.sourceSheet === "Goals & Games") {
+      personnel.push(["BM63", record.category === "Assist" ? "Collection subject" : "Goal scorer"]);
+    }
     if (record.primaryAssist) personnel.push([record.primaryAssist, "Primary assist"]);
     if (record.secondaryAssist) personnel.push([record.secondaryAssist, "Secondary assist"]);
     if (!personnel.length) {
@@ -574,8 +589,10 @@
       return true;
     });
     elements.personnel.hidden = unique.length === 0;
-    elements.personnelTitle.textContent = record.primaryAssist || record.secondaryAssist ? "Assist gallery" : "Players in this record";
-    elements.personnelGrid.replaceChildren(...unique.map(([code, role]) => createPersonnelCard(code, role)));
+    elements.personnelTitle.textContent = record.sourceSheet === "Goals & Games" && record.category !== "Assist"
+      ? "Goal & assist gallery"
+      : "Players in this record";
+    elements.personnelGrid.replaceChildren(...unique.map(([code, role]) => createPersonnelCard(code, role, record)));
   }
 
   function renderSourceRecord(record) {

@@ -780,6 +780,7 @@
 
 .marchand-player-chip-portrait > *{grid-area:1 / 1}
 .marchand-player-chip-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.marchand-player-chip[data-player="BM63"][data-era="canada"] .marchand-player-chip-portrait img{transform:scale(1.8);transform-origin:50% 13%}
 .marchand-player-chip strong{font-size:.61rem;letter-spacing:.07em}
 .marchand-team-artifact{color:#7f8a94;font-size:.65rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
 
@@ -1234,14 +1235,18 @@
   width:78px;
   height:78px;
   padding:8px;
+  overflow:hidden;
   border:1px solid rgba(var(--museum-accent-rgb),.35);
   background:rgba(255,255,255,.06);
 }
 
-.marchand-dialog-crest .marchand-crest-boston img{transform:scale(1.82);transform-origin:center}
-.marchand-dialog-crest .marchand-crest-florida img{transform:scale(2.08);transform-origin:center}
+.marchand-dialog-crest .marchand-crest{width:100%;height:100%;overflow:hidden}
+.marchand-dialog-crest .marchand-crest-boston img,
+.marchand-dialog-crest .marchand-crest-florida img{object-fit:contain;transform-origin:center}
+.marchand-dialog-crest .marchand-crest-boston img{transform:scale(1.44)}
+.marchand-dialog-crest .marchand-crest-florida img{transform:scale(1.68)}
 .marchand-dialog-crest .marchand-crest-boston,
-.marchand-dialog-crest .marchand-crest-florida{overflow:visible}
+.marchand-dialog-crest .marchand-crest-florida{overflow:hidden}
 
 .marchand-dialog-section{margin-top:30px;padding-top:27px;border-top:1px solid rgba(255,255,255,.11)}
 .marchand-dialog-section h4{margin:0 0 18px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.55rem;font-weight:400}
@@ -1261,6 +1266,7 @@
 a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--museum-accent-rgb),.55)}
 .marchand-person-portrait{display:grid;min-height:112px;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 25%,rgba(var(--museum-accent-rgb),.24),transparent 56%),#111820;color:var(--museum-accent);font-family:Impact,"Arial Black",sans-serif;font-size:2rem}
 .marchand-person-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.marchand-person-card[data-player="BM63"][data-era="canada"] .marchand-person-portrait img{transform:scale(1.72);transform-origin:50% 13%}
 .marchand-person-copy{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:16px}
 .marchand-person-copy small{color:var(--museum-accent);font-size:.58rem;font-weight:1000;letter-spacing:.15em;text-transform:uppercase}
 .marchand-person-copy strong{margin:5px 0 4px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.15rem;font-weight:400}
