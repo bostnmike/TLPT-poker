@@ -26,7 +26,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260917-9">
-  <link rel="stylesheet" href="marchand.css?v=20260920-6">
+  <link rel="stylesheet" href="marchand.css?v=20260920-7">
   <link rel="stylesheet" href="site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -44,12 +44,12 @@
     </div>
 
     <div class="marchand-identity-stage" aria-label="Boston Bruins, Florida Panthers, and Team Canada collection identities">
-      <div class="marchand-crest-stack" aria-hidden="true">
-        <span class="marchand-team-crest marchand-team-crest-boston" data-crest="boston"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg" alt=""></span>
-        <span class="marchand-team-crest marchand-team-crest-florida" data-crest="florida"><img src="https://assets.nhle.com/logos/nhl/svg/FLA_light.svg" alt=""></span>
-        <span class="marchand-team-crest marchand-team-crest-canada" data-crest="canada">
+      <div class="marchand-crest-stack" role="group" aria-label="Filter the collection by team">
+        <button class="marchand-team-crest marchand-team-crest-boston" type="button" data-crest="boston" data-era-button="boston" aria-label="Show the Boston Bruins collection" aria-pressed="false"><img src="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg" alt=""></button>
+        <button class="marchand-team-crest marchand-team-crest-florida" type="button" data-crest="florida" data-era-button="florida" aria-label="Show the Florida Panthers collection" aria-pressed="false"><img src="https://assets.nhle.com/logos/nhl/svg/FLA_light.svg" alt=""></button>
+        <button class="marchand-team-crest marchand-team-crest-canada" type="button" data-crest="canada" data-era-button="canada" aria-label="Show the Team Canada collection" aria-pressed="false">
           <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/Hockey_Canada.svg" alt="">
-        </span>
+        </button>
       </div>
       <span class="site-page-hero-chip marchand-puck-mark" aria-hidden="true">
         <span class="marchand-puck-edge"></span>
@@ -201,6 +201,6 @@
 </footer>
 
 <script src="site-shell.js?v=20260824-2"></script>
-<script src="marchand.js?v=20260920-6"></script>
+<script src="marchand.js?v=20260920-7"></script>
 </body>
 </html>

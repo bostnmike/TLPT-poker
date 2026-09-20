@@ -151,12 +151,21 @@
 }
 
 .marchand-page[data-era="florida"] .marchand-hero .site-page-hero-title::first-line{
-  color:#c8102e;
+  color:#2f6eb5;
   -webkit-text-stroke:2px #d4af37;
   paint-order:stroke fill;
   text-shadow:
     0 4px 0 #020913,
-    0 0 46px rgba(200,16,46,.38);
+    0 0 46px rgba(47,110,181,.48);
+}
+
+.marchand-page[data-era="canada"] .marchand-hero .site-page-hero-title::first-line{
+  color:#d80621;
+  -webkit-text-stroke:2px #fff;
+  paint-order:stroke fill;
+  text-shadow:
+    0 4px 0 #3a000b,
+    0 0 46px rgba(216,6,33,.52);
 }
 
 .marchand-hero .site-page-hero-description{
@@ -1026,12 +1035,16 @@
 .marchand-team-crest,
 .marchand-crest{display:grid;place-items:center;overflow:hidden}
 .marchand-team-crest{
+  width:100%;
   height:67px;
   padding:8px;
   border:1px solid rgba(255,255,255,.18);
   background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(0,0,0,.46));
   box-shadow:0 10px 24px rgba(0,0,0,.34);
-  transition:opacity .28s ease,transform .28s ease;
+  color:inherit;
+  cursor:pointer;
+  appearance:none;
+  transition:opacity .28s ease,transform .28s ease,border-color .2s ease,box-shadow .2s ease;
 }
 
 .marchand-team-crest img,
@@ -1041,6 +1054,8 @@
 .marchand-team-crest-canada{background:#fff}
 .marchand-team-crest-canada svg path,
 .marchand-crest svg path{fill:#d80621}
+.marchand-team-crest:hover{transform:translateY(-3px);border-color:rgba(var(--museum-accent-rgb),.78);box-shadow:0 0 24px rgba(var(--museum-accent-rgb),.20),0 13px 26px rgba(0,0,0,.42)}
+.marchand-team-crest:focus-visible{outline:3px solid var(--museum-accent);outline-offset:4px}
 .marchand-page:not([data-era="all"]) .marchand-team-crest{opacity:.15;transform:scale(.78)}
 .marchand-page[data-era="boston"] [data-crest="boston"],
 .marchand-page[data-era="florida"] [data-crest="florida"],
@@ -1050,6 +1065,7 @@
   border-color:rgba(var(--museum-accent-rgb),.72);
   box-shadow:0 0 30px rgba(var(--museum-accent-rgb),.18),0 12px 26px rgba(0,0,0,.45);
 }
+.marchand-page:not([data-era="all"]) .marchand-team-crest:not([aria-pressed="true"]):hover{opacity:.68;transform:scale(.92) translateY(-2px)}
 
 .marchand-identity-stage .marchand-puck-mark{width:142px;height:142px}
 .marchand-identity-stage .marchand-puck-mark strong{font-size:3.7rem}

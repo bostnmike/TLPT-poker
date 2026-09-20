@@ -92,8 +92,8 @@ for (const id of [
 }
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-6/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-6/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-7/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-7/, "Marchand script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(html, /<header class="site-header">/, "the standalone museum must not include the TLPT masthead");
@@ -104,12 +104,17 @@ assert.match(css, /\.marchand-page\[data-era="florida"\]/, "Florida museum theme
 assert.match(css, /\.marchand-page\[data-era="canada"\]/, "Canada museum theme is missing");
 assert.match(css, /content:"BOSTON"/, "Boston theme identity is missing");
 assert.match(css, /content:"FLORIDA"/, "Florida theme identity is missing");
-assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#c8102e/, "Florida title must use Panthers red");
+assert.match(css, /data-era="florida"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#2f6eb5/, "Florida title must use Panthers blue");
 assert.match(css, /content:"CANADA"/, "Canada theme identity is missing");
+assert.match(css, /data-era="canada"[\s\S]*site-page-hero-title::first-line[\s\S]*color:#d80621/, "Canada title must use red");
 assert.match(css, /linear-gradient\(180deg,#6f0011/, "Canada theme must use the red-and-white museum treatment");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/BOS_light\.svg/, "Boston team mark is missing");
 assert.match(html, /assets\.nhle\.com\/logos\/nhl\/svg\/FLA_light\.svg/, "Florida team mark is missing");
 assert.match(html, /upload\.wikimedia\.org\/wikipedia\/en\/5\/5f\/Hockey_Canada\.svg/, "Hockey Canada crest is missing");
+assert.equal((html.match(/class="marchand-team-crest[^\"]*"[^>]*data-era-button=/g) || []).length, 3, "all three header crests must be team-filter buttons");
+assert.match(html, /aria-label="Show the Boston Bruins collection"/, "Boston crest needs an accessible filter label");
+assert.match(html, /aria-label="Show the Florida Panthers collection"/, "Florida crest needs an accessible filter label");
+assert.match(html, /aria-label="Show the Team Canada collection"/, "Canada crest needs an accessible filter label");
 assert.match(script, /youtube-nocookie\.com\/embed/, "privacy-enhanced YouTube player is missing");
 assert.match(script, /players\.brightcove\.net\/6415718365001/, "official NHL Brightcove player is missing");
 assert.match(script, /data\/marchand-pucks\.json/, "collection data source is missing");
