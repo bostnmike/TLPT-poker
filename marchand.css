@@ -14,6 +14,8 @@
   --museum-panel-bottom:#070a0e;
   --museum-control:#0b0f14;
   --museum-stripe:linear-gradient(90deg,#ffb81c 0 32%,#c8102e 32% 65%,#fff 65% 100%);
+  --museum-hero-diagonal-start:66%;
+  --museum-hero-diagonal-end:72%;
   position:relative;
   padding-top:0;
   background:
@@ -729,10 +731,11 @@
   height:36px;
   place-items:center;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.58);
   border-radius:50%;
-  background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.13),rgba(0,0,0,.5));
-  color:#aeb8c0;
+  background:radial-gradient(circle at 35% 28%,#fffdf8 0%,#f3f0e7 58%,#ddd7ca 100%);
+  color:#2c3339;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 3px 10px rgba(0,0,0,.28);
   font-size:.48rem;
   font-weight:1000;
   letter-spacing:.04em;
@@ -1390,7 +1393,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:
     linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px) 0 0 / 74px 74px,
     linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px) 0 0 / 74px 74px,
-    linear-gradient(112deg,transparent 0 68%,rgba(255,184,28,.12) 68% 72%,transparent 72%),
+    linear-gradient(112deg,transparent 0 var(--museum-hero-diagonal-start),rgba(255,184,28,.12) var(--museum-hero-diagonal-start) var(--museum-hero-diagonal-end),transparent var(--museum-hero-diagonal-end)),
     radial-gradient(circle at 82% 25%,rgba(255,184,28,.22),transparent 21rem),
     linear-gradient(126deg,#020202 0%,#121008 58%,#050505 100%);
   box-shadow:inset 0 0 0 6px rgba(0,0,0,.52),inset 0 0 0 7px rgba(255,184,28,.26),0 32px 90px rgba(0,0,0,.58);
@@ -1401,7 +1404,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:
     linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0 / 74px 74px,
     linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0 / 74px 74px,
-    linear-gradient(112deg,transparent 0 64%,rgba(4,30,66,.58) 64% 72%,transparent 72%),
+    linear-gradient(112deg,transparent 0 var(--museum-hero-diagonal-start),rgba(4,30,66,.58) var(--museum-hero-diagonal-start) var(--museum-hero-diagonal-end),transparent var(--museum-hero-diagonal-end)),
     radial-gradient(circle at 84% 25%,rgba(4,30,66,.45),transparent 23rem),
     linear-gradient(126deg,#a80a29 0%,#790017 58%,#31050e 100%);
   box-shadow:inset 0 0 0 6px rgba(0,0,0,.30),inset 0 0 0 7px rgba(255,255,255,.22),0 32px 90px rgba(0,0,0,.52);
@@ -1427,7 +1430,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:
     linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0 / 74px 74px,
     linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0 / 74px 74px,
-    linear-gradient(112deg,transparent 0 66%,rgba(255,255,255,.13) 66% 72%,transparent 72%),
+    linear-gradient(112deg,transparent 0 var(--museum-hero-diagonal-start),rgba(255,255,255,.13) var(--museum-hero-diagonal-start) var(--museum-hero-diagonal-end),transparent var(--museum-hero-diagonal-end)),
     radial-gradient(circle at 84% 25%,rgba(255,255,255,.20),transparent 22rem),
     linear-gradient(126deg,#8b0018 0%,#51000e 58%,#1c0308 100%);
   box-shadow:inset 0 0 0 6px rgba(0,0,0,.32),inset 0 0 0 7px rgba(255,255,255,.24),0 32px 90px rgba(0,0,0,.50);
@@ -1564,23 +1567,23 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 
 .marchand-watch-button{
   display:inline-flex;
-  min-width:88px;
-  min-height:38px;
+  width:44px;
+  height:44px;
   align-items:center;
   justify-content:center;
-  gap:7px;
-  padding:7px 11px;
+  padding:0;
   border:1px solid var(--museum-accent);
+  border-radius:50%;
   background:var(--museum-accent);
   color:#07090b;
-  font-size:.64rem;
-  font-weight:1000;
-  letter-spacing:.09em;
-  text-transform:uppercase;
+  box-shadow:0 6px 16px rgba(0,0,0,.34),inset 0 0 0 2px rgba(255,255,255,.15);
+  font-size:1.08rem;
+  line-height:1;
   cursor:pointer;
+  transition:filter .18s ease,transform .18s ease,box-shadow .18s ease;
 }
 
-.marchand-watch-button:hover{filter:brightness(1.14)}
+.marchand-watch-button:hover{filter:brightness(1.14);transform:translateY(-2px);box-shadow:0 9px 20px rgba(0,0,0,.42),inset 0 0 0 2px rgba(255,255,255,.20)}
 .marchand-watch-button:disabled{border-color:#3c4650;background:transparent;color:#74808a;cursor:not-allowed;filter:none}
 
 .marchand-watch-dialog{width:min(920px,calc(100% - 30px))}

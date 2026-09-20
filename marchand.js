@@ -424,7 +424,9 @@
       watch.className = "marchand-watch-button";
       watch.disabled = !record.videoUrl;
       watch.setAttribute("aria-label", record.videoUrl ? `Watch video for artifact ${record.inventoryId}` : `No film available for artifact ${record.inventoryId}`);
-      watch.innerHTML = record.videoUrl ? '<span aria-hidden="true">▶</span> Watch' : "No film";
+      watch.innerHTML = record.videoUrl
+        ? '<span aria-hidden="true">🎥</span><span class="visually-hidden">Watch</span>'
+        : '<span aria-hidden="true">—</span><span class="visually-hidden">No film</span>';
       if (record.videoUrl) watch.addEventListener("click", () => openVideo(record));
       watchCell.append(watch);
       row.append(watchCell);
