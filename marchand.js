@@ -478,7 +478,7 @@
 
   function createCrest(era, className = "") {
     const crest = document.createElement("span");
-    crest.className = `marchand-crest ${className}`.trim();
+    crest.className = `marchand-crest marchand-crest-${era} ${className}`.trim();
     if (era === "canada") {
       const image = document.createElement("img");
       image.src = TEAM_CANADA_CREST;
@@ -502,6 +502,23 @@
     factLabel.textContent = label;
     const factValue = document.createElement("strong");
     factValue.textContent = String(value);
+    fact.append(factLabel, factValue);
+    elements.dialogFacts.append(fact);
+  }
+
+  function addOpponentFact(record) {
+    if (!record.opponent) return;
+    const fact = document.createElement("div");
+    fact.className = "marchand-fact marchand-fact-opponent";
+    const factLabel = document.createElement("span");
+    factLabel.textContent = "Opponent";
+    const factValue = document.createElement("div");
+    factValue.className = "marchand-opponent-fact-value";
+    const crest = opponentLogo(record);
+    crest.classList.add("marchand-opponent-logo-compact");
+    const name = document.createElement("strong");
+    name.textContent = record.opponent;
+    factValue.append(crest, name);
     fact.append(factLabel, factValue);
     elements.dialogFacts.append(fact);
   }
@@ -653,7 +670,7 @@
     addFact("Date", displayDate(record.date));
     addFact("Arena", record.arena);
     addFact("City / region", arenaLocation(record.arena));
-    addFact("Opponent", record.opponent);
+    addOpponentFact(record);
     addFact("Home / road", record.homeRoad);
     addFact("Career stat", record.careerStat == null ? "" : `#${record.careerStat}`);
     addFact("Season stat", record.seasonStat == null ? "" : `#${record.seasonStat}`);

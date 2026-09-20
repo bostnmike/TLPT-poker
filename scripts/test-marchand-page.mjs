@@ -110,9 +110,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-20/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-15/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-20/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-21/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-16/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-21/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -213,6 +213,14 @@ assert.match(css, /\.marchand-opponent-logo-sweden\{[\s\S]*background:#ffd500;/,
 assert.match(script, /code === "SWE"[\s\S]*marchand-opponent-logo-sweden/, "Sweden opponent rows need the dedicated crest treatment");
 assert.match(css, /\.marchand-team-crest-boston img\{transform:scale\(1\.82\)/, "Boston header mark must match Canada's apparent size");
 assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/, "Florida header mark must match Canada's apparent size");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston img\{transform:scale\(1\.82\)/, "Boston deep-dive crest must match Canada's apparent size");
+assert.match(css, /\.marchand-dialog-crest \.marchand-crest-florida img\{transform:scale\(2\.08\)/, "Florida deep-dive crest must match Canada's apparent size");
+assert.match(css, /\.marchand-era-button\[data-era-button="boston"\] > img\{transform:scale\(1\.82\)/, "Boston team button mark must match Canada's apparent size");
+assert.match(css, /\.marchand-era-button\[data-era-button="florida"\] > img\{transform:scale\(2\.08\)/, "Florida team button mark must match Canada's apparent size");
+assert.match(script, /crest\.className = `marchand-crest marchand-crest-\$\{era\}/, "deep-dive team crests need era-specific sizing hooks");
+assert.match(script, /function addOpponentFact\(record\)/, "deep dives need a dedicated opponent identity fact");
+assert.match(script, /crest\.classList\.add\("marchand-opponent-logo-compact"\)/, "deep-dive opponent facts need a compact crest");
+assert.match(script, /addOpponentFact\(record\)/, "every deep dive must render the opponent crest and name");
 assert.match(css, /\.marchand-watch-button\{[\s\S]*width:44px;[\s\S]*border-radius:50%/, "Watch controls must use the circular icon treatment");
 assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is missing");
 
