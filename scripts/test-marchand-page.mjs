@@ -141,6 +141,13 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
+assert.match(html, /property="og:site_name" content="Marchand Puck Vault"/, "social preview must use the museum identity");
+assert.match(html, /property="og:title" content="Brad Marchand Puck Vault"/, "social preview needs a dedicated Marchand title");
+assert.match(html, /property="og:image" content="https:\/\/tlpt\.org\/images\/site\/marchand-puck-vault-social-v1\.jpg"/, "Facebook must use the dedicated Marchand preview image");
+assert.match(html, /property="og:image:width" content="1200"/, "social image width metadata drifted");
+assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
+assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
+assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20260920-28/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-20/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260920-28/, "vault stylesheet cache key drifted");

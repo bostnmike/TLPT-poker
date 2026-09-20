@@ -291,7 +291,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "gallery.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
     "index.html": f"{SITE_ORIGIN}/images/site/chip-T-100.png",
     "knockouts.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
-    "marchand.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
+    "marchand.html": f"{SITE_ORIGIN}/images/site/marchand-puck-vault-social-v1.jpg",
     "media.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
     "news.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "player-movement.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
@@ -311,7 +311,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "gallery.html": "TLPT 5,000 tournament poker chip",
     "index.html": "TLPT 100 tournament poker chip",
     "knockouts.html": "TLPT 25,000 tournament poker chip",
-    "marchand.html": "TLPT 500 tournament poker chip",
+    "marchand.html": "Brad Marchand in Boston Bruins, Florida Panthers, and Team Canada uniforms beside the Marchand Puck Vault title",
     "media.html": "TLPT 500 tournament poker chip",
     "news.html": "TLPT 1,000 tournament poker chip",
     "player-movement.html": "TLPT 1,000 tournament poker chip",
@@ -2619,14 +2619,30 @@ def main() -> int:
 
         expected_social_image = EXPECTED_SOCIAL_IMAGES.get(page.name, "")
         expected_image_alt = EXPECTED_SOCIAL_IMAGE_ALT.get(page.name, "")
+        expected_social_title = (
+            "Brad Marchand Puck Vault"
+            if page.name == "marchand.html"
+            else EXPECTED_PAGE_TITLES.get(page.name, "")
+        )
+        expected_social_site_name = (
+            "Marchand Puck Vault"
+            if page.name == "marchand.html"
+            else "TLPT Poker League"
+        )
         expected_og_metadata = {} if page.name == "404.html" else {
             "og:type": "profile" if page.name == "player.html" else "website",
-            "og:site_name": "TLPT Poker League",
-            "og:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
+            "og:site_name": expected_social_site_name,
+            "og:title": expected_social_title,
             "og:description": expected_description,
             "og:image": expected_social_image,
             "og:image:alt": expected_image_alt,
         }
+        if page.name == "marchand.html":
+            expected_og_metadata.update({
+                "og:image:type": "image/jpeg",
+                "og:image:width": "1200",
+                "og:image:height": "630",
+            })
         if expected_canonical:
             expected_og_metadata["og:url"] = expected_canonical
         for key, value in expected_og_metadata.items():
@@ -2642,8 +2658,10 @@ def main() -> int:
             )
 
         expected_twitter_metadata = {} if page.name == "404.html" else {
-            "twitter:card": "summary",
-            "twitter:title": EXPECTED_PAGE_TITLES.get(page.name, ""),
+            "twitter:card": (
+                "summary_large_image" if page.name == "marchand.html" else "summary"
+            ),
+            "twitter:title": expected_social_title,
             "twitter:description": expected_description,
             "twitter:image": expected_social_image,
             "twitter:image:alt": expected_image_alt,
