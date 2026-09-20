@@ -141,9 +141,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-26/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-27/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260920-20/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-26/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-27/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
