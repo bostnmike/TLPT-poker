@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "25da3691d3382066695c214ff4f0d4dedb0a9358d62d7a90e079cb5cc56a44a0",
+    "sourceSha256": "3c7acf2ffc9fec514c6da441bf3eb31432025d7a2c08502c17d8794f2f85ae99",
     "records": 114,
     "goalsAndGames": 71,
     "milestones": 35,
     "roadToHistory": 8,
-    "videos": 99,
+    "videos": 100,
     "sourceSheets": {
       "Goals & Games": 71,
       "Milestones": 35,
@@ -34,7 +34,7 @@
       "primaryAssist": "BC14",
       "secondaryAssist": "ZT62",
       "score": "Boston 4 @ Calgary 5 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=FsYfmIxw6_w",
       "videoProvider": "youtube",
@@ -126,7 +126,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -161,7 +161,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "",
       "score": "Boston 5 @ New York 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=4SY1klZ1m1I",
       "videoProvider": "youtube",
@@ -252,7 +252,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -287,7 +287,7 @@
       "primaryAssist": "DK46",
       "secondaryAssist": "RN2",
       "score": "Boston 5 @ New York 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=pAh4uqkYe8s",
       "videoProvider": "youtube",
@@ -379,7 +379,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -414,7 +414,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "KM86",
       "score": "Columbus 5 @ Boston 4 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=Gvmab0d_Dgg",
       "videoProvider": "youtube",
@@ -506,7 +506,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -541,7 +541,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "RN20",
       "score": "Boston 3 @ Dallas 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=KtAtvcqss78",
       "videoProvider": "youtube",
@@ -633,7 +633,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -668,7 +668,7 @@
       "primaryAssist": "SK52",
       "secondaryAssist": "JM27",
       "score": "Las Vegas 1 @ Boston 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=OLj6Xpsgn64",
       "videoProvider": "youtube",
@@ -760,7 +760,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -795,7 +795,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "TK47",
       "score": "New York 1 @ Boston 2 - SO",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=bHw7mR6ryRM",
       "videoProvider": "youtube",
@@ -887,7 +887,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -922,7 +922,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "TK47",
       "score": "Boston 4 @ Montreal 0",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=RpHXVHi1fxo",
       "videoProvider": "youtube",
@@ -1014,7 +1014,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1049,7 +1049,7 @@
       "primaryAssist": "BC25",
       "secondaryAssist": "",
       "score": "San Jose 1 @ Boston 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=CSU7hw3hpH0",
       "videoProvider": "youtube",
@@ -1140,7 +1140,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1175,7 +1175,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "",
       "score": "Boston 1 @ Arizona 0",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=69ENPST3SlA",
       "videoProvider": "youtube",
@@ -1266,7 +1266,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1301,7 +1301,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "TK47",
       "score": "Boston 4 @ Las Vegas 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=T6RvLitxPsw",
       "videoProvider": "youtube",
@@ -1393,7 +1393,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1428,7 +1428,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "BC25",
       "score": "Boston 7 @ New York 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=o6y_nRAGq38",
       "videoProvider": "youtube",
@@ -1520,7 +1520,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1555,7 +1555,7 @@
       "primaryAssist": "MG48",
       "secondaryAssist": "",
       "score": "Philadelphia 3 @ Boston 2 - SO",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=DcTOZBFu3B8",
       "videoProvider": "youtube",
@@ -1646,7 +1646,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1681,7 +1681,7 @@
       "primaryAssist": "CC13",
       "secondaryAssist": "",
       "score": "Boston 8 @ Montreal 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=GHpCaKqfVuo",
       "videoProvider": "youtube",
@@ -1772,7 +1772,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1807,7 +1807,7 @@
       "primaryAssist": "AB10",
       "secondaryAssist": "SK52",
       "score": "Boston 2 @ Ottawa 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=2oA5SONIByE",
       "videoProvider": "youtube",
@@ -1899,7 +1899,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -1934,7 +1934,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "MG48",
       "score": "Boston 2 @ New Jersey 3 - SO",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=3i6MO_naByU",
       "videoProvider": "youtube",
@@ -2026,7 +2026,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2061,7 +2061,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "",
       "score": "Pittsburgh 1 @ Boston 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=-cl_ifpCHps",
       "videoProvider": "youtube",
@@ -2152,7 +2152,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2187,7 +2187,7 @@
       "primaryAssist": "BC25",
       "secondaryAssist": "TK47",
       "score": "Boston 4 @ Calgary 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=d6ToAO43s8M",
       "videoProvider": "youtube",
@@ -2279,7 +2279,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2314,7 +2314,7 @@
       "primaryAssist": "DK46",
       "secondaryAssist": "",
       "score": "Boston 5 @ Washington 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=jSFIXs6EPoA",
       "videoProvider": "youtube",
@@ -2405,7 +2405,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2440,7 +2440,7 @@
       "primaryAssist": "CM73",
       "secondaryAssist": "DP88",
       "score": "Boston 2 @ Philadelphia 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=yKHGJHPBbck",
       "videoProvider": "youtube",
@@ -2532,7 +2532,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2567,7 +2567,7 @@
       "primaryAssist": "MG39",
       "secondaryAssist": "PZ18",
       "score": "Minnesota 3 @ Boston 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=GDVY7NHs-JU",
       "videoProvider": "youtube",
@@ -2659,7 +2659,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2694,7 +2694,7 @@
       "primaryAssist": "JD74",
       "secondaryAssist": "EH56",
       "score": "Boston 3 @ San Jose 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=ae6RLgWYLg4",
       "videoProvider": "youtube",
@@ -2786,7 +2786,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2821,7 +2821,7 @@
       "primaryAssist": "JD74",
       "secondaryAssist": "JS23",
       "score": "Boston 4 @ Winnipeg 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=o1D51MZYqCU",
       "videoProvider": "youtube",
@@ -2913,7 +2913,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -2948,7 +2948,7 @@
       "primaryAssist": "JD74",
       "secondaryAssist": "MG48",
       "score": "New Jersey 1 @ Boston 8",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=Tl6j6E1ZR54",
       "videoProvider": "youtube",
@@ -3040,7 +3040,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3075,7 +3075,7 @@
       "primaryAssist": "HL27",
       "secondaryAssist": "JD74",
       "score": "Boston 6 @ Pittsburgh 5 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=xIWnudn3x9g",
       "videoProvider": "youtube",
@@ -3167,7 +3167,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3202,7 +3202,7 @@
       "primaryAssist": "TF11",
       "secondaryAssist": "CC13",
       "score": "Boston 7 @ Anaheim 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=FFeOygYzZNg",
       "videoProvider": "youtube",
@@ -3294,7 +3294,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3329,7 +3329,7 @@
       "primaryAssist": "CC75",
       "secondaryAssist": "HL27",
       "score": "Boston 2 @ Tampa 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=mlVtuuh_dbY",
       "videoProvider": "youtube",
@@ -3421,7 +3421,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3456,7 +3456,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "",
       "score": "Boston 5 @ Nashville 0",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=rKIvQmzztnE",
       "videoProvider": "youtube",
@@ -3547,7 +3547,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3582,7 +3582,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "CM73",
       "score": "Boston 6 @ Seattle 5",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=Kb3uQ7K5f-8",
       "videoProvider": "youtube",
@@ -3674,7 +3674,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3709,7 +3709,7 @@
       "primaryAssist": "JD74",
       "secondaryAssist": "PB37",
       "score": "Boston 3 @ Vancouver 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=Lh8N5E-4-zI",
       "videoProvider": "youtube",
@@ -3801,7 +3801,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3836,7 +3836,7 @@
       "primaryAssist": "JB19",
       "secondaryAssist": "",
       "score": "Boston 3 @ San Jose 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/brad-marchand-with-a-goal-vs-san-jose-sharks-6339495006112",
       "videoProvider": "nhl",
@@ -3927,7 +3927,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -3962,7 +3962,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "DF28",
       "score": "Boston 4 @ Los Angeles 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-lak-marchand-scores-goal-against-kings-6339641419112",
       "videoProvider": "nhl",
@@ -4054,7 +4054,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4089,7 +4089,7 @@
       "primaryAssist": "CC13",
       "secondaryAssist": "",
       "score": "Boston 3 @ Anaheim 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-ana-marchand-scores-goal-against-ducks-6339687417112",
       "videoProvider": "nhl",
@@ -4180,7 +4180,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4215,7 +4215,7 @@
       "primaryAssist": "JvR21",
       "secondaryAssist": "DP88",
       "score": "Boston 3 @ Dallas 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/c-6340644033112",
       "videoProvider": "nhl",
@@ -4307,7 +4307,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4342,7 +4342,7 @@
       "primaryAssist": "JvR21",
       "secondaryAssist": "DB88",
       "score": "Boston 2 @ Montreal 3 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-mtl-marchand-scores-goal-against-canadiens-6340973100112",
       "videoProvider": "nhl",
@@ -4434,7 +4434,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4469,7 +4469,7 @@
       "primaryAssist": "PZ18",
       "secondaryAssist": "DP88",
       "score": "Boston 3 @ Colorado 4 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-col-marchand-scores-goal-against-alexandar-georgiev-6344517344112",
       "videoProvider": "nhl",
@@ -4561,7 +4561,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4596,7 +4596,7 @@
       "primaryAssist": "CC13",
       "secondaryAssist": "MG48",
       "score": "Boston 3 @ Colorado 4 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-col-marchand-scores-goal-against-alexandar-georgiev-6344519723112",
       "videoProvider": "nhl",
@@ -4688,7 +4688,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4723,7 +4723,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "JvR21",
       "score": "Boston 4 @ St. Louis 3 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/c-6344858410112",
       "videoProvider": "nhl",
@@ -4815,7 +4815,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4850,7 +4850,7 @@
       "primaryAssist": "TF11",
       "secondaryAssist": "HL27",
       "score": "Carolina 3 @ Boston 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/car-bos-marchand-scores-goal-against-spencer-martin-6345520064112",
       "videoProvider": "nhl",
@@ -4942,7 +4942,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -4977,7 +4977,7 @@
       "primaryAssist": "DH43",
       "secondaryAssist": "DP88",
       "score": "Boston 6 @ Edmonton 5 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/c-6347357564112",
       "videoProvider": "nhl",
@@ -5069,7 +5069,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5104,7 +5104,7 @@
       "primaryAssist": "CC13",
       "secondaryAssist": "",
       "score": "Boston 6 @ Pittsburgh 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-pit-marchand-scores-goal-against-tristan-jarry-6350896291112",
       "videoProvider": "nhl",
@@ -5195,7 +5195,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5230,7 +5230,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "EL28",
       "score": "Boston 2 @ Carolina 8",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-car-marchand-scores-ppg-against-pyotr-kochetkov-6364058822112",
       "videoProvider": "nhl",
@@ -5322,7 +5322,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5357,7 +5357,7 @@
       "primaryAssist": "AP52",
       "secondaryAssist": "DP88",
       "score": "Boston 2 @ Detroit 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/brad-marchand-with-a-goal-vs-detroit-red-wings-6365112024112",
       "videoProvider": "nhl",
@@ -5449,7 +5449,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5484,7 +5484,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "ML6",
       "score": "Boston 4 @ Chicago 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-chi-marchand-scores-goal-against-petr-mrazek-6365563138112",
       "videoProvider": "nhl",
@@ -5576,7 +5576,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5611,7 +5611,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "JO82",
       "score": "Boston 4 @ Chicago 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/bos-chi-marchand-scores-goal-against-petr-mrazek-6365563789112",
       "videoProvider": "nhl",
@@ -5703,7 +5703,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5738,7 +5738,7 @@
       "primaryAssist": "Unassisted",
       "secondaryAssist": "",
       "score": "Boston 1 @ Seattle 5",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/c-6365935071112",
       "videoProvider": "nhl",
@@ -5827,7 +5827,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -5862,7 +5862,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "",
       "score": "Tampa bay @ Boston 6",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/tbl-bos-marchand-scores-goal-against-andrei-vasilevskiy-6367102316112",
       "videoProvider": "nhl",
@@ -5953,7 +5953,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6242,7 +6242,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "MR28",
       "score": "Boston 3 @ Philadelphia 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=WcB4Tg-_m7M",
       "videoProvider": "youtube",
@@ -6334,7 +6334,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6369,7 +6369,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "DP88",
       "score": "Boston 2 @ Ottawa 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=8QkwIcXx8j0",
       "videoProvider": "youtube",
@@ -6461,7 +6461,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6496,7 +6496,7 @@
       "primaryAssist": "PB37",
       "secondaryAssist": "",
       "score": "Boston 4 @ Toronto 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=saXBXBKkSKw",
       "videoProvider": "youtube",
@@ -6587,7 +6587,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6622,7 +6622,7 @@
       "primaryAssist": "TK47",
       "secondaryAssist": "",
       "score": "Boston 4 @ Carolina 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=89je7QDZvoM",
       "videoProvider": "youtube",
@@ -6713,7 +6713,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6748,7 +6748,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "TK47",
       "score": "Boston 3 @ Tampa Bay 4 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=vh1jUfu_BPw",
       "videoProvider": "youtube",
@@ -6840,7 +6840,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -6875,7 +6875,7 @@
       "primaryAssist": "DB88",
       "secondaryAssist": "CM73",
       "score": "Washington 1 @ Boston 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=PdpnP_WBopg",
       "videoProvider": "youtube",
@@ -6967,7 +6967,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7002,7 +7002,7 @@
       "primaryAssist": "PZ18",
       "secondaryAssist": "TB59",
       "score": "Boston 6 @ Florida 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=wXoauiATL8k",
       "videoProvider": "youtube",
@@ -7094,7 +7094,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7253,7 +7253,7 @@
       "primaryAssist": "BP21",
       "secondaryAssist": "SJ24",
       "score": "Canada 4 @ Sweden 3 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/topic/4-nations-face-off/can-swe-marchand-scores-goal-against-filip-gustavsson-6368734035112",
       "videoProvider": "nhl",
@@ -7345,7 +7345,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7380,7 +7380,7 @@
       "primaryAssist": "",
       "secondaryAssist": "",
       "score": "Florida 4 @ Boston 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112",
       "videoProvider": "nhl",
@@ -7469,7 +7469,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7504,7 +7504,7 @@
       "primaryAssist": "JD74",
       "secondaryAssist": "CC13",
       "score": "Florida 2 @ Boston 3 - OT",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-bos-marchand-scores-goal-against-panthers-6340185387112",
       "videoProvider": "nhl",
@@ -7596,7 +7596,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7758,7 +7758,7 @@
       "primaryAssist": "AL15",
       "secondaryAssist": "",
       "score": "Florida 1 @ Detroit 4",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-det-marchand-scores-goal-against-cam-talbot-6382819193112",
       "videoProvider": "nhl",
@@ -7849,7 +7849,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -7884,7 +7884,7 @@
       "primaryAssist": "JP2",
       "secondaryAssist": "",
       "score": "Florida 3 @ Anaheim 7",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-ana-marchand-scores-goal-against-lukas-dostal-6384535250112",
       "videoProvider": "nhl",
@@ -7975,7 +7975,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8010,7 +8010,7 @@
       "primaryAssist": "NM77",
       "secondaryAssist": "",
       "score": "Florida 5 @ Los Angeles 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-lak-marchand-scores-goal-against-anton-forsberg-6384776227112",
       "videoProvider": "nhl",
@@ -8101,7 +8101,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8136,7 +8136,7 @@
       "primaryAssist": "Unassisted",
       "secondaryAssist": "",
       "score": "Vancouver 5 @ Florida 8",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/van-fla-marchand-scores-empty-net-goal-6385234161112",
       "videoProvider": "nhl",
@@ -8225,7 +8225,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8260,7 +8260,7 @@
       "primaryAssist": "CV23",
       "secondaryAssist": "AE5",
       "score": "Florida 2 @ Tampa 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-tbl-marchand-scores-goal-against-jonas-johansson-6386533077112",
       "videoProvider": "nhl",
@@ -8352,7 +8352,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8387,7 +8387,7 @@
       "primaryAssist": "EL27",
       "secondaryAssist": "",
       "score": "Florida 6 @ Toronto 1",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-tor-marchand-scores-empty-net-goal-6373038861112",
       "videoProvider": "nhl",
@@ -8478,7 +8478,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8513,7 +8513,7 @@
       "primaryAssist": "CV23",
       "secondaryAssist": "",
       "score": "Florida 4 @ Minnesota 3",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/fla-min-marchand-scores-goal-against-filip-gustavsson-6388268137112",
       "videoProvider": "nhl",
@@ -8604,7 +8604,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8639,7 +8639,7 @@
       "primaryAssist": "CM73",
       "secondaryAssist": "DB42",
       "score": "Boston 4 @ Columbus 7",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=RDGHuBmukU8",
       "videoProvider": "youtube",
@@ -8731,7 +8731,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8766,7 +8766,7 @@
       "primaryAssist": "ZC33",
       "secondaryAssist": "AM54",
       "score": "Boston @ Minnesota",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=Lrz7NP9ShfE",
       "videoProvider": "youtube",
@@ -8858,7 +8858,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -8893,7 +8893,7 @@
       "primaryAssist": "DP88",
       "secondaryAssist": "PB37",
       "score": "New York 3 @ Boston 2",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=ap85C5wuxWk",
       "videoProvider": "youtube",
@@ -8985,7 +8985,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -9020,7 +9020,7 @@
       "primaryAssist": "",
       "secondaryAssist": "",
       "score": "",
-      "puckType": "Goal Scored",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=CSU7hw3hpH0",
       "videoProvider": "youtube",
@@ -9072,7 +9072,7 @@
         },
         {
           "label": "Puck Type",
-          "value": "Goal Scored",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
@@ -11707,10 +11707,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Watch Tribute",
+      "videoUrl": "https://www.youtube.com/watch?v=SdPYYLtnm5E",
+      "videoProvider": "youtube",
+      "videoId": "SdPYYLtnm5E",
       "notes": "",
       "game": null,
       "wins": null,

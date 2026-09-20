@@ -10,6 +10,91 @@
     sortDirection: "desc",
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
+  const SWEDEN_CREST = "https://commons.wikimedia.org/wiki/Special:FilePath/Sweden%20national%20ice%20hockey%20team%20badge.svg";
+  const CATEGORY_LABELS = Object.freeze({
+    "4NF Goal": "4 Nations Faceoff",
+    Assist: "Assist",
+    Milestone: "Milestone",
+    "PO Goal": "Playoff Goal",
+    "Road to History": "Road to History",
+    "RS Goal": "Regular Season Goal",
+    "RS Point": "Regular Season Point",
+  });
+  const OPPONENT_CODES = Object.freeze({
+    "Anaheim Ducks": "ANA",
+    "Arizona Coyotes": "ARI",
+    "Boston Bruins": "BOS",
+    "Buffalo Sabres": "BUF",
+    "Calgary Flames": "CGY",
+    "Carolina Hurricanes": "CAR",
+    "Chicago Blackhawks": "CHI",
+    "Colorado Avalanche": "COL",
+    "Columbus Blue Jackets": "CBJ",
+    "Dallas Stars": "DAL",
+    "Detroit Red Wings": "DET",
+    "Edmonton Oilers": "EDM",
+    "Florida Panthers": "FLA",
+    "Los Angeles Kings": "LAK",
+    "Minnesota Wild": "MIN",
+    "Montreal Canadiens": "MTL",
+    "Nashville Predators": "NSH",
+    "New Jersey Devils": "NJD",
+    "New York Islanders": "NYI",
+    "New York Rangers": "NYR",
+    "Ottawa Senators": "OTT",
+    "Philadelphia Flyers": "PHI",
+    "Pittsburgh Penguins": "PIT",
+    "San Jose Sharks": "SJS",
+    "Seattle Kraken": "SEA",
+    "St. Louis Blues": "STL",
+    Sweden: "SWE",
+    "Tampa Bay Lightning": "TBL",
+    "Toronto Maple Leafs": "TOR",
+    "Utah Hockey Club": "UTA",
+    "Vancouver Canucks": "VAN",
+    "Vegas Golden Knights": "VGK",
+    "Washington Capitals": "WSH",
+    "Winnipeg Jets": "WPG",
+  });
+  const ARENA_LOCATIONS = Object.freeze({
+    "Amalie Arena": "Tampa, Florida",
+    "Amerant Bank Arena": "Sunrise, Florida",
+    "American Airlines Center": "Dallas, Texas",
+    "Ball Arena": "Denver, Colorado",
+    "Barclays Center": "Brooklyn, New York",
+    "Bell Centre": "Montréal, Quebec, Canada",
+    "Benchmark Int’l Arena": "Tampa, Florida",
+    "Bridgestone Arena": "Nashville, Tennessee",
+    "Canada Life Centre": "Winnipeg, Manitoba, Canada",
+    "Canadian Tire Centre": "Ottawa, Ontario, Canada",
+    "Capital One Arena": "Washington, District of Columbia",
+    "Climate Pledge Arena": "Seattle, Washington",
+    "Crypto.com Arena": "Los Angeles, California",
+    "Delta Center": "Salt Lake City, Utah",
+    "Enterprise Center": "St. Louis, Missouri",
+    "FLA Live Arena": "Sunrise, Florida",
+    "Gila River Arena": "Glendale, Arizona",
+    "Grand Casino Arena": "St. Paul, Minnesota",
+    "Honda Center": "Anaheim, California",
+    "KeyBank Center": "Buffalo, New York",
+    "Lenovo Center": "Raleigh, North Carolina",
+    "Little Caesars Arena": "Detroit, Michigan",
+    "Madison Square Garden": "New York, New York",
+    "Nationwide Arena": "Columbus, Ohio",
+    "PNC Arena": "Raleigh, North Carolina",
+    "PPG Paints Arena": "Pittsburgh, Pennsylvania",
+    "Prudential Center": "Newark, New Jersey",
+    "Rogers Arena": "Vancouver, British Columbia, Canada",
+    "Rogers Place": "Edmonton, Alberta, Canada",
+    "SAP Center": "San Jose, California",
+    "Scotiabank Arena": "Toronto, Ontario, Canada",
+    "Scotiabank Saddledome": "Calgary, Alberta, Canada",
+    "T-Mobile Arena": "Las Vegas, Nevada",
+    "TD Garden": "Boston, Massachusetts",
+    "UBS Arena": "Elmont, New York",
+    "United Center": "Chicago, Illinois",
+    "Wells Fargo Center": "Philadelphia, Pennsylvania",
+  });
 
   const elements = {
     body: document.body,
@@ -59,6 +144,8 @@
 
   const normalize = (value) => String(value ?? "").trim();
   const lower = (value) => normalize(value).toLocaleLowerCase();
+  const categoryLabel = (value) => CATEGORY_LABELS[value] || value || "Collection artifact";
+  const arenaLocation = (arena) => ARENA_LOCATIONS[arena] || "Location not recorded";
 
   function teamEra(team) {
     const value = lower(team);
@@ -99,7 +186,7 @@
     return /^\d{4}-\d{2}-\d{2}$/.test(value) ? Date.parse(`${value}T00:00:00Z`) : Number.NEGATIVE_INFINITY;
   }
 
-  function setOptions(select, records, key, placeholder) {
+  function setOptions(select, records, key, placeholder, displayValue = (value) => value) {
     const values = [...new Set(records.map((record) => normalize(record[key])).filter(Boolean))]
       .sort((left, right) => left.localeCompare(right, undefined, { sensitivity: "base" }));
     const fragment = document.createDocumentFragment();
@@ -110,7 +197,7 @@
     for (const value of values) {
       const option = document.createElement("option");
       option.value = value;
-      option.textContent = value;
+      option.textContent = displayValue(value);
       fragment.append(option);
     }
     select.replaceChildren(fragment);
@@ -176,7 +263,7 @@
 
   function searchableText(record) {
     const source = (record.sourceData || []).flatMap((field) => [field.label, field.value, field.url]);
-    return lower([JSON.stringify(record), ...source, ...decodedNames(record)].join(" "));
+    return lower([JSON.stringify(record), categoryLabel(record.category), arenaLocation(record.arena), ...source, ...decodedNames(record)].join(" "));
   }
 
   function filteredRecords() {
@@ -197,6 +284,10 @@
     return [...records].sort((left, right) => {
       let leftValue = left[state.sortKey];
       let rightValue = right[state.sortKey];
+      if (state.sortKey === "location") {
+        leftValue = arenaLocation(left.arena);
+        rightValue = arenaLocation(right.arena);
+      }
       if (state.sortKey === "date") {
         leftValue = dateValue(leftValue);
         rightValue = dateValue(rightValue);
@@ -217,11 +308,90 @@
     return td;
   }
 
+  function opponentLogo(record) {
+    const code = OPPONENT_CODES[record.opponent] || "NHL";
+    const logo = document.createElement("span");
+    logo.className = "marchand-opponent-logo";
+    const fallback = document.createElement("span");
+    fallback.textContent = code;
+    const image = document.createElement("img");
+    image.alt = "";
+    image.loading = "lazy";
+    image.addEventListener("load", () => { fallback.hidden = true; }, { once: true });
+    image.addEventListener("error", () => { image.remove(); }, { once: true });
+    image.src = code === "SWE" ? SWEDEN_CREST : `https://assets.nhle.com/logos/nhl/svg/${code}_light.svg`;
+    logo.append(image, fallback);
+    return logo;
+  }
+
+  function opponentCell(record) {
+    const td = document.createElement("td");
+    const opponent = document.createElement("span");
+    opponent.className = "marchand-opponent";
+    const name = document.createElement("strong");
+    name.textContent = record.opponent || "Not recorded";
+    opponent.append(opponentLogo(record), name);
+    td.append(opponent);
+    return td;
+  }
+
+  function tablePlayerCodes(record) {
+    const codes = [...(record.playerCodes || [])];
+    if (record.sourceSheet === "Goals & Games" && !codes.includes("BM63")) codes.unshift("BM63");
+    return [...new Set(codes)];
+  }
+
+  function playerChip(code) {
+    const player = state.players[code];
+    const chip = document.createElement("span");
+    chip.className = "marchand-player-chip";
+    chip.title = player?.name || code;
+    chip.setAttribute("aria-label", player ? `${code}, ${player.name}` : code);
+    const portrait = document.createElement("span");
+    portrait.className = "marchand-player-chip-portrait";
+    const fallback = document.createElement("span");
+    fallback.textContent = code.slice(0, 2).toUpperCase();
+    portrait.append(fallback);
+    if (player?.headshot) {
+      const image = document.createElement("img");
+      image.alt = "";
+      image.loading = "lazy";
+      image.addEventListener("load", () => { fallback.hidden = true; }, { once: true });
+      image.addEventListener("error", () => { image.remove(); }, { once: true });
+      image.src = player.headshot;
+      portrait.append(image);
+    }
+    const label = document.createElement("strong");
+    label.textContent = code;
+    chip.append(portrait, label);
+    return chip;
+  }
+
+  function playersCell(record) {
+    const td = document.createElement("td");
+    td.className = "marchand-players-cell";
+    const codes = tablePlayerCodes(record);
+    if (!codes.length) {
+      const teamArtifact = document.createElement("span");
+      teamArtifact.className = "marchand-team-artifact";
+      teamArtifact.textContent = "Team artifact";
+      td.append(teamArtifact);
+      return td;
+    }
+    const roster = document.createElement("span");
+    roster.className = "marchand-player-roster";
+    roster.append(...codes.map(playerChip));
+    td.append(roster);
+    return td;
+  }
+
   function renderRows(records) {
     const fragment = document.createDocumentFragment();
     for (const record of records) {
       const row = document.createElement("tr");
       row.dataset.team = teamEra(record.team);
+
+      row.append(cell(String(record.inventoryId), "marchand-id"));
 
       const deepDiveCell = document.createElement("td");
       deepDiveCell.className = "marchand-deep-dive-cell";
@@ -234,29 +404,11 @@
       deepDiveCell.append(deepDive);
       row.append(deepDiveCell);
 
-      row.append(cell(String(record.inventoryId), "marchand-id"));
       row.append(cell(displayDate(record.date), "marchand-date"));
-
-      const teamCell = document.createElement("td");
-      const teamPill = document.createElement("span");
-      teamPill.className = "marchand-team-pill";
-      teamPill.dataset.team = teamEra(record.team);
-      teamPill.textContent = record.team || "Unassigned";
-      teamCell.append(teamPill);
-      row.append(teamCell);
-
-      const artifactCell = document.createElement("td");
-      const title = document.createElement("span");
-      title.className = "marchand-artifact-title";
-      title.textContent = recordTitle(record);
-      const subtitle = document.createElement("span");
-      subtitle.className = "marchand-artifact-subtitle";
-      subtitle.textContent = recordSubtitle(record);
-      artifactCell.append(title, subtitle);
-      row.append(artifactCell);
-
-      row.append(cell(record.opponent, record.opponent ? "" : "marchand-muted"));
+      row.append(opponentCell(record));
       row.append(cell(record.arena, record.arena ? "" : "marchand-muted"));
+      row.append(cell(arenaLocation(record.arena), "marchand-location"));
+      row.append(playersCell(record));
 
       const puckCell = document.createElement("td");
       const puckPill = document.createElement("span");
@@ -424,7 +576,9 @@
       } else {
         value = document.createElement("strong");
         const player = state.players[field.value];
-        const shown = field.label === "Date" ? displayDate(field.value) : field.value;
+        const shown = field.label === "Date"
+          ? displayDate(field.value)
+          : (field.label === "Category" ? categoryLabel(field.value) : field.value);
         value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
       }
       item.append(label, value);
@@ -491,10 +645,11 @@
 
     addFact("Collection wing", record.sourceSheet);
     addFact("Team", record.team);
-    addFact("Category", record.category);
+    addFact("Category", categoryLabel(record.category));
     addFact("Puck type", record.puckType);
     addFact("Date", displayDate(record.date));
     addFact("Arena", record.arena);
+    addFact("City / region", arenaLocation(record.arena));
     addFact("Opponent", record.opponent);
     addFact("Home / road", record.homeRoad);
     addFact("Career stat", record.careerStat == null ? "" : `#${record.careerStat}`);
@@ -567,7 +722,7 @@
       state.players = decoder.players;
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
-      setOptions(elements.category, state.records, "category", "All categories");
+      setOptions(elements.category, state.records, "category", "All categories", categoryLabel);
       setOptions(elements.arena, state.records, "arena", "All arenas");
       setOptions(elements.puck, state.records, "puckType", "All puck types");
       updateHero(payload);

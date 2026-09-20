@@ -20,7 +20,7 @@ assert.equal(payload.meta.records, 114, "collection total must match the authori
 assert.equal(payload.meta.goalsAndGames, 71, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 35, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 8, "Road to History count drifted");
-assert.equal(payload.meta.videos, 99, "video count drifted");
+assert.equal(payload.meta.videos, 100, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
@@ -32,6 +32,8 @@ const scoringArtifacts = payload.records.filter((record) => {
 });
 assert.ok(scoringArtifacts.length > payload.meta.goalsAndGames, "scoring-event audit must include milestone and record-run pucks");
 assert.deepEqual(scoringArtifacts.filter((record) => !record.videoUrl), [], "every scoring-event puck needs a video");
+assert.deepEqual([...new Set(payload.records.map((record) => record.puckType))].sort(), ["Game Used Puck", "Goal Scored Puck", "Warm-Up Used Puck"], "puck types must use the normalized Goal Scored Puck label");
+assert.equal(payload.records.some((record) => record.sourceData?.some((field) => field.label === "Puck Type" && field.value === "Goal Scored")), false, "source records still contain the retired Goal Scored label");
 
 for (const record of payload.records) {
   assert.ok(record.key, "every record needs a key");
@@ -66,8 +68,10 @@ assert.deepEqual(missingCodes, [], "every player code used by the workbook must 
 
 const row58 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 58);
 const row60 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 60);
+const exhibit334 = payload.records.find((record) => record.inventoryId === 334);
 assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
+assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 
 for (const id of [
   "collection-search",
@@ -98,9 +102,9 @@ for (const id of [
 
 assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden page must stay out of search indexes");
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
-assert.match(html, /marchand\.css\?v=20260920-12/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-9/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-12/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260920-14/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260920-12/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260920-14/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -147,6 +151,19 @@ assert.match(script, /data\/marchand-pucks\.json/, "collection data source is mi
 assert.match(script, /data\/marchand-players\.json/, "player decoder source is missing");
 assert.match(script, /decodedNames\(record\)/, "decoded player names must participate in search");
 assert.match(script, /player\.headshot/, "assist headshots are not rendered");
+assert.match(script, /const CATEGORY_LABELS = Object\.freeze/, "expanded category names are missing");
+for (const label of ["4 Nations Faceoff", "Assist", "Milestone", "Playoff Goal", "Road to History", "Regular Season Goal", "Regular Season Point"]) {
+  assert.ok(script.includes(`"${label}"`) || script.includes(`${label}:`), `${label} category label is missing`);
+}
+for (const arena of new Set(payload.records.map((record) => record.arena))) {
+  assert.ok(script.includes(`"${arena}"`), `${arena} is missing a city/region mapping`);
+}
+assert.match(script, /assets\.nhle\.com\/logos\/nhl\/svg\/\$\{code\}_light\.svg/, "opponent NHL logos are not wired into the hall");
+assert.match(script, /marchand-player-chip/, "compact player headshot chips are not wired into the hall");
+assert.match(html, /data-sort="inventoryId">ID#/, "Artifact Hall must begin with ID#");
+assert.match(html, /data-sort="location">City \/ Region/, "Artifact Hall city/region column is missing");
+assert.match(html, /Players Involved/, "Artifact Hall players column is missing");
+assert.doesNotMatch(html.match(/<table class="marchand-table">[\s\S]*?<\/table>/)?.[0] || "", /data-sort="team"|data-sort="category">Artifact/, "retired Team or Artifact columns remain in the hall");
 assert.match(script, /renderPuckPhoto\(record\)/, "puck photo slot is not wired into artifact deep dives");
 assert.match(script, /record\.imageUrl/, "future puck image URLs are not supported");
 assert.match(script, /deepDive\.addEventListener\("click", \(\) => openArtifact\(record\)\)/, "puck-shaped Deep Dive control must open the existing artifact view");
