@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "55eb4d026a4e63cec215168937ae26d0250fabbe96cd927dadd8e2f99649712c",
+    "sourceSha256": "e47efb17c329af6f6bd31600bc060062dbd4db007471208bce10bbc489d60fdf",
     "records": 122,
     "goalsAndGames": 78,
     "milestones": 35,
@@ -12239,7 +12239,7 @@
       "sourceRow": 36,
       "inventoryId": 335,
       "homeRoad": "",
-      "team": "Boston Bruins",
+      "team": "Florida Panthers",
       "category": "Milestone",
       "careerStat": null,
       "seasonStat": null,
@@ -12274,7 +12274,7 @@
         },
         {
           "label": "Marchand Team",
-          "value": "Boston Bruins",
+          "value": "Florida Panthers",
           "url": ""
         },
         {

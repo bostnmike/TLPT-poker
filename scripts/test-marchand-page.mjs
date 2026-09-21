@@ -143,6 +143,11 @@ assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
+assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
+assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
+for (const [team, count] of [["Boston Bruins", 104], ["Florida Panthers", 17], ["Canada", 1]]) {
+  assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
+}
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
 assert.equal(exhibit1?.goalType, "ESG", "Career goal #127 was even strength, not a penalty shot");
 assert.equal(exhibit1?.sourceData.find((field) => field.label === "Goal Type")?.value, "ESG", "Exhibit 1 source Goal Type must be ESG");
@@ -203,7 +208,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20260921-5/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260921-7/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-8/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260921-5/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-4/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");

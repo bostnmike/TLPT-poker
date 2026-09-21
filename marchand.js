@@ -687,7 +687,8 @@
       const label = document.createElement("span");
       label.textContent = field.label;
       let value;
-      if (field.url) {
+      const playerField = /assist|goalie|player|scorer/i.test(field.label);
+      if (field.url && !playerField) {
         value = document.createElement("a");
         value.href = field.url === record.videoUrl ? sourceVideoUrl(record) : field.url;
         value.target = "_blank";
@@ -855,7 +856,7 @@
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
-      setOptions(elements.category, [...state.records, { category: "Perfection Line" }], "category", "All categories", (value) => value === "Perfection Line" ? "🤌🏻 Perfection Line" : categoryLabel(value));
+      setOptions(elements.category, [...state.records, { category: "Perfection Line" }], "category", "All categories", categoryLabel);
       setOptions(elements.arena, state.records, "arena", "All arenas");
       setOptions(elements.puck, state.records, "puckType", "All puck types");
       updateHero(payload);

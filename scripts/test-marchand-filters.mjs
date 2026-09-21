@@ -7,6 +7,8 @@ const read = (name) => fs.readFileSync(new URL(`../${name}`, import.meta.url), "
 const html = read("marchand.html");
 const payload = JSON.parse(read("data/marchand-pucks.json"));
 const decoder = JSON.parse(read("data/marchand-players.json"));
+// Imported profile hyperlinks must also remain plain text in source details.
+payload.records.find((r) => r.inventoryId === 1).sourceData.find((f) => f.label === "Primary Assist").url = "https://www.nhl.com/player/example-123";
 class Element {
   constructor(tag = "div") {
     this.tag = tag;
@@ -81,6 +83,13 @@ const pressStat = (filter) => statButtons.find((button) => button.dataset.collec
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
 assert.equal(statButtons.length, 5);
 assert.equal(rows().length, 122);
+change("team-filter", "Florida Panthers");
+assert.equal(rows().length, 17);
+assert.ok(shownIds().includes(335));
+change("team-filter", "Boston Bruins");
+assert.equal(rows().length, 104);
+assert.ok(!shownIds().includes(335));
+change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
 assert.equal(element("artifact-dialog-number").textContent, "Artifact No. 72");
 element("artifact-dialog-close").click();
@@ -99,7 +108,7 @@ element("collection-search").value = "";
 element("collection-search").dispatch("input");
 const lineOption = element("category-filter").children.filter((option) => option.value === "Perfection Line");
 assert.equal(lineOption.length, 1);
-assert.equal(lineOption[0].textContent, "🤌🏻 Perfection Line");
+assert.equal(lineOption[0].textContent, "Perfection Line");
 change("category-filter", "Perfection Line");
 assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
@@ -164,12 +173,18 @@ assert.deepEqual(errors, []);
 const emptyNet = rows().find((item) => Number(item.children[0].textContent) === 3);
 emptyNet.children[1].children[0].click();
 assert.ok(!element("artifact-personnel-grid").children.some((card) => card.dataset.role === "goalie"));
+function assertNoPlayerLinks(node) {
+  assert.notEqual(node.tag, "a", "no part of a player card may link away from the collection");
+  assert.equal(node.href, undefined);
+  assert.equal(node.events.has("click"), false, "player cards must not navigate via a click handler");
+  node.children.forEach(assertNoPlayerLinks);
+}
 for (const row of rows()) {
   const record = payload.records.find((r) => r.inventoryId === Number(row.children[0].textContent));
   row.children[1].children[0].click();
   for (const card of element("artifact-personnel-grid").children) {
     assert.equal(card.tag, "article", "player and goalie cards must not be outbound links");
-    assert.equal(card.href, undefined);
+    assertNoPlayerLinks(card);
   }
   if (record.videoUrl) {
     const sourceUrl = record.videoProvider === "nhl" ? `https://players.brightcove.net/6415718365001/default_default/index.html?videoId=${record.videoId}&autoplay=false&muted=false&applicationId=nhl` : record.videoUrl;
