@@ -79,7 +79,7 @@ const expectedRoadDetails = new Map([
   [505, [79, "62-12-5", 129]],
   [506, [80, "63-12-5", 131]],
   [507, [81, "64-12-5", 133]],
-  [508, [82, "64-12-5", 133]],
+  [508, [82, "65-12-5", 135]],
 ]);
 for (const record of roadToHistory) {
   const [game, seasonRecord, points] = expectedRoadDetails.get(record.inventoryId) || [];
@@ -91,9 +91,10 @@ for (const record of roadToHistory) {
 }
 assert.equal(roadToHistory.find((record) => record.inventoryId === 503)?.puckType, "Warm-Up Used Puck", "Game 77 warm-up puck is missing");
 assert.equal(roadToHistory.find((record) => record.inventoryId === 509)?.puckType, "Game Used Puck", "Game 77 game-used puck is missing");
+assert.equal(roadToHistory.find((record) => record.inventoryId === 501)?.score, "Columbus 1 @ Boston 2 - OT", "Game 75 score must include overtime");
 
-assert.equal(decoder.meta.profileCount, 53, "player profile count drifted");
-assert.equal(decoder.meta.codeCount, 55, "player code decoder count drifted");
+assert.equal(decoder.meta.profileCount, 54, "player profile count drifted");
+assert.equal(decoder.meta.codeCount, 56, "player code decoder count drifted");
 assert.ok(Object.values(decoder.players).every((player) => player.name && player.headshot && player.nhlProfileUrl), "every decoded player needs a name, official headshot, and profile");
 assert.deepEqual(decoder.players.BM63.headshotsByEra, {
   boston: "images/site/brad-marchand-headshot-boston.jpg",
@@ -110,12 +111,16 @@ const row58 = payload.records.find((record) => record.sourceSheet === "Goals & G
 const row60 = payload.records.find((record) => record.sourceSheet === "Goals & Games" && record.sourceRow === 60);
 const exhibit334 = payload.records.find((record) => record.inventoryId === 334);
 const exhibit335 = payload.records.find((record) => record.inventoryId === 335);
+const exhibit1 = payload.records.find((record) => record.inventoryId === 1);
 const exhibit42 = payload.records.find((record) => record.inventoryId === 42);
 const exhibit316 = payload.records.find((record) => record.inventoryId === 316);
 assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
+assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
+assert.equal(exhibit1?.goalType, "", "Career goal #127 was even strength, not a penalty shot");
+assert.equal(exhibit1?.sourceData.find((field) => field.label === "Goal Type")?.value, "", "Exhibit 1 source Goal Type must be blank");
 assert.equal(exhibit42?.goalType, "PPG", "Exhibit 42 must be identified as a power-play goal");
 assert.equal(exhibit316?.puckType, "Game Used Puck", "Exhibit 316 must remain a game-used milestone puck");
 assert.equal(exhibit316?.goalType, "", "Exhibit 316 must not inherit the goal-type detail from exhibit 42");

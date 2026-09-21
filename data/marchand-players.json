@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "Official NHL player search and player profiles",
-    "profileCount": 53,
-    "codeCount": 55
+    "profileCount": 54,
+    "codeCount": 56
   },
   "players": {
     "AB10": {
@@ -489,6 +489,19 @@
       "currentTeamAbbrev": "BOS",
       "currentSweaterNumber": 6,
       "nhlProfileUrl": "https://www.nhl.com/player/8482511",
+      "aliasOf": ""
+    },
+    "MR6": {
+      "code": "MR6",
+      "sourceNumber": 6,
+      "name": "Mike Reilly",
+      "playerId": 8476422,
+      "position": "D",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20212022/BOS/8476422.png",
+      "heroImage": "https://assets.nhle.com/mugs/actionshots/1296x729/8476422.jpg",
+      "currentTeamAbbrev": "CAR",
+      "currentSweaterNumber": null,
+      "nhlProfileUrl": "https://www.nhl.com/player/8476422",
       "aliasOf": ""
     },
     "MR28": {
