@@ -203,7 +203,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20260921-5/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260921-6/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-7/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260921-5/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-4/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");

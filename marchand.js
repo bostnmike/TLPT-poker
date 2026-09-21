@@ -530,6 +530,12 @@
     return "";
   }
 
+  function sourceVideoUrl(record) {
+    // NHL's numeric/legacy landing pages can be blank or 404 while the video
+    // remains available. Open the official NHL-hosted player for source playback.
+    return record.videoProvider === "nhl" ? embedUrl(record) : record.videoUrl;
+  }
+
   function createCrest(era, className = "") {
     const crest = document.createElement("span");
     crest.className = `marchand-crest marchand-crest-${era} ${className}`.trim();
@@ -581,14 +587,9 @@
     const name = record.goalieScoredAgainst;
     if (!name || name === "Empty net (no goaltender)") return null;
     const player = state.goalies[name];
-    const card = document.createElement(player ? "a" : "article");
+    const card = document.createElement("article");
     card.className = "marchand-person-card";
     card.dataset.role = "goalie";
-    if (player) {
-      card.href = `https://www.nhl.com/player/${player.id}`;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-    }
     const portrait = document.createElement("span");
     portrait.className = "marchand-person-portrait";
     const initials = () => { portrait.textContent = name.split(/[ -]/).map((part) => part[0]).slice(0, 2).join(""); };
@@ -616,15 +617,10 @@
   function createPersonnelCard(code, role, record) {
     const player = state.players[code];
     const headshot = playerHeadshot(player, code, record);
-    const card = document.createElement(player?.nhlProfileUrl ? "a" : "article");
+    const card = document.createElement("article");
     card.className = "marchand-person-card";
     card.dataset.player = code;
     card.dataset.era = teamEra(record?.team);
-    if (player?.nhlProfileUrl) {
-      card.href = player.nhlProfileUrl;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-    }
     const portrait = document.createElement("span");
     portrait.className = "marchand-person-portrait";
     if (headshot) {
@@ -693,7 +689,7 @@
       let value;
       if (field.url) {
         value = document.createElement("a");
-        value.href = field.url;
+        value.href = field.url === record.videoUrl ? sourceVideoUrl(record) : field.url;
         value.target = "_blank";
         value.rel = "noopener noreferrer";
         value.textContent = `${field.value || "Open video"} ↗`;
@@ -754,7 +750,9 @@
     elements.watchDialogSubtitle.textContent = [displayDate(record.date), record.team, record.opponent, record.arena].filter(Boolean).join(" · ");
     elements.watchFrame.src = playerUrl;
     elements.watchFrame.title = `${recordTitle(record)} video`;
-    elements.watchSource.href = record.videoUrl;
+    elements.watchSource.href = sourceVideoUrl(record);
+    elements.watchSource.target = "_blank";
+    elements.watchSource.rel = "noopener noreferrer";
     if (typeof elements.watchDialog.showModal === "function") elements.watchDialog.showModal();
     else elements.watchDialog.setAttribute("open", "");
   }
@@ -804,7 +802,9 @@
     elements.mediaGrid.classList.toggle("has-no-video", !playerUrl);
     if (playerUrl) {
       elements.videoFrame.src = playerUrl;
-      elements.videoSource.href = record.videoUrl;
+      elements.videoSource.href = sourceVideoUrl(record);
+      elements.videoSource.target = "_blank";
+      elements.videoSource.rel = "noopener noreferrer";
       elements.videoFrame.title = `${recordTitle(record)} video`;
     } else {
       elements.videoFrame.removeAttribute("src");

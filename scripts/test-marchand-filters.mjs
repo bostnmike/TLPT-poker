@@ -164,4 +164,30 @@ assert.deepEqual(errors, []);
 const emptyNet = rows().find((item) => Number(item.children[0].textContent) === 3);
 emptyNet.children[1].children[0].click();
 assert.ok(!element("artifact-personnel-grid").children.some((card) => card.dataset.role === "goalie"));
+for (const row of rows()) {
+  const record = payload.records.find((r) => r.inventoryId === Number(row.children[0].textContent));
+  row.children[1].children[0].click();
+  for (const card of element("artifact-personnel-grid").children) {
+    assert.equal(card.tag, "article", "player and goalie cards must not be outbound links");
+    assert.equal(card.href, undefined);
+  }
+  if (record.videoUrl) {
+    const sourceUrl = record.videoProvider === "nhl" ? `https://players.brightcove.net/6415718365001/default_default/index.html?videoId=${record.videoId}&autoplay=false&muted=false&applicationId=nhl` : record.videoUrl;
+    assert.equal(element("artifact-video-source").href, sourceUrl);
+    assert.equal(element("artifact-video-source").target, "_blank");
+    assert.equal(element("artifact-video-source").rel, "noopener noreferrer");
+    for (const field of element("artifact-source-grid").children) {
+      if (field.children[1].tag === "a") {
+        assert.equal(field.children[1].target, "_blank");
+        assert.equal(field.children[1].href, sourceUrl);
+      }
+    }
+    row.children[8].children[0].click();
+    assert.equal(element("artifact-video-only-source").href, sourceUrl);
+    assert.equal(element("artifact-video-only-source").target, "_blank");
+    assert.equal(element("artifact-video-only-source").rel, "noopener noreferrer");
+    element("artifact-video-dialog-close").click();
+  }
+  element("artifact-dialog-close").click();
+}
 console.log("PASS: Five stat filters, filter resets, complete Road to History chronology, puck symbols, accessible labels and deep-dive text.");
