@@ -178,9 +178,9 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260920-28/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260920-21/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260920-28/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260921-1/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-1/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260921-1/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -328,3 +328,4 @@ assert.match(script, /addFact\("Season record", record\.seasonRecord\)/, "Road t
 assert.match(script, /addFact\("Season points", record\.points\)/, "Road to History deep dives must feature season points");
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
+await import("./test-marchand-filters.mjs");

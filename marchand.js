@@ -113,6 +113,8 @@
     resultCount: document.getElementById("result-count"),
     themeKicker: document.getElementById("marchand-theme-kicker"),
     vaultLink: document.getElementById("vault-insights-link"),
+    historyStory: document.getElementById("road-to-history-story"),
+    archiveTitle: document.getElementById("archive-title"),
     dialog: document.getElementById("artifact-dialog"),
     dialogClose: document.getElementById("artifact-dialog-close"),
     dialogCrest: document.getElementById("artifact-dialog-crest"),
@@ -146,6 +148,21 @@
   const lower = (value) => normalize(value).toLocaleLowerCase();
   const categoryLabel = (value) => CATEGORY_LABELS[value] || value || "Collection artifact";
   const arenaLocation = (arena) => ARENA_LOCATIONS[arena] || "Location not recorded";
+
+  function puckPresentation(record) {
+    const type = record.puckType || "Not recorded";
+    if (["Assist", "RS Point"].includes(record.category)) {
+      return { emoji: "🍎", label: `Assist / non-goal point · ${type}` };
+    }
+    if (type === "Goal Scored Puck") return { emoji: "🍪", label: type };
+    if (["Game Used Puck", "Warm-Up Used Puck"].includes(type)) return { emoji: "🏒", label: type };
+    return { emoji: "", label: type };
+  }
+
+  function puckLabel(record) {
+    const { emoji, label } = puckPresentation(record);
+    return `${emoji} ${label}`.trim();
+  }
 
   function teamEra(team) {
     const value = lower(team);
@@ -421,9 +438,14 @@
       row.append(playersCell(record));
 
       const puckCell = document.createElement("td");
+      puckCell.className = "marchand-puck-cell";
       const puckPill = document.createElement("span");
-      puckPill.className = "marchand-puck-pill";
-      puckPill.textContent = record.puckType || "Not recorded";
+      const presentation = puckPresentation(record);
+      puckPill.className = "marchand-puck-symbol";
+      puckPill.textContent = presentation.emoji || "—";
+      puckPill.setAttribute("role", "img");
+      puckPill.setAttribute("aria-label", presentation.label);
+      puckPill.title = presentation.label;
       puckCell.append(puckPill);
       row.append(puckCell);
 
@@ -465,9 +487,11 @@
     elements.empty.hidden = count !== 0;
     renderRows(state.filtered);
     updateSortLabels();
+    elements.historyStory.hidden = elements.sheet.value !== "Road to History" && elements.category.value !== "Road to History";
+    updateStatFilters();
   }
 
-  function clearFilters() {
+  function resetFilterValues() {
     elements.search.value = "";
     elements.team.value = "";
     elements.sheet.value = "";
@@ -476,7 +500,36 @@
     elements.puck.value = "";
     elements.video.checked = false;
     setEra("all", false);
+  }
+
+  function clearFilters() {
+    resetFilterValues();
     render();
+  }
+
+  function updateStatFilters() {
+    const hasOtherFilters = Boolean(elements.search.value || elements.team.value || elements.category.value || elements.arena.value || elements.puck.value);
+    for (const button of document.querySelectorAll("[data-collection-filter]")) {
+      const filter = button.dataset.collectionFilter;
+      const active = filter === "all"
+        ? !hasOtherFilters && !elements.sheet.value && !elements.video.checked
+        : filter === "video" ? elements.video.checked : elements.sheet.value === filter;
+      button.setAttribute("aria-pressed", String(active));
+    }
+  }
+
+  function selectStatFilter(filter) {
+    resetFilterValues();
+    if (filter === "video") elements.video.checked = true;
+    else if (filter !== "all") elements.sheet.value = filter;
+    if (filter === "Road to History") {
+      setEra("boston");
+      state.sortKey = "date";
+      state.sortDirection = "asc";
+    }
+    render();
+    elements.archiveTitle.focus({ preventScroll: true });
+    elements.archiveTitle.scrollIntoView({ block: "start", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }
 
   function embedUrl(record) {
@@ -574,8 +627,9 @@
 
   function renderPersonnel(record) {
     const personnel = [];
+    const nonGoalPoint = ["Assist", "RS Point"].includes(record.category);
     if (record.sourceSheet === "Goals & Games") {
-      personnel.push(["BM63", record.category === "Assist" ? "Collection subject" : "Goal scorer"]);
+      personnel.push(["BM63", nonGoalPoint ? "Collection subject" : "Goal scorer"]);
     }
     if (record.primaryAssist) personnel.push([record.primaryAssist, "Primary assist"]);
     if (record.secondaryAssist) personnel.push([record.secondaryAssist, "Secondary assist"]);
@@ -589,7 +643,7 @@
       return true;
     });
     elements.personnel.hidden = unique.length === 0;
-    elements.personnelTitle.textContent = record.sourceSheet === "Goals & Games" && record.category !== "Assist"
+    elements.personnelTitle.textContent = record.sourceSheet === "Goals & Games" && !nonGoalPoint
       ? "Goal & assist gallery"
       : "Players in this record";
     elements.personnelGrid.replaceChildren(...unique.map(([code, role]) => createPersonnelCard(code, role, record)));
@@ -616,7 +670,9 @@
         const shown = field.label === "Date"
           ? displayDate(field.value)
           : (field.label === "Category" ? categoryLabel(field.value) : field.value);
-        value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
+        if (field.label === "Puck Type") value.textContent = puckLabel(record);
+        else if (field.label === "Category" && ["Assist", "RS Point"].includes(record.category)) value.textContent = `🍎 ${shown}`;
+        else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
       }
       item.append(label, value);
       fragment.append(item);
@@ -682,8 +738,8 @@
 
     addFact("Collection wing", record.sourceSheet);
     addFact("Team", record.team);
-    addFact("Category", categoryLabel(record.category));
-    addFact("Puck type", record.puckType);
+    addFact("Category", `${["Assist", "RS Point"].includes(record.category) ? "🍎 " : ""}${categoryLabel(record.category)}`);
+    addFact("Puck type", puckLabel(record));
     addFact("Date", displayDate(record.date));
     addFact("Arena", record.arena);
     addFact("City / region", arenaLocation(record.arena));
@@ -783,6 +839,10 @@
   elements.search.addEventListener("input", render);
   elements.clear.addEventListener("click", clearFilters);
   document.querySelector("[data-empty-reset]").addEventListener("click", clearFilters);
+
+  for (const button of document.querySelectorAll("[data-collection-filter]")) {
+    button.addEventListener("click", () => selectStatFilter(button.dataset.collectionFilter));
+  }
 
   for (const button of document.querySelectorAll("[data-era-button]")) {
     button.addEventListener("click", () => {

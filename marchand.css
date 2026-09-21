@@ -350,6 +350,11 @@
 }
 
 .marchand-stat-card{
+  appearance:none;
+  width:100%;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
   position:relative;
   min-height:142px;
   overflow:hidden;
@@ -396,6 +401,50 @@
 
 .marchand-stat-card-featured strong{color:var(--museum-accent)}
 .marchand-stat-card small{font-size:.61rem;letter-spacing:.09em}
+
+.marchand-stat-card:hover,
+.marchand-stat-card[aria-pressed="true"]{border-color:var(--museum-accent);box-shadow:inset 0 -3px 0 var(--museum-accent),0 14px 30px rgba(0,0,0,.25)}
+.marchand-stat-card:hover small,
+.marchand-stat-card[aria-pressed="true"] small{color:var(--museum-accent)}
+.marchand-stat-card:focus-visible{outline:3px solid #fff;outline-offset:4px}
+#archive-title{scroll-margin-top:24px}
+#archive-title:focus-visible{outline:2px solid var(--museum-accent);outline-offset:5px}
+
+.marchand-history-story{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  margin:0 26px 20px;
+  padding:25px 28px;
+  border:1px solid var(--museum-border);
+  border-left:4px solid var(--museum-accent);
+  background:linear-gradient(120deg,rgba(var(--museum-accent-rgb),.08),rgba(0,0,0,.24));
+}
+.marchand-history-story[hidden]{display:none}
+.marchand-history-story h4{margin:8px 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;color:#fff}
+.marchand-history-story p{max-width:82ch;margin:10px 0;color:#dce2e7;line-height:1.65;font-size:.92rem}
+.marchand-history-sources{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:16px;color:#b4bdc6;font-size:.72rem}
+.marchand-history-sources a{color:var(--museum-accent);text-underline-offset:3px}
+.marchand-history-record{display:flex;flex-direction:column;justify-content:center;gap:12px;padding-left:28px;border-left:1px solid var(--museum-border);text-align:center}
+.marchand-history-record > span{color:#b4bdc6;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.marchand-history-record > strong{color:#fff;font-family:Impact,"Arial Black",sans-serif;font-size:2.7rem;font-weight:400;white-space:nowrap}
+.marchand-history-record .marchand-history-points{color:var(--museum-accent);font-family:Impact,"Arial Black",sans-serif;font-size:3.5rem;letter-spacing:0;line-height:1}
+.marchand-history-points small{display:block;margin-top:8px;font-family:Arial,sans-serif;font-size:.65rem;letter-spacing:.12em}
+.marchand-puck-key{display:flex;align-items:center;flex-wrap:wrap;gap:10px 24px;padding:13px 26px;border-top:1px solid var(--museum-border);border-bottom:1px solid var(--museum-border);color:#dce2e7;font-size:.76rem}
+.marchand-puck-key > strong{color:var(--museum-accent);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
+.marchand-puck-key > span{display:inline-flex;align-items:center;gap:9px}
+.marchand-key-emoji{font-size:1.65rem;line-height:1.2}
+.marchand-table .marchand-puck-cell,
+.marchand-table .marchand-puck-heading{width:70px;min-width:70px;text-align:center;white-space:nowrap}
+.marchand-table .marchand-puck-cell{padding:10px 8px}
+.marchand-puck-heading > span{justify-content:center}
+.marchand-puck-symbol{display:inline-block;font-size:2.3rem;line-height:1.2;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3));vertical-align:middle}
+
+@media (max-width:780px){
+  .marchand-history-story{grid-template-columns:1fr;margin:0 16px 16px;padding:20px;gap:16px}
+  .marchand-history-record{border-left:0;border-top:1px solid var(--museum-border);padding:18px 0 0}
+  .marchand-puck-key{padding:12px 16px;gap:10px 16px}
+}
 
 .marchand-archive{
   padding:0;
@@ -642,7 +691,7 @@
 
 .marchand-table{
   width:100%;
-  min-width:1320px;
+  min-width:1200px;
   border-collapse:collapse;
   color:#dce2e7;
   font-size:.82rem;
@@ -1916,7 +1965,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   .marchand-exhibit-nav > *{min-height:62px;padding:13px 17px}
   .marchand-exhibit-nav > * + *{border-top:1px solid rgba(255,255,255,.10);border-left:0}
   .marchand-exhibit-nav a{justify-content:flex-start}
-  .marchand-table{min-width:1320px}
+  .marchand-table{min-width:1200px}
   .marchand-watch-dialog-frame{padding:24px 17px}
   .marchand-vault-page-header{padding:30px 22px 24px}
   .marchand-vault-toolbar{display:grid}
