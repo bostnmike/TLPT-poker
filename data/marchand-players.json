@@ -1,10 +1,21 @@
 {
   "meta": {
     "source": "Official NHL player search and player profiles",
-    "profileCount": 55,
-    "codeCount": 57
+    "profileCount": 56,
+    "codeCount": 58
   },
   "players": {
+    "CK45": {
+      "code": "CK45",
+      "sourceNumber": 45,
+      "name": "Cole Koepke",
+      "playerId": 8481043,
+      "position": "L",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20242025/BOS/8481043.png",
+      "heroImage": "https://assets.nhle.com/mugs/actionshots/1296x729/8481043.jpg",
+      "nhlProfileUrl": "https://www.nhl.com/player/8481043",
+      "aliasOf": ""
+    },
     "AB10": {
       "code": "AB10",
       "sourceNumber": 10,

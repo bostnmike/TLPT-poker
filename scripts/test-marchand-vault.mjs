@@ -40,7 +40,7 @@ const body = new Element("body");
 const errors = [];
 const element = (id) => { assert.ok(ids.has(id), `missing ${id}`); return ids.get(id); };
 element("vault-sort").value = "count";
-vm.runInNewContext(read("marchand-vault.js"), {
+vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand-vault.js"), {
   document: {
     body, getElementById: element,
     createElement: (tag) => new Element(tag),
@@ -103,7 +103,7 @@ assert.deepEqual(latest, [...latest].sort((a, b) => b - a));
 view("years");
 assert.deepEqual(summaryRows().map(label), [...new Set(payload.records.map((record) => record.date.slice(0, 4)))].sort());
 view("goals");
-assert.ok(summaryRows().some((row) => label(row) === "Even Strength"));
+assert.ok(summaryRows().some((row) => label(row) === "⚖️ Even-Strength Goal"));
 assert.ok(!element("vault-breakdown-body").textContent.includes("unmarked"));
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 75);
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 76, "both assist records must be excluded from goal types");

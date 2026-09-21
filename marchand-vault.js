@@ -2,6 +2,7 @@
   "use strict";
 
   const state = { records: [], goalies: {}, team: "", view: "goalies", selected: "" };
+  const { goalType: goalTypeLabel, recordTitle } = window.MarchandLabels;
   const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
@@ -30,7 +31,7 @@
     goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Every recorded opposing goalie. Assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; both pucks remain listed." },
     arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
     years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
-    goals: { title: "Every goal type", singular: "Goal type", plural: "goal types", key: (record) => record.goalType === "ESG" ? "Even Strength" : record.goalType || "Not recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including empty-net goals. ESG = even strength; PPG = power play; SHG = shorthanded; GWG = game winner; OT = overtime; PS = penalty shot; ENG = empty net. Combined labels retain the full goal description." },
+    goals: { title: "Every Goal Type", singular: "Goal Type", plural: "goal types", key: (record) => goalTypeLabel(record.goalType, false) || "Not Recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including Empty-Net Goals. Open the Goal Type Key for symbols and codes. Combined labels retain every applicable goal type." },
     sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => record.sourceSheet, metric: "Games represented", note: "Explore Goals & Games, Career Milestones and the complete Road to History collection. Every matching puck is included." },
   };
 
@@ -93,9 +94,7 @@
   }
 
   function artifactLabel(record) {
-    if (record.description) return record.description;
-    const labels = { "RS Goal": "Regular-season goal", "PO Goal": "Playoff goal", "4NF Goal": "4 Nations goal", Assist: "Assist", "RS Point": "Regular-season point" };
-    return `${labels[record.category] || record.category}${record.careerStat ? ` #${record.careerStat}` : ""}`;
+    return recordTitle(record);
   }
 
   function goaliePortrait(name) {
@@ -133,7 +132,7 @@
       card.append(link, node("p", `${dateLabel(record.date)} · ${record.opponent} · ${record.arena}`));
       const point = ["Assist", "RS Point"].includes(record.category);
       const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
-      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, record.goalType === "ESG" ? "Even Strength (ESG)" : record.goalType, record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
+      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, goalTypeLabel(record.goalType), record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
       const detailLink = node("a", "Open full deep dive ↗", "marchand-explorer-detail-hint");
       detailLink.href = link.href;
       card.append(detailLink);
@@ -218,6 +217,7 @@
       // A portrait request failure must not prevent browsing the collection.
       state.goalies = await fetch("../data/marchand-goalies.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
+      window.MarchandLabels.renderKey(byId("goal-type-key-items"));
       updateTeamCounts();
       setEra(new URLSearchParams(window.location.search).get("team"));
       render();

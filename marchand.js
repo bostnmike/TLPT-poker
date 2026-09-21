@@ -12,15 +12,7 @@
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
   const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";
-  const CATEGORY_LABELS = Object.freeze({
-    "4NF Goal": "4 Nations Faceoff",
-    Assist: "Assist",
-    Milestone: "Milestone",
-    "PO Goal": "Playoff Goal",
-    "Road to History": "Road to History",
-    "RS Goal": "Regular Season Goal",
-    "RS Point": "Regular Season Point",
-  });
+  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle } = window.MarchandLabels;
   const OPPONENT_CODES = Object.freeze({
     "Anaheim Ducks": "ANA",
     "Arizona Coyotes": "ARI",
@@ -147,7 +139,6 @@
 
   const normalize = (value) => String(value ?? "").trim();
   const lower = (value) => normalize(value).toLocaleLowerCase();
-  const categoryLabel = (value) => CATEGORY_LABELS[value] || value || "Collection artifact";
   const arenaLocation = (arena) => ARENA_LOCATIONS[arena] || "Location not recorded";
 
   function puckPresentation(record) {
@@ -173,18 +164,10 @@
     return "all";
   }
 
-  function recordTitle(record) {
-    if (record.description) return record.description;
-    if (record.category.includes("Goal") && record.careerStat) return `Career goal #${record.careerStat}`;
-    if (record.category === "Assist" && record.careerStat) return `Career assist #${record.careerStat}`;
-    if (record.category === "RS Point" && record.careerStat) return `Career point #${record.careerStat}`;
-    return record.category || "Collection artifact";
-  }
-
   function recordSubtitle(record) {
     const details = [record.sourceSheet];
     if (record.seasonStat) details.push(`Season #${record.seasonStat}`);
-    if (record.goalType) details.push(record.goalType);
+    if (record.goalType) details.push(goalTypeLabel(record.goalType));
     if (record.homeRoad) details.push(record.homeRoad);
     return details.join(" · ");
   }
@@ -586,33 +569,40 @@
     elements.dialogFacts.append(fact);
   }
 
-  function addGoalieFact(record) {
+  function createGoalieCard(record) {
     const name = record.goalieScoredAgainst;
-    if (!name) return;
+    if (!name || name === "Empty net (no goaltender)") return null;
     const player = state.goalies[name];
-    if (!player) { addFact("Goalie scored against", name); return; }
-    const fact = document.createElement("div");
-    fact.className = "marchand-fact";
-    const label = document.createElement("span");
-    label.textContent = "Goalie scored against";
-    const value = document.createElement("div");
-    value.className = "marchand-goalie-identity";
+    const card = document.createElement(player ? "a" : "article");
+    card.className = "marchand-person-card";
+    card.dataset.role = "goalie";
+    if (player) {
+      card.href = `https://www.nhl.com/player/${player.id}`;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+    }
     const portrait = document.createElement("span");
-    portrait.className = "marchand-goalie-portrait";
-    portrait.setAttribute("aria-hidden", "true");
-    const img = document.createElement("img");
-    img.src = player.headshot;
-    img.alt = "";
-    img.width = 56;
-    img.height = 56;
-    img.loading = "lazy";
-    img.addEventListener("error", () => { portrait.textContent = name.split(/[ -]/).map((part) => part[0]).slice(0, 2).join(""); }, { once: true });
-    portrait.append(img);
+    portrait.className = "marchand-person-portrait";
+    const initials = () => { portrait.textContent = name.split(/[ -]/).map((part) => part[0]).slice(0, 2).join(""); };
+    if (player?.headshot) {
+      const img = document.createElement("img");
+      img.src = player.headshot;
+      img.alt = `${name} Headshot`;
+      img.loading = "lazy";
+      img.addEventListener("error", initials, { once: true });
+      portrait.append(img);
+    } else initials();
+    const copy = document.createElement("span");
+    copy.className = "marchand-person-copy";
+    const label = document.createElement("small");
+    label.textContent = "Goalie Scored Against";
     const title = document.createElement("strong");
     title.textContent = name;
-    value.append(portrait, title);
-    fact.append(label, value);
-    elements.dialogFacts.append(fact);
+    const detail = document.createElement("span");
+    detail.textContent = `${record.opponent} · G`;
+    copy.append(label, title, detail);
+    card.append(portrait, copy);
+    return card;
   }
 
   function createPersonnelCard(code, role, record) {
@@ -659,24 +649,29 @@
     const personnel = [];
     const nonGoalPoint = ["Assist", "RS Point"].includes(record.category);
     if (record.sourceSheet === "Goals & Games") {
-      personnel.push(["BM63", nonGoalPoint ? "Collection subject" : "Goal scorer"]);
+      const scorer = nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63";
+      if (scorer) personnel.push([scorer, "Goal Scorer"]);
+      else personnel.push(["BM63", "Collection Subject"]);
     }
-    if (record.primaryAssist) personnel.push([record.primaryAssist, "Primary assist"]);
-    if (record.secondaryAssist) personnel.push([record.secondaryAssist, "Secondary assist"]);
+    if (record.primaryAssist) personnel.push([record.primaryAssist, "Primary Assist"]);
+    if (record.secondaryAssist) personnel.push([record.secondaryAssist, "Secondary Assist"]);
     if (!personnel.length) {
       for (const code of record.playerCodes || []) personnel.push([code, code === "BM63" ? "Collection subject" : "Player in this record"]);
     }
     const seen = new Set();
     const unique = personnel.filter(([code]) => {
-      if (seen.has(code)) return false;
+      if (code === "Unassisted" || seen.has(code)) return false;
       seen.add(code);
       return true;
     });
-    elements.personnel.hidden = unique.length === 0;
-    elements.personnelTitle.textContent = record.sourceSheet === "Goals & Games" && !nonGoalPoint
-      ? "Goal & assist gallery"
-      : "Players in this record";
-    elements.personnelGrid.replaceChildren(...unique.map(([code, role]) => createPersonnelCard(code, role, record)));
+    const cards = unique.map(([code, role]) => createPersonnelCard(code, role, record));
+    if (record.sourceSheet === "Goals & Games") {
+      const goalie = createGoalieCard(record);
+      if (goalie) cards.push(goalie);
+    }
+    elements.personnel.hidden = cards.length === 0;
+    elements.personnelTitle.textContent = "Players Involved";
+    elements.personnelGrid.replaceChildren(...cards);
   }
 
   function renderSourceRecord(record) {
@@ -701,6 +696,7 @@
           ? displayDate(field.value)
           : (field.label === "Category" ? categoryLabel(field.value) : field.value);
         if (field.label === "Puck Type") value.textContent = puckLabel(record);
+        else if (field.label === "Goal Type") value.textContent = goalTypeLabel(field.value) || "—";
         else if (field.label === "Category" && ["Assist", "RS Point"].includes(record.category)) value.textContent = `🍎 ${shown}`;
         else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
       }
@@ -782,8 +778,8 @@
     addFact("Season points", record.points);
     addFact("Period", record.period);
     addFact("Time", record.time);
-    addFact("Goal type", record.goalType === "ESG" ? "Even Strength (ESG)" : record.goalType);
-    addGoalieFact(record);
+    addFact("Goal Type", goalTypeLabel(record.goalType));
+    addFact("Goalie Scored Against", record.goalieScoredAgainst);
     addFact("Final score", record.score);
 
     renderPersonnel(record);
@@ -847,6 +843,7 @@
       state.players = decoder.players;
       state.goalies = await fetch("data/marchand-goalies.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
+      window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
       setOptions(elements.category, state.records, "category", "All categories", categoryLabel);

@@ -427,7 +427,12 @@
 #vault-history-story{margin:20px 0;scroll-margin-top:90px}
 .marchand-goalie-portrait{width:56px;height:56px;flex:0 0 56px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--museum-border);border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#f3efe5,#bfc7ca);color:#152331;font:700 .85rem Arial,sans-serif}
 .marchand-goalie-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.marchand-goalie-identity{display:flex;align-items:center;gap:12px;margin-top:7px}
+.marchand-goal-type-key{padding:12px 26px;border-bottom:1px solid var(--museum-border);color:#dce2e7;font-size:.8rem}
+.marchand-goal-type-key summary{cursor:pointer;color:var(--museum-accent);font-weight:800}
+.marchand-goal-type-key summary:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.marchand-goal-type-key > div{display:flex;flex-wrap:wrap;gap:12px 24px;padding:16px 0 4px}
+.marchand-goal-type-key > div span{font-size:.88rem;line-height:1.6}
+.marchand-goal-type-key p{font-size:.72rem;color:#b4bdc6;line-height:1.5}
 .marchand-group-button{display:inline-flex;align-items:center;gap:12px}
 @media (min-width:781px) and (max-width:1050px){.marchand-history-story{grid-template-columns:minmax(0,1fr) 110px;gap:20px}.marchand-history-crest img{width:110px;height:110px}.marchand-history-record{grid-column:1 / -1;border-left:0;border-top:1px solid var(--museum-border);padding:18px 0 0}}
 .marchand-history-story h4{margin:8px 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;color:#fff}

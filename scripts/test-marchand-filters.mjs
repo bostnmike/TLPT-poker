@@ -49,7 +49,7 @@ const eraButtons = [...html.matchAll(/<button[^>]*data-era-button="([^"]+)"[^>]*
 const reset = new Element("button");
 const body = new Element("body");
 const errors = [];
-vm.runInNewContext(read("marchand.js"), {
+vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
   document: {
     body,
     getElementById: (id) => { assert.ok(ids.has(id), `missing element ${id}`); return ids.get(id); },
@@ -65,12 +65,15 @@ vm.runInNewContext(read("marchand.js"), {
 });
 await new Promise((resolve) => setImmediate(resolve));
 assert.deepEqual(errors, []);
-const goalieFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goalie scored against");
+const goalieFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goalie Scored Against");
 assert.ok(goalieFact, "linked deep dive must show its goalie");
-assert.equal(goalieFact.children[1].children[1].textContent, "Steve Mason");
-assert.ok(goalieFact.children[1].children[0].children[0].src.endsWith("8473461.png"));
-const strengthFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goal type");
-assert.equal(strengthFact.children[1].textContent, "Even Strength (ESG)");
+assert.equal(goalieFact.children[1].textContent, "Steve Mason");
+assert.equal(goalieFact.children[1].children.length, 0, "goalie fact must be text-only");
+const goalieCard = ids.get("artifact-personnel-grid").children.at(-1);
+assert.equal(goalieCard.dataset.role, "goalie");
+assert.ok(goalieCard.children[0].children[0].src.endsWith("8473461.png"));
+const strengthFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goal Type");
+assert.equal(strengthFact.children[1].textContent, "⚖️ Even-Strength Goal (ESG)");
 const element = (id) => ids.get(id);
 const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));
@@ -121,9 +124,19 @@ for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎",
   assert.equal(cellValue("artifact-source-grid", "Puck Type"), `${emoji} ${label}`);
   if ([57, 59].includes(id)) {
     assert.ok(cellValue("artifact-dialog-facts", "Category").startsWith("🍎 "));
-    assert.ok(!element("artifact-personnel-grid").children[0].textContent.includes("Goal scorer"));
+    const cards = element("artifact-personnel-grid").children;
+    assert.equal(cards[0].dataset.player, id === 57 ? "CK45" : "EL27");
+    assert.ok(cards[0].textContent.includes("Goal Scorer"));
+    assert.equal(cards[1].dataset.player, "BM63");
+    assert.ok(cards[1].textContent.includes("Primary Assist"));
+    assert.equal(cards.at(-1).dataset.role, "goalie");
+    assert.ok(cards.at(-1).textContent.includes(id === 57 ? "Connor Ingram" : "Jeremy Swayman"));
   }
+  if (id === 316 || id === 503) assert.ok(!element("artifact-personnel-grid").children.some((card) => card.dataset.role === "goalie"));
   element("artifact-dialog-close").click();
 }
 assert.deepEqual(errors, []);
+const emptyNet = rows().find((item) => Number(item.children[0].textContent) === 3);
+emptyNet.children[1].children[0].click();
+assert.ok(!element("artifact-personnel-grid").children.some((card) => card.dataset.role === "goalie"));
 console.log("PASS: Five stat filters, filter resets, complete Road to History chronology, puck symbols, accessible labels and deep-dive text.");

@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="../style.css?v=20260917-9">
-  <link rel="stylesheet" href="../marchand.css?v=20260921-3">
+  <link rel="stylesheet" href="../marchand.css?v=20260921-4">
   <link rel="stylesheet" href="../site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -70,7 +70,7 @@
       <button type="button" data-vault-view="goalies" aria-pressed="true" aria-controls="vault-breakdown"><span aria-hidden="true">🥅</span> Goalies</button>
       <button type="button" data-vault-view="arenas" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🏟️</span> Arenas</button>
       <button type="button" data-vault-view="years" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">📅</span> Years</button>
-      <button type="button" data-vault-view="goals" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🍪</span> Goal types</button>
+      <button type="button" data-vault-view="goals" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🍪</span> Goal Types</button>
       <button type="button" data-vault-view="sheets" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🏒</span> Collection wings</button>
     </div>
     <section id="vault-breakdown" class="marchand-breakdown" aria-labelledby="vault-breakdown-title">
@@ -81,6 +81,7 @@
           <label for="vault-sort">Sort by<select id="vault-sort"><option value="count">Most represented</option><option value="name">Name / year</option><option value="recent">Most recent</option></select></label>
         </div>
       </div>
+      <details class="marchand-goal-type-key"><summary>Goal Type Key</summary><div id="goal-type-key-items"></div><p>🏒 means Penalty-Shot Goal here; in the separate puck key it represents a game-used or warm-up artifact.</p></details>
       <p id="vault-breakdown-summary" class="marchand-breakdown-summary" role="status" aria-live="polite"></p>
       <section id="vault-history-story" class="marchand-history-story" aria-labelledby="vault-history-title" hidden>
         <div>
@@ -119,6 +120,7 @@
 </footer>
 
 <script src="../site-shell.js?v=20260824-2"></script>
-<script src="../marchand-vault.js?v=20260921-2"></script>
+<script src="../marchand-labels.js?v=20260921-1"></script>
+<script src="../marchand-vault.js?v=20260921-3"></script>
 </body>
 </html>
