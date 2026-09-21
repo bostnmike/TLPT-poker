@@ -97,6 +97,19 @@ for (const row of rows()) {
 }
 element("collection-search").value = "";
 element("collection-search").dispatch("input");
+const lineOption = element("category-filter").children.filter((option) => option.value === "Perfection Line");
+assert.equal(lineOption.length, 1);
+assert.equal(lineOption[0].textContent, "🤌🏻 Perfection Line");
+change("category-filter", "Perfection Line");
+assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
+change("team-filter", "Florida Panthers");
+assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
+element("clear-filters").click();
+assert.equal(rows().length, 122);
+assert.equal(element("category-filter").value, "");
+change("category-filter", "PO Goal");
+assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
+change("category-filter", "");
 
 for (const [filter, expected] of [["Goals & Games", 78], ["Milestones", 35], ["Road to History", 9], ["video", 107], ["all", 122]]) {
   change("team-filter", "Florida Panthers");
@@ -125,7 +138,7 @@ assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
 const cellValue = (parentId, label) => element(parentId).children.find((child) => child.children[0].textContent === label)?.children[1].textContent;
-for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎", "Assist / non-goal point · Game Used Puck"], [59, "🍎", "Assist / non-goal point · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Used Puck"]]) {
+for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎", "Assist · Game Used Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Used Puck"]]) {
   const row = rows().find((item) => Number(item.children[0].textContent) === id);
   const symbol = row.children[7].children[0];
   assert.equal(symbol.textContent, emoji);

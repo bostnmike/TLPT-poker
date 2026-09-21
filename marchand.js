@@ -144,7 +144,7 @@
   function puckPresentation(record) {
     const type = record.puckType || "Not recorded";
     if (["Assist", "RS Point"].includes(record.category)) {
-      return { emoji: "🍎", label: `Assist / non-goal point · ${type}` };
+      return { emoji: "🍎", label: `Assist · ${type}` };
     }
     if (type === "Goal Scored Puck") return { emoji: "🍪", label: type };
     if (["Game Used Puck", "Warm-Up Used Puck"].includes(type)) return { emoji: "🏒", label: type };
@@ -272,7 +272,9 @@
     return state.records.filter((record) => {
       if (elements.team.value && record.team !== elements.team.value) return false;
       if (elements.sheet.value && record.sourceSheet !== elements.sheet.value) return false;
-      if (elements.category.value && record.category !== elements.category.value) return false;
+      if (elements.category.value === "Perfection Line") {
+        if (!perfectionLine(record)) return false;
+      } else if (elements.category.value && record.category !== elements.category.value) return false;
       if (elements.arena.value && record.arena !== elements.arena.value) return false;
       if (elements.puck.value && record.puckType !== elements.puck.value) return false;
       if (elements.video.checked && !record.videoUrl) return false;
@@ -853,7 +855,7 @@
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
-      setOptions(elements.category, state.records, "category", "All categories", categoryLabel);
+      setOptions(elements.category, [...state.records, { category: "Perfection Line" }], "category", "All categories", (value) => value === "Perfection Line" ? "🤌🏻 Perfection Line" : categoryLabel(value));
       setOptions(elements.arena, state.records, "arena", "All arenas");
       setOptions(elements.puck, state.records, "puckType", "All puck types");
       updateHero(payload);
