@@ -178,10 +178,10 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260921-1/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260921-1/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260921-1/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260920-2/, "vault script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260921-2/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-2/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260921-2/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-1/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");
@@ -191,7 +191,7 @@ assert.doesNotMatch(html.match(/<nav class="nav">[\s\S]*?<\/nav>/)?.[0] || "", /
 assert.doesNotMatch(html, /id="insights-title"/, "Inside the Vault analytics must not delay the collection registry");
 assert.match(html, /href="marchand-vault\/"/, "collection page must link to the dedicated Inside the Vault exhibit");
 assert.match(vaultHtml, /href="\.\.\/marchand\.html"/, "Inside the Vault exhibit must link back to the collection");
-for (const id of ["vault-insights", "vault-result-count", "insight-sheets", "insight-goals", "insight-timeline", "insight-arenas", "insight-goalies"]) {
+for (const id of ["vault-insights", "vault-result-count", "vault-breakdown", "vault-breakdown-body", "vault-search", "vault-sort"]) {
   assert.match(vaultHtml, new RegExp(`id=["']${id}["']`), `vault exhibit is missing #${id}`);
 }
 assert.equal((vaultHtml.match(/class="marchand-vault-collage-panel /g) || []).length, 3, "Inside the Vault must feature all three Marchand uniform portraits");
@@ -279,12 +279,11 @@ assert.match(script, /watch\.addEventListener\("click", \(\) => openVideo\(recor
 assert.match(script, /watch\.disabled = !record\.videoUrl/, "records without film must disable the Watch control");
 assert.match(script, /aria-hidden="true">🎥<\/span>/, "Watch controls must use the video camera icon");
 assert.doesNotMatch(script, /Watch video and explore/, "Watch and Deep Dive actions must remain separate");
-assert.match(vaultScript, /row\.setAttribute\("aria-pressed"/, "vault bars must expose their active filter state");
-assert.match(vaultScript, /item\.setAttribute\("aria-pressed"/, "vault timeline years must expose their active filter state");
+assert.match(vaultScript, /button\.setAttribute\("aria-expanded"/, "vault groups must expose whether their puck details are expanded");
 assert.match(vaultScript, /const records = filteredRecords\(\)/, "vault statistics must recalculate from the active exhibit lens");
 assert.match(vaultScript, /function isMarchandGoal\(record\)/, "goalie rankings must distinguish Marchand goals from assists");
 assert.match(vaultScript, /record\.goalieScoredAgainst !== "Empty net \(no goaltender\)"/, "goalie rankings must exclude empty-net goals");
-assert.match(vaultScript, /records\.filter\(isMarchandGoal\)[\s\S]*\.slice\(0, 5\)/, "the goalie graph must display only the top five goalies");
+assert.doesNotMatch(vaultScript, /\.slice\(0,\s*(?:5|8)\)/, "complete database breakdowns must not truncate results");
 assert.match(script, /payload\.records\.filter\(\(record\) => record\.videoUrl\)\.length/, "film archive total must be calculated from records");
 assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
@@ -316,12 +315,6 @@ assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalt
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
 assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 78, "every goal/assist artifact needs a researched goalie result");
 assert.equal(payload.records.filter((record) => record.goalieScoredAgainst === "Empty net (no goaltender)").length, 7, "empty-net goalie accounting drifted");
-const goalieCounts = new Map();
-for (const record of payload.records.filter((item) => item.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(item.category) && item.goalieScoredAgainst !== "Empty net (no goaltender)")) {
-  goalieCounts.set(record.goalieScoredAgainst, (goalieCounts.get(record.goalieScoredAgainst) || 0) + 1);
-}
-const topGoalies = [...goalieCounts].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])).slice(0, 5);
-assert.deepEqual(topGoalies, [["Cam Talbot", 5], ["Andrei Vasilevskiy", 3], ["Petr Mrazek", 3], ["Sergei Bobrovsky", 3], ["Alexandar Georgiev", 2]], "top-five goalie leaderboard drifted from the canonical goal records");
 assert.match(script, /addFact\("Goalie scored against", record\.goalieScoredAgainst\)/, "deep dives must feature the researched goalie");
 assert.match(script, /addFact\("Game number", record\.game\)/, "Road to History deep dives must feature the game number");
 assert.match(script, /addFact\("Season record", record\.seasonRecord\)/, "Road to History deep dives must feature the complete season record");
@@ -329,3 +322,4 @@ assert.match(script, /addFact\("Season points", record\.points\)/, "Road to Hist
 
 console.log(`PASS: Marchand museum and Inside the Vault exhibit — ${payload.meta.records} artifacts, ${payload.meta.videos} videos, ${decoder.meta.codeCount} player codes, three team themes.`);
 await import("./test-marchand-filters.mjs");
+await import("./test-marchand-vault.mjs");

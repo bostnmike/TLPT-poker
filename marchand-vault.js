@@ -1,198 +1,189 @@
 (() => {
   "use strict";
 
-  const state = {
-    records: [],
-    team: "",
-    sheet: "",
-    goalType: "",
-    goalie: "",
-    year: "",
-    arena: "",
-  };
-
+  const state = { records: [], team: "", view: "goalies", selected: "" };
+  const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
-    status: document.getElementById("vault-state"),
-    insights: document.getElementById("vault-insights"),
-    resultCount: document.getElementById("vault-result-count"),
-    reset: document.getElementById("vault-reset"),
-    back: document.getElementById("vault-back-link"),
-    sheets: document.getElementById("insight-sheets"),
-    goals: document.getElementById("insight-goals"),
-    goalies: document.getElementById("insight-goalies"),
-    timeline: document.getElementById("insight-timeline"),
-    arenas: document.getElementById("insight-arenas"),
+    status: byId("vault-state"),
+    insights: byId("vault-insights"),
+    resultCount: byId("vault-result-count"),
+    reset: byId("vault-reset"),
+    search: byId("vault-search"),
+    sort: byId("vault-sort"),
+    title: byId("vault-breakdown-title"),
+    note: byId("vault-breakdown-note"),
+    summary: byId("vault-breakdown-summary"),
+    groupHeading: byId("vault-group-heading"),
+    countHeading: byId("vault-count-heading"),
+    caption: byId("vault-table-caption"),
+    rows: byId("vault-breakdown-body"),
+    empty: byId("vault-no-results"),
+  };
+  const normalize = (value) => String(value ?? "").trim();
+  const isGoal = (record) => record.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category);
+  function isMarchandGoal(record) {
+    return isGoal(record) && record.goalieScoredAgainst && record.goalieScoredAgainst !== "Empty net (no goaltender)";
+  }
+  const views = {
+    goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Every recorded opposing goalie. Assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; both pucks remain listed." },
+    arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
+    years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
+    goals: { title: "Every goal type", singular: "Goal type", plural: "goal types", key: (record) => record.goalType || "Even strength / unmarked", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including empty-net goals. PPG = power play; SHG = shorthanded; GWG = game winner; OT = overtime; PS = penalty shot; ENG = empty net. Combined labels retain the full goal description." },
+    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => record.sourceSheet, metric: "Games represented", note: "Explore Goals & Games, Career Milestones and the complete Road to History collection. Every matching puck is included." },
   };
 
-  const normalize = (value) => String(value ?? "").trim();
-
   function teamEra(team) {
-    const value = normalize(team).toLocaleLowerCase();
+    const value = normalize(team).toLowerCase();
     if (value.includes("boston")) return "boston";
     if (value.includes("florida")) return "florida";
     if (value.includes("canada")) return "canada";
     return "all";
   }
 
-  function countBy(records, valueFor) {
-    const counts = new Map();
-    for (const record of records) {
-      const value = valueFor(record);
-      if (!value) continue;
-      counts.set(value, (counts.get(value) || 0) + 1);
-    }
-    return [...counts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]));
-  }
-
-  function isMarchandGoal(record) {
-    return record.sourceSheet === "Goals & Games"
-      && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category)
-      && record.goalieScoredAgainst
-      && record.goalieScoredAgainst !== "Empty net (no goaltender)";
-  }
-
   function setEra(era) {
-    const normalizedEra = ["boston", "florida", "canada"].includes(era) ? era : "all";
-    const teamByEra = { all: "", boston: "Boston Bruins", florida: "Florida Panthers", canada: "Canada" };
-    state.team = teamByEra[normalizedEra];
-    elements.body.dataset.era = normalizedEra;
-    elements.back.href = normalizedEra === "all" ? "../marchand.html" : `../marchand.html?team=${normalizedEra}`;
+    const selected = ["boston", "florida", "canada"].includes(era) ? era : "all";
+    state.team = { all: "", boston: "Boston Bruins", florida: "Florida Panthers", canada: "Canada" }[selected];
+    elements.body.dataset.era = selected;
+    for (const link of document.querySelectorAll("[data-vault-back]")) {
+      link.href = selected === "all" ? "../marchand.html" : `../marchand.html?team=${selected}`;
+    }
     for (const button of document.querySelectorAll("[data-vault-era-button]")) {
-      const active = button.dataset.vaultEraButton === normalizedEra;
+      const active = button.dataset.vaultEraButton === selected;
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
     }
   }
 
   function filteredRecords() {
-    return state.records.filter((record) => {
-      if (state.team && record.team !== state.team) return false;
-      if (state.sheet && record.sourceSheet !== state.sheet) return false;
-      if (state.goalType && (record.sourceSheet !== "Goals & Games" || (record.goalType || "Even strength / unmarked") !== state.goalType)) return false;
-      if (state.goalie && (!isMarchandGoal(record) || record.goalieScoredAgainst !== state.goalie)) return false;
-      if (state.year && (!/^\d{4}-/.test(record.date) || record.date.slice(0, 4) !== state.year)) return false;
-      if (state.arena && record.arena !== state.arena) return false;
-      return true;
+    return state.records.filter((record) => !state.team || record.team === state.team);
+  }
+
+  function eventKey(record, goals) {
+    const game = `${record.team}|${record.date}|${record.opponent}`;
+    return goals ? `${game}|${record.period}|${record.time}|${record.careerStat}` : game;
+  }
+
+  function groupsFor(records, view) {
+    const groups = new Map();
+    for (const record of records) {
+      if (view.include && !view.include(record)) continue;
+      const label = view.key(record);
+      if (!groups.has(label)) groups.set(label, { label, records: [], events: new Set() });
+      const group = groups.get(label);
+      group.records.push(record);
+      group.events.add(eventKey(record, view.goals));
+    }
+    return [...groups.values()].map((group) => {
+      group.records.sort((a, b) => a.date.localeCompare(b.date) || a.inventoryId - b.inventoryId);
+      return { ...group, count: group.events.size, first: group.records[0].date, latest: group.records[group.records.length - 1].date };
     });
   }
 
-  function renderBars(container, entries, selectedValue, onSelect) {
-    const maximum = Math.max(...entries.map((entry) => entry[1]), 1);
-    const fragment = document.createDocumentFragment();
-    for (const [label, count] of entries) {
-      const row = document.createElement("button");
-      row.type = "button";
-      row.className = "marchand-bar-row";
-      const active = label === selectedValue;
-      row.setAttribute("aria-pressed", String(active));
-      row.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${label}: ${count} artifacts`);
-      row.addEventListener("click", () => onSelect(active ? "" : label));
-      const heading = document.createElement("span");
-      heading.className = "marchand-bar-row-heading";
-      const name = document.createElement("span");
-      name.textContent = label;
-      const value = document.createElement("strong");
-      value.textContent = count;
-      heading.append(name, value);
-      const track = document.createElement("i");
-      const fill = document.createElement("b");
-      fill.style.width = `${Math.max((count / maximum) * 100, 4)}%`;
-      track.append(fill);
-      row.append(heading, track);
-      fragment.append(row);
+  function dateLabel(value) {
+    return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
+  }
+
+  function node(tag, text, className = "") {
+    const result = document.createElement(tag);
+    if (text != null) result.textContent = text;
+    if (className) result.className = className;
+    return result;
+  }
+
+  function artifactLabel(record) {
+    if (record.description) return record.description;
+    const labels = { "RS Goal": "Regular-season goal", "PO Goal": "Playoff goal", "4NF Goal": "4 Nations goal", Assist: "Assist", "RS Point": "Regular-season point" };
+    return `${labels[record.category] || record.category}${record.careerStat ? ` #${record.careerStat}` : ""}`;
+  }
+
+  function detailsRow(group, index) {
+    const row = node("tr", null, "marchand-breakdown-detail-row");
+    const cell = node("td");
+    cell.colSpan = 5;
+    const panel = node("section", null, "marchand-breakdown-details");
+    panel.id = `vault-group-${index}`;
+    panel.setAttribute("aria-label", `${group.label}: all matching pucks`);
+    panel.append(node("h4", `${group.label} · ${group.records.length} puck${group.records.length === 1 ? "" : "s"}`));
+    const list = node("div", null, "marchand-explorer-pucks");
+    for (const record of group.records) {
+      const card = node("article", null, "marchand-explorer-puck");
+      const link = node("a", `#${record.inventoryId} · ${artifactLabel(record)}`);
+      const params = new URLSearchParams({ team: teamEra(record.team), artifact: record.key });
+      link.href = `../marchand.html?${params}`;
+      link.setAttribute("aria-label", `Open deep dive for artifact ${record.inventoryId}: ${artifactLabel(record)}`);
+      card.append(link, node("p", `${dateLabel(record.date)} · ${record.opponent} · ${record.arena}`));
+      const point = ["Assist", "RS Point"].includes(record.category);
+      const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
+      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, record.goalType, record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
+      const detailLink = node("a", "Open full deep dive ↗", "marchand-explorer-detail-hint");
+      detailLink.href = link.href;
+      card.append(detailLink);
+      list.append(card);
     }
-    container.replaceChildren(fragment);
+    panel.append(list);
+    cell.append(panel);
+    row.append(cell);
+    return row;
   }
 
   function render() {
     const records = filteredRecords();
+    const view = views[state.view];
+    const groups = groupsFor(records, view);
+    const query = normalize(elements.search.value).toLocaleLowerCase();
+    const shown = groups.filter((group) => group.label.toLocaleLowerCase().includes(query));
+    shown.sort((a, b) => {
+      if (elements.sort.value === "name") return a.label.localeCompare(b.label, undefined, { numeric: true });
+      if (elements.sort.value === "recent") return b.latest.localeCompare(a.latest) || a.label.localeCompare(b.label);
+      return b.count - a.count || b.records.length - a.records.length || a.label.localeCompare(b.label);
+    });
+    if (!shown.some((group) => group.label === state.selected)) state.selected = "";
     elements.resultCount.textContent = records.length;
-
-    renderBars(elements.sheets, countBy(records, (record) => record.sourceSheet), state.sheet, (value) => {
-      state.sheet = value;
-      render();
-    });
-    renderBars(elements.goals, countBy(
-      records.filter((record) => record.sourceSheet === "Goals & Games"),
-      (record) => record.goalType || "Even strength / unmarked",
-    ), state.goalType, (value) => {
-      state.goalType = value;
-      render();
-    });
-    renderBars(elements.goalies, countBy(
-      records.filter(isMarchandGoal),
-      (record) => record.goalieScoredAgainst,
-    ).slice(0, 5), state.goalie, (value) => {
-      state.goalie = value;
-      render();
-    });
-
-    const years = countBy(records, (record) => /^\d{4}-/.test(record.date) ? record.date.slice(0, 4) : "")
-      .sort((left, right) => Number(left[0]) - Number(right[0]));
-    const maximum = Math.max(...years.map((entry) => entry[1]), 1);
-    const timeline = document.createDocumentFragment();
-    for (const [year, count] of years) {
-      const item = document.createElement("button");
-      item.type = "button";
-      item.className = "marchand-year";
-      const active = year === state.year;
-      item.setAttribute("aria-pressed", String(active));
-      item.setAttribute("aria-label", `${active ? "Remove" : "Filter by"} ${year}: ${count} artifacts`);
-      item.addEventListener("click", () => {
-        state.year = active ? "" : year;
-        render();
-      });
-      const countLabel = document.createElement("strong");
-      countLabel.textContent = count;
-      const bar = document.createElement("i");
-      bar.style.height = `${Math.max((count / maximum) * 100, 8)}%`;
-      const yearLabel = document.createElement("span");
-      yearLabel.textContent = year;
-      item.append(countLabel, bar, yearLabel);
-      timeline.append(item);
+    elements.title.textContent = view.title;
+    elements.note.textContent = view.note;
+    elements.groupHeading.textContent = view.singular;
+    elements.countHeading.textContent = view.metric;
+    elements.caption.textContent = `${view.title} — complete collection breakdown`;
+    elements.search.placeholder = `Search ${view.plural}…`;
+    elements.summary.textContent = `Showing ${shown.length} of ${groups.length} ${view.plural} · ${shown.reduce((sum, group) => sum + group.records.length, 0)} puck records`;
+    elements.empty.hidden = shown.length > 0;
+    for (const button of document.querySelectorAll("[data-vault-view]")) {
+      button.setAttribute("aria-pressed", String(button.dataset.vaultView === state.view));
     }
-    elements.timeline.replaceChildren(timeline);
-
-    renderBars(elements.arenas, countBy(records, (record) => record.arena).slice(0, 8), state.arena, (value) => {
-      state.arena = value;
-      render();
+    const fragment = document.createDocumentFragment();
+    shown.forEach((group, index) => {
+      const row = node("tr");
+      const nameCell = node("th");
+      nameCell.scope = "row";
+      const button = node("button", `${state.selected === group.label ? "−" : "+"} ${group.label}`, "marchand-group-button");
+      button.type = "button";
+      button.setAttribute("aria-expanded", String(state.selected === group.label));
+      button.setAttribute("aria-controls", `vault-group-${index}`);
+      button.addEventListener("click", () => {
+        state.selected = state.selected === group.label ? "" : group.label;
+        render();
+        elements.rows.querySelectorAll(".marchand-group-button")[index]?.focus({ preventScroll: true });
+      });
+      nameCell.append(button);
+      row.append(nameCell, node("td", group.count, "marchand-breakdown-number"), node("td", group.records.length), node("td", dateLabel(group.first)), node("td", dateLabel(group.latest)));
+      fragment.append(row);
+      const detail = detailsRow(group, index);
+      detail.hidden = state.selected !== group.label;
+      fragment.append(detail);
     });
+    elements.rows.replaceChildren(fragment);
+  }
+
+  function resetSelection() {
+    state.selected = "";
+    elements.search.value = "";
   }
 
   function updateTeamCounts() {
-    const counts = {
-      all: state.records.length,
-      boston: state.records.filter((record) => teamEra(record.team) === "boston").length,
-      florida: state.records.filter((record) => teamEra(record.team) === "florida").length,
-      canada: state.records.filter((record) => teamEra(record.team) === "canada").length,
-    };
-    for (const [era, count] of Object.entries(counts)) {
-      document.getElementById(`vault-count-${era}`).textContent = count;
+    for (const era of ["all", "boston", "florida", "canada"]) {
+      byId(`vault-count-${era}`).textContent = state.records.filter((record) => era === "all" || teamEra(record.team) === era).length;
     }
-  }
-
-  function resetExhibit() {
-    state.sheet = "";
-    state.goalType = "";
-    state.goalie = "";
-    state.year = "";
-    state.arena = "";
-    setEra("all");
-    render();
-  }
-
-  function showError() {
-    elements.insights.hidden = true;
-    elements.status.className = "marchand-loading marchand-error marchand-vault-loading";
-    elements.status.replaceChildren();
-    const message = document.createElement("p");
-    message.textContent = "The collection intelligence could not be loaded.";
-    const link = document.createElement("a");
-    link.className = "marchand-vault-back";
-    link.href = "../marchand.html";
-    link.textContent = "Return to the collection";
-    elements.status.append(message, link);
   }
 
   async function loadVault() {
@@ -203,29 +194,40 @@
       if (!payload?.meta || !Array.isArray(payload.records) || payload.records.length !== payload.meta.records) throw new Error("Collection payload is invalid");
       state.records = payload.records;
       updateTeamCounts();
-      const requestedEra = new URLSearchParams(window.location.search).get("team");
-      setEra(requestedEra);
+      setEra(new URLSearchParams(window.location.search).get("team"));
       render();
       elements.status.hidden = true;
       elements.insights.hidden = false;
     } catch (error) {
       console.error("Could not load vault intelligence:", error);
-      showError();
+      elements.insights.hidden = true;
+      elements.status.className = "marchand-loading marchand-error marchand-vault-loading";
+      const retry = node("button", "Try again", "marchand-vault-reset");
+      retry.type = "button";
+      retry.addEventListener("click", loadVault);
+      elements.status.replaceChildren(node("p", "The collection database could not be loaded."), retry);
     }
   }
 
-  for (const button of document.querySelectorAll("[data-vault-era-button]")) {
+  for (const button of document.querySelectorAll("[data-vault-view]")) {
     button.addEventListener("click", () => {
-      state.sheet = "";
-      state.goalType = "";
-      state.goalie = "";
-      state.year = "";
-      state.arena = "";
-      setEra(button.dataset.vaultEraButton);
+      state.view = button.dataset.vaultView;
+      resetSelection();
+      elements.sort.value = state.view === "years" ? "name" : "count";
       render();
     });
   }
-  elements.reset.addEventListener("click", resetExhibit);
-
+  for (const button of document.querySelectorAll("[data-vault-era-button]")) {
+    button.addEventListener("click", () => { resetSelection(); setEra(button.dataset.vaultEraButton); render(); });
+  }
+  elements.search.addEventListener("input", render);
+  elements.sort.addEventListener("change", render);
+  elements.reset.addEventListener("click", () => {
+    resetSelection();
+    state.view = "goalies";
+    elements.sort.value = "count";
+    setEra("all");
+    render();
+  });
   loadVault();
 })();

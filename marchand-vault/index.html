@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="../style.css?v=20260917-9">
-  <link rel="stylesheet" href="../marchand.css?v=20260921-1">
+  <link rel="stylesheet" href="../marchand.css?v=20260921-2">
   <link rel="stylesheet" href="../site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -21,10 +21,10 @@
 <main id="main-content" class="wrap marchand-museum marchand-vault-page">
   <header class="marchand-vault-page-header">
     <div class="marchand-vault-page-header-copy">
-      <a id="vault-back-link" class="marchand-vault-back" href="../marchand.html"><span aria-hidden="true">←</span> Browse the collection</a>
+      <a id="vault-back-link" data-vault-back class="marchand-vault-back" href="../marchand.html"><span aria-hidden="true">←</span> Browse the collection</a>
       <span class="marchand-eyebrow">Live collection intelligence · Exhibit 63</span>
       <h1>Inside the Vault</h1>
-      <p>Read the collection by chapter, goal signature, year, and arena. Every number is calculated directly from the museum's authoritative puck registry.</p>
+      <p>Explore every goalie, arena, year, goal type, and collection wing represented in the vault. Choose a breakdown, then open any entry to discover the pucks behind the numbers.</p>
     </div>
     <div class="marchand-vault-collage" aria-label="Brad Marchand in Boston Bruins, Florida Panthers, and Team Canada uniforms">
       <figure class="marchand-vault-collage-panel marchand-vault-collage-boston" data-credit="Collector supplied">
@@ -51,6 +51,11 @@
     </div>
   </header>
 
+  <nav class="marchand-vault-navigation" aria-label="Collection navigation">
+    <span>Inside the Vault <small>The collection database</small></span>
+    <a data-vault-back class="marchand-vault-return" href="../marchand.html"><span aria-hidden="true">←</span> Back to the collection</a>
+  </nav>
+
   <div id="vault-state" class="marchand-loading marchand-vault-loading" role="status" aria-live="polite">
     <span class="marchand-loader-puck" aria-hidden="true">63</span>
     <p>Reading the collection…</p>
@@ -58,19 +63,35 @@
 
   <section id="vault-insights" class="section marchand-insights" aria-labelledby="insights-title" hidden>
     <div class="marchand-insights-heading">
-      <div><span class="marchand-eyebrow">Interactive exhibit</span><h2 id="insights-title">The Collection at a Glance</h2></div>
-      <div>
-        <p>Select any bar or year to recalculate the exhibit through that lens.</p>
-        <button id="vault-reset" class="marchand-vault-reset" type="button">Reset exhibit</button>
+      <div><span class="marchand-eyebrow">Every entry. Every connection.</span><h2 id="insights-title">Explore the Database</h2></div>
+      <button id="vault-reset" class="marchand-vault-reset" type="button">Reset explorer</button>
+    </div>
+    <div class="marchand-breakdown-buttons" role="group" aria-label="Choose a database breakdown">
+      <button type="button" data-vault-view="goalies" aria-pressed="true" aria-controls="vault-breakdown"><span aria-hidden="true">🥅</span> Goalies</button>
+      <button type="button" data-vault-view="arenas" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🏟️</span> Arenas</button>
+      <button type="button" data-vault-view="years" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">📅</span> Years</button>
+      <button type="button" data-vault-view="goals" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🍪</span> Goal types</button>
+      <button type="button" data-vault-view="sheets" aria-pressed="false" aria-controls="vault-breakdown"><span aria-hidden="true">🏒</span> Collection wings</button>
+    </div>
+    <section id="vault-breakdown" class="marchand-breakdown" aria-labelledby="vault-breakdown-title">
+      <div class="marchand-breakdown-heading">
+        <div><h3 id="vault-breakdown-title">Goalies scored against</h3><p id="vault-breakdown-note"></p></div>
+        <div class="marchand-explorer-controls">
+          <label for="vault-search">Search this breakdown<input id="vault-search" type="search" placeholder="Search goalies…" autocomplete="off"></label>
+          <label for="vault-sort">Sort by<select id="vault-sort"><option value="count">Most represented</option><option value="name">Name / year</option><option value="recent">Most recent</option></select></label>
+        </div>
       </div>
-    </div>
-    <div class="marchand-insight-grid">
-      <article class="marchand-insight-card"><h3>Collection wings</h3><div id="insight-sheets" class="marchand-bars"></div></article>
-      <article class="marchand-insight-card"><h3>Goal signatures</h3><div id="insight-goals" class="marchand-bars"></div></article>
-      <article class="marchand-insight-card marchand-insight-wide"><h3>Career timeline</h3><div id="insight-timeline" class="marchand-timeline" aria-label="Artifacts by year"></div></article>
-      <article class="marchand-insight-card marchand-insight-wide"><h3>Most represented arenas</h3><div id="insight-arenas" class="marchand-arena-list"></div></article>
-      <article class="marchand-insight-card marchand-insight-wide"><h3>Goalies scored against most</h3><p class="marchand-insight-note">Top five, excluding assists and empty-net goals</p><div id="insight-goalies" class="marchand-bars"></div></article>
-    </div>
+      <p id="vault-breakdown-summary" class="marchand-breakdown-summary" role="status" aria-live="polite"></p>
+      <div class="marchand-breakdown-scroll" tabindex="0" aria-label="Scrollable complete breakdown">
+        <table class="marchand-breakdown-table">
+          <caption class="visually-hidden" id="vault-table-caption">Complete goalie breakdown</caption>
+          <thead><tr><th scope="col" id="vault-group-heading">Goalie</th><th scope="col" id="vault-count-heading">Goals represented</th><th scope="col">Puck records</th><th scope="col">First represented</th><th scope="col">Latest represented</th></tr></thead>
+          <tbody id="vault-breakdown-body"></tbody>
+        </table>
+      </div>
+      <p id="vault-no-results" class="marchand-explorer-empty" hidden>No entries match this search. Try another name or reset the explorer.</p>
+      <p class="marchand-explorer-scope">This database covers the pucks in this collection, not Marchand’s complete career. Select an entry to see every matching puck and open its full deep dive.</p>
+    </section>
   </section>
 </main>
 
@@ -85,6 +106,6 @@
 </footer>
 
 <script src="../site-shell.js?v=20260824-2"></script>
-<script src="../marchand-vault.js?v=20260920-2"></script>
+<script src="../marchand-vault.js?v=20260921-1"></script>
 </body>
 </html>

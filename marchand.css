@@ -1954,6 +1954,65 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-vault-reset:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .marchand-vault-loading{min-height:360px}
 
+/* One complete, searchable breakdown at a time. */
+.marchand-vault-navigation{position:sticky;top:10px;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:18px;margin:0 0 18px;padding:14px 20px;border:1px solid var(--museum-border);background:var(--museum-control,#10141b);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.marchand-vault-navigation > span{color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.1rem}
+.marchand-vault-navigation small{display:block;margin-top:4px;color:#b4bec7;font-family:Arial,sans-serif;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
+.marchand-vault-return{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 22px;background:var(--museum-accent);border:2px solid var(--museum-accent);color:#080d14;font-size:.84rem;font-weight:900;text-decoration:none;border-radius:3px}
+.marchand-vault-return:hover{background:#fff;border-color:#fff;color:#080d14}
+.marchand-vault-return:focus-visible,.marchand-breakdown button:focus-visible,.marchand-breakdown a:focus-visible,.marchand-breakdown-scroll:focus-visible,.marchand-breakdown-buttons button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.marchand-breakdown-buttons{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:24px 30px;border-bottom:1px solid var(--museum-border)}
+.marchand-breakdown-buttons button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:65px;padding:14px 12px;border:1px solid var(--museum-border);border-radius:3px;background:rgba(0,0,0,.22);color:#e3e8ed;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}
+.marchand-breakdown-buttons button span{font-size:1.5rem}
+.marchand-breakdown-buttons button:hover,.marchand-breakdown-buttons button[aria-pressed="true"]{border-color:var(--museum-accent);background:rgba(var(--museum-accent-rgb),.12);box-shadow:inset 0 -3px 0 var(--museum-accent);color:#fff}
+.marchand-breakdown{padding:28px 30px 24px}
+.marchand-breakdown-heading{display:flex;align-items:start;justify-content:space-between;gap:28px}
+.marchand-breakdown-heading h3{margin:0 0 10px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.7rem;font-weight:400}
+.marchand-breakdown-heading p{max-width:65ch;margin:0;color:#b4bec7;font-size:.85rem;line-height:1.6}
+.marchand-explorer-controls{display:flex;gap:12px;flex-shrink:0}
+.marchand-explorer-controls label{display:grid;gap:7px;color:#c0c9d2;font-size:.65rem;font-weight:800;letter-spacing:.05em}
+.marchand-explorer-controls input,.marchand-explorer-controls select{box-sizing:border-box;max-width:100%;min-height:44px;border:1px solid var(--museum-border);border-radius:3px;background:var(--museum-control,#10141b);color:#fff;padding:10px 12px;font:inherit;font-size:.82rem;letter-spacing:0;color-scheme:dark}
+.marchand-explorer-controls input{width:220px}
+.marchand-explorer-controls input::placeholder{color:#aab3bc}
+.marchand-explorer-controls input:focus-visible,.marchand-explorer-controls select:focus-visible{outline:2px solid var(--museum-accent);outline-offset:2px}
+.marchand-breakdown-summary{margin:22px 0 12px;color:var(--museum-accent);font-size:.76rem;font-weight:800}
+.marchand-breakdown-scroll{overflow-x:auto;border:1px solid var(--museum-border);border-radius:3px}
+.marchand-breakdown-table{width:100%;min-width:700px;border-collapse:collapse;color:#dfe5eb;font-size:.83rem}
+.marchand-breakdown-table thead{background:rgba(0,0,0,.3);color:#b4bec7;font-size:.63rem;text-transform:uppercase;letter-spacing:.07em}
+.marchand-breakdown-table th,.marchand-breakdown-table td{padding:15px 16px;text-align:left;border-bottom:1px solid var(--museum-border)}
+.marchand-breakdown-table tbody th{width:34%;font-weight:700}
+.marchand-breakdown-table tbody tr:not(.marchand-breakdown-detail-row):hover{background:rgba(var(--museum-accent-rgb),.06)}
+.marchand-group-button{width:100%;padding:3px 0;border:0;background:none;color:#fff;font:inherit;text-align:left;cursor:pointer;min-height:32px}
+.marchand-group-button:hover,.marchand-group-button[aria-expanded="true"]{color:var(--museum-accent)}
+.marchand-breakdown-number{color:var(--museum-accent);font-size:1.25rem;font-weight:800}
+.marchand-breakdown-detail-row[hidden]{display:none}
+.marchand-breakdown-table .marchand-breakdown-detail-row > td{padding:0}
+.marchand-breakdown-details{padding:20px;border-left:3px solid var(--museum-accent);background:rgba(0,0,0,.18)}
+.marchand-breakdown-details h4{margin:0 0 16px;color:#fff;font-family:Georgia,"Times New Roman",serif;font-size:1.2rem}
+.marchand-explorer-pucks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.marchand-explorer-puck{padding:16px;border:1px solid var(--museum-border);background:rgba(255,255,255,.025)}
+.marchand-explorer-puck > a{color:var(--museum-accent);font-weight:800;text-decoration:none;line-height:1.5}
+.marchand-explorer-puck > a:hover{text-decoration:underline;text-underline-offset:3px}
+.marchand-explorer-puck p{margin:8px 0;color:#c3cbd3;font-size:.78rem;line-height:1.6}
+.marchand-explorer-puck .marchand-explorer-detail-hint{display:inline-block;margin-top:8px;font-size:.65rem;text-transform:uppercase;letter-spacing:.07em}
+.marchand-explorer-empty{padding:28px 16px;text-align:center;color:#dfe5eb}
+.marchand-explorer-scope{margin:18px 0 0;color:#aab5bf;font-size:.75rem;line-height:1.6}
+@media (max-width:1100px){
+  .marchand-breakdown-heading{flex-direction:column;gap:20px}
+}
+@media (max-width:780px){
+  .marchand-breakdown-buttons{grid-template-columns:repeat(2,minmax(0,1fr));padding:18px;gap:8px}
+  .marchand-breakdown-buttons button:last-child{grid-column:1 / -1}
+  .marchand-breakdown{padding:22px 16px}
+  .marchand-vault-navigation{padding:12px;top:0}
+  .marchand-vault-navigation > span{display:none}
+  .marchand-vault-return{width:100%;min-height:48px}
+  .marchand-explorer-controls{width:100%;flex-wrap:wrap}
+  .marchand-explorer-controls label{flex:1;min-width:150px}
+  .marchand-explorer-controls input{width:100%}
+  .marchand-explorer-pucks{grid-template-columns:1fr}
+}
+
 @media (max-width:1050px){
   .marchand-vault-page-header{grid-template-columns:1fr}
   .marchand-vault-collage{min-height:260px}

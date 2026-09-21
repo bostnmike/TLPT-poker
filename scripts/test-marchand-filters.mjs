@@ -58,7 +58,7 @@ vm.runInNewContext(read("marchand.js"), {
     querySelector: (selector) => { assert.equal(selector, "[data-empty-reset]"); return reset; },
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": [] })[selector] || [],
   },
-  window: { location: { search: "" }, matchMedia: () => ({ matches: true }) },
+  window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
   fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
@@ -72,6 +72,9 @@ const pressStat = (filter) => statButtons.find((button) => button.dataset.collec
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
 assert.equal(statButtons.length, 5);
 assert.equal(rows().length, 122);
+assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
+assert.equal(element("artifact-dialog-number").textContent, "Artifact No. 72");
+element("artifact-dialog-close").click();
 assert.equal(element("road-to-history-story").hidden, true);
 
 for (const [filter, expected] of [["Goals & Games", 78], ["Milestones", 35], ["Road to History", 9], ["video", 107], ["all", 122]]) {

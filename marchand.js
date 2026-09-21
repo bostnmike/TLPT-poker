@@ -824,6 +824,9 @@
       const requestedEra = new URLSearchParams(window.location.search).get("team");
       if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);
       render();
+      const requestedArtifact = new URLSearchParams(window.location.search).get("artifact");
+      const linkedRecord = state.records.find((record) => record.key === requestedArtifact);
+      if (linkedRecord) openArtifact(linkedRecord);
     } catch (error) {
       console.error("Could not load Marchand collection:", error);
       showError();
