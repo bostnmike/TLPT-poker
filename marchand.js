@@ -12,7 +12,7 @@
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
   const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";
-  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle, perfectionLine } = window.MarchandLabels;
+  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
   const OPPONENT_CODES = Object.freeze({
     "Anaheim Ducks": "ANA",
     "Arizona Coyotes": "ARI",
@@ -142,12 +142,12 @@
   const arenaLocation = (arena) => ARENA_LOCATIONS[arena] || "Location not recorded";
 
   function puckPresentation(record) {
-    const type = record.puckType || "Not recorded";
+    const type = puckTypeLabel(record.puckType) || "Not recorded";
     if (["Assist", "RS Point"].includes(record.category)) {
       return { emoji: "🍎", label: `Assist · ${type}` };
     }
     if (type === "Goal Scored Puck") return { emoji: "🍪", label: type };
-    if (["Game Used Puck", "Warm-Up Used Puck"].includes(type)) return { emoji: "🏒", label: type };
+    if (["Game Used Puck", "Warm-Up Puck"].includes(type)) return { emoji: "🏒", label: type };
     return { emoji: "", label: type };
   }
 
@@ -165,7 +165,7 @@
   }
 
   function recordSubtitle(record) {
-    const details = [record.sourceSheet];
+    const details = [collectionWing(record.sourceSheet)];
     if (record.seasonStat) details.push(`Season #${record.seasonStat}`);
     if (record.goalType) details.push(goalTypeLabel(record.goalType));
     if (record.homeRoad) details.push(record.homeRoad);
@@ -679,7 +679,7 @@
   }
 
   function renderSourceRecord(record) {
-    elements.provenance.textContent = `${record.sourceSheet} · spreadsheet row ${record.sourceRow} · Inventory ID ${record.inventoryId}`;
+    elements.provenance.textContent = `${collectionWing(record.sourceSheet)} · spreadsheet row ${record.sourceRow} · Inventory ID ${record.inventoryId}`;
     const fragment = document.createDocumentFragment();
     for (const field of record.sourceData || []) {
       const item = document.createElement("div");
@@ -699,8 +699,9 @@
         const player = state.players[field.value];
         const shown = field.label === "Date"
           ? displayDate(field.value)
-          : (field.label === "Category" ? categoryLabel(field.value) : field.value);
+          : (field.label === "Category" ? categoryLabel(field.value) : puckTypeLabel(field.value));
         if (field.label === "Puck Type") value.textContent = puckLabel(record);
+        else if (field.label === "Goalie Scored Against") value.textContent = goalieLabel(record) || "—";
         else if (field.label === "Goal Type") value.textContent = goalTypeLabel(field.value) || "—";
         else if (field.label === "Category" && ["Assist", "RS Point"].includes(record.category)) value.textContent = `🍎 ${shown}`;
         else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
@@ -769,7 +770,7 @@
     elements.dialogFacts.replaceChildren();
     renderPuckPhoto(record);
 
-    addFact("Collection wing", record.sourceSheet);
+    addFact("Collection wing", collectionWing(record.sourceSheet));
     addFact("Team", record.team);
     addFact("Category", `${["Assist", "RS Point"].includes(record.category) ? "🍎 " : ""}${categoryLabel(record.category)}`);
     addFact("Puck type", puckLabel(record));
@@ -787,7 +788,7 @@
     addFact("Time", record.time);
     addFact("Goal Type", goalTypeLabel(record.goalType));
     addFact("Line Combination", perfectionLine(record));
-    addFact("Goalie Scored Against", record.goalieScoredAgainst);
+    addFact("Goalie Scored Against", goalieLabel(record));
     addFact("Final score", record.score);
 
     renderPersonnel(record);
@@ -855,10 +856,10 @@
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
-      setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
+      setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings", collectionWing);
       setOptions(elements.category, [...state.records, { category: "Perfection Line" }], "category", "All categories", categoryLabel);
       setOptions(elements.arena, state.records, "arena", "All arenas");
-      setOptions(elements.puck, state.records, "puckType", "All puck types");
+      setOptions(elements.puck, state.records, "puckType", "All puck types", puckTypeLabel);
       updateHero(payload);
       const requestedEra = new URLSearchParams(window.location.search).get("team");
       if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);

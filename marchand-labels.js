@@ -20,6 +20,9 @@
   });
   const goalEmojis = Object.freeze({ ESG: "⚖️", PPG: "⚡", SHG: "🛡️", GWG: "✅", OT: "⏱️", PS: "🏒", ENG: "🥅" });
   const category = (value) => categories[value] || value || "Collection Artifact";
+  const collectionWing = (value) => value === "Goals & Games" ? "Goals" : value;
+  const puckType = (value) => /^warm-up (used )?puck$/i.test(value || "") ? "Warm-Up Puck" : value;
+  const goalie = (record) => /\bENG\b/.test(record.goalType || "") || record.goalieScoredAgainst === "Empty net (no goaltender)" ? "—" : record.goalieScoredAgainst;
   function goalType(value, includeCode = true) {
     if (!value) return "";
     const codes = String(value).match(/ESG|PPG|SHG|GWG|ENG|OT|PS/g);
@@ -39,7 +42,7 @@
     return unique.size === 3 && ["BM63", "DP88", "PB37"].every((code) => unique.has(code)) ? "🤌🏻 Perfection Line" : "";
   }
   function recordTitle(record) {
-    if (record.description) return record.description;
+    if (record.description) return puckType(record.description);
     const label = record.category === "4NF Goal" ? "4 Nations Faceoff Goal" : category(record.category);
     return `${label}${record.careerStat ? ` #${record.careerStat}` : ""}`;
   }
@@ -50,5 +53,5 @@
       return item;
     }));
   }
-  window.MarchandLabels = Object.freeze({ category, goalType, recordTitle, renderKey, perfectionLine });
+  window.MarchandLabels = Object.freeze({ category, goalType, recordTitle, renderKey, perfectionLine, collectionWing, puckType, goalie });
 })();

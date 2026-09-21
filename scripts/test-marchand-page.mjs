@@ -16,6 +16,12 @@ const labelsScript = fs.readFileSync(path.join(root, "marchand-labels.js"), "utf
 const labelsContext = { window: {} };
 vm.runInNewContext(labelsScript, labelsContext);
 const labels = labelsContext.window.MarchandLabels;
+assert.equal(labels.collectionWing("Goals & Games"), "Goals");
+assert.equal(labels.collectionWing("Road to History"), "Road to History");
+assert.equal(labels.puckType("Warm-Up Used Puck"), "Warm-Up Puck");
+assert.equal(labels.puckType("warm-up puck"), "Warm-Up Puck");
+assert.equal(labels.goalie({ goalType: "ENG & GWG", goalieScoredAgainst: "Empty net (no goaltender)" }), "—");
+assert.equal(labels.goalie({ goalType: "ESG", goalieScoredAgainst: "Steve Mason" }), "Steve Mason");
 for (const [code, expected] of Object.entries({ ESG: "⚖️ Even-Strength Goal", PPG: "⚡ Power-Play Goal", SHG: "🛡️ Short-Handed Goal", GWG: "✅ Game-Winning Goal", OT: "⏱️ Overtime Goal", PS: "🏒 Penalty-Shot Goal", ENG: "🥅 Empty-Net Goal" })) {
   assert.equal(labels.goalType(code, false), expected);
   assert.equal(labels.goalType(code), `${expected} (${code})`);
@@ -207,10 +213,10 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260921-5/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260921-8/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260921-5/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-4/, "vault script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260921-6/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-9/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260921-6/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-5/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");
@@ -326,7 +332,7 @@ assert.match(css, /\.marchand-team-crest-florida img\{transform:scale\(2\.08\)/,
 assert.match(css, /\.marchand-dialog-crest\{[\s\S]*overflow:hidden;/, "deep-dive crest frame must contain every team mark");
 assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston img\{transform:scale\(1\.44\)\}/, "Boston deep-dive crest must match Canada's apparent size without clipping");
 assert.match(css, /\.marchand-dialog-crest \.marchand-crest-florida img\{transform:scale\(1\.68\)\}/, "Florida deep-dive crest must match Canada's apparent size without clipping");
-assert.match(css, /\.marchand-person-card\[data-player="BM63"\]\[data-era="canada"\][\s\S]*transform:scale\(1\.72\)/, "Team Canada deep-dive portrait must crop Brad prominently");
+assert.match(css, /\.marchand-person-card\[data-player="BM63"\]\[data-era="canada"\] \.marchand-person-portrait img\{position:absolute;inset:0;transform:scale\(2\.4\);transform-origin:50% 0\}/, "Canada deep-dive portrait needs a tighter head-and-shoulders crop with hair clearance");
 assert.match(css, /\.marchand-era-button\[data-era-button="boston"\] > img,[\s\S]*data-vault-era-button="boston"[\s\S]*transform:scale\(1\.82\)/, "Boston team button marks must match Canada's apparent size across both exhibits");
 assert.match(css, /\.marchand-era-button\[data-era-button="florida"\] > img,[\s\S]*data-vault-era-button="florida"[\s\S]*transform:scale\(2\.08\)/, "Florida team button marks must match Canada's apparent size across both exhibits");
 assert.match(css, /\.marchand-dialog-crest \.marchand-crest-boston,[\s\S]*\.marchand-dialog-crest \.marchand-crest-florida\{overflow:hidden\}/, "deep-dive crests must stay inside their museum frame");

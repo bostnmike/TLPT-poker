@@ -109,6 +109,10 @@ assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].tex
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 76, "both assist records must be excluded from goal types");
 view("sheets");
 assert.equal(summaryRows().length, 3);
+assert.ok(summaryRows().some((row) => label(row) === "Goals"));
+assert.ok(!element("vault-breakdown-body").textContent.includes("Goals & Games"));
+assert.ok(!element("vault-breakdown-body").textContent.includes("Empty net (no goaltender)"));
+assert.ok(element("vault-breakdown-body").textContent.includes("Warm-Up Puck"));
 const road = summaryRows().find((row) => label(row) === "Road to History");
 assert.equal(road.children[1].textContent, "8");
 assert.equal(road.children[2].textContent, "9");

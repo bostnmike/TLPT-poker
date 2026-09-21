@@ -2,7 +2,7 @@
   "use strict";
 
   const state = { records: [], goalies: {}, team: "", view: "goalies", selected: "" };
-  const { goalType: goalTypeLabel, recordTitle, perfectionLine } = window.MarchandLabels;
+  const { goalType: goalTypeLabel, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
   const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
@@ -32,7 +32,7 @@
     arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
     years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
     goals: { title: "Every Goal Type", singular: "Goal Type", plural: "goal types", key: (record) => goalTypeLabel(record.goalType, false) || "Not Recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including Empty-Net Goals. Open the Goal Type Key for symbols and codes. Combined labels retain every applicable goal type." },
-    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => record.sourceSheet, metric: "Games represented", note: "Explore Goals & Games, Career Milestones and the complete Road to History collection. Every matching puck is included." },
+    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones and the complete Road to History collection. Every matching puck is included." },
   };
 
   function teamEra(team) {
@@ -133,7 +133,7 @@
       if (perfectionLine(record)) card.append(node("p", perfectionLine(record), "marchand-line-badge"));
       const point = ["Assist", "RS Point"].includes(record.category);
       const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
-      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, goalTypeLabel(record.goalType), record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
+      card.append(node("p", [`${emoji} ${puckTypeLabel(record.puckType)}`, record.period && `Period ${record.period} · ${record.time}`, goalTypeLabel(record.goalType), record.goalieScoredAgainst && `Goalie: ${goalieLabel(record)}`].filter(Boolean).join(" · ")));
       const detailLink = node("a", "Open full deep dive ↗", "marchand-explorer-detail-hint");
       detailLink.href = link.href;
       card.append(detailLink);

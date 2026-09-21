@@ -83,6 +83,8 @@ const pressStat = (filter) => statButtons.find((button) => button.dataset.collec
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
 assert.equal(statButtons.length, 5);
 assert.equal(rows().length, 122);
+assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
+assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Used Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 17);
 assert.ok(shownIds().includes(335));
@@ -147,7 +149,7 @@ assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
 const cellValue = (parentId, label) => element(parentId).children.find((child) => child.children[0].textContent === label)?.children[1].textContent;
-for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎", "Assist · Game Used Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Used Puck"]]) {
+for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎", "Assist · Game Used Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
   const row = rows().find((item) => Number(item.children[0].textContent) === id);
   const symbol = row.children[7].children[0];
   assert.equal(symbol.textContent, emoji);
@@ -185,6 +187,19 @@ for (const row of rows()) {
   for (const card of element("artifact-personnel-grid").children) {
     assert.equal(card.tag, "article", "player and goalie cards must not be outbound links");
     assertNoPlayerLinks(card);
+  }
+  if (record.sourceSheet === "Goals & Games") {
+    assert.equal(cellValue("artifact-dialog-facts", "Collection wing"), "Goals");
+    assert.ok(!element("artifact-provenance").textContent.includes("Goals & Games"));
+  }
+  if (/\bENG\b/.test(record.goalType)) {
+    assert.equal(cellValue("artifact-dialog-facts", "Goalie Scored Against"), "—");
+    assert.equal(cellValue("artifact-source-grid", "Goalie Scored Against"), "—");
+  }
+  if (record.puckType === "Warm-Up Used Puck") {
+    assert.equal(cellValue("artifact-dialog-facts", "Puck type"), "🏒 Warm-Up Puck");
+    assert.equal(element("artifact-dialog-title").textContent, "Warm-Up Puck");
+    assert.equal(cellValue("artifact-source-grid", "Description"), "Warm-Up Puck");
   }
   if (record.videoUrl) {
     const sourceUrl = record.videoProvider === "nhl" ? `https://players.brightcove.net/6415718365001/default_default/index.html?videoId=${record.videoId}&autoplay=false&muted=false&applicationId=nhl` : record.videoUrl;
