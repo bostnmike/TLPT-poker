@@ -14,6 +14,17 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "data/marchand-pucks.json"
 CODE_PATTERN = re.compile(r"\b[A-Za-z]{1,3}\d{1,2}\b")
+SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History")
+SOURCE_ID_HEADERS = {
+    "Goals & Games": "ID",
+    "Milestones": "ID #",
+    "Road to History": "Inventory ID",
+}
+KEY_PREFIXES = {
+    "Goals & Games": "goal",
+    "Milestones": "milestone",
+    "Road to History": "history",
+}
 
 
 def parse_args():
@@ -79,7 +90,11 @@ def player_codes(*values):
 def video_parts(url, previous):
     if not url:
         return "", ""
-    if url == previous.get("videoUrl"):
+    if (
+        url == previous.get("videoUrl")
+        and previous.get("videoProvider")
+        and previous.get("videoId")
+    ):
         return previous.get("videoProvider", ""), previous.get("videoId", "")
     parsed = urlparse(url)
     host = parsed.netloc.lower()
@@ -207,29 +222,89 @@ def synchronize_record(record, workbook_values, workbook_formulas):
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
 
 
+def discover_source_records(payload, workbook_values):
+    """Add newly populated canonical rows without disturbing established records."""
+    def row_is_populated(sheet_name, row):
+        sheet = workbook_values[sheet_name]
+        if row < 2 or row > sheet.max_row:
+            return False
+        headers = {
+            sheet.cell(1, column).value: column
+            for column in range(1, sheet.max_column + 1)
+        }
+        required = (SOURCE_ID_HEADERS[sheet_name], "Marchand Team", "Category", "Date")
+        return all(sheet.cell(row, headers[header]).value not in (None, "") for header in required)
+
+    payload["records"] = [
+        record
+        for record in payload["records"]
+        if record.get("sourceSheet") not in SOURCE_SHEETS
+        or row_is_populated(record["sourceSheet"], record["sourceRow"])
+    ]
+    records = payload["records"]
+    existing_sources = {
+        (record["sourceSheet"], record["sourceRow"])
+        for record in records
+    }
+    existing_keys = {record["key"] for record in records}
+
+    for sheet_name in SOURCE_SHEETS:
+        sheet = workbook_values[sheet_name]
+        headers = {
+            sheet.cell(1, column).value: column
+            for column in range(1, sheet.max_column + 1)
+        }
+        id_column = headers[SOURCE_ID_HEADERS[sheet_name]]
+        for row in range(2, sheet.max_row + 1):
+            if not row_is_populated(sheet_name, row):
+                continue
+            source_key = (sheet_name, row)
+            if source_key in existing_sources:
+                continue
+            inventory_id = as_number(sheet.cell(row, id_column).value)
+            if inventory_id in (None, ""):
+                continue
+            record_key = f"{KEY_PREFIXES[sheet_name]}-{inventory_id}"
+            if record_key in existing_keys:
+                raise ValueError(
+                    f"New canonical row {sheet_name}!{row} duplicates key {record_key}"
+                )
+            records.append(
+                {
+                    "key": record_key,
+                    "sourceSheet": sheet_name,
+                    "sourceRow": row,
+                    "game": None,
+                    "wins": None,
+                    "losses": None,
+                    "points": None,
+                }
+            )
+            existing_sources.add(source_key)
+            existing_keys.add(record_key)
+
+
 def main():
     args = parse_args()
     workbook_path = args.workbook.resolve()
     data_path = args.data.resolve()
     payload = json.loads(data_path.read_text(encoding="utf-8"))
-    original_count = len(payload["records"])
 
     workbook_values = load_workbook(workbook_path, data_only=True, read_only=False)
     workbook_formulas = load_workbook(workbook_path, data_only=False, read_only=False)
+    discover_source_records(payload, workbook_values)
     for record in payload["records"]:
         synchronize_record(record, workbook_values, workbook_formulas)
 
-    if len(payload["records"]) != original_count:
-        raise AssertionError("Synchronization changed the collection record count")
-
     counts = {
         sheet: sum(record["sourceSheet"] == sheet for record in payload["records"])
-        for sheet in ("Goals & Games", "Milestones", "Road to History")
+        for sheet in SOURCE_SHEETS
     }
+    record_count = len(payload["records"])
     payload["meta"].update(
         source=workbook_path.name,
         sourceSha256=hashlib.sha256(workbook_path.read_bytes()).hexdigest(),
-        records=original_count,
+        records=record_count,
         goalsAndGames=counts["Goals & Games"],
         milestones=counts["Milestones"],
         roadToHistory=counts["Road to History"],
@@ -242,7 +317,7 @@ def main():
         json.dumps(
             {
                 "data": str(data_path),
-                "records": original_count,
+                "records": record_count,
                 "videos": payload["meta"]["videos"],
                 "sourceSha256": payload["meta"]["sourceSha256"],
             },

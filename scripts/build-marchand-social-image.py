@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the dedicated 1200x630 social preview for the Marchand Puck Vault."""
 
+import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -68,6 +69,9 @@ def paste_panel(
 
 
 def build() -> None:
+    collection = json.loads((ROOT / "data" / "marchand-pucks.json").read_text(encoding="utf-8"))
+    artifact_total = str(collection["meta"]["records"])
+    video_total = str(collection["meta"]["videos"])
     canvas = Image.new("RGBA", (WIDTH, HEIGHT), INK)
 
     # A restrained museum backdrop with a subtle spotlight and grid texture.
@@ -138,9 +142,9 @@ def build() -> None:
 
     stat_font = ImageFont.truetype(str(ARIAL_BOLD), 24)
     label_font = ImageFont.truetype(str(ARIAL_BOLD), 17)
-    draw.text((64, 411), "115", font=stat_font, fill=GOLD)
+    draw.text((64, 411), artifact_total, font=stat_font, fill=GOLD)
     draw.text((118, 417), "CATALOGUED ARTIFACTS", font=label_font, fill=WHITE)
-    draw.text((64, 452), "100", font=stat_font, fill=GOLD)
+    draw.text((64, 452), video_total, font=stat_font, fill=GOLD)
     draw.text((118, 458), "MOMENTS ON FILM", font=label_font, fill=WHITE)
 
     teams_font = ImageFont.truetype(str(ARIAL_BOLD), 18)

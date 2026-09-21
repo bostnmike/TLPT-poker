@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "Official NHL player search and player profiles",
-    "profileCount": 54,
-    "codeCount": 56
+    "profileCount": 55,
+    "codeCount": 57
   },
   "players": {
     "AB10": {
@@ -450,6 +450,19 @@
       "currentTeamAbbrev": "BOS",
       "currentSweaterNumber": 86,
       "nhlProfileUrl": "https://www.nhl.com/player/8476191",
+      "aliasOf": ""
+    },
+    "LE21": {
+      "code": "LE21",
+      "sourceNumber": 21,
+      "name": "Loui Eriksson",
+      "playerId": 8470621,
+      "position": "R",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470621.png",
+      "heroImage": "https://assets.nhle.com/mugs/actionshots/1296x729/8470621.jpg",
+      "currentTeamAbbrev": "ARI",
+      "currentSweaterNumber": 21,
+      "nhlProfileUrl": "https://www.nhl.com/player/8470621",
       "aliasOf": ""
     },
     "MG39": {

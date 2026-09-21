@@ -1,14 +1,14 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "88881b9e4e13892fd0d11f89dd7ed723b5eb56a2bf8caeec967fad682d448932",
-    "records": 115,
-    "goalsAndGames": 71,
+    "sourceSha256": "1f12e80d6c45c155fa28f02c47301c6580cb7bc651e65fdf114b4f7fbc443ca6",
+    "records": 122,
+    "goalsAndGames": 78,
     "milestones": 35,
     "roadToHistory": 9,
-    "videos": 100,
+    "videos": 107,
     "sourceSheets": {
-      "Goals & Games": 71,
+      "Goals & Games": 78,
       "Milestones": 35,
       "Road to History": 9
     }
@@ -13381,6 +13381,934 @@
           "url": ""
         }
       ]
+    },
+    {
+      "key": "goal-72",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 73,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "72",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "160",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "7",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2016-11-29",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Wells Fargo Center",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Philadelphia Flyers",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "3",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "05:44",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "TK47",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "BC25",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 2 @ Philadelphia 3 - SO",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=Ws_joIaCCQE"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Steve Mason",
+          "url": ""
+        }
+      ],
+      "inventoryId": 72,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 160,
+      "seasonStat": 7,
+      "description": "",
+      "date": "2016-11-29",
+      "arena": "Wells Fargo Center",
+      "opponent": "Philadelphia Flyers",
+      "period": "3",
+      "time": "05:44",
+      "goalType": "",
+      "primaryAssist": "TK47",
+      "secondaryAssist": "BC25",
+      "score": "Boston 2 @ Philadelphia 3 - SO",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Steve Mason",
+      "playerCodes": [
+        "TK47",
+        "BC25"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=Ws_joIaCCQE",
+      "videoProvider": "youtube",
+      "videoId": "Ws_joIaCCQE"
+    },
+    {
+      "key": "goal-73",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 74,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "73",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "234",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "8",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2018-12-09",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Canadian Tire Centre",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Ottawa Senators",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "2",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "07:49",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "PPG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "DP88",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "TK47",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 2 @ Ottawa 1 - OT",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=y-SiT6EIc4Y"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Mike McKenna",
+          "url": ""
+        }
+      ],
+      "inventoryId": 73,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 234,
+      "seasonStat": 8,
+      "description": "",
+      "date": "2018-12-09",
+      "arena": "Canadian Tire Centre",
+      "opponent": "Ottawa Senators",
+      "period": "2",
+      "time": "07:49",
+      "goalType": "PPG",
+      "primaryAssist": "DP88",
+      "secondaryAssist": "TK47",
+      "score": "Boston 2 @ Ottawa 1 - OT",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Mike McKenna",
+      "playerCodes": [
+        "DP88",
+        "TK47"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=y-SiT6EIc4Y",
+      "videoProvider": "youtube",
+      "videoId": "y-SiT6EIc4Y"
+    },
+    {
+      "key": "goal-74",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 75,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "74",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "238",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2018-12-22",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Nashville Predators",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "3",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "11:23",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "PPG & GWG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "DP88",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "PB37",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Nashville 2 @ Boston 5",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=ZDWaOkzBI0c"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Pekka Rinne",
+          "url": ""
+        }
+      ],
+      "inventoryId": 74,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 238,
+      "seasonStat": 12,
+      "description": "",
+      "date": "2018-12-22",
+      "arena": "TD Garden",
+      "opponent": "Nashville Predators",
+      "period": "3",
+      "time": "11:23",
+      "goalType": "PPG & GWG",
+      "primaryAssist": "DP88",
+      "secondaryAssist": "PB37",
+      "score": "Nashville 2 @ Boston 5",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Pekka Rinne",
+      "playerCodes": [
+        "DP88",
+        "PB37"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=ZDWaOkzBI0c",
+      "videoProvider": "youtube",
+      "videoId": "ZDWaOkzBI0c"
+    },
+    {
+      "key": "goal-75",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 76,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "75",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "277",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "15",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2019-11-21",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Buffalo Sabres",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "2",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "14:45",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "PPG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "MG48",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "DH43",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Buffalo 2 @ Boston 3",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=mjV9WiRIy64"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Linus Ullmark",
+          "url": ""
+        }
+      ],
+      "inventoryId": 75,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 277,
+      "seasonStat": 15,
+      "description": "",
+      "date": "2019-11-21",
+      "arena": "TD Garden",
+      "opponent": "Buffalo Sabres",
+      "period": "2",
+      "time": "14:45",
+      "goalType": "PPG",
+      "primaryAssist": "MG48",
+      "secondaryAssist": "DH43",
+      "score": "Buffalo 2 @ Boston 3",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Linus Ullmark",
+      "playerCodes": [
+        "MG48",
+        "DH43"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=mjV9WiRIy64",
+      "videoProvider": "youtube",
+      "videoId": "mjV9WiRIy64"
+    },
+    {
+      "key": "goal-76",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 77,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "76",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "246",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "20",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2019-02-09",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Los Angeles Kings",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "3",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "06:49",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "SHG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "PB37",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Los Angeles 4 @ Boston 5 - OT",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=7gMblp4aHIc"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jonathan Quick",
+          "url": ""
+        }
+      ],
+      "inventoryId": 76,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 246,
+      "seasonStat": 20,
+      "description": "",
+      "date": "2019-02-09",
+      "arena": "TD Garden",
+      "opponent": "Los Angeles Kings",
+      "period": "3",
+      "time": "06:49",
+      "goalType": "SHG",
+      "primaryAssist": "PB37",
+      "secondaryAssist": "",
+      "score": "Los Angeles 4 @ Boston 5 - OT",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Jonathan Quick",
+      "playerCodes": [
+        "PB37"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=7gMblp4aHIc",
+      "videoProvider": "youtube",
+      "videoId": "7gMblp4aHIc"
+    },
+    {
+      "key": "goal-77",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 78,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "77",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "133",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "17",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2016-01-19",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Bell Centre",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Montreal Canadiens",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "3",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "18:37",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "ENG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "LE21",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 4 @ Montreal 1",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=9aJaUfl2O_Q"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Empty net (no goaltender)",
+          "url": ""
+        }
+      ],
+      "inventoryId": 77,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 133,
+      "seasonStat": 17,
+      "description": "",
+      "date": "2016-01-19",
+      "arena": "Bell Centre",
+      "opponent": "Montreal Canadiens",
+      "period": "3",
+      "time": "18:37",
+      "goalType": "ENG",
+      "primaryAssist": "LE21",
+      "secondaryAssist": "",
+      "score": "Boston 4 @ Montreal 1",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Empty net (no goaltender)",
+      "playerCodes": [
+        "LE21"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=9aJaUfl2O_Q",
+      "videoProvider": "youtube",
+      "videoId": "9aJaUfl2O_Q"
+    },
+    {
+      "key": "goal-78",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 79,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "78",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "PO Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "46",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "1",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2022-05-06",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Carolina Hurricanes",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "2",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "05:41",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "PB37",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Carolina 2 @ Boston 4",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.youtube.com/watch?v=bApVdmDCjnI"
+        },
+        {
+          "label": "Notes",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Pyotr Kochetkov",
+          "url": ""
+        }
+      ],
+      "inventoryId": 78,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "PO Goal",
+      "careerStat": 46,
+      "seasonStat": 1,
+      "description": "",
+      "date": "2022-05-06",
+      "arena": "TD Garden",
+      "opponent": "Carolina Hurricanes",
+      "period": "2",
+      "time": "05:41",
+      "goalType": "",
+      "primaryAssist": "PB37",
+      "secondaryAssist": "",
+      "score": "Carolina 2 @ Boston 4",
+      "puckType": "Goal Scored Puck",
+      "notes": "",
+      "goalieScoredAgainst": "Pyotr Kochetkov",
+      "playerCodes": [
+        "PB37"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=bApVdmDCjnI",
+      "videoProvider": "youtube",
+      "videoId": "bApVdmDCjnI"
     }
   ]
 }
