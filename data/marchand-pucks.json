@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "31544eae6e286b69aeccfd3450aee00fa5319a5408089cda21653d48731a584b",
+    "sourceSha256": "55eb4d026a4e63cec215168937ae26d0250fabbe96cd927dadd8e2f99649712c",
     "records": 122,
     "goalsAndGames": 78,
     "milestones": 35,
@@ -703,7 +703,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=OLj6Xpsgn64",
       "videoProvider": "youtube",
       "videoId": "OLj6Xpsgn64",
-      "notes": "",
+      "notes": "Perfection Line",
       "game": null,
       "wins": null,
       "losses": null,
@@ -800,7 +800,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Perfection Line",
           "url": ""
         },
         {
@@ -6674,7 +6674,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=8QkwIcXx8j0",
       "videoProvider": "youtube",
       "videoId": "8QkwIcXx8j0",
-      "notes": "Perfection line",
+      "notes": "Perfection Line",
       "game": null,
       "wins": null,
       "losses": null,
@@ -6771,7 +6771,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection line",
+          "value": "Perfection Line",
           "url": ""
         },
         {
@@ -9323,7 +9323,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=ap85C5wuxWk",
       "videoProvider": "youtube",
       "videoId": "ap85C5wuxWk",
-      "notes": "Perfection line",
+      "notes": "Perfection Line",
       "game": null,
       "wins": null,
       "losses": null,
@@ -9420,7 +9420,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection line",
+          "value": "Perfection Line",
           "url": ""
         },
         {
@@ -13744,7 +13744,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Perfection Line",
           "url": ""
         },
         {
@@ -13770,7 +13770,7 @@
       "secondaryAssist": "PB37",
       "score": "Nashville 2 @ Boston 5",
       "puckType": "Goal Scored Puck",
-      "notes": "",
+      "notes": "Perfection Line",
       "goalieScoredAgainst": "Pekka Rinne",
       "playerCodes": [
         "DP88",

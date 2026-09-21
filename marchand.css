@@ -429,6 +429,7 @@
 .marchand-goalie-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .marchand-goal-type-key{padding:12px 26px;border-bottom:1px solid var(--museum-border);color:#dce2e7;font-size:.8rem}
 .marchand-goal-type-key summary{cursor:pointer;color:var(--museum-accent);font-weight:800}
+.marchand-line-badge{display:block;margin-top:9px;color:var(--museum-accent);font-size:.85rem;font-weight:800;line-height:1.5}
 .marchand-goal-type-key summary:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .marchand-goal-type-key > div{display:flex;flex-wrap:wrap;gap:12px 24px;padding:16px 0 4px}
 .marchand-goal-type-key > div span{font-size:.88rem;line-height:1.6}

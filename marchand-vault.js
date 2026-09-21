@@ -2,7 +2,7 @@
   "use strict";
 
   const state = { records: [], goalies: {}, team: "", view: "goalies", selected: "" };
-  const { goalType: goalTypeLabel, recordTitle } = window.MarchandLabels;
+  const { goalType: goalTypeLabel, recordTitle, perfectionLine } = window.MarchandLabels;
   const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
@@ -130,6 +130,7 @@
       link.href = `../marchand.html?${params}`;
       link.setAttribute("aria-label", `Open deep dive for artifact ${record.inventoryId}: ${artifactLabel(record)}`);
       card.append(link, node("p", `${dateLabel(record.date)} · ${record.opponent} · ${record.arena}`));
+      if (perfectionLine(record)) card.append(node("p", perfectionLine(record), "marchand-line-badge"));
       const point = ["Assist", "RS Point"].includes(record.category);
       const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
       card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, goalTypeLabel(record.goalType), record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));

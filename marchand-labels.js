@@ -26,6 +26,18 @@
     if (!codes || String(value).replace(/ESG|PPG|SHG|GWG|ENG|OT|PS|[\s&+,/]/g, "")) return value;
     return [...new Set(codes)].map((code) => `${goalEmojis[code]} ${goalTypes[code]}${includeCode ? ` (${code})` : ""}`).join(" & ");
   }
+  function perfectionLine(record) {
+    let codes = [];
+    if (record.sourceSheet === "Goals & Games") {
+      const point = ["Assist", "RS Point"].includes(record.category);
+      const scorer = record.scorerCode || (point ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63");
+      codes = [scorer, record.primaryAssist, record.secondaryAssist];
+    } else if (record.puckType === "Goal Scored Puck") {
+      codes = String(record.description || "").match(/\b[A-Za-z]{1,3}\d{1,2}\b/g) || [];
+    }
+    const unique = new Set(codes.map((code) => String(code || "").toUpperCase()));
+    return unique.size === 3 && ["BM63", "DP88", "PB37"].every((code) => unique.has(code)) ? "🤌🏻 Perfection Line" : "";
+  }
   function recordTitle(record) {
     if (record.description) return record.description;
     const label = record.category === "4NF Goal" ? "4 Nations Faceoff Goal" : category(record.category);
@@ -38,5 +50,5 @@
       return item;
     }));
   }
-  window.MarchandLabels = Object.freeze({ category, goalType, recordTitle, renderKey });
+  window.MarchandLabels = Object.freeze({ category, goalType, recordTitle, renderKey, perfectionLine });
 })();

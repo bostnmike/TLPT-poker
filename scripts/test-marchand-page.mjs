@@ -23,6 +23,16 @@ for (const [code, expected] of Object.entries({ ESG: "⚖️ Even-Strength Goal"
 assert.equal(labels.goalType("OTGWG"), "⏱️ Overtime Goal (OT) & ✅ Game-Winning Goal (GWG)");
 assert.equal(labels.goalType("PPG & GWG"), "⚡ Power-Play Goal (PPG) & ✅ Game-Winning Goal (GWG)");
 assert.equal(labels.goalType("Unknown"), "Unknown");
+const trio = ["BM63", "PB37", "DP88"];
+for (const scorer of trio) {
+  const others = trio.filter((code) => code !== scorer);
+  for (const assists of [others, [...others].reverse()]) {
+    assert.equal(labels.perfectionLine({ sourceSheet: "Goals & Games", category: "Assist", scorerCode: scorer, primaryAssist: assists[0], secondaryAssist: assists[1] }), "🤌🏻 Perfection Line");
+  }
+}
+assert.equal(labels.perfectionLine({ sourceSheet: "Goals & Games", category: "Assist", notes: "Primary assist on DP88 goal", primaryAssist: "PB37", secondaryAssist: "BM63" }), "🤌🏻 Perfection Line");
+assert.equal(labels.perfectionLine({ sourceSheet: "Goals & Games", primaryAssist: "PB37", secondaryAssist: "PB37" }), "");
+assert.equal(labels.perfectionLine({ sourceSheet: "Milestones", playerCodes: trio }), "");
 for (const page of [html, vaultHtml]) assert.ok(page.indexOf("marchand-labels.js") < page.lastIndexOf("</script>"), "shared labels must load before page code");
 const sitemap = fs.readFileSync(path.join(root, "sitemap.xml"), "utf8");
 const canadaCrest = fs.readFileSync(path.join(root, "images", "site", "hockey-canada-crest.png"));
@@ -34,6 +44,7 @@ const headshotBoston = fs.readFileSync(path.join(root, "images", "site", "brad-m
 const headshotCanada = fs.readFileSync(path.join(root, "images", "site", "brad-marchand-headshot-canada.jpg"));
 const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pucks.json"), "utf8"));
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
+assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
 assert.equal(payload.meta.records, 122, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 78, "goals and games count drifted");
@@ -191,10 +202,10 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260921-4/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260921-4/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260921-4/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-3/, "vault script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260921-5/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260921-5/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260921-5/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-4/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");

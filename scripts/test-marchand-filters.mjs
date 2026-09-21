@@ -85,6 +85,18 @@ assert.equal(element("artifact-dialog").open, true, "vault artifact links should
 assert.equal(element("artifact-dialog-number").textContent, "Artifact No. 72");
 element("artifact-dialog-close").click();
 assert.equal(element("road-to-history-story").hidden, true);
+element("collection-search").value = "Perfection Line";
+element("collection-search").dispatch("input");
+assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
+for (const row of rows()) {
+  assert.ok(row.children[6].textContent.includes("🤌🏻 Perfection Line"));
+  row.children[1].children[0].click();
+  const fact = element("artifact-dialog-facts").children.find((entry) => entry.children[0]?.textContent === "Line Combination");
+  assert.equal(fact.children[1].textContent, "🤌🏻 Perfection Line");
+  element("artifact-dialog-close").click();
+}
+element("collection-search").value = "";
+element("collection-search").dispatch("input");
 
 for (const [filter, expected] of [["Goals & Games", 78], ["Milestones", 35], ["Road to History", 9], ["video", 107], ["all", 122]]) {
   change("team-filter", "Florida Panthers");

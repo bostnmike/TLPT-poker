@@ -12,7 +12,7 @@
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
   const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";
-  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle } = window.MarchandLabels;
+  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle, perfectionLine } = window.MarchandLabels;
   const OPPONENT_CODES = Object.freeze({
     "Anaheim Ducks": "ANA",
     "Arizona Coyotes": "ARI",
@@ -264,7 +264,7 @@
 
   function searchableText(record) {
     const source = (record.sourceData || []).flatMap((field) => [field.label, field.value, field.url]);
-    return lower([JSON.stringify(record), displayDate(record.date), categoryLabel(record.category), arenaLocation(record.arena), ...source, ...decodedNames(record)].join(" "));
+    return lower([JSON.stringify(record), displayDate(record.date), perfectionLine(record), categoryLabel(record.category), arenaLocation(record.arena), ...source, ...decodedNames(record)].join(" "));
   }
 
   function filteredRecords() {
@@ -393,6 +393,12 @@
     roster.className = "marchand-player-roster";
     roster.append(...codes.map((code) => playerChip(code, record)));
     td.append(roster);
+    if (perfectionLine(record)) {
+      const badge = document.createElement("span");
+      badge.className = "marchand-line-badge";
+      badge.textContent = perfectionLine(record);
+      td.append(badge);
+    }
     return td;
   }
 
@@ -779,6 +785,7 @@
     addFact("Period", record.period);
     addFact("Time", record.time);
     addFact("Goal Type", goalTypeLabel(record.goalType));
+    addFact("Line Combination", perfectionLine(record));
     addFact("Goalie Scored Against", record.goalieScoredAgainst);
     addFact("Final score", record.score);
 
