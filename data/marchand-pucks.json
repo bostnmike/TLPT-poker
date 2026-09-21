@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "1f12e80d6c45c155fa28f02c47301c6580cb7bc651e65fdf114b4f7fbc443ca6",
+    "sourceSha256": "11b6712f377cafa3bbc9d085daea3a1314e13a8247a5a6df5362c037717bc86d",
     "records": 122,
     "goalsAndGames": 78,
     "milestones": 35,
@@ -30,7 +30,7 @@
       "opponent": "Calgary Flames",
       "period": "2",
       "time": "01:36",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "BC14",
       "secondaryAssist": "ZT62",
       "score": "Boston 4 @ Calgary 5 - OT",
@@ -106,7 +106,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -163,7 +163,7 @@
       "opponent": "New York Islanders",
       "period": "3",
       "time": "09:04",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "",
       "score": "Boston 5 @ New York 1",
@@ -238,7 +238,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -428,7 +428,7 @@
       "opponent": "Columbus Blue Jackets",
       "period": "2",
       "time": "07:28",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "KM86",
       "score": "Columbus 5 @ Boston 4 - OT",
@@ -504,7 +504,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -561,7 +561,7 @@
       "opponent": "Dallas Stars",
       "period": "3",
       "time": "01:17",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "RN20",
       "score": "Boston 3 @ Dallas 2",
@@ -637,7 +637,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -694,7 +694,7 @@
       "opponent": "Vegas Golden Knights",
       "period": "2",
       "time": "00:58",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "PB37",
       "secondaryAssist": "DP88",
       "score": "Las Vegas 1 @ Boston 4",
@@ -770,7 +770,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -1491,7 +1491,7 @@
       "opponent": "New York Rangers",
       "period": "2",
       "time": "01:08",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "BC25",
       "score": "Boston 7 @ New York 4",
@@ -1567,7 +1567,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -1624,7 +1624,7 @@
       "opponent": "Philadelphia Flyers",
       "period": "3",
       "time": "12:22",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "MG48",
       "secondaryAssist": "",
       "score": "Philadelphia 3 @ Boston 2 - SO",
@@ -1699,7 +1699,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -1756,7 +1756,7 @@
       "opponent": "Montreal Canadiens",
       "period": "1",
       "time": "19:23",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "CC13",
       "secondaryAssist": "",
       "score": "Boston 8 @ Montreal 1",
@@ -1831,7 +1831,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -1888,7 +1888,7 @@
       "opponent": "Ottawa Senators",
       "period": "3",
       "time": "05:15",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "AB10",
       "secondaryAssist": "SK52",
       "score": "Boston 2 @ Ottawa 1",
@@ -1964,7 +1964,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -2551,7 +2551,7 @@
       "opponent": "Philadelphia Flyers",
       "period": "3",
       "time": "12:01",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "CM73",
       "score": "Boston 2 @ Philadelphia 1",
@@ -2627,7 +2627,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -2817,7 +2817,7 @@
       "opponent": "San Jose Sharks",
       "period": "1",
       "time": "14:24",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "JD74",
       "secondaryAssist": "EH56",
       "score": "Boston 3 @ San Jose 1",
@@ -2893,7 +2893,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -2950,7 +2950,7 @@
       "opponent": "Winnipeg Jets",
       "period": "2",
       "time": "04:42",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "JD74",
       "secondaryAssist": "JS23",
       "score": "Boston 4 @ Winnipeg 2",
@@ -3026,7 +3026,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -3083,7 +3083,7 @@
       "opponent": "New Jersey Devils",
       "period": "2",
       "time": "10:34",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "MR6",
       "secondaryAssist": "PB37",
       "score": "New Jersey 1 @ Boston 8",
@@ -3159,7 +3159,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -3349,7 +3349,7 @@
       "opponent": "Anaheim Ducks",
       "period": "3",
       "time": "06:20",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "TF11",
       "secondaryAssist": "CC13",
       "score": "Boston 7 @ Anaheim 1",
@@ -3425,7 +3425,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -3482,7 +3482,7 @@
       "opponent": "Tampa Bay Lightning",
       "period": "2",
       "time": "16:58",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "CC75",
       "secondaryAssist": "HL27",
       "score": "Boston 2 @ Tampa Bay 3",
@@ -3558,7 +3558,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -3747,7 +3747,7 @@
       "opponent": "Seattle Kraken",
       "period": "2",
       "time": "08:49",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "PB37",
       "secondaryAssist": "CM73",
       "score": "Boston 6 @ Seattle 5",
@@ -3823,7 +3823,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -4013,7 +4013,7 @@
       "opponent": "San Jose Sharks",
       "period": "1",
       "time": "18:06",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "JB19",
       "secondaryAssist": "",
       "score": "Boston 3 @ San Jose 1",
@@ -4088,7 +4088,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -4809,7 +4809,7 @@
       "opponent": "Colorado Avalanche",
       "period": "3",
       "time": "05:46",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "CC13",
       "secondaryAssist": "MG48",
       "score": "Boston 3 @ Colorado 4 - SO",
@@ -4885,7 +4885,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -4942,7 +4942,7 @@
       "opponent": "St. Louis Blues",
       "period": "1",
       "time": "05:02",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "CC13",
       "secondaryAssist": "",
       "score": "Boston 4 @ St. Louis 3 - OT",
@@ -5017,7 +5017,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -5074,7 +5074,7 @@
       "opponent": "Carolina Hurricanes",
       "period": "3",
       "time": "01:30",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "TF11",
       "secondaryAssist": "HL27",
       "score": "Carolina 3 @ Boston 2",
@@ -5150,7 +5150,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -5207,7 +5207,7 @@
       "opponent": "Edmonton Oilers",
       "period": "2",
       "time": "00:25",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DH43",
       "secondaryAssist": "ML6",
       "score": "Boston 6 @ Edmonton 5 - OT",
@@ -5283,7 +5283,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -5738,7 +5738,7 @@
       "opponent": "Chicago Blackhawks",
       "period": "2",
       "time": "02:58",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "ML6",
       "score": "Boston 4 @ Chicago 2",
@@ -5814,7 +5814,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -6532,7 +6532,7 @@
       "opponent": "Philadelphia Flyers",
       "period": "1",
       "time": "14:15",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "PB37",
       "secondaryAssist": "MR28",
       "score": "Boston 3 @ Philadelphia 2 - OT",
@@ -6608,7 +6608,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -6930,7 +6930,7 @@
       "opponent": "Carolina Hurricanes",
       "period": "3",
       "time": "11:40",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "TK47",
       "secondaryAssist": "",
       "score": "Boston 4 @ Carolina 3",
@@ -7005,7 +7005,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -7593,7 +7593,7 @@
       "opponent": "Sweden",
       "period": "1",
       "time": "13:15",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "BP21",
       "secondaryAssist": "SJ24",
       "score": "Canada 4 @ Sweden 3 - OT",
@@ -7669,7 +7669,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -7859,7 +7859,7 @@
       "opponent": "Florida Panthers",
       "period": "2",
       "time": "03:38",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "JD74",
       "secondaryAssist": "CC13",
       "score": "Florida 2 @ Boston 3 - OT",
@@ -7935,7 +7935,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -7992,7 +7992,7 @@
       "opponent": "Detroit Red Wings",
       "period": "2",
       "time": "16:21",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "UB26",
       "secondaryAssist": "EL27",
       "score": "Detroit 1 @ Florida 4",
@@ -8068,7 +8068,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -8125,7 +8125,7 @@
       "opponent": "Detroit Red Wings",
       "period": "2",
       "time": "14:05",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "AL15",
       "secondaryAssist": "",
       "score": "Florida 1 @ Detroit 4",
@@ -8200,7 +8200,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -8257,7 +8257,7 @@
       "opponent": "Anaheim Ducks",
       "period": "1",
       "time": "10:14",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "JP2",
       "secondaryAssist": "",
       "score": "Florida 3 @ Anaheim 7",
@@ -8332,7 +8332,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -8389,7 +8389,7 @@
       "opponent": "Los Angeles Kings",
       "period": "3",
       "time": "12:36",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "NM77",
       "secondaryAssist": "",
       "score": "Florida 5 @ Los Angeles 2",
@@ -8464,7 +8464,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -9048,7 +9048,7 @@
       "opponent": "Columbus Blue Jackets",
       "period": "2",
       "time": "13:07",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "CM73",
       "secondaryAssist": "DB42",
       "score": "Boston 4 @ Columbus 7",
@@ -9124,7 +9124,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -9181,7 +9181,7 @@
       "opponent": "Arizona Coyotes",
       "period": "2",
       "time": "16:21",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "ZC33",
       "secondaryAssist": "AM54",
       "score": "Boston 6 @ Arizona 2",
@@ -9257,7 +9257,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -9314,7 +9314,7 @@
       "opponent": "New York Rangers",
       "period": "3",
       "time": "03:24",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "DP88",
       "secondaryAssist": "PB37",
       "score": "New York 3 @ Boston 2",
@@ -9390,7 +9390,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -13448,7 +13448,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -13499,7 +13499,7 @@
       "opponent": "Philadelphia Flyers",
       "period": "3",
       "time": "05:44",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "TK47",
       "secondaryAssist": "BC25",
       "score": "Boston 2 @ Philadelphia 3 - SO",
@@ -14244,7 +14244,7 @@
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
@@ -14295,7 +14295,7 @@
       "opponent": "Carolina Hurricanes",
       "period": "2",
       "time": "05:41",
-      "goalType": "",
+      "goalType": "ESG",
       "primaryAssist": "PB37",
       "secondaryAssist": "",
       "score": "Carolina 2 @ Boston 4",

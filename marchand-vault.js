@@ -1,7 +1,7 @@
 (() => {
   "use strict";
 
-  const state = { records: [], team: "", view: "goalies", selected: "" };
+  const state = { records: [], goalies: {}, team: "", view: "goalies", selected: "" };
   const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
@@ -19,6 +19,7 @@
     caption: byId("vault-table-caption"),
     rows: byId("vault-breakdown-body"),
     empty: byId("vault-no-results"),
+    history: byId("vault-history-story"),
   };
   const normalize = (value) => String(value ?? "").trim();
   const isGoal = (record) => record.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category);
@@ -29,7 +30,7 @@
     goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Every recorded opposing goalie. Assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; both pucks remain listed." },
     arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
     years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
-    goals: { title: "Every goal type", singular: "Goal type", plural: "goal types", key: (record) => record.goalType || "Even strength / unmarked", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including empty-net goals. PPG = power play; SHG = shorthanded; GWG = game winner; OT = overtime; PS = penalty shot; ENG = empty net. Combined labels retain the full goal description." },
+    goals: { title: "Every goal type", singular: "Goal type", plural: "goal types", key: (record) => record.goalType === "ESG" ? "Even Strength" : record.goalType || "Not recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including empty-net goals. ESG = even strength; PPG = power play; SHG = shorthanded; GWG = game winner; OT = overtime; PS = penalty shot; ENG = empty net. Combined labels retain the full goal description." },
     sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => record.sourceSheet, metric: "Games represented", note: "Explore Goals & Games, Career Milestones and the complete Road to History collection. Every matching puck is included." },
   };
 
@@ -97,6 +98,23 @@
     return `${labels[record.category] || record.category}${record.careerStat ? ` #${record.careerStat}` : ""}`;
   }
 
+  function goaliePortrait(name) {
+    const portrait = node("span", null, "marchand-goalie-portrait");
+    portrait.setAttribute("aria-hidden", "true");
+    const player = state.goalies[name];
+    const initials = () => { portrait.textContent = name.split(/[ -]/).map((part) => part[0]).slice(0, 2).join(""); };
+    if (!player?.headshot) { initials(); return portrait; }
+    const img = node("img");
+    img.src = player.headshot;
+    img.alt = "";
+    img.width = 56;
+    img.height = 56;
+    img.loading = "lazy";
+    img.addEventListener("error", initials, { once: true });
+    portrait.append(img);
+    return portrait;
+  }
+
   function detailsRow(group, index) {
     const row = node("tr", null, "marchand-breakdown-detail-row");
     const cell = node("td");
@@ -115,7 +133,7 @@
       card.append(link, node("p", `${dateLabel(record.date)} · ${record.opponent} · ${record.arena}`));
       const point = ["Assist", "RS Point"].includes(record.category);
       const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
-      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, record.goalType, record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
+      card.append(node("p", [`${emoji} ${record.puckType}`, record.period && `Period ${record.period} · ${record.time}`, record.goalType === "ESG" ? "Even Strength (ESG)" : record.goalType, record.goalieScoredAgainst && `Goalie: ${record.goalieScoredAgainst}`].filter(Boolean).join(" · ")));
       const detailLink = node("a", "Open full deep dive ↗", "marchand-explorer-detail-hint");
       detailLink.href = link.href;
       card.append(detailLink);
@@ -139,6 +157,7 @@
       return b.count - a.count || b.records.length - a.records.length || a.label.localeCompare(b.label);
     });
     if (!shown.some((group) => group.label === state.selected)) state.selected = "";
+    elements.history.hidden = !(state.view === "sheets" && state.selected === "Road to History");
     elements.resultCount.textContent = records.length;
     elements.title.textContent = view.title;
     elements.note.textContent = view.note;
@@ -156,7 +175,9 @@
       const row = node("tr");
       const nameCell = node("th");
       nameCell.scope = "row";
-      const button = node("button", `${state.selected === group.label ? "−" : "+"} ${group.label}`, "marchand-group-button");
+      const button = node("button", `${state.selected === group.label ? "−" : "+"} `, "marchand-group-button");
+      if (state.view === "goalies") button.append(goaliePortrait(group.label));
+      button.append(node("span", group.label));
       button.type = "button";
       button.setAttribute("aria-expanded", String(state.selected === group.label));
       button.setAttribute("aria-controls", `vault-group-${index}`);
@@ -164,6 +185,7 @@
         state.selected = state.selected === group.label ? "" : group.label;
         render();
         elements.rows.querySelectorAll(".marchand-group-button")[index]?.focus({ preventScroll: true });
+        if (!elements.history.hidden) elements.history.scrollIntoView({ block: "nearest" });
       });
       nameCell.append(button);
       row.append(nameCell, node("td", group.count, "marchand-breakdown-number"), node("td", group.records.length), node("td", dateLabel(group.first)), node("td", dateLabel(group.latest)));
@@ -193,6 +215,9 @@
       const payload = await response.json();
       if (!payload?.meta || !Array.isArray(payload.records) || payload.records.length !== payload.meta.records) throw new Error("Collection payload is invalid");
       state.records = payload.records;
+      // A portrait request failure must not prevent browsing the collection.
+      state.goalies = await fetch("../data/marchand-goalies.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       updateTeamCounts();
       setEra(new URLSearchParams(window.location.search).get("team"));
       render();

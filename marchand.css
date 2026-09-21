@@ -412,7 +412,7 @@
 
 .marchand-history-story{
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-columns:minmax(0,1fr) 150px auto;
   gap:28px;
   margin:0 26px 20px;
   padding:25px 28px;
@@ -421,6 +421,15 @@
   background:linear-gradient(120deg,rgba(var(--museum-accent-rgb),.08),rgba(0,0,0,.24));
 }
 .marchand-history-story[hidden]{display:none}
+.marchand-history-crest{align-self:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#e3bd59;text-align:center}
+.marchand-history-crest img{width:150px;height:150px;object-fit:contain;filter:drop-shadow(0 5px 10px #000);background:radial-gradient(circle,rgba(255,184,28,.12),transparent 68%)}
+.marchand-history-crest span{padding:9px 0;border-top:1px solid rgba(255,184,28,.35);border-bottom:1px solid rgba(255,184,28,.35);font-size:.6rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+#vault-history-story{margin:20px 0;scroll-margin-top:90px}
+.marchand-goalie-portrait{width:56px;height:56px;flex:0 0 56px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--museum-border);border-radius:50%;overflow:hidden;background:linear-gradient(145deg,#f3efe5,#bfc7ca);color:#152331;font:700 .85rem Arial,sans-serif}
+.marchand-goalie-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.marchand-goalie-identity{display:flex;align-items:center;gap:12px;margin-top:7px}
+.marchand-group-button{display:inline-flex;align-items:center;gap:12px}
+@media (min-width:781px) and (max-width:1050px){.marchand-history-story{grid-template-columns:minmax(0,1fr) 110px;gap:20px}.marchand-history-crest img{width:110px;height:110px}.marchand-history-record{grid-column:1 / -1;border-left:0;border-top:1px solid var(--museum-border);padding:18px 0 0}}
 .marchand-history-story h4{margin:8px 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:1.9rem;color:#fff}
 .marchand-history-story p{max-width:82ch;margin:10px 0;color:#dce2e7;line-height:1.65;font-size:.92rem}
 .marchand-history-sources{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:16px;color:#b4bdc6;font-size:.72rem}

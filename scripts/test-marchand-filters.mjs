@@ -59,12 +59,18 @@ vm.runInNewContext(read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": [] })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
 await new Promise((resolve) => setImmediate(resolve));
 assert.deepEqual(errors, []);
+const goalieFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goalie scored against");
+assert.ok(goalieFact, "linked deep dive must show its goalie");
+assert.equal(goalieFact.children[1].children[1].textContent, "Steve Mason");
+assert.ok(goalieFact.children[1].children[0].children[0].src.endsWith("8473461.png"));
+const strengthFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goal type");
+assert.equal(strengthFact.children[1].textContent, "Even Strength (ESG)");
 const element = (id) => ids.get(id);
 const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));

@@ -21,6 +21,7 @@ class Element {
   setAttribute(key, value) { this.attributes.set(key, String(value)); }
   getAttribute(key) { return this.attributes.get(key); }
   focus() { this.focused = true; }
+  scrollIntoView() { this.scrolled = true; }
   querySelectorAll(selector) {
     const descendants = this.children.flatMap((child) => [child, ...child.querySelectorAll("*")]);
     return selector === "*" ? descendants : descendants.filter((child) => child.className === selector.slice(1));
@@ -47,7 +48,7 @@ vm.runInNewContext(read("marchand-vault.js"), {
     querySelectorAll: (selector) => ({ "[data-vault-view]": views, "[data-vault-era-button]": eras, "[data-vault-back]": backLinks })[selector] || [],
   },
   window: { location: { search: "" } },
-  fetch: async () => ({ ok: true, json: async () => payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
@@ -65,6 +66,8 @@ const change = (id, value, event = "change") => { element(id).value = value; ele
 const open = (name) => summaryRows().find((row) => label(row) === name).children[0].children[0].click();
 
 assert.equal(summaryRows().length, 50, "all 50 goalies must be available, including one-goal entries");
+assert.equal(element("vault-breakdown-body").querySelectorAll(".marchand-goalie-portrait").length, 50);
+assert.ok(element("vault-breakdown-body").querySelectorAll(".marchand-goalie-portrait").every((portrait) => portrait.children[0].src.startsWith("https://assets.nhle.com/mugs/nhl/")));
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 68, "duplicate pucks must not inflate the distinct goalie goal count");
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 69);
 assert.ok(!summaryRows().some((row) => label(row) === "Empty net (no goaltender)"));
@@ -100,6 +103,8 @@ assert.deepEqual(latest, [...latest].sort((a, b) => b - a));
 view("years");
 assert.deepEqual(summaryRows().map(label), [...new Set(payload.records.map((record) => record.date.slice(0, 4)))].sort());
 view("goals");
+assert.ok(summaryRows().some((row) => label(row) === "Even Strength"));
+assert.ok(!element("vault-breakdown-body").textContent.includes("unmarked"));
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 75);
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 76, "both assist records must be excluded from goal types");
 view("sheets");
@@ -108,11 +113,14 @@ const road = summaryRows().find((row) => label(row) === "Road to History");
 assert.equal(road.children[1].textContent, "8");
 assert.equal(road.children[2].textContent, "9");
 open("Road to History");
+assert.equal(element("vault-history-story").hidden, false);
+assert.equal(element("vault-history-story").scrolled, true);
 assert.equal(details().find((row) => !row.hidden).querySelectorAll(".marchand-explorer-puck").length, 9);
 
 for (const team of ["boston", "florida", "canada"]) {
   era(team);
   view("arenas");
+  assert.equal(element("vault-history-story").hidden, true);
   const expected = payload.records.filter((record) => record.team.toLowerCase().includes(team === "boston" ? "boston" : team === "florida" ? "florida" : "canada"));
   assert.equal(element("vault-result-count").textContent, String(expected.length));
   assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), expected.length);

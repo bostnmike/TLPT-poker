@@ -1,0 +1,316 @@
+{
+  "goalies": {
+    "Alexandar Georgiev": {
+      "id": 8480382,
+      "name": "Alexandar Georgiev",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8480382.png",
+      "source": "https://api-web.nhle.com/v1/player/8480382/landing"
+    },
+    "Anders Nilsson": {
+      "id": 8475195,
+      "name": "Anders Nilsson",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8475195.png",
+      "source": "https://api-web.nhle.com/v1/player/8475195/landing"
+    },
+    "Andrei Vasilevskiy": {
+      "id": 8476883,
+      "name": "Andrei Vasilevskiy",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8476883.png",
+      "source": "https://api-web.nhle.com/v1/player/8476883/landing"
+    },
+    "Anton Forsberg": {
+      "id": 8476341,
+      "name": "Anton Forsberg",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8476341.png",
+      "source": "https://api-web.nhle.com/v1/player/8476341/landing"
+    },
+    "Arturs Silovs": {
+      "id": 8481668,
+      "name": "Arturs Silovs",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/PIT/8481668.png",
+      "source": "https://api-web.nhle.com/v1/player/8481668/landing"
+    },
+    "Brian Boucher": {
+      "id": 8462052,
+      "name": "Brian Boucher",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8462052.png",
+      "source": "https://api-web.nhle.com/v1/player/8462052/landing"
+    },
+    "Brian Elliott": {
+      "id": 8470880,
+      "name": "Brian Elliott",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470880.png",
+      "source": "https://api-web.nhle.com/v1/player/8470880/landing"
+    },
+    "Cam Talbot": {
+      "id": 8475660,
+      "name": "Cam Talbot",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/CBJ/8475660.png",
+      "source": "https://api-web.nhle.com/v1/player/8475660/landing"
+    },
+    "Carey Price": {
+      "id": 8471679,
+      "name": "Carey Price",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8471679.png",
+      "source": "https://api-web.nhle.com/v1/player/8471679/landing"
+    },
+    "Carter Hart": {
+      "id": 8479394,
+      "name": "Carter Hart",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/VGK/8479394.png",
+      "source": "https://api-web.nhle.com/v1/player/8479394/landing"
+    },
+    "Connor Hellebuyck": {
+      "id": 8476945,
+      "name": "Connor Hellebuyck",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8476945.png",
+      "source": "https://api-web.nhle.com/v1/player/8476945/landing"
+    },
+    "Connor Ingram": {
+      "id": 8478971,
+      "name": "Connor Ingram",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8478971.png",
+      "source": "https://api-web.nhle.com/v1/player/8478971/landing"
+    },
+    "Craig Anderson": {
+      "id": 8467950,
+      "name": "Craig Anderson",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8467950.png",
+      "source": "https://api-web.nhle.com/v1/player/8467950/landing"
+    },
+    "Darcy Kuemper": {
+      "id": 8475311,
+      "name": "Darcy Kuemper",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/LAK/8475311.png",
+      "source": "https://api-web.nhle.com/v1/player/8475311/landing"
+    },
+    "Filip Gustavsson": {
+      "id": 8479406,
+      "name": "Filip Gustavsson",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/MIN/8479406.png",
+      "source": "https://api-web.nhle.com/v1/player/8479406/landing"
+    },
+    "Frederik Andersen": {
+      "id": 8475883,
+      "name": "Frederik Andersen",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8475883.png",
+      "source": "https://api-web.nhle.com/v1/player/8475883/landing"
+    },
+    "Henrik Lundqvist": {
+      "id": 8468685,
+      "name": "Henrik Lundqvist",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8468685.png",
+      "source": "https://api-web.nhle.com/v1/player/8468685/landing"
+    },
+    "Ilya Samsonov": {
+      "id": 8478492,
+      "name": "Ilya Samsonov",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/SJS/8478492.png",
+      "source": "https://api-web.nhle.com/v1/player/8478492/landing"
+    },
+    "Jake Oettinger": {
+      "id": 8479979,
+      "name": "Jake Oettinger",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/DAL/8479979.png",
+      "source": "https://api-web.nhle.com/v1/player/8479979/landing"
+    },
+    "James Reimer": {
+      "id": 8473503,
+      "name": "James Reimer",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8473503.png",
+      "source": "https://api-web.nhle.com/v1/player/8473503/landing"
+    },
+    "Jaroslav Halak": {
+      "id": 8470860,
+      "name": "Jaroslav Halak",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470860.png",
+      "source": "https://api-web.nhle.com/v1/player/8470860/landing"
+    },
+    "Jeremy Swayman": {
+      "id": 8480280,
+      "name": "Jeremy Swayman",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/BOS/8480280.png",
+      "source": "https://api-web.nhle.com/v1/player/8480280/landing"
+    },
+    "John Gibson": {
+      "id": 8476434,
+      "name": "John Gibson",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/DET/8476434.png",
+      "source": "https://api-web.nhle.com/v1/player/8476434/landing"
+    },
+    "Jon Gillies": {
+      "id": 8476903,
+      "name": "Jon Gillies",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8476903.png",
+      "source": "https://api-web.nhle.com/v1/player/8476903/landing"
+    },
+    "Jonas Johansson": {
+      "id": 8477992,
+      "name": "Jonas Johansson",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/TBL/8477992.png",
+      "source": "https://api-web.nhle.com/v1/player/8477992/landing"
+    },
+    "Jonathan Quick": {
+      "id": 8471734,
+      "name": "Jonathan Quick",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8471734.png",
+      "source": "https://api-web.nhle.com/v1/player/8471734/landing"
+    },
+    "Joonas Korpisalo": {
+      "id": 8476914,
+      "name": "Joonas Korpisalo",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8476914.png",
+      "source": "https://api-web.nhle.com/v1/player/8476914/landing"
+    },
+    "Jordan Binnington": {
+      "id": 8476412,
+      "name": "Jordan Binnington",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/STL/8476412.png",
+      "source": "https://api-web.nhle.com/v1/player/8476412/landing"
+    },
+    "Juuse Saros": {
+      "id": 8477424,
+      "name": "Juuse Saros",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/NSH/8477424.png",
+      "source": "https://api-web.nhle.com/v1/player/8477424/landing"
+    },
+    "Kaapo Kahkonen": {
+      "id": 8478039,
+      "name": "Kaapo Kahkonen",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/MTL/8478039.png",
+      "source": "https://api-web.nhle.com/v1/player/8478039/landing"
+    },
+    "Kari Lehtonen": {
+      "id": 8470140,
+      "name": "Kari Lehtonen",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470140.png",
+      "source": "https://api-web.nhle.com/v1/player/8470140/landing"
+    },
+    "Karri Ramo": {
+      "id": 8471403,
+      "name": "Karri Ramo",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8471403.png",
+      "source": "https://api-web.nhle.com/v1/player/8471403/landing"
+    },
+    "Linus Ullmark": {
+      "id": 8476999,
+      "name": "Linus Ullmark",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/OTT/8476999.png",
+      "source": "https://api-web.nhle.com/v1/player/8476999/landing"
+    },
+    "Louis Domingue": {
+      "id": 8475839,
+      "name": "Louis Domingue",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8475839.png",
+      "source": "https://api-web.nhle.com/v1/player/8475839/landing"
+    },
+    "Lukas Dostal": {
+      "id": 8480843,
+      "name": "Lukas Dostal",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/ANA/8480843.png",
+      "source": "https://api-web.nhle.com/v1/player/8480843/landing"
+    },
+    "Mackenzie Blackwood": {
+      "id": 8478406,
+      "name": "Mackenzie Blackwood",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/COL/8478406.png",
+      "source": "https://api-web.nhle.com/v1/player/8478406/landing"
+    },
+    "Malcolm Subban": {
+      "id": 8476876,
+      "name": "Malcolm Subban",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8476876.png",
+      "source": "https://api-web.nhle.com/v1/player/8476876/landing"
+    },
+    "Marc-Andre Fleury": {
+      "id": 8470594,
+      "name": "Marc-Andre Fleury",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470594.png",
+      "source": "https://api-web.nhle.com/v1/player/8470594/landing"
+    },
+    "Martin Jones": {
+      "id": 8474889,
+      "name": "Martin Jones",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8474889.png",
+      "source": "https://api-web.nhle.com/v1/player/8474889/landing"
+    },
+    "Mike McKenna": {
+      "id": 8470093,
+      "name": "Mike McKenna",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8470093.png",
+      "source": "https://api-web.nhle.com/v1/player/8470093/landing"
+    },
+    "Pekka Rinne": {
+      "id": 8471469,
+      "name": "Pekka Rinne",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8471469.png",
+      "source": "https://api-web.nhle.com/v1/player/8471469/landing"
+    },
+    "Petr Mrazek": {
+      "id": 8475852,
+      "name": "Petr Mrazek",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8475852.png",
+      "source": "https://api-web.nhle.com/v1/player/8475852/landing"
+    },
+    "Philipp Grubauer": {
+      "id": 8475831,
+      "name": "Philipp Grubauer",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/SEA/8475831.png",
+      "source": "https://api-web.nhle.com/v1/player/8475831/landing"
+    },
+    "Pyotr Kochetkov": {
+      "id": 8481611,
+      "name": "Pyotr Kochetkov",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/CAR/8481611.png",
+      "source": "https://api-web.nhle.com/v1/player/8481611/landing"
+    },
+    "Robin Lehner": {
+      "id": 8475215,
+      "name": "Robin Lehner",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8475215.png",
+      "source": "https://api-web.nhle.com/v1/player/8475215/landing"
+    },
+    "Samuel Montembeault": {
+      "id": 8478470,
+      "name": "Samuel Montembeault",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/MTL/8478470.png",
+      "source": "https://api-web.nhle.com/v1/player/8478470/landing"
+    },
+    "Sergei Bobrovsky": {
+      "id": 8475683,
+      "name": "Sergei Bobrovsky",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/TOR/8475683.png",
+      "source": "https://api-web.nhle.com/v1/player/8475683/landing"
+    },
+    "Spencer Martin": {
+      "id": 8477484,
+      "name": "Spencer Martin",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/NYR/8477484.png",
+      "source": "https://api-web.nhle.com/v1/player/8477484/landing"
+    },
+    "Steve Mason": {
+      "id": 8473461,
+      "name": "Steve Mason",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8473461.png",
+      "source": "https://api-web.nhle.com/v1/player/8473461/landing"
+    },
+    "Stuart Skinner": {
+      "id": 8479973,
+      "name": "Stuart Skinner",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/WPG/8479973.png",
+      "source": "https://api-web.nhle.com/v1/player/8479973/landing"
+    },
+    "Tristan Jarry": {
+      "id": 8477465,
+      "name": "Tristan Jarry",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/EDM/8477465.png",
+      "source": "https://api-web.nhle.com/v1/player/8477465/landing"
+    },
+    "Ukko-Pekka Luukkonen": {
+      "id": 8480045,
+      "name": "Ukko-Pekka Luukkonen",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480045.png",
+      "source": "https://api-web.nhle.com/v1/player/8480045/landing"
+    }
+  }
+}

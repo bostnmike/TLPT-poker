@@ -6,6 +6,7 @@
     filtered: [],
     meta: null,
     players: {},
+    goalies: {},
     sortKey: "date",
     sortDirection: "asc",
   };
@@ -585,6 +586,35 @@
     elements.dialogFacts.append(fact);
   }
 
+  function addGoalieFact(record) {
+    const name = record.goalieScoredAgainst;
+    if (!name) return;
+    const player = state.goalies[name];
+    if (!player) { addFact("Goalie scored against", name); return; }
+    const fact = document.createElement("div");
+    fact.className = "marchand-fact";
+    const label = document.createElement("span");
+    label.textContent = "Goalie scored against";
+    const value = document.createElement("div");
+    value.className = "marchand-goalie-identity";
+    const portrait = document.createElement("span");
+    portrait.className = "marchand-goalie-portrait";
+    portrait.setAttribute("aria-hidden", "true");
+    const img = document.createElement("img");
+    img.src = player.headshot;
+    img.alt = "";
+    img.width = 56;
+    img.height = 56;
+    img.loading = "lazy";
+    img.addEventListener("error", () => { portrait.textContent = name.split(/[ -]/).map((part) => part[0]).slice(0, 2).join(""); }, { once: true });
+    portrait.append(img);
+    const title = document.createElement("strong");
+    title.textContent = name;
+    value.append(portrait, title);
+    fact.append(label, value);
+    elements.dialogFacts.append(fact);
+  }
+
   function createPersonnelCard(code, role, record) {
     const player = state.players[code];
     const headshot = playerHeadshot(player, code, record);
@@ -752,8 +782,8 @@
     addFact("Season points", record.points);
     addFact("Period", record.period);
     addFact("Time", record.time);
-    addFact("Goal type", record.goalType);
-    addFact("Goalie scored against", record.goalieScoredAgainst);
+    addFact("Goal type", record.goalType === "ESG" ? "Even Strength (ESG)" : record.goalType);
+    addGoalieFact(record);
     addFact("Final score", record.score);
 
     renderPersonnel(record);
@@ -815,6 +845,8 @@
       state.records = payload.records;
       state.meta = payload.meta;
       state.players = decoder.players;
+      state.goalies = await fetch("data/marchand-goalies.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings");
       setOptions(elements.category, state.records, "category", "All categories", categoryLabel);
