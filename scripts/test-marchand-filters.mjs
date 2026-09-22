@@ -7,6 +7,10 @@ const read = (name) => fs.readFileSync(new URL(`../${name}`, import.meta.url), "
 const html = read("marchand.html");
 const payload = JSON.parse(read("data/marchand-pucks.json"));
 const decoder = JSON.parse(read("data/marchand-players.json"));
+const photoManifest = JSON.parse(read("data/marchand-photos.json"));
+// Simulate a future upload, with Front intentionally not first.
+photoManifest.artifacts["1"] = [{ label: "Back", url: "future-back.png" }, { label: "Front", url: "future-front.png" }];
+photoManifest.artifacts["2"] = [{ label: "Back", url: "only-back.png" }];
 // Imported profile hyperlinks must also remain plain text in source details.
 payload.records.find((r) => r.inventoryId === 1).sourceData.find((f) => f.label === "Primary Assist").url = "https://www.nhl.com/player/example-123";
 class Element {
@@ -19,7 +23,12 @@ class Element {
     this.value = "";
     this.checked = false;
     this.hidden = false;
-    this.classList = { add() {}, toggle() {} };
+    const classes = new Set();
+    this.classList = {
+      add: (name) => classes.add(name),
+      contains: (name) => classes.has(name),
+      toggle: (name, enabled) => { if (enabled ?? !classes.has(name)) classes.add(name); else classes.delete(name); },
+    };
   }
   set textContent(value) { this.text = String(value); this.children = []; }
   get textContent() { return (this.text || "") + this.children.map((child) => child.textContent).join(""); }
@@ -70,7 +79,7 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": sortButtons })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? JSON.parse(read("data/marchand-photos.json")) : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
@@ -90,6 +99,27 @@ const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));
 const pressStat = (filter) => statButtons.find((button) => button.dataset.collectionFilter === filter).click();
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
+for (const [id, expectedUrl] of [[503, "images/pucks/503/front.png"], [509, "images/pucks/509/front.png"], [1, "future-front.png"]]) {
+  const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
+  const portrait = button.children.find((child) => child.tag === "img");
+  assert.equal(portrait.src, expectedUrl, "every artifact must automatically use its registered Front photo");
+  assert.equal(portrait.hidden, false, "lazy images need a layout box while the fallback remains visible");
+  assert.equal(button.classList.contains("has-puck-photo"), false);
+  portrait.dispatch("load");
+  assert.equal(portrait.hidden, false);
+  assert.equal(button.classList.contains("has-puck-photo"), true);
+  button.click();
+  assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`);
+  portrait.dispatch("error");
+  assert.equal(portrait.hidden, true, "failed photos must reveal the standard button");
+  assert.equal(button.classList.contains("has-puck-photo"), false);
+  button.click();
+  assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`, "fallback must remain clickable");
+}
+for (const id of [2, 72]) {
+  const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
+  assert.equal(button.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
+}
 for (const [inventoryId, expectedViews] of [[503, 2], [509, 4]]) {
   const row = rows().find((entry) => Number(entry.children[0].textContent) === inventoryId);
   row.children[1].children[0].click();

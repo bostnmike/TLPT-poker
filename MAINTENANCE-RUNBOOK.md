@@ -2,6 +2,10 @@
 
 This file is the operational closeout for the Phase 3 maintenance hardening work.
 
+## Marchand puck photo intake
+
+Follow [the puck photo workflow](images/pucks/README.md#required-front-photo--deep-dive-policy) for every new artifact upload. Register its Front photo in `data/marchand-photos.json`; the site uses it for both the photo gallery and Artifact Hall Deep Dive button. Preserve the standard Deep Dive button for missing, loading, or failed images. Never put photo mappings into generated statistics files.
+
 ## Normal weekly data update
 
 Use the established weekly/update workflow. The authoritative generated-data build sequence lives only in:

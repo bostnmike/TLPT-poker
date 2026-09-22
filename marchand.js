@@ -411,6 +411,13 @@
     return td;
   }
 
+  function artifactPhotos(record) {
+    const registeredPhotos = state.photos[record.inventoryId];
+    return Array.isArray(registeredPhotos)
+      ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
+      : normalize(record.imageUrl) ? [{ label: "Front", url: record.imageUrl }] : [];
+  }
+
   function renderRows(records) {
     const fragment = document.createDocumentFragment();
     for (const record of records) {
@@ -425,7 +432,24 @@
       deepDive.type = "button";
       deepDive.className = "marchand-deep-dive-button";
       deepDive.setAttribute("aria-label", `Deep dive into artifact ${record.inventoryId}`);
+      deepDive.title = `Deep Dive · Artifact ${record.inventoryId}`;
       deepDive.innerHTML = "<span>Deep</span><span>Dive</span>";
+      const frontPhoto = artifactPhotos(record).find((photo) => normalize(photo.label).toLowerCase() === "front");
+      if (frontPhoto) {
+        const portrait = document.createElement("img");
+        portrait.alt = "";
+        portrait.loading = "lazy";
+        portrait.addEventListener("load", () => {
+          portrait.hidden = false;
+          deepDive.classList.toggle("has-puck-photo", true);
+        });
+        portrait.addEventListener("error", () => {
+          portrait.hidden = true;
+          deepDive.classList.toggle("has-puck-photo", false);
+        });
+        portrait.src = frontPhoto.url;
+        deepDive.append(portrait);
+      }
       deepDive.addEventListener("click", () => openArtifact(record));
       deepDiveCell.append(deepDive);
       row.append(deepDiveCell);
@@ -732,10 +756,7 @@
     elements.puckImage.onerror = null;
     elements.puckViews.replaceChildren();
     elements.puckViews.hidden = true;
-    const registeredPhotos = state.photos[record.inventoryId];
-    const photos = Array.isArray(registeredPhotos)
-      ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
-      : normalize(record.imageUrl) ? [{ label: "Front", url: record.imageUrl }] : [];
+    const photos = artifactPhotos(record);
     if (!photos.length) {
       showPuckPlaceholder(record);
       return;

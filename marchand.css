@@ -1695,6 +1695,13 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 
 .marchand-deep-dive-button span{display:block}
 .marchand-deep-dive-button:hover{filter:brightness(1.18);transform:rotate(0) translateY(-2px);box-shadow:inset 0 0 0 2px #050606,inset 0 0 0 4px var(--museum-accent),0 8px 0 #010101,0 15px 22px rgba(0,0,0,.55)}
+.marchand-deep-dive-button > img{position:absolute;left:-8%;top:-8%;width:116%;height:116%;max-width:none;object-fit:contain;opacity:0}
+.marchand-deep-dive-button > img[hidden]{display:none}
+.marchand-deep-dive-button.has-puck-photo{background:transparent;border-color:transparent;box-shadow:none;transform:none}
+.marchand-deep-dive-button.has-puck-photo > span{display:none}
+.marchand-deep-dive-button.has-puck-photo > img{opacity:1}
+.marchand-deep-dive-button.has-puck-photo:hover{transform:translateY(-2px);box-shadow:none}
+.marchand-deep-dive-button:focus-visible{outline:2px solid var(--museum-accent);outline-offset:4px}
 
 .marchand-watch-button{
   display:inline-flex;
