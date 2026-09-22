@@ -61,7 +61,7 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": [] })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? JSON.parse(read("data/marchand-photos.json")) : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
@@ -81,6 +81,29 @@ const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));
 const pressStat = (filter) => statButtons.find((button) => button.dataset.collectionFilter === filter).click();
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
+for (const [inventoryId, expectedViews] of [[503, 2], [509, 4]]) {
+  const row = rows().find((entry) => Number(entry.children[0].textContent) === inventoryId);
+  row.children[1].children[0].click();
+  const views = element("artifact-puck-views");
+  assert.equal(views.children.length, expectedViews);
+  assert.equal(views.hidden, false);
+  assert.equal(element("artifact-puck-image").src, `images/pucks/${inventoryId}/front.png`);
+  for (const [index, button] of views.children.entries()) {
+    button.click();
+    assert.equal(button.getAttribute("aria-pressed"), "true");
+    assert.ok(element("artifact-puck-caption").textContent.includes(`${index + 1} of ${expectedViews}`));
+    assert.ok(fs.existsSync(new URL(`../${element("artifact-puck-image").src}`, import.meta.url)));
+    assert.equal(element("artifact-puck-placeholder").hidden, true);
+  }
+  element("artifact-puck-image").onerror();
+  assert.equal(element("artifact-puck-placeholder").hidden, false);
+  views.children[0].click();
+  assert.equal(element("artifact-puck-placeholder").hidden, true);
+}
+rows().find((entry) => Number(entry.children[0].textContent) === 72).children[1].children[0].click();
+assert.equal(element("artifact-puck-views").hidden, true);
+assert.equal(element("artifact-puck-views").children.length, 0);
+assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 5);
 assert.equal(rows().length, 122);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");

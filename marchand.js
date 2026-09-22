@@ -7,6 +7,7 @@
     meta: null,
     players: {},
     goalies: {},
+    photos: {},
     sortKey: "date",
     sortDirection: "asc",
   };
@@ -124,6 +125,8 @@
     sourceGrid: document.getElementById("artifact-source-grid"),
     mediaGrid: document.getElementById("artifact-media-grid"),
     puckImage: document.getElementById("artifact-puck-image"),
+    puckViews: document.getElementById("artifact-puck-views"),
+    puckCaption: document.getElementById("artifact-puck-caption"),
     puckPlaceholder: document.getElementById("artifact-puck-placeholder"),
     puckPhotoId: document.getElementById("artifact-puck-photo-id"),
     videoPanel: document.getElementById("artifact-video-panel"),
@@ -718,20 +721,52 @@
     elements.puckImage.alt = "";
     elements.puckPlaceholder.hidden = false;
     elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
+    elements.puckCaption.textContent = "Reserved for the authenticated puck photograph.";
   }
 
   function renderPuckPhoto(record) {
-    const imageUrl = normalize(record.imageUrl);
-    if (!imageUrl) {
+    elements.puckViews.replaceChildren();
+    elements.puckViews.hidden = true;
+    const registeredPhotos = state.photos[record.inventoryId];
+    const photos = Array.isArray(registeredPhotos)
+      ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
+      : normalize(record.imageUrl) ? [{ label: "Front", url: record.imageUrl }] : [];
+    if (!photos.length) {
       showPuckPlaceholder(record);
       return;
     }
-    elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
-    elements.puckPlaceholder.hidden = true;
-    elements.puckImage.hidden = false;
-    elements.puckImage.alt = `Artifact ${record.inventoryId} puck photograph`;
-    elements.puckImage.onerror = () => showPuckPlaceholder(record);
-    elements.puckImage.src = imageUrl;
+    const buttons = [];
+    const selectPhoto = (photo, index) => {
+      elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
+      elements.puckPlaceholder.hidden = true;
+      elements.puckImage.hidden = false;
+      elements.puckImage.alt = `Artifact ${record.inventoryId} — ${puckTypeLabel(record.puckType)} — ${photo.label}`;
+      elements.puckCaption.textContent = `Artifact No. ${record.inventoryId} · ${photo.label} · ${index + 1} of ${photos.length}`;
+      for (const [buttonIndex, button] of buttons.entries()) button.setAttribute("aria-pressed", String(buttonIndex === index));
+      elements.puckImage.onerror = () => {
+        showPuckPlaceholder(record);
+        elements.puckCaption.textContent = `${photo.label} photo unavailable. Please try another view.`;
+      };
+      elements.puckImage.src = photo.url;
+    };
+    for (const [index, photo] of photos.entries()) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", `Show ${photo.label.toLowerCase()} photo of artifact ${record.inventoryId}`);
+      button.setAttribute("aria-controls", "artifact-puck-image");
+      const thumbnail = document.createElement("img");
+      thumbnail.src = photo.url;
+      thumbnail.alt = "";
+      thumbnail.loading = "lazy";
+      const label = document.createElement("span");
+      label.textContent = photo.label;
+      button.append(thumbnail, label);
+      button.addEventListener("click", () => selectPhoto(photo, index));
+      buttons.push(button);
+      elements.puckViews.append(button);
+    }
+    elements.puckViews.hidden = photos.length < 2;
+    selectPhoto(photos[0], 0);
   }
 
   function closeArtifact() {
@@ -852,6 +887,8 @@
       state.records = payload.records;
       state.meta = payload.meta;
       state.players = decoder.players;
+      state.photos = await fetch("data/marchand-photos.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => data.artifacts || {}).catch(() => ({}));
       state.goalies = await fetch("data/marchand-goalies.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));

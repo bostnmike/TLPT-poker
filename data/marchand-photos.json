@@ -1,0 +1,14 @@
+{
+  "artifacts": {
+    "503": [
+      { "label": "Front", "url": "images/pucks/503/front.png" },
+      { "label": "Back", "url": "images/pucks/503/back.png" }
+    ],
+    "509": [
+      { "label": "Front", "url": "images/pucks/509/front.png" },
+      { "label": "Back", "url": "images/pucks/509/back.png" },
+      { "label": "Edge 1", "url": "images/pucks/509/edge-01.png" },
+      { "label": "Edge 2", "url": "images/pucks/509/edge-02.png" }
+    ]
+  }
+}

@@ -16,4 +16,4 @@ Keep raw originals in Google Drive's **Brad Puck / Raw Full Images** folder.
 
 The beta photos above were processed from the original uploads using conventional cropping and background removal, without generative reconstruction or tonal retouching. Actual wear, printed markings, tape, and authentication labels were preserved. The two artifacts are separate pucks despite sharing a game date.
 
-Uploading files here does not automatically associate them with collection records or add a gallery to the website.
+Map each artifact's photos in `data/marchand-photos.json` using a view label and image path. The deep dive shows the first image by default and provides labeled view buttons. This manifest is separate from the canonical statistics import, so spreadsheet synchronization does not overwrite photo mappings. Artifacts 503 and 509 are mapped; uploading future files alone does not associate them with records.
