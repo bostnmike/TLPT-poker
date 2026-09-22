@@ -8,6 +8,7 @@
     players: {},
     goalies: {},
     photos: {},
+    activeArtifactKey: null,
     sortKey: "date",
     sortDirection: "asc",
   };
@@ -127,6 +128,9 @@
     puckImage: document.getElementById("artifact-puck-image"),
     puckViews: document.getElementById("artifact-puck-views"),
     puckCaption: document.getElementById("artifact-puck-caption"),
+    previousPuck: document.getElementById("artifact-previous"),
+    nextPuck: document.getElementById("artifact-next"),
+    navigationPosition: document.getElementById("artifact-navigation-position"),
     puckPlaceholder: document.getElementById("artifact-puck-placeholder"),
     puckPhotoId: document.getElementById("artifact-puck-photo-id"),
     videoPanel: document.getElementById("artifact-video-panel"),
@@ -725,6 +729,7 @@
   }
 
   function renderPuckPhoto(record) {
+    elements.puckImage.onerror = null;
     elements.puckViews.replaceChildren();
     elements.puckViews.hidden = true;
     const registeredPhotos = state.photos[record.inventoryId];
@@ -774,6 +779,24 @@
     if (elements.dialog.open) elements.dialog.close();
   }
 
+  function updatePuckNavigation(record) {
+    const index = state.filtered.findIndex((entry) => entry.key === record.key);
+    elements.previousPuck.disabled = index <= 0;
+    elements.nextPuck.disabled = index < 0 || index >= state.filtered.length - 1;
+    elements.navigationPosition.textContent = index < 0
+      ? "This puck is outside the current filters."
+      : `Puck ${index + 1} of ${state.filtered.length} in this view`;
+  }
+
+  function navigatePuck(direction) {
+    const index = state.filtered.findIndex((record) => record.key === state.activeArtifactKey);
+    const record = index < 0 ? null : state.filtered[index + direction];
+    if (!record) return;
+    openArtifact(record);
+    const pressed = direction < 0 ? elements.previousPuck : elements.nextPuck;
+    if (pressed.disabled) (direction < 0 ? elements.nextPuck : elements.previousPuck).focus();
+  }
+
   function closeVideo() {
     elements.watchFrame.removeAttribute("src");
     if (elements.watchDialog.open) elements.watchDialog.close();
@@ -795,6 +818,8 @@
   }
 
   function openArtifact(record) {
+    state.activeArtifactKey = record.key;
+    updatePuckNavigation(record);
     const era = teamEra(record.team);
     elements.dialog.dataset.team = era;
     elements.dialogCrest.replaceChildren(createCrest(era));
@@ -848,8 +873,10 @@
       elements.videoSource.removeAttribute("href");
     }
 
-    if (typeof elements.dialog.showModal === "function") elements.dialog.showModal();
-    else elements.dialog.setAttribute("open", "");
+    if (!elements.dialog.open) {
+      if (typeof elements.dialog.showModal === "function") elements.dialog.showModal();
+      else elements.dialog.setAttribute("open", "");
+    }
   }
 
   function showError() {
@@ -943,6 +970,8 @@
   }
 
   elements.dialogClose.addEventListener("click", closeArtifact);
+  elements.previousPuck.addEventListener("click", () => navigatePuck(-1));
+  elements.nextPuck.addEventListener("click", () => navigatePuck(1));
   elements.dialog.addEventListener("close", () => elements.videoFrame.removeAttribute("src"));
   elements.dialog.addEventListener("click", (event) => {
     if (event.target !== elements.dialog) return;

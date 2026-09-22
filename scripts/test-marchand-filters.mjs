@@ -49,6 +49,15 @@ const eraButtons = [...html.matchAll(/<button[^>]*data-era-button="([^"]+)"[^>]*
   return button;
 });
 const reset = new Element("button");
+const sortButtons = ["date", "inventoryId"].map((key) => {
+  const button = new Element("button");
+  button.dataset.sort = key;
+  const indicator = new Element("span");
+  const heading = new Element("th");
+  button.querySelector = () => indicator;
+  button.closest = () => heading;
+  return button;
+});
 const body = new Element("body");
 const errors = [];
 vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
@@ -58,7 +67,7 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     createElement: (tag) => new Element(tag),
     createDocumentFragment: () => new Element("fragment"),
     querySelector: (selector) => { assert.equal(selector, "[data-empty-reset]"); return reset; },
-    querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": [] })[selector] || [],
+    querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": sortButtons })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
   fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? JSON.parse(read("data/marchand-photos.json")) : payload }),
@@ -243,4 +252,39 @@ for (const row of rows()) {
   }
   element("artifact-dialog-close").click();
 }
-console.log("PASS: Five stat filters, filter resets, complete Road to History chronology, puck symbols, accessible labels and deep-dive text.");
+pressStat("Road to History");
+const checkNavigation = () => {
+  const orderedIds = shownIds();
+  rows()[0].children[1].children[0].click();
+  assert.equal(element("artifact-previous").disabled, true);
+  element("artifact-previous").click();
+  assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${orderedIds[0]}`);
+  for (const [index, id] of orderedIds.entries()) {
+    assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`);
+    assert.equal(element("artifact-dialog").open, true);
+    assert.equal(element("artifact-navigation-position").textContent, `Puck ${index + 1} of ${orderedIds.length} in this view`);
+    assert.equal(element("artifact-previous").disabled, index === 0);
+    assert.equal(element("artifact-next").disabled, index === orderedIds.length - 1);
+    if ([503, 509].includes(id)) assert.equal(element("artifact-puck-image").src, `images/pucks/${id}/front.png`);
+    else assert.equal(element("artifact-puck-views").hidden, true);
+    element("artifact-next").click();
+  }
+  assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${orderedIds.at(-1)}`);
+  for (let index = orderedIds.length - 2; index >= 0; index--) {
+    element("artifact-previous").click();
+    assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${orderedIds[index]}`);
+  }
+  element("artifact-dialog-close").click();
+};
+checkNavigation();
+sortButtons.find((button) => button.dataset.sort === "date").click();
+assert.equal(shownIds()[0], 508, "descending date order must change the browsing sequence");
+checkNavigation();
+sortButtons.find((button) => button.dataset.sort === "inventoryId").click();
+assert.equal(shownIds().at(-1), 509, "ID order must change the browsing sequence");
+checkNavigation();
+element("clear-filters").click();
+change("team-filter", "Canada");
+assert.equal(rows().length, 1);
+checkNavigation();
+console.log("PASS: Filters, deep-dive details, photo views, and previous/next puck navigation including sort order, filters and boundaries.");

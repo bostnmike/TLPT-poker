@@ -1391,7 +1391,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   margin:0 0 28px;
 }
 
-.marchand-media-grid.has-no-video{grid-template-columns:minmax(280px,540px);justify-content:center}
+.marchand-media-grid.has-no-video{grid-template-columns:minmax(0,700px);justify-content:center}
 .marchand-media-grid .marchand-video-panel{height:100%;margin:0}
 .marchand-puck-photo{
   display:grid;
@@ -1403,7 +1403,15 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:#020304;
 }
 
-.marchand-puck-photo > img{
+.marchand-puck-stage{display:grid;grid-template-columns:60px minmax(0,1fr) 60px;gap:8px;align-items:center}
+.marchand-puck-display{min-width:0}
+.marchand-puck-nav{display:grid;place-items:center;gap:5px;min-height:78px;width:100%;padding:8px 2px;border:1px solid rgba(var(--museum-accent-rgb),.45);border-radius:6px;background:#10161c;color:var(--museum-accent);font:inherit;font-size:.62rem;font-weight:800;line-height:1.3;cursor:pointer}
+.marchand-puck-nav > span:first-child{font-size:1.6rem;line-height:1}
+.marchand-puck-nav:hover:not(:disabled){background:rgba(var(--museum-accent-rgb),.18)}
+.marchand-puck-nav:focus-visible{outline:2px solid var(--museum-accent);outline-offset:3px}
+.marchand-puck-nav:disabled{opacity:.3;cursor:default}
+.marchand-puck-position{margin:6px 0 0;text-align:center;color:#aeb8c1;font-size:.66rem}
+.marchand-puck-display > img{
   display:block;
   width:100%;
   height:auto;
@@ -1414,7 +1422,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   background:radial-gradient(circle,rgba(var(--museum-accent-rgb),.10),transparent 58%),#080b0f;
 }
 
-.marchand-puck-photo > img[hidden],.marchand-puck-views[hidden]{display:none}
+.marchand-puck-display > img[hidden],.marchand-puck-views[hidden]{display:none}
 .marchand-puck-views{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
 .marchand-puck-views button{display:grid;gap:5px;flex:1 1 60px;max-width:108px;min-width:0;padding:6px;border:1px solid #44505a;background:#10161c;color:#d6dce1;cursor:pointer;font:inherit;font-size:.72rem}
 .marchand-puck-views button img{width:100%;height:64px;object-fit:contain}
@@ -1459,6 +1467,14 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 @media (max-width:780px){
   .marchand-media-grid,.marchand-media-grid.has-no-video{grid-template-columns:1fr}
   .marchand-puck-placeholder{min-height:230px}
+}
+
+@media (max-width:480px){
+  .marchand-puck-stage{grid-template-columns:44px minmax(0,1fr) 44px;gap:4px}
+  .marchand-puck-nav{font-size:.54rem;min-height:70px}
+  .marchand-puck-display .marchand-puck-placeholder{padding:12px 4px;min-height:190px}
+  .marchand-puck-display .marchand-photo-puck{width:76px;height:76px}
+  .marchand-puck-display .marchand-puck-placeholder strong{font-size:.85rem}
 }
 
 /* Three full-museum team identities */
