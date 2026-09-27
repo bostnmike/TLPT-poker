@@ -1,754 +1,972 @@
 {
-  "reviewedAt": "2026-09-27",
-  "views": [
+  "date": "2026-09-27",
+  "views": 107,
+  "changedViews": 95,
+  "unchangedViews": 12,
+  "method": "Pixel-level clockwise rotation from hash-verified source backups; lossless exports; all 107 exported views visually checked.",
+  "viewsReviewed": [
     {
       "artifact": "1",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/1/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 13.8,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "d3f71fe01d59a46a5b996264f5a9ad96522ca3cff5058a066b504aa482df39aa",
+      "status": "export-reviewed"
     },
     {
       "artifact": "1",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/1/back.webp",
-      "rotation": -2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.4,
+      "reference": "official-logo-SIFT-affine-polar-rotation; refined from export residual and visual review",
+      "sha256": "397abf6e2f830034412282870f9010f11a58e4d6cfb43b11f80747f38eb4bafa",
+      "status": "export-reviewed"
     },
     {
       "artifact": "1",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/1/edge-01.webp",
-      "rotation": 5.4,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 5.4,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "a977af854fb8d8fef881f733bb2caf35379459d2fd63207b6dd9ea63cf31c270",
+      "status": "export-reviewed"
     },
     {
       "artifact": "1",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/1/edge-02.webp",
-      "rotation": 2.2,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 2.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "88fb60f22896853f029ad7e2a561a572ed7c639b2dbd740d91cc06e121a57bdc",
+      "status": "export-reviewed"
     },
     {
       "artifact": "1",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/1/edge-03.webp",
-      "rotation": 1.2,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "a3f89f9961ac7ea1b69cfeff7f0e1ca362f8520af1750028cc39f9f17c782326",
+      "status": "export-reviewed"
     },
     {
       "artifact": "1",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/1/edge-04.webp",
-      "rotation": 5.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 5.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "c2f9725021047a00d74c68a7c66f2c1fe9efd5ba331a0a69ae84ce385dc21241",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/2/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.3,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "d68b643eeea36d5ee3c02f6df730e7292a01f75aa1524e0d1df540a3fa1d350b",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/2/back.webp",
-      "rotation": 6.6,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 6.4,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "adb18759c4a323e782eeda76dd6ffba0c43b38aeb5b189eb84b5af52fe37c54b",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/2/edge-01.webp",
-      "rotation": 0.8,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "4168136d832fbd8a21d746731d7174587b7a1402cbd1e58a65ffe16514de7e57",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/2/edge-02.webp",
-      "rotation": -2.2,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -2.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "2b3064d14b5abcf4460e73528ba500a91682cf4bbe857751a443e4f2772f2edf",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/2/edge-03.webp",
-      "rotation": -1.6,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.6,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "e9c677b1f845e8319c54aa676380835a4c081ed602efa67dc432b18608fa0f22",
+      "status": "export-reviewed"
     },
     {
       "artifact": "2",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/2/edge-04.webp",
-      "rotation": 0.9,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "1dfbf6c153466c3d8bf5f8f2cf344d27442ccfab8aab39cc1442dd15c62f25ee",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/8/front.webp",
-      "rotation": -3,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3.8,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "67d3eb89136948d90aa1cb11e5f9cae1f4a77916316853c6335a2af87674dcfb",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/8/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "725164eecbd46d408d636ce29aa5cda10bb721f9b39690423dd875bde38c9309",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/8/edge-01.webp",
-      "rotation": -1.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "0f4f87fdf6e75c4d5a2a769f093507000507c2aaf41635224a47394f82c854fd",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/8/edge-02.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "6b8de62e81bdd0135a53f4c222efee2b45e616afce1d489c31dcb6c4e385b066",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/8/edge-03.webp",
-      "rotation": -0.6,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.6,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "07600c2cf1c4fdd5b0e2df4f325c559c7b4aa26aeb5d6f4d752f802d362d360f",
+      "status": "export-reviewed"
     },
     {
       "artifact": "8",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/8/edge-04.webp",
-      "rotation": 1.6,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.6,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "99332336fc3e6fc2d52b7ff6b8df6b43578d63eb382a6181df4c2d62e827de97",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/12/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.9,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "0dd16900cdde48029eb2d811c5b9c3089a01016cf9b2f8733e3a7f89d3b7def6",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/12/back.webp",
-      "rotation": -2.3,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.5,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "a2069cef5b58822a3d8ceefe580034b83dbd963a6b06c4e7593c0daa4c3915d0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/12/edge-01.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "179c03407689338d1938b80e2266d4ccc8853d3890ab02dfe26e5fa08e64c2a4",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/12/edge-02.webp",
-      "rotation": -0.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "bf1aaa3816aaedbdedc5d311f310157116562b79fee60f54862f92dbf44f636a",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/12/edge-03.webp",
-      "rotation": -0.9,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "8de03f3fcf1f9563418ebbbfbf9900a156319ba89364e4d2007ac9ae5e7eaea6",
+      "status": "export-reviewed"
     },
     {
       "artifact": "12",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/12/edge-04.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "fa1ad40554e85b690258fadd850e277f990010e791e8c233d602f7f701f2d2c8",
+      "status": "export-reviewed"
     },
     {
       "artifact": "16",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/16/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 5.9,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "e2b5cc6a57895e6a7eee1ed77637594597e0628a9098ad768512baee2aabd9a0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "16",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/16/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0.2,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "86b98d3a9ecd8f9f43d2b18df9eea197a7f5844da5d6708465d20d715f4e52ef",
+      "status": "export-reviewed"
     },
     {
       "artifact": "16",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/16/edge-01.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "40fa039db0b957b852194502d4186ff82cfd7e8947d680557ed2c2364d1777d7",
+      "status": "export-reviewed"
     },
     {
       "artifact": "16",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/16/edge-02.webp",
-      "rotation": 0.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "d24a8d7297d5d5c732bff4c97230a95b3a6c08954823d93477814dd4a92204b0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "16",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/16/edge-03.webp",
-      "rotation": -0.9,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "b9817eabb553151d814060399e9aa6be0fc93b2e96e98f88d227fa2221104ab0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/26/front.webp",
-      "rotation": -3.7,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3.8,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "ee121cc6a3fe25802fd353abc166d3275eecb87d9f520e7101daf80e4a855a61",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/26/back.webp",
-      "rotation": 1,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0.2,
+      "reference": "official-logo-SIFT-affine-polar-rotation; refined from export residual and visual review",
+      "sha256": "a8a8c7f1bf87ca5fc5c526cec245e5fe23d32057183d77ce82ba32a93e061271",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/26/edge-01.webp",
-      "rotation": -2.8,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -2.8,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "527a799c911f5409e50f78ca5e303995b80d5023b575288ea2aa59043a37e2f2",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/26/edge-02.webp",
-      "rotation": -1.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "c05c9376774cb584ccdc0fc79e03b0432cd4fd9d251538556626d00c2b87f642",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/26/edge-03.webp",
-      "rotation": -3.4,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -3.4,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "4c978a11446db10ac78051b14f8cd600ad9378cd0023069334778b25b0b8fde8",
+      "status": "export-reviewed"
     },
     {
       "artifact": "26",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/26/edge-04.webp",
-      "rotation": -1.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "a4da3c10c7a9765e35661a752c1e8181b8f8e99dec3a2d0acc0976c9f9116df7",
+      "status": "export-reviewed"
     },
     {
       "artifact": "28",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/28/front.webp",
-      "rotation": 7,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 6.9,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "beb5b8b268b761ea9ead819c02c58e85fbf323fa548e542cf1785e6146c53db0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "28",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/28/back.webp",
-      "rotation": 1.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 1,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "8900530771605f355f43f8267f606f8cadbe7b7246f0f4da41e1fedb82cd5b99",
+      "status": "export-reviewed"
     },
     {
       "artifact": "28",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/28/edge-01.webp",
-      "rotation": -0.6,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.6,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "12392d438e3c4f0b9b198bac3420343c43292e51e7fd31bad0b1b303b4a54651",
+      "status": "export-reviewed"
     },
     {
       "artifact": "28",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/28/edge-02.webp",
-      "rotation": 1.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "d7cf03982388e7d6695adffa1f9f85d4e7256a2c3b8e664c591feeb833e942f4",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/32/front.webp",
-      "rotation": -1,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.4,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "6b05b47eea4ba60dcfe2355ae863a072467501ff6fd776244d5bf5a3e6277a16",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/32/back.webp",
-      "rotation": -1.2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.6,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "01622f4cf40dcd03a6b3a6cf061961774453bd3c1535c897c40995aab2926e11",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/32/edge-01.webp",
-      "rotation": -1.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "ab0d0146cca2089483fe5646e14305d642172c1fef63d97fbf4e966b46a59c98",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/32/edge-02.webp",
-      "rotation": -1.2,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "2199e6f605a33d791c7b1d041d231763752ac19f2a08350d1c4fed85fc316f77",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/32/edge-03.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "eecebe33c729b85d602e6f0d5c6ef4d8276b463dbae170171517839842d6f07f",
+      "status": "export-reviewed"
     },
     {
       "artifact": "32",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/32/edge-04.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.4,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "6a6042c22cbbeeef7169646080c1bb673b2a324d5f56fb59f6b0c5494bc82c5d",
+      "status": "export-reviewed"
     },
     {
       "artifact": "34",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/34/front.webp",
-      "rotation": -3.2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3.5,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "0bf926c920ee18ce04b7e7b6c8ebfb2d4f22eac89062179111039bf3c6950cf2",
+      "status": "export-reviewed"
     },
     {
       "artifact": "34",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/34/back.webp",
-      "rotation": -12,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -15.6,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "cf76cab0b9f0ba785efe4c1d95ad92f8191156faaac6c776cb501d1a57b2a8c6",
+      "status": "export-reviewed"
     },
     {
       "artifact": "34",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/34/edge-01.webp",
-      "rotation": 1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "e30df64893740828d9d8f0c7ebc3c533b54d597c0543b416fb8c5032fb553b82",
+      "status": "export-reviewed"
     },
     {
       "artifact": "34",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/34/edge-02.webp",
-      "rotation": 0.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "29bfdfd654495b2bf477b34b3d8366d254c947ea48eca34f1e99a58fd7759d9a",
+      "status": "export-reviewed"
     },
     {
       "artifact": "34",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/34/edge-03.webp",
-      "rotation": -0.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -0.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "db33c2895953294a25042cec1fded2217d7e9ea3eb1e39c8a112b8c792d18a2d",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/37/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.9,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "18ba3218608c0d21b61ec70e0c62dc73070d628f3df9981abf2fc81fe2e228be",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/37/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.5,
+      "reference": "official-logo-SIFT-affine-polar-rotation; refined from export residual and visual review",
+      "sha256": "7eb3afa5586d52fcb5fd78a624cd245cbf9486355331970ac40964c8e997287d",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/37/edge-01.webp",
-      "rotation": 1.3,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "672b2e9e76a98eab8704463a1064e73ee1572a55f0283b3914da6b2f8324a8c7",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/37/edge-02.webp",
-      "rotation": 0.9,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "25d5f1cca7acae8405ab3db94a729531f139425b0abbbbc8f70fb3d7c6865d37",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/37/edge-03.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "ec82bcb7ac8436de510dbb54c49163d76352792a1d390d15cdcfb0d14e530a34",
+      "status": "export-reviewed"
     },
     {
       "artifact": "37",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/37/edge-04.webp",
-      "rotation": 3,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "660c810c20f70838e0b5443150bb3139a68f3a5eb0fa7135384b383ef2e10647",
+      "status": "export-reviewed"
     },
     {
       "artifact": "40",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/40/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -1,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "9d3b2230be98c9c8e10820e7a2a3c36c276cc5b6177c5ce40bc7a3c979437140",
+      "status": "export-reviewed"
     },
     {
       "artifact": "40",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/40/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "Printed score-label rules",
+      "sha256": "7f2ce44a3cb56208a8482d923437e6c70f47fcfd536a325e909581dcb124b898",
+      "status": "export-reviewed"
     },
     {
       "artifact": "42",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/42/front.webp",
-      "rotation": -14.3,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -16.8,
+      "reference": "official-logo-SIFT-affine-polar-rotation; refined from export residual and visual review",
+      "sha256": "5b9c7e814149fe1d0751a15f077c8e432cd46a979b30597bf19084d905743b84",
+      "status": "export-reviewed"
     },
     {
       "artifact": "42",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/42/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "7d39d5076caa60a89855a16dcb15aa680d4119c1d5179f393fe7c2c3f27f5585",
+      "status": "export-reviewed"
     },
     {
       "artifact": "42",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/42/edge-01.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "7f73256868fe617cf7c8c7d1442a9f2bae675525c306a2d9252ec6849da23199",
+      "status": "export-reviewed"
     },
     {
       "artifact": "42",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/42/edge-02.webp",
-      "rotation": 5.4,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 5.4,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "f9276aa498a7b6ea4da240de22653dc668c0173ae340c6abb89107b4d27cbbd4",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/43/front.webp",
-      "rotation": 5.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 5.7,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "90c5c2c49cb9ca77683f79185da03e9dc504660d1e0cc799163b170edab61aa9",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/43/back.webp",
-      "rotation": 2.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 2.5,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "739ea6af716302fe37a8a8594324230b101bab0fbfd640dc8749478298bc8553",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/43/edge-01.webp",
-      "rotation": -1.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "2e4fcce29348aa64cd035a9c705835a590447eeb37b7d1e0e8a605c5e750118c",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/43/edge-02.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "25f24253cb7571c4aa7e874ecbce8c346da6f3a7efe0c5ddd2d118e68893d5cc",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/43/edge-03.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "29af2961ffdcecd8352d88e40b12eeb79500fd2c7e3eada806eaca469a1dd1af",
+      "status": "export-reviewed"
     },
     {
       "artifact": "43",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/43/edge-04.webp",
-      "rotation": 1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "df0fe0b36e15de90051589e4d345e8650311cd63411cced9075c0c3d8068894b",
+      "status": "export-reviewed"
     },
     {
       "artifact": "44",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/44/front.webp",
-      "rotation": 2.1,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 2.6,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "39c401ce5f0a56e66bbd352a2e4fb202f5abe058089e428f2c3c31e5c07c5004",
+      "status": "export-reviewed"
     },
     {
       "artifact": "44",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/44/back.webp",
-      "rotation": -2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.2,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "366b87261f7daab38b26a8f89009fcd15012eb2d197170fdb4001edf569ba80e",
+      "status": "export-reviewed"
     },
     {
       "artifact": "44",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/44/edge-01.webp",
-      "rotation": 1.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "35be25b2ea475541d295faa85fddb79d8bd9baa116ecf8571015178ec99246ad",
+      "status": "export-reviewed"
     },
     {
       "artifact": "44",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/44/edge-02.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "d92535fe330a9434a9a48d8756c39af7f1d9de2c06a62e34eb0a58dac47a1c20",
+      "status": "export-reviewed"
     },
     {
       "artifact": "48",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/48/front.webp",
-      "rotation": -3.4,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "1b92196227e0dccf024d1f022369d786b0736b2b182076ae3d20ef047a597933",
+      "status": "export-reviewed"
     },
     {
       "artifact": "48",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/48/back.webp",
-      "rotation": -2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.5,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "f101f8373711f8e53da047df5d8caef94e74d40a277508c9888a8b701437e1a3",
+      "status": "export-reviewed"
     },
     {
       "artifact": "48",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/48/edge-01.webp",
-      "rotation": -1.9,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.9,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "e084388b6fa9cc2ded6554c336e9ef539582e54a523398650540fbc37270a9fa",
+      "status": "export-reviewed"
     },
     {
       "artifact": "48",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/48/edge-02.webp",
-      "rotation": 1.1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "ed26a076f1038a5a26a7d9ffa23c6d6acbc6501c26916450ef574e8ab911c797",
+      "status": "export-reviewed"
     },
     {
       "artifact": "48",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/48/edge-03.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "207ba9a70f417a912a634261e270bb7eb9ec6f562748a79699f72b0b08ccdc5c",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/56/front.webp",
-      "rotation": 0.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0.4,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "dbb70ab145d1746098f9133a1372164cb50b27ce72d76c3477f34eea3746331a",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/56/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "Stanley Cup shield verticals",
+      "sha256": "0bb2ca85bc0e085ac6ad909eb6cb18a5477f2d527f5902c9ecfa1b0cf95f27fc",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/56/edge-01.webp",
-      "rotation": -1.8,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.8,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "b63579f85ae53e3d59234dbb535206d2ae085fda406e36b0adc388a3831446e7",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/56/edge-02.webp",
-      "rotation": 5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "77f0da9b7a2323a4f19ab505e3b9443c37180db045b7672d66f39416c81f3f0d",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/56/edge-03.webp",
-      "rotation": 2.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 2.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "7c3294d204d0d68bad3219829b267899e0e2813c9690a622394b3b1bfa57d119",
+      "status": "export-reviewed"
     },
     {
       "artifact": "56",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/56/edge-04.webp",
-      "rotation": -3,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "dda8452a915e2a5a20c946f5aad9a30b31d56159cb72f7fd2c0cf84ec7f2ed2f",
+      "status": "export-reviewed"
     },
     {
       "artifact": "68",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/68/front.webp",
-      "rotation": 1.7,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 1.5,
+      "reference": "25th-anniversary central vertical stem",
+      "sha256": "f48ed4dd07ac15e8caa4de776d1d545e8bbcafa198200ca62a4084cc569e96d0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "68",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/68/back.webp",
-      "rotation": -2,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -2.9,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "f5c443f125bd87984732ea87795bf7cbcaccb4e7f9d5e6b0fc824e80ec870161",
+      "status": "export-reviewed"
     },
     {
       "artifact": "68",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/68/edge-01.webp",
-      "rotation": 1.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "25905a49ea4e4100866456c494bd83ebb2d279306eb558a586957e9bb1897122",
+      "status": "export-reviewed"
     },
     {
       "artifact": "68",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/68/edge-02.webp",
-      "rotation": -1.8,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.8,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "20de7497864077fb9deaf6ba12e22b7789db154aa65575531d66694073266e9f",
+      "status": "export-reviewed"
     },
     {
       "artifact": "69",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/69/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3.4,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "86f602130c7ae5ed20577c59d925ac5354df383ab84f0dc61b7ee08d2f335789",
+      "status": "export-reviewed"
     },
     {
       "artifact": "69",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/69/back.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 1,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "2301125a09e93087f3ff6e65e2cbea5a1f15976f4aab0d4c3090bd96897851d2",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/70/front.webp",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -29.8,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "ab1a33fabed1b5c1b77ccf7de8854b330ec38d81923fe5433d4bbe0f191e9fd0",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/70/back.webp",
-      "rotation": 4.9,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 4.1,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "b615faabbd7f20ce4e905fac7f7bf5cb9762b03c986dd697bde532d5193d470b",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/70/edge-01.webp",
-      "rotation": 1.8,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "5a76c8e4a7ec735e03d198333f5ec2f996a50c0e06d2f19ea4b9be651609e9da",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/70/edge-02.webp",
-      "rotation": 2.2,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 2.2,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "cc7d66bbe2239e8f9adbc603fb58238908c851cdb84318a868df35c999efd469",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/70/edge-03.webp",
-      "rotation": 1.7,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 1.7,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "5d886fc6ea8483ca12c74b66729d115bdeae603872bc68e62e7dd33d3c8313d7",
+      "status": "export-reviewed"
     },
     {
       "artifact": "70",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/70/edge-04.webp",
-      "rotation": 0.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "b5468c23d523b5addb61149464f66373c9ba7389f5c43094cd3bdaa5969e9d9f",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/334/front.webp",
-      "rotation": 3.7,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 4.2,
+      "reference": "B stem and horizontal spokes; low-confidence template match rejected",
+      "sha256": "ed64412886c119539e15849bbdf505012a4e4ff3fdfea2d3db1c790b29a32692",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/334/back.webp",
-      "rotation": -2.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -3.3,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "d00d5d3ce1a148b20de88747455eaeac1006e77add7aa480d3d2d28f801c76fd",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/334/edge-01.webp",
-      "rotation": 0.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "00c5c83e9acf6112d2d0938a35e5165b6c08556e7a8ef4bb2e5a3d580e7e5bb8",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/334/edge-02.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.3,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "4f06696129d693ade8bf23aecf405e8e036a69cd4b7142ab348c1dea2c1810b5",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Edge 3",
+      "label": "Edge 3",
       "url": "images/pucks/334/edge-03.webp",
-      "rotation": 0,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "9ad4261cf75b1ddf3865378cd7ac2f70be2e5bfdb18b8763ec1422755a2eeb68",
+      "status": "export-reviewed"
     },
     {
       "artifact": "334",
-      "view": "Edge 4",
+      "label": "Edge 4",
       "url": "images/pucks/334/edge-04.webp",
-      "rotation": -1,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": -1.1,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "121f9e42fce87e9bd8d6a56257922d151564a73e92c3f3f789f70989a15bb750",
+      "status": "export-reviewed"
     },
     {
       "artifact": "503",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/503/front.png",
-      "rotation": -0.5,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": -0.2,
+      "reference": "Blue-note horizontal strokes; Bruins reference cross-check",
+      "sha256": "5e1e8489c2ecc46135a3e5773039c6eb9bb53932bf8833837883986a52ba9365",
+      "status": "export-reviewed"
     },
     {
       "artifact": "503",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/503/back.png",
-      "rotation": 0,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "Blues for Kids vertical separator",
+      "sha256": "163dd4d82612b2b36fdc95744a54bf539d2f9c3707ca4a565143a41180bba9bb",
+      "status": "export-reviewed"
     },
     {
       "artifact": "509",
-      "view": "Front",
+      "label": "Front",
       "url": "images/pucks/509/front.png",
-      "rotation": -0.6,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 0,
+      "reference": "Blue-note horizontal strokes; low-confidence affine match rejected",
+      "sha256": "6901a1d13f64a178c96e41fe1a339a8d571715c9cbfdb34a4b22b2c2e2d73239",
+      "status": "export-reviewed"
     },
     {
       "artifact": "509",
-      "view": "Back",
+      "label": "Back",
       "url": "images/pucks/509/back.png",
-      "rotation": 1.3,
-      "reference": "Printed logo and lettering"
+      "clockwiseDegrees": 1.2,
+      "reference": "official-logo-SIFT-affine-polar-rotation",
+      "sha256": "9550af478e1a6eae3947c5d1dccc9a2848404073bbf98b810d350141680e0c32",
+      "status": "export-reviewed"
     },
     {
       "artifact": "509",
-      "view": "Edge 1",
+      "label": "Edge 1",
       "url": "images/pucks/509/edge-01.png",
-      "rotation": 0.6,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.6,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "57be28450709a24628f4ba4c3bda6cc715632d690afa46204e46133185d6b580",
+      "status": "export-reviewed"
     },
     {
       "artifact": "509",
-      "view": "Edge 2",
+      "label": "Edge 2",
       "url": "images/pucks/509/edge-02.png",
-      "rotation": 0.5,
-      "reference": "Upper/lower puck-edge midline"
+      "clockwiseDegrees": 0.5,
+      "reference": "central-60%-silhouette-midline",
+      "sha256": "e28bc2ba49c34eeb8298617e3cbc453912236b626de0913a00c2ffa0d01870c7",
+      "status": "export-reviewed"
     }
   ]
 }

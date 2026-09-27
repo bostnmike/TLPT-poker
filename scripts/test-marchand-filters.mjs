@@ -318,7 +318,7 @@ const checkNavigation = () => {
     assert.equal(element("artifact-navigation-position").textContent, `Puck ${index + 1} of ${orderedIds.length} in this view`);
     assert.equal(element("artifact-previous").disabled, index === 0);
     assert.equal(element("artifact-next").disabled, index === orderedIds.length - 1);
-    if ([503, 509].includes(id)) assert.equal(element("artifact-puck-image").src, `images/pucks/${id}/front.png`);
+    if ([503, 509].includes(id)) assert.equal(element("artifact-puck-image").src, photoManifest.artifacts[id][0].url);
     else assert.equal(element("artifact-puck-views").hidden, true);
     element("artifact-next").click();
   }

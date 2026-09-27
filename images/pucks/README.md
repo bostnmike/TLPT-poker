@@ -18,6 +18,8 @@ For HEIC intake, preserve the original files and process full-resolution copies.
 
 Lossless WebP is preferred for new full-resolution web images. A separate `front-thumb.webp` is used only for the small Artifact Hall button; set `thumbnailUrl` on the Front manifest entry. Deep dives must continue to use the full-resolution `url`. If no thumbnail is registered, the button uses the full-resolution Front. Preserve full-resolution PNG working masters outside the repository.
 
+Bake approved rotation into the actual exported pixels. Keep manifest `rotation` at zero; do not rely on CSS to fix a tilted source. Measure the printed design against the correct-era logo or its horizontal/vertical printed lines, and assess edges by their central silhouette midline. Inspect every exported view, preserve natural perspective, regenerate front thumbnails, and use a new image URL version when overwriting published files.
+
 Cross-check artifact numbers against visible dates, opponents, and authentication markings. Record any evidence-backed filename corrections in the private intake audit; never guess an ambiguous mapping.
 
 The beta photos above were processed from the original uploads using conventional cropping and background removal, without generative reconstruction or tonal retouching. Actual wear, printed markings, tape, and authentication labels were preserved. The two artifacts are separate pucks despite sharing a game date.
