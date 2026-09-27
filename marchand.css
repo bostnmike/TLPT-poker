@@ -1410,7 +1410,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 
 .marchand-puck-stage{display:grid;grid-template-columns:90px minmax(0,1fr) 90px;gap:16px;align-items:center}
 .marchand-puck-display{min-width:0;width:100%;max-width:720px;justify-self:center}
-.marchand-puck-nav{display:grid;place-items:center;gap:16px;width:100%;padding:12px 0;border:0;background:transparent;color:var(--museum-accent);font:inherit;font-size:.64rem;font-weight:800;line-height:1.3;cursor:pointer}
+.marchand-puck-nav{display:grid;place-items:center;gap:16px;width:100%;padding:12px 0;border:0;background:transparent;color:#eef2f5;font:inherit;font-size:.64rem;font-weight:800;line-height:1.3;cursor:pointer}
 .marchand-nav-puck{display:grid;place-items:center;width:72px;height:66px;border:2px solid #42484c;border-radius:50%;background:radial-gradient(ellipse at 35% 25%,#353b3e,#141718 50%,#060808 80%);box-shadow:inset 0 0 0 5px #0a0c0d,inset 0 0 0 6px rgba(var(--museum-accent-rgb),.5),0 8px 0 #010202,0 10px 0 #33393c;font-size:2.2rem;line-height:1}
 .marchand-puck-nav:hover:not(:disabled) .marchand-nav-puck{border-color:var(--museum-accent);color:#fff}
 .marchand-puck-nav:focus-visible{outline:2px solid var(--museum-accent);outline-offset:3px}
