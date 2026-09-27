@@ -9,6 +9,7 @@
     goalies: {},
     photos: {},
     stories: {},
+    gameStats: {},
     activeArtifactKey: null,
     sortKey: "date",
     sortDirection: "asc",
@@ -453,6 +454,7 @@
           deepDive.classList.toggle("has-puck-photo", false);
         });
         portrait.src = normalize(frontPhoto.thumbnailUrl) || frontPhoto.url;
+        orientPuckPhoto(portrait, frontPhoto);
         deepDive.append(portrait);
       }
       deepDive.addEventListener("click", () => openArtifact(record));
@@ -779,6 +781,7 @@
         elements.puckCaption.textContent = `${photo.label} photo unavailable. Please try another view.`;
       };
       elements.puckImage.src = photo.url;
+      orientPuckPhoto(elements.puckImage, photo);
     };
     for (const [index, photo] of photos.entries()) {
       const button = document.createElement("button");
@@ -787,6 +790,7 @@
       button.setAttribute("aria-controls", "artifact-puck-image");
       const thumbnail = document.createElement("img");
       thumbnail.src = photo.url;
+      orientPuckPhoto(thumbnail, photo);
       thumbnail.alt = "";
       thumbnail.loading = "lazy";
       const label = document.createElement("span");
@@ -798,6 +802,11 @@
     }
     elements.puckViews.hidden = photos.length < 2;
     selectPhoto(photos[0], 0);
+  }
+
+  function orientPuckPhoto(image, photo) {
+    const angle = Number.isFinite(photo.rotation) ? photo.rotation : 0;
+    image.style.transform = angle ? `rotate(${angle}deg)` : "";
   }
 
   function closeArtifact() {
@@ -845,6 +854,7 @@
 
   function renderGameStory(record) {
     const story = state.stories[record.key];
+    renderGameStats(story?.gameId);
     elements.storyTitle.textContent = story?.title || "Game story coming soon";
     elements.storyCopy.replaceChildren();
     elements.storySources.replaceChildren();
@@ -864,6 +874,41 @@
     }
     elements.storyReferences.hidden = !elements.storySources.children.length;
     elements.storyReferences.open = false;
+  }
+
+  function renderGameStats(gameId) {
+    const section = document.getElementById("artifact-game-stats");
+    const rows = document.getElementById("artifact-game-stats-rows");
+    const status = document.getElementById("artifact-game-stats-status");
+    const source = document.getElementById("artifact-game-stats-source");
+    const game = state.gameStats[gameId];
+    rows.replaceChildren();
+    section.hidden = false;
+    status.textContent = !game ? "Game stats unavailable." : game.status === "Did Not Play" ? "Did Not Play" : "Full-game totals · Brad Marchand";
+    source.hidden = !game?.sources?.length;
+    if (game?.sources?.length) source.href = game.sources.at(-1).url;
+    if (!game || game.status === "Did Not Play") return;
+    const groups = [
+      [["Goals", "goals"], ["Assists", "assists"], ["Points", "points"], ["Shots", "shots"]],
+      [["Total TOI", "totalToi"], ["Even Strength", "evenStrengthToi"], ["Power Play", "powerPlayToi"], ["Short-Handed", "shortHandedToi"]],
+      [["Shifts", "shifts"], ["+/−", "plusMinus"], ["Hits", "hits"], ["Blocks", "blockedShots"], ["PIM", "penaltyMinutes"]],
+    ];
+    for (const group of groups) {
+      const list = document.createElement("dl");
+      list.className = "marchand-boxscore-row";
+      for (const [label, key] of group) {
+        const cell = document.createElement("div");
+        const term = document.createElement("dt");
+        const value = document.createElement("dd");
+        term.textContent = label;
+        const stat = game.stats[key];
+        value.textContent = stat == null ? "—" : key === "plusMinus" && stat > 0 ? `+${stat}` : String(stat).replace(/^0(?=\d:)/, "");
+        if (stat == null) value.setAttribute("aria-label", "Unavailable");
+        cell.append(term, value);
+        list.append(cell);
+      }
+      rows.append(list);
+    }
   }
 
   function openArtifact(record) {
@@ -971,6 +1016,8 @@
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       state.stories = await fetch("data/marchand-stories.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.artifacts || {}).catch(() => ({}));
+      state.gameStats = await fetch("data/marchand-game-stats.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => data.games || {}).catch(() => ({}));
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings", collectionWing);

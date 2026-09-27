@@ -20,6 +20,7 @@ class Element {
     this.tag = tag;
     this.children = [];
     this.dataset = {};
+    this.style = {};
     this.attributes = new Map();
     this.events = new Map();
     this.value = "";
@@ -81,7 +82,7 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": sortButtons })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : url.includes("stories") ? storyManifest : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : url.includes("stories") ? storyManifest : url.includes("game-stats") ? JSON.parse(read("data/marchand-game-stats.json")) : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
@@ -90,6 +91,7 @@ assert.deepEqual(errors, []);
 assert.equal(ids.get("artifact-dialog-title").focused, true, "initial dialog focus belongs on the heading, not Close");
 assert.notEqual(ids.get("artifact-dialog-close").focused, true);
 assert.equal(ids.get("artifact-story-title").textContent, storyManifest.artifacts["goal-72"].title);
+assert.equal(ids.get("artifact-game-stats-rows").children.flatMap(row => row.children).length, 13);
 const goalieFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goalie Scored Against");
 assert.ok(goalieFact, "linked deep dive must show its goalie");
 assert.equal(goalieFact.children[1].textContent, "Steve Mason");
