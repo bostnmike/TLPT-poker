@@ -39,6 +39,8 @@ assert.equal(artifacts["history-507"].verification.marchand.points, 3);
 const html = read("marchand.html");
 assert.ok(html.indexOf('id="artifact-story"') < html.indexOf('id="artifact-video-panel"'));
 assert.ok(html.indexOf('id="artifact-video-panel"') < html.indexOf('id="artifact-puck-photo"'));
+assert.ok(html.indexOf('id="artifact-video-panel"') < html.indexOf('id="artifact-game-stats"'));
+assert.ok(html.indexOf('id="artifact-game-stats"') < html.indexOf('id="artifact-puck-photo"'));
 assert.ok(html.indexOf('id="artifact-puck-image"') < html.indexOf('id="artifact-puck-views"'));
 assert.match(html, /id="artifact-dialog-title" tabindex="-1" autofocus/);
 console.log(`PASS: ${meta.records} sourced game stories, artifact mappings, milestone distinctions, and deep-dive layout order.`);

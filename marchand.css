@@ -1404,9 +1404,11 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-dialog,.marchand-watch-dialog{font-family:"Source Sans 3",Arial,Helvetica,sans-serif}
 .marchand-dialog-header h3,.marchand-dialog-section h4,.marchand-person-copy strong,.marchand-puck-placeholder strong,.marchand-watch-dialog h3{font-family:"Source Sans 3",Arial,Helvetica,sans-serif;font-weight:600}
 .marchand-dialog-header h3,.marchand-dialog-section h4{color:#ffbd28}
-.marchand-game-stats{margin:22px 0 0;padding:16px;border:1px solid rgba(255,189,40,.3);background:rgba(0,0,0,.24)}
+.marchand-game-stats{margin:0 0 28px;padding:16px;border:1px solid rgba(255,189,40,.3);background:rgba(0,0,0,.24)}
 .marchand-game-stats[hidden]{display:none}
-.marchand-game-stats h5{font-size:1.15rem;line-height:1.2;font-weight:600;color:#ffbd28;margin:0 0 5px}
+.marchand-game-stats h4{font-size:1.15rem;line-height:1.2;font-weight:600;color:#ffbd28;margin:0 0 5px}
+#artifact-game-stats-rows{display:grid;grid-template-columns:4fr 4fr 5fr;gap:20px}
+@media(max-width:900px){#artifact-game-stats-rows{grid-template-columns:1fr;gap:0}}
 .marchand-game-stats .marchand-game-stats-status{font-size:.78rem;line-height:1.4;color:#b9c4cd;margin:0 0 14px}
 .marchand-boxscore-row{display:flex;gap:0;margin:0;border-top:1px solid rgba(255,255,255,.13);padding:12px 0}
 .marchand-boxscore-row>div{flex:1;min-width:0;text-align:center;padding:0 3px;border-right:1px solid rgba(255,255,255,.1)}

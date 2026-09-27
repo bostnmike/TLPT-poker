@@ -1,6 +1,6 @@
 # Game stats and photo alignment
 
-Game narratives and their sources remain unchanged. `data/marchand-game-stats.json` stores Marchand's complete game line once per NHL game ID, shared by all artifacts from that game. The stat card follows the narrative; the original Sources disclosure remains available below it.
+Game narratives and their sources remain unchanged. `data/marchand-game-stats.json` stores Marchand's complete game line once per NHL game ID, shared by all artifacts from that game. The stat card occupies its own full-width row below the story/video and above the puck photograph. The original Sources disclosure stays with the narrative. Stat groups sit side by side on desktop and stack on smaller screens.
 
 ## Adding a game
 
