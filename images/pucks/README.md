@@ -1,6 +1,6 @@
 # Marchand collection puck photos
 
-Approved, cropped transparent PNGs, organized by **artifact number**, not career goal number.
+Approved, cropped transparent PNGs or lossless WebP images, organized by **artifact number**, not career goal number.
 
 | Artifact | Puck | Game | Photos |
 | --- | --- | --- | --- |
@@ -10,13 +10,21 @@ Approved, cropped transparent PNGs, organized by **artifact number**, not career
 ## Adding future photos
 
 Create one folder per artifact: `images/pucks/ARTIFACT-NUMBER/`.
-Use `front.png`, `back.png`, and optional `edge-01.png` through `edge-03.png`.
-Include only views actually photographed; zero to three edge photos are supported by this naming convention.
-Keep raw originals in Google Drive's **Brad Puck / Raw Full Images** folder.
+Use `front.webp`, `back.webp`, and optional `edge-01.webp`, `edge-02.webp`, and so on. Existing PNG sets remain supported.
+Include every supplied edge view, including four or more; do not cap the count at three. Include only views actually photographed.
+Keep raw originals unchanged in Google Drive's **Brad Puck / Raw Full Images** folder until the finished set has passed visual QA, publication, and live verification. Then move those successfully published originals into **EDITED AND UPLOADED** inside that folder. Do not move unresolved or failed files.
+
+For HEIC intake, preserve the original files and process full-resolution copies. Match the approved neutral color/crop treatment without smoothing, reconstructing, or removing puck wear, printed markings, tape, or authentication labels. Inspect every front, back, and edge for clipping and individually correct rotation using the logo or readable lettering. Preserve real perspective and irregular worn edges. Center faces on square transparent canvases and keep edge views horizontal with modest breathing room.
+
+Lossless WebP is preferred for new full-resolution web images. A separate `front-thumb.webp` is used only for the small Artifact Hall button; set `thumbnailUrl` on the Front manifest entry. Deep dives must continue to use the full-resolution `url`. If no thumbnail is registered, the button uses the full-resolution Front. Preserve full-resolution PNG working masters outside the repository.
+
+Cross-check artifact numbers against visible dates, opponents, and authentication markings. Record any evidence-backed filename corrections in the private intake audit; never guess an ambiguous mapping.
 
 The beta photos above were processed from the original uploads using conventional cropping and background removal, without generative reconstruction or tonal retouching. Actual wear, printed markings, tape, and authentication labels were preserved. The two artifacts are separate pucks despite sharing a game date.
 
-Map each artifact's photos in `data/marchand-photos.json` using a view label and image path. The deep dive shows the first image by default and provides labeled view buttons. This manifest is separate from the canonical statistics import, so spreadsheet synchronization does not overwrite photo mappings. Artifacts 503 and 509 are mapped; uploading future files alone does not associate them with records.
+The September 27 intake adds 101 photographs across 20 artifacts: 1, 2, 8, 12, 16, 26, 28, 32, 34, 37, 40, 42, 43, 44, 48, 56, 68, 69, 70, and 334. These use neutral tone correction, background isolation, individually checked rotation, and lossless export. Together with the beta sets, the manifest contains 107 views across 22 artifacts.
+
+Map each artifact's photos in `data/marchand-photos.json` using a view label and image path. The deep dive shows the first image by default and provides labeled view buttons. This manifest is separate from the canonical statistics import, so spreadsheet synchronization does not overwrite photo mappings. Uploading future files alone does not associate them with records.
 
 ## Required front-photo / Deep Dive policy
 

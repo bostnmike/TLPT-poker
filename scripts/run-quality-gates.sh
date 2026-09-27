@@ -32,6 +32,7 @@ node scripts/test-news-layout.mjs
 
 echo "🏒 Testing the Marchand Puck Vault..."
 node scripts/test-marchand-page.mjs
+node scripts/test-marchand-photo-manifest.mjs
 
 echo "🧪 Validating generated site data..."
 "$PYTHON_BIN" scripts/validate-site-data.py

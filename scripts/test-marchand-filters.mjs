@@ -8,6 +8,7 @@ const html = read("marchand.html");
 const payload = JSON.parse(read("data/marchand-pucks.json"));
 const decoder = JSON.parse(read("data/marchand-players.json"));
 const photoManifest = JSON.parse(read("data/marchand-photos.json"));
+const registeredPhotos = structuredClone(photoManifest.artifacts);
 // Simulate a future upload, with Front intentionally not first.
 photoManifest.artifacts["1"] = [{ label: "Back", url: "future-back.png" }, { label: "Front", url: "future-front.png" }];
 photoManifest.artifacts["2"] = [{ label: "Back", url: "only-back.png" }];
@@ -99,7 +100,13 @@ const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));
 const pressStat = (filter) => statButtons.find((button) => button.dataset.collectionFilter === filter).click();
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
-for (const [id, expectedUrl] of [[503, "images/pucks/503/front.png"], [509, "images/pucks/509/front.png"], [1, "future-front.png"]]) {
+const frontPhotos = Object.entries(photoManifest.artifacts)
+  .map(([id, photos]) => {
+    const front = photos.find((photo) => photo.label.toLowerCase() === "front");
+    return [Number(id), front?.thumbnailUrl || front?.url];
+  })
+  .filter(([, url]) => url);
+for (const [id, expectedUrl] of frontPhotos) {
   const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
   const portrait = button.children.find((child) => child.tag === "img");
   assert.equal(portrait.src, expectedUrl, "every artifact must automatically use its registered Front photo");
@@ -120,13 +127,15 @@ for (const id of [2, 72]) {
   const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
   assert.equal(button.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
 }
-for (const [inventoryId, expectedViews] of [[503, 2], [509, 4]]) {
+for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["1", "2"].includes(id))) {
+  const inventoryId = Number(id);
+  const expectedViews = photos.length;
   const row = rows().find((entry) => Number(entry.children[0].textContent) === inventoryId);
   row.children[1].children[0].click();
   const views = element("artifact-puck-views");
   assert.equal(views.children.length, expectedViews);
   assert.equal(views.hidden, false);
-  assert.equal(element("artifact-puck-image").src, `images/pucks/${inventoryId}/front.png`);
+  assert.equal(element("artifact-puck-image").src, photos[0].url);
   for (const [index, button] of views.children.entries()) {
     button.click();
     assert.equal(button.getAttribute("aria-pressed"), "true");

@@ -447,7 +447,7 @@
           portrait.hidden = true;
           deepDive.classList.toggle("has-puck-photo", false);
         });
-        portrait.src = frontPhoto.url;
+        portrait.src = normalize(frontPhoto.thumbnailUrl) || frontPhoto.url;
         deepDive.append(portrait);
       }
       deepDive.addEventListener("click", () => openArtifact(record));
