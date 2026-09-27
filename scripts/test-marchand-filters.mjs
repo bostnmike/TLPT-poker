@@ -8,6 +8,7 @@ const html = read("marchand.html");
 const payload = JSON.parse(read("data/marchand-pucks.json"));
 const decoder = JSON.parse(read("data/marchand-players.json"));
 const photoManifest = JSON.parse(read("data/marchand-photos.json"));
+const storyManifest = JSON.parse(read("data/marchand-stories.json"));
 const registeredPhotos = structuredClone(photoManifest.artifacts);
 // Simulate a future upload, with Front intentionally not first.
 photoManifest.artifacts["1"] = [{ label: "Back", url: "future-back.png" }, { label: "Front", url: "future-front.png" }];
@@ -80,12 +81,15 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": sortButtons })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : url.includes("stories") ? storyManifest : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
 await new Promise((resolve) => setImmediate(resolve));
 assert.deepEqual(errors, []);
+assert.equal(ids.get("artifact-dialog-title").focused, true, "initial dialog focus belongs on the heading, not Close");
+assert.notEqual(ids.get("artifact-dialog-close").focused, true);
+assert.equal(ids.get("artifact-story-title").textContent, storyManifest.artifacts["goal-72"].title);
 const goalieFact = ids.get("artifact-dialog-facts").children.find((fact) => fact.children[0]?.textContent === "Goalie Scored Against");
 assert.ok(goalieFact, "linked deep dive must show its goalie");
 assert.equal(goalieFact.children[1].textContent, "Steve Mason");
@@ -255,6 +259,14 @@ function assertNoPlayerLinks(node) {
 for (const row of rows()) {
   const record = payload.records.find((r) => r.inventoryId === Number(row.children[0].textContent));
   row.children[1].children[0].click();
+  const story = storyManifest.artifacts[record.key];
+  assert.equal(element("artifact-story-title").textContent, story.title);
+  assert.equal(element("artifact-story-copy").textContent, story.paragraphs.join(""));
+  assert.equal(element("artifact-story-sources").children.length, story.sources.length);
+  for (const source of element("artifact-story-sources").children) {
+    assert.equal(source.target, "_blank");
+    assert.equal(source.rel, "noopener noreferrer");
+  }
   for (const card of element("artifact-personnel-grid").children) {
     assert.equal(card.tag, "article", "player and goalie cards must not be outbound links");
     assertNoPlayerLinks(card);

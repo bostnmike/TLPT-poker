@@ -1,0 +1,3538 @@
+{
+  "meta": {
+    "version": 1,
+    "reviewedAt": "2026-09-27",
+    "records": 122,
+    "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
+    "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
+    "liveBoxscoreCheck": "2026-09-27: all 100 distinct games rechecked against the live NHL API; all 122 artifact dates, teams and Marchand game stat lines matched."
+  },
+  "artifacts": {
+    "goal-1": {
+      "inventoryId": 1,
+      "date": "2015-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2015020385,
+      "title": "Two goals, two very different moments",
+      "paragraphs": [
+        "Marchand tied Calgary 2–2 at 1:36 of the second period, finishing a play credited to Brett Connolly and Zach Trotman. This puck is from that even-strength goal, his first of two that night. His late penalty-shot goal briefly put Boston ahead, but Calgary tied it with two seconds left and won 5–4 in overtime."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2015020385"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2015020385/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2015020385/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 4,
+          "toi": "18:37"
+        }
+      }
+    },
+    "goal-2": {
+      "inventoryId": 2,
+      "date": "2018-01-02",
+      "team": "Boston Bruins",
+      "gameId": 2017020603,
+      "title": "A hand in the winner, then a goal of his own",
+      "paragraphs": [
+        "Marchand assisted on Patrice Bergeron’s go-ahead goal before adding Boston’s third at 9:04 of the final period. David Pastrnak supplied the assist on this puck. Marchand finished with a goal, an assist and five shots as the Bruins pulled away from the Islanders for a 5–1 road win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017020603"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017020603/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017020603/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 5,
+          "toi": "15:24"
+        }
+      }
+    },
+    "goal-3": {
+      "inventoryId": 3,
+      "date": "2018-01-18",
+      "team": "Boston Bruins",
+      "gameId": 2017020696,
+      "title": "Three points on Bergeron’s hat-trick night",
+      "paragraphs": [
+        "Marchand helped set up two of Patrice Bergeron’s three goals, then scored into the empty net with 1:01 left. His three-point night helped Boston beat the Islanders 5–2. David Krejci and Riley Nash earned the assists on this final goal, which ended New York’s attempt to close a two-goal deficit."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017020696"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017020696/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017020696/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 3,
+          "toi": "16:23"
+        }
+      }
+    },
+    "goal-4": {
+      "inventoryId": 4,
+      "date": "2018-03-19",
+      "team": "Boston Bruins",
+      "gameId": 2017021116,
+      "title": "Eight shots in an overtime loss",
+      "paragraphs": [
+        "Marchand put Boston ahead 2–1 at 7:28 of the second period, then assisted on Riley Nash’s power-play goal for a two-goal lead. He finished with eight shots and two points. Columbus erased the deficit and eventually won 5–4 on Cam Atkinson’s overtime goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017021116"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017021116/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017021116/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 8,
+          "toi": "21:16"
+        }
+      }
+    },
+    "goal-5": {
+      "inventoryId": 5,
+      "date": "2018-03-23",
+      "team": "Boston Bruins",
+      "gameId": 2017021150,
+      "title": "Marchand touches all three comeback goals",
+      "paragraphs": [
+        "Boston trailed Dallas 2–0 entering the third. Marchand scored at 1:17, assisted on Tim Schaller’s short-handed equalizer, then helped set up David Pastrnak’s winner with 12 seconds remaining. This puck began a three-point period that turned a shutout through 40 minutes into a 3–2 Bruins win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017021150"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017021150/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017021150/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 2,
+          "toi": "19:57"
+        }
+      }
+    },
+    "goal-6": {
+      "inventoryId": 6,
+      "date": "2018-11-11",
+      "team": "Boston Bruins",
+      "gameId": 2018020256,
+      "title": "The Perfection Line makes it three",
+      "paragraphs": [
+        "Bergeron and Pastrnak both earned assists when Marchand scored 58 seconds into the second period. That goal put Boston ahead 3–0 against Vegas, with all three members of the Perfection Line on the scoring play. The Bruins won 4–1; Marchand finished with three shots in 19:44 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020256"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020256/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020256/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "19:44"
+        }
+      }
+    },
+    "goal-7": {
+      "inventoryId": 7,
+      "date": "2018-11-29",
+      "team": "Boston Bruins",
+      "gameId": 2018020382,
+      "title": "The goal that got Boston to the shootout",
+      "paragraphs": [
+        "Marchand’s power-play goal at 12:09 of the second period erased the Islanders’ 1–0 lead. Pastrnak and Torey Krug assisted, and neither team scored again through overtime. Boston won 2–1 in the shootout. Marchand supplied the Bruins’ only goal during actual game play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020382"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020382/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020382/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "21:39"
+        }
+      }
+    },
+    "goal-8": {
+      "inventoryId": 8,
+      "date": "2018-12-17",
+      "team": "Boston Bruins",
+      "gameId": 2018020514,
+      "title": "A power-play finish in Montreal",
+      "paragraphs": [
+        "Marchand scored at 5:06 of the third period to complete Boston’s 4–0 win over Montreal. Pastrnak and Torey Krug assisted on the power play, giving Marchand career goal No. 237. David Krejci had scored 46 seconds into the period; Marchand’s goal made it two in the opening 5:06."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020514"
+        },
+        {
+          "label": "NHL game recap",
+          "url": "https://www.nhl.com/news/boston-bruins-montreal-canadiens-game-recap-303029692"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020514/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020514/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "18:44"
+        }
+      }
+    },
+    "goal-9": {
+      "inventoryId": 9,
+      "date": "2019-02-26",
+      "team": "Boston Bruins",
+      "gameId": 2018020968,
+      "title": "A short-handed goal on a three-point night",
+      "paragraphs": [
+        "Marchand scored short-handed at 12:28 of the second period, with assists from Bergeron and Brandon Carlo. He had already helped set up Boston’s first two goals, including Charlie McAvoy’s eventual winner. His goal made it 4–1 against San Jose, the final score."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020968"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020968/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020968/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 4,
+          "toi": "16:13"
+        }
+      }
+    },
+    "goal-10": {
+      "inventoryId": 10,
+      "date": "2019-10-05",
+      "team": "Boston Bruins",
+      "gameId": 2019020027,
+      "title": "The only goal Boston needed",
+      "paragraphs": [
+        "Marchand scored at 18:41 of the first period from a Patrice Bergeron assist. Neither team scored again. His goal stood for more than 41 minutes as Boston beat Arizona 1–0, with Marchand playing exactly 20 minutes and putting three shots on net."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020027"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020027/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020027/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "20:00"
+        }
+      }
+    },
+    "goal-11": {
+      "inventoryId": 11,
+      "date": "2019-10-08",
+      "team": "Boston Bruins",
+      "gameId": 2019020043,
+      "title": "Two quick goals turn the game",
+      "paragraphs": [
+        "Marchand tied Vegas 2–2 on the power play with 1:02 left in the first period, then scored again 33 seconds into the second. He also assisted on Pastrnak’s earlier goal. This puck is from the tying goal in a three-point night that helped Boston recover from 2–0 down to win 4–3."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020043"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020043/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020043/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 3,
+          "toi": "17:55"
+        }
+      }
+    },
+    "goal-12": {
+      "inventoryId": 12,
+      "date": "2019-10-27",
+      "team": "Boston Bruins",
+      "gameId": 2019020174,
+      "title": "Five points at Madison Square Garden",
+      "paragraphs": [
+        "Marchand scored twice and assisted on all three of Bergeron’s goals in Boston’s 7–4 win over the Rangers. This puck is from his first goal, at 1:08 of the second period. It put the Bruins ahead 2–1, just 57 seconds after Bergeron had tied the game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020174"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020174/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020174/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 3,
+          "points": 5,
+          "shots": 5,
+          "toi": "17:05"
+        }
+      }
+    },
+    "goal-13": {
+      "inventoryId": 13,
+      "date": "2019-11-10",
+      "team": "Boston Bruins",
+      "gameId": 2019020267,
+      "title": "Marchand erases a two-goal deficit",
+      "paragraphs": [
+        "Philadelphia led 2–0 after two periods. Danton Heinen scored first for Boston, then Marchand tied it at 12:22 of the third on an assist from Matt Grzelcyk. His goal forced the game beyond regulation, although the Flyers took the shootout for a 3–2 win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020267"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020267/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020267/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "21:15"
+        }
+      }
+    },
+    "goal-14": {
+      "inventoryId": 14,
+      "date": "2019-11-26",
+      "team": "Boston Bruins",
+      "gameId": 2019020374,
+      "title": "Career point 600 in Montreal",
+      "paragraphs": [
+        "Marchand reached 600 career points with his goal at 19:23 of the first period in Montreal. It put Boston ahead 3–1, with Coyle assisting. Marchand also helped set up two Pastrnak goals, including one eight seconds into the second period, and finished with three points in an 8–1 win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020374"
+        },
+        {
+          "label": "NHL game recap",
+          "url": "https://www.nhl.com/news/boston-bruins-montreal-canadiens-game-recap-311806154"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020374/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020374/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 4,
+          "toi": "15:36"
+        }
+      }
+    },
+    "goal-15": {
+      "inventoryId": 15,
+      "date": "2019-11-27",
+      "team": "Boston Bruins",
+      "gameId": 2019020378,
+      "title": "An answer in Ottawa",
+      "paragraphs": [
+        "Thomas Chabot broke a scoreless tie early in the third period. Marchand answered at 5:15, with assists from Anders Bjork and Sean Kuraly. Zdeno Chara scored 3:30 later, and Boston held on for a 2–1 win. Marchand’s goal brought the Bruins level before the winner."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020378"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020378/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020378/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "19:37"
+        }
+      }
+    },
+    "goal-16": {
+      "inventoryId": 16,
+      "date": "2019-12-31",
+      "team": "Boston Bruins",
+      "gameId": 2019020613,
+      "title": "An early power-play lead",
+      "paragraphs": [
+        "Marchand needed only 2:03 to score against New Jersey, finishing a power-play sequence with assists from Pastrnak and Matt Grzelcyk. Boston later led 2–0, but the Devils tied it in the third and won 3–2 in a shootout. This puck is the opening goal of the game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020613"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020613/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020613/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "20:46"
+        }
+      }
+    },
+    "goal-17": {
+      "inventoryId": 17,
+      "date": "2020-01-16",
+      "team": "Boston Bruins",
+      "gameId": 2019020727,
+      "title": "The empty-net finish against Pittsburgh",
+      "paragraphs": [
+        "Marchand scored with 53 seconds remaining to complete a 4–1 Boston win. Pastrnak earned the assist on the empty-net goal. Pittsburgh had scored just 24 seconds into the game; Boston answered with four straight goals, with Marchand delivering the last."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020727"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020727/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020727/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "20:37"
+        }
+      }
+    },
+    "goal-18": {
+      "inventoryId": 18,
+      "date": "2020-02-21",
+      "team": "Boston Bruins",
+      "gameId": 2019020945,
+      "title": "Marchand supplies the winner in Calgary",
+      "paragraphs": [
+        "After six first-period goals left the teams tied 3–3, Marchand scored 52 seconds into the second. That was the game’s final goal. He also assisted on Bergeron’s second goal during Boston’s recovery from an early 3–1 deficit, finishing a 4–3 win with two points and five shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020945"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020945/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020945/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 5,
+          "toi": "18:36"
+        }
+      }
+    },
+    "goal-19": {
+      "inventoryId": 19,
+      "date": "2021-02-01",
+      "team": "Boston Bruins",
+      "gameId": 2020020145,
+      "title": "From three down to an empty-net finish",
+      "paragraphs": [
+        "Marchand helped start Boston’s comeback by assisting on Pastrnak’s second-period goal, then ended it with an empty-netter at 18:34 of the third. The Bruins scored five unanswered goals to beat Washington 5–3. This puck is the final goal, after Brandon Carlo had given Boston its first lead 71 seconds earlier."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2020020145"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2020020145/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2020020145/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 3,
+          "toi": "21:37"
+        }
+      }
+    },
+    "goal-20": {
+      "inventoryId": 20,
+      "date": "2021-02-05",
+      "team": "Boston Bruins",
+      "gameId": 2020020174,
+      "title": "Twenty-seven seconds change the result",
+      "paragraphs": [
+        "Marchand tied Philadelphia 1–1 at 12:01 of the third period, with assists from Pastrnak and McAvoy. Sean Kuraly put Boston ahead 27 seconds later. The Bruins won 2–1, and Marchand finished with five shots after scoring the equalizer with less than eight minutes left."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2020020174"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2020020174/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2020020174/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 5,
+          "toi": "21:01"
+        }
+      }
+    },
+    "goal-21": {
+      "inventoryId": 21,
+      "date": "2022-01-06",
+      "team": "Boston Bruins",
+      "gameId": 2021020599,
+      "title": "A power-play goal keeps Boston close",
+      "paragraphs": [
+        "Marchand cut Minnesota’s lead to 3–2 at 15:35 of the second period. Bergeron and Matt Grzelcyk assisted on the power-play goal. Marchand recorded six shots, but Boston could not find another goal in the third, leaving his tally as the game’s final scoring play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021020599"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021020599/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021020599/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 6,
+          "toi": "21:22"
+        }
+      }
+    },
+    "goal-22": {
+      "inventoryId": 22,
+      "date": "2022-02-26",
+      "team": "Boston Bruins",
+      "gameId": 2021020838,
+      "title": "A point on every Boston goal",
+      "paragraphs": [
+        "Marchand scored twice and assisted on Bergeron’s late goal in a 3–1 win at San Jose. This puck is his opener at 14:24 of the first period, from Jake DeBrusk and Erik Haula. After the Sharks tied it, Marchand supplied the third-period winner. He finished with eight shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021020838"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021020838/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021020838/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 8,
+          "toi": "20:27"
+        }
+      }
+    },
+    "goal-23": {
+      "inventoryId": 23,
+      "date": "2022-03-18",
+      "team": "Boston Bruins",
+      "gameId": 2021020979,
+      "title": "Marchand breaks the deadlock",
+      "paragraphs": [
+        "The first period in Winnipeg ended scoreless. Marchand put Boston ahead at 4:42 of the second, with assists from Jake DeBrusk and Jack Studnicka. Winnipeg later tied the game 2–2 before two late Bruins goals secured a 4–2 win. Marchand recorded six shots in 20:41 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021020979"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021020979/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021020979/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 6,
+          "toi": "20:41"
+        }
+      }
+    },
+    "goal-24": {
+      "inventoryId": 24,
+      "date": "2022-03-31",
+      "team": "Boston Bruins",
+      "gameId": 2021021074,
+      "title": "Two goals in a six-goal period",
+      "paragraphs": [
+        "Marchand scored twice in the second period as Boston turned a 2–1 lead into an 8–1 win over New Jersey. This puck is his second goal, at 10:34, assisted by Mike Reilly and Bergeron. It made the score 6–1, with Boston still adding two more before the intermission."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021021074"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021021074/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021021074/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 6,
+          "toi": "14:54"
+        }
+      }
+    },
+    "goal-25": {
+      "inventoryId": 25,
+      "date": "2022-11-01",
+      "team": "Boston Bruins",
+      "gameId": 2022020147,
+      "title": "The first goal of a four-goal comeback",
+      "paragraphs": [
+        "Pittsburgh had just opened a 5–2 lead when Marchand scored on the power play at 12:57 of the second period. Hampus Lindholm and Jake DeBrusk assisted. Boston scored twice in the third to force overtime, then Lindholm won it 6–5. Marchand’s goal stopped a run of four straight Penguins goals."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020147"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020147/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020147/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 6,
+          "toi": "20:02"
+        }
+      }
+    },
+    "goal-26": {
+      "inventoryId": 26,
+      "date": "2023-01-08",
+      "team": "Boston Bruins",
+      "gameId": 2022020644,
+      "title": "Adding to the lead in Anaheim",
+      "paragraphs": [
+        "Marchand scored at 6:20 of the third period, extending Boston’s lead to 5–1. Trent Frederic and Charlie Coyle earned the assists. His goal followed Pastrnak’s hat trick, and the Bruins added two more for a 7–1 win. Marchand scored on his only shot on goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020644"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020644/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020644/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "15:56"
+        }
+      }
+    },
+    "goal-27": {
+      "inventoryId": 27,
+      "date": "2023-01-26",
+      "team": "Boston Bruins",
+      "gameId": 2022020771,
+      "title": "A tying goal in Tampa",
+      "paragraphs": [
+        "Marchand brought Boston level at 1–1 with 3:02 left in the second period. Connor Clifton and Hampus Lindholm assisted on his goal. The Bruins tied it a second time through Pavel Zacha in the third, but Victor Hedman’s late goal gave Tampa Bay a 3–2 win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020771"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020771/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020771/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "19:32"
+        }
+      }
+    },
+    "goal-28": {
+      "inventoryId": 28,
+      "date": "2023-02-16",
+      "team": "Boston Bruins",
+      "gameId": 2022020873,
+      "title": "An early goal that held up as the winner",
+      "paragraphs": [
+        "Marchand scored from a Bergeron assist at 2:54 of the first period in Nashville. Boston never surrendered the lead and won 5–0, making the opener the game-winning goal. Marchand played 17:38 and recorded three shots as five different Bruins scored."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020873"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020873/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020873/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "17:38"
+        }
+      }
+    },
+    "goal-29": {
+      "inventoryId": 29,
+      "date": "2023-02-23",
+      "team": "Boston Bruins",
+      "gameId": 2022020927,
+      "title": "Scoring at even strength, creating short-handed",
+      "paragraphs": [
+        "Marchand put Boston ahead 3–2 at 8:49 of the second period in Seattle, then assisted on Bergeron’s short-handed goal later in the period. The lead changed again before Boston won 6–5 on Jake DeBrusk’s late goal. Marchand finished with two points and six shots in an 11-goal game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020927"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020927/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020927/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 6,
+          "toi": "17:48"
+        }
+      }
+    },
+    "goal-30": {
+      "inventoryId": 30,
+      "date": "2023-02-25",
+      "team": "Boston Bruins",
+      "gameId": 2022020939,
+      "title": "The winning goal before Ullmark’s goal",
+      "paragraphs": [
+        "Marchand scored with 35 seconds left in the first period to put Boston ahead 2–0 in Vancouver. DeBrusk and Bergeron assisted. Vancouver cut the margin to one in the third before goaltender Linus Ullmark scored into an empty net. Marchand’s tally stood as the winner in a 3–1 game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020939"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020939/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020939/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "17:16"
+        }
+      }
+    },
+    "goal-31": {
+      "inventoryId": 31,
+      "date": "2023-10-19",
+      "team": "Boston Bruins",
+      "gameId": 2023020062,
+      "title": "Marchand starts a 21-second burst",
+      "paragraphs": [
+        "Marchand opened the scoring at 18:06 of the first period in San Jose, with John Beecher earning the assist. James van Riemsdyk scored 21 seconds later. Boston built a 3–0 lead and won 3–1; Marchand finished with five shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020062"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020062/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020062/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 5,
+          "toi": "18:24"
+        }
+      }
+    },
+    "goal-32": {
+      "inventoryId": 32,
+      "date": "2023-10-21",
+      "team": "Boston Bruins",
+      "gameId": 2023020079,
+      "title": "Two goals, including the winner in Los Angeles",
+      "paragraphs": [
+        "Marchand scored twice and assisted on Pastrnak’s power-play opener in a 4–2 win over the Kings. This puck is his first goal, at 15:33 of the second period, which put Boston ahead 3–1 and became the winner. He added another with 2:12 left in regulation."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020079"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020079/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020079/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 5,
+          "toi": "20:43"
+        }
+      }
+    },
+    "goal-33": {
+      "inventoryId": 33,
+      "date": "2023-10-22",
+      "team": "Boston Bruins",
+      "gameId": 2023020081,
+      "title": "Marchand closes out the Anaheim win",
+      "paragraphs": [
+        "After Matthew Poitras scored twice to turn a 1–0 deficit into a Boston lead, Marchand hit the empty net at 17:26 of the third period. Coyle supplied the assist. The goal made it 3–1 and completed a three-goal final period for the Bruins."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020081"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020081/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020081/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "19:39"
+        }
+      }
+    },
+    "goal-34": {
+      "inventoryId": 34,
+      "date": "2023-11-06",
+      "team": "Boston Bruins",
+      "gameId": 2023020178,
+      "title": "A power-play goal proves decisive",
+      "paragraphs": [
+        "Marchand restored Boston’s two-goal lead at 9:51 of the third period in Dallas, with van Riemsdyk and Pastrnak assisting. The Stars scored with 28 seconds left, making Marchand’s power-play tally the winner in a 3–2 game. He recorded five shots in 19:26."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020178"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020178/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020178/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 5,
+          "toi": "19:26"
+        }
+      }
+    },
+    "goal-35": {
+      "inventoryId": 35,
+      "date": "2023-11-11",
+      "team": "Boston Bruins",
+      "gameId": 2023020212,
+      "title": "Two points to earn overtime in Montreal",
+      "paragraphs": [
+        "Marchand assisted on Zacha’s goal 36 seconds into the game, then scored on the power play at 12:58 of the third to tie it 2–2. He had a point on both Boston goals. Montreal won 3–2 in overtime, despite Marchand’s five shots and 22:03 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020212"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020212/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020212/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 5,
+          "toi": "22:03"
+        }
+      }
+    },
+    "goal-36": {
+      "inventoryId": 36,
+      "date": "2024-01-08",
+      "team": "Boston Bruins",
+      "gameId": 2023020624,
+      "title": "Two shots, two goals in Colorado",
+      "paragraphs": [
+        "Marchand scored on both of his shots in Boston’s 4–3 shootout loss. This puck is his first goal, a power-play opener at 11:21 of the first period with assists from Zacha and Pastrnak. He scored again in the third to force overtime."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020624"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020624/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020624/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "20:21"
+        }
+      }
+    },
+    "goal-37": {
+      "inventoryId": 37,
+      "date": "2024-01-08",
+      "team": "Boston Bruins",
+      "gameId": 2023020624,
+      "title": "The equalizer brings career point 899",
+      "paragraphs": [
+        "Marchand’s second goal of the night tied Colorado 3–3 at 5:46 of the third period. Coyle and Grzelcyk assisted. The goal brought him to 899 points, past Rick Middleton for fifth in Bruins history. Boston lost in the shootout after Marchand scored twice on two shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020624"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/boston-bruins-colorado-avalanche-game-recap-january-8"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020624/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020624/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "20:21"
+        }
+      }
+    },
+    "goal-38": {
+      "inventoryId": 38,
+      "date": "2024-01-13",
+      "team": "Boston Bruins",
+      "gameId": 2023020667,
+      "title": "Career point 900 comes on the opener",
+      "paragraphs": [
+        "Marchand reached 900 NHL points by scoring at 5:02 of the first period in St. Louis, with Coyle assisting. He added a power-play goal in the third for another Boston lead. McAvoy eventually settled a 4–3 game in overtime; Marchand finished with two goals and five shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020667"
+        },
+        {
+          "label": "NHL: Marchand’s 900th point",
+          "url": "https://www.nhl.com/video/bos-stl-marchand-scores-goal-against-jordan-binnington-6344857041112"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020667/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020667/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 5,
+          "toi": "20:34"
+        }
+      }
+    },
+    "goal-39": {
+      "inventoryId": 39,
+      "date": "2024-01-24",
+      "team": "Boston Bruins",
+      "gameId": 2023020741,
+      "title": "Two goals erase Carolina’s lead",
+      "paragraphs": [
+        "Boston entered the third period down 2–0. Marchand scored at 1:30, then again at 7:20 to tie it. This puck is the first of those goals, assisted by Frederic and Lindholm. Carolina recovered to win 3–2 on Jordan Martinook’s goal with 2:27 remaining."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020741"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020741/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020741/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "20:22"
+        }
+      }
+    },
+    "goal-40": {
+      "inventoryId": 40,
+      "date": "2024-02-21",
+      "team": "Boston Bruins",
+      "gameId": 2023020888,
+      "title": "Marchand opens Boston’s three-goal period",
+      "paragraphs": [
+        "Marchand scored 25 seconds into the second period in Edmonton to give Boston a 2–1 lead. Danton Heinen and Mason Lohrei assisted. The Bruins stretched the lead to 4–1, but needed McAvoy’s overtime goal to win 6–5 after Edmonton twice drew level in the third."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020888"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020888/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020888/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "18:18"
+        }
+      }
+    },
+    "goal-41": {
+      "inventoryId": 41,
+      "date": "2024-04-13",
+      "team": "Boston Bruins",
+      "gameId": 2023021279,
+      "title": "Short-handed in Pittsburgh",
+      "paragraphs": [
+        "Marchand scored short-handed at 14:54 of the second period, with Coyle assisting. The goal extended Boston’s lead to 4–1 during a four-goal period for the Bruins. Pittsburgh later pulled within one, but Boston won 6–4. Marchand finished with four shots and career goal No. 401."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023021279"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023021279/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023021279/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "18:36"
+        }
+      }
+    },
+    "goal-42": {
+      "inventoryId": 42,
+      "date": "2024-10-31",
+      "team": "Boston Bruins",
+      "gameId": 2024020165,
+      "title": "Goal 403 moves Marchand past Middleton",
+      "paragraphs": [
+        "Marchand’s power-play goal moved him ahead of Rick Middleton into fourth on Boston’s career goals list. It tied Carolina 1–1 at 13:11 of the first period, with Pastrnak and Elias Lindholm assisting. The Hurricanes won 8–2. This is the goal-scored puck; artifact 316 separately marks the milestone with a game-used puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020165"
+        },
+        {
+          "label": "Bruins milestone report",
+          "url": "https://www.nhl.com/bruins/news/boston-bruins-carolina-hurricanes-game-recap-october-31-x3674"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020165/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020165/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "15:03"
+        }
+      }
+    },
+    "goal-43": {
+      "inventoryId": 43,
+      "date": "2024-11-23",
+      "team": "Boston Bruins",
+      "gameId": 2024020324,
+      "title": "One shot, the winning goal",
+      "paragraphs": [
+        "Marchand broke a 1–1 tie in Detroit at 11:30 of the third period. Andrew Peeke and Pastrnak earned the assists. It was Marchand’s only shot on goal, and it decided a 2–1 Boston win after neither team had scored since the final minute of the first period."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020324"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020324/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020324/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "16:30"
+        }
+      }
+    },
+    "goal-44": {
+      "inventoryId": 44,
+      "date": "2024-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2024020407,
+      "title": "The first of two in 2:05",
+      "paragraphs": [
+        "Marchand gave Boston a 2–1 lead at 2:58 of the second period in Chicago, then scored again just 2:05 later. This puck is the first goal, assisted by Pastrnak and Mason Lohrei. Marchand and Morgan Geekie each scored twice in the Bruins’ 4–2 win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020407"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:12"
+        }
+      }
+    },
+    "goal-45": {
+      "inventoryId": 45,
+      "date": "2024-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2024020407,
+      "title": "Marchand’s second goal becomes the winner",
+      "paragraphs": [
+        "At 5:03 of the second period, Marchand scored his second goal in 2:05 to put Boston ahead 3–1 in Chicago. Pastrnak and Jordan Oesterle assisted. Boston won 4–2, making this Marchand’s 81st Bruins game-winner, tied with Bergeron for second in team history."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020407"
+        },
+        {
+          "label": "NHL record notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2024/12/18450/MorningSkate_120524.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:12"
+        }
+      }
+    },
+    "goal-46": {
+      "inventoryId": 46,
+      "date": "2024-12-12",
+      "team": "Boston Bruins",
+      "gameId": 2024020472,
+      "title": "A record-tying penalty shot",
+      "paragraphs": [
+        "Marchand converted his seventh career penalty shot, tying Pavel Bure’s NHL record. At 10:28 of the second period, he cut Seattle’s lead to 2–1. It was Boston’s only goal in a 5–1 defeat. This puck records the unassisted penalty-shot goal, rather than an ordinary even-strength scoring play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020472"
+        },
+        {
+          "label": "NHL penalty-shot record report",
+          "url": "https://www.nhl.com/news/boston-bruins-seattle-kraken-game-recap-december-12"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020472/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020472/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "18:48"
+        }
+      }
+    },
+    "goal-47": {
+      "inventoryId": 47,
+      "date": "2025-01-14",
+      "team": "Boston Bruins",
+      "gameId": 2024020692,
+      "title": "A two-point night against Tampa Bay",
+      "paragraphs": [
+        "Marchand scored from a Pastrnak assist at 1:13 of the second period to put Boston ahead 3–0. His goal became the winner in a 6–2 game. He later assisted on Zacha’s short-handed empty-net goal, finishing with two points in 19:23 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020692"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020692/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020692/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 2,
+          "toi": "19:23"
+        }
+      }
+    },
+    "goal-48": {
+      "inventoryId": 48,
+      "date": "2025-01-28",
+      "team": "Boston Bruins",
+      "gameId": 2024020799,
+      "title": "A game-used puck from the Buffalo loss",
+      "paragraphs": [
+        "Marchand scored Boston’s second goal on the power play at 10:13 of the third period, with Elias Lindholm and Pastrnak assisting. It cut Buffalo’s lead to 4–2, but the Sabres answered 30 seconds later and won 7–2. This artifact is a game-used puck from that night, not the puck from Marchand’s goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020799"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020799/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020799/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "15:17"
+        }
+      }
+    },
+    "goal-49": {
+      "inventoryId": 49,
+      "date": "2024-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2024020407,
+      "title": "Remembering the two-goal night in Chicago",
+      "paragraphs": [
+        "Marchand scored twice early in the second period, changing a 1–1 tie into a 3–1 Boston lead. His second goal held up as the winner in a 4–2 game. This game-used puck commemorates that performance; the two goal-scored pucks are cataloged separately as artifacts 44 and 45."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020407"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:12"
+        }
+      }
+    },
+    "goal-50": {
+      "inventoryId": 50,
+      "date": "2011-05-02",
+      "team": "Boston Bruins",
+      "gameId": 2010030222,
+      "title": "Marchand helps erase Philadelphia’s fast start",
+      "paragraphs": [
+        "Philadelphia led 2–0 before the game was ten minutes old. After Chris Kelly scored, Marchand tied it at 14:15 of the first period, with Bergeron and Mark Recchi assisting. Neither team scored again until David Krejci’s overtime winner gave Boston a 3–2 playoff victory."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2010030222"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2010030222/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2010030222/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 5,
+          "toi": "21:51"
+        }
+      }
+    },
+    "goal-51": {
+      "inventoryId": 51,
+      "date": "2017-04-12",
+      "team": "Boston Bruins",
+      "gameId": 2016030121,
+      "title": "The Perfection Line delivers late",
+      "paragraphs": [
+        "Marchand scored with 2:33 remaining to break a 1–1 tie in Ottawa. Bergeron and Pastrnak both earned assists on the winning play. Boston won 2–1, with Marchand scoring on his only shot of the game after the Bruins had entered the third period trailing by one."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2016030121"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2016030121/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2016030121/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "21:07"
+        }
+      }
+    },
+    "goal-52": {
+      "inventoryId": 52,
+      "date": "2019-04-21",
+      "team": "Boston Bruins",
+      "gameId": 2018030126,
+      "title": "Three points with Boston facing elimination",
+      "paragraphs": [
+        "Marchand scored twice and assisted on another goal as Boston beat Toronto 4–2 to force Game 7. This puck is his power-play equalizer at 11:23 of the first period, assisted by Bergeron. He later helped set up Krug’s go-ahead goal and scored into the empty net with 1:54 left."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018030126"
+        },
+        {
+          "label": "Bruins playoff recap",
+          "url": "https://www.nhl.com/bruins/news/marchand-pots-two-as-bruins-force-game-7-306941822"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018030126/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018030126/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 6,
+          "toi": "20:12"
+        }
+      }
+    },
+    "goal-53": {
+      "inventoryId": 53,
+      "date": "2020-08-17",
+      "team": "Boston Bruins",
+      "gameId": 2019030144,
+      "title": "Marchand puts Boston ahead in a third-period comeback",
+      "paragraphs": [
+        "Carolina led 2–0 after two periods. Marchand scored at 11:40 of the third to give Boston its first lead, following goals from DeBrusk and Connor Clifton. Krug supplied the assist. DeBrusk added another, and the Bruins held on for a 4–3 playoff win after scoring four times in 6:51."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019030144"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019030144/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019030144/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 5,
+          "toi": "20:57"
+        }
+      }
+    },
+    "goal-54": {
+      "inventoryId": 54,
+      "date": "2020-08-25",
+      "team": "Boston Bruins",
+      "gameId": 2019030222,
+      "title": "Two Marchand goals, then overtime",
+      "paragraphs": [
+        "Marchand’s power-play goal at 14:33 of the second period put Boston ahead 2–1 against Tampa Bay. He scored again with 3:58 left in regulation to tie it 3–3. This puck is the first of his two goals. Ondrej Palat eventually gave Tampa Bay a 4–3 overtime win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019030222"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019030222/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019030222/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "21:00"
+        }
+      }
+    },
+    "goal-55": {
+      "inventoryId": 55,
+      "date": "2021-05-21",
+      "team": "Boston Bruins",
+      "gameId": 2020030124,
+      "title": "The power play breaks a scoreless tie",
+      "paragraphs": [
+        "Marchand opened the scoring at 8:00 of the second period against Washington, with Pastrnak and McAvoy assisting. Boston added two goals in the first 1:03 of the third and won 4–1. Marchand’s power-play goal ended more than 28 scoreless minutes to begin the playoff game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2020030124"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2020030124/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2020030124/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "19:46"
+        }
+      }
+    },
+    "goal-56": {
+      "inventoryId": 56,
+      "date": "2023-04-23",
+      "team": "Boston Bruins",
+      "gameId": 2022030114,
+      "title": "Marchand opens the scoring in Florida",
+      "paragraphs": [
+        "Marchand put Boston ahead on the power play at 9:45 of the first period, with Zacha and Tyler Bertuzzi assisting. The Bruins never trailed and won 6–2, with DeBrusk and Taylor Hall each scoring twice. Marchand finished with three shots and 20:01 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022030114"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022030114/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022030114/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "20:01"
+        }
+      }
+    },
+    "goal-57": {
+      "inventoryId": 57,
+      "date": "2024-10-19",
+      "team": "Boston Bruins",
+      "gameId": 2024020086,
+      "title": "An assist on Boston’s only goal in Utah",
+      "paragraphs": [
+        "Marchand earned the lone assist on Cole Koepke’s goal at 12:49 of the second period. Boston held that 1–0 lead until Utah tied it with 5:09 left in regulation, then lost 2–1 in overtime. This puck represents Marchand’s assist on the opening goal, not a Marchand goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020086"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020086/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 1,
+          "toi": "18:06"
+        }
+      }
+    },
+    "goal-58": {
+      "inventoryId": 58,
+      "date": "2025-02-12",
+      "team": "Canada",
+      "gameId": 2024190001,
+      "title": "A goal for Canada in the 4 Nations opener",
+      "paragraphs": [
+        "Marchand put Canada ahead 2–0 at 13:15 of the first period against Sweden. Brayden Point and Seth Jarvis assisted on his goal. Sweden later erased a 3–1 deficit, but Mitch Marner scored at 6:06 of overtime for a 4–3 Canada win. Marchand recorded two shots in 11:22."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024190001"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024190001/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024190001/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "11:22"
+        }
+      }
+    },
+    "goal-59": {
+      "inventoryId": 59,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Two assists on his return to Boston",
+      "paragraphs": [
+        "Marchand helped Florida score 61 seconds into the game, then assisted on Eetu Luostarinen’s goal at 9:58 of the third to restore a 3–2 lead. This puck is from Luostarinen’s goal. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds left; Marchand finished with two assists against his former team."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL return-to-Boston notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
+        }
+      }
+    },
+    "goal-60": {
+      "inventoryId": 60,
+      "date": "2023-10-30",
+      "team": "Boston Bruins",
+      "gameId": 2023020130,
+      "title": "Starting the comeback against Florida",
+      "paragraphs": [
+        "Boston trailed 2–0 after the first period. Marchand scored at 3:38 of the second, assisted by DeBrusk and Coyle, to cut the deficit in half. McAvoy tied it in the third, and Zacha completed the comeback in overtime for a 3–2 Bruins win."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020130"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020130/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020130/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "20:09"
+        }
+      }
+    },
+    "goal-61": {
+      "inventoryId": 61,
+      "date": "2025-04-10",
+      "team": "Florida Panthers",
+      "gameId": 2024021251,
+      "title": "The night of his first Florida goal",
+      "paragraphs": [
+        "Marchand scored his first Panthers goal at 16:21 of the second period against Detroit. Uvis Balinskis and Luostarinen assisted, and Florida won 4–1 after trailing 1–0. Marchand scored on his only shot. This artifact is a game-used puck marking that first goal, not the goal-scored puck itself."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021251"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021251/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021251/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "15:08"
+        }
+      }
+    },
+    "goal-62": {
+      "inventoryId": 62,
+      "date": "2025-10-15",
+      "team": "Florida Panthers",
+      "gameId": 2025020058,
+      "title": "Florida’s lone goal in Detroit",
+      "paragraphs": [
+        "Marchand scored at 14:05 of the second period to cut Detroit’s lead to 2–1. Anton Lundell earned the assist. Florida stayed within one until the final two minutes, when Detroit added two goals for a 4–1 win. Marchand finished with four shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020058"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020058/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020058/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "16:56"
+        }
+      }
+    },
+    "goal-63": {
+      "inventoryId": 63,
+      "date": "2025-11-04",
+      "team": "Florida Panthers",
+      "gameId": 2025020211,
+      "title": "An equalizer before Anaheim pulls away",
+      "paragraphs": [
+        "Marchand tied Anaheim 1–1 at 10:14 of the first period, with Jeff Petry assisting. Florida later took a 3–2 lead, but Anaheim answered with five straight goals to win 7–3. This puck is Marchand’s first-period goal, career No. 431."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020211"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020211/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020211/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "17:45"
+        }
+      }
+    },
+    "goal-64": {
+      "inventoryId": 64,
+      "date": "2025-11-06",
+      "team": "Florida Panthers",
+      "gameId": 2025020226,
+      "title": "Two goals in a Florida win in Los Angeles",
+      "paragraphs": [
+        "Marchand tied the Kings 2–2 late in the first period, then scored again at 12:36 of the third to complete Florida’s 5–2 win. This puck is the second goal, assisted by Niko Mikkola. Marchand scored twice on three shots as the Panthers finished with four unanswered goals."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020226"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020226/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020226/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "15:08"
+        }
+      }
+    },
+    "goal-65": {
+      "inventoryId": 65,
+      "date": "2025-11-17",
+      "team": "Florida Panthers",
+      "gameId": 2025020303,
+      "title": "Marchand ends a 13-goal game",
+      "paragraphs": [
+        "Marchand scored unassisted into an empty net with 1:46 left to complete Florida’s 8–5 win over Vancouver. He also assisted on Lundell’s second-period goal. The Panthers had trailed 2–0, then lost a three-goal lead before scoring the game’s final three goals."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020303"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020303/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020303/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:46"
+        }
+      }
+    },
+    "goal-66": {
+      "inventoryId": 66,
+      "date": "2025-12-15",
+      "team": "Florida Panthers",
+      "gameId": 2025020514,
+      "title": "A winning goal against Tampa Bay",
+      "paragraphs": [
+        "Marchand put Florida ahead 3–0 at 11:48 of the second period, finishing a play credited to Verhaeghe and Aaron Ekblad. Tampa Bay later scored twice, making Marchand’s tally the winner in a 5–2 Panthers victory. It was his only shot on goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020514"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020514/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020514/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "15:55"
+        }
+      }
+    },
+    "goal-67": {
+      "inventoryId": 67,
+      "date": "2025-05-18",
+      "team": "Florida Panthers",
+      "gameId": 2024030217,
+      "title": "Three points in Game 7",
+      "paragraphs": [
+        "Marchand helped eliminate Toronto with a goal and two assists in Florida’s 6–1 Game 7 win. He assisted on Lundell’s eventual winner and Luostarinen’s third-period goal before scoring into an empty net at 16:57. This puck is that final goal, which completed the scoring as Florida advanced to the Eastern Conference Final."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030217"
+        },
+        {
+          "label": "NHL Game 7 recap",
+          "url": "https://www.nhl.com/news/florida-panthers-toronto-maple-leafs-game-7-recap-may-18"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030217/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030217/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 3,
+          "toi": "16:02"
+        }
+      }
+    },
+    "goal-68": {
+      "inventoryId": 68,
+      "date": "2026-01-24",
+      "team": "Florida Panthers",
+      "gameId": 2025020817,
+      "title": "Marchand wins it in overtime",
+      "paragraphs": [
+        "Marchand scored his 22nd career overtime goal to beat Minnesota 4–3, finishing a Verhaeghe assist at 3:00 of the extra period. It was his second goal and third point of the night. He had scored on the power play in the first and assisted on Bennett’s third-period equalizer."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020817"
+        },
+        {
+          "label": "NHL game recap",
+          "url": "https://www.nhl.com/news/florida-panthers-minnesota-wild-game-recap-january-24-2026"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020817/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020817/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 6,
+          "toi": "18:12"
+        }
+      }
+    },
+    "goal-69": {
+      "inventoryId": 69,
+      "date": "2019-03-12",
+      "team": "Boston Bruins",
+      "gameId": 2018021074,
+      "title": "Two goals bring Boston back within one",
+      "paragraphs": [
+        "Columbus led 5–1 when Marchand scored at 13:07 of the second period. He scored again at 18:37 to cut the lead to 5–4. This puck is the first of those two goals. Marchand also assisted on Bergeron’s short-handed opener, finishing with three points in a 7–4 loss."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018021074"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018021074/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018021074/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 5,
+          "toi": "21:22"
+        }
+      }
+    },
+    "goal-70": {
+      "inventoryId": 70,
+      "date": "2017-10-14",
+      "team": "Boston Bruins",
+      "gameId": 2017020072,
+      "title": "Marchand and Chara trade scoring roles",
+      "paragraphs": [
+        "Marchand assisted on Chara’s second-period goal, then scored at 16:21 with Chara and Adam McQuaid earning the assists. His goal put Boston ahead 4–1 in Arizona. The Bruins won 6–2, giving Marchand a goal and an assist in 17:35 of ice time."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017020072"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017020072/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017020072/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 2,
+          "toi": "17:35"
+        }
+      }
+    },
+    "goal-71": {
+      "inventoryId": 71,
+      "date": "2019-01-19",
+      "team": "Boston Bruins",
+      "gameId": 2018020742,
+      "title": "The Perfection Line ties the Rangers",
+      "paragraphs": [
+        "Pastrnak and Bergeron assisted when Marchand tied the game 2–2 at 3:24 of the third period. Mika Zibanejad scored later in the period to give New York a 3–2 win. Marchand finished with four shots, including the goal that briefly erased Boston’s second-period deficit."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020742"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020742/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020742/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "19:29"
+        }
+      }
+    },
+    "goal-72": {
+      "inventoryId": 72,
+      "date": "2016-11-29",
+      "team": "Boston Bruins",
+      "gameId": 2016020331,
+      "title": "A third-period equalizer in Philadelphia",
+      "paragraphs": [
+        "Marchand tied Philadelphia 2–2 at 5:44 of the third period, just 1:18 after Krejci had scored Boston’s first goal. Krug and Carlo assisted. The two-goal comeback earned Boston overtime, but Philadelphia won 3–2 in a shootout. Marchand put four shots on net."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2016020331"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2016020331/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2016020331/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "20:11"
+        }
+      }
+    },
+    "goal-73": {
+      "inventoryId": 73,
+      "date": "2018-12-09",
+      "team": "Boston Bruins",
+      "gameId": 2018020456,
+      "title": "Nine shots and a point on both goals",
+      "paragraphs": [
+        "Marchand scored Boston’s power-play equalizer at 7:49 of the second period in Ottawa, then assisted on Krug’s overtime winner. He finished with nine shots and 23:39 of ice time in the 2–1 win. This puck is the tying goal, assisted by Pastrnak and Krug."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020456"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020456/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020456/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 9,
+          "toi": "23:39"
+        }
+      }
+    },
+    "goal-74": {
+      "inventoryId": 74,
+      "date": "2018-12-22",
+      "team": "Boston Bruins",
+      "gameId": 2018020545,
+      "title": "A Perfection Line power-play winner",
+      "paragraphs": [
+        "Marchand broke a 2–2 tie against Nashville at 11:23 of the third period, with Pastrnak and Bergeron assisting. He also assisted on a goal by each linemate, finishing with three points and six shots. Boston scored the final three goals to win 5–2."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020545"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020545/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020545/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 6,
+          "toi": "18:50"
+        }
+      }
+    },
+    "goal-75": {
+      "inventoryId": 75,
+      "date": "2019-11-21",
+      "team": "Boston Bruins",
+      "gameId": 2019020333,
+      "title": "Two shots, two goals against Buffalo",
+      "paragraphs": [
+        "Marchand scored Boston’s first two goals in a 3–2 win over Buffalo. This puck is his power-play goal at 14:45 of the second period, which put the Bruins ahead 2–1. Grzelcyk and Heinen assisted. Marchand finished with two goals on two shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020333"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020333/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020333/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "19:20"
+        }
+      }
+    },
+    "goal-76": {
+      "inventoryId": 76,
+      "date": "2019-02-09",
+      "team": "Boston Bruins",
+      "gameId": 2018020838,
+      "title": "A short-handed goal in a wild third period",
+      "paragraphs": [
+        "Marchand scored short-handed from a Bergeron assist at 6:49 of the third period to put Boston ahead 4–2 against Los Angeles. He had also assisted on Heinen’s tying goal earlier in the period. The Kings recovered to force overtime, where Bergeron won it 5–4 for Boston."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020838"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020838/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020838/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 3,
+          "toi": "22:30"
+        }
+      }
+    },
+    "goal-77": {
+      "inventoryId": 77,
+      "date": "2016-01-19",
+      "team": "Boston Bruins",
+      "gameId": 2015020686,
+      "title": "Closing out Montreal",
+      "paragraphs": [
+        "Marchand scored into an empty net at 18:37 of the third period, with Loui Eriksson assisting. The goal completed Boston’s 4–1 road win. Bergeron had broken a 1–1 tie in the second period and Pastrnak extended the lead in the third before Marchand supplied the final goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2015020686"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2015020686/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2015020686/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "18:27"
+        }
+      }
+    },
+    "goal-78": {
+      "inventoryId": 78,
+      "date": "2022-05-06",
+      "team": "Boston Bruins",
+      "gameId": 2021030133,
+      "title": "Marchand leads with three points",
+      "paragraphs": [
+        "Marchand scored Boston’s go-ahead goal at 5:41 of the second period, then assisted on power-play goals by Pastrnak and Taylor Hall. The Bruins beat Carolina 4–2. This puck is Marchand’s even-strength goal, assisted by Bergeron, on a night when he had a point on three of Boston’s four goals."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021030133"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021030133/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021030133/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 1,
+          "toi": "19:45"
+        }
+      }
+    },
+    "milestone-301": {
+      "inventoryId": 301,
+      "date": "2019-02-26",
+      "team": "Boston Bruins",
+      "gameId": 2018020968,
+      "title": "Matching Middleton while short-handed",
+      "paragraphs": [
+        "Marchand tied Rick Middleton’s Bruins record with his 25th short-handed goal. He scored at 12:28 of the second period against San Jose, assisted by Bergeron and Carlo. Marchand also assisted on Boston’s first two goals in the 4–1 win. This goal-scored puck marks the record-tying play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020968"
+        },
+        {
+          "label": "NHL record report",
+          "url": "https://www.nhl.com/news/facts-and-figures-blues-record-month-feb-26-305290174"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020968/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020968/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 4,
+          "toi": "16:13"
+        }
+      }
+    },
+    "milestone-302": {
+      "inventoryId": 302,
+      "date": "2023-11-18",
+      "team": "Boston Bruins",
+      "gameId": 2023020258,
+      "title": "Five hundred assists",
+      "paragraphs": [
+        "Marchand reached 500 career assists during Boston’s 5–2 win over Montreal. Both of his assists came on power-play goals, first by McAvoy and then by van Riemsdyk. He finished with three shots in 17 minutes. This game-used puck marks the night he reached the assist milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020258"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-november-18"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020258/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020258/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 3,
+          "toi": "17:00"
+        }
+      }
+    },
+    "milestone-303": {
+      "inventoryId": 303,
+      "date": "2024-01-08",
+      "team": "Boston Bruins",
+      "gameId": 2023020624,
+      "title": "Moving past Middleton in points",
+      "paragraphs": [
+        "Two Marchand goals brought his career total to 899 points, moving him past Rick Middleton for fifth in Bruins history. The second tied Colorado 3–3 in the third period before Boston lost in the shootout. This game-used puck preserves the milestone night; Marchand scored on both of his shots."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020624"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/boston-bruins-colorado-avalanche-game-recap-january-8"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020624/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020624/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "20:21"
+        }
+      }
+    },
+    "milestone-304": {
+      "inventoryId": 304,
+      "date": "2024-01-13",
+      "team": "Boston Bruins",
+      "gameId": 2023020667,
+      "title": "Nine hundred points in St. Louis",
+      "paragraphs": [
+        "Marchand’s first-period goal brought him to 900 career points. He scored again on the power play in the third, giving Boston a lead for the second time that night. McAvoy’s overtime goal settled the 4–3 win. This is a game-used puck from the milestone game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020667"
+        },
+        {
+          "label": "NHL: Marchand’s 900th point",
+          "url": "https://www.nhl.com/video/bos-stl-marchand-scores-goal-against-jordan-binnington-6344857041112"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020667/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020667/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 5,
+          "toi": "20:34"
+        }
+      }
+    },
+    "milestone-305": {
+      "inventoryId": 305,
+      "date": "2024-01-13",
+      "team": "Boston Bruins",
+      "gameId": 2023020667,
+      "title": "Two goals on the 900-point night",
+      "paragraphs": [
+        "Marchand reached 900 points at 5:02 of the first period, then added another goal at 7:43 of the third. Both gave Boston the lead in a game St. Louis repeatedly tied. The Bruins won 4–3 in overtime. This second game-used artifact shares the milestone with item 304."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020667"
+        },
+        {
+          "label": "NHL: Marchand’s 900th point",
+          "url": "https://www.nhl.com/video/bos-stl-marchand-scores-goal-against-jordan-binnington-6344857041112"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020667/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020667/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 5,
+          "toi": "20:34"
+        }
+      }
+    },
+    "milestone-306": {
+      "inventoryId": 306,
+      "date": "2024-01-20",
+      "team": "Boston Bruins",
+      "gameId": 2023020710,
+      "title": "Eleven straight 20-goal seasons",
+      "paragraphs": [
+        "Marchand set a Bruins record with his 11th consecutive season of at least 20 goals. His third-period goal made it 7–4 against Montreal, and Boston won 9–4. He also assisted on Coyle’s second-period goal. The game-used puck marks a scoring streak that surpassed Bergeron and Johnny Bucyk’s ten-season runs."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020710"
+        },
+        {
+          "label": "NHL season-streak record",
+          "url": "https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-january-20"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020710/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020710/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 4,
+          "toi": "18:04"
+        }
+      }
+    },
+    "milestone-307": {
+      "inventoryId": 307,
+      "date": "2024-01-25",
+      "team": "Boston Bruins",
+      "gameId": 2023020749,
+      "title": "Passing Bourque with an overtime winner",
+      "paragraphs": [
+        "Marchand’s 396th goal moved him past Ray Bourque into fifth in Bruins history. It also ended the game: he scored from a Coyle assist at 1:48 of overtime to beat Ottawa 3–2. The Senators had erased a two-goal lead. This game-used puck marks the winning night and the career milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020749"
+        },
+        {
+          "label": "Bruins career timeline",
+          "url": "https://www.nhl.com/bruins/news/brad-marchand-through-the-years"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020749/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020749/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "21:30"
+        }
+      }
+    },
+    "milestone-308": {
+      "inventoryId": 308,
+      "date": "2024-02-13",
+      "team": "Boston Bruins",
+      "gameId": 2023020823,
+      "title": "Two assists in game 1,000",
+      "paragraphs": [
+        "Marchand assisted on both Boston goals in his 1,000th NHL game. The Bruins trailed Tampa Bay 2–0 before McAvoy and van Riemsdyk scored in the second period, each with Marchand and Pastrnak assisting. Tampa Bay won 3–2 in the shootout. Marchand played 23:30 on the milestone night."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020823"
+        },
+        {
+          "label": "Bruins: game 1,000",
+          "url": "https://www.nhl.com/bruins/news/emotional-marchand-reflects-as-he-hits-1-000-game-milestone"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020823/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020823/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 3,
+          "toi": "23:30"
+        }
+      }
+    },
+    "milestone-309": {
+      "inventoryId": 309,
+      "date": "2024-04-04",
+      "team": "Boston Bruins",
+      "gameId": 2023021202,
+      "title": "Goal 400 opens a road win",
+      "paragraphs": [
+        "Marchand scored his 400th NHL goal just 2:12 into Boston’s game at Carolina. Morgan Geekie and Coyle assisted. The Bruins built a three-goal first-period lead and won 4–1. This game-used puck marks the night of the milestone, rather than the specific goal-scored puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023021202"
+        },
+        {
+          "label": "NHL: goal 400",
+          "url": "https://www.nhl.com/news/boston-bruins-carolina-hurricanes-game-recap-april-4"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023021202/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023021202/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "16:57"
+        }
+      }
+    },
+    "milestone-310": {
+      "inventoryId": 310,
+      "date": "2024-04-20",
+      "team": "Boston Bruins",
+      "gameId": 2023030121,
+      "title": "Second on Boston’s playoff points list",
+      "paragraphs": [
+        "Marchand’s two assists brought him to 130 playoff points, moving him ahead of Bergeron and Krejci into second in Bruins history. Both came on DeBrusk power-play goals in the second period of Boston’s 5–1 win over Toronto. This game-used puck marks the opening game of that playoff series."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023030121"
+        },
+        {
+          "label": "Bruins playoff game notes",
+          "url": "https://media.d3.nhle.com/image/private/fl_attachment/prd/nzztetttsql0tk1nggwb.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023030121/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023030121/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:50"
+        }
+      }
+    },
+    "milestone-311": {
+      "inventoryId": 311,
+      "date": "2024-04-24",
+      "team": "Boston Bruins",
+      "gameId": 2023030123,
+      "title": "A Bruins record for playoff winners",
+      "paragraphs": [
+        "Marchand’s 12th playoff game-winning goal moved him past Cam Neely for the Bruins record. He scored at 11:53 of the third period in Toronto, then added an empty-net goal for a 4–2 win. An earlier assist on DeBrusk’s goal gave him three points. This game-used puck marks the record-setting night."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023030123"
+        },
+        {
+          "label": "Bruins playoff record report",
+          "url": "https://www.nhl.com/bruins/news/topic/playoff-news/marchand-s-leadership-on-full-display-in-game-3"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023030123/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023030123/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 6,
+          "toi": "18:39"
+        }
+      }
+    },
+    "milestone-312": {
+      "inventoryId": 312,
+      "date": "2024-04-27",
+      "team": "Boston Bruins",
+      "gameId": 2023030124,
+      "title": "Boston’s new playoff goals leader",
+      "paragraphs": [
+        "Marchand scored his 56th playoff goal, passing Cam Neely for the Bruins record. His power-play tally at 8:20 of the second period gave Boston a 2–0 lead in Toronto. He later assisted on Pastrnak’s goal in a 3–1 win. This artifact is a game-used puck from that milestone game."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023030124"
+        },
+        {
+          "label": "NHL: playoff goal 56",
+          "url": "https://www.nhl.com/video/topic/playoffs/2024/2024-series-b-video/bos-tor-marchand-scores-goal-against-ilya-samsonov-6351906915112"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023030124/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023030124/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 2,
+          "toi": "21:22"
+        }
+      }
+    },
+    "milestone-313": {
+      "inventoryId": 313,
+      "date": "2024-10-19",
+      "team": "Boston Bruins",
+      "gameId": 2024020086,
+      "title": "A first point against Utah",
+      "paragraphs": [
+        "Marchand assisted on Koepke’s goal at 12:49 of the second period in Boston’s first game against Utah Hockey Club. It was Boston’s only goal in a 2–1 overtime loss. This game-used puck records his first point against Utah; the assist puck is cataloged separately as artifact 57."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020086"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020086/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 1,
+          "toi": "18:06"
+        }
+      }
+    },
+    "milestone-314": {
+      "inventoryId": 314,
+      "date": "2024-10-26",
+      "team": "Boston Bruins",
+      "gameId": 2024020125,
+      "title": "Goal 402 ties Middleton",
+      "paragraphs": [
+        "Marchand tied Rick Middleton for fourth in Bruins goals with No. 402, an overtime winner against Toronto. Pastrnak assisted at 2:26 of the extra period for a 4–3 Boston win. Marchand had earlier assisted on Pastrnak’s power-play goal. This game-used puck marks the two-point night."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020125"
+        },
+        {
+          "label": "NHL milestone notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2024/10/18348/MorningSkate102724.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020125/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020125/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 4,
+          "toi": "19:43"
+        }
+      }
+    },
+    "milestone-315": {
+      "inventoryId": 315,
+      "date": "2024-10-26",
+      "team": "Boston Bruins",
+      "gameId": 2024020125,
+      "title": "Passing Esposito with the winner",
+      "paragraphs": [
+        "Marchand’s overtime goal against Toronto was his 78th Bruins game-winner, moving him past Phil Esposito into third in team history. Boston won 4–3 when he scored at 2:26 from a Pastrnak assist. This game-used artifact highlights the winning-goal milestone from the same night as item 314."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020125"
+        },
+        {
+          "label": "NHL milestone notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2024/10/18348/MorningSkate102724.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020125/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020125/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 4,
+          "toi": "19:43"
+        }
+      }
+    },
+    "milestone-316": {
+      "inventoryId": 316,
+      "date": "2024-10-31",
+      "team": "Boston Bruins",
+      "gameId": 2024020165,
+      "title": "A milestone puck from Carolina",
+      "paragraphs": [
+        "Marchand passed Rick Middleton with career goal No. 403, taking fourth place on Boston’s goals list. His first-period power-play goal briefly tied Carolina 1–1 before an 8–2 defeat. This artifact is a game-used milestone puck. The actual goal-scored puck is item 42."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020165"
+        },
+        {
+          "label": "Bruins milestone report",
+          "url": "https://www.nhl.com/bruins/news/boston-bruins-carolina-hurricanes-game-recap-october-31-x3674"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020165/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020165/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "15:03"
+        }
+      }
+    },
+    "milestone-317": {
+      "inventoryId": 317,
+      "date": "2024-11-07",
+      "team": "Boston Bruins",
+      "gameId": 2024020208,
+      "title": "Marchand wins it with 20 seconds left in overtime",
+      "paragraphs": [
+        "Marchand scored at 4:40 of overtime, with Elias Lindholm assisting, to beat Calgary 4–3. The Flames had erased Boston’s 3–1 lead in the third period. Marchand finished with eight shots. This game-used puck marks the night of his 79th career regular-season game-winner."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020208"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020208/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020208/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 8,
+          "toi": "18:59"
+        }
+      }
+    },
+    "milestone-318": {
+      "inventoryId": 318,
+      "date": "2024-11-23",
+      "team": "Boston Bruins",
+      "gameId": 2024020324,
+      "title": "Game-winner No. 80",
+      "paragraphs": [
+        "Marchand’s only shot of the game broke a 1–1 tie in Detroit at 11:30 of the third period. Boston won 2–1, giving him his 80th career regular-season winning goal. This game-used puck commemorates that milestone; the puck from the goal itself is artifact 43."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020324"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020324/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020324/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "16:30"
+        }
+      }
+    },
+    "milestone-319": {
+      "inventoryId": 319,
+      "date": "2024-11-27",
+      "team": "Boston Bruins",
+      "gameId": 2024020353,
+      "title": "Two goals in Bruins game 1,053",
+      "paragraphs": [
+        "Marchand moved past Don Sweeney into fourth in Bruins games played, then scored twice in the opening 6:31 against the Islanders. Boston won 6–3. He scored on both of his shots in his 1,053rd appearance. This game-used puck marks the games-played milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020353"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020353/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020353/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "17:51"
+        }
+      }
+    },
+    "milestone-320": {
+      "inventoryId": 320,
+      "date": "2024-11-27",
+      "team": "Boston Bruins",
+      "gameId": 2024020353,
+      "title": "Another two-goal game",
+      "paragraphs": [
+        "Marchand scored 57 seconds into the game against the Islanders and again at 6:31, his 64th regular-season multi-goal game. The Islanders later tied it 3–3, but Boston scored three unanswered goals in the third to win 6–3. This game-used puck marks Marchand’s two-goal performance."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020353"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020353/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020353/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 2,
+          "toi": "17:51"
+        }
+      }
+    },
+    "milestone-321": {
+      "inventoryId": 321,
+      "date": "2024-12-12",
+      "team": "Boston Bruins",
+      "gameId": 2024020472,
+      "title": "Seven successful penalty shots",
+      "paragraphs": [
+        "Marchand tied Pavel Bure’s NHL record by scoring on his seventh career penalty shot. The goal came at 10:28 of the second period in Seattle, cutting the Kraken’s lead to 2–1. Boston lost 5–1. This game-used milestone puck is separate from the penalty-shot goal puck, item 46."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020472"
+        },
+        {
+          "label": "NHL penalty-shot record report",
+          "url": "https://www.nhl.com/news/boston-bruins-seattle-kraken-game-recap-december-12"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020472/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020472/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 3,
+          "toi": "18:48"
+        }
+      }
+    },
+    "milestone-322": {
+      "inventoryId": 322,
+      "date": "2024-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2024020407,
+      "title": "Matching Bergeron’s 81 game-winners",
+      "paragraphs": [
+        "Marchand’s second goal in Chicago was his 81st Bruins game-winner, tying Bergeron for second in team history. He scored twice in 2:05 early in the second period, and Boston won 4–2. This game-used puck commemorates that milestone rather than either of the two goal-scored pucks."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020407"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        },
+        {
+          "label": "NHL record notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2024/12/18450/MorningSkate_120524.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:12"
+        }
+      }
+    },
+    "milestone-323": {
+      "inventoryId": 323,
+      "date": "2025-02-27",
+      "team": "Boston Bruins",
+      "gameId": 2024020933,
+      "title": "His final Boston home game",
+      "paragraphs": [
+        "Marchand recorded seven shots and played 22:11 in a 2–1 loss to the Islanders on February 27, 2025. It became his final home appearance as a Bruin. This game-used puck belongs to that last TD Garden game in Boston colors, when he finished without a point."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020933"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020933/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020933/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 7,
+          "toi": "22:11"
+        }
+      }
+    },
+    "milestone-324": {
+      "inventoryId": 324,
+      "date": "2025-02-27",
+      "team": "Boston Bruins",
+      "gameId": 2024020933,
+      "title": "Seven shots in his last home appearance",
+      "paragraphs": [
+        "Marchand kept shooting in what became his final home game for Boston, putting seven shots on net over 22:11. The Bruins lost 2–1 to the Islanders. This is a second game-used puck from February 27, 2025, sharing the final-home-game milestone with artifact 323."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020933"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020933/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020933/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 7,
+          "toi": "22:11"
+        }
+      }
+    },
+    "milestone-325": {
+      "inventoryId": 325,
+      "date": "2025-03-01",
+      "team": "Boston Bruins",
+      "gameId": 2024020952,
+      "title": "The final game as a Bruin",
+      "paragraphs": [
+        "Marchand played only 2:18 in Boston’s 3–2 win at Pittsburgh on March 1, 2025. It became his final game for the Bruins before his move to Florida. He recorded no points or shots. This game-used puck marks the last appearance, rather than a scoring play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020952"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020952/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020952/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "02:18"
+        }
+      }
+    },
+    "milestone-326": {
+      "inventoryId": 326,
+      "date": "2025-03-01",
+      "team": "Boston Bruins",
+      "gameId": 2024020952,
+      "title": "The Boston chapter ends in Pittsburgh",
+      "paragraphs": [
+        "Marchand’s final Bruins appearance was the 3–2 road win over Pittsburgh on March 1, 2025. His night amounted to 2:18 of ice time, with no points or shots. This game-used puck is one of the collection’s three artifacts from his last game in Boston colors."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020952"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020952/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020952/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "02:18"
+        }
+      }
+    },
+    "milestone-327": {
+      "inventoryId": 327,
+      "date": "2025-03-01",
+      "team": "Boston Bruins",
+      "gameId": 2024020952,
+      "title": "A puck from his last Bruins game",
+      "paragraphs": [
+        "Boston won 3–2 in Pittsburgh, but Marchand’s final appearance for the team lasted just 2:18 of ice time. He did not record a point. This game-used artifact preserves March 1, 2025, alongside items 325 and 326 as the last game of his Bruins tenure."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020952"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020952/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020952/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "02:18"
+        }
+      }
+    },
+    "milestone-328": {
+      "inventoryId": 328,
+      "date": "2025-03-28",
+      "team": "Florida Panthers",
+      "gameId": 2024021153,
+      "title": "An overtime assist in his Panthers debut",
+      "paragraphs": [
+        "Marchand earned the primary assist on Bennett’s goal at 4:18 of overtime to beat Utah 2–1 in his Florida debut. He recorded four shots in 16:30. This game-used puck marks his first Panthers appearance, which ended with his first point for the team on the winning play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021153"
+        },
+        {
+          "label": "NHL Panthers debut report",
+          "url": "https://www.nhl.com/news/brad-marchand-sam-bennett-connect-again-in-florida-panthers-debut"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021153/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021153/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "16:30"
+        }
+      }
+    },
+    "milestone-329": {
+      "inventoryId": 329,
+      "date": "2025-03-28",
+      "team": "Florida Panthers",
+      "gameId": 2024021153,
+      "title": "A winning start in Florida",
+      "paragraphs": [
+        "Marchand’s first Florida point came in overtime, when he assisted on Bennett’s winner against Utah. The 2–1 victory on March 28, 2025, was his Panthers debut. He finished with four shots. This second game-used puck from that night shares the debut milestone with artifact 328."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021153"
+        },
+        {
+          "label": "NHL Panthers debut report",
+          "url": "https://www.nhl.com/news/brad-marchand-sam-bennett-connect-again-in-florida-panthers-debut"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021153/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021153/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "16:30"
+        }
+      }
+    },
+    "milestone-330": {
+      "inventoryId": 330,
+      "date": "2025-04-10",
+      "team": "Florida Panthers",
+      "gameId": 2024021251,
+      "title": "His first goal as a Panther",
+      "paragraphs": [
+        "Marchand scored at 16:21 of the second period against Detroit, his first goal for Florida. Balinskis and Luostarinen assisted on the play that made it 3–1. Florida won 4–1, and Marchand scored on his only shot. This game-used puck marks the first-goal night."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021251"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021251/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021251/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "15:08"
+        }
+      }
+    },
+    "milestone-331": {
+      "inventoryId": 331,
+      "date": "2025-04-15",
+      "team": "Florida Panthers",
+      "gameId": 2024021294,
+      "title": "A goal in game 1,100",
+      "paragraphs": [
+        "Marchand scored Florida’s only goal in his 1,100th NHL game. It came at 5:36 of the second period in Tampa Bay, assisted by Verhaeghe and Matt Kiersted. The Panthers lost 5–1. Marchand played 21:09 and recorded two shots; this game-used puck marks the appearance milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021294"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021294/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021294/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "21:09"
+        }
+      }
+    },
+    "milestone-332": {
+      "inventoryId": 332,
+      "date": "2025-04-22",
+      "team": "Florida Panthers",
+      "gameId": 2024030121,
+      "title": "His first Florida playoff point helps win the game",
+      "paragraphs": [
+        "Marchand assisted on Nate Schmidt’s goal at 4:41 of the second period in Tampa Bay, his first playoff point as a Panther. The goal gave Florida a 3–1 lead and became the winner in a 6–2 game. This game-used puck marks his first postseason appearance for Florida."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030121"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030121/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030121/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 2,
+          "toi": "17:15"
+        }
+      }
+    },
+    "milestone-333": {
+      "inventoryId": 333,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Setting up Luostarinen against his former team",
+      "paragraphs": [
+        "Marchand returned to Boston with two assists in Florida’s 4–3 win. His second set up Luostarinen at 9:58 of the third period for a 3–2 lead, after he had helped create Samoskevich’s opening goal. This game-used puck marks his return and the Luostarinen scoring play; artifact 59 is the assist puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL return-to-Boston notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
+        }
+      }
+    },
+    "milestone-334": {
+      "inventoryId": 334,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Back at TD Garden in Florida colors",
+      "paragraphs": [
+        "Marchand assisted on Florida’s opening goal just 1:01 into his return to Boston and added another assist in the third period. Verhaeghe scored with 26 seconds remaining for a 4–3 Panthers win. This game-used puck marks Marchand’s first game back against the Bruins at TD Garden."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL return-to-Boston notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
+        }
+      }
+    },
+    "milestone-335": {
+      "inventoryId": 335,
+      "date": "2025-11-13",
+      "team": "Florida Panthers",
+      "gameId": 2025020273,
+      "title": "One thousand NHL points",
+      "paragraphs": [
+        "Marchand reached 1,000 career points with two assists in Florida’s 6–3 win over Washington. He helped set up Seth Jones on the power play, then earned the primary assist on Luostarinen’s empty-net goal at 18:30 of the third period. This Panthers game-used puck marks the four-digit milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020273"
+        },
+        {
+          "label": "Panthers: point 1,000",
+          "url": "https://www.nhl.com/panthers/news/florida-panthers-forward-brad-marchand-records-1-000th-nhl-point"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020273/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020273/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:04"
+        }
+      }
+    },
+    "history-501": {
+      "inventoryId": 501,
+      "date": "2023-03-30",
+      "team": "Boston Bruins",
+      "gameId": 2022021189,
+      "title": "The Presidents’ Trophy is secured",
+      "paragraphs": [
+        "Marchand played 19:27 and recorded three shots as Boston beat Columbus 2–1 in overtime to clinch the Presidents’ Trophy. Pastrnak scored the winner 41 seconds into overtime. The Bruins stood at 58–12–5 with 121 points. This game-used puck begins the collection’s final eight-game run through the record-setting regular season."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021189"
+        },
+        {
+          "label": "NHL Presidents’ Trophy report",
+          "url": "https://www.nhl.com/news/columbus-blue-jackets-boston-bruins-game-recap-342480480"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021189/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021189/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 3,
+          "toi": "19:27"
+        }
+      }
+    },
+    "history-502": {
+      "inventoryId": 502,
+      "date": "2023-04-01",
+      "team": "Boston Bruins",
+      "gameId": 2022021205,
+      "title": "Win 59 in Pittsburgh",
+      "paragraphs": [
+        "Marchand played 18:41 as Boston beat Pittsburgh 4–3, moving to 59–12–5 and 123 points. This puck is McAvoy’s opening goal at 6:20 of the first period, assisted by Zacha and Bertuzzi. Pastrnak scored Boston’s other three goals. Marchand recorded two shots but no points."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021205"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021205/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021205/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "18:41"
+        }
+      }
+    },
+    "history-503": {
+      "inventoryId": 503,
+      "date": "2023-04-02",
+      "team": "Boston Bruins",
+      "gameId": 2022021218,
+      "title": "The warm-up before win 60",
+      "paragraphs": [
+        "This warm-up puck precedes Boston’s 4–3 shootout win in St. Louis, the Bruins’ 60th victory. Marchand played 20:46 and recorded two shots without a point. Boston lost a 3–0 lead before winning in the shootout, reaching 60–12–5 and 125 points. Item 509 is the separate game-used puck from the same date."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021218"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021218/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021218/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "20:46"
+        }
+      }
+    },
+    "history-504": {
+      "inventoryId": 504,
+      "date": "2023-04-06",
+      "team": "Boston Bruins",
+      "gameId": 2022021246,
+      "title": "Coyle ties it, Boston reaches 61 wins",
+      "paragraphs": [
+        "Marchand played 20:38 in Boston’s 2–1 overtime win over Toronto. This puck is Coyle’s tying goal at 11:32 of the third period, assisted by Carlo. Pastrnak scored the overtime winner. Marchand finished without a point as the Bruins reached 61–12–5 and 127 points, one win short of the existing season record."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021246"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021246/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021246/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "20:38"
+        }
+      }
+    },
+    "history-505": {
+      "inventoryId": 505,
+      "date": "2023-04-08",
+      "team": "Boston Bruins",
+      "gameId": 2022021265,
+      "title": "Boston ties the wins record",
+      "paragraphs": [
+        "Marchand put five shots on net as Boston beat New Jersey 2–1 for its 62nd win. Zacha scored both Bruins goals in the opening 4:44. Boston reached 129 points and tied the NHL single-season wins record. This game-used puck marks that night; Marchand played 18:51 without recording a point."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021265"
+        },
+        {
+          "label": "NHL wins-record report",
+          "url": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-343082528"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021265/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021265/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 5,
+          "toi": "18:51"
+        }
+      }
+    },
+    "history-506": {
+      "inventoryId": 506,
+      "date": "2023-04-09",
+      "team": "Boston Bruins",
+      "gameId": 2022021273,
+      "title": "Sixty-three wins, a new NHL record",
+      "paragraphs": [
+        "Marchand played 18:46 as Boston beat Philadelphia 5–3 for its record-setting 63rd win. This puck is Coyle’s goal 47 seconds into the game, assisted by Clifton. Pastrnak added a hat trick. Marchand finished without a point as the Bruins moved to 63–12–5 and 131 points."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021273"
+        },
+        {
+          "label": "NHL record report",
+          "url": "https://www.nhl.com/news/boston-bruins-continue-building-historic-season-with-nhl-wins-record-343334302"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021273/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021273/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "18:46"
+        }
+      }
+    },
+    "history-507": {
+      "inventoryId": 507,
+      "date": "2023-04-11",
+      "team": "Boston Bruins",
+      "gameId": 2022021290,
+      "title": "Three Marchand points on a record night",
+      "paragraphs": [
+        "Marchand opened the scoring on the power play and added two assists as Boston beat Washington 5–2. The win brought the Bruins to 133 points, a new NHL single-season record. Bergeron and Pastrnak both assisted on his goal. This is a game-used puck from the points-record night, not Marchand’s goal puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021290"
+        },
+        {
+          "label": "NHL points-record report",
+          "url": "https://www.nhl.com/news/washington-capitals-boston-bruins-game-recap-343156926"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021290/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021290/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 3,
+          "toi": "15:44"
+        }
+      }
+    },
+    "history-508": {
+      "inventoryId": 508,
+      "date": "2023-04-13",
+      "team": "Boston Bruins",
+      "gameId": 2022021298,
+      "title": "The final totals: 65 wins, 135 points",
+      "paragraphs": [
+        "Marchand assisted on DeBrusk’s first-period goal as Boston finished the regular season with a 5–4 win in Montreal. This puck is Pastrnak’s winning goal at 11:00 of the third, assisted by Dmitry Orlov and Bertuzzi. Boston’s final record was 65–12–5, with NHL single-season records of 65 wins and 135 points."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021298"
+        },
+        {
+          "label": "NHL season-finale recap",
+          "url": "https://www.nhl.com/news/boston-bruins-montreal-canadiens-game-recap-343161834"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021298/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021298/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 3,
+          "toi": "18:09"
+        }
+      }
+    },
+    "history-509": {
+      "inventoryId": 509,
+      "date": "2023-04-02",
+      "team": "Boston Bruins",
+      "gameId": 2022021218,
+      "title": "The game puck from win 60",
+      "paragraphs": [
+        "Marchand logged 20:46 in Boston’s 4–3 shootout victory at St. Louis, recording two shots and no points. The Bruins reached 60 wins and 125 points after the Blues erased a three-goal deficit. This is the game-used puck from April 2; the warm-up puck from the same game is item 503."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021218"
+        },
+        {
+          "label": "NHL season records",
+          "url": "https://media.nhl.com/site/asset/public/ext/2022-23/2023AwardsGuide.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021218/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021218/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "20:46"
+        }
+      }
+    }
+  }
+}

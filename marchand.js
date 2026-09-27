@@ -8,6 +8,7 @@
     players: {},
     goalies: {},
     photos: {},
+    stories: {},
     activeArtifactKey: null,
     sortKey: "date",
     sortDirection: "asc",
@@ -125,6 +126,10 @@
     provenance: document.getElementById("artifact-provenance"),
     sourceGrid: document.getElementById("artifact-source-grid"),
     mediaGrid: document.getElementById("artifact-media-grid"),
+    storyTitle: document.getElementById("artifact-story-title"),
+    storyCopy: document.getElementById("artifact-story-copy"),
+    storySources: document.getElementById("artifact-story-sources"),
+    storyReferences: document.getElementById("artifact-story-references"),
     puckImage: document.getElementById("artifact-puck-image"),
     puckViews: document.getElementById("artifact-puck-views"),
     puckCaption: document.getElementById("artifact-puck-caption"),
@@ -838,6 +843,29 @@
     else elements.watchDialog.setAttribute("open", "");
   }
 
+  function renderGameStory(record) {
+    const story = state.stories[record.key];
+    elements.storyTitle.textContent = story?.title || "Game story coming soon";
+    elements.storyCopy.replaceChildren();
+    elements.storySources.replaceChildren();
+    for (const copy of story?.paragraphs || ["The verified artifact details are listed below. A researched game narrative has not yet been added for this puck."]) {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = copy;
+      elements.storyCopy.append(paragraph);
+    }
+    for (const source of story?.sources || []) {
+      if (!/^https:\/\/(?:[a-z0-9-]+\.)*nhle?\.com\//i.test(source.url)) continue;
+      const link = document.createElement("a");
+      link.href = source.url;
+      link.textContent = source.label;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      elements.storySources.append(link);
+    }
+    elements.storyReferences.hidden = !elements.storySources.children.length;
+    elements.storyReferences.open = false;
+  }
+
   function openArtifact(record) {
     state.activeArtifactKey = record.key;
     updatePuckNavigation(record);
@@ -850,6 +878,7 @@
     elements.dialogSubtitle.textContent = [displayDate(record.date), record.arena, record.opponent].filter(Boolean).join(" · ");
     elements.dialogFacts.replaceChildren();
     renderPuckPhoto(record);
+    renderGameStory(record);
 
     addFact("Collection wing", collectionWing(record.sourceSheet));
     addFact("Team", record.team);
@@ -897,6 +926,7 @@
     if (!elements.dialog.open) {
       if (typeof elements.dialog.showModal === "function") elements.dialog.showModal();
       else elements.dialog.setAttribute("open", "");
+      elements.dialogTitle.focus({ preventScroll: true });
     }
   }
 
@@ -939,6 +969,8 @@
         .then((result) => result.ok ? result.json() : {}).then((data) => data.artifacts || {}).catch(() => ({}));
       state.goalies = await fetch("data/marchand-goalies.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
+      state.stories = await fetch("data/marchand-stories.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => data.artifacts || {}).catch(() => ({}));
       window.MarchandLabels.renderKey(document.getElementById("goal-type-key-items"));
       setOptions(elements.team, state.records, "team", "All teams");
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings", collectionWing);

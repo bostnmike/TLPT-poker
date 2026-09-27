@@ -29,7 +29,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20260917-9">
-  <link rel="stylesheet" href="marchand.css?v=20260922-photobutton1">
+  <link rel="stylesheet" href="marchand.css?v=20260927-stories">
   <link rel="stylesheet" href="site-tail.css?v=20260826-10">
 </head>
 <body class="marchand-page" data-era="all">
@@ -189,26 +189,16 @@
       <div id="artifact-dialog-crest" class="marchand-dialog-crest" aria-hidden="true"></div>
       <span id="artifact-dialog-number" class="marchand-dialog-number">No. —</span>
       <span id="artifact-dialog-team" class="marchand-team-badge">Collection</span>
-      <h3 id="artifact-dialog-title">Artifact detail</h3>
+      <h3 id="artifact-dialog-title" tabindex="-1" autofocus>Artifact detail</h3>
       <p id="artifact-dialog-subtitle"></p>
     </div>
     <div id="artifact-media-grid" class="marchand-media-grid">
-      <figure id="artifact-puck-photo" class="marchand-puck-photo">
-        <div class="marchand-puck-stage">
-          <button id="artifact-previous" class="marchand-puck-nav" type="button" aria-label="Previous Puck" aria-controls="artifact-dialog" disabled><span aria-hidden="true">←</span><span>Previous<br>Puck</span></button>
-          <div class="marchand-puck-display">
-            <img id="artifact-puck-image" alt="" hidden>
-            <div id="artifact-puck-placeholder" class="marchand-puck-placeholder">
-              <span class="marchand-photo-puck" aria-hidden="true"><i>63</i></span>
-              <div><small>Collection photography</small><strong>Puck portrait coming soon</strong><span id="artifact-puck-photo-id">Artifact No. —</span></div>
-            </div>
-          </div>
-          <button id="artifact-next" class="marchand-puck-nav" type="button" aria-label="Next Puck" aria-controls="artifact-dialog" disabled><span aria-hidden="true">→</span><span>Next<br>Puck</span></button>
-        </div>
-        <div id="artifact-puck-views" class="marchand-puck-views" role="group" aria-label="Puck photo views" hidden></div>
-        <figcaption id="artifact-puck-caption" aria-live="polite">Reserved for the authenticated puck photograph.</figcaption>
-        <p id="artifact-navigation-position" class="marchand-puck-position" aria-live="polite"></p>
-      </figure>
+      <section id="artifact-story" class="marchand-game-story" aria-labelledby="artifact-story-title">
+        <span class="marchand-eyebrow">The game</span>
+        <h4 id="artifact-story-title"></h4>
+        <div id="artifact-story-copy"></div>
+        <details id="artifact-story-references" class="marchand-story-sources"><summary>Sources</summary><div id="artifact-story-sources"></div></details>
+      </section>
       <div id="artifact-video-panel" class="marchand-video-panel" hidden>
         <div class="marchand-video-stage">
           <iframe id="artifact-video" title="Goal video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -216,6 +206,22 @@
         <a id="artifact-video-source" class="marchand-source-link" href="#" target="_blank" rel="noopener noreferrer">Play source video <span aria-hidden="true">↗</span><span class="visually-hidden"> (opens in a new tab)</span></a>
       </div>
     </div>
+      <figure id="artifact-puck-photo" class="marchand-puck-photo">
+        <div class="marchand-puck-stage">
+          <button id="artifact-previous" class="marchand-puck-nav" type="button" aria-label="Previous Puck" aria-controls="artifact-dialog" disabled><span class="marchand-nav-puck" aria-hidden="true">←</span><span>Previous Puck</span></button>
+          <div class="marchand-puck-display">
+            <img id="artifact-puck-image" alt="" hidden>
+            <div id="artifact-puck-placeholder" class="marchand-puck-placeholder">
+              <span class="marchand-photo-puck" aria-hidden="true"><i>63</i></span>
+              <div><small>Collection photography</small><strong>Puck portrait coming soon</strong><span id="artifact-puck-photo-id">Artifact No. —</span></div>
+            </div>
+          </div>
+          <button id="artifact-next" class="marchand-puck-nav" type="button" aria-label="Next Puck" aria-controls="artifact-dialog" disabled><span class="marchand-nav-puck" aria-hidden="true">→</span><span>Next Puck</span></button>
+        </div>
+        <div id="artifact-puck-views" class="marchand-puck-views" role="group" aria-label="Puck photo views" hidden></div>
+        <figcaption id="artifact-puck-caption" aria-live="polite">Reserved for the authenticated puck photograph.</figcaption>
+        <p id="artifact-navigation-position" class="marchand-puck-position" aria-live="polite"></p>
+      </figure>
     <div id="artifact-dialog-facts" class="marchand-fact-grid"></div>
     <section id="artifact-personnel" class="marchand-dialog-section" hidden>
       <h4 id="artifact-personnel-title">Players Involved</h4>
@@ -256,6 +262,6 @@
 
 <script src="site-shell.js?v=20260824-2"></script>
 <script src="marchand-labels.js?v=20260921-3"></script>
-<script src="marchand.js?v=20260927-puckphotos"></script>
+<script src="marchand.js?v=20260927-stories"></script>
 </body>
 </html>
