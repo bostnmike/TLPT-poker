@@ -780,6 +780,25 @@
         "label": "Edge 3",
         "url": "images/pucks/24/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/24/coa.webp?v=20260928-coa-followup",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9499.JPG",
+          "matchingFields": [
+            "Game date",
+            "Scorer Brad Marchand",
+            "Boston Bruins",
+            "Opponent New Jersey Devils",
+            "Goal-scored puck",
+            "Final score 8–1"
+          ],
+          "discrepancies": "COA lists career goal 348, season goal 29 and DeBrusk/Grzelcyk assists. Verified artifact record retains career goal 349, season goal 30 and Reilly/Bergeron assists.",
+          "associationBasis": "Owner-approved rule: more than two matching data points; printed discrepancies retained without changing verified game facts.",
+          "approvedOn": "2026-09-28"
+        }
       }
     ],
     "25": [
@@ -1103,6 +1122,24 @@
         "label": "Edge 3",
         "url": "images/pucks/38/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/38/coa.webp?v=20260928-coa-followup",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9519.JPG",
+          "matchingFields": [
+            "Game date",
+            "Scorer Brad Marchand",
+            "Boston Bruins",
+            "Opponent St. Louis Blues",
+            "Goal-scored puck"
+          ],
+          "discrepancies": "COA lists period 3 at 7:43 and Pastrnak/Van Riemsdyk assists. Verified artifact record retains period 1 at 5:02 and Coyle assist.",
+          "associationBasis": "Owner-approved rule: more than two matching data points; printed discrepancies retained without changing verified game facts.",
+          "approvedOn": "2026-09-28"
+        }
       }
     ],
     "39": [
