@@ -10,6 +10,15 @@ const libraryBase = 'https://bostnmike.github.io/marchand-puck-images/';
 assert.equal(library.baseUrl, libraryBase, 'Unexpected photo-library host');
 const remoteChecks = new Map();
 const ids = new Set(records.map((record) => String(record.inventoryId)));
+const palmieri = records.find((record) => record.inventoryId === 324);
+assert.equal(palmieri.sourceSheet, 'Milestones');
+assert.equal(palmieri.category, 'Milestone');
+assert.equal(palmieri.puckType, 'Goal Scored Puck');
+assert.match(palmieri.description, /Kyle Palmieri/);
+assert.equal(palmieri.careerStat, null, 'Opponent goal must not become a Marchand career goal');
+assert.match(palmieri.notes, /4:21 of period 2/);
+assert.ok(manifest[324].some((photo) => photo.label === 'COA'));
+assert.ok(manifest[71].some((photo) => photo.label === 'COA 2'));
 let photoCount = 0;
 for (const [id, photos] of Object.entries(manifest)) {
   assert.ok(ids.has(id), `Unknown artifact ${id}`);
@@ -20,7 +29,7 @@ for (const [id, photos] of Object.entries(manifest)) {
   assert.equal(new Set(photos.map((photo) => photo.label)).size, photos.length, `Duplicate view: ${id}`);
   for (const photo of photos) {
     assert.equal(photo.rotation, 0, `Rotation must be baked into image pixels: ${photo.url}`);
-    assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*|COA)$/);
+    assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*|COA(?: [2-9]\d*)?)$/);
     for (const fullUrl of [photo.url, photo.thumbnailUrl].filter(Boolean)) {
       const external = fullUrl.startsWith(libraryBase);
       const url = (external ? fullUrl.slice(libraryBase.length) : fullUrl).split('?')[0];

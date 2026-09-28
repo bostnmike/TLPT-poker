@@ -157,8 +157,9 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
       assert.ok(fs.existsSync(new URL(`../${selectedImage}`, import.meta.url)));
     }
     assert.equal(element("artifact-puck-placeholder").hidden, true);
-    assert.equal(element("artifact-coa-full-size").hidden, photos[index].label !== "COA");
-    if (photos[index].label === "COA") assert.equal(element("artifact-coa-full-size").href, photos[index].url);
+    const isCertificate = /^COA(?: \d+)?$/.test(photos[index].label);
+    assert.equal(element("artifact-coa-full-size").hidden, !isCertificate);
+    if (isCertificate) assert.equal(element("artifact-coa-full-size").href, photos[index].url);
   }
   element("artifact-puck-image").onerror();
   assert.equal(element("artifact-puck-placeholder").hidden, false);

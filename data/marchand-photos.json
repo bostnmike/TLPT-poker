@@ -158,6 +158,22 @@
         "label": "Edge 2",
         "url": "images/pucks/5/edge-02.webp?v=e3fe8d2a83b5",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/5/coa.webp?v=b7d086d2a26b",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9468.JPG",
+          "matchingFields": [
+            "Dallas Stars issuer",
+            "Exact serial 11789 on certificate and puck back"
+          ],
+          "discrepancies": "Undated certificate; canonical date retained.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "6": [
@@ -1111,6 +1127,22 @@
         "label": "Edge 3",
         "url": "images/pucks/34/edge-03.webp?v=1dd807811282",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/34/coa.webp?v=21f12e18f12f",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9518.JPG",
+          "matchingFields": [
+            "Dallas Stars issuer",
+            "Exact serial 31849 on certificate and puck back"
+          ],
+          "discrepancies": "Undated certificate; canonical date retained.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "35": [
@@ -1391,6 +1423,23 @@
         "label": "Edge 4",
         "url": "images/pucks/43/edge-04.webp?v=0acd02e18973",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/43/coa.webp?v=d877e4d1b360",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9522.JPG",
+          "matchingFields": [
+            "Exact serial 89573 on certificate and puck edge 4",
+            "Scorer Marchand #63",
+            "Assisters #52 and #88"
+          ],
+          "discrepancies": "Certificate says November 29, 2024. Verified November 23, 2024 date retained.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "44": [
@@ -2178,6 +2227,24 @@
         "label": "COA",
         "url": "images/pucks/71/coa.webp?v=20260928-coa",
         "rotation": 0
+      },
+      {
+        "label": "COA 2",
+        "url": "images/pucks/71/coa-02.webp?v=7afa1f54f4ba",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9477.JPG",
+          "matchingFields": [
+            "January 19, 2019 game date",
+            "Marchand scorer",
+            "Pastrnak and Bergeron assists",
+            "Rangers 3, Bruins 2 score"
+          ],
+          "discrepancies": "Erroneous Heinen career-goal sentence retained in this alternate certificate. Existing IMG_9476 remains the primary COA; canonical Marchand goal 245 unchanged.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "72": [
@@ -2907,6 +2974,25 @@
         "label": "Edge 3",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-03.webp?v=7bca30f38b4f",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/324/coa.webp?v=988afeba0a29",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9525.JPG",
+          "matchingFields": [
+            "February 27, 2025 date",
+            "Palmieri identified on puck edge",
+            "NYI #21 scorer",
+            "Period 2 at 4:21",
+            "NYI #29 and #3 assists"
+          ],
+          "discrepancies": "Owner confirmed Palmieri goal puck. Artifact 324 reclassified within Milestones; no Marchand goal/assist added.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "325": [
@@ -3867,6 +3953,24 @@
         "label": "Edge 2",
         "url": "images/pucks/625/edge-02.webp?v=b3b9f4e4121e",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/625/coa.webp?v=5b7c16e8c5ea",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "IMG_9532.JPG",
+          "matchingFields": [
+            "May 28, 2025 date",
+            "Carolina opponent",
+            "Florida team",
+            "Only non-warm-up puck in collection for this game"
+          ],
+          "discrepancies": "Certificate identifies Lundell goal at 8:01 of period 2, assisted by Marchand. Attached under owner’s two-match rule; existing Game Used Puck classification retained pending owner review. Previous review’s claim that edge says Lundy was not substantiated by current photos.",
+          "associationBasis": "Owner-approved: at least two identifying data points; canonical game facts take precedence over certificate errors.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "626": [

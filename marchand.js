@@ -777,8 +777,9 @@
     const buttons = [];
     const selectPhoto = (photo, index) => {
       const certificateLink = document.getElementById("artifact-coa-full-size");
-      certificateLink.hidden = photo.label !== "COA";
-      if (photo.label === "COA") certificateLink.href = photo.url;
+      const isCertificate = /^COA(?: \d+)?$/.test(photo.label);
+      certificateLink.hidden = !isCertificate;
+      if (isCertificate) certificateLink.href = photo.url;
       else certificateLink.removeAttribute("href");
       elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
       elements.puckPlaceholder.hidden = true;

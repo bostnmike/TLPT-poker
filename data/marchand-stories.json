@@ -2878,7 +2878,7 @@
       "gameId": 2024020933,
       "title": "Seven shots in his last home appearance",
       "paragraphs": [
-        "Marchand kept shooting in what became his final home game for Boston, putting seven shots on net over 22:11. The Bruins lost 2–1 to the Islanders. This is a second game-used puck from February 27, 2025, sharing the final-home-game milestone with artifact 323."
+        "Marchand put seven shots on net in 22:11 during his final home appearance as a Bruin. Boston lost 2–1 to the Islanders. This is Kyle Palmieri’s game-winning goal puck from 4:21 of the second period, assisted by Brock Nelson and Adam Pelech. It preserves Marchand’s last night at TD Garden in a Boston uniform, not a goal or assist credited to him."
       ],
       "sources": [
         {
@@ -2888,6 +2888,10 @@
         {
           "label": "NHL season game log",
           "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        },
+        {
+          "label": "NHL official scoring report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/GS020933.HTM"
         }
       ],
       "verification": {
