@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "4f21d173db73641a90b36853bd932a01f00d1a95f564a40912939c31ae954186",
+    "sourceSha256": "b545b802fe6894facf99a541544cd3af61f6bf919227042252c20ecc37bd6924",
     "records": 153,
     "goalsAndGames": 78,
     "milestones": 39,
@@ -20054,7 +20054,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/604/coa.webp",
           "url": ""
         },
         {
@@ -20089,7 +20089,7 @@
         },
         {
           "label": "Original COA Filename",
-          "value": "",
+          "value": "604-coa",
           "url": ""
         },
         {
@@ -22214,7 +22214,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/613/coa.webp",
           "url": ""
         },
         {
@@ -22249,7 +22249,7 @@
         },
         {
           "label": "Original COA Filename",
-          "value": "",
+          "value": "613-coa.JPG",
           "url": ""
         },
         {
@@ -22454,7 +22454,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/614/coa.webp",
           "url": ""
         },
         {
@@ -22489,7 +22489,7 @@
         },
         {
           "label": "Original COA Filename",
-          "value": "",
+          "value": "614-coa.JPG",
           "url": ""
         },
         {

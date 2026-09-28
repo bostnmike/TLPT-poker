@@ -1362,6 +1362,24 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-04.webp?v=1c3355fc654b",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/41/coa.webp?v=6eaee2d4d047",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "041-coa",
+          "previousFilename": "IMG_9501.JPG",
+          "driveFileId": "1KuSH2J0WejI9D1SjTs1T02cJebL8xaFY",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Pittsburgh Penguins certificate issuer"
+          ],
+          "discrepancies": "Undated certificate; owner supplied the artifact mapping. Verified game details retained.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "42": [
@@ -1659,6 +1677,24 @@
         "label": "Edge 4",
         "url": "images/pucks/51/edge-04.webp?v=55446b14b72d",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/51/coa.webp?v=40bf1e75b6ba",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "051-coa",
+          "previousFilename": "IMG_9466.JPG",
+          "driveFileId": "1GoYoO6SmMBobEuPC7WBMF7zIF85yvmXc",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Ottawa Senators certificate issuer"
+          ],
+          "discrepancies": "Ottawa certificate serial 2494052; owner resolved previously uncertain mapping.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "52": [
@@ -3386,6 +3422,24 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-04.webp?v=55b9fd1c911b",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/502/coa.webp?v=0e4bfd807aad",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "502-coa",
+          "previousFilename": "IMG_9508.JPG",
+          "driveFileId": "1cey6yuu1m0TkbMBGjx3pIH2j-oWzwK4m",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Pittsburgh Penguins certificate issuer"
+          ],
+          "discrepancies": "Undated certificate; owner supplied the artifact mapping. Verified game details retained.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "503": [
@@ -3640,6 +3694,25 @@
         "label": "Back",
         "url": "images/pucks/604/back.webp?v=fbbba0499b9b",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/604/coa.webp?v=9dca0bfec03f",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "604-coa",
+          "previousFilename": "IMG_9510.JPG",
+          "driveFileId": "1SuHfFxgra3a2VZaIPceMTRzLU5_8ZVfi",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Toronto Maple Leafs certificate issuer",
+            "Warm-up puck type"
+          ],
+          "discrepancies": "Undated certificate; owner supplied the artifact mapping. Verified game details retained.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "605": [
@@ -3762,6 +3835,27 @@
         "label": "Back",
         "url": "images/pucks/613/back.webp?v=d1df5f191e87",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/613/coa.webp?v=c37e614634c3",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "613-coa.JPG",
+          "previousFilename": "IMG_9530.JPG",
+          "driveFileId": "1xTp1G9xdFZys1ndjpz9fX2nnimUb_6lf",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Carolina Hurricanes certificate issuer",
+            "Warm-up puck type",
+            "May 28, 2025 game date",
+            "Carolina vs Florida at Lenovo Center"
+          ],
+          "discrepancies": "Owner confirmed shared certificate applies to both artifacts 613 and 614.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "614": [
@@ -3775,6 +3869,27 @@
         "label": "Back",
         "url": "images/pucks/614/back.webp?v=7b9c17106eee",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/614/coa.webp?v=c37e614634c3",
+        "rotation": 0,
+        "provenance": {
+          "originalFilename": "614-coa.JPG",
+          "previousFilename": null,
+          "driveFileId": "1Ha7lacuszt-5A6-OaZRvIrCwr97lKyem",
+          "matchingFields": [
+            "Owner-assigned artifact number in updated Drive filename",
+            "Carolina Hurricanes certificate issuer",
+            "Warm-up puck type",
+            "May 28, 2025 game date",
+            "Carolina vs Florida at Lenovo Center"
+          ],
+          "discrepancies": "Owner confirmed shared certificate applies to both artifacts 613 and 614.",
+          "associationBasis": "Owner-confirmed filename mapping and certificate issuer/type; canonical game facts retained.",
+          "reviewedOn": "2026-09-28",
+          "processing": "Full-resolution WebP format conversion at quality 94; no crop, retouching or rewriting of the certificate."
+        }
       }
     ],
     "615": [
