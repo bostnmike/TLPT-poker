@@ -14,7 +14,7 @@ Source Sans 3 is self-hosted from Adobe's open-source release with its OFL licen
 
 ## Photo orientation policy
 
-Every published front, back and edge is individually measured and visually reviewed. The first audit covered 107 views / 22 pucks; the second intake adds 209 views / 40 pucks, for 316 views / 62 pucks in total. Corrections are baked into the full-resolution image pixels, not applied only by the browser. The per-view `rotation` in `data/marchand-photos.json` must be zero. Regenerate front thumbnails from the corrected full-resolution fronts and version image URLs whenever replacing files.
+Every published front, back and edge is individually measured and visually reviewed. The first audit covered 107 views / 22 pucks; the second intake adds 210 views / 40 pucks, for 317 views / 62 pucks in total. Corrections are baked into the full-resolution image pixels, not applied only by the browser. The per-view `rotation` in `data/marchand-photos.json` must be zero. Regenerate front thumbnails from the corrected full-resolution fronts and version image URLs whenever replacing files.
 
 Use the printed design's upright axis and horizontal reference lines, not slanted handwriting or a separately applied authentication sticker. Some team emblems intentionally contain diagonal elements. Edge views are assessed separately against the midpoint between the upper and lower puck boundaries. Preserve natural curvature and camera perspective; do not stretch a cylindrical puck edge into a rectangle or alter authentic wear.
 

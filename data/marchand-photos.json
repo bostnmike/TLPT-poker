@@ -1233,6 +1233,12 @@
     ],
     "54": [
       {
+        "label": "Front",
+        "url": "images/pucks/54/front.webp?v=20260928-confirmed54",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/54/front-thumb.webp?v=20260928-confirmed54"
+      },
+      {
         "label": "Back",
         "url": "images/pucks/54/back.webp?v=20260928-batch2",
         "rotation": 0

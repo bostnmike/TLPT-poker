@@ -1,14 +1,9 @@
 {
   "date": "2026-09-28",
-  "views": 209,
+  "views": 210,
   "artifacts": 40,
   "method": "Adobe non-generative level/auto-tone/Color - Natural, complete-subject crop and isolation; individually measured pixel rotation. Every full-resolution master visually reviewed and preserved privately with lossless exports. User-approved WebP quality-96 website copies, faces up to 2400px and edges up to 2800px, exact alpha. Every website copy measured against its resized lossless master; representative and worst-metric close-ups visually checked. No generated detail or intentional removal of wear, tape, signatures or authentication labels.",
-  "held": [
-    {
-      "sourceName": "'",
-      "reason": "No confirmed artifact mapping; not published or archived"
-    }
-  ],
+  "held": [],
   "viewsReviewed": [
     {
       "artifact": "24",
@@ -3769,6 +3764,24 @@
         "psnr": 43.53017276788349,
         "alphaExact": true,
         "bytes": 914144
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Front",
+      "url": "images/pucks/54/front.webp",
+      "clockwiseDegrees": -83.76,
+      "reference": "Correct-era Tampa Bay logo alignment; user-confirmed source rename 054-front",
+      "sha256": "0960b557ec0cd64f5679a681a2400027c1712437f41216453ae76ac3549ff2bd",
+      "width": 2339,
+      "height": 2339,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.86865377924932,
+        "alphaExact": true,
+        "bytes": 732884
       },
       "status": "reviewed-master-and-verified-web-derivative"
     }
