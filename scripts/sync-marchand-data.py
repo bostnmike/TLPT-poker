@@ -159,7 +159,8 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             goalieScoredAgainst=values["Goalie Scored Against"],
             playerCodes=player_codes(values["Primary Assist"], values["Secondary Assist"]),
         )
-        canonical_url = next(field["url"] for field in fields if field["label"] == "Goal Video")
+        canonical_url = (values["Goal Video"] if values["Goal Video"].startswith("https://")
+                         else next(field["url"] for field in fields if field["label"] == "Goal Video"))
         canonical_label = values["Goal Video"]
         record["videoLabel"] = canonical_label
         record["videoUrl"] = canonical_url
@@ -240,7 +241,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
     else:
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
 
-    if sheet_name in ("Road to Repeat", "Milestones") and values.get("Video URL"):
+    if sheet_name in ("Road to Repeat", "Milestones", "Road to History") and values.get("Video URL"):
         record["videoUrl"] = values["Video URL"]
         record["videoLabel"] = "Game Context"
         record["videoProvider"], record["videoId"] = video_parts(record["videoUrl"], record)

@@ -101,7 +101,6 @@
     category: document.getElementById("category-filter"),
     arena: document.getElementById("arena-filter"),
     puck: document.getElementById("puck-filter"),
-    video: document.getElementById("video-filter"),
     clear: document.getElementById("clear-filters"),
     status: document.getElementById("collection-state"),
     tableShell: document.getElementById("collection-table-shell"),
@@ -292,7 +291,6 @@
       } else if (elements.category.value && record.category !== elements.category.value) return false;
       if (elements.arena.value && record.arena !== elements.arena.value) return false;
       if (elements.puck.value && record.puckType !== elements.puck.value) return false;
-      if (elements.video.checked && !record.videoUrl) return false;
       return !query || searchableText(record).includes(query);
     });
   }
@@ -531,7 +529,6 @@
     elements.category.value = "";
     elements.arena.value = "";
     elements.puck.value = "";
-    elements.video.checked = false;
     setEra("all", false);
   }
 
@@ -545,16 +542,15 @@
     for (const button of document.querySelectorAll("[data-collection-filter]")) {
       const filter = button.dataset.collectionFilter;
       const active = filter === "all"
-        ? !hasOtherFilters && !elements.sheet.value && !elements.video.checked
-        : filter === "video" ? elements.video.checked : elements.sheet.value === filter;
+        ? !hasOtherFilters && !elements.sheet.value
+        : filter === "video" ? !hasOtherFilters && !elements.sheet.value : elements.sheet.value === filter;
       button.setAttribute("aria-pressed", String(active));
     }
   }
 
   function selectStatFilter(filter) {
     resetFilterValues();
-    if (filter === "video") elements.video.checked = true;
-    else if (filter !== "all") elements.sheet.value = filter;
+    if (filter !== "all" && filter !== "video") elements.sheet.value = filter;
     if (filter === "Road to History") {
       setEra("boston");
       state.sortKey = "date";
@@ -697,8 +693,9 @@
 
   function renderPersonnel(record) {
     const personnel = [];
+    if (record.category === "Game-Used Puck") personnel.push(["BM63", "Collection Subject"]);
     const nonGoalPoint = ["Assist", "RS Point"].includes(record.category);
-    if (record.sourceSheet === "Goals & Games") {
+    if (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck") {
       const scorer = nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63";
       if (scorer) personnel.push([scorer, "Goal Scorer"]);
       else personnel.push(["BM63", "Collection Subject"]);
@@ -1053,7 +1050,7 @@
     }
   }
 
-  for (const control of [elements.team, elements.sheet, elements.category, elements.arena, elements.puck, elements.video]) {
+  for (const control of [elements.team, elements.sheet, elements.category, elements.arena, elements.puck]) {
     control.addEventListener("change", () => {
       if (control === elements.team) setEra(teamEra(elements.team.value), false);
       render();

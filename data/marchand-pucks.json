@@ -1,15 +1,15 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "eb84bcfebc3e2878dc1f4ece18e511d8e01463f033633a02a2778f3ce2ca4804",
-    "records": 152,
+    "sourceSha256": "327694d24a3f0609f68fd281eec29fff858ec37dadb478a890c226b45556c3c4",
+    "records": 153,
     "goalsAndGames": 78,
-    "milestones": 38,
+    "milestones": 39,
     "roadToHistory": 9,
-    "videos": 123,
+    "videos": 153,
     "sourceSheets": {
       "Goals & Games": 78,
-      "Milestones": 38,
+      "Milestones": 39,
       "Road to History": 9,
       "Road to Repeat": 27
     },
@@ -6392,33 +6392,30 @@
       "inventoryId": 49,
       "homeRoad": "Road",
       "team": "Boston Bruins",
-      "category": "RS Goal",
-      "careerStat": 411,
-      "seasonStat": 10,
+      "category": "Game-Used Puck",
+      "careerStat": null,
+      "seasonStat": null,
       "description": "",
       "date": "2024-12-04",
       "arena": "United Center",
       "opponent": "Chicago Blackhawks",
-      "period": "2",
-      "time": "05:03",
-      "goalType": "GWG",
-      "primaryAssist": "DP88",
-      "secondaryAssist": "JO82",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
       "score": "Boston 4 @ Chicago 2",
       "puckType": "Game Used Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/bos-chi-marchand-scores-goal-against-petr-mrazek-6365563789112",
+      "videoLabel": "https://www.nhl.com/video/c-6365566513112",
+      "videoUrl": "https://www.nhl.com/video/c-6365566513112",
       "videoProvider": "nhl",
-      "videoId": "6365563789112",
-      "notes": "",
+      "videoId": "6365566513112",
+      "notes": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play.",
       "game": null,
       "wins": null,
       "losses": null,
       "points": null,
-      "playerCodes": [
-        "DP88",
-        "JO82"
-      ],
+      "playerCodes": [],
       "sourceData": [
         {
           "label": "ID",
@@ -6437,17 +6434,17 @@
         },
         {
           "label": "Category",
-          "value": "RS Goal",
+          "value": "Game-Used Puck",
           "url": ""
         },
         {
           "label": "Career Stat",
-          "value": "411",
+          "value": "",
           "url": ""
         },
         {
           "label": "Season Stat",
-          "value": "10",
+          "value": "",
           "url": ""
         },
         {
@@ -6467,27 +6464,27 @@
         },
         {
           "label": "Period",
-          "value": "2",
+          "value": "",
           "url": ""
         },
         {
           "label": "Time",
-          "value": "05:03",
+          "value": "",
           "url": ""
         },
         {
           "label": "Goal Type",
-          "value": "GWG",
+          "value": "",
           "url": ""
         },
         {
           "label": "Primary Assist",
-          "value": "DP88",
+          "value": "",
           "url": ""
         },
         {
           "label": "Secondary Assist",
-          "value": "JO82",
+          "value": "",
           "url": ""
         },
         {
@@ -6502,21 +6499,21 @@
         },
         {
           "label": "Goal Video",
-          "value": "Watch Goal",
-          "url": "https://www.nhl.com/video/bos-chi-marchand-scores-goal-against-petr-mrazek-6365563789112"
+          "value": "https://www.nhl.com/video/c-6365566513112",
+          "url": "https://www.nhl.com/video/c-6365566513112"
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play.",
           "url": ""
         },
         {
           "label": "Goalie Scored Against",
-          "value": "Petr Mrazek",
+          "value": "",
           "url": ""
         }
       ],
-      "goalieScoredAgainst": "Petr Mrazek"
+      "goalieScoredAgainst": ""
     },
     {
       "key": "goal-50",
@@ -10941,10 +10938,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6346840350112",
+      "videoProvider": "nhl",
+      "videoId": "6346840350112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -11061,7 +11058,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6346840350112",
           "url": ""
         },
         {
@@ -13280,10 +13277,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6365276073112",
+      "videoProvider": "nhl",
+      "videoId": "6365276073112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -13400,7 +13397,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6365276073112",
           "url": ""
         },
         {
@@ -13918,11 +13915,11 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/bos-chi-marchand-scores-goal-against-petr-mrazek-6365563789112",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6365566513112",
       "videoProvider": "nhl",
-      "videoId": "6365563789112",
-      "notes": "",
+      "videoId": "6365566513112",
+      "notes": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play. His second goal also tied Patrice Bergeron for second in Bruins history with 81 game-winning goals.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -13974,7 +13971,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play. His second goal also tied Patrice Bergeron for second in Bruins history with 81 game-winning goals.",
           "url": ""
         },
         {
@@ -14039,7 +14036,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6365566513112",
           "url": ""
         },
         {
@@ -14131,10 +14128,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6369422166112",
+      "videoProvider": "nhl",
+      "videoId": "6369422166112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -14251,7 +14248,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6369422166112",
           "url": ""
         },
         {
@@ -14343,10 +14340,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6369422166112",
+      "videoProvider": "nhl",
+      "videoId": "6369422166112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -14463,7 +14460,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6369422166112",
           "url": ""
         },
         {
@@ -14555,10 +14552,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6369506726112",
+      "videoProvider": "nhl",
+      "videoId": "6369506726112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -14675,7 +14672,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6369506726112",
           "url": ""
         },
         {
@@ -14767,10 +14764,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6369506726112",
+      "videoProvider": "nhl",
+      "videoId": "6369506726112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -14887,7 +14884,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6369506726112",
           "url": ""
         },
         {
@@ -14979,10 +14976,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6369506726112",
+      "videoProvider": "nhl",
+      "videoId": "6369506726112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -15099,7 +15096,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6369506726112",
           "url": ""
         },
         {
@@ -15191,10 +15188,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6370722132112",
+      "videoProvider": "nhl",
+      "videoId": "6370722132112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -15311,7 +15308,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6370722132112",
           "url": ""
         },
         {
@@ -15403,10 +15400,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6370722132112",
+      "videoProvider": "nhl",
+      "videoId": "6370722132112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -15523,7 +15520,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6370722132112",
           "url": ""
         },
         {
@@ -15827,10 +15824,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6371543190112",
+      "videoProvider": "nhl",
+      "videoId": "6371543190112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -15897,7 +15894,7 @@
         },
         {
           "label": "Workflow Status",
-          "value": "",
+          "value": "Published",
           "url": ""
         },
         {
@@ -15947,17 +15944,17 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6371543190112",
           "url": ""
         },
         {
           "label": "Front Image Filename",
-          "value": "",
+          "value": "images/pucks/331/front.webp",
           "url": ""
         },
         {
           "label": "Back Image Filename",
-          "value": "",
+          "value": "images/pucks/331/back.webp",
           "url": ""
         },
         {
@@ -15987,12 +15984,12 @@
         },
         {
           "label": "Original Front Image Filename",
-          "value": "",
+          "value": "331-front-Game1100",
           "url": ""
         },
         {
           "label": "Original Back Image Filename",
-          "value": "",
+          "value": "331-back-Game1100",
           "url": ""
         },
         {
@@ -16888,10 +16885,10 @@
       "secondaryAssist": "",
       "score": "Columbus 1 @ Boston 2 - OT",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6336328494112",
+      "videoProvider": "nhl",
+      "videoId": "6336328494112",
       "notes": "",
       "game": 75,
       "wins": 58,
@@ -16980,6 +16977,11 @@
         {
           "label": "Notes",
           "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336328494112",
           "url": ""
         }
       ]
@@ -17102,6 +17104,11 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
+          "url": ""
         }
       ]
     },
@@ -17126,10 +17133,10 @@
       "secondaryAssist": "",
       "score": "Boston 4 @ St. Louis 3 - SO",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6336328072112",
+      "videoProvider": "nhl",
+      "videoId": "6336328072112",
       "notes": "",
       "game": 77,
       "wins": 60,
@@ -17219,6 +17226,11 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336328072112",
+          "url": ""
         }
       ]
     },
@@ -17243,10 +17255,10 @@
       "secondaryAssist": "",
       "score": "Boston 4 @ St. Louis 3 - SO",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6336328072112",
+      "videoProvider": "nhl",
+      "videoId": "6336328072112",
       "notes": "",
       "game": 77,
       "wins": 60,
@@ -17335,6 +17347,11 @@
         {
           "label": "Notes",
           "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336328072112",
           "url": ""
         }
       ]
@@ -17456,6 +17473,11 @@
           "label": "Notes",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
+          "url": ""
         }
       ]
     },
@@ -17480,10 +17502,10 @@
       "secondaryAssist": "",
       "score": "New Jersey 1 @ Boston 2",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6336326666112",
+      "videoProvider": "nhl",
+      "videoId": "6336326666112",
       "notes": "",
       "game": 79,
       "wins": 62,
@@ -17572,6 +17594,11 @@
         {
           "label": "Notes",
           "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336326666112",
           "url": ""
         }
       ]
@@ -17693,6 +17720,11 @@
           "label": "Notes",
           "value": "CC13 from CC58",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
+          "url": ""
         }
       ]
     },
@@ -17717,10 +17749,10 @@
       "secondaryAssist": "",
       "score": "Washington 2 @ Boston 5",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6336327936112",
+      "videoProvider": "nhl",
+      "videoId": "6336327936112",
       "notes": "",
       "game": 81,
       "wins": 64,
@@ -17809,6 +17841,11 @@
         {
           "label": "Notes",
           "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336327936112",
           "url": ""
         }
       ]
@@ -17930,6 +17967,11 @@
         {
           "label": "Notes",
           "value": "DP88 from DO81 & TB59",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
           "url": ""
         }
       ]
@@ -18884,9 +18926,9 @@
       "score": "FLA 6 @ TBL 2",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-tbl-schmidt-scores-goal-against-andrei-vasilevskiy-6371812891112",
+      "videoUrl": "https://www.nhl.com/video/c-6371814829112",
       "videoProvider": "nhl",
-      "videoId": "6371812891112",
+      "videoId": "6371814829112",
       "notes": "Game 1",
       "game": 1,
       "wins": null,
@@ -19032,7 +19074,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-tbl-schmidt-scores-goal-against-andrei-vasilevskiy-6371812891112",
+          "value": "https://www.nhl.com/video/c-6371814829112",
           "url": ""
         },
         {
@@ -19123,10 +19165,10 @@
       "secondaryAssist": "",
       "score": "FLA 2 @ TBL 0",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6371905743112",
+      "videoProvider": "nhl",
+      "videoId": "6371905743112",
       "notes": "Game 2",
       "game": 2,
       "wins": null,
@@ -19272,7 +19314,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6371905743112",
           "url": ""
         },
         {
@@ -19364,9 +19406,9 @@
       "score": "TBL 2 @ FLA 4",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/tbl-fla-lundell-scores-goal-against-andrei-vasilevskiy-6372046194112",
+      "videoUrl": "https://www.nhl.com/video/c-6372045952112",
       "videoProvider": "nhl",
-      "videoId": "6372046194112",
+      "videoId": "6372045952112",
       "notes": "Game 4 Submitted arena: Amalie Arena; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 4,
       "wins": null,
@@ -19512,7 +19554,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/tbl-fla-lundell-scores-goal-against-andrei-vasilevskiy-6372046194112",
+          "value": "https://www.nhl.com/video/c-6372045952112",
           "url": ""
         },
         {
@@ -19604,9 +19646,9 @@
       "score": "FLA 6 @ TBL 3",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-tbl-luostarinen-scores-goal-against-andrei-vasilevskiy-6372142992112",
+      "videoUrl": "https://www.nhl.com/video/c-6372142413112",
       "videoProvider": "nhl",
-      "videoId": "6372142992112",
+      "videoId": "6372142413112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -19752,7 +19794,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-tbl-luostarinen-scores-goal-against-andrei-vasilevskiy-6372142992112",
+          "value": "https://www.nhl.com/video/c-6372142413112",
           "url": ""
         },
         {
@@ -19844,9 +19886,9 @@
       "score": "FLA 4 @ TOR 5",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/uvis-balinskis-with-a-goal-vs-toronto-maple-leafs-6372395636112",
+      "videoUrl": "https://www.nhl.com/video/c-6372394198112",
       "videoProvider": "nhl",
-      "videoId": "6372395636112",
+      "videoId": "6372394198112",
       "notes": "Game 1",
       "game": 1,
       "wins": null,
@@ -19992,7 +20034,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/uvis-balinskis-with-a-goal-vs-toronto-maple-leafs-6372395636112",
+          "value": "https://www.nhl.com/video/c-6372394198112",
           "url": ""
         },
         {
@@ -20084,9 +20126,9 @@
       "score": "TOR 4 @ FLA 5 - OT",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/tor-fla-marchand-scores-goal-6372608465112",
+      "videoUrl": "https://www.nhl.com/video/c-6372637377112",
       "videoProvider": "nhl",
-      "videoId": "6372608465112",
+      "videoId": "6372637377112",
       "notes": "Game 3 Submitted arena: Scotiabank Arena; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 3,
       "wins": null,
@@ -20232,7 +20274,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/tor-fla-marchand-scores-goal-6372608465112",
+          "value": "https://www.nhl.com/video/c-6372637377112",
           "url": ""
         },
         {
@@ -20323,10 +20365,10 @@
       "secondaryAssist": "",
       "score": "TOR 0 @ FLA 2",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6372682958112",
+      "videoProvider": "nhl",
+      "videoId": "6372682958112",
       "notes": "Game 4 Submitted arena: Scotiabank Arena; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 4,
       "wins": null,
@@ -20472,7 +20514,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6372682958112",
           "url": ""
         },
         {
@@ -20563,10 +20605,10 @@
       "secondaryAssist": "",
       "score": "FLA 6 @ TOR 1",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6372822730112",
+      "videoProvider": "nhl",
+      "videoId": "6372822730112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -20712,7 +20754,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6372822730112",
           "url": ""
         },
         {
@@ -20804,9 +20846,9 @@
       "score": "FLA 6 @ TOR 1",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-tor-marchand-scores-empty-net-goal-6373038861112",
+      "videoUrl": "https://www.nhl.com/video/c-6373040245112",
       "videoProvider": "nhl",
-      "videoId": "6373038861112",
+      "videoId": "6373040245112",
       "notes": "Game 7",
       "game": 7,
       "wins": null,
@@ -20952,7 +20994,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-tor-marchand-scores-empty-net-goal-6373038861112",
+          "value": "https://www.nhl.com/video/c-6373040245112",
           "url": ""
         },
         {
@@ -21043,10 +21085,10 @@
       "secondaryAssist": "",
       "score": "FLA 5 @ CAR 2",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6373149127112",
+      "videoProvider": "nhl",
+      "videoId": "6373149127112",
       "notes": "Game 1",
       "game": 1,
       "wins": null,
@@ -21192,7 +21234,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6373149127112",
           "url": ""
         },
         {
@@ -21283,10 +21325,10 @@
       "secondaryAssist": "",
       "score": "FLA 5 @ CAR 0",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6373366696112",
+      "videoProvider": "nhl",
+      "videoId": "6373366696112",
       "notes": "Game 2",
       "game": 2,
       "wins": null,
@@ -21432,7 +21474,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6373366696112",
           "url": ""
         },
         {
@@ -21523,10 +21565,10 @@
       "secondaryAssist": "",
       "score": "FLA 5 @ CAR 0",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6373366696112",
+      "videoProvider": "nhl",
+      "videoId": "6373366696112",
       "notes": "Game 2",
       "game": 2,
       "wins": null,
@@ -21672,7 +21714,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6373366696112",
           "url": ""
         },
         {
@@ -21763,10 +21805,10 @@
       "secondaryAssist": "",
       "score": "CAR 3 @ FLA 0",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6373513038112",
+      "videoProvider": "nhl",
+      "videoId": "6373513038112",
       "notes": "Game 4 Intake year corrected from 2026-05-26 to 2025-05-26 against the NHL game record. Submitted arena: Lenovo Center; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 4,
       "wins": null,
@@ -21912,7 +21954,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6373513038112",
           "url": ""
         },
         {
@@ -22004,9 +22046,9 @@
       "score": "FLA 5 @ CAR 3",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+      "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
-      "videoId": "6373588933112",
+      "videoId": "6373592122112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -22152,7 +22194,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+          "value": "https://www.nhl.com/video/c-6373592122112",
           "url": ""
         },
         {
@@ -22244,9 +22286,9 @@
       "score": "FLA 5 @ CAR 3",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+      "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
-      "videoId": "6373588933112",
+      "videoId": "6373592122112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -22392,7 +22434,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+          "value": "https://www.nhl.com/video/c-6373592122112",
           "url": ""
         },
         {
@@ -22484,9 +22526,9 @@
       "score": "FLA 5 @ EDM 4 - 2OT",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-edm-marchand-scores-goal-against-stuart-skinner-6373978365112",
+      "videoUrl": "https://www.nhl.com/video/c-6373978068112",
       "videoProvider": "nhl",
-      "videoId": "6373978365112",
+      "videoId": "6373978068112",
       "notes": "Game 2 Intake year corrected from 2026-06-06 to 2025-06-06 against the NHL game record.",
       "game": 2,
       "wins": null,
@@ -22632,7 +22674,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-edm-marchand-scores-goal-against-stuart-skinner-6373978365112",
+          "value": "https://www.nhl.com/video/c-6373978068112",
           "url": ""
         },
         {
@@ -22723,10 +22765,10 @@
       "secondaryAssist": "",
       "score": "EDM 1 @ FLA 6",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6374072873112",
+      "videoProvider": "nhl",
+      "videoId": "6374072873112",
       "notes": "Game 3 Submitted arena: Rogers Place; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 3,
       "wins": null,
@@ -22872,7 +22914,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6374072873112",
           "url": ""
         },
         {
@@ -22964,9 +23006,9 @@
       "score": "FLA 5 @ EDM 2",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-edm-marchand-scores-goal-against-calvin-pickard-6374303468112",
+      "videoUrl": "https://www.nhl.com/video/c-6374303307112",
       "videoProvider": "nhl",
-      "videoId": "6374303468112",
+      "videoId": "6374303307112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -23112,7 +23154,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-edm-marchand-scores-goal-against-calvin-pickard-6374303468112",
+          "value": "https://www.nhl.com/video/c-6374303307112",
           "url": ""
         },
         {
@@ -23203,10 +23245,10 @@
       "secondaryAssist": "",
       "score": "EDM 1 @ FLA 5",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6374493648112",
+      "videoProvider": "nhl",
+      "videoId": "6374493648112",
       "notes": "Game 6 Submitted arena: Rogers Place; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 6,
       "wins": null,
@@ -23352,7 +23394,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6374493648112",
           "url": ""
         },
         {
@@ -23443,10 +23485,10 @@
       "secondaryAssist": "",
       "score": "EDM 1 @ FLA 5",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6374493648112",
+      "videoProvider": "nhl",
+      "videoId": "6374493648112",
       "notes": "Game 6 Submitted arena: Rogers Place; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 6,
       "wins": null,
@@ -23592,7 +23634,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6374493648112",
           "url": ""
         },
         {
@@ -23683,10 +23725,10 @@
       "secondaryAssist": "",
       "score": "EDM 1 @ FLA 5",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6374493648112",
+      "videoProvider": "nhl",
+      "videoId": "6374493648112",
       "notes": "Game 6 Submitted arena: Rogers Place; corrected venue: Amerant Bank Arena (NHL game record).",
       "game": 6,
       "wins": null,
@@ -23832,7 +23874,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6374493648112",
           "url": ""
         },
         {
@@ -23924,9 +23966,9 @@
       "score": "FLA 6 @ TBL 3",
       "puckType": "Game Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-tbl-luostarinen-scores-goal-against-andrei-vasilevskiy-6372142992112",
+      "videoUrl": "https://www.nhl.com/video/c-6372142413112",
       "videoProvider": "nhl",
-      "videoId": "6372142992112",
+      "videoId": "6372142413112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -24072,7 +24114,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-tbl-luostarinen-scores-goal-against-andrei-vasilevskiy-6372142992112",
+          "value": "https://www.nhl.com/video/c-6372142413112",
           "url": ""
         },
         {
@@ -24163,10 +24205,10 @@
       "secondaryAssist": "",
       "score": "FLA 6 @ TOR 1",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6372822730112",
+      "videoProvider": "nhl",
+      "videoId": "6372822730112",
       "notes": "Game 5 Intake year corrected from 2026-05-14 to 2025-05-14 against the NHL game record.",
       "game": 5,
       "wins": null,
@@ -24312,7 +24354,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6372822730112",
           "url": ""
         },
         {
@@ -24404,9 +24446,9 @@
       "score": "FLA 6 @ TOR 1",
       "puckType": "Game Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-tor-marchand-scores-empty-net-goal-6373038861112",
+      "videoUrl": "https://www.nhl.com/video/c-6373040245112",
       "videoProvider": "nhl",
-      "videoId": "6373038861112",
+      "videoId": "6373040245112",
       "notes": "Game 7 Intake year corrected from 2026-05-18 to 2025-05-18 against the NHL game record.",
       "game": 7,
       "wins": null,
@@ -24552,7 +24594,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-tor-marchand-scores-empty-net-goal-6373038861112",
+          "value": "https://www.nhl.com/video/c-6373040245112",
           "url": ""
         },
         {
@@ -24643,10 +24685,10 @@
       "secondaryAssist": "",
       "score": "FLA 5 @ CAR 0",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6373366696112",
+      "videoProvider": "nhl",
+      "videoId": "6373366696112",
       "notes": "Game 2",
       "game": 2,
       "wins": null,
@@ -24792,7 +24834,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6373366696112",
           "url": ""
         },
         {
@@ -24884,9 +24926,9 @@
       "score": "FLA 5 @ CAR 3",
       "puckType": "Game Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+      "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
-      "videoId": "6373588933112",
+      "videoId": "6373592122112",
       "notes": "Game 5",
       "game": 5,
       "wins": null,
@@ -25032,7 +25074,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
+          "value": "https://www.nhl.com/video/c-6373592122112",
           "url": ""
         },
         {
@@ -25123,10 +25165,10 @@
       "secondaryAssist": "",
       "score": "CHI 2 @ FLA 3",
       "puckType": "Warm-Up Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6382227954112",
+      "videoProvider": "nhl",
+      "videoId": "6382227954112",
       "notes": "Banner Raising Ceremony",
       "game": null,
       "wins": null,
@@ -25272,7 +25314,7 @@
         },
         {
           "label": "Video URL",
-          "value": "",
+          "value": "https://www.nhl.com/video/c-6382227954112",
           "url": ""
         },
         {
@@ -25364,9 +25406,9 @@
       "score": "WSH 3 @ FLA 6",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/wsh-fla-jones-scores-goal-against-logan-thompson-6385080373112",
+      "videoUrl": "https://www.nhl.com/video/c-6385080898112",
       "videoProvider": "nhl",
-      "videoId": "6385080373112",
+      "videoId": "6385080898112",
       "notes": "1000 Points",
       "game": null,
       "wins": null,
@@ -25487,7 +25529,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/wsh-fla-jones-scores-goal-against-logan-thompson-6385080373112",
+          "value": "https://www.nhl.com/video/c-6385080898112",
           "url": ""
         },
         {
@@ -25579,9 +25621,9 @@
       "score": "MTL 3 @ FLA 2 - OT",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/mtl-fla-marchand-scores-ppg-against-samuel-montembeault-6387086943112",
+      "videoUrl": "https://www.nhl.com/video/c-6387090130112",
       "videoProvider": "nhl",
-      "videoId": "6387086943112",
+      "videoId": "6387090130112",
       "notes": "",
       "game": null,
       "wins": null,
@@ -25702,7 +25744,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/mtl-fla-marchand-scores-ppg-against-samuel-montembeault-6387086943112",
+          "value": "https://www.nhl.com/video/c-6387090130112",
           "url": ""
         },
         {
@@ -25794,9 +25836,9 @@
       "score": "UTA 1 @ FLA 2 - OT",
       "puckType": "Warm-Up Used Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/uta-fla-bennett-scores-goal-against-karel-vejmelka-6370723195112",
+      "videoUrl": "https://www.nhl.com/video/c-6370722132112",
       "videoProvider": "nhl",
-      "videoId": "6370723195112",
+      "videoId": "6370722132112",
       "notes": "First Game as a Panther Opponent named Utah Hockey Club at the time of this game.",
       "game": null,
       "wins": null,
@@ -25917,7 +25959,7 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/uta-fla-bennett-scores-goal-against-karel-vejmelka-6370723195112",
+          "value": "https://www.nhl.com/video/c-6370722132112",
           "url": ""
         },
         {
@@ -25986,6 +26028,218 @@
           "url": ""
         }
       ]
+    },
+    {
+      "key": "milestone-339",
+      "sourceSheet": "Milestones",
+      "sourceRow": 40,
+      "inventoryId": 339,
+      "homeRoad": "",
+      "team": "Florida Panthers",
+      "category": "Milestone",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "BM63 Career Game #1100",
+      "date": "2025-04-15",
+      "arena": "Amalie Arena",
+      "opponent": "Tampa Bay Lightning",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "",
+      "puckType": "Game Used Puck",
+      "videoLabel": "Game Context",
+      "videoUrl": "https://www.nhl.com/video/c-6371543190112",
+      "videoProvider": "nhl",
+      "videoId": "6371543190112",
+      "notes": "Second physical puck from the same milestone game as artifact 331. Fanatics NR81046867. Owner-approved ID: 339.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "playerCodes": [
+        "BM63"
+      ],
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "339",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Milestone",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "BM63 Career Game #1100",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2025-04-15",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Amalie Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Tampa Bay Lightning",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Second physical puck from the same milestone game as artifact 331. Fanatics NR81046867. Owner-approved ID: 339.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Published",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6371543190112",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/339/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/339/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "336-front (assigned to artifact 339)",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "336-back (assigned to artifact 339)",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        }
+      ],
+      "goalieScoredAgainst": ""
     }
   ]
 }

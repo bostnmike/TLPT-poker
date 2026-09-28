@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-28",
-    "records": 152,
+    "records": 153,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
@@ -4357,6 +4357,37 @@
           "points": 1,
           "shots": 4,
           "toi": "16:30"
+        }
+      }
+    },
+    "milestone-339": {
+      "inventoryId": 339,
+      "date": "2025-04-15",
+      "team": "Florida Panthers",
+      "gameId": 2024021294,
+      "title": "A goal in game 1,100",
+      "paragraphs": [
+        "Marchand scored Florida’s only goal in his 1,100th NHL game. It came at 5:36 of the second period in Tampa Bay, assisted by Verhaeghe and Matt Kiersted. The Panthers lost 5–1. Marchand played 21:09 and recorded two shots; this game-used puck marks the appearance milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021294"
+        },
+        {
+          "label": "NHL season game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/2"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021294/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021294/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "21:09"
         }
       }
     }

@@ -52,12 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 152, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 153, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 78, "goals and games count drifted");
-assert.equal(payload.meta.milestones, 38, "milestone count drifted");
+assert.equal(payload.meta.milestones, 39, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 9, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 123, "video count drifted");
+assert.equal(payload.meta.videos, 153, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
@@ -80,12 +80,12 @@ for (const record of payload.records) {
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
   assert.match(record.date, /^\d{4}-\d{2}-\d{2}$/, `${record.key} needs a sortable ISO date`);
-  const expectedFields = { "Goals & Games": 19, Milestones: 35, "Road to History": 16, "Road to Repeat": 40 }[record.sourceSheet];
+  const expectedFields = { "Goals & Games": 19, Milestones: 35, "Road to History": 17, "Road to Repeat": 40 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
   assert.ok(sourceFields.Arena, `${record.key} must expose its arena in the complete record`);
-  if (record.sourceSheet === "Goals & Games") {
+  if (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck") {
     assert.ok(sourceFields["Goalie Scored Against"], `${record.key} must expose the goalie scored against`);
     assert.equal(record.goalieScoredAgainst, sourceFields["Goalie Scored Against"], `${record.key} goalie field drifted from the canonical record`);
   }
@@ -152,7 +152,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 104], ["Florida Panthers", 47], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 104], ["Florida Panthers", 48], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -185,7 +185,6 @@ for (const id of [
   "category-filter",
   "arena-filter",
   "puck-filter",
-  "video-filter",
   "collection-table-shell",
   "collection-body",
   "artifact-dialog",
@@ -350,7 +349,11 @@ assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is
 const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
 assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
-assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 78, "every goal/assist artifact needs a researched goalie result");
+assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 77, "scoring records retain researched goalies; commemorative artifact 49 has no attributed scoring play");
+assert.equal(payload.records.find(record => record.inventoryId === 49).category, "Game-Used Puck");
+assert.equal(payload.records.find(record => record.inventoryId === 49).careerStat, null);
+assert.ok(payload.records.every(record => record.videoUrl), "every exhibit must have an accompanying video");
+assert.doesNotMatch(html, /id="video-filter"|Film available/, "redundant film toggle must stay removed");
 assert.equal(payload.records.filter((record) => record.goalieScoredAgainst === "Empty net (no goaltender)").length, 7, "empty-net goalie accounting drifted");
 assert.match(script, /createGoalieCard\(record\)/, "deep dives must feature the researched goalie in the personnel gallery");
 assert.match(script, /addFact\("Game number", record\.game\)/, "Road to History deep dives must feature the game number");

@@ -1533,6 +1533,24 @@
         "rotation": 0
       }
     ],
+    "49": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front.webp?v=dec60ae00f8b",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front-thumb.webp?v=d024faa8668a"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/back.webp?v=16d5225ca12f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=314cebcd01cd",
+        "rotation": 0
+      }
+    ],
     "50": [
       {
         "label": "Front",
@@ -3061,6 +3079,17 @@
     ],
     "331": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/front.webp?v=c1643fd12b86",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/front-thumb.webp?v=799943834a77"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/back.webp?v=3ccdd69b1275",
+        "rotation": 0
+      },
+      {
         "label": "Edge 1",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/edge-01.webp?v=0d4723464a09",
         "rotation": 0
@@ -3196,6 +3225,19 @@
       {
         "label": "Back",
         "url": "images/pucks/338/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "339": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/front.webp?v=16c432162c74",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/front-thumb.webp?v=1a344009c90b"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/back.webp?v=1390ecfedea9",
         "rotation": 0
       }
     ],
