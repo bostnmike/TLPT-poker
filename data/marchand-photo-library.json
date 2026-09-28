@@ -3,24 +3,24 @@
   "version": 1,
   "assets": {
     "images/pucks/335/front.webp": {
-      "bytes": 876408,
-      "sha256": "7352604ecddaaaa88b19e1a80f3ad9bf92439d12ad7e5ad327e604e2489ad68b"
+      "bytes": 750538,
+      "sha256": "a08dbe6140bdf037032a18f64427d50a3fb8414acd288ac198b3265d158c66b9"
     },
     "images/pucks/335/front-thumb.webp": {
       "bytes": 62082,
       "sha256": "f2d697d3790891cfd2c816196d4f1d0202570fc1306a7d104c58fb90e185ea4e"
     },
     "images/pucks/334/edge-05.webp": {
-      "bytes": 816920,
-      "sha256": "ed36699dbd7cd531dc799265cd6823cc13857cb1ecbcea915df53713a1ea6f59"
+      "bytes": 700174,
+      "sha256": "0f497f69da63e273777f1581969c224201b424625e11a9a364c64ed4ef853e1b"
     },
     "images/pucks/335/edge-04.webp": {
       "bytes": 1229068,
       "sha256": "f72745c905482034f89f6b5614d1286ad8956cd5ae1e1a20ec3827cacd85b46d"
     },
     "images/pucks/334/edge-06.webp": {
-      "bytes": 839330,
-      "sha256": "16ab5211760bf171b74d650abd853b86059826a6c958740f416f093c29234574"
+      "bytes": 723784,
+      "sha256": "5f25c08dfd8b590643ffcd7b2c26505b1c10c67c92787e0a5fc573bd905d3f96"
     },
     "images/pucks/335/edge-02.webp": {
       "bytes": 1172136,
@@ -31,40 +31,40 @@
       "sha256": "78a9c0ec7d8171264c9cf0e0ba3e12daf309ce1370289e22e67a3694cdbede5c"
     },
     "images/pucks/332/back.webp": {
-      "bytes": 686672,
-      "sha256": "4a93b49b4f9d7e959ff89eb5ee0d019994ee17eea26972f1a58af22bec9f495d"
+      "bytes": 618884,
+      "sha256": "95076f2a98e9ce6fd12dabafbe64254b9c7baac5e6ca283a1e94572cb436deea"
     },
     "images/pucks/335/edge-01.webp": {
       "bytes": 1159986,
       "sha256": "22c5f64a0a5b7afb62ae0b5d5866bb6fb8e91eaf6f52b761fb40ae1e11d3a2bc"
     },
     "images/pucks/330/back.webp": {
-      "bytes": 762146,
-      "sha256": "232a9f6970c162acf6dc12ca7ee56b8e252a876e5366104f1b4f9a655db0cdf5"
+      "bytes": 694702,
+      "sha256": "74e43932d340554850113418eefe53531bb4bd9c69e7d7217f594e65377fbc36"
     },
     "images/pucks/334/front.webp": {
-      "bytes": 644988,
-      "sha256": "de41b9d5edb0816d09137bd79a5c7bcddbce78e0058bafe2ab28bd5905f4e5f7"
+      "bytes": 552134,
+      "sha256": "085d6fcd7f7aaace7dcdd318991c636e34203f3aca64b03b9aa97e8efdfa7d02"
     },
     "images/pucks/334/front-thumb.webp": {
       "bytes": 53134,
       "sha256": "4a9d21e0d25a94b75042be66f07b8c98b4189412da863a4b47a90069c7fe653f"
     },
     "images/pucks/332/front.webp": {
-      "bytes": 686268,
-      "sha256": "35473c40ce2f3a209fc0f0ceb8d11374182d112e44bb11f07409bc90909c1e2b"
+      "bytes": 597720,
+      "sha256": "ee27b3eefd66a4b336b215eba409a9c980332d4d1642e35c772a8c80ec8a703a"
     },
     "images/pucks/332/front-thumb.webp": {
       "bytes": 52576,
       "sha256": "2c693f24b548f33705d191a281c8b5eb7edd40cec286743f8a24b1ca5c1dd931"
     },
     "images/pucks/332/edge-01.webp": {
-      "bytes": 751168,
-      "sha256": "7b0cb80e47a245f64a21a85633b7fadd8776c26422b112df4ad00d90cd38f507"
+      "bytes": 633334,
+      "sha256": "97c3b604f6cc433a2d1654ea5b1a62eac1c84b58fb7adfec3f85e94d8367073e"
     },
     "images/pucks/330/front.webp": {
-      "bytes": 750578,
-      "sha256": "c805a34781cc776f3a6477788389280a10df27474e9e79f653ff8f6168f1ff39"
+      "bytes": 647584,
+      "sha256": "b35671b0f06cb001fa1240a034788ffe100f8b6739d016fba08bec8e31f43076"
     },
     "images/pucks/330/front-thumb.webp": {
       "bytes": 58812,
@@ -79,16 +79,16 @@
       "sha256": "6bbea1152d9270d6c7814a0a53ec96a13ee925587928a936aadc9f3c2e2b3f07"
     },
     "images/pucks/331/edge-01.webp": {
-      "bytes": 825672,
-      "sha256": "0d4723464a09f165debb6429cb41de0a53c07af74cc73ff16aa77e60649b0d1c"
+      "bytes": 711040,
+      "sha256": "623c4797eb9c46299272a48d1b858d654a29c2511df6ffcb5f4d913120d6b05e"
     },
     "images/pucks/330/edge-02.webp": {
       "bytes": 1207352,
       "sha256": "1c4d9e1e41b232ad0f536111517a61bc7b6bd38485e1e9706241dd167501a2a1"
     },
     "images/pucks/335/back.webp": {
-      "bytes": 773318,
-      "sha256": "3fc61122c66ac29b109ff67631479af8340890c7eea7a6c88bf0b3e224098819"
+      "bytes": 680046,
+      "sha256": "44465b0829e096d630856e77c7aa8ca256552211cff979b3e6c94c20538d9e06"
     },
     "images/pucks/330/edge-01.webp": {
       "bytes": 1172252,
@@ -99,16 +99,16 @@
       "sha256": "4bb497a9da6037c006464e0087d847678ff1604bac8e5693f990fbd59b54ce73"
     },
     "images/pucks/329/front.webp": {
-      "bytes": 939224,
-      "sha256": "fdadc275853332862a7dc35bb09b2870b0f522b649e6699c2c8625820ef554e1"
+      "bytes": 839618,
+      "sha256": "f87c01f5542cdd58f03bd5806e591b1632dc1a1e46a714586c19d1189bb497ff"
     },
     "images/pucks/329/front-thumb.webp": {
       "bytes": 63658,
       "sha256": "13dee7ad58bd031a04f85a24de2ebcca9252ddecaba59b58609fa344315df14f"
     },
     "images/pucks/329/back.webp": {
-      "bytes": 751142,
-      "sha256": "8b244454f8129b8644c945d74ebedfd405a4fb37d92d71f67a0aab08d9710951"
+      "bytes": 661510,
+      "sha256": "923a64a8ff740e0b342aa32420dc9c5b9184bb88889c4e440d6654da284e5790"
     },
     "images/pucks/329/edge-02.webp": {
       "bytes": 1204120,
@@ -119,8 +119,8 @@
       "sha256": "527061935106bd1fa67595477435e8e19b457e688a185e0d73a0965d1a956871"
     },
     "images/pucks/328/front.webp": {
-      "bytes": 914462,
-      "sha256": "e1e6a1bd46972a16831e7df7f74d4f5224a19faf59b2bb3490de504069080ae4"
+      "bytes": 821076,
+      "sha256": "9107a1a5458a751e212c61e08ad595c7986490f3331a25050f2c4cb4a392fe74"
     },
     "images/pucks/328/front-thumb.webp": {
       "bytes": 64644,
@@ -139,12 +139,12 @@
       "sha256": "ead67d0e36b2e0e99817a69f333980e5f30b87952980a207541541aa283f1ed3"
     },
     "images/pucks/328/back.webp": {
-      "bytes": 917364,
-      "sha256": "962536d3c32d4c0661cd80141af4379c512899608e3b83eaea4971797a4359dd"
+      "bytes": 762510,
+      "sha256": "8b53d3873e134c1f700edf46203cf43e61dcda2a5dc642f325a2168ba69e5a46"
     },
     "images/pucks/327/back.webp": {
-      "bytes": 772262,
-      "sha256": "2cee82b3cd4f68b39cdab4829d77471b8982c9aee5b81956e5204d7942cdfcf6"
+      "bytes": 675288,
+      "sha256": "7d923e2bbd2ae7f526f9acdb1f2b6048ed16c771004d22e74696c8627fa7f153"
     },
     "images/pucks/329/edge-01.webp": {
       "bytes": 1190912,
@@ -155,256 +155,256 @@
       "sha256": "eac0058309d5aea9784934eb6d69d0d67c3afaa6fdf60d6119f109901ed58aa8"
     },
     "images/pucks/327/front.webp": {
-      "bytes": 1094344,
-      "sha256": "74aac153166917da9e748d84531a8422918e70dc46c31481ab8e2a387214d844"
+      "bytes": 949618,
+      "sha256": "7d053b51d42e7471a68b52900bca585965c19ebf15fb641b1d223793eb64fa1e"
     },
     "images/pucks/327/front-thumb.webp": {
       "bytes": 63726,
       "sha256": "29d07911c23654d3a27859656b54b54da20324c6032bbdccfeb031e180437132"
     },
     "images/pucks/327/edge-01.webp": {
-      "bytes": 695272,
-      "sha256": "ce5da688dfe6c997d89dbf990baa17f4ab8fa0699aa73a563813b24e7ebc49c8"
+      "bytes": 613172,
+      "sha256": "59a184e38e9e7775d0578e8567171f071ac66f2b3d7f5f2a76961efb09d87690"
     },
     "images/pucks/327/edge-02.webp": {
-      "bytes": 981828,
-      "sha256": "096626f5352cbf4edf8f8e2a229ebf73c80fb55d1d03884a1d2bf152e7aa5cff"
+      "bytes": 894994,
+      "sha256": "831fd647dcdc2be31c88e1c2f0e479876ea512a00c66bb32c2dffc41f5985a18"
     },
     "images/pucks/326/front.webp": {
-      "bytes": 921866,
-      "sha256": "13ad3787553853eaf6a7a294ac748a7c0fe1f0f0ce451deee141d522dabdd815"
+      "bytes": 806080,
+      "sha256": "7b7dfa0c70d0eab43fdad2ee7658af99240b8e8bb8476c25577be244c02a8747"
     },
     "images/pucks/326/front-thumb.webp": {
       "bytes": 63472,
       "sha256": "26e6d8f1ce6762964e4ea015fe3db1dd1030af703feb857e2694bdad268df992"
     },
     "images/pucks/326/edge-01.webp": {
-      "bytes": 723884,
-      "sha256": "fcdf154013f567c30df6fbd1b9fad24b5a2c30199dfc17258c44e471b0f1157e"
+      "bytes": 639766,
+      "sha256": "bf6f5474613f058da9f24d6ae57e5080093e1772c937e107a8ea0cd891bfb66e"
     },
     "images/pucks/325/front.webp": {
-      "bytes": 813572,
-      "sha256": "bdaa6b9bdf90405b88aba68f74a7237cf883345f099389e4ac5f98d264102b9f"
+      "bytes": 706300,
+      "sha256": "6f772d825fda5c47c1a18be35c3a6cd228e183555626504fcefd8317b9129f52"
     },
     "images/pucks/325/front-thumb.webp": {
       "bytes": 57254,
       "sha256": "c751a1878c04bb80da8756502c86e7904fd2367e327f255b9b5387db0c8efc62"
     },
     "images/pucks/325/edge-01.webp": {
-      "bytes": 707246,
-      "sha256": "176d0046bd5b50ca980d40180f569d9559abb3633d43c78f3a7499a5839f191b"
+      "bytes": 623156,
+      "sha256": "e6711ea10f87ebd4b7e6b87ce53c5763d528c655a34e4b0fcea08da58a7c0ff0"
     },
     "images/pucks/325/edge-02.webp": {
-      "bytes": 770794,
-      "sha256": "0c9cdc52c105408cf00102975b42d301695dd06b97e455ae30bc459404306bd2"
+      "bytes": 679440,
+      "sha256": "4cf3af2429176c28084768102c30cb5df87c3c16fcff64deee4e12bc65a11015"
     },
     "images/pucks/325/back.webp": {
-      "bytes": 738452,
-      "sha256": "24c264b43bb297922262a30a375f2c0b915cb269a592c2c4ad08824283e5dc44"
+      "bytes": 644140,
+      "sha256": "ee31a5d36b305ab757a47361d1a39e6cd16aa0a30acf5f2f63477ef5fe39ebff"
     },
     "images/pucks/326/edge-02.webp": {
-      "bytes": 795472,
-      "sha256": "3d7c56e3f15f15266dfb309cdb265a99ddab891fe8a790cd34680708458c6274"
+      "bytes": 704982,
+      "sha256": "f12c37d981cab17aa261113762ae698a5f2837586ce3aec9499b99ae507dc52d"
     },
     "images/pucks/326/back.webp": {
-      "bytes": 697896,
-      "sha256": "026ae2749f03d8b8a2d27a71b28f62eeb7595be242a4b4d7ed6d5043b4699f03"
+      "bytes": 617300,
+      "sha256": "3a9d79b94a8701e11bdfbe09415a6d63834c4b9c477ac5e4a49f8e8a2ec942f2"
     },
     "images/pucks/324/front.webp": {
-      "bytes": 620110,
-      "sha256": "a2e671a635f2eb7b7e6ade05ab5f5363110cf03f77c45fa3c2ba9f36cc6bae8a"
+      "bytes": 526240,
+      "sha256": "2d2a0c2ac4d9eeda81e26372b2be129da1afec420adda8cf7c20c7ff5098ac94"
     },
     "images/pucks/324/front-thumb.webp": {
       "bytes": 59990,
       "sha256": "5a914ba2a9ea5f5089a57051e5529ee0ccba3fd3e1cf9e419b9b8a2b4f106056"
     },
     "images/pucks/324/edge-02.webp": {
-      "bytes": 861418,
-      "sha256": "312f03bf26c8ffef8b681fe50f8b9b32beb38b9af8ed6b4b33c0a355278d3d9a"
+      "bytes": 740864,
+      "sha256": "ef40d38f0abadcc185a24cbfebdc316ca1adefa82cc59d0d2a4d5d56f3fc3815"
     },
     "images/pucks/324/edge-03.webp": {
       "bytes": 940224,
       "sha256": "7bca30f38b4f99d825e8d157002ffd88d0054a4716db748e003cafdfd3d3c455"
     },
     "images/pucks/324/edge-01.webp": {
-      "bytes": 756838,
-      "sha256": "6beb693e9d464ad66882d5e098faef032393877dbe63eae26bf887683074e4c8"
+      "bytes": 645864,
+      "sha256": "0413218a1d329835dcd7efce4248112f58e82e811003e5e5d0af78229f28c9c3"
     },
     "images/pucks/324/back.webp": {
-      "bytes": 790082,
-      "sha256": "dab6462a1bf0021dcc2a4dc808bf7ca98c33c61ef543fe47a8aae9658ad35b5b"
+      "bytes": 686158,
+      "sha256": "8dbb2a7fa1243f30f54c928f301b1810c98192a8ea32d0ed82da67f4de28759c"
     },
     "images/pucks/323/edge-02.webp": {
-      "bytes": 811218,
-      "sha256": "0d147a4977d0348a155ac070652accdd8f80b237bb33e11b24468e4a22f0dfb8"
+      "bytes": 695724,
+      "sha256": "fac473cdfb101f294028ea1a2ef21f8e06fc3a4f4f2d219381af99c970f2c387"
     },
     "images/pucks/323/back.webp": {
-      "bytes": 725244,
-      "sha256": "4fcb8f102accf0b8d94e96f15bb29edc281b8ce2f5c4bd358fd828c330e609b7"
+      "bytes": 652578,
+      "sha256": "8bf0c09fc19c0d1ccb901cd3d73ca624dfa69ee355b5098c610895d0bd8816d7"
     },
     "images/pucks/323/front.webp": {
-      "bytes": 758370,
-      "sha256": "dd43ccb9ee0e3a7a23c209b42cd74d12fdfd05d1d10a960aaf202a119b38775b"
+      "bytes": 656560,
+      "sha256": "b42918964fb4d26b478b15a00d0b92b4aa1b89013a14fa302f01e9cab5d6621c"
     },
     "images/pucks/323/front-thumb.webp": {
       "bytes": 53064,
       "sha256": "721e3423e4e307b943f2358f7805f9795d4a43241c92d5b6aa3f0579a5fa1e36"
     },
     "images/pucks/323/edge-01.webp": {
-      "bytes": 819282,
-      "sha256": "8ae971e85a18c12dcc8508f32962998ca88f2e5e8971f03013e8b99e02902177"
+      "bytes": 702374,
+      "sha256": "d4b8b46c7f65f091b0da2718dc271a6c96f2fefc3d981f2d4b594159cb77f52c"
     },
     "images/pucks/322/back.webp": {
-      "bytes": 892202,
-      "sha256": "cb4dccb07a9dcb58a9ab8c067bbee911b30dd4394fb63807f245882fb1bde13b"
+      "bytes": 798314,
+      "sha256": "74e7f5bb676fafd6198f2824597e594383d5cf83a92975f6ea5eb5e0b2590c20"
     },
     "images/pucks/323/edge-03.webp": {
-      "bytes": 787150,
-      "sha256": "90d8dcbf8be790756b474137d6dc980464a9664d6fd9084e2b5068d9b25dea42"
+      "bytes": 677300,
+      "sha256": "ac01ba602595e3ad3c1076934c5b910b8cea24e3964850944f433475b69d8546"
     },
     "images/pucks/322/front.webp": {
-      "bytes": 884306,
-      "sha256": "cd12b0c9e2300c2527501310342697f62654bcc6a5e493b6eaf5c7835bdc47ff"
+      "bytes": 771098,
+      "sha256": "4f344a9ed43f6ad1f20faecdff755cea9ab9906a194ddad1c7a6784e86087ad2"
     },
     "images/pucks/322/front-thumb.webp": {
       "bytes": 60690,
       "sha256": "9426624c009daf8b353472058245fc7e5098786a01a4d8f5a59724e82e5edde9"
     },
     "images/pucks/320/edge-02.webp": {
-      "bytes": 743182,
-      "sha256": "8ebeaf31b2574e58c8e3a994b452350e1641a6c2c4ec677b05a315061da9f71e"
+      "bytes": 629542,
+      "sha256": "3a3b929117b5d340634244d0fd0b882c26a870b510e0529758d2825e3af724ec"
     },
     "images/pucks/320/edge-01.webp": {
       "bytes": 738492,
       "sha256": "645d66ed88f1763f447b8032d7f38e651fc6f5faca66ecd1ea8f628639904595"
     },
     "images/pucks/322/edge-01.webp": {
-      "bytes": 302928,
-      "sha256": "fe79784d29228ac3055da2d486ab9f7b5a08437e47968b410eb1acf9b0f1351a"
+      "bytes": 257686,
+      "sha256": "eb4fe3a926ad4f2796677061465d91213c53bd7f6bdf83d0ad43723be1e2fa28"
     },
     "images/pucks/319/edge-02.webp": {
-      "bytes": 722442,
-      "sha256": "a3effee4c8767136edca2bfe87451eb97119d7bd84776e5f911d4e3f34335e04"
+      "bytes": 613768,
+      "sha256": "6ed8fc75cebc040e4a96a6a1bc9cd726c8e5a5031dc345ab3bd95167b4ac9c6e"
     },
     "images/pucks/320/front.webp": {
-      "bytes": 865794,
-      "sha256": "61a30e9032ef5c3cd056d34de581442812436e6c4bde91feb9c95e5342cf71fb"
+      "bytes": 770262,
+      "sha256": "57defed001827c598f00b61f54e6954c935b69368cb0dc818f05f2dd2fd9eb3f"
     },
     "images/pucks/320/front-thumb.webp": {
       "bytes": 61584,
       "sha256": "4dba07bbd7efc8c57c28dedc8fa1f17cebbb7d35fb650401a8faeac2755c485c"
     },
     "images/pucks/319/front.webp": {
-      "bytes": 944614,
-      "sha256": "a72cc3094dccc72b182f5115c2dae5777d3f8705e8e1f9c3f52328223ffd33ac"
+      "bytes": 811068,
+      "sha256": "9d31826e59530d27aab5cbb4ebdc0000e5546230b01132e1f544a8c7ead65ae0"
     },
     "images/pucks/319/front-thumb.webp": {
       "bytes": 64328,
       "sha256": "996acb705d0cf5052a416956cb8511d1d050feac1ab7787f8bc31d9276d58814"
     },
     "images/pucks/320/back.webp": {
-      "bytes": 793536,
-      "sha256": "768189d76fd7e5be39596edc88618b22f995a3931d44a623918a8bb15ace7ce8"
+      "bytes": 723758,
+      "sha256": "d046362075d9899d5c200605dc0e6e093b1bb001a0181c519286e810d0af9969"
     },
     "images/pucks/319/back.webp": {
-      "bytes": 834266,
-      "sha256": "6e5cbf238d9084fce18a9e3e5210c28cde476da65ba22a482b98c6d6baf346b0"
+      "bytes": 732626,
+      "sha256": "16bee293cddc03ea193f41b933c7605cc4b6410c04f202bb1c5296bd9f30fcd4"
     },
     "images/pucks/318/edge-02.webp": {
-      "bytes": 935532,
-      "sha256": "b19cdb0974519565f14ab7af0a62853f0798f1be4bfe3ab51a108c663e7392b6"
+      "bytes": 815528,
+      "sha256": "a6a0cd89c623066695d5a76d78d58219dd445d295df35d05ad024e5e00e62eed"
     },
     "images/pucks/318/front.webp": {
-      "bytes": 938594,
-      "sha256": "00e8f8c7456ac0c1e72b72b0b174f80cc2393b098fd63bc7d7361fb528eeb733"
+      "bytes": 783970,
+      "sha256": "035d8f6eb60c0bde276aa469553077fb9160fbc6952888dd4bafb293f4c29b12"
     },
     "images/pucks/318/front-thumb.webp": {
       "bytes": 62440,
       "sha256": "830411d3bb205007944cfbd0d1ec7eae99d71bc046058b0de0edb9f90be89e01"
     },
     "images/pucks/319/edge-01.webp": {
-      "bytes": 703756,
-      "sha256": "ca603552d8c160c667a3cca9a9a3e6f6fcd7ba309ba3c314916805524ff6e0c4"
+      "bytes": 598150,
+      "sha256": "5ae517a9b6035e038a27fe688cafd39bef8a8f38bc2e00ad6cc403d464d1621b"
     },
     "images/pucks/318/back.webp": {
-      "bytes": 699230,
-      "sha256": "985f1c441d5530964e3c7b396b6f009f16f2f3926b023a621c17797eb401a8d4"
+      "bytes": 630498,
+      "sha256": "38e28845a65cf19977fe95fa478783c5a80b80c23e32d48624525d31db38bd9f"
     },
     "images/pucks/317/edge-02.webp": {
-      "bytes": 869644,
-      "sha256": "e278121f5f417caecb6f40cf1482fc1989fb2edb38c8e1b856546fba4bf03c08"
+      "bytes": 747440,
+      "sha256": "6a3fb03a6cf449dcc49b2f6f1b3e0d88df618268641542399352bb824ed2f1b1"
     },
     "images/pucks/318/edge-01.webp": {
-      "bytes": 858462,
-      "sha256": "f2f055ecb29fa8f82547fe7351d4d313013c3003776b6cbf99456d62599ecb9a"
+      "bytes": 731916,
+      "sha256": "96f200fe6b80406e38bd0889c7d09753ad45c8e86b985126102448f2cefe1602"
     },
     "images/pucks/316/front.webp": {
-      "bytes": 962726,
-      "sha256": "b8a2928e05c9c0bd51d681683ad1e05a1b91ac49c861db353ef4ed8793515807"
+      "bytes": 854218,
+      "sha256": "5fd572e1e8844e8082a29f44f7fd5f79ed269466ba6c1c1e9486756342a71999"
     },
     "images/pucks/316/front-thumb.webp": {
       "bytes": 61128,
       "sha256": "90ce8569d600001c0c4eb0280f4ba8ac682f747b7032cc310ae92b0b3f7ec152"
     },
     "images/pucks/317/edge-01.webp": {
-      "bytes": 803244,
-      "sha256": "3555d2129647f2749d16b9e7ae6c39982322aabbad679d6aa72f2cdc03962341"
+      "bytes": 695278,
+      "sha256": "71181fe77a5c60afae4f4bd8a9980e8a0645442dd6d055450d623532fc157d28"
     },
     "images/pucks/317/back.webp": {
-      "bytes": 767282,
-      "sha256": "e665aa7f986a48f9999c94264ef2abde95ca37b813fd661d2d5f4adae50e8f8e"
+      "bytes": 672972,
+      "sha256": "f1f93aecd18a4e5d6a7244d61d9fe97631dc3f68257d25a6400eb534580a234f"
     },
     "images/pucks/317/front.webp": {
-      "bytes": 694712,
-      "sha256": "ab5a5840c2c8e13cf0bd2981bbcca619a5e7a1f5b2d2710b6fca5d23fa1ff0ea"
+      "bytes": 605726,
+      "sha256": "b897946603e0be813d81c4656efdc34c5092d36ff77518e966f8577d436abcdc"
     },
     "images/pucks/317/front-thumb.webp": {
       "bytes": 59804,
       "sha256": "0ee54b70b8838321c3bf4c4191efe97e5275a3e55507f315ff7d10c0d63d0af3"
     },
     "images/pucks/315/back.webp": {
-      "bytes": 861830,
-      "sha256": "cfa36ce510471900b0ae5112fed1ca5cb90af93d4d3f6fbfd91a5669392b145b"
+      "bytes": 722086,
+      "sha256": "319b3e1e6e2d778edf01f241570d67f5216879ad9e4b0c90773a84b76b030a46"
     },
     "images/pucks/315/edge-01.webp": {
-      "bytes": 779538,
-      "sha256": "bd6151993266ece1d74fab36a1e11bee16737074146208f982511c7a09cf5104"
+      "bytes": 665608,
+      "sha256": "6dff2d9b1cf4d4556c61cff00db00b1f084b073d9396c4941b24f81da4188e81"
     },
     "images/pucks/316/back.webp": {
-      "bytes": 669026,
-      "sha256": "c1efebcbbc859d2a4be78538213d5bc7f9e71524279e82e3c1ffec3351b1a46c"
+      "bytes": 609540,
+      "sha256": "6da456a2c24c1f9cfa8d1f4cb260cccecffb211c8412a47c3831e307d1c8df5f"
     },
     "images/pucks/316/edge-01.webp": {
-      "bytes": 1026464,
-      "sha256": "e2f832393642693811a2fa3a69d85c65d330b136671635237ac5ff80d1a39d8a"
+      "bytes": 904012,
+      "sha256": "8391f64827b1863cca62b5a90434075d52368bc053fef31f58a216a48c5b22b8"
     },
     "images/pucks/315/front.webp": {
-      "bytes": 679128,
-      "sha256": "43bb8da24b062ac36f7e61af61d07802c6699f1e8d93a8c8b57dabc9d4da5a55"
+      "bytes": 596792,
+      "sha256": "97c722ef1645986167d5ceaf82e878500eff52538f32d1e8337a7aba65033948"
     },
     "images/pucks/315/front-thumb.webp": {
       "bytes": 55692,
       "sha256": "a6d1cbd2b71aa739ed7db84f10fd8feedac3f3fdea451cbcf66745ee0061745b"
     },
     "images/pucks/316/edge-02.webp": {
-      "bytes": 863566,
-      "sha256": "2fde244914099bb2be66fbf30cfc8aadd6fbed5f6bbfc4a1c044511337821a11"
+      "bytes": 752468,
+      "sha256": "09e4db22078c67c4281ef621fbeae75764b7afbf5cf6a0c53a96fdbf6e806f0d"
     },
     "images/pucks/315/edge-02.webp": {
       "bytes": 850300,
       "sha256": "4d6b5bf19e7dd35b33516fe1d063f86b1ccc9b10b7eb3f60b43488ff8f198808"
     },
     "images/pucks/314/back.webp": {
-      "bytes": 739568,
-      "sha256": "f1accf56e3925cfbac82781a472731912572db381c7cbfa99b0be804e5a02ea5"
+      "bytes": 668062,
+      "sha256": "f8aee5eee18029eef2361e77f0f0a91ab90ff19260b58139348dea46453dc669"
     },
     "images/pucks/312/edge-02.webp": {
       "bytes": 932078,
       "sha256": "f625ca3fc42e4e44ca57cdc84497324a7b2274da2bf0c8721413f13d021d340a"
     },
     "images/pucks/312/front.webp": {
-      "bytes": 856668,
-      "sha256": "7af22ba309dff9c80cfdab4235220e17a8545929e1602b4fe08e3d9885b4fd0f"
+      "bytes": 761346,
+      "sha256": "d8610362d865bae55044f60a75577092a376df563c59e147b070bedee2cb4e15"
     },
     "images/pucks/312/front-thumb.webp": {
       "bytes": 57696,
@@ -415,20 +415,20 @@
       "sha256": "96673b3a4ed7cb870bca5aba0ea0855e353fbdfccbe9a99c276181fa2544e81b"
     },
     "images/pucks/311/back.webp": {
-      "bytes": 765234,
-      "sha256": "98df1a9793efccfdbc28cdd7f84bd984fac10cc4af27e2b15e5958f985ad4a05"
+      "bytes": 701150,
+      "sha256": "4940e2570070cdc6df4a2d3af93a39483472089ffb5a9cc379f9066ea0545c63"
     },
     "images/pucks/314/front.webp": {
-      "bytes": 921088,
-      "sha256": "f6f247c4e0d757a852b07e535b9cc758bf0699c6c13a89844c7e3259f9530cff"
+      "bytes": 791086,
+      "sha256": "b6330d785b3fe329ae4f591fb3926c74b8895efb573ed25681617529a5fac3d0"
     },
     "images/pucks/314/front-thumb.webp": {
       "bytes": 61216,
       "sha256": "2c71de099c86c7a4414832c3ef8ef3af3847b93d4860f63df7971c06dc84aba7"
     },
     "images/pucks/311/front.webp": {
-      "bytes": 848960,
-      "sha256": "3ceba2735af63f88f62e853ee25dbd8262ac9ec5e3150e6d60cb36031d0912c6"
+      "bytes": 735570,
+      "sha256": "a2a2518f7b1fc0d002c2e234cefe9a75e6a56df027e36100b3f77f476a1d845b"
     },
     "images/pucks/311/front-thumb.webp": {
       "bytes": 60686,
@@ -439,20 +439,20 @@
       "sha256": "4423687c9c848578278235984e2c7d0cbfe1449cb295611403566bc4a6bba6ef"
     },
     "images/pucks/312/back.webp": {
-      "bytes": 875508,
-      "sha256": "0d692c2765b89f75422a44abc6039199939ad17846c9948f5f459cc3145afc6d"
+      "bytes": 779394,
+      "sha256": "7e42d88fe920b01e65458828530258409de0459fecaf57af6054ce580c43b4d7"
     },
     "images/pucks/314/edge-02.webp": {
       "bytes": 940788,
       "sha256": "3e34e9084a28f29a2129b93091a6d4eef9211aa095ac10f1a0725c668f4ccf3e"
     },
     "images/pucks/310/back.webp": {
-      "bytes": 810774,
-      "sha256": "b67143264ca3112344006a059d711e6efa325da8bb9bfb34cf05f6ec97708b4b"
+      "bytes": 747368,
+      "sha256": "64f00f262d4776fb7f19ca828fce276386e349830ebc98b6036ad51e7b3605d6"
     },
     "images/pucks/310/front.webp": {
-      "bytes": 743594,
-      "sha256": "b7da4a97d7ed902fc13c5818c573540aa21592747462361e418f4c597fc334dd"
+      "bytes": 644036,
+      "sha256": "559728d2438b41c38c0099991a76b8b87939b69c4363af8f63cb5a784460c5f6"
     },
     "images/pucks/310/front-thumb.webp": {
       "bytes": 56092,
@@ -463,748 +463,748 @@
       "sha256": "13d4645c2f3bf06c8b0bc33f2c7e4ed328c23a41b2bac9e1e4e584251e7acff4"
     },
     "images/pucks/311/edge-02.webp": {
-      "bytes": 922504,
-      "sha256": "693828697aceb15a90f3e8738c031d2bb7c7ae92dbdd92226a480a0afdc70927"
+      "bytes": 789948,
+      "sha256": "cc77c1435cb22711e8514bde471c45c98e5a5ebb9de53d06df8e0f3d89a97114"
     },
     "images/pucks/309/back.webp": {
-      "bytes": 918082,
-      "sha256": "c0d9a1a8048b865c07ec70b40c3235971fe76d8a6c40a4d3d8c0b056e29f6c29"
+      "bytes": 808974,
+      "sha256": "84d8b325ded51dbdf70ae7537cc2b73228ffe1a1543ea054f3e858c1caac1c3b"
     },
     "images/pucks/310/edge-02.webp": {
-      "bytes": 861184,
-      "sha256": "87ee4762ebe25bcdee58dbf874479ee48ec7be4ab3464df1b064ee41c97e2356"
+      "bytes": 736918,
+      "sha256": "4a805532da256d7116eff6521a5f6e6de602768674de256a736fda9b2c40c8aa"
     },
     "images/pucks/309/edge-02.webp": {
-      "bytes": 819198,
-      "sha256": "9b92f543c0276c6d9b81060b6e1ed98a66bce770c7293d457ddfce89bb0c3614"
+      "bytes": 705400,
+      "sha256": "4215f6520595fff54778ca990710038cc93b27b6888d9dfa4f83c12fd3468137"
     },
     "images/pucks/309/edge-01.webp": {
-      "bytes": 722142,
-      "sha256": "72421644cd2916da14cce426a553b761cda4665a422ac7221cc084f828faa038"
+      "bytes": 613972,
+      "sha256": "4e9369045d15d8fd9bf6ee2e54604e5a0a31f93f64ce26715d9b7ae72a72ff4a"
     },
     "images/pucks/309/front.webp": {
-      "bytes": 985668,
-      "sha256": "6b00bda16b38c2022222b66117ccd7516252b2b24f60805cea58517a3c2ad7d0"
+      "bytes": 850678,
+      "sha256": "d981ddebaf1e98f9d6a38175ed652c2a6c34c41ce278481680f0f7b5ac12cdb3"
     },
     "images/pucks/309/front-thumb.webp": {
       "bytes": 63372,
       "sha256": "280832051f900704df8f0127e4f9946e2449b5ebdacfbf5a2e5d551acc9f2e25"
     },
     "images/pucks/310/edge-01.webp": {
-      "bytes": 846268,
-      "sha256": "fbae91a9bf5407b154300069ed51cfc3d231eb182faaddd3e0abe7aecc7d5dd3"
+      "bytes": 722776,
+      "sha256": "28698bb8c1ca637cc192dbf61b959054ef4f5815cee9929c149165b6b6c23e47"
     },
     "images/pucks/308/edge-01.webp": {
-      "bytes": 907290,
-      "sha256": "ee4b0f9a25a867f2d7af011de6fc794f2387ae118943fc81f79099fd158a06f0"
+      "bytes": 775658,
+      "sha256": "7550b0c5d0fb2222444601a43dd5ffb2f1d2557de1f8247259baebcf3795c8e3"
     },
     "images/pucks/307/back.webp": {
-      "bytes": 885592,
-      "sha256": "568bd8820c595079eb4b41677ebe5204adca6f29c52220ee26e44e72fe9e7ee5"
+      "bytes": 736874,
+      "sha256": "d61c981b201c64e3b8210e401f4424123f00ca9239b098648d4af2474c3ce771"
     },
     "images/pucks/308/front.webp": {
-      "bytes": 732112,
-      "sha256": "fa674a2bef44c7e16c31064a5179eb31b4e1eee0c30a9fdece9c7308cc004a23"
+      "bytes": 643542,
+      "sha256": "cdfcf4df7bc9f0e2cfd090bff38f3fa0d1fcee1fa19c53d8af690fdd8f31d481"
     },
     "images/pucks/308/front-thumb.webp": {
       "bytes": 56268,
       "sha256": "9c2b58a12f2c5cb3b96f60334a0877be8c16b9374727898426f63bd62121c8ac"
     },
     "images/pucks/307/front.webp": {
-      "bytes": 929880,
-      "sha256": "38fbb43c49ff961de3e924a09c5ba088634a6e97682ccf1628a642d78517a311"
+      "bytes": 830634,
+      "sha256": "1ed19825ab30cd227374c56adfb1c0f27c9f6b71d8af639090575fdccff420ea"
     },
     "images/pucks/307/front-thumb.webp": {
       "bytes": 62890,
       "sha256": "94558dd4090a34d0737050aa561eb6f1626172e7fd17c4464cfbb51d12164687"
     },
     "images/pucks/307/edge-01.webp": {
-      "bytes": 842424,
-      "sha256": "b216d5eeef0f0e28647e3ecafdb8d43c9ed1ec5672a56b078cee518f90d5dd9b"
+      "bytes": 716846,
+      "sha256": "1645cc444c23b2cd6660987ab39c5e6d8a07dffac8b00e62c852cf4f3e9e93f5"
     },
     "images/pucks/308/edge-02.webp": {
-      "bytes": 852594,
-      "sha256": "35b55b2b0c9ef63bcff116d7546418f3798b40eea2e85387dd50b30f7f448655"
+      "bytes": 727990,
+      "sha256": "e561d85f41b67affd4243d1c8770b518e52191ea98c8b08eb3a5235629191256"
     },
     "images/pucks/306/back.webp": {
-      "bytes": 915436,
-      "sha256": "96463b5090dc44eb5958af232c740c15f6325e21ab9d9f93edd15eb48dd6b862"
+      "bytes": 760614,
+      "sha256": "7530ef27deec51da511db6295069c963cac55a70803c716daec4c9ade891afa7"
     },
     "images/pucks/307/edge-02.webp": {
-      "bytes": 806548,
-      "sha256": "6feab9aa38b965f39b1c0f33734e5d8a729aad1df630861c5e0ebbadf146c1e2"
+      "bytes": 692342,
+      "sha256": "8c9ac9c403ac7812a0ab27666cdb395238cdc8519e30c8cd9376dda08a4934be"
     },
     "images/pucks/306/edge-02.webp": {
-      "bytes": 908776,
-      "sha256": "323701dea56b05ed13699bf7fcde264033ec6f80b0732f32b0c631118ef95f9d"
+      "bytes": 775082,
+      "sha256": "4b832cfeb64cfbc95f31227d3ea39cfe2f0eb0c4f14ba8103f07211eb0d81e57"
     },
     "images/pucks/306/front.webp": {
-      "bytes": 818258,
-      "sha256": "a9ba918f79aff6fba6e20e9caf62c8a328f0f7308e632c4ff0c6d85daa05c999"
+      "bytes": 719494,
+      "sha256": "429aceaaec754a65c49caf718e75b8b4deb337624e504f69ab5c00a7be2b89f9"
     },
     "images/pucks/306/front-thumb.webp": {
       "bytes": 60432,
       "sha256": "df1e93bf8cfe22d27572a992753d532b0ecbb99274bbf3c25157b196b24f50c7"
     },
     "images/pucks/305/edge-01.webp": {
-      "bytes": 741628,
-      "sha256": "3426f166c17d8b53c007f3323c6c9ef33f786dbc49b2b8adf167bb74f80f09b0"
+      "bytes": 634752,
+      "sha256": "6fc8d42682c0900d83ac898c01d9f1e1ee09eeb4683eb17a7f36ad284961b704"
     },
     "images/pucks/305/back.webp": {
-      "bytes": 915186,
-      "sha256": "52f61fbf84d2a7a209c73b33e19f34f43707ac650d36d2f85378662b62f5fc4c"
+      "bytes": 791736,
+      "sha256": "fb9e5cfdfd7206318196fc8db4b36e70ebb8239fc2acb2c89b1843102f9a7217"
     },
     "images/pucks/305/edge-02.webp": {
-      "bytes": 584090,
-      "sha256": "49ff06a475cadac473dbc8c687b6eda3fdc35b0b8b5ec38d13e163738171f2ec"
+      "bytes": 501814,
+      "sha256": "167d0707e0ee3a4f94a0c2b4d0cdc11b35b7b49f41a301ab8e514c206a7a7d77"
     },
     "images/pucks/304/edge-02.webp": {
-      "bytes": 897282,
-      "sha256": "84e0056c8749bda016fd97cbb0fb06b6c86590d4efb93154e4cb80c0aac1c469"
+      "bytes": 770340,
+      "sha256": "d710826b0486a66bd71cfe5792a81b97c05280e51bd10179f5fb0f60202d8d9d"
     },
     "images/pucks/304/back.webp": {
-      "bytes": 810348,
-      "sha256": "4f5de16fb136e056434f9aded0ba265ce4dd815284aa6eaa3c771f1cb2235e12"
+      "bytes": 698954,
+      "sha256": "e4145df34eee06c2a00dff90c7cb56ffcf8cea48575038400aaf9bcb8fc9a92e"
     },
     "images/pucks/306/edge-01.webp": {
-      "bytes": 792264,
-      "sha256": "212e01913b99bd5824dbb8bb882e36429219324d7829e196cac02233a7d27d49"
+      "bytes": 667078,
+      "sha256": "6c94a4019a00e37cbe1a6388bcd58c134bf318e91530dea2094b4fb4beb6e1fa"
     },
     "images/pucks/304/front.webp": {
-      "bytes": 1012774,
-      "sha256": "8168bec13217f041355dbb5a28f0f35cd25850816118a3a5aea52447fdf5eeb1"
+      "bytes": 876546,
+      "sha256": "5cc6009b14891faa241d5d7561c2acd5cd9bc48e342dfd43d23650aff0fbf487"
     },
     "images/pucks/304/front-thumb.webp": {
       "bytes": 62134,
       "sha256": "7780fce6c55434f56299f30117a0935d59363330a15658f6e5ce6aa03bd393db"
     },
     "images/pucks/304/edge-01.webp": {
-      "bytes": 851806,
-      "sha256": "6159f4bd2ab57a58d8f9a357b7c1587ec97a40f056152c967f70e44e119f14e0"
+      "bytes": 722846,
+      "sha256": "bb9f631067df028b3a4513aac435fc24a6c60f0733d35e264e2abd780ddcfd1a"
     },
     "images/pucks/305/front.webp": {
-      "bytes": 1115300,
-      "sha256": "744cf0e8cd66fae73f15e2ad5bdcdea829b64d819bf94f86d17fd10a863db6df"
+      "bytes": 989638,
+      "sha256": "6b860fb7de9076b23dde96be942db77b9b966fecf1daca74ed9067988a28b1df"
     },
     "images/pucks/305/front-thumb.webp": {
       "bytes": 63476,
       "sha256": "30f892db32603049fb6ac04e3a2badcf71154e1ac8bf095e9dc4f737308763df"
     },
     "images/pucks/303/back.webp": {
-      "bytes": 927852,
-      "sha256": "4ecf88640837fc80bdd78187df8c690205162a930ae6989f949aa72f259e38aa"
+      "bytes": 771952,
+      "sha256": "2c8effd416184ef1b64f6e6488a6b1881b225bdbdc4ed2d02abf9570368e0683"
     },
     "images/pucks/303/edge-04.webp": {
-      "bytes": 632684,
-      "sha256": "0b82379c253714db115593c5dd0cb28ebebc6fa98b4445fb77e6665501522165"
+      "bytes": 549912,
+      "sha256": "b800ed56f6f3b1393ba8913e5ced818f409a2d83e990f6e60db5ca4975b9dc11"
     },
     "images/pucks/303/edge-03.webp": {
-      "bytes": 668092,
-      "sha256": "c7c7b5dab9a3341bcef1bb5af4156793e49885aa291d5305d226c898b3e0a219"
+      "bytes": 580126,
+      "sha256": "7c2b35a49ebafc2aa49908dd40b93b2844bd2889bcf5f1803edf6cf78683fa0c"
     },
     "images/pucks/321/back.webp": {
-      "bytes": 869482,
-      "sha256": "65b82f55531229398713d97bedcd4fcf5994fef4809c669b6acb1eeb99d9eff2"
+      "bytes": 796104,
+      "sha256": "defa6590dfa2be83a989465bfbb49812946b3456423363877163f32181e93afa"
     },
     "images/pucks/303/front.webp": {
-      "bytes": 870620,
-      "sha256": "c5ae18b586f1f9fdbc2dc34aa80f6c976d5b568c39c2117b07c7d145d4a9c98d"
+      "bytes": 746718,
+      "sha256": "a066a0e7005324507e49c7443932887860125fd62985e43f8c2a110f80407a10"
     },
     "images/pucks/303/front-thumb.webp": {
       "bytes": 62058,
       "sha256": "8a8cf13c64bf67f4245510551e371077c8e0a03ca7b8e95a14f6ca28005b400d"
     },
     "images/pucks/303/edge-02.webp": {
-      "bytes": 669226,
-      "sha256": "73e48f494f998d3d02e6c3150ba80b228a15896674c2cd21c68f05a526cd847f"
+      "bytes": 581730,
+      "sha256": "8e3b284a853be321b1399f4599696ce275c53bc8384c4825bf0ba24c4e7cdeee"
     },
     "images/pucks/303/edge-01.webp": {
-      "bytes": 711496,
-      "sha256": "5e3d7e2ad887584deb9870906d26a847a87ceb547ba97ef2f93b3d32e08521eb"
+      "bytes": 615362,
+      "sha256": "ac69fecaf870f636959c4b6e5deb66d9dd8e992353eec756ff6404e263521458"
     },
     "images/pucks/321/edge-04.webp": {
-      "bytes": 908160,
-      "sha256": "aaf08f4afe450bdcc37f016e9edbe2d376abb5c4d8818b4960b6ecc24d388f9a"
+      "bytes": 782098,
+      "sha256": "29d1777d7b66055c1c5aa6f4098624dcba8b0e10ebb779963b6816bcacc40bb1"
     },
     "images/pucks/321/edge-02.webp": {
-      "bytes": 678876,
-      "sha256": "1d6986d5c5cbe7118bee7a5b5ac66c2f702c555cb31997caeb424a45e8c4c4fe"
+      "bytes": 575680,
+      "sha256": "9cb062ac8c304350a0ef303693a4c1c5eb5f0a3ad88bbce764d7367110ee31c1"
     },
     "images/pucks/321/edge-03.webp": {
-      "bytes": 897628,
-      "sha256": "08d8ee4ab67df9abbcd8c7d2d4beb5d017e36bea1c38002d658c72a6c10c511d"
+      "bytes": 776458,
+      "sha256": "502c3907d0f1cf33d8d1d1e7e2dfb4fc4f8b7c6d740be8d937d05db3f1677e81"
     },
     "images/pucks/302/front.webp": {
-      "bytes": 946834,
-      "sha256": "a820650353607806b848315bbfe076b88ff23a848f6b16ab8b6967b080d9d075"
+      "bytes": 820592,
+      "sha256": "fb2a83917523322cdd05747902a9d76390bab0cfa0abdd61fe9620bd9ee21da2"
     },
     "images/pucks/302/front-thumb.webp": {
       "bytes": 62496,
       "sha256": "603c201392183c8efab5469958dd864278ef3583e11489a1919de2880cc73478"
     },
     "images/pucks/321/front.webp": {
-      "bytes": 715090,
-      "sha256": "a3939a61079dbbac49bb2ec48b768d2be1633005dc896ad84b4fef1e51544319"
+      "bytes": 622174,
+      "sha256": "c8491d30a56dc3d36f579cdf304cf3166c1704e7a2f0f1375a2907941a8cd86d"
     },
     "images/pucks/321/front-thumb.webp": {
       "bytes": 55342,
       "sha256": "ce28b6f5a3727d3daab823c7539de6ec38baeeec50a9feccad2a3977a90d7f1f"
     },
     "images/pucks/321/edge-01.webp": {
-      "bytes": 800776,
-      "sha256": "b32f9d6814b97dfe5751502116b53da294dbb62ec84fb25566aad2c1a4a64f06"
+      "bytes": 695612,
+      "sha256": "c8b316798df26109dc9d9288d34ecde86ce518fed491926557c2f6bbe8154e2b"
     },
     "images/pucks/302/edge-03.webp": {
-      "bytes": 861552,
-      "sha256": "f190f4db5c582b24cbe3d6d587266ee464dd5e78b1d218da74e1619853237a2f"
+      "bytes": 740806,
+      "sha256": "cebafeda3a377a8d7c610d90fee140ee833655dd3f802630ceadabe6f7d8024c"
     },
     "images/pucks/308/back.webp": {
-      "bytes": 745810,
-      "sha256": "14cce6b1851f463da42f9124d322ca7c8ed6cb6d57e0ecf268a084049c9ebcad"
+      "bytes": 664734,
+      "sha256": "55baef6c70fc1a1788ad3f0ec4393db36b3c32b4afc885c96c5edc8755b1077e"
     },
     "images/pucks/302/edge-01.webp": {
-      "bytes": 885438,
-      "sha256": "38643b378ba8759c6d3b2065c02109f8060fbc3da202ebf3da826d64d81c5e1c"
+      "bytes": 758562,
+      "sha256": "a02bd0af4ee40bd685929101a32fa60689007cb2e14fefaf019a9bb553d086cd"
     },
     "images/pucks/302/back.webp": {
-      "bytes": 844302,
-      "sha256": "3cb80ed3428259cc95a5158361e25adbccd27f51ab9c522d609e99b3aee81717"
+      "bytes": 725130,
+      "sha256": "374793feda91c90d9387e4826704e5fc8f029af8f4954d9121c888d128ed5f11"
     },
     "images/pucks/508/front.webp": {
-      "bytes": 755040,
-      "sha256": "e0ee460f0516755a07f6543e002ade0daa590e819ddbef54d0a3345fc1f67981"
+      "bytes": 687208,
+      "sha256": "9b7d5824bcb48d229ed52a151b2cf12e0922666dc5e77c1ad7c6a0660ba69c6b"
     },
     "images/pucks/508/front-thumb.webp": {
       "bytes": 59484,
       "sha256": "d7520b2fb3789337e14e96aa664d7e825e7e36efb0d7977849dd19a0cc21bd7f"
     },
     "images/pucks/302/edge-02.webp": {
-      "bytes": 954536,
-      "sha256": "10ed5247a2531a00a80947f5fea3510e25e22a00f0cc43c80bc5e4e5c350cab2"
+      "bytes": 837234,
+      "sha256": "a38b18a4aa8a72376e1c77e593bdf06736af50408723bf1d7b0646a0b8914b7a"
     },
     "images/pucks/508/edge-02.webp": {
       "bytes": 811428,
       "sha256": "31f5deace2a2cb933c264f21e2feb4b8868439db2b4784bc24a087c79c333de5"
     },
     "images/pucks/507/back.webp": {
-      "bytes": 1001172,
-      "sha256": "9a9d0b1d787ea6699fcb35a21bdb930662f6d7820d8f388c9d9f6232ad2116cf"
+      "bytes": 865498,
+      "sha256": "31fe4909be9bf34584e05ccbb2efedf5194dc5ab7f4d0c59c61176447e38c217"
     },
     "images/pucks/508/back.webp": {
-      "bytes": 832910,
-      "sha256": "5deee3a0e3c53d534502c7bd366ec20933f586a05ed1ca514506e1e6857a85f4"
+      "bytes": 732226,
+      "sha256": "c9b5e70be27cdfa0586c1597f5e86ff4648c664d7a1555be7c36d8adfb45ab59"
     },
     "images/pucks/508/edge-03.webp": {
       "bytes": 1027036,
       "sha256": "ddd99649ecaa363b900ce080d1b90a2f0a1f50f84c92b42a92a2b25e87ded7e0"
     },
     "images/pucks/507/edge-02.webp": {
-      "bytes": 745606,
-      "sha256": "05abc55191c1586ce292b07fe91d4953f7b81b5b41c839c447b9463bb8175db1"
+      "bytes": 632020,
+      "sha256": "b4384118a8b693bdd048e301f875413ad4caf7618e26a95f67b5c44cad5bde47"
     },
     "images/pucks/508/edge-01.webp": {
-      "bytes": 899926,
-      "sha256": "a36a45a38b25f19b70aadc363602e870f6985cfd93cd586b7151e07efba65d71"
+      "bytes": 778224,
+      "sha256": "30a41055a65a01bf57a0951dece474dddad99d98d35171681cabe2b3db2acbba"
     },
     "images/pucks/506/edge-02.webp": {
-      "bytes": 821330,
-      "sha256": "01599790da91376cd0579a9480b8ff00f6181749d31195a707dc9df726933dbb"
+      "bytes": 702900,
+      "sha256": "8f547095760793facb843618796a5b164271285425da8931fa52e28fffdcb80b"
     },
     "images/pucks/506/edge-01.webp": {
-      "bytes": 744530,
-      "sha256": "95a207c1f77ae269e9be4d62aea57c6ad68ba99047f86c706b110ddd11141d3e"
+      "bytes": 625980,
+      "sha256": "7cdf5b034975972b66810f7e59e54a1d51b1b645b8974fea30ad97416efdbdf3"
     },
     "images/pucks/507/front.webp": {
-      "bytes": 665946,
-      "sha256": "868f8a1eebd42ef3ae5cebc32f5794e6149e36cb1a44e9ba6ebf3abc88a348b8"
+      "bytes": 580420,
+      "sha256": "e7b65723c8d2122d93fddcbcd50ce29d2f3d6d5041131dd2d8bc32748f626879"
     },
     "images/pucks/507/front-thumb.webp": {
       "bytes": 56724,
       "sha256": "7e7491a4dbf5daca3e99a354e26d1979d6344d4a39dcee2f8ba4b09f0e607935"
     },
     "images/pucks/506/front.webp": {
-      "bytes": 796354,
-      "sha256": "dfd90eba787f9589d6af6121565fed4523c9cdea13820d7775d0ad48851455b0"
+      "bytes": 693950,
+      "sha256": "a73da1fe05847d16ca2f369d3f9432ee1550abd6881c87a0f952af3388360f47"
     },
     "images/pucks/506/front-thumb.webp": {
       "bytes": 57336,
       "sha256": "6123f2b88306e36a73cce902b45846e50468e9a0217568d5951f311c200fc84f"
     },
     "images/pucks/506/back.webp": {
-      "bytes": 965010,
-      "sha256": "f5b63aa711348415f56761dabe8ace0687559514f64185392fd36d9d1c4ebce6"
+      "bytes": 887230,
+      "sha256": "52c7a87fcee9589e6ac19f1502ce9585125544fb503f0193a0017ab72c7486d1"
     },
     "images/pucks/505/back.webp": {
-      "bytes": 1051942,
-      "sha256": "06d2b3eee60b2c41c2cc6db6b3c60daf6fba2f6d0e0cb10902d7c53d68888ff0"
+      "bytes": 906544,
+      "sha256": "e37b2e091c46549fda9dc75fe5bb1ef33e32ab320931cd3c07bfc87332a6e84e"
     },
     "images/pucks/505/edge-01.webp": {
-      "bytes": 796768,
-      "sha256": "c1bbb5d66b18d313e205831adf8725427c161bed984de925da104ec478b9e7c0"
+      "bytes": 673030,
+      "sha256": "f84289e45ff6a3201f68cdb45a02e84da7b7461965c42782758652dd19197b46"
     },
     "images/pucks/505/edge-02.webp": {
-      "bytes": 753250,
-      "sha256": "c61de406f3afa9c253f0f494f9f8a9040a5454626c8af17a8b4a07b3cf579eb8"
+      "bytes": 635866,
+      "sha256": "8f1ea088932724c918e9f90b32eb495e1c905ae240619a9fb43ad305e3ff8f78"
     },
     "images/pucks/505/front.webp": {
-      "bytes": 788682,
-      "sha256": "104987355f15e4aae491aa074f77bd3cfdfe0d6fead0c11b550125b06cf4a88a"
+      "bytes": 676906,
+      "sha256": "9e27cc8f1a46083db9fdf073bbcca3437cc701ed60fd1ae9e711027a086a32e5"
     },
     "images/pucks/505/front-thumb.webp": {
       "bytes": 62022,
       "sha256": "edcb0f9d7d8b45528ea5b4a69d140f136bfcefee0883adffc40461ab4e279002"
     },
     "images/pucks/504/back.webp": {
-      "bytes": 779914,
-      "sha256": "1ae7cca5623801a56d7c1495b9066b32ec9be898986ad4ef08320b19948cc607"
+      "bytes": 707200,
+      "sha256": "997c1a42e966607a08bf8ee4f2183c651a370cbdeca877bc0ed7860eda7d21fd"
     },
     "images/pucks/504/front.webp": {
-      "bytes": 726312,
-      "sha256": "c37aca9313b58338c8b11e3228c031f523666d65612f11a293737fb147eb9f30"
+      "bytes": 635192,
+      "sha256": "7af54479b666ff654f5ad01b0a50f17145e0e8fc1f374c62ddeb21f5d371e8b0"
     },
     "images/pucks/504/front-thumb.webp": {
       "bytes": 59492,
       "sha256": "f506d9977fa85bb32698dfba839726a0f2d1a594eb186b4d551fd6bfcccca137"
     },
     "images/pucks/504/edge-01.webp": {
-      "bytes": 788900,
-      "sha256": "3d662ab7101404e465b7379cf4f152cb951decd8b565c0adf9f694dd8196957a"
+      "bytes": 665388,
+      "sha256": "0d688ad45b4dcaef3357c0c7b701aadedf6e8760c122686e188f6659743aaebe"
     },
     "images/pucks/504/edge-03.webp": {
-      "bytes": 846264,
-      "sha256": "54576a9ca1e8d8da1f50d4ff580878123265cd9ea5f5ddf44ebb9774b2844df3"
+      "bytes": 722326,
+      "sha256": "87b9d9fac59c98b0de93a9d81298b01215054412463aa50aa5d5fd8fa9c433b0"
     },
     "images/pucks/504/edge-02.webp": {
       "bytes": 854796,
       "sha256": "07d0b45cd9e91f3a258307d3903fd40d68f60854a10ea10a9043b75184179924"
     },
     "images/pucks/502/edge-02.webp": {
-      "bytes": 463994,
-      "sha256": "5e26c03a86c40c26e794de64429bc1d9c84ffc474748fb85f285ced535d302e8"
+      "bytes": 399492,
+      "sha256": "3ea5f70322159a5fcbd62f4af74d419b85dd04a65da8693111b178bdc3d6caa1"
     },
     "images/pucks/507/edge-01.webp": {
-      "bytes": 857718,
-      "sha256": "4ef77e3491b6356dbcf97417d79db4c96b6ce924f8a3fedff8394869520b7139"
+      "bytes": 734938,
+      "sha256": "1e760e1887a45557e9e33102614f33893da2351899c9c913f825d74f96e0fe02"
     },
     "images/pucks/502/front.webp": {
-      "bytes": 857672,
-      "sha256": "e7376f916dd12d8b4840d2abaa3cec65eb5497c50862715db66c59bac4eadd15"
+      "bytes": 716930,
+      "sha256": "e5fb3511e96c66a66165b56799e79a4e8e280e08f7c0fc15d5ca1fd0503ea6fa"
     },
     "images/pucks/502/front-thumb.webp": {
       "bytes": 60628,
       "sha256": "8a20707c189c272249749d0369bb05169a56e4d8ebde0291814514f886eebfb7"
     },
     "images/pucks/502/back.webp": {
-      "bytes": 925974,
-      "sha256": "fce56091a4cf82940541f37dfbba46da9c3ecbad57d631128c93bbd8d76a83da"
+      "bytes": 834702,
+      "sha256": "01d10bc8fc08ea18431425d57ac610545d79bbc55f9e19f1ca78b9720a0a834d"
     },
     "images/pucks/502/edge-03.webp": {
-      "bytes": 595232,
-      "sha256": "314cf4b250010351f7754e9301082fffe35cfcda6fba21187dde27e40986cd4d"
+      "bytes": 519928,
+      "sha256": "46cbff98daecd4173356797ef53a3f9dd08f0896bdd7039bf73b40940fec17cb"
     },
     "images/pucks/502/edge-04.webp": {
-      "bytes": 385832,
-      "sha256": "4799a0e455676ac0a4c0a15fbd5d8f158d0761d0773bea340281f4e67924f1cf"
+      "bytes": 336790,
+      "sha256": "55b9fd1c911ba1055993b11cab7a9f6cd4ab5c51c16e0f0ea2562e2f8ca5c4b8"
     },
     "images/pucks/502/edge-01.webp": {
-      "bytes": 412294,
-      "sha256": "6c159ab79b7ec50ef19cfaa4ddc81c8145c02fd3d562753f24e1b8f9c3421aac"
+      "bytes": 366128,
+      "sha256": "6d391c364338e98984e15377f5f347638da31e0b81b2260bdc5aa56f9fc31fa3"
     },
     "images/pucks/501/edge-03.webp": {
-      "bytes": 841872,
-      "sha256": "1e7343ea82b7f2ad2a051d0953d58206fc54bf3e2cdc86d38b3ae6d57b43f2ed"
+      "bytes": 718644,
+      "sha256": "91e9fc04604a0c180bf4cf2a88548d9aa451bba40fa14825ec74535fa947957d"
     },
     "images/pucks/501/front.webp": {
-      "bytes": 1043240,
-      "sha256": "2f042c4d42d54bb1276c68ab63bc69431aa2f19bf461cf3a6d4a4a4211d951aa"
+      "bytes": 893496,
+      "sha256": "9270268ec7dbe148a884b9e0f7d03cbd99b7207fb06495a8ed333020e19adf66"
     },
     "images/pucks/501/front-thumb.webp": {
       "bytes": 66532,
       "sha256": "d2b23281bca7a01937b0ecda3bc005f33f74a14b2af0acfe4ac04a709fd3debd"
     },
     "images/pucks/501/edge-01.webp": {
-      "bytes": 791598,
-      "sha256": "2b738b5623bdc84ef306102cfb073c8d7c8b0caca849b568dd2c72713ca6a592"
+      "bytes": 672622,
+      "sha256": "207fa9c8cd3e5504a5f39a576485e3bcd1636f58354f3585e06d37a30869f8c3"
     },
     "images/pucks/501/edge-02.webp": {
-      "bytes": 893822,
-      "sha256": "2e7f924abe4e8d93e76c6d2b3d996db825783c9d36c6acfd356a1f33d593a7fb"
+      "bytes": 765524,
+      "sha256": "30f1cb0b0ce9181c567c4e626ba9a13f39488a857cb14102ee5a552b30e47360"
     },
     "images/pucks/65/back.webp": {
-      "bytes": 800658,
-      "sha256": "2d96b2d1d9478fc5712e727a2871048d075c1d8e3e7603131d8585b56eef4583"
+      "bytes": 665812,
+      "sha256": "6d53bcde400090188281015bce5619ed4a43c125ee42aa946b26c121e4ab8c4b"
     },
     "images/pucks/65/front.webp": {
-      "bytes": 857256,
-      "sha256": "7a79b0567259f0f134e331ed0bd6431dbd3bac7c0bf4ff46455339fb5993a382"
+      "bytes": 730448,
+      "sha256": "7731137e9fd880b8ea8be7256163de1d3db5e12b5c948fc56b1cd1cb6edaf12d"
     },
     "images/pucks/65/front-thumb.webp": {
       "bytes": 62962,
       "sha256": "b3f0159aa253597c8d110e20c695b41bc1b70f032b3c0a224c5f256671b69e4d"
     },
     "images/pucks/501/back.webp": {
-      "bytes": 760240,
-      "sha256": "cc27e21c219dc2c9fda6584518250baaff9ce6dbba0099c5cd0e47883e89eab3"
+      "bytes": 659466,
+      "sha256": "6bfa18b8d6b12e053ef611e28ff6ade5bf05786facf6e15e775404be87eca0f1"
     },
     "images/pucks/63/back.webp": {
-      "bytes": 725960,
-      "sha256": "3abf64300c0ad040bb0183ace375df2db2319cba32eed3d40842ef5bb23825d1"
+      "bytes": 628318,
+      "sha256": "b5256aef742b92911d1811b5191321aa51dd34824c16d9c1fd768b720d612503"
     },
     "images/pucks/65/edge-04.webp": {
-      "bytes": 849904,
-      "sha256": "448423b60540a30be586c0de7147f34fdb724f6e8a8bec5daef72a4f7548905d"
+      "bytes": 730228,
+      "sha256": "b2639360d65fea0a8740ea5d70e1a6cf3531fd70de19d19c4dcb11c898e78581"
     },
     "images/pucks/65/edge-01.webp": {
-      "bytes": 943828,
-      "sha256": "772cd11992f6606c1334f28f3b3313652562486aa6f48bc6249825f9a11f47c5"
+      "bytes": 808362,
+      "sha256": "255de20f7f5355279103da23998aeba51be106a7f0c0ccf5f5ff148cdf912c53"
     },
     "images/pucks/65/edge-03.webp": {
-      "bytes": 750946,
-      "sha256": "2b40d28a8c31099f7db976444f7cf5314a82c253c50fa083729ca3b916548338"
+      "bytes": 639654,
+      "sha256": "26b42fd6909cda56c19da072ecb1b3060cf8765e5f81fbc80cc9877388c9a502"
     },
     "images/pucks/65/edge-02.webp": {
-      "bytes": 785362,
-      "sha256": "3fb1e04301abcc15958db01ecff612e6f511e94e0f7330de67dfab2fb3746065"
+      "bytes": 671404,
+      "sha256": "32adadaab028b3c41f3143a4c8bd6ae08d49ac8fc69794b0ccb8f9c99bc76ac1"
     },
     "images/pucks/63/front.webp": {
-      "bytes": 745770,
-      "sha256": "546b316655bd1e8521e902030b16987243c0c0fb3f8e1c5ff54805bc317dff75"
+      "bytes": 648832,
+      "sha256": "850ecd3ceed8e4ce995026402982708770bf3672e4b847458106b1c20ef8707f"
     },
     "images/pucks/63/front-thumb.webp": {
       "bytes": 56772,
       "sha256": "5028cbb28e29ed083407db901cffd264e13fa644476d08bb6e9f4f654fe015ac"
     },
     "images/pucks/62/edge-04.webp": {
-      "bytes": 663460,
-      "sha256": "1506cce99d798efd47cc4f30b3cba812d5497547c1244fc73e6dede5db8ac8b6"
+      "bytes": 559912,
+      "sha256": "a0d6e242ec4cf736db5ef38c39ef733368741086f4cdbee7b311239064679973"
     },
     "images/pucks/63/edge-01.webp": {
-      "bytes": 826500,
-      "sha256": "e48faa3ed89d6524fdf95f3ec8e19aa00b19b140271661e6cd1fa6db30b14a9b"
+      "bytes": 709708,
+      "sha256": "5340b0d564d72c807352b6cedac232c5b41065b2302edc25388150b9d6e74a0a"
     },
     "images/pucks/63/edge-03.webp": {
-      "bytes": 653824,
-      "sha256": "ba16c101f676aeece5404d7fc5811a7b2234fce8e3d23e9530c186eaeb2bd043"
+      "bytes": 555664,
+      "sha256": "89d18ac9de755589b5bf4ba7487657c4bf101e9a75e123dd394ac8b3fdc0a95e"
     },
     "images/pucks/63/edge-02.webp": {
       "bytes": 668924,
       "sha256": "416ce04e6f9272d0949e6b77a918751eb58d1f007a8c54909921589ac6b5537b"
     },
     "images/pucks/63/edge-05.webp": {
-      "bytes": 684228,
-      "sha256": "ba15620ead1f44968124f66e157820afbed6c05e1e424f9aad0719cfe9734c11"
+      "bytes": 588448,
+      "sha256": "b8c6a4f1b76af2ef1d8e009d64aee36bd5d180710218afa527ffca98bafb92ad"
     },
     "images/pucks/63/edge-04.webp": {
-      "bytes": 737708,
-      "sha256": "e1789081009603c114cecd4b67166442e9cf302f77a15e153aa04a9791e64d57"
+      "bytes": 631322,
+      "sha256": "4b0a0392168e1fd53cd412e1ab9a088e267be72b0f5c3643e35d595511757b78"
     },
     "images/pucks/62/back.webp": {
-      "bytes": 742106,
-      "sha256": "0f10ed8ea64e091482900c85b4ee99e6b81f4d8af6bf3425b2df760193de4f7a"
+      "bytes": 651270,
+      "sha256": "5cf99303a2f599f4ccbade7717b41c73084e284919c8acc8fbd4cd071dbd7ebd"
     },
     "images/pucks/62/edge-03.webp": {
-      "bytes": 592904,
-      "sha256": "ab2ad582bded7d366951c6a06136fc52b9c269e7ae18b1467bd63ec2444e3950"
+      "bytes": 513066,
+      "sha256": "269ec7447f522286bd705bee8acb339348d50af7eecd372c3337f4dd78d0745b"
     },
     "images/pucks/62/front.webp": {
-      "bytes": 765954,
-      "sha256": "031fedfc5ea3e6f05f4b91a2f67698e9e7708fd532d0e0434c3da75ad983370b"
+      "bytes": 675524,
+      "sha256": "3f85b65571584f075b042c94686e2116702e19a87b1d4610814004b4cb7a37b5"
     },
     "images/pucks/62/front-thumb.webp": {
       "bytes": 59142,
       "sha256": "431c3ff0b1822099868a509dc3eab15fb6a43f5a7600d2d289cd9f073341679b"
     },
     "images/pucks/62/edge-02.webp": {
-      "bytes": 619156,
-      "sha256": "e334dd82d55351a03954e1bb3c44231e2555da998b01c65cf91aa5855958c094"
+      "bytes": 530002,
+      "sha256": "c1a0b5c6431b1e9fd9cd350d4245fe84888a8ab39b615c422bbcc1ee55b84f20"
     },
     "images/pucks/47/back.webp": {
-      "bytes": 808032,
-      "sha256": "ac0051563634f593e461403fb74ae224d8e984f8472cfde89c837d9d81e6b5c3"
+      "bytes": 695500,
+      "sha256": "d2f38d9faddd5372e7b6e60bb9f430c6f6abedb0a055fcecb1c50b9262c39783"
     },
     "images/pucks/47/front.webp": {
-      "bytes": 670088,
-      "sha256": "14bf06d4461f72e2a59564f4b02adbeff57c4a91dcc4ccfc06544edbddfdd629"
+      "bytes": 610824,
+      "sha256": "4b1ab5ef6d7b6a858dcf3ddd85f51a606205734982f0faaa78fa6210725f379a"
     },
     "images/pucks/47/front-thumb.webp": {
       "bytes": 55724,
       "sha256": "de7dda0d9b66526c113cdd74aa57b2dc3ff156e44347260afab570dd70fd190c"
     },
     "images/pucks/47/edge-03.webp": {
-      "bytes": 941720,
-      "sha256": "3f21ff914ad5a0c4a7dd29a00c415d8780d0c3795d24f2f955d8ec3042167990"
+      "bytes": 813930,
+      "sha256": "ae7822e51f46a3d81f9bf453958a248931004ba91b9f83a3f7db0676848051ef"
     },
     "images/pucks/47/edge-02.webp": {
       "bytes": 797270,
       "sha256": "e3f3ba0001cbf53d7acb69fd211c7729f0afca781f1a189a683d6428294f3260"
     },
     "images/pucks/62/edge-01.webp": {
-      "bytes": 648214,
-      "sha256": "03831d218477313450907203825248d018af9ecd1eff790e7172811b5a0e6fef"
+      "bytes": 542456,
+      "sha256": "de75259fb9b0303aff2afd784971876465eb76c1f418c7cd906272c2264ca204"
     },
     "images/pucks/47/edge-01.webp": {
-      "bytes": 745686,
-      "sha256": "bd5d60594c1b21524b0901c242b34b1a3e23f2dc1207179a5e271762a9519bd5"
+      "bytes": 634892,
+      "sha256": "30426e62f90465a17271dc04ab4db1872f731afba60272c3a49028a34adf4661"
     },
     "images/pucks/46/back.webp": {
-      "bytes": 966842,
-      "sha256": "7dcc2ddd6f85dfefb3f4dbd7d1d52a3bfa7cd0ecf6c521f25f601fdcc23c9dc5"
+      "bytes": 860078,
+      "sha256": "54c844a5aaee6ac1b6c89a49d6412b742cd2c9b051225f7bed999454b1e65ef1"
     },
     "images/pucks/46/edge-02.webp": {
-      "bytes": 689468,
-      "sha256": "18119cb6092559c4241d5c78e24ca83958a594ee41e4617d33767c8db8006e5c"
+      "bytes": 586710,
+      "sha256": "a2f1d8bc4f8148670d03458f2afda8c7155a52472034d6b6594d5a746b19d24f"
     },
     "images/pucks/46/edge-03.webp": {
-      "bytes": 747400,
-      "sha256": "097e9b1fc982065d3ca3eaa5803ca7bd147335baf8245a1f662a657161bd735a"
+      "bytes": 639538,
+      "sha256": "b776928eebe2b1218efd6ef9f476316d6ce552cd0a2ddd4e8a95906e7f3aa382"
     },
     "images/pucks/46/edge-01.webp": {
-      "bytes": 654264,
-      "sha256": "27c17ea484d3f60aef078ef5a45b0e9c018d215a03b171b0aba35d9ee185e2ff"
+      "bytes": 558854,
+      "sha256": "f6f1e8f69732286684bbcfb222b021e351741da67379ae0abeaabd3f08dcf2a6"
     },
     "images/pucks/45/back.webp": {
-      "bytes": 846014,
-      "sha256": "bed790a8b28d4bd9186bc0fcb858ebd37b4aca1aaf774fc567b454653e8ccd91"
+      "bytes": 736688,
+      "sha256": "8970ef22f96c14582dc754548b2ba3f41d28c97f1ed4df6b57fbf7d0bc110631"
     },
     "images/pucks/46/front.webp": {
-      "bytes": 938274,
-      "sha256": "a6acb68b35b0a58327bb8edacc6853df1d1d0d56d052b7ef001e1e1cb7648884"
+      "bytes": 819728,
+      "sha256": "c5946679b9d3854c72de7b46d59b64d1342fcb34a637bc7bbf51ef69cb9b3702"
     },
     "images/pucks/46/front-thumb.webp": {
       "bytes": 59256,
       "sha256": "c92986729add992484d5c1197bdfa4dd3b494671668e0f4d95936d81e3def916"
     },
     "images/pucks/45/edge-01.webp": {
-      "bytes": 885938,
-      "sha256": "db2e6fcdb2193cc3a767f2d0e8aa98fb881f0186a78cf5180603ff5d0587647d"
+      "bytes": 798354,
+      "sha256": "03439e8cfb387ad68c182a4c90a7296d038f17cdcda407f61800796457e5cf64"
     },
     "images/pucks/45/edge-02.webp": {
-      "bytes": 844474,
-      "sha256": "5c1001206e5277ce7e005e7247b8f551f7189a46b79bcff198d7358ddcc5be43"
+      "bytes": 742788,
+      "sha256": "8c66be496d9a431b70cdbf49659d417cfbe96b0d2960f776a6b2bd2c17142f7b"
     },
     "images/pucks/41/front.webp": {
-      "bytes": 1070636,
-      "sha256": "bea119dcb9f9dc0f1de61637de4262127aab41c8a183dae05faeaa244c0043aa"
+      "bytes": 962006,
+      "sha256": "b064481bf5261377a8f37a31a6c21de046856f2923d4b897bec77487ac2b8de6"
     },
     "images/pucks/41/front-thumb.webp": {
       "bytes": 60038,
       "sha256": "1e2700da665d611746e6443972ccec0c57ae2e6afd1e357568fa2bbde217b92c"
     },
     "images/pucks/41/edge-04.webp": {
-      "bytes": 468642,
-      "sha256": "3dd86b7adfedc02513aeab3c0870d7598bf48d75488e8a0a36a8b8c0599165f8"
+      "bytes": 417760,
+      "sha256": "1c3355fc654b67e694a3b10f46c405faf43c157824b8022b34fc3ad58f81d6f6"
     },
     "images/pucks/41/edge-02.webp": {
-      "bytes": 405426,
-      "sha256": "d773712abc752307558be7b333447b9e56c7a34373ccdbde898eac1b134040f1"
+      "bytes": 359364,
+      "sha256": "6e74786ff94a1b52366bab3582a3fba37c0a49ba93f26296f1e313ff9069979b"
     },
     "images/pucks/41/edge-03.webp": {
-      "bytes": 444858,
-      "sha256": "ff3debe1995498bbcd85ef022950e99475af481a4ec9e29806e7ddc79a9c956f"
+      "bytes": 393756,
+      "sha256": "54858338863e60eeba47d467d817dc4ad8bd323125d5df9eb2f1b13ec183d32b"
     },
     "images/pucks/45/front.webp": {
-      "bytes": 1054522,
-      "sha256": "0f8d5986ee7fbe6ab8ff26d442f02e604782dd180b9005b16ac5a2ae83254a84"
+      "bytes": 912574,
+      "sha256": "4f569c535de5eda2b73140d331015e66ef35b486a5545a6e47aad34a5cad7c7b"
     },
     "images/pucks/45/front-thumb.webp": {
       "bytes": 67010,
       "sha256": "86cd735e534936488640764524a579a290bb6f49a6ea0be37c123e0ec293562a"
     },
     "images/pucks/41/edge-01.webp": {
-      "bytes": 497672,
-      "sha256": "e62d0e7c72c775c109e83a6b69c9e3646f679d5a440def1e9d79cc2ca15cd00f"
+      "bytes": 445038,
+      "sha256": "f0eb9ac74f09b77e4559a3fa0cd9b467bd7c8861ac28c35aabbc32d2239e7ea4"
     },
     "images/pucks/41/back.webp": {
-      "bytes": 1027490,
-      "sha256": "dc00842a32678a875c13bbb4355660e06ef9193ed9b02320d88a23d158ad65d1"
+      "bytes": 917130,
+      "sha256": "ba69ca2af1200d342341e77e831c4de6990a62875e7d096c13a41416207e280f"
     },
     "images/pucks/39/edge-02.webp": {
-      "bytes": 796700,
-      "sha256": "109d37550a6f8275cb1022cc715409b3ff12343d56754f686f28895cc13ffbe5"
+      "bytes": 680720,
+      "sha256": "ce720afb1686439b85480d644ceb1b4c8f928bfa0159433a8e2635a41edfae5c"
     },
     "images/pucks/39/edge-03.webp": {
-      "bytes": 1042350,
-      "sha256": "f17a76eebb53a18517b792a641c2e91f9102d75fb54b5d037c2112f562591de0"
+      "bytes": 917858,
+      "sha256": "b98f4d769df04d18c3058b8a0c3b90d9f8caa894ae5480f2d0bd517e7951faac"
     },
     "images/pucks/39/edge-01.webp": {
-      "bytes": 666594,
-      "sha256": "2b8f7d6826040135b397502ea1b5597fdcf6554982da7c170ab25f44c90eaab8"
+      "bytes": 566404,
+      "sha256": "df1d842bed7f39638defaca80603474a402446de1983689075c63de4d770b754"
     },
     "images/pucks/39/back.webp": {
-      "bytes": 999184,
-      "sha256": "de17b8ec24907b513ee14c94eef4e80362676b02268e412d4aea1cf9db4f88f9"
+      "bytes": 865700,
+      "sha256": "9d60a0239ed6209459ef45f5cd3597496a453727486eee2a6fd9ad7f5716f55a"
     },
     "images/pucks/39/front.webp": {
-      "bytes": 829572,
-      "sha256": "5393be8058f2f69bdd5fa7343abf10d889efd771f36a99f09f989717d8ba3287"
+      "bytes": 715218,
+      "sha256": "66de7a15f5256afd0adf4e981f44d87b905d834f95b3fa654e5f9dce82c88623"
     },
     "images/pucks/39/front-thumb.webp": {
       "bytes": 58430,
       "sha256": "367dc9c2458e5bfdd67339ddc5089e5ce6a67ae0c53dc1d7258ea84ac70bb911"
     },
     "images/pucks/36/back.webp": {
-      "bytes": 996708,
-      "sha256": "78d9507d9232e32d8ebfda9067d999cd1724090129500278391ad36154912242"
+      "bytes": 894146,
+      "sha256": "25f7fda7b62c328a44e91db52c2f9c5a18074b4b15f841cbed5e47a0d7242ccb"
     },
     "images/pucks/36/front.webp": {
-      "bytes": 926562,
-      "sha256": "d79fc19a79672f49ed6e3d666299f607eec48a46b2565e17a496a1874b3ccccf"
+      "bytes": 799328,
+      "sha256": "ac0d00a6a9d42d59c2f5b357c2625ca82b9d989a0abbd75cde25f45c87a3a18f"
     },
     "images/pucks/36/front-thumb.webp": {
       "bytes": 61172,
       "sha256": "aecf3d9c7e7491620d662030bbbda690da114f575a52d7c6d4fdf1f05c126a26"
     },
     "images/pucks/35/back.webp": {
-      "bytes": 801584,
-      "sha256": "261fb1af2e3785790e42f0a8a77770f0abb23aaf3a684f643fd6313e8f8c7176"
+      "bytes": 695854,
+      "sha256": "5caf119bba9de999e3783b35064b2bc41f1b0d04131fa6df20c81f3ee6cee8b6"
     },
     "images/pucks/36/edge-01.webp": {
-      "bytes": 687740,
-      "sha256": "5fba9581aa442926a1962ac09fb2965807a6b8f66391b49be99acce2b12e7367"
+      "bytes": 592326,
+      "sha256": "b568328ab26f885b6a358f9a8cbf7241923957bc8e4aec4ed43b76daa8e43d52"
     },
     "images/pucks/36/edge-02.webp": {
-      "bytes": 779628,
-      "sha256": "7cfa9bae90d7c7317320694a969cad2983ca2df6de598158ccce233d7fae6474"
+      "bytes": 683346,
+      "sha256": "0ccbf5550a8398eb6ef8e4b6e1271cac51000d279c8273215f1fa949c0c7695e"
     },
     "images/pucks/35/edge-03.webp": {
-      "bytes": 891804,
-      "sha256": "2434686986c9e80e55cdecab6ec42beee374e66e2809d3db5b69e7ca5b6f2139"
+      "bytes": 775704,
+      "sha256": "0595ff334e4d2260cbe11c8cb8719a0d4d3f3da48e821e3fed346aa4ff12f275"
     },
     "images/pucks/35/edge-02.webp": {
       "bytes": 827758,
       "sha256": "6e97fb3ee3fd8fed3f48ddad6bf4d61901424d961416a9eeb203a22dae31302b"
     },
     "images/pucks/36/edge-03.webp": {
-      "bytes": 857690,
-      "sha256": "c2992d659a48fae4bfcb1252830202229572c334d26054d69834095ea238b996"
+      "bytes": 743322,
+      "sha256": "92d1aff3188ef74d049014f7785b5830551bb42f5e61c696b813d362f428595d"
     },
     "images/pucks/60/back.webp": {
-      "bytes": 1106368,
-      "sha256": "64416d02d2e52f0fb86438f5ed649fb4d5062dbbe82bf7dfe8bbc947802522f2"
+      "bytes": 927850,
+      "sha256": "0dff5fedc2045c34fddc11917baf65d4cb670d1a325c95919ef9eecc667f2f5c"
     },
     "images/pucks/60/edge-03.webp": {
-      "bytes": 901264,
-      "sha256": "3b26cb37cf6409a958ca5404b7a6bc60f335f558136780fb96c135092f7b68d5"
+      "bytes": 776248,
+      "sha256": "04dc06e2ee8f02c3be824cc893f53e9c99108929f3a279eb530e4740c9d73308"
     },
     "images/pucks/35/front.webp": {
-      "bytes": 823968,
-      "sha256": "592025f28467bf84f9b882b79c402f0f31c7286b1458019c30d8d59eb6f435c0"
+      "bytes": 695300,
+      "sha256": "fa99da2987d3bcca96d45e48df75414ae786507ebcdedd11b0aae4ea638d14a1"
     },
     "images/pucks/35/front-thumb.webp": {
       "bytes": 58734,
       "sha256": "7cbac6d813ce7d195a1dc7876aa2efd694f820040b105a80969f5a6d6ee1bd50"
     },
     "images/pucks/35/edge-01.webp": {
-      "bytes": 818534,
-      "sha256": "6a0e2c376f1596bc3caa5b6a70b068e20b091a2d91702d6ce32996733147debe"
+      "bytes": 701054,
+      "sha256": "28ad280209cdbac0790e64986b39ac573ef1a0847edb6b45dd8ac5f37a887fdd"
     },
     "images/pucks/33/front.webp": {
-      "bytes": 1059846,
-      "sha256": "7fed2100dcad13583403c097e7887f4c0affa9cd6d30e1bb058f66ffc299ee67"
+      "bytes": 916798,
+      "sha256": "90b3078fa51818fb3e77ea4fd1b926566c5c586eddfd739f4045fcf7e30f9985"
     },
     "images/pucks/33/front-thumb.webp": {
       "bytes": 63976,
       "sha256": "2e16f93580dfdaab49ffbc2b4c37ac90e2c5fb216ad500eb51e5abe375b2310a"
     },
     "images/pucks/60/edge-01.webp": {
-      "bytes": 786368,
-      "sha256": "4d00005bfed8a0152a7d182c438b4237283210d9f1c9788833e657e5d7edba1c"
+      "bytes": 674340,
+      "sha256": "d6b9e91e25bcac396a5b3ce78e7ecd50eb537e49c49c68ac7ce4cd44670b8ccb"
     },
     "images/pucks/60/front.webp": {
-      "bytes": 1062814,
-      "sha256": "3778575d3310cdf1ab98cf54bda8468bf3afb4e09d824354aea845624a39ff94"
+      "bytes": 894930,
+      "sha256": "0d1aa9c8e308c11fad50a0ab2161434cc1cdaded9a024b9492fee246c091c6e1"
     },
     "images/pucks/60/front-thumb.webp": {
       "bytes": 66144,
       "sha256": "4d31e03d9aa2a1e6487d8b9621671e091e936194768403faf99fbb9a79031804"
     },
     "images/pucks/33/edge-04.webp": {
-      "bytes": 660650,
-      "sha256": "5a630ccb1f55a6cae1edb4952424d8aadb0b381269b5aaeb0a66ac08ced97ba7"
+      "bytes": 554132,
+      "sha256": "727b056c69ced9796fd5e74a509743efd07d3f52293fd01648773ef0f48f07b6"
     },
     "images/pucks/33/edge-03.webp": {
-      "bytes": 790022,
-      "sha256": "81d1356141bcb55583b9e3a033cd7fe0890e12daccccbb3b83a471809d8a2bd5"
+      "bytes": 678282,
+      "sha256": "69845a63b76febbcb272a311f5d3e1f649f06ccbc01cc0d9088e0c98076302db"
     },
     "images/pucks/33/back.webp": {
-      "bytes": 939306,
-      "sha256": "64bdfd5319bf0d58753c43415a10d5ed499b0b055f16944abd298278a89c43fa"
+      "bytes": 823214,
+      "sha256": "0dab94a5fe98b3ef2704d5cd31be0d39155835419cd224799ca6e47081e05253"
     },
     "images/pucks/33/edge-02.webp": {
-      "bytes": 738226,
-      "sha256": "7c316dca846bbb10c2fff984e1405c1f27147a2a85783116769215879c9d43cb"
+      "bytes": 627750,
+      "sha256": "bb4e5337335c685afdabdff2c5e041a4eb0fe5140a434141b929c6929f0adb78"
     },
     "images/pucks/33/edge-01.webp": {
       "bytes": 702250,
       "sha256": "1afb077852023395b4508b35eae8d1604f9f314111b22949a6591fdd9af0eb75"
     },
     "images/pucks/60/edge-02.webp": {
-      "bytes": 749738,
-      "sha256": "304572101c983c8f30bf7fbc4e0df6f540dbef13381808d514c2b634f4cf26cf"
+      "bytes": 638294,
+      "sha256": "c445e9b6d25b0652847a859b1a64584d607dc51bd6408018955d50a809306970"
     },
     "images/pucks/27/edge-03.webp": {
-      "bytes": 629544,
-      "sha256": "9d4f84fc2eb3d5b7998cc665983367a7e924d4468d24486b6b5f20cedeb2e6ef"
+      "bytes": 533710,
+      "sha256": "342889e65129bf8377484679925a2816fcd283fa996b6f67d256055a26e1777b"
     },
     "images/pucks/27/back.webp": {
-      "bytes": 1084132,
-      "sha256": "52a0f983050d07ee0f7a11b1ffa8ea64bd96022a84f6d03ed313814e36ff1ab8"
+      "bytes": 965970,
+      "sha256": "f67fe00a0fb96fc3ca0c5c6f16e2b8d979adaee551ba91c0d40845aa2e8a5f6a"
     },
     "images/pucks/27/front.webp": {
-      "bytes": 956048,
-      "sha256": "1c937561434c0007a66b7ab7b046e7607376740eaedf90d5a050adad096845b9"
+      "bytes": 821502,
+      "sha256": "3c3ae0556870e9e7683b33a47fbe6596229b2f4b37ee5e506815eeb2de66784f"
     },
     "images/pucks/27/front-thumb.webp": {
       "bytes": 59512,
       "sha256": "e95fa9e77387b7c745490d43ea3f47a6e61a54df4de92ee65d822a2165397c1b"
     },
     "images/pucks/27/edge-01.webp": {
-      "bytes": 694244,
-      "sha256": "59365b5d62ddb10ab37213dd0c58fe5663fe58dd0409b65de427e23048f4ca0f"
+      "bytes": 590132,
+      "sha256": "4da8237edba079e45d387934ae84fec65dc559f50ae479c7711dbb4f19f99b04"
     },
     "images/pucks/27/edge-02.webp": {
-      "bytes": 889270,
-      "sha256": "1ef44bc766dbb50f6acbb2118196568da337e658062983fe904feec276a1e5fe"
+      "bytes": 762762,
+      "sha256": "dab735f09abf1b9a5a32e42ae346ffbb8e9800b90ad8c2fc6fe856ac2b0f48e1"
     },
     "images/pucks/331/back.webp": {
-      "bytes": 747882,
-      "sha256": "3ccdd69b1275fd3798104af1e4060630eec3c193119512658cff9041d12ec427"
+      "bytes": 691700,
+      "sha256": "8100327eade6799994d722a791ec33f9004ffa63f46ecf15c411285eae57a213"
     },
     "images/pucks/331/front.webp": {
-      "bytes": 812668,
-      "sha256": "c1643fd12b86935ffffd336bfcab8702427f2c2689384f5d9770a1446b479023"
+      "bytes": 716600,
+      "sha256": "f92a8c63ecc51cb7559b85fa214bbc2fc48e70ec0585b19395009ebee3f0f5af"
     },
     "images/pucks/331/front-thumb.webp": {
       "bytes": 55484,
       "sha256": "799943834a7740296294467c55fbd0b3a2046e2d06d700483a8af76277ca132d"
     },
     "images/pucks/339/front.webp": {
-      "bytes": 715658,
-      "sha256": "16c432162c740f09440f3b47c4b5fc22ce0a65c09378c5a58a16bebde17a93b9"
+      "bytes": 623096,
+      "sha256": "c0647da9ac593c5078bce9c48679a055bd21672b2f2e0e978742df8d78268ee7"
     },
     "images/pucks/339/front-thumb.webp": {
       "bytes": 52996,
       "sha256": "1a344009c90b910e9a0224a0f312c0aa91425c6abed5fb7c42b76083cd85900a"
     },
     "images/pucks/339/back.webp": {
-      "bytes": 693770,
-      "sha256": "1390ecfedea95babfa5ad3fcdf3e9919eb2f259122358ae72f524c6b35973515"
+      "bytes": 603754,
+      "sha256": "abccba63742678aecbaa6595a4d53df6fb24fbb4632ba30ad34608b427460847"
     },
     "images/pucks/49/front.webp": {
-      "bytes": 784612,
-      "sha256": "dec60ae00f8be203ad748def779ece8dd3b687b7f928b4435e39a04a62c1eebc"
+      "bytes": 703612,
+      "sha256": "c59c9d5b0dfcafd51486a9283960a866795ba87f896d782a8bbbd5a56c1d2d3c"
     },
     "images/pucks/49/front-thumb.webp": {
       "bytes": 59222,
       "sha256": "d024faa8668a2ec431459ca4d468abc0febc11162c9e628bde211be020db0aa5"
     },
     "images/pucks/49/back.webp": {
-      "bytes": 868848,
-      "sha256": "16d5225ca12fb4a753a8e0229b7da4e0e8a3871129db9140147c4d2d54af5705"
+      "bytes": 748156,
+      "sha256": "b1c39737c8d87c80cac7db2478ebe7b6a9f20a2cc0d0b1334329c2a9b6bdcbc9"
     },
     "images/pucks/49/edge-01.webp": {
-      "bytes": 829290,
-      "sha256": "314cebcd01cdec3b394981262a8e75c56e689e593be8e6547bb2d02f32f3f631"
+      "bytes": 724412,
+      "sha256": "a28d7b96e4791a3c169854b66f8ee4e292228a3dd5231fbffab326373ab67a7f"
     }
   }
 }

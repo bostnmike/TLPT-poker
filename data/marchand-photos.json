@@ -3,33 +3,33 @@
     "1": [
       {
         "label": "Front",
-        "url": "images/pucks/1/front.webp?v=20260927-level2",
+        "url": "images/pucks/1/front.webp?v=7fce627a969a",
         "thumbnailUrl": "images/pucks/1/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/1/back.webp?v=20260927-level2",
+        "url": "images/pucks/1/back.webp?v=4468e407456f",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/1/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/1/edge-01.webp?v=a07a16af1401",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/1/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/1/edge-02.webp?v=001fee559730",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/1/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/1/edge-03.webp?v=786ab33b1a07",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/1/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/1/edge-04.webp?v=3afb4084784e",
         "rotation": 0
       },
       {
@@ -41,94 +41,94 @@
     "2": [
       {
         "label": "Front",
-        "url": "images/pucks/2/front.webp?v=20260927-level2",
+        "url": "images/pucks/2/front.webp?v=1f5715b8ab9b",
         "thumbnailUrl": "images/pucks/2/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/2/back.webp?v=20260927-level2",
+        "url": "images/pucks/2/back.webp?v=3775322fdb29",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/2/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/2/edge-01.webp?v=250ae522ebc4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/2/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/2/edge-02.webp?v=76574b6b3baa",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/2/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/2/edge-03.webp?v=1ccab5ad4494",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/2/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/2/edge-04.webp?v=8672be43e652",
         "rotation": 0
       }
     ],
     "3": [
       {
         "label": "Front",
-        "url": "images/pucks/3/front.webp?v=20260928-batch2",
+        "url": "images/pucks/3/front.webp?v=ad00f2c1971f",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/3/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/3/back.webp?v=20260928-batch2",
+        "url": "images/pucks/3/back.webp?v=50aed73ad622",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/3/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/3/edge-01.webp?v=37e2234d44ba",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/3/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/3/edge-02.webp?v=e445071395ae",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/3/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/3/edge-03.webp?v=9078456ce548",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/3/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/3/edge-04.webp?v=3ecafc493f6b",
         "rotation": 0
       }
     ],
     "4": [
       {
         "label": "Front",
-        "url": "images/pucks/4/front.webp?v=20260928-batch2",
+        "url": "images/pucks/4/front.webp?v=0e4023eb7e56",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/4/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/4/back.webp?v=20260928-batch2",
+        "url": "images/pucks/4/back.webp?v=75c11d0aacbd",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/4/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/4/edge-01.webp?v=dde919cf2ae0",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/4/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/4/edge-02.webp?v=8e5e42beb85c",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/4/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/4/edge-03.webp?v=769fbabcd137",
         "rotation": 0
       },
       {
@@ -140,46 +140,46 @@
     "5": [
       {
         "label": "Front",
-        "url": "images/pucks/5/front.webp?v=20260928-batch2",
+        "url": "images/pucks/5/front.webp?v=20678cfe83dd",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/5/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/5/back.webp?v=20260928-batch2",
+        "url": "images/pucks/5/back.webp?v=30b09537943b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/5/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/5/edge-01.webp?v=093a0e5ec153",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/5/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/5/edge-02.webp?v=e3fe8d2a83b5",
         "rotation": 0
       }
     ],
     "6": [
       {
         "label": "Front",
-        "url": "images/pucks/6/front.webp?v=20260928-batch2",
+        "url": "images/pucks/6/front.webp?v=2a73c8c1b294",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/6/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/6/back.webp?v=20260928-batch2",
+        "url": "images/pucks/6/back.webp?v=794ebe1a723d",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/6/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/6/edge-01.webp?v=c309f18b465b",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/6/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/6/edge-02.webp?v=fb7837ea3164",
         "rotation": 0
       },
       {
@@ -191,23 +191,23 @@
     "7": [
       {
         "label": "Front",
-        "url": "images/pucks/7/front.webp?v=20260928-batch2",
+        "url": "images/pucks/7/front.webp?v=3cf64cd58bd6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/7/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/7/back.webp?v=20260928-batch2",
+        "url": "images/pucks/7/back.webp?v=1bbb5c7220c0",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/7/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/7/edge-01.webp?v=74305c1b9e5f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/7/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/7/edge-02.webp?v=ca38d7915cbc",
         "rotation": 0
       },
       {
@@ -219,33 +219,33 @@
     "8": [
       {
         "label": "Front",
-        "url": "images/pucks/8/front.webp?v=20260927-level2",
+        "url": "images/pucks/8/front.webp?v=288d0894f007",
         "thumbnailUrl": "images/pucks/8/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/8/back.webp?v=20260927-level2",
+        "url": "images/pucks/8/back.webp?v=73c94fa19ff1",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/8/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/8/edge-01.webp?v=f6f1dc97222d",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/8/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/8/edge-02.webp?v=7afcaa7826c3",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/8/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/8/edge-03.webp?v=65e68bc77c20",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/8/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/8/edge-04.webp?v=4e852363f9e6",
         "rotation": 0
       },
       {
@@ -257,23 +257,23 @@
     "9": [
       {
         "label": "Front",
-        "url": "images/pucks/9/front.webp?v=20260928-batch2",
+        "url": "images/pucks/9/front.webp?v=49d52c15fc3d",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/9/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/9/back.webp?v=20260928-batch2",
+        "url": "images/pucks/9/back.webp?v=d11c39a72754",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/9/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/9/edge-01.webp?v=4f4df75c2f20",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/9/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/9/edge-02.webp?v=7217dfc885ef",
         "rotation": 0
       },
       {
@@ -285,61 +285,61 @@
     "10": [
       {
         "label": "Front",
-        "url": "images/pucks/10/front.webp?v=20260928-batch2",
+        "url": "images/pucks/10/front.webp?v=1fa55e50db9a",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/10/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/10/back.webp?v=20260928-batch2",
+        "url": "images/pucks/10/back.webp?v=cf0bb6c3a1d1",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/10/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/10/edge-01.webp?v=e78e02a37ba1",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/10/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/10/edge-02.webp?v=ac5d57dd14c2",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/10/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/10/edge-03.webp?v=7c1b841a44c9",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/10/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/10/edge-04.webp?v=c18bdc8d59f4",
         "rotation": 0
       }
     ],
     "11": [
       {
         "label": "Front",
-        "url": "images/pucks/11/front.webp?v=20260928-batch2",
+        "url": "images/pucks/11/front.webp?v=0a3a9af9d0df",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/11/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/11/back.webp?v=20260928-batch2",
+        "url": "images/pucks/11/back.webp?v=c109a34f4516",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/11/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/11/edge-01.webp?v=05492f0dbf69",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/11/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/11/edge-02.webp?v=91bc745e3d6b",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/11/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/11/edge-03.webp?v=c601d33e9f4b",
         "rotation": 0
       },
       {
@@ -351,61 +351,61 @@
     "12": [
       {
         "label": "Front",
-        "url": "images/pucks/12/front.webp?v=20260927-level2",
+        "url": "images/pucks/12/front.webp?v=f438b4cf01e2",
         "thumbnailUrl": "images/pucks/12/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/12/back.webp?v=20260927-level2",
+        "url": "images/pucks/12/back.webp?v=3bc04773a449",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/12/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/12/edge-01.webp?v=1d880151c50e",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/12/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/12/edge-02.webp?v=c909ea230bf8",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/12/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/12/edge-03.webp?v=e8c03e57256f",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/12/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/12/edge-04.webp?v=f74d46767a15",
         "rotation": 0
       }
     ],
     "13": [
       {
         "label": "Front",
-        "url": "images/pucks/13/front.webp?v=20260928-batch2",
+        "url": "images/pucks/13/front.webp?v=4dbce8a17d25",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/13/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/13/back.webp?v=20260928-batch2",
+        "url": "images/pucks/13/back.webp?v=33f473a4c3ce",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/13/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/13/edge-01.webp?v=a392f2b67b14",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/13/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/13/edge-02.webp?v=f17a2468f7b6",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/13/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/13/edge-03.webp?v=9624ebdf14d2",
         "rotation": 0
       },
       {
@@ -417,33 +417,33 @@
     "14": [
       {
         "label": "Front",
-        "url": "images/pucks/14/front.webp?v=20260928-batch2",
+        "url": "images/pucks/14/front.webp?v=33e0e47b40ba",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/14/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/14/back.webp?v=20260928-batch2",
+        "url": "images/pucks/14/back.webp?v=d825b9472dc4",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/14/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/14/edge-01.webp?v=8e9daa3c59e4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/14/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/14/edge-02.webp?v=59ae558bdf42",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/14/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/14/edge-03.webp?v=59ea49ffa632",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/14/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/14/edge-04.webp?v=2e73122c2ff7",
         "rotation": 0
       },
       {
@@ -455,28 +455,28 @@
     "15": [
       {
         "label": "Front",
-        "url": "images/pucks/15/front.webp?v=20260928-batch2",
+        "url": "images/pucks/15/front.webp?v=b903175472dc",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/15/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/15/back.webp?v=20260928-batch2",
+        "url": "images/pucks/15/back.webp?v=5f86b864f41b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/15/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/15/edge-01.webp?v=1ef6d1bdf3d5",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/15/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/15/edge-02.webp?v=607bf8d36db1",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/15/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/15/edge-03.webp?v=1620ec44f8b7",
         "rotation": 0
       },
       {
@@ -488,28 +488,28 @@
     "16": [
       {
         "label": "Front",
-        "url": "images/pucks/16/front.webp?v=20260927-level2",
+        "url": "images/pucks/16/front.webp?v=873feaa3207c",
         "thumbnailUrl": "images/pucks/16/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/16/back.webp?v=20260927-level2",
+        "url": "images/pucks/16/back.webp?v=0408a853db10",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/16/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/16/edge-01.webp?v=11f100af8438",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/16/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/16/edge-02.webp?v=7f4815715afc",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/16/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/16/edge-03.webp?v=244604f3b26c",
         "rotation": 0
       },
       {
@@ -521,28 +521,28 @@
     "17": [
       {
         "label": "Front",
-        "url": "images/pucks/17/front.webp?v=20260928-batch2",
+        "url": "images/pucks/17/front.webp?v=4f5d86a9a2e3",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/17/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/17/back.webp?v=20260928-batch2",
+        "url": "images/pucks/17/back.webp?v=b1f5dcab750d",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/17/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/17/edge-01.webp?v=6829d2abe429",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/17/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/17/edge-02.webp?v=e99b6030d55f",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/17/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/17/edge-03.webp?v=9e02774b8056",
         "rotation": 0
       },
       {
@@ -554,28 +554,28 @@
     "18": [
       {
         "label": "Front",
-        "url": "images/pucks/18/front.webp?v=20260928-batch2",
+        "url": "images/pucks/18/front.webp?v=a784e3853804",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/18/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/18/back.webp?v=20260928-batch2",
+        "url": "images/pucks/18/back.webp?v=c3d5df66f93f",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/18/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/18/edge-01.webp?v=3fbdfb5f15ee",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/18/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/18/edge-02.webp?v=30362c4471d4",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/18/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/18/edge-03.webp?v=a14a1979dbce",
         "rotation": 0
       },
       {
@@ -585,7 +585,7 @@
       },
       {
         "label": "Edge 5",
-        "url": "images/pucks/18/edge-05.webp?v=20260928-batch2",
+        "url": "images/pucks/18/edge-05.webp?v=0374f17e8d19",
         "rotation": 0
       },
       {
@@ -597,23 +597,23 @@
     "19": [
       {
         "label": "Front",
-        "url": "images/pucks/19/front.webp?v=20260928-batch2",
+        "url": "images/pucks/19/front.webp?v=478dc435cd6e",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/19/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/19/back.webp?v=20260928-batch2",
+        "url": "images/pucks/19/back.webp?v=0723db5426af",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/19/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/19/edge-01.webp?v=c8095b090369",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/19/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/19/edge-02.webp?v=6ddfcfece1d7",
         "rotation": 0
       },
       {
@@ -625,23 +625,23 @@
     "20": [
       {
         "label": "Front",
-        "url": "images/pucks/20/front.webp?v=20260928-batch2",
+        "url": "images/pucks/20/front.webp?v=fcb0001fb61e",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/20/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/20/back.webp?v=20260928-batch2",
+        "url": "images/pucks/20/back.webp?v=3e0405e0ea4b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/20/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/20/edge-01.webp?v=3713740d88ee",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/20/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/20/edge-02.webp?v=9926b1ed52e2",
         "rotation": 0
       },
       {
@@ -653,33 +653,33 @@
     "21": [
       {
         "label": "Front",
-        "url": "images/pucks/21/front.webp?v=20260928-batch2",
+        "url": "images/pucks/21/front.webp?v=fe1b9b43a122",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/21/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/21/back.webp?v=20260928-batch2",
+        "url": "images/pucks/21/back.webp?v=82fba50bd5a1",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/21/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/21/edge-01.webp?v=3bba4ed33630",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/21/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/21/edge-02.webp?v=80947aef65d6",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/21/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/21/edge-03.webp?v=389319d3ad7d",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/21/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/21/edge-04.webp?v=baad0b5b346c",
         "rotation": 0
       },
       {
@@ -691,61 +691,61 @@
     "22": [
       {
         "label": "Front",
-        "url": "images/pucks/22/front.webp?v=20260928-batch2",
+        "url": "images/pucks/22/front.webp?v=d731894088b1",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/22/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/22/back.webp?v=20260928-batch2",
+        "url": "images/pucks/22/back.webp?v=5e7d6b0161b0",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/22/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/22/edge-01.webp?v=9a137ade99fa",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/22/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/22/edge-02.webp?v=eb7eb6af1f04",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/22/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/22/edge-03.webp?v=dfb72e062ce3",
         "rotation": 0
       }
     ],
     "23": [
       {
         "label": "Front",
-        "url": "images/pucks/23/front.webp?v=20260928-batch2",
+        "url": "images/pucks/23/front.webp?v=8960f023ba43",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/23/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/23/back.webp?v=20260928-batch2",
+        "url": "images/pucks/23/back.webp?v=39d13130a0c7",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/23/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/23/edge-01.webp?v=b80355c80477",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/23/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/23/edge-02.webp?v=1575284c42a3",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/23/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/23/edge-03.webp?v=57dd79e8a51a",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/23/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/23/edge-04.webp?v=d37587177e9a",
         "rotation": 0
       },
       {
@@ -757,28 +757,28 @@
     "24": [
       {
         "label": "Front",
-        "url": "images/pucks/24/front.webp?v=20260928-batch2",
+        "url": "images/pucks/24/front.webp?v=1e87735f69bd",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/24/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/24/back.webp?v=20260928-batch2",
+        "url": "images/pucks/24/back.webp?v=c1bcb72d4a32",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/24/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/24/edge-01.webp?v=fb40decdae66",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/24/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/24/edge-02.webp?v=52625f094a30",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/24/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/24/edge-03.webp?v=706300ef1626",
         "rotation": 0
       },
       {
@@ -804,66 +804,66 @@
     "25": [
       {
         "label": "Front",
-        "url": "images/pucks/25/front.webp?v=20260928-batch2",
+        "url": "images/pucks/25/front.webp?v=37938dc066d6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/25/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/25/back.webp?v=20260928-batch2",
+        "url": "images/pucks/25/back.webp?v=f343271c7693",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/25/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/25/edge-01.webp?v=d99a68556bc3",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/25/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/25/edge-02.webp?v=f1f4a69ff4e3",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/25/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/25/edge-03.webp?v=34cac6916260",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/25/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/25/edge-04.webp?v=44ab6092691f",
         "rotation": 0
       }
     ],
     "26": [
       {
         "label": "Front",
-        "url": "images/pucks/26/front.webp?v=20260927-level2",
+        "url": "images/pucks/26/front.webp?v=82481de93a7e",
         "thumbnailUrl": "images/pucks/26/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/26/back.webp?v=20260927-level2",
+        "url": "images/pucks/26/back.webp?v=e7ee8e980540",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/26/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/26/edge-01.webp?v=b5117d7e53f5",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/26/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/26/edge-02.webp?v=b77aa26bebfa",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/26/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/26/edge-03.webp?v=d23183f4d8c3",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/26/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/26/edge-04.webp?v=a694406a9a37",
         "rotation": 0
       },
       {
@@ -875,28 +875,28 @@
     "27": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/front.webp?v=1c937561434c",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/front.webp?v=3c3ae0556870",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/front-thumb.webp?v=1c937561434c"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/back.webp?v=52a0f983050d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/back.webp?v=f67fe00a0fb9",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-01.webp?v=59365b5d62dd",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-01.webp?v=4da8237edba0",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-02.webp?v=1ef44bc766db",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-02.webp?v=dab735f09abf",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-03.webp?v=9d4f84fc2eb3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-03.webp?v=342889e65129",
         "rotation": 0
       },
       {
@@ -908,23 +908,23 @@
     "28": [
       {
         "label": "Front",
-        "url": "images/pucks/28/front.webp?v=20260927-level2",
+        "url": "images/pucks/28/front.webp?v=6d80cda1e9d5",
         "thumbnailUrl": "images/pucks/28/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/28/back.webp?v=20260927-level2",
+        "url": "images/pucks/28/back.webp?v=c260d71cbc71",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/28/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/28/edge-01.webp?v=490fe07bb7f2",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/28/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/28/edge-02.webp?v=94aa525341da",
         "rotation": 0
       },
       {
@@ -936,33 +936,33 @@
     "29": [
       {
         "label": "Front",
-        "url": "images/pucks/29/front.webp?v=20260928-batch2",
+        "url": "images/pucks/29/front.webp?v=395fdeb70215",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/29/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/29/back.webp?v=20260928-batch2",
+        "url": "images/pucks/29/back.webp?v=09872bc0e402",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/29/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/29/edge-01.webp?v=1843795aa03c",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/29/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/29/edge-02.webp?v=69c639046e47",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/29/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/29/edge-03.webp?v=76d093e19e8e",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/29/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/29/edge-04.webp?v=eae652a89e07",
         "rotation": 0
       },
       {
@@ -974,38 +974,38 @@
     "30": [
       {
         "label": "Front",
-        "url": "images/pucks/30/front.webp?v=20260928-batch2",
+        "url": "images/pucks/30/front.webp?v=23b734938a91",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/30/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/30/back.webp?v=20260928-batch2",
+        "url": "images/pucks/30/back.webp?v=49660c2bbb93",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/30/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/30/edge-01.webp?v=92da44b2cc11",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/30/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/30/edge-02.webp?v=5c45280c5d27",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/30/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/30/edge-03.webp?v=1e49af65b85d",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/30/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/30/edge-04.webp?v=1e49af65b85d",
         "rotation": 0
       },
       {
         "label": "Edge 5",
-        "url": "images/pucks/30/edge-05.webp?v=20260928-batch2",
+        "url": "images/pucks/30/edge-05.webp?v=f4cad71545f3",
         "rotation": 0
       },
       {
@@ -1017,46 +1017,46 @@
     "32": [
       {
         "label": "Front",
-        "url": "images/pucks/32/front.webp?v=20260927-level2",
+        "url": "images/pucks/32/front.webp?v=6b368d8d6b5d",
         "thumbnailUrl": "images/pucks/32/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/32/back.webp?v=20260927-level2",
+        "url": "images/pucks/32/back.webp?v=f5c8b21f1efb",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/32/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/32/edge-01.webp?v=212f9db1a8ff",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/32/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/32/edge-02.webp?v=aabf9c245ef7",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/32/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/32/edge-03.webp?v=641ec7d4035f",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/32/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/32/edge-04.webp?v=a5c61186285f",
         "rotation": 0
       }
     ],
     "33": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/front.webp?v=7fed2100dcad",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/front.webp?v=90b3078fa518",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/front-thumb.webp?v=7fed2100dcad"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/back.webp?v=64bdfd5319bf",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/back.webp?v=0dab94a5fe98",
         "rotation": 0
       },
       {
@@ -1066,17 +1066,17 @@
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-02.webp?v=7c316dca846b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-02.webp?v=bb4e5337335c",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-03.webp?v=81d1356141bc",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-03.webp?v=69845a63b76f",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-04.webp?v=5a630ccb1f55",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-04.webp?v=727b056c69ce",
         "rotation": 0
       },
       {
@@ -1088,46 +1088,46 @@
     "34": [
       {
         "label": "Front",
-        "url": "images/pucks/34/front.webp?v=20260927-level2",
+        "url": "images/pucks/34/front.webp?v=5c204e53fb07",
         "thumbnailUrl": "images/pucks/34/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/34/back.webp?v=20260927-level2",
+        "url": "images/pucks/34/back.webp?v=1ecc6f892d43",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/34/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/34/edge-01.webp?v=4da8c806a600",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/34/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/34/edge-02.webp?v=816d4217823f",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/34/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/34/edge-03.webp?v=1dd807811282",
         "rotation": 0
       }
     ],
     "35": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/front.webp?v=592025f28467",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/front.webp?v=fa99da2987d3",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/front-thumb.webp?v=592025f28467"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/back.webp?v=261fb1af2e37",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/back.webp?v=5caf119bba9d",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-01.webp?v=6a0e2c376f15",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-01.webp?v=28ad280209cd",
         "rotation": 0
       },
       {
@@ -1137,7 +1137,7 @@
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-03.webp?v=2434686986c9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-03.webp?v=0595ff334e4d",
         "rotation": 0
       },
       {
@@ -1149,89 +1149,89 @@
     "36": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/front.webp?v=d79fc19a7967",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/front.webp?v=ac0d00a6a9d4",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/front-thumb.webp?v=d79fc19a7967"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/back.webp?v=78d9507d9232",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/back.webp?v=25f7fda7b62c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-01.webp?v=5fba9581aa44",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-01.webp?v=b568328ab26f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-02.webp?v=7cfa9bae90d7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-02.webp?v=0ccbf5550a83",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-03.webp?v=c2992d659a48",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-03.webp?v=92d1aff3188e",
         "rotation": 0
       }
     ],
     "37": [
       {
         "label": "Front",
-        "url": "images/pucks/37/front.webp?v=20260927-level2",
+        "url": "images/pucks/37/front.webp?v=165b777caa32",
         "thumbnailUrl": "images/pucks/37/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/37/back.webp?v=20260927-level2",
+        "url": "images/pucks/37/back.webp?v=d0e3f70b5d98",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/37/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/37/edge-01.webp?v=b357587c1c39",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/37/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/37/edge-02.webp?v=d890e8d96604",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/37/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/37/edge-03.webp?v=0ac06ab2f6ea",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/37/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/37/edge-04.webp?v=d2b9870217a9",
         "rotation": 0
       }
     ],
     "38": [
       {
         "label": "Front",
-        "url": "images/pucks/38/front.webp?v=20260928-batch2",
+        "url": "images/pucks/38/front.webp?v=b18a99e0c629",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/38/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/38/back.webp?v=20260928-batch2",
+        "url": "images/pucks/38/back.webp?v=6b6d8adb224e",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/38/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/38/edge-01.webp?v=68fdbf0b7e6c",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/38/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/38/edge-02.webp?v=9c2cf69e0bb4",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/38/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/38/edge-03.webp?v=a7de1014d133",
         "rotation": 0
       },
       {
@@ -1256,28 +1256,28 @@
     "39": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/front.webp?v=5393be8058f2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/front.webp?v=66de7a15f525",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/front-thumb.webp?v=5393be8058f2"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/back.webp?v=de17b8ec2490",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/back.webp?v=9d60a0239ed6",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-01.webp?v=2b8f7d682604",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-01.webp?v=df1d842bed7f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-02.webp?v=109d37550a6f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-02.webp?v=ce720afb1686",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-03.webp?v=f17a76eebb53",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-03.webp?v=b98f4d769df0",
         "rotation": 0
       },
       {
@@ -1289,69 +1289,69 @@
     "40": [
       {
         "label": "Front",
-        "url": "images/pucks/40/front.webp?v=20260927-level2",
+        "url": "images/pucks/40/front.webp?v=17c568a6a27d",
         "thumbnailUrl": "images/pucks/40/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/40/back.webp?v=20260927-level2",
+        "url": "images/pucks/40/back.webp?v=f52bc4795420",
         "rotation": 0
       }
     ],
     "41": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/front.webp?v=bea119dcb9f9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/front.webp?v=b064481bf526",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/front-thumb.webp?v=bea119dcb9f9"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/back.webp?v=dc00842a3267",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/back.webp?v=ba69ca2af120",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-01.webp?v=e62d0e7c72c7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-01.webp?v=f0eb9ac74f09",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-02.webp?v=d773712abc75",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-02.webp?v=6e74786ff94a",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-03.webp?v=ff3debe19954",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-03.webp?v=54858338863e",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-04.webp?v=3dd86b7adfed",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-04.webp?v=1c3355fc654b",
         "rotation": 0
       }
     ],
     "42": [
       {
         "label": "Front",
-        "url": "images/pucks/42/front.webp?v=20260927-level2",
+        "url": "images/pucks/42/front.webp?v=072c9bebaacc",
         "thumbnailUrl": "images/pucks/42/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/42/back.webp?v=20260927-level2",
+        "url": "images/pucks/42/back.webp?v=17c8b6bcfaae",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/42/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/42/edge-01.webp?v=235cfd4c1432",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/42/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/42/edge-02.webp?v=90dc15304fc0",
         "rotation": 0
       },
       {
@@ -1363,107 +1363,107 @@
     "43": [
       {
         "label": "Front",
-        "url": "images/pucks/43/front.webp?v=20260927-level2",
+        "url": "images/pucks/43/front.webp?v=efda9faa9386",
         "thumbnailUrl": "images/pucks/43/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/43/back.webp?v=20260927-level2",
+        "url": "images/pucks/43/back.webp?v=172ac176e800",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/43/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/43/edge-01.webp?v=541a9cac49a2",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/43/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/43/edge-02.webp?v=4e213c017a86",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/43/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/43/edge-03.webp?v=48b18ad745dc",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/43/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/43/edge-04.webp?v=0acd02e18973",
         "rotation": 0
       }
     ],
     "44": [
       {
         "label": "Front",
-        "url": "images/pucks/44/front.webp?v=20260927-level2",
+        "url": "images/pucks/44/front.webp?v=7ea6522b7767",
         "thumbnailUrl": "images/pucks/44/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/44/back.webp?v=20260927-level2",
+        "url": "images/pucks/44/back.webp?v=96856c72d1c4",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/44/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/44/edge-01.webp?v=50f844bbb812",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/44/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/44/edge-02.webp?v=02f5db40d764",
         "rotation": 0
       }
     ],
     "45": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/front.webp?v=0f8d5986ee7f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/front.webp?v=4f569c535de5",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/front-thumb.webp?v=0f8d5986ee7f"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/back.webp?v=bed790a8b28d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/back.webp?v=8970ef22f96c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-01.webp?v=db2e6fcdb219",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-01.webp?v=03439e8cfb38",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-02.webp?v=5c1001206e52",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-02.webp?v=8c66be496d9a",
         "rotation": 0
       }
     ],
     "46": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/front.webp?v=a6acb68b35b0",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/front.webp?v=c5946679b9d3",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/front-thumb.webp?v=a6acb68b35b0"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/back.webp?v=7dcc2ddd6f85",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/back.webp?v=54c844a5aaee",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-01.webp?v=27c17ea484d3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-01.webp?v=f6f1e8f69732",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-02.webp?v=18119cb60925",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-02.webp?v=a2f1d8bc4f81",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-03.webp?v=097e9b1fc982",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-03.webp?v=b776928eebe2",
         "rotation": 0
       },
       {
@@ -1475,18 +1475,18 @@
     "47": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/front.webp?v=14bf06d4461f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/front.webp?v=4b1ab5ef6d7b",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/front-thumb.webp?v=14bf06d4461f"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/back.webp?v=ac0051563634",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/back.webp?v=d2f38d9faddd",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-01.webp?v=bd5d60594c1b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-01.webp?v=30426e62f904",
         "rotation": 0
       },
       {
@@ -1496,7 +1496,7 @@
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-03.webp?v=3f21ff914ad5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-03.webp?v=ae7822e51f46",
         "rotation": 0
       },
       {
@@ -1508,145 +1508,145 @@
     "48": [
       {
         "label": "Front",
-        "url": "images/pucks/48/front.webp?v=20260927-level2",
+        "url": "images/pucks/48/front.webp?v=3db4fcba9308",
         "thumbnailUrl": "images/pucks/48/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/48/back.webp?v=20260927-level2",
+        "url": "images/pucks/48/back.webp?v=d33cbdb57784",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/48/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/48/edge-01.webp?v=861aae1400bd",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/48/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/48/edge-02.webp?v=df370b30c7ad",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/48/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/48/edge-03.webp?v=a60c4cebc3fb",
         "rotation": 0
       }
     ],
     "49": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front.webp?v=dec60ae00f8b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front.webp?v=c59c9d5b0dfc",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front-thumb.webp?v=d024faa8668a"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/back.webp?v=16d5225ca12f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/back.webp?v=b1c39737c8d8",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=314cebcd01cd",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=a28d7b96e479",
         "rotation": 0
       }
     ],
     "50": [
       {
         "label": "Front",
-        "url": "images/pucks/50/front.webp?v=20260928-batch2",
+        "url": "images/pucks/50/front.webp?v=ebf7bc62a0f8",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/50/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/50/back.webp?v=20260928-batch2",
+        "url": "images/pucks/50/back.webp?v=f6fd0e3d4056",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/50/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/50/edge-01.webp?v=2038b27a4922",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/50/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/50/edge-02.webp?v=1903f948414b",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/50/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/50/edge-03.webp?v=7bb03bf71863",
         "rotation": 0
       }
     ],
     "51": [
       {
         "label": "Front",
-        "url": "images/pucks/51/front.webp?v=20260928-batch2",
+        "url": "images/pucks/51/front.webp?v=dd1c6350f158",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/51/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/51/back.webp?v=20260928-batch2",
+        "url": "images/pucks/51/back.webp?v=1f78bf87bb85",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/51/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/51/edge-01.webp?v=8d26ba561c79",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/51/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/51/edge-02.webp?v=1eb88ad926ef",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/51/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/51/edge-03.webp?v=83326e2911cb",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/51/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/51/edge-04.webp?v=55446b14b72d",
         "rotation": 0
       }
     ],
     "52": [
       {
         "label": "Front",
-        "url": "images/pucks/52/front.webp?v=20260928-batch2",
+        "url": "images/pucks/52/front.webp?v=ad489a169952",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/52/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/52/back.webp?v=20260928-batch2",
+        "url": "images/pucks/52/back.webp?v=ef1d078f2fc6",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/52/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/52/edge-01.webp?v=938ab18cb684",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/52/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/52/edge-02.webp?v=1e0ac66b9fc0",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/52/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/52/edge-03.webp?v=74eb61bd3ff7",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/52/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/52/edge-04.webp?v=823c5035f42b",
         "rotation": 0
       },
       {
         "label": "Edge 5",
-        "url": "images/pucks/52/edge-05.webp?v=20260928-batch2",
+        "url": "images/pucks/52/edge-05.webp?v=22c2caca77b5",
         "rotation": 0
       },
       {
@@ -1658,33 +1658,33 @@
     "53": [
       {
         "label": "Front",
-        "url": "images/pucks/53/front.webp?v=20260928-batch2",
+        "url": "images/pucks/53/front.webp?v=d399a0e8fae4",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/53/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/53/back.webp?v=20260928-batch2",
+        "url": "images/pucks/53/back.webp?v=9161d6ae6713",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/53/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/53/edge-01.webp?v=46c098e50224",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/53/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/53/edge-02.webp?v=ff49c7258166",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/53/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/53/edge-03.webp?v=e2cda72c5b56",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/53/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/53/edge-04.webp?v=bb26cce0b2cd",
         "rotation": 0
       },
       {
@@ -1696,33 +1696,33 @@
     "54": [
       {
         "label": "Front",
-        "url": "images/pucks/54/front.webp?v=20260928-confirmed54",
+        "url": "images/pucks/54/front.webp?v=333caa2a19ae",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/54/front-thumb.webp?v=20260928-confirmed54"
       },
       {
         "label": "Back",
-        "url": "images/pucks/54/back.webp?v=20260928-batch2",
+        "url": "images/pucks/54/back.webp?v=ed0be517e0d1",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/54/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/54/edge-01.webp?v=0c2f6d762a8e",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/54/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/54/edge-02.webp?v=8fb789078f26",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/54/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/54/edge-03.webp?v=0632ed132bc6",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/54/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/54/edge-04.webp?v=299ae25f4aab",
         "rotation": 0
       },
       {
@@ -1734,28 +1734,28 @@
     "55": [
       {
         "label": "Front",
-        "url": "images/pucks/55/front.webp?v=20260928-batch2",
+        "url": "images/pucks/55/front.webp?v=74ec4055b3e2",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/55/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/55/back.webp?v=20260928-batch2",
+        "url": "images/pucks/55/back.webp?v=372cba4fad7f",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/55/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/55/edge-01.webp?v=cef22dadc4a0",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/55/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/55/edge-02.webp?v=67b2e561a3d6",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/55/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/55/edge-03.webp?v=915ef81df14f",
         "rotation": 0
       },
       {
@@ -1767,84 +1767,84 @@
     "56": [
       {
         "label": "Front",
-        "url": "images/pucks/56/front.webp?v=20260927-level2",
+        "url": "images/pucks/56/front.webp?v=c9929be2e7ed",
         "thumbnailUrl": "images/pucks/56/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/56/back.webp?v=20260927-level2",
+        "url": "images/pucks/56/back.webp?v=d765ab37dd91",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/56/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/56/edge-01.webp?v=6b711275f873",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/56/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/56/edge-02.webp?v=a310b13bf498",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/56/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/56/edge-03.webp?v=5e0c6551327c",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/56/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/56/edge-04.webp?v=f8c66cfb1dd5",
         "rotation": 0
       }
     ],
     "57": [
       {
         "label": "Front",
-        "url": "images/pucks/57/front.webp?v=20260928-batch2",
+        "url": "images/pucks/57/front.webp?v=f5662bd94ca7",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/57/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/57/back.webp?v=20260928-batch2",
+        "url": "images/pucks/57/back.webp?v=c5be09249907",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/57/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/57/edge-01.webp?v=9e14cef9f78b",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/57/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/57/edge-02.webp?v=70ddbd5313d6",
         "rotation": 0
       }
     ],
     "58": [
       {
         "label": "Front",
-        "url": "images/pucks/58/front.webp?v=20260928-batch2",
+        "url": "images/pucks/58/front.webp?v=6179485806ae",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/58/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/58/back.webp?v=20260928-batch2",
+        "url": "images/pucks/58/back.webp?v=0bab33c96194",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/58/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/58/edge-01.webp?v=2a923a19db5f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/58/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/58/edge-02.webp?v=10408e4731a2",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/58/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/58/edge-03.webp?v=4c8b92f71725",
         "rotation": 0
       }
     ],
@@ -1858,28 +1858,28 @@
     "60": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/front.webp?v=3778575d3310",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/front.webp?v=0d1aa9c8e308",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/front-thumb.webp?v=3778575d3310"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/back.webp?v=64416d02d2e5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/back.webp?v=0dff5fedc204",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-01.webp?v=4d00005bfed8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-01.webp?v=d6b9e91e25bc",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-02.webp?v=304572101c98",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-02.webp?v=c445e9b6d25b",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-03.webp?v=3b26cb37cf64",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-03.webp?v=04dc06e2ee8f",
         "rotation": 0
       },
       {
@@ -1891,33 +1891,33 @@
     "62": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/front.webp?v=031fedfc5ea3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/front.webp?v=3f85b6557158",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/front-thumb.webp?v=031fedfc5ea3"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/back.webp?v=0f10ed8ea64e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/back.webp?v=5cf99303a2f5",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-01.webp?v=03831d218477",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-01.webp?v=de75259fb9b0",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-02.webp?v=e334dd82d553",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-02.webp?v=c1a0b5c6431b",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-03.webp?v=ab2ad582bded",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-03.webp?v=269ec7447f52",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-04.webp?v=1506cce99d79",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-04.webp?v=a0d6e242ec4c",
         "rotation": 0
       },
       {
@@ -1929,18 +1929,18 @@
     "63": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/front.webp?v=546b316655bd",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/front.webp?v=850ecd3ceed8",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/front-thumb.webp?v=546b316655bd"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/back.webp?v=3abf64300c0a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/back.webp?v=b5256aef742b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-01.webp?v=e48faa3ed89d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-01.webp?v=5340b0d564d7",
         "rotation": 0
       },
       {
@@ -1950,17 +1950,17 @@
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-03.webp?v=ba16c101f676",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-03.webp?v=89d18ac9de75",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-04.webp?v=e17890810096",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-04.webp?v=4b0a0392168e",
         "rotation": 0
       },
       {
         "label": "Edge 5",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-05.webp?v=ba15620ead1f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-05.webp?v=b8c6a4f1b76a",
         "rotation": 0
       },
       {
@@ -1972,56 +1972,56 @@
     "65": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/front.webp?v=7a79b0567259",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/front.webp?v=7731137e9fd8",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/front-thumb.webp?v=7a79b0567259"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/back.webp?v=2d96b2d1d947",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/back.webp?v=6d53bcde4000",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-01.webp?v=772cd11992f6",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-01.webp?v=255de20f7f53",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-02.webp?v=3fb1e04301ab",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-02.webp?v=32adadaab028",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-03.webp?v=2b40d28a8c31",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-03.webp?v=26b42fd6909c",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-04.webp?v=448423b60540",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-04.webp?v=b2639360d65f",
         "rotation": 0
       }
     ],
     "66": [
       {
         "label": "Front",
-        "url": "images/pucks/66/front.webp?v=20260928-batch2",
+        "url": "images/pucks/66/front.webp?v=f0d3814260fb",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/66/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/66/back.webp?v=20260928-batch2",
+        "url": "images/pucks/66/back.webp?v=4ca306734db3",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/66/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/66/edge-01.webp?v=93a8f9d186e9",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/66/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/66/edge-02.webp?v=3b9828ce4e98",
         "rotation": 0
       },
       {
@@ -2033,56 +2033,56 @@
     "67": [
       {
         "label": "Front",
-        "url": "images/pucks/67/front.webp?v=20260928-batch2",
+        "url": "images/pucks/67/front.webp?v=d8b509bde729",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/67/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/67/back.webp?v=20260928-batch2",
+        "url": "images/pucks/67/back.webp?v=e06586050d89",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/67/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/67/edge-01.webp?v=7ec8dbc2e12a",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/67/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/67/edge-02.webp?v=bf78fe98ff25",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/67/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/67/edge-03.webp?v=56addbb7734a",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/67/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/67/edge-04.webp?v=44e3c03df3fc",
         "rotation": 0
       }
     ],
     "68": [
       {
         "label": "Front",
-        "url": "images/pucks/68/front.webp?v=20260927-level2",
+        "url": "images/pucks/68/front.webp?v=664372daa505",
         "thumbnailUrl": "images/pucks/68/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/68/back.webp?v=20260927-level2",
+        "url": "images/pucks/68/back.webp?v=872d89b1d52c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/68/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/68/edge-01.webp?v=8dabfa0d3cf5",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/68/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/68/edge-02.webp?v=dc1c1a8ec66f",
         "rotation": 0
       },
       {
@@ -2094,13 +2094,13 @@
     "69": [
       {
         "label": "Front",
-        "url": "images/pucks/69/front.webp?v=20260927-level2",
+        "url": "images/pucks/69/front.webp?v=5f1c2db5a4d5",
         "thumbnailUrl": "images/pucks/69/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/69/back.webp?v=20260927-level2",
+        "url": "images/pucks/69/back.webp?v=3719b53b3eef",
         "rotation": 0
       },
       {
@@ -2112,33 +2112,33 @@
     "70": [
       {
         "label": "Front",
-        "url": "images/pucks/70/front.webp?v=20260927-level2",
+        "url": "images/pucks/70/front.webp?v=ddf3213b6b6c",
         "thumbnailUrl": "images/pucks/70/front-thumb.webp?v=20260927-level2",
         "rotation": 0
       },
       {
         "label": "Back",
-        "url": "images/pucks/70/back.webp?v=20260927-level2",
+        "url": "images/pucks/70/back.webp?v=ab565cbc21a6",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/70/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/70/edge-01.webp?v=a2fd1eb14f22",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/70/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/70/edge-02.webp?v=11b085cb531e",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/70/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/70/edge-03.webp?v=dd7abc19f817",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/70/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/70/edge-04.webp?v=dce9301b7f11",
         "rotation": 0
       },
       {
@@ -2150,28 +2150,28 @@
     "71": [
       {
         "label": "Front",
-        "url": "images/pucks/71/front.webp?v=20260928-batch2",
+        "url": "images/pucks/71/front.webp?v=15ff2d2922e0",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/71/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/71/back.webp?v=20260928-batch2",
+        "url": "images/pucks/71/back.webp?v=3a374d069f25",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/71/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/71/edge-01.webp?v=89acf955d5e4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/71/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/71/edge-02.webp?v=ed87c6c284f2",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/71/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/71/edge-03.webp?v=59838f683203",
         "rotation": 0
       },
       {
@@ -2183,56 +2183,56 @@
     "72": [
       {
         "label": "Front",
-        "url": "images/pucks/72/front.webp?v=20260928-batch2",
+        "url": "images/pucks/72/front.webp?v=54495cd5751b",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/72/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/72/back.webp?v=20260928-batch2",
+        "url": "images/pucks/72/back.webp?v=c9eefd775788",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/72/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/72/edge-01.webp?v=9638b51957ec",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/72/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/72/edge-02.webp?v=3939919f2cea",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/72/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/72/edge-03.webp?v=cde3173aa67d",
         "rotation": 0
       }
     ],
     "73": [
       {
         "label": "Front",
-        "url": "images/pucks/73/front.webp?v=20260928-batch2",
+        "url": "images/pucks/73/front.webp?v=060bb577842d",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/73/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/73/back.webp?v=20260928-batch2",
+        "url": "images/pucks/73/back.webp?v=230e7274e51d",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/73/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/73/edge-01.webp?v=323757120a1c",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/73/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/73/edge-02.webp?v=8419a2db6756",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/73/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/73/edge-03.webp?v=03a08cbcbf5b",
         "rotation": 0
       },
       {
@@ -2244,23 +2244,23 @@
     "74": [
       {
         "label": "Front",
-        "url": "images/pucks/74/front.webp?v=20260928-batch2",
+        "url": "images/pucks/74/front.webp?v=4f47448394e6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/74/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/74/back.webp?v=20260928-batch2",
+        "url": "images/pucks/74/back.webp?v=af0895f61f4a",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/74/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/74/edge-01.webp?v=51624beaade4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/74/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/74/edge-02.webp?v=d9db8cf36767",
         "rotation": 0
       },
       {
@@ -2272,33 +2272,33 @@
     "75": [
       {
         "label": "Front",
-        "url": "images/pucks/75/front.webp?v=20260928-batch2",
+        "url": "images/pucks/75/front.webp?v=a604e1fca095",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/75/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/75/back.webp?v=20260928-batch2",
+        "url": "images/pucks/75/back.webp?v=75571743c73c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/75/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/75/edge-01.webp?v=aa4693224b33",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/75/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/75/edge-02.webp?v=b074cffa073a",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/75/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/75/edge-03.webp?v=b80d179c0f68",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/75/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/75/edge-04.webp?v=c05b76e21ba3",
         "rotation": 0
       },
       {
@@ -2310,23 +2310,23 @@
     "76": [
       {
         "label": "Front",
-        "url": "images/pucks/76/front.webp?v=20260928-batch2",
+        "url": "images/pucks/76/front.webp?v=2af8e9882f06",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/76/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/76/back.webp?v=20260928-batch2",
+        "url": "images/pucks/76/back.webp?v=83eafad5e369",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/76/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/76/edge-01.webp?v=9ef85aeb6f7e",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/76/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/76/edge-02.webp?v=997d68d0599c",
         "rotation": 0
       },
       {
@@ -2338,273 +2338,273 @@
     "77": [
       {
         "label": "Front",
-        "url": "images/pucks/77/front.webp?v=20260928-batch2",
+        "url": "images/pucks/77/front.webp?v=a6234a1a4c43",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/77/front-thumb.webp?v=20260928-batch2"
       },
       {
         "label": "Back",
-        "url": "images/pucks/77/back.webp?v=20260928-batch2",
+        "url": "images/pucks/77/back.webp?v=90c5e9eceea9",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/77/edge-01.webp?v=20260928-batch2",
+        "url": "images/pucks/77/edge-01.webp?v=98dc61968447",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/77/edge-02.webp?v=20260928-batch2",
+        "url": "images/pucks/77/edge-02.webp?v=41acf8adbeb7",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/77/edge-03.webp?v=20260928-batch2",
+        "url": "images/pucks/77/edge-03.webp?v=29fa50c92f4b",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/77/edge-04.webp?v=20260928-batch2",
+        "url": "images/pucks/77/edge-04.webp?v=0f86fec23c05",
         "rotation": 0
       },
       {
         "label": "Edge 5",
-        "url": "images/pucks/77/edge-05.webp?v=20260928-batch2",
+        "url": "images/pucks/77/edge-05.webp?v=9eee152eb5c0",
         "rotation": 0
       }
     ],
     "302": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/front.webp?v=a82065035360",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/front.webp?v=fb2a83917523",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/front-thumb.webp?v=a82065035360"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/back.webp?v=3cb80ed34282",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/back.webp?v=374793feda91",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-01.webp?v=38643b378ba8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-01.webp?v=a02bd0af4ee4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-02.webp?v=10ed5247a253",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-02.webp?v=a38b18a4aa8a",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-03.webp?v=f190f4db5c58",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-03.webp?v=cebafeda3a37",
         "rotation": 0
       }
     ],
     "303": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/front.webp?v=c5ae18b586f1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/front.webp?v=a066a0e70053",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/front-thumb.webp?v=c5ae18b586f1"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/back.webp?v=4ecf88640837",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/back.webp?v=2c8effd41618",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-01.webp?v=5e3d7e2ad887",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-01.webp?v=ac69fecaf870",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-02.webp?v=73e48f494f99",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-02.webp?v=8e3b284a853b",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-03.webp?v=c7c7b5dab9a3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-03.webp?v=7c2b35a49eba",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-04.webp?v=0b82379c2537",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-04.webp?v=b800ed56f6f3",
         "rotation": 0
       }
     ],
     "304": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/front.webp?v=8168bec13217",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/front.webp?v=5cc6009b1489",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/front-thumb.webp?v=8168bec13217"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/back.webp?v=4f5de16fb136",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/back.webp?v=e4145df34eee",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-01.webp?v=6159f4bd2ab5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-01.webp?v=bb9f631067df",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-02.webp?v=84e0056c8749",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-02.webp?v=d710826b0486",
         "rotation": 0
       }
     ],
     "305": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/front.webp?v=744cf0e8cd66",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/front.webp?v=6b860fb7de90",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/front-thumb.webp?v=744cf0e8cd66"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/back.webp?v=52f61fbf84d2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/back.webp?v=fb9e5cfdfd72",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-01.webp?v=3426f166c17d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-01.webp?v=6fc8d42682c0",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-02.webp?v=49ff06a475ca",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-02.webp?v=167d0707e0ee",
         "rotation": 0
       }
     ],
     "306": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/front.webp?v=a9ba918f79af",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/front.webp?v=429aceaaec75",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/front-thumb.webp?v=a9ba918f79af"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/back.webp?v=96463b5090dc",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/back.webp?v=7530ef27deec",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-01.webp?v=212e01913b99",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-01.webp?v=6c94a4019a00",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-02.webp?v=323701dea56b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-02.webp?v=4b832cfeb64c",
         "rotation": 0
       }
     ],
     "307": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/front.webp?v=38fbb43c49ff",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/front.webp?v=1ed19825ab30",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/front-thumb.webp?v=38fbb43c49ff"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/back.webp?v=568bd8820c59",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/back.webp?v=d61c981b201c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-01.webp?v=b216d5eeef0f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-01.webp?v=1645cc444c23",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-02.webp?v=6feab9aa38b9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-02.webp?v=8c9ac9c403ac",
         "rotation": 0
       }
     ],
     "308": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/front.webp?v=fa674a2bef44",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/front.webp?v=cdfcf4df7bc9",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/front-thumb.webp?v=fa674a2bef44"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/back.webp?v=14cce6b1851f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/back.webp?v=55baef6c70fc",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-01.webp?v=ee4b0f9a25a8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-01.webp?v=7550b0c5d0fb",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-02.webp?v=35b55b2b0c9e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-02.webp?v=e561d85f41b6",
         "rotation": 0
       }
     ],
     "309": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/front.webp?v=6b00bda16b38",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/front.webp?v=d981ddebaf1e",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/front-thumb.webp?v=6b00bda16b38"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/back.webp?v=c0d9a1a8048b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/back.webp?v=84d8b325ded5",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-01.webp?v=72421644cd29",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-01.webp?v=4e9369045d15",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-02.webp?v=9b92f543c027",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-02.webp?v=4215f6520595",
         "rotation": 0
       }
     ],
     "310": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/front.webp?v=b7da4a97d7ed",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/front.webp?v=559728d2438b",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/front-thumb.webp?v=b7da4a97d7ed"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/back.webp?v=b67143264ca3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/back.webp?v=64f00f262d47",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-01.webp?v=fbae91a9bf54",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-01.webp?v=28698bb8c1ca",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-02.webp?v=87ee4762ebe2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-02.webp?v=4a805532da25",
         "rotation": 0
       }
     ],
     "311": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/front.webp?v=3ceba2735af6",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/front.webp?v=a2a2518f7b1f",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/front-thumb.webp?v=3ceba2735af6"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/back.webp?v=98df1a9793ef",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/back.webp?v=4940e2570070",
         "rotation": 0
       },
       {
@@ -2614,20 +2614,20 @@
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/edge-02.webp?v=693828697ace",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/edge-02.webp?v=cc77c1435cb2",
         "rotation": 0
       }
     ],
     "312": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/front.webp?v=7af22ba309df",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/front.webp?v=d8610362d865",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/front-thumb.webp?v=7af22ba309df"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/back.webp?v=0d692c2765b8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/back.webp?v=7e42d88fe920",
         "rotation": 0
       },
       {
@@ -2644,13 +2644,13 @@
     "314": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/front.webp?v=f6f247c4e0d7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/front.webp?v=b6330d785b3f",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/front-thumb.webp?v=f6f247c4e0d7"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/back.webp?v=f1accf56e392",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/back.webp?v=f8aee5eee180",
         "rotation": 0
       },
       {
@@ -2667,18 +2667,18 @@
     "315": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/front.webp?v=43bb8da24b06",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/front.webp?v=97c722ef1645",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/front-thumb.webp?v=43bb8da24b06"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/back.webp?v=cfa36ce51047",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/back.webp?v=319b3e1e6e2d",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/edge-01.webp?v=bd6151993266",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/edge-01.webp?v=6dff2d9b1cf4",
         "rotation": 0
       },
       {
@@ -2690,105 +2690,105 @@
     "316": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/front.webp?v=b8a2928e05c9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/front.webp?v=5fd572e1e884",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/front-thumb.webp?v=b8a2928e05c9"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/back.webp?v=c1efebcbbc85",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/back.webp?v=6da456a2c24c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-01.webp?v=e2f832393642",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-01.webp?v=8391f64827b1",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-02.webp?v=2fde24491409",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-02.webp?v=09e4db22078c",
         "rotation": 0
       }
     ],
     "317": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/front.webp?v=ab5a5840c2c8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/front.webp?v=b897946603e0",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/front-thumb.webp?v=ab5a5840c2c8"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/back.webp?v=e665aa7f986a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/back.webp?v=f1f93aecd18a",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-01.webp?v=3555d2129647",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-01.webp?v=71181fe77a5c",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-02.webp?v=e278121f5f41",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-02.webp?v=6a3fb03a6cf4",
         "rotation": 0
       }
     ],
     "318": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/front.webp?v=00e8f8c7456a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/front.webp?v=035d8f6eb60c",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/front-thumb.webp?v=00e8f8c7456a"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/back.webp?v=985f1c441d55",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/back.webp?v=38e28845a65c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-01.webp?v=f2f055ecb29f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-01.webp?v=96f200fe6b80",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-02.webp?v=b19cdb097451",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-02.webp?v=a6a0cd89c623",
         "rotation": 0
       }
     ],
     "319": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/front.webp?v=a72cc3094dcc",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/front.webp?v=9d31826e5953",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/front-thumb.webp?v=a72cc3094dcc"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/back.webp?v=6e5cbf238d90",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/back.webp?v=16bee293cddc",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-01.webp?v=ca603552d8c1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-01.webp?v=5ae517a9b603",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-02.webp?v=a3effee4c876",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-02.webp?v=6ed8fc75cebc",
         "rotation": 0
       }
     ],
     "320": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/front.webp?v=61a30e9032ef",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/front.webp?v=57defed00182",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/front-thumb.webp?v=61a30e9032ef"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/back.webp?v=768189d76fd7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/back.webp?v=d046362075d9",
         "rotation": 0
       },
       {
@@ -2798,109 +2798,109 @@
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/edge-02.webp?v=8ebeaf31b257",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/edge-02.webp?v=3a3b929117b5",
         "rotation": 0
       }
     ],
     "321": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/front.webp?v=a3939a61079d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/front.webp?v=c8491d30a56d",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/front-thumb.webp?v=a3939a61079d"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/back.webp?v=65b82f555312",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/back.webp?v=defa6590dfa2",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-01.webp?v=b32f9d6814b9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-01.webp?v=c8b316798df2",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-02.webp?v=1d6986d5c5cb",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-02.webp?v=9cb062ac8c30",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-03.webp?v=08d8ee4ab67d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-03.webp?v=502c3907d0f1",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-04.webp?v=aaf08f4afe45",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-04.webp?v=29d1777d7b66",
         "rotation": 0
       }
     ],
     "322": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/front.webp?v=cd12b0c9e230",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/front.webp?v=4f344a9ed43f",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/front-thumb.webp?v=cd12b0c9e230"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/back.webp?v=cb4dccb07a9d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/back.webp?v=74e7f5bb676f",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/edge-01.webp?v=fe79784d2922",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/edge-01.webp?v=eb4fe3a926ad",
         "rotation": 0
       }
     ],
     "323": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/front.webp?v=dd43ccb9ee0e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/front.webp?v=b42918964fb4",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/front-thumb.webp?v=dd43ccb9ee0e"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/back.webp?v=4fcb8f102acc",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/back.webp?v=8bf0c09fc19c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-01.webp?v=8ae971e85a18",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-01.webp?v=d4b8b46c7f65",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-02.webp?v=0d147a4977d0",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-02.webp?v=fac473cdfb10",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-03.webp?v=90d8dcbf8be7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-03.webp?v=ac01ba602595",
         "rotation": 0
       }
     ],
     "324": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/front.webp?v=a2e671a635f2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/front.webp?v=2d2a0c2ac4d9",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/front-thumb.webp?v=a2e671a635f2"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/back.webp?v=dab6462a1bf0",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/back.webp?v=8dbb2a7fa124",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-01.webp?v=6beb693e9d46",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-01.webp?v=0413218a1d32",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-02.webp?v=312f03bf26c8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-02.webp?v=ef40d38f0aba",
         "rotation": 0
       },
       {
@@ -2912,82 +2912,82 @@
     "325": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/front.webp?v=bdaa6b9bdf90",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/front.webp?v=6f772d825fda",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/front-thumb.webp?v=bdaa6b9bdf90"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/back.webp?v=24c264b43bb2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/back.webp?v=ee31a5d36b30",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-01.webp?v=176d0046bd5b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-01.webp?v=e6711ea10f87",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-02.webp?v=0c9cdc52c105",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-02.webp?v=4cf3af242917",
         "rotation": 0
       }
     ],
     "326": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/front.webp?v=13ad37875538",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/front.webp?v=7b7dfa0c70d0",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/front-thumb.webp?v=13ad37875538"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/back.webp?v=026ae2749f03",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/back.webp?v=3a9d79b94a87",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-01.webp?v=fcdf154013f5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-01.webp?v=bf6f5474613f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-02.webp?v=3d7c56e3f15f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-02.webp?v=f12c37d981ca",
         "rotation": 0
       }
     ],
     "327": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/front.webp?v=74aac1531669",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/front.webp?v=7d053b51d42e",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/front-thumb.webp?v=74aac1531669"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/back.webp?v=2cee82b3cd4f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/back.webp?v=7d923e2bbd2a",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-01.webp?v=ce5da688dfe6",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-01.webp?v=59a184e38e9e",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-02.webp?v=096626f5352c",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-02.webp?v=831fd647dcdc",
         "rotation": 0
       }
     ],
     "328": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/front.webp?v=e1e6a1bd4697",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/front.webp?v=9107a1a5458a",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/front-thumb.webp?v=e1e6a1bd4697"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/back.webp?v=962536d3c32d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/back.webp?v=8b53d3873e13",
         "rotation": 0
       },
       {
@@ -3014,13 +3014,13 @@
     "329": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/front.webp?v=fdadc2758533",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/front.webp?v=f87c01f5542c",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/front-thumb.webp?v=fdadc2758533"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/back.webp?v=8b244454f812",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/back.webp?v=923a64a8ff74",
         "rotation": 0
       },
       {
@@ -3047,13 +3047,13 @@
     "330": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/front.webp?v=c805a34781cc",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/front.webp?v=b35671b0f06c",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/front-thumb.webp?v=c805a34781cc"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/back.webp?v=232a9f6970c1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/back.webp?v=74e43932d340",
         "rotation": 0
       },
       {
@@ -3080,92 +3080,92 @@
     "331": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/front.webp?v=c1643fd12b86",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/front.webp?v=f92a8c63ecc5",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/front-thumb.webp?v=799943834a77"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/back.webp?v=3ccdd69b1275",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/back.webp?v=8100327eade6",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/edge-01.webp?v=0d4723464a09",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/edge-01.webp?v=623c4797eb9c",
         "rotation": 0
       }
     ],
     "332": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/front.webp?v=35473c40ce2f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/front.webp?v=ee27b3eefd66",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/front-thumb.webp?v=35473c40ce2f"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/back.webp?v=4a93b49b4f9d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/back.webp?v=95076f2a98e9",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/edge-01.webp?v=7b0cb80e47a2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/edge-01.webp?v=97c3b604f6cc",
         "rotation": 0
       }
     ],
     "334": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/front.webp?v=de41b9d5edb0",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/front.webp?v=085d6fcd7f7a",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/front-thumb.webp?v=de41b9d5edb0"
       },
       {
         "label": "Back",
-        "url": "images/pucks/334/back.webp?v=20260927-level2",
+        "url": "images/pucks/334/back.webp?v=69a5794d2a00",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/334/edge-01.webp?v=20260927-level2",
+        "url": "images/pucks/334/edge-01.webp?v=203d280621d4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/334/edge-02.webp?v=20260927-level2",
+        "url": "images/pucks/334/edge-02.webp?v=02a394317c2f",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "images/pucks/334/edge-03.webp?v=20260927-level2",
+        "url": "images/pucks/334/edge-03.webp?v=147e69b6d435",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "images/pucks/334/edge-04.webp?v=20260927-level2",
+        "url": "images/pucks/334/edge-04.webp?v=1dbc662df563",
         "rotation": 0
       },
       {
         "label": "Edge 5",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-05.webp?v=ed36699dbd7c",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-05.webp?v=0f497f69da63",
         "rotation": 0
       },
       {
         "label": "Edge 6",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-06.webp?v=16ab5211760b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-06.webp?v=5f25c08dfd8b",
         "rotation": 0
       }
     ],
     "335": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/front.webp?v=7352604ecdda",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/front.webp?v=a08dbe6140bd",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/front-thumb.webp?v=7352604ecdda"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/back.webp?v=3fc61122c66a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/back.webp?v=44465b0829e0",
         "rotation": 0
       },
       {
@@ -3192,113 +3192,113 @@
     "336": [
       {
         "label": "Front",
-        "url": "images/pucks/336/front.webp?v=20260928-repeat",
+        "url": "images/pucks/336/front.webp?v=562c69c9c5dc",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/336/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/336/back.webp?v=20260928-repeat",
+        "url": "images/pucks/336/back.webp?v=4b1e7fc2fa23",
         "rotation": 0
       }
     ],
     "337": [
       {
         "label": "Front",
-        "url": "images/pucks/337/front.webp?v=20260928-repeat",
+        "url": "images/pucks/337/front.webp?v=c9247d5658cf",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/337/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/337/back.webp?v=20260928-repeat",
+        "url": "images/pucks/337/back.webp?v=437bd2236f6b",
         "rotation": 0
       }
     ],
     "338": [
       {
         "label": "Front",
-        "url": "images/pucks/338/front.webp?v=20260928-repeat",
+        "url": "images/pucks/338/front.webp?v=066d0a906f2f",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/338/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/338/back.webp?v=20260928-repeat",
+        "url": "images/pucks/338/back.webp?v=a40f7ebd6628",
         "rotation": 0
       }
     ],
     "339": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/front.webp?v=16c432162c74",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/front.webp?v=c0647da9ac59",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/front-thumb.webp?v=1a344009c90b"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/back.webp?v=1390ecfedea9",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/back.webp?v=abccba637426",
         "rotation": 0
       }
     ],
     "501": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/front.webp?v=2f042c4d42d5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/front.webp?v=9270268ec7db",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/front-thumb.webp?v=2f042c4d42d5"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/back.webp?v=cc27e21c219d",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/back.webp?v=6bfa18b8d6b1",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-01.webp?v=2b738b5623bd",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-01.webp?v=207fa9c8cd3e",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-02.webp?v=2e7f924abe4e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-02.webp?v=30f1cb0b0ce9",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-03.webp?v=1e7343ea82b7",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-03.webp?v=91e9fc04604a",
         "rotation": 0
       }
     ],
     "502": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/front.webp?v=e7376f916dd1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/front.webp?v=e5fb3511e96c",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/front-thumb.webp?v=e7376f916dd1"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/back.webp?v=fce56091a4cf",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/back.webp?v=01d10bc8fc08",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-01.webp?v=6c159ab79b7e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-01.webp?v=6d391c364338",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-02.webp?v=5e26c03a86c4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-02.webp?v=3ea5f7032215",
         "rotation": 0
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-03.webp?v=314cf4b25001",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-03.webp?v=46cbff98daec",
         "rotation": 0
       },
       {
         "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-04.webp?v=4799a0e45567",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-04.webp?v=55b9fd1c911b",
         "rotation": 0
       }
     ],
@@ -3317,18 +3317,18 @@
     "504": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/front.webp?v=c37aca9313b5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/front.webp?v=7af54479b666",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/front-thumb.webp?v=c37aca9313b5"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/back.webp?v=1ae7cca56238",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/back.webp?v=997c1a42e966",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-01.webp?v=3d662ab71014",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-01.webp?v=0d688ad45b4d",
         "rotation": 0
       },
       {
@@ -3338,7 +3338,7 @@
       },
       {
         "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-03.webp?v=54576a9ca1e8",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-03.webp?v=87b9d9fac59c",
         "rotation": 0
       },
       {
@@ -3350,46 +3350,46 @@
     "505": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/front.webp?v=104987355f15",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/front.webp?v=9e27cc8f1a46",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/front-thumb.webp?v=104987355f15"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/back.webp?v=06d2b3eee60b",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/back.webp?v=e37b2e091c46",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-01.webp?v=c1bbb5d66b18",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-01.webp?v=f84289e45ff6",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-02.webp?v=c61de406f3af",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-02.webp?v=8f1ea0889327",
         "rotation": 0
       }
     ],
     "506": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/front.webp?v=dfd90eba787f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/front.webp?v=a73da1fe0584",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/front-thumb.webp?v=dfd90eba787f"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/back.webp?v=f5b63aa71134",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/back.webp?v=52c7a87fcee9",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-01.webp?v=95a207c1f77a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-01.webp?v=7cdf5b034975",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-02.webp?v=01599790da91",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-02.webp?v=8f5470957607",
         "rotation": 0
       },
       {
@@ -3401,41 +3401,41 @@
     "507": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/front.webp?v=868f8a1eebd4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/front.webp?v=e7b65723c8d2",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/front-thumb.webp?v=868f8a1eebd4"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/back.webp?v=9a9d0b1d787e",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/back.webp?v=31fe4909be9b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-01.webp?v=4ef77e3491b6",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-01.webp?v=1e760e1887a4",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-02.webp?v=05abc55191c1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-02.webp?v=b4384118a8b6",
         "rotation": 0
       }
     ],
     "508": [
       {
         "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/front.webp?v=e0ee460f0516",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/front.webp?v=9b7d5824bcb4",
         "rotation": 0,
         "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/front-thumb.webp?v=e0ee460f0516"
       },
       {
         "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/back.webp?v=5deee3a0e3c5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/back.webp?v=c9b5e70be27c",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/edge-01.webp?v=a36a45a38b25",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/edge-01.webp?v=30a41055a65a",
         "rotation": 0
       },
       {
@@ -3479,13 +3479,13 @@
     "600": [
       {
         "label": "Front",
-        "url": "images/pucks/600/front.webp?v=20260928-repeat",
+        "url": "images/pucks/600/front.webp?v=5628410ea2cc",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/600/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/600/back.webp?v=20260928-repeat",
+        "url": "images/pucks/600/back.webp?v=0695f95fb1d2",
         "rotation": 0
       },
       {
@@ -3497,13 +3497,13 @@
     "601": [
       {
         "label": "Front",
-        "url": "images/pucks/601/front.webp?v=20260928-repeat",
+        "url": "images/pucks/601/front.webp?v=0f6d1e6a3fb4",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/601/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/601/back.webp?v=20260928-repeat",
+        "url": "images/pucks/601/back.webp?v=8a6786d60abd",
         "rotation": 0
       },
       {
@@ -3515,26 +3515,26 @@
     "602": [
       {
         "label": "Front",
-        "url": "images/pucks/602/front.webp?v=20260928-repeat",
+        "url": "images/pucks/602/front.webp?v=656722635822",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/602/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/602/back.webp?v=20260928-repeat",
+        "url": "images/pucks/602/back.webp?v=18f8960ab8c1",
         "rotation": 0
       }
     ],
     "603": [
       {
         "label": "Front",
-        "url": "images/pucks/603/front.webp?v=20260928-repeat",
+        "url": "images/pucks/603/front.webp?v=0a4328f1df7e",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/603/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/603/back.webp?v=20260928-repeat",
+        "url": "images/pucks/603/back.webp?v=f3f011102f0e",
         "rotation": 0
       },
       {
@@ -3546,78 +3546,78 @@
     "604": [
       {
         "label": "Front",
-        "url": "images/pucks/604/front.webp?v=20260928-repeat",
+        "url": "images/pucks/604/front.webp?v=4341c639fca6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/604/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/604/back.webp?v=20260928-repeat",
+        "url": "images/pucks/604/back.webp?v=fbbba0499b9b",
         "rotation": 0
       }
     ],
     "605": [
       {
         "label": "Front",
-        "url": "images/pucks/605/front.webp?v=20260928-repeat",
+        "url": "images/pucks/605/front.webp?v=a81733617282",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/605/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/605/back.webp?v=20260928-repeat",
+        "url": "images/pucks/605/back.webp?v=7a3a45498a34",
         "rotation": 0
       }
     ],
     "606": [
       {
         "label": "Front",
-        "url": "images/pucks/606/front.webp?v=20260928-repeat",
+        "url": "images/pucks/606/front.webp?v=8244432044cc",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/606/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/606/back.webp?v=20260928-repeat",
+        "url": "images/pucks/606/back.webp?v=3c4f9fe1fac8",
         "rotation": 0
       }
     ],
     "607": [
       {
         "label": "Front",
-        "url": "images/pucks/607/front.webp?v=20260928-repeat",
+        "url": "images/pucks/607/front.webp?v=2d9041129016",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/607/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/607/back.webp?v=20260928-repeat",
+        "url": "images/pucks/607/back.webp?v=2e0a2803d0c0",
         "rotation": 0
       }
     ],
     "608": [
       {
         "label": "Front",
-        "url": "images/pucks/608/front.webp?v=20260928-repeat",
+        "url": "images/pucks/608/front.webp?v=1a650bf7d69f",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/608/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/608/back.webp?v=20260928-repeat",
+        "url": "images/pucks/608/back.webp?v=f8e5b9fbd7cd",
         "rotation": 0
       }
     ],
     "609": [
       {
         "label": "Front",
-        "url": "images/pucks/609/front.webp?v=20260928-repeat",
+        "url": "images/pucks/609/front.webp?v=d4b6a05eb145",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/609/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/609/back.webp?v=20260928-repeat",
+        "url": "images/pucks/609/back.webp?v=37e40df151ed",
         "rotation": 0
       },
       {
@@ -3629,174 +3629,174 @@
     "610": [
       {
         "label": "Front",
-        "url": "images/pucks/610/front.webp?v=20260928-repeat",
+        "url": "images/pucks/610/front.webp?v=65fd9d94bd6e",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/610/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/610/back.webp?v=20260928-repeat",
+        "url": "images/pucks/610/back.webp?v=4c744f48fb27",
         "rotation": 0
       }
     ],
     "611": [
       {
         "label": "Front",
-        "url": "images/pucks/611/front.webp?v=20260928-repeat",
+        "url": "images/pucks/611/front.webp?v=ea385f9fd408",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/611/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/611/back.webp?v=20260928-repeat",
+        "url": "images/pucks/611/back.webp?v=a0ea93760e50",
         "rotation": 0
       }
     ],
     "612": [
       {
         "label": "Front",
-        "url": "images/pucks/612/front.webp?v=20260928-repeat",
+        "url": "images/pucks/612/front.webp?v=4b7d5ea8e8f7",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/612/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/612/back.webp?v=20260928-repeat",
+        "url": "images/pucks/612/back.webp?v=f1dbb22e34a4",
         "rotation": 0
       }
     ],
     "613": [
       {
         "label": "Front",
-        "url": "images/pucks/613/front.webp?v=20260928-repeat",
+        "url": "images/pucks/613/front.webp?v=7bfd59bcf314",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/613/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/613/back.webp?v=20260928-repeat",
+        "url": "images/pucks/613/back.webp?v=d1df5f191e87",
         "rotation": 0
       }
     ],
     "614": [
       {
         "label": "Front",
-        "url": "images/pucks/614/front.webp?v=20260928-repeat",
+        "url": "images/pucks/614/front.webp?v=6a8eb6f0f12d",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/614/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/614/back.webp?v=20260928-repeat",
+        "url": "images/pucks/614/back.webp?v=7b9c17106eee",
         "rotation": 0
       }
     ],
     "615": [
       {
         "label": "Front",
-        "url": "images/pucks/615/front.webp?v=20260928-repeat",
+        "url": "images/pucks/615/front.webp?v=848bea3c1c44",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/615/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/615/back.webp?v=20260928-repeat",
+        "url": "images/pucks/615/back.webp?v=623b212791c7",
         "rotation": 0
       }
     ],
     "616": [
       {
         "label": "Front",
-        "url": "images/pucks/616/front.webp?v=20260928-repeat",
+        "url": "images/pucks/616/front.webp?v=f214304e9bd7",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/616/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/616/back.webp?v=20260928-repeat",
+        "url": "images/pucks/616/back.webp?v=945c354bd618",
         "rotation": 0
       }
     ],
     "617": [
       {
         "label": "Front",
-        "url": "images/pucks/617/front.webp?v=20260928-repeat",
+        "url": "images/pucks/617/front.webp?v=0b192f424707",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/617/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/617/back.webp?v=20260928-repeat",
+        "url": "images/pucks/617/back.webp?v=7ac7e1918a83",
         "rotation": 0
       }
     ],
     "618": [
       {
         "label": "Front",
-        "url": "images/pucks/618/front.webp?v=20260928-repeat",
+        "url": "images/pucks/618/front.webp?v=f9081de9289a",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/618/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/618/back.webp?v=20260928-repeat",
+        "url": "images/pucks/618/back.webp?v=b07a958a4633",
         "rotation": 0
       }
     ],
     "619": [
       {
         "label": "Front",
-        "url": "images/pucks/619/front.webp?v=20260928-repeat",
+        "url": "images/pucks/619/front.webp?v=53c93b3b095c",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/619/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/619/back.webp?v=20260928-repeat",
+        "url": "images/pucks/619/back.webp?v=6a398b6acc08",
         "rotation": 0
       }
     ],
     "620": [
       {
         "label": "Front",
-        "url": "images/pucks/620/front.webp?v=20260928-repeat",
+        "url": "images/pucks/620/front.webp?v=5fe9ad1509d6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/620/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/620/back.webp?v=20260928-repeat",
+        "url": "images/pucks/620/back.webp?v=96815a126b34",
         "rotation": 0
       }
     ],
     "621": [
       {
         "label": "Front",
-        "url": "images/pucks/621/front.webp?v=20260928-repeat",
+        "url": "images/pucks/621/front.webp?v=ee87b273d68e",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/621/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/621/back.webp?v=20260928-repeat",
+        "url": "images/pucks/621/back.webp?v=bd95155e85fa",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/621/edge-01.webp?v=20260928-repeat",
+        "url": "images/pucks/621/edge-01.webp?v=f9a2c3f8783e",
         "rotation": 0
       }
     ],
     "622": [
       {
         "label": "Front",
-        "url": "images/pucks/622/front.webp?v=20260928-repeat",
+        "url": "images/pucks/622/front.webp?v=a81eec0a954f",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/622/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/622/back.webp?v=20260928-repeat",
+        "url": "images/pucks/622/back.webp?v=3c78d8b67b8f",
         "rotation": 0
       },
       {
@@ -3808,13 +3808,13 @@
     "623": [
       {
         "label": "Front",
-        "url": "images/pucks/623/front.webp?v=20260928-repeat",
+        "url": "images/pucks/623/front.webp?v=05ce7e591495",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/623/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/623/back.webp?v=20260928-repeat",
+        "url": "images/pucks/623/back.webp?v=ccf464c3a56a",
         "rotation": 0
       },
       {
@@ -3826,59 +3826,59 @@
     "624": [
       {
         "label": "Front",
-        "url": "images/pucks/624/front.webp?v=20260928-repeat",
+        "url": "images/pucks/624/front.webp?v=746c6e567ea6",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/624/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/624/back.webp?v=20260928-repeat",
+        "url": "images/pucks/624/back.webp?v=1f71ecca1975",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/624/edge-01.webp?v=20260928-repeat",
+        "url": "images/pucks/624/edge-01.webp?v=c5b2422eb93f",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/624/edge-02.webp?v=20260928-repeat",
+        "url": "images/pucks/624/edge-02.webp?v=768ab2e05c10",
         "rotation": 0
       }
     ],
     "625": [
       {
         "label": "Front",
-        "url": "images/pucks/625/front.webp?v=20260928-repeat",
+        "url": "images/pucks/625/front.webp?v=68b634af9712",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/625/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/625/back.webp?v=20260928-repeat",
+        "url": "images/pucks/625/back.webp?v=b88bb219a32b",
         "rotation": 0
       },
       {
         "label": "Edge 1",
-        "url": "images/pucks/625/edge-01.webp?v=20260928-repeat",
+        "url": "images/pucks/625/edge-01.webp?v=178a311945af",
         "rotation": 0
       },
       {
         "label": "Edge 2",
-        "url": "images/pucks/625/edge-02.webp?v=20260928-repeat",
+        "url": "images/pucks/625/edge-02.webp?v=b3b9f4e4121e",
         "rotation": 0
       }
     ],
     "626": [
       {
         "label": "Front",
-        "url": "images/pucks/626/front.webp?v=20260928-repeat",
+        "url": "images/pucks/626/front.webp?v=2076898f7311",
         "rotation": 0,
         "thumbnailUrl": "images/pucks/626/front-thumb.webp?v=20260928-repeat"
       },
       {
         "label": "Back",
-        "url": "images/pucks/626/back.webp?v=20260928-repeat",
+        "url": "images/pucks/626/back.webp?v=551b5b44d92d",
         "rotation": 0
       }
     ]
@@ -3894,6 +3894,6 @@
     "batch": "2026-09-28-batch3",
     "viewsAdded": 239,
     "viewsReplaced": 1,
-    "method": "Native Photoshop, non-generative tone/crop/background isolation and individually reviewed pixel leveling. Full-resolution masters retained. Quality-96 WebP, exact alpha and lossless front thumbnails. Validated artifact database controls associations."
+    "method": "Non-generative Photoshop edits and reviewed pixel leveling; original photos and lossless masters retained. High-quality WebP compression independently checked for unchanged dimensions and alpha, with detailed images retained when quality or size checks fail. Front thumbnails remain lossless."
   }
 }
