@@ -89,10 +89,10 @@ assert.equal(summaryRows().length, 0);
 assert.equal(element("vault-no-results").hidden, false);
 
 view("arenas");
-assert.equal(summaryRows().length, 37, "all 37 catalogued arena names must be listed");
+assert.equal(summaryRows().length, new Set(payload.records.map(r => r.arena)).size, "all catalogued arena names must be listed");
 assert.equal(element("vault-search").value, "");
 assert.equal(element("vault-no-results").hidden, true);
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 122);
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 152);
 change("vault-sort", "name");
 const names = summaryRows().map(label);
 assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
@@ -108,7 +108,7 @@ assert.ok(!element("vault-breakdown-body").textContent.includes("unmarked"));
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 75);
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 76, "both assist records must be excluded from goal types");
 view("sheets");
-assert.equal(summaryRows().length, 3);
+assert.equal(summaryRows().length, 4);
 assert.ok(summaryRows().some((row) => label(row) === "Goals"));
 assert.ok(!element("vault-breakdown-body").textContent.includes("Goals & Games"));
 assert.ok(!element("vault-breakdown-body").textContent.includes("Empty net (no goaltender)"));
@@ -120,6 +120,10 @@ open("Road to History");
 assert.equal(element("vault-history-story").hidden, false);
 assert.equal(element("vault-history-story").scrolled, true);
 assert.equal(details().find((row) => !row.hidden).querySelectorAll(".marchand-explorer-puck").length, 9);
+open("Road to Repeat");
+assert.equal(element("vault-repeat-story").hidden, false);
+assert.equal(element("vault-history-story").hidden, true);
+assert.equal(details().find((row) => !row.hidden).querySelectorAll(".marchand-explorer-puck").length, 27);
 
 for (const team of ["boston", "florida", "canada"]) {
   era(team);
@@ -133,7 +137,7 @@ for (const team of ["boston", "florida", "canada"]) {
 }
 element("vault-reset").click();
 assert.equal(summaryRows().length, 50);
-assert.equal(element("vault-result-count").textContent, "122");
+assert.equal(element("vault-result-count").textContent, "152");
 assert.ok(backLinks.every((link) => link.href === "../marchand.html"));
 assert.equal(views.filter((button) => button.getAttribute("aria-pressed") === "true").length, 1);
 assert.deepEqual(errors, []);

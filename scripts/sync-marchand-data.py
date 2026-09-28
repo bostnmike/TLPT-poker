@@ -14,16 +14,18 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "data/marchand-pucks.json"
 CODE_PATTERN = re.compile(r"\b[A-Za-z]{1,3}\d{1,2}\b")
-SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History")
+SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History", "Road to Repeat")
 SOURCE_ID_HEADERS = {
     "Goals & Games": "ID",
     "Milestones": "ID #",
     "Road to History": "Inventory ID",
+    "Road to Repeat": "Inventory ID",
 }
 KEY_PREFIXES = {
     "Goals & Games": "goal",
     "Milestones": "milestone",
     "Road to History": "history",
+    "Road to Repeat": "repeat",
 }
 
 
@@ -103,7 +105,10 @@ def video_parts(url, previous):
     if "youtu.be" in host:
         return "youtube", parsed.path.strip("/").split("/")[0]
     if "nhl.com" in host:
-        return "nhl", parsed.path.rstrip("/").split("/")[-1]
+        match = re.search(r"(\d+)$", parsed.path.rstrip("/"))
+        if not match:
+            raise ValueError(f"NHL video URL has no clip ID: {url}")
+        return "nhl", match.group(1)
     raise ValueError(f"Unsupported video URL: {url}")
 
 
@@ -162,7 +167,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
     elif sheet_name == "Milestones":
         record.update(
             inventoryId=int(values["ID #"]),
-            homeRoad="",
+            homeRoad=values.get("Home/Road", ""),
             team=values["Marchand Team"],
             category=values["Category"],
             careerStat=None,
@@ -176,7 +181,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             goalType="",
             primaryAssist="",
             secondaryAssist="",
-            score="",
+            score=values.get("Score", ""),
             puckType=values["Puck Type"],
             notes=values["Notes"],
             game=None,
@@ -218,8 +223,29 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             goalieScoredAgainst="",
             playerCodes=player_codes(values["Description"], values["Notes"]),
         )
+    elif sheet_name == "Road to Repeat":
+        wins, losses = as_number(values["Playoff Wins"]), as_number(values["Playoff Losses"])
+        record.update(
+            inventoryId=int(values["Inventory ID"]), homeRoad=values["Home/Road"],
+            team=values["Marchand Team"], category=values["Category"],
+            description=values["Description"], date=values["Date"], arena=values["Arena"],
+            opponent=values["Opponent"], score=values["Score"], puckType=values["Puck Type"],
+            notes=values["Notes"], game=as_number(values["Game"]),
+            playoffRound=values["Playoff Round"], seriesRecord=values["Series Record"],
+            playoffRecord=f"{wins}–{losses}" if wins is not None and losses is not None else "",
+            careerStat=None, seasonStat=None, period="", time="", goalType="",
+            primaryAssist="", secondaryAssist="", goalieScoredAgainst="",
+            wins=None, losses=None, points=None, playerCodes=["BM63"],
+        )
     else:
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
+
+    if sheet_name in ("Road to Repeat", "Milestones") and values.get("Video URL"):
+        record["videoUrl"] = values["Video URL"]
+        record["videoLabel"] = "Game Context"
+        record["videoProvider"], record["videoId"] = video_parts(record["videoUrl"], record)
+    if sheet_name == "Milestones" and values.get("Original Front Image Filename"):
+        record["playerCodes"] = ["BM63"]
 
 
 def discover_source_records(payload, workbook_values):
@@ -308,6 +334,7 @@ def main():
         goalsAndGames=counts["Goals & Games"],
         milestones=counts["Milestones"],
         roadToHistory=counts["Road to History"],
+        roadToRepeat=counts["Road to Repeat"],
         videos=sum(bool(record.get("videoUrl")) for record in payload["records"]),
         sourceSheets=counts,
     )

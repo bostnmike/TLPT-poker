@@ -1,8 +1,8 @@
 {
   "meta": {
-    "reviewedAt": "2026-09-27",
+    "reviewedAt": "2026-09-28",
     "playerId": 8473419,
-    "games": 100,
+    "games": 117,
     "method": "Official NHL box scores cross-checked with event reports. Missing data is null, never an inferred zero."
   },
   "games": {
@@ -2616,6 +2616,209 @@
         "shortHandedToi": "02:20"
       }
     },
+    "2024030122": {
+      "date": "2025-04-24",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030122/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030122.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 0,
+        "totalToi": "17:10",
+        "shifts": 23,
+        "plusMinus": 1,
+        "hits": 2,
+        "blockedShots": 2,
+        "penaltyMinutes": 4,
+        "evenStrengthToi": "13:56",
+        "powerPlayToi": "02:34",
+        "shortHandedToi": "00:40"
+      }
+    },
+    "2024030124": {
+      "date": "2025-04-28",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030124/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030124.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "shots": 0,
+        "totalToi": "15:59",
+        "shifts": 26,
+        "plusMinus": 2,
+        "hits": 2,
+        "blockedShots": 1,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "11:26",
+        "powerPlayToi": "01:56",
+        "shortHandedToi": "02:37"
+      }
+    },
+    "2024030125": {
+      "date": "2025-04-30",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030125/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030125.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 2,
+        "points": 2,
+        "shots": 0,
+        "totalToi": "17:55",
+        "shifts": 28,
+        "plusMinus": 1,
+        "hits": 2,
+        "blockedShots": 1,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "16:11",
+        "powerPlayToi": "00:32",
+        "shortHandedToi": "01:12"
+      }
+    },
+    "2024030211": {
+      "date": "2025-05-05",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030211/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030211.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 2,
+        "points": 2,
+        "shots": 1,
+        "totalToi": "15:23",
+        "shifts": 25,
+        "plusMinus": 1,
+        "hits": 0,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "11:45",
+        "powerPlayToi": "01:39",
+        "shortHandedToi": "01:59"
+      }
+    },
+    "2024030213": {
+      "date": "2025-05-09",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030213/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030213.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "shots": 1,
+        "totalToi": "23:17",
+        "shifts": 34,
+        "plusMinus": 0,
+        "hits": 2,
+        "blockedShots": 1,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "22:01",
+        "powerPlayToi": "00:00",
+        "shortHandedToi": "01:16"
+      }
+    },
+    "2024030214": {
+      "date": "2025-05-11",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030214/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030214.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 1,
+        "totalToi": "21:58",
+        "shifts": 30,
+        "plusMinus": 0,
+        "hits": 3,
+        "blockedShots": 2,
+        "penaltyMinutes": 10,
+        "evenStrengthToi": "16:03",
+        "powerPlayToi": "03:14",
+        "shortHandedToi": "02:41"
+      }
+    },
+    "2024030215": {
+      "date": "2025-05-14",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030215/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030215.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "shots": 1,
+        "totalToi": "14:32",
+        "shifts": 24,
+        "plusMinus": 0,
+        "hits": 2,
+        "blockedShots": 0,
+        "penaltyMinutes": 14,
+        "evenStrengthToi": "12:12",
+        "powerPlayToi": "01:40",
+        "shortHandedToi": "00:40"
+      }
+    },
     "2024030217": {
       "date": "2025-05-18",
       "status": "Played",
@@ -2642,6 +2845,238 @@
         "penaltyMinutes": 0,
         "evenStrengthToi": "15:45",
         "powerPlayToi": "00:17",
+        "shortHandedToi": "00:00"
+      }
+    },
+    "2024030311": {
+      "date": "2025-05-20",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030311/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030311.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 0,
+        "totalToi": "13:01",
+        "shifts": 20,
+        "plusMinus": 0,
+        "hits": 4,
+        "blockedShots": 0,
+        "penaltyMinutes": 14,
+        "evenStrengthToi": "11:02",
+        "powerPlayToi": "00:56",
+        "shortHandedToi": "01:03"
+      }
+    },
+    "2024030312": {
+      "date": "2025-05-22",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030312/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030312.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 2,
+        "totalToi": "14:01",
+        "shifts": 22,
+        "plusMinus": 0,
+        "hits": 4,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "12:45",
+        "powerPlayToi": "00:35",
+        "shortHandedToi": "00:41"
+      }
+    },
+    "2024030314": {
+      "date": "2025-05-26",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030314/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030314.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 1,
+        "totalToi": "17:27",
+        "shifts": 23,
+        "plusMinus": -2,
+        "hits": 1,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "13:15",
+        "powerPlayToi": "04:12",
+        "shortHandedToi": "00:00"
+      }
+    },
+    "2024030315": {
+      "date": "2025-05-28",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030315/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030315.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "shots": 4,
+        "totalToi": "15:39",
+        "shifts": 26,
+        "plusMinus": 1,
+        "hits": 0,
+        "blockedShots": 1,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "10:08",
+        "powerPlayToi": "02:22",
+        "shortHandedToi": "03:09"
+      }
+    },
+    "2024030412": {
+      "date": "2025-06-06",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030412/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030412.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 2,
+        "assists": 0,
+        "points": 2,
+        "shots": 7,
+        "totalToi": "22:00",
+        "shifts": 35,
+        "plusMinus": 3,
+        "hits": 2,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "20:43",
+        "powerPlayToi": "00:00",
+        "shortHandedToi": "01:17"
+      }
+    },
+    "2024030413": {
+      "date": "2025-06-09",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030413/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030413.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "shots": 2,
+        "totalToi": "15:38",
+        "shifts": 24,
+        "plusMinus": 1,
+        "hits": 0,
+        "blockedShots": 0,
+        "penaltyMinutes": 2,
+        "evenStrengthToi": "08:07",
+        "powerPlayToi": "05:17",
+        "shortHandedToi": "02:14"
+      }
+    },
+    "2024030415": {
+      "date": "2025-06-14",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030415/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030415.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 2,
+        "assists": 0,
+        "points": 2,
+        "shots": 5,
+        "totalToi": "13:55",
+        "shifts": 24,
+        "plusMinus": 3,
+        "hits": 1,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "12:35",
+        "powerPlayToi": "00:47",
+        "shortHandedToi": "00:33"
+      }
+    },
+    "2024030416": {
+      "date": "2025-06-17",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2024030416/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/ES030416.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 2,
+        "totalToi": "15:12",
+        "shifts": 24,
+        "plusMinus": -1,
+        "hits": 3,
+        "blockedShots": 1,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "15:12",
+        "powerPlayToi": "00:00",
         "shortHandedToi": "00:00"
       }
     },
@@ -2672,6 +3107,35 @@
         "evenStrengthToi": "10:44",
         "powerPlayToi": "00:00",
         "shortHandedToi": "00:38"
+      }
+    },
+    "2025020001": {
+      "date": "2025-10-07",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2025020001/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20252026/ES020001.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 0,
+        "points": 0,
+        "shots": 4,
+        "totalToi": "20:10",
+        "shifts": 27,
+        "plusMinus": -1,
+        "hits": 1,
+        "blockedShots": 0,
+        "penaltyMinutes": 2,
+        "evenStrengthToi": "16:28",
+        "powerPlayToi": "02:24",
+        "shortHandedToi": "01:18"
       }
     },
     "2025020058": {
@@ -2875,6 +3339,35 @@
         "evenStrengthToi": "09:46",
         "powerPlayToi": "03:02",
         "shortHandedToi": "03:07"
+      }
+    },
+    "2025020618": {
+      "date": "2025-12-30",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2025020618/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20252026/ES020618.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 1,
+        "assists": 0,
+        "points": 1,
+        "shots": 4,
+        "totalToi": "19:09",
+        "shifts": 25,
+        "plusMinus": -1,
+        "hits": 3,
+        "blockedShots": 2,
+        "penaltyMinutes": 2,
+        "evenStrengthToi": "12:36",
+        "powerPlayToi": "05:00",
+        "shortHandedToi": "01:33"
       }
     },
     "2025020817": {

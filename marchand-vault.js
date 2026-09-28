@@ -21,6 +21,7 @@
     rows: byId("vault-breakdown-body"),
     empty: byId("vault-no-results"),
     history: byId("vault-history-story"),
+    repeat: byId("vault-repeat-story"),
   };
   const normalize = (value) => String(value ?? "").trim();
   const isGoal = (record) => record.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category);
@@ -32,7 +33,7 @@
     arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
     years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
     goals: { title: "Every Goal Type", singular: "Goal Type", plural: "goal types", key: (record) => goalTypeLabel(record.goalType, false) || "Not Recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including Empty-Net Goals. Open the Goal Type Key for symbols and codes. Combined labels retain every applicable goal type." },
-    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones and the complete Road to History collection. Every matching puck is included." },
+    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones, Road to History and Road to Repeat. Every matching puck is included." },
   };
 
   function teamEra(team) {
@@ -158,6 +159,7 @@
     });
     if (!shown.some((group) => group.label === state.selected)) state.selected = "";
     elements.history.hidden = !(state.view === "sheets" && state.selected === "Road to History");
+    elements.repeat.hidden = !(state.view === "sheets" && state.selected === "Road to Repeat");
     elements.resultCount.textContent = records.length;
     elements.title.textContent = view.title;
     elements.note.textContent = view.note;
@@ -186,6 +188,7 @@
         render();
         elements.rows.querySelectorAll(".marchand-group-button")[index]?.focus({ preventScroll: true });
         if (!elements.history.hidden) elements.history.scrollIntoView({ block: "nearest" });
+        if (!elements.repeat.hidden) elements.repeat.scrollIntoView({ block: "nearest" });
       });
       nameCell.append(button);
       row.append(nameCell, node("td", group.count, "marchand-breakdown-number"), node("td", group.records.length), node("td", dateLabel(group.first)), node("td", dateLabel(group.latest)));

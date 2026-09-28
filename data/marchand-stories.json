@@ -1,11 +1,11 @@
 {
   "meta": {
     "version": 1,
-    "reviewedAt": "2026-09-27",
-    "records": 122,
+    "reviewedAt": "2026-09-28",
+    "records": 152,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
-    "liveBoxscoreCheck": "2026-09-27: all 100 distinct games rechecked against the live NHL API; all 122 artifact dates, teams and Marchand game stat lines matched."
+    "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
   },
   "artifacts": {
     "goal-1": {
@@ -3531,6 +3531,832 @@
           "points": 0,
           "shots": 2,
           "toi": "20:46"
+        }
+      }
+    },
+    "repeat-600": {
+      "inventoryId": 600,
+      "date": "2025-04-22",
+      "team": "Florida Panthers",
+      "gameId": 2024030121,
+      "title": "A first playoff point in Panthers red",
+      "paragraphs": [
+        "Marchand opened his first postseason with Florida by setting up Nate Schmidt’s second-period goal for a 3–1 lead. The Panthers went on to beat Tampa Bay 6–2. Marchand played 17:15, put two shots on goal and finished with an assist as Florida took the series opener on the road. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030121"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030121/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030121/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 2,
+          "toi": "17:15"
+        }
+      }
+    },
+    "repeat-601": {
+      "inventoryId": 601,
+      "date": "2025-04-24",
+      "team": "Florida Panthers",
+      "gameId": 2024030122,
+      "title": "Two wins before the trip home",
+      "paragraphs": [
+        "Marchand blocked two shots and delivered two hits in 17:10 as Florida shut out Tampa Bay 2–0. He did not record a point, but the Panthers left Tampa with both opening games won. The result gave his first playoff run with Florida a 2–0 series lead. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030122"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030122/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030122/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "17:10"
+        }
+      }
+    },
+    "repeat-602": {
+      "inventoryId": 602,
+      "date": "2025-04-28",
+      "team": "Florida Panthers",
+      "gameId": 2024030124,
+      "title": "Marchand helps open the scoring",
+      "paragraphs": [
+        "Marchand supplied the primary assist on Anton Lundell’s goal at 9:06 of the second period, putting Florida ahead first. The Panthers ultimately beat Tampa Bay 4–2 to move within one win of the second round. Marchand finished plus-two with an assist, two hits and a blocked shot. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030124"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030124/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030124/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 0,
+          "toi": "15:59"
+        }
+      }
+    },
+    "repeat-603": {
+      "inventoryId": 603,
+      "date": "2025-04-30",
+      "team": "Florida Panthers",
+      "gameId": 2024030125,
+      "title": "Two assists to close out Tampa Bay",
+      "paragraphs": [
+        "Marchand helped set up Anton Lundell in the first period and Eetu Luostarinen in the third as Florida eliminated Tampa Bay with a 6–3 road win. His two assists brought his total to four for the five-game series. Florida advanced, and Marchand’s first playoff round as a Panther was complete. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030125"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030125/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030125/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 0,
+          "toi": "17:55"
+        }
+      }
+    },
+    "repeat-604": {
+      "inventoryId": 604,
+      "date": "2025-05-05",
+      "team": "Florida Panthers",
+      "gameId": 2024030211,
+      "title": "Two assists in a comeback that fell short",
+      "paragraphs": [
+        "Marchand assisted on goals by Eetu Luostarinen and Uvis Balinskis early in the third period, helping Florida cut Toronto’s 4–1 lead to 4–3. The Panthers could not finish the comeback and lost the second-round opener 5–4. Marchand’s two assists accounted for half of Florida’s goals. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030211"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030211/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030211/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "15:23"
+        }
+      }
+    },
+    "repeat-605": {
+      "inventoryId": 605,
+      "date": "2025-05-09",
+      "team": "Florida Panthers",
+      "gameId": 2024030213,
+      "title": "The overtime winner Florida needed",
+      "paragraphs": [
+        "Marchand scored at 15:27 of overtime to beat Toronto 5–4 and cut Florida’s series deficit to 2–1. Dmitry Kulikov and Carter Verhaeghe earned the assists. After 23:17 of ice time, Marchand ended a game the Panthers needed to avoid falling three games behind. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030213"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030213/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030213/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 1,
+          "toi": "23:17"
+        }
+      }
+    },
+    "repeat-606": {
+      "inventoryId": 606,
+      "date": "2025-05-11",
+      "team": "Florida Panthers",
+      "gameId": 2024030214,
+      "title": "Nearly 22 minutes to help tie the series",
+      "paragraphs": [
+        "Marchand logged 21:58, three hits and two blocked shots as Florida shut out Toronto 2–0. He did not add a point after his overtime winner two nights earlier. The Panthers nevertheless drew level at two games apiece, turning the series into a best-of-three heading back to Toronto. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030214"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030214/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030214/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "21:58"
+        }
+      }
+    },
+    "repeat-607": {
+      "inventoryId": 607,
+      "date": "2025-05-14",
+      "team": "Florida Panthers",
+      "gameId": 2024030215,
+      "title": "One win from the conference final",
+      "paragraphs": [
+        "Marchand assisted on Sam Bennett’s third-period power-play goal as Florida beat Toronto 6–1 on the road. It was his seventh assist of the playoffs. The Panthers took a 3–2 series lead, putting Marchand one victory away from another trip to the Eastern Conference Final. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030215"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030215/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030215/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 1,
+          "toi": "14:32"
+        }
+      }
+    },
+    "repeat-608": {
+      "inventoryId": 608,
+      "date": "2025-05-18",
+      "team": "Florida Panthers",
+      "gameId": 2024030217,
+      "title": "Three points in Game 7",
+      "paragraphs": [
+        "Marchand assisted on goals by Anton Lundell and Eetu Luostarinen, then scored Florida’s sixth goal with 3:03 remaining. His three-point night helped the Panthers eliminate Toronto 6–1 in Game 7. He finished plus-three as Florida advanced to face Carolina in the Eastern Conference Final. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030217"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030217/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030217/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 3,
+          "toi": "16:02"
+        }
+      }
+    },
+    "repeat-609": {
+      "inventoryId": 609,
+      "date": "2025-05-20",
+      "team": "Florida Panthers",
+      "gameId": 2024030311,
+      "title": "A road win to start the next round",
+      "paragraphs": [
+        "Marchand played 13:01 in Florida’s 5–2 win at Carolina to open the Eastern Conference Final. He was held without a point after his three-point Game 7 in Toronto. The Panthers still took the early series lead, leaving seven more wins between Marchand and a second Stanley Cup. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030311"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030311/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030311/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 0,
+          "toi": "13:01"
+        }
+      }
+    },
+    "repeat-610": {
+      "inventoryId": 610,
+      "date": "2025-05-22",
+      "team": "Florida Panthers",
+      "gameId": 2024030312,
+      "title": "A second road win in Carolina",
+      "paragraphs": [
+        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030312"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030312/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030312/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "14:01"
+        }
+      }
+    },
+    "repeat-611": {
+      "inventoryId": 611,
+      "date": "2025-05-22",
+      "team": "Florida Panthers",
+      "gameId": 2024030312,
+      "title": "A second road win in Carolina",
+      "paragraphs": [
+        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030312"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030312/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030312/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "14:01"
+        }
+      }
+    },
+    "repeat-612": {
+      "inventoryId": 612,
+      "date": "2025-05-26",
+      "team": "Florida Panthers",
+      "gameId": 2024030314,
+      "title": "The sweep slips away",
+      "paragraphs": [
+        "Marchand played 17:27, but neither he nor another Panther could beat Carolina in a 3–0 home loss. Florida’s first chance to finish the Eastern Conference Final ended without a goal. The Panthers still led the series 3–1 and would get another chance to advance in Raleigh. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030314"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030314/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030314/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "17:27"
+        }
+      }
+    },
+    "repeat-613": {
+      "inventoryId": 613,
+      "date": "2025-05-28",
+      "team": "Florida Panthers",
+      "gameId": 2024030315,
+      "title": "An assist on the way to another Final",
+      "paragraphs": [
+        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030315"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030315/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030315/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "15:39"
+        }
+      }
+    },
+    "repeat-614": {
+      "inventoryId": 614,
+      "date": "2025-05-28",
+      "team": "Florida Panthers",
+      "gameId": 2024030315,
+      "title": "An assist on the way to another Final",
+      "paragraphs": [
+        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030315"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030315/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030315/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "15:39"
+        }
+      }
+    },
+    "repeat-615": {
+      "inventoryId": 615,
+      "date": "2025-06-06",
+      "team": "Florida Panthers",
+      "gameId": 2024030412,
+      "title": "Short-handed first, then the double-overtime winner",
+      "paragraphs": [
+        "Marchand put Florida ahead with a short-handed goal in the second period, then scored again at 8:05 of double overtime to seal a 5–4 win in Edmonton. Both goals came with assists from Anton Lundell. Marchand’s seven shots and two goals helped tie the Stanley Cup Final at one game each. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030412"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030412/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030412/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 7,
+          "toi": "22:00"
+        }
+      }
+    },
+    "repeat-616": {
+      "inventoryId": 616,
+      "date": "2025-06-09",
+      "team": "Florida Panthers",
+      "gameId": 2024030413,
+      "title": "On the board in 56 seconds",
+      "paragraphs": [
+        "Marchand needed just 56 seconds to open the scoring in Game 3, finishing a play assisted by Anton Lundell and Eetu Luostarinen. Florida went on to beat Edmonton 6–1. Coming straight after his double-overtime winner, the early goal helped give the Panthers a 2–1 lead in the Final. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030413"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030413/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030413/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "15:38"
+        }
+      }
+    },
+    "repeat-617": {
+      "inventoryId": 617,
+      "date": "2025-06-14",
+      "team": "Florida Panthers",
+      "gameId": 2024030415,
+      "title": "Two goals, one win from the Cup",
+      "paragraphs": [
+        "Marchand opened the scoring at 9:12 of the first period and struck again at 5:12 of the third to put Florida ahead 3–0. The Panthers beat Edmonton 5–2, with his second goal standing as the winner. His two-goal night put Florida one victory from the championship. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030415"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030415/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030415/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 5,
+          "toi": "13:55"
+        }
+      }
+    },
+    "repeat-618": {
+      "inventoryId": 618,
+      "date": "2025-06-17",
+      "team": "Florida Panthers",
+      "gameId": 2024030416,
+      "title": "A second Stanley Cup for Marchand",
+      "paragraphs": [
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030416"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030416/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030416/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "15:12"
+        }
+      }
+    },
+    "repeat-619": {
+      "inventoryId": 619,
+      "date": "2025-06-17",
+      "team": "Florida Panthers",
+      "gameId": 2024030416,
+      "title": "A second Stanley Cup for Marchand",
+      "paragraphs": [
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030416"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030416/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030416/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "15:12"
+        }
+      }
+    },
+    "repeat-620": {
+      "inventoryId": 620,
+      "date": "2025-06-17",
+      "team": "Florida Panthers",
+      "gameId": 2024030416,
+      "title": "A second Stanley Cup for Marchand",
+      "paragraphs": [
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030416"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030416/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030416/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "15:12"
+        }
+      }
+    },
+    "repeat-621": {
+      "inventoryId": 621,
+      "date": "2025-04-30",
+      "team": "Florida Panthers",
+      "gameId": 2024030125,
+      "title": "Two assists to close out Tampa Bay",
+      "paragraphs": [
+        "Marchand helped set up Anton Lundell in the first period and Eetu Luostarinen in the third as Florida eliminated Tampa Bay with a 6–3 road win. His two assists brought his total to four for the five-game series. Florida advanced, and Marchand’s first playoff round as a Panther was complete. This game-used puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030125"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030125/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030125/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 0,
+          "toi": "17:55"
+        }
+      }
+    },
+    "repeat-622": {
+      "inventoryId": 622,
+      "date": "2025-05-14",
+      "team": "Florida Panthers",
+      "gameId": 2024030215,
+      "title": "One win from the conference final",
+      "paragraphs": [
+        "Marchand assisted on Sam Bennett’s third-period power-play goal as Florida beat Toronto 6–1 on the road. It was his seventh assist of the playoffs. The Panthers took a 3–2 series lead, putting Marchand one victory away from another trip to the Eastern Conference Final. This game-used puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030215"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030215/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030215/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 1,
+          "toi": "14:32"
+        }
+      }
+    },
+    "repeat-623": {
+      "inventoryId": 623,
+      "date": "2025-05-18",
+      "team": "Florida Panthers",
+      "gameId": 2024030217,
+      "title": "Three points in Game 7",
+      "paragraphs": [
+        "Marchand assisted on goals by Anton Lundell and Eetu Luostarinen, then scored Florida’s sixth goal with 3:03 remaining. His three-point night helped the Panthers eliminate Toronto 6–1 in Game 7. He finished plus-three as Florida advanced to face Carolina in the Eastern Conference Final. This game-used puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030217"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030217/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030217/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 3,
+          "toi": "16:02"
+        }
+      }
+    },
+    "repeat-624": {
+      "inventoryId": 624,
+      "date": "2025-05-22",
+      "team": "Florida Panthers",
+      "gameId": 2024030312,
+      "title": "A second road win in Carolina",
+      "paragraphs": [
+        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance. This game-used puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030312"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030312/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030312/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 2,
+          "toi": "14:01"
+        }
+      }
+    },
+    "repeat-625": {
+      "inventoryId": 625,
+      "date": "2025-05-28",
+      "team": "Florida Panthers",
+      "gameId": 2024030315,
+      "title": "An assist on the way to another Final",
+      "paragraphs": [
+        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This game-used puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024030315"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024030315/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024030315/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "15:39"
+        }
+      }
+    },
+    "repeat-626": {
+      "inventoryId": 626,
+      "date": "2025-10-07",
+      "team": "Florida Panthers",
+      "gameId": 2025020001,
+      "title": "The championship goes into the rafters",
+      "paragraphs": [
+        "Marchand returned for opening night as Florida raised its 2025 championship banner before facing Chicago. He played 20:10 and put four shots on goal in a 3–2 Panthers win. This game belongs to the following regular season, but its ceremony provides the closing scene for the Road to Repeat collection. This warm-up puck represents the game, not a specific goal."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020001"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/florida-panthers-raise-2nd-stanley-cup-banner-prior-to-2025-home-opener"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020001/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020001/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 4,
+          "toi": "20:10"
+        }
+      }
+    },
+    "milestone-336": {
+      "inventoryId": 336,
+      "date": "2025-11-13",
+      "team": "Florida Panthers",
+      "gameId": 2025020273,
+      "title": "The assist that made it 1,000",
+      "paragraphs": [
+        "Marchand reached 1,000 career NHL points with his second assist of the night, on Eetu Luostarinen’s empty-net goal with 1:30 remaining. Florida beat Washington 6–3. This warm-up puck comes from the milestone game itself, before the separate celebration held against Montreal in December."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020273"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/panthers/news/florida-panthers-celebrate-brad-marchands-1000th-point-x0234"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020273/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020273/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:04"
+        }
+      }
+    },
+    "milestone-337": {
+      "inventoryId": 337,
+      "date": "2025-12-30",
+      "team": "Florida Panthers",
+      "gameId": 2025020618,
+      "title": "A celebration, then another goal",
+      "paragraphs": [
+        "Florida honored Marchand’s 1,000th career point before this game against Montreal. He then scored on the power play at 10:18 of the third period, although the Canadiens won 3–2 in overtime. This warm-up puck marks the ceremony, not the November game in which he reached the milestone."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020618"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/brad-marchand-1000th-point-ceremony-florida-panthers"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020618/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020618/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "19:09"
+        }
+      }
+    },
+    "milestone-338": {
+      "inventoryId": 338,
+      "date": "2025-03-28",
+      "team": "Florida Panthers",
+      "gameId": 2024021153,
+      "title": "An overtime assist in his Panthers debut",
+      "paragraphs": [
+        "Marchand’s first game with Florida ended with an assist on Sam Bennett’s overtime winner at 4:18. The Panthers beat Utah Hockey Club 2–1 at home. Marchand recorded four shots, two hits and two blocked shots in 16:30. This warm-up puck marks his debut, not the scoring play that decided it."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024021153"
+        },
+        {
+          "label": "NHL milestone report",
+          "url": "https://www.nhl.com/news/topic/utah/utah-hockey-club-florida-panthers-game-recap-march-28"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021153/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021153/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "16:30"
         }
       }
     }

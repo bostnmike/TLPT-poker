@@ -6,6 +6,7 @@
     Milestone: "Milestone",
     "PO Goal": "Playoff Goal",
     "Road to History": "Road to History",
+    "Road to Repeat": "Road to Repeat",
     "RS Goal": "Regular-Season Goal",
     "RS Point": "Regular-Season Point",
   });

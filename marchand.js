@@ -111,6 +111,7 @@
     themeKicker: document.getElementById("marchand-theme-kicker"),
     vaultLink: document.getElementById("vault-insights-link"),
     historyStory: document.getElementById("road-to-history-story"),
+    repeatStory: document.getElementById("road-to-repeat-story"),
     archiveTitle: document.getElementById("archive-title"),
     dialog: document.getElementById("artifact-dialog"),
     dialogClose: document.getElementById("artifact-dialog-close"),
@@ -252,6 +253,7 @@
     document.getElementById("stat-goals").textContent = sourceCounts["Goals & Games"] || 0;
     document.getElementById("stat-milestones").textContent = sourceCounts.Milestones || 0;
     document.getElementById("stat-history").textContent = sourceCounts["Road to History"] || 0;
+    document.getElementById("stat-repeat").textContent = sourceCounts["Road to Repeat"] || 0;
     document.getElementById("stat-videos").textContent = payload.records.filter((record) => record.videoUrl).length;
     for (const [era, count] of Object.entries(totals)) {
       document.getElementById(`era-count-${era}`).textContent = count;
@@ -518,6 +520,7 @@
     renderRows(state.filtered);
     updateSortLabels();
     elements.historyStory.hidden = elements.sheet.value !== "Road to History" && elements.category.value !== "Road to History";
+    elements.repeatStory.hidden = elements.sheet.value !== "Road to Repeat" && elements.category.value !== "Road to Repeat";
     updateStatFilters();
   }
 
@@ -554,6 +557,11 @@
     else if (filter !== "all") elements.sheet.value = filter;
     if (filter === "Road to History") {
       setEra("boston");
+      state.sortKey = "date";
+      state.sortDirection = "asc";
+    }
+    if (filter === "Road to Repeat") {
+      setEra("florida");
       state.sortKey = "date";
       state.sortDirection = "asc";
     }
@@ -937,6 +945,9 @@
     addFact("Career stat", record.careerStat == null ? "" : `#${record.careerStat}`);
     addFact("Season stat", record.seasonStat == null ? "" : `#${record.seasonStat}`);
     addFact("Game number", record.game);
+    addFact("Playoff round", record.playoffRound);
+    addFact("Series after game", record.seriesRecord);
+    addFact("Playoff record", record.playoffRecord);
     addFact("Season record", record.seasonRecord);
     addFact("Season points", record.points);
     addFact("Period", record.period);

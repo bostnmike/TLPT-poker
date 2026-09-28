@@ -52,11 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 122, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 152, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 78, "goals and games count drifted");
-assert.equal(payload.meta.milestones, 35, "milestone count drifted");
+assert.equal(payload.meta.milestones, 38, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 9, "Road to History count drifted");
-assert.equal(payload.meta.videos, 107, "video count drifted");
+assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
+assert.equal(payload.meta.videos, 123, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
@@ -79,7 +80,7 @@ for (const record of payload.records) {
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
   assert.match(record.date, /^\d{4}-\d{2}-\d{2}$/, `${record.key} needs a sortable ISO date`);
-  const expectedFields = { "Goals & Games": 19, Milestones: 9, "Road to History": 16 }[record.sourceSheet];
+  const expectedFields = { "Goals & Games": 19, Milestones: 35, "Road to History": 16, "Road to Repeat": 40 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
@@ -151,7 +152,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 104], ["Florida Panthers", 17], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 104], ["Florida Panthers", 47], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -213,10 +214,10 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260927-stats2/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260927-stats1/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260927-stats2/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260921-5/, "vault script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260928-repeat/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260928-repeat/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260928-repeat/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-repeat/, "vault script cache key drifted");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
 assert.doesNotMatch(sitemap, /marchand-vault/, "hidden vault page must not appear in the sitemap");

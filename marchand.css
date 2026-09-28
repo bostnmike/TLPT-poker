@@ -1235,7 +1235,7 @@
 .marchand-identity-stage .marchand-puck-mark{width:142px;height:142px}
 .marchand-identity-stage .marchand-puck-mark strong{font-size:3.7rem}
 .marchand-identity-stage .marchand-puck-mark small{bottom:22px}
-.marchand-stat-wing{grid-template-columns:repeat(5,minmax(0,1fr))}
+.marchand-stat-wing{grid-template-columns:repeat(6,minmax(0,1fr))}
 
 .marchand-insights{
   padding:0;

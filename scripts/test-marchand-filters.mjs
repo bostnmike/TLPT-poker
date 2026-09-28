@@ -160,12 +160,12 @@ rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).chil
 assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-puck-image").hidden, true);
-assert.equal(statButtons.length, 5);
-assert.equal(rows().length, 122);
+assert.equal(statButtons.length, 6);
+assert.equal(rows().length, 152);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Used Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
-assert.equal(rows().length, 17);
+assert.equal(rows().length, 47);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
 assert.equal(rows().length, 104);
@@ -195,13 +195,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 122);
+assert.equal(rows().length, 152);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 78], ["Milestones", 35], ["Road to History", 9], ["video", 107], ["all", 122]]) {
+for (const [filter, expected] of [["Goals & Games", 78], ["Milestones", 38], ["Road to History", 9], ["Road to Repeat", 27], ["video", 123], ["all", 152]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -223,7 +223,7 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 9);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 122);
+assert.equal(rows().length, 152);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
@@ -285,8 +285,13 @@ for (const row of rows()) {
   }
   if (record.puckType === "Warm-Up Used Puck") {
     assert.equal(cellValue("artifact-dialog-facts", "Puck type"), "🏒 Warm-Up Puck");
-    assert.equal(element("artifact-dialog-title").textContent, "Warm-Up Puck");
-    assert.equal(cellValue("artifact-source-grid", "Description"), "Warm-Up Puck");
+    if (record.inventoryId < 600 && ![336,337,338].includes(record.inventoryId)) {
+      assert.equal(element("artifact-dialog-title").textContent, "Warm-Up Puck");
+      assert.equal(cellValue("artifact-source-grid", "Description"), "Warm-Up Puck");
+    } else {
+      assert.doesNotMatch(element("artifact-dialog-title").textContent, /warm-up|Warm-up/);
+      assert.doesNotMatch(cellValue("artifact-source-grid", "Description"), /warm-up|Warm-up/);
+    }
   }
   if (record.videoUrl) {
     const sourceUrl = record.videoProvider === "nhl" ? `https://players.brightcove.net/6415718365001/default_default/index.html?videoId=${record.videoId}&autoplay=false&muted=false&applicationId=nhl` : record.videoUrl;

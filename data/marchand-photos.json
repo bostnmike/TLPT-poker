@@ -1735,6 +1735,45 @@
         "rotation": 0
       }
     ],
+    "336": [
+      {
+        "label": "Front",
+        "url": "images/pucks/336/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/336/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/336/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "337": [
+      {
+        "label": "Front",
+        "url": "images/pucks/337/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/337/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/337/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "338": [
+      {
+        "label": "Front",
+        "url": "images/pucks/338/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/338/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/338/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
     "503": [
       {
         "label": "Front",
@@ -1766,6 +1805,382 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/509/edge-02.png?v=20260927-level2",
+        "rotation": 0
+      }
+    ],
+    "600": [
+      {
+        "label": "Front",
+        "url": "images/pucks/600/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/600/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/600/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "601": [
+      {
+        "label": "Front",
+        "url": "images/pucks/601/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/601/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/601/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "602": [
+      {
+        "label": "Front",
+        "url": "images/pucks/602/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/602/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/602/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "603": [
+      {
+        "label": "Front",
+        "url": "images/pucks/603/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/603/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/603/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "604": [
+      {
+        "label": "Front",
+        "url": "images/pucks/604/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/604/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/604/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "605": [
+      {
+        "label": "Front",
+        "url": "images/pucks/605/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/605/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/605/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "606": [
+      {
+        "label": "Front",
+        "url": "images/pucks/606/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/606/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/606/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "607": [
+      {
+        "label": "Front",
+        "url": "images/pucks/607/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/607/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/607/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "608": [
+      {
+        "label": "Front",
+        "url": "images/pucks/608/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/608/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/608/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "609": [
+      {
+        "label": "Front",
+        "url": "images/pucks/609/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/609/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/609/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "610": [
+      {
+        "label": "Front",
+        "url": "images/pucks/610/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/610/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/610/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "611": [
+      {
+        "label": "Front",
+        "url": "images/pucks/611/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/611/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/611/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "612": [
+      {
+        "label": "Front",
+        "url": "images/pucks/612/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/612/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/612/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "613": [
+      {
+        "label": "Front",
+        "url": "images/pucks/613/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/613/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/613/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "614": [
+      {
+        "label": "Front",
+        "url": "images/pucks/614/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/614/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/614/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "615": [
+      {
+        "label": "Front",
+        "url": "images/pucks/615/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/615/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/615/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "616": [
+      {
+        "label": "Front",
+        "url": "images/pucks/616/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/616/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/616/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "617": [
+      {
+        "label": "Front",
+        "url": "images/pucks/617/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/617/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/617/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "618": [
+      {
+        "label": "Front",
+        "url": "images/pucks/618/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/618/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/618/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "619": [
+      {
+        "label": "Front",
+        "url": "images/pucks/619/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/619/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/619/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "620": [
+      {
+        "label": "Front",
+        "url": "images/pucks/620/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/620/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/620/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "621": [
+      {
+        "label": "Front",
+        "url": "images/pucks/621/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/621/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/621/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "images/pucks/621/edge-01.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "622": [
+      {
+        "label": "Front",
+        "url": "images/pucks/622/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/622/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/622/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "623": [
+      {
+        "label": "Front",
+        "url": "images/pucks/623/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/623/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/623/back.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "624": [
+      {
+        "label": "Front",
+        "url": "images/pucks/624/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/624/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/624/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "images/pucks/624/edge-01.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "images/pucks/624/edge-02.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "625": [
+      {
+        "label": "Front",
+        "url": "images/pucks/625/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/625/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/625/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "images/pucks/625/edge-01.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "images/pucks/625/edge-02.webp?v=20260928-repeat",
+        "rotation": 0
+      }
+    ],
+    "626": [
+      {
+        "label": "Front",
+        "url": "images/pucks/626/front.webp?v=20260928-repeat",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/626/front-thumb.webp?v=20260928-repeat"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/626/back.webp?v=20260928-repeat",
         "rotation": 0
       }
     ]
