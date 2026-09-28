@@ -9,6 +9,16 @@ Approved, cropped transparent PNGs or WebP images, organized by **artifact numbe
 
 ## Adding future photos
 
+### Image-library hosting and database-led mapping
+
+New photo batches are hosted in [marchand-puck-images](https://github.com/bostnmike/marchand-puck-images), served at `https://bostnmike.github.io/marchand-puck-images/`. Keep the same `images/pucks/<artifact>/` naming within that repository. Existing local images and COAs remain supported and must not be removed just to make space. The collection page stays at tlpt.org.
+
+The validated canonical database is authoritative. Cross-check visible date, opponents and identifying marks; correct mistaken intake names when the evidence gives a unique match. Do not rewrite verified statistics to fit a filename. Do not choose among different physical pucks based only on a shared game or upload order. Publish confirmed views even if a front/back pairing remains held; retain the generic Deep Dive button when no front is confirmed.
+
+For each library release, update its `assets.json` byte/hash inventory and this site's `data/marchand-photo-library.json`. Use absolute library URLs in the photo manifest, versioned with the file hash; keep rotation at zero. Deploy the library first and run `node scripts/test-marchand-photo-manifest.mjs --live` before publishing the site's associations. Verify the live site before archiving the exact successful Drive originals. Never publish raw originals, private Drive download URLs, unresolved images or working masters.
+
+The September 28 third batch adds 240 confirmed photo views across 52 artifacts (239 additional views and a new front for 334), plus 51 lossless front thumbnails. Files named 301 map to validated artifact 302 based on the November 18, 2023 Montreal-at-Boston game. The confirmed edge for 331 is published without choosing between its duplicate face pairs. Existing COAs and all other existing gallery views are preserved; 334's two additional edge photos use Edge 5 and Edge 6.
+
 Create one folder per artifact: `images/pucks/ARTIFACT-NUMBER/`.
 Use `front.webp`, `back.webp`, and optional `edge-01.webp`, `edge-02.webp`, and so on. Existing PNG sets remain supported.
 Include every supplied edge view, including four or more; do not cap the count at three. Include only views actually photographed.

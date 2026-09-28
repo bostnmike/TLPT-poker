@@ -8,6 +8,7 @@ const html = read("marchand.html");
 const payload = JSON.parse(read("data/marchand-pucks.json"));
 const decoder = JSON.parse(read("data/marchand-players.json"));
 const photoManifest = JSON.parse(read("data/marchand-photos.json"));
+const photoLibrary = JSON.parse(read("data/marchand-photo-library.json"));
 const storyManifest = JSON.parse(read("data/marchand-stories.json"));
 const registeredPhotos = structuredClone(photoManifest.artifacts);
 const noPhotoId = payload.records.find((record) => !registeredPhotos[String(record.inventoryId)])?.inventoryId;
@@ -148,7 +149,13 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
     button.click();
     assert.equal(button.getAttribute("aria-pressed"), "true");
     assert.ok(element("artifact-puck-caption").textContent.includes(`${index + 1} of ${expectedViews}`));
-    assert.ok(fs.existsSync(new URL(`../${element("artifact-puck-image").src}`, import.meta.url)));
+    const selectedImage = element("artifact-puck-image").src;
+    if (selectedImage.startsWith(photoLibrary.baseUrl)) {
+      const relative = selectedImage.slice(photoLibrary.baseUrl.length).split("?")[0];
+      assert.ok(photoLibrary.assets[relative]?.bytes > 100, `Unregistered library image: ${selectedImage}`);
+    } else {
+      assert.ok(fs.existsSync(new URL(`../${selectedImage}`, import.meta.url)));
+    }
     assert.equal(element("artifact-puck-placeholder").hidden, true);
     assert.equal(element("artifact-coa-full-size").hidden, photos[index].label !== "COA");
     if (photos[index].label === "COA") assert.equal(element("artifact-coa-full-size").href, photos[index].url);

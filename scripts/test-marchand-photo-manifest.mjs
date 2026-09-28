@@ -1,9 +1,14 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url));
 const records = JSON.parse(read('data/marchand-pucks.json')).records;
 const manifest = JSON.parse(read('data/marchand-photos.json')).artifacts;
+const library = JSON.parse(read('data/marchand-photo-library.json'));
+const libraryBase = 'https://bostnmike.github.io/marchand-puck-images/';
+assert.equal(library.baseUrl, libraryBase, 'Unexpected photo-library host');
+const remoteChecks = new Map();
 const ids = new Set(records.map((record) => String(record.inventoryId)));
 let photoCount = 0;
 for (const [id, photos] of Object.entries(manifest)) {
@@ -17,8 +22,17 @@ for (const [id, photos] of Object.entries(manifest)) {
     assert.equal(photo.rotation, 0, `Rotation must be baked into image pixels: ${photo.url}`);
     assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*|COA)$/);
     for (const fullUrl of [photo.url, photo.thumbnailUrl].filter(Boolean)) {
-      const url = fullUrl.split('?')[0];
+      const external = fullUrl.startsWith(libraryBase);
+      const url = (external ? fullUrl.slice(libraryBase.length) : fullUrl).split('?')[0];
       assert.ok(url.startsWith(`images/pucks/${id}/`) && !url.includes('..'), `Wrong folder: ${url}`);
+      if (external) {
+        const expected = library.assets[url];
+        assert.ok(expected?.bytes > 100, `Missing library inventory entry: ${url}`);
+        assert.match(expected.sha256, /^[a-f0-9]{64}$/);
+        assert.match(url, /^images\/pucks\/\d+\/(?:front(?:-thumb)?|back|edge-\d+)\.webp$/);
+        remoteChecks.set(fullUrl, expected);
+        continue;
+      }
       const bytes = read(url);
       assert.ok(bytes.length > 100, `Empty photo: ${url}`);
       if (url.endsWith('.png')) assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
@@ -31,3 +45,19 @@ for (const [id, photos] of Object.entries(manifest)) {
   }
 }
 console.log(`Verified ${photoCount} puck views across ${Object.keys(manifest).length} artifacts.`);
+if (process.argv.includes('--live')) {
+  const checks = [...remoteChecks]; let cursor = 0;
+  await Promise.all(Array.from({length: 8}, async () => {
+    while (cursor < checks.length) {
+      const [url, expected] = checks[cursor++];
+      const response = await fetch(url, {signal: AbortSignal.timeout(60000)});
+      assert.equal(response.status, 200, `Image unavailable: ${url}`);
+      const bytes = Buffer.from(await response.arrayBuffer());
+      assert.equal(bytes.length, expected.bytes, `Wrong byte count: ${url}`);
+      assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'), expected.sha256, `Image hash mismatch: ${url}`);
+      assert.equal(bytes.subarray(0, 4).toString(), 'RIFF');
+      assert.equal(bytes.subarray(8, 12).toString(), 'WEBP');
+    }
+  }));
+  console.log(`Live verification passed for all ${checks.length} external photographs and thumbnails.`);
+}

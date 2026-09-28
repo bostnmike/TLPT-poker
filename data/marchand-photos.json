@@ -874,6 +874,32 @@
     ],
     "27": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/front.webp?v=1c937561434c",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/front-thumb.webp?v=1c937561434c"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/back.webp?v=52a0f983050d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-01.webp?v=59365b5d62dd",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-02.webp?v=1ef44bc766db",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/27/edge-03.webp?v=9d4f84fc2eb3",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/27/coa.webp?v=20260928-coa",
         "rotation": 0
@@ -1023,6 +1049,37 @@
     ],
     "33": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/front.webp?v=7fed2100dcad",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/front-thumb.webp?v=7fed2100dcad"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/back.webp?v=64bdfd5319bf",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-01.webp?v=1afb07785202",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-02.webp?v=7c316dca846b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-03.webp?v=81d1356141bc",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/33/edge-04.webp?v=5a630ccb1f55",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/33/coa.webp?v=20260928-coa",
         "rotation": 0
@@ -1058,8 +1115,62 @@
     ],
     "35": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/front.webp?v=592025f28467",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/front-thumb.webp?v=592025f28467"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/back.webp?v=261fb1af2e37",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-01.webp?v=6a0e2c376f15",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-02.webp?v=6e97fb3ee3fd",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/35/edge-03.webp?v=2434686986c9",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/35/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "36": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/front.webp?v=d79fc19a7967",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/front-thumb.webp?v=d79fc19a7967"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/back.webp?v=78d9507d9232",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-01.webp?v=5fba9581aa44",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-02.webp?v=7cfa9bae90d7",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/36/edge-03.webp?v=c2992d659a48",
         "rotation": 0
       }
     ],
@@ -1144,6 +1255,32 @@
     ],
     "39": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/front.webp?v=5393be8058f2",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/front-thumb.webp?v=5393be8058f2"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/back.webp?v=de17b8ec2490",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-01.webp?v=2b8f7d682604",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-02.webp?v=109d37550a6f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/39/edge-03.webp?v=f17a76eebb53",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/39/coa.webp?v=20260928-coa",
         "rotation": 0
@@ -1159,6 +1296,39 @@
       {
         "label": "Back",
         "url": "images/pucks/40/back.webp?v=20260927-level2",
+        "rotation": 0
+      }
+    ],
+    "41": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/front.webp?v=bea119dcb9f9",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/front-thumb.webp?v=bea119dcb9f9"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/back.webp?v=dc00842a3267",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-01.webp?v=e62d0e7c72c7",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-02.webp?v=d773712abc75",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-03.webp?v=ff3debe19954",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/41/edge-04.webp?v=3dd86b7adfed",
         "rotation": 0
       }
     ],
@@ -1246,7 +1416,56 @@
         "rotation": 0
       }
     ],
+    "45": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/front.webp?v=0f8d5986ee7f",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/front-thumb.webp?v=0f8d5986ee7f"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/back.webp?v=bed790a8b28d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-01.webp?v=db2e6fcdb219",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/45/edge-02.webp?v=5c1001206e52",
+        "rotation": 0
+      }
+    ],
     "46": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/front.webp?v=a6acb68b35b0",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/front-thumb.webp?v=a6acb68b35b0"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/back.webp?v=7dcc2ddd6f85",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-01.webp?v=27c17ea484d3",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-02.webp?v=18119cb60925",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/46/edge-03.webp?v=097e9b1fc982",
+        "rotation": 0
+      },
       {
         "label": "COA",
         "url": "images/pucks/46/coa.webp?v=20260928-coa",
@@ -1254,6 +1473,32 @@
       }
     ],
     "47": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/front.webp?v=14bf06d4461f",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/front-thumb.webp?v=14bf06d4461f"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/back.webp?v=ac0051563634",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-01.webp?v=bd5d60594c1b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-02.webp?v=e3f3ba0001cb",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/47/edge-03.webp?v=3f21ff914ad5",
+        "rotation": 0
+      },
       {
         "label": "COA",
         "url": "images/pucks/47/coa.webp?v=20260928-coa",
@@ -1594,12 +1839,69 @@
     ],
     "60": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/front.webp?v=3778575d3310",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/front-thumb.webp?v=3778575d3310"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/back.webp?v=64416d02d2e5",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-01.webp?v=4d00005bfed8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-02.webp?v=304572101c98",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/60/edge-03.webp?v=3b26cb37cf64",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/60/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
     "62": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/front.webp?v=031fedfc5ea3",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/front-thumb.webp?v=031fedfc5ea3"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/back.webp?v=0f10ed8ea64e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-01.webp?v=03831d218477",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-02.webp?v=e334dd82d553",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-03.webp?v=ab2ad582bded",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/62/edge-04.webp?v=1506cce99d79",
+        "rotation": 0
+      },
       {
         "label": "COA",
         "url": "images/pucks/62/coa.webp?v=20260928-coa",
@@ -1608,8 +1910,77 @@
     ],
     "63": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/front.webp?v=546b316655bd",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/front-thumb.webp?v=546b316655bd"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/back.webp?v=3abf64300c0a",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-01.webp?v=e48faa3ed89d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-02.webp?v=416ce04e6f92",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-03.webp?v=ba16c101f676",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-04.webp?v=e17890810096",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/63/edge-05.webp?v=ba15620ead1f",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/63/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "65": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/front.webp?v=7a79b0567259",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/front-thumb.webp?v=7a79b0567259"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/back.webp?v=2d96b2d1d947",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-01.webp?v=772cd11992f6",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-02.webp?v=3fb1e04301ab",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-03.webp?v=2b40d28a8c31",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/65/edge-04.webp?v=448423b60540",
         "rotation": 0
       }
     ],
@@ -1984,12 +2355,741 @@
         "rotation": 0
       }
     ],
+    "302": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/front.webp?v=a82065035360",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/front-thumb.webp?v=a82065035360"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/back.webp?v=3cb80ed34282",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-01.webp?v=38643b378ba8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-02.webp?v=10ed5247a253",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-03.webp?v=f190f4db5c58",
+        "rotation": 0
+      }
+    ],
+    "303": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/front.webp?v=c5ae18b586f1",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/front-thumb.webp?v=c5ae18b586f1"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/back.webp?v=4ecf88640837",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-01.webp?v=5e3d7e2ad887",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-02.webp?v=73e48f494f99",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-03.webp?v=c7c7b5dab9a3",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-04.webp?v=0b82379c2537",
+        "rotation": 0
+      }
+    ],
+    "304": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/front.webp?v=8168bec13217",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/front-thumb.webp?v=8168bec13217"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/back.webp?v=4f5de16fb136",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-01.webp?v=6159f4bd2ab5",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-02.webp?v=84e0056c8749",
+        "rotation": 0
+      }
+    ],
+    "305": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/front.webp?v=744cf0e8cd66",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/front-thumb.webp?v=744cf0e8cd66"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/back.webp?v=52f61fbf84d2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-01.webp?v=3426f166c17d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-02.webp?v=49ff06a475ca",
+        "rotation": 0
+      }
+    ],
+    "306": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/front.webp?v=a9ba918f79af",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/front-thumb.webp?v=a9ba918f79af"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/back.webp?v=96463b5090dc",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-01.webp?v=212e01913b99",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-02.webp?v=323701dea56b",
+        "rotation": 0
+      }
+    ],
+    "307": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/front.webp?v=38fbb43c49ff",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/front-thumb.webp?v=38fbb43c49ff"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/back.webp?v=568bd8820c59",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-01.webp?v=b216d5eeef0f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-02.webp?v=6feab9aa38b9",
+        "rotation": 0
+      }
+    ],
+    "308": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/front.webp?v=fa674a2bef44",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/front-thumb.webp?v=fa674a2bef44"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/back.webp?v=14cce6b1851f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-01.webp?v=ee4b0f9a25a8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-02.webp?v=35b55b2b0c9e",
+        "rotation": 0
+      }
+    ],
+    "309": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/front.webp?v=6b00bda16b38",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/front-thumb.webp?v=6b00bda16b38"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/back.webp?v=c0d9a1a8048b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-01.webp?v=72421644cd29",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-02.webp?v=9b92f543c027",
+        "rotation": 0
+      }
+    ],
+    "310": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/front.webp?v=b7da4a97d7ed",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/front-thumb.webp?v=b7da4a97d7ed"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/back.webp?v=b67143264ca3",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-01.webp?v=fbae91a9bf54",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-02.webp?v=87ee4762ebe2",
+        "rotation": 0
+      }
+    ],
+    "311": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/front.webp?v=3ceba2735af6",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/front-thumb.webp?v=3ceba2735af6"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/back.webp?v=98df1a9793ef",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/edge-01.webp?v=13d4645c2f3b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/edge-02.webp?v=693828697ace",
+        "rotation": 0
+      }
+    ],
+    "312": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/front.webp?v=7af22ba309df",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/front-thumb.webp?v=7af22ba309df"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/back.webp?v=0d692c2765b8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/edge-01.webp?v=4423687c9c84",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/edge-02.webp?v=f625ca3fc42e",
+        "rotation": 0
+      }
+    ],
+    "314": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/front.webp?v=f6f247c4e0d7",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/front-thumb.webp?v=f6f247c4e0d7"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/back.webp?v=f1accf56e392",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/edge-01.webp?v=96673b3a4ed7",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/edge-02.webp?v=3e34e9084a28",
+        "rotation": 0
+      }
+    ],
+    "315": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/front.webp?v=43bb8da24b06",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/front-thumb.webp?v=43bb8da24b06"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/back.webp?v=cfa36ce51047",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/edge-01.webp?v=bd6151993266",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/edge-02.webp?v=4d6b5bf19e7d",
+        "rotation": 0
+      }
+    ],
+    "316": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/front.webp?v=b8a2928e05c9",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/front-thumb.webp?v=b8a2928e05c9"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/back.webp?v=c1efebcbbc85",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-01.webp?v=e2f832393642",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-02.webp?v=2fde24491409",
+        "rotation": 0
+      }
+    ],
+    "317": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/front.webp?v=ab5a5840c2c8",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/front-thumb.webp?v=ab5a5840c2c8"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/back.webp?v=e665aa7f986a",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-01.webp?v=3555d2129647",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-02.webp?v=e278121f5f41",
+        "rotation": 0
+      }
+    ],
+    "318": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/front.webp?v=00e8f8c7456a",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/front-thumb.webp?v=00e8f8c7456a"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/back.webp?v=985f1c441d55",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-01.webp?v=f2f055ecb29f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-02.webp?v=b19cdb097451",
+        "rotation": 0
+      }
+    ],
+    "319": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/front.webp?v=a72cc3094dcc",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/front-thumb.webp?v=a72cc3094dcc"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/back.webp?v=6e5cbf238d90",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-01.webp?v=ca603552d8c1",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-02.webp?v=a3effee4c876",
+        "rotation": 0
+      }
+    ],
+    "320": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/front.webp?v=61a30e9032ef",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/front-thumb.webp?v=61a30e9032ef"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/back.webp?v=768189d76fd7",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/edge-01.webp?v=645d66ed88f1",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/edge-02.webp?v=8ebeaf31b257",
+        "rotation": 0
+      }
+    ],
+    "321": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/front.webp?v=a3939a61079d",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/front-thumb.webp?v=a3939a61079d"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/back.webp?v=65b82f555312",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-01.webp?v=b32f9d6814b9",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-02.webp?v=1d6986d5c5cb",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-03.webp?v=08d8ee4ab67d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-04.webp?v=aaf08f4afe45",
+        "rotation": 0
+      }
+    ],
+    "322": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/front.webp?v=cd12b0c9e230",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/front-thumb.webp?v=cd12b0c9e230"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/back.webp?v=cb4dccb07a9d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/edge-01.webp?v=fe79784d2922",
+        "rotation": 0
+      }
+    ],
+    "323": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/front.webp?v=dd43ccb9ee0e",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/front-thumb.webp?v=dd43ccb9ee0e"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/back.webp?v=4fcb8f102acc",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-01.webp?v=8ae971e85a18",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-02.webp?v=0d147a4977d0",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-03.webp?v=90d8dcbf8be7",
+        "rotation": 0
+      }
+    ],
+    "324": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/front.webp?v=a2e671a635f2",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/front-thumb.webp?v=a2e671a635f2"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/back.webp?v=dab6462a1bf0",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-01.webp?v=6beb693e9d46",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-02.webp?v=312f03bf26c8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/324/edge-03.webp?v=7bca30f38b4f",
+        "rotation": 0
+      }
+    ],
+    "325": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/front.webp?v=bdaa6b9bdf90",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/front-thumb.webp?v=bdaa6b9bdf90"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/back.webp?v=24c264b43bb2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-01.webp?v=176d0046bd5b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-02.webp?v=0c9cdc52c105",
+        "rotation": 0
+      }
+    ],
+    "326": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/front.webp?v=13ad37875538",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/front-thumb.webp?v=13ad37875538"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/back.webp?v=026ae2749f03",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-01.webp?v=fcdf154013f5",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-02.webp?v=3d7c56e3f15f",
+        "rotation": 0
+      }
+    ],
+    "327": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/front.webp?v=74aac1531669",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/front-thumb.webp?v=74aac1531669"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/back.webp?v=2cee82b3cd4f",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-01.webp?v=ce5da688dfe6",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-02.webp?v=096626f5352c",
+        "rotation": 0
+      }
+    ],
+    "328": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/front.webp?v=e1e6a1bd4697",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/front-thumb.webp?v=e1e6a1bd4697"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/back.webp?v=962536d3c32d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/edge-01.webp?v=eac0058309d5",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/edge-02.webp?v=ead67d0e36b2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/edge-03.webp?v=8af75934c5c0",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/edge-04.webp?v=527061935106",
+        "rotation": 0
+      }
+    ],
+    "329": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/front.webp?v=fdadc2758533",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/front-thumb.webp?v=fdadc2758533"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/back.webp?v=8b244454f812",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/edge-01.webp?v=6da369e5eed0",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/edge-02.webp?v=b7c071ddb22a",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/edge-03.webp?v=e693e4aa8ec8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/edge-04.webp?v=4bb497a9da60",
+        "rotation": 0
+      }
+    ],
+    "330": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/front.webp?v=c805a34781cc",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/front-thumb.webp?v=c805a34781cc"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/back.webp?v=232a9f6970c1",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/edge-01.webp?v=cd541585bd75",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/edge-02.webp?v=1c4d9e1e41b2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/edge-03.webp?v=1988c025d6ea",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/edge-04.webp?v=6bbea1152d92",
+        "rotation": 0
+      }
+    ],
+    "331": [
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/edge-01.webp?v=0d4723464a09",
+        "rotation": 0
+      }
+    ],
+    "332": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/front.webp?v=35473c40ce2f",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/front-thumb.webp?v=35473c40ce2f"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/back.webp?v=4a93b49b4f9d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/edge-01.webp?v=7b0cb80e47a2",
+        "rotation": 0
+      }
+    ],
     "334": [
       {
         "label": "Front",
-        "url": "images/pucks/334/front.webp?v=20260927-level2",
-        "thumbnailUrl": "images/pucks/334/front-thumb.webp?v=20260927-level2",
-        "rotation": 0
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/front.webp?v=de41b9d5edb0",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/front-thumb.webp?v=de41b9d5edb0"
       },
       {
         "label": "Back",
@@ -2014,6 +3114,49 @@
       {
         "label": "Edge 4",
         "url": "images/pucks/334/edge-04.webp?v=20260927-level2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 5",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-05.webp?v=ed36699dbd7c",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 6",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-06.webp?v=16ab5211760b",
+        "rotation": 0
+      }
+    ],
+    "335": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/front.webp?v=7352604ecdda",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/front-thumb.webp?v=7352604ecdda"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/back.webp?v=3fc61122c66a",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/edge-01.webp?v=22c5f64a0a5b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/edge-02.webp?v=d0978201444e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/edge-03.webp?v=78a9c0ec7d81",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/edge-04.webp?v=f72745c90548",
         "rotation": 0
       }
     ],
@@ -2056,6 +3199,67 @@
         "rotation": 0
       }
     ],
+    "501": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/front.webp?v=2f042c4d42d5",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/front-thumb.webp?v=2f042c4d42d5"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/back.webp?v=cc27e21c219d",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-01.webp?v=2b738b5623bd",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-02.webp?v=2e7f924abe4e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-03.webp?v=1e7343ea82b7",
+        "rotation": 0
+      }
+    ],
+    "502": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/front.webp?v=e7376f916dd1",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/front-thumb.webp?v=e7376f916dd1"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/back.webp?v=fce56091a4cf",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-01.webp?v=6c159ab79b7e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-02.webp?v=5e26c03a86c4",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-03.webp?v=314cf4b25001",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/502/edge-04.webp?v=4799a0e45567",
+        "rotation": 0
+      }
+    ],
     "503": [
       {
         "label": "Front",
@@ -2070,19 +3274,138 @@
     ],
     "504": [
       {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/front.webp?v=c37aca9313b5",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/front-thumb.webp?v=c37aca9313b5"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/back.webp?v=1ae7cca56238",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-01.webp?v=3d662ab71014",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-02.webp?v=07d0b45cd9e9",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/504/edge-03.webp?v=54576a9ca1e8",
+        "rotation": 0
+      },
+      {
         "label": "COA",
         "url": "images/pucks/504/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
+    "505": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/front.webp?v=104987355f15",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/front-thumb.webp?v=104987355f15"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/back.webp?v=06d2b3eee60b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-01.webp?v=c1bbb5d66b18",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-02.webp?v=c61de406f3af",
+        "rotation": 0
+      }
+    ],
     "506": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/front.webp?v=dfd90eba787f",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/front-thumb.webp?v=dfd90eba787f"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/back.webp?v=f5b63aa71134",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-01.webp?v=95a207c1f77a",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/506/edge-02.webp?v=01599790da91",
+        "rotation": 0
+      },
       {
         "label": "COA",
         "url": "images/pucks/506/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
+    "507": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/front.webp?v=868f8a1eebd4",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/front-thumb.webp?v=868f8a1eebd4"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/back.webp?v=9a9d0b1d787e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-01.webp?v=4ef77e3491b6",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-02.webp?v=05abc55191c1",
+        "rotation": 0
+      }
+    ],
     "508": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/front.webp?v=e0ee460f0516",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/front-thumb.webp?v=e0ee460f0516"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/back.webp?v=5deee3a0e3c5",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/edge-01.webp?v=a36a45a38b25",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/edge-02.webp?v=31f5deace2a2",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/508/edge-03.webp?v=ddd99649ecaa",
+        "rotation": 0
+      },
       {
         "label": "COA",
         "url": "images/pucks/508/coa.webp?v=20260928-coa",
@@ -2522,5 +3845,13 @@
     "date": "2026-09-27",
     "views": 107,
     "method": "Individually measured and visually reviewed exported pixels. Rotation baked into full-resolution files; runtime rotation is zero. Original files preserved in private audit backup. Perspective and wear unchanged."
+  },
+  "photoLibrary": {
+    "baseUrl": "https://bostnmike.github.io/marchand-puck-images/",
+    "inventory": "data/marchand-photo-library.json",
+    "batch": "2026-09-28-batch3",
+    "viewsAdded": 239,
+    "viewsReplaced": 1,
+    "method": "Native Photoshop, non-generative tone/crop/background isolation and individually reviewed pixel leveling. Full-resolution masters retained. Quality-96 WebP, exact alpha and lossless front thumbnails. Validated artifact database controls associations."
   }
 }
