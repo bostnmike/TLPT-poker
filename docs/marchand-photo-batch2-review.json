@@ -1,0 +1,3776 @@
+{
+  "date": "2026-09-28",
+  "views": 209,
+  "artifacts": 40,
+  "method": "Adobe non-generative level/auto-tone/Color - Natural, complete-subject crop and isolation; individually measured pixel rotation. Every full-resolution master visually reviewed and preserved privately with lossless exports. User-approved WebP quality-96 website copies, faces up to 2400px and edges up to 2800px, exact alpha. Every website copy measured against its resized lossless master; representative and worst-metric close-ups visually checked. No generated detail or intentional removal of wear, tape, signatures or authentication labels.",
+  "held": [
+    {
+      "sourceName": "'",
+      "reason": "No confirmed artifact mapping; not published or archived"
+    }
+  ],
+  "viewsReviewed": [
+    {
+      "artifact": "24",
+      "label": "Edge 3",
+      "url": "images/pucks/24/edge-03.webp",
+      "clockwiseDegrees": 0.05,
+      "reference": "silhouette-midline",
+      "sha256": "83a17bde47097910731aaef4663cb983176fd75e9115076ec77a55ed8265275c",
+      "width": 2800,
+      "height": 1338,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.501913404807354,
+        "alphaExact": true,
+        "bytes": 903602
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "24",
+      "label": "Edge 2",
+      "url": "images/pucks/24/edge-02.webp",
+      "clockwiseDegrees": -91.32,
+      "reference": "silhouette-midline",
+      "sha256": "33d13888315c33547d3f10ad7ab37111b1d5fec42aa90925683c406b229ce3fc",
+      "width": 2800,
+      "height": 1337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.9211734681658,
+        "alphaExact": true,
+        "bytes": 881126
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Edge 4",
+      "url": "images/pucks/75/edge-04.webp",
+      "clockwiseDegrees": -89.57,
+      "reference": "silhouette-midline",
+      "sha256": "62591d606ff35528a7d23e51c4e738f5031b2ab6faae9cd4bdb15cc9938b5ed0",
+      "width": 2800,
+      "height": 1302,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.59087208186065,
+        "alphaExact": true,
+        "bytes": 1017780
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "24",
+      "label": "Edge 1",
+      "url": "images/pucks/24/edge-01.webp",
+      "clockwiseDegrees": -90.06,
+      "reference": "silhouette-midline",
+      "sha256": "cd48ea0321ba848c1a68bda4641c35daea7955c6b157471fb1c36b82517f5fd1",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.26198340351009,
+        "alphaExact": true,
+        "bytes": 856416
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "24",
+      "label": "Back",
+      "url": "images/pucks/24/back.webp",
+      "clockwiseDegrees": -82.94,
+      "reference": "Commissioner printed rule from (309,367) to (348,682), preferred over slightly asymmetric shield match",
+      "sha256": "c6495bb0fdb15272d67e35257b1f7c2a32f24fb22ec496a5700b8d6fefd43127",
+      "width": 2366,
+      "height": 2366,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.22668207947953,
+        "alphaExact": true,
+        "bytes": 1006774
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "24",
+      "label": "Front",
+      "url": "images/pucks/24/front.webp",
+      "clockwiseDegrees": -85.78,
+      "reference": "logo-SIFT",
+      "sha256": "24189c3853dd06af171877225d166effa71b275df7a3cb0944c3d29b3faaeb68",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.94821526610452,
+        "alphaExact": true,
+        "bytes": 768180
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Edge 4",
+      "url": "images/pucks/21/edge-04.webp",
+      "clockwiseDegrees": -88.69,
+      "reference": "silhouette-midline",
+      "sha256": "85bbb01da44abaeca55899601b18a76faf744abdd7033eb15086be4045d38631",
+      "width": 2800,
+      "height": 1351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.90178676446582,
+        "alphaExact": true,
+        "bytes": 1017784
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Front",
+      "url": "images/pucks/21/front.webp",
+      "clockwiseDegrees": -88.42,
+      "reference": "logo-SIFT",
+      "sha256": "6879604b3b7a5a67097bb2872189162d0d97b2e867b6d33eef3d9cd0371fe8b1",
+      "width": 2351,
+      "height": 2351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.9278107867931,
+        "alphaExact": true,
+        "bytes": 753156
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Back",
+      "url": "images/pucks/21/back.webp",
+      "clockwiseDegrees": -83.91,
+      "reference": "logo-SIFT",
+      "sha256": "1a27300e7e4d844d6dc00245e847c09758fd9fe14d002815c50ed3dd32f8433c",
+      "width": 2356,
+      "height": 2356,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.5006045621172,
+        "alphaExact": true,
+        "bytes": 903174
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Edge 3",
+      "url": "images/pucks/21/edge-03.webp",
+      "clockwiseDegrees": -88.06,
+      "reference": "silhouette-midline",
+      "sha256": "a46c679736c9beed3b5c4a451c151a7ebf0852a44ad7ec21cdd9765538a362e2",
+      "width": 2800,
+      "height": 1338,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.99945490829161,
+        "alphaExact": true,
+        "bytes": 948632
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Edge 2",
+      "url": "images/pucks/21/edge-02.webp",
+      "clockwiseDegrees": -91.12,
+      "reference": "silhouette-midline",
+      "sha256": "81671644b5b9217933ccb3c1e0e1478a25e29dde4874a21df5e6a95ad0e7c870",
+      "width": 2800,
+      "height": 1371,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.89316252188764,
+        "alphaExact": true,
+        "bytes": 984256
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Front",
+      "url": "images/pucks/18/front.webp",
+      "clockwiseDegrees": -90,
+      "reference": "40th-anniversary numeral stems: measured long printed lines at 0.00 degrees in source; quarter-turn counterclockwise",
+      "sha256": "b01fa41a2e6dcf355e5733a7e3acb4eeba5ad41bbf3162db1c1f4fb7b8dac523",
+      "width": 2372,
+      "height": 2372,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 41.42383367596161,
+        "alphaExact": true,
+        "bytes": 1035682
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "21",
+      "label": "Edge 1",
+      "url": "images/pucks/21/edge-01.webp",
+      "clockwiseDegrees": -91.07,
+      "reference": "silhouette-midline",
+      "sha256": "98ddba483f4428e002cf3a22f07083aea7b6949002256a662f0feee906619da6",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.95186741849433,
+        "alphaExact": true,
+        "bytes": 833400
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Back",
+      "url": "images/pucks/18/back.webp",
+      "clockwiseDegrees": 2.74,
+      "reference": "logo-SIFT",
+      "sha256": "595dbbba6101ca70f9358f9c52979c5a6b8fa7caffaee06a384e5940cdbf05ad",
+      "width": 2368,
+      "height": 2368,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.84387567570991,
+        "alphaExact": true,
+        "bytes": 1048760
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Edge 5",
+      "url": "images/pucks/18/edge-05.webp",
+      "clockwiseDegrees": -89.4,
+      "reference": "silhouette-midline",
+      "sha256": "87b9c19df8ab410e71383a2e4ff62ad7ad870d9223404fc070003a59b2869222",
+      "width": 2800,
+      "height": 1341,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.05417793107139,
+        "alphaExact": true,
+        "bytes": 1032562
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Edge 4",
+      "url": "images/pucks/18/edge-04.webp",
+      "clockwiseDegrees": -89.19,
+      "reference": "silhouette-midline",
+      "sha256": "013aeae899eee2dac9d9b16812fa3ed36a36e210ff64ba2203b23ecfa76946a7",
+      "width": 2800,
+      "height": 1333,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 41.906764769508335,
+        "alphaExact": true,
+        "bytes": 1061940
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Edge 1",
+      "url": "images/pucks/18/edge-01.webp",
+      "clockwiseDegrees": -90.08,
+      "reference": "silhouette-midline",
+      "sha256": "9423e3150b954b0f7acaadfa1a7fd0d902a6169593d247e8409945a46b3ebf78",
+      "width": 2800,
+      "height": 1332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.793580638328876,
+        "alphaExact": true,
+        "bytes": 953630
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Edge 3",
+      "url": "images/pucks/18/edge-03.webp",
+      "clockwiseDegrees": -91.26,
+      "reference": "silhouette-midline",
+      "sha256": "a3a841a0e8a157a5c3eb8d5a63bc4ea42a2d864cf1020e058240b0ead5f58e87",
+      "width": 2800,
+      "height": 1336,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.02092717767508,
+        "alphaExact": true,
+        "bytes": 829314
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "18",
+      "label": "Edge 2",
+      "url": "images/pucks/18/edge-02.webp",
+      "clockwiseDegrees": -90.13,
+      "reference": "silhouette-midline",
+      "sha256": "f41a971fbe2e96297fc02893211ff9da95613cb508de166da9bdf125e086dd99",
+      "width": 2800,
+      "height": 1317,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.195612529213406,
+        "alphaExact": true,
+        "bytes": 997334
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "17",
+      "label": "Back",
+      "url": "images/pucks/17/back.webp",
+      "clockwiseDegrees": 0.61,
+      "reference": "logo-SIFT",
+      "sha256": "3fe18052f2697b111b1046d1283b10d70ddc6e89f7431588fb041e83c58507f5",
+      "width": 2392,
+      "height": 2392,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.053374321892505,
+        "alphaExact": true,
+        "bytes": 933136
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "17",
+      "label": "Front",
+      "url": "images/pucks/17/front.webp",
+      "clockwiseDegrees": -88.11,
+      "reference": "logo-SIFT",
+      "sha256": "cecc9746a087283e8dad1eb2514e1dd0cb2faae475d5c5ddb116959208be42f5",
+      "width": 2391,
+      "height": 2391,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.1994612128666,
+        "alphaExact": true,
+        "bytes": 763236
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "17",
+      "label": "Edge 2",
+      "url": "images/pucks/17/edge-02.webp",
+      "clockwiseDegrees": -90.5,
+      "reference": "silhouette-midline",
+      "sha256": "f219d4adbb5c4049338fc3147e79833b261b11e5b60a519edc7fa49ee3e7fcde",
+      "width": 2800,
+      "height": 1373,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.01910900725467,
+        "alphaExact": true,
+        "bytes": 936638
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "17",
+      "label": "Edge 3",
+      "url": "images/pucks/17/edge-03.webp",
+      "clockwiseDegrees": -90.92,
+      "reference": "silhouette-midline",
+      "sha256": "f4ee4f6867e0396365bd077a3098e99150096dc716fa6ce29296eb4477e61f38",
+      "width": 2800,
+      "height": 1377,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.084729201513,
+        "alphaExact": true,
+        "bytes": 978862
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "17",
+      "label": "Edge 1",
+      "url": "images/pucks/17/edge-01.webp",
+      "clockwiseDegrees": -87.6,
+      "reference": "silhouette-midline",
+      "sha256": "417133e38b75898b84eb0319cbf2d143def5a89fdead93807ade74877827db86",
+      "width": 2800,
+      "height": 1361,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.64244489780531,
+        "alphaExact": true,
+        "bytes": 1041048
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Back",
+      "url": "images/pucks/14/back.webp",
+      "clockwiseDegrees": -90.08,
+      "reference": "logo-SIFT",
+      "sha256": "7adbbb150304f0c7162267292396fe2f915da616bf9de0c091a31e89fe6b5596",
+      "width": 2382,
+      "height": 2382,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.0418371607446,
+        "alphaExact": true,
+        "bytes": 962148
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Edge 2",
+      "url": "images/pucks/14/edge-02.webp",
+      "clockwiseDegrees": -88.8,
+      "reference": "silhouette-midline",
+      "sha256": "d2e516d46081ef83279fbb9bf2893bedbecd389fd3ea429a7111f0c61aa19b24",
+      "width": 2800,
+      "height": 1356,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.2002087554891,
+        "alphaExact": true,
+        "bytes": 900840
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Edge 3",
+      "url": "images/pucks/14/edge-03.webp",
+      "clockwiseDegrees": -89.93,
+      "reference": "silhouette-midline",
+      "sha256": "fdf894f514ec4453af670c031f76d0d6b8d76b7977c63154743253e85bf5b51d",
+      "width": 2800,
+      "height": 1339,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 41.81670545536339,
+        "alphaExact": true,
+        "bytes": 1022484
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Edge 4",
+      "url": "images/pucks/14/edge-04.webp",
+      "clockwiseDegrees": -89.82,
+      "reference": "silhouette-midline",
+      "sha256": "d094813324c662e42b65ef934f17bb8136032b99140ed5a23a2b3d887aa4c6fa",
+      "width": 2800,
+      "height": 1325,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.761722473677075,
+        "alphaExact": true,
+        "bytes": 959876
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Front",
+      "url": "images/pucks/14/front.webp",
+      "clockwiseDegrees": -92.43,
+      "reference": "logo-SIFT",
+      "sha256": "2a6fd76ef25b004816ddd1d1c04bac0fde184f79d43b413696c2eed02c172b82",
+      "width": 2372,
+      "height": 2372,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.771085822306716,
+        "alphaExact": true,
+        "bytes": 957700
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "14",
+      "label": "Edge 1",
+      "url": "images/pucks/14/edge-01.webp",
+      "clockwiseDegrees": -90.27,
+      "reference": "silhouette-midline",
+      "sha256": "a90ceb45ae7aeb79b732f6897233519a525bccfbb95a01e126fa15b494b45bb9",
+      "width": 2800,
+      "height": 1340,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.9484482670129,
+        "alphaExact": true,
+        "bytes": 922884
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Back",
+      "url": "images/pucks/75/back.webp",
+      "clockwiseDegrees": -83.57,
+      "reference": "logo-SIFT",
+      "sha256": "e942087e0319710e93ec08339eb0e70f5b34d0abaf96d7c0ca4fc7e0d8e5afcf",
+      "width": 2394,
+      "height": 2394,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.27141423745528,
+        "alphaExact": true,
+        "bytes": 908436
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Edge 3",
+      "url": "images/pucks/75/edge-03.webp",
+      "clockwiseDegrees": -90.29,
+      "reference": "silhouette-midline",
+      "sha256": "7bd4d4f4e455c492c9a9bbc8f07421c5cf009ede656ab2213a21f3150e2a0921",
+      "width": 2800,
+      "height": 1348,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.10620071308007,
+        "alphaExact": true,
+        "bytes": 919908
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Front",
+      "url": "images/pucks/75/front.webp",
+      "clockwiseDegrees": -89.09,
+      "reference": "logo-SIFT",
+      "sha256": "91d7f39a2679e60aea06b2e0f7d7eb2567507d40a204310f584af4c28c8dbf35",
+      "width": 2400,
+      "height": 2400,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.585269013948256,
+        "alphaExact": true,
+        "bytes": 698492
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Edge 2",
+      "url": "images/pucks/75/edge-02.webp",
+      "clockwiseDegrees": -88.12,
+      "reference": "silhouette-midline",
+      "sha256": "e20b9c9eb62d9370e6aac914b7dec40a04fc1029fcb429856122f00c6a1f8f34",
+      "width": 2800,
+      "height": 1345,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.730358452295874,
+        "alphaExact": true,
+        "bytes": 999052
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "75",
+      "label": "Edge 1",
+      "url": "images/pucks/75/edge-01.webp",
+      "clockwiseDegrees": -90.54,
+      "reference": "silhouette-midline",
+      "sha256": "bc72271feeab188d2df44bb372428f547fc024be36866eea83b55aae3f511fc0",
+      "width": 2800,
+      "height": 1337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.13115063989053,
+        "alphaExact": true,
+        "bytes": 905814
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "13",
+      "label": "Back",
+      "url": "images/pucks/13/back.webp",
+      "clockwiseDegrees": 1.84,
+      "reference": "logo-SIFT",
+      "sha256": "ffede3caab6f97cdbb500ee61519ba2bd58cfcce7506cd29f09060c534e72b7d",
+      "width": 2366,
+      "height": 2366,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.80297752761095,
+        "alphaExact": true,
+        "bytes": 823104
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "13",
+      "label": "Front",
+      "url": "images/pucks/13/front.webp",
+      "clockwiseDegrees": -0.67,
+      "reference": "logo-SIFT",
+      "sha256": "cd8923cc12c3bac5dfcfb6aa055b46c72cbf2cb72046ebd03637d40faab0f124",
+      "width": 2376,
+      "height": 2376,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.187093596966456,
+        "alphaExact": true,
+        "bytes": 797094
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "13",
+      "label": "Edge 3",
+      "url": "images/pucks/13/edge-03.webp",
+      "clockwiseDegrees": -91.8,
+      "reference": "silhouette-midline",
+      "sha256": "d04b9f89a3d68985a84797a2736a9d0263008f4b83ce9955203af5736f8514b6",
+      "width": 2800,
+      "height": 1357,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.440161151708956,
+        "alphaExact": true,
+        "bytes": 916320
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "13",
+      "label": "Edge 2",
+      "url": "images/pucks/13/edge-02.webp",
+      "clockwiseDegrees": -90.67,
+      "reference": "silhouette-midline",
+      "sha256": "2c110ae573a66e73be7415440c24899740574c6aa810cd4580120bb2c0e8dad5",
+      "width": 2800,
+      "height": 1365,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.1544902766335,
+        "alphaExact": true,
+        "bytes": 739006
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "13",
+      "label": "Edge 1",
+      "url": "images/pucks/13/edge-01.webp",
+      "clockwiseDegrees": -90.93,
+      "reference": "silhouette-midline",
+      "sha256": "c531e6101ae2abcea292b24f9e2d1c897ce4a92f7441cd81f0e3b32d06a599f5",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.43503380997741,
+        "alphaExact": true,
+        "bytes": 822496
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Back",
+      "url": "images/pucks/10/back.webp",
+      "clockwiseDegrees": 2.43,
+      "reference": "Printed commissioner rule measured from (333,628) to (687,613) in 1000px analysis image",
+      "sha256": "64c679d26c45727e5222508e2a2e365ce2f0f50cb520c8de9668b4f19c593790",
+      "width": 2360,
+      "height": 2360,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.70584342138764,
+        "alphaExact": true,
+        "bytes": 1009748
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Edge 4",
+      "url": "images/pucks/10/edge-04.webp",
+      "clockwiseDegrees": -90.04,
+      "reference": "silhouette-midline",
+      "sha256": "8b1da0461f98f94b02f492fcc96c4aee8575ccf7381d5b53a6d00eb53d258046",
+      "width": 2800,
+      "height": 1372,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.75358508685358,
+        "alphaExact": true,
+        "bytes": 1024484
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Edge 3",
+      "url": "images/pucks/10/edge-03.webp",
+      "clockwiseDegrees": -90.96,
+      "reference": "silhouette-midline",
+      "sha256": "f7001fbf655dc709dd75b8e1e74feb90c09d6d675082a6e9443d32033ea3407b",
+      "width": 2800,
+      "height": 1373,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.664717505880674,
+        "alphaExact": true,
+        "bytes": 1022606
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Front",
+      "url": "images/pucks/10/front.webp",
+      "clockwiseDegrees": -88.73,
+      "reference": "logo-SIFT",
+      "sha256": "c6003ac2013fa3b7bf438a4e3f6d1d16955cacb1af2c2eab8f6ded85769d38ee",
+      "width": 2369,
+      "height": 2369,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.93365157980535,
+        "alphaExact": true,
+        "bytes": 1139936
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Edge 2",
+      "url": "images/pucks/10/edge-02.webp",
+      "clockwiseDegrees": -89.86,
+      "reference": "silhouette-midline",
+      "sha256": "558502d459984c9992eb445f551915946087b6d3ef4008b37e2da9e54f24ef68",
+      "width": 2800,
+      "height": 1323,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.75355508162485,
+        "alphaExact": true,
+        "bytes": 999978
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "10",
+      "label": "Edge 1",
+      "url": "images/pucks/10/edge-01.webp",
+      "clockwiseDegrees": -88.51,
+      "reference": "silhouette-midline",
+      "sha256": "dbd6de6f52459946a0323a8551d51240905b52e4f4f1ed568cecdc7bcc19225e",
+      "width": 2800,
+      "height": 1358,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.98762188356526,
+        "alphaExact": true,
+        "bytes": 963452
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "9",
+      "label": "Back",
+      "url": "images/pucks/9/back.webp",
+      "clockwiseDegrees": 0.4,
+      "reference": "logo-SIFT",
+      "sha256": "77fc542a262fa5362a9a770014c6afedc9956da7afa4c2f55d04746f329a1cfe",
+      "width": 2355,
+      "height": 2355,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.77508756584119,
+        "alphaExact": true,
+        "bytes": 1027238
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "9",
+      "label": "Edge 2",
+      "url": "images/pucks/9/edge-02.webp",
+      "clockwiseDegrees": -89.67,
+      "reference": "silhouette-midline",
+      "sha256": "0fe07c5dc371cb560b66652f022c44e4ed7951e5cb88ce67e4835b1d1b5d4a67",
+      "width": 2800,
+      "height": 1351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.37827122982439,
+        "alphaExact": true,
+        "bytes": 975410
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "9",
+      "label": "Front",
+      "url": "images/pucks/9/front.webp",
+      "clockwiseDegrees": -0.91,
+      "reference": "logo-SIFT",
+      "sha256": "424fa646dd049c6beeae361ca9eaf35db27215aa818b72bcd4c598c456de1a80",
+      "width": 2354,
+      "height": 2354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.91120741955141,
+        "alphaExact": true,
+        "bytes": 779604
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "9",
+      "label": "Edge 1",
+      "url": "images/pucks/9/edge-01.webp",
+      "clockwiseDegrees": -88.43,
+      "reference": "silhouette-midline",
+      "sha256": "63535a12bb45c6df7f1e3b5ede9ec1de889f33e5a1c3a147dd8b1e117689d5f9",
+      "width": 2800,
+      "height": 1370,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.282936868599975,
+        "alphaExact": true,
+        "bytes": 967506
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "71",
+      "label": "Back",
+      "url": "images/pucks/71/back.webp",
+      "clockwiseDegrees": 0.31,
+      "reference": "logo-SIFT",
+      "sha256": "4b5cfa1cd071fb2b0677c20a74f6c5aa963b6a9fc3ec781df580011d7c72e921",
+      "width": 2346,
+      "height": 2346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.86829581806947,
+        "alphaExact": true,
+        "bytes": 1036116
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "71",
+      "label": "Edge 3",
+      "url": "images/pucks/71/edge-03.webp",
+      "clockwiseDegrees": -89,
+      "reference": "silhouette-midline",
+      "sha256": "c10bb9ddb8de3c6afa55573261ba352d0c43afe6e790b2a2cce919043db093a2",
+      "width": 2800,
+      "height": 1349,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.3996674211711,
+        "alphaExact": true,
+        "bytes": 904312
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "71",
+      "label": "Front",
+      "url": "images/pucks/71/front.webp",
+      "clockwiseDegrees": -88.68,
+      "reference": "logo-SIFT",
+      "sha256": "5deea2ff57eaeb3fc3923428014ef18a921f2b6ade3b0c20f5eb101fdc7e3d73",
+      "width": 2358,
+      "height": 2358,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.63738578556385,
+        "alphaExact": true,
+        "bytes": 740168
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "71",
+      "label": "Edge 2",
+      "url": "images/pucks/71/edge-02.webp",
+      "clockwiseDegrees": -89.72,
+      "reference": "silhouette-midline",
+      "sha256": "fb48aa488c65f11c38c1178d949792a389f8c8d723a6f49b6a95b6ef38b24b5b",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.502764049468894,
+        "alphaExact": true,
+        "bytes": 949164
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "71",
+      "label": "Edge 1",
+      "url": "images/pucks/71/edge-01.webp",
+      "clockwiseDegrees": -89.49,
+      "reference": "silhouette-midline",
+      "sha256": "6b3d3dc7b1d676cdc22481bd3ccc8040218fa789b8fac672dbe2c14aa85d0234",
+      "width": 2800,
+      "height": 1356,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.38598095228485,
+        "alphaExact": true,
+        "bytes": 947160
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "76",
+      "label": "Back",
+      "url": "images/pucks/76/back.webp",
+      "clockwiseDegrees": 0.75,
+      "reference": "logo-SIFT",
+      "sha256": "93f94b6458bdd34fd6f5f42a3bbca6201cf2eba1ccf073e18137460e4cd69c78",
+      "width": 2351,
+      "height": 2351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.17744963123799,
+        "alphaExact": true,
+        "bytes": 1008504
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "76",
+      "label": "Edge 2",
+      "url": "images/pucks/76/edge-02.webp",
+      "clockwiseDegrees": -90.83,
+      "reference": "silhouette-midline",
+      "sha256": "fedd1d8b48a78d6384b1b030ef0ac4c1fa16b34f11fbaea4ed9eb5ae9abfd075",
+      "width": 2800,
+      "height": 1336,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.10316280658084,
+        "alphaExact": true,
+        "bytes": 999222
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "74",
+      "label": "Back",
+      "url": "images/pucks/74/back.webp",
+      "clockwiseDegrees": 0.04,
+      "reference": "logo-SIFT",
+      "sha256": "90e9cfabc66e56b05cf301aa6a907c8f2964a4e4502b10c24b306dc3a31875b7",
+      "width": 2302,
+      "height": 2302,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.06890373353044,
+        "alphaExact": true,
+        "bytes": 962180
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "76",
+      "label": "Front",
+      "url": "images/pucks/76/front.webp",
+      "clockwiseDegrees": -89.52,
+      "reference": "logo-SIFT",
+      "sha256": "f335c1dd7b9c4e670cb5d24e7ad1c253589e471785d59b821a47be0a93c68df1",
+      "width": 2346,
+      "height": 2346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.36330171308799,
+        "alphaExact": true,
+        "bytes": 873808
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "76",
+      "label": "Edge 1",
+      "url": "images/pucks/76/edge-01.webp",
+      "clockwiseDegrees": -89.91,
+      "reference": "silhouette-midline",
+      "sha256": "e718fb6e8a95eb3416d3766967b570ed6d497f3a4f6466ea754a2ce2a283e81f",
+      "width": 2800,
+      "height": 1340,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.21260578594334,
+        "alphaExact": true,
+        "bytes": 1040898
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "74",
+      "label": "Front",
+      "url": "images/pucks/74/front.webp",
+      "clockwiseDegrees": 4.39,
+      "reference": "logo-SIFT",
+      "sha256": "f065cc564930dc2f9c635fd1332a38878838be09b12658de9138c7b3afdab3fd",
+      "width": 2322,
+      "height": 2322,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.66910763947665,
+        "alphaExact": true,
+        "bytes": 962526
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "74",
+      "label": "Edge 2",
+      "url": "images/pucks/74/edge-02.webp",
+      "clockwiseDegrees": -89.9,
+      "reference": "silhouette-midline",
+      "sha256": "4ca4bd6ca6ab494a7746f61a3c79df643b4e05212d756aeebe8c993035c41f35",
+      "width": 2800,
+      "height": 1352,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.76666940879733,
+        "alphaExact": true,
+        "bytes": 1047622
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "73",
+      "label": "Back",
+      "url": "images/pucks/73/back.webp",
+      "clockwiseDegrees": -89.14,
+      "reference": "Commissioner printed rule (334,421) to (337,621); shield hidden behind genuine authentication label",
+      "sha256": "4a33df5001e591b7f8d753f09803e75f637a25db4dacf8801a84ca17c69f6bab",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.722069268261166,
+        "alphaExact": true,
+        "bytes": 1067758
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "74",
+      "label": "Edge 1",
+      "url": "images/pucks/74/edge-01.webp",
+      "clockwiseDegrees": -90.26,
+      "reference": "silhouette-midline",
+      "sha256": "290e1f27f13dfeba16e3235caf04137625d5a7e04d3653756edaee2b7c8de3fe",
+      "width": 2800,
+      "height": 1337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.14221918610562,
+        "alphaExact": true,
+        "bytes": 911140
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "73",
+      "label": "Edge 3",
+      "url": "images/pucks/73/edge-03.webp",
+      "clockwiseDegrees": -89.71,
+      "reference": "silhouette-midline",
+      "sha256": "c92bc12875940a339d0e9166094173c41e2d6563c8b61bd86fdf51cc5fa15572",
+      "width": 2800,
+      "height": 1340,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.76306162635717,
+        "alphaExact": true,
+        "bytes": 779650
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "73",
+      "label": "Front",
+      "url": "images/pucks/73/front.webp",
+      "clockwiseDegrees": -85.07,
+      "reference": "logo-SIFT",
+      "sha256": "cf6e25fde0f907a6a5e4e5b94c23753996c97c6c1feea9010805f36e712c49ec",
+      "width": 2352,
+      "height": 2352,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.78886561557765,
+        "alphaExact": true,
+        "bytes": 872214
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "73",
+      "label": "Edge 2",
+      "url": "images/pucks/73/edge-02.webp",
+      "clockwiseDegrees": -90.62,
+      "reference": "silhouette-midline",
+      "sha256": "4cbba242306447d71af4edf9598470c3fc821acff84cd8a2ce64bedbce395c14",
+      "width": 2800,
+      "height": 1332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.518091259746,
+        "alphaExact": true,
+        "bytes": 939730
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "72",
+      "label": "Back",
+      "url": "images/pucks/72/back.webp",
+      "clockwiseDegrees": 0.35,
+      "reference": "logo-SIFT",
+      "sha256": "43cdd15ba19fc2028a5c932ab3612c10335b557d04a8e985c2aa4d20772297e4",
+      "width": 2349,
+      "height": 2349,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.468103203691584,
+        "alphaExact": true,
+        "bytes": 919448
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "73",
+      "label": "Edge 1",
+      "url": "images/pucks/73/edge-01.webp",
+      "clockwiseDegrees": -90.18,
+      "reference": "silhouette-midline",
+      "sha256": "1db4c24f87091c9e1be7b719d04898648ae0df845a350593002ea21f71813d0b",
+      "width": 2800,
+      "height": 1329,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.39051997115835,
+        "alphaExact": true,
+        "bytes": 968186
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "72",
+      "label": "Front",
+      "url": "images/pucks/72/front.webp",
+      "clockwiseDegrees": -90,
+      "reference": "50th-anniversary top border at x674 from y338 to y660 in 1000px analysis; exactly vertical before quarter-turn",
+      "sha256": "ee650e0682bb9bf4f65bebf734269b5f6751d48dcd2fade5c02390fa4fb854b1",
+      "width": 2333,
+      "height": 2333,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.95709146754191,
+        "alphaExact": true,
+        "bytes": 1012122
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "72",
+      "label": "Edge 3",
+      "url": "images/pucks/72/edge-03.webp",
+      "clockwiseDegrees": -89.94,
+      "reference": "silhouette-midline",
+      "sha256": "0bc2c41e66985b5b9973f3596f1bdbbe1a0ee825b31adc2b31e56946429ac09d",
+      "width": 2800,
+      "height": 1351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.435664011225285,
+        "alphaExact": true,
+        "bytes": 906022
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "72",
+      "label": "Edge 2",
+      "url": "images/pucks/72/edge-02.webp",
+      "clockwiseDegrees": -89.45,
+      "reference": "silhouette-midline",
+      "sha256": "a63c1a29902c1e50f0e31d7581f731704449a9ac27d1883335e3a603eab8472d",
+      "width": 2800,
+      "height": 1346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.73707212351669,
+        "alphaExact": true,
+        "bytes": 950840
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "72",
+      "label": "Edge 1",
+      "url": "images/pucks/72/edge-01.webp",
+      "clockwiseDegrees": -87.8,
+      "reference": "silhouette-midline",
+      "sha256": "778f629d44ac3c11bd7a1bd4c89ea3ce83f3d90062e78b47f485e6bd3bf27f69",
+      "width": 2800,
+      "height": 1352,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.35389742705141,
+        "alphaExact": true,
+        "bytes": 833726
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "7",
+      "label": "Back",
+      "url": "images/pucks/7/back.webp",
+      "clockwiseDegrees": 3.33,
+      "reference": "logo-SIFT",
+      "sha256": "f4cf5f2bb269831bb667b452e1f02a0bf52e5720b0a6a343de91906c4abd263c",
+      "width": 2400,
+      "height": 2400,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.31042027420243,
+        "alphaExact": true,
+        "bytes": 927592
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "7",
+      "label": "Edge 2",
+      "url": "images/pucks/7/edge-02.webp",
+      "clockwiseDegrees": -89.28,
+      "reference": "silhouette-midline",
+      "sha256": "3bdf3b2f534f6b1bb6c75edd45acfc25551277fe1efa1868f47d92b5e2ac7744",
+      "width": 2800,
+      "height": 1346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.268287501260794,
+        "alphaExact": true,
+        "bytes": 981938
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "7",
+      "label": "Front",
+      "url": "images/pucks/7/front.webp",
+      "clockwiseDegrees": -87.9,
+      "reference": "Retirement-banner parallel boundaries at 87.56 and 88.17 degrees, checked against number 16",
+      "sha256": "fb0a85f723b8d0acba409aa90376b160e53482af0a7ba8310fcfd6bc190b2cb6",
+      "width": 2384,
+      "height": 2384,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.041479323541566,
+        "alphaExact": true,
+        "bytes": 961442
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "6",
+      "label": "Back",
+      "url": "images/pucks/6/back.webp",
+      "clockwiseDegrees": -85.96,
+      "reference": "logo-SIFT",
+      "sha256": "bfb35f85a540549174d709e036dc1989ab0a5b4927b651cd08e6fd9daf055fbd",
+      "width": 2356,
+      "height": 2356,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.024901411195174,
+        "alphaExact": true,
+        "bytes": 927082
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "7",
+      "label": "Edge 1",
+      "url": "images/pucks/7/edge-01.webp",
+      "clockwiseDegrees": -87.82,
+      "reference": "silhouette-midline",
+      "sha256": "1dc339d5bfcd6f2d4732f807985a7cfb268d5ceca60322a6893d17f9e6635940",
+      "width": 2800,
+      "height": 1358,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.17508751492661,
+        "alphaExact": true,
+        "bytes": 1021960
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "6",
+      "label": "Front",
+      "url": "images/pucks/6/front.webp",
+      "clockwiseDegrees": -89.66,
+      "reference": "logo-SIFT",
+      "sha256": "6b0e2afa11112cd5a9206a3591e4b56d78bf9c1ac42b0205577eb8571a671467",
+      "width": 2344,
+      "height": 2344,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.430890259859055,
+        "alphaExact": true,
+        "bytes": 822648
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "5",
+      "label": "Back",
+      "url": "images/pucks/5/back.webp",
+      "clockwiseDegrees": 0.33,
+      "reference": "logo-SIFT",
+      "sha256": "a2f38b59680859dfeb147a420637aa077a9924a08dd0612e7410b942b67c8dbc",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.80431029338147,
+        "alphaExact": true,
+        "bytes": 1171064
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "6",
+      "label": "Edge 1",
+      "url": "images/pucks/6/edge-01.webp",
+      "clockwiseDegrees": -90.17,
+      "reference": "silhouette-midline",
+      "sha256": "281ecf5f3cde725b8fba4d2539604a1dd20a270982f93a1e44988ed3617941d6",
+      "width": 2800,
+      "height": 1360,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.36389728354106,
+        "alphaExact": true,
+        "bytes": 952564
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "5",
+      "label": "Edge 2",
+      "url": "images/pucks/5/edge-02.webp",
+      "clockwiseDegrees": -91.68,
+      "reference": "silhouette-midline",
+      "sha256": "9e432f83bedff7422b170ceb3fbeb2ef67b34c0d8f8c4a3578a67d19e49c3f82",
+      "width": 2800,
+      "height": 1333,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.85430310920658,
+        "alphaExact": true,
+        "bytes": 1016404
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "6",
+      "label": "Edge 2",
+      "url": "images/pucks/6/edge-02.webp",
+      "clockwiseDegrees": -89.41,
+      "reference": "silhouette-midline",
+      "sha256": "857b52b675b6e8b2011e7899ce6bbec72258ffd100fa514d9ce813f3c731ee2d",
+      "width": 2800,
+      "height": 1344,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.53418556871115,
+        "alphaExact": true,
+        "bytes": 930766
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "5",
+      "label": "Front",
+      "url": "images/pucks/5/front.webp",
+      "clockwiseDegrees": -88,
+      "reference": "Dallas 25 anniversary numeral parallel stems measured at 87.5 to 88.5 degrees; median 88 degrees, counterclockwise",
+      "sha256": "282df4d08f9ffd2c5e6e9907a925ec37757d978def5fb67b665c5d047390f595",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.72540794540973,
+        "alphaExact": true,
+        "bytes": 1062458
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "4",
+      "label": "Edge 2",
+      "url": "images/pucks/4/edge-02.webp",
+      "clockwiseDegrees": -90.46,
+      "reference": "silhouette-midline",
+      "sha256": "51b9d77cc8f3025d756ff75375369619834f258c36ca385b187faafd83a6d330",
+      "width": 2800,
+      "height": 1323,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.03573295284852,
+        "alphaExact": true,
+        "bytes": 935176
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "4",
+      "label": "Front",
+      "url": "images/pucks/4/front.webp",
+      "clockwiseDegrees": -89.92,
+      "reference": "logo-SIFT",
+      "sha256": "97f57494dc53874b1a310f6225fcbd1abb2e98fcf1c8cfe306e695580f155f51",
+      "width": 2344,
+      "height": 2344,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.421333160431956,
+        "alphaExact": true,
+        "bytes": 736676
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "5",
+      "label": "Edge 1",
+      "url": "images/pucks/5/edge-01.webp",
+      "clockwiseDegrees": -88.61,
+      "reference": "silhouette-midline",
+      "sha256": "b2ed82ee859b1d09989c603fb6338b34ce8637bdc9d9c2a492b6513d6f889240",
+      "width": 2800,
+      "height": 1318,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.96203400976331,
+        "alphaExact": true,
+        "bytes": 932282
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "4",
+      "label": "Back",
+      "url": "images/pucks/4/back.webp",
+      "clockwiseDegrees": -89.75,
+      "reference": "logo-SIFT",
+      "sha256": "8eca27ac909bc7582adf95478cb840e0e2337d47ee869db560537ca9a445b932",
+      "width": 2360,
+      "height": 2360,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.33590898690451,
+        "alphaExact": true,
+        "bytes": 870056
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "4",
+      "label": "Edge 3",
+      "url": "images/pucks/4/edge-03.webp",
+      "clockwiseDegrees": -89.45,
+      "reference": "silhouette-midline",
+      "sha256": "7f60e00c06b15ac1fb9048f559007ca227cbfae98dd5916d56e1a574fafa223f",
+      "width": 2800,
+      "height": 1332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.01453924430824,
+        "alphaExact": true,
+        "bytes": 931170
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Front",
+      "url": "images/pucks/3/front.webp",
+      "clockwiseDegrees": -88.03,
+      "reference": "logo-SIFT",
+      "sha256": "2440c13b85f963ed09971dc402d9477ad1185c65c0352726c07c5e8790ea37eb",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.82797518388325,
+        "alphaExact": true,
+        "bytes": 1093052
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "4",
+      "label": "Edge 1",
+      "url": "images/pucks/4/edge-01.webp",
+      "clockwiseDegrees": -90.33,
+      "reference": "silhouette-midline",
+      "sha256": "6f45742c33b685b6e40345768151ea07537f1d96675497440bb251a4c8efd32c",
+      "width": 2800,
+      "height": 1316,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.04381807205936,
+        "alphaExact": true,
+        "bytes": 901678
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Back",
+      "url": "images/pucks/3/back.webp",
+      "clockwiseDegrees": -1.19,
+      "reference": "logo-SIFT",
+      "sha256": "67057d2ed9216c4211715da5523512fc9168f24d6cb4125ccd36656fa15240a2",
+      "width": 2356,
+      "height": 2356,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.96623996912294,
+        "alphaExact": true,
+        "bytes": 1255694
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Edge 4",
+      "url": "images/pucks/3/edge-04.webp",
+      "clockwiseDegrees": -91.04,
+      "reference": "silhouette-midline",
+      "sha256": "bcbd6d25504a016d757c96808de85790122f10e1fa0a7162777c370949b21882",
+      "width": 2800,
+      "height": 1297,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.26218822271825,
+        "alphaExact": true,
+        "bytes": 789042
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Edge 3",
+      "url": "images/pucks/3/edge-03.webp",
+      "clockwiseDegrees": -89.78,
+      "reference": "silhouette-midline",
+      "sha256": "263a8a82665092fd7d47c9fd485209878052527e9dbf843d3cfc2625d01c2092",
+      "width": 2800,
+      "height": 1346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.568374492818485,
+        "alphaExact": true,
+        "bytes": 718828
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Edge 2",
+      "url": "images/pucks/3/edge-02.webp",
+      "clockwiseDegrees": -89.78,
+      "reference": "silhouette-midline",
+      "sha256": "1e7760650627360dbfe155ad0be9b77493aaa20e646df9bc740d64babcf4874f",
+      "width": 2800,
+      "height": 1340,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.39456334651415,
+        "alphaExact": true,
+        "bytes": 777472
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "3",
+      "label": "Edge 1",
+      "url": "images/pucks/3/edge-01.webp",
+      "clockwiseDegrees": -90.05,
+      "reference": "silhouette-midline",
+      "sha256": "ba49bbca76f984f5e80e35165abe4b3f33c0d0b5edb12514faaa83715ebf6b7e",
+      "width": 2800,
+      "height": 1345,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.32875667359863,
+        "alphaExact": true,
+        "bytes": 760006
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Back",
+      "url": "images/pucks/77/back.webp",
+      "clockwiseDegrees": -0.56,
+      "reference": "logo-SIFT",
+      "sha256": "1d4672b9e1e04a6ae53a280df87893fe8702798d64bd58423f7e7d9603cfb0ed",
+      "width": 2329,
+      "height": 2329,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.208147793686706,
+        "alphaExact": true,
+        "bytes": 1019064
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Front",
+      "url": "images/pucks/77/front.webp",
+      "clockwiseDegrees": -89.56,
+      "reference": "logo-SIFT",
+      "sha256": "bcf750c75e21452c4d435cabfed4163141455625c49e41e729f41afbfd6f3304",
+      "width": 2365,
+      "height": 2365,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.51489253327733,
+        "alphaExact": true,
+        "bytes": 1192536
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Edge 5",
+      "url": "images/pucks/77/edge-05.webp",
+      "clockwiseDegrees": -91,
+      "reference": "silhouette-midline",
+      "sha256": "fabe72f2244a013a7655913b5ff8cc70e42d1063885fd8b9d4b2dd815289f56b",
+      "width": 2800,
+      "height": 1308,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.09859125810378,
+        "alphaExact": true,
+        "bytes": 884442
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Edge 4",
+      "url": "images/pucks/77/edge-04.webp",
+      "clockwiseDegrees": -88.44,
+      "reference": "silhouette-midline",
+      "sha256": "9e807e87b3950937acd6aaa0567284925f423b5fa8b42b1dcffa375ab6a73281",
+      "width": 2800,
+      "height": 1310,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.71589867019987,
+        "alphaExact": true,
+        "bytes": 986596
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Edge 3",
+      "url": "images/pucks/77/edge-03.webp",
+      "clockwiseDegrees": -90.21,
+      "reference": "silhouette-midline",
+      "sha256": "9b243c30f25a7e9344685a89aed22659dac30d42d729d73441629e5585d21838",
+      "width": 2800,
+      "height": 1317,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.696637402354526,
+        "alphaExact": true,
+        "bytes": 1015456
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Edge 1",
+      "url": "images/pucks/77/edge-01.webp",
+      "clockwiseDegrees": -90.61,
+      "reference": "silhouette-midline",
+      "sha256": "71c4d35b980531e7107dda144033e579fca4ae1c3c18a2125aae3b1942341988",
+      "width": 2800,
+      "height": 1324,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.420621169855195,
+        "alphaExact": true,
+        "bytes": 956830
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "77",
+      "label": "Edge 2",
+      "url": "images/pucks/77/edge-02.webp",
+      "clockwiseDegrees": -87.88,
+      "reference": "silhouette-midline",
+      "sha256": "5c02b32f0988b23cd54f929f15ac5761d3e0c74a4f0cbd4b7f094c817f13d888",
+      "width": 2800,
+      "height": 1297,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.019409280280605,
+        "alphaExact": true,
+        "bytes": 911208
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "58",
+      "label": "Back",
+      "url": "images/pucks/58/back.webp",
+      "clockwiseDegrees": -0.51,
+      "reference": "logo-SIFT",
+      "sha256": "440a0de498ad9bd81be44791f5d460e981ebfe33de70ccf7ab18fb4e1fa6bcb2",
+      "width": 2351,
+      "height": 2351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.91610527449722,
+        "alphaExact": true,
+        "bytes": 967770
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "58",
+      "label": "Front",
+      "url": "images/pucks/58/front.webp",
+      "clockwiseDegrees": 0.4,
+      "reference": "Four Nations wordmark straight text baselines; measured near-horizontal rule, visual confirmation",
+      "sha256": "0d9af9179f2f9ec783ca838b02524a438ec77c1908e5869652f0e65d29fc2892",
+      "width": 2351,
+      "height": 2351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.12628026245744,
+        "alphaExact": true,
+        "bytes": 869396
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "58",
+      "label": "Edge 3",
+      "url": "images/pucks/58/edge-03.webp",
+      "clockwiseDegrees": -91.06,
+      "reference": "silhouette-midline",
+      "sha256": "e123c0fc1e8502538ed701ef72c8a357e04aaac36757bd4fb813c632881937b0",
+      "width": 2800,
+      "height": 1326,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.16989829692571,
+        "alphaExact": true,
+        "bytes": 804166
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "58",
+      "label": "Edge 2",
+      "url": "images/pucks/58/edge-02.webp",
+      "clockwiseDegrees": -90.18,
+      "reference": "silhouette-midline",
+      "sha256": "cf2c17d74f145d78815edb552c8b1dae5ca6b1ccf321927a0c62947bb6de864b",
+      "width": 2800,
+      "height": 1329,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.01974409231844,
+        "alphaExact": true,
+        "bytes": 857274
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "58",
+      "label": "Edge 1",
+      "url": "images/pucks/58/edge-01.webp",
+      "clockwiseDegrees": -89.95,
+      "reference": "silhouette-midline",
+      "sha256": "5e498ef6eaeaa157a04929a2872a2d6b0ec5a79c47049059eb4966591f1b6f1e",
+      "width": 2800,
+      "height": 1311,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.25380462886874,
+        "alphaExact": true,
+        "bytes": 927732
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Edge 4",
+      "url": "images/pucks/67/edge-04.webp",
+      "clockwiseDegrees": -90.57,
+      "reference": "silhouette-midline",
+      "sha256": "cc88c3c850a102e17999eb5393b3aa8589cc5a02b84916f9b1ff1db2fb3c71ce",
+      "width": 2800,
+      "height": 1339,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.35858378323336,
+        "alphaExact": true,
+        "bytes": 753072
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Edge 2",
+      "url": "images/pucks/67/edge-02.webp",
+      "clockwiseDegrees": 1.09,
+      "reference": "silhouette-midline",
+      "sha256": "78d674a1d478d8069ba985cf28a102357f30c02ce13a5fc02bbfc9eb5699b8cf",
+      "width": 2800,
+      "height": 1322,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.43769179055421,
+        "alphaExact": true,
+        "bytes": 803798
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Edge 3",
+      "url": "images/pucks/67/edge-03.webp",
+      "clockwiseDegrees": -89.93,
+      "reference": "silhouette-midline",
+      "sha256": "ed5e025bde6d934cfc1c7efbc614283b101ed96fd5259a8e9bad826d5df55390",
+      "width": 2800,
+      "height": 1331,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.27279746586776,
+        "alphaExact": true,
+        "bytes": 831608
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Edge 1",
+      "url": "images/pucks/67/edge-01.webp",
+      "clockwiseDegrees": -90.05,
+      "reference": "silhouette-midline",
+      "sha256": "45e5414436697f209274bd8fb7542bf020795afe1ff40dc474b3beeae0e754f5",
+      "width": 2800,
+      "height": 1331,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.65495715884329,
+        "alphaExact": true,
+        "bytes": 755600
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Back",
+      "url": "images/pucks/67/back.webp",
+      "clockwiseDegrees": -86.65,
+      "reference": "2025 playoff emblem parallel side rules measured -3.2 and -3.52 degrees before quarter-turn; ignored obscured NHL shield",
+      "sha256": "15325723c0a5abec7a445ed620ed41e70fd391877e3137722a4d8d5eaa247a75",
+      "width": 2337,
+      "height": 2337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 45.0754595964836,
+        "alphaExact": true,
+        "bytes": 856440
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "67",
+      "label": "Front",
+      "url": "images/pucks/67/front.webp",
+      "clockwiseDegrees": -88.97,
+      "reference": "logo-SIFT",
+      "sha256": "6a96809dfbee03e489e00d7fab5f7ecca54d14486b8ff755a6a3a5a5d2d9adf5",
+      "width": 2361,
+      "height": 2361,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.28473458702932,
+        "alphaExact": true,
+        "bytes": 977362
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "55",
+      "label": "Back",
+      "url": "images/pucks/55/back.webp",
+      "clockwiseDegrees": -89.7,
+      "reference": "Commissioner rule is near vertical, source full-view endpoints x603 y595 to x605 y1005; avoids small playoff shield bias",
+      "sha256": "d2959fa4bb97f3d148af6f16e6008560e3c1ab55ad93e836e2eb3dba46693e1b",
+      "width": 2348,
+      "height": 2348,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.24484261663267,
+        "alphaExact": true,
+        "bytes": 953822
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "55",
+      "label": "Edge 3",
+      "url": "images/pucks/55/edge-03.webp",
+      "clockwiseDegrees": -90.41,
+      "reference": "silhouette-midline",
+      "sha256": "c6b2bf8d3810d925ab0f6a94e418dda909221e8f2d0e2a9b6eefe6a66531b333",
+      "width": 2800,
+      "height": 1349,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.50658006048748,
+        "alphaExact": true,
+        "bytes": 885418
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "55",
+      "label": "Front",
+      "url": "images/pucks/55/front.webp",
+      "clockwiseDegrees": 2.26,
+      "reference": "logo-SIFT",
+      "sha256": "bcdd8f088d212824b5dbb64142b2b9d45d70d2bc43016d61d80cbe743ff00cdb",
+      "width": 2345,
+      "height": 2345,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.759672215033646,
+        "alphaExact": true,
+        "bytes": 696668
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "55",
+      "label": "Edge 2",
+      "url": "images/pucks/55/edge-02.webp",
+      "clockwiseDegrees": -90.8,
+      "reference": "silhouette-midline",
+      "sha256": "3e44acfe1049c8c381af9f1d14603062eca125c15d94da0d68f5ae7c07a4a00d",
+      "width": 2800,
+      "height": 1340,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.589561429122135,
+        "alphaExact": true,
+        "bytes": 896476
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "55",
+      "label": "Edge 1",
+      "url": "images/pucks/55/edge-01.webp",
+      "clockwiseDegrees": -89.82,
+      "reference": "silhouette-midline",
+      "sha256": "7405981ef097a17107126d99f4a53a6b32b5eec996ddd1f083949873d0f1d880",
+      "width": 2800,
+      "height": 1353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.413616690622604,
+        "alphaExact": true,
+        "bytes": 926300
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Back",
+      "url": "images/pucks/54/back.webp",
+      "clockwiseDegrees": -90.04,
+      "reference": "logo-SIFT",
+      "sha256": "c0dcf3456b5452632fa16a25445154fb66efeece1bbecd51c34be829c70e166b",
+      "width": 2353,
+      "height": 2353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.46717966863243,
+        "alphaExact": true,
+        "bytes": 914390
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Edge 4",
+      "url": "images/pucks/54/edge-04.webp",
+      "clockwiseDegrees": -89.68,
+      "reference": "silhouette-midline",
+      "sha256": "78c527ead013d2fb1e2f8ef2ba9a967d1a67797a89cc2ce6bfd987bb6306f99e",
+      "width": 2800,
+      "height": 1358,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.660845597028576,
+        "alphaExact": true,
+        "bytes": 405074
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Edge 3",
+      "url": "images/pucks/54/edge-03.webp",
+      "clockwiseDegrees": -90.82,
+      "reference": "silhouette-midline",
+      "sha256": "507d38cb92071c2a5a73d3eceb23004138343fbd10d18b14f54e7025ebdaf8b7",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.98990428924314,
+        "alphaExact": true,
+        "bytes": 388856
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Edge 2",
+      "url": "images/pucks/54/edge-02.webp",
+      "clockwiseDegrees": -90.22,
+      "reference": "silhouette-midline",
+      "sha256": "4a586d67a6d166894a8dbb2b204abff418675e9087dc1172eef5046e39553d2a",
+      "width": 2800,
+      "height": 1355,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.63532071759309,
+        "alphaExact": true,
+        "bytes": 389066
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "54",
+      "label": "Edge 1",
+      "url": "images/pucks/54/edge-01.webp",
+      "clockwiseDegrees": -90.22,
+      "reference": "silhouette-midline",
+      "sha256": "e0ddde4c5f10c2c2eb8d525a079632848db4cd7727758ea0618cfeb12fe52fd9",
+      "width": 2800,
+      "height": 1369,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.64464704369301,
+        "alphaExact": true,
+        "bytes": 393040
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Front",
+      "url": "images/pucks/53/front.webp",
+      "clockwiseDegrees": -95.5,
+      "reference": "Official-logo match refined by -2.44 degree stable export residual",
+      "sha256": "99dfa7fd48c31140fbbd97b79c3355db32c9b82981dce72fcf08c46931055bbe",
+      "width": 2381,
+      "height": 2381,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.43298148217532,
+        "alphaExact": true,
+        "bytes": 873772
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Edge 4",
+      "url": "images/pucks/53/edge-04.webp",
+      "clockwiseDegrees": -89.88,
+      "reference": "silhouette-midline",
+      "sha256": "af43b5ef5d7fa72f346a585b3cecbae5b10230411ea406eaf27dec720d9cb20b",
+      "width": 2800,
+      "height": 1351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.57415017221157,
+        "alphaExact": true,
+        "bytes": 449682
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Edge 3",
+      "url": "images/pucks/53/edge-03.webp",
+      "clockwiseDegrees": -90,
+      "reference": "silhouette-midline",
+      "sha256": "5cbb3fa6a91ea0c0ba2a5051f1bf68ceb859f94b6f2ce398cf684efbd3462193",
+      "width": 2800,
+      "height": 1379,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.874980544770054,
+        "alphaExact": true,
+        "bytes": 617266
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Back",
+      "url": "images/pucks/53/back.webp",
+      "clockwiseDegrees": 0.13,
+      "reference": "logo-SIFT",
+      "sha256": "52e6e5fa3a7edafb70aabb1df5048d1bc267e736c3bae4bc7fce3b03566dff08",
+      "width": 2358,
+      "height": 2358,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.1240924625881,
+        "alphaExact": true,
+        "bytes": 907394
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Edge 2",
+      "url": "images/pucks/53/edge-02.webp",
+      "clockwiseDegrees": -89.45,
+      "reference": "silhouette-midline",
+      "sha256": "e31533f16c2d684762dd77d9a509cfb540775c441bc7e647c06f66aa536525f0",
+      "width": 2800,
+      "height": 1390,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.5141508092948,
+        "alphaExact": true,
+        "bytes": 475504
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "53",
+      "label": "Edge 1",
+      "url": "images/pucks/53/edge-01.webp",
+      "clockwiseDegrees": -89.64,
+      "reference": "silhouette-midline",
+      "sha256": "e0b1780b6b2269c86db3ed38196deb5036a143b5750137d4e5ff5d659594db63",
+      "width": 2800,
+      "height": 1364,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.57842222545428,
+        "alphaExact": true,
+        "bytes": 466200
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Back",
+      "url": "images/pucks/51/back.webp",
+      "clockwiseDegrees": -89.47,
+      "reference": "logo-SIFT",
+      "sha256": "044524473fc5d2d39e5dc6daac4bb40d945e73b5ca50a4d0020de4d671e2e62c",
+      "width": 2351,
+      "height": 2351,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.95048495011027,
+        "alphaExact": true,
+        "bytes": 1336936
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Front",
+      "url": "images/pucks/51/front.webp",
+      "clockwiseDegrees": -89.8,
+      "reference": "XXV anniversary long printed baseline at 89.81 degrees; correct 3D-era crest verified",
+      "sha256": "018ff81446a03526f7fadb1517fb9948695d417f6fbb49d74b44ee18a913f4c1",
+      "width": 2355,
+      "height": 2355,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.17570949932339,
+        "alphaExact": true,
+        "bytes": 1221688
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Edge 4",
+      "url": "images/pucks/51/edge-04.webp",
+      "clockwiseDegrees": -89.63,
+      "reference": "silhouette-midline",
+      "sha256": "8099176f9780c8138484331fb2f7c995386568c32281048fdf95519f8fad6d54",
+      "width": 2800,
+      "height": 1345,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.06810722289214,
+        "alphaExact": true,
+        "bytes": 974068
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Edge 3",
+      "url": "images/pucks/51/edge-03.webp",
+      "clockwiseDegrees": -89.98,
+      "reference": "silhouette-midline",
+      "sha256": "196d7ccbeacf3e7ccf32a940a5fe5e7d419e953a40ab960c024b2aff6c5c9a49",
+      "width": 2800,
+      "height": 1331,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.97406043412977,
+        "alphaExact": true,
+        "bytes": 766734
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Edge 2",
+      "url": "images/pucks/51/edge-02.webp",
+      "clockwiseDegrees": -89.72,
+      "reference": "silhouette-midline",
+      "sha256": "929aaaf52ef36c2ba2dd6ef250ed15e78f6d5e2b5086aae844273b46d514ad1b",
+      "width": 2800,
+      "height": 1335,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.1253541131247,
+        "alphaExact": true,
+        "bytes": 985194
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "50",
+      "label": "Front",
+      "url": "images/pucks/50/front.webp",
+      "clockwiseDegrees": -88.2,
+      "reference": "Surviving straight top Flyers stroke x968 y665 to x975 y890 in preview; reject damaged-logo false SIFT alignment",
+      "sha256": "916e8d6f22998609b895ededa540977982d32c65aff52ee15165c530776bcc62",
+      "width": 2314,
+      "height": 2314,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 45.157001735332514,
+        "alphaExact": true,
+        "bytes": 724664
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "50",
+      "label": "Back",
+      "url": "images/pucks/50/back.webp",
+      "clockwiseDegrees": -0.87,
+      "reference": "logo-SIFT",
+      "sha256": "3ac19bc3922ce74659a245ad0b2bd78ecd1ad7a225a3022a42ba8d7fde0f2b8d",
+      "width": 2400,
+      "height": 2400,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.943094919257746,
+        "alphaExact": true,
+        "bytes": 931618
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "51",
+      "label": "Edge 1",
+      "url": "images/pucks/51/edge-01.webp",
+      "clockwiseDegrees": -89.61,
+      "reference": "silhouette-midline",
+      "sha256": "a3b0d0472e5a0cc0fab7ee9f56b50bd615a301c271b3787eb64ad244d12ff21f",
+      "width": 2800,
+      "height": 1321,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.12972681052508,
+        "alphaExact": true,
+        "bytes": 958580
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "50",
+      "label": "Edge 3",
+      "url": "images/pucks/50/edge-03.webp",
+      "clockwiseDegrees": -89.15,
+      "reference": "silhouette-midline",
+      "sha256": "3efa0d2878469b3b8a5f54f20fb6cfef3deced91571e827b069eb27697b3e54a",
+      "width": 2800,
+      "height": 1334,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.74045773367183,
+        "alphaExact": true,
+        "bytes": 892592
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Edge 3",
+      "url": "images/pucks/23/edge-03.webp",
+      "clockwiseDegrees": -0.58,
+      "reference": "silhouette-midline",
+      "sha256": "5ec84bb9380dec26b02af721d9aded8ea97cdaa87838b19837177e52edab41b1",
+      "width": 2800,
+      "height": 1332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.78715847280454,
+        "alphaExact": true,
+        "bytes": 903162
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "50",
+      "label": "Edge 2",
+      "url": "images/pucks/50/edge-02.webp",
+      "clockwiseDegrees": -89.76,
+      "reference": "silhouette-midline",
+      "sha256": "e5aee2530b88cbc243484cf3ce3ee0afc95d73321eba75a9580548c37885eb55",
+      "width": 2800,
+      "height": 1332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.75426171172252,
+        "alphaExact": true,
+        "bytes": 895496
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Edge 4",
+      "url": "images/pucks/23/edge-04.webp",
+      "clockwiseDegrees": -89.63,
+      "reference": "silhouette-midline",
+      "sha256": "c6ad7296e96ae60a3e1d032ef0e1f7d7fca7243c5bee6cac5b9118748de05a14",
+      "width": 2800,
+      "height": 1329,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.22547921000507,
+        "alphaExact": true,
+        "bytes": 771578
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Edge 2",
+      "url": "images/pucks/23/edge-02.webp",
+      "clockwiseDegrees": -89.5,
+      "reference": "silhouette-midline",
+      "sha256": "be18eeb6724d33703751d1c0f1940bbb408388141a20e0dd623074936a0832c8",
+      "width": 2800,
+      "height": 1338,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.47768563334392,
+        "alphaExact": true,
+        "bytes": 695572
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "50",
+      "label": "Edge 1",
+      "url": "images/pucks/50/edge-01.webp",
+      "clockwiseDegrees": -88.82,
+      "reference": "silhouette-midline",
+      "sha256": "fdbcf216422043acf83a1394b5deb675409d2c096c47505dbe9d6db0f10b087e",
+      "width": 2800,
+      "height": 1343,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.74034249425256,
+        "alphaExact": true,
+        "bytes": 899112
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Back",
+      "url": "images/pucks/23/back.webp",
+      "clockwiseDegrees": -0.67,
+      "reference": "Official shield match refined by -0.93 degree stable export residual; commissioner line checked",
+      "sha256": "3bc56b6389bd1ac3b3389aa2f47a2f7d6ceec642a42c0bed8812ad8ee04c289c",
+      "width": 2332,
+      "height": 2332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.721275670436654,
+        "alphaExact": true,
+        "bytes": 894670
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Front",
+      "url": "images/pucks/23/front.webp",
+      "clockwiseDegrees": -89.76,
+      "reference": "logo-SIFT",
+      "sha256": "116e0762219bb104076f3e67bc8f60417a107264b949bf5efc6031293dd95f95",
+      "width": 2327,
+      "height": 2327,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.01696629545278,
+        "alphaExact": true,
+        "bytes": 1142076
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "23",
+      "label": "Edge 1",
+      "url": "images/pucks/23/edge-01.webp",
+      "clockwiseDegrees": -90.13,
+      "reference": "silhouette-midline",
+      "sha256": "2cf63c8cbf27ec35c1bcb25c2f88d63fa6790fbfbddf53022bcaea2c39be93f4",
+      "width": 2800,
+      "height": 1339,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.25126350971417,
+        "alphaExact": true,
+        "bytes": 812290
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "19",
+      "label": "Back",
+      "url": "images/pucks/19/back.webp",
+      "clockwiseDegrees": 0.75,
+      "reference": "logo-SIFT",
+      "sha256": "aef47e31fc80b78b063c823c90162ba66a6d423741049a0103ee2bacbe3459e8",
+      "width": 2344,
+      "height": 2344,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.17498441076545,
+        "alphaExact": true,
+        "bytes": 1021374
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "19",
+      "label": "Front",
+      "url": "images/pucks/19/front.webp",
+      "clockwiseDegrees": -89.3,
+      "reference": "logo-SIFT",
+      "sha256": "a5d5cefbae79f72d7d2e45826dbd9fc9a982e38874d992370cc018fd3a30c6d4",
+      "width": 2355,
+      "height": 2355,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.88133085088392,
+        "alphaExact": true,
+        "bytes": 867408
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "19",
+      "label": "Edge 2",
+      "url": "images/pucks/19/edge-02.webp",
+      "clockwiseDegrees": -89.83,
+      "reference": "silhouette-midline",
+      "sha256": "b38bd9b1ba8f85d270d5cc10edc3d486fa838cde24c3bc45b3af2d9df50a593e",
+      "width": 2800,
+      "height": 1353,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.821712584066354,
+        "alphaExact": true,
+        "bytes": 851878
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "19",
+      "label": "Edge 1",
+      "url": "images/pucks/19/edge-01.webp",
+      "clockwiseDegrees": -91.02,
+      "reference": "silhouette-midline",
+      "sha256": "b387c5f168ac649b57183b148c40d8fa4ce69992ce95941391dc074b9f7182c1",
+      "width": 2800,
+      "height": 1331,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.593383539179186,
+        "alphaExact": true,
+        "bytes": 884082
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "11",
+      "label": "Back",
+      "url": "images/pucks/11/back.webp",
+      "clockwiseDegrees": -90.02,
+      "reference": "logo-SIFT",
+      "sha256": "b22f2a38d96f6424339a7465b414b16fc11c4e8cbdb44589bc2a001f52f63ea8",
+      "width": 2345,
+      "height": 2345,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.80971444112343,
+        "alphaExact": true,
+        "bytes": 1069028
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "11",
+      "label": "Front",
+      "url": "images/pucks/11/front.webp",
+      "clockwiseDegrees": -88.63,
+      "reference": "logo-SIFT",
+      "sha256": "0ce6d6db4b5437a1c09b13a2323851191f705729b95343c366517dcd7a59d20f",
+      "width": 2334,
+      "height": 2334,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.495746868664334,
+        "alphaExact": true,
+        "bytes": 850956
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "11",
+      "label": "Edge 3",
+      "url": "images/pucks/11/edge-03.webp",
+      "clockwiseDegrees": -90.14,
+      "reference": "silhouette-midline",
+      "sha256": "2eca96b849a3440944816d36ad64ff0926ab9ef74da421a289c60e1e94cbcfff",
+      "width": 2800,
+      "height": 1338,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.787042516293226,
+        "alphaExact": true,
+        "bytes": 1064510
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "11",
+      "label": "Edge 2",
+      "url": "images/pucks/11/edge-02.webp",
+      "clockwiseDegrees": -89.67,
+      "reference": "silhouette-midline",
+      "sha256": "e5aea5f9d51f636ad9a9688cbc541a2dd094950551af78b5142aa4299ee87f9e",
+      "width": 2800,
+      "height": 1336,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.84498449417192,
+        "alphaExact": true,
+        "bytes": 1015632
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "11",
+      "label": "Edge 1",
+      "url": "images/pucks/11/edge-01.webp",
+      "clockwiseDegrees": -90.33,
+      "reference": "silhouette-midline",
+      "sha256": "4180c06ed3271d830c1b2bab87a87a7c7040d8378bf3be0d02047b61b2d9609b",
+      "width": 2800,
+      "height": 1344,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.010608403367044,
+        "alphaExact": true,
+        "bytes": 968630
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Back",
+      "url": "images/pucks/30/back.webp",
+      "clockwiseDegrees": 1.78,
+      "reference": "logo-SIFT",
+      "sha256": "dc80ecfdf811dabfe13395cc4829bba6ad4cd6920f0f7b6519b02a21643b3bba",
+      "width": 2316,
+      "height": 2316,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.804416742283856,
+        "alphaExact": true,
+        "bytes": 1157018
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Front",
+      "url": "images/pucks/30/front.webp",
+      "clockwiseDegrees": 4.49,
+      "reference": "logo-SIFT",
+      "sha256": "803688e125eab30b95309d8a3cb97a7f620dfec48aee216261539defc4248807",
+      "width": 2334,
+      "height": 2334,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.0791551844422,
+        "alphaExact": true,
+        "bytes": 1013682
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Edge 5",
+      "url": "images/pucks/30/edge-05.webp",
+      "clockwiseDegrees": 0.23,
+      "reference": "silhouette-midline",
+      "sha256": "d06d74c5e93274c0085a550b768d561a22c9ceb3e79cd5173739981954236b23",
+      "width": 2800,
+      "height": 1343,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.26345675071403,
+        "alphaExact": true,
+        "bytes": 716054
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Edge 3",
+      "url": "images/pucks/30/edge-03.webp",
+      "clockwiseDegrees": -3.41,
+      "reference": "silhouette-midline",
+      "sha256": "afda56d6ae7a6436388bbb99d8e7b658427a1a46b37e8ecf37e37c16c372c8f5",
+      "width": 2800,
+      "height": 1347,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.21887162617348,
+        "alphaExact": true,
+        "bytes": 806052
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Edge 2",
+      "url": "images/pucks/30/edge-02.webp",
+      "clockwiseDegrees": -0.05,
+      "reference": "silhouette-midline",
+      "sha256": "53fad9f30e97771d56dd73a185076ceb180ddf3c1bb52c79bd7e95cade2f3e17",
+      "width": 2800,
+      "height": 1335,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.12943476079776,
+        "alphaExact": true,
+        "bytes": 881504
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Edge 4",
+      "url": "images/pucks/30/edge-04.webp",
+      "clockwiseDegrees": -3.41,
+      "reference": "silhouette-midline",
+      "sha256": "afda56d6ae7a6436388bbb99d8e7b658427a1a46b37e8ecf37e37c16c372c8f5",
+      "width": 2800,
+      "height": 1347,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.21887162617348,
+        "alphaExact": true,
+        "bytes": 806052
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "57",
+      "label": "Back",
+      "url": "images/pucks/57/back.webp",
+      "clockwiseDegrees": -0.58,
+      "reference": "logo-SIFT",
+      "sha256": "758555b0f9a815250e7694ce2b98ba041a50b156137d40bdf7875037413e2bed",
+      "width": 2320,
+      "height": 2320,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.48930831650491,
+        "alphaExact": true,
+        "bytes": 1099020
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "30",
+      "label": "Edge 1",
+      "url": "images/pucks/30/edge-01.webp",
+      "clockwiseDegrees": 0.52,
+      "reference": "silhouette-midline",
+      "sha256": "e092f6bdaff1aa0a09ca682047b060c90fc9121c4aa80170ff8ecfad21780a7a",
+      "width": 2800,
+      "height": 1343,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.93733479489133,
+        "alphaExact": true,
+        "bytes": 935772
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "57",
+      "label": "Edge 2",
+      "url": "images/pucks/57/edge-02.webp",
+      "clockwiseDegrees": -0.75,
+      "reference": "silhouette-midline",
+      "sha256": "d38b7fd0c472e3558762ae14d4428ef5bf078cec9559bdeb0dc842afc5d1cc56",
+      "width": 2800,
+      "height": 1329,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.7903817336693,
+        "alphaExact": true,
+        "bytes": 527580
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "57",
+      "label": "Edge 1",
+      "url": "images/pucks/57/edge-01.webp",
+      "clockwiseDegrees": 0.64,
+      "reference": "silhouette-midline",
+      "sha256": "8cd0e928a193f15f17e5eceb5ec2dbebf99c8bf17540a389b6c8e31da2c85992",
+      "width": 2800,
+      "height": 1323,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.76262104292354,
+        "alphaExact": true,
+        "bytes": 564606
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "57",
+      "label": "Front",
+      "url": "images/pucks/57/front.webp",
+      "clockwiseDegrees": 2.2,
+      "reference": "Utah inaugural ribbon parallel horizontal edges, approximately -2.2 degrees; preserve original perspective",
+      "sha256": "c66386360787b61523c443f49b6d02db7c3bec7010018dddfd8bd06ff48f0c57",
+      "width": 2322,
+      "height": 2322,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.49883049310684,
+        "alphaExact": true,
+        "bytes": 1002962
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Back",
+      "url": "images/pucks/52/back.webp",
+      "clockwiseDegrees": -0.04,
+      "reference": "logo-SIFT",
+      "sha256": "2e49c1f812c510f7fe1675f52f62596a49c9796b194bae9231a03cb76197b564",
+      "width": 2261,
+      "height": 2261,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.18522892399552,
+        "alphaExact": true,
+        "bytes": 890448
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Edge 3",
+      "url": "images/pucks/52/edge-03.webp",
+      "clockwiseDegrees": -0.05,
+      "reference": "silhouette-midline",
+      "sha256": "a51ba2de235ecb86f8186204ddb70cf96dc7bbf5fe84cdc24528d0d03bae47ad",
+      "width": 2800,
+      "height": 1321,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.07270311867044,
+        "alphaExact": true,
+        "bytes": 876826
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Edge 4",
+      "url": "images/pucks/52/edge-04.webp",
+      "clockwiseDegrees": 0,
+      "reference": "silhouette-midline",
+      "sha256": "61ad552f8bc7b896a6bfbcc97e9c25fc73689f27f90b23d1a0935029a67bae9c",
+      "width": 2800,
+      "height": 1313,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.61538324096453,
+        "alphaExact": true,
+        "bytes": 900952
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Front",
+      "url": "images/pucks/52/front.webp",
+      "clockwiseDegrees": 0.95,
+      "reference": "logo-SIFT",
+      "sha256": "231fe2e202f82f8835ede6efda01ed5611add37aa6825cb4e07ad3401654c9cf",
+      "width": 2269,
+      "height": 2269,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.13930887447209,
+        "alphaExact": true,
+        "bytes": 846586
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Edge 5",
+      "url": "images/pucks/52/edge-05.webp",
+      "clockwiseDegrees": 0.35,
+      "reference": "silhouette-midline",
+      "sha256": "d947f3b0979cdff02725b1a5481d51e3c1deb4dd04b76d61fee9e65d044f9fbe",
+      "width": 2800,
+      "height": 1343,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.99666102757406,
+        "alphaExact": true,
+        "bytes": 954660
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Edge 2",
+      "url": "images/pucks/52/edge-02.webp",
+      "clockwiseDegrees": 1.11,
+      "reference": "silhouette-midline",
+      "sha256": "e7df211af3863367c64ff797b7449f381a856820a267288cf00d7edc2588d358",
+      "width": 2800,
+      "height": 1323,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 42.90244654144939,
+        "alphaExact": true,
+        "bytes": 971654
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "52",
+      "label": "Edge 1",
+      "url": "images/pucks/52/edge-01.webp",
+      "clockwiseDegrees": 0.15,
+      "reference": "silhouette-midline",
+      "sha256": "f99a82e51c9afc1d909ed037dd83551007669451f05e3dbca5d6f5821df2ed36",
+      "width": 2800,
+      "height": 1308,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.92782633774942,
+        "alphaExact": true,
+        "bytes": 893018
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "66",
+      "label": "Edge 2",
+      "url": "images/pucks/66/edge-02.webp",
+      "clockwiseDegrees": 3.72,
+      "reference": "silhouette-midline",
+      "sha256": "87cc1378e97a33189d94b505a49f6ad65d8abf7d4c8a63117336a19ac972451d",
+      "width": 2800,
+      "height": 1308,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.67430707635907,
+        "alphaExact": true,
+        "bytes": 619582
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "66",
+      "label": "Edge 1",
+      "url": "images/pucks/66/edge-01.webp",
+      "clockwiseDegrees": 0.08,
+      "reference": "silhouette-midline",
+      "sha256": "4909703b30eccae390c04ca08a956f0190f1ede95446463d7fd354ca983c24a6",
+      "width": 2800,
+      "height": 1317,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.79012204649542,
+        "alphaExact": true,
+        "bytes": 664394
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "66",
+      "label": "Back",
+      "url": "images/pucks/66/back.webp",
+      "clockwiseDegrees": 2.71,
+      "reference": "logo-SIFT",
+      "sha256": "b7c6c7ebc5c69e60945704b36041231df06b5f75f7af913b39e2d01e44f1a6d2",
+      "width": 2247,
+      "height": 2247,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.16796862540497,
+        "alphaExact": true,
+        "bytes": 961974
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "38",
+      "label": "Edge 3",
+      "url": "images/pucks/38/edge-03.webp",
+      "clockwiseDegrees": 1.01,
+      "reference": "silhouette-midline",
+      "sha256": "72d1b4fb5c0dbe3c22613f97365a40d396fc259eef76507094cff3813b54f8cc",
+      "width": 2800,
+      "height": 1341,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.28390858109112,
+        "alphaExact": true,
+        "bytes": 817540
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "38",
+      "label": "Edge 1",
+      "url": "images/pucks/38/edge-01.webp",
+      "clockwiseDegrees": 0.37,
+      "reference": "silhouette-midline",
+      "sha256": "a8c83858904c2bd2df84180ec39986b092f18b41f4f1d6328a16ba8a480f35ee",
+      "width": 2800,
+      "height": 1355,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.49477727110282,
+        "alphaExact": true,
+        "bytes": 782568
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "66",
+      "label": "Front",
+      "url": "images/pucks/66/front.webp",
+      "clockwiseDegrees": 8.41,
+      "reference": "logo-SIFT",
+      "sha256": "b9c4c04483a21a570c2a47294365f189187def44f1317f07a1d8aef2154f32aa",
+      "width": 2257,
+      "height": 2257,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.32870311311347,
+        "alphaExact": true,
+        "bytes": 880216
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "38",
+      "label": "Edge 2",
+      "url": "images/pucks/38/edge-02.webp",
+      "clockwiseDegrees": 0.13,
+      "reference": "silhouette-midline",
+      "sha256": "586ecf28b02eff09148385d52670bffaa480391cb93f34bcbd8870c7224cd4b8",
+      "width": 2800,
+      "height": 1349,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.43355210713933,
+        "alphaExact": true,
+        "bytes": 792746
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "38",
+      "label": "Back",
+      "url": "images/pucks/38/back.webp",
+      "clockwiseDegrees": -1.04,
+      "reference": "logo-SIFT",
+      "sha256": "316718cbfe3b0471625f177daefa48e9028e421e5b0fd746b3adc004f7478db2",
+      "width": 2265,
+      "height": 2265,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.49789733413594,
+        "alphaExact": true,
+        "bytes": 1075468
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "38",
+      "label": "Front",
+      "url": "images/pucks/38/front.webp",
+      "clockwiseDegrees": 2.17,
+      "reference": "Printed straight top blue wing edge, 337 source-pixel samples fitted; visually confirmed",
+      "sha256": "71c405ddf09c5ea5a06558e9c420c1d106c44898af9d5541c0f30215888b97c9",
+      "width": 2260,
+      "height": 2260,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.327499170674955,
+        "alphaExact": true,
+        "bytes": 1039476
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Edge 4",
+      "url": "images/pucks/29/edge-04.webp",
+      "clockwiseDegrees": 1.94,
+      "reference": "silhouette-midline",
+      "sha256": "4ae5028bcd39adf8b3fb9735eafa06a2f621fc82e68aa161b44e080f062c8dfb",
+      "width": 2800,
+      "height": 1325,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.90791105889438,
+        "alphaExact": true,
+        "bytes": 833926
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Edge 2",
+      "url": "images/pucks/29/edge-02.webp",
+      "clockwiseDegrees": 2,
+      "reference": "silhouette-midline",
+      "sha256": "6c42c119febe94fe7c4b98df519db96eb28b684b2495b6749c986a57d7de30dd",
+      "width": 2800,
+      "height": 1324,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 44.03355378493196,
+        "alphaExact": true,
+        "bytes": 878694
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Edge 3",
+      "url": "images/pucks/29/edge-03.webp",
+      "clockwiseDegrees": 3.13,
+      "reference": "silhouette-midline",
+      "sha256": "624a9acb1f81082ae659192b22d1ed45488d0e5bfbac593ddb4cb15f6efa3fed",
+      "width": 2800,
+      "height": 1328,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.97152732748297,
+        "alphaExact": true,
+        "bytes": 875502
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Front",
+      "url": "images/pucks/29/front.webp",
+      "clockwiseDegrees": -1.29,
+      "reference": "logo-SIFT",
+      "sha256": "d6aaf7d03e80d7e66e2bfe580b144a36a1aa9b6124f8393ac795b2469d9c394f",
+      "width": 2348,
+      "height": 2348,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.162686024011876,
+        "alphaExact": true,
+        "bytes": 1017656
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "22",
+      "label": "Edge 1",
+      "url": "images/pucks/22/edge-01.webp",
+      "clockwiseDegrees": -0.12,
+      "reference": "silhouette-midline",
+      "sha256": "4f2400042d0d4c9906eda4f311dd69feb64ffde3dea6f89d7826fa175639d357",
+      "width": 2800,
+      "height": 1361,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.422394516711904,
+        "alphaExact": true,
+        "bytes": 455654
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Edge 1",
+      "url": "images/pucks/29/edge-01.webp",
+      "clockwiseDegrees": 1.03,
+      "reference": "silhouette-midline",
+      "sha256": "bd3b339b90bd2df7b22303be7df39fdeaaf66ecc90a69c7b567cbe23eb0180ea",
+      "width": 2800,
+      "height": 1462,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.96127551951948,
+        "alphaExact": true,
+        "bytes": 860036
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "22",
+      "label": "Edge 2",
+      "url": "images/pucks/22/edge-02.webp",
+      "clockwiseDegrees": 0.6,
+      "reference": "silhouette-midline",
+      "sha256": "2f0e672a8ea3c5795adc5efc20f372318e950506b1b421baee7a0008cea42746",
+      "width": 2800,
+      "height": 1346,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.05969501449118,
+        "alphaExact": true,
+        "bytes": 490252
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "22",
+      "label": "Edge 3",
+      "url": "images/pucks/22/edge-03.webp",
+      "clockwiseDegrees": 0.65,
+      "reference": "silhouette-midline",
+      "sha256": "e03f2d4a35b155698c84b1bceb267220f3ae24d703f804f31d62dcc2825c6920",
+      "width": 2800,
+      "height": 1348,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.334680139753836,
+        "alphaExact": true,
+        "bytes": 466830
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "29",
+      "label": "Back",
+      "url": "images/pucks/29/back.webp",
+      "clockwiseDegrees": 0.89,
+      "reference": "logo-SIFT",
+      "sha256": "b926a81d6674d0876672b82cd523070593e781dd2f55aabe34abe75680c4835f",
+      "width": 2330,
+      "height": 2330,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.69564569408698,
+        "alphaExact": true,
+        "bytes": 1083506
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "22",
+      "label": "Front",
+      "url": "images/pucks/22/front.webp",
+      "clockwiseDegrees": -0.01,
+      "reference": "logo-SIFT",
+      "sha256": "1f0086f27f7c948844d0731eb87ba1acfdfb628ac4d7f3880e29ff883860aa5b",
+      "width": 2337,
+      "height": 2337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 45.11617801288501,
+        "alphaExact": true,
+        "bytes": 737626
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Edge 3",
+      "url": "images/pucks/25/edge-03.webp",
+      "clockwiseDegrees": 0.66,
+      "reference": "silhouette-midline",
+      "sha256": "9aca78716e68f042a6ff5ed0c8389c3fd714f08efa688c40bea9ca6730df42d8",
+      "width": 2800,
+      "height": 1362,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.39520745388817,
+        "alphaExact": true,
+        "bytes": 430654
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Edge 4",
+      "url": "images/pucks/25/edge-04.webp",
+      "clockwiseDegrees": 0.58,
+      "reference": "silhouette-midline",
+      "sha256": "d92b40e68ec070e6c4f77374fd12a760c0822592f50bee331a68f51db8d547d4",
+      "width": 2800,
+      "height": 1354,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.60869803065887,
+        "alphaExact": true,
+        "bytes": 390148
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "22",
+      "label": "Back",
+      "url": "images/pucks/22/back.webp",
+      "clockwiseDegrees": -0.35,
+      "reference": "logo-SIFT",
+      "sha256": "652738a72fcc6c4052a3d8164ddf092ba66dbedd24b6e57ca2faa33864128446",
+      "width": 2336,
+      "height": 2336,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.841263603554076,
+        "alphaExact": true,
+        "bytes": 926766
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Edge 1",
+      "url": "images/pucks/25/edge-01.webp",
+      "clockwiseDegrees": 1.41,
+      "reference": "silhouette-midline",
+      "sha256": "fe635764093895c8267ea6561de16ca314dc9166b0e9d9e7b5f9d681a81f1c62",
+      "width": 2800,
+      "height": 1368,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.503563390023,
+        "alphaExact": true,
+        "bytes": 417596
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Front",
+      "url": "images/pucks/25/front.webp",
+      "clockwiseDegrees": 0.86,
+      "reference": "logo-SIFT",
+      "sha256": "838d5fc8d9ce036abb0cd91e551af32aae4f390e50d94b34275d9dc4718d308d",
+      "width": 2325,
+      "height": 2325,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.1841569445696,
+        "alphaExact": true,
+        "bytes": 990468
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Back",
+      "url": "images/pucks/25/back.webp",
+      "clockwiseDegrees": 1.75,
+      "reference": "logo-SIFT",
+      "sha256": "32822b08518c1a5aa1d244a37fe89d4af92b72aa0dc129bac75ec9bc6581d519",
+      "width": 2332,
+      "height": 2332,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.64474114393012,
+        "alphaExact": true,
+        "bytes": 844856
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "20",
+      "label": "Edge 2",
+      "url": "images/pucks/20/edge-02.webp",
+      "clockwiseDegrees": -1.34,
+      "reference": "silhouette-midline",
+      "sha256": "eae287e4d1f270144213d9a65a030d3d571e492aad6a919824df98e0470182cc",
+      "width": 2800,
+      "height": 1331,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.55975361528975,
+        "alphaExact": true,
+        "bytes": 913500
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "25",
+      "label": "Edge 2",
+      "url": "images/pucks/25/edge-02.webp",
+      "clockwiseDegrees": -1.7,
+      "reference": "silhouette-midline",
+      "sha256": "8dc1255ff76f791cc32864cd0b39c05624be3f912e0cd403b38258c5914c63a9",
+      "width": 2800,
+      "height": 1372,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 45.550719842253,
+        "alphaExact": true,
+        "bytes": 399332
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "20",
+      "label": "Edge 1",
+      "url": "images/pucks/20/edge-01.webp",
+      "clockwiseDegrees": 0.74,
+      "reference": "silhouette-midline",
+      "sha256": "182fd474bc24249afcb736143ee8579ce3463b96b92334b0d6e0f253b609bc9a",
+      "width": 2800,
+      "height": 1368,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.84408420783538,
+        "alphaExact": true,
+        "bytes": 814602
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "20",
+      "label": "Front",
+      "url": "images/pucks/20/front.webp",
+      "clockwiseDegrees": -1.45,
+      "reference": "logo-SIFT",
+      "sha256": "9e4f0282bf154d1075e4659f01ca89513746aa1116a69ae1189aaa9cf50cd8be",
+      "width": 2333,
+      "height": 2333,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 44.284612454873596,
+        "alphaExact": true,
+        "bytes": 862294
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "15",
+      "label": "Edge 3",
+      "url": "images/pucks/15/edge-03.webp",
+      "clockwiseDegrees": 0.09,
+      "reference": "silhouette-midline",
+      "sha256": "d76c0598b3f7961ce9006c4f9c688b644bef8cc06f5758244706a007a43438fd",
+      "width": 2800,
+      "height": 1357,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.908218449847226,
+        "alphaExact": true,
+        "bytes": 822228
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "20",
+      "label": "Back",
+      "url": "images/pucks/20/back.webp",
+      "clockwiseDegrees": 1.17,
+      "reference": "logo-SIFT",
+      "sha256": "411e9a5a897181a6d70a79de1e839db7673279826e1127fe0c43707d9b6df197",
+      "width": 2337,
+      "height": 2337,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.798912926258694,
+        "alphaExact": true,
+        "bytes": 1013230
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "15",
+      "label": "Edge 2",
+      "url": "images/pucks/15/edge-02.webp",
+      "clockwiseDegrees": 0.09,
+      "reference": "silhouette-midline",
+      "sha256": "c685dcd36e257d822451ccd12c2cdd5bc515aa823d76595848a606e7b50edf6c",
+      "width": 2800,
+      "height": 1335,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.83661056579717,
+        "alphaExact": true,
+        "bytes": 936960
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "15",
+      "label": "Edge 1",
+      "url": "images/pucks/15/edge-01.webp",
+      "clockwiseDegrees": 0.12,
+      "reference": "silhouette-midline",
+      "sha256": "125bc93f4ba781f47820714a05781bed6d6ed1629c6673d205376038aba8ddaf",
+      "width": 2800,
+      "height": 1310,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2800,
+        "psnr": 43.75695342310844,
+        "alphaExact": true,
+        "bytes": 848236
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "15",
+      "label": "Back",
+      "url": "images/pucks/15/back.webp",
+      "clockwiseDegrees": 0.47,
+      "reference": "logo-SIFT",
+      "sha256": "a67661afbedf35577806c1ab0c7abe78a765cec31a011bd0a91a9dadb67729ae",
+      "width": 2265,
+      "height": 2265,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 42.83867646669683,
+        "alphaExact": true,
+        "bytes": 967828
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    },
+    {
+      "artifact": "15",
+      "label": "Front",
+      "url": "images/pucks/15/front.webp",
+      "clockwiseDegrees": 1.65,
+      "reference": "logo-SIFT",
+      "sha256": "e2f224a5494d936853bdf42c8d4b7c22f2244783c3d403c4c9ab03b407179ba5",
+      "width": 2274,
+      "height": 2274,
+      "webEncoding": {
+        "quality": 96,
+        "maxDimension": 2400,
+        "psnr": 43.53017276788349,
+        "alphaExact": true,
+        "bytes": 914144
+      },
+      "status": "reviewed-master-and-verified-web-derivative"
+    }
+  ]
+}

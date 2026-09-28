@@ -10,6 +10,8 @@ const decoder = JSON.parse(read("data/marchand-players.json"));
 const photoManifest = JSON.parse(read("data/marchand-photos.json"));
 const storyManifest = JSON.parse(read("data/marchand-stories.json"));
 const registeredPhotos = structuredClone(photoManifest.artifacts);
+const noPhotoId = payload.records.find((record) => !registeredPhotos[String(record.inventoryId)])?.inventoryId;
+assert.ok(noPhotoId, "a no-photo artifact is needed to test the standard fallback");
 // Simulate a future upload, with Front intentionally not first.
 photoManifest.artifacts["1"] = [{ label: "Back", url: "future-back.png" }, { label: "Front", url: "future-front.png" }];
 photoManifest.artifacts["2"] = [{ label: "Back", url: "only-back.png" }];
@@ -129,7 +131,7 @@ for (const [id, expectedUrl] of frontPhotos) {
   button.click();
   assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`, "fallback must remain clickable");
 }
-for (const id of [2, 72]) {
+for (const id of [2, noPhotoId]) {
   const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
   assert.equal(button.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
 }
@@ -154,7 +156,7 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
   views.children[0].click();
   assert.equal(element("artifact-puck-placeholder").hidden, true);
 }
-rows().find((entry) => Number(entry.children[0].textContent) === 72).children[1].children[0].click();
+rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).children[1].children[0].click();
 assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-puck-image").hidden, true);
@@ -170,7 +172,7 @@ assert.equal(rows().length, 104);
 assert.ok(!shownIds().includes(335));
 change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
-assert.equal(element("artifact-dialog-number").textContent, "Artifact No. 72");
+assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${noPhotoId}`);
 element("artifact-dialog-close").click();
 assert.equal(element("road-to-history-story").hidden, true);
 element("collection-search").value = "Perfection Line";
@@ -318,7 +320,7 @@ const checkNavigation = () => {
     assert.equal(element("artifact-navigation-position").textContent, `Puck ${index + 1} of ${orderedIds.length} in this view`);
     assert.equal(element("artifact-previous").disabled, index === 0);
     assert.equal(element("artifact-next").disabled, index === orderedIds.length - 1);
-    if ([503, 509].includes(id)) assert.equal(element("artifact-puck-image").src, photoManifest.artifacts[id][0].url);
+    if (photoManifest.artifacts[id]?.length) assert.equal(element("artifact-puck-image").src, (photoManifest.artifacts[id].find(photo => photo.label === "Front") || photoManifest.artifacts[id][0]).url);
     else assert.equal(element("artifact-puck-views").hidden, true);
     element("artifact-next").click();
   }

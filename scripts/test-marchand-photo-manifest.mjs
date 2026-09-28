@@ -9,7 +9,9 @@ let photoCount = 0;
 for (const [id, photos] of Object.entries(manifest)) {
   assert.ok(ids.has(id), `Unknown artifact ${id}`);
   assert.ok(Array.isArray(photos) && photos.length, `Empty photo set: ${id}`);
-  assert.equal(photos[0].label, 'Front', `Front must lead artifact ${id}`);
+  if (photos.some((photo) => photo.label === 'Front')) {
+    assert.equal(photos[0].label, 'Front', `Front must lead artifact ${id} when available`);
+  }
   assert.equal(new Set(photos.map((photo) => photo.label)).size, photos.length, `Duplicate view: ${id}`);
   for (const photo of photos) {
     assert.equal(photo.rotation, 0, `Rotation must be baked into image pixels: ${photo.url}`);

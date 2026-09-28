@@ -1,6 +1,6 @@
 # Marchand collection puck photos
 
-Approved, cropped transparent PNGs or lossless WebP images, organized by **artifact number**, not career goal number.
+Approved, cropped transparent PNGs or WebP images, organized by **artifact number**, not career goal number.
 
 | Artifact | Puck | Game | Photos |
 | --- | --- | --- | --- |
@@ -16,7 +16,7 @@ Keep raw originals unchanged in Google Drive's **Brad Puck / Raw Full Images** f
 
 For HEIC intake, preserve the original files and process full-resolution copies. Match the approved neutral color/crop treatment without smoothing, reconstructing, or removing puck wear, printed markings, tape, or authentication labels. Inspect every front, back, and edge for clipping and individually correct rotation using the logo or readable lettering. Preserve real perspective and irregular worn edges. Center faces on square transparent canvases and keep edge views horizontal with modest breathing room.
 
-Lossless WebP is preferred for new full-resolution web images. A separate `front-thumb.webp` is used only for the small Artifact Hall button; set `thumbnailUrl` on the Front manifest entry. Deep dives must continue to use the full-resolution `url`. If no thumbnail is registered, the button uses the full-resolution Front. Preserve full-resolution PNG working masters outside the repository.
+Preserve full-resolution PNG working masters and lossless exports outside the repository. User-approved website copies use WebP quality 96, exact alpha, and no upscaling: faces up to 2400 pixels and edges up to 2800 pixels on the longest side. Check wear and label readability against the masters, and confirm the complete published site stays below GitHub Pages' 1 GB limit. A separate lossless `front-thumb.webp` is used only for the small Artifact Hall button; set `thumbnailUrl` on the Front manifest entry. Deep dives use the large website `url`, never the thumbnail. If no thumbnail is registered, the button uses the large Front.
 
 Bake approved rotation into the actual exported pixels. Keep manifest `rotation` at zero; do not rely on CSS to fix a tilted source. Measure the printed design against the correct-era logo or its horizontal/vertical printed lines, and assess edges by their central silhouette midline. Inspect every exported view, preserve natural perspective, regenerate front thumbnails, and use a new image URL version when overwriting published files.
 
@@ -24,7 +24,11 @@ Cross-check artifact numbers against visible dates, opponents, and authenticatio
 
 The beta photos above were processed from the original uploads using conventional cropping and background removal, without generative reconstruction or tonal retouching. Actual wear, printed markings, tape, and authentication labels were preserved. The two artifacts are separate pucks despite sharing a game date.
 
-The September 27 intake adds 101 photographs across 20 artifacts: 1, 2, 8, 12, 16, 26, 28, 32, 34, 37, 40, 42, 43, 44, 48, 56, 68, 69, 70, and 334. These use neutral tone correction, background isolation, individually checked rotation, and lossless export. Together with the beta sets, the manifest contains 107 views across 22 artifacts.
+The first September 27 intake added 101 photographs across 20 artifacts: 1, 2, 8, 12, 16, 26, 28, 32, 34, 37, 40, 42, 43, 44, 48, 56, 68, 69, 70, and 334. Together with the beta sets, this established 107 views across 22 artifacts.
+
+The second intake adds 209 photographs across 40 more artifacts, bringing the collection to 316 views across 62 artifacts. These use conventional Adobe tone correction and background isolation, individually measured pixel rotation, and high-quality website copies from retained full-resolution lossless masters. Every exported front, back, and edge was visually checked. The per-view audit is in `docs/marchand-photo-batch2-review.json`.
+
+Artifact 30 includes five distinct edge views: both sources named `030-edge-04` were retained, with the additional view registered as Edge 5. Artifact 54 currently has its confirmed back and four edge views only. An unnamed front remains unpublished pending identification. A missing front must not prevent publishing other confirmed views, and the Artifact Hall must keep the generic Deep Dive button until a front is confirmed.
 
 Map each artifact's photos in `data/marchand-photos.json` using a view label and image path. The deep dive shows the first image by default and provides labeled view buttons. This manifest is separate from the canonical statistics import, so spreadsheet synchronization does not overwrite photo mappings. Uploading future files alone does not associate them with records.
 
