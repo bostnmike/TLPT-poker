@@ -759,6 +759,7 @@
   }
 
   function showPuckPlaceholder(record) {
+    document.getElementById("artifact-coa-full-size").hidden = true;
     elements.puckImage.hidden = true;
     elements.puckImage.removeAttribute("src");
     elements.puckImage.alt = "";
@@ -778,6 +779,10 @@
     }
     const buttons = [];
     const selectPhoto = (photo, index) => {
+      const certificateLink = document.getElementById("artifact-coa-full-size");
+      certificateLink.hidden = photo.label !== "COA";
+      if (photo.label === "COA") certificateLink.href = photo.url;
+      else certificateLink.removeAttribute("href");
       elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
       elements.puckPlaceholder.hidden = true;
       elements.puckImage.hidden = false;

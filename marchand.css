@@ -1452,6 +1452,8 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-puck-views button img{width:100%;height:64px;object-fit:contain}
 .marchand-puck-views button[aria-pressed="true"]{border-color:var(--museum-accent);background:rgba(var(--museum-accent-rgb),.14);color:var(--museum-accent)}
 .marchand-puck-views button:focus-visible{outline:2px solid var(--museum-accent);outline-offset:3px}
+.marchand-coa-full-size{justify-self:center;margin-top:8px;color:var(--museum-accent);font-size:.8rem}
+.marchand-coa-full-size[hidden]{display:none}
 
 .marchand-puck-placeholder{
   display:grid;

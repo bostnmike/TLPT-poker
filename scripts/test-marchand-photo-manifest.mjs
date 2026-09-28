@@ -15,7 +15,7 @@ for (const [id, photos] of Object.entries(manifest)) {
   assert.equal(new Set(photos.map((photo) => photo.label)).size, photos.length, `Duplicate view: ${id}`);
   for (const photo of photos) {
     assert.equal(photo.rotation, 0, `Rotation must be baked into image pixels: ${photo.url}`);
-    assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*)$/);
+    assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*|COA)$/);
     for (const fullUrl of [photo.url, photo.thumbnailUrl].filter(Boolean)) {
       const url = fullUrl.split('?')[0];
       assert.ok(url.startsWith(`images/pucks/${id}/`) && !url.includes('..'), `Wrong folder: ${url}`);

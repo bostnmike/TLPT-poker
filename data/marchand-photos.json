@@ -31,6 +31,11 @@
         "label": "Edge 4",
         "url": "images/pucks/1/edge-04.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/1/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "2": [
@@ -125,6 +130,11 @@
         "label": "Edge 3",
         "url": "images/pucks/4/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/4/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "5": [
@@ -171,6 +181,11 @@
         "label": "Edge 2",
         "url": "images/pucks/6/edge-02.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/6/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "7": [
@@ -193,6 +208,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/7/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/7/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -227,6 +247,11 @@
         "label": "Edge 4",
         "url": "images/pucks/8/edge-04.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/8/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "9": [
@@ -249,6 +274,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/9/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/9/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -311,6 +341,11 @@
         "label": "Edge 3",
         "url": "images/pucks/11/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/11/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "12": [
@@ -372,6 +407,11 @@
         "label": "Edge 3",
         "url": "images/pucks/13/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/13/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "14": [
@@ -405,6 +445,11 @@
         "label": "Edge 4",
         "url": "images/pucks/14/edge-04.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/14/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "15": [
@@ -432,6 +477,11 @@
       {
         "label": "Edge 3",
         "url": "images/pucks/15/edge-03.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/15/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -461,6 +511,11 @@
         "label": "Edge 3",
         "url": "images/pucks/16/edge-03.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/16/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "17": [
@@ -488,6 +543,11 @@
       {
         "label": "Edge 3",
         "url": "images/pucks/17/edge-03.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/17/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -527,6 +587,11 @@
         "label": "Edge 5",
         "url": "images/pucks/18/edge-05.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/18/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "19": [
@@ -550,6 +615,11 @@
         "label": "Edge 2",
         "url": "images/pucks/19/edge-02.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/19/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "20": [
@@ -572,6 +642,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/20/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/20/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -605,6 +680,11 @@
       {
         "label": "Edge 4",
         "url": "images/pucks/21/edge-04.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/21/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -666,6 +746,11 @@
       {
         "label": "Edge 4",
         "url": "images/pucks/23/edge-04.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/23/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -761,6 +846,18 @@
         "label": "Edge 4",
         "url": "images/pucks/26/edge-04.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/26/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "27": [
+      {
+        "label": "COA",
+        "url": "images/pucks/27/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "28": [
@@ -783,6 +880,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/28/edge-02.webp?v=20260927-level2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/28/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -816,6 +918,11 @@
       {
         "label": "Edge 4",
         "url": "images/pucks/29/edge-04.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/29/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -855,6 +962,11 @@
         "label": "Edge 5",
         "url": "images/pucks/30/edge-05.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/30/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "32": [
@@ -890,6 +1002,13 @@
         "rotation": 0
       }
     ],
+    "33": [
+      {
+        "label": "COA",
+        "url": "images/pucks/33/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
     "34": [
       {
         "label": "Front",
@@ -915,6 +1034,13 @@
       {
         "label": "Edge 3",
         "url": "images/pucks/34/edge-03.webp?v=20260927-level2",
+        "rotation": 0
+      }
+    ],
+    "35": [
+      {
+        "label": "COA",
+        "url": "images/pucks/35/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -979,6 +1105,13 @@
         "rotation": 0
       }
     ],
+    "39": [
+      {
+        "label": "COA",
+        "url": "images/pucks/39/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
     "40": [
       {
         "label": "Front",
@@ -1012,6 +1145,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/42/edge-02.webp?v=20260927-level2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/42/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1068,6 +1206,20 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/44/edge-02.webp?v=20260927-level2",
+        "rotation": 0
+      }
+    ],
+    "46": [
+      {
+        "label": "COA",
+        "url": "images/pucks/46/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "47": [
+      {
+        "label": "COA",
+        "url": "images/pucks/47/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1196,6 +1348,11 @@
         "label": "Edge 5",
         "url": "images/pucks/52/edge-05.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/52/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "53": [
@@ -1228,6 +1385,11 @@
       {
         "label": "Edge 4",
         "url": "images/pucks/53/edge-04.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/53/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1262,6 +1424,11 @@
         "label": "Edge 4",
         "url": "images/pucks/54/edge-04.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/54/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "55": [
@@ -1289,6 +1456,11 @@
       {
         "label": "Edge 3",
         "url": "images/pucks/55/edge-03.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/55/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1376,6 +1548,34 @@
         "rotation": 0
       }
     ],
+    "59": [
+      {
+        "label": "COA",
+        "url": "images/pucks/59/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "60": [
+      {
+        "label": "COA",
+        "url": "images/pucks/60/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "62": [
+      {
+        "label": "COA",
+        "url": "images/pucks/62/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "63": [
+      {
+        "label": "COA",
+        "url": "images/pucks/63/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
     "66": [
       {
         "label": "Front",
@@ -1396,6 +1596,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/66/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/66/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1453,6 +1658,11 @@
         "label": "Edge 2",
         "url": "images/pucks/68/edge-02.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/68/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "69": [
@@ -1465,6 +1675,11 @@
       {
         "label": "Back",
         "url": "images/pucks/69/back.webp?v=20260927-level2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/69/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1499,6 +1714,11 @@
         "label": "Edge 4",
         "url": "images/pucks/70/edge-04.webp?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/70/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "71": [
@@ -1526,6 +1746,11 @@
       {
         "label": "Edge 3",
         "url": "images/pucks/71/edge-03.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/71/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1583,6 +1808,11 @@
         "label": "Edge 3",
         "url": "images/pucks/73/edge-03.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/73/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "74": [
@@ -1605,6 +1835,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/74/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/74/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1639,6 +1874,11 @@
         "label": "Edge 4",
         "url": "images/pucks/75/edge-04.webp?v=20260928-batch2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/75/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "76": [
@@ -1661,6 +1901,11 @@
       {
         "label": "Edge 2",
         "url": "images/pucks/76/edge-02.webp?v=20260928-batch2",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/76/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1786,6 +2031,27 @@
         "rotation": 0
       }
     ],
+    "504": [
+      {
+        "label": "COA",
+        "url": "images/pucks/504/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "506": [
+      {
+        "label": "COA",
+        "url": "images/pucks/506/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "508": [
+      {
+        "label": "COA",
+        "url": "images/pucks/508/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
     "509": [
       {
         "label": "Front",
@@ -1819,6 +2085,11 @@
         "label": "Back",
         "url": "images/pucks/600/back.webp?v=20260928-repeat",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/600/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "601": [
@@ -1831,6 +2102,11 @@
       {
         "label": "Back",
         "url": "images/pucks/601/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/601/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1857,6 +2133,11 @@
       {
         "label": "Back",
         "url": "images/pucks/603/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/603/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -1935,6 +2216,11 @@
       {
         "label": "Back",
         "url": "images/pucks/609/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/609/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],
@@ -2110,6 +2396,11 @@
         "label": "Back",
         "url": "images/pucks/622/back.webp?v=20260928-repeat",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/622/coa.webp?v=20260928-coa",
+        "rotation": 0
       }
     ],
     "623": [
@@ -2122,6 +2413,11 @@
       {
         "label": "Back",
         "url": "images/pucks/623/back.webp?v=20260928-repeat",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/623/coa.webp?v=20260928-coa",
         "rotation": 0
       }
     ],

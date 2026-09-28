@@ -142,7 +142,7 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
   row.children[1].children[0].click();
   const views = element("artifact-puck-views");
   assert.equal(views.children.length, expectedViews);
-  assert.equal(views.hidden, false);
+  assert.equal(views.hidden, expectedViews < 2, "single-image exhibits do not need a thumbnail selector");
   assert.equal(element("artifact-puck-image").src, photos[0].url);
   for (const [index, button] of views.children.entries()) {
     button.click();
@@ -150,6 +150,8 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
     assert.ok(element("artifact-puck-caption").textContent.includes(`${index + 1} of ${expectedViews}`));
     assert.ok(fs.existsSync(new URL(`../${element("artifact-puck-image").src}`, import.meta.url)));
     assert.equal(element("artifact-puck-placeholder").hidden, true);
+    assert.equal(element("artifact-coa-full-size").hidden, photos[index].label !== "COA");
+    if (photos[index].label === "COA") assert.equal(element("artifact-coa-full-size").href, photos[index].url);
   }
   element("artifact-puck-image").onerror();
   assert.equal(element("artifact-puck-placeholder").hidden, false);
