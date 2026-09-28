@@ -1,15 +1,15 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "b545b802fe6894facf99a541544cd3af61f6bf919227042252c20ecc37bd6924",
-    "records": 153,
+    "sourceSha256": "cfefeab770dff940c292e3fceaefc4a82140bc3f63dbc5bb087e13c03baf24bb",
+    "records": 152,
     "goalsAndGames": 78,
-    "milestones": 39,
+    "milestones": 38,
     "roadToHistory": 9,
-    "videos": 153,
+    "videos": 152,
     "sourceSheets": {
       "Goals & Games": 78,
-      "Milestones": 39,
+      "Milestones": 38,
       "Road to History": 9,
       "Road to Repeat": 27
     },
@@ -7734,7 +7734,7 @@
       "videoUrl": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112",
       "videoProvider": "nhl",
       "videoId": "6383495592112",
-      "notes": "Primary assist on EL27 goal; AE5 secondary assist",
+      "notes": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 consolidated into artifact 59 by owner confirmation.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -7831,7 +7831,7 @@
         },
         {
           "label": "Notes",
-          "value": "Primary assist on EL27 goal; AE5 secondary assist",
+          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 consolidated into artifact 59 by owner confirmation.",
           "url": ""
         },
         {
@@ -16082,219 +16082,6 @@
         {
           "label": "Opponent",
           "value": "Tampa Bay Lightning",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Game Used Puck",
-          "url": ""
-        },
-        {
-          "label": "Notes",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Workflow Status",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "City/Region",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Video URL",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Front Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Back Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Purchase Document Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Source / Seller",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Last Updated",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Front Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Back Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Research Sources",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Intake Date (As Submitted)",
-          "value": "",
-          "url": ""
-        }
-      ],
-      "goalieScoredAgainst": ""
-    },
-    {
-      "key": "milestone-333",
-      "sourceSheet": "Milestones",
-      "sourceRow": 34,
-      "inventoryId": 333,
-      "homeRoad": "",
-      "team": "Florida Panthers",
-      "category": "Milestone",
-      "careerStat": null,
-      "seasonStat": null,
-      "description": "BM63 Returns to Boston | Primary Assist: Goal Scored by EL27",
-      "date": "2025-10-21",
-      "arena": "TD Garden",
-      "opponent": "Boston Bruins",
-      "period": "",
-      "time": "",
-      "goalType": "",
-      "primaryAssist": "",
-      "secondaryAssist": "",
-      "score": "",
-      "puckType": "Game Used Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112",
-      "videoProvider": "nhl",
-      "videoId": "6383495592112",
-      "notes": "",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "playerCodes": [
-        "BM63",
-        "EL27"
-      ],
-      "sourceData": [
-        {
-          "label": "ID #",
-          "value": "333",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Florida Panthers",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "Milestone",
-          "url": ""
-        },
-        {
-          "label": "Description",
-          "value": "BM63 Returns to Boston | Primary Assist: Goal Scored by EL27",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2025-10-21",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "TD Garden",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "Boston Bruins",
           "url": ""
         },
         {

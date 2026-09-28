@@ -1,0 +1,11 @@
+# September 28 COA intake and artifact consolidation
+
+- The owner confirmed that artifact 333 and artifact 59 are the same physical puck. Keep 59, its goal video, Marchand assist details, and the return-to-Boston context. The canonical Excel and narrative Word files were consolidated, with backups retained privately. Old `milestone-333` deep links resolve to `goal-59`.
+- Artifact 313 now has a confirmed Utah inaugural-season Front, Back, Edge 1 (10/19/24), and Edge 2 (BOS @ UTA). Its front thumbnail is also the Artifact Hall's Deep Dive button. It remains distinct from artifact 57.
+- Fifty new certificate/provenance photographs were matched using the validated database, visible date, matchup, scorer, and other markings where present. Three unmatched new labels remain privately held: two for March 7, 2024, and one for December 1, 2024. Eight previously unresolved files remain held.
+- Generic Fanatics game labels are not represented as goal-specific certificates. When several physical pucks share a date and product code, the gallery caption explicitly states that this is shared game-level evidence, not a unique physical-puck identification. No verified game or scoring data was rewritten to agree with a generic label.
+- Existing certificate views are preserved. New views use sequential `coa.webp`, `coa-02.webp`, etc., under each artifact folder in the image-library repository. The full private file mapping is preserved with the intake outputs.
+- Images were cropped and straightened non-generatively in Adobe. Eighteen residual quarter-/half-turns were corrected by exact pixel permutation, with reverse-rotation pixel equality checks. Full-resolution PNG masters remain private. Public COA copies use quality-92 WebP at unchanged dimensions; puck copies passed the established PSNR and exact-alpha checks. The thumbnail is lossless.
+- No synthetic text, repaired printing, smoothed wear, or generated puck markings were introduced. Faded labels remain visibly faded.
+
+Publish the image library first, verify its live bytes, then publish the site. Archive only the exact 54 successful originals (50 certificate/provenance images and four artifact-313 photographs), after live verification. Leave unmatched originals in their raw folder.

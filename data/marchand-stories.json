@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-28",
-    "records": 153,
+    "records": 152,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
@@ -3143,37 +3143,6 @@
           "points": 1,
           "shots": 2,
           "toi": "17:15"
-        }
-      }
-    },
-    "milestone-333": {
-      "inventoryId": 333,
-      "date": "2025-10-21",
-      "team": "Florida Panthers",
-      "gameId": 2025020103,
-      "title": "Setting up Luostarinen against his former team",
-      "paragraphs": [
-        "Marchand returned to Boston with two assists in Florida’s 4–3 win. His second set up Luostarinen at 9:58 of the third period for a 3–2 lead, after he had helped create Samoskevich’s opening goal. This game-used puck marks his return and the Luostarinen scoring play; artifact 59 is the assist puck."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2025020103"
-        },
-        {
-          "label": "NHL return-to-Boston notes",
-          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
-        "marchand": {
-          "goals": 0,
-          "assists": 2,
-          "points": 2,
-          "shots": 1,
-          "toi": "19:38"
         }
       }
     },

@@ -69,6 +69,14 @@
         "label": "Edge 4",
         "url": "images/pucks/2/edge-04.webp?v=8672be43e652",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/2/coa.webp?v=9d9a9525bd57",
+        "rotation": 0,
+        "caption": "Certificate of Authenticity",
+        "sourceFile": "IMG_9762.JPG",
+        "authenticationScope": "specific puck"
       }
     ],
     "3": [
@@ -102,6 +110,14 @@
         "label": "Edge 4",
         "url": "images/pucks/3/edge-04.webp?v=3ecafc493f6b",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/3/coa.webp?v=2d1377750f93",
+        "rotation": 0,
+        "caption": "Certificate of Authenticity",
+        "sourceFile": "IMG_9761.JPG",
+        "authenticationScope": "specific puck"
       }
     ],
     "4": [
@@ -362,6 +378,14 @@
         "label": "COA",
         "url": "images/pucks/11/coa.webp?v=20260928-coa",
         "rotation": 0
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/11/coa-02.webp?v=0e3266f7d63c",
+        "rotation": 0,
+        "caption": "Certificate of Authenticity",
+        "sourceFile": "IMG_9760.JPG",
+        "authenticationScope": "specific puck"
       }
     ],
     "12": [
@@ -1329,6 +1353,14 @@
         "label": "Back",
         "url": "images/pucks/40/back.webp?v=f52bc4795420",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=48413a1b548c",
+        "rotation": 0,
+        "caption": "Certificate of Authenticity",
+        "sourceFile": "IMG_9758.JPG",
+        "authenticationScope": "specific puck"
       }
     ],
     "41": [
@@ -1598,6 +1630,14 @@
         "label": "Edge 3",
         "url": "images/pucks/48/edge-03.webp?v=a60c4cebc3fb",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/48/coa.webp?v=b27be5b862ee",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9792.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "49": [
@@ -1616,6 +1656,22 @@
         "label": "Edge 1",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=a28d7b96e479",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/coa.webp?v=78e00af270a9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9789.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/coa-02.webp?v=3d36c2544450",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9790.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "50": [
@@ -1644,6 +1700,22 @@
         "label": "Edge 3",
         "url": "images/pucks/50/edge-03.webp?v=7bb03bf71863",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp?v=4154b477ebfc",
+        "rotation": 0,
+        "caption": "Certificate of Authenticity",
+        "sourceFile": "IMG_9759.JPG",
+        "authenticationScope": "specific puck"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa-02.webp?v=d82a0f8c815d",
+        "rotation": 0,
+        "caption": "Provenance label — supporting game and scoring details.",
+        "sourceFile": "IMG_9809.JPG",
+        "authenticationScope": "supporting provenance"
       }
     ],
     "51": [
@@ -1903,6 +1975,14 @@
         "label": "Edge 2",
         "url": "images/pucks/57/edge-02.webp?v=70ddbd5313d6",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/57/coa.webp?v=56fb3fc0d4e3",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9780.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "58": [
@@ -1931,6 +2011,14 @@
         "label": "Edge 3",
         "url": "images/pucks/58/edge-03.webp?v=4c8b92f71725",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/58/coa.webp?v=1cac104b9d78",
+        "rotation": 0,
+        "caption": "Fanatics goal-puck authentication label — Brad Marchand, Canada vs. Sweden, February 12, 2025.",
+        "sourceFile": "IMG_9793.JPG",
+        "authenticationScope": "named scorer and game"
       }
     ],
     "59": [
@@ -1971,6 +2059,16 @@
         "label": "COA",
         "url": "images/pucks/60/coa.webp?v=20260928-coa",
         "rotation": 0
+      }
+    ],
+    "61": [
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61/coa.webp?v=40a7d274d70e",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9800.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "62": [
@@ -2174,6 +2272,14 @@
         "label": "COA",
         "url": "images/pucks/68/coa.webp?v=20260928-coa",
         "rotation": 0
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/68/coa-02.webp?v=777937e55e4c",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9808.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "69": [
@@ -2309,6 +2415,14 @@
         "label": "Edge 3",
         "url": "images/pucks/72/edge-03.webp?v=cde3173aa67d",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/72/coa.webp?v=7c118e013243",
+        "rotation": 0,
+        "caption": "Provenance label — supporting game and scoring details.",
+        "sourceFile": "IMG_9810.JPG",
+        "authenticationScope": "supporting provenance"
       }
     ],
     "73": [
@@ -2502,6 +2616,14 @@
         "label": "Edge 3",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/edge-03.webp?v=cebafeda3a37",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/302/coa.webp?v=2795cd1268c1",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9767.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "303": [
@@ -2535,6 +2657,14 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/edge-04.webp?v=b800ed56f6f3",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/303/coa.webp?v=d54a5a8ccf5c",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9768.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "304": [
@@ -2558,6 +2688,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/edge-02.webp?v=d710826b0486",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa.webp?v=e214bc047094",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9769.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa-02.webp?v=97730a644dc4",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9770.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "305": [
@@ -2581,6 +2727,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/edge-02.webp?v=167d0707e0ee",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa.webp?v=e214bc047094",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9769.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa-02.webp?v=97730a644dc4",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9770.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "306": [
@@ -2604,6 +2766,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/edge-02.webp?v=4b832cfeb64c",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/306/coa.webp?v=8e2ee454b9af",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9771.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "307": [
@@ -2627,6 +2797,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/edge-02.webp?v=8c9ac9c403ac",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/307/coa.webp?v=f060be02ce99",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9772.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "308": [
@@ -2650,6 +2828,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/edge-02.webp?v=e561d85f41b6",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/308/coa.webp?v=585e47855aed",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9773.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "309": [
@@ -2673,6 +2859,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/edge-02.webp?v=4215f6520595",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/309/coa.webp?v=5d8c4d6aee61",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9776.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "310": [
@@ -2696,6 +2890,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/edge-02.webp?v=4a805532da25",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/310/coa.webp?v=d2658cb0e410",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9777.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "311": [
@@ -2719,6 +2921,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/edge-02.webp?v=cc77c1435cb2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/311/coa.webp?v=909a113b38d3",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9778.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "312": [
@@ -2742,6 +2952,45 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/edge-02.webp?v=f625ca3fc42e",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/312/coa.webp?v=c13d0c1b7933",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9779.JPG",
+        "authenticationScope": "game-level"
+      }
+    ],
+    "313": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/front.webp?v=0f164fd5748a",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/front-thumb.webp?v=b4d93c4a508a"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/back.webp?v=077782ca8242",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/edge-01.webp?v=7b8426621998",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/edge-02.webp?v=c0bbad5914ef",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/313/coa.webp?v=56fb3fc0d4e3",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9780.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "314": [
@@ -2765,6 +3014,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/edge-02.webp?v=3e34e9084a28",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa.webp?v=757aeb347381",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9781.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa-02.webp?v=2704853e7669",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9782.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "315": [
@@ -2788,6 +3053,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/edge-02.webp?v=4d6b5bf19e7d",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa.webp?v=757aeb347381",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9781.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa-02.webp?v=2704853e7669",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9782.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "316": [
@@ -2811,6 +3092,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/edge-02.webp?v=09e4db22078c",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/316/coa.webp?v=42fe9c91f3ea",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9783.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "317": [
@@ -2834,6 +3123,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/edge-02.webp?v=6a3fb03a6cf4",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/317/coa.webp?v=c6ad040a2741",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9784.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "318": [
@@ -2857,6 +3154,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/edge-02.webp?v=a6a0cd89c623",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/318/coa.webp?v=b62496748b9c",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9785.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "319": [
@@ -2880,6 +3185,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/edge-02.webp?v=6ed8fc75cebc",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/coa.webp?v=38c112cbbbc9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9786.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/coa-02.webp?v=ee914d487a32",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9787.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "320": [
@@ -2903,6 +3224,22 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/edge-02.webp?v=3a3b929117b5",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/coa.webp?v=38c112cbbbc9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9786.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/coa-02.webp?v=ee914d487a32",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9787.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "321": [
@@ -2936,6 +3273,14 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/edge-04.webp?v=29d1777d7b66",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/321/coa.webp?v=2daa07ec66a5",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9791.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "322": [
@@ -2954,6 +3299,22 @@
         "label": "Edge 1",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/edge-01.webp?v=eb4fe3a926ad",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/coa.webp?v=78e00af270a9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9789.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/coa-02.webp?v=3d36c2544450",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9790.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "323": [
@@ -2982,6 +3343,14 @@
         "label": "Edge 3",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/edge-03.webp?v=ac01ba602595",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/323/coa.webp?v=fd8622a8b5c4",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9794.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "324": [
@@ -3052,6 +3421,30 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/edge-02.webp?v=4cf3af242917",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa.webp?v=854b1ad92691",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9795.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-02.webp?v=dbd4b8923c95",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9796.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-03.webp?v=125f1c604af6",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9797.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "326": [
@@ -3075,6 +3468,30 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/edge-02.webp?v=f12c37d981ca",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa.webp?v=854b1ad92691",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9795.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-02.webp?v=dbd4b8923c95",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9796.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-03.webp?v=125f1c604af6",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9797.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "327": [
@@ -3098,6 +3515,30 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/edge-02.webp?v=831fd647dcdc",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa.webp?v=854b1ad92691",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9795.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-02.webp?v=dbd4b8923c95",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9796.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-03.webp?v=125f1c604af6",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9797.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "328": [
@@ -3131,6 +3572,22 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/edge-04.webp?v=527061935106",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa.webp?v=ada829a6d94c",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9798.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa-02.webp?v=fc88a6ca37e9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9799.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "329": [
@@ -3164,6 +3621,22 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/edge-04.webp?v=4bb497a9da60",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa.webp?v=ada829a6d94c",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9798.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa-02.webp?v=fc88a6ca37e9",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9799.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "330": [
@@ -3197,6 +3670,14 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/edge-04.webp?v=6bbea1152d92",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/330/coa.webp?v=40a7d274d70e",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9800.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "331": [
@@ -3215,6 +3696,22 @@
         "label": "Edge 1",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/edge-01.webp?v=623c4797eb9c",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa.webp?v=c73fd6565721",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9801.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa-02.webp?v=284ef8d8f710",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9802.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "332": [
@@ -3233,6 +3730,14 @@
         "label": "Edge 1",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/edge-01.webp?v=97c3b604f6cc",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/332/coa.webp?v=f2459a43123b",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9803.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "334": [
@@ -3276,6 +3781,14 @@
         "label": "Edge 6",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/edge-06.webp?v=5f25c08dfd8b",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/334/coa.webp?v=2756015f6aa8",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9806.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "335": [
@@ -3309,6 +3822,14 @@
         "label": "Edge 4",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/edge-04.webp?v=f72745c90548",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/335/coa.webp?v=a0a01072055a",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9807.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "336": [
@@ -3361,6 +3882,22 @@
         "label": "Back",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/back.webp?v=abccba637426",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa.webp?v=c73fd6565721",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9801.JPG",
+        "authenticationScope": "game-level"
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa-02.webp?v=284ef8d8f710",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "sourceFile": "IMG_9802.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "501": [
@@ -3389,6 +3926,14 @@
         "label": "Edge 3",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/edge-03.webp?v=91e9fc04604a",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/501/coa.webp?v=5d4cd7362e05",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9763.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "502": [
@@ -3508,6 +4053,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/edge-02.webp?v=8f1ea0889327",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/505/coa.webp?v=b6844ec77254",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9764.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "506": [
@@ -3559,6 +4112,14 @@
         "label": "Edge 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/edge-02.webp?v=b4384118a8b6",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/507/coa.webp?v=83ddc29920bc",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9765.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "508": [
@@ -3614,6 +4175,14 @@
         "label": "Edge 2",
         "url": "images/pucks/509/edge-02.png?v=20260927-level2",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/509/coa.webp?v=3b466cf441f3",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9766.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "600": [
@@ -3986,6 +4555,14 @@
         "label": "Edge 1",
         "url": "images/pucks/621/edge-01.webp?v=f9a2c3f8783e",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/621/coa.webp?v=19f7f12bacf2",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9804.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "622": [
@@ -4045,6 +4622,14 @@
         "label": "Edge 2",
         "url": "images/pucks/624/edge-02.webp?v=768ab2e05c10",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/624/coa.webp?v=01e02786f079",
+        "rotation": 0,
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "sourceFile": "IMG_9805.JPG",
+        "authenticationScope": "game-level"
       }
     ],
     "625": [

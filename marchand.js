@@ -785,7 +785,7 @@
       elements.puckPlaceholder.hidden = true;
       elements.puckImage.hidden = false;
       elements.puckImage.alt = `Artifact ${record.inventoryId} — ${puckTypeLabel(record.puckType)} — ${photo.label}`;
-      elements.puckCaption.textContent = `Artifact No. ${record.inventoryId} · ${photo.label} · ${index + 1} of ${photos.length}`;
+      elements.puckCaption.textContent = `Artifact No. ${record.inventoryId} · ${photo.label} · ${index + 1} of ${photos.length}${photo.caption ? ` — ${photo.caption}` : ""}`;
       for (const [buttonIndex, button] of buttons.entries()) button.setAttribute("aria-pressed", String(buttonIndex === index));
       elements.puckImage.onerror = () => {
         showPuckPlaceholder(record);
@@ -1043,7 +1043,9 @@
       if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);
       render();
       const requestedArtifact = new URLSearchParams(window.location.search).get("artifact");
-      const linkedRecord = state.records.find((record) => record.key === requestedArtifact);
+      // Owner-confirmed duplicate: preserve old shared links after consolidation.
+      const resolvedArtifact = requestedArtifact === "milestone-333" ? "goal-59" : requestedArtifact;
+      const linkedRecord = state.records.find((record) => record.key === resolvedArtifact);
       if (linkedRecord) openArtifact(linkedRecord);
     } catch (error) {
       console.error("Could not load Marchand collection:", error);
