@@ -4218,14 +4218,26 @@
       "date": "2025-05-28",
       "team": "Florida Panthers",
       "gameId": 2024030315,
-      "title": "An assist on the way to another Final",
+      "title": "Playoff Point No. 152",
       "paragraphs": [
-        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This game-used puck represents the game, not a specific goal."
+        "Brad Marchand’s 152nd career playoff point gave Florida its first lead in Game 5 of the Eastern Conference Final. He earned the lone assist on Anton Lundell’s even-strength goal at 11:59 of the second period, making it 3–2. Florida won 5–3 to clinch the series. Marchand had brought 138 playoff points from Boston; this was his 14th with the Panthers and his 92nd career playoff assist. This puck is from Lundell’s goal."
       ],
       "sources": [
         {
           "label": "NHL game summary & box score",
           "url": "https://www.nhl.com/gamecenter/2024030315"
+        },
+        {
+          "label": "NHL career playoff season totals",
+          "url": "https://api-web.nhle.com/v1/player/8473419/landing"
+        },
+        {
+          "label": "NHL 2025 playoff game log",
+          "url": "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/3"
+        },
+        {
+          "label": "NHL official scoring report",
+          "url": "https://www.nhl.com/scores/htmlreports/20242025/GS030315.HTM"
         }
       ],
       "verification": {
@@ -4237,6 +4249,19 @@
           "points": 1,
           "shots": 4,
           "toi": "15:39"
+        },
+        "careerPlayoffPoint": {
+          "number": 152,
+          "before2025": 138,
+          "throughGame2025": 14,
+          "careerAssist": 92,
+          "seasonAssist": 10,
+          "asOf": "2025-05-28",
+          "calculation": "138 + 14 = 152",
+          "sources": [
+            "https://api-web.nhle.com/v1/player/8473419/landing",
+            "https://api-web.nhle.com/v1/player/8473419/game-log/20242025/3"
+          ]
         }
       }
     },

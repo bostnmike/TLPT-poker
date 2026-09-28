@@ -96,6 +96,7 @@ def video_parts(url, previous):
         url == previous.get("videoUrl")
         and previous.get("videoProvider")
         and previous.get("videoId")
+        and "nhl.com" not in urlparse(url).netloc.lower()
     ):
         return previous.get("videoProvider", ""), previous.get("videoId", "")
     parsed = urlparse(url)
@@ -234,17 +235,31 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             notes=values["Notes"], game=as_number(values["Game"]),
             playoffRound=values["Playoff Round"], seriesRecord=values["Series Record"],
             playoffRecord=f"{wins}–{losses}" if wins is not None and losses is not None else "",
-            careerStat=None, seasonStat=None, period="", time="", goalType="",
-            primaryAssist="", secondaryAssist="", goalieScoredAgainst="",
+            careerStat=as_number(values.get("Career Stat")),
+            seasonStat=as_number(values.get("Season Stat")),
+            period=values.get("Period", ""), time=values.get("Time", ""),
+            goalType=values.get("Goal Type", ""),
+            primaryAssist=values.get("Primary Assist", ""),
+            secondaryAssist=values.get("Secondary Assist", ""),
+            goalieScoredAgainst=values.get("Goalie Scored Against", ""),
             wins=None, losses=None, points=None, playerCodes=["BM63"],
         )
+        record.pop("scorerCode", None)
+        if record["category"] == "Assist":
+            scorer = re.search(r"\bon ([A-Za-z]{1,3}\d{1,2}) goal\b", record["notes"], re.I)
+            if scorer:
+                record["scorerCode"] = scorer.group(1)
+                record["playerCodes"] = player_codes(
+                    record["scorerCode"], record["primaryAssist"], record["secondaryAssist"]
+                )
     else:
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
 
     if sheet_name in ("Road to Repeat", "Milestones", "Road to History") and values.get("Video URL"):
+        provider, video_id = video_parts(values["Video URL"], record)
         record["videoUrl"] = values["Video URL"]
         record["videoLabel"] = "Game Context"
-        record["videoProvider"], record["videoId"] = video_parts(record["videoUrl"], record)
+        record["videoProvider"], record["videoId"] = provider, video_id
     if sheet_name == "Milestones" and values.get("Original Front Image Filename"):
         record["playerCodes"] = ["BM63"]
 

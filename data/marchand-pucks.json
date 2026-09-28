@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "31b8a5cc522b28dc93bade7d83cae160613bfa091d67a827249c83e03992739d",
+    "sourceSha256": "4f21d173db73641a90b36853bd932a01f00d1a95f564a40912939c31ae954186",
     "records": 153,
     "goalsAndGames": 78,
     "milestones": 39,
@@ -24911,25 +24911,25 @@
       "inventoryId": 625,
       "homeRoad": "Road",
       "team": "Florida Panthers",
-      "category": "Road to Repeat",
-      "careerStat": null,
-      "seasonStat": null,
-      "description": "Eastern Conference Final · Game 5 · Game-Used Puck",
+      "category": "Assist",
+      "careerStat": 152,
+      "seasonStat": 14,
+      "description": "Career Playoff Point #152 — Assist on Anton Lundell Goal",
       "date": "2025-05-28",
       "arena": "Lenovo Center",
       "opponent": "Carolina Hurricanes",
-      "period": "",
-      "time": "",
-      "goalType": "",
-      "primaryAssist": "",
+      "period": "2",
+      "time": "11:59",
+      "goalType": "ESG",
+      "primaryAssist": "BM63",
       "secondaryAssist": "",
       "score": "FLA 5 @ CAR 3",
-      "puckType": "Game Used Puck",
+      "puckType": "Goal Scored Puck",
       "videoLabel": "Game Context",
-      "videoUrl": "https://www.nhl.com/video/c-6373592122112",
+      "videoUrl": "https://nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
       "videoProvider": "nhl",
-      "videoId": "6373592122112",
-      "notes": "Game 5",
+      "videoId": "6373588933112",
+      "notes": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -24937,8 +24937,9 @@
       "playoffRound": "Eastern Conference Final",
       "seriesRecord": "4–1",
       "playoffRecord": "12–5",
-      "goalieScoredAgainst": "",
+      "goalieScoredAgainst": "Frederik Andersen",
       "playerCodes": [
+        "AL15",
         "BM63"
       ],
       "sourceData": [
@@ -24959,12 +24960,12 @@
         },
         {
           "label": "Category",
-          "value": "Road to Repeat",
+          "value": "Assist",
           "url": ""
         },
         {
           "label": "Description",
-          "value": "Eastern Conference Final · Game 5 · Game-Used Puck",
+          "value": "Career Playoff Point #152 — Assist on Anton Lundell Goal",
           "url": ""
         },
         {
@@ -25014,12 +25015,12 @@
         },
         {
           "label": "Puck Type",
-          "value": "Game Used Puck",
+          "value": "Goal Scored Puck",
           "url": ""
         },
         {
           "label": "Notes",
-          "value": "Game 5",
+          "value": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal.",
           "url": ""
         },
         {
@@ -25034,32 +25035,32 @@
         },
         {
           "label": "Career Stat",
-          "value": "",
+          "value": "152",
           "url": ""
         },
         {
           "label": "Season Stat",
-          "value": "",
+          "value": "14",
           "url": ""
         },
         {
           "label": "Period",
-          "value": "",
+          "value": "2",
           "url": ""
         },
         {
           "label": "Time",
-          "value": "",
+          "value": "11:59",
           "url": ""
         },
         {
           "label": "Goal Type",
-          "value": "",
+          "value": "ESG",
           "url": ""
         },
         {
           "label": "Primary Assist",
-          "value": "",
+          "value": "BM63",
           "url": ""
         },
         {
@@ -25069,12 +25070,12 @@
         },
         {
           "label": "Goalie Scored Against",
-          "value": "",
+          "value": "Frederik Andersen",
           "url": ""
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/c-6373592122112",
+          "value": "https://nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
           "url": ""
         },
         {
@@ -25134,7 +25135,7 @@
         },
         {
           "label": "Research Sources",
-          "value": "https://www.nhl.com/gamecenter/2024030315",
+          "value": "https://api-web.nhle.com/v1/player/8473419/landing; https://api-web.nhle.com/v1/player/8473419/game-log/20242025/3; https://api-web.nhle.com/v1/gamecenter/2024030315/landing; https://www.nhl.com/scores/htmlreports/20242025/GS030315.HTM",
           "url": ""
         },
         {
@@ -25142,7 +25143,8 @@
           "value": "2025-05-28",
           "url": ""
         }
-      ]
+      ],
+      "scorerCode": "AL15"
     },
     {
       "key": "repeat-626",

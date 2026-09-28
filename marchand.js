@@ -695,8 +695,8 @@
     const personnel = [];
     if (record.category === "Game-Used Puck") personnel.push(["BM63", "Collection Subject"]);
     const nonGoalPoint = ["Assist", "RS Point"].includes(record.category);
-    if (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck") {
-      const scorer = nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63";
+    if (record.scorerCode || (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck")) {
+      const scorer = record.scorerCode || (nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63");
       if (scorer) personnel.push([scorer, "Goal Scorer"]);
       else personnel.push(["BM63", "Collection Subject"]);
     }
@@ -712,7 +712,7 @@
       return true;
     });
     const cards = unique.map(([code, role]) => createPersonnelCard(code, role, record));
-    if (record.sourceSheet === "Goals & Games") {
+    if (record.sourceSheet === "Goals & Games" || record.scorerCode) {
       const goalie = createGoalieCard(record);
       if (goalie) cards.push(goalie);
     }
