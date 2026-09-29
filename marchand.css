@@ -775,11 +775,10 @@
 .marchand-artifact-subtitle{display:block;margin-top:4px;color:#84919b;font-size:.72rem;line-height:1.35}
 .marchand-subtitle-row{display:flex;align-items:center;gap:20px}
 .marchand-subtitle-row p{margin:0;flex:0 1 auto;min-width:0}
-.marchand-hfc-logo{display:block;width:144px;height:112px;max-width:45%;margin:18px 0 0;object-fit:contain;object-position:left center}
+.marchand-hfc-logo{display:block;width:144px;height:112px;max-width:100%;margin:0;object-fit:contain;object-position:right bottom}
 .marchand-hfc-logo[hidden]{display:none}
 .marchand-video-column{min-width:0}
 .marchand-video-column[hidden]{display:none}
-@media(max-width:600px){.marchand-hfc-logo{width:128px;height:100px;margin-top:14px}}
 
 .marchand-opponent{
   display:grid;
@@ -1381,6 +1380,10 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 
 .marchand-media-grid.has-no-video{grid-template-columns:minmax(0,760px)}
 .marchand-media-grid .marchand-video-panel{margin:0}
+.marchand-dialog[data-hfc="true"] .marchand-media-grid{grid-template-rows:auto auto;row-gap:18px;column-gap:24px;align-items:stretch}
+.marchand-dialog[data-hfc="true"] .marchand-game-story{grid-column:1;grid-row:1}
+.marchand-dialog[data-hfc="true"] .marchand-video-column{grid-column:2;grid-row:1 / 3;align-self:end}
+.marchand-dialog[data-hfc="true"] .marchand-hfc-logo{grid-column:1;grid-row:2;justify-self:end;align-self:end}
 .marchand-game-story{padding:10px 0}
 .marchand-game-story h4{margin:12px 0 16px;font:600 clamp(1.5rem,2.4vw,2rem)/1.2 "Source Sans 3",Arial,sans-serif;color:#ffbd28;text-wrap:balance}
 .marchand-game-story p{margin:0 0 14px;color:#d4d9dd;font-size:1rem;line-height:1.7;max-width:64ch}
@@ -1486,6 +1489,10 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 
 @media (max-width:780px){
   .marchand-media-grid,.marchand-media-grid.has-no-video{grid-template-columns:1fr}
+  .marchand-dialog[data-hfc="true"] .marchand-media-grid{grid-template-columns:72px minmax(0,1fr);column-gap:12px}
+  .marchand-dialog[data-hfc="true"] .marchand-game-story{grid-column:1 / -1;grid-row:1}
+  .marchand-dialog[data-hfc="true"] .marchand-video-column{grid-column:2;grid-row:2}
+  .marchand-dialog[data-hfc="true"] .marchand-hfc-logo{width:72px;height:56px;grid-column:1;grid-row:2}
   .marchand-puck-placeholder{min-height:230px}
 }
 
