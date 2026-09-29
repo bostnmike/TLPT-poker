@@ -2293,14 +2293,6 @@
         "label": "COA",
         "url": "images/pucks/68/coa.webp?v=20260928-coa",
         "rotation": 0
-      },
-      {
-        "label": "COA 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/68/coa-02.webp?v=777937e55e4c",
-        "rotation": 0,
-        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
-        "sourceFile": "IMG_9808.JPG",
-        "authenticationScope": "game-level"
       }
     ],
     "69": [
@@ -3958,6 +3950,18 @@
         "label": "Edge 3",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/341/edge-03.webp?v=756077127d95",
         "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/341/coa.webp?v=777937e55e4c",
+        "rotation": 0,
+        "caption": "Fanatics game-used puck label — Minnesota Wild vs. Florida Panthers, January 24, 2026.",
+        "sourceFile": "IMG_9808.JPG",
+        "authenticationScope": "game-level",
+        "provenance": {
+          "associationBasis": "Owner correction: reassigned from artifact 68 COA 2 to game-used artifact 341. Date, teams and GU puck designation match.",
+          "reviewedOn": "2026-09-28"
+        }
       }
     ],
     "501": [

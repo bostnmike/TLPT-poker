@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "103abff0421bf661852966f691897a72d71b236430dcb3f3c946e09d00200468",
+    "sourceSha256": "566eadd759c841a94168e8053fb71876bb699c4151f9967ae7276aadd65cac6d",
     "records": 168,
     "goalsAndGames": 75,
     "milestones": 39,
@@ -29444,7 +29444,7 @@
         },
         {
           "label": "Workflow Status",
-          "value": "Verified",
+          "value": "COA Matched / Owner Confirmed",
           "url": ""
         },
         {
@@ -29514,7 +29514,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/341/coa.webp",
           "url": ""
         },
         {
@@ -29549,7 +29549,7 @@
         },
         {
           "label": "Original COA Filename",
-          "value": "",
+          "value": "IMG_9808.JPG",
           "url": ""
         },
         {
