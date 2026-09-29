@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-28",
-    "records": 152,
+    "records": 167,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
@@ -826,33 +826,6 @@
         }
       }
     },
-    "goal-31": {
-      "inventoryId": 31,
-      "date": "2023-10-19",
-      "team": "Boston Bruins",
-      "gameId": 2023020062,
-      "title": "Marchand starts a 21-second burst",
-      "paragraphs": [
-        "Marchand opened the scoring at 18:06 of the first period in San Jose, with John Beecher earning the assist. James van Riemsdyk scored 21 seconds later. Boston built a 3–0 lead and won 3–1; Marchand finished with five shots."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2023020062"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020062/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020062/boxscore",
-        "marchand": {
-          "goals": 1,
-          "assists": 0,
-          "points": 1,
-          "shots": 5,
-          "toi": "18:24"
-        }
-      }
-    },
     "goal-32": {
       "inventoryId": 32,
       "date": "2023-10-21",
@@ -1664,33 +1637,6 @@
         }
       }
     },
-    "goal-61": {
-      "inventoryId": 61,
-      "date": "2025-04-10",
-      "team": "Florida Panthers",
-      "gameId": 2024021251,
-      "title": "The night of his first Florida goal",
-      "paragraphs": [
-        "Marchand scored his first Panthers goal at 16:21 of the second period against Detroit. Uvis Balinskis and Luostarinen assisted, and Florida won 4–1 after trailing 1–0. Marchand scored on his only shot. This artifact is a game-used puck marking that first goal, not the goal-scored puck itself."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2024021251"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024021251/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024021251/boxscore",
-        "marchand": {
-          "goals": 1,
-          "assists": 0,
-          "points": 1,
-          "shots": 1,
-          "toi": "15:08"
-        }
-      }
-    },
     "goal-62": {
       "inventoryId": 62,
       "date": "2025-10-15",
@@ -2128,64 +2074,6 @@
           "points": 1,
           "shots": 3,
           "toi": "18:27"
-        }
-      }
-    },
-    "goal-78": {
-      "inventoryId": 78,
-      "date": "2022-05-06",
-      "team": "Boston Bruins",
-      "gameId": 2021030133,
-      "title": "Marchand leads with three points",
-      "paragraphs": [
-        "Marchand scored Boston’s go-ahead goal at 5:41 of the second period, then assisted on power-play goals by Pastrnak and Taylor Hall. The Bruins beat Carolina 4–2. This puck is Marchand’s even-strength goal, assisted by Bergeron, on a night when he had a point on three of Boston’s four goals."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2021030133"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021030133/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021030133/boxscore",
-        "marchand": {
-          "goals": 1,
-          "assists": 2,
-          "points": 3,
-          "shots": 1,
-          "toi": "19:45"
-        }
-      }
-    },
-    "milestone-301": {
-      "inventoryId": 301,
-      "date": "2019-02-26",
-      "team": "Boston Bruins",
-      "gameId": 2018020968,
-      "title": "Matching Middleton while short-handed",
-      "paragraphs": [
-        "Marchand tied Rick Middleton’s Bruins record with his 25th short-handed goal. He scored at 12:28 of the second period against San Jose, assisted by Bergeron and Carlo. Marchand also assisted on Boston’s first two goals in the 4–1 win. This goal-scored puck marks the record-tying play."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2018020968"
-        },
-        {
-          "label": "NHL record report",
-          "url": "https://www.nhl.com/news/facts-and-figures-blues-record-month-feb-26-305290174"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020968/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020968/boxscore",
-        "marchand": {
-          "goals": 1,
-          "assists": 2,
-          "points": 3,
-          "shots": 4,
-          "toi": "16:13"
         }
       }
     },
@@ -4386,6 +4274,516 @@
           "points": 1,
           "shots": 2,
           "toi": "21:09"
+        }
+      }
+    },
+    "hfc-700": {
+      "inventoryId": 700,
+      "date": "2023-10-30",
+      "team": "Boston Bruins",
+      "gameId": 2023020130,
+      "title": "Marchand starts the comeback",
+      "paragraphs": [
+        "Down 2–0 to Florida, Boston got its first goal from Marchand at 3:38 of the second period. Charlie McAvoy tied it in the third, and Pavel Zacha finished the comeback in overtime, 3–2. This warm-up puck comes from Boston’s Hockey Fights Cancer night during its Centennial season."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020130"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020130/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020130/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "20:09"
+        }
+      }
+    },
+    "hfc-701": {
+      "inventoryId": 701,
+      "date": "2023-10-30",
+      "team": "Boston Bruins",
+      "gameId": 2023020130,
+      "title": "A second puck from HFC night",
+      "paragraphs": [
+        "Marchand cut Florida’s two-goal lead in half at 3:38 of the second period, finishing a play credited to Jake DeBrusk and Charlie Coyle. Boston went on to win 3–2 in overtime. This is a separate physical warm-up puck from the same Hockey Fights Cancer game represented by artifact 700."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020130"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020130/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020130/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "20:09"
+        }
+      }
+    },
+    "hfc-702": {
+      "inventoryId": 702,
+      "date": "2021-03-30",
+      "team": "Boston Bruins",
+      "gameId": 2020020556,
+      "title": "A goal, an assist and a comeback",
+      "paragraphs": [
+        "Marchand scored on the power play late in the second period, then assisted on Charlie McAvoy’s third-period goal as Boston recovered from a 4–2 deficit. Matt Grzelcyk tied the game before the Bruins beat New Jersey 5–4 in a shootout. Boston held its Hockey Fights Cancer night at this game; the warm-up puck uses the regular black-and-gold design."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2020020556"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/bruins/news/b-s-to-host-hockey-fights-cancer-night-pres-by-beth-israel-lahey-healt-323040034"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2020020556/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2020020556/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 3,
+          "toi": "20:30"
+        }
+      }
+    },
+    "hfc-703": {
+      "inventoryId": 703,
+      "date": "2022-10-25",
+      "team": "Boston Bruins",
+      "gameId": 2022020100,
+      "title": "HFC night before Marchand’s return",
+      "paragraphs": [
+        "Marchand did not play in Boston’s 3–1 win over Dallas. This purple warm-up puck belongs to the Bruins’ October 25 Hockey Fights Cancer game, not to a Marchand scoring play. David Pastrnak, Taylor Hall and Patrice Bergeron supplied Boston’s goals."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020100"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-336776996"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020100/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020100/boxscore",
+        "marchand": null
+      }
+    },
+    "hfc-704": {
+      "inventoryId": 704,
+      "date": "2018-11-03",
+      "team": "Boston Bruins",
+      "gameId": 2018020202,
+      "title": "No way past Rinne",
+      "paragraphs": [
+        "Marchand and the Bruins were held scoreless in Nashville, where Roman Josi’s first-period goal decided a 1–0 game. The dated purple warm-up puck carries Hockey Fights Cancer branding. The signature on its reverse is preserved without attributing it to a player whose identity has not been verified."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018020202"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018020202/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018020202/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 4,
+          "toi": "18:21"
+        }
+      }
+    },
+    "hfc-705": {
+      "inventoryId": 705,
+      "date": "2021-12-21",
+      "team": "Boston Bruins",
+      "gameId": null,
+      "title": "A date that never became a game",
+      "paragraphs": [
+        "This Hockey Fights Cancer warm-up puck is printed for Bruins–Hurricanes on December 21, 2021. That game was postponed. The printed date identifies the intended event, not confirmed use on that night; no Marchand game stats or highlights are assigned to it."
+      ],
+      "sources": [
+        {
+          "label": "Bruins postponement notice",
+          "url": "https://www.nhl.com/bruins/news/bruins-games-postponed-through-december-26-329129222"
+        }
+      ],
+      "verification": {
+        "status": "Postponed"
+      }
+    },
+    "hfc-706": {
+      "inventoryId": 706,
+      "date": "2022-11-05",
+      "team": "Boston Bruins",
+      "gameId": 2022020179,
+      "title": "A penalty shot brings Boston level",
+      "paragraphs": [
+        "Marchand scored Boston’s only goal on a penalty shot at 4:59 of the second period, tying Toronto 1–1. Auston Matthews answered on the power play, and the Maple Leafs won 2–1. The purple dated warm-up puck marks Toronto’s Hockey Fights Cancer night."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020179"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020179/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020179/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 2,
+          "toi": "18:21"
+        }
+      }
+    },
+    "warmup-707": {
+      "inventoryId": 707,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Two assists on his return to Boston",
+      "paragraphs": [
+        "Marchand returned to TD Garden as a Panther and set up goals by Mackie Samoskevich and Eetu Luostarinen. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds remaining. This warm-up puck marks the return game; it is separate from the goal-scored puck with Marchand’s assist catalogued as artifact 59."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
+        }
+      }
+    },
+    "hfc-708": {
+      "inventoryId": 708,
+      "date": "",
+      "team": "Boston Bruins",
+      "gameId": null,
+      "title": "Pittsburgh HFC puck — date unresolved",
+      "paragraphs": [
+        "The purple Penguins crest identifies the Hockey Fights Cancer design. The owner identifies this as a game-used puck from a Bruins–Penguins game, but the supplied photos show no date or unique authentication number. A specific game, Marchand performance and video will be added only when supporting evidence establishes the date."
+      ],
+      "sources": [],
+      "verification": {
+        "status": "Unresolved"
+      }
+    },
+    "warmup-710": {
+      "inventoryId": 710,
+      "date": "2021-11-14",
+      "team": "Boston Bruins",
+      "gameId": 2021020224,
+      "title": "Marchand helps turn the third period",
+      "paragraphs": [
+        "Boston trailed Montreal 2–1 entering the third. Marchand supplied the lone assist on Charlie McAvoy’s power-play equalizer at 2:14, starting a four-goal Bruins period and a 5–2 win. This dated warm-up puck represents the game, not the equalizing goal itself."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021020224"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021020224/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021020224/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 6,
+          "toi": "20:08"
+        }
+      }
+    },
+    "warmup-711": {
+      "inventoryId": 711,
+      "date": "2023-02-23",
+      "team": "Boston Bruins",
+      "gameId": 2022020927,
+      "title": "A goal and an assist in an eleven-goal game",
+      "paragraphs": [
+        "Marchand scored at 8:49 of the second period and later set up Patrice Bergeron on the power play. Boston still needed two late goals to win 6–5 in Seattle: Brandon Carlo tied it with 3:41 left, and Jake DeBrusk scored the winner with 1:38 remaining. This is the dated warm-up puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022020927"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022020927/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022020927/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 6,
+          "toi": "17:48"
+        }
+      }
+    },
+    "warmup-712": {
+      "inventoryId": 712,
+      "date": "2019-10-08",
+      "team": "Boston Bruins",
+      "gameId": 2019020043,
+      "title": "Three points to erase a two-goal deficit",
+      "paragraphs": [
+        "Marchand assisted on David Pastrnak’s first-period goal, tied the game on the power play at 18:58, then put Boston ahead 33 seconds into the second. The Bruins beat Vegas 4–3. This rainbow-logo warm-up puck is printed for Pride Night, not Hockey Fights Cancer."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2019020043"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2019020043/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2019020043/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 3,
+          "toi": "17:55"
+        }
+      }
+    },
+    "warmup-713": {
+      "inventoryId": 713,
+      "date": "2023-04-06",
+      "team": "Boston Bruins",
+      "gameId": 2022021246,
+      "title": "Win 61 on the Road to History",
+      "paragraphs": [
+        "Marchand played in Boston’s 2–1 overtime win over Toronto, though he did not record a point. Charlie Coyle tied it in the third, and David Pastrnak scored in overtime. The Bruins reached 61–12–5 and 127 points after game 78; this warm-up puck adds another view of the Road to History run."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021246"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021246/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021246/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "20:38"
+        }
+      }
+    },
+    "warmup-714": {
+      "inventoryId": 714,
+      "date": "2023-11-14",
+      "team": "Boston Bruins",
+      "gameId": 2023020229,
+      "title": "A power-play assist in Buffalo",
+      "paragraphs": [
+        "Marchand assisted on Hampus Lindholm’s power-play goal at 12:23 of the second period, extending Boston’s lead to 5–0. The Bruins beat Buffalo 5–2. This dated warm-up puck represents the game and is not attributed to Lindholm’s scoring play."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2023020229"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020229/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020229/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 4,
+          "toi": "17:03"
+        }
+      }
+    },
+    "warmup-715": {
+      "inventoryId": 715,
+      "date": "2024-10-19",
+      "team": "Boston Bruins",
+      "gameId": 2024020086,
+      "title": "Boston’s first visit to Utah",
+      "paragraphs": [
+        "Marchand set up Cole Koepke for Boston’s only goal at 12:49 of the second period. Utah tied it late in regulation and won 2–1 in overtime. The warm-up puck carries Utah’s inaugural-season logo and marks the Bruins’ first game against the Utah Hockey Club."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020086"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020086/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 1,
+          "toi": "18:06"
+        }
+      }
+    },
+    "warmup-716": {
+      "inventoryId": 716,
+      "date": "2019-05-06",
+      "team": "Boston Bruins",
+      "gameId": 2018030216,
+      "title": "Through to the conference final",
+      "paragraphs": [
+        "Marchand was held without a point as Boston shut out Columbus 3–0 in Game 6 to win the second-round series 4–2. David Krejci, Marcus Johansson and David Backes scored. This playoff warm-up puck marks the series-clinching game on Boston’s 2019 run to the Stanley Cup Final."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2018030216"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2018030216/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2018030216/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "20:25"
+        }
+      }
+    },
+    "hfc-717": {
+      "inventoryId": 717,
+      "date": "2026-01-25",
+      "team": "Florida Panthers",
+      "gameId": 2025020823,
+      "title": "An HFC night on the Chicago trip",
+      "paragraphs": [
+        "A night after his three-point game in Minnesota, Marchand played in Florida’s 5–1 win at Chicago without recording a point. The Panthers scored four times in the third period. Chicago designated this game Hockey Fights Cancer night, although the warm-up puck uses its black-and-red Centennial design."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020823"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/blackhawks/news/preview-chicago-squares-off-against-florida-in-sunday-night-matchup"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020823/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020823/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "14:46"
+        }
+      }
+    },
+    "milestone-340": {
+      "inventoryId": 340,
+      "date": "2024-12-01",
+      "team": "Boston Bruins",
+      "gameId": 2024020389,
+      "title": "Captain for the Centennial Game",
+      "paragraphs": [
+        "Marchand captained Boston in its Centennial Game against Montreal, exactly 100 years after the Bruins’ first NHL game. Boston won 6–3, with two goals each from Charlie McAvoy and Charlie Coyle. Marchand did not record a point; this game-used puck commemorates the anniversary itself."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020389"
+        },
+        {
+          "label": "Official team event announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-unveil-commemorative-uniform-ahead-of-dec-1-centennial-game-presented-by-dunkin"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020389/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020389/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "16:57"
+        }
+      }
+    },
+    "milestone-341": {
+      "inventoryId": 341,
+      "date": "2026-01-24",
+      "team": "Florida Panthers",
+      "gameId": 2025020817,
+      "title": "Marchand wins it in overtime",
+      "paragraphs": [
+        "Marchand scored twice and added an assist in Florida’s 4–3 overtime win at Minnesota. He scored on the power play in the first, assisted on Sam Bennett’s third-period equalizer, then ended the game at 3:00 of overtime. This game-used puck commemorates the three-point performance; it is not identified as either goal-scored puck."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020817"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020817/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020817/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 6,
+          "toi": "18:12"
         }
       }
     }

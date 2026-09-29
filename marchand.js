@@ -11,6 +11,7 @@
     stories: {},
     gameStats: {},
     activeArtifactKey: null,
+    videoOnly: false,
     sortKey: "date",
     sortDirection: "asc",
   };
@@ -88,6 +89,7 @@
     "Scotiabank Saddledome": "Calgary, Alberta, Canada",
     "T-Mobile Arena": "Las Vegas, Nevada",
     "TD Garden": "Boston, Massachusetts",
+    "Unverified": "Location Unverified",
     "UBS Arena": "Elmont, New York",
     "United Center": "Chicago, Illinois",
     "Wells Fargo Center": "Philadelphia, Pennsylvania",
@@ -253,6 +255,8 @@
     document.getElementById("stat-milestones").textContent = sourceCounts.Milestones || 0;
     document.getElementById("stat-history").textContent = sourceCounts["Road to History"] || 0;
     document.getElementById("stat-repeat").textContent = sourceCounts["Road to Repeat"] || 0;
+    document.getElementById("stat-hfc").textContent = payload.records.filter(record => record.hockeyFightsCancer).length;
+    document.getElementById("stat-warmups").textContent = sourceCounts["Warm-Up Pucks"] || 0;
     document.getElementById("stat-videos").textContent = payload.records.filter((record) => record.videoUrl).length;
     for (const [era, count] of Object.entries(totals)) {
       document.getElementById(`era-count-${era}`).textContent = count;
@@ -284,13 +288,14 @@
   function filteredRecords() {
     const query = lower(elements.search.value);
     return state.records.filter((record) => {
+      if (state.videoOnly && !record.videoUrl) return false;
       if (elements.team.value && record.team !== elements.team.value) return false;
-      if (elements.sheet.value && record.sourceSheet !== elements.sheet.value) return false;
+      if (elements.sheet.value === "Hockey Fights Cancer" ? !record.hockeyFightsCancer : elements.sheet.value && record.sourceSheet !== elements.sheet.value) return false;
       if (elements.category.value === "Perfection Line") {
         if (!perfectionLine(record)) return false;
       } else if (elements.category.value && record.category !== elements.category.value) return false;
       if (elements.arena.value && record.arena !== elements.arena.value) return false;
-      if (elements.puck.value && record.puckType !== elements.puck.value) return false;
+      if (elements.puck.value && puckTypeLabel(record.puckType) !== elements.puck.value) return false;
       return !query || searchableText(record).includes(query);
     });
   }
@@ -305,6 +310,7 @@
         rightValue = arenaLocation(right.arena);
       }
       if (state.sortKey === "date") {
+        if (!left.date || !right.date) return !left.date && !right.date ? left.inventoryId - right.inventoryId : !left.date ? 1 : -1;
         leftValue = dateValue(leftValue);
         rightValue = dateValue(rightValue);
       }
@@ -523,6 +529,7 @@
   }
 
   function resetFilterValues() {
+    state.videoOnly = false;
     elements.search.value = "";
     elements.team.value = "";
     elements.sheet.value = "";
@@ -542,14 +549,15 @@
     for (const button of document.querySelectorAll("[data-collection-filter]")) {
       const filter = button.dataset.collectionFilter;
       const active = filter === "all"
-        ? !hasOtherFilters && !elements.sheet.value
-        : filter === "video" ? !hasOtherFilters && !elements.sheet.value : elements.sheet.value === filter;
+        ? !hasOtherFilters && !elements.sheet.value && !state.videoOnly
+        : filter === "video" ? state.videoOnly : elements.sheet.value === filter;
       button.setAttribute("aria-pressed", String(active));
     }
   }
 
   function selectStatFilter(filter) {
     resetFilterValues();
+    state.videoOnly = filter === "video";
     if (filter !== "all" && filter !== "video") elements.sheet.value = filter;
     if (filter === "Road to History") {
       setEra("boston");
@@ -1037,7 +1045,7 @@
       setOptions(elements.sheet, state.records, "sourceSheet", "All collection wings", collectionWing);
       setOptions(elements.category, [...state.records, { category: "Perfection Line" }], "category", "All categories", categoryLabel);
       setOptions(elements.arena, state.records, "arena", "All arenas");
-      setOptions(elements.puck, state.records, "puckType", "All puck types", puckTypeLabel);
+      setOptions(elements.puck, state.records.map(record => ({ ...record, puckType: puckTypeLabel(record.puckType) })), "puckType", "All puck types", puckTypeLabel);
       updateHero(payload);
       const requestedEra = new URLSearchParams(window.location.search).get("team");
       if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);

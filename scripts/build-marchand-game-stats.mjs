@@ -9,7 +9,7 @@ const cache=path.join(root,'tmp/game-stats-cache');
 fs.mkdirSync(cache,{recursive:true});
 const stories=JSON.parse(fs.readFileSync(path.join(root,'data/marchand-stories.json'),'utf8')).artifacts;
 const games={};
-const ids=[...new Set(Object.values(stories).map(s=>s.gameId))];
+const ids=[...new Set(Object.values(stories).map(s=>s.gameId).filter(Boolean))];
 async function get(url,file){
   const target=path.join(cache,file);
   if(fs.existsSync(target))return fs.readFileSync(target,'utf8');

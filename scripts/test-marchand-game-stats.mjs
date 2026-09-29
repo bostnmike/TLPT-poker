@@ -6,6 +6,7 @@ const {meta,games}=read('marchand-game-stats.json');
 const sec=t=>t.split(':').reduce((a,b)=>a*60+Number(b),0);
 assert.equal(meta.games,Object.keys(games).length);
 for(const story of Object.values(stories)){
+ if (!story.gameId) { assert.ok(["Postponed","Unresolved"].includes(story.verification.status)); continue; }
  const game=games[story.gameId];assert.ok(game);assert.equal(game.date,story.date);
  assert.equal(game.reportNote,undefined,`Missing official report ${story.gameId}`);
  assert.equal(Object.keys(game.stats).length,13);

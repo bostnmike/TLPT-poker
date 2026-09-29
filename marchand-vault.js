@@ -31,9 +31,9 @@
   const views = {
     goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Every recorded opposing goalie. Assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; both pucks remain listed." },
     arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
-    years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4), metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
+    years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4) || "Unverified", metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
     goals: { title: "Every Goal Type", singular: "Goal Type", plural: "goal types", key: (record) => goalTypeLabel(record.goalType, false) || "Not Recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including Empty-Net Goals. Open the Goal Type Key for symbols and codes. Combined labels retain every applicable goal type." },
-    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones, Road to History and Road to Repeat. Every matching puck is included." },
+    sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones, Road to History, Road to Repeat, Hockey Fights Cancer and Warm-Up Pucks. Every matching puck is included." },
   };
 
   function teamEra(team) {
@@ -76,6 +76,12 @@
       const group = groups.get(label);
       group.records.push(record);
       group.events.add(eventKey(record, view.goals));
+      if (view === views.sheets && record.hockeyFightsCancer && label !== "Hockey Fights Cancer") {
+        const hfcLabel = "Hockey Fights Cancer";
+        if (!groups.has(hfcLabel)) groups.set(hfcLabel, { label: hfcLabel, records: [], events: new Set() });
+        const hfc = groups.get(hfcLabel);
+        hfc.records.push(record); hfc.events.add(eventKey(record, false));
+      }
     }
     return [...groups.values()].map((group) => {
       group.records.sort((a, b) => a.date.localeCompare(b.date) || a.inventoryId - b.inventoryId);
@@ -84,6 +90,7 @@
   }
 
   function dateLabel(value) {
+    if (!value) return "Date Unverified";
     return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
   }
 

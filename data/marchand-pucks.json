@@ -1,19 +1,24 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "cfefeab770dff940c292e3fceaefc4a82140bc3f63dbc5bb087e13c03baf24bb",
-    "records": 152,
-    "goalsAndGames": 78,
-    "milestones": 38,
+    "sourceSha256": "4f496916dcb527928d01112ed1980b52853ef27ea8b32e6e98e4517a46c506ba",
+    "records": 167,
+    "goalsAndGames": 75,
+    "milestones": 39,
     "roadToHistory": 9,
-    "videos": 152,
+    "videos": 165,
     "sourceSheets": {
-      "Goals & Games": 78,
-      "Milestones": 38,
+      "Goals & Games": 75,
+      "Milestones": 39,
       "Road to History": 9,
-      "Road to Repeat": 27
+      "Road to Repeat": 27,
+      "Hockey Fights Cancer": 9,
+      "Warm-Up Pucks": 8
     },
-    "roadToRepeat": 27
+    "roadToRepeat": 27,
+    "hockeyFightsCancer": 9,
+    "warmUpPucks": 8,
+    "hfcExhibitCount": 10
   },
   "records": [
     {
@@ -572,7 +577,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=KtAtvcqss78",
       "videoProvider": "youtube",
       "videoId": "KtAtvcqss78",
-      "notes": "",
+      "notes": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -669,7 +674,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
           "url": ""
         },
         {
@@ -1089,7 +1094,7 @@
       "category": "RS Goal",
       "careerStat": 251,
       "seasonStat": 25,
-      "description": "",
+      "description": "Regular-Season Goal #251 · Bruins Short-Handed Record Tied",
       "date": "2019-02-26",
       "arena": "TD Garden",
       "opponent": "San Jose Sharks",
@@ -1104,7 +1109,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=CSU7hw3hpH0",
       "videoProvider": "youtube",
       "videoId": "CSU7hw3hpH0",
-      "notes": "",
+      "notes": "This goal tied Rick Middleton’s Bruins record of 25 short-handed goals. The duplicate milestone listing has been consolidated into this artifact.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -1201,7 +1206,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "This goal tied Rick Middleton’s Bruins record of 25 short-handed goals. The duplicate milestone listing has been consolidated into this artifact.",
           "url": ""
         },
         {
@@ -2562,7 +2567,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=yKHGJHPBbck",
       "videoProvider": "youtube",
       "videoId": "yKHGJHPBbck",
-      "notes": "",
+      "notes": "Certificate discrepancy: the COA prints career goal 254; the validated database records career goal 297. The database value is retained and the certificate image is unaltered.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -2659,7 +2664,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Certificate discrepancy: the COA prints career goal 254; the validated database records career goal 297. The database value is retained and the certificate image is unaltered.",
           "url": ""
         },
         {
@@ -2695,7 +2700,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=GDVY7NHs-JU",
       "videoProvider": "youtube",
       "videoId": "GDVY7NHs-JU",
-      "notes": "",
+      "notes": "Certificate discrepancy: the COA prints career goal 333; the validated database records career goal 331. The database value is retained and the certificate image is unaltered.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -2792,7 +2797,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Certificate discrepancy: the COA prints career goal 333; the validated database records career goal 331. The database value is retained and the certificate image is unaltered.",
           "url": ""
         },
         {
@@ -3094,7 +3099,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=Tl6j6E1ZR54",
       "videoProvider": "youtube",
       "videoId": "Tl6j6E1ZR54",
-      "notes": "",
+      "notes": "Certificate discrepancy: the COA bearing serial MGA24905 describes Marchand’s first goal on March 31, 2022 (career 348, 6:33 of period 2). The owner directs that the validated database identification remain authoritative: his second goal, career 349, at 10:34 of period 2, assisted by Mike Reilly and Patrice Bergeron, against Jon Gillies. The original certificate is retained unchanged; its event description conflicts with this catalogue record.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -3191,7 +3196,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Certificate discrepancy: the COA bearing serial MGA24905 describes Marchand’s first goal on March 31, 2022 (career 348, 6:33 of period 2). The owner directs that the validated database identification remain authoritative: his second goal, career 349, at 10:34 of period 2, assisted by Mike Reilly and Patrice Bergeron, against Jon Gillies. The original certificate is retained unchanged; its event description conflicts with this catalogue record.",
           "url": ""
         },
         {
@@ -4000,138 +4005,6 @@
       "goalieScoredAgainst": "Arturs Silovs"
     },
     {
-      "key": "goal-31",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 32,
-      "inventoryId": 31,
-      "homeRoad": "Road",
-      "team": "Boston Bruins",
-      "category": "RS Goal",
-      "careerStat": 373,
-      "seasonStat": 1,
-      "description": "",
-      "date": "2023-10-19",
-      "arena": "SAP Center",
-      "opponent": "San Jose Sharks",
-      "period": "1",
-      "time": "18:06",
-      "goalType": "ESG",
-      "primaryAssist": "JB19",
-      "secondaryAssist": "",
-      "score": "Boston 3 @ San Jose 1",
-      "puckType": "Goal Scored Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/brad-marchand-with-a-goal-vs-san-jose-sharks-6339495006112",
-      "videoProvider": "nhl",
-      "videoId": "6339495006112",
-      "notes": "",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "playerCodes": [
-        "JB19"
-      ],
-      "sourceData": [
-        {
-          "label": "ID",
-          "value": "31",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Road",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Boston Bruins",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "RS Goal",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "373",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "1",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2023-10-19",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "SAP Center",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "San Jose Sharks",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "1",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "18:06",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "ESG",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "JB19",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "Boston 3 @ San Jose 1",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Goal Scored Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "Watch Goal",
-          "url": "https://www.nhl.com/video/brad-marchand-with-a-goal-vs-san-jose-sharks-6339495006112"
-        },
-        {
-          "label": "Notes",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "Kaapo Kahkonen",
-          "url": ""
-        }
-      ],
-      "goalieScoredAgainst": "Kaapo Kahkonen"
-    },
-    {
       "key": "goal-32",
       "sourceSheet": "Goals & Games",
       "sourceRow": 33,
@@ -4421,7 +4294,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6340644033112",
       "videoProvider": "nhl",
       "videoId": "6340644033112",
-      "notes": "",
+      "notes": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -4518,7 +4391,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
           "url": ""
         },
         {
@@ -4554,7 +4427,7 @@
       "videoUrl": "https://www.nhl.com/video/bos-mtl-marchand-scores-goal-against-canadiens-6340973100112",
       "videoProvider": "nhl",
       "videoId": "6340973100112",
-      "notes": "",
+      "notes": "Marking review: the handwritten seconds on the puck are ambiguous. The validated game time, 58 seconds, remains authoritative; no alteration has been made to the physical marking image.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -4651,7 +4524,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Marking review: the handwritten seconds on the puck are ambiguous. The validated game time, 58 seconds, remains authoritative; no alteration has been made to the physical marking image.",
           "url": ""
         },
         {
@@ -4953,7 +4826,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6344858410112",
       "videoProvider": "nhl",
       "videoId": "6344858410112",
-      "notes": "",
+      "notes": "Certificate discrepancy: the COA bearing serial STL23240752 describes Marchand’s second goal on January 13, 2024 (career 391, power play, 7:43 of period 3). The owner directs that the validated database identification remain authoritative: his first goal, career 390, even strength at 5:02 of period 1, assisted by Charlie Coyle, for career point 900. The original certificate is retained unchanged; its event description conflicts with this catalogue record.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -5049,7 +4922,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Certificate discrepancy: the COA bearing serial STL23240752 describes Marchand’s second goal on January 13, 2024 (career 391, power play, 7:43 of period 3). The owner directs that the validated database identification remain authoritative: his first goal, career 390, even strength at 5:02 of period 1, assisted by Charlie Coyle, for career point 900. The original certificate is retained unchanged; its event description conflicts with this catalogue record.",
           "url": ""
         },
         {
@@ -5351,7 +5224,7 @@
       "videoUrl": "https://www.nhl.com/video/bos-pit-marchand-scores-goal-against-tristan-jarry-6350896291112",
       "videoProvider": "nhl",
       "videoId": "6350896291112",
-      "notes": "",
+      "notes": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -5447,7 +5320,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
           "url": ""
         },
         {
@@ -5616,7 +5489,7 @@
       "videoUrl": "https://www.nhl.com/video/brad-marchand-with-a-goal-vs-detroit-red-wings-6365112024112",
       "videoProvider": "nhl",
       "videoId": "6365112024112",
-      "notes": "",
+      "notes": "Certificate discrepancy: the COA prints November 29, 2024; the validated record and puck marking identify November 23, 2024. Serial 89573 links the evidence. November 23 is retained.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -5713,7 +5586,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Certificate discrepancy: the COA prints November 29, 2024; the validated record and puck marking identify November 23, 2024. Serial 89573 links the evidence. November 23 is retained.",
           "url": ""
         },
         {
@@ -6015,7 +5888,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6365935071112",
       "videoProvider": "nhl",
       "videoId": "6365935071112",
-      "notes": "Milestone Pen Shot #7",
+      "notes": "Milestone Pen Shot #7 Clock notation reviewed: the certificate and validated event time use remaining-time and elapsed-time conventions. They identify the same event; no scoring-time correction is required.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -6109,7 +5982,7 @@
         },
         {
           "label": "Notes",
-          "value": "Milestone Pen Shot #7",
+          "value": "Milestone Pen Shot #7 Clock notation reviewed: the certificate and validated event time use remaining-time and elapsed-time conventions. They identify the same event; no scoring-time correction is required.",
           "url": ""
         },
         {
@@ -6673,7 +6546,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=8QkwIcXx8j0",
       "videoProvider": "youtube",
       "videoId": "8QkwIcXx8j0",
-      "notes": "Perfection Line",
+      "notes": "Perfection Line Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -6770,7 +6643,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection Line",
+          "value": "Perfection Line Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
           "url": ""
         },
         {
@@ -7867,7 +7740,7 @@
       "videoUrl": "https://www.nhl.com/video/fla-bos-marchand-scores-goal-against-panthers-6340185387112",
       "videoProvider": "nhl",
       "videoId": "6340185387112",
-      "notes": "",
+      "notes": "Hockey Fights Cancer: this goal was scored during Boston’s verified HFC night on October 30, 2023. Cross-listed in the HFC exhibit; the puck remains a goal-scored artifact. Source: https://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30",
       "game": null,
       "wins": null,
       "losses": null,
@@ -7964,7 +7837,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Hockey Fights Cancer: this goal was scored during Boston’s verified HFC night on October 30, 2023. Cross-listed in the HFC exhibit; the puck remains a goal-scored artifact. Source: https://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30",
           "url": ""
         },
         {
@@ -7973,140 +7846,8 @@
           "url": ""
         }
       ],
-      "goalieScoredAgainst": "Sergei Bobrovsky"
-    },
-    {
-      "key": "goal-61",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 62,
-      "inventoryId": 61,
-      "homeRoad": "Home",
-      "team": "Florida Panthers",
-      "category": "RS Goal",
-      "careerStat": 423,
-      "seasonStat": 22,
-      "description": "",
-      "date": "2025-04-10",
-      "arena": "Amerant Bank Arena",
-      "opponent": "Detroit Red Wings",
-      "period": "2",
-      "time": "16:21",
-      "goalType": "ESG",
-      "primaryAssist": "UB26",
-      "secondaryAssist": "EL27",
-      "score": "Detroit 1 @ Florida 4",
-      "puckType": "Game Used Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/det-fla-marchand-scores-goal-against-cam-talbot-6371333280112",
-      "videoProvider": "nhl",
-      "videoId": "6371333280112",
-      "notes": "Milestone",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "playerCodes": [
-        "UB26",
-        "EL27"
-      ],
-      "sourceData": [
-        {
-          "label": "ID",
-          "value": "61",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Home",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Florida Panthers",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "RS Goal",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "423",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "22",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2025-04-10",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "Amerant Bank Arena",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "Detroit Red Wings",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "2",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "16:21",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "ESG",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "UB26",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "EL27",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "Detroit 1 @ Florida 4",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Game Used Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "Watch Goal",
-          "url": "https://www.nhl.com/video/det-fla-marchand-scores-goal-against-cam-talbot-6371333280112"
-        },
-        {
-          "label": "Notes",
-          "value": "Milestone",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "Cam Talbot",
-          "url": ""
-        }
-      ],
-      "goalieScoredAgainst": "Cam Talbot"
+      "goalieScoredAgainst": "Sergei Bobrovsky",
+      "hockeyFightsCancer": true
     },
     {
       "key": "goal-62",
@@ -8133,7 +7874,7 @@
       "videoUrl": "https://www.nhl.com/video/fla-det-marchand-scores-goal-against-cam-talbot-6382819193112",
       "videoProvider": "nhl",
       "videoId": "6382819193112",
-      "notes": "",
+      "notes": "Marking discrepancy: the puck edge reads October 15, 2024, while the COA and validated database identify October 15, 2025. Serial 91638 links the evidence. The database date is retained.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -8229,7 +7970,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Marking discrepancy: the puck edge reads October 15, 2024, while the COA and validated database identify October 15, 2025. Serial 91638 links the evidence. The database date is retained.",
           "url": ""
         },
         {
@@ -9189,7 +8930,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=Lrz7NP9ShfE",
       "videoProvider": "youtube",
       "videoId": "Lrz7NP9ShfE",
-      "notes": "",
+      "notes": "Authentication limitation: the dated packaging label GUHKPK1529 is supporting provenance, not a formal certificate of authenticity.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -9286,7 +9027,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Authentication limitation: the dated packaging label GUHKPK1529 is supporting provenance, not a formal certificate of authenticity.",
           "url": ""
         },
         {
@@ -9322,7 +9063,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=ap85C5wuxWk",
       "videoProvider": "youtube",
       "videoId": "ap85C5wuxWk",
-      "notes": "Perfection Line",
+      "notes": "Perfection Line Certificate review: the primary certificate correctly identifies Marchand career goal 245. A second certificate includes an erroneous Danton Heinen career-goal sentence; it is retained as supplementary evidence, not used to overwrite the validated record.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -9419,7 +9160,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection Line",
+          "value": "Perfection Line Certificate review: the primary certificate correctly identifies Marchand career goal 245. A second certificate includes an erroneous Danton Heinen career-goal sentence; it is retained as supplementary evidence, not used to overwrite the validated record.",
           "url": ""
         },
         {
@@ -9429,219 +9170,6 @@
         }
       ],
       "goalieScoredAgainst": "Henrik Lundqvist"
-    },
-    {
-      "key": "milestone-301",
-      "sourceSheet": "Milestones",
-      "sourceRow": 2,
-      "inventoryId": 301,
-      "homeRoad": "",
-      "team": "Boston Bruins",
-      "category": "Milestone",
-      "careerStat": null,
-      "seasonStat": null,
-      "description": "BM63 Ties RM16 for Bruins Record with SHG #25",
-      "date": "2019-02-26",
-      "arena": "TD Garden",
-      "opponent": "San Jose Sharks",
-      "period": "",
-      "time": "",
-      "goalType": "",
-      "primaryAssist": "",
-      "secondaryAssist": "",
-      "score": "",
-      "puckType": "Goal Scored Puck",
-      "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.youtube.com/watch?v=CSU7hw3hpH0",
-      "videoProvider": "youtube",
-      "videoId": "CSU7hw3hpH0",
-      "notes": "",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "playerCodes": [
-        "BM63",
-        "RM16"
-      ],
-      "sourceData": [
-        {
-          "label": "ID #",
-          "value": "301",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Boston Bruins",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "Milestone",
-          "url": ""
-        },
-        {
-          "label": "Description",
-          "value": "BM63 Ties RM16 for Bruins Record with SHG #25",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2019-02-26",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "TD Garden",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "San Jose Sharks",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Goal Scored Puck",
-          "url": ""
-        },
-        {
-          "label": "Notes",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Workflow Status",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "City/Region",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Video URL",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Front Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Back Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Purchase Document Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Source / Seller",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Last Updated",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Front Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Back Image Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Research Sources",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Intake Date (As Submitted)",
-          "value": "",
-          "url": ""
-        }
-      ],
-      "goalieScoredAgainst": ""
     },
     {
       "key": "milestone-302",
@@ -15596,7 +15124,7 @@
       "sourceSheet": "Milestones",
       "sourceRow": 31,
       "inventoryId": 330,
-      "homeRoad": "",
+      "homeRoad": "Home",
       "team": "Florida Panthers",
       "category": "Milestone",
       "careerStat": null,
@@ -15610,13 +15138,13 @@
       "goalType": "",
       "primaryAssist": "",
       "secondaryAssist": "",
-      "score": "",
+      "score": "Detroit 1 @ Florida 4",
       "puckType": "Game Used Puck",
       "videoLabel": "Watch Goal",
       "videoUrl": "https://www.nhl.com/video/det-fla-marchand-scores-goal-against-cam-talbot-6371333280112",
       "videoProvider": "nhl",
       "videoId": "6371333280112",
-      "notes": "",
+      "notes": "Game-used puck commemorating Marchand’s first Florida goal on April 10, 2025 (career goal 423, 16:21 of period 2, assisted by Uvis Balinskis and Eetu Luostarinen). It is not catalogued as the actual goal-scored puck. The duplicate goal listing has been consolidated here; the goal video is retained.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -15667,17 +15195,17 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Game-used puck commemorating Marchand’s first Florida goal on April 10, 2025 (career goal 423, 16:21 of period 2, assisted by Uvis Balinskis and Eetu Luostarinen). It is not catalogued as the actual goal-scored puck. The duplicate goal listing has been consolidated here; the goal video is retained.",
           "url": ""
         },
         {
           "label": "Home/Road",
-          "value": "",
+          "value": "Home",
           "url": ""
         },
         {
           "label": "Score",
-          "value": "",
+          "value": "Detroit 1 @ Florida 4",
           "url": ""
         },
         {
@@ -16798,7 +16326,7 @@
       "videoUrl": "https://www.nhl.com/video/6335758570112",
       "videoProvider": "nhl",
       "videoId": "6335758570112",
-      "notes": "",
+      "notes": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
       "game": 76,
       "wins": 59,
       "losses": 12,
@@ -16889,7 +16417,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
           "url": ""
         },
         {
@@ -18258,7 +17786,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Marking discrepancy: the edge reads 11/12, while the COA and validated database identify November 21, 2019. This appears to be a month/day-digit transposition; the validated November 21 date is retained.",
           "url": ""
         },
         {
@@ -18284,7 +17812,7 @@
       "secondaryAssist": "DH43",
       "score": "Buffalo 2 @ Boston 3",
       "puckType": "Goal Scored Puck",
-      "notes": "",
+      "notes": "Marking discrepancy: the edge reads 11/12, while the COA and validated database identify November 21, 2019. This appears to be a month/day-digit transposition; the validated November 21 date is retained.",
       "goalieScoredAgainst": "Linus Ullmark",
       "playerCodes": [
         "MG48",
@@ -18558,138 +18086,6 @@
       "videoUrl": "https://www.youtube.com/watch?v=9aJaUfl2O_Q",
       "videoProvider": "youtube",
       "videoId": "9aJaUfl2O_Q"
-    },
-    {
-      "key": "goal-78",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 79,
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "sourceData": [
-        {
-          "label": "ID",
-          "value": "78",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Home",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Boston Bruins",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "PO Goal",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "46",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "1",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2022-05-06",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "TD Garden",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "Carolina Hurricanes",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "2",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "05:41",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "ESG",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "PB37",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "Carolina 2 @ Boston 4",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Goal Scored Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "Game Highlights",
-          "url": "https://www.youtube.com/watch?v=bApVdmDCjnI"
-        },
-        {
-          "label": "Notes",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "Pyotr Kochetkov",
-          "url": ""
-        }
-      ],
-      "inventoryId": 78,
-      "homeRoad": "Home",
-      "team": "Boston Bruins",
-      "category": "PO Goal",
-      "careerStat": 46,
-      "seasonStat": 1,
-      "description": "",
-      "date": "2022-05-06",
-      "arena": "TD Garden",
-      "opponent": "Carolina Hurricanes",
-      "period": "2",
-      "time": "05:41",
-      "goalType": "ESG",
-      "primaryAssist": "PB37",
-      "secondaryAssist": "",
-      "score": "Carolina 2 @ Boston 4",
-      "puckType": "Goal Scored Puck",
-      "notes": "",
-      "goalieScoredAgainst": "Pyotr Kochetkov",
-      "playerCodes": [
-        "PB37"
-      ],
-      "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.youtube.com/watch?v=bApVdmDCjnI",
-      "videoProvider": "youtube",
-      "videoId": "bApVdmDCjnI"
     },
     {
       "key": "repeat-600",
@@ -19676,7 +19072,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6372394198112",
       "videoProvider": "nhl",
       "videoId": "6372394198112",
-      "notes": "Game 1",
+      "notes": "Game 1 Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
       "game": 1,
       "wins": null,
       "losses": null,
@@ -19766,7 +19162,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 1",
+          "value": "Game 1 Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
           "url": ""
         },
         {
@@ -21836,7 +21232,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
       "videoId": "6373592122112",
-      "notes": "Game 5",
+      "notes": "Game 5 The same-game certificate is shared with artifact 614 with the owner’s explicit approval; it does not establish two distinct item serials.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -21926,7 +21322,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 5",
+          "value": "Game 5 The same-game certificate is shared with artifact 614 with the owner’s explicit approval; it does not establish two distinct item serials.",
           "url": ""
         },
         {
@@ -22076,7 +21472,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
       "videoId": "6373592122112",
-      "notes": "Game 5",
+      "notes": "Game 5 The same-game certificate is shared with artifact 613 with the owner’s explicit approval; it does not establish two distinct item serials.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -22166,7 +21562,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 5",
+          "value": "Game 5 The same-game certificate is shared with artifact 613 with the owner’s explicit approval; it does not establish two distinct item serials.",
           "url": ""
         },
         {
@@ -24716,7 +24112,7 @@
       "videoUrl": "https://nhl.com/video/fla-car-lundell-scores-goal-against-frederik-andersen-6373588933112",
       "videoProvider": "nhl",
       "videoId": "6373588933112",
-      "notes": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal.",
+      "notes": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal. Clock notation reviewed: remaining-time and elapsed-time markings are consistent after conversion. No event correction is required.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -24807,7 +24203,7 @@
         },
         {
           "label": "Notes",
-          "value": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal.",
+          "value": "Primary assist on AL15 goal. Marchand: career playoff point 152 and assist 92; 2025 playoff point 14 and assist 10. Time: 11:59 elapsed in P2 = COA 8:01 remaining. Even strength against Frederik Andersen. Florida led 3–2 and won 5–3, clinching the series 4–1. Not the game-winning goal. Clock notation reviewed: remaining-time and elapsed-time markings are consistent after conversion. No event correction is required.",
           "url": ""
         },
         {
@@ -26029,6 +25425,4242 @@
         }
       ],
       "goalieScoredAgainst": ""
+    },
+    {
+      "key": "hfc-700",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 2,
+      "inventoryId": 700,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2023-10-30",
+      "arena": "TD Garden",
+      "opponent": "Florida Panthers",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "FLA 2 @ BOS 3 - OT",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
+      "videoProvider": "nhl",
+      "videoId": "6340192937112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "700",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-10-30",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "FLA 2 @ BOS 3 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
+          "url": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/700/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/700/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/700/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "700-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "700-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9514.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2023020130\nhttps://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-701",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 3,
+      "inventoryId": 701,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2023-10-30",
+      "arena": "TD Garden",
+      "opponent": "Florida Panthers",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "FLA 2 @ BOS 3 - OT",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
+      "videoProvider": "nhl",
+      "videoId": "6340192937112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "701",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-10-30",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "FLA 2 @ BOS 3 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
+          "url": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/701/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/701/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/701/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "701-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "701-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9515.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2023020130\nhttps://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-on-monday-october-30",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-702",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 4,
+      "inventoryId": 702,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2021-03-30",
+      "arena": "TD Garden",
+      "opponent": "New Jersey Devils",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "NJD 4 @ BOS 5 - SO",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336382515112",
+      "videoProvider": "nhl",
+      "videoId": "6336382515112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "702",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2021-03-30",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "New Jersey Devils",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "NJD 4 @ BOS 5 - SO",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336382515112",
+          "url": "https://www.nhl.com/video/c-6336382515112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/702/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/702/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/702/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "702-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "702-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9493.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2020020556\nhttps://www.nhl.com/bruins/news/b-s-to-host-hockey-fights-cancer-night-pres-by-beth-israel-lahey-healt-323040034",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-703",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 5,
+      "inventoryId": 703,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2022-10-25",
+      "arena": "TD Garden",
+      "opponent": "Dallas Stars",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "DAL 1 @ BOS 3",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336345237112",
+      "videoProvider": "nhl",
+      "videoId": "6336345237112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Marchand did not play in this game.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "703",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2022-10-25",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Dallas Stars",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play. Marchand did not play in this game.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "DAL 1 @ BOS 3",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336345237112",
+          "url": "https://www.nhl.com/video/c-6336345237112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/703/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/703/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "703-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "703-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2022020100\nhttps://www.nhl.com/bruins/news/bruins-to-host-hockey-fights-cancer-night-336776996",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-704",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 6,
+      "inventoryId": 704,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2018-11-03",
+      "arena": "Bridgestone Arena",
+      "opponent": "Nashville Predators",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 0 @ NSH 1",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.youtube.com/watch?v=BpLhsfZ34yg",
+      "videoProvider": "youtube",
+      "videoId": "BpLhsfZ34yg",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play. A silver signature is visible on the reverse; signer not verified.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "704",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2018-11-03",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Bridgestone Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Nashville Predators",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play. A silver signature is visible on the reverse; signer not verified.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 0 @ NSH 1",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.youtube.com/watch?v=BpLhsfZ34yg",
+          "url": "https://www.youtube.com/watch?v=BpLhsfZ34yg"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/704/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/704/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "704-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "704-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2018020202",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-705",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 7,
+      "inventoryId": 705,
+      "homeRoad": "",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "HFC Warm-Up Puck · Postponed Game",
+      "date": "2021-12-21",
+      "arena": "TD Garden",
+      "opponent": "Carolina Hurricanes",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "",
+      "videoUrl": "",
+      "videoProvider": "",
+      "videoId": "",
+      "notes": "Printed event date only: the scheduled game was postponed. Actual warm-up use date is not established.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Printed date; game postponed",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "705",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "HFC Warm-Up Puck · Postponed Game",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2021-12-21",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Carolina Hurricanes",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Printed event date only: the scheduled game was postponed. Actual warm-up use date is not established.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Printed Date / Use Unverified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/705/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/705/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "705-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "705-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/bruins/news/bruins-games-postponed-through-december-26-329129222",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Printed date; game postponed",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-706",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 8,
+      "inventoryId": 706,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2022-11-05",
+      "arena": "Scotiabank Arena",
+      "opponent": "Toronto Maple Leafs",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 1 @ TOR 2",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336344185112",
+      "videoProvider": "nhl",
+      "videoId": "6336344185112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "706",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2022-11-05",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Scotiabank Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Toronto Maple Leafs",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 1 @ TOR 2",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336344185112",
+          "url": "https://www.nhl.com/video/c-6336344185112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/706/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/706/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "706-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "706-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2022020179",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-707",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 2,
+      "inventoryId": 707,
+      "homeRoad": "Road",
+      "team": "Florida Panthers",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Marchand’s Return to Boston · Warm-Up Puck",
+      "date": "2025-10-21",
+      "arena": "TD Garden",
+      "opponent": "Boston Bruins",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "FLA 4 @ BOS 3",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6383497383112",
+      "videoProvider": "nhl",
+      "videoId": "6383497383112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "707",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Marchand’s Return to Boston · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2025-10-21",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "FLA 4 @ BOS 3",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6383497383112",
+          "url": "https://www.nhl.com/video/c-6383497383112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/707/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/707/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/707/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "707-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "707-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9535.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2025020103",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-708",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 9,
+      "inventoryId": 708,
+      "homeRoad": "",
+      "team": "Boston Bruins",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Pittsburgh HFC · Undated Game-Used Puck",
+      "date": "",
+      "arena": "Unverified",
+      "opponent": "Pittsburgh Penguins",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "",
+      "puckType": "Game Used Puck",
+      "videoLabel": "",
+      "videoUrl": "",
+      "videoProvider": "",
+      "videoId": "",
+      "notes": "Owner identifies a game-used HFC puck vs. Pittsburgh. No date or unique serial is visible; game attribution remains unresolved.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Unknown",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "708",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Pittsburgh HFC · Undated Game-Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Unverified",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Pittsburgh Penguins",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Owner identifies a game-used HFC puck vs. Pittsburgh. No date or unique serial is visible; game attribution remains unresolved.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Game Attribution Pending",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/708/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/708/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "708-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "708-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Unknown",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-710",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 3,
+      "inventoryId": 710,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Warm-Up Puck",
+      "date": "2021-11-14",
+      "arena": "TD Garden",
+      "opponent": "Montreal Canadiens",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "MTL 2 @ BOS 5",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336368153112",
+      "videoProvider": "nhl",
+      "videoId": "6336368153112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "710",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2021-11-14",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Montreal Canadiens",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "MTL 2 @ BOS 5",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336368153112",
+          "url": "https://www.nhl.com/video/c-6336368153112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/710/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/710/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/710/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "710-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "710-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9495.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2021020224",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-711",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 4,
+      "inventoryId": 711,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Warm-Up Puck",
+      "date": "2023-02-23",
+      "arena": "Climate Pledge Arena",
+      "opponent": "Seattle Kraken",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 6 @ SEA 5",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336333995112",
+      "videoProvider": "nhl",
+      "videoId": "6336333995112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "711",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-02-23",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Climate Pledge Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Seattle Kraken",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play. Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 6 @ SEA 5",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336333995112",
+          "url": "https://www.nhl.com/video/c-6336333995112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/711/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/711/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/711/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "711-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "711-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9507.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2022020927",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-712",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 5,
+      "inventoryId": 712,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Pride Night · Warm-Up Puck",
+      "date": "2019-10-08",
+      "arena": "T-Mobile Arena",
+      "opponent": "Vegas Golden Knights",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 4 @ VGK 3",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336403097112",
+      "videoProvider": "nhl",
+      "videoId": "6336403097112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "712",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Pride Night · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2019-10-08",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "T-Mobile Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Vegas Golden Knights",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 4 @ VGK 3",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336403097112",
+          "url": "https://www.nhl.com/video/c-6336403097112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/712/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/712/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "712-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "712-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2019020043",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-713",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 6,
+      "inventoryId": 713,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Road to History · Game 78 Warm-Up Puck",
+      "date": "2023-04-06",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "TOR 1 @ BOS 2 - OT",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336327372112",
+      "videoProvider": "nhl",
+      "videoId": "6336327372112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "713",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Road to History · Game 78 Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-04-06",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Toronto Maple Leafs",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "TOR 1 @ BOS 2 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336327372112",
+          "url": "https://www.nhl.com/video/c-6336327372112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/713/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/713/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "713-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "713-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2022021246",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-714",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 7,
+      "inventoryId": 714,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Warm-Up Puck",
+      "date": "2023-11-14",
+      "arena": "KeyBank Center",
+      "opponent": "Buffalo Sabres",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 5 @ BUF 2",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6341136127112",
+      "videoProvider": "nhl",
+      "videoId": "6341136127112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "714",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2023-11-14",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "KeyBank Center",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Buffalo Sabres",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 5 @ BUF 2",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6341136127112",
+          "url": "https://www.nhl.com/video/c-6341136127112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/714/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/714/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "714-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "714-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2023020229",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-715",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 8,
+      "inventoryId": 715,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Utah Inaugural Season · Warm-Up Puck",
+      "date": "2024-10-19",
+      "arena": "Delta Center",
+      "opponent": "Utah Hockey Club",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 1 @ UTA 2 - OT",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6363510168112",
+      "videoProvider": "nhl",
+      "videoId": "6363510168112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "715",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Utah Inaugural Season · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2024-10-19",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Delta Center",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Utah Hockey Club",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 1 @ UTA 2 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6363510168112",
+          "url": "https://www.nhl.com/video/c-6363510168112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/715/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/715/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "715-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "715-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2024020086",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-716",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 9,
+      "inventoryId": 716,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "2019 Second Round · Game 6 Warm-Up Puck",
+      "date": "2019-05-06",
+      "arena": "Nationwide Arena",
+      "opponent": "Columbus Blue Jackets",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "BOS 3 @ CBJ 0",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6336403797112",
+      "videoProvider": "nhl",
+      "videoId": "6336403797112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "716",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "2019 Second Round · Game 6 Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2019-05-06",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Nationwide Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Columbus Blue Jackets",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "BOS 3 @ CBJ 0",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6336403797112",
+          "url": "https://www.nhl.com/video/c-6336403797112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/716/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/716/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "716-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "716-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2018030216",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "hfc-717",
+      "sourceSheet": "Hockey Fights Cancer",
+      "sourceRow": 10,
+      "inventoryId": 717,
+      "homeRoad": "Road",
+      "team": "Florida Panthers",
+      "category": "Hockey Fights Cancer",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Hockey Fights Cancer · Warm-Up Puck",
+      "date": "2026-01-25",
+      "arena": "United Center",
+      "opponent": "Chicago Blackhawks",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "FLA 5 @ CHI 1",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6388308408112",
+      "videoProvider": "nhl",
+      "videoId": "6388308408112",
+      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": true,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "717",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Hockey Fights Cancer",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Hockey Fights Cancer · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2026-01-25",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "United Center",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Chicago Blackhawks",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "FLA 5 @ CHI 1",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6388308408112",
+          "url": "https://www.nhl.com/video/c-6388308408112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/717/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/717/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "717-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "717-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2025020823\nhttps://www.nhl.com/blackhawks/news/preview-chicago-squares-off-against-florida-in-sunday-night-matchup",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "Yes",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "milestone-340",
+      "sourceSheet": "Milestones",
+      "sourceRow": 41,
+      "inventoryId": 340,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Milestone",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Bruins Centennial Game · Game-Used Puck",
+      "date": "2024-12-01",
+      "arena": "TD Garden",
+      "opponent": "Montreal Canadiens",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "MTL 3 @ BOS 6",
+      "puckType": "Game Used Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6365396039112",
+      "videoProvider": "nhl",
+      "videoId": "6365396039112",
+      "notes": "Game-used puck commemorating the game; not attributed to a specific scoring play. The supplied dated Fanatics packaging label is supporting provenance, not a formal item-specific COA.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "340",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Milestone",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Bruins Centennial Game · Game-Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2024-12-01",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Montreal Canadiens",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Game-used puck commemorating the game; not attributed to a specific scoring play. The supplied dated Fanatics packaging label is supporting provenance, not a formal item-specific COA.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "MTL 3 @ BOS 6",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6365396039112",
+          "url": "https://www.nhl.com/video/c-6365396039112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/340/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/340/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/340/edge-01.webp; images/pucks/340/edge-02.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/340/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "340-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "340-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9788.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2024020389\nhttps://www.nhl.com/bruins/news/bruins-unveil-commemorative-uniform-ahead-of-dec-1-centennial-game-presented-by-dunkin",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "milestone-341",
+      "sourceSheet": "Milestones",
+      "sourceRow": 42,
+      "inventoryId": 341,
+      "homeRoad": "Road",
+      "team": "Florida Panthers",
+      "category": "Milestone",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Marchand Two-Goal Game · Overtime Winner",
+      "date": "2026-01-24",
+      "arena": "Grand Casino Arena",
+      "opponent": "Minnesota Wild",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "FLA 4 @ MIN 3 - OT",
+      "puckType": "Game Used Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6388269412112",
+      "videoProvider": "nhl",
+      "videoId": "6388269412112",
+      "notes": "Game-used puck commemorating the game; not attributed to a specific scoring play.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "341",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Milestone",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Marchand Two-Goal Game · Overtime Winner",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2026-01-24",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Grand Casino Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Minnesota Wild",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Game-used puck commemorating the game; not attributed to a specific scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "FLA 4 @ MIN 3 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Verified",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6388269412112",
+          "url": "https://www.nhl.com/video/c-6388269412112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/341/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/341/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/341/edge-01.webp; images/pucks/341/edge-02.webp; images/pucks/341/edge-03.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "341-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "341-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2025020817",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        }
+      ]
     }
   ]
 }
