@@ -335,7 +335,24 @@ const checkNavigation = () => {
     assert.equal(element("artifact-navigation-position").textContent, `Puck ${index + 1} of ${orderedIds.length} in this view`);
     assert.equal(element("artifact-previous").disabled, index === 0);
     assert.equal(element("artifact-next").disabled, index === orderedIds.length - 1);
-    if (photoManifest.artifacts[id]?.length) assert.equal(element("artifact-puck-image").src, (photoManifest.artifacts[id].find(photo => photo.label === "Front") || photoManifest.artifacts[id][0]).url);
+    for (const [buttonId, offset] of [["artifact-previous", -1], ["artifact-next", 1]]) {
+      const button = element(buttonId), destinationId = orderedIds[index + offset];
+      const icon = button.children[0], image = icon.children.find(child => child.tag === "img");
+      const front = (photoManifest.artifacts[destinationId] || []).find(photo => photo.label.toLowerCase() === "front");
+      assert.equal(Boolean(image), Boolean(front), "only the actual destination's front may appear in navigation");
+      assert.equal(icon.children.at(-1).textContent, offset < 0 ? "←" : "→");
+      if (destinationId) assert.ok(button.getAttribute("aria-label").includes(`Artifact ${destinationId}`));
+      if (front) {
+        assert.equal(image.src, front.thumbnailUrl || front.url);
+        image.dispatch("load");
+        assert.equal(image.hidden, false);
+        assert.equal(icon.classList.contains("has-puck-photo"), true);
+        image.dispatch("error");
+        assert.equal(image.hidden, true);
+        assert.equal(icon.classList.contains("has-puck-photo"), false, "failed images must restore the generic puck");
+      }
+    }
+    if (photoManifest.artifacts[id]?.length) assert.equal(element("artifact-puck-image").src, photoManifest.artifacts[id][0].url);
     else assert.equal(element("artifact-puck-views").hidden, true);
     element("artifact-next").click();
   }
@@ -354,6 +371,7 @@ sortButtons.find((button) => button.dataset.sort === "inventoryId").click();
 assert.equal(shownIds().at(-1), 510, "ID order must change the browsing sequence");
 checkNavigation();
 element("clear-filters").click();
+checkNavigation(); // Includes no-photo and back-only destinations as well as front-not-first ordering.
 change("team-filter", "Canada");
 assert.equal(rows().length, 1);
 checkNavigation();

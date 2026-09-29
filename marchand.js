@@ -838,11 +838,45 @@
 
   function updatePuckNavigation(record) {
     const index = state.filtered.findIndex((entry) => entry.key === record.key);
-    elements.previousPuck.disabled = index <= 0;
-    elements.nextPuck.disabled = index < 0 || index >= state.filtered.length - 1;
+    renderPuckNavigationButton(elements.previousPuck, index > 0 ? state.filtered[index - 1] : null, -1);
+    renderPuckNavigationButton(elements.nextPuck, index >= 0 ? state.filtered[index + 1] : null, 1);
     elements.navigationPosition.textContent = index < 0
       ? "This puck is outside the current filters."
       : `Puck ${index + 1} of ${state.filtered.length} in this view`;
+  }
+
+  function renderPuckNavigationButton(button, destination, direction) {
+    const label = direction < 0 ? "Previous Puck" : "Next Puck";
+    button.disabled = !destination;
+    button.title = destination ? `${label} · Artifact ${destination.inventoryId} · ${destination.description}` : `No ${label.toLowerCase()} in this view`;
+    button.setAttribute("aria-label", destination ? `${label}: Artifact ${destination.inventoryId}` : label);
+    const icon = document.createElement("span");
+    icon.className = "marchand-nav-puck";
+    icon.setAttribute("aria-hidden", "true");
+    const arrow = document.createElement("span");
+    arrow.className = "marchand-nav-arrow";
+    arrow.textContent = direction < 0 ? "←" : "→";
+    const front = destination && artifactPhotos(destination).find(photo => normalize(photo.label).toLowerCase() === "front");
+    if (front) {
+      const image = document.createElement("img");
+      image.alt = "";
+      image.hidden = true;
+      image.addEventListener("load", () => {
+        image.hidden = false;
+        icon.classList.toggle("has-puck-photo", true);
+      });
+      image.addEventListener("error", () => {
+        image.hidden = true;
+        icon.classList.toggle("has-puck-photo", false);
+      });
+      image.src = normalize(front.thumbnailUrl) || front.url;
+      orientPuckPhoto(image, front);
+      icon.append(image);
+    }
+    icon.append(arrow);
+    const caption = document.createElement("span");
+    caption.textContent = label;
+    button.replaceChildren(icon, caption);
   }
 
   function navigatePuck(direction) {

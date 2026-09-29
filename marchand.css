@@ -1418,6 +1418,12 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-puck-nav:hover:not(:disabled) .marchand-nav-puck{border-color:var(--museum-accent);color:#fff}
 .marchand-puck-nav:focus-visible{outline:2px solid var(--museum-accent);outline-offset:3px}
 .marchand-puck-nav:disabled{opacity:.3;cursor:default}
+.marchand-nav-puck{position:relative}
+.marchand-nav-puck > img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.marchand-nav-puck > img[hidden]{display:none}
+.marchand-nav-puck.has-puck-photo{height:72px;background:none;border-color:transparent;box-shadow:none}
+.marchand-nav-puck.has-puck-photo .marchand-nav-arrow{position:absolute;right:-5px;bottom:-5px;display:grid;place-items:center;width:25px;height:25px;border:1px solid rgba(var(--museum-accent-rgb),.65);border-radius:50%;background:#101417;color:#fff;font-size:1.15rem}
+#artifact-previous .marchand-nav-puck.has-puck-photo .marchand-nav-arrow{right:auto;left:-5px}
 .marchand-puck-position{margin:6px 0 0;text-align:center;color:#aeb8c1;font-size:.66rem}
 .marchand-puck-display > img{
   display:block;
@@ -1487,6 +1493,8 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   #artifact-previous{grid-column:1;justify-self:start}
   #artifact-next{grid-column:2;justify-self:end}
   .marchand-nav-puck{width:38px;height:35px;font-size:1.4rem;box-shadow:inset 0 0 0 3px #0a0c0d,0 5px 0 #010202,0 7px 0 #33393c}
+  .marchand-nav-puck.has-puck-photo{width:48px;height:48px;box-shadow:none}
+  .marchand-nav-puck.has-puck-photo .marchand-nav-arrow{width:20px;height:20px;font-size:1rem}
   .marchand-puck-display .marchand-puck-placeholder{padding:12px 4px;min-height:190px}
   .marchand-puck-display .marchand-photo-puck{width:76px;height:76px}
   .marchand-puck-display .marchand-puck-placeholder strong{font-size:.85rem}
@@ -1687,8 +1695,8 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-deep-dive-button{
   position:relative;
   display:grid;
-  width:58px;
-  height:58px;
+  width:64px;
+  height:64px;
   margin:auto;
   place-content:center;
   border:3px solid #2e3438;
