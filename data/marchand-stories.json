@@ -4435,18 +4435,29 @@
       "date": "2021-12-21",
       "team": "Boston Bruins",
       "gameId": null,
-      "title": "A date that never became a game",
+      "title": "HFC night, rescheduled",
       "paragraphs": [
-        "This Hockey Fights Cancer warm-up puck is printed for Bruins–Hurricanes on December 21, 2021. That game was postponed."
+        "Boston’s Hockey Fights Cancer game against Carolina was postponed from December 21, 2021 because of COVID-19 protocols and played on February 10, 2022. The puck carries the original December date. Marchand missed the rescheduled game while serving a suspension."
       ],
       "sources": [
         {
           "label": "Bruins postponement notice",
           "url": "https://www.nhl.com/bruins/news/bruins-games-postponed-through-december-26-329129222"
+        },
+        {
+          "label": "HFC event rescheduled to February 10",
+          "url": "https://www.boston.com/things-to-do/events/bruins-bringing-the-fight-to-cancer-and-the-carolina-hurricanes/"
+        },
+        {
+          "label": "Bruins rescheduled-game preview",
+          "url": "https://www.nhl.com/bruins/news/need-to-know-bruins-vs-hurricanes-330668716"
         }
       ],
       "verification": {
-        "status": "Postponed"
+        "status": "Postponed",
+        "originalScheduledDate": "2021-12-21",
+        "rescheduledGameDate": "2022-02-10",
+        "marchandParticipation": "Did not play; suspended"
       }
     },
     "hfc-706": {

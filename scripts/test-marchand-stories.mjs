@@ -27,7 +27,8 @@ for (const record of records) {
   for (const source of story.sources) {
     const url = new URL(source.url);
     assert.equal(url.protocol, "https:");
-    assert.ok(/(^|\.)nhle?\.com$/.test(url.hostname) || (record.inventoryId === 50 && ["https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp","https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"].includes(source.url)), "Source must be NHL or the verified artifact-50 evidence");
+    const rescheduledHfcSource = record.inventoryId === 705 && source.url === "https://www.boston.com/things-to-do/events/bruins-bringing-the-fight-to-cancer-and-the-carolina-hurricanes/";
+    assert.ok(/(^|\.)nhle?\.com$/.test(url.hostname) || rescheduledHfcSource || (record.inventoryId === 50 && ["https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp","https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"].includes(source.url)), "Source must be NHL or the verified artifact-specific evidence");
     assert.ok(source.label.length > 5);
   }
   if (!story.gameId) { assert.ok(["Postponed","Unresolved"].includes(story.verification.status)); continue; }
@@ -41,6 +42,10 @@ assert.match(artifacts["goal-42"].paragraphs.join(" "), /goal-scored puck/);
 assert.match(artifacts["milestone-316"].paragraphs.join(" "), /game-used milestone puck/);
 assert.match(records.find(record => record.key === "history-503").puckType, /warm-up/i);
 assert.match(artifacts["history-509"].paragraphs.join(" "), /game-used puck/i);
+assert.equal(artifacts["hfc-705"].date, "2021-12-21", "Retain the printed date on artifact 705");
+assert.equal(artifacts["hfc-705"].verification.rescheduledGameDate, "2022-02-10");
+assert.match(artifacts["hfc-705"].paragraphs.join(" "), /COVID-19 protocols.*February 10, 2022/);
+assert.doesNotMatch(artifacts["hfc-705"].title, /never became a game/i);
 assert.equal(artifacts["history-507"].verification.marchand.points, 3);
 const point152 = records.find((record) => record.inventoryId === 625);
 assert.equal(point152.sourceSheet, "Road to Repeat");
