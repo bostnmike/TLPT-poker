@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T01:10:38.290424Z",
+  "generatedAt": "2026-09-29T01:40:03.983620Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -18,7 +18,7 @@
         "buffalomike": "tbd",
         "ahmed": "tbd",
         "alex-c": "tbd",
-        "ai-dave": "tbd",
+        "ai-dave": "no",
         "big-tim": "tbd",
         "brad-r": "tbd",
         "chris-f": "tbd",
@@ -64,7 +64,7 @@
         "buffalomike": "tbd",
         "ahmed": "tbd",
         "alex-c": "tbd",
-        "ai-dave": "tbd",
+        "ai-dave": "yes",
         "big-tim": "tbd",
         "brad-r": "tbd",
         "chris-f": "tbd",
