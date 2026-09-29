@@ -91,7 +91,7 @@ for (const record of payload.records) {
   assert.ok(record.opponent, `${record.key} needs an opponent`);
   assert.ok(record.arena, `${record.key} needs an arena`);
   if (record.inventoryId !== 708) assert.match(record.date, /^\d{4}-\d{2}-\d{2}$/, `${record.key} needs a sortable ISO date`);
-  const expectedFields = { "Goals & Games": 19, Milestones: 35, "Road to History": 17, "Road to Repeat": 40, "Hockey Fights Cancer": 37, "Warm-Up Pucks": 37 }[record.sourceSheet];
+  const expectedFields = { "Goals & Games": 26, Milestones: 38, "Road to History": 24, "Road to Repeat": 43, "Hockey Fights Cancer": 40, "Warm-Up Pucks": 40 }[record.sourceSheet];
   assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
@@ -225,7 +225,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20260929-hfc-beside-video/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260929-puck-navigation/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20260929-data-qa/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260928-hfc713/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");

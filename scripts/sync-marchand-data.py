@@ -14,18 +14,22 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "data/marchand-pucks.json"
 CODE_PATTERN = re.compile(r"\b[A-Za-z]{1,3}\d{1,2}\b")
-SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History", "Road to Repeat")
+SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History", "Road to Repeat", "Hockey Fights Cancer", "Warm-Up Pucks")
 SOURCE_ID_HEADERS = {
     "Goals & Games": "ID",
     "Milestones": "ID #",
     "Road to History": "Inventory ID",
     "Road to Repeat": "Inventory ID",
+    "Hockey Fights Cancer": "ID #",
+    "Warm-Up Pucks": "ID #",
 }
 KEY_PREFIXES = {
     "Goals & Games": "goal",
     "Milestones": "milestone",
     "Road to History": "history",
     "Road to Repeat": "repeat",
+    "Hockey Fights Cancer": "hfc",
+    "Warm-Up Pucks": "warmup",
 }
 
 
@@ -145,7 +149,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             category=values["Category"],
             careerStat=as_number(values["Career Stat"]),
             seasonStat=as_number(values["Season Stat"]),
-            description="",
+            description=values.get("Description", record.get("description", "")),
             date=values["Date"],
             arena=values["Arena"],
             opponent=values["Opponent"],
@@ -166,23 +170,23 @@ def synchronize_record(record, workbook_values, workbook_formulas):
         record["videoLabel"] = canonical_label
         record["videoUrl"] = canonical_url
         record["videoProvider"], record["videoId"] = video_parts(canonical_url, record)
-    elif sheet_name == "Milestones":
+    elif sheet_name in ("Milestones", "Hockey Fights Cancer", "Warm-Up Pucks"):
         record.update(
             inventoryId=int(values["ID #"]),
             homeRoad=values.get("Home/Road", ""),
             team=values["Marchand Team"],
             category=values["Category"],
-            careerStat=None,
-            seasonStat=None,
+            careerStat=as_number(values.get("Career Stat")),
+            seasonStat=as_number(values.get("Season Stat")),
             description=values["Description"],
             date=values["Date"],
             arena=values["Arena"],
             opponent=values["Opponent"],
-            period="",
-            time="",
-            goalType="",
-            primaryAssist="",
-            secondaryAssist="",
+            period=values.get("Period", ""),
+            time=values.get("Time", ""),
+            goalType=values.get("Goal Type", ""),
+            primaryAssist=values.get("Primary Assist", ""),
+            secondaryAssist=values.get("Secondary Assist", ""),
             score=values.get("Score", ""),
             puckType=values["Puck Type"],
             notes=values["Notes"],
@@ -190,8 +194,8 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             wins=None,
             losses=None,
             points=None,
-            goalieScoredAgainst="",
-            playerCodes=player_codes(values["Description"], values["Notes"]),
+            goalieScoredAgainst=values.get("Goalie Scored Against", ""),
+            playerCodes=record.get("playerCodes") or player_codes(values["Description"], values["Notes"]),
         )
     elif sheet_name == "Road to History":
         wins = as_number(values["W"])
@@ -223,7 +227,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             seasonRecord=f"{wins}-{losses}-{overtime_losses}",
             points=as_number(values["Pts"]),
             goalieScoredAgainst="",
-            playerCodes=player_codes(values["Description"], values["Notes"]),
+            playerCodes=record.get("playerCodes") or player_codes(values["Description"], values["Notes"]),
         )
     elif sheet_name == "Road to Repeat":
         wins, losses = as_number(values["Playoff Wins"]), as_number(values["Playoff Losses"])
@@ -255,17 +259,26 @@ def synchronize_record(record, workbook_values, workbook_formulas):
     else:
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
 
-    if sheet_name in ("Road to Repeat", "Milestones", "Road to History") and values.get("Video URL"):
+    if sheet_name != "Goals & Games" and values.get("Video URL"):
         provider, video_id = video_parts(values["Video URL"], record)
         record["videoUrl"] = values["Video URL"]
-        record["videoLabel"] = "Game Context"
+        record["videoLabel"] = record.get("videoLabel") or "Game Context"
         record["videoProvider"], record["videoId"] = provider, video_id
     if sheet_name == "Milestones" and values.get("Original Front Image Filename"):
         record["playerCodes"] = ["BM63"]
+    if "Hockey Fights Cancer" in values:
+        record["hockeyFightsCancer"] = values["Hockey Fights Cancer"].strip().lower() in ("yes", "true", "1")
+    if "Date Status" in values:
+        record["dateStatus"] = values["Date Status"]
+    for label, key in (("Authentication Type", "authenticationType"),
+                       ("Authentication Evidence", "authenticationEvidence"),
+                       ("Authentication Notes", "authenticationNotes")):
+        if label in values:
+            record[key] = values[label]
 
 
 def discover_source_records(payload, workbook_values):
-    """Add newly populated canonical rows without disturbing established records."""
+    """Match stable inventory IDs, so sorting rows cannot move an exhibit's identity."""
     def row_is_populated(sheet_name, row):
         sheet = workbook_values[sheet_name]
         if row < 2 or row > sheet.max_row:
@@ -277,12 +290,20 @@ def discover_source_records(payload, workbook_values):
         required = (SOURCE_ID_HEADERS[sheet_name], "Marchand Team", "Category", "Date")
         return all(sheet.cell(row, headers[header]).value not in (None, "") for header in required)
 
-    payload["records"] = [
-        record
-        for record in payload["records"]
-        if record.get("sourceSheet") not in SOURCE_SHEETS
-        or row_is_populated(record["sourceSheet"], record["sourceRow"])
-    ]
+    canonical_rows = {}
+    for sheet_name in SOURCE_SHEETS:
+        sheet = workbook_values[sheet_name]
+        headers = {sheet.cell(1, c).value: c for c in range(1, sheet.max_column + 1)}
+        for row in range(2, sheet.max_row + 1):
+            if not row_is_populated(sheet_name, row):
+                continue
+            inventory_id = int(sheet.cell(row, headers[SOURCE_ID_HEADERS[sheet_name]]).value)
+            if inventory_id in canonical_rows:
+                raise ValueError(f"Duplicate canonical inventory ID: {inventory_id}")
+            canonical_rows[inventory_id] = (sheet_name, row)
+    payload["records"] = [record for record in payload["records"] if record["inventoryId"] in canonical_rows]
+    for record in payload["records"]:
+        record["sourceSheet"], record["sourceRow"] = canonical_rows[record["inventoryId"]]
     records = payload["records"]
     existing_sources = {
         (record["sourceSheet"], record["sourceRow"])
@@ -351,6 +372,8 @@ def main():
         milestones=counts["Milestones"],
         roadToHistory=counts["Road to History"],
         roadToRepeat=counts["Road to Repeat"],
+        hockeyFightsCancer=counts["Hockey Fights Cancer"],
+        warmUpPucks=counts["Warm-Up Pucks"],
         videos=sum(bool(record.get("videoUrl")) for record in payload["records"]),
         sourceSheets=counts,
     )

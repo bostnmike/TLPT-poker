@@ -1012,6 +1012,7 @@
     addFact("Line Combination", perfectionLine(record));
     addFact("Goalie Scored Against", goalieLabel(record));
     addFact("Final score", record.score);
+    addFact("Authentication", record.authenticationType === "Not Yet Documented" ? "" : record.authenticationType);
 
     renderPersonnel(record);
     renderSourceRecord(record);
