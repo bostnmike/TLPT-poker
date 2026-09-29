@@ -36,6 +36,7 @@ node scripts/test-marchand-source-record.mjs
 node scripts/test-marchand-photo-manifest.mjs
 node scripts/test-marchand-stories.mjs
 node scripts/test-marchand-game-stats.mjs
+node scripts/test-marchand-centennial342.mjs
 
 echo "🧪 Validating generated site data..."
 "$PYTHON_BIN" scripts/validate-site-data.py

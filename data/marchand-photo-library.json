@@ -1833,6 +1833,30 @@
     "images/pucks/341/coa.webp": {
       "bytes": 507606,
       "sha256": "777937e55e4ce794051576b863b2b3d7138e0700f4486f452052946bec52a691"
+    },
+    "images/pucks/342/front.webp": {
+      "bytes": 1000062,
+      "sha256": "4777f8a301c560ad020a70fa3fe440f7f7b5ecfb99a729447909c4b9b148b03a"
+    },
+    "images/pucks/342/front-thumb.webp": {
+      "bytes": 121430,
+      "sha256": "54e5e7af11bc13df593d7175898644c6e00782034ebc68566205383981464577"
+    },
+    "images/pucks/342/back.webp": {
+      "bytes": 1091706,
+      "sha256": "999abde8f41cf14590e232922367f26eafdc6187416b0cfaf9422ff11bf7b92d"
+    },
+    "images/pucks/342/edge-01.webp": {
+      "bytes": 993888,
+      "sha256": "11ad512a4c4406597b16e99b9b7dbd4537445da4a6861fe1164bf76e52a170f6"
+    },
+    "images/pucks/342/edge-02.webp": {
+      "bytes": 1008626,
+      "sha256": "a5d0a254d3222b3e61377e37856efcc19d55c6de75d9211c13e5f6570867f1fc"
+    },
+    "images/pucks/342/coa.webp": {
+      "bytes": 628586,
+      "sha256": "b96980f852bfdd22dd43f205ad606f6dd0c7f6a42055921f33154c1d9fc1ed5a"
     }
   }
 }

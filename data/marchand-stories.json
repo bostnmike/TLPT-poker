@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": 1,
-    "reviewedAt": "2026-09-28",
-    "records": 168,
+    "reviewedAt": "2026-09-29",
+    "records": 169,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
@@ -2092,7 +2092,8 @@
       "gameId": 2023020258,
       "title": "Five hundred assists",
       "paragraphs": [
-        "Marchand reached 500 career assists during Boston’s 5–2 win over Montreal. Both of his assists came on power-play goals, first by McAvoy and then by van Riemsdyk. He finished with three shots in 17 minutes. This game-used puck marks the night he reached the assist milestone."
+        "Marchand reached 500 career assists during Boston’s 5–2 win over Montreal. Both of his assists came on power-play goals, first by McAvoy and then by van Riemsdyk. He finished with three shots in 17 minutes. This game-used puck marks the night he reached the assist milestone.",
+        "Centennial Era Night: Big Bad Bruins (1960–1976)."
       ],
       "sources": [
         {
@@ -2102,6 +2103,10 @@
         {
           "label": "NHL milestone report",
           "url": "https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-november-18"
+        },
+        {
+          "label": "Bruins Centennial Era Night announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-second-centennial-era-night-in-celebration-of-the-big-bad-bruins-1960-76-on-saturday-november-18"
         }
       ],
       "verification": {
@@ -2216,7 +2221,8 @@
       "gameId": 2023020710,
       "title": "Eleven straight 20-goal seasons",
       "paragraphs": [
-        "Marchand set a Bruins record with his 11th consecutive season of at least 20 goals. His third-period goal made it 7–4 against Montreal, and Boston won 9–4. He also assisted on Coyle’s second-period goal. The game-used puck marks a scoring streak that surpassed Bergeron and Johnny Bucyk’s ten-season runs."
+        "Marchand set a Bruins record with his 11th consecutive season of at least 20 goals. His third-period goal made it 7–4 against Montreal, and Boston won 9–4. He also assisted on Coyle’s second-period goal. The game-used puck marks a scoring streak that surpassed Bergeron and Johnny Bucyk’s ten-season runs.",
+        "Centennial Era Night: New Blood, New Beginnings (1986–2000)."
       ],
       "sources": [
         {
@@ -2226,6 +2232,10 @@
         {
           "label": "NHL season-streak record",
           "url": "https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-january-20"
+        },
+        {
+          "label": "Bruins Centennial Era Night announcement",
+          "url": "https://www.nhl.com/bruins/news/topic/centennial/bruins-to-host-fourth-centennial-era-night-to-celebrate-new-blood-new-beginnings-1986-2000-on-january-20"
         }
       ],
       "verification": {
@@ -4861,6 +4871,45 @@
           "points": 1,
           "shots": 4,
           "toi": "19:09"
+        }
+      }
+    },
+    "milestone-342": {
+      "inventoryId": 342,
+      "date": "2024-03-07",
+      "team": "Boston Bruins",
+      "gameId": 2023020993,
+      "title": "Two assists with the Cup team back",
+      "paragraphs": [
+        "Marchand helped Boston beat Toronto 4–1 with assists on David Pastrnak’s opening power-play goal and Brandon Carlo’s second-period finish. The captain played 16:54 and delivered three hits. His 2011 Cup teammates were back at TD Garden for the Centennial reunion."
+      ],
+      "sources": [
+        {
+          "label": "Official NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore"
+        },
+        {
+          "label": "Official NHL scoring summary",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2023020993/landing"
+        },
+        {
+          "label": "Bruins Centennial Era Night announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-fifth-centennial-era-night-to-celebrate-return-of-a-champion-2001-present-presented-by-coca-cola-zero-sugar"
+        },
+        {
+          "label": "Bruins 2011 reunion report",
+          "url": "https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020993/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 2,
+          "toi": "16:54"
         }
       }
     }

@@ -52,12 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 168, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 169, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
-assert.equal(payload.meta.milestones, 39, "milestone count drifted");
+assert.equal(payload.meta.milestones, 40, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 168, "video count drifted");
+assert.equal(payload.meta.videos, 169, "video count drifted");
 const footerMarkup = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || "";
 assert.match(footerMarkup, /<details class="marchand-goal-type-key" open>/, "Goal Type Key must start expanded in the footer");
 assert.equal((html.match(/id="goal-type-key-items"/g) || []).length, 1, "Goal Type Key must appear only once");
@@ -157,7 +157,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 117], ["Florida Panthers", 50], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 118], ["Florida Panthers", 50], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");

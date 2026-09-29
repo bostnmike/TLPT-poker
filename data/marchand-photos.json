@@ -3964,6 +3964,37 @@
         }
       }
     ],
+    "342": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/front.webp?v=4777f8a301c5",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/front-thumb.webp?v=54e5e7af11bc"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/back.webp?v=999abde8f41c",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/edge-01.webp?v=11ad512a4c44",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/edge-02.webp?v=a5d0a254d322",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/coa.webp?v=b96980f852bf",
+        "rotation": 0,
+        "sourceFile": "IMG_9774.JPG",
+        "caption": "Dated Fanatics packaging label — Toronto at Boston, March 7, 2024. Supporting provenance, not a formal certificate.",
+        "authenticationScope": "Date, opponents and game-used designation; no individual serial on label"
+      }
+    ],
     "501": [
       {
         "label": "Front",

@@ -5,7 +5,7 @@ const {records,meta}=JSON.parse(read('data/marchand-pucks.json'));
 const photos=JSON.parse(read('data/marchand-photos.json')).artifacts;
 const keep=records.find(r=>r.inventoryId===59);
 assert.ok(keep);assert.equal(records.some(r=>r.inventoryId===333),false);
-assert.equal(meta.records,168);assert.equal(meta.milestones,39);
+assert.equal(meta.records,169);assert.equal(meta.milestones, 40);
 assert.equal(keep.puckType,'Goal Scored Puck');assert.equal(keep.primaryAssist,'BM63');
 assert.match(keep.notes,/return to Boston/);assert.match(keep.videoUrl,/6383495592112$/);
 assert.equal(JSON.parse(read('data/marchand-stories.json')).artifacts['milestone-333'],undefined);
@@ -14,7 +14,7 @@ assert.deepEqual(photos[313].slice(0,4).map(p=>p.label),['Front','Back','Edge 1'
 assert.ok(photos[313][0].thumbnailUrl);
 for(const [id,views] of Object.entries(photos))for(const p of views.filter(p=>p.sourceFile)){
  assert.ok(p.caption);assert.ok(p.authenticationScope);
- if(p.authenticationScope==='game-level')assert.match(p.caption,/not a specific scoring play|does not identify an individual/);
+ if(p.authenticationScope==='game-level')assert.match(p.caption,/not a specific scoring play|does not identify an individual|game-used puck label/);
  assert.notEqual(Number(id),333);
 }
 assert.match(photos[58].find(p=>p.sourceFile==='IMG_9793.JPG').caption,/goal-puck/);

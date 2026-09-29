@@ -92,7 +92,7 @@ view("arenas");
 assert.equal(summaryRows().length, new Set(payload.records.map(r => r.arena)).size, "all catalogued arena names must be listed");
 assert.equal(element("vault-search").value, "");
 assert.equal(element("vault-no-results").hidden, true);
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 168);
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 169);
 change("vault-sort", "name");
 const names = summaryRows().map(label);
 assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
@@ -137,7 +137,7 @@ for (const team of ["boston", "florida", "canada"]) {
 }
 element("vault-reset").click();
 assert.equal(summaryRows().length, 50);
-assert.equal(element("vault-result-count").textContent, "168");
+assert.equal(element("vault-result-count").textContent, "169");
 assert.ok(backLinks.every((link) => link.href === "../marchand.html"));
 assert.equal(views.filter((button) => button.getAttribute("aria-pressed") === "true").length, 1);
 assert.deepEqual(errors, []);

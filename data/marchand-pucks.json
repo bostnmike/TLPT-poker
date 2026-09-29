@@ -1,15 +1,15 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "8c9e208b1ff52c58aac9820aa53aebaac8ae53da28a4af0587cb917416003a02",
-    "records": 168,
+    "sourceSha256": "06f4fb892a8b90f7f3a835d0a1b45d997b36dadb32bb7da6a58a590f89494810",
+    "records": 169,
     "goalsAndGames": 75,
-    "milestones": 39,
+    "milestones": 40,
     "roadToHistory": 10,
-    "videos": 168,
+    "videos": 169,
     "sourceSheets": {
       "Goals & Games": 75,
-      "Milestones": 39,
+      "Milestones": 40,
       "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
@@ -9196,7 +9196,7 @@
       "videoUrl": "https://www.nhl.com/video/mtl-bos-mcavoy-scores-goal-against-canadiens-6341411012112",
       "videoProvider": "nhl",
       "videoId": "6341411012112",
-      "notes": "",
+      "notes": "Centennial Era Night: Big Bad Bruins (1960–1976).",
       "game": null,
       "wins": null,
       "losses": null,
@@ -9247,7 +9247,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Centennial Era Night: Big Bad Bruins (1960–1976).",
           "url": ""
         },
         {
@@ -9347,7 +9347,7 @@
         },
         {
           "label": "Last Updated",
-          "value": "",
+          "value": "2026-09-29",
           "url": ""
         },
         {
@@ -9372,7 +9372,7 @@
         },
         {
           "label": "Research Sources",
-          "value": "",
+          "value": "https://www.nhl.com/gamecenter/2023020258; https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-november-18; https://www.nhl.com/bruins/news/bruins-to-host-second-centennial-era-night-in-celebration-of-the-big-bad-bruins-1960-76-on-saturday-november-18",
           "url": ""
         },
         {
@@ -10045,7 +10045,7 @@
       "videoUrl": "https://www.nhl.com/video/mtl-bos-marchand-scores-goal-against-samuel-montembeault-6345281822112",
       "videoProvider": "nhl",
       "videoId": "6345281822112",
-      "notes": "",
+      "notes": "Centennial Era Night: New Blood, New Beginnings (1986–2000).",
       "game": null,
       "wins": null,
       "losses": null,
@@ -10096,7 +10096,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Centennial Era Night: New Blood, New Beginnings (1986–2000).",
           "url": ""
         },
         {
@@ -10196,7 +10196,7 @@
         },
         {
           "label": "Last Updated",
-          "value": "",
+          "value": "2026-09-29",
           "url": ""
         },
         {
@@ -10221,7 +10221,7 @@
         },
         {
           "label": "Research Sources",
-          "value": "",
+          "value": "https://www.nhl.com/gamecenter/2023020710; https://www.nhl.com/news/montreal-canadiens-boston-bruins-game-recap-january-20; https://www.nhl.com/bruins/news/topic/centennial/bruins-to-host-fourth-centennial-era-night-to-celebrate-new-blood-new-beginnings-1986-2000-on-january-20",
           "url": ""
         },
         {
@@ -29784,6 +29784,220 @@
         {
           "label": "Date Status",
           "value": "Verified game date",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "milestone-342",
+      "sourceSheet": "Milestones",
+      "sourceRow": 43,
+      "inventoryId": 342,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Milestone",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Bruins Centennial · Return of a Champion",
+      "date": "2024-03-07",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "TOR 1 @ BOS 4",
+      "puckType": "Game Used Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/tor-at-bos-recap-6348437197112",
+      "videoProvider": "nhl",
+      "videoId": "6348437197112",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics marking RG13316480. Supporting packaging label GUHKPK9343 matches the date, opponents and game-used designation; it is not a formal certificate and does not display the puck’s serial.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "342",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Milestone",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Bruins Centennial · Return of a Champion",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2024-03-07",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Toronto Maple Leafs",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics marking RG13316480. Supporting packaging label GUHKPK9343 matches the date, opponents and game-used designation; it is not a formal certificate and does not display the puck’s serial.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "TOR 1 @ BOS 4",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Researched / Photos Approved / Label Matched",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "Boston, Massachusetts",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/tor-at-bos-recap-6348437197112",
+          "url": "https://www.nhl.com/video/tor-at-bos-recap-6348437197112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/342/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/342/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/342/edge-01.webp; images/pucks/342/edge-02.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/342/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "Fanatics",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-29",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "333-front",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "333-back",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "333-edge-01; 333-edge-02",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "IMG_9774.JPG",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore; https://api-web.nhle.com/v1/gamecenter/2023020993/landing; https://www.nhl.com/bruins/news/bruins-to-host-fifth-centennial-era-night-to-celebrate-return-of-a-champion-2001-present-presented-by-coca-cola-zero-sugar; https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
           "url": ""
         }
       ]
