@@ -60,3 +60,6 @@ The existing `imageUrl` field remains supported as a legacy front-photo source w
 
 ### Warm-Up narrative policy
 Describe the game and Marchand’s role directly. Do not add boilerplate saying a Warm-Up Puck is not a goal puck or is not tied to a scoring play. Preserve genuine provenance conflicts, uncertain dates/use, and player non-participation.
+Do not repeat the puck-type label in a closing sentence or explain that the puck represents the game. Keep concrete event details, such as HFC branding, a ceremony, or a signature. Run `node scripts/test-marchand-stories.mjs` after narrative changes.
+
+The Complete Spreadsheet Record shows populated fields only. Preserve all source columns in the data; omit empty values and dash-only placeholders during rendering, while retaining zero values and populated links. Run `node scripts/test-marchand-source-record.mjs` after rendering changes.

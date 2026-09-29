@@ -735,6 +735,8 @@
     elements.provenance.textContent = `${collectionWing(record.sourceSheet)} · spreadsheet row ${record.sourceRow} · Inventory ID ${record.inventoryId}`;
     const fragment = document.createDocumentFragment();
     for (const field of record.sourceData || []) {
+      const sourceValue = String(field.value ?? "").trim();
+      if ((!sourceValue || /^[-–—]+$/.test(sourceValue)) && !String(field.url ?? "").trim()) continue;
       const item = document.createElement("div");
       item.className = "marchand-source-field";
       const label = document.createElement("span");
@@ -757,7 +759,7 @@
         else if (field.label === "Goalie Scored Against") value.textContent = goalieLabel(record) || "—";
         else if (field.label === "Goal Type") value.textContent = goalTypeLabel(field.value) || "—";
         else if (field.label === "Category" && ["Assist", "RS Point"].includes(record.category)) value.textContent = `🍎 ${shown}`;
-        else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown || "—";
+        else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown ?? "—";
       }
       item.append(label, value);
       fragment.append(item);
