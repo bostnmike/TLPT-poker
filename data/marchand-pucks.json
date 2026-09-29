@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "566eadd759c841a94168e8053fb71876bb699c4151f9967ae7276aadd65cac6d",
+    "sourceSha256": "8c9e208b1ff52c58aac9820aa53aebaac8ae53da28a4af0587cb917416003a02",
     "records": 168,
     "goalsAndGames": 75,
     "milestones": 39,
     "roadToHistory": 10,
-    "videos": 167,
+    "videos": 168,
     "sourceSheets": {
       "Goals & Games": 75,
       "Milestones": 39,
@@ -26567,10 +26567,10 @@
       "secondaryAssist": "",
       "score": "",
       "puckType": "Warm-Up Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
+      "videoLabel": "Rescheduled Game Highlights · February 10, 2022",
+      "videoUrl": "https://www.nhl.com/video/recap-car-6-bos-0-6336358911112",
+      "videoProvider": "nhl",
+      "videoId": "6336358911112",
       "notes": "COA dated February 10, 2022, for the rescheduled Bruins–Carolina Hockey Fights Cancer game. The puck carries the original December 21, 2021 date. Owner confirmed the certificate belongs to artifact #705.",
       "game": null,
       "wins": null,
@@ -26690,8 +26690,8 @@
         },
         {
           "label": "Video URL",
-          "value": "",
-          "url": ""
+          "value": "https://www.nhl.com/video/recap-car-6-bos-0-6336358911112",
+          "url": "https://www.nhl.com/video/recap-car-6-bos-0-6336358911112"
         },
         {
           "label": "Front Image Filename",
@@ -29586,9 +29586,9 @@
       "score": "MTL 3 @ FLA 2 - OT",
       "puckType": "Warm-Up Puck",
       "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112",
+      "videoUrl": "https://www.nhl.com/canadiens/video/mtl-at-fla-recap-6387090130112",
       "videoProvider": "nhl",
-      "videoId": "6387089638112",
+      "videoId": "6387090130112",
       "notes": "Pregame celebration of Brad Marchand’s 1,000th NHL point, reached November 13, 2025. Separate physical warm-up puck retained under artifact 713.",
       "game": null,
       "wins": null,
@@ -29708,8 +29708,8 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112",
-          "url": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112"
+          "value": "https://www.nhl.com/canadiens/video/mtl-at-fla-recap-6387090130112",
+          "url": "https://www.nhl.com/canadiens/video/mtl-at-fla-recap-6387090130112"
         },
         {
           "label": "Front Image Filename",

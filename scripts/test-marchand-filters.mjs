@@ -211,7 +211,7 @@ change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["video", 167], ["all", 168]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["video", 168], ["all", 168]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
