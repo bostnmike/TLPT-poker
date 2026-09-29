@@ -2121,3 +2121,19 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
   .marchand-vault-era-switcher .marchand-era-button{min-height:58px;padding:9px}
   .marchand-vault-era-switcher .marchand-era-button span{font-size:.54rem}
 }
+.marchand-page[data-hfc="true"],.marchand-dialog[data-hfc="true"],.marchand-watch-dialog[data-hfc="true"]{
+  --accent:#b69ad0;--gold:#cdb6e2;--gold-soft:#e6d8f1;--gold-deep:#583777;
+  --museum-accent:#c5a6df;--museum-accent-rgb:197,166,223;
+  --museum-secondary:#9871b7;--museum-secondary-rgb:152,113,183;
+  --museum-deep:#140d1b;--museum-velvet:#24172f;
+  --museum-border:rgba(197,166,223,.38);--museum-glow:rgba(197,166,223,.20);
+  --museum-page-top:#251332;--museum-page-middle:#160e20;--museum-page-bottom:#0d0912;
+  --museum-panel-top:#2c1c38;--museum-panel-bottom:#140d1c;--museum-control:#21162b;
+  --museum-stripe:linear-gradient(90deg,#593777,#b69ad0 50%,#593777);
+}
+.marchand-stat-card[data-collection-filter="Hockey Fights Cancer"]{border-color:#9871b7;color:#c5a6df}
+.marchand-stat-card[data-collection-filter="Hockey Fights Cancer"] strong{color:#c5a6df}
+.marchand-stat-card[data-collection-filter="Hockey Fights Cancer"][aria-pressed="true"]{background:#33213f;border-color:#c5a6df;box-shadow:inset 0 -3px 0 #c5a6df}
+select option[value="Hockey Fights Cancer"]{color:#c5a6df;background:#24172f}
+.marchand-dialog[data-hfc="true"] h3,.marchand-dialog[data-hfc="true"] h4,.marchand-watch-dialog[data-hfc="true"] h3{color:var(--museum-accent)}
+.marchand-dialog[data-hfc="true"] .marchand-game-stats{border-color:var(--museum-border)}

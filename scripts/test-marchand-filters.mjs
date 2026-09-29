@@ -171,11 +171,11 @@ assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 8);
-assert.equal(rows().length, 167);
+assert.equal(rows().length, 168);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
-assert.equal(rows().length, 49);
+assert.equal(rows().length, 50);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
 assert.equal(rows().length, 117);
@@ -205,13 +205,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 167);
+assert.equal(rows().length, 168);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 7], ["video", 166], ["all", 167]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["video", 167], ["all", 168]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -233,7 +233,7 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 167);
+assert.equal(rows().length, 168);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 

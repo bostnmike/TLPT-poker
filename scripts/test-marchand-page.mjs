@@ -52,12 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 167, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 168, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 39, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 166, "video count drifted");
+assert.equal(payload.meta.videos, 167, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
@@ -153,7 +153,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 117], ["Florida Panthers", 49], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 117], ["Florida Panthers", 50], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -213,10 +213,10 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260928-hfc-revisions/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260928-hfc-revisions/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20260928-coa/, "vault stylesheet cache key drifted");
-assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc-coa/, "vault script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260928-hfc713/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260928-hfc713/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20260928-hfc713/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
 assert.doesNotMatch(sitemap, /marchand\.html/, "hidden page must not appear in the sitemap");
@@ -354,7 +354,13 @@ assert.equal(payload.records.find(record => record.inventoryId === 49).category,
 assert.equal(payload.records.find(record => record.inventoryId === 49).careerStat, null);
 assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [705], "Only the postponed game may lack game video");
 assert.equal(payload.records.find(r => r.inventoryId === 510).sourceSheet, "Road to History");
-assert.ok(!payload.records.some(r => [61,713].includes(r.inventoryId)));
+assert.ok(!payload.records.some(r => r.inventoryId === 61));
+assert.equal(payload.records.find(r => r.inventoryId === 713).date, "2025-12-30");
+assert.equal(payload.records.find(r => r.inventoryId === 713).sourceSheet, "Warm-Up Pucks");
+assert.equal(payload.records.find(r => r.inventoryId === 50).seasonStat, 4);
+assert.match(payload.records.find(r => r.inventoryId === 50).notes, /Double Goal/);
+assert.match(payload.records.find(r => r.inventoryId === 74).notes, /Signed by all three/);
+assert.match(css, /\.marchand-page\[data-hfc="true"\]/);
 assert.equal(payload.records.find(r => r.inventoryId === 708).date, "2013-10-30");
 assert.equal(payload.records.find(r => r.inventoryId === 707).videoId, "6383485603112");
 assert.match(script, /artifact-hfc-logo/);

@@ -57,3 +57,6 @@ For every new puck photo intake:
 7. Run the site quality gates and verify the photo button opens the correct artifact, all views work, and a missing/failed front image shows the standard fallback. Publish and confirm the live site.
 
 The existing `imageUrl` field remains supported as a legacy front-photo source when no photo manifest entry exists. Photo mappings stay independent of canonical statistics, so regular spreadsheet imports do not remove them.
+
+### Warm-Up narrative policy
+Describe the game and Marchand’s role directly. Do not add boilerplate saying a Warm-Up Puck is not a goal puck or is not tied to a scoring play. Preserve genuine provenance conflicts, uncertain dates/use, and player non-participation.

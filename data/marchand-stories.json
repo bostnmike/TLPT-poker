@@ -2,8 +2,8 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-28",
-    "records": 167,
-    "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry. Game-used and warm-up artifacts are not attributed to a scoring play.",
+    "records": 168,
+    "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
   },
@@ -1337,14 +1337,22 @@
       "date": "2011-05-02",
       "team": "Boston Bruins",
       "gameId": 2010030222,
-      "title": "Marchand helps erase Philadelphia’s fast start",
+      "title": "Two goals, one puck, on the road to the Cup",
       "paragraphs": [
-        "Philadelphia led 2–0 before the game was ten minutes old. After Chris Kelly scored, Marchand tied it at 14:15 of the first period, with Bergeron and Mark Recchi assisting. Neither team scored again until David Krejci’s overtime winner gave Boston a 3–2 playoff victory."
+        "This rare Double Goal puck carries two scoring moments from Boston’s 2011 Stanley Cup run. Its Letter of Authenticity identifies Chris Kelly’s goal at 12:50 and Marchand’s equalizer at 14:15 of the first period — just 85 seconds apart. Bergeron and Mark Recchi assisted on Marchand’s fourth goal of the playoffs. Boston erased Philadelphia’s 2–0 lead and won 3–2 on David Krejci’s overtime goal."
       ],
       "sources": [
         {
           "label": "NHL game summary & box score",
           "url": "https://www.nhl.com/gamecenter/2010030222"
+        },
+        {
+          "label": "MeiGray Letter of Authenticity — Double Goal puck",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp"
+        },
+        {
+          "label": "2011 playoff scoring summary",
+          "url": "https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"
         }
       ],
       "verification": {
@@ -1976,7 +1984,7 @@
       "gameId": 2018020545,
       "title": "A Perfection Line power-play winner",
       "paragraphs": [
-        "Marchand broke a 2–2 tie against Nashville at 11:23 of the third period, with Pastrnak and Bergeron assisting. He also assisted on a goal by each linemate, finishing with three points and six shots. Boston scored the final three goals to win 5–2."
+        "Marchand broke a 2–2 tie against Nashville at 11:23 of the third period, with Pastrnak and Bergeron assisting. He also assisted on a goal by each linemate, finishing with three points and six shots. Boston scored the final three goals to win 5–2. The puck is signed by all three members of the Perfection Line: Marchand, Bergeron and Pastrnak."
       ],
       "sources": [
         {
@@ -3402,7 +3410,7 @@
       "gameId": 2024030121,
       "title": "A first playoff point in Panthers red",
       "paragraphs": [
-        "Marchand opened his first postseason with Florida by setting up Nate Schmidt’s second-period goal for a 3–1 lead. The Panthers went on to beat Tampa Bay 6–2. Marchand played 17:15, put two shots on goal and finished with an assist as Florida took the series opener on the road. This warm-up puck represents the game, not a specific goal."
+        "Marchand opened his first postseason with Florida by setting up Nate Schmidt’s second-period goal for a 3–1 lead. The Panthers went on to beat Tampa Bay 6–2. Marchand played 17:15, put two shots on goal and finished with an assist as Florida took the series opener on the road."
       ],
       "sources": [
         {
@@ -3429,7 +3437,7 @@
       "gameId": 2024030122,
       "title": "Two wins before the trip home",
       "paragraphs": [
-        "Marchand blocked two shots and delivered two hits in 17:10 as Florida shut out Tampa Bay 2–0. He did not record a point, but the Panthers left Tampa with both opening games won. The result gave his first playoff run with Florida a 2–0 series lead. This warm-up puck represents the game, not a specific goal."
+        "Marchand blocked two shots and delivered two hits in 17:10 as Florida shut out Tampa Bay 2–0. He did not record a point, but the Panthers left Tampa with both opening games won. The result gave his first playoff run with Florida a 2–0 series lead."
       ],
       "sources": [
         {
@@ -3456,7 +3464,7 @@
       "gameId": 2024030124,
       "title": "Marchand helps open the scoring",
       "paragraphs": [
-        "Marchand supplied the primary assist on Anton Lundell’s goal at 9:06 of the second period, putting Florida ahead first. The Panthers ultimately beat Tampa Bay 4–2 to move within one win of the second round. Marchand finished plus-two with an assist, two hits and a blocked shot. This warm-up puck represents the game, not a specific goal."
+        "Marchand supplied the primary assist on Anton Lundell’s goal at 9:06 of the second period, putting Florida ahead first. The Panthers ultimately beat Tampa Bay 4–2 to move within one win of the second round. Marchand finished plus-two with an assist, two hits and a blocked shot."
       ],
       "sources": [
         {
@@ -3483,7 +3491,7 @@
       "gameId": 2024030125,
       "title": "Two assists to close out Tampa Bay",
       "paragraphs": [
-        "Marchand helped set up Anton Lundell in the first period and Eetu Luostarinen in the third as Florida eliminated Tampa Bay with a 6–3 road win. His two assists brought his total to four for the five-game series. Florida advanced, and Marchand’s first playoff round as a Panther was complete. This warm-up puck represents the game, not a specific goal."
+        "Marchand helped set up Anton Lundell in the first period and Eetu Luostarinen in the third as Florida eliminated Tampa Bay with a 6–3 road win. His two assists brought his total to four for the five-game series. Florida advanced, and Marchand’s first playoff round as a Panther was complete."
       ],
       "sources": [
         {
@@ -3510,7 +3518,7 @@
       "gameId": 2024030211,
       "title": "Two assists in a comeback that fell short",
       "paragraphs": [
-        "Marchand assisted on goals by Eetu Luostarinen and Uvis Balinskis early in the third period, helping Florida cut Toronto’s 4–1 lead to 4–3. The Panthers could not finish the comeback and lost the second-round opener 5–4. Marchand’s two assists accounted for half of Florida’s goals. This warm-up puck represents the game, not a specific goal."
+        "Marchand assisted on goals by Eetu Luostarinen and Uvis Balinskis early in the third period, helping Florida cut Toronto’s 4–1 lead to 4–3. The Panthers could not finish the comeback and lost the second-round opener 5–4. Marchand’s two assists accounted for half of Florida’s goals."
       ],
       "sources": [
         {
@@ -3537,7 +3545,7 @@
       "gameId": 2024030213,
       "title": "The overtime winner Florida needed",
       "paragraphs": [
-        "Marchand scored at 15:27 of overtime to beat Toronto 5–4 and cut Florida’s series deficit to 2–1. Dmitry Kulikov and Carter Verhaeghe earned the assists. After 23:17 of ice time, Marchand ended a game the Panthers needed to avoid falling three games behind. This warm-up puck represents the game, not a specific goal."
+        "Marchand scored at 15:27 of overtime to beat Toronto 5–4 and cut Florida’s series deficit to 2–1. Dmitry Kulikov and Carter Verhaeghe earned the assists. After 23:17 of ice time, Marchand ended a game the Panthers needed to avoid falling three games behind."
       ],
       "sources": [
         {
@@ -3564,7 +3572,7 @@
       "gameId": 2024030214,
       "title": "Nearly 22 minutes to help tie the series",
       "paragraphs": [
-        "Marchand logged 21:58, three hits and two blocked shots as Florida shut out Toronto 2–0. He did not add a point after his overtime winner two nights earlier. The Panthers nevertheless drew level at two games apiece, turning the series into a best-of-three heading back to Toronto. This warm-up puck represents the game, not a specific goal."
+        "Marchand logged 21:58, three hits and two blocked shots as Florida shut out Toronto 2–0. He did not add a point after his overtime winner two nights earlier. The Panthers nevertheless drew level at two games apiece, turning the series into a best-of-three heading back to Toronto."
       ],
       "sources": [
         {
@@ -3591,7 +3599,7 @@
       "gameId": 2024030215,
       "title": "One win from the conference final",
       "paragraphs": [
-        "Marchand assisted on Sam Bennett’s third-period power-play goal as Florida beat Toronto 6–1 on the road. It was his seventh assist of the playoffs. The Panthers took a 3–2 series lead, putting Marchand one victory away from another trip to the Eastern Conference Final. This warm-up puck represents the game, not a specific goal."
+        "Marchand assisted on Sam Bennett’s third-period power-play goal as Florida beat Toronto 6–1 on the road. It was his seventh assist of the playoffs. The Panthers took a 3–2 series lead, putting Marchand one victory away from another trip to the Eastern Conference Final."
       ],
       "sources": [
         {
@@ -3618,7 +3626,7 @@
       "gameId": 2024030217,
       "title": "Three points in Game 7",
       "paragraphs": [
-        "Marchand assisted on goals by Anton Lundell and Eetu Luostarinen, then scored Florida’s sixth goal with 3:03 remaining. His three-point night helped the Panthers eliminate Toronto 6–1 in Game 7. He finished plus-three as Florida advanced to face Carolina in the Eastern Conference Final. This warm-up puck represents the game, not a specific goal."
+        "Marchand assisted on goals by Anton Lundell and Eetu Luostarinen, then scored Florida’s sixth goal with 3:03 remaining. His three-point night helped the Panthers eliminate Toronto 6–1 in Game 7. He finished plus-three as Florida advanced to face Carolina in the Eastern Conference Final."
       ],
       "sources": [
         {
@@ -3645,7 +3653,7 @@
       "gameId": 2024030311,
       "title": "A road win to start the next round",
       "paragraphs": [
-        "Marchand played 13:01 in Florida’s 5–2 win at Carolina to open the Eastern Conference Final. He was held without a point after his three-point Game 7 in Toronto. The Panthers still took the early series lead, leaving seven more wins between Marchand and a second Stanley Cup. This warm-up puck represents the game, not a specific goal."
+        "Marchand played 13:01 in Florida’s 5–2 win at Carolina to open the Eastern Conference Final. He was held without a point after his three-point Game 7 in Toronto. The Panthers still took the early series lead, leaving seven more wins between Marchand and a second Stanley Cup."
       ],
       "sources": [
         {
@@ -3672,7 +3680,7 @@
       "gameId": 2024030312,
       "title": "A second road win in Carolina",
       "paragraphs": [
-        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance. This warm-up puck represents the game, not a specific goal."
+        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance."
       ],
       "sources": [
         {
@@ -3699,7 +3707,7 @@
       "gameId": 2024030312,
       "title": "A second road win in Carolina",
       "paragraphs": [
-        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance. This warm-up puck represents the game, not a specific goal."
+        "Marchand played 14:01 as Florida shut out Carolina 5–0 and took a 2–0 lead in the Eastern Conference Final. He finished without a goal or assist. The Panthers had won both games in Raleigh, bringing Marchand two victories from another Stanley Cup Final appearance."
       ],
       "sources": [
         {
@@ -3726,7 +3734,7 @@
       "gameId": 2024030314,
       "title": "The sweep slips away",
       "paragraphs": [
-        "Marchand played 17:27, but neither he nor another Panther could beat Carolina in a 3–0 home loss. Florida’s first chance to finish the Eastern Conference Final ended without a goal. The Panthers still led the series 3–1 and would get another chance to advance in Raleigh. This warm-up puck represents the game, not a specific goal."
+        "Marchand played 17:27, but neither he nor another Panther could beat Carolina in a 3–0 home loss. Florida’s first chance to finish the Eastern Conference Final ended without a goal. The Panthers still led the series 3–1 and would get another chance to advance in Raleigh."
       ],
       "sources": [
         {
@@ -3753,7 +3761,7 @@
       "gameId": 2024030315,
       "title": "An assist on the way to another Final",
       "paragraphs": [
-        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This warm-up puck represents the game, not a specific goal."
+        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton."
       ],
       "sources": [
         {
@@ -3780,7 +3788,7 @@
       "gameId": 2024030315,
       "title": "An assist on the way to another Final",
       "paragraphs": [
-        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton. This warm-up puck represents the game, not a specific goal."
+        "Marchand assisted on Anton Lundell’s goal at 11:59 of the second period, giving Florida a 3–2 lead. The Panthers won 5–3 in Carolina to finish the series in five games. Marchand was headed back to the Stanley Cup Final, this time with Florida facing Edmonton."
       ],
       "sources": [
         {
@@ -3807,7 +3815,7 @@
       "gameId": 2024030412,
       "title": "Short-handed first, then the double-overtime winner",
       "paragraphs": [
-        "Marchand put Florida ahead with a short-handed goal in the second period, then scored again at 8:05 of double overtime to seal a 5–4 win in Edmonton. Both goals came with assists from Anton Lundell. Marchand’s seven shots and two goals helped tie the Stanley Cup Final at one game each. This warm-up puck represents the game, not a specific goal."
+        "Marchand put Florida ahead with a short-handed goal in the second period, then scored again at 8:05 of double overtime to seal a 5–4 win in Edmonton. Both goals came with assists from Anton Lundell. Marchand’s seven shots and two goals helped tie the Stanley Cup Final at one game each."
       ],
       "sources": [
         {
@@ -3834,7 +3842,7 @@
       "gameId": 2024030413,
       "title": "On the board in 56 seconds",
       "paragraphs": [
-        "Marchand needed just 56 seconds to open the scoring in Game 3, finishing a play assisted by Anton Lundell and Eetu Luostarinen. Florida went on to beat Edmonton 6–1. Coming straight after his double-overtime winner, the early goal helped give the Panthers a 2–1 lead in the Final. This warm-up puck represents the game, not a specific goal."
+        "Marchand needed just 56 seconds to open the scoring in Game 3, finishing a play assisted by Anton Lundell and Eetu Luostarinen. Florida went on to beat Edmonton 6–1. Coming straight after his double-overtime winner, the early goal helped give the Panthers a 2–1 lead in the Final."
       ],
       "sources": [
         {
@@ -3861,7 +3869,7 @@
       "gameId": 2024030415,
       "title": "Two goals, one win from the Cup",
       "paragraphs": [
-        "Marchand opened the scoring at 9:12 of the first period and struck again at 5:12 of the third to put Florida ahead 3–0. The Panthers beat Edmonton 5–2, with his second goal standing as the winner. His two-goal night put Florida one victory from the championship. This warm-up puck represents the game, not a specific goal."
+        "Marchand opened the scoring at 9:12 of the first period and struck again at 5:12 of the third to put Florida ahead 3–0. The Panthers beat Edmonton 5–2, with his second goal standing as the winner. His two-goal night put Florida one victory from the championship."
       ],
       "sources": [
         {
@@ -3888,7 +3896,7 @@
       "gameId": 2024030416,
       "title": "A second Stanley Cup for Marchand",
       "paragraphs": [
-        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games."
       ],
       "sources": [
         {
@@ -3915,7 +3923,7 @@
       "gameId": 2024030416,
       "title": "A second Stanley Cup for Marchand",
       "paragraphs": [
-        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games."
       ],
       "sources": [
         {
@@ -3942,7 +3950,7 @@
       "gameId": 2024030416,
       "title": "A second Stanley Cup for Marchand",
       "paragraphs": [
-        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games. This warm-up puck represents the game, not a specific goal."
+        "Marchand lifted the Stanley Cup again after Florida beat Edmonton 5–1 to finish the Final in six games. He did not record a point in the clincher, contributing three hits, two shots and a blocked shot in 15:12. His playoff total stood at 10 goals and 10 assists across 23 games."
       ],
       "sources": [
         {
@@ -4129,7 +4137,7 @@
       "gameId": 2025020001,
       "title": "The championship goes into the rafters",
       "paragraphs": [
-        "Marchand returned for opening night as Florida raised its 2025 championship banner before facing Chicago. He played 20:10 and put four shots on goal in a 3–2 Panthers win. This game belongs to the following regular season, but its ceremony provides the closing scene for the Road to Repeat collection. This warm-up puck represents the game, not a specific goal."
+        "Marchand returned for opening night as Florida raised its 2025 championship banner before facing Chicago. He played 20:10 and put four shots on goal in a 3–2 Panthers win. This game belongs to the following regular season, but its ceremony provides the closing scene for the Road to Repeat collection."
       ],
       "sources": [
         {
@@ -4222,7 +4230,7 @@
       "gameId": 2024021153,
       "title": "An overtime assist in his Panthers debut",
       "paragraphs": [
-        "Marchand’s first game with Florida ended with an assist on Sam Bennett’s overtime winner at 4:18. The Panthers beat Utah Hockey Club 2–1 at home. Marchand recorded four shots, two hits and two blocked shots in 16:30. This warm-up puck marks his debut, not the scoring play that decided it."
+        "Marchand’s first game with Florida ended with an assist on Sam Bennett’s overtime winner at 4:18. The Panthers beat Utah Hockey Club 2–1 at home. Marchand recorded four shots, two hits and two blocked shots in 16:30. This warm-up puck marks his Panthers debut."
       ],
       "sources": [
         {
@@ -4475,7 +4483,7 @@
       "gameId": 2025020103,
       "title": "Two assists on his return to Boston",
       "paragraphs": [
-        "Marchand returned to TD Garden as a Panther and set up goals by Mackie Samoskevich and Eetu Luostarinen. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds remaining. This warm-up puck marks the return game; it is separate from the goal-scored puck with Marchand’s assist catalogued as artifact 59."
+        "Marchand returned to TD Garden as a Panther and set up goals by Mackie Samoskevich and Eetu Luostarinen. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds remaining. This warm-up puck marks his return to TD Garden."
       ],
       "sources": [
         {
@@ -4805,6 +4813,41 @@
           "points": 0,
           "shots": 1,
           "toi": "20:38"
+        }
+      }
+    },
+    "warmup-713": {
+      "inventoryId": 713,
+      "date": "2025-12-30",
+      "team": "Florida Panthers",
+      "gameId": 2025020618,
+      "title": "A goal on his 1,000-point celebration night",
+      "paragraphs": [
+        "Florida celebrated Marchand’s 1,000th NHL point before facing Montreal. He added another that night, opening the scoring on the power play at 10:18 of the third period. Sam Bennett and Seth Jones supplied the assists. Marchand finished with four shots in 19:09, but Montreal erased Florida’s two-goal lead and won 3–2 in overtime."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020618"
+        },
+        {
+          "label": "Panthers game recap",
+          "url": "https://www.nhl.com/panthers/news/recap-canadiens-3-panthers-2-ot-x1174"
+        },
+        {
+          "label": "Panthers pregame celebration announcement",
+          "url": "https://www.nhl.com/panthers/news/florida-panthers-to-honor-brad-marchand-s-1-000th-point-in-pregame-ceremony-on-tuesday-dec-30-against-the-montreal-canadiens"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020618/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020618/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 0,
+          "points": 1,
+          "shots": 4,
+          "toi": "19:09"
         }
       }
     }

@@ -515,6 +515,7 @@
   }
 
   function render() {
+    elements.body.dataset.hfc = String(elements.sheet.value === "Hockey Fights Cancer");
     state.filtered = sortedRecords(filteredRecords());
     const count = state.filtered.length;
     elements.resultCount.textContent = count;
@@ -861,6 +862,7 @@
     const playerUrl = embedUrl(record);
     if (!playerUrl) return;
     elements.watchDialog.dataset.team = teamEra(record.team);
+    elements.watchDialog.dataset.hfc = String(Boolean(record.hockeyFightsCancer));
     elements.watchDialogTitle.textContent = recordTitle(record);
     elements.watchDialogSubtitle.textContent = [displayDate(record.date), record.team, record.opponent, record.arena].filter(Boolean).join(" · ");
     elements.watchFrame.src = playerUrl;
@@ -884,7 +886,11 @@
       elements.storyCopy.append(paragraph);
     }
     for (const source of story?.sources || []) {
-      if (!/^https:\/\/(?:[a-z0-9-]+\.)*nhle?\.com\//i.test(source.url)) continue;
+      const approvedArtifactEvidence = record.inventoryId === 50 && [
+        "https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp",
+        "https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"
+      ].includes(source.url);
+      if (!approvedArtifactEvidence && !/^https:\/\/(?:[a-z0-9-]+\.)*nhle?\.com\//i.test(source.url)) continue;
       const link = document.createElement("a");
       link.href = source.url;
       link.textContent = source.label;
@@ -936,6 +942,7 @@
     updatePuckNavigation(record);
     const era = teamEra(record.team);
     elements.dialog.dataset.team = era;
+    elements.dialog.dataset.hfc = String(Boolean(record.hockeyFightsCancer));
     elements.dialogCrest.replaceChildren(createCrest(era));
     elements.dialogNumber.textContent = `Artifact No. ${record.inventoryId}`;
     elements.dialogTeam.textContent = record.team || "Collection";

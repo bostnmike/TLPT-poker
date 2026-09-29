@@ -165,6 +165,7 @@
       return b.count - a.count || b.records.length - a.records.length || a.label.localeCompare(b.label);
     });
     if (!shown.some((group) => group.label === state.selected)) state.selected = "";
+    document.body.dataset.hfc = String(state.view === "sheets" && state.selected === "Hockey Fights Cancer");
     elements.history.hidden = !(state.view === "sheets" && state.selected === "Road to History");
     elements.repeat.hidden = !(state.view === "sheets" && state.selected === "Road to Repeat");
     elements.resultCount.textContent = records.length;

@@ -1,23 +1,23 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "4f496916dcb527928d01112ed1980b52853ef27ea8b32e6e98e4517a46c506ba",
-    "records": 167,
+    "sourceSha256": "b7f2f9c861c43ba88fe666a3246b119753eee2e10799b4a5ac3597c6e786237b",
+    "records": 168,
     "goalsAndGames": 75,
     "milestones": 39,
     "roadToHistory": 10,
-    "videos": 166,
+    "videos": 167,
     "sourceSheets": {
       "Goals & Games": 75,
       "Milestones": 39,
       "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
-      "Warm-Up Pucks": 7
+      "Warm-Up Pucks": 8
     },
     "roadToRepeat": 27,
     "hockeyFightsCancer": 9,
-    "warmUpPucks": 7,
+    "warmUpPucks": 8,
     "hfcExhibitCount": 10
   },
   "records": [
@@ -6397,7 +6397,7 @@
       "team": "Boston Bruins",
       "category": "PO Goal",
       "careerStat": 4,
-      "seasonStat": 1,
+      "seasonStat": 4,
       "description": "",
       "date": "2011-05-02",
       "arena": "Wells Fargo Center",
@@ -6412,8 +6412,8 @@
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.youtube.com/watch?v=nWBe3NU_oMw",
       "videoProvider": "youtube",
-      "videoId": "WcB4Tg-_m7M",
-      "notes": "",
+      "videoId": "nWBe3NU_oMw",
+      "notes": "Rare Double Goal puck from Boston’s 2011 Stanley Cup run. The MeiGray Letter of Authenticity identifies this same puck with Chris Kelly’s goal at 12:50 and Brad Marchand’s goal at 14:15 of the first period on May 2, 2011 — 85 seconds apart. Marchand’s fourth career playoff goal and fourth of the 2011 playoffs.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -6450,7 +6450,7 @@
         },
         {
           "label": "Season Stat",
-          "value": "1",
+          "value": "4",
           "url": ""
         },
         {
@@ -6510,7 +6510,7 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Rare Double Goal puck from Boston’s 2011 Stanley Cup run. The MeiGray Letter of Authenticity identifies this same puck with Chris Kelly’s goal at 12:50 and Brad Marchand’s goal at 14:15 of the first period on May 2, 2011 — 85 seconds apart. Marchand’s fourth career playoff goal and fourth of the 2011 playoffs.",
           "url": ""
         },
         {
@@ -17653,7 +17653,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection Line",
+          "value": "Perfection Line. Signed by all three members: Brad Marchand, Patrice Bergeron and David Pastrnak. Signature detail confirmed by the collection owner.",
           "url": ""
         },
         {
@@ -17679,7 +17679,7 @@
       "secondaryAssist": "PB37",
       "score": "Nashville 2 @ Boston 5",
       "puckType": "Goal Scored Puck",
-      "notes": "Perfection Line",
+      "notes": "Perfection Line. Signed by all three members: Brad Marchand, Patrice Bergeron and David Pastrnak. Signature detail confirmed by the collection owner.",
       "goalieScoredAgainst": "Pekka Rinne",
       "playerCodes": [
         "DP88",
@@ -25451,7 +25451,7 @@
       "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
       "videoProvider": "nhl",
       "videoId": "6340192937112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -25505,7 +25505,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
           "url": ""
         },
         {
@@ -25675,7 +25675,7 @@
       "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
       "videoProvider": "nhl",
       "videoId": "6340192937112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -25729,7 +25729,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play. Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
           "url": ""
         },
         {
@@ -25899,7 +25899,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336382515112",
       "videoProvider": "nhl",
       "videoId": "6336382515112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -25953,7 +25953,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -26123,7 +26123,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336345237112",
       "videoProvider": "nhl",
       "videoId": "6336345237112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Marchand did not play in this game.",
+      "notes": "Marchand did not play in this game.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -26177,7 +26177,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play. Marchand did not play in this game.",
+          "value": "Marchand did not play in this game.",
           "url": ""
         },
         {
@@ -26347,7 +26347,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=BpLhsfZ34yg",
       "videoProvider": "youtube",
       "videoId": "BpLhsfZ34yg",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play. A silver signature is visible on the reverse; signer not verified.",
+      "notes": "A silver signature is visible on the reverse; signer not verified.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -26401,7 +26401,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play. A silver signature is visible on the reverse; signer not verified.",
+          "value": "A silver signature is visible on the reverse; signer not verified.",
           "url": ""
         },
         {
@@ -26795,7 +26795,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336344185112",
       "videoProvider": "nhl",
       "videoId": "6336344185112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -26849,7 +26849,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -27019,7 +27019,7 @@
       "videoUrl": "https://www.nhl.com/video/marchand-returns-to-boston-6383485603112",
       "videoProvider": "nhl",
       "videoId": "6383485603112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -27073,7 +27073,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -27467,7 +27467,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336368153112",
       "videoProvider": "nhl",
       "videoId": "6336368153112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -27521,7 +27521,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -27691,7 +27691,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336333995112",
       "videoProvider": "nhl",
       "videoId": "6336333995112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play. Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
+      "notes": "Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -27745,7 +27745,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play. Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
+          "value": "Certificate IMG_9507 matches Seattle and warm-up usage under the owner’s two-point rule, but its serial MGA29674 differs from the photographed puck marking, which appears to read MGA29574. The certificate is supplementary evidence with this conflict disclosed.",
           "url": ""
         },
         {
@@ -27915,7 +27915,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336403097112",
       "videoProvider": "nhl",
       "videoId": "6336403097112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -27969,7 +27969,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -28265,7 +28265,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6341136127112",
       "videoProvider": "nhl",
       "videoId": "6341136127112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -28319,7 +28319,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -28489,7 +28489,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6363510168112",
       "videoProvider": "nhl",
       "videoId": "6363510168112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -28543,7 +28543,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -28713,7 +28713,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6336403797112",
       "videoProvider": "nhl",
       "videoId": "6336403797112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -28767,7 +28767,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -28937,7 +28937,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6388308408112",
       "videoProvider": "nhl",
       "videoId": "6388308408112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
+      "notes": "",
       "game": null,
       "wins": null,
       "losses": null,
@@ -28991,7 +28991,7 @@
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
+          "value": "",
           "url": ""
         },
         {
@@ -29560,6 +29560,230 @@
         {
           "label": "Intake Date (As Submitted)",
           "value": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "warmup-713",
+      "sourceSheet": "Warm-Up Pucks",
+      "sourceRow": 6,
+      "inventoryId": 713,
+      "homeRoad": "Home",
+      "team": "Florida Panthers",
+      "category": "Warm-Up",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "1,000-Point Celebration · Warm-Up Puck",
+      "date": "2025-12-30",
+      "arena": "Amerant Bank Arena",
+      "opponent": "Montreal Canadiens",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "MTL 3 @ FLA 2 - OT",
+      "puckType": "Warm-Up Puck",
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112",
+      "videoProvider": "nhl",
+      "videoId": "6387089638112",
+      "notes": "Pregame celebration of Brad Marchand’s 1,000th NHL point, reached November 13, 2025. Separate physical warm-up puck retained under artifact 713.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "713",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Warm-Up",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "1,000-Point Celebration · Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2025-12-30",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Amerant Bank Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Montreal Canadiens",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Warm-Up Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Pregame celebration of Brad Marchand’s 1,000th NHL point, reached November 13, 2025. Separate physical warm-up puck retained under artifact 713.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "MTL 3 @ FLA 2 - OT",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Published",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "Sunrise",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112",
+          "url": "https://www.nhl.com/video/topic/game-recaps/mtl-at-fla-recap-6387089638112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/713/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/713/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-28",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "713-front.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "713-back.jpg",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://www.nhl.com/gamecenter/2025020618\nhttps://www.nhl.com/panthers/news/recap-canadiens-3-panthers-2-ot-x1174\nhttps://www.nhl.com/panthers/news/florida-panthers-to-honor-brad-marchand-s-1-000th-point-in-pregame-ceremony-on-tuesday-dec-30-against-the-montreal-canadiens",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hockey Fights Cancer",
+          "value": "No",
+          "url": ""
+        },
+        {
+          "label": "Date Status",
+          "value": "Verified game date",
           "url": ""
         }
       ]

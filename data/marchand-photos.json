@@ -4963,6 +4963,19 @@
         "rotation": 0
       }
     ],
+    "713": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/713/front.webp?v=ace8c09cb8ec",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/713/front-thumb.webp?v=0ba32222afd9"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/713/back.webp?v=7e6ba7b67a26",
+        "rotation": 0
+      }
+    ],
     "714": [
       {
         "label": "Front",
@@ -5020,7 +5033,7 @@
     "date": "2026-09-27",
     "views": 107,
     "method": "Individually measured and visually reviewed exported pixels. Rotation baked into full-resolution files; runtime rotation is zero. Original files preserved in private audit backup. Perspective and wear unchanged.",
-    "latestBatch": "2026-09-28: replacements for 59 and 334, individually reviewed after Adobe non-generative tone, crop and cutout; backs and edge rotated upright. COAs preserved."
+    "latestBatch": "2026-09-28: New artifact 713 front and back processed from full-resolution originals with approved Adobe tone/crop treatment, transparent background, individually checked leveling; front corrected +3 degrees. Lossless WebP masters."
   },
   "photoLibrary": {
     "baseUrl": "https://bostnmike.github.io/marchand-puck-images/",

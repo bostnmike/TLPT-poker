@@ -1813,6 +1813,18 @@
     "images/pucks/510/front.webp": {
       "bytes": 4117174,
       "sha256": "c508d48174d8422715bf9c39ed29d014a3c149601f27677f74cbdd81916880ea"
+    },
+    "images/pucks/713/front.webp": {
+      "bytes": 3106616,
+      "sha256": "ace8c09cb8ec868e99b98ce2c7006f1d5e230b5a1bed46370664a8dd6754361a"
+    },
+    "images/pucks/713/front-thumb.webp": {
+      "bytes": 130388,
+      "sha256": "0ba32222afd92d0599f67facaec807c7f98e70e075fe3890da9325abbcccdeb8"
+    },
+    "images/pucks/713/back.webp": {
+      "bytes": 3527264,
+      "sha256": "7e6ba7b67a2645b5ed51dd744a636d66161293a060f426a9dfa788d326dc3593"
     }
   }
 }
