@@ -31,7 +31,15 @@ for (const record of records) {
     assert.ok(/(^|\.)nhle?\.com$/.test(url.hostname) || rescheduledHfcSource || (record.inventoryId === 50 && ["https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp","https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"].includes(source.url)), "Source must be NHL or the verified artifact-specific evidence");
     assert.ok(source.label.length > 5);
   }
-  if (!story.gameId) { assert.ok(["Postponed","Unresolved"].includes(story.verification.status)); continue; }
+  if (!story.gameId) {
+    if (record.inventoryId === 705) {
+      assert.equal(story.verification.status, "Rescheduled; COA matched");
+      assert.equal(story.verification.coaDate, "2022-02-10");
+      assert.equal(record.sourceData.find(field => field.label === "COA Filename").value, "images/pucks/705/coa.webp");
+      assert.doesNotMatch(record.notes, /not established|unverified/i);
+    } else assert.ok(["Postponed","Unresolved"].includes(story.verification.status));
+    continue;
+  }
   assert.equal(story.verification.scoring, `https://api-web.nhle.com/v1/gamecenter/${story.gameId}/landing`);
   assert.equal(story.verification.boxscore, `https://api-web.nhle.com/v1/gamecenter/${story.gameId}/boxscore`);
   const stats = story.verification.marchand;

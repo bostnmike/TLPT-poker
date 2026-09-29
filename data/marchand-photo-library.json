@@ -1825,6 +1825,10 @@
     "images/pucks/713/back.webp": {
       "bytes": 3527264,
       "sha256": "7e6ba7b67a2645b5ed51dd744a636d66161293a060f426a9dfa788d326dc3593"
+    },
+    "images/pucks/705/coa.webp": {
+      "bytes": 286396,
+      "sha256": "1dac406ab0df94206d6c699d150cd4c855f1a41f68a92cd773704d3c16878ae6"
     }
   }
 }

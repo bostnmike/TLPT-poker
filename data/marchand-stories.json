@@ -4454,10 +4454,12 @@
         }
       ],
       "verification": {
-        "status": "Postponed",
+        "status": "Rescheduled; COA matched",
         "originalScheduledDate": "2021-12-21",
         "rescheduledGameDate": "2022-02-10",
-        "marchandParticipation": "Did not play; suspended"
+        "marchandParticipation": "Did not play; suspended",
+        "coaDate": "2022-02-10",
+        "coaAssociation": "Owner confirmed artifact #705"
       }
     },
     "hfc-706": {

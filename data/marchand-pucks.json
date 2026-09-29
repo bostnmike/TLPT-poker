@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "b7f2f9c861c43ba88fe666a3246b119753eee2e10799b4a5ac3597c6e786237b",
+    "sourceSha256": "103abff0421bf661852966f691897a72d71b236430dcb3f3c946e09d00200468",
     "records": 168,
     "goalsAndGames": 75,
     "milestones": 39,
@@ -26556,7 +26556,7 @@
       "category": "Hockey Fights Cancer",
       "careerStat": null,
       "seasonStat": null,
-      "description": "HFC Warm-Up Puck · Postponed Game",
+      "description": "HFC Warm-Up Puck · Rescheduled Game",
       "date": "2021-12-21",
       "arena": "TD Garden",
       "opponent": "Carolina Hurricanes",
@@ -26571,7 +26571,7 @@
       "videoUrl": "",
       "videoProvider": "",
       "videoId": "",
-      "notes": "Printed event date only: the scheduled game was postponed. Actual warm-up use date is not established.",
+      "notes": "COA dated February 10, 2022, for the rescheduled Bruins–Carolina Hockey Fights Cancer game. The puck carries the original December 21, 2021 date. Owner confirmed the certificate belongs to artifact #705.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -26581,7 +26581,7 @@
         "BM63"
       ],
       "hockeyFightsCancer": true,
-      "dateStatus": "Printed date; game postponed",
+      "dateStatus": "Printed December 21, 2021; COA / rescheduled game February 10, 2022",
       "sourceData": [
         {
           "label": "ID #",
@@ -26600,7 +26600,7 @@
         },
         {
           "label": "Description",
-          "value": "HFC Warm-Up Puck · Postponed Game",
+          "value": "HFC Warm-Up Puck · Rescheduled Game",
           "url": ""
         },
         {
@@ -26625,7 +26625,7 @@
         },
         {
           "label": "Notes",
-          "value": "Printed event date only: the scheduled game was postponed. Actual warm-up use date is not established.",
+          "value": "COA dated February 10, 2022, for the rescheduled Bruins–Carolina Hockey Fights Cancer game. The puck carries the original December 21, 2021 date. Owner confirmed the certificate belongs to artifact #705.",
           "url": ""
         },
         {
@@ -26640,7 +26640,7 @@
         },
         {
           "label": "Workflow Status",
-          "value": "Printed Date / Use Unverified",
+          "value": "COA Matched / Owner Confirmed",
           "url": ""
         },
         {
@@ -26710,7 +26710,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/705/coa.webp",
           "url": ""
         },
         {
@@ -26745,12 +26745,12 @@
         },
         {
           "label": "Original COA Filename",
-          "value": "",
+          "value": "IMG_9497.JPG",
           "url": ""
         },
         {
           "label": "Research Sources",
-          "value": "https://www.nhl.com/bruins/news/bruins-games-postponed-through-december-26-329129222",
+          "value": "https://www.nhl.com/bruins/news/bruins-games-postponed-through-december-26-329129222; https://www.boston.com/things-to-do/events/bruins-bringing-the-fight-to-cancer-and-the-carolina-hurricanes/; https://www.nhl.com/bruins/news/need-to-know-bruins-vs-hurricanes-330668716",
           "url": ""
         },
         {
@@ -26765,7 +26765,7 @@
         },
         {
           "label": "Date Status",
-          "value": "Printed date; game postponed",
+          "value": "Printed December 21, 2021; COA / rescheduled game February 10, 2022",
           "url": ""
         }
       ]
