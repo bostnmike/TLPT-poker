@@ -115,11 +115,11 @@ assert.ok(!element("vault-breakdown-body").textContent.includes("Empty net (no g
 assert.ok(element("vault-breakdown-body").textContent.includes("Warm-Up Puck"));
 const road = summaryRows().find((row) => label(row) === "Road to History");
 assert.equal(road.children[1].textContent, "8");
-assert.equal(road.children[2].textContent, "9");
+assert.equal(road.children[2].textContent, "10");
 open("Road to History");
 assert.equal(element("vault-history-story").hidden, false);
 assert.equal(element("vault-history-story").scrolled, true);
-assert.equal(details().find((row) => !row.hidden).querySelectorAll(".marchand-explorer-puck").length, 9);
+assert.equal(details().find((row) => !row.hidden).querySelectorAll(".marchand-explorer-puck").length, 10);
 open("Road to Repeat");
 assert.equal(element("vault-repeat-story").hidden, false);
 assert.equal(element("vault-history-story").hidden, true);

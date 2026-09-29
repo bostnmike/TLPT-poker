@@ -81,6 +81,7 @@
     "Nationwide Arena": "Columbus, Ohio",
     "PNC Arena": "Raleigh, North Carolina",
     "PPG Paints Arena": "Pittsburgh, Pennsylvania",
+    "CONSOL Energy Center": "Pittsburgh, Pennsylvania",
     "Prudential Center": "Newark, New Jersey",
     "Rogers Arena": "Vancouver, British Columbia, Canada",
     "Rogers Place": "Edmonton, Alberta, Canada",
@@ -940,6 +941,7 @@
     elements.dialogTeam.textContent = record.team || "Collection";
     elements.dialogTitle.textContent = recordTitle(record);
     elements.dialogSubtitle.textContent = [displayDate(record.date), record.arena, record.opponent].filter(Boolean).join(" · ");
+    document.getElementById("artifact-hfc-logo").hidden = !record.hockeyFightsCancer;
     elements.dialogFacts.replaceChildren();
     renderPuckPhoto(record);
     renderGameStory(record);

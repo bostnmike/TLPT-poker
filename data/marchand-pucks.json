@@ -5,19 +5,19 @@
     "records": 167,
     "goalsAndGames": 75,
     "milestones": 39,
-    "roadToHistory": 9,
-    "videos": 165,
+    "roadToHistory": 10,
+    "videos": 166,
     "sourceSheets": {
       "Goals & Games": 75,
       "Milestones": 39,
-      "Road to History": 9,
+      "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
-      "Warm-Up Pucks": 8
+      "Warm-Up Pucks": 7
     },
     "roadToRepeat": 27,
     "hockeyFightsCancer": 9,
-    "warmUpPucks": 8,
+    "warmUpPucks": 7,
     "hfcExhibitCount": 10
   },
   "records": [
@@ -27015,10 +27015,10 @@
       "secondaryAssist": "",
       "score": "FLA 4 @ BOS 3",
       "puckType": "Warm-Up Puck",
-      "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.nhl.com/video/c-6383497383112",
+      "videoLabel": "Welcome Back to Boston",
+      "videoUrl": "https://www.nhl.com/video/marchand-returns-to-boston-6383485603112",
       "videoProvider": "nhl",
-      "videoId": "6383497383112",
+      "videoId": "6383485603112",
       "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
       "game": null,
       "wins": null,
@@ -27138,8 +27138,8 @@
         },
         {
           "label": "Video URL",
-          "value": "https://www.nhl.com/video/c-6383497383112",
-          "url": "https://www.nhl.com/video/c-6383497383112"
+          "value": "https://www.nhl.com/video/marchand-returns-to-boston-6383485603112",
+          "url": "https://www.nhl.com/video/marchand-returns-to-boston-6383485603112"
         },
         {
           "label": "Front Image Filename",
@@ -27223,27 +27223,27 @@
       "sourceSheet": "Hockey Fights Cancer",
       "sourceRow": 9,
       "inventoryId": 708,
-      "homeRoad": "",
+      "homeRoad": "Road",
       "team": "Boston Bruins",
       "category": "Hockey Fights Cancer",
       "careerStat": null,
       "seasonStat": null,
-      "description": "Pittsburgh HFC · Undated Game-Used Puck",
-      "date": "",
-      "arena": "Unverified",
+      "description": "Pittsburgh Hockey Fights Cancer · Game-Used Puck",
+      "date": "2013-10-30",
+      "arena": "CONSOL Energy Center",
       "opponent": "Pittsburgh Penguins",
       "period": "",
       "time": "",
       "goalType": "",
       "primaryAssist": "",
       "secondaryAssist": "",
-      "score": "",
+      "score": "Boston 2 @ Pittsburgh 3",
       "puckType": "Game Used Puck",
-      "videoLabel": "",
-      "videoUrl": "",
-      "videoProvider": "",
-      "videoId": "",
-      "notes": "Owner identifies a game-used HFC puck vs. Pittsburgh. No date or unique serial is visible; game attribution remains unresolved.",
+      "videoLabel": "Game Footage",
+      "videoUrl": "https://www.youtube.com/watch?v=thyZzfvmliU",
+      "videoProvider": "youtube",
+      "videoId": "thyZzfvmliU",
+      "notes": "Game date supplied by the owner on September 28, 2026. NHL game records verify the matchup and Marchand’s assist. The NHL–MeiGray auction record confirms Pittsburgh’s Hockey Fights Cancer Awareness Night on October 30, 2013.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -27253,7 +27253,7 @@
         "BM63"
       ],
       "hockeyFightsCancer": true,
-      "dateStatus": "Unknown",
+      "dateStatus": "Owner-confirmed date; game verified",
       "sourceData": [
         {
           "label": "ID #",
@@ -27272,17 +27272,17 @@
         },
         {
           "label": "Description",
-          "value": "Pittsburgh HFC · Undated Game-Used Puck",
+          "value": "Pittsburgh Hockey Fights Cancer · Game-Used Puck",
           "url": ""
         },
         {
           "label": "Date",
-          "value": "",
+          "value": "2013-10-30",
           "url": ""
         },
         {
           "label": "Arena",
-          "value": "Unverified",
+          "value": "CONSOL Energy Center",
           "url": ""
         },
         {
@@ -27297,22 +27297,22 @@
         },
         {
           "label": "Notes",
-          "value": "Owner identifies a game-used HFC puck vs. Pittsburgh. No date or unique serial is visible; game attribution remains unresolved.",
+          "value": "Game date supplied by the owner on September 28, 2026. NHL game records verify the matchup and Marchand’s assist. The NHL–MeiGray auction record confirms Pittsburgh’s Hockey Fights Cancer Awareness Night on October 30, 2013.",
           "url": ""
         },
         {
           "label": "Home/Road",
-          "value": "",
+          "value": "Road",
           "url": ""
         },
         {
           "label": "Score",
-          "value": "",
+          "value": "Boston 2 @ Pittsburgh 3",
           "url": ""
         },
         {
           "label": "Workflow Status",
-          "value": "Game Attribution Pending",
+          "value": "Verified game; owner-supplied attribution",
           "url": ""
         },
         {
@@ -27362,8 +27362,8 @@
         },
         {
           "label": "Video URL",
-          "value": "",
-          "url": ""
+          "value": "https://www.youtube.com/watch?v=thyZzfvmliU",
+          "url": "https://www.youtube.com/watch?v=thyZzfvmliU"
         },
         {
           "label": "Front Image Filename",
@@ -27422,7 +27422,7 @@
         },
         {
           "label": "Research Sources",
-          "value": "",
+          "value": "https://www.nhl.com/gamecenter/2013020184\nhttps://auctions.nhl.com/iSynApp/auctionDisplay.action?auctionId=86819&sid=1100803",
           "url": ""
         },
         {
@@ -27437,7 +27437,7 @@
         },
         {
           "label": "Date Status",
-          "value": "Unknown",
+          "value": "Owner-confirmed date; game verified",
           "url": ""
         }
       ]
@@ -28115,13 +28115,13 @@
       ]
     },
     {
-      "key": "warmup-713",
-      "sourceSheet": "Warm-Up Pucks",
-      "sourceRow": 6,
-      "inventoryId": 713,
+      "key": "history-510",
+      "sourceSheet": "Road to History",
+      "sourceRow": 11,
+      "inventoryId": 510,
       "homeRoad": "Home",
       "team": "Boston Bruins",
-      "category": "Warm-Up",
+      "category": "Road to History",
       "careerStat": null,
       "seasonStat": null,
       "description": "Road to History · Game 78 Warm-Up Puck",
@@ -28133,17 +28133,17 @@
       "goalType": "",
       "primaryAssist": "",
       "secondaryAssist": "",
-      "score": "TOR 1 @ BOS 2 - OT",
+      "score": "Toronto 1 @ Boston 2 - OT",
       "puckType": "Warm-Up Puck",
       "videoLabel": "Game Highlights",
       "videoUrl": "https://www.nhl.com/video/c-6336327372112",
       "videoProvider": "nhl",
       "videoId": "6336327372112",
-      "notes": "Warm-up puck representing the game; not attributed to a scoring play.",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
+      "notes": "Warm-up puck from game 78. Front and back photos: images/pucks/510/front.webp; images/pucks/510/back.webp. Original source filenames: 713-front.jpg; 713-back.jpg. Research: https://www.nhl.com/gamecenter/2022021246",
+      "game": 78,
+      "wins": 61,
+      "losses": 12,
+      "points": 127,
       "goalieScoredAgainst": "",
       "playerCodes": [
         "BM63"
@@ -28152,8 +28152,13 @@
       "dateStatus": "Verified game date",
       "sourceData": [
         {
-          "label": "ID #",
-          "value": "713",
+          "label": "Inventory ID",
+          "value": "510",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
           "url": ""
         },
         {
@@ -28163,7 +28168,7 @@
         },
         {
           "label": "Category",
-          "value": "Warm-Up",
+          "value": "Road to History",
           "url": ""
         },
         {
@@ -28187,156 +28192,53 @@
           "url": ""
         },
         {
+          "label": "Game",
+          "value": "78",
+          "url": ""
+        },
+        {
+          "label": "W",
+          "value": "61",
+          "url": ""
+        },
+        {
+          "label": "L",
+          "value": "12",
+          "url": ""
+        },
+        {
+          "label": "OTL",
+          "value": "5",
+          "url": ""
+        },
+        {
+          "label": "Pts",
+          "value": "127",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Toronto 1 @ Boston 2 - OT",
+          "url": ""
+        },
+        {
           "label": "Puck Type",
           "value": "Warm-Up Puck",
           "url": ""
         },
         {
           "label": "Notes",
-          "value": "Warm-up puck representing the game; not attributed to a scoring play.",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Home",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "TOR 1 @ BOS 2 - OT",
-          "url": ""
-        },
-        {
-          "label": "Workflow Status",
-          "value": "Verified",
-          "url": ""
-        },
-        {
-          "label": "City/Region",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "",
+          "value": "Warm-up puck from game 78. Front and back photos: images/pucks/510/front.webp; images/pucks/510/back.webp. Original source filenames: 713-front.jpg; 713-back.jpg. Research: https://www.nhl.com/gamecenter/2022021246",
           "url": ""
         },
         {
           "label": "Video URL",
           "value": "https://www.nhl.com/video/c-6336327372112",
           "url": "https://www.nhl.com/video/c-6336327372112"
-        },
-        {
-          "label": "Front Image Filename",
-          "value": "images/pucks/713/front.webp",
-          "url": ""
-        },
-        {
-          "label": "Back Image Filename",
-          "value": "images/pucks/713/back.webp",
-          "url": ""
-        },
-        {
-          "label": "Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Purchase Document Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Source / Seller",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Last Updated",
-          "value": "2026-09-28",
-          "url": ""
-        },
-        {
-          "label": "Original Front Image Filename",
-          "value": "713-front.jpg",
-          "url": ""
-        },
-        {
-          "label": "Original Back Image Filename",
-          "value": "713-back.jpg",
-          "url": ""
-        },
-        {
-          "label": "Original Detail Image Filenames",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Original COA Filename",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Research Sources",
-          "value": "https://www.nhl.com/gamecenter/2022021246",
-          "url": ""
-        },
-        {
-          "label": "Intake Date (As Submitted)",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Hockey Fights Cancer",
-          "value": "No",
-          "url": ""
-        },
-        {
-          "label": "Date Status",
-          "value": "Verified game date",
-          "url": ""
         }
-      ]
+      ],
+      "overtimeLosses": 5,
+      "seasonRecord": "61-12-5"
     },
     {
       "key": "warmup-714",

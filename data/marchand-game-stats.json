@@ -2,7 +2,7 @@
   "meta": {
     "reviewedAt": "2026-09-29",
     "playerId": 8473419,
-    "games": 124,
+    "games": 125,
     "method": "Official NHL box scores cross-checked with event reports. Missing data is null, never an inferred zero."
   },
   "games": {
@@ -33,6 +33,35 @@
         "evenStrengthToi": "19:40",
         "powerPlayToi": "00:36",
         "shortHandedToi": "01:35"
+      }
+    },
+    "2013020184": {
+      "date": "2013-10-30",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2013020184/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20132014/ES020184.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "shots": 0,
+        "totalToi": "15:40",
+        "shifts": 21,
+        "plusMinus": 1,
+        "hits": 0,
+        "blockedShots": 0,
+        "penaltyMinutes": 2,
+        "evenStrengthToi": "15:06",
+        "powerPlayToi": "00:05",
+        "shortHandedToi": "00:29"
       }
     },
     "2015020385": {

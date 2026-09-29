@@ -4315,7 +4315,7 @@
       "gameId": 2023020130,
       "title": "A second puck from HFC night",
       "paragraphs": [
-        "Marchand cut Florida’s two-goal lead in half at 3:38 of the second period, finishing a play credited to Jake DeBrusk and Charlie Coyle. Boston went on to win 3–2 in overtime. This is a separate physical warm-up puck from the same Hockey Fights Cancer game represented by artifact 700."
+        "Marchand cut Florida’s two-goal lead in half at 3:38 of the second period, finishing a play credited to Jake DeBrusk and Charlie Coyle. Boston went on to win 3–2 in overtime."
       ],
       "sources": [
         {
@@ -4377,7 +4377,7 @@
       "gameId": 2022020100,
       "title": "HFC night before Marchand’s return",
       "paragraphs": [
-        "Marchand did not play in Boston’s 3–1 win over Dallas. This purple warm-up puck belongs to the Bruins’ October 25 Hockey Fights Cancer game, not to a Marchand scoring play. David Pastrnak, Taylor Hall and Patrice Bergeron supplied Boston’s goals."
+        "Marchand did not play in Boston’s 3–1 win over Dallas. This purple warm-up puck belongs to the Bruins’ October 25 Hockey Fights Cancer game. David Pastrnak, Taylor Hall and Patrice Bergeron supplied Boston’s goals."
       ],
       "sources": [
         {
@@ -4429,7 +4429,7 @@
       "gameId": null,
       "title": "A date that never became a game",
       "paragraphs": [
-        "This Hockey Fights Cancer warm-up puck is printed for Bruins–Hurricanes on December 21, 2021. That game was postponed. The printed date identifies the intended event, not confirmed use on that night; no Marchand game stats or highlights are assigned to it."
+        "This Hockey Fights Cancer warm-up puck is printed for Bruins–Hurricanes on December 21, 2021. That game was postponed. The printed date identifies the intended event."
       ],
       "sources": [
         {
@@ -4481,6 +4481,10 @@
         {
           "label": "NHL game summary & box score",
           "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL welcome-back video",
+          "url": "https://www.nhl.com/video/marchand-returns-to-boston-6383485603112"
         }
       ],
       "verification": {
@@ -4497,16 +4501,33 @@
     },
     "hfc-708": {
       "inventoryId": 708,
-      "date": "",
+      "date": "2013-10-30",
       "team": "Boston Bruins",
-      "gameId": null,
-      "title": "Pittsburgh HFC puck — date unresolved",
+      "gameId": 2013020184,
+      "title": "Marchand helps bring Boston level",
       "paragraphs": [
-        "The purple Penguins crest identifies the Hockey Fights Cancer design. The owner identifies this as a game-used puck from a Bruins–Penguins game, but the supplied photos show no date or unique authentication number. A specific game, Marchand performance and video will be added only when supporting evidence establishes the date."
+        "Marchand earned the secondary assist when Patrice Bergeron tied the game 1–1 at 1:05 of the third period. Pittsburgh answered with goals from Brandon Sutter and Jussi Jokinen and held on for a 3–2 win. Marchand finished with one assist in 15:40 of ice time. This purple Penguins game-used puck comes from Pittsburgh’s October 30, 2013 Hockey Fights Cancer night."
       ],
-      "sources": [],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2013020184"
+        },
+        {
+          "label": "NHL–MeiGray HFC event confirmation",
+          "url": "https://auctions.nhl.com/iSynApp/auctionDisplay.action?auctionId=86819&sid=1100803"
+        }
+      ],
       "verification": {
-        "status": "Unresolved"
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2013020184/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2013020184/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 1,
+          "points": 1,
+          "shots": 0,
+          "toi": "15:40"
+        }
       }
     },
     "warmup-710": {
@@ -4516,7 +4537,7 @@
       "gameId": 2021020224,
       "title": "Marchand helps turn the third period",
       "paragraphs": [
-        "Boston trailed Montreal 2–1 entering the third. Marchand supplied the lone assist on Charlie McAvoy’s power-play equalizer at 2:14, starting a four-goal Bruins period and a 5–2 win. This dated warm-up puck represents the game, not the equalizing goal itself."
+        "Boston trailed Montreal 2–1 entering the third. Marchand supplied the lone assist on Charlie McAvoy’s power-play equalizer at 2:14, starting a four-goal Bruins period and a 5–2 win."
       ],
       "sources": [
         {
@@ -4570,7 +4591,7 @@
       "gameId": 2019020043,
       "title": "Three points to erase a two-goal deficit",
       "paragraphs": [
-        "Marchand assisted on David Pastrnak’s first-period goal, tied the game on the power play at 18:58, then put Boston ahead 33 seconds into the second. The Bruins beat Vegas 4–3. This rainbow-logo warm-up puck is printed for Pride Night, not Hockey Fights Cancer."
+        "Marchand assisted on David Pastrnak’s first-period goal, tied the game on the power play at 18:58, then put Boston ahead 33 seconds into the second. The Bruins beat Vegas 4–3. This rainbow-logo warm-up puck is printed for Pride Night."
       ],
       "sources": [
         {
@@ -4590,33 +4611,6 @@
         }
       }
     },
-    "warmup-713": {
-      "inventoryId": 713,
-      "date": "2023-04-06",
-      "team": "Boston Bruins",
-      "gameId": 2022021246,
-      "title": "Win 61 on the Road to History",
-      "paragraphs": [
-        "Marchand played in Boston’s 2–1 overtime win over Toronto, though he did not record a point. Charlie Coyle tied it in the third, and David Pastrnak scored in overtime. The Bruins reached 61–12–5 and 127 points after game 78; this warm-up puck adds another view of the Road to History run."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2022021246"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021246/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021246/boxscore",
-        "marchand": {
-          "goals": 0,
-          "assists": 0,
-          "points": 0,
-          "shots": 1,
-          "toi": "20:38"
-        }
-      }
-    },
     "warmup-714": {
       "inventoryId": 714,
       "date": "2023-11-14",
@@ -4624,7 +4618,7 @@
       "gameId": 2023020229,
       "title": "A power-play assist in Buffalo",
       "paragraphs": [
-        "Marchand assisted on Hampus Lindholm’s power-play goal at 12:23 of the second period, extending Boston’s lead to 5–0. The Bruins beat Buffalo 5–2. This dated warm-up puck represents the game and is not attributed to Lindholm’s scoring play."
+        "Marchand assisted on Hampus Lindholm’s power-play goal at 12:23 of the second period, extending Boston’s lead to 5–0. The Bruins beat Buffalo 5–2."
       ],
       "sources": [
         {
@@ -4784,6 +4778,33 @@
           "points": 3,
           "shots": 6,
           "toi": "18:12"
+        }
+      }
+    },
+    "history-510": {
+      "inventoryId": 510,
+      "date": "2023-04-06",
+      "team": "Boston Bruins",
+      "gameId": 2022021246,
+      "title": "Win 61 on the Road to History",
+      "paragraphs": [
+        "Marchand played in Boston’s 2–1 overtime win over Toronto, though he did not record a point. Charlie Coyle tied it in the third, and David Pastrnak scored in overtime. The Bruins reached 61–12–5 and 127 points after game 78; this warm-up puck adds another view of the Road to History run."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2022021246"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2022021246/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2022021246/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 0,
+          "points": 0,
+          "shots": 1,
+          "toi": "20:38"
         }
       }
     }

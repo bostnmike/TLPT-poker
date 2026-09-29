@@ -55,9 +55,9 @@ assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inve
 assert.equal(payload.meta.records, 167, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 39, "milestone count drifted");
-assert.equal(payload.meta.roadToHistory, 9, "Road to History count drifted");
+assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 165, "video count drifted");
+assert.equal(payload.meta.videos, 166, "video count drifted");
 assert.equal(payload.records.length, payload.meta.records, "metadata and record count differ");
 assert.equal(new Set(payload.records.map((record) => record.key)).size, payload.records.length, "record keys must be unique");
 assert.equal(payload.records.filter((record) => record.videoUrl).length, payload.meta.videos, "video total differs from records");
@@ -98,7 +98,7 @@ for (const record of payload.records) {
 const roadToHistory = payload.records.filter((record) => record.sourceSheet === "Road to History");
 assert.deepEqual(
   roadToHistory.map((record) => record.inventoryId),
-  [501, 502, 503, 509, 504, 505, 506, 507, 508],
+  [501, 502, 503, 509, 504, 505, 506, 507, 508, 510],
   "Road to History inventory must follow the canonical chronology without renumbering established artifacts",
 );
 const expectedRoadDetails = new Map([
@@ -111,6 +111,7 @@ const expectedRoadDetails = new Map([
   [506, [80, "63-12-5", 131]],
   [507, [81, "64-12-5", 133]],
   [508, [82, "65-12-5", 135]],
+  [510, [78, "61-12-5", 127]],
 ]);
 for (const record of roadToHistory) {
   const [game, seasonRecord, points] = expectedRoadDetails.get(record.inventoryId) || [];
@@ -212,8 +213,8 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260928-coa/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20260928-hfc-700/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.css\?v=20260928-hfc-revisions/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20260928-hfc-revisions/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260928-coa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc-coa/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
@@ -351,7 +352,12 @@ assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?
 assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 74, "scoring records retain researched goalies; commemorative artifact 49 has no attributed scoring play");
 assert.equal(payload.records.find(record => record.inventoryId === 49).category, "Game-Used Puck");
 assert.equal(payload.records.find(record => record.inventoryId === 49).careerStat, null);
-assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [705,708], "Only postponed or undated artifacts may lack game video");
+assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [705], "Only the postponed game may lack game video");
+assert.equal(payload.records.find(r => r.inventoryId === 510).sourceSheet, "Road to History");
+assert.ok(!payload.records.some(r => [61,713].includes(r.inventoryId)));
+assert.equal(payload.records.find(r => r.inventoryId === 708).date, "2013-10-30");
+assert.equal(payload.records.find(r => r.inventoryId === 707).videoId, "6383485603112");
+assert.match(script, /artifact-hfc-logo/);
 assert.doesNotMatch(html, /id="video-filter"|Film available/, "redundant film toggle must stay removed");
 assert.equal(payload.records.filter((record) => record.goalieScoredAgainst === "Empty net (no goaltender)").length, 7, "empty-net goalie accounting drifted");
 assert.match(script, /createGoalieCard\(record\)/, "deep dives must feature the researched goalie in the personnel gallery");

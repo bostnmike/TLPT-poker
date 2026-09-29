@@ -211,7 +211,7 @@ change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 9], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["video", 165], ["all", 167]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 7], ["video", 166], ["all", 167]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -221,7 +221,7 @@ for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 39], ["R
   assert.equal(element("archive-title").focused, true);
   assert.equal(element("archive-title").scrolled, true);
   if (filter === "Road to History") {
-    assert.deepEqual(shownIds(), [501, 502, 503, 509, 504, 505, 506, 507, 508]);
+    assert.deepEqual(shownIds(), [501, 502, 503, 509, 504, 510, 505, 506, 507, 508]);
     assert.equal(body.dataset.era, "boston");
   }
   if (filter === "video") assert.ok(shownIds().every((id) => payload.records.find((record) => record.inventoryId === id).videoUrl));
@@ -230,7 +230,7 @@ change("sheet-filter", "Road to History");
 assert.equal(element("road-to-history-story").hidden, false);
 change("sheet-filter", "");
 change("category-filter", "Road to History");
-assert.equal(rows().length, 9);
+assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
 assert.equal(rows().length, 167);
@@ -351,7 +351,7 @@ sortButtons.find((button) => button.dataset.sort === "date").click();
 assert.equal(shownIds()[0], 508, "descending date order must change the browsing sequence");
 checkNavigation();
 sortButtons.find((button) => button.dataset.sort === "inventoryId").click();
-assert.equal(shownIds().at(-1), 509, "ID order must change the browsing sequence");
+assert.equal(shownIds().at(-1), 510, "ID order must change the browsing sequence");
 checkNavigation();
 element("clear-filters").click();
 change("team-filter", "Canada");
