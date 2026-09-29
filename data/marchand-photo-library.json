@@ -1877,6 +1877,10 @@
     "images/pucks/343/edge-02.webp": {
       "bytes": 836996,
       "sha256": "21781536d7d3462ffdd1261425eb442d0129a0029125c2c71ea31c89205c4ce8"
+    },
+    "images/pucks/343/coa.webp": {
+      "bytes": 3590000,
+      "sha256": "d22d2b799685916f8d8353e04c678ad27f44e1487f710461a02e242a40ea1a0d"
     }
   }
 }

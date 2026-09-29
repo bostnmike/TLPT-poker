@@ -6,8 +6,11 @@ const a=p.records.find(r=>r.inventoryId===342),b=p.records.find(r=>r.inventoryId
 assert.equal(b.key,'milestone-343');assert.equal(b.sourceSheet,'Milestones');assert.equal(b.sourceRow,44);
 assert.equal(b.date,'2024-03-07');assert.equal(b.videoId,'6348427251112');assert.equal(a.videoId,'6348437197112');
 assert.match(a.notes,/RG13316480/);assert.match(b.notes,/RG13316479/);
-assert.deepEqual(photos['343'].map(x=>x.label),['Front','Back','Edge 1','Edge 2']);
+assert.deepEqual(photos['343'].map(x=>x.label),['Front','Back','Edge 1','Edge 2','COA']);
 assert.ok(photos['343'][0].thumbnailUrl);assert.ok(photos['343'].every(x=>x.url.includes('/343/')));
-assert.equal(b.sourceData.find(x=>x.label==='COA Filename').value,'');
+assert.equal(b.sourceData.find(x=>x.label==='COA Filename').value,'images/pucks/343/coa.webp');
+assert.equal(b.sourceData.find(x=>x.label==='Original COA Filename').value,'IMG_9775.JPG');
+assert.equal(photos['343'].at(-1).sourceFile,'IMG_9775.JPG');
+assert.equal(photos['342'].at(-1).sourceFile,'IMG_9774.JPG');
 assert.equal(stories[b.key].gameId,stories[a.key].gameId);assert.match(stories[b.key].paragraphs.join(' '),/2011.*captain.*duck boat.*Stanley Cup/);
-console.log('PASS: separate March 7 pucks, serials, ceremony video, four photos and canonical mapping.');
+console.log('PASS: separate March 7 pucks, serials, ceremony video, four photos plus owner-confirmed COA label and canonical mapping.');
