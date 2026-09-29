@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T00:42:40.691575Z",
+  "generatedAt": "2026-09-29T01:09:54.291980Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -23,7 +23,7 @@
         "brad-r": "tbd",
         "chris-f": "tbd",
         "chris-o": "tbd",
-        "cougar": "tbd",
+        "cougar": "no",
         "dan-k": "tbd",
         "david-k": "tbd",
         "gilmore": "tbd",
@@ -37,7 +37,7 @@
         "phattedcalf": "yes",
         "pat": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
+        "providencemike": "no",
         "red": "tbd",
         "rob-f": "tbd",
         "the-architect": "tbd",
@@ -69,7 +69,7 @@
         "brad-r": "tbd",
         "chris-f": "tbd",
         "chris-o": "tbd",
-        "cougar": "tbd",
+        "cougar": "yes",
         "dan-k": "tbd",
         "david-k": "tbd",
         "gilmore": "tbd",
@@ -83,7 +83,7 @@
         "pat": "tbd",
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
+        "providencemike": "yes",
         "red": "tbd",
         "rob-f": "tbd",
         "the-architect": "tbd",
