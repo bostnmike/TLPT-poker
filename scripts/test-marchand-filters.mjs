@@ -274,6 +274,7 @@ for (const row of rows()) {
   const record = payload.records.find((r) => r.inventoryId === Number(row.children[0].textContent));
   row.children[1].children[0].click();
   const story = storyManifest.artifacts[record.key];
+  assert.equal(element("artifact-hfc-logo").hidden, !record.hockeyFightsCancer, "HFC logo must appear only on HFC artifacts, including after navigation");
   assert.equal(element("artifact-story-title").textContent, story.title);
   assert.equal(element("artifact-story-copy").textContent, story.paragraphs.join(""));
   assert.equal(element("artifact-story-sources").children.length, story.sources.length);

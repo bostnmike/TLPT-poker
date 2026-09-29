@@ -775,8 +775,11 @@
 .marchand-artifact-subtitle{display:block;margin-top:4px;color:#84919b;font-size:.72rem;line-height:1.35}
 .marchand-subtitle-row{display:flex;align-items:center;gap:20px}
 .marchand-subtitle-row p{margin:0;flex:0 1 auto;min-width:0}
-.marchand-hfc-logo{width:88px;height:68px;flex:0 0 88px;object-fit:contain;object-position:center}
+.marchand-hfc-logo{display:block;width:144px;height:112px;max-width:45%;margin:18px 0 0;object-fit:contain;object-position:left center}
 .marchand-hfc-logo[hidden]{display:none}
+.marchand-video-column{min-width:0}
+.marchand-video-column[hidden]{display:none}
+@media(max-width:600px){.marchand-hfc-logo{width:128px;height:100px;margin-top:14px}}
 
 .marchand-opponent{
   display:grid;
