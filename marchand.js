@@ -258,7 +258,6 @@
     document.getElementById("stat-repeat").textContent = sourceCounts["Road to Repeat"] || 0;
     document.getElementById("stat-hfc").textContent = payload.records.filter(record => record.hockeyFightsCancer).length;
     document.getElementById("stat-warmups").textContent = sourceCounts["Warm-Up Pucks"] || 0;
-    document.getElementById("stat-videos").textContent = payload.records.filter((record) => record.videoUrl).length;
     for (const [era, count] of Object.entries(totals)) {
       document.getElementById(`era-count-${era}`).textContent = count;
     }

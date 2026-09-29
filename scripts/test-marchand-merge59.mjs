@@ -5,7 +5,7 @@ const {records,meta}=JSON.parse(read('data/marchand-pucks.json'));
 const photos=JSON.parse(read('data/marchand-photos.json')).artifacts;
 const keep=records.find(r=>r.inventoryId===59);
 assert.ok(keep);assert.equal(records.some(r=>r.inventoryId===333),false);
-assert.equal(meta.records,169);assert.equal(meta.milestones, 40);
+assert.equal(meta.records,170);assert.equal(meta.milestones, 41);
 assert.equal(keep.puckType,'Goal Scored Puck');assert.equal(keep.primaryAssist,'BM63');
 assert.match(keep.notes,/return to Boston/);assert.match(keep.videoUrl,/6383495592112$/);
 assert.equal(JSON.parse(read('data/marchand-stories.json')).artifacts['milestone-333'],undefined);

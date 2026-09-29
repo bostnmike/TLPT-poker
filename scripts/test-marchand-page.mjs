@@ -52,17 +52,17 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 169, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.records, 170, "collection total must match the authoritative populated rows");
 assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
-assert.equal(payload.meta.milestones, 40, "milestone count drifted");
+assert.equal(payload.meta.milestones, 41, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 169, "video count drifted");
+assert.equal(payload.meta.videos, 170, "video count drifted");
 const footerMarkup = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || "";
 const summaryMarkup = html.match(/<section class="marchand-stat-wing"[\s\S]*?<\/section>/)?.[0] || "";
-assert.equal((summaryMarkup.match(/data-collection-filter=/g) || []).length, 8, "All eight collection buttons must remain available");
+assert.equal((summaryMarkup.match(/data-collection-filter=/g) || []).length, 7, "All seven collection buttons must remain available");
 assert.doesNotMatch(summaryMarkup, /<small>|→/, "Collection buttons must omit the bottom captions and arrows");
-assert.match(css, /grid-template-columns:repeat\(8,minmax\(132px,1fr\)\)/, "Collection buttons must stay in one row without shrinking their type");
+assert.match(css, /grid-template-columns:repeat\(7,minmax\(132px,1fr\)\)/, "Collection buttons must stay in one row without shrinking their type");
 assert.match(footerMarkup, /class="marchand-puck-key"/, "Puck key must sit in the collection footer");
 assert.equal((html.match(/aria-label="Puck symbol key"/g) || []).length, 1, "Puck key must appear only once");
 assert.ok(html.indexOf('id="collection-table-shell"') < html.indexOf('aria-label="Puck symbol key"'), "Artifacts must precede the Puck key");
@@ -164,7 +164,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 118], ["Florida Panthers", 50], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 119], ["Florida Panthers", 50], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -224,7 +224,7 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20260929-stat-buttons/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20260929-seven-buttons/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20260928-hfc-rescheduled/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20260928-hfc713/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
@@ -331,7 +331,8 @@ assert.match(vaultScript, /const records = filteredRecords\(\)/, "vault statisti
 assert.match(vaultScript, /function isMarchandGoal\(record\)/, "goalie rankings must distinguish Marchand goals from assists");
 assert.match(vaultScript, /record\.goalieScoredAgainst !== "Empty net \(no goaltender\)"/, "goalie rankings must exclude empty-net goals");
 assert.doesNotMatch(vaultScript, /\.slice\(0,\s*(?:5|8)\)/, "complete database breakdowns must not truncate results");
-assert.match(script, /payload\.records\.filter\(\(record\) => record\.videoUrl\)\.length/, "film archive total must be calculated from records");
+assert.doesNotMatch(html, /Film archive|id="stat-videos"/i, "Redundant Film Archive entry must stay removed");
+assert.doesNotMatch(script, /getElementById\("stat-videos"\)/, "Removed Film Archive counter must not be accessed");
 assert.match(script, /Boston Bruins Collection · Exhibit 63/, "team-specific museum copy is missing");
 assert.match(css, /\.marchand-puck-placeholder/, "puck photo placeholder styling is missing");
 assert.match(css, /\.marchand-deep-dive-button\{[\s\S]*border-radius:50%/, "Deep Dive control must use the circular puck treatment");

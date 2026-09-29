@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const read=n=>JSON.parse(fs.readFileSync(new URL('../data/'+n,import.meta.url)));
+const p=read('marchand-pucks.json'),stories=read('marchand-stories.json').artifacts,photos=read('marchand-photos.json').artifacts;
+const a=p.records.find(r=>r.inventoryId===342),b=p.records.find(r=>r.inventoryId===343);
+assert.equal(b.key,'milestone-343');assert.equal(b.sourceSheet,'Milestones');assert.equal(b.sourceRow,44);
+assert.equal(b.date,'2024-03-07');assert.equal(b.videoId,'6348427251112');assert.equal(a.videoId,'6348437197112');
+assert.match(a.notes,/RG13316480/);assert.match(b.notes,/RG13316479/);
+assert.deepEqual(photos['343'].map(x=>x.label),['Front','Back','Edge 1','Edge 2']);
+assert.ok(photos['343'][0].thumbnailUrl);assert.ok(photos['343'].every(x=>x.url.includes('/343/')));
+assert.equal(b.sourceData.find(x=>x.label==='COA Filename').value,'');
+assert.equal(stories[b.key].gameId,stories[a.key].gameId);assert.match(stories[b.key].paragraphs.join(' '),/2011.*captain.*duck boat.*Stanley Cup/);
+console.log('PASS: separate March 7 pucks, serials, ceremony video, four photos and canonical mapping.');

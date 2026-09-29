@@ -1,15 +1,15 @@
 {
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-    "sourceSha256": "06f4fb892a8b90f7f3a835d0a1b45d997b36dadb32bb7da6a58a590f89494810",
-    "records": 169,
+    "sourceSha256": "c53a7c108ba472065b6b3774ca32e2c45354bbb6688999c456c0973f8ca4af55",
+    "records": 170,
     "goalsAndGames": 75,
-    "milestones": 40,
+    "milestones": 41,
     "roadToHistory": 10,
-    "videos": 169,
+    "videos": 170,
     "sourceSheets": {
       "Goals & Games": 75,
-      "Milestones": 40,
+      "Milestones": 41,
       "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
@@ -29993,6 +29993,220 @@
         {
           "label": "Research Sources",
           "value": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore; https://api-web.nhle.com/v1/gamecenter/2023020993/landing; https://www.nhl.com/bruins/news/bruins-to-host-fifth-centennial-era-night-to-celebrate-return-of-a-champion-2001-present-presented-by-coca-cola-zero-sugar; https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "key": "milestone-343",
+      "sourceSheet": "Milestones",
+      "sourceRow": 44,
+      "inventoryId": 343,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "Milestone",
+      "careerStat": null,
+      "seasonStat": null,
+      "description": "Return of a Champion · 2011 Cup Reunion",
+      "date": "2024-03-07",
+      "arena": "TD Garden",
+      "opponent": "Toronto Maple Leafs",
+      "period": "",
+      "time": "",
+      "goalType": "",
+      "primaryAssist": "",
+      "secondaryAssist": "",
+      "score": "TOR 1 @ BOS 4",
+      "puckType": "Game Used Puck",
+      "videoLabel": "Return of a Champion Ceremony",
+      "videoUrl": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112",
+      "videoProvider": "nhl",
+      "videoId": "6348427251112",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics marking RG13316479. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480).",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "goalieScoredAgainst": "",
+      "playerCodes": [
+        "BM63"
+      ],
+      "hockeyFightsCancer": false,
+      "dateStatus": "Verified game date",
+      "sourceData": [
+        {
+          "label": "ID #",
+          "value": "343",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "Milestone",
+          "url": ""
+        },
+        {
+          "label": "Description",
+          "value": "Return of a Champion · 2011 Cup Reunion",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2024-03-07",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Toronto Maple Leafs",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics marking RG13316479. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480).",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "TOR 1 @ BOS 4",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "Researched / Photos Approved",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "Boston, Massachusetts",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112",
+          "url": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112"
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/343/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/343/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/343/edge-01.webp; images/pucks/343/edge-02.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "Fanatics",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "2026-09-29",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "IMG_9880.JPG",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "IMG_9881.JPG",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "IMG_9882.JPG; IMG_9883.JPG",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore; https://api-web.nhle.com/v1/gamecenter/2023020993/landing; https://www.nhl.com/bruins/news/bruins-to-host-fifth-centennial-era-night-to-celebrate-return-of-a-champion-2001-present-presented-by-coca-cola-zero-sugar; https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display; https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112; https://www.nhl.com/bruins/news/return-of-a-champion-top-10-moments-from-2001-present",
           "url": ""
         },
         {

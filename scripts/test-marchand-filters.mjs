@@ -170,15 +170,15 @@ rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).chil
 assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-puck-image").hidden, true);
-assert.equal(statButtons.length, 8);
-assert.equal(rows().length, 169);
+assert.equal(statButtons.length, 7);
+assert.equal(rows().length, 170);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 50);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
-assert.equal(rows().length, 118);
+assert.equal(rows().length, 119);
 assert.ok(!shownIds().includes(335));
 change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
@@ -205,13 +205,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 169);
+assert.equal(rows().length, 170);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 40], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["video", 169], ["all", 169]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 41], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 170]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -233,7 +233,7 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 169);
+assert.equal(rows().length, 170);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 

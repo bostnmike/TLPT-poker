@@ -3995,6 +3995,29 @@
         "authenticationScope": "Date, opponents and game-used designation; no individual serial on label"
       }
     ],
+    "343": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/front.webp?v=8bfb58113828",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/front-thumb.webp?v=bbae9bb259b9"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/back.webp?v=85af94c6f55e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/edge-01.webp?v=bda362a3cfbd",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/edge-02.webp?v=21781536d7d3",
+        "rotation": 0
+      }
+    ],
     "501": [
       {
         "label": "Front",

@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-29",
-    "records": 169,
+    "records": 170,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
@@ -4899,6 +4899,53 @@
         {
           "label": "Bruins 2011 reunion report",
           "url": "https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2023020993/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 2,
+          "toi": "16:54"
+        }
+      }
+    },
+    "milestone-343": {
+      "inventoryId": 343,
+      "date": "2024-03-07",
+      "team": "Boston Bruins",
+      "gameId": 2023020993,
+      "title": "Marchand welcomes the 2011 champions",
+      "paragraphs": [
+        "Thirteen years after scoring twice in the Cup-clinching game, Marchand welcomed his 2011 teammates back as Boston’s captain. The champions arrived by duck boat for the final Centennial Era Night, with Zdeno Chara carrying the Stanley Cup onto the ice. Marchand then added two assists in Boston’s 4–1 win over Toronto."
+      ],
+      "sources": [
+        {
+          "label": "Official NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2023020993/boxscore"
+        },
+        {
+          "label": "Official NHL scoring summary",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2023020993/landing"
+        },
+        {
+          "label": "Bruins Centennial Era Night announcement",
+          "url": "https://www.nhl.com/bruins/news/bruins-to-host-fifth-centennial-era-night-to-celebrate-return-of-a-champion-2001-present-presented-by-coca-cola-zero-sugar"
+        },
+        {
+          "label": "Bruins 2011 reunion report",
+          "url": "https://www.nhl.com/bruins/news/bond-of-2011-bruins-still-on-full-display"
+        },
+        {
+          "label": "Return of a Champion ceremony",
+          "url": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112"
+        },
+        {
+          "label": "Bruins Centennial championship retrospective",
+          "url": "https://www.nhl.com/bruins/news/return-of-a-champion-top-10-moments-from-2001-present"
         }
       ],
       "verification": {
