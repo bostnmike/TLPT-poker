@@ -344,7 +344,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260917-9"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20260929-1"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -353,7 +353,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260919-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20260929-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1426,15 +1426,24 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "RSVP seats must retain their 96-pixel desktop portrait reservation"
             )
+        event_slot_source = function_source("getEventSlot")
+        for fragment, message in (
+            (
+                'EVENT_SLOT_ORDER.includes(explicitSlot)',
+                "Event rendering must recognize the three stable schedule slots",
+            ),
+            (
+                'if (/mtt|multi-table/.test(eventIdentity)) return "mtt";',
+                "Event rendering must recognize the MTT slot fallback",
+            ),
+        ):
+            if fragment not in event_slot_source:
+                errors.append(message)
         event_table_count_source = function_source("getEventTableCount")
         for fragment, message in (
             (
-                "Number.parseInt(event?.tables, 10)",
-                "RSVP table mode must read the events.json tables switch",
-            ),
-            (
-                "return tableCount === 2 ? 2 : 1;",
-                "RSVP table mode must default safely to the one-table layout",
+                'return getEventSlot(event) === "mtt" ? 2 : 1;',
+                "RSVP table mode must keep Friday/Saturday at one table and MTT at two",
             ),
         ):
             if fragment not in event_table_count_source:
@@ -1443,7 +1452,7 @@ def audit_javascript(path: Path) -> list[str]:
         for fragment, message in (
             (
                 "const tableCount = getEventTableCount(event);",
-                "RSVP rendering must use the event table-count switch",
+                "RSVP rendering must use the fixed event-slot table count",
             ),
             (
                 'class="event-rsvp-tables event-rsvp-tables-two"',
@@ -1460,6 +1469,41 @@ def audit_javascript(path: Path) -> list[str]:
         ):
             if fragment not in rsvp_source:
                 errors.append(message)
+        current_events_source = function_source("getCurrentEvents")
+        for fragment, message in (
+            (
+                "slot: getEventSlot(event)",
+                "Current events must retain their stable schedule slot",
+            ),
+            (
+                "EVENT_SLOT_ORDER.indexOf(a.slot) - EVENT_SLOT_ORDER.indexOf(b.slot)",
+                "Current events must remain ordered Friday, Saturday, then MTT",
+            ),
+        ):
+            if fragment not in current_events_source:
+                errors.append(message)
+        home_events_source = function_source("renderHomePage")
+        if "getCurrentEvents(data).slice(0, 3)" not in home_events_source:
+            errors.append("Home schedule selector must expose all three event slots")
+        schedule_source = function_source("renderSchedule")
+        if "getCurrentEvents(data).slice(0, 3)" not in schedule_source:
+            errors.append("Schedule page must render all three event slots")
+        rotator_source = function_source("buildHomeRotatorDotsMarkup")
+        for fragment, message in (
+            (
+                'data-home-event-slot="${eventSlot}"',
+                "Home event selectors must publish the stable event slot",
+            ),
+            (
+                '>${dayLabel}</button>',
+                "Home event selectors must show Friday, Saturday, and Next MTT labels",
+            ),
+        ):
+            if fragment not in rotator_source:
+                errors.append(message)
+        rsvp_button_source = function_source("buildEventRsvpButtonMarkup")
+        if 'Invite Coming Soon</span>' not in rsvp_button_source:
+            errors.append("Events without an invite must render a disabled coming-soon control")
         comparison_source = function_source("playerCardComparisonCardMarkup")
         if 'playerImageMarkup(player, "profile", { intrinsicSize: 142 })' not in comparison_source:
             errors.append(
@@ -4343,7 +4387,7 @@ def audit_phase_3g4_rsvp_control_spacing() -> list[str]:
 
 
 def audit_rsvp_table_switch() -> list[str]:
-    """Keep Saturday's one/two-table RSVP switch and responsive layout intact."""
+    """Keep Friday/Saturday fixed at one table and the MTT fixed at two."""
     errors: list[str] = []
     events_path = ROOT / "data" / "events.json"
     try:
@@ -4351,13 +4395,17 @@ def audit_rsvp_table_switch() -> list[str]:
     except (OSError, json.JSONDecodeError) as exc:
         return [f"data/events.json: unable to audit RSVP table switch: {exc}"]
 
-    saturday_events = [
-        event
+    expected_slots = ["friday", "saturday", "mtt"]
+    actual_slots = [str(event.get("slot", "")).strip().lower() for event in events]
+    if actual_slots != expected_slots:
+        errors.append(
+            "data/events.json: events must be ordered as friday, saturday, mtt"
+        )
+
+    events_by_slot = {
+        str(event.get("slot", "")).strip().lower(): event
         for event in events
-        if str(event.get("day", "")).strip().lower() == "saturday"
-    ]
-    if not saturday_events:
-        errors.append("data/events.json: Saturday event is missing")
+    }
 
     for event in events:
         if "tables" in event and (
@@ -4367,11 +4415,15 @@ def audit_rsvp_table_switch() -> list[str]:
                 f"data/events.json: {event.get('day', 'event')} tables must be 1 or 2"
             )
 
-    for event in saturday_events:
-        if event.get("tables") not in (1, 2):
-            errors.append(
-                "data/events.json: Saturday must declare tables as either 1 or 2"
-            )
+    saturday_event = events_by_slot.get("saturday")
+    if not saturday_event or saturday_event.get("tables") != 1:
+        errors.append("data/events.json: Saturday must be fixed at one table")
+
+    mtt_event = events_by_slot.get("mtt")
+    if not mtt_event or mtt_event.get("tables") != 2:
+        errors.append("data/events.json: MTT must be fixed at two tables")
+    elif str(mtt_event.get("day", "")).strip() != "Next MTT":
+        errors.append("data/events.json: MTT display label must be Next MTT")
 
     css = (ROOT / "style.css").read_text(encoding="utf-8")
     for token in (
@@ -4383,6 +4435,9 @@ def audit_rsvp_table_switch() -> list[str]:
         "flex-direction:column;",
         "grid-row:1 / span 2;",
         ".event-rsvp-block-two-table .home-rotator-nav-inline{",
+        '.home-event-dot[data-home-event-slot="mtt"].is-active{',
+        ".schedule-event-card-mtt{",
+        ".btn-rsvp.is-disabled{",
         "@media (max-width:760px)",
     ):
         if token not in css:
