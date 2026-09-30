@@ -2456,12 +2456,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-event-dot[data-home-event-slot="mtt"].is-active{
-  color:#fefce8;
-  border-color:#fde047;
-  background:rgba(250,204,21,.28);
+  color:#e0f2fe;
+  border-color:#38bdf8;
+  background:rgba(37,99,235,.28);
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.22),
-    0 0 14px rgba(250,204,21,.38);
+    0 0 0 1px rgba(56,189,248,.24),
+    0 0 14px rgba(56,189,248,.38);
 }
 
 .home-event-dot:focus-visible{
@@ -2555,15 +2555,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 #home-events-list .schedule-event-card-mtt .schedule-day-pill,
 #schedule-list .schedule-event-card-mtt .schedule-day-pill{
-  color:#fefce8;
-  border-color:rgba(253,224,71,.78);
+  color:#f0f9ff;
+  border-color:rgba(56,189,248,.78);
   background:
-    linear-gradient(180deg, rgba(254,252,232,.18), rgba(255,255,255,.03)),
-    linear-gradient(180deg, rgba(234,179,8,.98), rgba(133,77,14,.98));
+    linear-gradient(180deg, rgba(224,242,254,.18), rgba(255,255,255,.03)),
+    linear-gradient(180deg, rgba(37,99,235,.98), rgba(12,74,110,.98));
   box-shadow:
-    inset 0 1px 0 rgba(254,252,232,.18),
-    inset 0 -2px 4px rgba(66,32,6,.62),
-    0 0 14px rgba(250,204,21,.32),
+    inset 0 1px 0 rgba(224,242,254,.20),
+    inset 0 -2px 4px rgba(8,47,73,.62),
+    0 0 14px rgba(56,189,248,.34),
     0 8px 14px rgba(0,0,0,.26);
 }
 
@@ -2643,19 +2643,19 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-dual-rsvp-btn-mtt{
-  background:linear-gradient(180deg, rgba(250,204,21,.44), rgba(202,138,4,.24));
-  border-color:rgba(253,224,71,.68);
-  color:#fefce8;
+  background:linear-gradient(180deg, rgba(37,99,235,.48), rgba(12,74,110,.28));
+  border-color:rgba(56,189,248,.68);
+  color:#e0f2fe;
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.22),
+    0 0 0 1px rgba(56,189,248,.22),
     0 8px 18px rgba(0,0,0,.22),
-    0 0 18px rgba(250,204,21,.22);
+    0 0 18px rgba(56,189,248,.22);
 }
 
 .home-dual-rsvp-btn-mtt:hover{
-  background:linear-gradient(180deg, #fef9c3 0%, #facc15 100%);
-  border-color:#fde047;
-  color:#422006;
+  background:linear-gradient(180deg, #7dd3fc 0%, #2563eb 100%);
+  border-color:#38bdf8;
+  color:#082f49;
 }
 
 .btn-rsvp.is-disabled{
@@ -2686,13 +2686,13 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt .btn-rsvp:hover{
-  background:linear-gradient(180deg, #fef9c3 0%, #facc15 100%);
-  border-color:#fde047;
-  color:#422006;
+  background:linear-gradient(180deg, #7dd3fc 0%, #2563eb 100%);
+  border-color:#38bdf8;
+  color:#082f49;
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.24),
+    0 0 0 1px rgba(56,189,248,.24),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 20px rgba(250,204,21,.24);
+    0 0 20px rgba(56,189,248,.24);
 }
 
 #schedule-list .schedule-event-card-top .btn-rsvp{
@@ -2708,9 +2708,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt .btn-rsvp{
-  background:linear-gradient(180deg, rgba(250,204,21,.44), rgba(202,138,4,.24));
-  border-color:rgba(253,224,71,.68);
-  color:#fefce8;
+  background:linear-gradient(180deg, rgba(37,99,235,.48), rgba(12,74,110,.28));
+  border-color:rgba(56,189,248,.68);
+  color:#e0f2fe;
 }
 
 .home-rotator-nav-inline{
@@ -2813,7 +2813,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-details-col p strong,
 #home-events-list .schedule-event-card-mtt .event-commissioner-inline-title,
 #schedule-list .schedule-event-card-mtt .event-commissioner-inline-title{
-  color:#fef08a;
+  color:#7dd3fc;
   text-shadow:none;
 }
 
@@ -2945,12 +2945,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 #home-events-list .schedule-event-card-mtt .event-rsvp-avatar-row::after,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row::after{
-  box-shadow:inset 0 0 0 2px rgba(250,204,21,.98);
+  box-shadow:inset 0 0 0 2px rgba(56,189,248,.98);
 }
 
 #home-events-list .schedule-event-card-mtt .event-rsvp-avatar-row:hover::after,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row:hover::after{
-  box-shadow:inset 0 0 0 2px rgba(253,224,71,.98);
+  box-shadow:inset 0 0 0 2px rgba(125,211,252,.98);
 }
 
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
@@ -3026,8 +3026,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .player-avatar,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .player-avatar-fallback{
   box-shadow:
-    0 0 0 2px rgba(250,204,21,.26),
-    0 0 18px rgba(250,204,21,.24),
+    0 0 0 2px rgba(56,189,248,.28),
+    0 0 18px rgba(56,189,248,.26),
     0 10px 18px rgba(0,0,0,.18);
 }
 
@@ -3067,8 +3067,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar-fallback{
   box-shadow:
-    0 0 0 2px rgba(250,204,21,.34),
-    0 0 20px rgba(250,204,21,.32),
+    0 0 0 2px rgba(56,189,248,.36),
+    0 0 20px rgba(56,189,248,.34),
     0 12px 20px rgba(0,0,0,.22);
 }
 
@@ -3217,14 +3217,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #home-events-list .schedule-event-card-mtt{
-  border:1px solid rgba(250,204,21,.52);
+  border:1px solid rgba(56,189,248,.54);
   background:
-    linear-gradient(180deg, rgba(250,204,21,.26), rgba(202,138,4,.11)),
-    radial-gradient(circle at top right, rgba(254,240,138,.16), transparent 32%);
+    linear-gradient(180deg, rgba(37,99,235,.24), rgba(8,47,73,.15)),
+    radial-gradient(circle at top right, rgba(56,189,248,.16), transparent 32%);
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.18),
+    0 0 0 1px rgba(56,189,248,.18),
     0 10px 24px rgba(0,0,0,.18),
-    0 0 24px rgba(250,204,21,.12);
+    0 0 24px rgba(56,189,248,.12);
 }
 
 /* restore schedule-page event card shell colors */
@@ -3249,14 +3249,14 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt{
-  border:1px solid rgba(250,204,21,.52);
+  border:1px solid rgba(56,189,248,.54);
   background:
-    linear-gradient(180deg, rgba(250,204,21,.26), rgba(202,138,4,.11)),
-    radial-gradient(circle at top right, rgba(254,240,138,.16), transparent 32%);
+    linear-gradient(180deg, rgba(37,99,235,.24), rgba(8,47,73,.15)),
+    radial-gradient(circle at top right, rgba(56,189,248,.16), transparent 32%);
   box-shadow:
-    0 0 0 1px rgba(250,204,21,.18),
+    0 0 0 1px rgba(56,189,248,.18),
     0 10px 24px rgba(0,0,0,.18),
-    0 0 24px rgba(250,204,21,.12);
+    0 0 24px rgba(56,189,248,.12);
 }
 
 /* Two-table RSVP mode: two compact nine-seat maps, selected by events.json. */
@@ -3294,7 +3294,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 #home-events-list .schedule-event-card-mtt .event-rsvp-table-heading span:first-child,
 #schedule-list .schedule-event-card-mtt .event-rsvp-table-heading span:first-child{
-  color:#fef08a;
+  color:#7dd3fc;
 }
 
 @media (min-width:641px){
