@@ -2456,12 +2456,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-event-dot[data-home-event-slot="mtt"].is-active{
-  color:#fff4c2;
-  border-color:#fbbf24;
-  background:rgba(251,191,36,.18);
+  color:#ffe4e6;
+  border-color:#fb7185;
+  background:rgba(244,63,94,.20);
   box-shadow:
-    0 0 0 1px rgba(251,191,36,.12),
-    0 0 10px rgba(251,191,36,.24);
+    0 0 0 1px rgba(244,63,94,.14),
+    0 0 10px rgba(244,63,94,.26);
 }
 
 .home-event-dot:focus-visible{
@@ -2555,15 +2555,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 #home-events-list .schedule-event-card-mtt .schedule-day-pill,
 #schedule-list .schedule-event-card-mtt .schedule-day-pill{
-  color:#fff4c2;
-  border-color:rgba(251,191,36,.52);
+  color:#ffe4e6;
+  border-color:rgba(251,113,133,.54);
   background:
-    linear-gradient(180deg, rgba(255,244,194,.12), rgba(255,255,255,.02)),
-    linear-gradient(180deg, rgba(151,102,8,.96), rgba(77,49,4,.98));
+    linear-gradient(180deg, rgba(255,228,230,.12), rgba(255,255,255,.02)),
+    linear-gradient(180deg, rgba(159,18,57,.96), rgba(76,5,25,.98));
   box-shadow:
-    inset 0 1px 0 rgba(255,244,194,.12),
-    inset 0 -2px 4px rgba(49,30,2,.58),
-    0 0 10px rgba(251,191,36,.16),
+    inset 0 1px 0 rgba(255,228,230,.12),
+    inset 0 -2px 4px rgba(58,4,18,.60),
+    0 0 10px rgba(244,63,94,.18),
     0 8px 14px rgba(0,0,0,.26);
 }
 
@@ -2643,19 +2643,19 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .home-dual-rsvp-btn-mtt{
-  background:linear-gradient(180deg, rgba(251,191,36,.30), rgba(180,83,9,.16));
-  border-color:rgba(251,191,36,.44);
-  color:#fff4c2;
+  background:linear-gradient(180deg, rgba(244,63,94,.30), rgba(159,18,57,.16));
+  border-color:rgba(251,113,133,.46);
+  color:#ffe4e6;
   box-shadow:
-    0 0 0 1px rgba(251,191,36,.12),
+    0 0 0 1px rgba(244,63,94,.14),
     0 8px 18px rgba(0,0,0,.22),
-    0 0 14px rgba(251,191,36,.10);
+    0 0 14px rgba(244,63,94,.12);
 }
 
 .home-dual-rsvp-btn-mtt:hover{
-  background:linear-gradient(180deg, #fef3c7 0%, #fbbf24 100%);
-  border-color:#fbbf24;
-  color:#422006;
+  background:linear-gradient(180deg, #ffe4e6 0%, #fb7185 100%);
+  border-color:#fb7185;
+  color:#4c0519;
 }
 
 .btn-rsvp.is-disabled{
@@ -2686,13 +2686,13 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt .btn-rsvp:hover{
-  background:linear-gradient(180deg, #fef3c7 0%, #fbbf24 100%);
-  border-color:#fbbf24;
-  color:#422006;
+  background:linear-gradient(180deg, #ffe4e6 0%, #fb7185 100%);
+  border-color:#fb7185;
+  color:#4c0519;
   box-shadow:
-    0 0 0 1px rgba(251,191,36,.16),
+    0 0 0 1px rgba(244,63,94,.18),
     0 10px 24px rgba(0,0,0,.20),
-    0 0 16px rgba(251,191,36,.12);
+    0 0 16px rgba(244,63,94,.14);
 }
 
 #schedule-list .schedule-event-card-top .btn-rsvp{
@@ -2708,9 +2708,9 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt .btn-rsvp{
-  background:linear-gradient(180deg, rgba(251,191,36,.28), rgba(180,83,9,.14));
-  border-color:rgba(251,191,36,.38);
-  color:#fff4c2;
+  background:linear-gradient(180deg, rgba(244,63,94,.28), rgba(159,18,57,.14));
+  border-color:rgba(251,113,133,.40);
+  color:#ffe4e6;
 }
 
 .home-rotator-nav-inline{
@@ -2813,7 +2813,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-details-col p strong,
 #home-events-list .schedule-event-card-mtt .event-commissioner-inline-title,
 #schedule-list .schedule-event-card-mtt .event-commissioner-inline-title{
-  color:#fde68a;
+  color:#fda4af;
   text-shadow:none;
 }
 
@@ -2945,12 +2945,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 #home-events-list .schedule-event-card-mtt .event-rsvp-avatar-row::after,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row::after{
-  box-shadow:inset 0 0 0 2px rgba(217,119,6,.90);
+  box-shadow:inset 0 0 0 2px rgba(190,18,60,.92);
 }
 
 #home-events-list .schedule-event-card-mtt .event-rsvp-avatar-row:hover::after,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row:hover::after{
-  box-shadow:inset 0 0 0 2px rgba(251,191,36,.98);
+  box-shadow:inset 0 0 0 2px rgba(251,113,133,.98);
 }
 
 .event-rsvp-avatar-row > .event-rsvp-seat-player,
@@ -3026,8 +3026,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .player-avatar,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .player-avatar-fallback{
   box-shadow:
-    0 0 0 2px rgba(251,191,36,.14),
-    0 0 14px rgba(251,191,36,.14),
+    0 0 0 2px rgba(244,63,94,.16),
+    0 0 14px rgba(244,63,94,.16),
     0 10px 18px rgba(0,0,0,.18);
 }
 
@@ -3067,8 +3067,8 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar,
 #schedule-list .schedule-event-card-mtt .event-rsvp-avatar-row .event-rsvp-seat-player:hover .player-avatar-fallback{
   box-shadow:
-    0 0 0 2px rgba(251,191,36,.20),
-    0 0 16px rgba(251,191,36,.18),
+    0 0 0 2px rgba(244,63,94,.22),
+    0 0 16px rgba(244,63,94,.20),
     0 12px 20px rgba(0,0,0,.22);
 }
 
@@ -3217,12 +3217,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #home-events-list .schedule-event-card-mtt{
-  border:1px solid rgba(251,191,36,.28);
+  border:1px solid rgba(244,63,94,.30);
   background:
-    linear-gradient(180deg, rgba(251,191,36,.16), rgba(180,83,9,.05)),
-    radial-gradient(circle at top right, rgba(254,243,199,.09), transparent 30%);
+    linear-gradient(180deg, rgba(244,63,94,.17), rgba(159,18,57,.06)),
+    radial-gradient(circle at top right, rgba(254,205,211,.10), transparent 30%);
   box-shadow:
-    0 0 0 1px rgba(251,191,36,.08),
+    0 0 0 1px rgba(244,63,94,.09),
     0 10px 24px rgba(0,0,0,.18);
 }
 
@@ -3248,12 +3248,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 #schedule-list .schedule-event-card-mtt{
-  border:1px solid rgba(251,191,36,.28);
+  border:1px solid rgba(244,63,94,.30);
   background:
-    linear-gradient(180deg, rgba(251,191,36,.16), rgba(180,83,9,.05)),
-    radial-gradient(circle at top right, rgba(254,243,199,.09), transparent 30%);
+    linear-gradient(180deg, rgba(244,63,94,.17), rgba(159,18,57,.06)),
+    radial-gradient(circle at top right, rgba(254,205,211,.10), transparent 30%);
   box-shadow:
-    0 0 0 1px rgba(251,191,36,.08),
+    0 0 0 1px rgba(244,63,94,.09),
     0 10px 24px rgba(0,0,0,.18);
 }
 
