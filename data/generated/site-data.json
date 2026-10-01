@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T14:10:23.691579Z",
+  "generatedAt": "2026-10-01T14:14:56.841032Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -22,14 +22,14 @@
         "ai-dave": "no",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-f": "tbd",
-        "chris-o": "tbd",
+        "chris-f": "no",
+        "chris-o": "no",
         "cougar": "no",
         "dan-k": "tbd",
         "david-k": "tbd",
         "gilmore": "tbd",
         "griffin": "tbd",
-        "hiro": "maybe",
+        "hiro": "no",
         "jeff-t": "no",
         "kishan": "tbd",
         "li-fo": "maybe",
@@ -69,7 +69,7 @@
         "ai-dave": "yes",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-f": "tbd",
+        "chris-f": "yes",
         "chris-o": "yes",
         "cougar": "yes",
         "dan-k": "tbd",
