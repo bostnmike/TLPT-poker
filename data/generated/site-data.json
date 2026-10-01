@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T19:41:12.998695Z",
+  "generatedAt": "2026-10-01T20:19:55.033129Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -33,6 +33,7 @@
         "jeff-t": "no",
         "kishan": "tbd",
         "li-fo": "maybe",
+        "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "no",
         "phattedcalf": "yes",
@@ -80,6 +81,7 @@
         "kishan": "tbd",
         "jeff-t": "no",
         "li-fo": "yes",
+        "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "no",
         "pat": "tbd",
@@ -127,6 +129,7 @@
         "kishan": "tbd",
         "jeff-t": "tbd",
         "li-fo": "yes",
+        "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
         "pat": "tbd",
@@ -515,7 +518,7 @@
               "roi": -0.083333,
               "cashRate": 0.318182,
               "hitRate": 0.821429,
-              "trueSkillScore": 195.108
+              "trueSkillScore": 194.671
             }
           },
           "streakLength": 2
@@ -527,7 +530,7 @@
           "reason": "Joined the 25-Appearance Club at DRAWS! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 74,
+            "overall": 73,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -571,7 +574,7 @@
               "roi": -0.197917,
               "cashRate": 0.28,
               "hitRate": 0.78125,
-              "trueSkillScore": 179.147
+              "trueSkillScore": 178.75
             }
           }
         },
@@ -626,7 +629,7 @@
               "roi": 0.0,
               "cashRate": 0.3,
               "hitRate": 0.833333,
-              "trueSkillScore": 217.086
+              "trueSkillScore": 215.798
             }
           }
         }
@@ -926,7 +929,7 @@
               "roi": 0.227273,
               "cashRate": 0.4,
               "hitRate": 1.181818,
-              "trueSkillScore": 250.79
+              "trueSkillScore": 246.886
             }
           }
         },
@@ -981,7 +984,7 @@
               "roi": 0.057971,
               "cashRate": 0.35,
               "hitRate": 0.956522,
-              "trueSkillScore": 222.675
+              "trueSkillScore": 221.533
             }
           }
         },
@@ -1036,7 +1039,7 @@
               "roi": 0.364035,
               "cashRate": 0.454545,
               "hitRate": 1.052632,
-              "trueSkillScore": 260.932
+              "trueSkillScore": 260.111
             }
           },
           "streakLength": 5,
@@ -1094,7 +1097,7 @@
               "roi": -0.011494,
               "cashRate": 0.32,
               "hitRate": 0.965517,
-              "trueSkillScore": 211.119
+              "trueSkillScore": 210.47
             }
           }
         },
@@ -1149,7 +1152,7 @@
               "roi": 0.227273,
               "cashRate": 0.4,
               "hitRate": 1.181818,
-              "trueSkillScore": 250.79
+              "trueSkillScore": 246.886
             }
           }
         }
@@ -1920,7 +1923,7 @@
           "reason": "First claimed the Hall bubble distinction at 3 bubbles.",
           "priority": 4,
           "snapshot": {
-            "overall": 86,
+            "overall": 87,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -1964,7 +1967,7 @@
               "roi": 0.416667,
               "cashRate": 0.4,
               "hitRate": 0.8,
-              "trueSkillScore": 270.666
+              "trueSkillScore": 272.998
             }
           }
         },
@@ -2308,7 +2311,7 @@
           "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 86,
+            "overall": 87,
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
@@ -2352,7 +2355,7 @@
               "roi": 0.416667,
               "cashRate": 0.4,
               "hitRate": 0.8,
-              "trueSkillScore": 270.666
+              "trueSkillScore": 272.998
             }
           }
         }
@@ -3045,7 +3048,7 @@
               "roi": 0.601852,
               "cashRate": 0.5,
               "hitRate": 1.111111,
-              "trueSkillScore": 241.039
+              "trueSkillScore": 239.109
             }
           }
         },
@@ -3060,7 +3063,7 @@
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
-            "powerRank": 6,
+            "powerRank": 7,
             "totalRanked": 9,
             "appearances": 5,
             "attributes": [
@@ -3100,7 +3103,7 @@
               "roi": 0.484848,
               "cashRate": 0.6,
               "hitRate": 1.090909,
-              "trueSkillScore": 243.129
+              "trueSkillScore": 241.272
             }
           },
           "streakLength": 3,
@@ -3158,7 +3161,7 @@
               "roi": 0.601852,
               "cashRate": 0.5,
               "hitRate": 1.111111,
-              "trueSkillScore": 241.039
+              "trueSkillScore": 239.109
             }
           }
         }
@@ -3458,7 +3461,7 @@
               "roi": 0.666667,
               "cashRate": 0.5,
               "hitRate": 0.777778,
-              "trueSkillScore": 302.254
+              "trueSkillScore": 297.211
             }
           }
         },
@@ -3513,7 +3516,7 @@
               "roi": 0.777778,
               "cashRate": 1.0,
               "hitRate": 0.333333,
-              "trueSkillScore": 306.143
+              "trueSkillScore": 298.075
             }
           },
           "streakLength": 2
@@ -3525,7 +3528,7 @@
           "reason": "Joined the 10-Appearance Club at Super Bowl Eve | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 85,
+            "overall": 84,
             "tierCode": "A",
             "tierClassName": "a",
             "tierStatus": "Established",
@@ -3569,7 +3572,7 @@
               "roi": 0.363636,
               "cashRate": 0.4,
               "hitRate": 0.636364,
-              "trueSkillScore": 258.798
+              "trueSkillScore": 255.674
             }
           }
         }
@@ -4320,7 +4323,7 @@
               "roi": 1.433333,
               "cashRate": 1.0,
               "hitRate": 1.8,
-              "trueSkillScore": 354.046
+              "trueSkillScore": 351.635
             }
           },
           "streakLength": 2
@@ -4716,7 +4719,7 @@
           "reason": "First claimed the Hall career-profit distinction at $135.",
           "priority": 4,
           "snapshot": {
-            "overall": 82,
+            "overall": 84,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4760,7 +4763,7 @@
               "roi": 0.346154,
               "cashRate": 0.5,
               "hitRate": 1.307692,
-              "trueSkillScore": 240.33
+              "trueSkillScore": 255.021
             }
           }
         },
@@ -4771,7 +4774,7 @@
           "reason": "First claimed the Hall cash-rate distinction at 50.0%.",
           "priority": 4,
           "snapshot": {
-            "overall": 82,
+            "overall": 84,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4815,7 +4818,7 @@
               "roi": 0.346154,
               "cashRate": 0.5,
               "hitRate": 1.307692,
-              "trueSkillScore": 240.33
+              "trueSkillScore": 255.021
             }
           }
         },
@@ -4826,7 +4829,7 @@
           "reason": "First claimed the Hall knockout-efficiency distinction at 1.31 knockouts per entry.",
           "priority": 4,
           "snapshot": {
-            "overall": 82,
+            "overall": 84,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -4870,7 +4873,7 @@
               "roi": 0.346154,
               "cashRate": 0.5,
               "hitRate": 1.307692,
-              "trueSkillScore": 240.33
+              "trueSkillScore": 255.021
             }
           }
         },
@@ -4925,7 +4928,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 391.963
+              "trueSkillScore": 394.122
             }
           }
         },
@@ -4980,7 +4983,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 391.963
+              "trueSkillScore": 394.122
             }
           }
         },
@@ -5035,7 +5038,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 391.963
+              "trueSkillScore": 394.122
             }
           }
         },
@@ -5090,7 +5093,7 @@
               "roi": 1.25,
               "cashRate": 0.6,
               "hitRate": 1.833333,
-              "trueSkillScore": 391.963
+              "trueSkillScore": 394.122
             }
           }
         },
@@ -5101,7 +5104,7 @@
           "reason": "Personal-best 2-appearance cash streak from 2025-11-01 through 2025-11-15.",
           "priority": 2,
           "snapshot": {
-            "overall": 82,
+            "overall": 84,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -5145,7 +5148,7 @@
               "roi": 0.346154,
               "cashRate": 0.5,
               "hitRate": 1.307692,
-              "trueSkillScore": 240.33
+              "trueSkillScore": 255.021
             }
           },
           "streakLength": 2
@@ -5201,7 +5204,7 @@
               "roi": -0.097222,
               "cashRate": 0.36,
               "hitRate": 0.777778,
-              "trueSkillScore": 191.592
+              "trueSkillScore": 193.184
             }
           }
         },
@@ -5212,7 +5215,7 @@
           "reason": "Joined the 10-Appearance Club at You Can Act Like a Man! | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 82,
+            "overall": 84,
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
@@ -5256,7 +5259,7 @@
               "roi": 0.346154,
               "cashRate": 0.5,
               "hitRate": 1.307692,
-              "trueSkillScore": 240.33
+              "trueSkillScore": 255.021
             }
           }
         }
@@ -5695,7 +5698,7 @@
               "roi": 1.0,
               "cashRate": 1.0,
               "hitRate": 1.5,
-              "trueSkillScore": 352.75
+              "trueSkillScore": 346.192
             }
           },
           "streakLength": 2
@@ -5996,7 +5999,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.484
+              "trueSkillScore": 304.92
             }
           }
         },
@@ -6051,7 +6054,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.484
+              "trueSkillScore": 304.92
             }
           }
         },
@@ -6106,7 +6109,7 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.484
+              "trueSkillScore": 304.92
             }
           }
         },
@@ -6161,7 +6164,7 @@
               "roi": 0.854167,
               "cashRate": 0.571429,
               "hitRate": 1.25,
-              "trueSkillScore": 309.571
+              "trueSkillScore": 308.407
             }
           }
         },
@@ -6172,7 +6175,7 @@
           "reason": "First claimed the established-player knockout lead at 18 hits.",
           "priority": 3,
           "snapshot": {
-            "overall": 95,
+            "overall": 96,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6216,7 +6219,7 @@
               "roi": 0.72549,
               "cashRate": 0.727273,
               "hitRate": 1.058824,
-              "trueSkillScore": 325.129
+              "trueSkillScore": 329.761
             }
           }
         },
@@ -6271,7 +6274,7 @@
               "roi": 0.854167,
               "cashRate": 0.571429,
               "hitRate": 1.25,
-              "trueSkillScore": 309.571
+              "trueSkillScore": 308.407
             }
           }
         },
@@ -6337,7 +6340,7 @@
           "reason": "Personal-best 5-appearance cash streak from 2025-11-01 through 2025-12-13.",
           "priority": 2,
           "snapshot": {
-            "overall": 95,
+            "overall": 96,
             "tierCode": "S",
             "tierClassName": "s",
             "tierStatus": "Established",
@@ -6381,7 +6384,7 @@
               "roi": 0.72549,
               "cashRate": 0.727273,
               "hitRate": 1.058824,
-              "trueSkillScore": 325.129
+              "trueSkillScore": 329.761
             }
           },
           "streakLength": 5,
@@ -6439,7 +6442,7 @@
               "roi": 0.276515,
               "cashRate": 0.6,
               "hitRate": 0.636364,
-              "trueSkillScore": 236.196
+              "trueSkillScore": 236.876
             }
           }
         },
@@ -6494,12 +6497,118 @@
               "roi": 0.677778,
               "cashRate": 0.7,
               "hitRate": 1.133333,
-              "trueSkillScore": 298.484
+              "trueSkillScore": 304.92
             }
           }
         }
       ],
       "featuredCardEdition": "hall-tax-collector",
+      "featuredCardMode": "automatic"
+    },
+    {
+      "name": "Liam O",
+      "slug": "liam-o",
+      "image": "images/players/liam-o.jpg",
+      "notes": "",
+      "entries": 0,
+      "buyIns": 0,
+      "rebuys": 0,
+      "hits": 0,
+      "timesPlaced": 0,
+      "bubbles": 0,
+      "profit": 0,
+      "roi": 0.0,
+      "cashRate": 0.0,
+      "bubbleRate": 0.0,
+      "hitRate": 0.0,
+      "totalCost": 0,
+      "totalWinnings": 0,
+      "expectedProfit": 0.0,
+      "luckIndex": 0.0,
+      "clutchIndex": 0.0,
+      "aggressionIndex": 0.0,
+      "survivorIndex": 0.0,
+      "tiltIndex": 0.0,
+      "trueSkillScore": 0.0,
+      "clutchRaw": 0.0,
+      "aggressionRaw": 0.0,
+      "survivorRaw": 0.0,
+      "tiltScoreDirect": 0.0,
+      "roi_norm": 0.0,
+      "luckIndex_norm": 0.0,
+      "clutchRaw_norm": 0.0,
+      "aggressionRaw_norm": 0.0,
+      "survivorRaw_norm": 0.0,
+      "tier": "C",
+      "cardForm": {
+        "windowSize": 5,
+        "recent": {
+          "eventCount": 0,
+          "startDate": null,
+          "endDate": null,
+          "metrics": {
+            "name": "Liam O",
+            "slug": "liam-o",
+            "image": "images/players/liam-o.jpg",
+            "notes": "",
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "roi": 0.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 0,
+            "totalWinnings": 0,
+            "expectedProfit": 0.0,
+            "luckIndex": 0.0,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 0.0,
+            "tiltIndex": 0.0,
+            "trueSkillScore": 0.0
+          },
+          "events": []
+        },
+        "previous": {
+          "eventCount": 0,
+          "startDate": null,
+          "endDate": null,
+          "metrics": {
+            "name": "Liam O",
+            "slug": "liam-o",
+            "image": "images/players/liam-o.jpg",
+            "notes": "",
+            "entries": 0,
+            "buyIns": 0,
+            "rebuys": 0,
+            "hits": 0,
+            "timesPlaced": 0,
+            "bubbles": 0,
+            "profit": 0,
+            "roi": 0.0,
+            "cashRate": 0.0,
+            "bubbleRate": 0.0,
+            "hitRate": 0.0,
+            "totalCost": 0,
+            "totalWinnings": 0,
+            "expectedProfit": 0.0,
+            "luckIndex": 0.0,
+            "clutchIndex": 0.0,
+            "aggressionIndex": 0.0,
+            "survivorIndex": 0.0,
+            "tiltIndex": 0.0,
+            "trueSkillScore": 0.0
+          },
+          "events": []
+        }
+      },
+      "cardCollection": [],
+      "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
     {
@@ -6794,7 +6903,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 343.28
+              "trueSkillScore": 339.956
             }
           }
         },
@@ -6849,7 +6958,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 347.51
+              "trueSkillScore": 342.636
             }
           }
         },
@@ -6904,7 +7013,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 347.51
+              "trueSkillScore": 342.636
             }
           }
         },
@@ -6959,7 +7068,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 343.28
+              "trueSkillScore": 339.956
             }
           }
         },
@@ -7014,7 +7123,7 @@
               "roi": 0.740741,
               "cashRate": 0.714286,
               "hitRate": 1.0,
-              "trueSkillScore": 317.032
+              "trueSkillScore": 311.851
             }
           }
         },
@@ -7069,7 +7178,7 @@
               "roi": 0.309524,
               "cashRate": 0.6,
               "hitRate": 1.0,
-              "trueSkillScore": 236.58
+              "trueSkillScore": 245.333
             }
           }
         },
@@ -7124,7 +7233,7 @@
               "roi": 1.287879,
               "cashRate": 0.777778,
               "hitRate": 1.363636,
-              "trueSkillScore": 364.433
+              "trueSkillScore": 360.325
             }
           },
           "streakLength": 4,
@@ -7182,7 +7291,7 @@
               "roi": 1.097222,
               "cashRate": 0.7,
               "hitRate": 1.416667,
-              "trueSkillScore": 347.51
+              "trueSkillScore": 342.636
             }
           }
         }
@@ -7438,7 +7547,7 @@
           "reason": "Joined the 10-Appearance Club at March Sadness Part I | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 63,
+            "overall": 62,
             "tierCode": "D",
             "tierClassName": "d",
             "tierStatus": "Established",
@@ -7482,7 +7591,7 @@
               "roi": -0.714286,
               "cashRate": 0.1,
               "hitRate": 0.357143,
-              "trueSkillScore": 111.786
+              "trueSkillScore": 108.843
             }
           }
         }
@@ -8326,7 +8435,7 @@
               "roi": -0.174797,
               "cashRate": 0.36,
               "hitRate": 0.682927,
-              "trueSkillScore": 166.872
+              "trueSkillScore": 167.36
             }
           }
         },
@@ -8736,7 +8845,7 @@
               "roi": 0.533333,
               "cashRate": 0.5,
               "hitRate": 1.6,
-              "trueSkillScore": 274.224
+              "trueSkillScore": 269.549
             }
           },
           "streakLength": 2
@@ -8752,7 +8861,7 @@
             "tierCode": "C",
             "tierClassName": "c",
             "tierStatus": "Established",
-            "powerRank": 12,
+            "powerRank": 11,
             "totalRanked": 15,
             "appearances": 10,
             "attributes": [
@@ -8792,7 +8901,7 @@
               "roi": -0.196078,
               "cashRate": 0.3,
               "hitRate": 0.882353,
-              "trueSkillScore": 161.356
+              "trueSkillScore": 159.986
             }
           }
         }
@@ -9040,7 +9149,7 @@
             "tierCode": "B",
             "tierClassName": "b",
             "tierStatus": "Established",
-            "powerRank": 4,
+            "powerRank": 5,
             "totalRanked": 10,
             "appearances": 5,
             "attributes": [
@@ -9080,7 +9189,7 @@
               "roi": 0.214286,
               "cashRate": 0.6,
               "hitRate": 1.0,
-              "trueSkillScore": 247.364
+              "trueSkillScore": 245.773
             }
           },
           "streakLength": 2
@@ -9627,7 +9736,7 @@
           "reason": "Joined the 10-Appearance Club at Should We Let Him Win? | 9-Max.",
           "priority": 1,
           "snapshot": {
-            "overall": 67,
+            "overall": 66,
             "tierCode": "D",
             "tierClassName": "d",
             "tierStatus": "Established",
@@ -9671,7 +9780,7 @@
               "roi": -0.359649,
               "cashRate": 0.3,
               "hitRate": 0.578947,
-              "trueSkillScore": 137.502
+              "trueSkillScore": 135.707
             }
           }
         }
@@ -13053,6 +13162,14 @@
             }
           ]
         },
+        "currentDroughtStreak": null
+      },
+      "liam-o": {
+        "playedEvents": 0,
+        "eligible": false,
+        "bestCashStreak": null,
+        "currentCashStreak": null,
+        "bestDroughtStreak": null,
         "currentDroughtStreak": null
       },
       "nasa-al": {

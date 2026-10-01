@@ -590,6 +590,17 @@
   --crew-card-glow:rgba(61,220,132,.34);
 }
 
+.crew-page .crew-ultimate-card-unscouted{
+  --crew-card-edge:#b8c5d1;
+  --crew-card-surface-a:#111820;
+  --crew-card-surface-b:#354554;
+  --crew-card-surface-c:#151d25;
+  --crew-card-ink:#f2f6f9;
+  --crew-card-muted:#c2ced8;
+  --crew-card-line:rgba(194,206,216,.25);
+  --crew-card-glow:rgba(148,163,184,.24);
+}
+
 /* Phase 2D special editions preserve the official tier color underneath. */
 
 .crew-page .crew-ultimate-card-special{
@@ -918,6 +929,16 @@
     0 0 18px rgba(61,220,132,.06);
 }
 
+.crew-page .tier-section.tier-section-unscouted{
+  border-color:rgba(148,163,184,.24);
+  background:
+    linear-gradient(180deg, rgba(148,163,184,.10), rgba(148,163,184,.022) 28%, rgba(255,255,255,.015) 100%);
+  box-shadow:
+    0 0 0 1px rgba(148,163,184,.07),
+    0 10px 24px rgba(0,0,0,.18),
+    0 0 18px rgba(148,163,184,.06);
+}
+
 .crew-page .tier-section-provisional .tier-section-head{
   color:#bfe5ff;
 }
@@ -926,8 +947,13 @@
   color:#bff2d5;
 }
 
+.crew-page .tier-section-unscouted .tier-section-head{
+  color:#d6e0e8;
+}
+
 .crew-page .tier-section-provisional .tier-header-stats,
-.crew-page .tier-section-rookie .tier-header-stats{
+.crew-page .tier-section-rookie .tier-header-stats,
+.crew-page .tier-section-unscouted .tier-header-stats{
   border:1px solid currentColor;
   background:rgba(8,15,20,.30);
   color:inherit;
@@ -941,6 +967,11 @@
 .crew-page .tier-distribution-fill.rookies{
   background:linear-gradient(90deg, rgba(61,220,132,.94), rgba(61,220,132,.26));
   box-shadow:0 0 12px rgba(61,220,132,.15);
+}
+
+.crew-page .tier-distribution-fill.unscouted{
+  background:linear-gradient(90deg, rgba(148,163,184,.92), rgba(148,163,184,.24));
+  box-shadow:0 0 12px rgba(148,163,184,.14);
 }
 
 @media (max-width:980px){

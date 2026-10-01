@@ -231,7 +231,9 @@ for (const player of players) {
   check(isCrewProvisional(player) === (appearances >= 3 && appearances < 5), `${player.slug}: PRO band is incorrect`);
   check(isCrewEligible(player) === (appearances >= 3), `${player.slug}: Crew eligibility threshold is incorrect`);
   check(isCrewEstablished(player) === (appearances >= 5), `${player.slug}: established threshold is incorrect`);
-  if (appearances < 3) {
+  if (appearances === 0) {
+    check(meta.code === "UNS" && meta.status === "Unscouted" && meta.rank === null, `${player.slug}: Unscouted card status/rank is incorrect`);
+  } else if (appearances < 3) {
     check(meta.code === "RKI" && meta.rank === null, `${player.slug}: Rookie card status/rank is incorrect`);
   } else if (appearances < 5) {
     check(meta.code === "PRO" && meta.rank === null, `${player.slug}: Provisional card status/rank is incorrect`);
@@ -268,7 +270,7 @@ check(
   "The fixed 160 Power Index baseline must always map to 70 OVR"
 );
 
-const tierPriority = { S: 0, A: 1, B: 2, C: 3, D: 4, PRO: 5, RKI: 6 };
+const tierPriority = { S: 0, A: 1, B: 2, C: 3, D: 4, PRO: 5, RKI: 6, UNS: 7 };
 check(data.featuredCardConfig?.mode === "automatic", "Generated Crew skin policy must remain automatic");
 check(data.featuredCardConfig?.overrideCount === 0, "Generated Crew skin policy must reject manual overrides");
 const manualCrewOrder = [...players]

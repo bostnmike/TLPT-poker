@@ -728,7 +728,13 @@ def build_checkpoints(metadata, events):
             player = cumulative[row["slug"]]
             for key in CORE_KEYS:
                 player[key] += row.get(key, 0) or 0
-        metrics = finalize_metrics([{**cumulative[meta["slug"]]} for meta in metadata])
+        # Independently enforce the historical replay contract: metadata-only
+        # players cannot influence snapshots earned before their first game.
+        metrics = finalize_metrics([
+            {**cumulative[meta["slug"]]}
+            for meta in metadata
+            if int(cumulative[meta["slug"]].get("buyIns", 0) or 0) > 0
+        ])
         checkpoints[event["date"]] = metrics
     return checkpoints
 

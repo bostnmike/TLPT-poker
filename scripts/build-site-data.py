@@ -954,7 +954,14 @@ def build_historical_card_collections(players, parsed_events):
                 streak["startDate"] = None
                 streak["startTitle"] = None
 
-        checkpoint = [dict(cumulative[player["slug"]]) for player in players]
+        # Historical cards must be based only on the field that had actually
+        # played by this checkpoint. Registering a future zero-game player
+        # must never rewrite an already-earned card snapshot.
+        checkpoint = [
+            dict(cumulative[player["slug"]])
+            for player in players
+            if int(cumulative[player["slug"]].get("buyIns", 0) or 0) > 0
+        ]
         finalize_historical_metrics(checkpoint)
         by_slug = {player["slug"]: player for player in checkpoint}
 

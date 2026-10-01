@@ -73,6 +73,7 @@ function prefersReducedMotion() {
  * Crew experience bands use separate tournament appearances.
  * buyIns counts initial tournament entries; rebuys do not count.
  *
+ * 0 appearances: UNS / Unscouted — registered and awaiting a debut.
  * 1–2 appearances: RKI / Rookie — visible prospect, not Crew-eligible.
  * 3–4 appearances: PRO / Provisional — Crew-eligible, still unranked.
  * 5+ appearances: Established — Crew-eligible for Power Rank and power tiers.
@@ -3285,6 +3286,7 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, option
 
 function archetypeMeta(name) {
   const map = {
+    "Unscouted": { emoji: "🔭", className: "archetype-unscouted" },
     "The Hitman": { emoji: "💥", className: "archetype-hitman" },
     "The Closer": { emoji: "🔒", className: "archetype-closer" },
     "The Grinder": { emoji: "⚙️", className: "archetype-grinder" },
@@ -3479,12 +3481,11 @@ function renderPlayers(data) {
 
   if (!grid || !data?.players) return;
 
-  const fieldPlayers = [...data.players]
-    .filter(isCrewVisible)
+  const rosterPlayers = [...data.players]
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
 
   if (currentCrewView === "archetype") {
-    const archetypeGroups = groupPlayersByArchetype(fieldPlayers, currentArchetypeMode);
+    const archetypeGroups = groupPlayersByArchetype(rosterPlayers, currentArchetypeMode);
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
@@ -3551,6 +3552,10 @@ function renderPlayers(data) {
   const gamblers = [];
   const leagueSponsors = [];
   const cardRatingSort = playerCardRatingComparator(data.players);
+  const unscoutedPlayers = rosterPlayers
+    .filter(isPlayerUnscouted)
+    .sort(cardRatingSort);
+  const fieldPlayers = rosterPlayers.filter(isCrewVisible);
   const provisionalPlayers = fieldPlayers
     .filter(isCrewProvisional)
     .sort(cardRatingSort);
@@ -3602,7 +3607,8 @@ function renderPlayers(data) {
     { title: "The Gamblers", emoji: "🎲", players: gamblers, className: "gamblers" },
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" },
     { title: "PRO — Provisional", emoji: "🧪", players: provisionalPlayers, className: "provisionals" },
-    { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies" }
+    { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies" },
+    { title: "UNS — Unscouted", emoji: "🔭", players: unscoutedPlayers, className: "unscouted" }
   ];
 
   if (helpCopy) {
@@ -3651,6 +3657,19 @@ function renderPlayers(data) {
         className: "tier-section-rookie",
         rangeLabel: " (1–2 Appearances)",
         headerLabel: `${rookiePlayers.length} In the Field`,
+        unranked: true
+      }
+    )}
+    ${tierSectionMarkup(
+      "UNS — Unscouted",
+      "🔭",
+      unscoutedPlayers,
+      data,
+      maxTierPower,
+      {
+        className: "tier-section-unscouted",
+        rangeLabel: " (0 Appearances)",
+        headerLabel: `${unscoutedPlayers.length} Awaiting Debut`,
         unranked: true
       }
     )}
@@ -3778,6 +3797,18 @@ function playerCardTierMeta(player, players) {
 
   const mappedTier = tierMap[tier.name] || { code: "—", className: "prospect" };
 
+  if (isPlayerUnscouted(player)) {
+    return {
+      ...tier,
+      code: "UNS",
+      className: "unscouted",
+      status: "Unscouted",
+      statusDetail: "First TLPT appearance activates Rookie ratings; Power Rank begins at 5",
+      rank: null,
+      totalRanked: eligiblePlayers.length
+    };
+  }
+
   if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) {
     const appearancesToProvisional = Math.max(
       CREW_PROVISIONAL_MIN_BUY_INS - appearances,
@@ -3845,7 +3876,8 @@ const PLAYER_CARD_TIER_PRIORITY = Object.freeze({
   C: 3,
   D: 4,
   PRO: 5,
-  RKI: 6
+  RKI: 6,
+  UNS: 7
 });
 
 function playerCardTierPriority(player, players) {
@@ -4700,6 +4732,18 @@ function wirePlayerCardComparison(scope, player, players, data) {
 function playerCardExperienceMeta(player, tierMeta) {
   const appearances = Number(player?.buyIns ?? 0);
 
+  if (appearances <= 0) {
+    return {
+      className: "unscouted",
+      eyebrow: "UNSCOUTED",
+      progressNow: 0,
+      progressMax: 1,
+      progressLabel: "Awaiting first TLPT appearance",
+      milestone: "1 appearance to activate Rookie ratings",
+      caveat: "Unscouted. Ratings and archetypes begin after the first TLPT appearance; no benchmark score is assigned before then."
+    };
+  }
+
   if (appearances < CREW_PROVISIONAL_MIN_BUY_INS) {
     const target = CREW_PROVISIONAL_MIN_BUY_INS;
     return {
@@ -4709,9 +4753,7 @@ function playerCardExperienceMeta(player, tierMeta) {
       progressMax: target,
       progressLabel: `${appearances} of ${target} appearances to PRO`,
       milestone: `${target - appearances} more ${target - appearances === 1 ? "appearance" : "appearances"} to unlock Provisional status`,
-      caveat: appearances === 0
-        ? "Unscouted. Ratings and archetypes begin after the first TLPT appearance; no benchmark score is assigned before then."
-        : "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
+      caveat: "Ratings reflect actual career results. RKI identifies a limited sample and remains unranked until five appearances."
     };
   }
 
