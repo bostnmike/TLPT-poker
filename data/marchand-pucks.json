@@ -15873,7 +15873,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "images/pucks/319/coa.webp; images/pucks/319/coa-02.webp",
+          "value": "images/pucks/319/coa.webp",
           "url": ""
         },
         {
@@ -15928,7 +15928,7 @@
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/319/coa.webp; images/pucks/319/coa-02.webp",
+          "value": "images/pucks/319/coa.webp",
           "url": ""
         },
         {
@@ -15939,7 +15939,7 @@
       ],
       "goalieScoredAgainst": "",
       "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/319/coa.webp; images/pucks/319/coa-02.webp",
+      "authenticationEvidence": "images/pucks/319/coa.webp",
       "authenticationNotes": ""
     },
     {
@@ -16104,7 +16104,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "images/pucks/320/coa.webp; images/pucks/320/coa-02.webp",
+          "value": "images/pucks/320/coa-02.webp",
           "url": ""
         },
         {
@@ -16159,7 +16159,7 @@
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/320/coa.webp; images/pucks/320/coa-02.webp",
+          "value": "images/pucks/320/coa-02.webp",
           "url": ""
         },
         {
@@ -16170,7 +16170,7 @@
       ],
       "goalieScoredAgainst": "",
       "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/320/coa.webp; images/pucks/320/coa-02.webp",
+      "authenticationEvidence": "images/pucks/320/coa-02.webp",
       "authenticationNotes": ""
     },
     {
