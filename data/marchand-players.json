@@ -1,8 +1,8 @@
 {
   "meta": {
     "source": "Official NHL player search and player profiles",
-    "profileCount": 56,
-    "codeCount": 58
+    "profileCount": 57,
+    "codeCount": 59
   },
   "players": {
     "CK45": {
@@ -305,6 +305,17 @@
       "currentTeamAbbrev": "BOS",
       "currentSweaterNumber": 88,
       "nhlProfileUrl": "https://www.nhl.com/player/8477956",
+      "aliasOf": ""
+    },
+    "DS32": {
+      "code": "DS32",
+      "sourceNumber": 32,
+      "name": "Don Sweeney",
+      "playerId": 8451819,
+      "position": "D",
+      "headshot": "https://assets.nhle.com/mugs/nhl/latest/8451819.png",
+      "heroImage": "https://assets.nhle.com/mugs/actionshots/1296x729/8451819.jpg",
+      "nhlProfileUrl": "https://www.nhl.com/player/8451819",
       "aliasOf": ""
     },
     "EH56": {

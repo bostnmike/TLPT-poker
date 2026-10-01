@@ -136,8 +136,8 @@ assert.equal(roadToHistory.find((record) => record.inventoryId === 503)?.puckTyp
 assert.equal(roadToHistory.find((record) => record.inventoryId === 509)?.puckType, "Game Used Puck", "Game 77 game-used puck is missing");
 assert.equal(roadToHistory.find((record) => record.inventoryId === 501)?.score, "Columbus 1 @ Boston 2 - OT", "Game 75 score must include overtime");
 
-assert.equal(decoder.meta.profileCount, 56, "player profile count drifted");
-assert.equal(decoder.meta.codeCount, 58, "player code decoder count drifted");
+assert.equal(decoder.meta.profileCount, 57, "player profile count drifted");
+assert.equal(decoder.meta.codeCount, 59, "player code decoder count drifted");
 assert.ok(Object.values(decoder.players).every((player) => player.name && player.headshot && player.nhlProfileUrl), "every decoded player needs a name, official headshot, and profile");
 assert.deepEqual(decoder.players.BM63.headshotsByEra, {
   boston: "images/site/brad-marchand-headshot-boston.jpg",

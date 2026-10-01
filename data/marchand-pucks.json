@@ -15722,7 +15722,7 @@
       "category": "Milestone",
       "careerStat": null,
       "seasonStat": null,
-      "description": "BM63 Passes Don Sweeney for 4th in Bruins Games Played with 1,053",
+      "description": "BM63 Passes DS32 for 4th in Bruins Games Played with 1,053",
       "date": "2024-11-27",
       "arena": "UBS Arena",
       "opponent": "New York Islanders",
@@ -15743,7 +15743,8 @@
       "losses": null,
       "points": null,
       "playerCodes": [
-        "BM63"
+        "BM63",
+        "DS32"
       ],
       "sourceData": [
         {
@@ -15763,7 +15764,7 @@
         },
         {
           "label": "Description",
-          "value": "BM63 Passes Don Sweeney for 4th in Bruins Games Played with 1,053",
+          "value": "BM63 Passes DS32 for 4th in Bruins Games Played with 1,053",
           "url": ""
         },
         {
