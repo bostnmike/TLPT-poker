@@ -2497,6 +2497,14 @@
         "label": "COA",
         "url": "images/pucks/74/coa.webp?v=20260928-coa",
         "rotation": 0
+      },
+      {
+        "label": "COA 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=85c045c087e0",
+        "rotation": 0,
+        "caption": "Owner-provided autograph authentication tickets for Brad Marchand, Patrice Bergeron and David Pastrnak, photographed together in one image.",
+        "sourceFile": "IMG_9887.jpeg",
+        "authenticationScope": "autograph"
       }
     ],
     "75": [

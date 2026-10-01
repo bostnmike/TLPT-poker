@@ -21312,7 +21312,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "images/pucks/74/coa.webp",
+          "value": "images/pucks/74/coa.webp; images/pucks/74/coa-02.webp",
           "url": ""
         },
         {
@@ -21322,7 +21322,7 @@
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/74/coa.webp",
+          "value": "images/pucks/74/coa.webp; images/pucks/74/coa-02.webp",
           "url": ""
         },
         {
@@ -21359,7 +21359,7 @@
       "videoProvider": "youtube",
       "videoId": "ZDWaOkzBI0c",
       "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/74/coa.webp",
+      "authenticationEvidence": "images/pucks/74/coa.webp; images/pucks/74/coa-02.webp",
       "authenticationNotes": ""
     },
     {
