@@ -1,4 +1,6 @@
-const MANIFEST_PATH = "images/twtw/gallery-manifest.json";
+const GALLERY_FOLDER = "images/fw";
+const MANIFEST_PATH = `${GALLERY_FOLDER}/gallery-manifest.json`;
+const GALLERY_POSTER_FILE_PATTERN = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
 const PARSED_EVENT_INDEX_PATH = "data/parsed/events/index.json";
 const PARSED_EVENT_BASE_PATH = "data/parsed/events/";
 const PLAYER_METADATA_PATH = "data/player-metadata.json";
@@ -20,7 +22,7 @@ function formatDisplayDate(isoDate) {
 }
 
 function buildTitleFromFilename(isoDate) {
-  return `The Week That Was — ${formatDisplayDate(isoDate)}`;
+  return `Felt Whispers — ${formatDisplayDate(isoDate)}`;
 }
 
 function escapeGalleryHtml(value) {
@@ -447,11 +449,16 @@ async function loadGallery() {
     }
 
     const manifest = await res.json();
+    const manifestFolder = String(manifest.folder || "").replace(/\/+$/, "");
+
+    if (manifestFolder !== GALLERY_FOLDER) {
+      throw new Error(`Unexpected gallery folder: ${manifestFolder || "missing"}`);
+    }
     
     galleryPosters = (manifest.files || [])
-      .filter(file => /^twtw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file))
+      .filter(file => GALLERY_POSTER_FILE_PATTERN.test(file))
       .map(file => {
-        const match = file.match(/^twtw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
+        const match = file.match(/^fw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
         const yy = Number(match[1]);
         const mm = match[2];
         const dd = match[3];
@@ -461,9 +468,9 @@ async function loadGallery() {
         return {
           file,
           date: isoDate,
-          src: `images/twtw/${file}`,
+          src: `${manifestFolder}/${file}`,
           title: buildTitleFromFilename(isoDate),
-          collection: "The Week That Was"
+          collection: "Felt Whispers"
         };
       })
       .sort((a, b) => new Date(b.date) - new Date(a.date));

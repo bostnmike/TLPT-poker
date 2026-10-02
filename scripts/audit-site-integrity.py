@@ -897,11 +897,24 @@ def audit_pages(audit, metadata):
     for meta in metadata:
         audit.check((ROOT / meta["image"]).exists(), "assets", f"{meta['slug']}: player image is missing")
 
-    manifest = load_json(ROOT / "images" / "twtw" / "gallery-manifest.json")
-    actual_posters = sorted((path.name for path in (ROOT / "images" / "twtw").glob("twtw*.jpg")), reverse=True)
+    gallery_dir = ROOT / "images" / "fw"
+    manifest = load_json(gallery_dir / "gallery-manifest.json")
+    actual_posters = sorted(
+        path.name
+        for path in gallery_dir.iterdir()
+        if path.is_file() and path.name != "gallery-manifest.json"
+    )
     manifest_posters = manifest.get("files") or []
+    audit.check(manifest.get("folder") == "images/fw", "assets", "Gallery manifest folder must be images/fw")
+    audit.check(
+        all(re.fullmatch(r"fw\d{2}-\d{2}-\d{2}\.jpg", name, flags=re.IGNORECASE) for name in manifest_posters),
+        "assets",
+        "Gallery manifest contains a poster outside the fwYY-MM-DD.jpg naming contract",
+    )
+    audit.check(len(manifest_posters) == len(set(manifest_posters)), "assets", "Gallery manifest contains duplicate posters")
     audit.check(set(actual_posters) == set(manifest_posters), "assets", "Gallery manifest and poster files differ")
-    audit.check(all((ROOT / "images" / "twtw" / name).exists() for name in manifest_posters), "assets", "Gallery manifest references a missing poster")
+    audit.check(manifest_posters == sorted(actual_posters, reverse=True), "assets", "Gallery manifest is not newest-first")
+    audit.check(all((ROOT / "images" / "fw" / name).exists() for name in manifest_posters), "assets", "Gallery manifest references a missing poster")
 
     movement = (ROOT / "player-movement.js").read_text(encoding="utf-8")
     audit.check(

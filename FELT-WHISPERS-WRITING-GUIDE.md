@@ -1,6 +1,6 @@
 # Felt Whispers — writing and publishing guide
 
-Updated September 9, 2026. These instructions supersede all earlier news-story prompts wherever section order or retired sections conflict.
+Updated October 1, 2026. These instructions supersede all earlier news-story prompts wherever section order, gallery naming, or retired sections conflict.
 
 ## Permanent page layout
 
@@ -56,7 +56,7 @@ Keep the existing compatible field shapes. A new story contains:
 - `id`: `week-MM-DD-YYYY`
 - `date`: `MM/DD/YYYY`
 - `eventName`: the report's event name
-- `title`: the event name only, with no `TWTW:`, `FW:`, or other publication prefix
+- `title`: the event name only, with no `FW:` or other publication prefix
 - `featured`: boolean
 - `dek`: brief hook
 - `summaryCards`: exactly four card objects, using the current renderer's `tone`, `label`, `player`, `value` (when useful), `copy`, `avatar` or `avatars`, and `fallback` shapes
@@ -74,7 +74,7 @@ Do not add any retired keys. The renderer controls visible section order; JSON k
 Every `mainStoryHtml` starts with this exact structure, substituting the event date:
 
 ```html
-<div class="news-story-poster-wrap"><img src="images/twtw/twtwYY-MM-DD.jpg" alt="Poster for the MM/DD/YYYY game" class="news-story-poster" loading="lazy" decoding="async"></div><p>First story paragraph...</p>
+<div class="news-story-poster-wrap"><img src="images/fw/fwYY-MM-DD.jpg" alt="Poster for the MM/DD/YYYY game" class="news-story-poster" loading="lazy" decoding="async"></div><p>First story paragraph...</p>
 ```
 
 Use `.jpg`, a relative path, and no leading slash. The date in the filename is the event date even if play ended after midnight.

@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = fs.readFileSync(path.join(root, 'news-render.js'), 'utf8');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'news-data.json'), 'utf8'));
+const galleryManifest = JSON.parse(fs.readFileSync(path.join(root, 'images', 'fw', 'gallery-manifest.json'), 'utf8'));
+const galleryPosterFiles = new Set(galleryManifest.files || []);
 const sandbox = {
   console,
   document: { addEventListener() {} }
@@ -38,7 +40,7 @@ function assertImageContract(html, expectedAttributes, label, expectedCount = 1)
 const order = ["📖 Here's the story...", '🔦 Game Spotlight', '🔢 By the Numbers', '🎙️ Host Roast'];
 const deprecatedMarkup = /news-felt-(?:grid|card)|news-quickhits-grid|news-section-divider|<h4>[^<]*Quick Hits/;
 const fixture = {
-  id: 'test-four-section-story', date: '09/06/2026', title: 'TWTW: Test', featured: true,
+  id: 'test-four-section-story', date: '09/06/2026', title: 'FW: Test', featured: true,
   mainStoryHtml: '<p>Story content stays intact.</p>',
   spotlight: { player: 'Example Player', fallback: 'EP', pills: ['Compact context'] },
   numbersThatMatter: ['One.', 'Two.', 'Three.', 'Four.'],
@@ -143,7 +145,12 @@ const ids = data.weeks.map((week) => week.id);
 assert.equal(new Set(ids).size, ids.length, 'No duplicate story IDs');
 assert.equal(data.weeks.filter((week) => week.featured === true).length, 1, 'Exactly one featured story');
 assert.equal(data.weeks[0].featured, true, 'Newest story remains first and featured');
-assert.ok(data.weeks.every((week) => !/^TWTW:\s*/i.test(String(week?.title || ''))), 'Story titles omit the legacy TWTW prefix');
+assert.ok(data.weeks.every((week) => !/^FW:\s*/i.test(String(week?.title || ''))), 'Story titles omit a redundant FW prefix');
+assert.equal(galleryManifest.folder, 'images/fw', 'Gallery manifest uses the Felt Whispers folder');
+assert.ok(
+  [...galleryPosterFiles].every((file) => /^fw\d{2}-\d{2}-\d{2}\.jpg$/i.test(file)),
+  'Gallery posters use the fwYY-MM-DD.jpg naming contract'
+);
 const missingRoasts = [];
 
 for (const week of data.weeks) {
@@ -153,6 +160,12 @@ for (const week of data.weeks) {
 }
 
 for (const [index, week] of data.weeks.entries()) {
+  const [month, day, year] = String(week.date || '').split('/');
+  const posterFile = `fw${String(year).slice(-2)}-${month}-${day}.jpg`;
+  const posterPath = `images/fw/${posterFile}`;
+  assert.ok(week.mainStoryHtml.includes(`src="${posterPath}"`), `Felt Whispers poster path: ${week.id}`);
+  assert.ok(fs.existsSync(path.join(root, posterPath)), `Felt Whispers poster exists: ${week.id}`);
+  assert.ok(galleryPosterFiles.has(posterFile), `Felt Whispers poster is in the gallery manifest: ${week.id}`);
   const expected = [];
   if (typeof week.mainStoryHtml === 'string' && week.mainStoryHtml) expected.push(order[0]);
   if (week.spotlight) expected.push(order[1]);
@@ -169,8 +182,8 @@ for (const [index, week] of data.weeks.entries()) {
     assert.deepEqual(sectionTitles(article), expected, `Featured/archive layout: ${week.id}`);
     assert.ok(article.includes(`id="${week.id}"`), `Stable story anchor: ${week.id}`);
     assert.equal(article.includes(' news-post-featured'), isFeatured, `Featured styling: ${week.id}`);
-    assert.doesNotMatch(article, /<h3 class="news-post-title">TWTW:/i, `Legacy title prefix: ${week.id}`);
-    assert.doesNotMatch(article, /The Week That Was|news-post-kicker/i, `Legacy story kicker: ${week.id}`);
+    assert.doesNotMatch(article, /<h3 class="news-post-title">FW:/i, `Redundant title prefix: ${week.id}`);
+    assert.doesNotMatch(article, /Felt Whispers|news-post-kicker/i, `Redundant publication kicker: ${week.id}`);
   }
 }
 

@@ -2,19 +2,31 @@ import fs from "node:fs";
 import path from "node:path";
 
 const repoRoot = process.cwd();
-const twtwDir = path.join(repoRoot, "images", "twtw");
-const outFile = path.join(twtwDir, "gallery-manifest.json");
+const feltWhispersDir = path.join(repoRoot, "images", "fw");
+const outFile = path.join(feltWhispersDir, "gallery-manifest.json");
+const posterPattern = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
 
-if (!fs.existsSync(twtwDir)) {
-  throw new Error(`Directory not found: ${twtwDir}`);
+if (!fs.existsSync(feltWhispersDir)) {
+  throw new Error(`Directory not found: ${feltWhispersDir}`);
 }
 
-const files = fs
-  .readdirSync(twtwDir)
-  .filter(name => /^twtw\d{2}-\d{2}-\d{2}\.jpg$/i.test(name))
+const directoryFiles = fs
+  .readdirSync(feltWhispersDir, { withFileTypes: true })
+  .filter(entry => entry.isFile())
+  .map(entry => entry.name);
+const unexpectedFiles = directoryFiles.filter(
+  name => name !== "gallery-manifest.json" && !posterPattern.test(name)
+);
+
+if (unexpectedFiles.length) {
+  throw new Error(`Unexpected file(s) in Felt Whispers gallery: ${unexpectedFiles.join(", ")}`);
+}
+
+const files = directoryFiles
+  .filter(name => posterPattern.test(name))
   .sort((a, b) => {
     const toStamp = (file) => {
-      const m = file.match(/^twtw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
+      const m = file.match(/^fw(\d{2})-(\d{2})-(\d{2})\.jpg$/i);
       const yy = Number(m[1]);
       const yyyy = yy >= 70 ? 1900 + yy : 2000 + yy;
       return `${yyyy}-${m[2]}-${m[3]}`;
@@ -22,8 +34,12 @@ const files = fs
     return toStamp(b).localeCompare(toStamp(a));
   });
 
+if (!files.length) {
+  throw new Error("No Felt Whispers posters found.");
+}
+
 const payload = {
-  folder: "images/twtw",
+  folder: "images/fw",
   files
 };
 

@@ -262,7 +262,7 @@ function renderWeek(week, index, isFeatured) {
   const id = escapeHtml(week?.id || `week-${index}`);
   const date = escapeHtml(week?.date || '');
   const rawTitle = week?.title || week?.eventName || 'Event';
-  const title = escapeHtml(String(rawTitle).replace(/^TWTW:\s*/i, ''));
+  const title = escapeHtml(String(rawTitle).replace(/^FW:\s*/i, ''));
   const dek = escapeHtml(week?.dek || '');
   const bodyHtml = renderWeekBody(week);
 
@@ -283,7 +283,7 @@ function renderWeek(week, index, isFeatured) {
 }
 
 function renderWeekBody(week) {
-  // One layout for featured and archived stories. See TWTW-WRITING-GUIDE.md.
+  // One layout for featured and archived stories. See FELT-WHISPERS-WRITING-GUIDE.md.
   return `
     ${renderMainStory(week)}
     ${renderGameSpotlight(week)}

@@ -1378,7 +1378,7 @@
   }
 }
 
-/* The Week That Was has no chip: same size and opacity in its open right rail. */
+/* Felt Whispers has no chip: same size and opacity in its open right rail. */
 .news-header-shell::before{
   content:"";
   position:absolute;

@@ -96,7 +96,7 @@ selector for `style.css`.
 
 Phase 3A.2 extends the same shared title typography to the five remaining
 content pages whose existing header shells already follow the shared page-title
-contract: Schedule, Rules, The Week That Was, The Gallery, and the Film Room.
+contract: Schedule, Rules, Felt Whispers, The Gallery, and the Film Room.
 
 Only the primary heading adopts `.site-page-title`. Each page retains its
 existing title color, chip or emoji identity, accent line, shell background,
@@ -236,7 +236,7 @@ header selector chains in `knockouts.css`. The final header spacing and red
 accent declarations retain their existing specificity and `!important` status,
 so the cleanup changes source ownership without changing the rendered cascade.
 
-### The Week That Was cleanup
+### Felt Whispers cleanup
 
 The Phase 2B.4 News pass consolidates the two remaining split selector chains
 in `news.css`: the receipt header layout and the archive-list scrolling rules.

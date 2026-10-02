@@ -348,11 +348,11 @@ EXPECTED_SHARED_STYLESHEET = "style.css?v=20260930-2"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20260825-3"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261001-1"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20260909-3"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261001-1"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
@@ -4791,10 +4791,10 @@ def audit_post_freeze_title_watermark() -> list[str]:
                 "trophy-room.html: Trophy Room must contain exactly one locked watermark/chip brand pair"
             )
 
-    # Bespoke TWTW desktop treatment: explicit title-zone placement and stronger opacity.
+    # Bespoke Felt Whispers desktop treatment: explicit title-zone placement and stronger opacity.
     news_match = re.search(r"\.news-header-shell::before\s*\{([^}]*)\}", text, re.S)
     if not news_match:
-        errors.append("site-tail.css: TWTW watermark selector is missing")
+        errors.append("site-tail.css: Felt Whispers watermark selector is missing")
     else:
         block = news_match.group(1)
         for fragment in (
@@ -4806,7 +4806,7 @@ def audit_post_freeze_title_watermark() -> list[str]:
             "opacity:.14;",
         ):
             if fragment not in block:
-                errors.append(f"site-tail.css: TWTW watermark missing `{fragment}`")
+                errors.append(f"site-tail.css: Felt Whispers watermark missing `{fragment}`")
 
     # Bespoke Player Profile: same shared opacity, but image must be right-justified.
     profile_match = re.search(
