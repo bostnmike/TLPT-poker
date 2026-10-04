@@ -2886,5 +2886,73 @@
       "sourceVictim": "Ahmed",
       "sourceKiller": "Chris F"
     }
+  ],
+  "2026-10-03": [
+    {
+      "victim": "chris-f",
+      "killer": "cougar",
+      "sourceVictim": "Chris F",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "hiro",
+      "killer": "chris-f",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Chris F"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "cougar",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "chris-o",
+      "killer": "ai-dave",
+      "sourceVictim": "Chris O",
+      "sourceKiller": "A.I. Dave"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "chris-f",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Chris F"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "li-fo",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "ahmed",
+      "killer": "chris-f",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Chris F"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "cougar",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Cougar"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "chris-f",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Chris F"
+    }
   ]
 }
