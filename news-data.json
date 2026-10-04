@@ -14,11 +14,142 @@
   },
   "weeks": [
 {
+  "id": "week-10-03-2026",
+  "date": "10/03/2026",
+  "eventName": "Inglorious Bluffs | 9-Max",
+  "title": "Inglorious Bluffs | 9-Max",
+  "featured": true,
+  "dek": "A month off brought fresh table talk, suspicious samosas and a familiar bubble. Chris F and Cougar stayed awake long enough to split first.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "🏆 The Big Winner",
+      "player": "Chris F / Cougar",
+      "value": "Shared first",
+      "copy": "Chris F recovered from the first bust; Cougar reached the chop without a rebuy.",
+      "avatars": [
+        {
+          "src": "images/players/chris-f.jpg",
+          "slug": "chris-f",
+          "alt": "Chris F",
+          "fallback": "CF"
+        },
+        {
+          "src": "images/players/cougar.jpg",
+          "slug": "cougar",
+          "alt": "Cougar",
+          "fallback": "CO"
+        }
+      ]
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Chris F",
+      "value": "4 knockouts",
+      "copy": "Removed Hiro, ProvidenceMike, Ahmed and Li-Fo after buying a second life.",
+      "avatar": "images/players/chris-f.jpg",
+      "fallback": "CF"
+    },
+    {
+      "tone": "purple",
+      "label": "♻️ Paid on Bullet Three",
+      "player": "Li-Fo",
+      "value": "Third place",
+      "copy": "Tony used two rebuys, then outlasted the bubble to claim the third paid spot.",
+      "avatar": "images/players/li-fo.jpg",
+      "fallback": "LF"
+    },
+    {
+      "tone": "blue",
+      "label": "🫧 The Bubble",
+      "player": "BostnMike",
+      "value": "Fourth place",
+      "copy": "Cougar eliminated the Commissioner at 10:28 pm, one place short of the payouts.",
+      "avatar": "images/players/bostnmike.jpg",
+      "fallback": "BM"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "13"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "4"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$390"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "4h 23m"
+    }
+  ],
+  "summary": {
+    "startTime": "6:22:11 pm 10/03/2026",
+    "endTime": "10:45:27 pm 10/03/2026",
+    "durationLabel": "4h 23m",
+    "buyIns": 9,
+    "rebuys": 4,
+    "entries": 13,
+    "totalPot": 390,
+    "paidSpots": 3,
+    "winner": "Chris F, Cougar",
+    "firstOut": "Chris F",
+    "firstPermanentOut": "Hiro"
+  },
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-03.jpg\" alt=\"Poster for the 10/03/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Four weeks without poker gave TLPT plenty of time to miss the table. Inglorious Bluffs brought nine players back on October 3, and the table talk got spicy early. The 6:22 pm start should have suited a room that had spent a month resting, but everybody kept yawning anyway. Suspicion settled on Ahmed&apos;s samosas, with Ambien getting an entirely unofficial ingredient credit.</p><p>Chris F took the first bust of the night from Cougar at 8:07 pm and rebought four seconds later. He put the second life to work, knocking out Hiro and later ProvidenceMike, whose cards were so dead Jack Kevorkian would have been proud if he had been alive to appreciate them. Providence finally exited at 9:30 pm. Chris went on to remove Ahmed and Li-Fo as well, finishing with four knockouts and a place in the final two.</p><p>Tony continued his Lazarus routine, with the cashier handling the miracles. Hiro busted Li-Fo at 8:24 pm, Cougar did it again at 8:53, and Tony paid for another rebuy each time. He still found time to make Hiro the first player gone for good and knock out A.I. Dave. His third life lasted long enough to collect third-place money.</p><p>Cougar needed no extra lives. He had already busted Chris F and caught Tony on his second exit before removing BostnMike in fourth at 10:28 pm. Chris took Tony out five minutes later. He and Cougar agreed to split first, and the game ended at 10:45 pm.</p>",
+  "spotlight": {
+    "player": "Chris F / Cougar / Li-Fo",
+    "fallback": "CCL",
+    "pills": [
+      "Chris F: 4 Knockouts",
+      "Cougar: No Rebuy",
+      "Li-Fo: Two Rebuys",
+      "Chris F & Cougar: Shared First"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/chris-f.jpg",
+        "slug": "chris-f",
+        "alt": "Chris F",
+        "fallback": "CF"
+      },
+      {
+        "src": "images/players/cougar.jpg",
+        "slug": "cougar",
+        "alt": "Cougar",
+        "fallback": "CO"
+      },
+      {
+        "src": "images/players/li-fo.jpg",
+        "slug": "li-fo",
+        "alt": "Li-Fo",
+        "fallback": "LF"
+      }
+    ]
+  },
+  "numbersThatMatter": [
+    "9 buy-ins, 4 rebuys, 13 total entries.",
+    "4h 23m elapsed, from 6:22 pm to 10:45 pm.",
+    "$390 prize pool: Chris F and Cougar agreed to split first for $155 each; Li-Fo received $80 for third.",
+    "Three players used all four rebuys: Chris F once, Hiro once, and Li-Fo twice."
+  ],
+  "roastHtml": "<p>BostnMike got the league playing again, started early and returned to the bubble. The Commissioner apparently has a reserved seat there, complete with an excellent view of other people&apos;s payouts.</p>"
+},
+{
   "id": "week-09-05-2026",
   "date": "09/05/2026",
   "eventName": "Bluff Runner | 9-Max",
   "title": "Bluff Runner | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "For the second night in a row, New Blood took down TLPT: Chris F won his debut after a 5h 28m marathon that featured a Deckmate family scandal, a late-night shuffler emergency, and the Commish bubbling like a gracious host.",
   "summaryCards": [
     {
