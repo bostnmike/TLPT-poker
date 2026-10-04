@@ -19,14 +19,14 @@
   "eventName": "Inglorious Bluffs | 9-Max",
   "title": "Inglorious Bluffs | 9-Max",
   "featured": true,
-  "dek": "A month off brought fresh table talk, suspicious samosas and a familiar bubble. Chris F and Cougar stayed awake long enough to split first.",
+  "dek": "A month off, a suspicious batch of samosas, and nine players struggling to stay conscious. Somehow the Commissioner still managed to miss the money.",
   "summaryCards": [
     {
       "tone": "green",
       "label": "🏆 The Big Winner",
       "player": "Chris F / Cougar",
       "value": "Shared first",
-      "copy": "Chris F recovered from the first bust; Cougar reached the chop without a rebuy.",
+      "copy": "Chris F needed a reload; Cougar kept the original stack alive. Both collected $155 while the regulars practiced losing.",
       "avatars": [
         {
           "src": "images/players/chris-f.jpg",
@@ -47,16 +47,16 @@
       "label": "🪓 Table Killer",
       "player": "Chris F",
       "value": "4 knockouts",
-      "copy": "Removed Hiro, ProvidenceMike, Ahmed and Li-Fo after buying a second life.",
+      "copy": "First man busted, busiest man back. Hiro, ProvidenceMike, Ahmed and Li-Fo all made his list.",
       "avatar": "images/players/chris-f.jpg",
       "fallback": "CF"
     },
     {
       "tone": "purple",
-      "label": "♻️ Paid on Bullet Three",
+      "label": "♻️ The Rebuy Resurrection",
       "player": "Li-Fo",
       "value": "Third place",
-      "copy": "Tony used two rebuys, then outlasted the bubble to claim the third paid spot.",
+      "copy": "Two rebuys bought Tony third place. The cashier enjoyed his comeback almost as much as he did.",
       "avatar": "images/players/li-fo.jpg",
       "fallback": "LF"
     },
@@ -65,7 +65,7 @@
       "label": "🫧 The Bubble",
       "player": "BostnMike",
       "value": "Fourth place",
-      "copy": "Cougar eliminated the Commissioner at 10:28 pm, one place short of the payouts.",
+      "copy": "Cougar put the Commissioner back in fourth. A month away did wonders for absolutely nothing.",
       "avatar": "images/players/bostnmike.jpg",
       "fallback": "BM"
     }
@@ -105,7 +105,7 @@
     "firstOut": "Chris F",
     "firstPermanentOut": "Hiro"
   },
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-03.jpg\" alt=\"Poster for the 10/03/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Four weeks without poker gave TLPT plenty of time to miss the table. Inglorious Bluffs brought nine players back on October 3, and the table talk got spicy early. The 6:22 pm start should have suited a room that had spent a month resting, but everybody kept yawning anyway. Suspicion settled on Ahmed&apos;s samosas, with Ambien getting an entirely unofficial ingredient credit.</p><p>Chris F took the first bust of the night from Cougar at 8:07 pm and rebought four seconds later. He put the second life to work, knocking out Hiro and later ProvidenceMike, whose cards were so dead Jack Kevorkian would have been proud if he had been alive to appreciate them. Providence finally exited at 9:30 pm. Chris went on to remove Ahmed and Li-Fo as well, finishing with four knockouts and a place in the final two.</p><p>Tony continued his Lazarus routine, with the cashier handling the miracles. Hiro busted Li-Fo at 8:24 pm, Cougar did it again at 8:53, and Tony paid for another rebuy each time. He still found time to make Hiro the first player gone for good and knock out A.I. Dave. His third life lasted long enough to collect third-place money.</p><p>Cougar needed no extra lives. He had already busted Chris F and caught Tony on his second exit before removing BostnMike in fourth at 10:28 pm. Chris took Tony out five minutes later. He and Cougar agreed to split first, and the game ended at 10:45 pm.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-03.jpg\" alt=\"Poster for the 10/03/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>A month without poker gave the TLPT regulars plenty of time to work on their games. Apparently they used it to nap. Nine players returned for Inglorious Bluffs, the table talk got spicy early, and the yawning lasted all night. The 6:22 pm start was supposed to help, but the room still looked like a sleep study with a prize pool. Suspicion fell on Ahmed&apos;s samosas. The working theory was Ambien in the filling, which would explain how a table that had been resting for four weeks immediately needed another lie-down.</p><p>Cougar busted Chris F first, and Chris rebought four seconds later. At least somebody&apos;s wallet was awake. He came back and collected Hiro, ProvidenceMike, Ahmed and Li-Fo for four knockouts. Providence was so card-dead Jack Kevorkian would have been proud, if he weren&apos;t dead himself. There was barely a pulse in the hole cards all night, and Chris finally signed the death certificate at 9:30. A month away from the table, and Providence returned just in time to provide a cadaver.</p><p>Tony continued his Lazarus routine, although the biblical version involved considerably less cash changing hands. Hiro busted Li-Fo once, Cougar did it again, and Tony bought his way out of the grave both times. He even sent Hiro home for good and took A.I. Dave with him before Chris F finally made the third burial stick. Third place paid $80. Three $30 bullets cost $90. Tony successfully rose from the dead twice to lose ten bucks. Somebody needs to have a word with the miracles department.</p><p>Cougar went the entire night without a rebuy and still found time to evict the Commissioner on the bubble. BostnMike returned in fourth, exactly where the league apparently keeps him when money is being distributed. Once Chris F finished Tony, Chris and Cougar agreed to split first for $155 each. Inglorious Bluffs wrapped at 10:45, giving everyone plenty of time to get home and recover from the exhausting business of sitting down after a month off.</p>",
   "spotlight": {
     "player": "Chris F / Cougar / Li-Fo",
     "fallback": "CCL",
@@ -142,7 +142,7 @@
     "$390 prize pool: Chris F and Cougar agreed to split first for $155 each; Li-Fo received $80 for third.",
     "Three players used all four rebuys: Chris F once, Hiro once, and Li-Fo twice."
   ],
-  "roastHtml": "<p>BostnMike got the league playing again, started early and returned to the bubble. The Commissioner apparently has a reserved seat there, complete with an excellent view of other people&apos;s payouts.</p>"
+  "roastHtml": "<p>BostnMike had a month to prepare, got nine players into seats, started early and still finished one spot short of getting paid. The Commissioner keeps providing the venue, the equipment and the prize-pool donation. At this point the rest of the league should at least send him a thank-you card.</p>"
 },
 {
   "id": "week-09-05-2026",
