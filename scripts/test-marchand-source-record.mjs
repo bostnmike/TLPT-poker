@@ -54,6 +54,10 @@ for (const record of records) {
   fields = context.elements.sourceGrid.children[0].children;
   const populated = record.sourceData.filter(f=> !/image|filename|authentication evidence/i.test(f.label) && (String(f.url??'').trim() || (String(f.value??'').trim() && !/^[-–—]+$/.test(String(f.value).trim()))));
   assert.deepEqual(fields.map(f=>f.children[0].textContent), populated.map(f=>f.label === 'Score' ? 'Final Result' : f.label), record.key);
+  for (const field of fields.filter(field => /Authentication Record URL$/.test(field.children[0].textContent))) {
+    assert.equal(field.children[1].textContent, 'Look Up Authentication Record', record.key);
+    assert.match(field.children[1].href, /^https?:\/\//, record.key);
+  }
   const opponent = fields.find(f=>f.children[0].textContent === 'Opponent');
   if (opponent) {
     assert.equal(opponent.children[1].children[1].textContent, record.opponent, record.key);

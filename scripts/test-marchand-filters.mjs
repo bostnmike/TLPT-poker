@@ -312,7 +312,9 @@ for (const row of rows()) {
     for (const field of element("artifact-source-grid").children) {
       if (field.children[1].tag === "a") {
         assert.equal(field.children[1].target, "_blank");
-        assert.equal(field.children[1].href, sourceUrl);
+        const authenticationUrl = record.sourceData.find(source => source.label === field.children[0].textContent && /Authentication Record URL$/.test(source.label))?.url;
+        assert.equal(field.children[1].href, authenticationUrl || sourceUrl);
+        if (authenticationUrl) assert.equal(field.children[1].textContent, "Look Up Authentication Record");
       }
     }
     row.children[8].children[0].click();

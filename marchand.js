@@ -735,6 +735,47 @@
     elements.personnelGrid.replaceChildren(...cards);
   }
 
+  function renderAuthentication(record) {
+    const panel = document.getElementById("artifact-authentication");
+    const links = document.getElementById("artifact-authentication-links");
+    const instructions = document.getElementById("artifact-authentication-instructions");
+    links.replaceChildren();
+    instructions.textContent = record.authenticationLookupInstructions || "";
+    const entries = [
+      [record.authenticationIssuer, record.authenticationSerial, record.authenticationRecordUrl],
+      [record.authenticationAlternateIssuer, record.authenticationAlternateSerial, record.authenticationAlternateRecordUrl],
+    ];
+    for (const [issuer, serial, url] of entries) {
+      if (!/^https?:\/\//i.test(url || "")) continue;
+      const row = document.createElement("div");
+      row.className = "marchand-authentication-record";
+      const identity = document.createElement("strong");
+      identity.textContent = [issuer || "Authentication hologram", serial].filter(Boolean).join(" · ");
+      const link = document.createElement("a");
+      link.href = url;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = "Look Up Authentication Record";
+      row.append(identity, link);
+      if (serial) {
+        const copy = document.createElement("button");
+        copy.type = "button";
+        copy.textContent = "Copy Hologram Number";
+        copy.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(String(serial));
+            copy.textContent = "Hologram Number Copied";
+          } catch {
+            copy.textContent = `Select and copy ${serial}`;
+          }
+        });
+        row.append(copy);
+      }
+      links.append(row);
+    }
+    panel.hidden = links.children.length === 0;
+  }
+
   function renderSourceRecord(record) {
     elements.provenance.textContent = `${collectionWing(record.sourceSheet)} · spreadsheet row ${record.sourceRow} · Inventory ID ${record.inventoryId}`;
     const fragment = document.createDocumentFragment();
@@ -755,7 +796,7 @@
         value.href = field.url === record.videoUrl ? sourceVideoUrl(record) : field.url;
         value.target = "_blank";
         value.rel = "noopener noreferrer";
-        value.textContent = `${field.value || "Open video"} ↗`;
+        value.textContent = /Authentication Record URL$/.test(field.label) ? "Look Up Authentication Record" : `${field.value || "Open video"} ↗`;
       } else {
         value = document.createElement("strong");
         const player = state.players[field.value];
@@ -1022,6 +1063,7 @@
     addFact("Final Result", record.score);
     addFact("Authentication", record.authenticationType === "Not Yet Documented" ? "" : record.authenticationType);
 
+    renderAuthentication(record);
     renderPersonnel(record);
     renderSourceRecord(record);
 

@@ -2139,3 +2139,13 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 select option[value="Hockey Fights Cancer"]{color:#c5a6df;background:#24172f}
 .marchand-dialog[data-hfc="true"] h3,.marchand-dialog[data-hfc="true"] h4,.marchand-watch-dialog[data-hfc="true"] h3{color:var(--museum-accent)}
 .marchand-dialog[data-hfc="true"] .marchand-game-stats{border-color:var(--museum-border)}
+
+/* Hologram-linked records keep identifiers beside the most direct available route. */
+.marchand-authentication-links{display:grid;gap:12px}
+.marchand-authentication-record{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:14px;border:1px solid var(--museum-border);border-radius:12px}
+.marchand-authentication-record strong{flex:1 1 220px;overflow-wrap:anywhere}
+.marchand-authentication-record a{color:var(--museum-accent);font-weight:700;text-underline-offset:3px}
+.marchand-authentication-record button{padding:8px 12px;border:1px solid currentColor;border-radius:8px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.marchand-authentication-record a:focus-visible,.marchand-authentication-record button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+
+#artifact-authentication-instructions{margin:12px 0 0;font-size:.85rem;line-height:1.5;letter-spacing:0}

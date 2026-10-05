@@ -272,7 +272,14 @@ def synchronize_record(record, workbook_values, workbook_formulas):
         record["dateStatus"] = values["Date Status"]
     for label, key in (("Authentication Type", "authenticationType"),
                        ("Authentication Evidence", "authenticationEvidence"),
-                       ("Authentication Notes", "authenticationNotes")):
+                       ("Authentication Notes", "authenticationNotes"),
+                       ("Authentication Issuer", "authenticationIssuer"),
+                       ("Hologram Number", "authenticationSerial"),
+                       ("Authentication Record URL", "authenticationRecordUrl"),
+                       ("Additional Authentication Issuer", "authenticationAlternateIssuer"),
+                       ("Additional Hologram Number", "authenticationAlternateSerial"),
+                       ("Additional Authentication Record URL", "authenticationAlternateRecordUrl"),
+                       ("Authentication Lookup Instructions", "authenticationLookupInstructions")):
         if label in values:
             record[key] = values[label]
 

@@ -33,6 +33,7 @@ node scripts/test-news-layout.mjs
 echo "🏒 Testing the Marchand Puck Vault..."
 node scripts/test-marchand-page.mjs
 node scripts/test-marchand-source-record.mjs
+node scripts/test-marchand-authentication-links.mjs
 node scripts/test-marchand-photo-manifest.mjs
 node scripts/test-marchand-stories.mjs
 node scripts/test-marchand-game-stats.mjs

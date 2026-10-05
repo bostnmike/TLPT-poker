@@ -1,0 +1,24 @@
+# Authentication lookup links — October 5, 2026
+
+The canonical workbook and Word document belong to **Collection Data - Work**. The Museum owns presentation and import mappings in `bostnmike/TLPT-poker`. The exact narrow handoff is `marchand-authentication-links-20261005.json`; do not replace the canonical workbook with site JSON.
+
+All 80 records currently catalogued as Digital COA / Hologram have an authentication route. There are 80 authentication links. Artifacts 334, 335 and 341 also carry NHL licensing holograms, whose QR codes redirect to NHL Shop. Those stickers are preserved separately; Fanatics supplies their digital COA route.
+
+- 50 primary routes prefill Fanatics hologram numbers. A physical three-letter key code may still be requested by Fanatics.
+- 7 primary routes open issuer records directly: five Bruins records with both codes in the HTTPS URL and two Penguins GET links.
+- Five Real Sports Authentics links prefill both codes and stop at the issuer CAPTCHA.
+- Artifact 46 opens Seattle Kraken Authentics; enter BB01628 and validation code GBW. Its QR redirect currently drops the codes, and no supported prefill route was established.
+- Artifact 38 opens the official Blues lookup; display and copy STL23240752 for manual entry. The returned record was matched to Marchand, January 13, 2024. No supported prefill parameter was established.
+- Artifact 32 opens LA Kings Game-Used authentication instructions. Its tag is df66614b, decoded from its Data Matrix; the program uses an app and owner account access.
+- 13 older team holograms open the retained certificate; helper text clearly distinguishes these copies from a public issuer lookup.
+- Artifacts 77 (Canadiens G009264) and 712 (unbranded J801404) open retained hologram photographs, explicitly identified as photographs. Public issuer-record links remain unresolved. Do not assign 712 to VGK solely because of its opponent.
+
+The visible link wording is exactly **Look Up Authentication Record**. Serial numbers are stored as text, preserving leading zeroes, case and suffixes. Do not pass packaging IDs into hologram lookup services. Unsupported query parameters must not be invented. No issuer URL is guaranteed permanent.
+
+Verified record content: Fanatics 70 (AA0016994), Bruins 60 (BB00209/KVH) and 39 (BB01019/MJM), Penguins 41 (673758E, Marchand goal), Penguins 502 (555680W, McAvoy goal on April 1, 2023, matching the catalogue's Marchand assist), Blues 38 (STL23240752). Other QR URLs are transcribed from photographed tags, with no claim that all returned descriptions have been independently matched.
+
+Artifacts 57 and 313 show the same Fanatics number RG13313204. Preserve both collection records pending owner review; do not deduplicate them. Artifact 30's retained certificate clearly shows 144115, which corrects unreliable OCR.
+
+Seven new fields are appended consistently to all six collection sheets: Authentication Issuer, Hologram Number, Authentication Record URL, Additional Authentication Issuer, Additional Hologram Number, Additional Authentication Record URL, Authentication Lookup Instructions. They are blank on the other 90 records. The importer maps each field to the site and preserves native hyperlinks. Authentication Notes for 32 now identifies LA Kings Game-Used.
+
+Issuer sources: https://www.fanatics.com/fansecure ; https://tdgardenapps.com/bruins-authentics/authenticator/authenticator.html ; https://auctions.realsports.ca/iSynApp/authenticateCode.action ; https://seattlehockeyteamstore.com/pages/seattle-kraken-authentics ; https://pensgear.com/authentics/ ; https://authentics.penscloud.com/ ; https://www.nhl.com/blues/fans/game-used ; https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise . MeiGray has a lookup form at https://meigrayauctions.com/iSynApp/authenticateProdAttr.action, but there was no established direct permalink for these 80 records and no fabricated MeiGray URL was assigned.

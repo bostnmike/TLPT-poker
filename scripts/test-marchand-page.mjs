@@ -92,7 +92,7 @@ for (const record of payload.records) {
   assert.ok(record.arena, `${record.key} needs an arena`);
   if (record.inventoryId !== 708) assert.match(record.date, /^\d{4}-\d{2}-\d{2}$/, `${record.key} needs a sortable ISO date`);
   const expectedFields = { "Goals & Games": 26, Milestones: 38, "Road to History": 24, "Road to Repeat": 43, "Hockey Fights Cancer": 40, "Warm-Up Pucks": 40 }[record.sourceSheet];
-  assert.equal(record.sourceData?.length, expectedFields, `${record.key} must expose every spreadsheet column`);
+  assert.equal(record.sourceData?.length, expectedFields + 7, `${record.key} must expose every spreadsheet column`);
   const sourceFields = Object.fromEntries(record.sourceData.map((field) => [field.label, field.value]));
   assert.ok(sourceFields.Opponent, `${record.key} must expose its opponent in the complete record`);
   assert.ok(sourceFields.Arena, `${record.key} must expose its arena in the complete record`);
@@ -224,9 +224,9 @@ assert.match(html, /property="og:image:width" content="1200"/, "social image wid
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20261005-record-detail/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261005-record-detail/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20261005-record-detail/, "vault stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20261005-authentication-links/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.js\?v=20261005-authentication-links/, "Marchand script cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20261005-authentication-links/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");

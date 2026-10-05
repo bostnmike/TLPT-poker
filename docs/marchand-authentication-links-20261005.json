@@ -1,0 +1,1814 @@
+{
+  "reviewDate": "2026-10-05",
+  "label": "Look Up Authentication Record",
+  "schema": {
+    "Authentication Issuer": "authenticationIssuer",
+    "Hologram Number": "authenticationSerial",
+    "Authentication Record URL": "authenticationRecordUrl",
+    "Additional Authentication Issuer": "authenticationAlternateIssuer",
+    "Additional Hologram Number": "authenticationAlternateSerial",
+    "Additional Authentication Record URL": "authenticationAlternateRecordUrl",
+    "Authentication Lookup Instructions": "authenticationLookupInstructions"
+  },
+  "counts": {
+    "retained-certificate": 13,
+    "prefilled": 50,
+    "app": 1,
+    "form": 2,
+    "direct": 7,
+    "prefilled-captcha": 5,
+    "retained-hologram": 2
+  },
+  "records": [
+    {
+      "inventoryId": 2,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "New York Islanders",
+          "serial": "01452",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/2/coa.webp?v=9d9a9525bd57",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "New York Islanders",
+        "Hologram Number": "01452",
+        "Authentication Record URL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/2/coa.webp?v=9d9a9525bd57",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 3,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "New York Islanders",
+          "serial": "01486",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/3/coa.webp?v=2d1377750f93",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "New York Islanders",
+        "Hologram Number": "01486",
+        "Authentication Record URL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/3/coa.webp?v=2d1377750f93",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 5,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Dallas Stars Authentic Collection",
+          "serial": "11789",
+          "url": "https://tlpt.org/images/pucks/5/coa.webp?v=4e7d62c0c0f1",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Dallas Stars Authentic Collection",
+        "Hologram Number": "11789",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/5/coa.webp?v=4e7d62c0c0f1",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 10,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "AA0045680",
+          "url": "https://www.fanatics.com/fansecure?id=AA0045680",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "AA0045680",
+        "Authentication Record URL": "https://www.fanatics.com/fansecure?id=AA0045680",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 12,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "AA0057605",
+          "url": "https://www.fanatics.com/fansecure?id=AA0057605",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "AA0057605",
+        "Authentication Record URL": "https://www.fanatics.com/fansecure?id=AA0057605",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 15,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Ottawa Senators",
+          "serial": "2415215",
+          "url": "https://tlpt.org/images/pucks/15/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Ottawa Senators",
+        "Hologram Number": "2415215",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/15/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 27,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Tampa Bay Lightning",
+          "serial": "603990",
+          "url": "https://tlpt.org/images/pucks/27/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Tampa Bay Lightning",
+        "Hologram Number": "603990",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/27/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 30,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Vancouver Canucks",
+          "serial": "144115",
+          "url": "https://tlpt.org/images/pucks/30/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Vancouver Canucks",
+        "Hologram Number": "144115",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/30/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 32,
+      "route": "app",
+      "entries": [
+        {
+          "issuer": "LA Kings Game-Used",
+          "serial": "df66614b",
+          "url": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
+          "instructions": "LA Kings Game-Used uses an authentication app. This link opens the issuer’s instructions; access to the digital file may require the owner’s account.",
+          "route": "app"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "LA Kings Game-Used",
+        "Hologram Number": "df66614b",
+        "Authentication Record URL": "https://lakingsgameused.com/pages/how-to-authenticate-your-la-kings-game-used-merchandise",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "LA Kings Game-Used uses an authentication app. This link opens the issuer’s instructions; access to the digital file may require the owner’s account."
+      }
+    },
+    {
+      "inventoryId": 34,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Dallas Stars Authentic Collection",
+          "serial": "31849",
+          "url": "https://tlpt.org/images/pucks/34/coa.webp?v=ba7d1854a8c6",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Dallas Stars Authentic Collection",
+        "Hologram Number": "31849",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/34/coa.webp?v=ba7d1854a8c6",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 38,
+      "route": "form",
+      "entries": [
+        {
+          "issuer": "St. Louis Blues / Rinkside Reserve",
+          "serial": "STL23240752",
+          "url": "https://www.nhl.com/blues/fans/game-used",
+          "instructions": "Copy the hologram number, then paste it into the Rinkside Reserve lookup on the Blues site.",
+          "route": "form"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "St. Louis Blues / Rinkside Reserve",
+        "Hologram Number": "STL23240752",
+        "Authentication Record URL": "https://www.nhl.com/blues/fans/game-used",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Copy the hologram number, then paste it into the Rinkside Reserve lookup on the Blues site."
+      }
+    },
+    {
+      "inventoryId": 39,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Bruins Authentics",
+          "serial": "BB01019",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=MJM&identifierCode=BB01019",
+          "instructions": "The hologram link includes its identifier and validation code.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Bruins Authentics",
+        "Hologram Number": "BB01019",
+        "Authentication Record URL": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=MJM&identifierCode=BB01019",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram link includes its identifier and validation code."
+      }
+    },
+    {
+      "inventoryId": 40,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Edmonton Oilers Authentic",
+          "serial": "24342",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=48413a1b548c",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Edmonton Oilers Authentic",
+        "Hologram Number": "24342",
+        "Authentication Record URL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=48413a1b548c",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 41,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Penguins Authentics",
+          "serial": "673758E",
+          "url": "https://authentics.penscloud.com/?authentication_number=673758E",
+          "instructions": "Opens the Penguins authentication record with the complete hologram number.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Penguins Authentics",
+        "Hologram Number": "673758E",
+        "Authentication Record URL": "https://authentics.penscloud.com/?authentication_number=673758E",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the Penguins authentication record with the complete hologram number."
+      }
+    },
+    {
+      "inventoryId": 46,
+      "route": "form",
+      "entries": [
+        {
+          "issuer": "Seattle Kraken Authentics",
+          "serial": "BB01628",
+          "url": "https://seattlehockeyteamstore.com/pages/seattle-kraken-authentics",
+          "instructions": "Copy hologram number BB01628 into Identifier, then enter validation code GBW on the Seattle Kraken Authentics page.",
+          "route": "form"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Seattle Kraken Authentics",
+        "Hologram Number": "BB01628",
+        "Authentication Record URL": "https://seattlehockeyteamstore.com/pages/seattle-kraken-authentics",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Copy hologram number BB01628 into Identifier, then enter validation code GBW on the Seattle Kraken Authentics page."
+      }
+    },
+    {
+      "inventoryId": 47,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Bruins Authentics",
+          "serial": "BB17656",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=GHX&identifierCode=BB17656",
+          "instructions": "The hologram link includes its identifier and validation code.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Bruins Authentics",
+        "Hologram Number": "BB17656",
+        "Authentication Record URL": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=GHX&identifierCode=BB17656",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram link includes its identifier and validation code."
+      }
+    },
+    {
+      "inventoryId": 48,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81047105",
+          "url": "https://fanatics.com/fansecure?id=NR81047105",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81047105",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81047105",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 49,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05532097",
+          "url": "https://fanatics.com/fansecure?id=XJ05532097",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05532097",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05532097",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 57,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13313204",
+          "url": "https://fanatics.com/fansecure?id=RG13313204",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13313204",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13313204",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 58,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "CR96739786",
+          "url": "https://fanatics.com/fansecure?id=CR96739786",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "CR96739786",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=CR96739786",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 59,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Bruins Authentics",
+          "serial": "BB25087",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=RNZ&identifierCode=BB25087",
+          "instructions": "The hologram link includes its identifier and validation code.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Bruins Authentics",
+        "Hologram Number": "BB25087",
+        "Authentication Record URL": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=RNZ&identifierCode=BB25087",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram link includes its identifier and validation code."
+      }
+    },
+    {
+      "inventoryId": 60,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Bruins Authentics",
+          "serial": "BB00209",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=KVH&identifierCode=BB00209",
+          "instructions": "The hologram link includes its identifier and validation code.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Bruins Authentics",
+        "Hologram Number": "BB00209",
+        "Authentication Record URL": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=KVH&identifierCode=BB00209",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram link includes its identifier and validation code."
+      }
+    },
+    {
+      "inventoryId": 66,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Tampa Bay Lightning",
+          "serial": "607692",
+          "url": "https://tlpt.org/images/pucks/66/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Tampa Bay Lightning",
+        "Hologram Number": "607692",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/66/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 67,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "Real Sports Authentics",
+          "serial": "BB26298",
+          "url": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB26298&validationCode=NMP",
+          "instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Real Sports Authentics",
+        "Hologram Number": "BB26298",
+        "Authentication Record URL": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB26298&validationCode=NMP",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record."
+      }
+    },
+    {
+      "inventoryId": 70,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "AA0016994",
+          "url": "https://www.fanatics.com/fansecure?id=AA0016994",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "AA0016994",
+        "Authentication Record URL": "https://www.fanatics.com/fansecure?id=AA0016994",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 73,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Ottawa Senators",
+          "serial": "2497697",
+          "url": "https://tlpt.org/images/pucks/73/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Ottawa Senators",
+        "Hologram Number": "2497697",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/73/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 77,
+      "route": "retained-hologram",
+      "entries": [
+        {
+          "issuer": "Montreal Canadiens",
+          "serial": "G009264",
+          "url": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
+          "instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified.",
+          "route": "retained-hologram"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Montreal Canadiens",
+        "Hologram Number": "G009264",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified."
+      }
+    },
+    {
+      "inventoryId": 302,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13317512",
+          "url": "https://fanatics.com/fansecure?id=RG13317512",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13317512",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13317512",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 303,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81052332",
+          "url": "https://fanatics.com/fansecure?id=NR81052332",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81052332",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81052332",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 304,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13333047",
+          "url": "https://fanatics.com/fansecure?id=RG13333047",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13333047",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13333047",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 305,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13333048",
+          "url": "https://fanatics.com/fansecure?id=RG13333048",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13333048",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13333048",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 306,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13333037",
+          "url": "https://fanatics.com/fansecure?id=RG13333037",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13333037",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13333037",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 307,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13333663",
+          "url": "https://fanatics.com/fansecure?id=RG13333663",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13333663",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13333663",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 308,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13335045",
+          "url": "https://fanatics.com/fansecure?id=RG13335045",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13335045",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13335045",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 309,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13316381",
+          "url": "https://fanatics.com/fansecure?id=RG13316381",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13316381",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13316381",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 310,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05534841",
+          "url": "https://fanatics.com/fansecure?id=XJ05534841",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05534841",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05534841",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 311,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05534813",
+          "url": "https://fanatics.com/fansecure?id=XJ05534813",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05534813",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05534813",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 312,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05534817",
+          "url": "https://fanatics.com/fansecure?id=XJ05534817",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05534817",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05534817",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 313,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13313204",
+          "url": "https://fanatics.com/fansecure?id=RG13313204",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13313204",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13313204",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 314,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13313187",
+          "url": "https://fanatics.com/fansecure?id=RG13313187",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13313187",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13313187",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 315,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13313186",
+          "url": "https://fanatics.com/fansecure?id=RG13313186",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13313186",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13313186",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 316,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13313430",
+          "url": "https://fanatics.com/fansecure?id=RG13313430",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13313430",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13313430",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 317,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05531552",
+          "url": "https://fanatics.com/fansecure?id=XJ05531552",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05531552",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05531552",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 318,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05531888",
+          "url": "https://fanatics.com/fansecure?id=XJ05531888",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05531888",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05531888",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 319,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05531458",
+          "url": "https://fanatics.com/fansecure?id=XJ05531458",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05531458",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05531458",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 320,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05531457",
+          "url": "https://fanatics.com/fansecure?id=XJ05531457",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05531457",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05531457",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 321,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81050039",
+          "url": "https://fanatics.com/fansecure?id=NR81050039",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81050039",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81050039",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 322,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "XJ05532094",
+          "url": "https://fanatics.com/fansecure?id=XJ05532094",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "XJ05532094",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=XJ05532094",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 323,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81045902",
+          "url": "https://fanatics.com/fansecure?id=NR81045902",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81045902",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81045902",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 324,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Bruins Authentics",
+          "serial": "BB17986",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=JGC&identifierCode=BB17986",
+          "instructions": "The hologram link includes its identifier and validation code.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Bruins Authentics",
+        "Hologram Number": "BB17986",
+        "Authentication Record URL": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=JGC&identifierCode=BB17986",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram link includes its identifier and validation code."
+      }
+    },
+    {
+      "inventoryId": 325,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81048595",
+          "url": "https://fanatics.com/fansecure?id=NR81048595",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81048595",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81048595",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 326,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81048596",
+          "url": "https://fanatics.com/fansecure?id=NR81048596",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81048596",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81048596",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 327,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81048593",
+          "url": "https://fanatics.com/fansecure?id=NR81048593",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81048593",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81048593",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 328,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81045793",
+          "url": "https://fanatics.com/fansecure?id=NR81045793",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81045793",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81045793",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 329,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81045797",
+          "url": "https://fanatics.com/fansecure?id=NR81045797",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81045797",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81045797",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 330,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81046584",
+          "url": "https://fanatics.com/fansecure?id=NR81046584",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81046584",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81046584",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 331,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81046869",
+          "url": "https://fanatics.com/fansecure?id=NR81046869",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81046869",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81046869",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 332,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "HH98507804",
+          "url": "https://fanatics.com/fansecure?id=HH98507804",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "HH98507804",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=HH98507804",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 334,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "HH98516979",
+          "url": "https://fanatics.com/fansecure?id=HH98516979",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        },
+        {
+          "issuer": "NHL licensing hologram (not the COA issuer)",
+          "serial": "BB00143",
+          "url": "",
+          "instructions": "NHL licensing sticker; its QR redirects to NHL Shop, not a digital COA.",
+          "route": "licensing"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "HH98516979",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=HH98516979",
+        "Additional Authentication Issuer": "NHL licensing hologram (not the COA issuer)",
+        "Additional Hologram Number": "BB00143",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code. The second NHL sticker is a licensing hologram; its QR opens NHL Shop rather than an authentication record."
+      }
+    },
+    {
+      "inventoryId": 335,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NF70452915",
+          "url": "https://fanatics.com/fansecure?id=NF70452915",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        },
+        {
+          "issuer": "NHL licensing hologram (not the COA issuer)",
+          "serial": "BB01062",
+          "url": "",
+          "instructions": "NHL licensing sticker; its QR redirects to NHL Shop, not a digital COA.",
+          "route": "licensing"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NF70452915",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NF70452915",
+        "Additional Authentication Issuer": "NHL licensing hologram (not the COA issuer)",
+        "Additional Hologram Number": "BB01062",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code. The second NHL sticker is a licensing hologram; its QR opens NHL Shop rather than an authentication record."
+      }
+    },
+    {
+      "inventoryId": 339,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81046867",
+          "url": "https://fanatics.com/fansecure?id=NR81046867",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81046867",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81046867",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 340,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NR81049481",
+          "url": "https://fanatics.com/fansecure?id=NR81049481",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NR81049481",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NR81049481",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 341,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "NF70442310",
+          "url": "https://fanatics.com/fansecure?id=NF70442310",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        },
+        {
+          "issuer": "NHL licensing hologram (not the COA issuer)",
+          "serial": "BB09462",
+          "url": "",
+          "instructions": "NHL licensing sticker; its QR redirects to NHL Shop, not a digital COA.",
+          "route": "licensing"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "NF70442310",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=NF70442310",
+        "Additional Authentication Issuer": "NHL licensing hologram (not the COA issuer)",
+        "Additional Hologram Number": "BB09462",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code. The second NHL sticker is a licensing hologram; its QR opens NHL Shop rather than an authentication record."
+      }
+    },
+    {
+      "inventoryId": 342,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13316480",
+          "url": "https://fanatics.com/fansecure?id=RG13316480",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13316480",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13316480",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 343,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13316479",
+          "url": "https://fanatics.com/fansecure?id=RG13316479",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13316479",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13316479",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 501,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13330144",
+          "url": "https://fanatics.com/fansecure?id=RG13330144",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13330144",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13330144",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 502,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Penguins Authentics",
+          "serial": "555680W",
+          "url": "https://authentics.penscloud.com/?authentication_number=555680W",
+          "instructions": "Opens the Penguins authentication record with the complete hologram number.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Penguins Authentics",
+        "Hologram Number": "555680W",
+        "Authentication Record URL": "https://authentics.penscloud.com/?authentication_number=555680W",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the Penguins authentication record with the complete hologram number."
+      }
+    },
+    {
+      "inventoryId": 505,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13330096",
+          "url": "https://fanatics.com/fansecure?id=RG13330096",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13330096",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13330096",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 507,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "RG13330145",
+          "url": "https://fanatics.com/fansecure?id=RG13330145",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "RG13330145",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=RG13330145",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 509,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "AA0124186",
+          "url": "https://www.fanatics.com/fansecure?id=AA0124186",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "AA0124186",
+        "Authentication Record URL": "https://www.fanatics.com/fansecure?id=AA0124186",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 600,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Tampa Bay Lightning",
+          "serial": "605629",
+          "url": "https://tlpt.org/images/pucks/600/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Tampa Bay Lightning",
+        "Hologram Number": "605629",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/600/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 601,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Tampa Bay Lightning",
+          "serial": "605663",
+          "url": "https://tlpt.org/images/pucks/601/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Tampa Bay Lightning",
+        "Hologram Number": "605663",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/601/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 603,
+      "route": "retained-certificate",
+      "entries": [
+        {
+          "issuer": "Tampa Bay Lightning",
+          "serial": "605758",
+          "url": "https://tlpt.org/images/pucks/603/coa.webp?v=20260928-coa",
+          "instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located.",
+          "route": "retained-certificate"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Tampa Bay Lightning",
+        "Hologram Number": "605758",
+        "Authentication Record URL": "https://tlpt.org/images/pucks/603/coa.webp?v=20260928-coa",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 604,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "Real Sports Authentics",
+          "serial": "BB34039",
+          "url": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB34039&validationCode=SRX",
+          "instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Real Sports Authentics",
+        "Hologram Number": "BB34039",
+        "Authentication Record URL": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB34039&validationCode=SRX",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record."
+      }
+    },
+    {
+      "inventoryId": 608,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "Real Sports Authentics",
+          "serial": "BB34275",
+          "url": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB34275&validationCode=QZW",
+          "instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Real Sports Authentics",
+        "Hologram Number": "BB34275",
+        "Authentication Record URL": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB34275&validationCode=QZW",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record."
+      }
+    },
+    {
+      "inventoryId": 621,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "HH98507826",
+          "url": "https://fanatics.com/fansecure?id=HH98507826",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "HH98507826",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=HH98507826",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 622,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "Real Sports Authentics",
+          "serial": "BB24846",
+          "url": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB24846&validationCode=HVW",
+          "instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Real Sports Authentics",
+        "Hologram Number": "BB24846",
+        "Authentication Record URL": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB24846&validationCode=HVW",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record."
+      }
+    },
+    {
+      "inventoryId": 623,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "Real Sports Authentics",
+          "serial": "BB25343",
+          "url": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB25343&validationCode=NJP",
+          "instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Real Sports Authentics",
+        "Hologram Number": "BB25343",
+        "Authentication Record URL": "https://auctions.realsports.ca/iSynApp/authenticateCode.action?identifierCode=BB25343&validationCode=NJP",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The identifier and validation code are prefilled. Complete the CAPTCHA on the Real Sports site to retrieve the authentication record."
+      }
+    },
+    {
+      "inventoryId": 624,
+      "route": "prefilled",
+      "entries": [
+        {
+          "issuer": "Fanatics",
+          "serial": "HH98508411",
+          "url": "https://fanatics.com/fansecure?id=HH98508411",
+          "instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+          "route": "prefilled"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Fanatics",
+        "Hologram Number": "HH98508411",
+        "Authentication Record URL": "https://fanatics.com/fansecure?id=HH98508411",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 712,
+      "route": "retained-hologram",
+      "entries": [
+        {
+          "issuer": "",
+          "serial": "J801404",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/712/back.webp?v=70701cdaa0b6",
+          "instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified.",
+          "route": "retained-hologram"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "",
+        "Hologram Number": "J801404",
+        "Authentication Record URL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/712/back.webp?v=70701cdaa0b6",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified."
+      }
+    }
+  ],
+  "notes": [
+    "Routes decoded from photographed holograms unless noted; not all returned issuer records have been independently matched.",
+    "Artifacts 57 and 313 show the same Fanatics number RG13313204; association preserved for owner review.",
+    "Artifact 30: hologram number transcribed from retained COA, 144115.",
+    "Artifacts 77 and 712 currently link to clearly identified hologram photographs, not issuer records.",
+    "No external URL is guaranteed permanent. Do not invent unsupported query parameters.",
+    "Corrected after live route checks: 027 = Real Sports (prefilled codes plus CAPTCHA); 028 = Seattle Kraken (manual codes); 02M = NHL licensing QR to NHL Shop, excluded as an authentication link.",
+    "Bruins links use the observed HTTPS authenticator record URL with both codes, avoiding an intermediate QR redirect."
+  ]
+}
