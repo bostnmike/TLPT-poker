@@ -617,19 +617,24 @@
     elements.dialogFacts.append(fact);
   }
 
+  function opponentIdentity(record) {
+    const identity = document.createElement("div");
+    identity.className = "marchand-opponent-fact-value";
+    const crest = opponentLogo(record);
+    crest.classList.add("marchand-opponent-logo-compact");
+    const name = document.createElement("strong");
+    name.textContent = record.opponent;
+    identity.append(crest, name);
+    return identity;
+  }
+
   function addOpponentFact(record) {
     if (!record.opponent) return;
     const fact = document.createElement("div");
     fact.className = "marchand-fact marchand-fact-opponent";
     const factLabel = document.createElement("span");
     factLabel.textContent = "Opponent";
-    const factValue = document.createElement("div");
-    factValue.className = "marchand-opponent-fact-value";
-    const crest = opponentLogo(record);
-    crest.classList.add("marchand-opponent-logo-compact");
-    const name = document.createElement("strong");
-    name.textContent = record.opponent;
-    factValue.append(crest, name);
+    const factValue = opponentIdentity(record);
     fact.append(factLabel, factValue);
     elements.dialogFacts.append(fact);
   }
@@ -734,15 +739,18 @@
     elements.provenance.textContent = `${collectionWing(record.sourceSheet)} · spreadsheet row ${record.sourceRow} · Inventory ID ${record.inventoryId}`;
     const fragment = document.createDocumentFragment();
     for (const field of record.sourceData || []) {
+      if (/image|filename|authentication evidence/i.test(field.label)) continue;
       const sourceValue = String(field.value ?? "").trim();
       if ((!sourceValue || /^[-–—]+$/.test(sourceValue)) && !String(field.url ?? "").trim()) continue;
       const item = document.createElement("div");
       item.className = "marchand-source-field";
       const label = document.createElement("span");
-      label.textContent = field.label;
+      label.textContent = field.label === "Score" ? "Final Result" : field.label;
       let value;
       const playerField = /assist|goalie|player|scorer/i.test(field.label);
-      if (field.url && !playerField) {
+      if (field.label === "Opponent") {
+        value = opponentIdentity({ ...record, opponent: sourceValue });
+      } else if (field.url && !playerField) {
         value = document.createElement("a");
         value.href = field.url === record.videoUrl ? sourceVideoUrl(record) : field.url;
         value.target = "_blank";
@@ -1011,7 +1019,7 @@
     addFact("Goal Type", goalTypeLabel(record.goalType));
     addFact("Line Combination", perfectionLine(record));
     addFact("Goalie Scored Against", goalieLabel(record));
-    addFact("Final score", record.score);
+    addFact("Final Result", record.score);
     addFact("Authentication", record.authenticationType === "Not Yet Documented" ? "" : record.authenticationType);
 
     renderPersonnel(record);

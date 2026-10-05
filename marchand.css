@@ -1041,7 +1041,8 @@
 
 .marchand-fact strong{color:#eef1f3;font-size:.89rem;line-height:1.4}
 .marchand-opponent-fact-value{display:flex;align-items:center;gap:10px}
-.marchand-fact .marchand-opponent-logo-compact{
+.marchand-fact .marchand-opponent-logo-compact,
+.marchand-source-field .marchand-opponent-logo-compact{
   display:grid;
   width:38px;
   height:38px;
@@ -1053,9 +1054,12 @@
   letter-spacing:.03em;
   text-transform:none;
 }
-.marchand-fact .marchand-opponent-logo-compact img{width:30px;height:30px}
-.marchand-fact .marchand-opponent-logo-compact.marchand-opponent-logo-sweden img{width:35px;height:auto}
-.marchand-fact .marchand-opponent-logo-compact > span{margin:0;color:#2c3339;font-size:.42rem;letter-spacing:.03em;text-transform:none}
+.marchand-fact .marchand-opponent-logo-compact img,
+.marchand-source-field .marchand-opponent-logo-compact img{width:30px;height:30px}
+.marchand-fact .marchand-opponent-logo-compact.marchand-opponent-logo-sweden img,
+.marchand-source-field .marchand-opponent-logo-compact.marchand-opponent-logo-sweden img{width:35px;height:auto}
+.marchand-fact .marchand-opponent-logo-compact > span,
+.marchand-source-field .marchand-opponent-logo-compact > span{margin:0;color:#2c3339;font-size:.42rem;letter-spacing:.03em;text-transform:none}
 .marchand-dialog-notes{
   margin-top:20px;
   padding:17px 19px;
@@ -1330,7 +1334,7 @@ a.marchand-person-card:hover{transform:translateY(-2px);border-color:rgba(var(--
 .marchand-provenance{margin:-10px 0 17px;color:#87939e;font-size:.7rem;letter-spacing:.04em}
 .marchand-source-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.10);border-left:1px solid rgba(255,255,255,.10)}
 .marchand-source-field{min-height:88px;padding:15px 16px;border-right:1px solid rgba(255,255,255,.10);border-bottom:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.015)}
-.marchand-source-field span{display:block;margin-bottom:7px;color:#74818c;font-size:.57rem;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
+.marchand-source-field > span{display:block;margin-bottom:7px;color:#74818c;font-size:.57rem;font-weight:1000;letter-spacing:.13em;text-transform:uppercase}
 .marchand-source-field strong,.marchand-source-field a{color:#eef1f3;font-size:.82rem;line-height:1.45;overflow-wrap:anywhere}
 .marchand-source-field a{color:var(--museum-accent);font-weight:900}
 
