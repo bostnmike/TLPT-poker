@@ -26717,7 +26717,7 @@
         },
         {
           "label": "Authentication Issuer",
-          "value": "Montreal Canadiens",
+          "value": "Montreal Canadiens / TS Authentics",
           "url": ""
         },
         {
@@ -26727,8 +26727,8 @@
         },
         {
           "label": "Authentication Record URL",
-          "value": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
-          "url": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447"
+          "value": "https://www.tricoloresports.com/us/service/authentique/",
+          "url": "https://www.tricoloresports.com/us/service/authentique/"
         },
         {
           "label": "Additional Authentication Issuer",
@@ -26747,7 +26747,7 @@
         },
         {
           "label": "Authentication Lookup Instructions",
-          "value": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified.",
+          "value": "Opens TS Authentics, the Canadiens’ official game-used program. This page provides program information and contact details, rather than a public serial-number lookup. Use Tricolore Sports’ Contact Us page to request the authentication record for hologram G009264. The original hologram photograph remains in this artifact’s gallery.",
           "url": ""
         }
       ],
@@ -26780,13 +26780,13 @@
       "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/77/edge-01.webp",
       "authenticationNotes": "Montreal Canadiens hologram on the puck identifies its digital COA; visible in the edge 1 photograph.",
-      "authenticationIssuer": "Montreal Canadiens",
+      "authenticationIssuer": "Montreal Canadiens / TS Authentics",
       "authenticationSerial": "G009264",
-      "authenticationRecordUrl": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
+      "authenticationRecordUrl": "https://www.tricoloresports.com/us/service/authentique/",
       "authenticationAlternateIssuer": "",
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified."
+      "authenticationLookupInstructions": "Opens TS Authentics, the Canadiens’ official game-used program. This page provides program information and contact details, rather than a public serial-number lookup. Use Tricolore Sports’ Contact Us page to request the authentication record for hologram G009264. The original hologram photograph remains in this artifact’s gallery."
     },
     {
       "key": "repeat-600",

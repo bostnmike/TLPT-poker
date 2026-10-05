@@ -1,0 +1,106 @@
+{
+  "reviewDate": "2026-10-05",
+  "scope": "Owner-requested official team website follow-up for 77 and remaining 13 retained team certificate routes, plus unresolved 712. Existing official issuer form/app routes for 7,32,38,46,711 already reach the issuer and remain unchanged. Records without an identified hologram were not assigned a team lookup solely from opponent.",
+  "teams": [
+    {
+      "team": "Montreal Canadiens",
+      "ids": [
+        77
+      ],
+      "sources": [
+        "https://www.tricoloresports.com/us/service/authentique/",
+        "https://www.tricoloresports.com/us/game-used/"
+      ],
+      "finding": "Official TS Authentics program page; no public serial lookup or authentication iframe observed in browser. Use official Contact Us navigation to request G009264 record. Primary link updated; photograph retained."
+    },
+    {
+      "team": "New York Islanders",
+      "ids": [
+        2,
+        3
+      ],
+      "sources": [
+        "https://www.nhl.com/islanders/fans/team-stores",
+        "https://isleslab.com/pages/faq-islanders-originals"
+      ],
+      "finding": "Official Game Originals FAQ describes team-sourced equipment and retained certificates. No public serial lookup located. Preserve retained certificate links."
+    },
+    {
+      "team": "Dallas Stars",
+      "ids": [
+        5,
+        34
+      ],
+      "sources": [
+        "https://www.nhl.com/stars/team/hangar-hockey",
+        "https://hangarhockey.com/"
+      ],
+      "finding": "Official Hangar team-store pages reviewed. No public serial lookup located for the older Stars Authentic Collection holograms. Preserve retained certificates; current Fanatics auction programs do not establish issuer identity for these older serials."
+    },
+    {
+      "team": "Ottawa Senators",
+      "ids": [
+        15,
+        73
+      ],
+      "sources": [
+        "https://www.nhl.com/senators/",
+        "https://ottawateamthreads.ca/pages/frequently-asked-questions"
+      ],
+      "finding": "Official team site links Ottawa Team Threads; store FAQ reviewed. No public serial lookup located. Preserve retained certificate links; do not assign bare numerical team holograms to Fanatics based on current products."
+    },
+    {
+      "team": "Tampa Bay Lightning",
+      "ids": [
+        27,
+        66,
+        600,
+        601,
+        603
+      ],
+      "sources": [
+        "https://www.nhl.com/lightning/",
+        "https://tampabaysports.com/collections/lightning-game-used",
+        "https://tampabaysports.com/collections/lightning-game-used/products/tampa-bay-lightning-2024-25-game-used-warm-up-puck-11-27-2024"
+      ],
+      "finding": "Published game-used product describes COA and individually numbered sticker; no public serial lookup located. Preserve retained certificate links."
+    },
+    {
+      "team": "Vancouver Canucks",
+      "ids": [
+        30
+      ],
+      "sources": [
+        "https://vanbase.ca/pages/frequently-asked-questions-1",
+        "https://vanbase.ca/pages/contact-us"
+      ],
+      "finding": "Official Canucks store FAQ and contact page reviewed. No public serial lookup located. Preserve retained certificate for 144115."
+    },
+    {
+      "team": "Edmonton Oilers",
+      "ids": [
+        40
+      ],
+      "sources": [
+        "https://www.nhl.com/oilers/fans/retail-store",
+        "https://www.icedistrictauthentics.com/pages/faq",
+        "https://www.icedistrictauthentics.com/collections/game-used?icn=navmenu_memorabilia"
+      ],
+      "finding": "Team site confirms ICE District Authentics retail store; FAQ/game-used pages reviewed. No public serial lookup located for 24342. Preserve retained certificate."
+    },
+    {
+      "team": "Vegas Golden Knights",
+      "ids": [
+        712
+      ],
+      "sources": [
+        "https://www.nhl.com/goldenknights/info/authentics"
+      ],
+      "finding": "Official numerical VGK registry already inspected; previously tested J801404 and 801404 did not match. No issuer identity established for the unbranded hologram. Do not label a nonmatch as provenance failure or assign VGK solely from opponent."
+    }
+  ],
+  "newVerifiedItemCertificates": 0,
+  "changedIds": [
+    77
+  ]
+}

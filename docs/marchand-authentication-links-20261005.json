@@ -17,7 +17,8 @@
     "prefilled": 50,
     "direct": 8,
     "app": 1,
-    "retained-hologram": 2
+    "issuer-information": 1,
+    "retained-hologram": 1
   },
   "records": [
     {
@@ -1148,24 +1149,24 @@
     },
     {
       "inventoryId": 77,
-      "route": "retained-hologram",
+      "route": "issuer-information",
       "entries": [
         {
-          "issuer": "Montreal Canadiens",
+          "issuer": "Montreal Canadiens / TS Authentics",
           "serial": "G009264",
-          "url": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
-          "instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified.",
-          "route": "retained-hologram"
+          "url": "https://www.tricoloresports.com/us/service/authentique/",
+          "instructions": "Opens TS Authentics, the Canadiens’ official game-used program. This page provides program information and contact details, rather than a public serial-number lookup. Use Tricolore Sports’ Contact Us page to request the authentication record for hologram G009264. The original hologram photograph remains in this artifact’s gallery.",
+          "route": "issuer-information"
         }
       ],
       "fields": {
-        "Authentication Issuer": "Montreal Canadiens",
+        "Authentication Issuer": "Montreal Canadiens / TS Authentics",
         "Hologram Number": "G009264",
-        "Authentication Record URL": "https://tlpt.org/images/pucks/77/edge-01.webp?v=98dc61968447",
+        "Authentication Record URL": "https://www.tricoloresports.com/us/service/authentique/",
         "Additional Authentication Issuer": "",
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
-        "Authentication Lookup Instructions": "Opens the retained hologram photograph. A public authentication-record link has not yet been identified."
+        "Authentication Lookup Instructions": "Opens TS Authentics, the Canadiens’ official game-used program. This page provides program information and contact details, rather than a public serial-number lookup. Use Tricolore Sports’ Contact Us page to request the authentication record for hologram G009264. The original hologram photograph remains in this artifact’s gallery."
       }
     },
     {

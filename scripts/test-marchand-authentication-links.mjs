@@ -43,7 +43,11 @@ const button=panels['artifact-authentication-links'].children[0].children[2];awa
 assert.equal(records.find(row=>row.inventoryId===41).authenticationSerial,'673758E');
 assert.equal(records.find(row=>row.inventoryId===502).authenticationSerial,'555680W');
 for(const id of [334,335,341]){const row=records.find(row=>row.inventoryId===id);assert.equal(row.authenticationIssuer,'Fanatics');assert.match(row.authenticationAlternateIssuer,/NHL licensing/);assert.equal(row.authenticationAlternateRecordUrl,'')}
-for(const id of [77,712])assert.match(records.find(row=>row.inventoryId===id).authenticationLookupInstructions,/photograph.*not yet been identified/);
+assert.match(records.find(row=>row.inventoryId===712).authenticationLookupInstructions,/photograph.*not yet been identified/);
+const montreal=records.find(row=>row.inventoryId===77);
+assert.equal(montreal.authenticationRecordUrl,'https://www.tricoloresports.com/us/service/authentique/');
+assert.equal(montreal.authenticationSerial,'G009264');
+assert.match(montreal.authenticationLookupInstructions,/rather than a public serial-number lookup/);
 const coverage=JSON.parse(fs.readFileSync(new URL('../docs/marchand-authentication-coverage-20261005.json',import.meta.url)));
 assert.equal(coverage.reviewedPreviouslyUnlinkedIds.length,90);
 for(const evidence of coverage.newRoutes){
