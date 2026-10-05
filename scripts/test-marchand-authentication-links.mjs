@@ -23,7 +23,7 @@ for(const record of records){
   assert.equal(link.textContent,'Look Up Authentication Record');
   assert.equal(link.href,expected.entries[i].url);assert.equal(link.target,'_blank');
   assert.equal(link.rel,'noopener noreferrer');links++;
-  await row.children[2].listeners.click();assert.equal(copied,expected.entries[i].serial);
+  if(expected.entries[i].serial){await row.children[2].listeners.click();assert.equal(copied,expected.entries[i].serial)}else assert.equal(row.children.length,2);
  }
  for(const [label,key] of Object.entries(report.schema)){
   const field=record.sourceData.find(field=>field.label===label);
@@ -44,4 +44,18 @@ assert.equal(records.find(row=>row.inventoryId===41).authenticationSerial,'67375
 assert.equal(records.find(row=>row.inventoryId===502).authenticationSerial,'555680W');
 for(const id of [334,335,341]){const row=records.find(row=>row.inventoryId===id);assert.equal(row.authenticationIssuer,'Fanatics');assert.match(row.authenticationAlternateIssuer,/NHL licensing/);assert.equal(row.authenticationAlternateRecordUrl,'')}
 for(const id of [77,712])assert.match(records.find(row=>row.inventoryId===id).authenticationLookupInstructions,/photograph.*not yet been identified/);
+const coverage=JSON.parse(fs.readFileSync(new URL('../docs/marchand-authentication-coverage-20261005.json',import.meta.url)));
+assert.equal(coverage.reviewedPreviouslyUnlinkedIds.length,90);
+for(const evidence of coverage.newRoutes){
+ const row=records.find(row=>row.inventoryId===evidence.inventoryId);
+ assert.equal(row.authenticationSerial,evidence.serial);
+ assert.ok(row.authenticationRecordUrl,`Missing photographed hologram route: ${evidence.inventoryId}`);
+ context.renderAuthentication(row);assert.equal(panels['artifact-authentication'].hidden,false);
+ if(evidence.issuer==='MeiGray' && evidence.serial)assert.equal(new URL(row.authenticationRecordUrl).searchParams.get('searchTerm'),evidence.serial);
+}
+assert.equal(records.find(row=>row.inventoryId===72).authenticationType,'COA / Supporting Document');
+assert.equal(records.find(row=>row.inventoryId===72).authenticationSerial,'PHI101638');
+assert.equal(records.find(row=>row.inventoryId===50).authenticationSerial,'PHI000599');
+assert.equal(records.find(row=>row.inventoryId===11).authenticationSerial,'01724');
+assert.match(records.find(row=>row.inventoryId===711).authenticationLookupInstructions,/discrepancy remains unresolved/);
 console.log(`PASS: ${report.records.length} hologram records / ${links} links match reviewed evidence; direct routes, complete serials, dual issuers, clipboard fallback, unsafe URL rejection and artifact transitions verified.`);

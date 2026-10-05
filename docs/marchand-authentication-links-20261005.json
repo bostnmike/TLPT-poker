@@ -12,11 +12,11 @@
   },
   "counts": {
     "retained-certificate": 13,
+    "prefilled-captcha": 30,
+    "form": 4,
     "prefilled": 50,
+    "direct": 8,
     "app": 1,
-    "form": 2,
-    "direct": 7,
-    "prefilled-captcha": 5,
     "retained-hologram": 2
   },
   "records": [
@@ -65,6 +65,28 @@
       }
     },
     {
+      "inventoryId": 4,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA12128",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA12128",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA12128",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA12128",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
       "inventoryId": 5,
       "route": "retained-certificate",
       "entries": [
@@ -84,6 +106,72 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 6,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA21535",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21535",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA21535",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21535",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 7,
+      "route": "form",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action",
+          "instructions": "Opens MeiGray’s official authentication form. Enter the number from the puck hologram and complete CAPTCHA. The puck and retained-certificate serial markings require reconciliation; no number is prefilled while this discrepancy remains unresolved.",
+          "route": "form"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens MeiGray’s official authentication form. Enter the number from the puck hologram and complete CAPTCHA. The puck and retained-certificate serial markings require reconciliation; no number is prefilled while this discrepancy remains unresolved."
+      }
+    },
+    {
+      "inventoryId": 9,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA14775",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA14775",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA14775",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA14775",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
       }
     },
     {
@@ -109,6 +197,28 @@
       }
     },
     {
+      "inventoryId": 11,
+      "route": "direct",
+      "entries": [
+        {
+          "issuer": "Vegas Golden Knights Authentics",
+          "serial": "01724",
+          "url": "https://www.nhl.com/goldenknights/info/authentics?holo_num=1724",
+          "instructions": "Opens the matching VGK authentication record automatically. The printed hologram is 01724; the registry uses 1724.",
+          "route": "direct"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "Vegas Golden Knights Authentics",
+        "Hologram Number": "01724",
+        "Authentication Record URL": "https://www.nhl.com/goldenknights/info/authentics?holo_num=1724",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens the matching VGK authentication record automatically. The printed hologram is 01724; the registry uses 1724."
+      }
+    },
+    {
       "inventoryId": 12,
       "route": "prefilled",
       "entries": [
@@ -128,6 +238,28 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 13,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA28264",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28264",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA28264",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28264",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
       }
     },
     {
@@ -153,6 +285,138 @@
       }
     },
     {
+      "inventoryId": 16,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA28183",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28183",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA28183",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28183",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 17,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA007182",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007182",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA007182",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007182",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 19,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA24621",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA24621",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA24621",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA24621",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 20,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA007841",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007841",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA007841",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007841",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 21,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA36931",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA36931",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA36931",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA36931",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 24,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA24905",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA24905",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA24905",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA24905",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
       "inventoryId": 27,
       "route": "retained-certificate",
       "entries": [
@@ -172,6 +436,50 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 28,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA59756",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA59756",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA59756",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA59756",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 29,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA59740",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA59740",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA59740",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA59740",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
       }
     },
     {
@@ -417,6 +725,94 @@
       }
     },
     {
+      "inventoryId": 50,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "PHI000599",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=PHI000599",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "PHI000599",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=PHI000599",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 53,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA007234",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007234",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA007234",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007234",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 54,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA007242",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007242",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA007242",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA007242",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 55,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA008597",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA008597",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA008597",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA008597",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
       "inventoryId": 57,
       "route": "prefilled",
       "entries": [
@@ -549,6 +945,50 @@
       }
     },
     {
+      "inventoryId": 68,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA97176",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA97176",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA97176",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA97176",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 69,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA13998",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA13998",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA13998",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA13998",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
       "inventoryId": 70,
       "route": "prefilled",
       "entries": [
@@ -571,6 +1011,54 @@
       }
     },
     {
+      "inventoryId": 71,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA98979",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA98979",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA98979",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA98979",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 72,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "PHI101638",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=PHI101638",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "PHI101638",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=PHI101638",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      },
+      "additionalFields": {
+        "Authentication Notes": "Flyers–MeiGray hologram PHI101638 is visible in the back photograph. Use MeiGray’s online authentication lookup; the retained provenance label remains supporting evidence.",
+        "Authentication Evidence": "images/pucks/72/coa.webp; images/pucks/72/back.webp"
+      }
+    },
+    {
       "inventoryId": 73,
       "route": "retained-certificate",
       "entries": [
@@ -590,6 +1078,72 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
+      }
+    },
+    {
+      "inventoryId": 74,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA21566",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21566",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA21566",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21566",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 75,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA28276",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28276",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA28276",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA28276",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
+      "inventoryId": 76,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA21933",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21933",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA21933",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA21933",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
       }
     },
     {
@@ -1516,6 +2070,28 @@
       }
     },
     {
+      "inventoryId": 504,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA60135",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA60135",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA60135",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA60135",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      }
+    },
+    {
       "inventoryId": 505,
       "route": "prefilled",
       "entries": [
@@ -1535,6 +2111,28 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 506,
+      "route": "prefilled-captcha",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA55196",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA55196",
+          "instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "route": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA55196",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA55196",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
       }
     },
     {
@@ -1777,6 +2375,28 @@
         "Additional Hologram Number": "",
         "Additional Authentication Record URL": "",
         "Authentication Lookup Instructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+      }
+    },
+    {
+      "inventoryId": 711,
+      "route": "form",
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action",
+          "instructions": "Opens MeiGray’s official authentication form. Enter the number from the puck hologram and complete CAPTCHA. The puck and retained-certificate serial markings require reconciliation; no number is prefilled while this discrepancy remains unresolved.",
+          "route": "form"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "Opens MeiGray’s official authentication form. Enter the number from the puck hologram and complete CAPTCHA. The puck and retained-certificate serial markings require reconciliation; no number is prefilled while this discrepancy remains unresolved."
       }
     },
     {
