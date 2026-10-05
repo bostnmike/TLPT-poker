@@ -38,6 +38,6 @@ assert by_id[324]["goalieScoredAgainst"] == "Jeremy Swayman"
 assert "Palmieri" in by_id[324]["description"]
 assert by_id[9]["description"] and by_id[510]["playerCodes"] == ["BM63"]
 for number in (10, 12, 32, 67, 77):
-    assert by_id[number]["authenticationType"] == "Hologram"
+    assert by_id[number]["authenticationType"] == "Digital COA / Hologram"
     assert by_id[number]["authenticationEvidence"]
 print(f"PASS: all {len(by_id)} artifacts round-trip across six sheets; stable IDs, scoring details, titles, video labels and holograms preserved.")

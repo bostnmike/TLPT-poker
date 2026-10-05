@@ -11,6 +11,8 @@ The September 29 audit corrections preserve all 170 artifacts and existing video
 
 ## Authentication policy
 
+The [October 5 digital COA review](marchand-digital-coa-20261005.md) expands this policy and supersedes the older public wording about paper-certificate limitations. Holograms identify digital COAs; their absence from a paper-COA gallery view is not a provenance concern.
+
 A visible authentication hologram counts as COA evidence under the owner's collection policy. A separate paper certificate is not required for those records. Do not fabricate a certificate image or duplicate a back/edge photo under a COA filename.
 
 The canonical Authentication Type, Authentication Evidence and Authentication Notes columns distinguish a COA/supporting document, a hologram, and evidence not yet documented. Evidence filenames point to the actual photograph or document. “COA / Supporting Document” means a file is attached, not that every attached label is an item-specific certificate; existing discrepancy and scope notes remain authoritative.

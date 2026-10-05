@@ -61,3 +61,31 @@ for (const record of records) {
   }
 }
 console.log(`PASS: populated-only source record rendering for ${records.length} artifacts; image-reference fields and blank placeholders omitted; opponent logos, Final Result, authentication notes, zeros and source URLs retained.`);
+
+// A missing paper certificate must not obscure the hologram-linked digital COA.
+const byId = new Map(records.map(record => [record.inventoryId, record]));
+const artifact70 = byId.get(70);
+assert.equal(artifact70.authenticationType, 'Digital COA / Hologram');
+assert.match(artifact70.notes, /Fanatics hologram AA0016994 identifies this puck’s digital COA/);
+assert.match(artifact70.notes, /Packaging label GUHKPK1529/);
+context.renderSourceRecord(artifact70);
+fields = context.elements.sourceGrid.children[0].children;
+assert.match(fields.find(field => field.children[0].textContent === 'Authentication Notes').children[1].textContent, /AA0016994.*digital COA/);
+for (const record of records) {
+  assert.doesNotMatch([record.notes, record.authenticationNotes].join(' '), /Authentication limitation|not a formal certificate|No separate COA/i, record.key);
+  for (const [label, name] of [['Notes', 'notes'], ['Authentication Type', 'authenticationType'], ['Authentication Evidence', 'authenticationEvidence'], ['Authentication Notes', 'authenticationNotes']]) {
+    const field = record.sourceData.find(field => field.label === label);
+    if (field) assert.equal(field.value, record[name], `${record.key}: ${label} differs between listing and database detail`);
+  }
+  if (record.authenticationType === 'Digital COA / Hologram') {
+    assert.match(record.authenticationNotes, /digital COA/, record.key);
+    assert.match(record.authenticationEvidence, /\/(back|edge-0[14])\.(?:webp|png|jpe?g)/, record.key);
+  }
+}
+for (const id of [20, 21, 24, 38, 43, 71, 711]) assert.match(byId.get(id).notes, /discrepancy|conflict|erroneous/i, `Artifact ${id}: actual evidence conflict must remain`);
+assert.match(byId.get(62).notes, /Marking discrepancy/);
+const photos = JSON.parse(fs.readFileSync(new URL('../data/marchand-photos.json', import.meta.url))).artifacts;
+for (const [id, views] of Object.entries(photos)) {
+  for (const view of views) assert.doesNotMatch(view.caption ?? '', /not a formal certificate|no individual serial/i, `Artifact ${id} caption`);
+}
+console.log('PASS: digital COAs appear in database detail; packaging identifiers remain distinct; actual certificate and marking conflicts retained.');

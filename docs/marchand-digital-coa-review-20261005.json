@@ -1,0 +1,2530 @@
+{
+  "date": "2026-10-05",
+  "authorization": "Owner confirmed holograms identify digital COAs; paper certificates are not required.",
+  "listingCountReviewed": 170,
+  "backPhotosReviewed": 169,
+  "additionalReview": "62 targeted views; previously verified edge holograms for 32 and 77.",
+  "digitalCoaIds": [
+    2,
+    3,
+    5,
+    10,
+    12,
+    15,
+    27,
+    30,
+    32,
+    34,
+    38,
+    39,
+    40,
+    41,
+    46,
+    47,
+    48,
+    49,
+    57,
+    58,
+    59,
+    60,
+    66,
+    67,
+    70,
+    73,
+    77,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    334,
+    335,
+    339,
+    340,
+    341,
+    342,
+    343,
+    501,
+    502,
+    505,
+    507,
+    509,
+    600,
+    601,
+    603,
+    604,
+    608,
+    621,
+    622,
+    623,
+    624,
+    712
+  ],
+  "recordChanges": [
+    {
+      "inventoryId": 2,
+      "key": "goal-2",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/2/coa.webp",
+          "after": "images/pucks/2/back.webp; images/pucks/2/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 3,
+      "key": "goal-3",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/3/coa.webp",
+          "after": "images/pucks/3/back.webp; images/pucks/3/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 5,
+      "key": "goal-5",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "notes": {
+          "before": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+          "after": "Dallas Stars authentication hologram 11789 matches the accompanying certificate."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/5/coa.webp",
+          "after": "images/pucks/5/back.webp; images/pucks/5/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 10,
+      "key": "goal-10",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "Hologram",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationNotes": {
+          "before": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 12,
+      "key": "goal-12",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "Hologram",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationNotes": {
+          "before": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 15,
+      "key": "goal-15",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/15/coa.webp",
+          "after": "images/pucks/15/back.webp; images/pucks/15/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 22,
+      "key": "goal-22",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 25,
+      "key": "goal-25",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 27,
+      "key": "goal-27",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/27/coa.webp",
+          "after": "images/pucks/27/back.webp; images/pucks/27/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 30,
+      "key": "goal-30",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/30/coa.webp",
+          "after": "images/pucks/30/back.webp; images/pucks/30/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 32,
+      "key": "goal-32",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "Hologram",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationNotes": {
+          "before": "NHL-branded hologram visible in Edge 4 photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "after": "NHL-branded hologram on the puck identifies its digital COA; visible in the edge 4 photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 34,
+      "key": "goal-34",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "notes": {
+          "before": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+          "after": "Dallas Stars authentication hologram 31849 matches the accompanying certificate."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/34/coa.webp",
+          "after": "images/pucks/34/back.webp; images/pucks/34/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 36,
+      "key": "goal-36",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 37,
+      "key": "goal-37",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 38,
+      "key": "goal-38",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/38/coa.webp",
+          "after": "images/pucks/38/back.webp; images/pucks/38/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 39,
+      "key": "goal-39",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/39/coa.webp",
+          "after": "images/pucks/39/back.webp; images/pucks/39/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 40,
+      "key": "goal-40",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/40/coa.webp",
+          "after": "images/pucks/40/back.webp; images/pucks/40/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 41,
+      "key": "goal-41",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "notes": {
+          "before": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+          "after": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/41/coa.webp",
+          "after": "images/pucks/41/back.webp; images/pucks/41/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 44,
+      "key": "goal-44",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 45,
+      "key": "goal-45",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 46,
+      "key": "goal-46",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/46/coa.webp",
+          "after": "images/pucks/46/back.webp; images/pucks/46/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 47,
+      "key": "goal-47",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/47/coa.webp",
+          "after": "images/pucks/47/back.webp; images/pucks/47/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 48,
+      "key": "goal-48",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/48/coa.webp",
+          "after": "images/pucks/48/back.webp; images/pucks/48/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 49,
+      "key": "goal-49",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+          "after": "images/pucks/49/back.webp; images/pucks/49/coa.webp; images/pucks/49/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 51,
+      "key": "goal-51",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "notes": {
+          "before": "Perfection Line Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+          "after": "Perfection Line. Ottawa Senators certificate 2494052 accompanies this puck."
+        }
+      }
+    },
+    {
+      "inventoryId": 56,
+      "key": "goal-56",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 57,
+      "key": "goal-57",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/57/coa.webp",
+          "after": "images/pucks/57/back.webp; images/pucks/57/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 58,
+      "key": "goal-58",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/58/coa.webp",
+          "after": "images/pucks/58/back.webp; images/pucks/58/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 59,
+      "key": "goal-59",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/59/coa.webp",
+          "after": "images/pucks/59/back.webp; images/pucks/59/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 60,
+      "key": "goal-60",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/60/coa.webp",
+          "after": "images/pucks/60/back.webp; images/pucks/60/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 65,
+      "key": "goal-65",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationNotes": {
+          "before": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "after": "Authentication record details are awaiting entry in the collection database."
+        }
+      }
+    },
+    {
+      "inventoryId": 66,
+      "key": "goal-66",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/66/coa.webp",
+          "after": "images/pucks/66/back.webp; images/pucks/66/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 67,
+      "key": "goal-67",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "Hologram",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationNotes": {
+          "before": "Hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 70,
+      "key": "goal-70",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "notes": {
+          "before": "Authentication limitation: the dated packaging label GUHKPK1529 is supporting provenance, not a formal certificate of authenticity.",
+          "after": "Fanatics hologram AA0016994 identifies this puck’s digital COA. Packaging label GUHKPK1529 records the October 14, 2017 Boston–Arizona game."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/70/coa.webp",
+          "after": "images/pucks/70/back.webp; images/pucks/70/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram AA0016994 on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 302,
+      "key": "milestone-302",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/302/coa.webp",
+          "after": "images/pucks/302/back.webp; images/pucks/302/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 303,
+      "key": "milestone-303",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/303/coa.webp",
+          "after": "images/pucks/303/back.webp; images/pucks/303/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 304,
+      "key": "milestone-304",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+          "after": "images/pucks/304/back.webp; images/pucks/304/coa.webp; images/pucks/304/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 305,
+      "key": "milestone-305",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+          "after": "images/pucks/305/back.webp; images/pucks/305/coa.webp; images/pucks/305/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 306,
+      "key": "milestone-306",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/306/coa.webp",
+          "after": "images/pucks/306/back.webp; images/pucks/306/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 307,
+      "key": "milestone-307",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/307/coa.webp",
+          "after": "images/pucks/307/back.webp; images/pucks/307/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 308,
+      "key": "milestone-308",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/308/coa.webp",
+          "after": "images/pucks/308/back.webp; images/pucks/308/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 309,
+      "key": "milestone-309",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/309/coa.webp",
+          "after": "images/pucks/309/back.webp; images/pucks/309/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 310,
+      "key": "milestone-310",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/310/coa.webp",
+          "after": "images/pucks/310/back.webp; images/pucks/310/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 311,
+      "key": "milestone-311",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/311/coa.webp",
+          "after": "images/pucks/311/back.webp; images/pucks/311/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 312,
+      "key": "milestone-312",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/312/coa.webp",
+          "after": "images/pucks/312/back.webp; images/pucks/312/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 313,
+      "key": "milestone-313",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/313/coa.webp",
+          "after": "images/pucks/313/back.webp; images/pucks/313/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 314,
+      "key": "milestone-314",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+          "after": "images/pucks/314/back.webp; images/pucks/314/coa.webp; images/pucks/314/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 315,
+      "key": "milestone-315",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+          "after": "images/pucks/315/back.webp; images/pucks/315/coa.webp; images/pucks/315/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 316,
+      "key": "milestone-316",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/316/coa.webp",
+          "after": "images/pucks/316/back.webp; images/pucks/316/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 317,
+      "key": "milestone-317",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/317/coa.webp",
+          "after": "images/pucks/317/back.webp; images/pucks/317/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 318,
+      "key": "milestone-318",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/318/coa.webp",
+          "after": "images/pucks/318/back.webp; images/pucks/318/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 319,
+      "key": "milestone-319",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/319/coa.webp",
+          "after": "images/pucks/319/back.webp; images/pucks/319/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 320,
+      "key": "milestone-320",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/320/coa-02.webp",
+          "after": "images/pucks/320/back.webp; images/pucks/320/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 321,
+      "key": "milestone-321",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/321/coa.webp",
+          "after": "images/pucks/321/back.webp; images/pucks/321/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 322,
+      "key": "milestone-322",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+          "after": "images/pucks/322/back.webp; images/pucks/322/coa.webp; images/pucks/322/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 323,
+      "key": "milestone-323",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/323/coa.webp",
+          "after": "images/pucks/323/back.webp; images/pucks/323/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 324,
+      "key": "milestone-324",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/324/coa.webp",
+          "after": "images/pucks/324/back.webp; images/pucks/324/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 325,
+      "key": "milestone-325",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+          "after": "images/pucks/325/back.webp; images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 326,
+      "key": "milestone-326",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+          "after": "images/pucks/326/back.webp; images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 327,
+      "key": "milestone-327",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+          "after": "images/pucks/327/back.webp; images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 328,
+      "key": "milestone-328",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+          "after": "images/pucks/328/back.webp; images/pucks/328/coa.webp; images/pucks/328/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 329,
+      "key": "milestone-329",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+          "after": "images/pucks/329/back.webp; images/pucks/329/coa.webp; images/pucks/329/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 330,
+      "key": "milestone-330",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/330/coa.webp",
+          "after": "images/pucks/330/back.webp; images/pucks/330/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 331,
+      "key": "milestone-331",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+          "after": "images/pucks/331/back.webp; images/pucks/331/coa.webp; images/pucks/331/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 332,
+      "key": "milestone-332",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/332/coa.webp",
+          "after": "images/pucks/332/back.webp; images/pucks/332/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 334,
+      "key": "milestone-334",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/334/coa.webp",
+          "after": "images/pucks/334/back.webp; images/pucks/334/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 335,
+      "key": "milestone-335",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/335/coa.webp",
+          "after": "images/pucks/335/back.webp; images/pucks/335/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 501,
+      "key": "history-501",
+      "sourceSheet": "Road to History",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/501/coa.webp",
+          "after": "images/pucks/501/back.webp; images/pucks/501/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 502,
+      "key": "history-502",
+      "sourceSheet": "Road to History",
+      "changes": {
+        "notes": {
+          "before": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+          "after": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/502/coa.webp",
+          "after": "images/pucks/502/back.webp; images/pucks/502/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 509,
+      "key": "history-509",
+      "sourceSheet": "Road to History",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/509/coa.webp",
+          "after": "images/pucks/509/back.png; images/pucks/509/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 505,
+      "key": "history-505",
+      "sourceSheet": "Road to History",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/505/coa.webp",
+          "after": "images/pucks/505/back.webp; images/pucks/505/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 507,
+      "key": "history-507",
+      "sourceSheet": "Road to History",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/507/coa.webp",
+          "after": "images/pucks/507/back.webp; images/pucks/507/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 73,
+      "key": "goal-73",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/73/coa.webp",
+          "after": "images/pucks/73/back.webp; images/pucks/73/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 77,
+      "key": "goal-77",
+      "sourceSheet": "Goals & Games",
+      "changes": {
+        "authenticationType": {
+          "before": "Hologram",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationNotes": {
+          "before": "Montreal Canadiens hologram visible in Edge 1 photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "after": "Montreal Canadiens hologram on the puck identifies its digital COA; visible in the edge 1 photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 600,
+      "key": "repeat-600",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/600/coa.webp",
+          "after": "images/pucks/600/back.webp; images/pucks/600/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 601,
+      "key": "repeat-601",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/601/coa.webp",
+          "after": "images/pucks/601/back.webp; images/pucks/601/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 603,
+      "key": "repeat-603",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/603/coa.webp",
+          "after": "images/pucks/603/back.webp; images/pucks/603/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 604,
+      "key": "repeat-604",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "notes": {
+          "before": "Game 1 Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+          "after": "Game 1. The authentication hologram on the puck identifies its digital COA. The accompanying Toronto Maple Leafs certificate identifies the warm-up puck."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/604/coa.webp",
+          "after": "images/pucks/604/back.webp; images/pucks/604/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 608,
+      "key": "repeat-608",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "",
+          "after": "images/pucks/608/back.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 613,
+      "key": "repeat-613",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "notes": {
+          "before": "Game 5 The same-game certificate is shared with artifact 614 with the owner’s explicit approval; it does not establish two distinct item serials.",
+          "after": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 614."
+        }
+      }
+    },
+    {
+      "inventoryId": 614,
+      "key": "repeat-614",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "notes": {
+          "before": "Game 5 The same-game certificate is shared with artifact 613 with the owner’s explicit approval; it does not establish two distinct item serials.",
+          "after": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 613."
+        }
+      }
+    },
+    {
+      "inventoryId": 621,
+      "key": "repeat-621",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/621/coa.webp",
+          "after": "images/pucks/621/back.webp; images/pucks/621/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 622,
+      "key": "repeat-622",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/622/coa.webp",
+          "after": "images/pucks/622/back.webp; images/pucks/622/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 623,
+      "key": "repeat-623",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/623/coa.webp",
+          "after": "images/pucks/623/back.webp; images/pucks/623/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 624,
+      "key": "repeat-624",
+      "sourceSheet": "Road to Repeat",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/624/coa.webp",
+          "after": "images/pucks/624/back.webp; images/pucks/624/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 339,
+      "key": "milestone-339",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+          "after": "images/pucks/339/back.webp; images/pucks/339/coa.webp; images/pucks/339/coa-02.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 700,
+      "key": "hfc-700",
+      "sourceSheet": "Hockey Fights Cancer",
+      "changes": {
+        "notes": {
+          "before": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "after": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type."
+        }
+      }
+    },
+    {
+      "inventoryId": 701,
+      "key": "hfc-701",
+      "sourceSheet": "Hockey Fights Cancer",
+      "changes": {
+        "notes": {
+          "before": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "after": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type."
+        }
+      }
+    },
+    {
+      "inventoryId": 712,
+      "key": "warmup-712",
+      "sourceSheet": "Warm-Up Pucks",
+      "changes": {
+        "authenticationType": {
+          "before": "",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "",
+          "after": "images/pucks/712/back.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 340,
+      "key": "milestone-340",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "notes": {
+          "before": "Game-used puck commemorating the game; not attributed to a specific scoring play. The supplied dated Fanatics packaging label is supporting provenance, not a formal item-specific COA.",
+          "after": "Game-used puck commemorating the game; not attributed to a specific scoring play. Its Fanatics hologram identifies the digital COA; the dated packaging label records the game."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/340/coa.webp",
+          "after": "images/pucks/340/back.webp; images/pucks/340/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 341,
+      "key": "milestone-341",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/341/coa.webp",
+          "after": "images/pucks/341/back.webp; images/pucks/341/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 342,
+      "key": "milestone-342",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "notes": {
+          "before": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics marking RG13316480. Supporting packaging label GUHKPK9343 matches the date, opponents and game-used designation; it is not a formal certificate and does not display the puck’s serial.",
+          "after": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/342/coa.webp",
+          "after": "images/pucks/342/back.webp; images/pucks/342/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram RG13316480 on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    },
+    {
+      "inventoryId": 343,
+      "key": "milestone-343",
+      "sourceSheet": "Milestones",
+      "changes": {
+        "notes": {
+          "before": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics marking RG13316479. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Owner-confirmed supporting Fanatics packaging label GUHKPK9343 (IMG_9775.JPG).",
+          "after": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck."
+        },
+        "authenticationType": {
+          "before": "COA / Supporting Document",
+          "after": "Digital COA / Hologram"
+        },
+        "authenticationEvidence": {
+          "before": "images/pucks/343/coa.webp",
+          "after": "images/pucks/343/back.webp; images/pucks/343/coa.webp"
+        },
+        "authenticationNotes": {
+          "before": "",
+          "after": "Fanatics hologram RG13316479 on the puck identifies its digital COA; visible in the back photograph."
+        }
+      }
+    }
+  ],
+  "photoCaptionChanges": [
+    {
+      "inventoryId": 48,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 49,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 49,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 57,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 302,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 303,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 304,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 304,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 305,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 305,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 306,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 307,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 308,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 309,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 310,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 311,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 312,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 313,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 314,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 314,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 315,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 315,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 316,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 317,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 318,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 319,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 320,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 321,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 322,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 322,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 323,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 325,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 325,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 325,
+      "view": "COA 3",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 326,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 326,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 326,
+      "view": "COA 3",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 327,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 327,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 327,
+      "view": "COA 3",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 328,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 328,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 329,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 329,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 330,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 331,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 331,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 332,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 334,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 335,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 339,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 339,
+      "view": "COA 2",
+      "before": {
+        "caption": "Fanatics game authentication label — date and matchup match; shared product code does not identify an individual physical puck.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 340,
+      "view": "COA",
+      "before": {
+        "caption": "Dated Fanatics packaging label — supporting provenance, not a formal COA.",
+        "authenticationScope": "dated packaging label"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — Boston at Montreal, December 1, 2024. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date, opponents and game-used designation on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 342,
+      "view": "COA",
+      "before": {
+        "caption": "Dated Fanatics packaging label — Toronto at Boston, March 7, 2024. Supporting provenance, not a formal certificate.",
+        "authenticationScope": "Date, opponents and game-used designation; no individual serial on label"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — Toronto at Boston, March 7, 2024. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date, opponents and game-used designation on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 343,
+      "view": "COA",
+      "before": {
+        "caption": "Dated Fanatics packaging label — Toronto at Boston, March 7, 2024. Owner-confirmed pairing with artifact 343; supporting provenance, not a formal certificate.",
+        "authenticationScope": "Owner-confirmed pairing; date, opponents and game-used designation match. No individual serial on label."
+      },
+      "after": {
+        "caption": "Fanatics packaging label — Toronto at Boston, March 7, 2024. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date, opponents and game-used designation on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 501,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 505,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 507,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 509,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 621,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 624,
+      "view": "COA",
+      "before": {
+        "caption": "Fanatics game authentication label — supports the date and matchup, not a specific scoring play.",
+        "authenticationScope": "game-level"
+      },
+      "after": {
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+      }
+    },
+    {
+      "inventoryId": 700,
+      "view": "COA",
+      "before": {
+        "caption": "Dated warm-up certificate — event and type match; no individual serial.",
+        "authenticationScope": "event and puck type"
+      },
+      "after": {
+        "caption": "Dated warm-up certificate — game date and puck type.",
+        "authenticationScope": "event and puck type"
+      }
+    },
+    {
+      "inventoryId": 701,
+      "view": "COA",
+      "before": {
+        "caption": "Dated warm-up certificate — event and type match; no individual serial.",
+        "authenticationScope": "event and puck type"
+      },
+      "after": {
+        "caption": "Dated warm-up certificate — game date and puck type.",
+        "authenticationScope": "event and puck type"
+      }
+    }
+  ],
+  "verificationScope": "Photographs and owner-confirmed authentication convention. Issuer database lookups were not performed; no successful individual lookup is claimed.",
+  "preserved": "All inventory IDs, scoring facts, dates, actual certificate/marking conflicts, photo bytes and gallery associations."
+}

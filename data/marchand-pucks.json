@@ -343,24 +343,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/2/coa.webp",
+          "value": "images/pucks/2/back.webp; images/pucks/2/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jaroslav Halak",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/2/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/2/back.webp; images/pucks/2/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-3",
@@ -514,24 +514,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/3/coa.webp",
+          "value": "images/pucks/3/back.webp; images/pucks/3/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Empty net (no goaltender)",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/3/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/3/back.webp; images/pucks/3/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-4",
@@ -729,7 +729,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=KtAtvcqss78",
       "videoProvider": "youtube",
       "videoId": "KtAtvcqss78",
-      "notes": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+      "notes": "Dallas Stars authentication hologram 11789 matches the accompanying certificate.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -826,7 +826,7 @@
         },
         {
           "label": "Notes",
-          "value": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+          "value": "Dallas Stars authentication hologram 11789 matches the accompanying certificate.",
           "url": ""
         },
         {
@@ -856,24 +856,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/5/coa.webp",
+          "value": "images/pucks/5/back.webp; images/pucks/5/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Kari Lehtonen",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/5/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/5/back.webp; images/pucks/5/coa.webp",
+      "authenticationNotes": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-6",
@@ -1710,7 +1710,7 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Hologram",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
@@ -1720,14 +1720,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Darcy Kuemper",
-      "authenticationType": "Hologram",
+      "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/10/back.webp",
-      "authenticationNotes": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified."
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-11",
@@ -2052,7 +2052,7 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Hologram",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
@@ -2062,14 +2062,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Henrik Lundqvist",
-      "authenticationType": "Hologram",
+      "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/12/back.webp",
-      "authenticationNotes": "Fanatics hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified."
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-13",
@@ -2563,24 +2563,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/15/coa.webp",
+          "value": "images/pucks/15/back.webp; images/pucks/15/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Anders Nilsson",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/15/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/15/back.webp; images/pucks/15/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-16",
@@ -3768,14 +3768,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "James Reimer",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-23",
@@ -4281,14 +4281,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Tristan Jarry",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-26",
@@ -4613,24 +4613,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/27/coa.webp",
+          "value": "images/pucks/27/back.webp; images/pucks/27/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Andrei Vasilevskiy",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/27/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/27/back.webp; images/pucks/27/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-28",
@@ -5125,24 +5125,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/30/coa.webp",
+          "value": "images/pucks/30/back.webp; images/pucks/30/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Arturs Silovs",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/30/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/30/back.webp; images/pucks/30/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-32",
@@ -5296,7 +5296,7 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Hologram",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
@@ -5306,14 +5306,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "NHL-branded hologram visible in Edge 4 photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "value": "NHL-branded hologram on the puck identifies its digital COA; visible in the edge 4 photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Cam Talbot",
-      "authenticationType": "Hologram",
+      "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/32/edge-04.webp",
-      "authenticationNotes": "NHL-branded hologram visible in Edge 4 photograph. Counts as COA evidence under collection policy; serial not independently verified."
+      "authenticationNotes": "NHL-branded hologram on the puck identifies its digital COA; visible in the edge 4 photograph."
     },
     {
       "key": "goal-33",
@@ -5510,7 +5510,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6340644033112",
       "videoProvider": "nhl",
       "videoId": "6340644033112",
-      "notes": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+      "notes": "Dallas Stars authentication hologram 31849 matches the accompanying certificate.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -5607,7 +5607,7 @@
         },
         {
           "label": "Notes",
-          "value": "Authentication limitation: the generic Dallas certificate is linked by its serial but does not supply game-specific details.",
+          "value": "Dallas Stars authentication hologram 31849 matches the accompanying certificate.",
           "url": ""
         },
         {
@@ -5637,24 +5637,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/34/coa.webp",
+          "value": "images/pucks/34/back.webp; images/pucks/34/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jake Oettinger",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/34/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/34/back.webp; images/pucks/34/coa.webp",
+      "authenticationNotes": "Dallas Stars hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-35",
@@ -5989,14 +5989,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Alexandar Georgiev",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-37",
@@ -6160,14 +6160,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Alexandar Georgiev",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-38",
@@ -6320,24 +6320,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/38/coa.webp",
+          "value": "images/pucks/38/back.webp; images/pucks/38/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jordan Binnington",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/38/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/38/back.webp; images/pucks/38/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-39",
@@ -6491,24 +6491,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/39/coa.webp",
+          "value": "images/pucks/39/back.webp; images/pucks/39/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Spencer Martin",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/39/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/39/back.webp; images/pucks/39/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-40",
@@ -6662,24 +6662,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/40/coa.webp",
+          "value": "images/pucks/40/back.webp; images/pucks/40/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Stuart Skinner",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/40/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/40/back.webp; images/pucks/40/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-41",
@@ -6706,7 +6706,7 @@
       "videoUrl": "https://www.nhl.com/video/bos-pit-marchand-scores-goal-against-tristan-jarry-6350896291112",
       "videoProvider": "nhl",
       "videoId": "6350896291112",
-      "notes": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+      "notes": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -6802,7 +6802,7 @@
         },
         {
           "label": "Notes",
-          "value": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+          "value": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program.",
           "url": ""
         },
         {
@@ -6832,24 +6832,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/41/coa.webp",
+          "value": "images/pucks/41/back.webp; images/pucks/41/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Tristan Jarry",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/41/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/41/back.webp; images/pucks/41/coa.webp",
+      "authenticationNotes": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-42",
@@ -7355,14 +7355,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Petr Mrazek",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-45",
@@ -7526,14 +7526,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Petr Mrazek",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-46",
@@ -7684,24 +7684,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/46/coa.webp",
+          "value": "images/pucks/46/back.webp; images/pucks/46/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Philipp Grubauer",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/46/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/46/back.webp; images/pucks/46/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-47",
@@ -7854,24 +7854,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/47/coa.webp",
+          "value": "images/pucks/47/back.webp; images/pucks/47/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Andrei Vasilevskiy",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/47/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/47/back.webp; images/pucks/47/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-48",
@@ -8025,24 +8025,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/48/coa.webp",
+          "value": "images/pucks/48/back.webp; images/pucks/48/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Ukko-Pekka Luukkonen",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/48/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/48/back.webp; images/pucks/48/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-49",
@@ -8193,24 +8193,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+          "value": "images/pucks/49/back.webp; images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/49/back.webp; images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-50",
@@ -8408,7 +8408,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=8QkwIcXx8j0",
       "videoProvider": "youtube",
       "videoId": "8QkwIcXx8j0",
-      "notes": "Perfection Line Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+      "notes": "Perfection Line. Ottawa Senators certificate 2494052 accompanies this puck.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -8505,7 +8505,7 @@
         },
         {
           "label": "Notes",
-          "value": "Perfection Line Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+          "value": "Perfection Line. Ottawa Senators certificate 2494052 accompanies this puck.",
           "url": ""
         },
         {
@@ -9398,14 +9398,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Sergei Bobrovsky",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-57",
@@ -9558,24 +9558,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/57/coa.webp",
+          "value": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Connor Ingram",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/57/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-58",
@@ -9729,24 +9729,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/58/coa.webp",
+          "value": "images/pucks/58/back.webp; images/pucks/58/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Filip Gustavsson",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/58/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/58/back.webp; images/pucks/58/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-59",
@@ -9900,24 +9900,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/59/coa.webp",
+          "value": "images/pucks/59/back.webp; images/pucks/59/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jeremy Swayman",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/59/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/59/back.webp; images/pucks/59/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-60",
@@ -10071,25 +10071,25 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/60/coa.webp",
+          "value": "images/pucks/60/back.webp; images/pucks/60/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Sergei Bobrovsky",
       "hockeyFightsCancer": true,
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/60/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/60/back.webp; images/pucks/60/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-62",
@@ -10760,14 +10760,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "No separate COA or authentication hologram is visible in the currently supplied photos.",
+          "value": "Authentication record details are awaiting entry in the collection database.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Empty net (no goaltender)",
       "authenticationType": "Not Yet Documented",
       "authenticationEvidence": "",
-      "authenticationNotes": "No separate COA or authentication hologram is visible in the currently supplied photos."
+      "authenticationNotes": "Authentication record details are awaiting entry in the collection database."
     },
     {
       "key": "goal-66",
@@ -10921,24 +10921,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/66/coa.webp",
+          "value": "images/pucks/66/back.webp; images/pucks/66/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jonas Johansson",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/66/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/66/back.webp; images/pucks/66/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-67",
@@ -11091,7 +11091,7 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Hologram",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
@@ -11101,14 +11101,14 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "Hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Empty net (no goaltender)",
-      "authenticationType": "Hologram",
+      "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/67/back.webp",
-      "authenticationNotes": "Hologram visible in Back photograph. Counts as COA evidence under collection policy; serial not independently verified."
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-68",
@@ -11476,7 +11476,7 @@
       "videoUrl": "https://www.youtube.com/watch?v=Lrz7NP9ShfE",
       "videoProvider": "youtube",
       "videoId": "Lrz7NP9ShfE",
-      "notes": "Authentication limitation: the dated packaging label GUHKPK1529 is supporting provenance, not a formal certificate of authenticity.",
+      "notes": "Fanatics hologram AA0016994 identifies this puck’s digital COA. Packaging label GUHKPK1529 records the October 14, 2017 Boston–Arizona game.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -11573,7 +11573,7 @@
         },
         {
           "label": "Notes",
-          "value": "Authentication limitation: the dated packaging label GUHKPK1529 is supporting provenance, not a formal certificate of authenticity.",
+          "value": "Fanatics hologram AA0016994 identifies this puck’s digital COA. Packaging label GUHKPK1529 records the October 14, 2017 Boston–Arizona game.",
           "url": ""
         },
         {
@@ -11603,24 +11603,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/70/coa.webp",
+          "value": "images/pucks/70/back.webp; images/pucks/70/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram AA0016994 on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Louis Domingue",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/70/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/70/back.webp; images/pucks/70/coa.webp",
+      "authenticationNotes": "Fanatics hologram AA0016994 on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-71",
@@ -12004,24 +12004,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/302/coa.webp",
+          "value": "images/pucks/302/back.webp; images/pucks/302/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/302/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/302/back.webp; images/pucks/302/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-303",
@@ -12235,24 +12235,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/303/coa.webp",
+          "value": "images/pucks/303/back.webp; images/pucks/303/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/303/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/303/back.webp; images/pucks/303/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-304",
@@ -12465,24 +12465,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+          "value": "images/pucks/304/back.webp; images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/304/back.webp; images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-305",
@@ -12695,24 +12695,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+          "value": "images/pucks/305/back.webp; images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/305/back.webp; images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-306",
@@ -12925,24 +12925,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/306/coa.webp",
+          "value": "images/pucks/306/back.webp; images/pucks/306/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/306/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/306/back.webp; images/pucks/306/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-307",
@@ -13156,24 +13156,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/307/coa.webp",
+          "value": "images/pucks/307/back.webp; images/pucks/307/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/307/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/307/back.webp; images/pucks/307/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-308",
@@ -13386,24 +13386,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/308/coa.webp",
+          "value": "images/pucks/308/back.webp; images/pucks/308/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/308/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/308/back.webp; images/pucks/308/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-309",
@@ -13616,24 +13616,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/309/coa.webp",
+          "value": "images/pucks/309/back.webp; images/pucks/309/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/309/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/309/back.webp; images/pucks/309/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-310",
@@ -13848,24 +13848,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/310/coa.webp",
+          "value": "images/pucks/310/back.webp; images/pucks/310/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/310/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/310/back.webp; images/pucks/310/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-311",
@@ -14079,24 +14079,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/311/coa.webp",
+          "value": "images/pucks/311/back.webp; images/pucks/311/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/311/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/311/back.webp; images/pucks/311/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-312",
@@ -14310,24 +14310,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/312/coa.webp",
+          "value": "images/pucks/312/back.webp; images/pucks/312/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/312/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/312/back.webp; images/pucks/312/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-313",
@@ -14540,24 +14540,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/313/coa.webp",
+          "value": "images/pucks/313/back.webp; images/pucks/313/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/313/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/313/back.webp; images/pucks/313/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-314",
@@ -14771,24 +14771,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+          "value": "images/pucks/314/back.webp; images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/314/back.webp; images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-315",
@@ -15002,24 +15002,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+          "value": "images/pucks/315/back.webp; images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/315/back.webp; images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-316",
@@ -15233,24 +15233,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/316/coa.webp",
+          "value": "images/pucks/316/back.webp; images/pucks/316/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/316/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/316/back.webp; images/pucks/316/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-317",
@@ -15463,24 +15463,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/317/coa.webp",
+          "value": "images/pucks/317/back.webp; images/pucks/317/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/317/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/317/back.webp; images/pucks/317/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-318",
@@ -15693,24 +15693,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/318/coa.webp",
+          "value": "images/pucks/318/back.webp; images/pucks/318/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/318/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/318/back.webp; images/pucks/318/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-319",
@@ -15924,24 +15924,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/319/coa.webp",
+          "value": "images/pucks/319/back.webp; images/pucks/319/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/319/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/319/back.webp; images/pucks/319/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-320",
@@ -16155,24 +16155,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/320/coa-02.webp",
+          "value": "images/pucks/320/back.webp; images/pucks/320/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/320/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/320/back.webp; images/pucks/320/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-321",
@@ -16386,24 +16386,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/321/coa.webp",
+          "value": "images/pucks/321/back.webp; images/pucks/321/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/321/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/321/back.webp; images/pucks/321/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-322",
@@ -16617,24 +16617,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+          "value": "images/pucks/322/back.webp; images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/322/back.webp; images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-323",
@@ -16847,24 +16847,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/323/coa.webp",
+          "value": "images/pucks/323/back.webp; images/pucks/323/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/323/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/323/back.webp; images/pucks/323/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-324",
@@ -17077,24 +17077,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/324/coa.webp",
+          "value": "images/pucks/324/back.webp; images/pucks/324/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "Jeremy Swayman",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/324/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/324/back.webp; images/pucks/324/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-325",
@@ -17307,24 +17307,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+          "value": "images/pucks/325/back.webp; images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/325/back.webp; images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-326",
@@ -17537,24 +17537,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+          "value": "images/pucks/326/back.webp; images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/326/back.webp; images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-327",
@@ -17767,24 +17767,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+          "value": "images/pucks/327/back.webp; images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/327/back.webp; images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-328",
@@ -17997,24 +17997,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+          "value": "images/pucks/328/back.webp; images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/328/back.webp; images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-329",
@@ -18227,24 +18227,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+          "value": "images/pucks/329/back.webp; images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/329/back.webp; images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-330",
@@ -18457,24 +18457,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/330/coa.webp",
+          "value": "images/pucks/330/back.webp; images/pucks/330/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/330/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/330/back.webp; images/pucks/330/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-331",
@@ -18687,24 +18687,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+          "value": "images/pucks/331/back.webp; images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/331/back.webp; images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-332",
@@ -18917,24 +18917,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/332/coa.webp",
+          "value": "images/pucks/332/back.webp; images/pucks/332/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/332/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/332/back.webp; images/pucks/332/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-334",
@@ -19147,24 +19147,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/334/coa.webp",
+          "value": "images/pucks/334/back.webp; images/pucks/334/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/334/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/334/back.webp; images/pucks/334/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-335",
@@ -19377,24 +19377,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/335/coa.webp",
+          "value": "images/pucks/335/back.webp; images/pucks/335/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/335/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/335/back.webp; images/pucks/335/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-501",
@@ -19538,23 +19538,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/501/coa.webp",
+          "value": "images/pucks/501/back.webp; images/pucks/501/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/501/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/501/back.webp; images/pucks/501/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-502",
@@ -19581,7 +19581,7 @@
       "videoUrl": "https://www.nhl.com/video/6335758570112",
       "videoProvider": "nhl",
       "videoId": "6335758570112",
-      "notes": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+      "notes": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program.",
       "game": 76,
       "wins": 59,
       "losses": 12,
@@ -19672,7 +19672,7 @@
         },
         {
           "label": "Notes",
-          "value": "Authentication limitation: the uploaded Penguins document shows generic contact/promotional information rather than a dated, item-specific certification. It does not independently establish this puck’s game or scoring event.",
+          "value": "Penguins Authentics hologram on the puck identifies its digital COA. The accompanying Penguins Authentics card records the issuing program.",
           "url": ""
         },
         {
@@ -19702,23 +19702,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/502/coa.webp",
+          "value": "images/pucks/502/back.webp; images/pucks/502/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/502/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/502/back.webp; images/pucks/502/coa.webp",
+      "authenticationNotes": "Penguins Authentics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-503",
@@ -20022,23 +20022,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/509/coa.webp",
+          "value": "images/pucks/509/back.png; images/pucks/509/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/509/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/509/back.png; images/pucks/509/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-504",
@@ -20345,23 +20345,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/505/coa.webp",
+          "value": "images/pucks/505/back.webp; images/pucks/505/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/505/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/505/back.webp; images/pucks/505/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-506",
@@ -20668,23 +20668,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/507/coa.webp",
+          "value": "images/pucks/507/back.webp; images/pucks/507/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/507/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/507/back.webp; images/pucks/507/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-508",
@@ -21147,17 +21147,17 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/73/coa.webp",
+          "value": "images/pucks/73/back.webp; images/pucks/73/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
@@ -21188,9 +21188,9 @@
       "videoUrl": "https://www.youtube.com/watch?v=y-SiT6EIc4Y",
       "videoProvider": "youtube",
       "videoId": "y-SiT6EIc4Y",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/73/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/73/back.webp; images/pucks/73/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "goal-74",
@@ -21830,7 +21830,7 @@
         },
         {
           "label": "Authentication Type",
-          "value": "Hologram",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
@@ -21840,7 +21840,7 @@
         },
         {
           "label": "Authentication Notes",
-          "value": "Montreal Canadiens hologram visible in Edge 1 photograph. Counts as COA evidence under collection policy; serial not independently verified.",
+          "value": "Montreal Canadiens hologram on the puck identifies its digital COA; visible in the edge 1 photograph.",
           "url": ""
         }
       ],
@@ -21870,9 +21870,9 @@
       "videoUrl": "https://www.youtube.com/watch?v=9aJaUfl2O_Q",
       "videoProvider": "youtube",
       "videoId": "9aJaUfl2O_Q",
-      "authenticationType": "Hologram",
+      "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/77/edge-01.webp",
-      "authenticationNotes": "Montreal Canadiens hologram visible in Edge 1 photograph. Counts as COA evidence under collection policy; serial not independently verified."
+      "authenticationNotes": "Montreal Canadiens hologram on the puck identifies its digital COA; visible in the edge 1 photograph."
     },
     {
       "key": "repeat-600",
@@ -22114,23 +22114,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/600/coa.webp",
+          "value": "images/pucks/600/back.webp; images/pucks/600/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/600/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/600/back.webp; images/pucks/600/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-601",
@@ -22372,23 +22372,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/601/coa.webp",
+          "value": "images/pucks/601/back.webp; images/pucks/601/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/601/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/601/back.webp; images/pucks/601/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-602",
@@ -22888,23 +22888,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/603/coa.webp",
+          "value": "images/pucks/603/back.webp; images/pucks/603/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/603/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/603/back.webp; images/pucks/603/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-604",
@@ -22931,7 +22931,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6372394198112",
       "videoProvider": "nhl",
       "videoId": "6372394198112",
-      "notes": "Game 1 Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+      "notes": "Game 1. The authentication hologram on the puck identifies its digital COA. The accompanying Toronto Maple Leafs certificate identifies the warm-up puck.",
       "game": 1,
       "wins": null,
       "losses": null,
@@ -23021,7 +23021,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 1 Authentication limitation: the supplied generic certificate has limited game-specific detail; the validated database remains the source of event facts.",
+          "value": "Game 1. The authentication hologram on the puck identifies its digital COA. The accompanying Toronto Maple Leafs certificate identifies the warm-up puck.",
           "url": ""
         },
         {
@@ -23146,23 +23146,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/604/coa.webp",
+          "value": "images/pucks/604/back.webp; images/pucks/604/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/604/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/604/back.webp; images/pucks/604/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-605",
@@ -24178,23 +24178,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "",
+          "value": "images/pucks/608/back.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "",
-      "authenticationEvidence": "",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/608/back.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-609",
@@ -25253,7 +25253,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
       "videoId": "6373592122112",
-      "notes": "Game 5 The same-game certificate is shared with artifact 614 with the owner’s explicit approval; it does not establish two distinct item serials.",
+      "notes": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 614.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -25343,7 +25343,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 5 The same-game certificate is shared with artifact 614 with the owner’s explicit approval; it does not establish two distinct item serials.",
+          "value": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 614.",
           "url": ""
         },
         {
@@ -25511,7 +25511,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6373592122112",
       "videoProvider": "nhl",
       "videoId": "6373592122112",
-      "notes": "Game 5 The same-game certificate is shared with artifact 613 with the owner’s explicit approval; it does not establish two distinct item serials.",
+      "notes": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 613.",
       "game": 5,
       "wins": null,
       "losses": null,
@@ -25601,7 +25601,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game 5 The same-game certificate is shared with artifact 613 with the owner’s explicit approval; it does not establish two distinct item serials.",
+          "value": "Game 5. The owner confirmed that the same-game certificate accompanies this puck and artifact 613.",
           "url": ""
         },
         {
@@ -27532,23 +27532,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/621/coa.webp",
+          "value": "images/pucks/621/back.webp; images/pucks/621/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/621/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/621/back.webp; images/pucks/621/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-622",
@@ -27790,23 +27790,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/622/coa.webp",
+          "value": "images/pucks/622/back.webp; images/pucks/622/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/622/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/622/back.webp; images/pucks/622/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-623",
@@ -28048,23 +28048,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/623/coa.webp",
+          "value": "images/pucks/623/back.webp; images/pucks/623/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/623/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/623/back.webp; images/pucks/623/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-624",
@@ -28306,23 +28306,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/624/coa.webp",
+          "value": "images/pucks/624/back.webp; images/pucks/624/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/624/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/624/back.webp; images/pucks/624/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "repeat-625",
@@ -29752,24 +29752,24 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+          "value": "images/pucks/339/back.webp; images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
       "goalieScoredAgainst": "",
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/339/back.webp; images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "hfc-700",
@@ -29796,7 +29796,7 @@
       "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
       "videoProvider": "nhl",
       "videoId": "6340192937112",
-      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -29850,7 +29850,7 @@
         },
         {
           "label": "Notes",
-          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type.",
           "url": ""
         },
         {
@@ -30038,7 +30038,7 @@
       "videoUrl": "https://www.nhl.com/video/recap-panthers-at-bruins-10-30-23-6340192937112",
       "videoProvider": "nhl",
       "videoId": "6340192937112",
-      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+      "notes": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -30092,7 +30092,7 @@
         },
         {
           "label": "Notes",
-          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701). Their two unnumbered dated certificates identify the event and type, not distinct serials.",
+          "value": "Two separate physical warm-up pucks are retained for this date (#700 and #701), each with a dated certificate identifying the event and puck type.",
           "url": ""
         },
         {
@@ -32657,23 +32657,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "",
+          "value": "images/pucks/712/back.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "",
-      "authenticationEvidence": "",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/712/back.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "history-510",
@@ -33832,7 +33832,7 @@
       "videoUrl": "https://www.nhl.com/video/c-6365396039112",
       "videoProvider": "nhl",
       "videoId": "6365396039112",
-      "notes": "Game-used puck commemorating the game; not attributed to a specific scoring play. The supplied dated Fanatics packaging label is supporting provenance, not a formal item-specific COA.",
+      "notes": "Game-used puck commemorating the game; not attributed to a specific scoring play. Its Fanatics hologram identifies the digital COA; the dated packaging label records the game.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -33886,7 +33886,7 @@
         },
         {
           "label": "Notes",
-          "value": "Game-used puck commemorating the game; not attributed to a specific scoring play. The supplied dated Fanatics packaging label is supporting provenance, not a formal item-specific COA.",
+          "value": "Game-used puck commemorating the game; not attributed to a specific scoring play. Its Fanatics hologram identifies the digital COA; the dated packaging label records the game.",
           "url": ""
         },
         {
@@ -34021,23 +34021,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/340/coa.webp",
+          "value": "images/pucks/340/back.webp; images/pucks/340/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/340/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/340/back.webp; images/pucks/340/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-341",
@@ -34253,23 +34253,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/341/coa.webp",
+          "value": "images/pucks/341/back.webp; images/pucks/341/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/341/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/341/back.webp; images/pucks/341/coa.webp",
+      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "warmup-713",
@@ -34538,7 +34538,7 @@
       "videoUrl": "https://www.nhl.com/video/tor-at-bos-recap-6348437197112",
       "videoProvider": "nhl",
       "videoId": "6348437197112",
-      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics marking RG13316480. Supporting packaging label GUHKPK9343 matches the date, opponents and game-used designation; it is not a formal certificate and does not display the puck’s serial.",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -34592,7 +34592,7 @@
         },
         {
           "label": "Notes",
-          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics marking RG13316480. Supporting packaging label GUHKPK9343 matches the date, opponents and game-used designation; it is not a formal certificate and does not display the puck’s serial.",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.",
           "url": ""
         },
         {
@@ -34727,23 +34727,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/342/coa.webp",
+          "value": "images/pucks/342/back.webp; images/pucks/342/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram RG13316480 on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/342/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/342/back.webp; images/pucks/342/coa.webp",
+      "authenticationNotes": "Fanatics hologram RG13316480 on the puck identifies its digital COA; visible in the back photograph."
     },
     {
       "key": "milestone-343",
@@ -34770,7 +34770,7 @@
       "videoUrl": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112",
       "videoProvider": "nhl",
       "videoId": "6348427251112",
-      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics marking RG13316479. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Owner-confirmed supporting Fanatics packaging label GUHKPK9343 (IMG_9775.JPG).",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -34824,7 +34824,7 @@
         },
         {
           "label": "Notes",
-          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics marking RG13316479. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Owner-confirmed supporting Fanatics packaging label GUHKPK9343 (IMG_9775.JPG).",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.",
           "url": ""
         },
         {
@@ -34959,23 +34959,23 @@
         },
         {
           "label": "Authentication Type",
-          "value": "COA / Supporting Document",
+          "value": "Digital COA / Hologram",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/343/coa.webp",
+          "value": "images/pucks/343/back.webp; images/pucks/343/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "",
+          "value": "Fanatics hologram RG13316479 on the puck identifies its digital COA; visible in the back photograph.",
           "url": ""
         }
       ],
-      "authenticationType": "COA / Supporting Document",
-      "authenticationEvidence": "images/pucks/343/coa.webp",
-      "authenticationNotes": ""
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/343/back.webp; images/pucks/343/coa.webp",
+      "authenticationNotes": "Fanatics hologram RG13316479 on the puck identifies its digital COA; visible in the back photograph."
     }
   ]
 }
