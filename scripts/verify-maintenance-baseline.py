@@ -102,7 +102,8 @@ def main() -> int:
                 )
 
     # Public pages must remain one shared CSS generation.
-    pages = sorted(ROOT.glob("*.html"))
+    # Lily is a standalone microsite, validated by lily-site/check_site.py.
+    pages = sorted(page for page in ROOT.glob("*.html") if page.name != "lily.html")
     expected_page_count = baseline.get("publicPageCount")
     if len(pages) != expected_page_count:
         errors.append(
