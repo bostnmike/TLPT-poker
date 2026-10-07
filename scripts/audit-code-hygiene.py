@@ -2520,7 +2520,8 @@ def main() -> int:
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
     errors.extend(audit_phase_3h3_home_dot_centering())
-    pages = sorted(ROOT.glob("*.html"))
+    # Lily is a standalone microsite, validated by lily-site/check_site.py.
+    pages = sorted(page for page in ROOT.glob("*.html") if page.name != "lily.html")
     page_names = {page.name for page in pages}
 
     missing_pages = sorted(EXPECTED_PAGES - page_names)

@@ -875,7 +875,8 @@ def audit_knockouts(audit, events, site_data):
 
 
 def audit_pages(audit, metadata):
-    html_files = sorted(ROOT.glob("*.html"))
+    # Lily is validated separately, including all of its local asset references.
+    html_files = sorted(path for path in ROOT.glob("*.html") if path.name != "lily.html")
     audit.check(len(html_files) == 19, "pages", f"Expected 19 public HTML pages; found {len(html_files)}")
     local_ref_pattern = re.compile(r'(?:href|src)=["\']([^"\']+)["\']', re.IGNORECASE)
     for path in html_files:

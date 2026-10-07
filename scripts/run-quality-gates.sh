@@ -48,4 +48,7 @@ echo "🔎 Auditing source-to-page integrity..."
 echo "🧮 Auditing rendered page calculations..."
 node scripts/audit-page-calculations.mjs
 
+echo "🌿 Validating the standalone Lily microsite..."
+"$PYTHON_BIN" lily-site/check_site.py
+
 echo "✅ TLPT quality gates passed."
