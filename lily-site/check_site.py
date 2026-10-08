@@ -111,11 +111,12 @@ for path, parser in pages.items():
             assert parsed.fragment in pages[target].ids, f"Broken anchor: {link}"
 
 portable = (SITE / "index.html").read_text()
-for asset in ("styles.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js"):
+for asset in ("styles.css", "inquiry-form.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js"):
     portable = portable.replace(f'"./{asset}"', f'"lily-site/{asset}"')
 assert (ROOT / "lily.html").read_text() == portable, "Root page differs from portable source; run lily-site/build.py"
-css = (SITE / "styles.css").read_text()
-assert "url(" not in css and "@import" not in css, "Styles must have no hidden remote/shared asset dependency"
+for path in SITE.glob("*.css"):
+    css = path.read_text()
+    assert "url(" not in css and "@import" not in css, "Styles must have no hidden remote/shared asset dependency"
 navigation = (SITE / 'site-nav.js').read_text()
 assert not re.search(r'\b(?:fetch|XMLHttpRequest|WebSocket|FormData|localStorage|sessionStorage|sendBeacon)\b|\.submit\s*\(', navigation), "Navigation code must not transmit, store, or submit form information"
 print("PASS: portable navigation, source parity, exact inquiry endpoint, validation, privacy, and spam protection")

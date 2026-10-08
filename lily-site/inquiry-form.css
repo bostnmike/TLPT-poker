@@ -1,0 +1,12 @@
+/* Lily's enabled inquiry form. */
+.inquiry-form{border:1px solid var(--line);border-radius:8px;background:#f0f1e7;padding:26px;min-width:0}
+.inquiry-form h3{font-family:Georgia,serif;font-size:28px;font-weight:400;margin:0 0 12px}
+.inquiry-form>p,.form-privacy,.form-next{font-size:14px;line-height:1.6;color:var(--muted)}
+.inquiry-form legend{font-size:16px;font-weight:600;margin:0 0 20px}
+.inquiry-form input,.inquiry-form textarea{color:var(--ink);background:#fffdf6}
+.inquiry-form .optional{font-weight:400;color:var(--muted)}
+.inquiry-form .form-honeypot{display:none}
+.form-privacy a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.inquiry-form button{cursor:pointer;margin-top:8px}
+.form-next{margin:12px 0 0}
+@media(max-width:600px){.inquiry-form{padding:22px 18px}.inquiry-form button{width:100%;justify-content:center}}
