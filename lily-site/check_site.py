@@ -126,7 +126,7 @@ for path, parser in pages.items():
             assert parsed.fragment in pages[target].ids, f"Broken anchor: {link}"
 
 portable = (SITE / "index.html").read_text()
-for asset in ("styles.css", "inquiry-form.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js", "inquiry-form.js"):
+for asset in ("mascots/", "styles.css", "inquiry-form.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js", "inquiry-form.js"):
     portable = portable.replace(f'"./{asset}', f'"lily-site/{asset}')
 assert (ROOT / "lily.html").read_text() == portable, "Root page differs from portable source; run lily-site/build.py"
 for path in SITE.glob("*.css"):
