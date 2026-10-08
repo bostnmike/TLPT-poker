@@ -29,3 +29,7 @@ No mailbox credentials, private delivery address, browser storage, or client-sid
 After successful submission, `_next` returns directly to `https://www.tlpt.org/lily.html`, as requested. The www host redirects to the canonical `https://tlpt.org/lily.html`, preserving the Lily route. The form script does not override that configured destination. Update this single hidden-field URL when extracting the microsite to another host.
 
 The optional US phone field formats typing, pasted numbers, and autofill as `(XXX) XXX-XXXX`, accepts a leading country code `1`, and validates ten digits without silently discarding extra digits or letters. Email uses native `type=email` plus a complete-domain pattern. Both fields provide inline errors after leaving the field or attempting submission, clear errors when corrected, and retain native validation without JavaScript. These checks validate input format; they do not verify ownership or deliverability of a visitor's contact details.
+
+## Mascot illustrations
+
+The original cream cat and floppy-eared brown dog from `companions.svg` return in seven original SVG scenes in `mascots/`: strolling, peeking, napping, curious head tilts, cuddling, waving, and inspecting a notebook. They are decorative, hidden from assistive technology, noninteractive, and placed in normal layout space or within the dedicated about illustration panel. All artwork remains portable and local; no animation or remote asset dependency is added. Increment the main stylesheet query version when changing its styles.
