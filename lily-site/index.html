@@ -65,15 +65,23 @@
     </div>
     <p class="reference-note">No reference contact details, testimonials, or gallery photos were supplied.</p>
   </div></section>
-  <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div class="contact-copy"><p class="eyebrow">PLAN A STAY</p><h2 id="contact-title">Tell me about<br>your <em>little crew.</em></h2><p>We’ll start with your dates, your pets, and the care you have in mind. The draft response window in the questionnaire is 24–48 hours.</p><div class="inquiry-email"><a class="button email-button" href="mailto:lilycaresforpets@gmail.com">Email Lily <span aria-hidden="true">↗</span></a><span class="email-address">lilycaresforpets@gmail.com</span><small>Include your dates, general location, and the care your pets need.</small></div><div class="review-notice" id="form-status"><strong>Review mode · The form is inactive</strong><p>This form is inactive and cannot send or save information. An email address alone does not connect this form. A working form destination still needs to be configured.</p></div></div>
-    <details class="form-preview"><summary>Preview inquiry form <span class="review-badge">Inactive</span></summary><div><p class="preview-explanation">These fields show the planned inquiry form. They are disabled and cannot send or save information.</p><form aria-label="Booking inquiry preview" aria-describedby="form-status"><fieldset disabled><legend>Booking inquiry — preview only</legend>
-      <div class="form-row"><label>Your name<input name="name" type="text" placeholder="Name" autocomplete="off"></label><label>Email address<input name="email" type="email" placeholder="Email" autocomplete="off"></label></div>
-      <div class="form-row"><label>Phone number<input name="phone" type="tel" placeholder="Phone" autocomplete="off"></label><label>Requested dates<input name="dates" type="text" placeholder="When will you need a hand?"></label></div>
-      <div class="form-row"><label>Pet type & count<input name="pets" type="text" placeholder="For example, two cats"></label><label>Service needed<input name="service" type="text" placeholder="Overnights, daytime care, walks…"></label></div>
-      <label>General location<input name="location" type="text" placeholder="Town or general neighborhood"></label>
-      <label>A little about their routine<textarea name="message" rows="4" placeholder="Care needs and anything you’d like Lily to know"></textarea></label>
-      <button class="button" type="button" disabled>Inquiry form inactive <span aria-hidden="true">↗</span></button>
-    </fieldset></form></div></details>
+  <section class="contact wrap" id="contact" aria-labelledby="contact-title">
+    <div class="contact-copy"><p class="eyebrow">PLAN A STAY</p><h2 id="contact-title">Tell me about<br>your <em>little crew.</em></h2><p>We’ll start with your dates, your pets, and the care you have in mind. The draft response window in the questionnaire is 24–48 hours.</p><div class="inquiry-email"><a class="button email-button" href="mailto:lilycaresforpets@gmail.com">Email Lily <span aria-hidden="true">↗</span></a><span class="email-address">lilycaresforpets@gmail.com</span><small>Prefer email? Include your dates, general location, and the care your pets need.</small></div><div class="review-notice" id="form-status"><strong>Email confirmation pending</strong><p>The inquiry form is connected, but Lily’s inbox still needs its one-time confirmation before messages can be delivered. Email Lily directly for now.</p></div></div>
+    <form class="inquiry-form" action="https://formsubmit.co/lilycaresforpets@gmail.com" method="post" aria-label="Booking inquiry" aria-describedby="form-help form-status privacy-note">
+      <h3>Send an inquiry</h3><p id="form-help">Tell me a little about your plans. All fields are required except your phone number. Sending an inquiry does not confirm a booking.</p>
+      <input type="hidden" name="_subject" value="New pet and house sitting inquiry for Lily">
+      <input type="hidden" name="_template" value="table">
+      <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field blank">
+      <fieldset><legend>Your booking details</legend>
+        <div class="form-row"><label>Your name<input name="name" type="text" placeholder="Name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required></label></div>
+        <div class="form-row"><label>Phone number <span class="optional">(optional)</span><input name="phone" type="tel" placeholder="Phone" autocomplete="tel" maxlength="40"></label><label>Requested dates<input name="dates" type="text" placeholder="For example, Nov 10–14" maxlength="120" required></label></div>
+        <div class="form-row"><label>Pet type &amp; count<input name="pets" type="text" placeholder="For example, two cats" maxlength="300" required></label><label>Service needed<input name="service" type="text" placeholder="Overnights, daytime care, walks…" maxlength="200" required></label></div>
+        <label>General location<input name="location" type="text" placeholder="Town or general neighborhood" maxlength="200" required></label>
+        <label>A little about their routine<textarea name="message" rows="4" placeholder="Care needs and anything you’d like Lily to know" maxlength="4000" required></textarea></label>
+        <p class="form-privacy" id="privacy-note">Your inquiry is processed by FormSubmit and emailed to Lily. Please leave out door codes, full home addresses, and other private access details. <a href="https://formsubmit.co/privacy.pdf">FormSubmit privacy information</a>.</p>
+        <button class="button" type="submit">Send inquiry <span aria-hidden="true">↗</span></button><p class="form-next">You’ll continue to a spam-protection check and confirmation screen.</p>
+      </fieldset>
+    </form>
   </section>
   <section class="review-planning wrap" id="review" aria-labelledby="review-title">
     <p class="eyebrow">THE FULL PICTURE</p><h2 id="review-title">Planning notes,<br>all <em>in view.</em></h2>
