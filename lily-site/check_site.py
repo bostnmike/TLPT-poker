@@ -86,7 +86,11 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert "required" in fields["service"] and '<select name="service" required>' in text
         assert "required" not in fields["message"] and int(fields["message"]["maxlength"]) > 0
         assert fields["email"].get("type") == "email"
+        assert fields["email"].get("pattern") and fields["email"].get("aria-describedby") == "email-error", "Email needs complete-address validation and an associated error"
         assert "required" not in fields["phone"] and fields["phone"].get("type") == "tel"
+        assert fields["phone"].get("pattern") and fields["phone"].get("placeholder") == "(XXX) XXX-XXXX", "Phone needs the ten-digit layout and validation"
+        assert fields["phone"].get("aria-describedby") == "phone-hint phone-error"
+        assert {'email-error', 'phone-error', 'phone-hint'} <= parser.ids
         assert fields["_template"].get("value") == "table" and fields["_template"].get("type") == "hidden"
         assert fields["_subject"].get("type") == "hidden" and fields["_subject"].get("value")
         assert fields["_honey"].get("class") == "form-honeypot" and fields["_honey"].get("tabindex") == "-1" and fields["_honey"].get("aria-hidden") == "true"
