@@ -6,7 +6,7 @@ import re
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
-EMAIL_LINK = 'mailto:lilyspetsitting@gmail.com'
+EMAIL_LINK = 'mailto:lilycaresforpets@gmail.com'
 
 class Page(HTMLParser):
     def __init__(self):
