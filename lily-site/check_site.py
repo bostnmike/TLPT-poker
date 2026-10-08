@@ -9,6 +9,7 @@ ROOT = SITE.parent
 EMAIL_LINK = 'mailto:lilycaresforpets@gmail.com'
 FORM_ENDPOINT = 'https://formsubmit.co/lilycaresforpets@gmail.com'
 PRIVACY_LINK = 'https://formsubmit.co/privacy.pdf'
+THANK_YOU_URL = 'https://tlpt.org/lily-site/thank-you.html'
 
 class Page(HTMLParser):
     def __init__(self):
@@ -36,7 +37,7 @@ class Page(HTMLParser):
         assert tag not in {"iframe", "base"}, "Unexpected external content"
         if tag == "script":
             self.scripts += 1
-            assert attrs.get("src", "").endswith(("/site-nav.js", "/inquiry-form.js")) and "defer" in attrs, "Only deferred standalone navigation and date controls are permitted"
+            assert urlsplit(attrs.get("src", "")).path.endswith(("/site-nav.js", "/inquiry-form.js")) and "defer" in attrs, "Only deferred standalone navigation and date controls are permitted"
         assert not any(k.startswith("on") for k in attrs), "Inline event handler is forbidden"
         if tag == "form":
             self.forms += 1
@@ -64,18 +65,20 @@ class Page(HTMLParser):
         if tag == "form": self.in_form = False
 
 pages = {}
-for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html"):
+for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html", SITE / "thank-you.html"):
     text = path.read_text()
-    assert not re.search(r"TLPT|Marchand|poker", text, re.I), "Unrelated branding or content"
+    assert not re.search(r"TLPT|Marchand|poker", text.replace(THANK_YOU_URL, ""), re.I), "Unrelated branding or content"
     assert 'name="robots" content="noindex, nofollow"' in text, "Review page must remain unindexed"
     parser = Page()
     parser.feed(text)
     assert parser.h1 == 1
-    assert len(parser.navigation_controls) == 1 and parser.navigation_controls[0] in parser.ids, "Menu control must point to its navigation"
-    if path.name != 'questionnaire.html':
-        assert parser.forms == 1 and parser.fields == 13 and parser.submit_buttons == 1 and parser.scripts == 2
+    if path.name != 'thank-you.html':
+        assert len(parser.navigation_controls) == 1 and parser.navigation_controls[0] in parser.ids, "Menu control must point to its navigation"
+    if path.name in {'lily.html', 'index.html'}:
+        assert parser.forms == 1 and parser.fields == 14 and parser.submit_buttons == 1 and parser.scripts == 2
         fields = parser.form_fields
-        assert set(fields) == {"name", "email", "phone", "start_date", "end_date", "pets", "service", "location", "message", "_subject", "_template", "_honey"}
+        assert set(fields) == {"name", "email", "phone", "start_date", "end_date", "pets", "service", "location", "message", "_subject", "_template", "_honey", "_next"}
+        assert fields['_next'].get('type') == 'hidden' and fields['_next'].get('value') == THANK_YOU_URL, "Submission must return to Lily's own confirmation page"
         for name in ("name", "email", "pets", "location"):
             assert "required" in fields[name] and int(fields[name]["maxlength"]) > 0, f"Missing validation: {name}"
         for name in ("start_date", "end_date"):
@@ -87,14 +90,17 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert fields["_template"].get("value") == "table" and fields["_template"].get("type") == "hidden"
         assert fields["_subject"].get("type") == "hidden" and fields["_subject"].get("value")
         assert fields["_honey"].get("class") == "form-honeypot" and fields["_honey"].get("tabindex") == "-1" and fields["_honey"].get("aria-hidden") == "true"
-        assert "Email confirmation pending" in text and "one-time confirmation" in text, "Do not claim verified email delivery before activation"
+        assert "Ready for your inquiry" in text and "Email confirmation pending" not in text, "Activated form must not show an obsolete activation notice"
         assert PRIVACY_LINK in parser.links and "processed by FormSubmit" in text
         assert text.count('class="review-badge">Permission pending') == 3, "Reference permission states missing"
         assert '$75/day' in text and 'draft pet and house sitting rate' in text, "Draft rate must be labeled"
         assert EMAIL_LINK in parser.links, "Direct email fallback must remain available"
-    else:
+    elif path.name == 'questionnaire.html':
         assert parser.forms == 0 and parser.fields == 0 and parser.scripts == 1, "Source record must be read-only"
         assert 'Template instructions are reproduced as source material' in text
+    else:
+        assert parser.forms == 0 and parser.fields == 0 and parser.scripts == 0 and not parser.navigation_controls, "Confirmation page must have no form or script"
+        assert './index.html#contact' in parser.links and EMAIL_LINK in parser.links
     pages[path.resolve()] = parser
     for asset in parser.assets:
         parsed_asset = urlsplit(asset)
