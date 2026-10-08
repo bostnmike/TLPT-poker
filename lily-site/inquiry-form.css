@@ -10,3 +10,14 @@
 .inquiry-form button{cursor:pointer;margin-top:8px}
 .form-next{margin:12px 0 0}
 @media(max-width:600px){.inquiry-form{padding:22px 18px}.inquiry-form button{width:100%;justify-content:center}}
+
+.inquiry-form .form-group{padding:22px 0 0;border-top:1px solid var(--line);margin-top:24px}
+.inquiry-form .form-group legend{padding:0 10px 0 0;margin-bottom:14px}
+.inquiry-form select{display:block;width:100%;min-height:48px;font:16px Arial,sans-serif;line-height:1.5;border:1px solid #c8cfc1;border-radius:5px;background:#fffdf6;padding:13px 14px;margin-top:8px;color:var(--ink);touch-action:manipulation}
+.inquiry-form input[type=date]{min-height:48px;min-width:0;cursor:pointer}
+.inquiry-form input[type=date]::-webkit-calendar-picker-indicator{cursor:pointer;padding:4px}
+.inquiry-form .field-hint,.inquiry-form .field-error{font-size:14px;line-height:1.5;margin:0 0 18px}
+.inquiry-form .field-hint{color:var(--muted)}
+.inquiry-form .field-error{color:#9b3b26;font-weight:600}
+.inquiry-form .field-error[hidden]{display:none}
+.inquiry-form select:focus-visible{outline:3px solid #a56d49;outline-offset:3px}
