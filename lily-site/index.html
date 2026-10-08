@@ -9,9 +9,9 @@
   <title>Lily · Pet & House Sitting</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./inquiry-form.css?v=3">
+  <link rel="stylesheet" href="./inquiry-form.css?v=4">
   <script src="./site-nav.js" defer></script>
-  <script src="./inquiry-form.js?v=2" defer></script>
+  <script src="./inquiry-form.js?v=3" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -86,8 +86,8 @@
         <label>Anything else? <span class="optional">(optional)</span><textarea name="message" rows="3" placeholder="Routines, medication needs, or questions" maxlength="4000"></textarea></label>
       </fieldset>
       <fieldset class="form-group"><legend>3. How to reach you</legend>
-        <div class="form-row"><label>Your name<input name="name" type="text" placeholder="Name" autocomplete="name" maxlength="100" required></label><label>Email address<input name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required></label></div>
-        <label>Phone number <span class="optional">(optional)</span><input name="phone" type="tel" placeholder="Phone" autocomplete="tel" maxlength="40"></label>
+        <div class="form-row"><label>Your name<input name="name" type="text" placeholder="Name" autocomplete="name" maxlength="100" required></label><div class="contact-field"><label>Email address<input name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" pattern="[^\s@]+@[^\s@.]+(?:\.[^\s@.]+)+" aria-describedby="email-error" required></label><span class="field-error" id="email-error" aria-live="polite" hidden></span></div></div>
+        <div class="contact-field"><label>Phone number <span class="optional">(optional)</span><input name="phone" type="tel" placeholder="(XXX) XXX-XXXX" autocomplete="tel-national" inputmode="tel" maxlength="22" pattern="(?:\+?1[\s.\-]?)?(?:\([0-9]{3}\)|[0-9]{3})[\s.\-]?[0-9]{3}[\s.\-]?[0-9]{4}" aria-describedby="phone-hint phone-error"></label><span class="field-hint" id="phone-hint">10 digits, including the area code. We’ll add the formatting for you.</span><span class="field-error" id="phone-error" aria-live="polite" hidden></span></div>
       </fieldset>
       <p class="form-privacy" id="privacy-note">Your inquiry is processed by FormSubmit and emailed to Lily. Please leave out door codes, full home addresses, and other private access details. <a href="https://formsubmit.co/privacy.pdf">FormSubmit privacy information</a>.</p>
       <button class="button" type="submit">Send inquiry <span aria-hidden="true">↗</span></button><p class="form-next">You’ll continue to a spam-protection check and confirmation screen.</p>

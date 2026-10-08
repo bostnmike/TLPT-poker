@@ -31,3 +31,9 @@
 @media(max-width:600px){.confirmation-page{padding-block:50px}.confirmation-page h1{font-size:44px}}
 
 .confirmation-header .header-inner{justify-content:space-between}
+
+.inquiry-form .contact-field>.field-hint,.inquiry-form .contact-field>.field-error{display:block;margin:8px 0 0;font-weight:400}
+.inquiry-form .contact-field>.field-error[hidden]{display:none}
+.inquiry-form input[aria-invalid=true]{border-color:#9b3b26}
+
+.inquiry-form .contact-field>label{margin-bottom:0}
