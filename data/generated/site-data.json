@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T01:13:38.322526Z",
+  "generatedAt": "2026-10-08T12:42:25.184586Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -17,7 +17,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "tbd",
+        "ahmed": "yes",
         "alex-c": "yes",
         "ai-dave": "yes",
         "big-tim": "tbd",
@@ -65,7 +65,7 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "tbd",
+        "ahmed": "yes",
         "alex-c": "tbd",
         "ai-dave": "tbd",
         "big-tim": "tbd",
