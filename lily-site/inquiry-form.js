@@ -2,6 +2,10 @@
 (() => {
   const form = document.querySelector('.inquiry-form');
   if (!form) return;
+  const next = form.elements.namedItem('_next');
+  if (next && document.currentScript) {
+    next.value = new URL('thank-you.html', document.currentScript.src).href;
+  }
   const start = form.elements.namedItem('start_date');
   const end = form.elements.namedItem('end_date');
   const error = document.getElementById('date-error');

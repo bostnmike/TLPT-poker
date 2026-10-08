@@ -21,3 +21,13 @@
 .inquiry-form .field-error{color:#9b3b26;font-weight:600}
 .inquiry-form .field-error[hidden]{display:none}
 .inquiry-form select:focus-visible{outline:3px solid #a56d49;outline-offset:3px}
+
+.confirmation-page{max-width:780px;padding-block:80px}
+.confirmation-page h1{font:400 clamp(44px,6vw,72px)/1.06 Georgia,serif;margin:20px 0 30px;color:var(--ink)}
+.confirmation-page h1 em{color:var(--rust)}
+.confirmation-page>p:not(.eyebrow){max-width:570px;font-size:17px;line-height:1.7;color:var(--muted)}
+.confirmation-page>.button{margin-block:20px}
+.confirmation-email a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+@media(max-width:600px){.confirmation-page{padding-block:50px}.confirmation-page h1{font-size:44px}}
+
+.confirmation-header .header-inner{justify-content:space-between}

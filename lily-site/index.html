@@ -9,9 +9,9 @@
   <title>Lily · Pet & House Sitting</title>
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="stylesheet" href="./styles.css">
-  <link rel="stylesheet" href="./inquiry-form.css?v=2">
+  <link rel="stylesheet" href="./inquiry-form.css?v=3">
   <script src="./site-nav.js" defer></script>
-  <script src="./inquiry-form.js" defer></script>
+  <script src="./inquiry-form.js?v=2" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -68,11 +68,12 @@
     <p class="reference-note">No reference contact details, testimonials, or gallery photos were supplied.</p>
   </div></section>
   <section class="contact wrap" id="contact" aria-labelledby="contact-title">
-    <div class="contact-copy"><p class="eyebrow">PLAN A STAY</p><h2 id="contact-title">Tell me about<br>your <em>little crew.</em></h2><p>We’ll start with your dates, your pets, and the care you have in mind. The draft response window in the questionnaire is 24–48 hours.</p><div class="inquiry-email"><a class="button email-button" href="mailto:lilycaresforpets@gmail.com">Email Lily <span aria-hidden="true">↗</span></a><span class="email-address">lilycaresforpets@gmail.com</span><small>Prefer email? Include your dates, general location, and the care your pets need.</small></div><div class="review-notice" id="form-status"><strong>Email confirmation pending</strong><p>The inquiry form is connected, but Lily’s inbox still needs its one-time confirmation before messages can be delivered. Email Lily directly for now.</p></div></div>
+    <div class="contact-copy"><p class="eyebrow">PLAN A STAY</p><h2 id="contact-title">Tell me about<br>your <em>little crew.</em></h2><p>We’ll start with your dates, your pets, and the care you have in mind. The draft response window in the questionnaire is 24–48 hours.</p><div class="inquiry-email"><a class="button email-button" href="mailto:lilycaresforpets@gmail.com">Email Lily <span aria-hidden="true">↗</span></a><span class="email-address">lilycaresforpets@gmail.com</span><small>Prefer email? Include your dates, general location, and the care your pets need.</small></div><div class="review-notice" id="form-status"><strong>Ready for your inquiry</strong><p>Use the form to contact Lily about your dates and care needs. Prefer your own email app? The Email Lily button works, too.</p></div></div>
     <form class="inquiry-form" action="https://formsubmit.co/lilycaresforpets@gmail.com" method="post" aria-label="Booking inquiry" aria-describedby="form-help form-status privacy-note">
       <h3>Send an inquiry</h3><p id="form-help">A few quick details are all we need to get started. Sending an inquiry does not confirm a booking.</p>
       <input type="hidden" name="_subject" value="New pet and house sitting inquiry for Lily">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://tlpt.org/lily-site/thank-you.html">
       <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field blank">
       <fieldset class="form-group"><legend>1. Your stay</legend>
         <div class="form-row"><label>Start date<input name="start_date" type="date" required aria-describedby="date-hint"></label><label>End date<input name="end_date" type="date" required aria-describedby="date-hint date-error"></label></div>
