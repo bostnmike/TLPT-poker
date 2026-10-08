@@ -3,13 +3,16 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 import re
+import struct
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
 EMAIL_LINK = 'mailto:lilycaresforpets@gmail.com'
 FORM_ENDPOINT = 'https://formsubmit.co/lilycaresforpets@gmail.com'
 PRIVACY_LINK = 'https://formsubmit.co/privacy.pdf'
-RETURN_URL = 'https://www.tlpt.org/lily.html'
+RETURN_URL = 'https://www.tlpt.org/lily.html#inquiry-sent'
+PUBLIC_URL = 'https://tlpt.org/lily.html'
+SHARE_IMAGE = 'https://tlpt.org/lily-site/social-card.png'
 
 class Page(HTMLParser):
     def __init__(self):
@@ -33,7 +36,10 @@ class Page(HTMLParser):
         if tag == "h1": self.h1 += 1
         if tag == "a": self.links.append(attrs.get("href", ""))
         if tag in {"img", "script"}: self.assets.append(attrs.get("src", ""))
-        if tag == "link": self.assets.append(attrs.get("href", ""))
+        if tag == "link":
+            if attrs.get("rel") == "canonical":
+                assert attrs.get("href") == PUBLIC_URL, "Incorrect customer-page canonical URL"
+            else: self.assets.append(attrs.get("href", ""))
         assert tag not in {"iframe", "base"}, "Unexpected external content"
         if tag == "script":
             self.scripts += 1
@@ -64,11 +70,19 @@ class Page(HTMLParser):
     def handle_endtag(self, tag):
         if tag == "form": self.in_form = False
 
+share = (SITE / 'social-card.png').read_bytes()
+assert share[:8] == b'\x89PNG\r\n\x1a\n' and struct.unpack('>II', share[16:24]) == (1200, 630), "Sharing image must exist and match its metadata"
+
 pages = {}
 for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html", SITE / "thank-you.html"):
     text = path.read_text()
-    assert not re.search(r"TLPT|Marchand|poker", text.replace(RETURN_URL, ""), re.I), "Unrelated branding or content"
-    assert 'name="robots" content="noindex, nofollow"' in text, "Review page must remain unindexed"
+    assert not re.search(r"TLPT|Marchand|poker", text.replace(RETURN_URL, "").replace(PUBLIC_URL, "").replace(SHARE_IMAGE, ""), re.I), "Unrelated branding or content"
+    if path.name in {'lily.html', 'index.html'}:
+        assert 'name="robots" content="index, follow"' in text, "Customer page must permit discovery"
+        assert f'rel="canonical" href="{PUBLIC_URL}"' in text
+        assert f'property="og:image" content="{SHARE_IMAGE}"' in text and 'name="twitter:card" content="summary_large_image"' in text
+    else:
+        assert 'name="robots" content="noindex, nofollow"' in text, "Supporting review pages must remain unindexed"
     parser = Page()
     parser.feed(text)
     assert parser.h1 == 1
@@ -83,7 +97,7 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
             assert "required" in fields[name] and int(fields[name]["maxlength"]) > 0, f"Missing validation: {name}"
         for name in ("start_date", "end_date"):
             assert fields[name].get("type") == "date" and "required" in fields[name], "Both dates must have native calendar controls"
-        assert "required" in fields["service"] and '<select name="service" required>' in text
+        assert "required" in fields["service"] and fields["service"].get("aria-describedby") == "service-error"
         assert "required" not in fields["message"] and int(fields["message"]["maxlength"]) > 0
         assert fields["email"].get("type") == "email"
         assert fields["email"].get("pattern") and fields["email"].get("aria-describedby") == "email-error", "Email needs complete-address validation and an associated error"
@@ -94,14 +108,23 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert fields["_template"].get("value") == "table" and fields["_template"].get("type") == "hidden"
         assert fields["_subject"].get("type") == "hidden" and fields["_subject"].get("value")
         assert fields["_honey"].get("class") == "form-honeypot" and fields["_honey"].get("tabindex") == "-1" and fields["_honey"].get("aria-hidden") == "true"
-        assert "Ready for your inquiry" in text and "Email confirmation pending" not in text, "Activated form must not show an obsolete activation notice"
+        assert "Ready for your inquiry" not in text and "Email confirmation pending" not in text, "Obsolete form-status notices must not return"
+        assert 'inquiry-sent' in parser.ids and "Your inquiry has been sent." in text
+        assert 'holiday-warning' in parser.ids and 'December 24 and 25' in text
+        assert 'LILY’S PHOTO COMING SOON' in text, "Portrait placeholder must be honest"
+        assert len(re.findall(r'data-care="', text)) == 3, "Service shortcuts must remain available"
+        assert {'start-date-error','end-date-error','service-error','location-error','pets-error','name-error'} <= parser.ids
+        for name in ('start_date','end_date','service','location','pets','name'):
+            assert fields[name].get('aria-describedby'), f'Missing error association: {name}'
+        assert 'href="#references"' not in text, "Trust information belongs with the sitter introduction"
         assert PRIVACY_LINK in parser.links and "processed by FormSubmit" in text
-        assert text.count('class="review-badge">Permission pending') == 3, "Reference permission states missing"
-        assert '$75/day' in text and 'draft pet and house sitting rate' in text, "Draft rate must be labeled"
+        assert not any(value in text for value in ('$75', 'Permission pending', 'Amy Dietrich', 'Michelle Kuchera', 'Rebecca Schwartz', 'the questionnaire')), "Planning details must stay in the review record"
+        assert 'Care quoted for your stay' in text and 'Serving the Triangle.' in text
         assert EMAIL_LINK in parser.links, "Direct email fallback must remain available"
     elif path.name == 'questionnaire.html':
         assert parser.forms == 0 and parser.fields == 0 and parser.scripts == 1, "Source record must be read-only"
         assert 'Template instructions are reproduced as source material' in text
+        assert all(value in text for value in ('$75/day','Amy Dietrich','Michelle Kuchera','Rebecca Schwartz','Pending')), 'Full source must preserve all draft information'
     else:
         assert parser.forms == 0 and parser.fields == 0 and parser.scripts == 0 and not parser.navigation_controls, "Confirmation page must have no form or script"
         assert './index.html#contact' in parser.links and EMAIL_LINK in parser.links

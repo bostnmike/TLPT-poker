@@ -1,35 +1,29 @@
 # Lily · Pet & House Sitting
 
-A standalone, buildless microsite. All design, content, assets, and site-specific checks are in this directory. It has no shared site styles, scripts, navigation, remote fonts, or analytics. Its own `site-nav.js` controls the responsive menu and current-section indicator; it never reads, stores, or submits inquiry information.
+A standalone, buildless microsite. All design, content, assets, scripts, and site-specific checks live here. There are no shared host-site styles or scripts, remote fonts, analytics, or storage dependencies.
 
 ## Edit and publish
 
-Edit `index.html`, `styles.css`, and `inquiry-form.css` as needed. Increment the inquiry stylesheet’s `?v=` value when changing it so returning visitors receive the new styles, then run `python3 lily-site/build.py` from the repository root. This emits the complete `lily.html` route with asset paths adjusted to this directory. Run `bash scripts/run-quality-gates.sh` before publishing.
+Edit `index.html`, `styles.css`, and `inquiry-form.css` as needed. Increment their stylesheet query versions, and the form script’s query version when changing its behavior, so returning visitors receive the new files. Run `python3 lily-site/build.py` to emit the root `lily.html` route and `bash scripts/run-quality-gates.sh` before publishing.
+
+The customer page is indexable and has a canonical URL and Open Graph sharing metadata. `social-card.svg` is the original editable source; `social-card.png` is its 1200 × 630 export. All artwork is original to Lily’s site. The original cream cat and brown dog return in `mascots/` as decorative illustrations, hidden from assistive technology and kept clear of text and controls. Motion is limited to optional smooth scrolling, disabled when reduced motion is requested.
+
+## Content and review record
+
+The user approved the customer-facing redesign and requested a clearly labeled portrait placeholder until an approved photo is supplied. No portrait, testimonial, client image, endorsement, or credential has been fabricated. The customer page presents five years of cat/dog care, lifelong cat experience, shy-pet patience, medication experience, one booking at a time, and a free meet-and-greet. Pricing is by quote. The service area remains “Serving the Triangle,” as the user requested. Visit lengths, walk lengths, and overnight timing are agreed before booking; no unsupported fixed duration or rate is promised.
+
+`questionnaire.html` retains every supplied question, answer, draft, unchecked choice, blank field, and pending reference permission. Its source text is unchanged. Only back links and stylesheet references were updated. It remains available through the footer’s Review materials link and marked `noindex, nofollow`; this discourages indexing but does not restrict public access. The draft $75 rate, potential-reference names, and superseded planning email remain in that source record, as requested earlier, and are omitted from the customer journey.
+
+## Inquiry delivery and confirmation
+
+The activated inbox is `lilycaresforpets@gmail.com`. The form uses a native HTTPS POST to `https://formsubmit.co/lilycaresforpets@gmail.com`; default reCAPTCHA and the honeypot remain enabled. The user previously confirmed receipt of a labeled delivery test. The form names FormSubmit in its privacy note and asks visitors not to submit access codes or exact home addresses. FormSubmit retains submissions for 30 days according to its documentation.
+
+After successful submission, `_next` returns to `https://www.tlpt.org/lily.html#inquiry-sent`. The www host redirects to the canonical Lily route. The fragment reveals an accessible confirmation panel using CSS, including a 24–48 hour reply window and a reminder that dates, care, and a quote must be confirmed before booking. No JavaScript initiates form transmission or sets a successful-delivery state before the service’s redirect. Direct email remains available below the form on phones and beside it on wider screens. `thank-you.html` remains a supporting standalone confirmation page, but is not the form’s configured destination.
+
+Native calendars require a start and end date. `inquiry-form.js` validates past/reversed dates, accepts same-day care, and warns about ranges including December 24 or 25, including ranges spanning years. The warning is informational, so a visitor can explain alternate dates in their notes. Service-card shortcuts preselect the matching service. Required fields have associated inline errors; phone is optional and formats as `(XXX) XXX-XXXX`, accepts a leading country code `1`, and preserves invalid letters or excess digits for correction. Email uses native `type=email` and a complete-domain pattern. Format checks do not establish ownership or deliverability. Without JavaScript, native required-field, phone/email-pattern validation, calendars, and CSS confirmation remain available; cross-field dates, formatting, service preselection, and holiday warnings require JavaScript.
+
+No mailbox credentials, private delivery email, browser storage, or client-side data-transmission code is embedded. Service documentation: https://formsubmit.co/documentation and https://formsubmit.co/help.
 
 ## Move to another host
 
-Copy this directory to any static host and use `index.html` as the entry point. No build, package installation, or outside files are required. Both versions use relative local assets. `questionnaire.html` is the full text of the supplied planning workbook, preserving all questions, answers, draft ideas, and blank fields for review.
-
-## Review status
-
-All pages are marked `noindex, nofollow` during review. This discourages indexing but does not restrict public access.
-
-At the user's explicit request to publish all supplied content, this review includes Lily's full name, the draft $75/day rate, the listed delivery email, and named potential references. Rates remain labeled draft and reference permissions remain labeled pending. No testimonials, photos, reference contact details, home address, or exact age were supplied. Template instructions in the full source record are reproduced as content rather than operational instructions.
-
-## Inquiry delivery
-
-The user selected `lilycaresforpets@gmail.com` and requested a live form. The visible form submits a native HTTPS POST to `https://formsubmit.co/lilycaresforpets@gmail.com`. It works without JavaScript. FormSubmit handles its spam-protection challenge and confirmation screen, then sends inquiries to Lily. The form groups stay details, pets, and contact information. Native start/end calendar controls and a service dropdown reduce typing. Browser validation requires dates, service, general area, pets, name, and a valid email; phone and additional notes are optional. `inquiry-form.js` opens supported native pickers, disallows past dates, and prevents reversed date ranges while accepting same-day care. It does not transmit or store information. Without JavaScript, native calendar controls and required-field validation remain available; cross-field date validation requires JavaScript. The email field supports replying directly to the sender. Default reCAPTCHA remains enabled, and a hidden honeypot adds spam protection.
-
-**Inbox activated:** The user confirmed activation, and a live submission now reaches FormSubmit’s reCAPTCHA instead of its activation page. The public pending-confirmation notice has been replaced with inquiry guidance. A clearly labeled delivery test passed the spam check and reached FormSubmit’s successful-submission page. The user confirmed that the test arrived in Lily’s inbox, completing end-to-end delivery verification. Mailbox receipt was verified before removing the activation notice. FormSubmit retains submissions for 30 days according to its documentation. The form's visible privacy note names this service and tells visitors not to submit access codes or exact home addresses.
-
-If the destination email changes, confirm and test the new inbox before treating delivery as verified. Run the build and full quality suite before republishing.
-
-No mailbox credentials, private delivery address, browser storage, or client-side form submission code are embedded. The email link provides a direct fallback. The original questionnaire's proposed email remains preserved and labeled superseded. When moving the microsite, the same endpoint can be used, but verify delivery from the new host. Service documentation: https://formsubmit.co/documentation and https://formsubmit.co/help.
-
-After successful submission, `_next` returns directly to `https://www.tlpt.org/lily.html`, as requested. The www host redirects to the canonical `https://tlpt.org/lily.html`, preserving the Lily route. The form script does not override that configured destination. Update this single hidden-field URL when extracting the microsite to another host.
-
-The optional US phone field formats typing, pasted numbers, and autofill as `(XXX) XXX-XXXX`, accepts a leading country code `1`, and validates ten digits without silently discarding extra digits or letters. Email uses native `type=email` plus a complete-domain pattern. Both fields provide inline errors after leaving the field or attempting submission, clear errors when corrected, and retain native validation without JavaScript. These checks validate input format; they do not verify ownership or deliverability of a visitor's contact details.
-
-## Mascot illustrations
-
-The original cream cat and floppy-eared brown dog from `companions.svg` return in seven original SVG scenes in `mascots/`: strolling, peeking, napping, curious head tilts, cuddling, waving, and inspecting a notebook. They are decorative, hidden from assistive technology, noninteractive, and placed in normal layout space or within the dedicated about illustration panel. All artwork remains portable and local; no animation or remote asset dependency is added. Increment the main stylesheet query version when changing its styles.
+Copy this entire directory and use `index.html` as the entry point. No outside files, build, or package install are required. Update the canonical URL, Open Graph URL/image, and the `_next` hidden-field destination to the new host; retain `#inquiry-sent` for confirmation. Verify delivery from that origin before considering the migrated form active. A Lily-specific domain is a future option; none has been purchased or configured.
