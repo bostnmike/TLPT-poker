@@ -9,7 +9,7 @@ ROOT = SITE.parent
 EMAIL_LINK = 'mailto:lilycaresforpets@gmail.com'
 FORM_ENDPOINT = 'https://formsubmit.co/lilycaresforpets@gmail.com'
 PRIVACY_LINK = 'https://formsubmit.co/privacy.pdf'
-THANK_YOU_URL = 'https://tlpt.org/lily-site/thank-you.html'
+RETURN_URL = 'https://www.tlpt.org/lily.html'
 
 class Page(HTMLParser):
     def __init__(self):
@@ -67,7 +67,7 @@ class Page(HTMLParser):
 pages = {}
 for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html", SITE / "thank-you.html"):
     text = path.read_text()
-    assert not re.search(r"TLPT|Marchand|poker", text.replace(THANK_YOU_URL, ""), re.I), "Unrelated branding or content"
+    assert not re.search(r"TLPT|Marchand|poker", text.replace(RETURN_URL, ""), re.I), "Unrelated branding or content"
     assert 'name="robots" content="noindex, nofollow"' in text, "Review page must remain unindexed"
     parser = Page()
     parser.feed(text)
@@ -78,7 +78,7 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert parser.forms == 1 and parser.fields == 14 and parser.submit_buttons == 1 and parser.scripts == 2
         fields = parser.form_fields
         assert set(fields) == {"name", "email", "phone", "start_date", "end_date", "pets", "service", "location", "message", "_subject", "_template", "_honey", "_next"}
-        assert fields['_next'].get('type') == 'hidden' and fields['_next'].get('value') == THANK_YOU_URL, "Submission must return to Lily's own confirmation page"
+        assert fields['_next'].get('type') == 'hidden' and fields['_next'].get('value') == RETURN_URL, "Submission must return directly to Lily's requested page"
         for name in ("name", "email", "pets", "location"):
             assert "required" in fields[name] and int(fields[name]["maxlength"]) > 0, f"Missing validation: {name}"
         for name in ("start_date", "end_date"):
