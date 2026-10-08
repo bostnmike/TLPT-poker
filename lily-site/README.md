@@ -4,7 +4,7 @@ A standalone, buildless microsite. All design, content, assets, and site-specifi
 
 ## Edit and publish
 
-Edit `index.html` and `styles.css`, then run `python3 lily-site/build.py` from the repository root. This emits the complete `lily.html` route with asset paths adjusted to this directory. Run `bash scripts/run-quality-gates.sh` before publishing.
+Edit `index.html`, `styles.css`, and `inquiry-form.css` as needed. Increment the inquiry stylesheet’s `?v=` value when changing it so returning visitors receive the new styles, then run `python3 lily-site/build.py` from the repository root. This emits the complete `lily.html` route with asset paths adjusted to this directory. Run `bash scripts/run-quality-gates.sh` before publishing.
 
 ## Move to another host
 
@@ -18,7 +18,7 @@ At the user's explicit request to publish all supplied content, this review incl
 
 ## Inquiry delivery
 
-The user selected `lilycaresforpets@gmail.com` and requested a live form. The visible form submits a native HTTPS POST to `https://formsubmit.co/lilycaresforpets@gmail.com`. It works without JavaScript. FormSubmit handles its spam-protection challenge and confirmation screen, then sends inquiries to Lily. Browser validation requires a name, valid email, dates, pets, service, general area, and message; phone is optional. The email field supports replying directly to the sender. Default reCAPTCHA remains enabled, and a hidden honeypot adds spam protection.
+The user selected `lilycaresforpets@gmail.com` and requested a live form. The visible form submits a native HTTPS POST to `https://formsubmit.co/lilycaresforpets@gmail.com`. It works without JavaScript. FormSubmit handles its spam-protection challenge and confirmation screen, then sends inquiries to Lily. The form groups stay details, pets, and contact information. Native start/end calendar controls and a service dropdown reduce typing. Browser validation requires dates, service, general area, pets, name, and a valid email; phone and additional notes are optional. `inquiry-form.js` opens supported native pickers, disallows past dates, and prevents reversed date ranges while accepting same-day care. It does not transmit or store information. Without JavaScript, native calendar controls and required-field validation remain available; cross-field date validation requires JavaScript. The email field supports replying directly to the sender. Default reCAPTCHA remains enabled, and a hidden honeypot adds spam protection.
 
 **Activation pending:** Submit one clearly labeled setup test, then open the FormSubmit confirmation email in Lily's inbox and activate it. Confirm delivery with another test before removing the pending-confirmation notice in `index.html` and the corresponding source-record note. Run the build and quality suite before republishing. Do not claim successful delivery before the email arrives. FormSubmit retains submissions for 30 days, including submissions awaiting confirmation, according to its documentation. The form's visible privacy note names this service and tells visitors not to submit access codes or exact home addresses.
 

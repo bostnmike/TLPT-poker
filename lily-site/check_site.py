@@ -36,7 +36,7 @@ class Page(HTMLParser):
         assert tag not in {"iframe", "base"}, "Unexpected external content"
         if tag == "script":
             self.scripts += 1
-            assert attrs.get("src", "").endswith("/site-nav.js") and "defer" in attrs, "Only deferred standalone navigation code is permitted"
+            assert attrs.get("src", "").endswith(("/site-nav.js", "/inquiry-form.js")) and "defer" in attrs, "Only deferred standalone navigation and date controls are permitted"
         assert not any(k.startswith("on") for k in attrs), "Inline event handler is forbidden"
         if tag == "form":
             self.forms += 1
@@ -50,7 +50,7 @@ class Page(HTMLParser):
             assert not self.in_form, "Navigation control cannot be inside the inquiry form"
             assert attrs.get("type") == "button" and attrs.get("aria-expanded") == "false"
             self.navigation_controls.append(attrs.get("aria-controls"))
-        elif tag in {"input", "textarea", "button"}:
+        elif tag in {"input", "textarea", "select", "button"}:
             self.fields += 1
             assert self.in_form and "disabled" not in attrs, "Inquiry controls must be enabled and inside the form"
             if tag == "button":
@@ -70,14 +70,18 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
     assert 'name="robots" content="noindex, nofollow"' in text, "Review page must remain unindexed"
     parser = Page()
     parser.feed(text)
-    assert parser.h1 == 1 and parser.scripts == 1
+    assert parser.h1 == 1
     assert len(parser.navigation_controls) == 1 and parser.navigation_controls[0] in parser.ids, "Menu control must point to its navigation"
     if path.name != 'questionnaire.html':
-        assert parser.forms == 1 and parser.fields == 12 and parser.submit_buttons == 1
+        assert parser.forms == 1 and parser.fields == 13 and parser.submit_buttons == 1 and parser.scripts == 2
         fields = parser.form_fields
-        assert set(fields) == {"name", "email", "phone", "dates", "pets", "service", "location", "message", "_subject", "_template", "_honey"}
-        for name in ("name", "email", "dates", "pets", "service", "location", "message"):
+        assert set(fields) == {"name", "email", "phone", "start_date", "end_date", "pets", "service", "location", "message", "_subject", "_template", "_honey"}
+        for name in ("name", "email", "pets", "location"):
             assert "required" in fields[name] and int(fields[name]["maxlength"]) > 0, f"Missing validation: {name}"
+        for name in ("start_date", "end_date"):
+            assert fields[name].get("type") == "date" and "required" in fields[name], "Both dates must have native calendar controls"
+        assert "required" in fields["service"] and '<select name="service" required>' in text
+        assert "required" not in fields["message"] and int(fields["message"]["maxlength"]) > 0
         assert fields["email"].get("type") == "email"
         assert "required" not in fields["phone"] and fields["phone"].get("type") == "tel"
         assert fields["_template"].get("value") == "table" and fields["_template"].get("type") == "hidden"
@@ -89,12 +93,13 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert '$75/day' in text and 'draft pet and house sitting rate' in text, "Draft rate must be labeled"
         assert EMAIL_LINK in parser.links, "Direct email fallback must remain available"
     else:
-        assert parser.forms == 0 and parser.fields == 0, "Source record must be read-only"
+        assert parser.forms == 0 and parser.fields == 0 and parser.scripts == 1, "Source record must be read-only"
         assert 'Template instructions are reproduced as source material' in text
     pages[path.resolve()] = parser
     for asset in parser.assets:
-        assert not urlsplit(asset).scheme, "Remote asset dependency"
-        target = (path.parent / asset).resolve()
+        parsed_asset = urlsplit(asset)
+        assert not parsed_asset.scheme and not parsed_asset.netloc, "Remote asset dependency"
+        target = (path.parent / parsed_asset.path).resolve()
         assert target.is_relative_to(SITE), f"Asset outside Lily directory: {asset}"
         assert target.is_file(), f"Missing asset: {asset}"
     print(f"PASS: {path.name}: isolated assets, review labels, validated inquiry or read-only source")
@@ -111,12 +116,13 @@ for path, parser in pages.items():
             assert parsed.fragment in pages[target].ids, f"Broken anchor: {link}"
 
 portable = (SITE / "index.html").read_text()
-for asset in ("styles.css", "inquiry-form.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js"):
-    portable = portable.replace(f'"./{asset}"', f'"lily-site/{asset}"')
+for asset in ("styles.css", "inquiry-form.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js", "inquiry-form.js"):
+    portable = portable.replace(f'"./{asset}', f'"lily-site/{asset}')
 assert (ROOT / "lily.html").read_text() == portable, "Root page differs from portable source; run lily-site/build.py"
 for path in SITE.glob("*.css"):
     css = path.read_text()
     assert "url(" not in css and "@import" not in css, "Styles must have no hidden remote/shared asset dependency"
-navigation = (SITE / 'site-nav.js').read_text()
-assert not re.search(r'\b(?:fetch|XMLHttpRequest|WebSocket|FormData|localStorage|sessionStorage|sendBeacon)\b|\.submit\s*\(', navigation), "Navigation code must not transmit, store, or submit form information"
+for script in ('site-nav.js', 'inquiry-form.js'):
+    code = (SITE / script).read_text()
+    assert not re.search(r'\b(?:fetch|XMLHttpRequest|WebSocket|FormData|localStorage|sessionStorage|sendBeacon)\b|\.submit\s*\(', code), "Standalone scripts must not transmit, store, or submit form information"
 print("PASS: portable navigation, source parity, exact inquiry endpoint, validation, privacy, and spam protection")
