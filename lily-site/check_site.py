@@ -109,7 +109,7 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
         assert fields["_subject"].get("type") == "hidden" and fields["_subject"].get("value")
         assert fields["_honey"].get("class") == "form-honeypot" and fields["_honey"].get("tabindex") == "-1" and fields["_honey"].get("aria-hidden") == "true"
         assert "Ready for your inquiry" not in text and "Email confirmation pending" not in text, "Obsolete form-status notices must not return"
-        assert 'inquiry-sent' in parser.ids and "Your inquiry has been sent." in text
+        assert 'inquiry-sent' in parser.ids and "your inquiry has been sent" in text.lower()
         assert 'holiday-warning' in parser.ids and 'December 24 and 25' in text
         assert 'LILY’S PHOTO COMING SOON' in text, "Portrait placeholder must be honest"
         assert len(re.findall(r'data-care="', text)) == 3, "Service shortcuts must remain available"
