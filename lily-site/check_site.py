@@ -19,6 +19,8 @@ class Page(HTMLParser):
         self.h1 = 0
         self.fields = 0
         self.in_disabled_fieldset = False
+        self.navigation_controls = []
+        self.scripts = 0
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if "id" in attrs:
@@ -28,7 +30,10 @@ class Page(HTMLParser):
         if tag == "a": self.links.append(attrs.get("href", ""))
         if tag in {"img", "script"}: self.assets.append(attrs.get("src", ""))
         if tag == "link": self.assets.append(attrs.get("href", ""))
-        assert tag not in {"script", "iframe", "base"}, "Unexpected executable or external content"
+        assert tag not in {"iframe", "base"}, "Unexpected external content"
+        if tag == "script":
+            self.scripts += 1
+            assert attrs.get("src", "").endswith("/site-nav.js") and "defer" in attrs, "Only deferred standalone navigation code is permitted"
         assert not any(k.startswith("on") for k in attrs), "Inline event handler is forbidden"
         if tag == "form":
             self.forms += 1
@@ -37,7 +42,11 @@ class Page(HTMLParser):
         if tag == "fieldset":
             assert "disabled" in attrs, "Review fieldset must be disabled"
             self.disabled_fieldset = self.in_disabled_fieldset = True
-        if tag in {"input", "textarea", "button"}:
+        if tag == "button" and "data-nav-toggle" in attrs:
+            assert not self.in_disabled_fieldset, "Navigation control cannot be inside the inactive form"
+            assert attrs.get("type") == "button" and attrs.get("aria-expanded") == "false"
+            self.navigation_controls.append(attrs.get("aria-controls"))
+        elif tag in {"input", "textarea", "button"}:
             self.fields += 1
             assert self.in_disabled_fieldset, "All controls must be disabled"
             if tag == "button":
@@ -52,7 +61,8 @@ for path in (ROOT / "lily.html", SITE / "index.html", SITE / "questionnaire.html
     assert 'name="robots" content="noindex, nofollow"' in text, "Review page must remain unindexed"
     parser = Page()
     parser.feed(text)
-    assert parser.h1 == 1
+    assert parser.h1 == 1 and parser.scripts == 1
+    assert len(parser.navigation_controls) == 1 and parser.navigation_controls[0] in parser.ids, "Menu control must point to its navigation"
     if path.name != 'questionnaire.html':
         assert parser.forms == 1 and parser.disabled_fieldset and parser.fields == 9
         assert "cannot send or save information" in text
@@ -82,9 +92,11 @@ for path, parser in pages.items():
             assert parsed.fragment in pages[target].ids, f"Broken anchor: {link}"
 
 portable = (SITE / "index.html").read_text()
-for asset in ("styles.css", "favicon.svg", "companions.svg", "questionnaire.html"):
+for asset in ("styles.css", "favicon.svg", "companions.svg", "questionnaire.html", "site-nav.js"):
     portable = portable.replace(f'"./{asset}"', f'"lily-site/{asset}"')
 assert (ROOT / "lily.html").read_text() == portable, "Root page differs from portable source; run lily-site/build.py"
 css = (SITE / "styles.css").read_text()
 assert "url(" not in css and "@import" not in css, "Styles must have no hidden remote/shared asset dependency"
-print("PASS: complete portable navigation, source parity, and no CSS network dependencies")
+navigation = (SITE / 'site-nav.js').read_text()
+assert not re.search(r'\b(?:fetch|XMLHttpRequest|WebSocket|FormData|localStorage|sessionStorage|sendBeacon)\b|\.submit\s*\(', navigation), "Navigation code must not transmit, store, or submit form information"
+print("PASS: complete portable navigation, source parity, and no form/network dependencies")
