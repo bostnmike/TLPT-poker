@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T11:31:57.483577Z",
+  "generatedAt": "2026-10-09T19:27:58.060670Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -36,7 +36,7 @@
         "liam-o": "yes",
         "nasa-al": "tbd",
         "nitro": "no",
-        "phattedcalf": "yes",
+        "phattedcalf": "no",
         "pat": "tbd",
         "pittsburghbill": "yes",
         "providencemike": "no",
