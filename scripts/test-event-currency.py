@@ -61,13 +61,38 @@ class EventCurrencyTests(unittest.TestCase):
 
     def test_report_payouts_and_profits_balance_without_rounding(self):
         winners = {row["slug"]: row["payout"] for row in self.event["winners"]}
-        self.assertEqual(winners, {"ahmed": 132.5, "hiro": 132.5, "alex-c": 65})
+        self.assertEqual(winners, {"ahmed": 135, "hiro": 130, "alex-c": 65})
         self.assertEqual(sum(winners.values()), 330)
         rows = {row["slug"]: row for row in self.event["players"]}
+        self.assertEqual(rows["ahmed"]["profit"], 105)
+        self.assertEqual(rows["hiro"]["profit"], 100)
+        self.assertEqual(sum(row["profit"] for row in rows.values()), 0)
+        self.assertEqual(self.audit_event(self.event), [])
+
+    def test_fractional_chop_survives_full_report_parsing(self):
+        # Keep cents coverage independent of the corrected whole-dollar deal.
+        report = parser.RAW_EVENTS_DIR / "Event Report 2026-10-09.html"
+        html = report.read_text().replace(
+            "Ahmed ranked 1st, received $135.00",
+            "Ahmed ranked 1st, received $132.50",
+        ).replace(
+            "Hiro ranked 1st, received $130.00",
+            "Hiro ranked 1st, received $132.50",
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            fixture = Path(directory) / report.name
+            fixture.write_text(html)
+            event = parser.parse_report_file(
+                fixture, parser.build_alias_map(self.metadata), self.metadata,
+                self.config["buy_in_amount"],
+            )
+        winners = {row["slug"]: row["payout"] for row in event["winners"]}
+        self.assertEqual(winners, {"ahmed": 132.5, "hiro": 132.5, "alex-c": 65})
+        rows = {row["slug"]: row for row in event["players"]}
         self.assertEqual(rows["ahmed"]["profit"], 102.5)
         self.assertEqual(rows["hiro"]["profit"], 102.5)
         self.assertEqual(sum(row["profit"] for row in rows.values()), 0)
-        self.assertEqual(self.audit_event(self.event), [])
+        self.assertEqual(self.audit_event(event), [])
 
     def test_audit_rejects_a_one_cent_profit_error(self):
         event = copy.deepcopy(self.event)

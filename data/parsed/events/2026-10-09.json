@@ -22,13 +22,13 @@
       "name": "Ahmed",
       "slug": "ahmed",
       "rank": 1,
-      "payout": 132.5
+      "payout": 135
     },
     {
       "name": "Hiro",
       "slug": "hiro",
       "rank": 1,
-      "payout": 132.5
+      "payout": 130
     },
     {
       "name": "Alex C",
@@ -203,7 +203,7 @@
       "player": "Ahmed",
       "slug": "ahmed",
       "rank": 1,
-      "payout": 132.5
+      "payout": 135
     },
     {
       "type": "payout",
@@ -211,7 +211,7 @@
       "player": "Hiro",
       "slug": "hiro",
       "rank": 1,
-      "payout": 132.5
+      "payout": 130
     },
     {
       "type": "payout",
@@ -246,8 +246,8 @@
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
-      "totalWinnings": 132.5,
-      "profit": 102.5
+      "totalWinnings": 135,
+      "profit": 105
     },
     {
       "name": "Alex C",
@@ -454,8 +454,8 @@
       "timesPlaced": 1,
       "bubbles": 0,
       "totalCost": 30,
-      "totalWinnings": 132.5,
-      "profit": 102.5
+      "totalWinnings": 130,
+      "profit": 100
     },
     {
       "name": "Jeff T",
