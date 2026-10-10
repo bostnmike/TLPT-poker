@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T21:26:27.010690Z",
+  "generatedAt": "2026-10-10T21:57:21.613461Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -50,18 +50,18 @@
       }
     },
     {
-      "title": "A Few Good Bluffs | 9-Max",
+      "title": "All-In | 9-Max",
       "format": "500K Format",
       "slot": "saturday",
       "day": "Saturday",
       "tables": 1,
-      "date": "Saturday, October 10, 2026",
+      "date": "Saturday, October 17, 2026",
       "structure": "Blinds start 500/1000 • 20 min levels • ~4.5 hour event",
       "time": "7:00 PM",
       "endTime": "11:30 PM",
       "location": "The Caahhd Room",
       "address": "OCW, in Cary",
-      "apple_invite_url": "https://www.icloud.com/invites/028XKgpGM9efa_hQfBKHiBMNg",
+      "apple_invite_url": "https://www.icloud.com/invites/035UlPuH8MthJ0gvt8aXTneHw",
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
