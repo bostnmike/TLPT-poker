@@ -18,6 +18,9 @@ fi
 echo "🧭 Verifying maintenance baseline..."
 "$PYTHON_BIN" scripts/verify-maintenance-baseline.py
 
+echo "💵 Testing event currency precision..."
+"$PYTHON_BIN" scripts/test-event-currency.py
+
 echo "🧹 Auditing code hygiene..."
 "$PYTHON_BIN" scripts/audit-code-hygiene.py
 

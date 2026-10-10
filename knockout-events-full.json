@@ -2954,5 +2954,55 @@
       "sourceVictim": "Li-Fo",
       "sourceKiller": "Chris F"
     }
+  ],
+  "2026-10-09": [
+    {
+      "victim": "bostnmike",
+      "killer": "alex-c",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Alex C"
+    },
+    {
+      "victim": "liam-o",
+      "killer": "ahmed",
+      "sourceVictim": "Liam O",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "li-fo",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "ahmed",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "hiro",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "hiro",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Hiro"
+    },
+    {
+      "victim": "alex-c",
+      "killer": "ahmed",
+      "sourceVictim": "Alex C",
+      "sourceKiller": "Ahmed"
+    }
   ]
 }

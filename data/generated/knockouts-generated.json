@@ -20,9 +20,9 @@
       "bostnmike": 4,
       "chris-o": 1,
       "cougar": 2,
-      "hiro": 3,
+      "hiro": 4,
       "jeff-t": 1,
-      "li-fo": 2,
+      "li-fo": 3,
       "nasa-al": 3,
       "nitro": 1,
       "phattedcalf": 1,
@@ -32,13 +32,16 @@
       "vish": 1,
       "yann": 1
     },
+    "alex-c": {
+      "ahmed": 1
+    },
     "big-tim": {
       "ai-dave": 1
     },
     "bostnmike": {
-      "ahmed": 6,
+      "ahmed": 7,
       "ai-dave": 2,
-      "alex-c": 1,
+      "alex-c": 2,
       "buffalomike": 1,
       "chris-o": 1,
       "cougar": 4,
@@ -145,7 +148,7 @@
       "red": 1
     },
     "li-fo": {
-      "ahmed": 8,
+      "ahmed": 9,
       "ai-dave": 1,
       "big-tim": 1,
       "bostnmike": 7,
@@ -153,7 +156,7 @@
       "chris-o": 4,
       "cougar": 4,
       "griffin": 2,
-      "hiro": 8,
+      "hiro": 9,
       "kishan": 1,
       "nasa-al": 2,
       "providencemike": 6,
@@ -162,6 +165,9 @@
       "tim-s": 2,
       "vish": 2,
       "yann": 1
+    },
+    "liam-o": {
+      "ahmed": 1
     },
     "nasa-al": {
       "ahmed": 3,
@@ -296,14 +302,16 @@
   "byKiller": {
     "ahmed": {
       "ai-dave": 3,
-      "bostnmike": 6,
+      "alex-c": 1,
+      "bostnmike": 7,
       "chris-o": 2,
       "cougar": 4,
       "david-k": 1,
       "griffin": 1,
       "hiro": 9,
       "kishan": 1,
-      "li-fo": 8,
+      "li-fo": 9,
+      "liam-o": 1,
       "nasa-al": 3,
       "phattedcalf": 1,
       "providencemike": 3,
@@ -328,7 +336,7 @@
       "wild-bill": 2
     },
     "alex-c": {
-      "bostnmike": 1,
+      "bostnmike": 2,
       "kishan": 1,
       "nasa-al": 1,
       "red": 2
@@ -424,13 +432,13 @@
     },
     "hiro": {
       "ahmed": 4,
-      "ai-dave": 3,
+      "ai-dave": 4,
       "bostnmike": 3,
       "brad-r": 1,
       "cougar": 1,
       "dan-k": 2,
       "jeff-t": 1,
-      "li-fo": 8,
+      "li-fo": 9,
       "nasa-al": 3,
       "phattedcalf": 2,
       "providencemike": 1,
@@ -453,7 +461,7 @@
     },
     "li-fo": {
       "ahmed": 8,
-      "ai-dave": 2,
+      "ai-dave": 3,
       "bostnmike": 10,
       "brad-r": 1,
       "chris-o": 3,
@@ -636,6 +644,7 @@
     "2026-08-29",
     "2026-09-04",
     "2026-09-05",
-    "2026-10-03"
+    "2026-10-03",
+    "2026-10-09"
   ]
 }

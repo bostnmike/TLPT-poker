@@ -14,11 +14,142 @@
   },
   "weeks": [
 {
+  "id": "week-10-09-2026",
+  "date": "10/09/2026",
+  "eventName": "Check Raise to Victory | 9-Max",
+  "title": "Check Raise to Victory | 9-Max",
+  "featured": true,
+  "dek": "Ahmed hosted the Second-Best Hand Awards. Pocket queens dressed for their own funeral, and Hiro collected co-host money for half the work.",
+  "summaryCards": [
+    {
+      "tone": "green",
+      "label": "🏆 The Big Winner",
+      "player": "Ahmed / Hiro",
+      "value": "Shared first",
+      "copy": "$132.50 each, no rebuys, and a rough evening for everyone outside the partnership.",
+      "avatars": [
+        {
+          "src": "images/players/ahmed.jpg",
+          "slug": "ahmed",
+          "alt": "Ahmed",
+          "fallback": "AH"
+        },
+        {
+          "src": "images/players/hiro.jpg",
+          "slug": "hiro",
+          "alt": "Hiro",
+          "fallback": "HI"
+        }
+      ]
+    },
+    {
+      "tone": "red",
+      "label": "🪓 Table Killer",
+      "player": "Ahmed",
+      "value": "4 knockouts",
+      "copy": "Liam O, Li-Fo, BostnMike and Alex C all appeared on the steamroller's route.",
+      "avatar": "images/players/ahmed.jpg",
+      "fallback": "AH"
+    },
+    {
+      "tone": "purple",
+      "label": "👋 Welcome to TLPT",
+      "player": "Liam O",
+      "value": "First permanent exit",
+      "copy": "A debut, a rebuy and an Ahmed-assisted introduction to the rail.",
+      "avatar": "images/players/liam-o.jpg",
+      "fallback": "LO"
+    },
+    {
+      "tone": "blue",
+      "label": "🫧 The Bubble",
+      "player": "A.I. Dave",
+      "value": "Fourth place",
+      "copy": "Hiro ended the second life one spot short of the payouts. The reload came with no warranty.",
+      "avatar": "images/players/ai-dave.jpg",
+      "fallback": "AD"
+    }
+  ],
+  "statPills": [
+    {
+      "icon": "🎟️",
+      "label": "Total Entries",
+      "value": "11"
+    },
+    {
+      "icon": "♻️",
+      "label": "Rebuys",
+      "value": "4"
+    },
+    {
+      "icon": "💰",
+      "label": "Prize Pool",
+      "value": "$330"
+    },
+    {
+      "icon": "⏱️",
+      "label": "Play Time",
+      "value": "3h 07m"
+    }
+  ],
+  "summary": {
+    "startTime": "7:21:04 pm 10/09/2026",
+    "endTime": "10:28:17 pm 10/09/2026",
+    "durationLabel": "3h 07m",
+    "buyIns": 7,
+    "rebuys": 4,
+    "entries": 11,
+    "totalPot": 330,
+    "paidSpots": 3,
+    "winner": "Ahmed, Hiro",
+    "firstOut": "BostnMike",
+    "firstPermanentOut": "Liam O"
+  },
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-09.jpg\" alt=\"Poster for the 10/09/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>Ahmed spent Friday handing out the &ldquo;Congrats, you have the second-best hand&rdquo; award, and the recipients were taking it about as well as you&apos;d expect. Check Raise to Victory brought seven players to the table, where Ahmed kept finding a better hand and pocket queens kept finding a reason to die. Two ladies in the hole should have inspired confidence. Instead they looked like a prepaid funeral with matching headshots. Ahmed was the steamroller, and the rest of the table had apparently volunteered to be the road.</p><p>The room welcomed Liam O for his first TLPT game, then gave him the full introductory package: a rebuy and a permanent exit courtesy of Ahmed at 8:44. Liam became the first player actually done for the night. Nothing says &ldquo;we keep it friendly&rdquo; quite like inviting a new guy over, taking his money twice and having the resident steamroller personally show him the door. Welcome to the league, Liam. The orientation department apologizes for absolutely nothing.</p><p>Li-Fo tried to keep the ceremony going by purchasing another ticket after Ahmed busted him. Tony came back and knocked out A.I. Dave, who also paid for a second life. Then Hiro took over the cleanup, removing Tony for good and sending Dave out on the bubble. Four rebuys bought Liam, BostnMike, Tony and Dave extra time, and not one of those second chances reached the money. The cashier had a better night than the entire resurrection department.</p><p>Ahmed had already removed the Commissioner in sixth before finishing Alex C in third at 10:28. Alex collected $65, leaving Ahmed and Hiro to share first at $132.50 apiece. Neither winner needed a rebuy. Ahmed finished with four recorded knockouts; Hiro finished with two and exactly the same payout. After a night spent congratulating everyone else on being second best, Ahmed somehow ended up splitting the proceeds with a man who did half the demolition. Hiro should teach a seminar on getting paid for group projects.</p>",
+  "spotlight": {
+    "player": "Ahmed / Hiro / Liam O",
+    "fallback": "AHL",
+    "pills": [
+      "Ahmed: 4 Knockouts",
+      "Hiro: 2 Knockouts",
+      "Winners: No Rebuys",
+      "Liam O: TLPT Debut"
+    ],
+    "avatars": [
+      {
+        "src": "images/players/ahmed.jpg",
+        "slug": "ahmed",
+        "alt": "Ahmed",
+        "fallback": "AH"
+      },
+      {
+        "src": "images/players/hiro.jpg",
+        "slug": "hiro",
+        "alt": "Hiro",
+        "fallback": "HI"
+      },
+      {
+        "src": "images/players/liam-o.jpg",
+        "slug": "liam-o",
+        "alt": "Liam O",
+        "fallback": "LO"
+      }
+    ]
+  },
+  "numbersThatMatter": [
+    "7 buy-ins, 4 rebuys, 11 total entries.",
+    "3h 07m elapsed, from 7:21 pm to 10:28 pm.",
+    "$330 prize pool: Ahmed and Hiro shared first for $132.50 each; Alex C received $65 for third.",
+    "Four players rebought once each: Liam O, BostnMike, Li-Fo and A.I. Dave. None made the money."
+  ],
+  "roastHtml": "<p>BostnMike got busted by Alex C, rebought two seconds later and still finished sixth in a seven-player game. The Commissioner apparently felt last week&apos;s bubble was dangerously close to success. This week he paid twice to put a little more distance between himself and the money.</p>"
+},
+{
   "id": "week-10-03-2026",
   "date": "10/03/2026",
   "eventName": "Inglorious Bluffs | 9-Max",
   "title": "Inglorious Bluffs | 9-Max",
-  "featured": true,
+  "featured": false,
   "dek": "A month off, a suspicious batch of samosas, and nine players struggling to stay conscious. Somehow the Commissioner still managed to miss the money.",
   "summaryCards": [
     {

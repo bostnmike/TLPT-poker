@@ -16,6 +16,7 @@ import re
 import subprocess
 from collections import Counter
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
 
 
@@ -582,25 +583,34 @@ def audit_events(audit, parsed_files, metadata, config):
         audit.check(set(row_slugs) == metadata_slugs and len(row_slugs) == len(set(row_slugs)), section, f"{event_id}: player rows do not match metadata exactly")
         audit.check(not any(action.get("type") == "unparsed" for action in actions), section, f"{event_id}: unparsed action remains")
 
-        sums = {key: sum(int(row.get(key, 0) or 0) for row in rows) for key in CORE_KEYS}
+        money_keys = {"profit", "totalCost", "totalWinnings"}
+        sums = {
+            key: sum(
+                Decimal(str(row.get(key, 0) or 0)) if key in money_keys
+                else int(row.get(key, 0) or 0)
+                for row in rows
+            )
+            for key in CORE_KEYS
+        }
+        total_pot = Decimal(str(summary.get("totalPot", 0)))
         audit.check(sums["buyIns"] == int(summary.get("buyIns", 0)), section, f"{event_id}: buy-in total mismatch")
         audit.check(sums["rebuys"] == int(summary.get("rebuys", 0)), section, f"{event_id}: rebuy total mismatch")
         audit.check(sums["entries"] == int(summary.get("entries", 0)), section, f"{event_id}: entry total mismatch")
         audit.check(sums["entries"] == sums["buyIns"] + sums["rebuys"], section, f"{event_id}: entries != buy-ins + rebuys")
         audit.check(sums["totalCost"] == sums["entries"] * buy_in_amount, section, f"{event_id}: cost does not equal entries × buy-in")
-        audit.check(sums["totalWinnings"] == int(summary.get("totalPot", 0)), section, f"{event_id}: winnings do not equal pot")
+        audit.check(sums["totalWinnings"] == total_pot, section, f"{event_id}: winnings do not equal pot")
         audit.check(sums["profit"] == 0, section, f"{event_id}: event is not zero-sum")
         audit.check(sums["hits"] == sum(action.get("type") == "bustout" and bool(action.get("bySlug")) for action in actions), section, f"{event_id}: credited hits differ from bustout actions")
         audit.check(sums["timesPlaced"] == len(winners), section, f"{event_id}: cash count differs from payouts")
-        audit.check(sum(int(winner.get("payout", 0)) for winner in winners) == int(summary.get("totalPot", 0)), section, f"{event_id}: payout total differs from pot")
+        audit.check(sum(Decimal(str(winner.get("payout", 0))) for winner in winners) == total_pot, section, f"{event_id}: payout total differs from pot")
         audit.check(int(summary.get("paidSpots", 0)) == len(winners), section, f"{event_id}: paidSpots differs from payout rows")
         audit.check(sums["bubbles"] in (0, 1), section, f"{event_id}: more than one bubble recorded")
 
         for row in rows:
             slug = row.get("slug", "unknown")
             audit.check(int(row.get("entries", 0)) == int(row.get("buyIns", 0)) + int(row.get("rebuys", 0)), section, f"{event_id}/{slug}: entries mismatch")
-            audit.check(int(row.get("totalCost", 0)) == int(row.get("entries", 0)) * buy_in_amount, section, f"{event_id}/{slug}: cost mismatch")
-            audit.check(int(row.get("profit", 0)) == int(row.get("totalWinnings", 0)) - int(row.get("totalCost", 0)), section, f"{event_id}/{slug}: profit mismatch")
+            audit.check(Decimal(str(row.get("totalCost", 0))) == int(row.get("entries", 0)) * buy_in_amount, section, f"{event_id}/{slug}: cost mismatch")
+            audit.check(Decimal(str(row.get("profit", 0))) == Decimal(str(row.get("totalWinnings", 0))) - Decimal(str(row.get("totalCost", 0))), section, f"{event_id}/{slug}: profit mismatch")
 
         if raw_path.exists():
             html = raw_path.read_text(encoding="utf-8", errors="ignore")
@@ -608,11 +618,11 @@ def audit_events(audit, parsed_files, metadata, config):
             raw_rebuys = raw_table_count(html, "Take-in", "Rebuys:")
             raw_paid = raw_table_count(html, "Prizes", "Total:")
             raw_pot = re.search(r"Total pot:\s*\$([0-9,]+(?:\.\d{2})?)", html, re.IGNORECASE)
-            raw_pot_value = int(round(float(raw_pot.group(1).replace(",", "")))) if raw_pot else None
+            raw_pot_value = Decimal(raw_pot.group(1).replace(",", "")) if raw_pot else None
             audit.check(raw_buyins == summary.get("buyIns"), section, f"{event_id}: parsed buy-ins differ from raw report")
             audit.check(raw_rebuys == summary.get("rebuys"), section, f"{event_id}: parsed rebuys differ from raw report")
             audit.check(raw_paid == summary.get("paidSpots"), section, f"{event_id}: parsed paid spots differ from raw report")
-            audit.check(raw_pot_value == summary.get("totalPot"), section, f"{event_id}: parsed pot differs from raw report")
+            audit.check(raw_pot_value == total_pot, section, f"{event_id}: parsed pot differs from raw report")
     return events
 
 

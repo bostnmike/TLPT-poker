@@ -3,6 +3,7 @@
 import json
 import re
 from datetime import datetime
+from decimal import Decimal, InvalidOperation
 from html import unescape
 from pathlib import Path
 
@@ -96,8 +97,15 @@ def safe_int(value, default=0):
         return default
 
 
-def parse_currency_to_int(text):
-    return safe_int(text, 0)
+def parse_currency(text):
+    value = str(text or "").strip().replace(",", "").replace("$", "")
+    try:
+        amount = Decimal(value)
+        if not amount.is_finite():
+            return 0
+        return int(amount) if amount == amount.to_integral_value() else float(amount)
+    except InvalidOperation:
+        return 0
 
 
 def build_alias_map(metadata_players):
@@ -193,7 +201,7 @@ def extract_total_pot(html):
         flags=re.IGNORECASE
     )
     if m:
-        return parse_currency_to_int(m.group(1))
+        return parse_currency(m.group(1))
 
     matches = re.findall(
         r'<td class="fieldname">Total:</td>\s*<td class="fieldvalue">\s*\$([0-9,]+(?:\.\d{2})?)\s*</td>',
@@ -201,7 +209,7 @@ def extract_total_pot(html):
         flags=re.IGNORECASE | re.DOTALL
     )
     if matches:
-        return parse_currency_to_int(matches[-1])
+        return parse_currency(matches[-1])
 
     return 0
 
@@ -255,7 +263,7 @@ def parse_payout_line(line, alias_map):
     timestamp = m.group(1).strip()
     raw_name = m.group(2).strip()
     rank = safe_int(m.group(3))
-    payout = parse_currency_to_int(m.group(4))
+    payout = parse_currency(m.group(4))
     name, slug = canonicalize_player_name(raw_name, alias_map)
 
     return {
@@ -286,7 +294,7 @@ def parse_action_line(line, alias_map):
         return {
             "type": "total_pot",
             "time_raw": m.group(1).strip(),
-            "totalPot": parse_currency_to_int(m.group(2))
+            "totalPot": parse_currency(m.group(2))
         }
 
     m = re.match(rf'^{TIMESTAMP_RE}:\s*(.*?)\s+bought-in\s*$', line, flags=re.IGNORECASE)
