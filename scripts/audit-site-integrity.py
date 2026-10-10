@@ -42,6 +42,23 @@ CARD_OVERALL_BASELINE_POWER = 160.0
 CARD_OVERALL_BASELINE_RATING = 70.0
 CARD_OVERALL_POWER_PER_RATING = 4.5
 CARD_OVERALL_CONFIDENCE_APPEARANCES = 5.0
+POWER_INDEX_MODEL_VERSION = 3
+CAREER_POWER_BENCHMARKS = {
+    "roi": (-1.0, 6.0),
+    "luckIndex": (-112.8, 1042.5),
+    "clutchRaw": (0.0, 1.0),
+    "aggressionRaw": (0.0, 6.0),
+    "survivorRaw": (0.24333333333333337, 2.0),
+}
+FORM_POWER_BENCHMARKS = {
+    "roi": (-1.0, 6.0),
+    "luckIndex": (-133.4, 187.1),
+    "clutchRaw": (0.0, 1.0),
+    "aggressionRaw": (0.0, 6.0),
+    "survivorRaw": (0.15, 2.0),
+}
+CAREER_LUCK_PROXY_BASELINE = 0.7136533687409953
+FORM_LUCK_PROXY_BASELINE = 0.6785963274198568
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 CARD_FIXED_ORDER = {
@@ -134,17 +151,20 @@ def empty_player(meta):
     }
 
 
-def normalize(records, key):
-    values = [float(record.get(key, 0)) for record in records]
-    low, high = min(values), max(values)
+def normalize(records, key, bounds):
+    low, high = bounds
+    if high <= low:
+        raise ValueError(f"Invalid fixed benchmark for {key}: {bounds}")
     for record in records:
-        record[f"{key}_norm"] = (
-            50.0 if high == low
-            else 100 * (float(record.get(key, 0)) - low) / (high - low)
-        )
+        normalized = 100 * (float(record.get(key, 0)) - low) / (high - low)
+        record[f"{key}_norm"] = max(0.0, min(100.0, normalized))
 
 
-def finalize_metrics(records):
+def finalize_metrics(
+    records,
+    benchmarks=CAREER_POWER_BENCHMARKS,
+    luck_proxy_baseline=CAREER_LUCK_PROXY_BASELINE,
+):
     """Independent implementation of the published career/window formula."""
     for player in records:
         cost = float(player["totalCost"])
@@ -160,11 +180,8 @@ def finalize_metrics(records):
             + 0.40 * (1 - player["bubbleRate"])
         )
 
-    league_proxy = math.fsum(
-        player["luckProxy"] for player in records
-    ) / max(len(records), 1)
     for player in records:
-        proxy_delta = player["luckProxy"] - league_proxy
+        proxy_delta = player["luckProxy"] - luck_proxy_baseline
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
         player["luckIndex"] = round(player["profit"] - player["expectedProfit"], 1)
@@ -187,7 +204,7 @@ def finalize_metrics(records):
         player["tiltIndex"] = round(player["tiltScoreDirect"], 1)
 
     for key in NORMALIZED_KEYS:
-        normalize(records, key)
+        normalize(records, key, benchmarks[key])
 
     for player in records:
         player["clutchIndex"] = player["clutchRaw_norm"]
@@ -247,10 +264,8 @@ def finalize_career_metrics(records):
             + 0.40 * (1 - player["bubbleRate"])
         )
 
-    league_proxy = math.fsum(player["luckProxy"] for player in active) / len(active)
-
     for player in active:
-        proxy_delta = player["luckProxy"] - league_proxy
+        proxy_delta = player["luckProxy"] - CAREER_LUCK_PROXY_BASELINE
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
         player["luckIndex"] = round(player["profit"] - player["expectedProfit"], 1)
@@ -273,7 +288,7 @@ def finalize_career_metrics(records):
         player["tiltIndex"] = round(player["tiltScoreDirect"], 1)
 
     for key in NORMALIZED_KEYS:
-        normalize(active, key)
+        normalize(active, key, CAREER_POWER_BENCHMARKS[key])
 
     for player in active:
         player["clutchIndex"] = player["clutchRaw_norm"]
@@ -557,7 +572,7 @@ def audit_sources(audit, metadata, config, events, site_data):
     audit.check(site_data.get("sourceMode") == "event_reports", "sources", "site-data sourceMode is not event_reports")
     audit.check(site_data.get("events") == events.get("events"), "sources", "Published schedule differs from data/events.json")
     ledger = site_data.get("cardLedger") or {}
-    audit.check(ledger.get("version") == 2, "sources", "Card ledger rating-model version is stale")
+    audit.check(ledger.get("version") == POWER_INDEX_MODEL_VERSION, "sources", "Card ledger rating-model version is stale")
     audit.check(ledger.get("eventCount") == len(parsed_files), "sources", "Card ledger event count is stale")
     audit.check(ledger.get("replayedThrough") == parsed_dates[-1], "sources", "Card ledger replay date is stale")
     return parsed_files
@@ -711,7 +726,11 @@ def audit_card_form(audit, metadata, events, site_data):
     for key in ("recent", "previous"):
         active = [window["metrics"] for window in windows[key] if window["eventCount"] > 0]
         if active:
-            finalize_metrics(active)
+            finalize_metrics(
+                active,
+                benchmarks=FORM_POWER_BENCHMARKS,
+                luck_proxy_baseline=FORM_LUCK_PROXY_BASELINE,
+            )
             # Card-form windows publish tiltIndex directly; tiltScoreDirect is
             # an internal career-build helper and is intentionally omitted.
             for metrics in active:

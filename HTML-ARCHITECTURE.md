@@ -149,8 +149,14 @@ Crew cards sort by underlying tier priority first and calculated rating second.
 OVR uses a fixed, sample-adjusted scale: 160 Power Index anchors 70 OVR,
 appearances ÷ (appearances + 5) supplies the confidence adjustment, and every
 4.5 adjusted Power Index points moves the card one OVR point. Ratings are
-limited to 40–97, reserving 98–99 for future exceptional standards. Automatic
-special-edition skins remain purely visual and cannot move a card. Permanent
+limited to 40–97, reserving 98–99 for future exceptional standards. Power
+Index normalization uses the reference ranges established with that scale on
+September 8, 2026, while the expected-profit luck baseline was locked with
+rating model v3 on October 9, 2026. They do not expand or contract when a
+player is added or another player's results change; values beyond the
+reference range clamp to its 0 or 100 endpoint. The recent and previous form
+windows share one fixed form benchmark so their movement is comparable.
+Automatic special-edition skins remain purely visual and cannot move a card. Permanent
 collectible ownership remains independent of later live ordering changes.
 Historical OVR is rebuilt from the stats frozen at issuance or upgrade so all
 cards use the same fixed scale; tier and all six attributes remain frozen.

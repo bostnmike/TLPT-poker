@@ -27,6 +27,27 @@ CARD_OVERALL_BASELINE_POWER = 160.0
 CARD_OVERALL_BASELINE_RATING = 70.0
 CARD_OVERALL_POWER_PER_RATING = 4.5
 CARD_OVERALL_CONFIDENCE_APPEARANCES = 5.0
+POWER_INDEX_MODEL_VERSION = 3
+# The input ranges preserve the scale adopted on 2026-09-08. The luck-proxy
+# baselines were locked when model v3 removed the final live-pool dependency
+# on 2026-10-09. Another player's result can no longer move a player's Power
+# Index. Values outside a reference range clamp to 0 or 100.
+CAREER_POWER_BENCHMARKS = {
+    "roi": (-1.0, 6.0),
+    "luckIndex": (-112.8, 1042.5),
+    "clutchRaw": (0.0, 1.0),
+    "aggressionRaw": (0.0, 6.0),
+    "survivorRaw": (0.24333333333333337, 2.0),
+}
+FORM_POWER_BENCHMARKS = {
+    "roi": (-1.0, 6.0),
+    "luckIndex": (-133.4, 187.1),
+    "clutchRaw": (0.0, 1.0),
+    "aggressionRaw": (0.0, 6.0),
+    "survivorRaw": (0.15, 2.0),
+}
+CAREER_LUCK_PROXY_BASELINE = 0.7136533687409953
+FORM_LUCK_PROXY_BASELINE = 0.6785963274198568
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 
@@ -77,18 +98,14 @@ def sort_players(players, key, direction="desc"):
     return sorted(players, key=lambda p: (float(p.get(key, 0)), p["name"].lower()))
 
 
-def normalize_stat(players, key):
-    values = [float(p.get(key, 0)) for p in players]
-    min_val = min(values)
-    max_val = max(values)
-
-    if max_val == min_val:
-        for p in players:
-            p[f"{key}_norm"] = 50.0
-        return
-
+def normalize_stat(players, key, bounds):
+    """Normalize against a fixed rating benchmark, never the live player pool."""
+    min_val, max_val = bounds
+    if max_val <= min_val:
+        raise ValueError(f"Invalid fixed benchmark for {key}: {bounds}")
     for p in players:
-        p[f"{key}_norm"] = 100 * (float(p[key]) - min_val) / (max_val - min_val)
+        normalized = 100 * (float(p[key]) - min_val) / (max_val - min_val)
+        p[f"{key}_norm"] = max(0.0, min(100.0, normalized))
 
 
 def finalize_career_metrics(players):
@@ -133,13 +150,8 @@ def finalize_career_metrics(players):
             + (0.40 * (1 - player["bubbleRate"]))
         )
 
-    league_avg_proxy = (
-        math.fsum(player["luckProxy"] for player in active_players)
-        / len(active_players)
-    )
-
     for player in active_players:
-        proxy_delta = player["luckProxy"] - league_avg_proxy
+        proxy_delta = player["luckProxy"] - CAREER_LUCK_PROXY_BASELINE
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
         player["luckIndex"] = round(player["profit"] - player["expectedProfit"], 1)
@@ -165,8 +177,8 @@ def finalize_career_metrics(players):
         composure_score = 50 + ((base_composure - 50) * sample_factor)
         player["tiltScoreDirect"] = max(0.0, min(100.0, composure_score))
 
-    for key in ("roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"):
-        normalize_stat(active_players, key)
+    for key, bounds in CAREER_POWER_BENCHMARKS.items():
+        normalize_stat(active_players, key, bounds)
 
     for player in active_players:
         player["clutchIndex"] = player["clutchRaw_norm"]
@@ -514,13 +526,8 @@ def finalize_card_form_windows(windows):
             + (0.40 * (1 - metrics["bubbleRate"]))
         )
 
-    league_avg_proxy = (
-        math.fsum(metrics["luckProxy"] for metrics in active_metrics)
-        / max(len(active_metrics), 1)
-    )
-
     for metrics in active_metrics:
-        proxy_delta = metrics["luckProxy"] - league_avg_proxy
+        proxy_delta = metrics["luckProxy"] - FORM_LUCK_PROXY_BASELINE
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         metrics["expectedProfit"] = round(metrics["totalCost"] * expected_roi, 1)
         metrics["luckIndex"] = round(metrics["profit"] - metrics["expectedProfit"], 1)
@@ -549,8 +556,8 @@ def finalize_card_form_windows(windows):
             1
         )
 
-    for key in ["roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"]:
-        normalize_stat(active_metrics, key)
+    for key, bounds in FORM_POWER_BENCHMARKS.items():
+        normalize_stat(active_metrics, key, bounds)
 
     for metrics in active_metrics:
         metrics["clutchIndex"] = metrics["clutchRaw_norm"]
@@ -587,13 +594,8 @@ def finalize_historical_metrics(players):
             + (0.40 * (1 - player["bubbleRate"]))
         )
 
-    league_avg_proxy = (
-        math.fsum(player["luckProxy"] for player in players)
-        / max(len(players), 1)
-    )
-
     for player in players:
-        proxy_delta = player["luckProxy"] - league_avg_proxy
+        proxy_delta = player["luckProxy"] - CAREER_LUCK_PROXY_BASELINE
         expected_roi = max(-0.75, min(1.50, proxy_delta * 2.5))
         player["expectedProfit"] = round(player["totalCost"] * expected_roi, 1)
         player["luckIndex"] = round(
@@ -621,8 +623,8 @@ def finalize_historical_metrics(players):
             1
         )
 
-    for key in ["roi", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw"]:
-        normalize_stat(players, key)
+    for key, bounds in CAREER_POWER_BENCHMARKS.items():
+        normalize_stat(players, key, bounds)
 
     for player in players:
         player["clutchIndex"] = player["clutchRaw_norm"]
@@ -1257,7 +1259,7 @@ def main():
         "players": players,
         "streaks": streaks,
         "cardLedger": {
-            "version": 2,
+            "version": POWER_INDEX_MODEL_VERSION,
             "source": "parsed-event-replay",
             "eventCount": len(parsed_events),
             "replayedThrough": parsed_events[-1].get("date", "") if parsed_events else "",
@@ -1267,7 +1269,8 @@ def main():
                 "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
                 "hall": "Permanent when first earned at the historical Hall qualification threshold.",
                 "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
-                "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale."
+                "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale.",
+                "powerBenchmarks": "Career and form Power Index inputs use fixed 2026-09-08 reference ranges and fixed luck baselines; another player's result cannot change a player's OVR."
             }
         },
         "featuredCardConfig": featured_card_summary

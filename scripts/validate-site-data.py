@@ -211,10 +211,10 @@ def validate_source_coverage(data):
     parsed_dates = [path.stem for path in parsed_files]
     ledger = data.get("cardLedger") or {}
 
-    if ledger.get("version") != 2:
+    if ledger.get("version") != 3:
         errors.append(
             f"cardLedger rating-model version is stale: "
-            f"{ledger.get('version')} != 2"
+            f"{ledger.get('version')} != 3"
         )
 
     if ledger.get("eventCount") != len(parsed_files):

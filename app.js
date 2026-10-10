@@ -119,7 +119,7 @@ const STAT_FORMULAS = {
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10)",
+  trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10). Normalized inputs use fixed benchmarks, not the current player pool",
   luckIndex: "Luck Index: Profit − Expected Profit, where Expected Profit is based on Cash Rate, Hit Rate, and Bubble Avoidance",
   clutchIndex: "Clutch Index: normalized career cash frequency (Times Placed ÷ Buy-ins)",
   aggressionIndex: "Aggression Index: normalized knockouts per entry (Hits ÷ Entries)",
