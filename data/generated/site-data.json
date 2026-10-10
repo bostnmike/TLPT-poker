@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T21:57:21.613461Z",
+  "generatedAt": "2026-10-10T21:58:36.202552Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -65,12 +65,12 @@
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",
-        "ahmed": "yes",
+        "ahmed": "tbd",
         "alex-c": "tbd",
         "ai-dave": "tbd",
         "big-tim": "tbd",
         "brad-r": "tbd",
-        "chris-f": "no",
+        "chris-f": "tbd",
         "chris-o": "tbd",
         "cougar": "tbd",
         "dan-k": "tbd",
@@ -83,7 +83,7 @@
         "li-fo": "yes",
         "liam-o": "tbd",
         "nasa-al": "tbd",
-        "nitro": "no",
+        "nitro": "tbd",
         "pat": "tbd",
         "phattedcalf": "no",
         "pittsburghbill": "tbd",
