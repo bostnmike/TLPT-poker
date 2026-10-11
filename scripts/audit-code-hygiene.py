@@ -360,7 +360,7 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-6"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
-EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-5"
+EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-6"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-4"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
@@ -4451,8 +4451,8 @@ def main() -> int:
                     "Gallery Coming Attractions plaque must have its own shadow treatment",
                 ),
                 (
-                    "linear-gradient(135deg, #f8efd4 0%, #e3d09d 52%, #f3e7c5 100%);",
-                    "Gallery Coming Attractions must retain its warm chip-face backdrop",
+                    "linear-gradient(135deg, #27241e 0%, #30291f 52%, #1d1b18 100%);",
+                    "Gallery Coming Attractions must retain its muted warm backdrop",
                 ),
                 (
                     ".gallery-coming-group .gallery-year-rule{",
