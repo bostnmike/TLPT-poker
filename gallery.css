@@ -88,9 +88,17 @@
   border-color:rgba(147,197,253,.60);
 }
 
-.gallery-coming-head .gallery-year-kicker,
+.gallery-coming-head .gallery-year-kicker{
+  color:#2b1a06;
+  text-shadow:0 1px 0 rgba(255,239,190,.58);
+}
+
 .gallery-coming-head .gallery-year-title{
-  color:#f5f3ff;
+  color:#160e04;
+  font-weight:800;
+  text-shadow:
+    0 1px 0 rgba(255,239,190,.62),
+    0 2px 4px rgba(53,31,5,.20);
 }
 
 .gallery-coming-copy{
