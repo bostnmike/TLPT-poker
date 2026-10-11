@@ -18,6 +18,7 @@ CARD_FIXED_ORDER = {
     "leader-knockouts": (3, 11),
     "leader-roi": (3, 12),
     "leader-cash-rate": (3, 13),
+    "leader-bounties": (3, 14),
 }
 
 

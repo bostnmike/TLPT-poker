@@ -79,6 +79,7 @@ CARD_FIXED_ORDER = {
     "leader-knockouts": (3, 11),
     "leader-roi": (3, 12),
     "leader-cash-rate": (3, 13),
+    "leader-bounties": (3, 14),
 }
 
 
@@ -962,7 +963,7 @@ def build_checkpoints(metadata, events):
             if int(row.get("entries", 0)) <= 0:
                 continue
             player = cumulative[row["slug"]]
-            for key in CORE_KEYS:
+            for key in (*CORE_KEYS, *BOUNTY_KEYS):
                 player[key] += row.get(key, 0) or 0
         # Independently enforce the historical replay contract: metadata-only
         # players cannot influence snapshots earned before their first game.
@@ -1012,6 +1013,7 @@ def audit_cards(audit, metadata, events, site_data):
         ("leader-knockouts", "hits", "desc", "leader"),
         ("leader-roi", "roi", "desc", "leader"),
         ("leader-cash-rate", "cashRate", "desc", "leader"),
+        ("leader-bounties", "bountiesWon", "desc", "leader"),
         ("hall-tax-collector", "profit", "desc", "hall"),
         ("hall-direct-deposit", "cashRate", "desc", "hall"),
         ("hall-billing-department", "knockoutRate", "desc", "hall"),
@@ -1052,6 +1054,8 @@ def audit_cards(audit, metadata, events, site_data):
                 continue
             ordering = (lambda p: (float(p.get(key, 0)), p["name"].lower())) if direction == "asc" else (lambda p: (-float(p.get(key, 0)), p["name"].lower()))
             owner = sorted(pool, key=ordering)[0]
+            if key == "bountiesWon" and int(owner.get(key, 0) or 0) < 1:
+                continue
             expected_cards.setdefault((owner["slug"], edition_id), event["date"])
 
     for slug, length in best_streak.items():

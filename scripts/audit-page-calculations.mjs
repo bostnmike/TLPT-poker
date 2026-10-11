@@ -385,11 +385,48 @@ for (const player of players) {
   );
 }
 
+const bountyFallbackPlayers = players.map(player => {
+  const { cardCollection, ...fallbackPlayer } = player;
+  return { ...fallbackPlayer, bountiesWon: 0 };
+});
+const bountyFallbackLeader = bountyFallbackPlayers.find(isCrewEstablished);
+if (bountyFallbackLeader) {
+  bountyFallbackLeader.bountiesWon = 4;
+  const bountyFallbackData = { ...data, players: bountyFallbackPlayers };
+  const bountyEdition = playerCardSpecialEditions(
+    bountyFallbackLeader,
+    bountyFallbackData
+  ).find(edition => edition.id === "leader-bounties");
+  check(
+    bountyEdition?.label === "Bounty Hunter"
+      && bountyEdition?.reason?.includes("4 bounties"),
+    "Bounty Hunter fallback card must identify the established career bounty leader"
+  );
+
+  const zeroBountyPlayers = bountyFallbackPlayers.map(player => ({
+    ...player,
+    bountiesWon: 0
+  }));
+  check(
+    zeroBountyPlayers.every(player => !playerCardSpecialEditions(
+      player,
+      { ...data, players: zeroBountyPlayers }
+    ).some(edition => edition.id === "leader-bounties")),
+    "Bounty Hunter must not be awarded before a real bounty is recorded"
+  );
+}
+
 const trophy = loadScript("trophy-room.js", source => source.replace(
   /\n\}\)\(\);\s*$/,
-  `\n  globalThis.__TLPT_TROPHY_AUDIT__ = { flattenCollections, cardMarkup };\n})();\n`
+  `\n  globalThis.__TLPT_TROPHY_AUDIT__ = { editionMetadata, flattenCollections, cardMarkup };\n})();\n`
 ));
 const trophyAudit = trophy.get("__TLPT_TROPHY_AUDIT__");
+const bountyTrophyMetadata = trophyAudit.editionMetadata({ id: "leader-bounties" });
+check(
+  bountyTrophyMetadata?.label === "Bounty Hunter"
+    && bountyTrophyMetadata?.order === 14,
+  "Trophy Room must recognize the Bounty Hunter career card"
+);
 const trophyCards = trophyAudit.flattenCollections(data);
 const expectedTrophyCount = players.reduce(
   (total, player) => total + (player.cardCollection || []).length,
@@ -437,7 +474,8 @@ for (const player of players) {
 const sortableKeys = [
   "totalWinnings", "profit", "hits", "timesPlaced", "bubbles", "hitRate",
   "cashRate", "bubbleRate", "roi", "trueSkillScore", "luckIndex",
-  "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex"
+  "clutchIndex", "aggressionIndex", "survivorIndex", "tiltIndex",
+  "bountiesWon", "bountyNet"
 ];
 for (const key of sortableKeys) {
   const actual = sortPlayers(players, key).map(player => player.slug);

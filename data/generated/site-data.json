@@ -16037,6 +16037,7 @@
         100
       ],
       "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
+      "bountyLeader": "Bounty Hunter begins only after an established player records at least one career bounty.",
       "hall": "Permanent when first earned at the historical Hall qualification threshold.",
       "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
       "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale.",

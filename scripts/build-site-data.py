@@ -917,13 +917,15 @@ def build_historical_card_collections(players, parsed_events):
         ("leader-profit", "profit", "desc"),
         ("leader-knockouts", "hits", "desc"),
         ("leader-roi", "roi", "desc"),
-        ("leader-cash-rate", "cashRate", "desc")
+        ("leader-cash-rate", "cashRate", "desc"),
+        ("leader-bounties", "bountiesWon", "desc")
     ]
     leader_labels = {
         "profit": "career-profit",
         "hits": "knockout",
         "roi": "ROI",
-        "cashRate": "cash-rate"
+        "cashRate": "cash-rate",
+        "bountiesWon": "bounty"
     }
     hall_labels = {
         "profit": "Hall career-profit",
@@ -955,7 +957,8 @@ def build_historical_card_collections(players, parsed_events):
             player = cumulative[slug]
             for key in [
                 "entries", "buyIns", "rebuys", "hits", "timesPlaced",
-                "bubbles", "profit", "totalCost", "totalWinnings"
+                "bubbles", "profit", "totalCost", "totalWinnings",
+                *BOUNTY_KEYS
             ]:
                 player[key] += row.get(key, 0) or 0
 
@@ -1032,10 +1035,15 @@ def build_historical_card_collections(players, parsed_events):
             leader = historical_leader(established, key, direction)
             if not leader:
                 continue
+            if key == "bountiesWon" and int(leader.get(key, 0) or 0) < 1:
+                continue
             if key == "profit":
                 value = historical_money(leader.get(key, 0))
             elif key in ("roi", "cashRate"):
                 value = historical_percent(leader.get(key, 0))
+            elif key == "bountiesWon":
+                count = int(leader.get(key, 0))
+                value = f"{count} {'bounty' if count == 1 else 'bounties'}"
             else:
                 value = f"{int(leader.get(key, 0))} hits"
             issue(
@@ -1089,7 +1097,8 @@ def build_historical_card_collections(players, parsed_events):
         "leader-profit": 10,
         "leader-knockouts": 11,
         "leader-roi": 12,
-        "leader-cash-rate": 13
+        "leader-cash-rate": 13,
+        "leader-bounties": 14
     }
 
     def collection_sort_key(record):
@@ -1281,6 +1290,7 @@ def main():
                 "base": "Live career card; recalculates whenever event data changes.",
                 "milestones": list(CARD_MILESTONES),
                 "leader": "One permanent card per category per player, dated the first time the lead was claimed.",
+                "bountyLeader": "Bounty Hunter begins only after an established player records at least one career bounty.",
                 "hall": "Permanent when first earned at the historical Hall qualification threshold.",
                 "heater": "One permanent card that upgrades whenever the player sets a longer personal cash streak.",
                 "snapshot": "Event stats, tier and all six attributes are frozen at issuance or upgrade; OVR uses those frozen stats on the current fixed card scale.",

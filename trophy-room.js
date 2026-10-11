@@ -73,6 +73,16 @@
       priority: 3,
       order: 11
     },
+    "leader-bounties": {
+      type: "leader",
+      className: "leader",
+      icon: "🎯",
+      eyebrow: "League Leader Edition",
+      label: "Bounty Hunter",
+      cardLabel: "Bounty Hunter",
+      priority: 3,
+      order: 14
+    },
     "leader-roi": {
       type: "leader",
       className: "leader",

@@ -4203,6 +4203,15 @@ function playerCardEditionCatalogRecord(record) {
       shortLabel: "LEADER",
       priority: 3
     },
+    "leader-bounties": {
+      className: "leader",
+      icon: "🎯",
+      eyebrow: "League Leader Edition",
+      label: "Bounty Hunter",
+      cardLabel: "Bounty Hunter",
+      shortLabel: "LEADER",
+      priority: 3
+    },
     "leader-roi": {
       className: "leader",
       icon: "📈",
@@ -4376,6 +4385,20 @@ function playerCardSpecialEditions(player, data) {
       reason: leader => `Current established-player knockout leader with ${Number(leader?.hits || 0)} hits.`
     },
     {
+      id: "leader-bounties",
+      key: "bountiesWon",
+      direction: "desc",
+      minimumValue: 1,
+      icon: "🎯",
+      label: "Bounty Hunter",
+      cardLabel: "Bounty Hunter",
+      shortLabel: "LEADER",
+      reason: leader => {
+        const count = Number(leader?.bountiesWon || 0);
+        return `Current established-player bounty leader with ${count} ${count === 1 ? "bounty" : "bounties"} collected.`;
+      }
+    },
+    {
       id: "leader-roi",
       key: "roi",
       direction: "desc",
@@ -4399,6 +4422,7 @@ function playerCardSpecialEditions(player, data) {
 
   for (const edition of leaderEditions) {
     const leader = getLeaderByRule(establishedPool, edition, establishedPool);
+    if (Number(leader?.[edition.key] || 0) < Number(edition.minimumValue || 0)) continue;
     if (!samePlayer(leader)) continue;
     editions.push({
       ...edition,
