@@ -221,6 +221,25 @@
   margin-bottom:10px;
 }
 
+.rule-card-title-wrap{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.rule-roast-avatar{
+  flex:0 0 46px;
+  width:46px;
+  height:46px;
+  margin-left:auto;
+  border:2px solid rgba(244,231,192,.9);
+  border-radius:50%;
+  background:#101216;
+  box-shadow:
+    0 0 0 2px rgba(227,179,65,.22),
+    0 6px 14px rgba(0,0,0,.32);
+  object-fit:cover;
+}
+
 .dealer-button-icon{
   position:relative;
   isolation:isolate;
