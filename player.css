@@ -344,7 +344,7 @@
   align-items:center;
   justify-content:flex-start;
   margin-top:6px;
-  margin-left:6px;
+  margin-left:-4px;
   color:inherit;
   background:transparent;
   cursor:pointer;
@@ -464,12 +464,12 @@
   display:flex;
   justify-content:flex-end;
   margin-top:6px;
-  margin-right:6px;
+  margin-right:-4px;
 }
 
 .player-page .tlpt-card-crest{
-  width:56px;
-  height:56px;
+  width:62px;
+  height:62px;
   object-fit:contain;
   filter:drop-shadow(0 6px 8px rgba(0,0,0,.28));
 }
@@ -1574,7 +1574,7 @@
   flex-direction:column;
   align-items:center;
   margin-top:3px;
-  margin-left:2px;
+  margin-left:-1px;
   line-height:1;
 }
 
@@ -1618,10 +1618,11 @@
 }
 
 .player-page .tlpt-card-collectible-head img{
-  width:28px;
-  height:28px;
+  width:30px;
+  height:30px;
   margin-top:3px;
-  margin-right:2px;
+  margin-right:-1px;
+  justify-self:end;
   object-fit:contain;
   filter:drop-shadow(0 3px 4px rgba(0,0,0,.30));
 }
@@ -2056,7 +2057,7 @@
   flex-direction:column;
   align-items:center;
   margin-top:5px;
-  margin-left:5px;
+  margin-left:-2px;
   line-height:1;
 }
 
@@ -2141,10 +2142,10 @@
 }
 
 .player-page .tlpt-compare-crest{
-  width:46px;
-  height:46px;
+  width:50px;
+  height:50px;
   margin-top:5px;
-  margin-right:5px;
+  margin-right:-2px;
   object-fit:contain;
   filter:drop-shadow(0 5px 7px rgba(0,0,0,.30));
 }

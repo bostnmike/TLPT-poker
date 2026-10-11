@@ -445,7 +445,7 @@
   flex-direction:column;
   align-items:center;
   margin-top:6px;
-  margin-left:4px;
+  margin-left:-2px;
   line-height:1;
 }
 
@@ -508,12 +508,12 @@
 }
 
 .trophy-room-page .trophy-card-header > img{
-  width:38px;
-  height:38px;
+  width:42px;
+  height:42px;
   object-fit:contain;
   justify-self:end;
   margin-top:6px;
-  margin-right:4px;
+  margin-right:-2px;
   filter:drop-shadow(0 5px 6px rgba(0,0,0,.28));
 }
 

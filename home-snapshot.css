@@ -108,10 +108,10 @@
 }
 
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-chip{
-  width:31px;
-  height:31px;
+  width:34px;
+  height:34px;
   margin-top:5px;
-  margin-right:3px;
+  margin-right:-1px;
 }
 
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-portrait{
