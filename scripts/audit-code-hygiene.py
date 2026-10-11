@@ -357,7 +357,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-4"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-5"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-3"
@@ -367,7 +367,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-9"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-10"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1490,7 +1490,7 @@ def audit_javascript(path: Path) -> list[str]:
             ),
             (
                 "const seatingTables = getEventSeatingTables(event, data, maxSeats);",
-                "RSVP seating must use stable configured assignments with balanced fallback",
+                "RSVP preview must use stable configured distribution with balanced fallback",
             ),
             (
                 "eventRsvpTableMarkup(seatingTables[0] || [], maxSeats)",
@@ -1518,6 +1518,22 @@ def audit_javascript(path: Path) -> list[str]:
         schedule_source = function_source("renderSchedule")
         if "getCurrentEvents(data).slice(0, 3)" not in schedule_source:
             errors.append("Schedule page must render all three event slots")
+        if "Tournament Director software assigns official seats" not in rsvp_source:
+            errors.append(
+                "Two-table RSVP previews must identify Tournament Director as the official seating source"
+            )
+        for fragment in (
+            "buildEventSeatingPrintMarkup",
+            "data-print-seating",
+            "Print Seating Sheet",
+            "is-printing-seating",
+            "event-seat-number",
+        ):
+            if fragment in text:
+                errors.append(
+                    "Schedule must not publish provisional seat assignments or a printable seating sheet"
+                )
+                break
         rotator_source = function_source("buildHomeRotatorDotsMarkup")
         for fragment, message in (
             (
