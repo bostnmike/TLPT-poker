@@ -1740,14 +1740,70 @@ function getEventSlot(event) {
 }
 
 function getEventTableCount(event) {
+  const configuredCount = Number(event?.tables);
+  if (Number.isInteger(configuredCount) && configuredCount > 0) {
+    return configuredCount;
+  }
+
   return getEventSlot(event) === "mtt" ? 2 : 1;
+}
+
+function getEventCapacity(event, maxSeats = 9) {
+  const configuredCapacity = Number(event?.capacity);
+  if (Number.isInteger(configuredCapacity) && configuredCapacity > 0) {
+    return configuredCapacity;
+  }
+
+  return getEventTableCount(event) * maxSeats;
+}
+
+function getEventSeatingTables(event, data, maxSeats = 9) {
+  const tableCount = getEventTableCount(event);
+  const confirmedPlayers = getConfirmedRsvpPlayers(event, data);
+  const playerBySlug = new Map(
+    confirmedPlayers.map(player => [String(player.slug || "").toLowerCase(), player])
+  );
+  const configuredTables = Array.isArray(event?.seatAssignments)
+    ? event.seatAssignments
+    : [];
+  const tables = Array.from({ length: tableCount }, () => []);
+  const assignedSlugs = new Set();
+
+  configuredTables.slice(0, tableCount).forEach((seatSlugs, tableIndex) => {
+    if (!Array.isArray(seatSlugs)) return;
+
+    seatSlugs.slice(0, maxSeats).forEach(slug => {
+      const normalizedSlug = String(slug || "").toLowerCase();
+      const player = playerBySlug.get(normalizedSlug);
+      if (!player || assignedSlugs.has(normalizedSlug)) return;
+      tables[tableIndex].push(player);
+      assignedSlugs.add(normalizedSlug);
+    });
+  });
+
+  confirmedPlayers.forEach(player => {
+    const normalizedSlug = String(player.slug || "").toLowerCase();
+    if (assignedSlugs.has(normalizedSlug)) return;
+
+    const availableTableIndex = tables
+      .map((players, index) => ({ index, count: players.length }))
+      .filter(table => table.count < maxSeats)
+      .sort((a, b) => a.count - b.count || a.index - b.index)[0]?.index;
+
+    if (availableTableIndex === undefined) return;
+    tables[availableTableIndex].push(player);
+    assignedSlugs.add(normalizedSlug);
+  });
+
+  return tables;
 }
 
 function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
   const {
     tableNumber = 1,
     showTableHeading = false,
-    compact = false
+    compact = false,
+    showSeatNumbers = false
   } = options;
   const seatedPlayers = players.slice(0, maxSeats);
   const emptySeats = Math.max(maxSeats - seatedPlayers.length, 0);
@@ -1769,16 +1825,17 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
       ` : ""}
       <div class="${rowClass}" aria-label="${tableLabel}: ${seatedPlayers.length} of ${maxSeats} seats locked">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
-        ${seatedPlayers.map(player => {
+        ${seatedPlayers.map((player, seatIndex) => {
           const displayName = displayPlayerNamePlain(player);
           return `
-            <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}">
+            <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}" tabindex="0" aria-label="${tableLabel}, seat ${seatIndex + 1}: ${String(displayName).replace(/"/g, "&quot;")}">
               ${playerImageMarkup(player, "table", { intrinsicSize: 96 })}
+              ${showSeatNumbers ? `<span class="event-seat-number" aria-hidden="true">${seatIndex + 1}</span>` : ""}
             </span>
           `;
         }).join("")}
-        ${Array.from({ length: emptySeats }).map(() => `
-          <span class="event-empty-seat" aria-hidden="true">🪑</span>
+        ${Array.from({ length: emptySeats }).map((_, emptyIndex) => `
+          <span class="event-empty-seat" aria-label="${tableLabel}, seat ${seatedPlayers.length + emptyIndex + 1}: open">🪑${showSeatNumbers ? `<span class="event-seat-number" aria-hidden="true">${seatedPlayers.length + emptyIndex + 1}</span>` : ""}</span>
         `).join("")}
       </div>
     </div>
@@ -1787,8 +1844,7 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
 
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   const tableCount = getEventTableCount(event);
-  const confirmedPlayers = getConfirmedRsvpPlayers(event, data)
-    .slice(0, maxSeats * tableCount);
+  const seatingTables = getEventSeatingTables(event, data, maxSeats);
 
   const {
     showRotatorNav = false,
@@ -1799,19 +1855,15 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   } = options;
 
   const tableMarkup = tableCount === 1
-    ? eventRsvpTableMarkup(confirmedPlayers, maxSeats)
+    ? eventRsvpTableMarkup(seatingTables[0] || [], maxSeats)
     : (() => {
-        const tablePlayers = Array.from({ length: tableCount }, () => []);
-        confirmedPlayers.forEach((player, index) => {
-          tablePlayers[index % tableCount].push(player);
-        });
-
         return `
           <div class="event-rsvp-tables event-rsvp-tables-two" aria-label="Two-table RSVP seating">
-            ${tablePlayers.map((players, index) => eventRsvpTableMarkup(players, maxSeats, {
+            ${seatingTables.map((players, index) => eventRsvpTableMarkup(players, maxSeats, {
               tableNumber: index + 1,
               showTableHeading: true,
-              compact: true
+              compact: true,
+              showSeatNumbers: true
             })).join("")}
           </div>
         `;
@@ -1836,6 +1888,54 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
 
       ${summaryPlacement === "bottom" ? buildRsvpSummaryMarkup(event) : ""}
     </div>
+  `;
+}
+
+function buildEventAdminStatusMarkup(event) {
+  if (getEventSlot(event) !== "mtt") return "";
+
+  const counts = getRsvpCounts(event);
+  const capacity = getEventCapacity(event);
+  const openSeats = Math.max(capacity - counts.yes, 0);
+  const overflow = Math.max(counts.yes - capacity, 0);
+  const mergeAt = Number(event?.mergeAt) || 9;
+
+  return `
+    <div class="event-admin-status" aria-label="Multi-table tournament status">
+      <span><strong>${counts.yes}</strong> confirmed</span>
+      <span><strong>${openSeats}</strong> ${openSeats === 1 ? "seat" : "seats"} open</span>
+      <span><strong>${counts.maybe}</strong> on the rail</span>
+      ${overflow ? `<span class="is-waitlist"><strong>${overflow}</strong> waiting</span>` : ""}
+      <span><strong>${mergeAt}</strong>-handed merge</span>
+    </div>
+  `;
+}
+
+function buildEventSeatingPrintMarkup(event, data, maxSeats = 9) {
+  if (getEventSlot(event) !== "mtt") return "";
+
+  const seatingTables = getEventSeatingTables(event, data, maxSeats);
+  const capacity = getEventCapacity(event, maxSeats);
+
+  return `
+    <section class="event-seating-print-sheet" aria-hidden="true">
+      <p class="event-seating-print-kicker">TLPT Seating Desk</p>
+      <h2>${escapeHtmlAttr(event.title || "Multi-Table Tournament")}</h2>
+      <p>${escapeHtmlAttr(event.date || "")} • ${escapeHtmlAttr(event.time || "")} • ${capacity}-player capacity • Merge at ${Number(event?.mergeAt) || 9}</p>
+      <div class="event-seating-print-tables">
+        ${seatingTables.map((players, tableIndex) => `
+          <div class="event-seating-print-table">
+            <h3>Table ${tableIndex + 1}</h3>
+            <ol>
+              ${Array.from({ length: maxSeats }).map((_, seatIndex) => `
+                <li><span>Seat ${seatIndex + 1}</span><strong>${escapeHtmlAttr(displayPlayerNamePlain(players[seatIndex]) || "Open")}</strong></li>
+              `).join("")}
+            </ol>
+          </div>
+        `).join("")}
+      </div>
+      <p class="event-seating-print-note">Generated from the current RSVP and seat-assignment data.</p>
+    </section>
   `;
 }
 
@@ -1924,16 +2024,11 @@ function getHomeEventRotationIndex(events) {
   return Math.floor(Date.now() / rotationWindowMs) % events.length;
 }
 
-function buildHomeEventButtonsMarkup(events) {
+function buildHomeEventButtonsMarkup(event) {
+  const slot = getEventSlot(event);
   return `
     <div class="home-event-fixed-buttons home-event-fixed-buttons-inline">
-      ${events.map(event => {
-        const slot = getEventSlot(event);
-        return buildEventRsvpButtonMarkup(
-          event,
-          `home-dual-rsvp-btn home-dual-rsvp-btn-${slot}`
-        );
-      }).join("")}
+      ${buildEventRsvpButtonMarkup(event, `home-dual-rsvp-btn home-dual-rsvp-btn-${slot}`)}
     </div>
   `;
 }
@@ -1962,7 +2057,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
   const eventSlot = getEventSlot(event);
   const themeClass = getEventThemeClass(event);
 
-  const buttonsMarkup = buildHomeEventButtonsMarkup(allEvents);
+  const buttonsMarkup = buildHomeEventButtonsMarkup(event);
   const dotsMarkup = allEvents.length > 1
     ? buildHomeRotatorDotsMarkup(allEvents, activeIndex)
     : "";
@@ -1990,6 +2085,7 @@ function buildHomeEventCard(event, data, allEvents, activeIndex, index) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          ${buildEventAdminStatusMarkup(event)}
           ${eventRsvpForecastMarkup(event, data)}
           ${buttonsMarkup}
         </div>
@@ -5817,16 +5913,39 @@ function renderSchedule(data) {
           <p class="muted"><strong>Estimated End:</strong> ${event.endTime || ""}</p>
           <p class="muted"><strong>Location:</strong> ${event.location}</p>
           <p class="muted">${event.address || ""}</p>
+          ${buildEventAdminStatusMarkup(event)}
           ${eventRsvpForecastMarkup(event, data)}
           ${buildEventRsvpButtonMarkup(event)}
+          ${getEventSlot(event) === "mtt" ? `<button class="btn event-print-seating-btn" type="button" data-print-seating>🖨️ Print Seating Sheet</button>` : ""}
         </div>
 
         <div class="event-rsvp-col">
           ${eventRsvpAvatarMarkup(event, data)}
         </div>
       </div>
+      ${buildEventSeatingPrintMarkup(event, data)}
     </div>
   `).join("");
+
+  list.querySelectorAll("[data-print-seating]").forEach(button => {
+    button.addEventListener("click", () => {
+      const card = button.closest(".schedule-event-card");
+      if (!card) return;
+
+      document.body.classList.add("is-printing-seating");
+      card.classList.add("is-print-target");
+
+      const cleanup = () => {
+        document.body.classList.remove("is-printing-seating");
+        card.classList.remove("is-print-target");
+        window.removeEventListener("afterprint", cleanup);
+      };
+
+      window.addEventListener("afterprint", cleanup);
+      window.print();
+      window.setTimeout(cleanup, 1000);
+    });
+  });
 }
 
 function honorIcon(type) {

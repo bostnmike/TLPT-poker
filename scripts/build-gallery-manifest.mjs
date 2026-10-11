@@ -40,6 +40,7 @@ if (!files.length) {
 
 const payload = {
   folder: "images/fw",
+  thumbnailFolder: "images/fw/thumbs",
   files
 };
 

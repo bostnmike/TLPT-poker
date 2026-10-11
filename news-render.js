@@ -96,6 +96,8 @@ async function renderNewsPage() {
     renderStatPills(latestWeek.statPills || [], statbarShell);
     renderWeeks(weeks, blogFeed);
     renderArchiveList(weeks, archiveList);
+    openNewsStoryFromHash();
+    window.addEventListener('hashchange', openNewsStoryFromHash);
     initFloatingArchiveRail();
     
   } catch (error) {
@@ -265,6 +267,17 @@ function renderWeek(week, index, isFeatured) {
   const title = escapeHtml(String(rawTitle).replace(/^FW:\s*/i, ''));
   const dek = escapeHtml(week?.dek || '');
   const bodyHtml = renderWeekBody(week);
+  const storyBody = isFeatured
+    ? `<div class="news-post-body">${bodyHtml}</div>`
+    : `
+      <details class="news-post-details">
+        <summary>
+          <span>Read the full story</span>
+          <span class="news-post-details-hint">Open the file</span>
+        </summary>
+        <div class="news-post-body">${bodyHtml}</div>
+      </details>
+    `;
 
   return `
     <article id="${id}" class="news-post-card${isFeatured ? ' news-post-featured' : ''}">
@@ -275,11 +288,18 @@ function renderWeek(week, index, isFeatured) {
       <h3 class="news-post-title">${title}</h3>
       <p class="news-post-dek">${dek}</p>
 
-      <div class="news-post-body">
-        ${bodyHtml}
-      </div>
+      ${storyBody}
     </article>
   `;
+}
+
+function openNewsStoryFromHash() {
+  const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+  if (!id) return;
+
+  const story = document.getElementById(id);
+  const details = story?.querySelector('.news-post-details');
+  if (details) details.open = true;
 }
 
 function renderWeekBody(week) {

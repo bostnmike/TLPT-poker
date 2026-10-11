@@ -44,6 +44,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/player-movement.html",
     "https://tlpt.org/players.html",
     "https://tlpt.org/rules.html",
+    "https://tlpt.org/structures.html",
     "https://tlpt.org/schedule.html",
     "https://tlpt.org/standings.html",
     "https://tlpt.org/streaks.html",
@@ -65,6 +66,7 @@ EXPECTED_PAGES = {
     "player.html",
     "players.html",
     "rules.html",
+    "structures.html",
     "schedule.html",
     "standings.html",
     "streaks.html",
@@ -154,6 +156,8 @@ EXPECTED_NAV_LABELS = [
     "Hall of Fame",
     "Felt Whispers",
     "Rules",
+    "House Rules",
+    "Blind Structures",
     "Media",
     "Film Room",
     "Voice of God",
@@ -177,7 +181,8 @@ EXPECTED_NAV_ACTIVE_LABELS = {
     "player-movement.html": ["Metrics", "Heater Meter"],
     "player.html": ["Members", "Player Profiles"],
     "players.html": ["Members", "TLPT Crew"],
-    "rules.html": ["Rules"],
+    "rules.html": ["Rules", "House Rules"],
+    "structures.html": ["Rules", "Blind Structures"],
     "schedule.html": ["Schedule"],
     "standings.html": ["Metrics", "Standings"],
     "streaks.html": ["Metrics", "Streak Tracker"],
@@ -202,7 +207,8 @@ EXPECTED_PAGE_TITLES = {
     "player-movement.html": "The Heater Meter | TLPT.org",
     "player.html": "Player Profile | TLPT.org",
     "players.html": "Meet the Crew | TLPT.org",
-    "rules.html": "Rules & Structure | TLPT.org",
+    "rules.html": "House Rules | TLPT.org",
+    "structures.html": "Blind Structures | TLPT.org",
     "schedule.html": "Next @ the Caahhd Room | TLPT.org",
     "standings.html": "The Standings | TLPT.org",
     "streaks.html": "The Streak Tracker | TLPT.org",
@@ -221,7 +227,8 @@ UNIFIED_TITLE_PAGES = {
     "news.html": "Felt Whispers",
     "player-movement.html": "The Heater Meter",
     "players.html": "Meet the Crew",
-    "rules.html": "Rules & Structure",
+    "rules.html": "House Rules",
+    "structures.html": "Blind Structures",
     "schedule.html": "Next @ the Caahhd Room",
     "standings.html": "The Standings",
     "streaks.html": "The Streak Tracker",
@@ -238,6 +245,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "player-movement.html",
     "players.html",
     "rules.html",
+    "structures.html",
     "schedule.html",
     "standings.html",
     "streaks.html",
@@ -257,7 +265,8 @@ EXPECTED_META_DESCRIPTIONS = {
     "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
     "player.html": "View a TLPT Poker League player profile, Ultimate Player Card, statistics, honors, and card collection.",
     "players.html": "Meet the TLPT Poker League crew and compare tiered Ultimate Player Cards, ratings, and play styles.",
-    "rules.html": "Review TLPT Poker League rules, structures, rebuy policies, blind levels, and room etiquette.",
+    "rules.html": "Review the TLPT Poker League house rules, betting procedures, table etiquette, and floor rulings.",
+    "structures.html": "Compare TLPT Poker League blind structures, level lengths, rebuy windows, chip sets, and projected payouts.",
     "schedule.html": "View upcoming TLPT Poker League events, formats, dates, and RSVP information.",
     "standings.html": "Sort and compare TLPT Poker League standings, profits, results, entries, and performance statistics.",
     "streaks.html": "Track TLPT Poker League cashing, appearance, and performance streaks.",
@@ -278,6 +287,7 @@ EXPECTED_CANONICAL_URLS = {
     "player-movement.html": f"{SITE_ORIGIN}/player-movement.html",
     "players.html": f"{SITE_ORIGIN}/players.html",
     "rules.html": f"{SITE_ORIGIN}/rules.html",
+    "structures.html": f"{SITE_ORIGIN}/structures.html",
     "schedule.html": f"{SITE_ORIGIN}/schedule.html",
     "standings.html": f"{SITE_ORIGIN}/standings.html",
     "streaks.html": f"{SITE_ORIGIN}/streaks.html",
@@ -298,6 +308,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "player.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "players.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
     "rules.html": f"{SITE_ORIGIN}/images/site/chip-T-25.png",
+    "structures.html": f"{SITE_ORIGIN}/images/site/chip-T-100000.png",
     "schedule.html": f"{SITE_ORIGIN}/images/site/chip-T-100000.png",
     "standings.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
     "streaks.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
@@ -318,6 +329,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "player.html": "TLPT 1,000 tournament poker chip",
     "players.html": "TLPT 25,000 tournament poker chip",
     "rules.html": "TLPT 25 tournament poker chip",
+    "structures.html": "TLPT 100,000 tournament poker chip",
     "schedule.html": "TLPT 100,000 tournament poker chip",
     "standings.html": "TLPT 5,000 tournament poker chip",
     "streaks.html": "TLPT 1,000 tournament poker chip",
@@ -334,7 +346,8 @@ EXPECTED_BREADCRUMB_LABELS = {
     "news.html": "Felt Whispers",
     "player-movement.html": "Heater Meter",
     "players.html": "TLPT Crew",
-    "rules.html": "The Rules",
+    "rules.html": "House Rules",
+    "structures.html": "Blind Structures",
     "schedule.html": "The Schedule",
     "standings.html": "Standings",
     "streaks.html": "Streak Tracker",
@@ -347,14 +360,14 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-3"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
-EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261001-1"
+EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-2"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-2"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-2"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-7"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-8"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -568,7 +581,7 @@ EXPECTED_APP_SCRIPT_PAGES = {
     "index.html",
     "player.html",
     "players.html",
-    "rules.html",
+    "structures.html",
     "schedule.html",
     "standings.html",
 }
@@ -581,7 +594,7 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
         },
         "totalWinnings",
     ),
-    "rules.html": (
+    "structures.html": (
         "id",
         {"format-btn-40k", "format-btn-500k", "format-btn-two-table"},
         "format-btn-40k",
@@ -600,14 +613,14 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
 EXPECTED_CONTROL_GROUPS = {
     "dashboard.html": ("dashboard-button-groups", "Dashboard metric"),
     "standings.html": ("standings-buttons", "Standings metric"),
-    "rules.html": ("format-toggle", "Tournament structure"),
+    "structures.html": ("format-toggle", "Tournament structure"),
     "players.html": ("crew-view-toolbar", "Crew view"),
     "player-movement.html": ("pm-button-row", "Heater Meter view"),
 }
 EXPECTED_CONTROLLED_RESULTS = {
     "dashboard.html": "dashboard-current-stat dashboard-formula-display dashboard-grid",
     "standings.html": "standings-race-strip standings-table",
-    "rules.html": "format-content",
+    "structures.html": "format-content",
     "players.html": "players-visual players-grid",
     "player-movement.html": "pm-top-movers pm-player-grid",
 }
@@ -1476,11 +1489,11 @@ def audit_javascript(path: Path) -> list[str]:
                 "Two-table RSVP rendering must expose its layout hook",
             ),
             (
-                "tablePlayers[index % tableCount].push(player);",
-                "Two-table RSVP seating must distribute confirmed players evenly",
+                "const seatingTables = getEventSeatingTables(event, data, maxSeats);",
+                "RSVP seating must use stable configured assignments with balanced fallback",
             ),
             (
-                "eventRsvpTableMarkup(confirmedPlayers, maxSeats)",
+                "eventRsvpTableMarkup(seatingTables[0] || [], maxSeats)",
                 "One-table RSVP rendering must preserve the existing table path",
             ),
         ):
@@ -3658,7 +3671,7 @@ def main() -> int:
             )
 
         expected_style_prefix = ["style.css"]
-        if page.name == "rules.html":
+        if page.name in {"rules.html", "structures.html"}:
             expected_style_prefix.append("rules.css")
         elif page.name == "media.html":
             expected_style_prefix.append("media.css")
@@ -3699,8 +3712,8 @@ def main() -> int:
         if app_script_references:
             app_script_references_by_page[page.name] = app_script_references
 
-        if page.name != "rules.html" and "rules.css" in parser.stylesheets:
-            parser.errors.append("rules.css may be loaded only by rules.html")
+        if page.name not in {"rules.html", "structures.html"} and "rules.css" in parser.stylesheets:
+            parser.errors.append("rules.css may be loaded only by rules.html or structures.html")
         if page.name != "media.html" and "media.css" in parser.stylesheets:
             parser.errors.append("media.css may be loaded only by media.html")
         if page.name != "marchand.html" and "marchand.css" in parser.stylesheets:
@@ -4817,8 +4830,8 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
         else:
             if contract.get("schemaVersion") != 1:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
-            if contract.get("publicPageCount") != 19:
-                errors.append("maintenance-baseline.json: publicPageCount must remain 19")
+            if contract.get("publicPageCount") != 20:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 20")
             if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"

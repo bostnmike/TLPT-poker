@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T15:55:10.001227Z",
+  "generatedAt": "2026-10-11T16:39:35.883548Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -103,6 +103,8 @@
       "slot": "mtt",
       "day": "Next MTT",
       "tables": 2,
+      "capacity": 18,
+      "mergeAt": 9,
       "date": "Saturday, October 24, 2026",
       "structure": "50K starting stack • 25 min levels • Two-table format",
       "time": "1:00 PM",
@@ -110,6 +112,28 @@
       "location": "The Caahhd Room",
       "address": "OCW, in Cary",
       "apple_invite_url": "https://www.icloud.com/invites/0e8Q0k93YKph-ZswoAaBAU3uQ",
+      "seatAssignments": [
+        [
+          "bostnmike",
+          "alex-c",
+          "chris-f",
+          "hiro",
+          "li-fo",
+          "nasa-al",
+          "red",
+          "vish"
+        ],
+        [
+          "ahmed",
+          "ai-dave",
+          "griffin",
+          "kishan",
+          "liam-o",
+          "providencemike",
+          "the-architect",
+          "wild-bill"
+        ]
+      ],
       "rsvps": {
         "bostnmike": "yes",
         "buffalomike": "tbd",

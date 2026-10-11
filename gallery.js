@@ -114,6 +114,8 @@ function getGalleryRankOneWinners(event) {
 }
 
 function buildGalleryWinnerBadgesMarkup(poster) {
+  if (poster?.isFuture) return "";
+
   try {
     const event = galleryParsedEventsByDate.get(poster.date);
     const winners = getGalleryRankOneWinners(event);
@@ -358,7 +360,7 @@ function closeLightbox() {
 
 function createPosterCard(poster, isLeadPoster = false) {
   const article = document.createElement("article");
-  article.className = "gallery-card";
+  article.className = `gallery-card${poster.isFuture ? " gallery-card-coming" : ""}`;
 
   const button = document.createElement("button");
   button.className = "gallery-poster-button";
@@ -370,7 +372,7 @@ function createPosterCard(poster, isLeadPoster = false) {
     <div class="gallery-poster-frame">
       <img
         class="gallery-poster-image"
-        src="${escapeGalleryHtml(poster.src)}"
+        src="${escapeGalleryHtml(poster.thumbnailSrc || poster.src)}"
         alt="${escapeGalleryHtml(poster.title)}"
         loading="${loading}"
         decoding="async"
@@ -379,7 +381,7 @@ function createPosterCard(poster, isLeadPoster = false) {
         height="1536"
       />
     </div>
-    <div class="gallery-card-meta has-winner-badges">
+    <div class="gallery-card-meta${poster.isFuture ? "" : " has-winner-badges"}">
       ${buildGalleryWinnerBadgesMarkup(poster)}
       <div class="gallery-card-label">The BostnMike Collection</div>
       <h3 class="gallery-card-title">${escapeGalleryHtml(poster.collection)}</h3>
@@ -387,10 +389,40 @@ function createPosterCard(poster, isLeadPoster = false) {
     </div>
   `;
 
+  const posterImage = button.querySelector(".gallery-poster-image");
+  posterImage?.addEventListener("error", () => {
+    if (posterImage.src.endsWith(poster.src)) return;
+    posterImage.src = poster.src;
+  }, { once: true });
+
   button.addEventListener("click", () => openLightbox(poster, button));
   article.appendChild(button);
 
   return article;
+}
+
+function createComingAttractionsGroup(posters, leadPosterSource) {
+  const section = document.createElement("section");
+  section.className = "gallery-year-group gallery-coming-group";
+
+  section.innerHTML = `
+    <div class="gallery-year-head gallery-coming-head">
+      <div>
+        <div class="gallery-year-kicker">Coming Attractions</div>
+        <h3 class="gallery-year-title">Next on the Marquee</h3>
+      </div>
+    </div>
+    <div class="gallery-year-rule"></div>
+    <p class="gallery-coming-copy">Future event art gets the spotlight here. After the cards are dealt, the poster moves into the dated archive automatically.</p>
+    <div class="gallery-year-grid"></div>
+  `;
+
+  const grid = section.querySelector(".gallery-year-grid");
+  posters.forEach(poster => grid.appendChild(
+    createPosterCard(poster, poster.src === leadPosterSource)
+  ));
+
+  return section;
 }
 
 function createYearGroup(year, posters, leadPosterSource) {
@@ -450,11 +482,19 @@ async function loadGallery() {
 
     const manifest = await res.json();
     const manifestFolder = String(manifest.folder || "").replace(/\/+$/, "");
+    const thumbnailFolder = String(manifest.thumbnailFolder || `${manifestFolder}/thumbs`).replace(/\/+$/, "");
 
     if (manifestFolder !== GALLERY_FOLDER) {
       throw new Error(`Unexpected gallery folder: ${manifestFolder || "missing"}`);
     }
     
+    const today = new Date();
+    const todayIso = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, "0"),
+      String(today.getDate()).padStart(2, "0")
+    ].join("-");
+
     galleryPosters = (manifest.files || [])
       .filter(file => GALLERY_POSTER_FILE_PATTERN.test(file))
       .map(file => {
@@ -469,11 +509,18 @@ async function loadGallery() {
           file,
           date: isoDate,
           src: `${manifestFolder}/${file}`,
+          thumbnailSrc: `${thumbnailFolder}/${file}`,
+          isFuture: isoDate > todayIso,
           title: buildTitleFromFilename(isoDate),
           collection: "Felt Whispers"
         };
       })
-      .sort((a, b) => new Date(b.date) - new Date(a.date));
+      .sort((a, b) => {
+        if (a.isFuture !== b.isFuture) return a.isFuture ? -1 : 1;
+        return a.isFuture
+          ? new Date(a.date) - new Date(b.date)
+          : new Date(b.date) - new Date(a.date);
+      });
 
     grid.innerHTML = "";
 
@@ -484,9 +531,15 @@ async function loadGallery() {
 
     if (empty) empty.hidden = true;
 
-    const grouped = groupPostersByYear(galleryPosters);
+    const comingPosters = galleryPosters.filter(poster => poster.isFuture);
+    const archivePosters = galleryPosters.filter(poster => !poster.isFuture);
+    const grouped = groupPostersByYear(archivePosters);
     const leadPosterSource = galleryPosters[0]?.src || "";
     const fragment = document.createDocumentFragment();
+
+    if (comingPosters.length) {
+      fragment.appendChild(createComingAttractionsGroup(comingPosters, leadPosterSource));
+    }
 
     grouped.forEach(([year, posters]) => {
       fragment.appendChild(createYearGroup(year, posters, leadPosterSource));
