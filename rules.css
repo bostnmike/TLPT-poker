@@ -55,6 +55,38 @@
   text-align:center;
 }
 
+.rules-floor-note .paired-page-cta,
+.structures-rule-link .paired-page-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:10px 17px;
+  border:1px solid #dca620;
+  border-radius:12px;
+  color:#1b1305;
+  background:linear-gradient(180deg,#ffd568,#ffb81c);
+  box-shadow:0 7px 17px rgba(255,184,28,.16);
+  font-size:.9rem;
+  font-weight:900;
+  line-height:1.1;
+  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
+}
+
+.rules-floor-note .paired-page-cta:hover,
+.structures-rule-link .paired-page-cta:hover{
+  color:#110d05;
+  filter:brightness(1.06);
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px rgba(255,184,28,.22);
+}
+
+.rules-floor-note .paired-page-cta:active,
+.structures-rule-link .paired-page-cta:active{
+  transform:translateY(0);
+  box-shadow:0 4px 11px rgba(255,184,28,.15);
+}
+
 .rules-chapter .section-head{
   margin-bottom:16px;
 }
