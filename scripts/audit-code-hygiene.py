@@ -2866,6 +2866,8 @@ def main() -> int:
                 "aria-hidden" not in record["attrs"] for record in knockout_view_icons
             ):
                 parser.errors.append("Knockout Central views must retain two decorative icon pockets")
+            if "Bounty Hunters" not in page_text or "Bounty Hunts" in page_text:
+                parser.errors.append("Knockout Central bounty view label must remain Bounty Hunters")
 
         if page.name == "media.html":
             film_embeds = [
