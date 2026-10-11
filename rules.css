@@ -226,19 +226,13 @@
   isolation:isolate;
   --retired-b-shape:polygon(
     0 0,
-    62% 0,
-    79% 6%,
-    94% 19%,
-    100% 31%,
-    100% 39%,
-    92% 46%,
+    64% 0,
+    100% 18%,
+    100% 40%,
     80% 50%,
-    92% 54%,
-    100% 61%,
-    100% 69%,
-    94% 81%,
-    79% 94%,
-    62% 100%,
+    100% 60%,
+    100% 82%,
+    64% 100%,
     0 100%
   );
   flex:0 0 62px;
@@ -278,7 +272,7 @@
   position:absolute;
   left:50%;
   top:50%;
-  transform:translate(-50%,-50%);
+  transform:translate(calc(-50% + 1px),-50%);
   clip-path:var(--retired-b-shape);
 }
 
