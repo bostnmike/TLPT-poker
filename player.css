@@ -1575,8 +1575,8 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:5px;
-  margin-left:-3px;
+  margin-top:8px;
+  margin-left:-6px;
   line-height:1;
 }
 
@@ -1603,7 +1603,7 @@
   min-width:0;
   padding-top:4px;
   color:var(--card-muted);
-  font-size:.37rem;
+  font-size:.41rem;
   font-weight:1000;
   line-height:1.05;
   letter-spacing:.10em;
@@ -1614,7 +1614,8 @@
   max-width:100%;
   overflow:hidden;
   color:var(--card-ink);
-  font-size:.43rem;
+  font-size:.49rem;
+  letter-spacing:.08em;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
@@ -1622,8 +1623,8 @@
 .player-page .tlpt-card-collectible-head img{
   width:30px;
   height:30px;
-  margin-top:5px;
-  margin-right:-3px;
+  margin-top:8px;
+  margin-right:-6px;
   justify-self:end;
   object-fit:contain;
   filter:drop-shadow(0 3px 4px rgba(0,0,0,.30));
@@ -2900,6 +2901,11 @@
     padding-right:3px;
   }
 
+  .player-page .tlpt-card-collectible-rating{
+    margin-top:7px;
+    margin-left:-4px;
+  }
+
   .player-page .tlpt-card-collectible-rating strong{
     font-size:1.22rem;
   }
@@ -2909,9 +2915,19 @@
     font-size:.45rem;
   }
 
+  .player-page .tlpt-card-collectible-edition{
+    font-size:.36rem;
+  }
+
+  .player-page .tlpt-card-collectible-edition strong{
+    font-size:.42rem;
+  }
+
   .player-page .tlpt-card-collectible-head img{
     width:24px;
     height:24px;
+    margin-top:7px;
+    margin-right:-4px;
   }
 
   .player-page .tlpt-card-collectible-name{
