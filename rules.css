@@ -875,9 +875,7 @@
 
 .rules-money-bounty .rules-money-icon,
 .rules-bounty-icon{
-  filter:
-    drop-shadow(0 0 1px rgba(255,255,255,.95))
-    drop-shadow(0 0 6px rgba(255,184,28,.85));
+  filter:none;
 }
 
 .rules-money-callout h4{

@@ -1788,8 +1788,8 @@ def audit_javascript(path: Path) -> list[str]:
             "grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);",
             ".rules-money-section + .rules-money-section{",
             ".rules-money-bounty .rules-money-icon,",
-            "drop-shadow(0 0 1px rgba(255,255,255,.95))",
-            "drop-shadow(0 0 6px rgba(255,184,28,.85))",
+            ".rules-bounty-icon{",
+            "filter:none;",
             "@media (max-width:760px){",
         ):
             if token not in rules_css:
