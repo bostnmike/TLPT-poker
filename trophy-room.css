@@ -150,14 +150,14 @@
   align-items:center;
   justify-content:center;
   gap:7px;
-  min-height:38px;
-  padding:8px 13px;
+  min-height:44px;
+  padding:9px 15px;
   border:1px solid rgba(255,255,255,.10);
   border-radius:var(--control-radius);
   color:#bdc9d2;
   background:rgba(255,255,255,.025);
   font:inherit;
-  font-size:.72rem;
+  font-size:.84rem;
   font-weight:900;
   cursor:pointer;
   transition:border-color .18s ease,color .18s ease,background .18s ease,transform .18s ease;
@@ -181,13 +181,13 @@
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-width:21px;
-  min-height:21px;
+  min-width:24px;
+  min-height:24px;
   padding:2px 5px;
   border-radius:999px;
   color:inherit;
   background:rgba(0,0,0,.20);
-  font-size:.60rem;
+  font-size:.68rem;
 }
 
 .trophy-room-page .trophy-filter-fields{
@@ -203,7 +203,7 @@
 
 .trophy-room-page .trophy-filter-fields label > span{
   color:#8fa0ad;
-  font-size:.56rem;
+  font-size:.65rem;
   font-weight:1000;
   letter-spacing:.11em;
   text-transform:uppercase;
@@ -211,14 +211,14 @@
 
 .trophy-room-page .trophy-filter-fields select{
   width:100%;
-  min-height:42px;
-  padding:8px 34px 8px 11px;
+  min-height:46px;
+  padding:9px 36px 9px 13px;
   border:1px solid rgba(255,184,28,.20);
   border-radius:10px;
   color:#eef3f6;
   background:#101820;
   font:inherit;
-  font-size:.78rem;
+  font-size:.9rem;
   font-weight:800;
 }
 
@@ -1042,8 +1042,8 @@
 
   .trophy-room-page .trophy-filter-family button{
     width:100%;
-    padding:7px 9px;
-    font-size:.66rem;
+    padding:8px 10px;
+    font-size:.76rem;
   }
 
   .trophy-room-page .trophy-room-ledger-head{
