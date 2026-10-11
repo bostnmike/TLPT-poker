@@ -3,7 +3,7 @@
     1: "chris-o",
     2: "nasa-al",
     3: "alex-c",
-    4: "yann",
+    4: "kishan",
     5: "brad-r",
     6: "red",
     7: "hiro",
@@ -26,7 +26,7 @@
     24: "bostnmike",
     25: "tim-s",
     26: "ahmed",
-    27: "big-tim"
+    27: "chris-f"
   });
 
   function addRoastAvatars(players) {
