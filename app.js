@@ -4901,7 +4901,7 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
       <svg class="tlpt-card-shape-defs" aria-hidden="true" focusable="false">
         <defs>
           <clipPath id="tlpt-player-card-shape" clipPathUnits="objectBoundingBox">
-            <path d="M 0,.14 C .09,.12 .17,.075 .28,.035 C .34,.015 .38,.018 .41,.048 C .435,.074 .468,.055 .5,0 C .532,.055 .565,.074 .59,.048 C .62,.018 .66,.015 .72,.035 C .83,.075 .91,.12 1,.14 L .965,.84 C .96,.9 .84,.93 .7,.955 L .5,1 L .3,.955 C .16,.93 .04,.9 .035,.84 Z"></path>
+            <path d="M 0,.14 C .09,.12 .17,.075 .28,.035 C .34,.015 .38,.018 .41,.048 C .435,.074 .468,.055 .5,0 C .532,.055 .565,.074 .59,.048 C .62,.018 .66,.015 .72,.035 C .83,.075 .91,.12 1,.14 L 1,.84 C 1,.9 .84,.93 .7,.955 L .5,1 L .3,.955 C .16,.93 0,.9 0,.84 Z"></path>
           </clipPath>
         </defs>
       </svg>

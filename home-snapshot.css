@@ -59,7 +59,7 @@
   max-width:100%;
   flex:0 0 auto;
   justify-self:center;
-  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,96.5% 84%,70% 95.5%,50% 100%,30% 95.5%,3.5% 84%) !important;
+  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,100% 84%,70% 95.5%,50% 100%,30% 95.5%,0 84%) !important;
   clip-path:url(#tlpt-home-card-shape) !important;
 }
 
@@ -74,7 +74,7 @@
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-card-inner{
   grid-template-rows:48px minmax(0,1fr) 62px;
   padding:20px 14px 22px;
-  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,96.5% 84%,70% 95.5%,50% 100%,30% 95.5%,3.5% 84%) !important;
+  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,100% 84%,70% 95.5%,50% 100%,30% 95.5%,0 84%) !important;
   clip-path:url(#tlpt-home-card-shape) !important;
 }
 
@@ -110,6 +110,8 @@
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-chip{
   width:31px;
   height:31px;
+  margin-top:5px;
+  margin-right:3px;
 }
 
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-portrait{
