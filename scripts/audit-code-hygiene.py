@@ -1797,12 +1797,17 @@ def audit_javascript(path: Path) -> list[str]:
                     f"rules.css: payout styling missing: {token}"
                 )
         for token in (
-            ".dealer-button-icon::before{",
+            ".dealer-button-icon::before,",
+            ".dealer-button-icon::after{",
             "font-size:1.2rem;",
+            "--retired-b-shape:polygon(",
+            "width:42px;",
+            "height:48px;",
+            "background:#101216;",
             "width:36px;",
             "height:42px;",
             "background:#e3b341;",
-            "clip-path:polygon(",
+            "clip-path:var(--retired-b-shape);",
         ):
             if token not in rules_css:
                 errors.append(
