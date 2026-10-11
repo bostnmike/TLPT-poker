@@ -344,7 +344,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20260930-2"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-1"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -353,7 +353,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20260825-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-2"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -575,12 +575,12 @@ EXPECTED_PRESSED_BUTTON_GROUPS = {
     "dashboard.html": (
         "data-dashboard-sort",
         {
-            "profit", "hits", "timesPlaced", "bubbles", "hitRate",
-            "cashRate", "bubbleRate", "roi", "trueSkillScore",
-            "luckIndex", "clutchIndex", "aggressionIndex",
-            "survivorIndex", "tiltIndex",
+            "hits", "bountiesWon", "timesPlaced", "bubbles",
+            "profit", "bountyNet", "roi", "hitRate", "cashRate",
+            "bubbleRate", "trueSkillScore", "luckIndex", "clutchIndex",
+            "aggressionIndex", "survivorIndex", "tiltIndex",
         },
-        "profit",
+        "hits",
     ),
     "standings.html": (
         "data-standings-sort",

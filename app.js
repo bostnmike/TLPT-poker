@@ -61,7 +61,22 @@ function renderSiteLoadFailure() {
 }
 
 const DEFAULT_STANDINGS_SORT = "totalWinnings";
-const DEFAULT_DASHBOARD_SORT = "profit";
+const DEFAULT_DASHBOARD_SORT = "hits";
+const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
+  results: "hits",
+  bankroll: "profit",
+  rates: "roi",
+  "player-dna": "trueSkillScore"
+});
+const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
+const DASHBOARD_BOUNTY_DATA_KEYS = [
+  "bountiesWon",
+  "bountyPaid",
+  "bountyCollected",
+  "bountyRetained",
+  "bountyWinnings"
+];
+const dashboardLastSortByCategory = new Map(Object.entries(DASHBOARD_CATEGORY_DEFAULTS));
 const SHOW_HOME_COMMISSIONER_REPORT = false;
 
 function prefersReducedMotion() {
@@ -3148,11 +3163,26 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const grid = document.getElementById("dashboard-grid");
   if (!grid || !window.siteData?.players) return;
 
+  syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
   const eligiblePlayers = window.siteData.players.filter(
     player => Number(player?.entries ?? 0) >= 2
   );
+
+  if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(window.siteData.players)) {
+    const strip = document.getElementById("dashboard-studio-strip");
+    if (strip) {
+      strip.innerHTML = `
+        <div class="dashboard-studio-copy">Bounty leaderboards begin with the first recorded bounty event.</div>
+        <div class="dashboard-studio-context"><strong>Awaiting Results</strong></div>
+      `;
+    }
+
+    grid.innerHTML = dashboardBountyEmptyMarkup();
+    setActiveSortButton("dashboard", sortKey);
+    return;
+  }
 
   const sorted = sortPlayers(eligiblePlayers, sortKey);
 
@@ -6498,8 +6528,54 @@ function setActiveSortButton(scope, sortKey) {
     const key = btn.dataset.sort || btn.dataset[`${scope}Sort`];
     const isActive = key === sortKey;
     btn.classList.toggle("active", isActive);
-    btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+
+    if (scope === "dashboard") {
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      btn.tabIndex = isActive ? 0 : -1;
+    } else {
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    }
   });
+}
+
+function dashboardCategoryForSort(sortKey) {
+  const metricButton = [...document.querySelectorAll("[data-dashboard-sort]")]
+    .find(button => button.dataset.dashboardSort === sortKey);
+  return metricButton?.closest("[data-dashboard-metric-group]")?.dataset.dashboardMetricGroup || null;
+}
+
+function syncDashboardSelector(sortKey) {
+  const category = dashboardCategoryForSort(sortKey);
+  if (!category) return;
+
+  dashboardLastSortByCategory.set(category, sortKey);
+
+  document.querySelectorAll("[data-dashboard-category]").forEach(tab => {
+    const isActive = tab.dataset.dashboardCategory === category;
+    tab.classList.toggle("active", isActive);
+    tab.setAttribute("aria-selected", isActive ? "true" : "false");
+    tab.tabIndex = isActive ? 0 : -1;
+  });
+
+  document.querySelectorAll("[data-dashboard-metric-group]").forEach(panel => {
+    panel.hidden = panel.dataset.dashboardMetricGroup !== category;
+  });
+}
+
+function dashboardHasBountyData(players) {
+  return (players || []).some(player =>
+    DASHBOARD_BOUNTY_DATA_KEYS.some(key => Math.abs(Number(player?.[key] ?? 0)) > 0)
+  );
+}
+
+function dashboardBountyEmptyMarkup() {
+  return `
+    <div class="dashboard-empty-state" role="status">
+      <div class="dashboard-empty-state-icon" aria-hidden="true">🎯</div>
+      <h3>No bounty results yet</h3>
+      <p>This board will open automatically after the first recorded bounty event.</p>
+    </div>
+  `;
 }
 
 function initCrewViewToggle() {
@@ -6540,8 +6616,58 @@ function initSorting() {
     btn.addEventListener("click", () => renderStandings(btn.dataset.sort || btn.dataset.standingsSort || DEFAULT_STANDINGS_SORT));
   });
 
-  document.querySelectorAll(`[data-sort-scope="dashboard"] [data-sort], [data-dashboard-sort]`).forEach(btn => {
+  const dashboardMetricButtons = [...document.querySelectorAll(`[data-sort-scope="dashboard"] [data-sort], [data-dashboard-sort]`)];
+  dashboardMetricButtons.forEach(btn => {
     btn.addEventListener("click", () => renderDashboard(btn.dataset.sort || btn.dataset.dashboardSort || DEFAULT_DASHBOARD_SORT));
+
+    btn.addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
+
+      const groupButtons = [...btn.closest(".dashboard-buttons")?.querySelectorAll("[data-dashboard-sort]") || []];
+      if (!groupButtons.length) return;
+
+      event.preventDefault();
+      const currentIndex = groupButtons.indexOf(btn);
+      let nextIndex = currentIndex;
+
+      if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = groupButtons.length - 1;
+      else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        nextIndex = (currentIndex - 1 + groupButtons.length) % groupButtons.length;
+      } else {
+        nextIndex = (currentIndex + 1) % groupButtons.length;
+      }
+
+      groupButtons[nextIndex].focus();
+      groupButtons[nextIndex].click();
+    });
+  });
+
+  const dashboardCategoryTabs = [...document.querySelectorAll("[data-dashboard-category]")];
+  dashboardCategoryTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      const category = tab.dataset.dashboardCategory;
+      renderDashboard(dashboardLastSortByCategory.get(category) || DASHBOARD_CATEGORY_DEFAULTS[category] || DEFAULT_DASHBOARD_SORT);
+    });
+
+    tab.addEventListener("keydown", event => {
+      if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+
+      event.preventDefault();
+      const currentIndex = dashboardCategoryTabs.indexOf(tab);
+      let nextIndex = currentIndex;
+
+      if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = dashboardCategoryTabs.length - 1;
+      else if (event.key === "ArrowLeft") {
+        nextIndex = (currentIndex - 1 + dashboardCategoryTabs.length) % dashboardCategoryTabs.length;
+      } else {
+        nextIndex = (currentIndex + 1) % dashboardCategoryTabs.length;
+      }
+
+      dashboardCategoryTabs[nextIndex].focus();
+      dashboardCategoryTabs[nextIndex].click();
+    });
   });
 }
 
