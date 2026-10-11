@@ -110,12 +110,20 @@ class EventCurrencyTests(unittest.TestCase):
         self.assertTrue(any("event is not zero-sum" in error for error in failures))
         self.assertTrue(any("hiro: profit mismatch" in error for error in failures))
 
-    def test_first_entry_bounties_are_zero_sum_and_do_not_change_profit(self):
+    def test_combined_mtt_receipts_split_bounties_from_tournament_profit(self):
         bounty_config = {
             "version": 1,
             "events": {
-                "2026-10-09": {
-                    "entryAmount": 30,
+                "2026-10-11": {
+                    "entryAmount": 40,
+                    "tournamentPayouts": {
+                        "1": 330,
+                        "2": 200,
+                        "3": 135,
+                        "4": 100,
+                        "5": 75,
+                        "6": 40,
+                    },
                     "bounty": {
                         "amount": 10,
                         "firstEntryOnly": True,
@@ -125,7 +133,7 @@ class EventCurrencyTests(unittest.TestCase):
             },
         }
         event = parser.parse_report_file(
-            parser.RAW_EVENTS_DIR / "Event Report 2026-10-09.html",
+            parser.RAW_EVENTS_DIR / "SAMPLE Event Report.html",
             parser.build_alias_map(self.metadata),
             self.metadata,
             self.config["buy_in_amount"],
@@ -133,21 +141,35 @@ class EventCurrencyTests(unittest.TestCase):
         )
         rows = {row["slug"]: row for row in event["players"]}
 
-        self.assertEqual(event["summary"]["bounty"]["pool"], 70)
-        self.assertEqual(rows["ahmed"]["bountiesWon"], 3)
-        self.assertEqual(rows["ahmed"]["bountyCollected"], 30)
+        self.assertEqual(event["summary"]["bounty"]["pool"], 130)
+        self.assertEqual(event["summary"]["bounty"]["bountiesWon"], 10)
+        self.assertEqual(event["summary"]["bounty"]["bountiesRetained"], 3)
+        self.assertEqual(rows["the-architect"]["bountiesWon"], 3)
+        self.assertEqual(rows["the-architect"]["bountyCollected"], 30)
+        self.assertEqual(rows["the-architect"]["bountyRetained"], 10)
         self.assertEqual(rows["ahmed"]["bountyRetained"], 10)
-        self.assertEqual(rows["hiro"]["bountyRetained"], 10)
-        self.assertEqual(rows["alex-c"]["bountiesWon"], 1)
-        self.assertEqual(rows["li-fo"]["bountiesWon"], 1)
-        self.assertEqual(sum(row["bountiesWon"] for row in rows.values()), 5)
-        self.assertEqual(sum(row["bountyWinnings"] for row in rows.values()), 70)
+        self.assertEqual(rows["red"]["bountyRetained"], 10)
+        self.assertEqual(rows["bostnmike"]["bountiesWon"], 3)
+        self.assertEqual(rows["griffin"]["bountiesWon"], 2)
+        self.assertEqual(sum(row["bountiesWon"] for row in rows.values()), 10)
+        self.assertEqual(sum(row["bountyWinnings"] for row in rows.values()), 130)
         self.assertEqual(sum(row["bountyNet"] for row in rows.values()), 0)
         self.assertEqual(sum(row["profit"] for row in rows.values()), 0)
+        self.assertEqual(
+            {winner["slug"]: winner["payout"] for winner in event["winners"]},
+            {
+                "the-architect": 330,
+                "red": 200,
+                "ahmed": 135,
+                "nasa-al": 100,
+                "bostnmike": 75,
+                "hiro": 40,
+            },
+        )
 
         audit = RecordingAudit()
         with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "2026-10-09.json"
+            path = Path(directory) / "2026-10-11.json"
             path.write_text(json.dumps(event))
             integrity.audit_events(
                 audit,
@@ -171,6 +193,10 @@ class EventCurrencyTests(unittest.TestCase):
                 self.config["buy_in_amount"],
                 mismatched,
             )
+
+    def test_sample_reports_are_not_added_to_live_history(self):
+        names = [path.name for path in parser.production_raw_files()]
+        self.assertNotIn("SAMPLE Event Report.html", names)
 
 
 if __name__ == "__main__":

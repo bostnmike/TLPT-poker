@@ -211,6 +211,10 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
     entry_amount = parse_currency(override.get("entryAmount", default_entry_amount))
     bounty = override.get("bounty") or {}
     bounty_amount = parse_currency(bounty.get("amount", 0))
+    tournament_payouts = {
+        safe_int(rank): parse_currency(amount)
+        for rank, amount in (override.get("tournamentPayouts") or {}).items()
+    }
 
     if entry_amount <= 0:
         raise RuntimeError(f"{event_date}: entry amount must be greater than zero")
@@ -220,11 +224,14 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
         raise RuntimeError(f"{event_date}: bounty must be limited to the first entry")
     if bounty_amount and bounty.get("retainIfUnbusted") is not True:
         raise RuntimeError(f"{event_date}: unbusted players must retain their original bounty")
+    if any(rank <= 0 or amount <= 0 for rank, amount in tournament_payouts.items()):
+        raise RuntimeError(f"{event_date}: tournament payout ranks and amounts must be positive")
 
     return {
         "isOverride": bool(override),
         "entryAmount": entry_amount,
         "bountyAmount": bounty_amount,
+        "tournamentPayouts": tournament_payouts,
     }
 
 
@@ -240,6 +247,131 @@ def verify_takein_amounts(html, event_date, entry_amount, counts):
                 f"{event_date}: {label.rstrip(':').lower()} are ${actual} each in the raw report, "
                 f"but the financial configuration expects ${expected}"
             )
+
+
+def extract_table_money_count(html, table_title, label):
+    table = re.search(
+        rf'<td class="infotitle"[^>]*>\s*{re.escape(table_title)}\s*</td>(.*?)</table>',
+        html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if not table:
+        return {"amount": 0, "count": 0}
+    row = re.search(
+        rf'<td class="fieldname">\s*{re.escape(label)}\s*</td>\s*'
+        rf'<td class="fieldvalue">\s*\$?([^<]*)\s*</td>\s*'
+        rf'<td class="fieldvalue">\s*\((\d+)\)\s*</td>',
+        table.group(1),
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if not row:
+        return {"amount": 0, "count": 0}
+    return {"amount": parse_currency(row.group(1)), "count": safe_int(row.group(2))}
+
+
+def split_bounty_report_payouts(
+    event_date,
+    reported_payouts,
+    paid_spots,
+    total_pot,
+    buyins_count,
+    financial_rule,
+    bounty_table,
+):
+    bounty_amount = financial_rule["bountyAmount"]
+    payout_by_rank = financial_rule["tournamentPayouts"]
+    if not bounty_amount:
+        return reported_payouts, None
+    if not payout_by_rank:
+        raise RuntimeError(
+            f"{event_date}: bounty events must define tournamentPayouts so prize money "
+            "can be separated from combined Tournament Director receipts"
+        )
+    if len(payout_by_rank) != paid_spots or set(payout_by_rank) != set(range(1, paid_spots + 1)):
+        raise RuntimeError(f"{event_date}: tournamentPayouts must define ranks 1 through {paid_spots}")
+    if Decimal(str(sum(payout_by_rank.values()))) != Decimal(str(total_pot)):
+        raise RuntimeError(
+            f"{event_date}: configured tournament payouts do not equal the ${total_pot} prize pool"
+        )
+
+    bought = bounty_table["bought"]
+    won = bounty_table["won"]
+    kept = bounty_table["kept"]
+    expected_bought = Decimal(str(bounty_amount)) * buyins_count
+    if Decimal(str(bought["amount"])) != expected_bought or bought["count"] != buyins_count:
+        raise RuntimeError(f"{event_date}: raw bounty purchases do not match first entries")
+    if Decimal(str(won["amount"] + kept["amount"])) != expected_bought:
+        raise RuntimeError(f"{event_date}: raw bounty won + kept dollars do not balance")
+    if won["count"] + kept["count"] != buyins_count:
+        raise RuntimeError(f"{event_date}: raw bounty won + kept counts do not balance")
+
+    by_rank = {}
+    for payout in reported_payouts:
+        rank = payout["rank"]
+        if rank in by_rank:
+            raise RuntimeError(f"{event_date}: bounty payout splitting does not support tied ranks")
+        by_rank[rank] = payout
+
+    tournament_payouts = []
+    bounty_returns = {}
+    for payout in reported_payouts:
+        tournament_amount = payout_by_rank.get(payout["rank"], 0)
+        bounty_return = Decimal(str(payout["payout"])) - Decimal(str(tournament_amount))
+        if bounty_return < 0 or bounty_return % Decimal(str(bounty_amount)) != 0:
+            raise RuntimeError(
+                f"{event_date}/{payout['slug']}: combined receipt cannot be split into "
+                "the configured tournament payout and whole bounties"
+            )
+        if tournament_amount:
+            tournament_payouts.append({**payout, "payout": tournament_amount})
+        if bounty_return:
+            bounty_returns[payout["slug"]] = parse_currency(str(bounty_return))
+
+    if len(tournament_payouts) != paid_spots:
+        raise RuntimeError(f"{event_date}: one or more tournament payout ranks are missing")
+    if Decimal(str(sum(bounty_returns.values()))) != expected_bought:
+        raise RuntimeError(f"{event_date}: separated bounty returns do not equal the bounty pool")
+
+    retained_slugs = []
+    for payout in sorted(reported_payouts, key=lambda item: item["rank"]):
+        if len(retained_slugs) >= kept["count"]:
+            break
+        if Decimal(str(bounty_returns.get(payout["slug"], 0))) >= Decimal(str(bounty_amount)):
+            retained_slugs.append(payout["slug"])
+    if len(retained_slugs) != kept["count"]:
+        raise RuntimeError(f"{event_date}: retained bounties cannot be assigned to the top finishers")
+
+    player_values = {}
+    retained_set = set(retained_slugs)
+    for payout in reported_payouts:
+        slug = payout["slug"]
+        gross = bounty_returns.get(slug, 0)
+        retained = bounty_amount if slug in retained_set else 0
+        collected = gross - retained
+        player_values[slug] = {
+            "bountiesWon": safe_int(Decimal(str(collected)) / Decimal(str(bounty_amount))),
+            "bountyCollected": collected,
+            "bountyRetained": retained,
+            "bountyWinnings": gross,
+        }
+
+    if sum(values["bountiesWon"] for values in player_values.values()) != won["count"]:
+        raise RuntimeError(f"{event_date}: separated bounty wins do not match the raw report")
+
+    return tournament_payouts, {
+        "amount": bounty_amount,
+        "bought": bought,
+        "won": won,
+        "kept": kept,
+        "players": player_values,
+    }
+
+
+def production_raw_files():
+    return sorted(
+        path for path in RAW_EVENTS_DIR.glob("*.html")
+        if not path.name.lower().startswith("sample ")
+    )
 
 
 def extract_total_pot(html):
@@ -496,7 +628,7 @@ def derive_event_player_stats(
     parsed_actions,
     payouts,
     buy_in_amount,
-    bounty_amount=0,
+    bounty_ledger=None,
 ):
     player_map = {p["slug"]: build_empty_player_record(p) for p in metadata_players}
 
@@ -552,52 +684,18 @@ def derive_event_player_stats(
         if bubble_slug in player_map:
             player_map[bubble_slug]["bubbles"] = 1
 
-    if bounty_amount:
-        eligible_slugs = {
-            slug for slug, record in player_map.items()
-            if int(record.get("buyIns", 0)) > 0
-        }
-        first_entry_busts = set()
-
+    if bounty_ledger:
+        bounty_amount = bounty_ledger["amount"]
+        bounty_values = bounty_ledger["players"]
         for record in player_map.values():
+            values = bounty_values.get(record["slug"], {})
             record.update({
-                "bountiesWon": 0,
-                "bountyPaid": bounty_amount if record["slug"] in eligible_slugs else 0,
-                "bountyCollected": 0,
-                "bountyRetained": 0,
-                "bountyWinnings": 0,
-                "bountyNet": 0,
+                "bountiesWon": values.get("bountiesWon", 0),
+                "bountyPaid": bounty_amount if record["buyIns"] > 0 else 0,
+                "bountyCollected": values.get("bountyCollected", 0),
+                "bountyRetained": values.get("bountyRetained", 0),
+                "bountyWinnings": values.get("bountyWinnings", 0),
             })
-
-        for action in parsed_actions:
-            victim_slug = action.get("slug")
-            if (
-                action.get("type") not in {"bustout", "bustout_uncredited"}
-                or victim_slug not in eligible_slugs
-                or victim_slug in first_entry_busts
-            ):
-                continue
-
-            killer_slug = action.get("bySlug")
-            if action.get("type") != "bustout" or killer_slug not in player_map:
-                raise RuntimeError(
-                    f"First-entry bounty for {victim_slug} cannot be assigned: "
-                    f"the {action.get('time_raw', 'unknown-time')} bustout has no credited player"
-                )
-            if killer_slug == victim_slug:
-                raise RuntimeError(f"First-entry bounty for {victim_slug} cannot be self-awarded")
-
-            first_entry_busts.add(victim_slug)
-            player_map[killer_slug]["bountiesWon"] += 1
-            player_map[killer_slug]["bountyCollected"] += bounty_amount
-
-        for slug in eligible_slugs - first_entry_busts:
-            player_map[slug]["bountyRetained"] = bounty_amount
-
-        for record in player_map.values():
-            record["bountyWinnings"] = (
-                record["bountyCollected"] + record["bountyRetained"]
-            )
             record["bountyNet"] = record["bountyWinnings"] - record["bountyPaid"]
 
     return player_map, paid_slugs, permanent_out_noncashers
@@ -628,7 +726,7 @@ def parse_report_file(
     total_pot = extract_total_pot(html)
     paid_spots = extract_paid_spots(html)
 
-    payouts = [a for a in parsed_actions if a["type"] == "payout"]
+    reported_payouts = [a for a in parsed_actions if a["type"] == "payout"]
 
     iso_start = parse_datetime_from_summary(summary_start)
 
@@ -664,14 +762,33 @@ def parse_report_file(
                 f"{event_date}: shared killer source reduced to first listed killer only: {action.get('rawKillerText', '')}"
             )
 
-    parsed_actions, override_warnings = apply_event_specific_overrides(event_date, parsed_actions, payouts)
+    parsed_actions, override_warnings = apply_event_specific_overrides(
+        event_date,
+        parsed_actions,
+        reported_payouts,
+    )
+
+    bounty_table = {
+        "bought": extract_table_money_count(html, "Bounties", "Bought:"),
+        "won": extract_table_money_count(html, "Bounties", "Won:"),
+        "kept": extract_table_money_count(html, "Bounties", "Kept:"),
+    }
+    payouts, bounty_ledger = split_bounty_report_payouts(
+        event_date=event_date,
+        reported_payouts=reported_payouts,
+        paid_spots=paid_spots,
+        total_pot=total_pot,
+        buyins_count=buyins_count,
+        financial_rule=financial_rule,
+        bounty_table=bounty_table,
+    )
 
     player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
         metadata_players=metadata_players,
         parsed_actions=parsed_actions,
         payouts=payouts,
         buy_in_amount=event_entry_amount,
-        bounty_amount=bounty_amount,
+        bounty_ledger=bounty_ledger,
     )
 
     warnings = []
@@ -703,12 +820,15 @@ def parse_report_file(
     }
     if financial_rule["isOverride"]:
         summary["entryAmount"] = event_entry_amount
-    if bounty_amount:
+    if bounty_ledger:
         summary["bounty"] = {
             "amount": bounty_amount,
-            "pool": sum(record["bountyPaid"] for record in player_stats.values()),
-            "collected": sum(record["bountyCollected"] for record in player_stats.values()),
-            "retained": sum(record["bountyRetained"] for record in player_stats.values()),
+            "pool": bounty_ledger["bought"]["amount"],
+            "collected": bounty_ledger["won"]["amount"],
+            "retained": bounty_ledger["kept"]["amount"],
+            "bountiesBought": bounty_ledger["bought"]["count"],
+            "bountiesWon": bounty_ledger["won"]["count"],
+            "bountiesRetained": bounty_ledger["kept"]["count"],
             "firstEntryOnly": True,
             "retainIfUnbusted": True,
         }
@@ -748,7 +868,7 @@ def main():
     if not RAW_EVENTS_DIR.exists():
         raise RuntimeError(f"Raw events directory does not exist: {RAW_EVENTS_DIR}")
 
-    html_files = sorted(RAW_EVENTS_DIR.glob("*.html"))
+    html_files = production_raw_files()
     if not html_files:
         raise RuntimeError(f"No event HTML files found in: {RAW_EVENTS_DIR}")
 
