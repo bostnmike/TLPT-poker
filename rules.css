@@ -244,7 +244,7 @@
   height:62px;
   border-radius:50%;
   background:
-    linear-gradient(#111317,#111317) center right / 50% 3px no-repeat,
+    linear-gradient(#111317,#111317) center / 100% 3px no-repeat,
     repeating-conic-gradient(
       from -1.5deg,
       #111317 0deg 3deg,

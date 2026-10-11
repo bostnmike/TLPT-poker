@@ -1801,7 +1801,7 @@ def audit_javascript(path: Path) -> list[str]:
             ".dealer-button-icon::after{",
             ".dealer-button-number{",
             "font-size:1.2rem;",
-            "linear-gradient(#111317,#111317) center right / 50% 3px no-repeat,",
+            "linear-gradient(#111317,#111317) center / 100% 3px no-repeat,",
             "--retired-b-shape:polygon(",
             "8.1% 82.2%,",
             "8.1% 17.9%,",
