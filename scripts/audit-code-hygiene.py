@@ -2192,6 +2192,35 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     "Two-Table 50K Deep Stack must not hardcode event or break times of day"
                 )
+        friday_chip_count_match = re.search(
+            r'const RULES_40K_CHIP_COUNTS = Object\.freeze\(\{'
+            r'(?P<body>.*?)\n\}\);',
+            text,
+            flags=re.DOTALL,
+        )
+        expected_friday_chip_counts = {
+            "T-25": 16,
+            "T-100": 16,
+            "T-500": 16,
+            "T-1000": 15,
+            "T-5000": 3,
+            "T-10000": 0,
+            "T-25000": 0,
+        }
+        if not friday_chip_count_match:
+            errors.append("Shared app must define the Friday 40K chip counts")
+        else:
+            chip_count_source = friday_chip_count_match.group("body")
+            for label, count in expected_friday_chip_counts.items():
+                if f'"{label}": {count}' not in chip_count_source:
+                    errors.append(
+                        f"Friday 40K {label} starting count must remain {count}"
+                    )
+            if sum(
+                int(label.removeprefix("T-")) * count
+                for label, count in expected_friday_chip_counts.items()
+            ) != 40_000:
+                errors.append("Friday 40K chip counts must total 40,000")
         two_table_chip_count_match = re.search(
             r'const RULES_TWO_TABLE_CHIP_COUNTS = Object\.freeze\(\{'
             r'(?P<body>.*?)\n\}\);',

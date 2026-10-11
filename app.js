@@ -391,9 +391,9 @@ const TIER_GUIDE = [
 ];
 
 const RULES_40K_CHIP_COUNTS = Object.freeze({
-  "T-25": 20,
-  "T-100": 20,
-  "T-500": 15,
+  "T-25": 16,
+  "T-100": 16,
+  "T-500": 16,
   "T-1000": 15,
   "T-5000": 3,
   "T-10000": 0,
