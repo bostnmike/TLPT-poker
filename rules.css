@@ -305,6 +305,7 @@
   position:relative;
   z-index:3;
   transform:translateX(2px);
+  text-shadow:none;
 }
 
 .rule-card:hover .dealer-button-icon{
