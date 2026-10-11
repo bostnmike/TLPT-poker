@@ -6523,7 +6523,7 @@ function buildRulesFormatCallout(format) {
           </div>
         </div>
         <div class="rules-money-section rules-money-bounty">
-          <div class="rules-money-icon" aria-hidden="true">🏴‍☠️</div>
+          <div class="rules-money-icon" aria-hidden="true">🏷️</div>
           <div>
             <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
             <p>${escapeHtmlAttr(format.bounty.text)}</p>
@@ -6535,7 +6535,7 @@ function buildRulesFormatCallout(format) {
 
   return `
     <aside class="rules-bounty-callout" role="note" aria-label="${escapeHtmlAttr(format.bounty.title)}">
-      <div class="rules-bounty-icon" aria-hidden="true">🏴‍☠️</div>
+      <div class="rules-bounty-icon" aria-hidden="true">🏷️</div>
       <div>
         <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
         <p>${escapeHtmlAttr(format.bounty.text)}</p>
