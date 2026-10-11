@@ -352,6 +352,7 @@ EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261001-1"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
+EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-7"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
@@ -2836,10 +2837,35 @@ def main() -> int:
                 )
 
         if page.name == "knockouts.html":
+            if EXPECTED_KNOCKOUTS_STYLESHEET not in parser.stylesheet_references:
+                parser.errors.append(
+                    "Knockout Central view-switch stylesheet cache version is stale"
+                )
             if EXPECTED_KNOCKOUTS_SCRIPT not in parser.script_references:
                 parser.errors.append(
                     "Knockout Central portrait script cache version is stale"
                 )
+
+            knockout_view_buttons = [
+                record["attrs"] for record in parser.button_records
+                if record["attrs"].get("data-knockouts-view")
+            ]
+            if [attrs.get("data-knockouts-view") for attrs in knockout_view_buttons] != [
+                "knockouts", "bounties"
+            ]:
+                parser.errors.append("Knockout Central view switch must retain both ordered views")
+            elif [attrs.get("aria-pressed") for attrs in knockout_view_buttons] != ["true", "false"]:
+                parser.errors.append("Knockout Central view switch must default to Knockouts")
+
+            knockout_view_icons = [
+                record for record in parser.element_records
+                if record["tag"] == "span"
+                and "knockouts-view-icon" in record["attrs"].get("class", "").split()
+            ]
+            if len(knockout_view_icons) != 2 or any(
+                "aria-hidden" not in record["attrs"] for record in knockout_view_icons
+            ):
+                parser.errors.append("Knockout Central views must retain two decorative icon pockets")
 
         if page.name == "media.html":
             film_embeds = [
