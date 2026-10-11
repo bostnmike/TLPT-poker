@@ -1798,8 +1798,11 @@ def audit_javascript(path: Path) -> list[str]:
                 )
         for token in (
             ".dealer-button-icon::before{",
-            "translate(-50%,-51%) scaleX(1.22)",
-            "-webkit-text-stroke:1.25px #101216;",
+            "font-size:1.2rem;",
+            "width:36px;",
+            "height:42px;",
+            "background:#e3b341;",
+            "clip-path:polygon(",
         ):
             if token not in rules_css:
                 errors.append(

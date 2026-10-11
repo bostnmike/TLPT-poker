@@ -240,8 +240,10 @@
   align-items:center;
   justify-content:center;
   color:#090a0c;
-  font-size:1.08rem;
-  font-weight:1000;
+  font-family:"Arial Black",Arial,sans-serif;
+  font-size:1.2rem;
+  font-weight:900;
+  letter-spacing:-.035em;
   line-height:1;
   text-shadow:0 1px 0 rgba(255,247,220,.42);
   box-shadow:
@@ -254,20 +256,36 @@
 }
 
 .dealer-button-icon::before{
-  content:"B";
+  content:"";
   position:absolute;
   left:50%;
   top:50%;
   z-index:-1;
-  transform:translate(-50%,-51%) scaleX(1.22);
-  color:#e3b341;
-  font-family:Impact,"Arial Black",sans-serif;
-  font-size:2.7rem;
-  font-weight:900;
-  line-height:.8;
-  -webkit-text-stroke:1.25px #101216;
-  paint-order:stroke fill;
-  text-shadow:0 2px 5px rgba(0,0,0,.55);
+  width:36px;
+  height:42px;
+  transform:translate(-50%,-50%);
+  background:#e3b341;
+  clip-path:polygon(
+    0 0,
+    58% 0,
+    78% 5%,
+    94% 17%,
+    100% 31%,
+    96% 41%,
+    82% 50%,
+    96% 59%,
+    100% 69%,
+    94% 83%,
+    78% 95%,
+    58% 100%,
+    0 100%
+  );
+  filter:
+    drop-shadow(1px 0 0 #101216)
+    drop-shadow(-1px 0 0 #101216)
+    drop-shadow(0 1px 0 #101216)
+    drop-shadow(0 -1px 0 #101216)
+    drop-shadow(0 2px 4px rgba(0,0,0,.42));
 }
 
 .rule-card:hover .dealer-button-icon{
