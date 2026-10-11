@@ -119,6 +119,12 @@ const STAT_FORMULAS = {
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
+  bountiesWon: "Bounties Won: Opponents whose first-entry bounty the player collected; retained personal bounties are not counted as wins",
+  bountyPaid: "Bounty Paid: Separate bounty money posted with first entries; excluded from tournament cost, Profit, ROI, and Power Index",
+  bountyCollected: "Bounty Collected: Cash received for eliminating opponents' bounty-bearing first entries",
+  bountyRetained: "Bounty Retained: The player's own first-entry bounty returned when that entry was never eliminated",
+  bountyWinnings: "Bounty Returns: Bounty Collected + Bounty Retained; tracked separately from tournament winnings",
+  bountyNet: "Bounty Net: Bounty Returns − Bounty Paid; excluded from tournament Profit, ROI, and Power Index",
   trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10). Normalized inputs use fixed benchmarks, not the current player pool",
   luckIndex: "Luck Index: Profit − Expected Profit, where Expected Profit is based on Cash Rate, Hit Rate, and Bubble Avoidance",
   clutchIndex: "Clutch Index: normalized career cash frequency (Times Placed ÷ Buy-ins)",
@@ -144,6 +150,12 @@ const PROFILE_STAT_CONFIG = [
   { key: "hits", label: "Hits", type: "text", icon: "💥", dashboard: true },
   { key: "timesPlaced", label: "Times Placed", dashboardLabel: "Cashes", type: "text", icon: "💵", dashboard: true },
   { key: "bubbles", label: "Bubbles", type: "text", icon: "🫧", dashboard: true },
+  { key: "bountiesWon", label: "Bounties Won", type: "text", icon: "🎯", dashboard: true },
+  { key: "bountyPaid", label: "Bounty Paid", type: "money", icon: "🪙", dashboard: false },
+  { key: "bountyCollected", label: "Bounty Collected", type: "money", icon: "🎯", dashboard: false, profitClassFromValue: true },
+  { key: "bountyRetained", label: "Bounty Retained", type: "money", icon: "🛡️", dashboard: false, profitClassFromValue: true },
+  { key: "bountyWinnings", label: "Bounty Returns", type: "money", icon: "💰", dashboard: false, profitClassFromValue: true },
+  { key: "bountyNet", label: "Bounty Net", type: "money", icon: "🪙", dashboard: true, profitClass: true },
 
   { key: "trueSkillScore", label: "Power Index", dashboardLabel: "Power", type: "num", icon: "💪🏼", dashboard: true },
   { key: "luckIndex", label: "Luck Index", dashboardLabel: "Luck", type: "num", icon: "🍀", dashboard: true },
@@ -182,7 +194,9 @@ const DASHBOARD_EDITORIAL = {
   clutchIndex: "Who closes when the pressure spikes.",
   aggressionIndex: "Who pushes the pace and forces the action.",
   survivorIndex: "Who outlasts the field when stacks get shallow.",
-  tiltIndex: "Who stays the steadiest when the session starts getting expensive."
+  tiltIndex: "Who stays the steadiest when the session starts getting expensive.",
+  bountiesWon: "Who has collected the most bounty-bearing first entries.",
+  bountyNet: "Bounty money only — kept completely separate from tournament profit."
 };
 
 const STAT_LEADER_CONFIG = [
@@ -478,7 +492,7 @@ const RULES_FORMATS = {
     combinePayoutAndBounty: true,
     bounty: {
       title: "$10 First-Entry Bounty",
-      text: "The initial entry is $40 plus a separate $10 bounty. Knock out that entry to collect it; $40 rebuys carry no bounty."
+      text: "The initial entry is $40 plus a separate $10 bounty. First-entry knockouts collect it; unbusted players retain their own. $40 rebuys carry no bounty, and bounty money is tracked separately from tournament profit."
     },
     runtimeLabel: "9 hrs 20 min",
     levelMinutes: 25,
@@ -858,8 +872,8 @@ function getLeaderByRule(players, rule, customPool = null) {
 }
 
 function statValueClass(player, key) {
-  if (key !== "profit") return "";
-  const value = Number(player?.profit ?? 0);
+  if (!new Set(["profit", "bountyNet"]).has(key)) return "";
+  const value = Number(player?.[key] ?? 0);
   if (value > 0) return "positive";
   if (value < 0) return "negative";
   return "neutral";
@@ -5461,7 +5475,9 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
     { label: "Cash Rate", value: fmtPct(player?.cashRate) },
     { label: "Appearances", value: String(player?.buyIns ?? 0) },
     { label: "Cashes", value: String(player?.timesPlaced ?? 0) },
-    { label: "Knockouts", value: String(player?.hits ?? 0) }
+    { label: "Knockouts", value: String(player?.hits ?? 0) },
+    { label: "Bounties Won", value: String(player?.bountiesWon ?? 0) },
+    { label: "Bounty Net", value: fmtMoney(player?.bountyNet), className: statValueClass(player, "bountyNet") }
   ];
 
   return `
@@ -5591,7 +5607,7 @@ function renderPlayerProfile(data) {
     let valueClass = "";
 
     if (config.profitClass) {
-      valueClass = statValueClass(player, "profit");
+      valueClass = statValueClass(player, config.key);
     } else if (config.profitClassFromValue) {
       valueClass = statValueClass({ profit: player?.[config.key] }, "profit");
     }

@@ -13,6 +13,7 @@ RAW_EVENTS_DIR = DATA_DIR / "raw" / "events"
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 METADATA_PATH = DATA_DIR / "player-metadata.json"
 CONFIG_PATH = DATA_DIR / "league-config.json"
+EVENT_FINANCIALS_PATH = DATA_DIR / "event-financials.json"
 
 TIMESTAMP_RE = r'(\d{1,2}:\d{2}:\d{2}\s+[ap]m\s+\d{2}/\d{2}/\d{4})'
 
@@ -192,6 +193,53 @@ def extract_takein_count(html, label):
     if not m:
         return 0
     return safe_int(m.group(2), 0)
+
+
+def extract_takein_total(html, label):
+    pattern = (
+        rf'<td class="fieldname">\s*{re.escape(label)}\s*</td>\s*'
+        rf'<td class="fieldvalue">\s*\$?([^<]*)\s*</td>\s*'
+        rf'<td class="fieldvalue">\s*\((\d+)\)\s*</td>'
+    )
+    match = re.search(pattern, html, flags=re.IGNORECASE | re.DOTALL)
+    return parse_currency(match.group(1)) if match else 0
+
+
+def event_financial_rule(event_date, event_financials, default_entry_amount):
+    events = event_financials.get("events", {}) if isinstance(event_financials, dict) else {}
+    override = events.get(event_date, {})
+    entry_amount = parse_currency(override.get("entryAmount", default_entry_amount))
+    bounty = override.get("bounty") or {}
+    bounty_amount = parse_currency(bounty.get("amount", 0))
+
+    if entry_amount <= 0:
+        raise RuntimeError(f"{event_date}: entry amount must be greater than zero")
+    if bounty_amount < 0:
+        raise RuntimeError(f"{event_date}: bounty amount cannot be negative")
+    if bounty_amount and bounty.get("firstEntryOnly") is not True:
+        raise RuntimeError(f"{event_date}: bounty must be limited to the first entry")
+    if bounty_amount and bounty.get("retainIfUnbusted") is not True:
+        raise RuntimeError(f"{event_date}: unbusted players must retain their original bounty")
+
+    return {
+        "isOverride": bool(override),
+        "entryAmount": entry_amount,
+        "bountyAmount": bounty_amount,
+    }
+
+
+def verify_takein_amounts(html, event_date, entry_amount, counts):
+    expected = Decimal(str(entry_amount))
+    for label, count in counts:
+        if count <= 0:
+            continue
+        total = Decimal(str(extract_takein_total(html, label)))
+        actual = total / Decimal(count)
+        if actual != expected:
+            raise RuntimeError(
+                f"{event_date}: {label.rstrip(':').lower()} are ${actual} each in the raw report, "
+                f"but the financial configuration expects ${expected}"
+            )
 
 
 def extract_total_pot(html):
@@ -443,7 +491,13 @@ def build_empty_player_record(meta_player):
     }
 
 
-def derive_event_player_stats(metadata_players, parsed_actions, payouts, buy_in_amount):
+def derive_event_player_stats(
+    metadata_players,
+    parsed_actions,
+    payouts,
+    buy_in_amount,
+    bounty_amount=0,
+):
     player_map = {p["slug"]: build_empty_player_record(p) for p in metadata_players}
 
     for action in parsed_actions:
@@ -498,10 +552,64 @@ def derive_event_player_stats(metadata_players, parsed_actions, payouts, buy_in_
         if bubble_slug in player_map:
             player_map[bubble_slug]["bubbles"] = 1
 
+    if bounty_amount:
+        eligible_slugs = {
+            slug for slug, record in player_map.items()
+            if int(record.get("buyIns", 0)) > 0
+        }
+        first_entry_busts = set()
+
+        for record in player_map.values():
+            record.update({
+                "bountiesWon": 0,
+                "bountyPaid": bounty_amount if record["slug"] in eligible_slugs else 0,
+                "bountyCollected": 0,
+                "bountyRetained": 0,
+                "bountyWinnings": 0,
+                "bountyNet": 0,
+            })
+
+        for action in parsed_actions:
+            victim_slug = action.get("slug")
+            if (
+                action.get("type") not in {"bustout", "bustout_uncredited"}
+                or victim_slug not in eligible_slugs
+                or victim_slug in first_entry_busts
+            ):
+                continue
+
+            killer_slug = action.get("bySlug")
+            if action.get("type") != "bustout" or killer_slug not in player_map:
+                raise RuntimeError(
+                    f"First-entry bounty for {victim_slug} cannot be assigned: "
+                    f"the {action.get('time_raw', 'unknown-time')} bustout has no credited player"
+                )
+            if killer_slug == victim_slug:
+                raise RuntimeError(f"First-entry bounty for {victim_slug} cannot be self-awarded")
+
+            first_entry_busts.add(victim_slug)
+            player_map[killer_slug]["bountiesWon"] += 1
+            player_map[killer_slug]["bountyCollected"] += bounty_amount
+
+        for slug in eligible_slugs - first_entry_busts:
+            player_map[slug]["bountyRetained"] = bounty_amount
+
+        for record in player_map.values():
+            record["bountyWinnings"] = (
+                record["bountyCollected"] + record["bountyRetained"]
+            )
+            record["bountyNet"] = record["bountyWinnings"] - record["bountyPaid"]
+
     return player_map, paid_slugs, permanent_out_noncashers
 
 
-def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
+def parse_report_file(
+    path: Path,
+    alias_map,
+    metadata_players,
+    buy_in_amount,
+    event_financials=None,
+):
     html = path.read_text(encoding="utf-8", errors="ignore")
 
     title = extract_title(html)
@@ -535,6 +643,20 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
         else:
             event_date = path.stem
 
+    financial_rule = event_financial_rule(
+        event_date,
+        event_financials or {},
+        buy_in_amount,
+    )
+    event_entry_amount = financial_rule["entryAmount"]
+    bounty_amount = financial_rule["bountyAmount"]
+    verify_takein_amounts(
+        html,
+        event_date,
+        event_entry_amount,
+        (("Buy-ins:", buyins_count), ("Rebuys:", rebuys_count)),
+    )
+
     shared_killer_warnings = []
     for action in parsed_actions:
         if action.get("type") == "bustout" and action.get("sharedKillerSource"):
@@ -548,7 +670,8 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
         metadata_players=metadata_players,
         parsed_actions=parsed_actions,
         payouts=payouts,
-        buy_in_amount=buy_in_amount
+        buy_in_amount=event_entry_amount,
+        bounty_amount=bounty_amount,
     )
 
     warnings = []
@@ -564,25 +687,38 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
     if len(payouts) != paid_spots:
         warnings.append(f"{event_date}: paid spots mismatch: summary={paid_spots}, payouts={len(payouts)}")
 
+    summary = {
+        "startTimeRaw": summary_start,
+        "startTimeIso": iso_start,
+        "endTimeRaw": summary_end,
+        "endTimeIso": parse_datetime_from_summary(summary_end),
+        "firstOut": first_out,
+        "firstPermanentOut": first_perm_out,
+        "winner": winner_text,
+        "buyIns": buyins_count,
+        "rebuys": rebuys_count,
+        "entries": entries_count,
+        "totalPot": total_pot,
+        "paidSpots": paid_spots
+    }
+    if financial_rule["isOverride"]:
+        summary["entryAmount"] = event_entry_amount
+    if bounty_amount:
+        summary["bounty"] = {
+            "amount": bounty_amount,
+            "pool": sum(record["bountyPaid"] for record in player_stats.values()),
+            "collected": sum(record["bountyCollected"] for record in player_stats.values()),
+            "retained": sum(record["bountyRetained"] for record in player_stats.values()),
+            "firstEntryOnly": True,
+            "retainIfUnbusted": True,
+        }
+
     event = {
         "eventId": event_date,
         "sourceFile": path.name,
         "title": title,
         "date": event_date,
-        "summary": {
-            "startTimeRaw": summary_start,
-            "startTimeIso": iso_start,
-            "endTimeRaw": summary_end,
-            "endTimeIso": parse_datetime_from_summary(summary_end),
-            "firstOut": first_out,
-            "firstPermanentOut": first_perm_out,
-            "winner": winner_text,
-            "buyIns": buyins_count,
-            "rebuys": rebuys_count,
-            "entries": entries_count,
-            "totalPot": total_pot,
-            "paidSpots": paid_spots
-        },
+        "summary": summary,
         "winners": [
             {
                 "name": p["player"],
@@ -603,6 +739,7 @@ def parse_report_file(path: Path, alias_map, metadata_players, buy_in_amount):
 def main():
     metadata = load_json(METADATA_PATH)
     config = load_json(CONFIG_PATH)
+    event_financials = load_json(EVENT_FINANCIALS_PATH)
 
     metadata_players = metadata["players"]
     alias_map = build_alias_map(metadata_players)
@@ -623,7 +760,8 @@ def main():
             path=html_file,
             alias_map=alias_map,
             metadata_players=metadata_players,
-            buy_in_amount=buy_in_amount
+            buy_in_amount=buy_in_amount,
+            event_financials=event_financials,
         )
 
         out_name = f"{event['eventId']}.json"

@@ -36,10 +36,12 @@ class EventCurrencyTests(unittest.TestCase):
     def setUp(self):
         self.metadata = parser.load_json(parser.METADATA_PATH)["players"]
         self.config = parser.load_json(parser.CONFIG_PATH)
+        self.event_financials = parser.load_json(parser.EVENT_FINANCIALS_PATH)
         self.event = parser.parse_report_file(
             parser.RAW_EVENTS_DIR / "Event Report 2026-10-09.html",
             parser.build_alias_map(self.metadata), self.metadata,
             self.config["buy_in_amount"],
+            self.event_financials,
         )
 
     def audit_event(self, event):
@@ -47,7 +49,13 @@ class EventCurrencyTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "2026-10-09.json"
             path.write_text(json.dumps(event))
-            integrity.audit_events(audit, [path], self.metadata, self.config)
+            integrity.audit_events(
+                audit,
+                [path],
+                self.metadata,
+                self.config,
+                self.event_financials,
+            )
         return audit.failures
 
     def test_currency_keeps_cents_and_whole_dollar_compatibility(self):
@@ -85,6 +93,7 @@ class EventCurrencyTests(unittest.TestCase):
             event = parser.parse_report_file(
                 fixture, parser.build_alias_map(self.metadata), self.metadata,
                 self.config["buy_in_amount"],
+                self.event_financials,
             )
         winners = {row["slug"]: row["payout"] for row in event["winners"]}
         self.assertEqual(winners, {"ahmed": 132.5, "hiro": 132.5, "alex-c": 65})
@@ -100,6 +109,68 @@ class EventCurrencyTests(unittest.TestCase):
         failures = self.audit_event(event)
         self.assertTrue(any("event is not zero-sum" in error for error in failures))
         self.assertTrue(any("hiro: profit mismatch" in error for error in failures))
+
+    def test_first_entry_bounties_are_zero_sum_and_do_not_change_profit(self):
+        bounty_config = {
+            "version": 1,
+            "events": {
+                "2026-10-09": {
+                    "entryAmount": 30,
+                    "bounty": {
+                        "amount": 10,
+                        "firstEntryOnly": True,
+                        "retainIfUnbusted": True,
+                    },
+                }
+            },
+        }
+        event = parser.parse_report_file(
+            parser.RAW_EVENTS_DIR / "Event Report 2026-10-09.html",
+            parser.build_alias_map(self.metadata),
+            self.metadata,
+            self.config["buy_in_amount"],
+            bounty_config,
+        )
+        rows = {row["slug"]: row for row in event["players"]}
+
+        self.assertEqual(event["summary"]["bounty"]["pool"], 70)
+        self.assertEqual(rows["ahmed"]["bountiesWon"], 3)
+        self.assertEqual(rows["ahmed"]["bountyCollected"], 30)
+        self.assertEqual(rows["ahmed"]["bountyRetained"], 10)
+        self.assertEqual(rows["hiro"]["bountyRetained"], 10)
+        self.assertEqual(rows["alex-c"]["bountiesWon"], 1)
+        self.assertEqual(rows["li-fo"]["bountiesWon"], 1)
+        self.assertEqual(sum(row["bountiesWon"] for row in rows.values()), 5)
+        self.assertEqual(sum(row["bountyWinnings"] for row in rows.values()), 70)
+        self.assertEqual(sum(row["bountyNet"] for row in rows.values()), 0)
+        self.assertEqual(sum(row["profit"] for row in rows.values()), 0)
+
+        audit = RecordingAudit()
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "2026-10-09.json"
+            path.write_text(json.dumps(event))
+            integrity.audit_events(
+                audit,
+                [path],
+                self.metadata,
+                self.config,
+                bounty_config,
+            )
+        self.assertEqual(audit.failures, [])
+
+    def test_raw_report_entry_amount_must_match_event_financial_rule(self):
+        mismatched = {
+            "version": 1,
+            "events": {"2026-10-09": {"entryAmount": 40}},
+        }
+        with self.assertRaisesRegex(RuntimeError, "financial configuration expects"):
+            parser.parse_report_file(
+                parser.RAW_EVENTS_DIR / "Event Report 2026-10-09.html",
+                parser.build_alias_map(self.metadata),
+                self.metadata,
+                self.config["buy_in_amount"],
+                mismatched,
+            )
 
 
 if __name__ == "__main__":

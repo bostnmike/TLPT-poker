@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "events": {
+    "2026-10-24": {
+      "entryAmount": 40,
+      "bounty": {
+        "amount": 10,
+        "firstEntryOnly": true,
+        "retainIfUnbusted": true
+      }
+    }
+  }
+}

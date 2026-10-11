@@ -50,6 +50,14 @@ CAREER_LUCK_PROXY_BASELINE = 0.7136533687409953
 FORM_LUCK_PROXY_BASELINE = 0.6785963274198568
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
+BOUNTY_KEYS = (
+    "bountiesWon",
+    "bountyPaid",
+    "bountyCollected",
+    "bountyRetained",
+    "bountyWinnings",
+    "bountyNet",
+)
 
 
 def hall_minimum_appearances(event_count):
@@ -233,6 +241,7 @@ def build_zero_player(meta):
         "hitRate": 0.0,
         "totalCost": 0,
         "totalWinnings": 0,
+        **{key: 0 for key in BOUNTY_KEYS},
         "expectedProfit": 0.0,
         "luckIndex": 0.0,
         "clutchIndex": 0.0,
@@ -474,7 +483,8 @@ def aggregate_card_form_window(player_meta, event_rows):
         row = item["row"]
         for key in [
             "entries", "buyIns", "rebuys", "hits", "timesPlaced",
-            "bubbles", "profit", "totalCost", "totalWinnings"
+            "bubbles", "profit", "totalCost", "totalWinnings",
+            *BOUNTY_KEYS,
         ]:
             metrics[key] += row.get(key, 0) or 0
 
@@ -495,6 +505,10 @@ def aggregate_card_form_window(player_meta, event_rows):
                 "profit": item["row"].get("profit", 0) or 0,
                 "totalCost": item["row"].get("totalCost", 0) or 0,
                 "totalWinnings": item["row"].get("totalWinnings", 0) or 0,
+                **{
+                    key: item["row"].get(key, 0) or 0
+                    for key in BOUNTY_KEYS
+                },
             }
             for item in event_rows
         ]
@@ -1201,7 +1215,7 @@ def main():
             for key in [
                 "entries", "buyIns", "rebuys", "hits",
                 "timesPlaced", "bubbles", "profit",
-                "totalCost", "totalWinnings"
+                "totalCost", "totalWinnings", *BOUNTY_KEYS,
             ]:
                 p[key] += ep.get(key, 0)
 

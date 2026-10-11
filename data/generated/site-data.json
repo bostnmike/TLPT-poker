@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T11:54:28.628424Z",
+  "generatedAt": "2026-10-11T13:09:08.165976Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -244,6 +244,12 @@
       "hitRate": 0.7428571428571429,
       "totalCost": 1050,
       "totalWinnings": 770,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -277.8,
       "luckIndex": -2.2,
       "clutchIndex": 25.925925925925924,
@@ -285,6 +291,12 @@
             "hitRate": 0.42857142857142855,
             "totalCost": 210,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -143.3,
             "luckIndex": -66.7,
             "clutchIndex": 0.0,
@@ -312,7 +324,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-27",
@@ -324,7 +342,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -336,7 +360,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -348,7 +378,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -360,7 +396,13 @@
               "bubbles": 1,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -386,6 +428,12 @@
             "hitRate": 0.625,
             "totalCost": 240,
             "totalWinnings": 145,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 3.8,
             "luckIndex": -98.8,
             "clutchIndex": 40.0,
@@ -413,7 +461,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-24",
@@ -425,7 +479,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-02",
@@ -437,7 +497,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-30",
@@ -449,7 +515,13 @@
               "bubbles": 0,
               "profit": -10,
               "totalCost": 90,
-              "totalWinnings": 80
+              "totalWinnings": 80,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-05",
@@ -461,7 +533,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -655,6 +733,12 @@
       "hitRate": 1.0888888888888888,
       "totalCost": 1350,
       "totalWinnings": 1790,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -46.7,
       "luckIndex": 486.7,
       "clutchIndex": 43.58974358974359,
@@ -696,6 +780,12 @@
             "hitRate": 1.5,
             "totalCost": 180,
             "totalWinnings": 235,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 81.6,
             "luckIndex": -26.6,
             "clutchIndex": 40.0,
@@ -723,7 +813,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -735,7 +831,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -747,7 +849,13 @@
               "bubbles": 0,
               "profit": 40,
               "totalCost": 60,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -759,7 +867,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -771,7 +885,13 @@
               "bubbles": 0,
               "profit": 105,
               "totalCost": 30,
-              "totalWinnings": 135
+              "totalWinnings": 135,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -797,6 +917,12 @@
             "hitRate": 0.8333333333333334,
             "totalCost": 180,
             "totalWinnings": 315,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 93.6,
             "luckIndex": 41.4,
             "clutchIndex": 80.0,
@@ -824,7 +950,13 @@
               "bubbles": 0,
               "profit": 0,
               "totalCost": 60,
-              "totalWinnings": 60
+              "totalWinnings": 60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -836,7 +968,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-16",
@@ -848,7 +986,13 @@
               "bubbles": 0,
               "profit": 60,
               "totalCost": 30,
-              "totalWinnings": 90
+              "totalWinnings": 90,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -860,7 +1004,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-22",
@@ -872,7 +1022,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -1178,6 +1334,12 @@
       "hitRate": 3.0,
       "totalCost": 60,
       "totalWinnings": 275,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 90.0,
       "luckIndex": 125.0,
       "clutchIndex": 100.0,
@@ -1219,6 +1381,12 @@
             "hitRate": 3.0,
             "totalCost": 60,
             "totalWinnings": 275,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 90.0,
             "luckIndex": 125.0,
             "clutchIndex": 100.0,
@@ -1246,7 +1414,13 @@
               "bubbles": 0,
               "profit": 180,
               "totalCost": 30,
-              "totalWinnings": 210
+              "totalWinnings": 210,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -1258,7 +1432,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -1284,6 +1464,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -1374,6 +1560,12 @@
       "hitRate": 1.0,
       "totalCost": 30,
       "totalWinnings": 85,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 21.5,
       "luckIndex": 33.5,
       "clutchIndex": 100.0,
@@ -1415,6 +1607,12 @@
             "hitRate": 1.0,
             "totalCost": 30,
             "totalWinnings": 85,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 24.1,
             "luckIndex": 30.9,
             "clutchIndex": 100.0,
@@ -1442,7 +1640,13 @@
               "bubbles": 0,
               "profit": 55,
               "totalCost": 30,
-              "totalWinnings": 85
+              "totalWinnings": 85,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -1468,6 +1672,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -1501,6 +1711,12 @@
       "hitRate": 1.0,
       "totalCost": 120,
       "totalWinnings": 65,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 5.9,
       "luckIndex": -60.9,
       "clutchIndex": 33.33333333333333,
@@ -1542,6 +1758,12 @@
             "hitRate": 1.0,
             "totalCost": 120,
             "totalWinnings": 65,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 16.4,
             "luckIndex": -71.4,
             "clutchIndex": 33.33333333333333,
@@ -1569,7 +1791,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-11-01",
@@ -1581,7 +1809,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-13",
@@ -1593,7 +1827,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -1619,6 +1859,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -1652,6 +1898,12 @@
       "hitRate": 0.9701492537313433,
       "totalCost": 2010,
       "totalWinnings": 3065,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 106.1,
       "luckIndex": 948.9,
       "clutchIndex": 51.85185185185185,
@@ -1693,6 +1945,12 @@
             "hitRate": 0.42857142857142855,
             "totalCost": 210,
             "totalWinnings": 85,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -157.5,
             "luckIndex": 32.5,
             "clutchIndex": 20.0,
@@ -1720,7 +1978,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -1732,7 +1996,13 @@
               "bubbles": 0,
               "profit": 55,
               "totalCost": 30,
-              "totalWinnings": 85
+              "totalWinnings": 85,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -1744,7 +2014,13 @@
               "bubbles": 1,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -1756,7 +2032,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -1768,7 +2050,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -1794,6 +2082,12 @@
             "hitRate": 0.42857142857142855,
             "totalCost": 210,
             "totalWinnings": 370,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 66.7,
             "luckIndex": 93.3,
             "clutchIndex": 80.0,
@@ -1821,7 +2115,13 @@
               "bubbles": 0,
               "profit": 30,
               "totalCost": 90,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -1833,7 +2133,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-16",
@@ -1845,7 +2151,13 @@
               "bubbles": 0,
               "profit": 60,
               "totalCost": 30,
-              "totalWinnings": 90
+              "totalWinnings": 90,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -1857,7 +2169,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-22",
@@ -1869,7 +2187,13 @@
               "bubbles": 0,
               "profit": 30,
               "totalCost": 30,
-              "totalWinnings": 60
+              "totalWinnings": 60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -2450,6 +2774,12 @@
       "hitRate": 0.25,
       "totalCost": 120,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -79.1,
       "luckIndex": -40.9,
       "clutchIndex": 0.0,
@@ -2491,6 +2821,12 @@
             "hitRate": 0.25,
             "totalCost": 120,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -68.6,
             "luckIndex": -51.4,
             "clutchIndex": 0.0,
@@ -2518,7 +2854,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-06-21",
@@ -2530,7 +2872,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -2556,6 +2904,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -2589,6 +2943,12 @@
       "hitRate": 2.5,
       "totalCost": 60,
       "totalWinnings": 165,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 88.0,
       "luckIndex": 17.0,
       "clutchIndex": 100.0,
@@ -2630,6 +2990,12 @@
             "hitRate": 2.5,
             "totalCost": 60,
             "totalWinnings": 165,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 90.0,
             "luckIndex": 15.0,
             "clutchIndex": 100.0,
@@ -2657,7 +3023,13 @@
               "bubbles": 0,
               "profit": 105,
               "totalCost": 60,
-              "totalWinnings": 165
+              "totalWinnings": 165,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -2683,6 +3055,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -2716,6 +3094,12 @@
       "hitRate": 2.0,
       "totalCost": 90,
       "totalWinnings": 320,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 109.4,
       "luckIndex": 120.6,
       "clutchIndex": 100.0,
@@ -2757,6 +3141,12 @@
             "hitRate": 2.0,
             "totalCost": 90,
             "totalWinnings": 320,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 117.3,
             "luckIndex": 112.7,
             "clutchIndex": 100.0,
@@ -2784,7 +3174,13 @@
               "bubbles": 0,
               "profit": 135,
               "totalCost": 30,
-              "totalWinnings": 165
+              "totalWinnings": 165,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -2796,7 +3192,13 @@
               "bubbles": 0,
               "profit": 95,
               "totalCost": 60,
-              "totalWinnings": 155
+              "totalWinnings": 155,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -2822,6 +3224,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -2912,6 +3320,12 @@
       "hitRate": 1.0526315789473684,
       "totalCost": 570,
       "totalWinnings": 865,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 60.3,
       "luckIndex": 234.7,
       "clutchIndex": 45.45454545454545,
@@ -2953,6 +3367,12 @@
             "hitRate": 1.0,
             "totalCost": 180,
             "totalWinnings": 375,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 36.6,
             "luckIndex": 158.4,
             "clutchIndex": 40.0,
@@ -2980,7 +3400,13 @@
               "bubbles": 0,
               "profit": 180,
               "totalCost": 30,
-              "totalWinnings": 210
+              "totalWinnings": 210,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-20",
@@ -2992,7 +3418,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-04",
@@ -3004,7 +3436,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -3016,7 +3454,13 @@
               "bubbles": 0,
               "profit": 135,
               "totalCost": 30,
-              "totalWinnings": 165
+              "totalWinnings": 165,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -3028,7 +3472,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -3054,6 +3504,12 @@
             "hitRate": 1.4,
             "totalCost": 300,
             "totalWinnings": 490,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 121.1,
             "luckIndex": 68.9,
             "clutchIndex": 60.0,
@@ -3081,7 +3537,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-13",
@@ -3093,7 +3555,13 @@
               "bubbles": 0,
               "profit": 180,
               "totalCost": 30,
-              "totalWinnings": 210
+              "totalWinnings": 210,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-21",
@@ -3105,7 +3573,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-27",
@@ -3117,7 +3591,13 @@
               "bubbles": 0,
               "profit": 90,
               "totalCost": 90,
-              "totalWinnings": 180
+              "totalWinnings": 180,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-03",
@@ -3129,7 +3609,13 @@
               "bubbles": 1,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -3325,6 +3811,12 @@
       "hitRate": 0.7692307692307693,
       "totalCost": 780,
       "totalWinnings": 1225,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 7.5,
       "luckIndex": 437.5,
       "clutchIndex": 45.45454545454545,
@@ -3366,6 +3858,12 @@
             "hitRate": 1.1428571428571428,
             "totalCost": 210,
             "totalWinnings": 350,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 57.7,
             "luckIndex": 82.3,
             "clutchIndex": 60.0,
@@ -3393,7 +3891,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-22",
@@ -3405,7 +3909,13 @@
               "bubbles": 0,
               "profit": 60,
               "totalCost": 60,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-29",
@@ -3417,7 +3927,13 @@
               "bubbles": 0,
               "profit": 45,
               "totalCost": 30,
-              "totalWinnings": 75
+              "totalWinnings": 75,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -3429,7 +3945,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -3441,7 +3963,13 @@
               "bubbles": 0,
               "profit": 125,
               "totalCost": 30,
-              "totalWinnings": 155
+              "totalWinnings": 155,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -3467,6 +3995,12 @@
             "hitRate": 0.5,
             "totalCost": 180,
             "totalWinnings": 335,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -8.4,
             "luckIndex": 163.4,
             "clutchIndex": 40.0,
@@ -3494,7 +4028,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-14",
@@ -3506,7 +4046,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-30",
@@ -3518,7 +4064,13 @@
               "bubbles": 0,
               "profit": 125,
               "totalCost": 30,
-              "totalWinnings": 155
+              "totalWinnings": 155,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-27",
@@ -3530,7 +4082,13 @@
               "bubbles": 0,
               "profit": 120,
               "totalCost": 60,
-              "totalWinnings": 180
+              "totalWinnings": 180,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-04",
@@ -3542,7 +4100,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -3736,6 +4300,12 @@
       "hitRate": 1.0,
       "totalCost": 120,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -90.0,
       "luckIndex": -30.0,
       "clutchIndex": 0.0,
@@ -3777,6 +4347,12 @@
             "hitRate": 1.0,
             "totalCost": 120,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -83.6,
             "luckIndex": -36.4,
             "clutchIndex": 0.0,
@@ -3804,7 +4380,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-06-21",
@@ -3816,7 +4398,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-07",
@@ -3828,7 +4416,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-16",
@@ -3840,7 +4434,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -3866,6 +4466,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -3899,6 +4505,12 @@
       "hitRate": 0.0,
       "totalCost": 30,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -22.5,
       "luckIndex": -7.5,
       "clutchIndex": 0.0,
@@ -3940,6 +4552,12 @@
             "hitRate": 0.0,
             "totalCost": 30,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -20.9,
             "luckIndex": -9.1,
             "clutchIndex": 0.0,
@@ -3967,7 +4585,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -3993,6 +4617,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -4026,6 +4656,12 @@
       "hitRate": 0.0,
       "totalCost": 30,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -22.5,
       "luckIndex": -7.5,
       "clutchIndex": 0.0,
@@ -4067,6 +4703,12 @@
             "hitRate": 0.0,
             "totalCost": 30,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -20.9,
             "luckIndex": -9.1,
             "clutchIndex": 0.0,
@@ -4094,7 +4736,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -4120,6 +4768,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -4153,6 +4807,12 @@
       "hitRate": 1.0,
       "totalCost": 60,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -17.0,
       "luckIndex": -43.0,
       "clutchIndex": 0.0,
@@ -4194,6 +4854,12 @@
             "hitRate": 1.0,
             "totalCost": 60,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -11.8,
             "luckIndex": -48.2,
             "clutchIndex": 0.0,
@@ -4221,7 +4887,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-13",
@@ -4233,7 +4905,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -4259,6 +4937,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -4292,6 +4976,12 @@
       "hitRate": 1.8,
       "totalCost": 150,
       "totalWinnings": 365,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 167.4,
       "luckIndex": 47.6,
       "clutchIndex": 100.0,
@@ -4333,6 +5023,12 @@
             "hitRate": 1.8,
             "totalCost": 150,
             "totalWinnings": 365,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 180.5,
             "luckIndex": 34.5,
             "clutchIndex": 100.0,
@@ -4360,7 +5056,13 @@
               "bubbles": 0,
               "profit": 80,
               "totalCost": 60,
-              "totalWinnings": 140
+              "totalWinnings": 140,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-23",
@@ -4372,7 +5074,13 @@
               "bubbles": 0,
               "profit": 135,
               "totalCost": 90,
-              "totalWinnings": 225
+              "totalWinnings": 225,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -4398,6 +5106,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -4488,6 +5202,12 @@
       "hitRate": 0.6666666666666666,
       "totalCost": 90,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -67.5,
       "luckIndex": -22.5,
       "clutchIndex": 0.0,
@@ -4529,6 +5249,12 @@
             "hitRate": 0.6666666666666666,
             "totalCost": 90,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -67.5,
             "luckIndex": -22.5,
             "clutchIndex": 0.0,
@@ -4556,7 +5282,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-30",
@@ -4568,7 +5300,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -4594,6 +5332,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -4627,6 +5371,12 @@
       "hitRate": 0.5657894736842105,
       "totalCost": 2280,
       "totalWinnings": 1530,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -754.7,
       "luckIndex": 4.7,
       "clutchIndex": 29.78723404255319,
@@ -4668,6 +5418,12 @@
             "hitRate": 0.4444444444444444,
             "totalCost": 270,
             "totalWinnings": 130,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -128.1,
             "luckIndex": -11.9,
             "clutchIndex": 20.0,
@@ -4695,7 +5451,13 @@
               "bubbles": 1,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-29",
@@ -4707,7 +5469,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -4719,7 +5487,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -4731,7 +5505,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -4743,7 +5523,13 @@
               "bubbles": 0,
               "profit": 100,
               "totalCost": 30,
-              "totalWinnings": 130
+              "totalWinnings": 130,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -4769,6 +5555,12 @@
             "hitRate": 0.0,
             "totalCost": 240,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -167.2,
             "luckIndex": -72.8,
             "clutchIndex": 0.0,
@@ -4796,7 +5588,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-26",
@@ -4808,7 +5606,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -4820,7 +5624,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-16",
@@ -4832,7 +5642,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -4844,7 +5660,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -5423,6 +6245,12 @@
       "hitRate": 0.25,
       "totalCost": 360,
       "totalWinnings": 70,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -237.3,
       "luckIndex": -52.7,
       "clutchIndex": 12.5,
@@ -5464,6 +6292,12 @@
             "hitRate": 0.42857142857142855,
             "totalCost": 210,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -143.3,
             "luckIndex": -66.7,
             "clutchIndex": 0.0,
@@ -5491,7 +6325,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-11-30",
@@ -5503,7 +6343,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-21",
@@ -5515,7 +6361,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-02-13",
@@ -5527,7 +6379,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-23",
@@ -5539,7 +6397,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -5565,6 +6429,12 @@
             "hitRate": 0.0,
             "totalCost": 150,
             "totalWinnings": 70,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -54.5,
             "luckIndex": -25.5,
             "clutchIndex": 33.33333333333333,
@@ -5592,7 +6462,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-06-14",
@@ -5604,7 +6480,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-06-21",
@@ -5616,7 +6498,13 @@
               "bubbles": 0,
               "profit": 40,
               "totalCost": 30,
-              "totalWinnings": 70
+              "totalWinnings": 70,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -5643,6 +6531,12 @@
       "hitRate": 0.8,
       "totalCost": 150,
       "totalWinnings": 120,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -20.1,
       "luckIndex": -9.9,
       "clutchIndex": 50.0,
@@ -5684,6 +6578,12 @@
             "hitRate": 0.8,
             "totalCost": 150,
             "totalWinnings": 120,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -7.0,
             "luckIndex": -23.0,
             "clutchIndex": 50.0,
@@ -5711,7 +6611,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-04",
@@ -5723,7 +6629,13 @@
               "bubbles": 0,
               "profit": 25,
               "totalCost": 30,
-              "totalWinnings": 55
+              "totalWinnings": 55,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-16",
@@ -5735,7 +6647,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -5747,7 +6665,13 @@
               "bubbles": 1,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -5773,6 +6697,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -5863,6 +6793,12 @@
       "hitRate": 0.8461538461538461,
       "totalCost": 1950,
       "totalWinnings": 2305,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 124.7,
       "luckIndex": 230.3,
       "clutchIndex": 55.00000000000001,
@@ -5904,6 +6840,12 @@
             "hitRate": 0.8888888888888888,
             "totalCost": 270,
             "totalWinnings": 220,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 93.9,
             "luckIndex": -143.9,
             "clutchIndex": 60.0,
@@ -5931,7 +6873,13 @@
               "bubbles": 0,
               "profit": 15,
               "totalCost": 60,
-              "totalWinnings": 75
+              "totalWinnings": 75,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -5943,7 +6891,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -5955,7 +6909,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -5967,7 +6927,13 @@
               "bubbles": 0,
               "profit": -10,
               "totalCost": 90,
-              "totalWinnings": 80
+              "totalWinnings": 80,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-09",
@@ -5979,7 +6945,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -6005,6 +6977,12 @@
             "hitRate": 1.5,
             "totalCost": 180,
             "totalWinnings": 65,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 9.6,
             "luckIndex": -124.6,
             "clutchIndex": 20.0,
@@ -6032,7 +7010,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 30,
-              "totalWinnings": 65
+              "totalWinnings": 65,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-01",
@@ -6044,7 +7028,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -6056,7 +7046,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -6068,7 +7064,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-22",
@@ -6080,7 +7082,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -6661,6 +7669,12 @@
       "hitRate": 0.0,
       "totalCost": 60,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -45.0,
       "luckIndex": -15.0,
       "clutchIndex": 0.0,
@@ -6702,6 +7716,12 @@
             "hitRate": 0.0,
             "totalCost": 60,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -41.8,
             "luckIndex": -18.2,
             "clutchIndex": 0.0,
@@ -6729,7 +7749,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -6755,6 +7781,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -6788,6 +7820,12 @@
       "hitRate": 1.0357142857142858,
       "totalCost": 840,
       "totalWinnings": 1005,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 130.0,
       "luckIndex": 35.0,
       "clutchIndex": 52.63157894736842,
@@ -6829,6 +7867,12 @@
             "hitRate": 0.625,
             "totalCost": 240,
             "totalWinnings": 220,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 3.8,
             "luckIndex": -23.8,
             "clutchIndex": 40.0,
@@ -6856,7 +7900,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-22",
@@ -6868,7 +7918,13 @@
               "bubbles": 0,
               "profit": 60,
               "totalCost": 60,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-29",
@@ -6880,7 +7936,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -6892,7 +7954,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -6904,7 +7972,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -6930,6 +8004,12 @@
             "hitRate": 1.0,
             "totalCost": 270,
             "totalWinnings": 30,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -107.1,
             "luckIndex": -132.9,
             "clutchIndex": 20.0,
@@ -6957,7 +8037,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-23",
@@ -6969,7 +8055,13 @@
               "bubbles": 1,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-26",
@@ -6981,7 +8073,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -6993,7 +8091,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-16",
@@ -7005,7 +8109,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 60,
-              "totalWinnings": 30
+              "totalWinnings": 30,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -7476,6 +8586,12 @@
       "hitRate": 0.3125,
       "totalCost": 480,
       "totalWinnings": 120,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -360.0,
       "luckIndex": 0.0,
       "clutchIndex": 8.333333333333332,
@@ -7517,6 +8633,12 @@
             "hitRate": 0.0,
             "totalCost": 150,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -112.5,
             "luckIndex": -37.5,
             "clutchIndex": 0.0,
@@ -7544,7 +8666,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-13",
@@ -7556,7 +8684,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-27",
@@ -7568,7 +8702,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-24",
@@ -7580,7 +8720,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -7592,7 +8738,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -7618,6 +8770,12 @@
             "hitRate": 0.625,
             "totalCost": 240,
             "totalWinnings": 120,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -92.2,
             "luckIndex": -27.8,
             "clutchIndex": 20.0,
@@ -7645,7 +8803,13 @@
               "bubbles": 0,
               "profit": 90,
               "totalCost": 30,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-17",
@@ -7657,7 +8821,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-24",
@@ -7669,7 +8839,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-30",
@@ -7681,7 +8857,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-02-07",
@@ -7693,7 +8875,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -7776,6 +8964,12 @@
       "hitRate": 1.0,
       "totalCost": 30,
       "totalWinnings": 100,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 21.5,
       "luckIndex": 48.5,
       "clutchIndex": 100.0,
@@ -7817,6 +9011,12 @@
             "hitRate": 1.0,
             "totalCost": 30,
             "totalWinnings": 100,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 24.1,
             "luckIndex": 45.9,
             "clutchIndex": 100.0,
@@ -7844,7 +9044,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -7870,6 +9076,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -7903,6 +9115,12 @@
       "hitRate": 0.42857142857142855,
       "totalCost": 420,
       "totalWinnings": 185,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -192.7,
       "luckIndex": -42.3,
       "clutchIndex": 22.22222222222222,
@@ -7944,6 +9162,12 @@
             "hitRate": 0.3,
             "totalCost": 300,
             "totalWinnings": 100,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -163.9,
             "luckIndex": -36.1,
             "clutchIndex": 20.0,
@@ -7971,7 +9195,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-05",
@@ -7983,7 +9213,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-13",
@@ -7995,7 +9231,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-07",
@@ -8007,7 +9249,13 @@
               "bubbles": 0,
               "profit": 40,
               "totalCost": 60,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -8019,7 +9267,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -8045,6 +9299,12 @@
             "hitRate": 0.75,
             "totalCost": 120,
             "totalWinnings": 85,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -8.6,
             "luckIndex": -26.4,
             "clutchIndex": 25.0,
@@ -8072,7 +9332,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-13",
@@ -8084,7 +9350,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-18",
@@ -8096,7 +9368,13 @@
               "bubbles": 0,
               "profit": 55,
               "totalCost": 30,
-              "totalWinnings": 85
+              "totalWinnings": 85,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-01",
@@ -8108,7 +9386,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -8135,6 +9419,12 @@
       "hitRate": 0.0,
       "totalCost": 60,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -45.0,
       "luckIndex": -15.0,
       "clutchIndex": 0.0,
@@ -8176,6 +9466,12 @@
             "hitRate": 0.0,
             "totalCost": 60,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -41.8,
             "luckIndex": -18.2,
             "clutchIndex": 0.0,
@@ -8203,7 +9499,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -8229,6 +9531,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -8262,6 +9570,12 @@
       "hitRate": 0.74,
       "totalCost": 1500,
       "totalWinnings": 1295,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -105.6,
       "luckIndex": -99.4,
       "clutchIndex": 34.375,
@@ -8303,6 +9617,12 @@
             "hitRate": 0.8571428571428571,
             "totalCost": 210,
             "totalWinnings": 150,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -14.3,
             "luckIndex": -45.7,
             "clutchIndex": 20.0,
@@ -8330,7 +9650,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-21",
@@ -8342,7 +9668,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-29",
@@ -8354,7 +9686,13 @@
               "bubbles": 0,
               "profit": 120,
               "totalCost": 30,
-              "totalWinnings": 150
+              "totalWinnings": 150,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-05",
@@ -8366,7 +9704,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-10-03",
@@ -8378,7 +9722,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -8404,6 +9754,12 @@
             "hitRate": 0.625,
             "totalCost": 240,
             "totalWinnings": 230,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 3.8,
             "luckIndex": -13.8,
             "clutchIndex": 40.0,
@@ -8431,7 +9787,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-13",
@@ -8443,7 +9805,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-20",
@@ -8455,7 +9823,13 @@
               "bubbles": 0,
               "profit": -120,
               "totalCost": 120,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-27",
@@ -8467,7 +9841,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-26",
@@ -8479,7 +9859,13 @@
               "bubbles": 0,
               "profit": 100,
               "totalCost": 30,
-              "totalWinnings": 130
+              "totalWinnings": 130,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -8675,6 +10061,12 @@
       "hitRate": 1.0277777777777777,
       "totalCost": 1080,
       "totalWinnings": 940,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 32.1,
       "luckIndex": -172.1,
       "clutchIndex": 35.0,
@@ -8716,6 +10108,12 @@
             "hitRate": 0.5555555555555556,
             "totalCost": 270,
             "totalWinnings": 125,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -113.1,
             "luckIndex": -31.9,
             "clutchIndex": 20.0,
@@ -8743,7 +10141,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-30",
@@ -8755,7 +10159,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-13",
@@ -8767,7 +10177,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-26",
@@ -8779,7 +10195,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-09-04",
@@ -8791,7 +10213,13 @@
               "bubbles": 0,
               "profit": 35,
               "totalCost": 90,
-              "totalWinnings": 125
+              "totalWinnings": 125,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -8817,6 +10245,12 @@
             "hitRate": 1.7,
             "totalCost": 300,
             "totalWinnings": 405,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 226.1,
             "luckIndex": -121.1,
             "clutchIndex": 60.0,
@@ -8844,7 +10278,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-04",
@@ -8856,7 +10296,13 @@
               "bubbles": 0,
               "profit": 75,
               "totalCost": 60,
-              "totalWinnings": 135
+              "totalWinnings": 135,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-17",
@@ -8868,7 +10314,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-18",
@@ -8880,7 +10332,13 @@
               "bubbles": 0,
               "profit": -90,
               "totalCost": 90,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-24",
@@ -8892,7 +10350,13 @@
               "bubbles": 0,
               "profit": 140,
               "totalCost": 30,
-              "totalWinnings": 170
+              "totalWinnings": 170,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -9086,6 +10550,12 @@
       "hitRate": 0.8333333333333334,
       "totalCost": 360,
       "totalWinnings": 345,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -52.3,
       "luckIndex": 37.3,
       "clutchIndex": 44.44444444444444,
@@ -9127,6 +10597,12 @@
             "hitRate": 0.6666666666666666,
             "totalCost": 180,
             "totalWinnings": 175,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -65.4,
             "luckIndex": 60.4,
             "clutchIndex": 40.0,
@@ -9154,7 +10630,13 @@
               "bubbles": 0,
               "profit": 55,
               "totalCost": 30,
-              "totalWinnings": 85
+              "totalWinnings": 85,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-02-27",
@@ -9166,7 +10648,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-02",
@@ -9178,7 +10666,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-09",
@@ -9190,7 +10684,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-27",
@@ -9202,7 +10702,13 @@
               "bubbles": 0,
               "profit": 30,
               "totalCost": 60,
-              "totalWinnings": 90
+              "totalWinnings": 90,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -9228,6 +10734,12 @@
             "hitRate": 1.0,
             "totalCost": 180,
             "totalWinnings": 170,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 54.6,
             "luckIndex": -64.6,
             "clutchIndex": 50.0,
@@ -9255,7 +10767,13 @@
               "bubbles": 0,
               "profit": 70,
               "totalCost": 30,
-              "totalWinnings": 100
+              "totalWinnings": 100,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-13",
@@ -9267,7 +10785,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-21",
@@ -9279,7 +10803,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-12-27",
@@ -9291,7 +10821,13 @@
               "bubbles": 0,
               "profit": 40,
               "totalCost": 30,
-              "totalWinnings": 70
+              "totalWinnings": 70,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -9375,6 +10911,12 @@
       "hitRate": 0.75,
       "totalCost": 120,
       "totalWinnings": 120,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 10.9,
       "luckIndex": -10.9,
       "clutchIndex": 50.0,
@@ -9416,6 +10958,12 @@
             "hitRate": 0.75,
             "totalCost": 120,
             "totalWinnings": 120,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 21.4,
             "luckIndex": -21.4,
             "clutchIndex": 50.0,
@@ -9443,7 +10991,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-01",
@@ -9455,7 +11009,13 @@
               "bubbles": 0,
               "profit": 60,
               "totalCost": 60,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -9481,6 +11041,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -9514,6 +11080,12 @@
       "hitRate": 0.8,
       "totalCost": 150,
       "totalWinnings": 0,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -112.5,
       "luckIndex": -37.5,
       "clutchIndex": 0.0,
@@ -9555,6 +11127,12 @@
             "hitRate": 0.8,
             "totalCost": 150,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -112.5,
             "luckIndex": -37.5,
             "clutchIndex": 0.0,
@@ -9582,7 +11160,13 @@
               "bubbles": 1,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-02-21",
@@ -9594,7 +11178,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-07",
@@ -9606,7 +11196,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -9632,6 +11228,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,
@@ -9665,6 +11267,12 @@
       "hitRate": 0.5,
       "totalCost": 840,
       "totalWinnings": 365,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -392.7,
       "luckIndex": -82.3,
       "clutchIndex": 20.0,
@@ -9706,6 +11314,12 @@
             "hitRate": 0.3333333333333333,
             "totalCost": 270,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -143.1,
             "luckIndex": -126.9,
             "clutchIndex": 0.0,
@@ -9733,7 +11347,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-16",
@@ -9745,7 +11365,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-30",
@@ -9757,7 +11383,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-06-27",
@@ -9769,7 +11401,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-07-26",
@@ -9781,7 +11419,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -9807,6 +11451,12 @@
             "hitRate": 0.5555555555555556,
             "totalCost": 270,
             "totalWinnings": 170,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -59.1,
             "luckIndex": -40.9,
             "clutchIndex": 40.0,
@@ -9834,7 +11484,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-13",
@@ -9846,7 +11502,13 @@
               "bubbles": 0,
               "profit": 50,
               "totalCost": 60,
-              "totalWinnings": 110
+              "totalWinnings": 110,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-03-14",
@@ -9858,7 +11520,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-24",
@@ -9870,7 +11538,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-05-02",
@@ -9882,7 +11556,13 @@
               "bubbles": 0,
               "profit": 0,
               "totalCost": 60,
-              "totalWinnings": 60
+              "totalWinnings": 60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -9965,6 +11645,12 @@
       "hitRate": 0.75,
       "totalCost": 240,
       "totalWinnings": 120,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": -98.2,
       "luckIndex": -21.8,
       "clutchIndex": 14.285714285714285,
@@ -10006,6 +11692,12 @@
             "hitRate": 1.0,
             "totalCost": 150,
             "totalWinnings": 120,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -29.5,
             "luckIndex": -0.5,
             "clutchIndex": 20.0,
@@ -10033,7 +11725,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-11-15",
@@ -10045,7 +11743,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-01-30",
@@ -10057,7 +11761,13 @@
               "bubbles": 0,
               "profit": 90,
               "totalCost": 30,
-              "totalWinnings": 120
+              "totalWinnings": 120,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-04-17",
@@ -10069,7 +11779,13 @@
               "bubbles": 1,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2026-08-01",
@@ -10081,7 +11797,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -10107,6 +11829,12 @@
             "hitRate": 0.3333333333333333,
             "totalCost": 90,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": -47.7,
             "luckIndex": -42.3,
             "clutchIndex": 0.0,
@@ -10134,7 +11862,13 @@
               "bubbles": 0,
               "profit": -60,
               "totalCost": 60,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             },
             {
               "date": "2025-06-14",
@@ -10146,7 +11880,13 @@
               "bubbles": 0,
               "profit": -30,
               "totalCost": 30,
-              "totalWinnings": 0
+              "totalWinnings": 0,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         }
@@ -10173,6 +11913,12 @@
       "hitRate": 6.0,
       "totalCost": 30,
       "totalWinnings": 60,
+      "bountiesWon": 0,
+      "bountyPaid": 0,
+      "bountyCollected": 0,
+      "bountyRetained": 0,
+      "bountyWinnings": 0,
+      "bountyNet": 0,
       "expectedProfit": 45.0,
       "luckIndex": -15.0,
       "clutchIndex": 100.0,
@@ -10214,6 +11960,12 @@
             "hitRate": 6.0,
             "totalCost": 30,
             "totalWinnings": 60,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 45.0,
             "luckIndex": -15.0,
             "clutchIndex": 100.0,
@@ -10241,7 +11993,13 @@
               "bubbles": 0,
               "profit": 30,
               "totalCost": 30,
-              "totalWinnings": 60
+              "totalWinnings": 60,
+              "bountiesWon": 0,
+              "bountyPaid": 0,
+              "bountyCollected": 0,
+              "bountyRetained": 0,
+              "bountyWinnings": 0,
+              "bountyNet": 0
             }
           ]
         },
@@ -10267,6 +12025,12 @@
             "hitRate": 0.0,
             "totalCost": 0,
             "totalWinnings": 0,
+            "bountiesWon": 0,
+            "bountyPaid": 0,
+            "bountyCollected": 0,
+            "bountyRetained": 0,
+            "bountyWinnings": 0,
+            "bountyNet": 0,
             "expectedProfit": 0.0,
             "luckIndex": 0.0,
             "clutchIndex": 0.0,

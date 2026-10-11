@@ -55,9 +55,8 @@ def validate_player(p):
     # -----------------------------
     # Core math checks (STRICT)
     # -----------------------------
-    expected_cost = p.get("entries", 0) * 30
-    if p.get("totalCost", 0) != expected_cost:
-        errors.append(f"totalCost mismatch: {p.get('totalCost')} != {expected_cost}")
+    if not isinstance(p.get("totalCost"), (int, float)) or p.get("totalCost", 0) < 0:
+        errors.append("totalCost must be a nonnegative number")
 
     expected_profit = p.get("totalWinnings", 0) - p.get("totalCost", 0)
     if p.get("profit", 0) != expected_profit:
@@ -78,6 +77,24 @@ def validate_player(p):
     expected_hit = safe_div(p.get("hits", 0), p.get("entries", 0))
     if not approx_equal(p.get("hitRate", 0), expected_hit):
         errors.append("hitRate mismatch")
+
+    bounty_numeric_keys = (
+        "bountiesWon", "bountyPaid", "bountyCollected", "bountyRetained",
+        "bountyWinnings", "bountyNet",
+    )
+    for key in bounty_numeric_keys:
+        if not isinstance(p.get(key), (int, float)):
+            errors.append(f"{key} missing or not numeric")
+
+    if all(isinstance(p.get(key), (int, float)) for key in bounty_numeric_keys):
+        if p["bountiesWon"] < 0 or int(p["bountiesWon"]) != p["bountiesWon"]:
+            errors.append("bountiesWon must be a nonnegative integer")
+        if any(p[key] < 0 for key in ("bountyPaid", "bountyCollected", "bountyRetained", "bountyWinnings")):
+            errors.append("bounty money fields cannot be negative")
+        if p["bountyWinnings"] != p["bountyCollected"] + p["bountyRetained"]:
+            errors.append("bountyWinnings must equal collected plus retained")
+        if p["bountyNet"] != p["bountyWinnings"] - p["bountyPaid"]:
+            errors.append("bountyNet mismatch")
 
     # -----------------------------
     # Advanced metrics (SANITY ONLY)
