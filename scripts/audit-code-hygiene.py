@@ -112,7 +112,7 @@ RSVP_DESKTOP_SEAT_POSITIONS = {
     9: (10, "70%", "84%"),
 }
 ACCESSIBLE_CONTROL_FOCUS_SELECTORS = {
-    "[data-dashboard-sort]:focus-visible",
+    "#dashboard-metric-select:focus-visible",
     "[data-standings-sort]:focus-visible",
     "#format-btn-40k:focus-visible",
     "#format-btn-500k:focus-visible",
@@ -344,16 +344,16 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-1"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-2"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261001-1"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-1"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-5"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-6"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -572,16 +572,6 @@ EXPECTED_APP_SCRIPT_PAGES = {
     "standings.html",
 }
 EXPECTED_PRESSED_BUTTON_GROUPS = {
-    "dashboard.html": (
-        "data-dashboard-sort",
-        {
-            "hits", "bountiesWon", "timesPlaced", "bubbles",
-            "profit", "bountyNet", "roi", "hitRate", "cashRate",
-            "bubbleRate", "trueSkillScore", "luckIndex", "clutchIndex",
-            "aggressionIndex", "survivorIndex", "tiltIndex",
-        },
-        "hits",
-    ),
     "standings.html": (
         "data-standings-sort",
         {
@@ -1325,6 +1315,32 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "Shared app startup failures must log diagnostics and render recovery UI"
             )
+
+        dashboard_selector_source = function_source("syncDashboardSelector")
+        for fragment, message in (
+            (
+                "DASHBOARD_METRICS_BY_CATEGORY[category]",
+                "Dashboard selector must derive its metrics from the active category",
+            ),
+            (
+                "metricSelect.replaceChildren(...metrics.map(metric =>",
+                "Dashboard selector must replace the metric menu when categories change",
+            ),
+            (
+                'metricSelect.setAttribute("aria-label", `${categoryLabel} metric`);',
+                "Dashboard selector must publish the active category in its accessible name",
+            ),
+        ):
+            if fragment not in dashboard_selector_source:
+                errors.append(message)
+
+        dashboard_sorting_source = function_source("initSorting")
+        if not re.search(
+            r'dashboardMetricSelect\?\.addEventListener\("change",\s*\(\)\s*=>\s*\{\s*'
+            r'renderDashboard\(dashboardMetricSelect\.value\s*\|\|\s*DEFAULT_DASHBOARD_SORT\);',
+            dashboard_sorting_source,
+        ):
+            errors.append("Dashboard metric select must rerender the board when changed")
 
         metadata_source = function_source("updatePlayerProfileMetadata")
         for fragment, message in (
@@ -3342,6 +3358,54 @@ def main() -> int:
                 parser.errors.append(
                     "Heater Meter selected-state script cache version is stale"
                 )
+
+        if page.name == "dashboard.html":
+            metric_selects = [
+                record for record in parser.element_records
+                if record["tag"] == "select"
+                and record["attrs"].get("id") == "dashboard-metric-select"
+            ]
+            if len(metric_selects) != 1:
+                parser.errors.append("Dashboard must expose one contextual metric select")
+            else:
+                select_attrs = metric_selects[0]["attrs"]
+                if select_attrs.get("aria-label") != "Results metric":
+                    parser.errors.append("Dashboard metric select must name its default category")
+                if select_attrs.get("aria-controls") != EXPECTED_CONTROLLED_RESULTS[page.name]:
+                    parser.errors.append("Dashboard metric select controls differ from the page contract")
+
+            metric_options = [
+                record["attrs"] for record in parser.element_records
+                if record["tag"] == "option"
+                and record["attrs"].get("value")
+            ]
+            if [attrs.get("value") for attrs in metric_options] != [
+                "hits", "bountiesWon", "timesPlaced", "bubbles"
+            ]:
+                parser.errors.append("Dashboard initial Results metric menu differs from the contract")
+            elif [attrs.get("value") for attrs in metric_options if "selected" in attrs] != ["hits"]:
+                parser.errors.append("Dashboard metric select must default to Hits")
+
+            category_tabs = [
+                record["attrs"] for record in parser.button_records
+                if record["attrs"].get("data-dashboard-category")
+            ]
+            if [attrs.get("data-dashboard-category") for attrs in category_tabs] != [
+                "results", "bankroll", "rates", "player-dna"
+            ]:
+                parser.errors.append("Dashboard categories must remain Results, Bankroll, Rates, Player DNA")
+            elif any(attrs.get("aria-controls") != "dashboard-metric-panel" for attrs in category_tabs):
+                parser.errors.append("Dashboard categories must control the contextual metric panel")
+            elif [attrs.get("aria-selected") for attrs in category_tabs] != [
+                "true", "false", "false", "false"
+            ]:
+                parser.errors.append("Dashboard categories must default to Results")
+
+            if any(
+                record["attrs"].get("data-dashboard-sort")
+                for record in parser.button_records
+            ):
+                parser.errors.append("Dashboard metric buttons must not return beside the selector")
 
         pressed_group = EXPECTED_PRESSED_BUTTON_GROUPS.get(page.name)
         if pressed_group:

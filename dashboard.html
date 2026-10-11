@@ -46,7 +46,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20261011-1" />
+  <link rel="stylesheet" href="style.css?v=20261011-2" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
 </head>
 <body>
@@ -124,47 +124,21 @@
           <div class="dashboard-buttons-shell">
             <div class="dashboard-button-groups" data-sort-scope="dashboard" role="group" aria-label="Dashboard metric">
               <div class="dashboard-category-tabs" role="tablist" aria-label="Dashboard metric category">
-                <button class="dashboard-category-tab active" id="dashboard-category-results" data-dashboard-category="results" type="button" role="tab" aria-selected="true" aria-controls="dashboard-metrics-results"><span aria-hidden="true">🏆</span><span>Results</span></button>
-                <button class="dashboard-category-tab" id="dashboard-category-bankroll" data-dashboard-category="bankroll" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metrics-bankroll" tabindex="-1"><span aria-hidden="true">💰</span><span>Bankroll</span></button>
-                <button class="dashboard-category-tab" id="dashboard-category-rates" data-dashboard-category="rates" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metrics-rates" tabindex="-1"><span aria-hidden="true">📈</span><span>Rates</span></button>
-                <button class="dashboard-category-tab" id="dashboard-category-player-dna" data-dashboard-category="player-dna" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metrics-player-dna" tabindex="-1"><span aria-hidden="true">🧬</span><span>Player DNA</span></button>
+                <button class="dashboard-category-tab active" id="dashboard-category-results" data-dashboard-category="results" type="button" role="tab" aria-selected="true" aria-controls="dashboard-metric-panel"><span aria-hidden="true">🏆</span><span>Results</span></button>
+                <button class="dashboard-category-tab" id="dashboard-category-bankroll" data-dashboard-category="bankroll" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metric-panel" tabindex="-1"><span aria-hidden="true">💰</span><span>Bankroll</span></button>
+                <button class="dashboard-category-tab" id="dashboard-category-rates" data-dashboard-category="rates" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metric-panel" tabindex="-1"><span aria-hidden="true">📈</span><span>Rates</span></button>
+                <button class="dashboard-category-tab" id="dashboard-category-player-dna" data-dashboard-category="player-dna" type="button" role="tab" aria-selected="false" aria-controls="dashboard-metric-panel" tabindex="-1"><span aria-hidden="true">🧬</span><span>Player DNA</span></button>
               </div>
 
-              <div class="dashboard-metric-groups">
-                <div class="dashboard-metric-group" id="dashboard-metrics-results" data-dashboard-metric-group="results" role="tabpanel" aria-labelledby="dashboard-category-results">
-                  <div class="button-row dashboard-buttons" role="group" aria-label="Results metrics">
-                    <button class="btn active" data-dashboard-sort="hits" type="button" aria-pressed="true" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid"><span class="btn-emoji">💥</span><span class="btn-label">Hits</span></button>
-                    <button class="btn" data-dashboard-sort="bountiesWon" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🎯</span><span class="btn-label">Bounties</span></button>
-                    <button class="btn" data-dashboard-sort="timesPlaced" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">💵</span><span class="btn-label">Cashes</span></button>
-                    <button class="btn" data-dashboard-sort="bubbles" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🫧</span><span class="btn-label">Bubbles</span></button>
-                  </div>
-                </div>
-
-                <div class="dashboard-metric-group" id="dashboard-metrics-bankroll" data-dashboard-metric-group="bankroll" role="tabpanel" aria-labelledby="dashboard-category-bankroll" hidden>
-                  <div class="button-row dashboard-buttons" role="group" aria-label="Bankroll metrics">
-                    <button class="btn" data-dashboard-sort="profit" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid"><span class="btn-emoji">💰</span><span class="btn-label">Profit</span></button>
-                    <button class="btn" data-dashboard-sort="bountyNet" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🪙</span><span class="btn-label">Bounty Net</span></button>
-                  </div>
-                </div>
-
-                <div class="dashboard-metric-group" id="dashboard-metrics-rates" data-dashboard-metric-group="rates" role="tabpanel" aria-labelledby="dashboard-category-rates" hidden>
-                  <div class="button-row dashboard-buttons" role="group" aria-label="Rate metrics">
-                    <button class="btn" data-dashboard-sort="roi" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid"><span class="btn-emoji">📈</span><span class="btn-label">ROI</span></button>
-                    <button class="btn" data-dashboard-sort="hitRate" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">💥</span><span class="btn-label">Hit Rate</span></button>
-                    <button class="btn" data-dashboard-sort="cashRate" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">💵</span><span class="btn-label">Cash Rate</span></button>
-                    <button class="btn" data-dashboard-sort="bubbleRate" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🫧</span><span class="btn-label">Bubble Rate</span></button>
-                  </div>
-                </div>
-
-                <div class="dashboard-metric-group" id="dashboard-metrics-player-dna" data-dashboard-metric-group="player-dna" role="tabpanel" aria-labelledby="dashboard-category-player-dna" hidden>
-                  <div class="button-row dashboard-buttons" role="group" aria-label="Player DNA metrics">
-                    <button class="btn" data-dashboard-sort="trueSkillScore" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid"><span class="btn-emoji">💪🏼</span><span class="btn-label">Power</span></button>
-                    <button class="btn" data-dashboard-sort="luckIndex" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🍀</span><span class="btn-label">Luck</span></button>
-                    <button class="btn" data-dashboard-sort="clutchIndex" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🎯</span><span class="btn-label">Clutch</span></button>
-                    <button class="btn" data-dashboard-sort="aggressionIndex" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">⚡</span><span class="btn-label">Aggression</span></button>
-                    <button class="btn" data-dashboard-sort="survivorIndex" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🛟</span><span class="btn-label">Survivor</span></button>
-                    <button class="btn" data-dashboard-sort="tiltIndex" type="button" aria-pressed="false" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid" tabindex="-1"><span class="btn-emoji">🧊</span><span class="btn-label">Composure</span></button>
-                  </div>
+              <div class="dashboard-metric-selector" id="dashboard-metric-panel" data-dashboard-metric-group="results" role="tabpanel" aria-labelledby="dashboard-category-results">
+                <label for="dashboard-metric-select">Rank by</label>
+                <div class="dashboard-metric-select-wrap">
+                  <select id="dashboard-metric-select" aria-label="Results metric" aria-controls="dashboard-current-stat dashboard-formula-display dashboard-grid">
+                    <option value="hits" selected>💥 Hits</option>
+                    <option value="bountiesWon">🏷️ Bounties</option>
+                    <option value="timesPlaced">💵 Cashes</option>
+                    <option value="bubbles">🫧 Bubbles</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -175,7 +149,7 @@
           <div id="dashboard-meta-shell" class="dashboard-meta-shell dashboard-meta-shell-inline">
             <div id="dashboard-current-stat" class="dashboard-current-stat" role="status" aria-live="polite" aria-atomic="true"></div>
             <div class="dashboard-formula-panel dashboard-formula-panel-inline">
-              <div id="dashboard-formula-display" class="dashboard-formula-display">Click a stat button to reveal the calculation formula.</div>
+              <div id="dashboard-formula-display" class="dashboard-formula-display">Choose a metric to reveal the calculation formula.</div>
             </div>
           </div>
         </div>
@@ -204,6 +178,6 @@
 </footer>
 
   <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20261011-5"></script>
+  <script src="app.js?v=20261011-6"></script>
 </body>
 </html>

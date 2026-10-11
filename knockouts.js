@@ -557,7 +557,7 @@ const KNOCKOUTS_URLS = [
     if (!hasBountyData(players)) {
       return `
         <section class="section knockouts-shell knockouts-bounty-empty-state">
-          <div class="knockouts-bounty-empty-icon" aria-hidden="true">🎯</div>
+          <div class="knockouts-bounty-empty-icon" aria-hidden="true">🏷️</div>
           <h3>Bounty board awaiting its first claims</h3>
           <p>The first MTT bounty results will open this view automatically. Bounty money stays separate from tournament profit.</p>
         </section>
@@ -568,7 +568,7 @@ const KNOCKOUTS_URLS = [
     return `
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head knockouts-shell-head-leaders">
-          <h3>🎯 Bounty Leaders</h3>
+          <h3>🏷️ Bounty Leaders</h3>
           <p class="muted">First-entry bounty results only. Every claim also remains one ordinary knockout.</p>
         </div>
         <div class="knockouts-summary-grid">${renderBountySummary(players)}</div>
@@ -584,7 +584,7 @@ const KNOCKOUTS_URLS = [
 
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
-          <h3>🧾 Verified Bounty Claims</h3>
+          <h3>✅ Verified Bounty Claims</h3>
           <p class="muted">Who captured whose first-entry bounty, checked against the Tournament Director totals.</p>
         </div>
         ${renderBountyClaims(playerMap, claims)}

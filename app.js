@@ -68,6 +68,32 @@ const DASHBOARD_CATEGORY_DEFAULTS = Object.freeze({
   rates: "roi",
   "player-dna": "trueSkillScore"
 });
+const DASHBOARD_METRICS_BY_CATEGORY = Object.freeze({
+  results: Object.freeze([
+    { key: "hits", icon: "💥", label: "Hits" },
+    { key: "bountiesWon", icon: "🏷️", label: "Bounties" },
+    { key: "timesPlaced", icon: "💵", label: "Cashes" },
+    { key: "bubbles", icon: "🫧", label: "Bubbles" }
+  ]),
+  bankroll: Object.freeze([
+    { key: "profit", icon: "💰", label: "Profit" },
+    { key: "bountyNet", icon: "🧾", label: "Bounty Net" }
+  ]),
+  rates: Object.freeze([
+    { key: "roi", icon: "📈", label: "ROI" },
+    { key: "hitRate", icon: "💥", label: "Hit Rate" },
+    { key: "cashRate", icon: "💵", label: "Cash Rate" },
+    { key: "bubbleRate", icon: "🫧", label: "Bubble Rate" }
+  ]),
+  "player-dna": Object.freeze([
+    { key: "trueSkillScore", icon: "💪🏼", label: "Power" },
+    { key: "luckIndex", icon: "🍀", label: "Luck" },
+    { key: "clutchIndex", icon: "🎯", label: "Clutch" },
+    { key: "aggressionIndex", icon: "⚡", label: "Aggression" },
+    { key: "survivorIndex", icon: "🛟", label: "Survivor" },
+    { key: "tiltIndex", icon: "🧊", label: "Composure" }
+  ])
+});
 const DASHBOARD_BOUNTY_SORTS = new Set(["bountiesWon", "bountyNet"]);
 const DASHBOARD_BOUNTY_DATA_KEYS = [
   "bountiesWon",
@@ -165,12 +191,12 @@ const PROFILE_STAT_CONFIG = [
   { key: "hits", label: "Hits", type: "text", icon: "💥", dashboard: true },
   { key: "timesPlaced", label: "Times Placed", dashboardLabel: "Cashes", type: "text", icon: "💵", dashboard: true },
   { key: "bubbles", label: "Bubbles", type: "text", icon: "🫧", dashboard: true },
-  { key: "bountiesWon", label: "Bounties Won", type: "text", icon: "🎯", dashboard: true },
+  { key: "bountiesWon", label: "Bounties Won", type: "text", icon: "🏷️", dashboard: true },
   { key: "bountyPaid", label: "Bounty Paid", type: "money", icon: "🪙", dashboard: false },
-  { key: "bountyCollected", label: "Bounty Collected", type: "money", icon: "🎯", dashboard: false, profitClassFromValue: true },
+  { key: "bountyCollected", label: "Bounty Collected", type: "money", icon: "🏷️", dashboard: false, profitClassFromValue: true },
   { key: "bountyRetained", label: "Bounty Retained", type: "money", icon: "🛡️", dashboard: false, profitClassFromValue: true },
   { key: "bountyWinnings", label: "Bounty Returns", type: "money", icon: "💰", dashboard: false, profitClassFromValue: true },
-  { key: "bountyNet", label: "Bounty Net", type: "money", icon: "🪙", dashboard: true, profitClass: true },
+  { key: "bountyNet", label: "Bounty Net", type: "money", icon: "🧾", dashboard: true, profitClass: true },
 
   { key: "trueSkillScore", label: "Power Index", dashboardLabel: "Power", type: "num", icon: "💪🏼", dashboard: true },
   { key: "luckIndex", label: "Luck Index", dashboardLabel: "Luck", type: "num", icon: "🍀", dashboard: true },
@@ -4205,7 +4231,7 @@ function playerCardEditionCatalogRecord(record) {
     },
     "leader-bounties": {
       className: "leader",
-      icon: "🎯",
+      icon: "🏷️",
       eyebrow: "League Leader Edition",
       label: "Bounty Hunter",
       cardLabel: "Bounty Hunter",
@@ -4389,7 +4415,7 @@ function playerCardSpecialEditions(player, data) {
       key: "bountiesWon",
       direction: "desc",
       minimumValue: 1,
-      icon: "🎯",
+      icon: "🏷️",
       label: "Bounty Hunter",
       cardLabel: "Bounty Hunter",
       shortLabel: "LEADER",
@@ -6548,6 +6574,13 @@ function initRulesPage() {
 }
 
 function setActiveSortButton(scope, sortKey) {
+  if (scope === "dashboard") {
+    const metricSelect = document.getElementById("dashboard-metric-select");
+    if (metricSelect && [...metricSelect.options].some(option => option.value === sortKey)) {
+      metricSelect.value = sortKey;
+    }
+  }
+
   document.querySelectorAll(`[data-sort-scope="${scope}"] [data-sort], [data-${scope}-sort]`).forEach(btn => {
     const key = btn.dataset.sort || btn.dataset[`${scope}Sort`];
     const isActive = key === sortKey;
@@ -6563,9 +6596,8 @@ function setActiveSortButton(scope, sortKey) {
 }
 
 function dashboardCategoryForSort(sortKey) {
-  const metricButton = [...document.querySelectorAll("[data-dashboard-sort]")]
-    .find(button => button.dataset.dashboardSort === sortKey);
-  return metricButton?.closest("[data-dashboard-metric-group]")?.dataset.dashboardMetricGroup || null;
+  return Object.entries(DASHBOARD_METRICS_BY_CATEGORY)
+    .find(([, metrics]) => metrics.some(metric => metric.key === sortKey))?.[0] || null;
 }
 
 function syncDashboardSelector(sortKey) {
@@ -6581,9 +6613,27 @@ function syncDashboardSelector(sortKey) {
     tab.tabIndex = isActive ? 0 : -1;
   });
 
-  document.querySelectorAll("[data-dashboard-metric-group]").forEach(panel => {
-    panel.hidden = panel.dataset.dashboardMetricGroup !== category;
-  });
+  const metricPanel = document.getElementById("dashboard-metric-panel");
+  const metricSelect = document.getElementById("dashboard-metric-select");
+  const metrics = DASHBOARD_METRICS_BY_CATEGORY[category] || [];
+  const activeTab = document.getElementById(`dashboard-category-${category}`);
+
+  if (metricPanel) {
+    metricPanel.dataset.dashboardMetricGroup = category;
+    metricPanel.setAttribute("aria-labelledby", activeTab?.id || "dashboard-category-results");
+  }
+
+  if (metricSelect) {
+    const categoryLabel = activeTab?.textContent?.trim() || "Dashboard";
+    metricSelect.replaceChildren(...metrics.map(metric => {
+      const option = document.createElement("option");
+      option.value = metric.key;
+      option.textContent = `${metric.icon} ${metric.label}`;
+      return option;
+    }));
+    metricSelect.setAttribute("aria-label", `${categoryLabel} metric`);
+    metricSelect.value = sortKey;
+  }
 }
 
 function dashboardHasBountyData(players) {
@@ -6595,7 +6645,7 @@ function dashboardHasBountyData(players) {
 function dashboardBountyEmptyMarkup() {
   return `
     <div class="dashboard-empty-state" role="status">
-      <div class="dashboard-empty-state-icon" aria-hidden="true">🎯</div>
+      <div class="dashboard-empty-state-icon" aria-hidden="true">🏷️</div>
       <h3>No bounty results yet</h3>
       <p>This board will open automatically after the first recorded bounty event.</p>
     </div>
@@ -6640,31 +6690,9 @@ function initSorting() {
     btn.addEventListener("click", () => renderStandings(btn.dataset.sort || btn.dataset.standingsSort || DEFAULT_STANDINGS_SORT));
   });
 
-  const dashboardMetricButtons = [...document.querySelectorAll(`[data-sort-scope="dashboard"] [data-sort], [data-dashboard-sort]`)];
-  dashboardMetricButtons.forEach(btn => {
-    btn.addEventListener("click", () => renderDashboard(btn.dataset.sort || btn.dataset.dashboardSort || DEFAULT_DASHBOARD_SORT));
-
-    btn.addEventListener("keydown", event => {
-      if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"].includes(event.key)) return;
-
-      const groupButtons = [...btn.closest(".dashboard-buttons")?.querySelectorAll("[data-dashboard-sort]") || []];
-      if (!groupButtons.length) return;
-
-      event.preventDefault();
-      const currentIndex = groupButtons.indexOf(btn);
-      let nextIndex = currentIndex;
-
-      if (event.key === "Home") nextIndex = 0;
-      else if (event.key === "End") nextIndex = groupButtons.length - 1;
-      else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-        nextIndex = (currentIndex - 1 + groupButtons.length) % groupButtons.length;
-      } else {
-        nextIndex = (currentIndex + 1) % groupButtons.length;
-      }
-
-      groupButtons[nextIndex].focus();
-      groupButtons[nextIndex].click();
-    });
+  const dashboardMetricSelect = document.getElementById("dashboard-metric-select");
+  dashboardMetricSelect?.addEventListener("change", () => {
+    renderDashboard(dashboardMetricSelect.value || DEFAULT_DASHBOARD_SORT);
   });
 
   const dashboardCategoryTabs = [...document.querySelectorAll("[data-dashboard-category]")];
