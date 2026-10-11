@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="player-knockouts.css?v=20260824-3" />
   <link rel="stylesheet" href="player.css?v=20261011-7" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261011-1" />
 </head>
 <body class="player-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -91,9 +92,14 @@
       <a id="player-top-prev" class="player-page-link player-page-link-cycle" href="players.html" hidden>← Previous Player</a>
       <a class="player-page-link player-page-link-cycle player-page-link-crew" href="players.html">The Crew</a>
       <a id="player-top-next" class="player-page-link player-page-link-cycle" href="players.html" hidden>Next Player →</a>
-      <a class="player-page-link" href="dashboard.html">Open Dashboard</a>
-      <a class="player-page-link" href="standings.html">See Standings</a>
-      <a class="player-page-link" href="champions.html">View (Dis)Honors</a>
+      <details class="player-page-more" open>
+        <summary>More player tools</summary>
+        <div class="player-page-more-links">
+          <a class="player-page-link" href="dashboard.html">Open Dashboard</a>
+          <a class="player-page-link" href="standings.html">See Standings</a>
+          <a class="player-page-link" href="champions.html">View (Dis)Honors</a>
+        </div>
+      </details>
     </div>
 
     <div id="player-profile"></div>
@@ -117,8 +123,8 @@
   </div>
 </footer>
   
-  <script src="site-shell.js?v=20260824-2"></script>
-  <script src="app.js?v=20261011-12"></script>
+  <script src="site-shell.js?v=20261011-3"></script>
+  <script src="app.js?v=20261011-13"></script>
   <script src="player-knockouts.js?v=20260825-1"></script>
 </body>
 </html>

@@ -1,0 +1,689 @@
+/* TLPT UX convergence layer.
+   Shared interaction and geometry rules live here so page themes can remain
+   expressive without changing how the site behaves. */
+
+:root{
+  --content-max:1240px;
+  --radius-inner:8px;
+  --radius-control:12px;
+  --radius-card:18px;
+  --radius-hero:22px;
+  --touch-target:44px;
+  --focus-color:#fff4cc;
+  --focus-shadow:0 0 0 3px rgba(255,184,28,.34);
+  --surface-raised:linear-gradient(180deg,rgba(20,27,36,.99),rgba(11,16,23,.99));
+}
+
+.wrap,
+.site-footer-inner{
+  max-width:var(--content-max);
+}
+
+.site-header{
+  width:min(
+    calc(100% - (var(--page-gutter) * 2)),
+    calc(var(--content-max) - (var(--page-gutter) * 2))
+  );
+}
+
+.section,
+.profile-shell,
+.player-card,
+.event-card,
+.champ-card,
+.stat-card{
+  border-radius:var(--radius-card);
+}
+
+.trophy-room-page .trophy-room-hero{
+  border-radius:var(--radius-hero);
+}
+
+.btn,
+.dashboard-category-tab,
+.dashboard-metric-selector,
+.fl-select-trigger,
+.fl-select-menu,
+.pm-btn,
+.trophy-filter-family button,
+.trophy-filter-fields select,
+.knockouts-view-tab,
+.format-toggle .btn,
+.crew-view-toolbar .btn,
+.marchand-era-button,
+.marchand-filter-button{
+  border-radius:var(--radius-control);
+}
+
+:where(
+  a,
+  button,
+  select,
+  input,
+  textarea,
+  summary,
+  [role="button"],
+  [tabindex]:not([tabindex="-1"])
+):focus-visible{
+  outline:2px solid var(--focus-color);
+  outline-offset:3px;
+  box-shadow:var(--focus-shadow);
+}
+
+body .site-page-hero-kicker,
+.trophy-room-page .trophy-room-kicker{
+  font-size:.78rem;
+}
+
+/* A hero identifies the page. Controls, definitions, and live summaries sit
+   in a companion surface immediately below it. */
+.site-page-companion{
+  position:relative;
+  overflow:hidden;
+  margin:-8px 0 0;
+  padding:16px;
+  border:1px solid rgba(255,184,28,.18);
+  border-radius:var(--radius-card);
+  background:
+    radial-gradient(circle at top right,rgba(255,184,28,.07),transparent 34%),
+    var(--surface-raised);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 12px 28px rgba(0,0,0,.18);
+}
+
+.site-page-companion::before{
+  content:"";
+  position:absolute;
+  top:0;
+  right:18px;
+  left:18px;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,rgba(255,184,28,.72),transparent);
+}
+
+.site-page-companion .site-page-hero-lower{
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+.dashboard-hero-companion,
+.standings-hero-companion{
+  margin-top:-10px;
+}
+
+.dashboard-hero-companion .dashboard-buttons-shell,
+.standings-hero-companion .standings-buttons-shell{
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+
+.crew-hero-companion .crew-view-toolbar{
+  padding:0;
+  border:0;
+  background:none;
+  box-shadow:none;
+}
+
+.streak-hero-companion .streak-definition-grid{
+  margin:0;
+}
+
+.trophy-room-page .trophy-room-summary.trophy-room-companion{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  margin:-8px 0 20px;
+  padding:16px;
+  border:1px solid rgba(255,184,28,.18);
+  border-radius:var(--radius-card);
+  background:var(--surface-raised);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.18);
+}
+
+/* Primary UI icons keep a stable footprint. Emoji remain available for the
+   site's voice, but no longer move labels around from one platform to another. */
+.btn-emoji,
+.dashboard-category-tab > span[aria-hidden="true"],
+.dashboard-metric-icon,
+.pm-btn::first-letter{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1.45rem;
+  min-width:1.45rem;
+  height:1.45rem;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--radius-inner);
+  background:rgba(0,0,0,.20);
+  font-family:"Arial Unicode MS","Segoe UI Symbol",Arial,sans-serif;
+  font-variant-emoji:text;
+  line-height:1;
+}
+
+/* Real mobile navigation: the parent destination and its disclosure control
+   are separate tap targets. */
+.site-nav-toggle,
+.nav-submenu-toggle{
+  display:none;
+  appearance:none;
+  border:1px solid rgba(255,184,28,.28);
+  background:linear-gradient(180deg,rgba(255,184,28,.12),rgba(255,184,28,.035));
+  color:#fff3c4;
+  font:inherit;
+  font-weight:850;
+  cursor:pointer;
+}
+
+.site-nav-toggle{
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:96px;
+  min-height:var(--touch-target);
+  padding:9px 13px;
+  border-radius:var(--radius-control);
+}
+
+.site-nav-toggle-icon{
+  position:relative;
+  width:18px;
+  height:12px;
+  border-top:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+}
+
+.site-nav-toggle-icon::after{
+  content:"";
+  position:absolute;
+  top:4px;
+  right:0;
+  left:0;
+  border-top:2px solid currentColor;
+}
+
+.nav-submenu-toggle{
+  width:var(--touch-target);
+  min-width:var(--touch-target);
+  min-height:var(--touch-target);
+  padding:0;
+  border-radius:var(--radius-inner);
+}
+
+.nav-submenu-toggle::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-right:2px solid currentColor;
+  border-bottom:2px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+  transition:transform .16s ease;
+}
+
+.nav-dropdown.is-open > .nav-submenu-toggle::before{
+  transform:translateY(2px) rotate(225deg);
+}
+
+/* Scroll regions get a real affordance that disappears as the user reaches
+   the far edge. */
+.scroll-affordance-host{
+  position:relative;
+  min-width:0;
+}
+
+.scroll-affordance-shell{
+  position:absolute;
+  inset:0;
+  z-index:12;
+  overflow:hidden;
+  border-radius:inherit;
+  pointer-events:none;
+}
+
+.scroll-affordance{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:1;
+  display:none;
+  align-items:center;
+  gap:6px;
+  padding:6px 9px;
+  border:1px solid rgba(255,184,28,.30);
+  border-radius:999px;
+  background:rgba(8,12,18,.92);
+  color:#ffe2a0;
+  box-shadow:0 8px 20px rgba(0,0,0,.28);
+  font-size:.7rem;
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  pointer-events:none;
+  transition:opacity .16s ease;
+}
+
+.scroll-affordance-shell.is-scrollable:not(.is-scroll-end) .scroll-affordance{
+  display:inline-flex;
+}
+
+.scroll-affordance-shell.is-scroll-start .scroll-affordance::after{
+  content:"→";
+}
+
+/* Loading states match the eventual card language instead of presenting a
+   large empty shell. */
+.tlpt-loading-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  width:100%;
+}
+
+.tlpt-loading-card{
+  min-height:132px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius-card);
+  background:
+    linear-gradient(110deg,transparent 24%,rgba(255,255,255,.055) 38%,transparent 52%) 0 0 / 220% 100%,
+    linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.012));
+  animation:tlptSkeleton 1.25s linear infinite;
+}
+
+@keyframes tlptSkeleton{
+  to{background-position:-220% 0,0 0}
+}
+
+/* YouTube facades provide an intentional poster while keeping embeds dormant
+   until the visitor asks to play them. */
+.media-video-facade{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  width:100%;
+  min-height:100%;
+  padding:0;
+  overflow:hidden;
+  border:0;
+  border-radius:var(--radius-control);
+  background:#05070a;
+  color:#fff;
+  cursor:pointer;
+}
+
+.media-video-facade img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.76;
+  transition:transform .24s ease,opacity .24s ease;
+}
+
+.media-video-facade::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.42));
+}
+
+.media-video-play{
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:68px;
+  height:52px;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:var(--radius-control);
+  background:rgba(215,38,61,.92);
+  box-shadow:0 12px 30px rgba(0,0,0,.38);
+}
+
+.media-video-play::before{
+  content:"";
+  margin-left:4px;
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:16px solid #fff;
+}
+
+.media-video-facade:hover img{
+  transform:scale(1.025);
+  opacity:.9;
+}
+
+/* Felt Whispers keeps its editorial black room while sharing the same outer
+   geometry and title rhythm as the rest of TLPT. */
+.section.news-header-shell{
+  padding:34px 38px 30px;
+  border-radius:var(--radius-hero);
+}
+
+.news-header-shell #news-page-title{
+  margin:5px 0 8px;
+  font-size:clamp(2.35rem,5vw,4.6rem);
+  line-height:.95;
+  letter-spacing:-.045em;
+}
+
+.news-header-shell .news-page-kicker{
+  margin:10px 0 0;
+}
+
+.marchand-return-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:var(--touch-target);
+  margin:0 0 12px;
+  padding:9px 13px;
+  border:1px solid rgba(255,184,28,.24);
+  border-radius:var(--radius-control);
+  background:rgba(9,13,18,.78);
+  color:#ffe09a;
+  font-size:.78rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.player-page-more{
+  position:relative;
+}
+
+.player-page-more > summary{
+  display:none;
+}
+
+.player-page-more-links{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+@media (max-width:800px){
+  .tlpt-loading-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .dashboard-category-tabs{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+    overflow:visible;
+    padding:0;
+  }
+
+  .dashboard-category-tab{
+    min-width:0;
+    width:100%;
+  }
+
+  .trophy-room-page .trophy-room-summary.trophy-room-companion{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:700px){
+  .standings-table-shell.has-horizontal-overflow{
+    padding-top:36px;
+  }
+
+  .blind-sheet.has-horizontal-overflow{
+    padding-top:48px;
+  }
+
+  .site-header{
+    width:calc(100% - (var(--page-gutter) * 2));
+  }
+
+  .site-header .header-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:center;
+    gap:12px;
+  }
+
+  .site-nav-toggle,
+  .nav-submenu-toggle{
+    display:inline-flex;
+  }
+
+  .site-header .nav{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:6px;
+    width:100%;
+    max-height:0;
+    padding:0;
+    overflow:hidden;
+    visibility:hidden;
+    opacity:0;
+    transition:max-height .24s ease,opacity .18s ease,padding .18s ease;
+  }
+
+  .site-header.is-nav-open .nav{
+    max-height:78vh;
+    padding:8px 0 2px;
+    overflow-y:auto;
+    visibility:visible;
+    opacity:1;
+  }
+
+  .site-header .nav > a{
+    width:100%;
+    justify-content:flex-start;
+    border-color:rgba(255,255,255,.06);
+    background:rgba(255,255,255,.025);
+  }
+
+  .site-header .nav-dropdown{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) var(--touch-target);
+    gap:6px;
+    width:100%;
+  }
+
+  .site-header .nav-dropdown-parent{
+    width:100%;
+    justify-content:flex-start;
+    border-color:rgba(255,255,255,.06);
+    background:rgba(255,255,255,.025);
+  }
+
+  .site-header .nav-dropdown-parent::after{
+    content:none;
+  }
+
+  .site-header .nav-dropdown::after{
+    content:none;
+  }
+
+  .site-header .nav-dropdown-menu,
+  .site-header .nav-dropdown:hover .nav-dropdown-menu,
+  .site-header .nav-dropdown:focus-within .nav-dropdown-menu{
+    position:static;
+    grid-column:1 / -1;
+    display:grid;
+    gap:4px;
+    width:100%;
+    min-width:0;
+    max-height:0;
+    padding:0 8px;
+    overflow:hidden;
+    border-width:0;
+    border-radius:var(--radius-control);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:none;
+    transition:max-height .2s ease,opacity .16s ease,padding .16s ease;
+  }
+
+  .site-header .nav-dropdown.is-open .nav-dropdown-menu,
+  .site-header .nav-dropdown.is-open:hover .nav-dropdown-menu,
+  .site-header .nav-dropdown.is-open:focus-within .nav-dropdown-menu{
+    max-height:480px;
+    padding:8px;
+    border-width:1px;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+  }
+
+  .site-header .nav-dropdown-menu a{
+    min-height:var(--touch-target);
+    display:flex;
+    align-items:center;
+  }
+
+  button,
+  select,
+  .btn,
+  [role="button"]{
+    min-height:var(--touch-target);
+  }
+
+  button,
+  [role="button"]{
+    min-width:var(--touch-target);
+  }
+
+  .home-event-tab,
+  .player-page-link,
+  .trophy-filter-family button,
+  .standings-buttons-shell .btn,
+  .tlpt-card-view-switch button,
+  .fl-select-option{
+    min-height:var(--touch-target) !important;
+  }
+
+  .site-page-companion{
+    margin-top:-10px;
+    padding:14px;
+  }
+
+  .scroll-affordance-shell.is-scrollable:not(.is-scroll-end) .scroll-affordance{
+    display:inline-flex;
+  }
+
+  #standings-table th:first-child,
+  #standings-table td:first-child{
+    position:sticky;
+    left:0;
+    z-index:7;
+    width:50px;
+    min-width:50px;
+    background:#121922;
+  }
+
+  #standings-table th:nth-child(2),
+  #standings-table td:nth-child(2){
+    position:sticky;
+    left:50px;
+    z-index:6;
+    min-width:150px;
+    background:#121922;
+    box-shadow:8px 0 16px rgba(0,0,0,.22);
+  }
+
+  .blind-table th:first-child,
+  .blind-table td:first-child{
+    position:sticky;
+    left:0;
+    z-index:5;
+    background:#121922;
+    box-shadow:7px 0 14px rgba(0,0,0,.18);
+  }
+
+  .section.news-header-shell{
+    padding:27px 24px 24px;
+  }
+
+  .player-page-links-top{
+    align-items:center;
+  }
+
+  .player-page-more{
+    width:100%;
+  }
+
+  .player-page-more > summary{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:var(--touch-target);
+    padding:9px 13px;
+    border:1px solid rgba(255,184,28,.24);
+    border-radius:var(--radius-control);
+    background:rgba(255,184,28,.06);
+    color:#ffe09a;
+    font-weight:850;
+    cursor:pointer;
+    list-style:none;
+  }
+
+  .player-page-more > summary::-webkit-details-marker{
+    display:none;
+  }
+
+  .player-page-more-links{
+    display:none;
+    grid-template-columns:1fr;
+    gap:6px;
+    margin-top:7px;
+    padding:8px;
+    border:1px solid rgba(255,184,28,.18);
+    border-radius:var(--radius-control);
+    background:rgba(8,12,18,.96);
+  }
+
+  .player-page-more[open] .player-page-more-links{
+    display:grid;
+  }
+
+  .player-page-more-links .player-page-link{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+@media (max-width:520px){
+  .tlpt-loading-grid{
+    grid-template-columns:1fr;
+  }
+
+  .site-page-hero-title,
+  .trophy-room-page .trophy-room-hero h2,
+  .news-header-shell #news-page-title{
+    font-size:clamp(2.15rem,12vw,3.2rem);
+  }
+
+  .dashboard-category-tab{
+    padding:9px 7px;
+    font-size:.74rem;
+  }
+
+  .trophy-room-page .trophy-room-summary.trophy-room-companion{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tlpt-loading-card,
+  .media-video-facade img,
+  .site-header .nav,
+  .site-header .nav-dropdown-menu,
+  .nav-submenu-toggle::before{
+    animation:none !important;
+    transition:none !important;
+  }
+}

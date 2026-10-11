@@ -367,7 +367,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-3"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-12"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-13"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -602,8 +602,14 @@ def expected_structured_data(page_name: str) -> dict[str, object] | None:
         ],
     }
 SHARED_SHELL_SCRIPT = "site-shell.js"
-GLOBAL_SHARED_ASSETS = ("style.css", "site-tail.css", SHARED_SHELL_SCRIPT)
+GLOBAL_SHARED_ASSETS = (
+    "style.css",
+    "site-tail.css",
+    "ux-convergence.css",
+    SHARED_SHELL_SCRIPT,
+)
 EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
+EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261011-1"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -3922,6 +3928,14 @@ def main() -> int:
             errors.append(
                 "site: site-tail.css consumers must use the current shared visual cache reference "
                 + EXPECTED_SITE_TAIL_REFERENCE
+            )
+        if (
+            asset_path == "ux-convergence.css"
+            and single_asset_references != {EXPECTED_UX_CONVERGENCE_REFERENCE}
+        ):
+            errors.append(
+                "site: ux-convergence.css consumers must use the current shared UX cache reference "
+                + EXPECTED_UX_CONVERGENCE_REFERENCE
             )
 
     actual_app_script_pages = set(app_script_references_by_page)
