@@ -360,8 +360,8 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-5"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
-EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-3"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-2"
+EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-4"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-3"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
@@ -2323,6 +2323,10 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "gallery.js":
+        if 'collection: isoDate > todayIso ? "Coming Soon" : "Felt Whispers"' not in text:
+            errors.append(
+                "Gallery upcoming poster plaques must say Coming Soon while archived plaques retain Felt Whispers"
+            )
         focus_source = function_source("focusGalleryLightbox")
         if "getGalleryLightboxFocusable" not in focus_source or ".focus(" not in focus_source:
             errors.append(
@@ -4385,6 +4389,18 @@ def main() -> int:
                     "portrait width must remain capped at 128px"
                 )
         if stylesheet.name == "gallery.css":
+            for token, message in (
+                (
+                    ".gallery-year-head.gallery-coming-head{",
+                    "Gallery Coming Attractions plaque must have a centered heading override",
+                ),
+                (
+                    ".gallery-year-head.gallery-coming-head > div{",
+                    "Gallery Coming Attractions plaque must have its own shadow treatment",
+                ),
+            ):
+                if token not in stylesheet_text:
+                    errors.append(f"gallery.css: {message}")
             gallery_rules = [
                 (selector, body, line)
                 for context, selector, body, line in css_rule_blocks(stylesheet_text)
