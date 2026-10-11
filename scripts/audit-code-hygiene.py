@@ -1796,6 +1796,15 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     f"rules.css: payout styling missing: {token}"
                 )
+        for token in (
+            ".dealer-button-icon::before{",
+            "translate(-50%,-51%) scaleX(1.22)",
+            "-webkit-text-stroke:1.25px #101216;",
+        ):
+            if token not in rules_css:
+                errors.append(
+                    f"rules.css: retired-number badge styling missing: {token}"
+                )
         show_format_source = function_source("showFormat")
         if (
             'format.assumption ? `<p class="format-description"><strong>'
