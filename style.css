@@ -564,6 +564,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .site-page-hero{
   --site-page-hero-accent-rgb:255,184,28;
   --site-page-hero-secondary-rgb:59,130,246;
+  --site-page-hero-kicker-rgb:var(--site-page-hero-accent-rgb);
   position:relative;
   display:grid;
   grid-template-columns:minmax(0,1fr) 120px;
@@ -608,6 +609,18 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   --site-page-hero-secondary-rgb:59,130,246;
 }
 
+/* Keep each hero kicker aligned with the dominant color of its chip without
+   changing the page's existing border, glow, or broader accent treatment. */
+.site-page-hero-chip-25{--site-page-hero-kicker-rgb:134,239,172}
+.site-page-hero-chip-100{--site-page-hero-kicker-rgb:209,213,219}
+.site-page-hero-chip-500{--site-page-hero-kicker-rgb:216,180,254}
+.site-page-hero-chip-1000{--site-page-hero-kicker-rgb:253,230,138}
+.site-page-hero-chip-5000{--site-page-hero-kicker-rgb:248,250,252}
+.site-page-hero-chip-10000{--site-page-hero-kicker-rgb:253,186,116}
+.site-page-hero-chip-25000{--site-page-hero-kicker-rgb:252,165,165}
+.site-page-hero-chip-100000{--site-page-hero-kicker-rgb:249,168,212}
+.site-page-hero-chip-250000{--site-page-hero-kicker-rgb:147,197,253}
+
 .site-page-hero::before{
   content:"";
   position:absolute;
@@ -631,7 +644,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 
 .site-page-hero-kicker{
   display:block;
-  color:rgb(var(--site-page-hero-accent-rgb));
+  color:rgb(var(--site-page-hero-kicker-rgb));
   font-size:.72rem;
   font-weight:1000;
   letter-spacing:.15em;

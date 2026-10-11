@@ -19,7 +19,7 @@
 }
 
 .section.vog-hero .site-page-hero-kicker{
-  color:var(--vog-violet-bright);
+  color:rgb(var(--site-page-hero-kicker-rgb));
 }
 
 .section.vog-hero .site-page-hero-description{

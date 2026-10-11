@@ -56,11 +56,18 @@
 .trophy-room-page .trophy-room-kicker,
 .trophy-room-page .trophy-room-ledger-head > div > span{
   display:block;
-  color:var(--gold);
   font-size:.72rem;
   font-weight:1000;
   letter-spacing:.15em;
   text-transform:uppercase;
+}
+
+.trophy-room-page .trophy-room-kicker{
+  color:rgb(var(--site-page-hero-kicker-rgb));
+}
+
+.trophy-room-page .trophy-room-ledger-head > div > span{
+  color:var(--gold);
 }
 
 .trophy-room-page .trophy-room-hero h2{
