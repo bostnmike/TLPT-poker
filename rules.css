@@ -304,6 +304,7 @@
 .dealer-button-number{
   position:relative;
   z-index:3;
+  transform:translateX(2px);
 }
 
 .rule-card:hover .dealer-button-icon{
