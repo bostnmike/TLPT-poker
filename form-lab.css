@@ -29,6 +29,11 @@
     0 0 20px rgba(255,184,28,.08);
 }
 
+.fl-control-shell {
+  overflow: visible;
+  z-index: 20;
+}
+
 .fl-control-shell,
 .fl-lab-shell,
 .fl-events-shell {
@@ -82,12 +87,13 @@
 }
 
 .fl-field {
+  position: relative;
   display: grid;
   gap: 7px;
   min-width: 0;
 }
 
-.fl-field span {
+.fl-field > label {
   color: var(--gold);
   font-size: .74rem;
   font-weight: 950;
@@ -108,6 +114,140 @@
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.07),
     0 8px 18px rgba(0,0,0,.20);
+}
+
+.fl-field select.fl-native-select {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.fl-select {
+  position: relative;
+  min-width: 0;
+}
+
+.fl-select-trigger {
+  position: relative;
+  width: 100%;
+  min-height: 42px;
+  padding: 0 38px 0 14px;
+  border: 1px solid rgba(255,184,28,.30);
+  border-radius: var(--control-radius);
+  background:
+    linear-gradient(180deg, rgba(31,39,51,.99), rgba(20,26,34,.99));
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    0 8px 18px rgba(0,0,0,.20);
+  font: inherit;
+  font-size: .86rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fl-select-trigger::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid rgba(255,255,255,.86);
+  border-bottom: 2px solid rgba(255,255,255,.86);
+  transform: translateY(-66%) rotate(45deg);
+  transition: transform .16s ease;
+}
+
+.fl-select-trigger[aria-expanded="true"] {
+  border-color: rgba(255,184,28,.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 0 3px rgba(255,184,28,.13),
+    0 10px 24px rgba(0,0,0,.28);
+}
+
+.fl-select-trigger[aria-expanded="true"]::after {
+  transform: translateY(-32%) rotate(225deg);
+}
+
+.fl-select-trigger:focus-visible,
+.fl-select-option:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.fl-select-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  z-index: 120;
+  max-height: 320px;
+  margin: 0;
+  padding: 6px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid rgba(255,184,28,.42);
+  border-radius: var(--control-radius);
+  background: rgba(13,18,25,.995);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 18px 42px rgba(0,0,0,.52),
+    0 0 22px rgba(255,184,28,.09);
+  scrollbar-color: rgba(255,184,28,.62) rgba(255,255,255,.05);
+  scrollbar-width: thin;
+}
+
+.fl-select-menu[hidden] {
+  display: none;
+}
+
+.fl-select-option {
+  display: block;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--control-inner-radius);
+  background: transparent;
+  color: #dce5ef;
+  font: inherit;
+  font-size: .84rem;
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fl-select-option:hover,
+.fl-select-option:focus-visible {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+.fl-select-option[aria-selected="true"] {
+  background: linear-gradient(135deg, rgba(255,184,28,.24), rgba(255,184,28,.10));
+  color: #ffe6a2;
+}
+
+.fl-select-option[aria-selected="true"]::before {
+  content: "✓";
+  display: inline-block;
+  width: 1.25em;
+  color: var(--gold);
+  font-weight: 950;
 }
 
 .fl-toggle-row {

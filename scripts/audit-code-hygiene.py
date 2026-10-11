@@ -358,8 +358,8 @@ EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-7"
-EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
+EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-2"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-6"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-4"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
@@ -2331,6 +2331,26 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(message)
 
     if path.name == "form-lab.js":
+        for fragment, message in (
+            (
+                "enhanceFormLabSelects();",
+                "Form Lab must enhance native selects with anchored menus",
+            ),
+            (
+                'trigger.setAttribute("aria-haspopup", "listbox");',
+                "Form Lab custom select triggers must expose listbox semantics",
+            ),
+            (
+                'menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;',
+                "Form Lab custom select menus must stay within the viewport",
+            ),
+            (
+                'select.dispatchEvent(new Event("change", { bubbles: true }));',
+                "Form Lab custom selects must preserve native change behavior",
+            ),
+        ):
+            if fragment not in text:
+                errors.append(message)
         avatar_source = function_source("playerAvatarMarkup")
         if not re.search(
             r'<img\s+class="fl-player-avatar".*?loading="lazy".*?'
@@ -4376,6 +4396,33 @@ def main() -> int:
                             f"must be {RSVP_MOBILE_AVATAR_SIZE}"
                         )
         if stylesheet.name == "form-lab.css":
+            form_lab_select_contracts = (
+                (".fl-control-shell", "overflow", "visible"),
+                (".fl-select-trigger", "border-radius", "var(--control-radius)"),
+                (".fl-select-menu", "top", "calc(100% + 6px)"),
+                (".fl-select-menu", "overflow-y", "auto"),
+            )
+            root_form_lab_rules = [
+                (selector, body, line)
+                for context, selector, body, line in css_rule_blocks(stylesheet_text)
+                if not context
+            ]
+            for expected_selector, property_name, property_value in form_lab_select_contracts:
+                matching_rules = [
+                    (body, line)
+                    for selector, body, line in root_form_lab_rules
+                    if expected_selector in {part.strip() for part in selector.split(",")}
+                    and re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*{re.escape(property_value)}\s*(?:;|$)",
+                        body,
+                        flags=re.IGNORECASE,
+                    )
+                ]
+                if not matching_rules:
+                    errors.append(
+                        f"form-lab.css: {expected_selector} must keep "
+                        f"{property_name}: {property_value}"
+                    )
             point_focus_rules = [
                 (body, line)
                 for context, selector, body, line in css_rule_blocks(stylesheet_text)

@@ -46,7 +46,7 @@
 
   <link rel="stylesheet" href="style.css?v=20261011-7" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="form-lab.css?v=20260825-1" />
+  <link rel="stylesheet" href="form-lab.css?v=20261011-2" />
 </head>
 
 <body>
@@ -135,34 +135,34 @@
 
   <section class="fl-control-shell" aria-label="Form Lab controls">
     <div class="fl-control-grid">
-      <label class="fl-field fl-field-player">
-        <span>Player</span>
+      <div class="fl-field fl-field-player">
+        <label id="fl-player-label" for="fl-player-select">Player</label>
         <select id="fl-player-select"></select>
-      </label>
+      </div>
 
-      <label class="fl-field">
-        <span>Preset</span>
+      <div class="fl-field">
+        <label id="fl-preset-label" for="fl-preset-select">Preset</label>
         <select id="fl-preset-select"></select>
-      </label>
+      </div>
 
-      <label class="fl-field">
-        <span>X-Axis</span>
+      <div class="fl-field">
+        <label id="fl-x-label" for="fl-x-select">X-Axis</label>
         <select id="fl-x-select"></select>
-      </label>
+      </div>
 
-      <label class="fl-field">
-        <span>Y-Axis</span>
+      <div class="fl-field">
+        <label id="fl-y-label" for="fl-y-select">Y-Axis</label>
         <select id="fl-y-select"></select>
-      </label>
+      </div>
 
-      <label class="fl-field">
-        <span>Window</span>
+      <div class="fl-field">
+        <label id="fl-window-label" for="fl-window-select">Window</label>
         <select id="fl-window-select">
           <option value="6">Last 6 events</option>
           <option value="10">Last 10 events</option>
           <option value="all">All events</option>
         </select>
-      </label>
+      </div>
     </div>
 
     <div class="fl-toggle-row" aria-label="Chart options">
@@ -247,6 +247,6 @@
 </footer>
 
 <script src="site-shell.js?v=20260824-2"></script>
-<script src="form-lab.js?v=20260825-3"></script>
+<script src="form-lab.js?v=20261011-1"></script>
 </body>
 </html>

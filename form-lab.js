@@ -209,6 +209,8 @@ async function initFormLab() {
 
     applyPreset("form-volatility", false);
     syncControls();
+    enhanceFormLabSelects();
+    syncControls();
     renderFormLab();
   } catch (error) {
     console.error("Form Lab failed:", error);
@@ -341,6 +343,200 @@ function populateMetricSelects() {
   if (ySelect) ySelect.innerHTML = options;
 }
 
+function enhanceFormLabSelects() {
+  const selectIds = [
+    "fl-player-select",
+    "fl-preset-select",
+    "fl-x-select",
+    "fl-y-select",
+    "fl-window-select"
+  ];
+
+  selectIds.forEach(selectId => {
+    const select = document.getElementById(selectId);
+    if (!select || select.dataset.enhancedSelect === "true") return;
+
+    const field = select.closest(".fl-field");
+    const fieldLabel = field ? field.querySelector("label") : null;
+    const label = fieldLabel ? fieldLabel.textContent.trim() : "Option";
+    const customSelect = document.createElement("div");
+    const trigger = document.createElement("button");
+    const menu = document.createElement("div");
+    const menuId = `${selectId}-menu`;
+
+    customSelect.className = "fl-select";
+    trigger.className = "fl-select-trigger";
+    trigger.id = `${selectId}-trigger`;
+    trigger.type = "button";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", menuId);
+    trigger.dataset.fieldLabel = label;
+
+    menu.className = "fl-select-menu";
+    menu.id = menuId;
+    menu.setAttribute("role", "listbox");
+    if (fieldLabel && fieldLabel.id) {
+      menu.setAttribute("aria-labelledby", fieldLabel.id);
+    } else {
+      menu.setAttribute("aria-label", label);
+    }
+    menu.hidden = true;
+
+    Array.from(select.options).forEach(option => {
+      const optionButton = document.createElement("button");
+      optionButton.className = "fl-select-option";
+      optionButton.type = "button";
+      optionButton.setAttribute("role", "option");
+      optionButton.dataset.value = option.value;
+      optionButton.textContent = option.textContent;
+      optionButton.addEventListener("click", () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        syncEnhancedSelect(select);
+        closeEnhancedSelect(select, true);
+      });
+      optionButton.addEventListener("keydown", event => {
+        handleEnhancedOptionKeydown(event, select);
+      });
+      menu.append(optionButton);
+    });
+
+    trigger.addEventListener("click", () => {
+      if (trigger.getAttribute("aria-expanded") === "true") {
+        closeEnhancedSelect(select, false);
+      } else {
+        openEnhancedSelect(select);
+      }
+    });
+
+    trigger.addEventListener("keydown", event => {
+      if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) return;
+      event.preventDefault();
+      const optionButtons = Array.from(menu.querySelectorAll(".fl-select-option"));
+      const selectedIndex = Math.max(0, optionButtons.findIndex(button => {
+        return button.dataset.value === select.value;
+      }));
+      const focusIndex = event.key === "End"
+        ? optionButtons.length - 1
+        : event.key === "ArrowUp"
+          ? Math.max(0, selectedIndex - 1)
+          : event.key === "ArrowDown"
+            ? Math.min(optionButtons.length - 1, selectedIndex + 1)
+            : 0;
+      openEnhancedSelect(select, focusIndex);
+    });
+
+    select.addEventListener("change", () => syncEnhancedSelect(select));
+    select.classList.add("fl-native-select");
+    select.dataset.enhancedSelect = "true";
+    select.tabIndex = -1;
+    select.setAttribute("aria-hidden", "true");
+    customSelect.append(trigger, menu);
+    select.insertAdjacentElement("afterend", customSelect);
+    if (fieldLabel) fieldLabel.htmlFor = trigger.id;
+    syncEnhancedSelect(select);
+  });
+
+  if (document.documentElement.dataset.formLabSelectsWired !== "true") {
+    document.documentElement.dataset.formLabSelectsWired = "true";
+    document.addEventListener("click", event => {
+      if (!event.target.closest(".fl-select")) closeAllEnhancedSelects();
+    });
+    window.addEventListener("resize", () => closeAllEnhancedSelects());
+  }
+}
+
+function syncEnhancedSelect(select) {
+  const customSelect = select.nextElementSibling;
+  if (!customSelect || !customSelect.classList.contains("fl-select")) return;
+
+  const trigger = customSelect.querySelector(".fl-select-trigger");
+  const selectedOption = Array.from(select.options).find(option => {
+    return option.value === select.value;
+  });
+  const selectedText = selectedOption ? selectedOption.textContent : "Select…";
+  const fieldLabel = trigger.dataset.fieldLabel || "Option";
+
+  trigger.textContent = selectedText;
+  trigger.setAttribute("aria-label", `${fieldLabel}: ${selectedText}`);
+  customSelect.querySelectorAll(".fl-select-option").forEach(button => {
+    button.setAttribute(
+      "aria-selected",
+      button.dataset.value === select.value ? "true" : "false"
+    );
+  });
+}
+
+function openEnhancedSelect(select, focusIndex = null) {
+  const customSelect = select.nextElementSibling;
+  if (!customSelect || !customSelect.classList.contains("fl-select")) return;
+
+  closeAllEnhancedSelects(select);
+
+  const trigger = customSelect.querySelector(".fl-select-trigger");
+  const menu = customSelect.querySelector(".fl-select-menu");
+  const availableHeight = Math.max(
+    96,
+    Math.floor(window.innerHeight - trigger.getBoundingClientRect().bottom - 16)
+  );
+
+  menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;
+  menu.hidden = false;
+  trigger.setAttribute("aria-expanded", "true");
+
+  if (focusIndex !== null) {
+    const optionButtons = Array.from(menu.querySelectorAll(".fl-select-option"));
+    const target = optionButtons[Math.max(0, Math.min(focusIndex, optionButtons.length - 1))];
+    if (target) target.focus();
+  }
+}
+
+function closeEnhancedSelect(select, restoreFocus = false) {
+  const customSelect = select.nextElementSibling;
+  if (!customSelect || !customSelect.classList.contains("fl-select")) return;
+
+  const trigger = customSelect.querySelector(".fl-select-trigger");
+  const menu = customSelect.querySelector(".fl-select-menu");
+  menu.hidden = true;
+  trigger.setAttribute("aria-expanded", "false");
+  if (restoreFocus) trigger.focus();
+}
+
+function closeAllEnhancedSelects(exceptSelect = null) {
+  document.querySelectorAll("select[data-enhanced-select='true']").forEach(select => {
+    if (select !== exceptSelect) closeEnhancedSelect(select, false);
+  });
+}
+
+function handleEnhancedOptionKeydown(event, select) {
+  const menu = event.currentTarget.closest(".fl-select-menu");
+  const optionButtons = Array.from(menu.querySelectorAll(".fl-select-option"));
+  const currentIndex = optionButtons.indexOf(event.currentTarget);
+
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeEnhancedSelect(select, true);
+    return;
+  }
+
+  if (event.key === "Tab") {
+    closeEnhancedSelect(select, false);
+    return;
+  }
+
+  let nextIndex = null;
+  if (event.key === "ArrowDown") nextIndex = Math.min(optionButtons.length - 1, currentIndex + 1);
+  if (event.key === "ArrowUp") nextIndex = Math.max(0, currentIndex - 1);
+  if (event.key === "Home") nextIndex = 0;
+  if (event.key === "End") nextIndex = optionButtons.length - 1;
+
+  if (nextIndex !== null) {
+    event.preventDefault();
+    optionButtons[nextIndex].focus();
+  }
+}
+
 function wireControls() {
   const playerSelect = document.getElementById("fl-player-select");
   const presetSelect = document.getElementById("fl-preset-select");
@@ -418,6 +614,7 @@ function applyPreset(presetKey, updateControls) {
 }
 
 function syncControls() {
+  const playerSelect = document.getElementById("fl-player-select");
   const presetSelect = document.getElementById("fl-preset-select");
   const xSelect = document.getElementById("fl-x-select");
   const ySelect = document.getElementById("fl-y-select");
@@ -427,6 +624,10 @@ function syncControls() {
   if (xSelect) xSelect.value = FL_STATE.xMetric;
   if (ySelect) ySelect.value = FL_STATE.yMetric;
   if (windowSelect) windowSelect.value = FL_STATE.windowSize;
+
+  [playerSelect, presetSelect, xSelect, ySelect, windowSelect]
+    .filter(Boolean)
+    .forEach(syncEnhancedSelect);
 
   syncCheckbox("fl-show-labels", FL_STATE.showLabels);
   syncCheckbox("fl-show-trend", FL_STATE.showTrend);
