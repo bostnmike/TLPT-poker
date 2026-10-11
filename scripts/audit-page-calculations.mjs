@@ -471,6 +471,50 @@ for (const player of players) {
   }
 }
 
+const knockoutPage = loadScript("knockouts.js", source => source.replace(
+  /\n\}\)\(\);\s*$/,
+  `\n  globalThis.__TLPT_KNOCKOUT_AUDIT__ = { buildPlayerMap, hasBountyData, renderBountyView };\n})();\n`
+));
+const knockoutAudit = knockoutPage.get("__TLPT_KNOCKOUT_AUDIT__");
+const knockoutData = readJson("data/generated/knockouts.json");
+const emptyBountyMarkup = knockoutAudit.renderBountyView(
+  players,
+  knockoutAudit.buildPlayerMap(players),
+  knockoutData
+);
+check(
+  !knockoutAudit.hasBountyData(players)
+    && emptyBountyMarkup.includes("Bounty board awaiting its first claims")
+    && !emptyBountyMarkup.includes("Career Bounty Ledger"),
+  "Knockout Central must keep the bounty view closed until real bounty data exists"
+);
+
+const syntheticBountyPlayers = players.map((player, index) => ({
+  ...player,
+  bountiesWon: index === 0 ? 2 : 0,
+  bountyPaid: index < 2 ? 10 : 0,
+  bountyCollected: index === 0 ? 20 : 0,
+  bountyRetained: index === 0 ? 10 : 0,
+  bountyWinnings: index === 0 ? 30 : 0,
+  bountyNet: index === 0 ? 20 : index === 1 ? -10 : 0
+}));
+const syntheticClaims = [
+  { eventId: "2026-10-24", killer: syntheticBountyPlayers[0].slug, victim: syntheticBountyPlayers[1].slug, amount: 10 },
+  { eventId: "2026-10-24", killer: syntheticBountyPlayers[0].slug, victim: syntheticBountyPlayers[2].slug, amount: 10 }
+];
+const syntheticBountyMarkup = knockoutAudit.renderBountyView(
+  syntheticBountyPlayers,
+  knockoutAudit.buildPlayerMap(syntheticBountyPlayers),
+  { ...knockoutData, bounties: { claims: syntheticClaims, eventsProcessed: ["2026-10-24"] } }
+);
+check(
+  syntheticBountyMarkup.includes("Career Bounty Ledger")
+    && syntheticBountyMarkup.includes("Verified Bounty Claims")
+    && syntheticBountyMarkup.includes("10/24/26")
+    && syntheticBountyMarkup.includes("2 bounties"),
+  "Knockout Central must render career bounty money and verified killer-to-victim claims"
+);
+
 const sortableKeys = [
   "totalWinnings", "profit", "hits", "timesPlaced", "bubbles", "hitRate",
   "cashRate", "bubbleRate", "roi", "trueSkillScore", "luckIndex",

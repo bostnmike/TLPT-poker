@@ -1100,18 +1100,98 @@ def audit_knockouts(audit, events, site_data):
             by_victim.setdefault(row["victim"], Counter())[row["killer"]] += 1
             by_killer.setdefault(row["killer"], Counter())[row["victim"]] += 1
         archive[event["eventId"]] = rows
+
+    actual_archive = load_json(ROOT / "knockout-events-full.json")
+    stripped_archive = {
+        event_id: [
+            {
+                "victim": row.get("victim"),
+                "killer": row.get("killer"),
+                "sourceVictim": row.get("sourceVictim"),
+                "sourceKiller": row.get("sourceKiller"),
+            }
+            for row in rows
+        ]
+        for event_id, rows in actual_archive.items()
+    }
+    audit.check(deep_equal(stripped_archive, archive), "knockouts", "Knockout archive differs from parsed bustouts")
+
+    bounty_claims = []
+    bounty_events = set()
+    event_by_id = {event["eventId"]: event for event in events}
+    for event_id, rows in actual_archive.items():
+        event = event_by_id.get(event_id) or {}
+        bounty_summary = (event.get("summary") or {}).get("bounty") or {}
+        event_claims = []
+        for row in rows:
+            if not row.get("bountyAmount"):
+                continue
+            claim = {
+                "eventId": event_id,
+                "killer": row.get("killer"),
+                "victim": row.get("victim"),
+                "amount": row.get("bountyAmount"),
+            }
+            event_claims.append(claim)
+            bounty_claims.append(claim)
+
+        if event_claims:
+            bounty_events.add(event_id)
+
+        if not bounty_summary:
+            audit.check(not event_claims, "knockouts", f"{event_id}: non-bounty event has bounty claim annotations")
+            continue
+
+        expected_amount = Decimal(str(bounty_summary.get("amount", 0)))
+        expected_by_killer = {
+            row.get("slug"): int(row.get("bountiesWon", 0) or 0)
+            for row in event.get("players", [])
+            if int(row.get("bountiesWon", 0) or 0) > 0
+        }
+        actual_by_killer = Counter(claim["killer"] for claim in event_claims)
+        victims = [claim["victim"] for claim in event_claims]
+        audit.check(
+            dict(actual_by_killer) == expected_by_killer,
+            "knockouts",
+            f"{event_id}: verified bounty claims differ from reported player bounty totals",
+        )
+        audit.check(
+            len(event_claims) == int(bounty_summary.get("bountiesWon", 0) or 0),
+            "knockouts",
+            f"{event_id}: verified bounty claim count differs from event summary",
+        )
+        audit.check(
+            len(victims) == len(set(victims)),
+            "knockouts",
+            f"{event_id}: first-entry bounty victim is assigned more than once",
+        )
+        audit.check(
+            all(Decimal(str(claim["amount"])) == expected_amount for claim in event_claims),
+            "knockouts",
+            f"{event_id}: bounty claim amount differs from event configuration",
+        )
+
     runtime = {
         "byVictim": {slug: dict(sorted(counts.items())) for slug, counts in sorted(by_victim.items())},
         "byKiller": {slug: dict(sorted(counts.items())) for slug, counts in sorted(by_killer.items())},
         "eventsProcessed": sorted(archive),
+        "bounties": {
+            "claims": bounty_claims,
+            "eventsProcessed": sorted(bounty_events),
+        },
     }
-    audit.check(deep_equal(load_json(ROOT / "knockout-events-full.json"), archive), "knockouts", "Knockout archive differs from parsed bustouts")
     for path in (ROOT / "knockouts.json", DATA / "generated" / "knockouts.json", DATA / "generated" / "knockouts-generated.json"):
         audit.check(deep_equal(load_json(path), runtime), "knockouts", f"{path.relative_to(ROOT)} differs from parsed bustouts")
     players = {player["slug"]: player for player in site_data["players"]}
+    career_bounty_counts = Counter(claim["killer"] for claim in bounty_claims)
+    career_bounty_money = Counter()
+    for claim in bounty_claims:
+        career_bounty_money[claim["killer"]] += Decimal(str(claim["amount"]))
     for slug, player in players.items():
         expected_hits = sum(runtime["byKiller"].get(slug, {}).values())
         audit.check(int(player.get("hits", 0)) == expected_hits, "knockouts", f"{slug}: career hits differ from knockout ledger")
+        audit.check(int(player.get("bountiesWon", 0) or 0) == career_bounty_counts[slug], "knockouts", f"{slug}: career bounties differ from verified claims")
+        audit.check(Decimal(str(player.get("bountyCollected", 0) or 0)) == career_bounty_money[slug], "knockouts", f"{slug}: collected bounty money differs from verified claims")
 
 
 def audit_pages(audit, metadata):

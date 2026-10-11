@@ -59,13 +59,23 @@
   max-width:100%;
   flex:0 0 auto;
   justify-self:center;
-  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%) !important;
+  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,96.5% 84%,70% 95.5%,50% 100%,30% 95.5%,3.5% 84%) !important;
+  clip-path:url(#tlpt-home-card-shape) !important;
+}
+
+.home-card-shape-defs{
+  position:absolute;
+  width:0;
+  height:0;
+  overflow:hidden;
+  pointer-events:none;
 }
 
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-card-inner{
   grid-template-rows:48px minmax(0,1fr) 62px;
-  padding:16px 14px 22px;
-  clip-path:polygon(13% 5.5%,23% 1.4%,50% 0,77% 1.4%,87% 5.5%,88% 9.4%,92% 12.7%,100% 14%,100% 85.5%,91% 93.4%,50% 100%,9% 93.4%,0 85.5%,0 14%,8% 12.7%,12% 9.4%) !important;
+  padding:20px 14px 22px;
+  clip-path:polygon(0 14%,18% 9%,32% 3.5%,41% 6%,50% 0,59% 6%,68% 3.5%,82% 9%,100% 14%,96.5% 84%,70% 95.5%,50% 100%,30% 95.5%,3.5% 84%) !important;
+  clip-path:url(#tlpt-home-card-shape) !important;
 }
 
 #home-snapshot .home-featured-ultimate-card .crew-ultimate-header{

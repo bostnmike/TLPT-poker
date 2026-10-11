@@ -46,7 +46,7 @@
 
   <link rel="stylesheet" href="style.css?v=20261011-1" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="knockouts.css?v=20260824-6" />
+  <link rel="stylesheet" href="knockouts.css?v=20261011-1" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -133,43 +133,58 @@
     </section>
 
     <div id="knockouts-page" class="knockouts-page">
-      <section class="section knockouts-shell">
-        <div class="knockouts-shell-head knockouts-shell-head-leaders">
-          <h3>💥 🥊 Most Violent Offenders</h3>
-        </div>
-        <div id="knockouts-summary-grid" class="knockouts-summary-grid"></div>
-      </section>
+      <div class="knockouts-view-switch" role="group" aria-label="Knockout Central view">
+        <button class="knockouts-view-button is-active" type="button" data-knockouts-view="knockouts" aria-controls="knockouts-panel-knockouts" aria-pressed="true">
+          🥊 Knockouts
+        </button>
+        <button class="knockouts-view-button" type="button" data-knockouts-view="bounties" aria-controls="knockouts-panel-bounties" aria-pressed="false">
+          🎯 Bounty Hunts
+        </button>
+      </div>
 
-      <div class="knockouts-two-up">
+      <div id="knockouts-panel-knockouts" class="knockouts-view-panel is-active" data-knockouts-panel="knockouts">
         <section class="section knockouts-shell">
-          <div class="knockouts-shell-head">
-            <h3>🥊 Vendetta Ledger</h3>
-            <p class="muted">TLPT's nastiest (and bloodiest) head-to-head feuds.</p>
+          <div class="knockouts-shell-head knockouts-shell-head-leaders">
+            <h3>💥 🥊 Most Violent Offenders</h3>
           </div>
-          <div id="knockouts-rivalries"></div>
+          <div id="knockouts-summary-grid" class="knockouts-summary-grid"></div>
         </section>
 
+        <div class="knockouts-two-up">
+          <section class="section knockouts-shell">
+            <div class="knockouts-shell-head">
+              <h3>🥊 Vendetta Ledger</h3>
+              <p class="muted">TLPT's nastiest (and bloodiest) head-to-head feuds.</p>
+            </div>
+            <div id="knockouts-rivalries"></div>
+          </section>
+
+          <section class="section knockouts-shell">
+            <div class="knockouts-shell-head">
+              <h3>☠️ Who’s your TLPT Daddy?</h3>
+              <p class="muted">Say, "Hello." to the face most likely to ruin your night.</p>
+            </div>
+            <div id="knockouts-nemesis-board"></div>
+          </section>
+        </div>
+
         <section class="section knockouts-shell">
           <div class="knockouts-shell-head">
-            <h3>☠️ Who’s your TLPT Daddy?</h3>
-            <p class="muted">Say, "Hello." to the face most likely to ruin your night.</p>
+            <h3>💀 Body Count Ledger</h3>
+            <p class="muted">Everybody who’s sent somebody home, and exactly how often.</p>
           </div>
-          <div id="knockouts-nemesis-board"></div>
+          <div id="knockouts-body-count-ledger"></div>
         </section>
       </div>
 
-      <section class="section knockouts-shell">
-        <div class="knockouts-shell-head">
-          <h3>💀 Bounty Hunter Alley</h3>
-          <p class="muted">Everybody who’s sent somebody home, and exactly how often.</p>
-        </div>
-        <div id="knockouts-body-count-ledger"></div>
-      </section>
+      <div id="knockouts-panel-bounties" class="knockouts-view-panel" data-knockouts-panel="bounties" hidden>
+        <div id="knockouts-bounty-view"></div>
+      </div>
     </div>
   </main>
 
   <script src="site-shell.js?v=20260824-2"></script>
-<script src="knockouts.js?v=20260825-2"></script>
+<script src="knockouts.js?v=20261011-1"></script>
 
   <footer class="site-footer">
     <div class="site-footer-inner">

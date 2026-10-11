@@ -5,6 +5,59 @@
   gap:22px;
 }
 
+.knockouts-view-switch{
+  display:inline-flex;
+  justify-self:start;
+  gap:6px;
+  padding:6px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  background:rgba(7,11,16,.88);
+  box-shadow:0 10px 24px rgba(0,0,0,.20);
+}
+
+.knockouts-view-button{
+  min-height:42px;
+  padding:10px 18px;
+  border:1px solid transparent;
+  border-radius:999px;
+  color:#b8c2cf;
+  background:transparent;
+  cursor:pointer;
+  font:inherit;
+  font-size:.9rem;
+  font-weight:900;
+  letter-spacing:.02em;
+  transition:color .16s ease,background .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+
+.knockouts-view-button:hover,
+.knockouts-view-button:focus-visible{
+  color:#fff;
+  border-color:rgba(255,184,28,.28);
+}
+
+.knockouts-view-button:focus-visible{
+  outline:2px solid #ffe09a;
+  outline-offset:3px;
+}
+
+.knockouts-view-button.is-active{
+  color:#120d03;
+  border-color:rgba(255,226,148,.86);
+  background:linear-gradient(135deg,#ffe39a,#ffb81c 62%,#d88900);
+  box-shadow:0 0 18px rgba(255,184,28,.22),inset 0 1px 0 rgba(255,255,255,.56);
+}
+
+.knockouts-view-panel{
+  display:grid;
+  gap:22px;
+}
+
+.knockouts-view-panel[hidden]{
+  display:none;
+}
+
 .knockouts-summary-grid{
   display:grid;
   grid-template-columns:repeat(4, minmax(0,1fr));
@@ -472,6 +525,213 @@
   line-height:1.45;
 }
 
+.knockouts-bounty-empty-state{
+  min-height:280px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 20%,rgba(255,184,28,.14),transparent 34%),
+    linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));
+}
+
+.knockouts-bounty-empty-icon{
+  font-size:3.1rem;
+  filter:drop-shadow(0 0 16px rgba(255,184,28,.34));
+}
+
+.knockouts-bounty-empty-state h3{
+  margin:0;
+  color:#fff4ca;
+  font-size:1.45rem;
+}
+
+.knockouts-bounty-empty-state p{
+  max-width:610px;
+  margin:0;
+  color:#aab6c5;
+  line-height:1.55;
+}
+
+.knockouts-bounty-ledger-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:14px;
+}
+
+.knockouts-bounty-ledger-card{
+  display:grid;
+  gap:14px;
+  padding:16px;
+  border:1px solid rgba(255,184,28,.18);
+  border-radius:16px;
+  color:#fff;
+  background:
+    radial-gradient(circle at top right,rgba(255,184,28,.13),transparent 31%),
+    linear-gradient(180deg,rgba(45,31,8,.78),rgba(18,14,8,.96));
+  box-shadow:0 10px 24px rgba(0,0,0,.20),0 0 18px rgba(255,184,28,.06);
+  text-decoration:none;
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease;
+}
+
+.knockouts-bounty-ledger-card:hover,
+.knockouts-bounty-ledger-card:focus-visible{
+  color:#fff;
+  transform:translateY(-3px);
+  border-color:rgba(255,184,28,.48);
+  box-shadow:0 15px 28px rgba(0,0,0,.28),0 0 24px rgba(255,184,28,.12);
+}
+
+.knockouts-bounty-ledger-card:focus-visible{
+  outline:2px solid #ffe09a;
+  outline-offset:3px;
+}
+
+.knockouts-bounty-ledger-player{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.knockouts-bounty-ledger-player > div{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.knockouts-bounty-ledger-player strong{
+  overflow:hidden;
+  color:#fff;
+  font-size:1.06rem;
+  line-height:1.15;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.knockouts-bounty-ledger-player span{
+  color:#ffd779;
+  font-size:.82rem;
+  font-weight:800;
+}
+
+.knockouts-bounty-ledger-stats{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin:0;
+}
+
+.knockouts-bounty-ledger-stats > div{
+  min-width:0;
+  padding:9px 10px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+}
+
+.knockouts-bounty-ledger-stats dt{
+  margin:0 0 3px;
+  color:#96a3b3;
+  font-size:.64rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.knockouts-bounty-ledger-stats dd{
+  margin:0;
+  color:#f7e8bc;
+  font-size:.98rem;
+  font-weight:900;
+}
+
+.knockouts-bounty-ledger-stats dd.is-positive{
+  color:#86efac;
+}
+
+.knockouts-bounty-ledger-stats dd.is-negative{
+  color:#fca5a5;
+}
+
+.knockouts-bounty-claims{
+  display:grid;
+  gap:10px;
+}
+
+.knockouts-bounty-claim-card{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+  align-items:center;
+  gap:14px;
+  padding:12px 14px;
+  border:1px solid rgba(255,184,28,.14);
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(55,39,10,.72),rgba(18,14,8,.94),rgba(55,39,10,.52));
+}
+
+.knockouts-bounty-claim-player{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.knockouts-bounty-claim-player.is-victim{
+  justify-content:flex-end;
+  text-align:right;
+}
+
+.knockouts-bounty-claim-player.is-victim img,
+.knockouts-bounty-claim-player.is-victim .knockouts-avatar-fallback{
+  order:2;
+}
+
+.knockouts-bounty-claim-player span{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.knockouts-bounty-claim-player strong{
+  overflow:hidden;
+  color:#fff;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.knockouts-bounty-claim-player small{
+  color:#98a6b6;
+}
+
+.knockouts-bounty-claim-value{
+  min-width:78px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+  padding:8px 10px;
+  border:1px solid rgba(255,184,28,.25);
+  border-radius:999px;
+  color:#1a1000;
+  background:linear-gradient(135deg,#ffe39a,#ffb81c);
+  text-align:center;
+}
+
+.knockouts-bounty-claim-value strong{
+  font-size:1rem;
+  line-height:1;
+}
+
+.knockouts-bounty-claim-value span{
+  font-size:.64rem;
+  font-weight:900;
+}
+
 /* avatars */
 .knockouts-avatar,
 .knockouts-avatar-fallback{
@@ -525,6 +785,16 @@
 }
 
 @media (max-width:700px){
+  .knockouts-view-switch{
+    width:100%;
+  }
+
+  .knockouts-view-button{
+    flex:1 1 0;
+    padding-left:10px;
+    padding-right:10px;
+  }
+
   .knockouts-summary-grid{
     grid-template-columns:1fr;
   }
@@ -569,5 +839,20 @@
   .knockouts-nemesis-side-right{
     justify-content:center;
     text-align:center;
+  }
+
+  .knockouts-bounty-claim-card{
+    grid-template-columns:1fr;
+  }
+
+  .knockouts-bounty-claim-player,
+  .knockouts-bounty-claim-player.is-victim{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .knockouts-bounty-claim-player.is-victim img,
+  .knockouts-bounty-claim-player.is-victim .knockouts-avatar-fallback{
+    order:0;
   }
 }

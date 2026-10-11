@@ -416,6 +416,205 @@ const KNOCKOUTS_URLS = [
     `;
   }
 
+  function formatMoney(value) {
+    const amount = Number(value || 0);
+    const sign = amount < 0 ? "-" : "";
+    return `${sign}$${Math.abs(amount).toLocaleString("en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    })}`;
+  }
+
+  function bountyValueClass(value) {
+    const amount = Number(value || 0);
+    if (amount > 0) return " is-positive";
+    if (amount < 0) return " is-negative";
+    return "";
+  }
+
+  function hasBountyData(players) {
+    return players.some(player => [
+      "bountiesWon", "bountyPaid", "bountyCollected", "bountyRetained",
+      "bountyWinnings", "bountyNet"
+    ].some(key => Math.abs(Number(player?.[key] || 0)) > 0));
+  }
+
+  function bountyLeader(players, key) {
+    return [...players]
+      .filter(player => Math.abs(Number(player?.[key] || 0)) > 0)
+      .sort((a, b) =>
+        Number(b?.[key] || 0) - Number(a?.[key] || 0)
+        || String(a?.name || "").localeCompare(String(b?.name || ""))
+      )[0] || null;
+  }
+
+  function renderBountySummary(players) {
+    const mostWon = bountyLeader(players, "bountiesWon");
+    const bestNet = bountyLeader(players, "bountyNet");
+    const mostCollected = bountyLeader(players, "bountyCollected");
+    const mostRetained = bountyLeader(players, "bountyRetained");
+
+    return [
+      renderStatCard({
+        label: "Most Bounties Won",
+        player: mostWon,
+        value: mostWon ? String(mostWon.bountiesWon) : "—",
+        subtext: "First-entry prizes collected"
+      }),
+      renderStatCard({
+        label: "Best Bounty Net",
+        player: bestNet,
+        value: bestNet ? formatMoney(bestNet.bountyNet) : "—",
+        subtext: "Returns minus bounty money posted"
+      }),
+      renderStatCard({
+        label: "Most Money Collected",
+        player: mostCollected,
+        value: mostCollected ? formatMoney(mostCollected.bountyCollected) : "—",
+        subtext: "Opponent bounties only"
+      }),
+      renderStatCard({
+        label: "Most Money Retained",
+        player: mostRetained,
+        value: mostRetained ? formatMoney(mostRetained.bountyRetained) : "—",
+        subtext: "Own unclaimed bounty returned"
+      })
+    ].join("");
+  }
+
+  function renderBountyLedger(players) {
+    const rows = [...players]
+      .filter(player => [
+        "bountiesWon", "bountyPaid", "bountyCollected", "bountyRetained",
+        "bountyWinnings", "bountyNet"
+      ].some(key => Math.abs(Number(player?.[key] || 0)) > 0))
+      .sort((a, b) =>
+        Number(b.bountiesWon || 0) - Number(a.bountiesWon || 0)
+        || Number(b.bountyNet || 0) - Number(a.bountyNet || 0)
+        || String(a.name || "").localeCompare(String(b.name || ""))
+      );
+
+    return `
+      <div class="knockouts-bounty-ledger-grid">
+        ${rows.map(player => `
+          <a class="knockouts-bounty-ledger-card" href="player.html?name=${encodeURIComponent(player.name || "")}">
+            <div class="knockouts-bounty-ledger-player">
+              ${avatarMarkup(player, "knockouts-avatar-md")}
+              <div>
+                <strong>${player.name || player.slug}</strong>
+                <span>${Number(player.bountiesWon || 0)} ${Number(player.bountiesWon || 0) === 1 ? "bounty" : "bounties"}</span>
+              </div>
+            </div>
+            <dl class="knockouts-bounty-ledger-stats">
+              <div><dt>Collected</dt><dd>${formatMoney(player.bountyCollected)}</dd></div>
+              <div><dt>Retained</dt><dd>${formatMoney(player.bountyRetained)}</dd></div>
+              <div><dt>Posted</dt><dd>${formatMoney(player.bountyPaid)}</dd></div>
+              <div><dt>Net</dt><dd class="${bountyValueClass(player.bountyNet).trim()}">${formatMoney(player.bountyNet)}</dd></div>
+            </dl>
+          </a>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function shortEventDate(value) {
+    const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    return match ? `${Number(match[2])}/${Number(match[3])}/${match[1].slice(2)}` : String(value || "");
+  }
+
+  function renderBountyClaims(playerMap, claims) {
+    if (!claims.length) {
+      return `<div class="knockouts-empty">No verified killer-to-victim bounty claims are available yet.</div>`;
+    }
+
+    return `
+      <div class="knockouts-bounty-claims">
+        ${[...claims].reverse().map(claim => {
+          const killer = safePlayer(playerMap, claim.killer);
+          const victim = safePlayer(playerMap, claim.victim);
+          return `
+            <div class="knockouts-bounty-claim-card">
+              <div class="knockouts-bounty-claim-player">
+                ${avatarMarkup(killer, "knockouts-avatar-sm")}
+                <span><strong>${killer?.name || claim.killer}</strong><small>claimed</small></span>
+              </div>
+              <div class="knockouts-bounty-claim-value">
+                <strong>${formatMoney(claim.amount)}</strong>
+                <span>${shortEventDate(claim.eventId)}</span>
+              </div>
+              <div class="knockouts-bounty-claim-player is-victim">
+                ${avatarMarkup(victim, "knockouts-avatar-sm")}
+                <span><strong>${victim?.name || claim.victim}</strong><small>first-entry bounty</small></span>
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    `;
+  }
+
+  function renderBountyView(players, playerMap, knockouts) {
+    if (!hasBountyData(players)) {
+      return `
+        <section class="section knockouts-shell knockouts-bounty-empty-state">
+          <div class="knockouts-bounty-empty-icon" aria-hidden="true">🎯</div>
+          <h3>Bounty board awaiting its first claims</h3>
+          <p>The first MTT bounty results will open this view automatically. Bounty money stays separate from tournament profit.</p>
+        </section>
+      `;
+    }
+
+    const claims = knockouts?.bounties?.claims || [];
+    return `
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head knockouts-shell-head-leaders">
+          <h3>🎯 Bounty Leaders</h3>
+          <p class="muted">First-entry bounty results only. Every claim also remains one ordinary knockout.</p>
+        </div>
+        <div class="knockouts-summary-grid">${renderBountySummary(players)}</div>
+      </section>
+
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head">
+          <h3>💰 Career Bounty Ledger</h3>
+          <p class="muted">Collected and retained bounty money is tracked outside tournament winnings, profit and Power Index.</p>
+        </div>
+        ${renderBountyLedger(players)}
+      </section>
+
+      <section class="section knockouts-shell">
+        <div class="knockouts-shell-head">
+          <h3>🧾 Verified Bounty Claims</h3>
+          <p class="muted">Who captured whose first-entry bounty, checked against the Tournament Director totals.</p>
+        </div>
+        ${renderBountyClaims(playerMap, claims)}
+      </section>
+    `;
+  }
+
+  function initKnockoutViewSwitch(root) {
+    const buttons = [...root.querySelectorAll("[data-knockouts-view]")];
+    const panels = [...root.querySelectorAll("[data-knockouts-panel]")];
+    if (!buttons.length || !panels.length || root.dataset.viewSwitchReady === "true") return;
+
+    root.dataset.viewSwitchReady = "true";
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const view = button.dataset.knockoutsView;
+        buttons.forEach(item => {
+          const active = item.dataset.knockoutsView === view;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+        panels.forEach(panel => {
+          const active = panel.dataset.knockoutsPanel === view;
+          panel.classList.toggle("is-active", active);
+          panel.hidden = !active;
+        });
+      });
+    });
+  }
+
   async function loadJsonWithFallback(urls, label) {
     let lastError = null;
 
@@ -470,6 +669,7 @@ const KNOCKOUTS_URLS = [
     const rivalriesHost = document.getElementById("knockouts-rivalries");
     const nemesisBoardHost = document.getElementById("knockouts-nemesis-board");
     const bodyCountLedgerHost = document.getElementById("knockouts-body-count-ledger");
+    const bountyViewHost = document.getElementById("knockouts-bounty-view");
 
     if (topStatsHost) {
       topStatsHost.innerHTML = renderTopStats(playerMap, byKiller, byVictim);
@@ -486,6 +686,12 @@ const KNOCKOUTS_URLS = [
     if (bodyCountLedgerHost) {
       bodyCountLedgerHost.innerHTML = renderBodyCountLedger(playerMap, byKiller);
     }
+
+    if (bountyViewHost) {
+      bountyViewHost.innerHTML = renderBountyView(players, playerMap, knockouts);
+    }
+
+    initKnockoutViewSwitch(root);
   }
 
   async function initKnockoutCentral() {
