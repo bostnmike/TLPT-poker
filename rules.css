@@ -281,7 +281,7 @@
 }
 
 .dealer-button-icon::before{
-  z-index:-2;
+  z-index:1;
   width:34px;
   height:40px;
   background:#101216;
@@ -289,10 +289,15 @@
 }
 
 .dealer-button-icon::after{
-  z-index:-1;
+  z-index:2;
   width:30px;
   height:36px;
   background:#e3b341;
+}
+
+.dealer-button-number{
+  position:relative;
+  z-index:3;
 }
 
 .rule-card:hover .dealer-button-icon{

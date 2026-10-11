@@ -1799,6 +1799,7 @@ def audit_javascript(path: Path) -> list[str]:
         for token in (
             ".dealer-button-icon::before,",
             ".dealer-button-icon::after{",
+            ".dealer-button-number{",
             "font-size:1.2rem;",
             "--retired-b-shape:polygon(",
             "8.1% 82.2%,",
@@ -1809,6 +1810,9 @@ def audit_javascript(path: Path) -> list[str]:
             "100% 59.6%,",
             "100% 84%,",
             "transform:translate(calc(-50% + 2px),-50%);",
+            "z-index:1;",
+            "z-index:2;",
+            "z-index:3;",
             "width:34px;",
             "height:40px;",
             "background:#101216;",
@@ -1821,6 +1825,11 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     f"rules.css: retired-number badge styling missing: {token}"
                 )
+        rules_html = (ROOT / "rules.html").read_text(encoding="utf-8")
+        if rules_html.count('class="dealer-button-number"') != 27:
+            errors.append(
+                "rules.html: all 27 rule badges must keep their number above the spokes and B"
+            )
         show_format_source = function_source("showFormat")
         if (
             'format.assumption ? `<p class="format-description"><strong>'
