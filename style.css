@@ -16,6 +16,8 @@
   --white:#ffffff;
   --shadow:0 10px 30px rgba(0,0,0,.25);
   --page-gutter:20px;
+  --control-radius:12px;
+  --control-inner-radius:8px;
 }
 
 *{
@@ -442,7 +444,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   gap:8px;
   padding:8px 14px;
-  border-radius:999px;
+  border-radius:var(--control-radius);
   border:1px solid rgba(255,184,28,.22);
   background:
     linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),
@@ -1634,7 +1636,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   align-items:center;
   gap:8px;
   padding:7px 12px;
-  border-radius:999px;
+  border-radius:var(--control-radius);
   font-size:.78rem;
   font-weight:800;
   border:1px solid rgba(255,184,28,.25);
@@ -2497,7 +2499,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   flex:0 0 auto;
   min-height:32px;
   padding:6px 11px;
-  border-radius:999px;
+  border-radius:var(--control-radius);
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.05);
   color:#dbe4ee;
@@ -5478,7 +5480,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   align-items:center;
   gap:8px;
   padding:10px 14px;
-  border-radius:999px;
+  border-radius:var(--control-radius);
   border:1px solid rgba(88,100,118,.34);
   background:
     linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0) 42%),
@@ -6706,7 +6708,7 @@ body:has(#dashboard-grid) .page-title-row::after{
   justify-content:center;
   gap:8px;
   padding:8px 14px;
-  border-radius:999px;
+  border-radius:var(--control-radius);
   border:1px solid rgba(255,184,28,.22);
   background:
     linear-gradient(180deg, rgba(255,184,28,.10), rgba(255,184,28,.03)),

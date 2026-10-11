@@ -36,7 +36,7 @@
 .pm-btn {
   padding: 8px 14px;
 
-  border-radius: 999px; /* match chip style */
+  border-radius: var(--control-radius);
 
   background: var(--panel-2);     /* 🔥 matches cards */
   border: 1px solid var(--line);  /* 🔥 matches shells */
@@ -480,7 +480,7 @@
 .pm-page .pm-btn {
   min-height: 42px;
   padding: 0 18px;
-  border-radius: 11px;
+  border-radius: var(--control-radius);
   border: 1px solid rgba(255,255,255,.18);
   color: #fff;
   font-weight: 900;

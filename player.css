@@ -96,7 +96,7 @@
   gap:4px;
   padding:4px;
   border:1px solid rgba(255,184,28,.26);
-  border-radius:999px;
+  border-radius:var(--control-radius);
   background:rgba(7,13,19,.86);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 8px 18px rgba(0,0,0,.22);
 }
@@ -106,7 +106,7 @@
   min-height:34px;
   padding:6px 13px;
   border:0;
-  border-radius:999px;
+  border-radius:var(--control-inner-radius);
   color:#9fb0bf;
   background:transparent;
   cursor:pointer;
@@ -143,7 +143,7 @@
   min-width:96px;
   padding:7px 13px;
   border:1px solid rgba(255,184,28,.38);
-  border-radius:999px;
+  border-radius:var(--control-radius);
   color:#ffe6a0;
   background:linear-gradient(145deg,rgba(255,184,28,.14),rgba(8,13,19,.92));
   cursor:pointer;
@@ -1968,7 +1968,7 @@
   gap:4px;
   padding:4px;
   border:1px solid rgba(255,184,28,.25);
-  border-radius:999px;
+  border-radius:var(--control-radius);
   background:rgba(4,8,12,.64);
 }
 
@@ -1977,7 +1977,7 @@
   min-height:34px;
   padding:6px 12px;
   border:0;
-  border-radius:999px;
+  border-radius:var(--control-inner-radius);
   color:#9fb0bf;
   background:transparent;
   cursor:pointer;
@@ -2350,7 +2350,7 @@
   display:block;
   padding:7px 8px;
   border:1px solid var(--card-line);
-  border-radius:999px;
+  border-radius:var(--control-radius);
   color:var(--card-ink);
   background:rgba(255,255,255,.055);
   font-size:.59rem;

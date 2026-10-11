@@ -220,7 +220,7 @@
   max-width:250px;
   padding:7px 12px;
   border:1px solid rgba(255,184,28,.24);
-  border-radius:999px;
+  border-radius:var(--control-radius);
   color:#ffe29a;
   background:rgba(255,184,28,.08);
   font-size:.72rem;

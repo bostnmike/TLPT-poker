@@ -357,7 +357,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-6"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-7"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-6"
@@ -365,7 +365,7 @@ EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-4"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
-EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-2"
+EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-3"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
 EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-12"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
@@ -398,11 +398,41 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "tlpt-update.yml": ["22"],
     "rotate-shared-css-cache.yml": ["22"],
 }
-EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-6"
+EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-7"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-2"
 EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261011-1"
+INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
+    "style.css": (
+        (frozenset({".home-jump-pill", ".home-module-cta"}), "var(--control-radius)"),
+        (frozenset({".home-guide-pill"}), "var(--control-radius)"),
+        (frozenset({".home-event-dot"}), "var(--control-radius)"),
+        (frozenset({".archetype-filter-pill"}), "var(--control-radius)"),
+        (frozenset({".player-page-link"}), "var(--control-radius)"),
+    ),
+    "home-snapshot.css": (
+        (frozenset({"#home-snapshot .home-featured-profile-link"}), "var(--control-radius)"),
+    ),
+    "knockouts.css": (
+        (frozenset({".knockouts-view-switch"}), "var(--control-radius)"),
+        (frozenset({".knockouts-view-button"}), "var(--control-inner-radius)"),
+    ),
+    "player-movement.css": (
+        (frozenset({".pm-page .pm-btn"}), "var(--control-radius)"),
+    ),
+    "player.css": (
+        (frozenset({".player-page .tlpt-card-view-switch"}), "var(--control-radius)"),
+        (frozenset({".player-page .tlpt-card-view-switch button"}), "var(--control-inner-radius)"),
+        (frozenset({".player-page .tlpt-card-compare-open"}), "var(--control-radius)"),
+        (frozenset({".player-page .tlpt-card-compare-period"}), "var(--control-radius)"),
+        (frozenset({".player-page .tlpt-card-compare-period button"}), "var(--control-inner-radius)"),
+        (frozenset({".player-page .tlpt-compare-profile-link"}), "var(--control-radius)"),
+    ),
+    "trophy-room.css": (
+        (frozenset({".trophy-room-page .trophy-filter-family button"}), "var(--control-radius)"),
+    ),
+}
 INDEPENDENT_LOADER_RECOVERY_CONTRACTS = {
     "player-movement.js": (
         ('role="alert"', "Heater Meter failure state must be announced"),
@@ -3876,6 +3906,34 @@ def main() -> int:
     for stylesheet in sorted(ROOT.glob("*.css")):
         stylesheet_text = stylesheet.read_text(encoding="utf-8")
         errors.extend(f"{stylesheet.name}: {message}" for message in audit_css(stylesheet))
+        root_rule_blocks = [
+            (selector, body, line)
+            for context, selector, body, line in css_rule_blocks(stylesheet_text)
+            if not context
+        ]
+        for selectors, expected_radius in INTERACTIVE_CONTROL_RADIUS_CONTRACTS.get(
+            stylesheet.name, ()
+        ):
+            matches = [
+                (body, line)
+                for selector, body, line in root_rule_blocks
+                if frozenset(part.strip() for part in selector.split(",")) == selectors
+            ]
+            selector_label = ", ".join(sorted(selectors))
+            if len(matches) != 1:
+                errors.append(
+                    f"{stylesheet.name}: expected exactly one interactive-control radius rule for {selector_label}"
+                )
+                continue
+            control_body, control_line = matches[0]
+            if not re.search(
+                rf"(?:^|;)\s*border-radius\s*:\s*{re.escape(expected_radius)}\s*(?:;|$)",
+                control_body,
+                flags=re.IGNORECASE,
+            ):
+                errors.append(
+                    f"{stylesheet.name}:{control_line}: {selector_label} must use border-radius:{expected_radius}"
+                )
         if stylesheet.name == "style.css":
             style_rule_blocks = css_rule_blocks(stylesheet_text)
             root_style_rules = [
@@ -3883,6 +3941,31 @@ def main() -> int:
                 for context, selector, body, line in style_rule_blocks
                 if not context
             ]
+            root_token_rules = [
+                (body, line)
+                for selector, body, line in root_style_rules
+                if selector == ":root"
+            ]
+            if len(root_token_rules) != 1:
+                errors.append(
+                    "style.css: expected exactly one :root design-token rule"
+                )
+            else:
+                token_body, token_line = root_token_rules[0]
+                for property_name, property_value in (
+                    ("--control-radius", "12px"),
+                    ("--control-inner-radius", "8px"),
+                ):
+                    if not re.search(
+                        rf"(?:^|;)\s*{re.escape(property_name)}\s*:\s*"
+                        rf"{re.escape(property_value)}\s*(?:;|$)",
+                        token_body,
+                        flags=re.IGNORECASE,
+                    ):
+                        errors.append(
+                            f"style.css:{token_line}: button/pill design system must use "
+                            f"{property_name}:{property_value}"
+                        )
             reduced_motion_rules = [
                 (body, line)
                 for context, selector, body, line in style_rule_blocks
