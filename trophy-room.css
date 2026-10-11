@@ -444,8 +444,8 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:6px;
-  margin-left:-2px;
+  margin-top:10px;
+  margin-left:-5px;
   line-height:1;
 }
 
@@ -478,7 +478,7 @@
 }
 
 .trophy-room-page .trophy-card-edition small{
-  font-size:.40rem;
+  font-size:.44rem;
   font-weight:1000;
   letter-spacing:.14em;
 }
@@ -487,7 +487,7 @@
   max-width:100%;
   overflow:hidden;
   color:var(--card-ink);
-  font-size:.48rem;
+  font-size:.54rem;
   font-weight:1000;
   letter-spacing:.06em;
   text-overflow:ellipsis;
@@ -501,7 +501,7 @@
   border-radius:999px;
   color:var(--special-accent);
   background:rgba(5,9,13,.62);
-  font-size:.31rem;
+  font-size:.34rem;
   font-style:normal;
   font-weight:1000;
   letter-spacing:.09em;
@@ -512,8 +512,8 @@
   height:42px;
   object-fit:contain;
   justify-self:end;
-  margin-top:6px;
-  margin-right:-2px;
+  margin-top:10px;
+  margin-right:-5px;
   filter:drop-shadow(0 5px 6px rgba(0,0,0,.28));
 }
 

@@ -335,8 +335,8 @@
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  margin-top:6px;
-  margin-left:-2px;
+  margin-top:10px;
+  margin-left:-5px;
   line-height:1;
 }
 
@@ -366,7 +366,7 @@
   gap:1px;
   padding-top:5px;
   color:var(--crew-card-muted);
-  font-size:.44rem;
+  font-size:.48rem;
   font-weight:900;
   letter-spacing:.14em;
   text-transform:uppercase;
@@ -374,7 +374,7 @@
 
 .crew-page .crew-ultimate-edition strong{
   color:var(--crew-card-ink);
-  font-size:.49rem;
+  font-size:.54rem;
 }
 
 .crew-page .crew-ultimate-chip{
@@ -382,8 +382,8 @@
   height:42px;
   object-fit:contain;
   justify-self:end;
-  margin-top:6px;
-  margin-right:-2px;
+  margin-top:10px;
+  margin-right:-5px;
   filter:drop-shadow(0 5px 6px rgba(0,0,0,.26));
 }
 
@@ -896,7 +896,7 @@
   border-radius:999px;
   color:var(--crew-special-accent,#d6e0e7);
   background:rgba(6,10,14,.68);
-  font-size:.34rem;
+  font-size:.37rem;
   font-style:normal;
   line-height:1;
   letter-spacing:.045em;

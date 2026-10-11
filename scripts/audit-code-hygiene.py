@@ -384,7 +384,7 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "tlpt-update.yml": ["22"],
     "rotate-shared-css-cache.yml": ["22"],
 }
-EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-3"
+EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-4"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-2"

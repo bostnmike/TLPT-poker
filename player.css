@@ -343,8 +343,8 @@
   flex-direction:column;
   align-items:center;
   justify-content:flex-start;
-  margin-top:6px;
-  margin-left:-4px;
+  margin-top:12px;
+  margin-left:-10px;
   color:inherit;
   background:transparent;
   cursor:pointer;
@@ -391,7 +391,7 @@
   gap:2px;
   padding-top:7px;
   color:var(--card-muted);
-  font-size:.62rem;
+  font-size:.68rem;
   font-weight:900;
   letter-spacing:.18em;
   text-transform:uppercase;
@@ -399,14 +399,16 @@
 
 .player-page .tlpt-card-edition strong{
   color:var(--card-ink);
-  font-size:.7rem;
+  font-size:.78rem;
   line-height:1.05;
+  letter-spacing:.12em;
   text-align:center;
+  white-space:nowrap;
 }
 
 .player-page .tlpt-card-edition small{
   color:var(--card-muted);
-  font-size:.48rem;
+  font-size:.54rem;
   font-weight:1000;
   letter-spacing:.12em;
 }
@@ -463,8 +465,8 @@
 .player-page .tlpt-card-crest-wrap{
   display:flex;
   justify-content:flex-end;
-  margin-top:6px;
-  margin-right:-4px;
+  margin-top:12px;
+  margin-right:-10px;
 }
 
 .player-page .tlpt-card-crest{
@@ -1573,8 +1575,8 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:3px;
-  margin-left:-1px;
+  margin-top:5px;
+  margin-left:-3px;
   line-height:1;
 }
 
@@ -1601,7 +1603,7 @@
   min-width:0;
   padding-top:4px;
   color:var(--card-muted);
-  font-size:.34rem;
+  font-size:.37rem;
   font-weight:1000;
   line-height:1.05;
   letter-spacing:.10em;
@@ -1612,7 +1614,7 @@
   max-width:100%;
   overflow:hidden;
   color:var(--card-ink);
-  font-size:.39rem;
+  font-size:.43rem;
   text-overflow:ellipsis;
   white-space:nowrap;
 }
@@ -1620,8 +1622,8 @@
 .player-page .tlpt-card-collectible-head img{
   width:30px;
   height:30px;
-  margin-top:3px;
-  margin-right:-1px;
+  margin-top:5px;
+  margin-right:-3px;
   justify-self:end;
   object-fit:contain;
   filter:drop-shadow(0 3px 4px rgba(0,0,0,.30));
@@ -2056,8 +2058,8 @@
   display:flex;
   flex-direction:column;
   align-items:center;
-  margin-top:5px;
-  margin-left:-2px;
+  margin-top:9px;
+  margin-left:-5px;
   line-height:1;
 }
 
@@ -2120,7 +2122,7 @@
   gap:2px;
   padding-top:6px;
   color:var(--card-muted);
-  font-size:.52rem;
+  font-size:.58rem;
   font-weight:900;
   letter-spacing:.14em;
   text-align:center;
@@ -2128,14 +2130,14 @@
 
 .player-page .tlpt-compare-edition strong{
   color:var(--card-ink);
-  font-size:.63rem;
+  font-size:.70rem;
   line-height:1.05;
   text-transform:uppercase;
 }
 
 .player-page .tlpt-compare-edition small{
   color:var(--card-muted);
-  font-size:.42rem;
+  font-size:.46rem;
   font-weight:1000;
   letter-spacing:.10em;
   text-transform:uppercase;
@@ -2144,8 +2146,8 @@
 .player-page .tlpt-compare-crest{
   width:50px;
   height:50px;
-  margin-top:5px;
-  margin-right:-2px;
+  margin-top:9px;
+  margin-right:-5px;
   object-fit:contain;
   filter:drop-shadow(0 5px 7px rgba(0,0,0,.30));
 }
