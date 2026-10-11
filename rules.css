@@ -282,16 +282,16 @@
 
 .dealer-button-icon::before{
   z-index:-2;
-  width:42px;
-  height:48px;
+  width:34px;
+  height:40px;
   background:#101216;
   filter:drop-shadow(0 2px 4px rgba(0,0,0,.42));
 }
 
 .dealer-button-icon::after{
   z-index:-1;
-  width:36px;
-  height:42px;
+  width:30px;
+  height:36px;
   background:#e3b341;
 }
 
