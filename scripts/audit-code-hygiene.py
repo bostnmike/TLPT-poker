@@ -112,7 +112,7 @@ RSVP_DESKTOP_SEAT_POSITIONS = {
     9: (10, "70%", "84%"),
 }
 ACCESSIBLE_CONTROL_FOCUS_SELECTORS = {
-    "#dashboard-metric-select:focus-visible",
+    ".dashboard-metric-selector:focus-within",
     "[data-standings-sort]:focus-visible",
     "#format-btn-40k:focus-visible",
     "#format-btn-500k:focus-visible",
@@ -344,7 +344,7 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-2"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-3"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20260825-1"
 EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20260825-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20260825-1"
@@ -353,7 +353,7 @@ EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20260907-4"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261001-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-6"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-7"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -3373,6 +3373,14 @@ def main() -> int:
                     parser.errors.append("Dashboard metric select must name its default category")
                 if select_attrs.get("aria-controls") != EXPECTED_CONTROLLED_RESULTS[page.name]:
                     parser.errors.append("Dashboard metric select controls differ from the page contract")
+
+            metric_icons = [
+                record for record in parser.element_records
+                if record["tag"] == "span"
+                and record["attrs"].get("id") == "dashboard-metric-icon"
+            ]
+            if len(metric_icons) != 1 or "aria-hidden" not in metric_icons[0]["attrs"]:
+                parser.errors.append("Dashboard metric selector must expose one decorative icon pocket")
 
             metric_options = [
                 record["attrs"] for record in parser.element_records

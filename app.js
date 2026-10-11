@@ -6615,7 +6615,9 @@ function syncDashboardSelector(sortKey) {
 
   const metricPanel = document.getElementById("dashboard-metric-panel");
   const metricSelect = document.getElementById("dashboard-metric-select");
+  const metricIcon = document.getElementById("dashboard-metric-icon");
   const metrics = DASHBOARD_METRICS_BY_CATEGORY[category] || [];
+  const activeMetric = metrics.find(metric => metric.key === sortKey) || metrics[0];
   const activeTab = document.getElementById(`dashboard-category-${category}`);
 
   if (metricPanel) {
@@ -6628,11 +6630,15 @@ function syncDashboardSelector(sortKey) {
     metricSelect.replaceChildren(...metrics.map(metric => {
       const option = document.createElement("option");
       option.value = metric.key;
-      option.textContent = `${metric.icon} ${metric.label}`;
+      option.textContent = metric.label;
       return option;
     }));
     metricSelect.setAttribute("aria-label", `${categoryLabel} metric`);
     metricSelect.value = sortKey;
+  }
+
+  if (metricIcon) {
+    metricIcon.textContent = activeMetric?.icon || "";
   }
 }
 
