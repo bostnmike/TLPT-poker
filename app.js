@@ -402,8 +402,8 @@ const RULES_40K_CHIP_COUNTS = Object.freeze({
 
 const RULES_TWO_TABLE_CHIP_COUNTS = Object.freeze({
   "T-25": 16,
-  "T-100": 21,
-  "T-500": 15,
+  "T-100": 16,
+  "T-500": 16,
   "T-1000": 15,
   "T-5000": 5,
   "T-10000": 0,

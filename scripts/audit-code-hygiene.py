@@ -367,7 +367,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-2"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-10"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-11"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -2170,8 +2170,8 @@ def audit_javascript(path: Path) -> list[str]:
         )
         expected_two_table_chip_counts = {
             "T-25": 16,
-            "T-100": 21,
-            "T-500": 15,
+            "T-100": 16,
+            "T-500": 16,
             "T-1000": 15,
             "T-5000": 5,
             "T-10000": 0,
