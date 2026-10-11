@@ -512,7 +512,7 @@ async function loadGallery() {
           thumbnailSrc: `${thumbnailFolder}/${file}`,
           isFuture: isoDate > todayIso,
           title: buildTitleFromFilename(isoDate),
-          collection: isoDate > todayIso ? "Coming Soon" : "Felt Whispers"
+          collection: isoDate > todayIso ? "Coming Soon" : "In the Vault"
         };
       })
       .sort((a, b) => {
