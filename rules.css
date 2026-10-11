@@ -222,46 +222,40 @@
 }
 
 .dealer-button-icon{
-  width:40px;
-  height:40px;
+  position:relative;
+  isolation:isolate;
+  flex:0 0 46px;
+  width:46px;
+  height:46px;
   border-radius:50%;
-  background:#ffffff;
-  border:2px solid rgba(255,255,255,.24);
+  background:
+    radial-gradient(
+      circle at center,
+      #fff4cf 0 43%,
+      #16130d 44% 49%,
+      #e3b341 50% 53%,
+      transparent 54%
+    ),
+    repeating-conic-gradient(
+      from -9deg,
+      #f5e6ba 0deg 22.5deg,
+      #17191d 22.5deg 45deg
+    );
+  border:2px solid #e3b341;
   display:flex;
   align-items:center;
   justify-content:center;
-  color:#111;
+  color:#14110b;
+  font-size:1rem;
   font-weight:900;
-  box-shadow:0 8px 16px rgba(0,0,0,.24);
+  line-height:1;
+  text-shadow:0 1px 0 rgba(255,255,255,.6);
+  box-shadow:
+    inset 0 0 0 2px #101216,
+    inset 0 0 0 3px rgba(255,220,124,.82),
+    0 8px 16px rgba(0,0,0,.32),
+    0 0 12px rgba(227,179,65,.16);
   transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
-}
-
-.rules-grid .rule-card:nth-child(1) .dealer-button-icon{
-  border-color:rgba(59,130,246,.36);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,.24),
-    0 0 14px rgba(59,130,246,.14);
-}
-
-.rules-grid .rule-card:nth-child(2) .dealer-button-icon{
-  border-color:rgba(34,197,94,.36);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,.24),
-    0 0 14px rgba(34,197,94,.14);
-}
-
-.rules-grid .rule-card:nth-child(3) .dealer-button-icon{
-  border-color:rgba(168,85,247,.36);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,.24),
-    0 0 14px rgba(168,85,247,.14);
-}
-
-.rules-grid .rule-card:nth-child(4) .dealer-button-icon{
-  border-color:rgba(239,68,68,.36);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,.24),
-    0 0 14px rgba(239,68,68,.14);
 }
 
 .rule-card:hover .dealer-button-icon{
