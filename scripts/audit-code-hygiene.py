@@ -1895,23 +1895,23 @@ def audit_javascript(path: Path) -> list[str]:
                             f"Level 12 onward (Level {level} differs)"
                         )
                 expected_remaining_players = {
-                    1: "16 (2 × 8)",
-                    2: "16 (2 × 8)",
-                    3: "16 (2 × 8)",
-                    4: "16 (2 × 8)",
-                    5: "16 (2 × 8)",
-                    6: "15",
-                    7: "15",
-                    8: "14",
-                    9: "13",
-                    10: "12",
-                    11: "11",
-                    12: "10",
-                    13: "9 — MERGE",
-                    14: "8",
-                    15: "6",
-                    16: "5",
-                    17: "4",
+                    1: "18 (2 × 9)",
+                    2: "18 (2 × 9)",
+                    3: "18 (2 × 9)",
+                    4: "18 (2 × 9)",
+                    5: "18 (2 × 9)",
+                    6: "17",
+                    7: "17",
+                    8: "16",
+                    9: "15",
+                    10: "14",
+                    11: "12",
+                    12: "11",
+                    13: "10",
+                    14: "9 — MERGE",
+                    15: "7",
+                    16: "6",
+                    17: "5",
                     18: "3",
                     19: "2",
                     20: "2",
@@ -1963,8 +1963,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must retain its untimed 20-minute breaks",
                 ),
                 (
-                    'assumption: "Assumptions: 16 starting players, 7 rebuys, '
-                    'and a $920 prize pool.",',
+                    'assumption: "Assumptions: 18 starting players, 8 rebuys, '
+                    'and a $1,040 prize pool.",',
                     "Two-Table 50K Deep Stack must state its field, rebuy, and prize-pool assumptions",
                 ),
                 (
@@ -1972,12 +1972,12 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must pay the top six places",
                 ),
                 (
-                    'projectedPool: "$920",',
+                    'projectedPool: "$1,040",',
                     "Two-Table 50K Deep Stack must display its projected prize-pool value",
                 ),
                 (
-                    'payoutLabel: "1st $330 • 2nd $210 • 3rd $140 '
-                    '• 4th $110 • 5th $90 • 6th $40",',
+                    'payoutLabel: "1st $375 • 2nd $240 • 3rd $160 '
+                    '• 4th $125 • 5th $100 • 6th $40",',
                     "Two-Table 50K Deep Stack must display its approved payout schedule",
                 ),
                 (
@@ -2018,12 +2018,12 @@ def audit_javascript(path: Path) -> list[str]:
                 ),
                 (
                     'level: "16", sb: "8,000", bb: "16,000", '
-                    'ante: "8,000", eff: "Rebuys Closed", remaining: "5"',
+                    'ante: "8,000", eff: "Rebuys Closed", remaining: "6"',
                     "Two-Table 50K Deep Stack Level 16 differs from the approved structure",
                 ),
                 (
                     'level: "17", sb: "10,000", bb: "20,000", '
-                    'ante: "10,000", eff: "Rebuys Closed", remaining: "4"',
+                    'ante: "10,000", eff: "Rebuys Closed", remaining: "5"',
                     "Two-Table 50K Deep Stack Level 17 differs from the approved structure",
                 ),
                 (
@@ -2051,7 +2051,7 @@ def audit_javascript(path: Path) -> list[str]:
                 if fragment not in two_table_source:
                     errors.append(message)
             if (
-                "A two-table structure for 16 players, using a 50K starting stack "
+                "A two-table structure for 18 players, using a 50K starting stack "
                 "and a relaxed Small Blind Ante schedule."
                 in two_table_source
             ):
