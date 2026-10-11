@@ -417,8 +417,8 @@ const CHIP_SET_TEXT = {
     "T-1000": 20,
     "T-5000": 20,
     "T-10000": 12,
-    "T-25000": 6,
-    "T-100000": 1,
+    "T-25000": 10,
+    "T-100000": 0,
     "T-250000": 0
   },
   "two-table": RULES_TWO_TABLE_CHIP_COUNTS
