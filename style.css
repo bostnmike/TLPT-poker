@@ -865,7 +865,7 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   min-height:48px;
   padding:6px 9px 6px 15px;
   border:1px solid rgba(var(--dashboard-accent-rgb), .34);
-  border-radius:999px;
+  border-radius:12px;
   background:
     linear-gradient(180deg, rgba(var(--dashboard-accent-rgb), .11), rgba(255,255,255,0) 48%),
     linear-gradient(180deg, rgba(28,35,45,.98), rgba(16,21,28,.98));
@@ -943,6 +943,10 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
   cursor:pointer;
 }
 
+#dashboard-metric-select:focus{
+  outline:none;
+}
+
 #dashboard-metric-select option{
   background:#111820;
   color:#fff;
@@ -979,6 +983,15 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 .pm-btn:focus-visible{
   outline:3px solid var(--white);
   outline-offset:3px;
+}
+
+.dashboard-metric-selector:focus-within{
+  outline:none;
+  border-color:rgba(var(--dashboard-accent-rgb), .72);
+  box-shadow:
+    inset 0 0 0 1px rgba(var(--dashboard-accent-rgb), .12),
+    0 8px 20px rgba(0,0,0,.26),
+    0 0 0 2px rgba(var(--dashboard-accent-rgb), .12);
 }
 
 .format-switch input:focus-visible + .format-switch-track,
