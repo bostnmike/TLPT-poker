@@ -1802,6 +1802,10 @@ def audit_javascript(path: Path) -> list[str]:
             ".dealer-button-number{",
             "font-size:1.2rem;",
             "linear-gradient(#111317,#111317) center / 100% 3px no-repeat,",
+            "linear-gradient(#111317,#111317) center / 3px 100% no-repeat,",
+            "transparent calc(50% - 1.5px),",
+            "#111317 calc(50% - 1.5px) calc(50% + 1.5px),",
+            "border:3px solid #e3b341;",
             "--retired-b-shape:polygon(",
             "8.1% 82.2%,",
             "8.1% 17.9%,",
@@ -1830,6 +1834,15 @@ def audit_javascript(path: Path) -> list[str]:
             errors.append(
                 "rules.css: retired-number badges must not restore the inner black circle"
             )
+        for token in (
+            "outline:1px solid #0b0d10;",
+            "inset 0 0 0 2px #101216,",
+            "inset 0 0 0 4px rgba(227,179,65,.92),",
+        ):
+            if token in rules_css:
+                errors.append(
+                    f"rules.css: retired-number badges must use one gold circle without {token}"
+                )
         rules_html = (ROOT / "rules.html").read_text(encoding="utf-8")
         if rules_html.count('class="dealer-button-number"') != 27:
             errors.append(
