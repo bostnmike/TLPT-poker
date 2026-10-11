@@ -1801,6 +1801,7 @@ def audit_javascript(path: Path) -> list[str]:
             ".dealer-button-icon::after{",
             ".dealer-button-number{",
             "font-size:1.2rem;",
+            "linear-gradient(#111317,#111317) center right / 50% 3px no-repeat,",
             "--retired-b-shape:polygon(",
             "8.1% 82.2%,",
             "8.1% 17.9%,",
@@ -1825,6 +1826,10 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     f"rules.css: retired-number badge styling missing: {token}"
                 )
+        if "inset 0 0 0 5px #101216," in rules_css:
+            errors.append(
+                "rules.css: retired-number badges must not restore the inner black circle"
+            )
         rules_html = (ROOT / "rules.html").read_text(encoding="utf-8")
         if rules_html.count('class="dealer-button-number"') != 27:
             errors.append(

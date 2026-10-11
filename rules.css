@@ -243,11 +243,13 @@
   width:62px;
   height:62px;
   border-radius:50%;
-  background:repeating-conic-gradient(
-    from -1.5deg,
-    #111317 0deg 3deg,
-    #f4e7c0 3deg 45deg
-  );
+  background:
+    linear-gradient(#111317,#111317) center right / 50% 3px no-repeat,
+    repeating-conic-gradient(
+      from -1.5deg,
+      #111317 0deg 3deg,
+      #f4e7c0 3deg 45deg
+    );
   border:2px solid #e3b341;
   outline:1px solid #0b0d10;
   outline-offset:1px;
@@ -264,7 +266,6 @@
   box-shadow:
     inset 0 0 0 2px #101216,
     inset 0 0 0 4px rgba(227,179,65,.92),
-    inset 0 0 0 5px #101216,
     0 8px 16px rgba(0,0,0,.32),
     0 0 12px rgba(227,179,65,.16);
   transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
