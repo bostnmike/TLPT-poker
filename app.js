@@ -2715,7 +2715,7 @@ if (eventsEl) {
       eventsEl.innerHTML = `
         <div class="home-event-rotator-shell single-event-week">
           <div class="home-event-rotator-stage">
-            <div class="home-event-rotator-panel is-active">
+            <div class="home-event-rotator-panel is-active" aria-hidden="false">
               ${buildHomeEventCard(homeEvents[0], data, homeEvents, 0, 0)}
             </div>
           </div>
@@ -2731,6 +2731,8 @@ if (eventsEl) {
               <div
                 class="home-event-rotator-panel${index === activeIndex ? " is-active" : ""}"
                 data-home-event-panel="${index}"
+                aria-hidden="${index === activeIndex ? "false" : "true"}"
+                ${index === activeIndex ? "" : "inert"}
               >
                 ${buildHomeEventCard(event, data, homeEvents, activeIndex, index)}
               </div>
@@ -2744,11 +2746,14 @@ if (eventsEl) {
 
       let currentIndex = activeIndex;
 
-      function setHomeEventSlide(index) {
+      function setHomeEventSlide(index, { moveFocus = false } = {}) {
         currentIndex = index;
 
         rotatorPanels.forEach((panel, panelIndex) => {
-          panel.classList.toggle("is-active", panelIndex === index);
+          const isActive = panelIndex === index;
+          panel.classList.toggle("is-active", isActive);
+          panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+          panel.inert = !isActive;
         });
 
         rotatorDots.forEach(dot => {
@@ -2757,12 +2762,21 @@ if (eventsEl) {
           dot.classList.toggle("is-active", isActive);
           dot.setAttribute("aria-pressed", isActive ? "true" : "false");
         });
+
+        if (moveFocus) {
+          window.requestAnimationFrame(() => {
+            const activeDot = rotatorPanels[index]?.querySelector(
+              `[data-home-event-index="${index}"]`
+            );
+            activeDot?.focus({ preventScroll: true });
+          });
+        }
       }
 
       rotatorDots.forEach(dot => {
         dot.addEventListener("click", () => {
           const nextIndex = Number(dot.dataset.homeEventIndex || 0);
-          setHomeEventSlide(nextIndex);
+          setHomeEventSlide(nextIndex, { moveFocus: true });
         });
       });
 

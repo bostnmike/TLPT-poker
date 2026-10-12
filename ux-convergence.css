@@ -79,6 +79,39 @@ body .site-page-hero-kicker,
   font-size:.78rem;
 }
 
+/* Functional labels and explanatory copy stay readable at every viewport.
+   Deliberately excludes typography printed inside collectible-card artwork. */
+.dashboard-metric-selector label,
+.trophy-room-page .trophy-room-summary span,
+.trophy-room-page .trophy-filter-fields label > span,
+.trophy-room-page .trophy-card-plaque > div span,
+.trophy-room-page .trophy-card-featured,
+.trophy-room-page .trophy-card-plaque > em,
+.trophy-room-page .trophy-card-plaque p,
+.trophy-room-page .trophy-card-plaque > small,
+.player-page .tlpt-card-special-banner strong,
+.player-page .tlpt-card-special-banner b,
+.player-page .tlpt-card-special-banner small,
+.player-page .tlpt-card-special-banner em,
+.player-page .tlpt-card-experience-head span,
+.player-page .tlpt-card-experience p,
+.player-page .tlpt-card-experience small,
+.player-page .tlpt-card-rating-explainer-head span,
+.player-page .tlpt-card-rating-explainer > p,
+.player-page .tlpt-card-rating-explainer > small,
+.player-page .tlpt-card-rating-explainer > em,
+.vog-field span{
+  font-size:.75rem;
+}
+
+/* Links that operate as controls share the same 44px interaction floor as
+   native buttons and selects, including at tablet widths. */
+.home-module-cta,
+#home-snapshot .home-featured-profile-link,
+.player-page .player-page-link{
+  min-height:var(--touch-target);
+}
+
 /* A hero identifies the page. Controls, definitions, and live summaries sit
    in a companion surface immediately below it. */
 .site-page-companion{
@@ -1391,7 +1424,7 @@ body:not(.marchand-page) .site-footer a{
   .trophy-room-page .trophy-card-plaque > div span,
   .trophy-room-page .trophy-card-featured,
   .trophy-room-page .trophy-card-plaque > em{
-    font-size:.60rem;
+    font-size:.75rem;
   }
 
   .trophy-room-page .trophy-card-plaque > div strong{
@@ -1399,11 +1432,28 @@ body:not(.marchand-page) .site-footer a{
   }
 
   .trophy-room-page .trophy-card-plaque p{
-    font-size:.69rem;
+    font-size:.75rem;
   }
 
   .trophy-room-page .trophy-card-plaque > small{
-    font-size:.62rem;
+    font-size:.75rem;
+  }
+
+  .player-page .tlpt-card-special-banner > div{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .player-page .tlpt-card-special-banner small,
+  .player-page .tlpt-card-special-banner em{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:anywhere;
+  }
+
+  .player-page .tlpt-card-special-banner em{
+    width:100%;
+    line-height:1.25;
+    text-align:center;
   }
 
   .player-page .tlpt-card-collectible-edition{
@@ -1942,7 +1992,7 @@ body:not(.marchand-page) .site-footer a{
   }
 
   body:not(.marchand-page) .site-header .tag{
-    font-size:.8rem;
+    display:none;
   }
 
   body:not(.marchand-page) .site-nav-toggle{
