@@ -157,6 +157,25 @@ body .site-page-hero-kicker,
   display:none;
 }
 
+/* Shared interaction rows use the same dependable target height on every
+   device. The footer link remains inline with its sentence while gaining a
+   full touch target, and archive/dropdown rows keep their existing shape. */
+.fl-select-option{
+  min-height:var(--touch-target);
+}
+
+body:not(.marchand-page) .site-footer a{
+  display:inline-flex;
+  align-items:center;
+  min-height:var(--touch-target);
+}
+
+.news-archive-link{
+  display:flex;
+  align-items:center;
+  min-height:var(--touch-target);
+}
+
 /* Primary UI icons keep a stable footprint. Emoji remain available for the
    site's voice, but no longer move labels around from one platform to another. */
 .btn-emoji,
@@ -484,6 +503,15 @@ body .site-page-hero-kicker,
    blind level. The same focused columns used on phones become active before
    the full tables run out of room. */
 @media (min-width:701px) and (max-width:900px){
+  .site-header .nav > a,
+  .site-header .nav-dropdown-parent,
+  .site-header .nav-dropdown-menu a{
+    display:inline-flex;
+    align-items:center;
+    box-sizing:border-box;
+    min-height:var(--touch-target);
+  }
+
   .standings-table-shell.has-horizontal-overflow,
   .blind-sheet.has-horizontal-overflow{
     padding-top:16px;
@@ -813,6 +841,18 @@ body .site-page-hero-kicker,
   button,
   [role="button"]{
     min-width:var(--touch-target);
+  }
+
+  .dashboard-metric-selector label,
+  .trophy-room-page .trophy-room-summary span,
+  .trophy-room-page .trophy-filter-family button > span,
+  .trophy-room-page .trophy-filter-fields label > span,
+  .trophy-room-page .trophy-room-ledger-head > div > span,
+  .trophy-room-page .trophy-room-ledger-head > strong,
+  .vog-overline,
+  .vog-field span,
+  .vog-card-duration{
+    font-size:.75rem;
   }
 
   .home-event-tab,
@@ -1253,7 +1293,7 @@ body .site-page-hero-kicker,
 
   .dashboard-category-tab{
     padding:9px 7px;
-    font-size:.74rem;
+    font-size:.78rem;
   }
 
   .trophy-room-page .trophy-room-summary.trophy-room-companion{

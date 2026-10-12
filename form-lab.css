@@ -377,9 +377,7 @@
 
 .fl-point-hit {
   fill: transparent;
-  stroke: rgba(0,0,0,.001);
-  stroke-width: 44px;
-  vector-effect: non-scaling-stroke;
+  stroke: none;
   pointer-events:all;
 }
 

@@ -359,8 +359,8 @@ EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261012-1"
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
-EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-5"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261012-1"
+EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-6"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261012-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-2"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261012-1"
@@ -610,7 +610,7 @@ GLOBAL_SHARED_ASSETS = (
     SHARED_SHELL_SCRIPT,
 )
 EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
-EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261012-4"
+EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261012-5"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2395,6 +2395,18 @@ def audit_javascript(path: Path) -> list[str]:
             (
                 'select.dispatchEvent(new Event("change", { bubbles: true }));',
                 "Form Lab custom selects must preserve native change behavior",
+            ),
+            (
+                "const pointHitRadius = getFormLabPointHitRadius(svg, width);",
+                "Form Lab chart points must scale their hit area to the viewport",
+            ),
+            (
+                'r="${pointHitRadius}"',
+                "Form Lab chart points must use the responsive hit radius",
+            ),
+            (
+                "const minimumScreenRadius = 22;",
+                "Form Lab chart points must preserve a 44-pixel interaction target",
             ),
         ):
             if fragment not in text:
@@ -4469,6 +4481,8 @@ def main() -> int:
                 (".fl-select-menu", "position", "fixed"),
                 (".fl-select-menu", "z-index", "10000"),
                 (".fl-select-menu", "overflow-y", "auto"),
+                (".fl-point-hit", "stroke", "none"),
+                (".fl-point-hit", "pointer-events", "all"),
             )
             root_form_lab_rules = [
                 (selector, body, line)

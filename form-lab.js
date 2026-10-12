@@ -775,6 +775,7 @@ function renderScatter(rows) {
   const innerH = height - margin.top - margin.bottom;
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  const pointHitRadius = getFormLabPointHitRadius(svg, width);
 
   const xValues = rows.map(row => Number(row[xKey])).filter(Number.isFinite);
   const yValues = rows.map(row => Number(row[yKey])).filter(Number.isFinite);
@@ -865,7 +866,7 @@ function renderScatter(rows) {
           aria-pressed="${selected ? "true" : "false"}"
           aria-label="${escapeAttr(pointLabel)}"
         >
-          <circle class="fl-point-hit" cx="${cx}" cy="${cy}" r="22"></circle>
+          <circle class="fl-point-hit" cx="${cx}" cy="${cy}" r="${pointHitRadius}"></circle>
           <circle class="fl-point-dot fl-point-${tone}${selected ? " is-selected" : ""}" cx="${cx}" cy="${cy}" r="${selected ? 9 : 7}"></circle>
           ${FL_STATE.showLabels ? `<text class="fl-point-label" x="${cx + 11}" y="${cy - 10}">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</text>` : ""}
         </g>
@@ -909,6 +910,18 @@ function renderScatter(rows) {
       if (tooltip) tooltip.hidden = true;
     });
   });
+}
+
+function getFormLabPointHitRadius(svg, viewBoxWidth) {
+  const minimumScreenRadius = 22;
+  const matrix = typeof svg.getScreenCTM === "function" ? svg.getScreenCTM() : null;
+  const matrixScale = matrix
+    ? Math.min(Math.hypot(matrix.a, matrix.b), Math.hypot(matrix.c, matrix.d))
+    : 0;
+  const fallbackScale = svg.getBoundingClientRect().width / viewBoxWidth;
+  const screenScale = matrixScale > 0 ? matrixScale : fallbackScale;
+
+  return numberFmt(clamp(minimumScreenRadius / Math.max(screenScale, 0.01), 22, 96), 2);
 }
 
 function renderQuadrants() {
