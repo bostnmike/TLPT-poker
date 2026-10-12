@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T15:03:48.652022Z",
+  "generatedAt": "2026-10-12T15:19:27.185233Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -39,7 +39,7 @@
         "phattedcalf": "tbd",
         "pat": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
+        "providencemike": "no",
         "red": "yes",
         "rob-f": "tbd",
         "the-architect": "tbd",
@@ -87,7 +87,7 @@
         "pat": "tbd",
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
-        "providencemike": "tbd",
+        "providencemike": "yes",
         "red": "yes",
         "rob-f": "tbd",
         "the-architect": "tbd",
