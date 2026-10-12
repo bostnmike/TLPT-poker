@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T22:53:02.251975Z",
+  "generatedAt": "2026-10-12T23:15:51.567220Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -115,22 +115,25 @@
       "seatAssignments": [
         [
           "bostnmike",
-          "alex-c",
-          "chris-f",
+          "kishan",
           "hiro",
-          "li-fo",
-          "nasa-al",
-          "red",
-          "vish"
+          "hiro",
+          "vish",
+          "the-architect",
+          "providencemike",
+          "ai-dave",
+          "",
+          "li-fo"
         ],
         [
           "ahmed",
-          "ai-dave",
+          "alex-c",
+          "chris-f",
+          "red",
           "griffin",
-          "kishan",
+          "cougar",
           "liam-o",
-          "providencemike",
-          "the-architect",
+          "nasa-al",
           "wild-bill"
         ]
       ],
