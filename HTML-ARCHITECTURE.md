@@ -438,9 +438,9 @@ and responsive presentation remain unchanged for users without the preference.
 ## Phase 3C.10 accessibility semantic closeout
 
 The final Phase 3C pass closes the remaining semantic gaps without changing
-visible design or behavior. Form Lab, Heater Meter, and Streak Tracker now use
-the same page-heading hierarchy as the other pages: the persistent site-brand
-heading remains the single `h1`, and each visible page title is its `h2`.
+visible design or behavior. Each document now exposes its visible page title as
+the single `h1`; the persistent site brand is a home link rather than a heading.
+Dynamic Player Profile content follows the same contract once its profile loads.
 
 All 13 large header-chip images are now explicitly decorative with empty
 alternative text and `aria-hidden="true"`; the title, kicker, and supporting
@@ -804,3 +804,18 @@ the recovery test while still passing the hygiene audit.
 No HTML page, stylesheet, application runtime, data file, calculation, card,
 navigation destination, RSVP layout, interaction, or responsive rule changes
 in this repair.
+
+## Shared downward-opening select controls
+
+`site-shell.js` progressively enhances native selects on TLPT pages into the
+same trigger, listbox, option, keyboard, and always-below placement pattern used
+by Form Lab. The native select remains the value source and continues emitting
+its existing `change` event, so page modules keep ownership of filtering and
+rendering. Mutation observation synchronizes selects whose options arrive after
+page startup, including Dashboard category changes and Player Profile tools.
+
+Form Lab retains its purpose-built `.fl-select` implementation and is excluded
+from the generic enhancer. Pages with `.marchand-page` are also excluded so the
+Puck Vault remains an independent experience. Every enhanced trigger and option
+uses a 44px minimum target, supports arrow, Home, End, Tab, and Escape behavior,
+and exposes selected state through its listbox semantics.

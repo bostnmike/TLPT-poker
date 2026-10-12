@@ -145,6 +145,9 @@ const HALL_MIN_EVENTS = 10;
 let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
+let currentCrewSearch = "";
+let currentCrewVisibleCount = 12;
+const CREW_BATCH_SIZE = 12;
 
 const STAT_FORMULAS = {
   totalCost: "Total Cost: Buy-ins + Rebuys Cost",
@@ -3620,8 +3623,36 @@ function renderPlayers(data) {
 
   if (!grid || !data?.players) return;
 
-  const rosterPlayers = [...data.players]
+  const matchingRosterPlayers = [...data.players]
+    .filter(player => {
+      if (!currentCrewSearch) return true;
+      const haystack = `${player?.name || ""} ${player?.slug || ""}`.toLowerCase();
+      return haystack.includes(currentCrewSearch);
+    })
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  const rosterPlayers = currentCrewView === "tier" && !currentCrewSearch
+    ? matchingRosterPlayers.slice(0, currentCrewVisibleCount)
+    : matchingRosterPlayers;
+
+  const searchStatus = document.getElementById("crew-search-status");
+  if (searchStatus) {
+    searchStatus.textContent = currentCrewSearch
+      ? `${rosterPlayers.length} player${rosterPlayers.length === 1 ? "" : "s"} found`
+      : rosterPlayers.length < matchingRosterPlayers.length
+        ? `Showing ${rosterPlayers.length} of ${matchingRosterPlayers.length} players`
+        : `Showing all ${matchingRosterPlayers.length} players`;
+  }
+
+  if (!rosterPlayers.length) {
+    if (visual) visual.innerHTML = "";
+    grid.innerHTML = `
+      <div class="crew-search-empty" role="status">
+        <strong>No player matches that search.</strong>
+        <span>Even the commissioner cannot roster somebody who is not there.</span>
+      </div>
+    `;
+    return;
+  }
 
   if (currentCrewView === "archetype") {
     const archetypeGroups = groupPlayersByArchetype(rosterPlayers, currentArchetypeMode);
@@ -3813,6 +3844,21 @@ function renderPlayers(data) {
       }
     )}
   `;
+
+  if (rosterPlayers.length < matchingRosterPlayers.length) {
+    const remaining = matchingRosterPlayers.length - rosterPlayers.length;
+    grid.insertAdjacentHTML("beforeend", `
+      <div class="crew-progressive-controls">
+        <button class="btn" type="button" data-crew-load-more>
+          ${remaining > CREW_BATCH_SIZE ? `Show ${CREW_BATCH_SIZE} More Players` : `Show ${remaining} More Player${remaining === 1 ? "" : "s"}`}
+        </button>
+      </div>
+    `);
+    grid.querySelector("[data-crew-load-more]")?.addEventListener("click", () => {
+      currentCrewVisibleCount += CREW_BATCH_SIZE;
+      renderPlayers(data);
+    });
+  }
 }
 
 function clampPct(value) {
@@ -5633,7 +5679,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
 
       <div class="tlpt-player-summary-title-row">
         <div>
-          <h2 id="tlpt-player-summary-title">${displayPlayerName(player)}</h2>
+          <h1 id="tlpt-player-summary-title">${displayPlayerName(player)}</h1>
           <p class="tlpt-player-summary-quote">${quote}</p>
         </div>
       </div>
@@ -6737,6 +6783,7 @@ function initCrewViewToggle() {
     currentCrewView = "tier";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
+    currentCrewVisibleCount = CREW_BATCH_SIZE;
     if (crewViewSwitch) crewViewSwitch.checked = false;
     renderPlayers(window.siteData);
   });
@@ -6745,6 +6792,7 @@ function initCrewViewToggle() {
     currentCrewView = "archetype";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
+    currentCrewVisibleCount = CREW_BATCH_SIZE;
     if (crewViewSwitch) crewViewSwitch.checked = true;
     renderPlayers(window.siteData);
   });
@@ -6754,9 +6802,22 @@ function initCrewViewToggle() {
       currentCrewView = crewViewSwitch.checked ? "archetype" : "tier";
       currentArchetypeMode = "primary";
       currentArchetypeFilter = "all";
+      currentCrewVisibleCount = CREW_BATCH_SIZE;
       renderPlayers(window.siteData);
     });
   }
+}
+
+function initCrewSearch() {
+  const search = document.getElementById("crew-player-search");
+  if (!search) return;
+
+  search.addEventListener("input", () => {
+    currentCrewSearch = String(search.value || "").trim().toLowerCase();
+    currentArchetypeFilter = "all";
+    currentCrewVisibleCount = CREW_BATCH_SIZE;
+    renderPlayers(window.siteData);
+  });
 }
 
 function initSorting() {
@@ -6898,6 +6959,7 @@ async function main() {
   initRulesPage();
   initSorting();
   initCrewViewToggle();
+  initCrewSearch();
   initEventRsvpNameHover();
 }
 

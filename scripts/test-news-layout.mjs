@@ -187,11 +187,19 @@ for (const [index, week] of data.weeks.entries()) {
   }
 }
 
-const feed = { innerHTML: '' };
+const feed = {
+  innerHTML: '',
+  querySelector(selector) {
+    return selector === '[data-news-load-more]'
+      ? { addEventListener() {} }
+      : null;
+  }
+};
 sandbox.renderWeeks(data.weeks, feed);
-assert.equal((feed.innerHTML.match(/class="news-post-card/g) || []).length, data.weeks.length, 'Every story rendered');
+assert.equal((feed.innerHTML.match(/class="news-post-card/g) || []).length, 6, 'Initial feed renders one six-story batch');
+assert.match(feed.innerHTML, /data-news-load-more/, 'Long archive exposes a progressive-load control');
 assert.equal((feed.innerHTML.match(/ news-post-featured/g) || []).length, 1, 'Only one featured article');
-assert.doesNotMatch(feed.innerHTML, deprecatedMarkup, 'No retired sections in the complete feed');
+assert.doesNotMatch(feed.innerHTML, deprecatedMarkup, 'No retired sections in the initial feed');
 const archive = { innerHTML: '' };
 sandbox.renderArchiveList(data.weeks, archive);
 assert.equal((archive.innerHTML.match(/class="news-archive-link/g) || []).length, data.weeks.length, 'Every archive link retained');

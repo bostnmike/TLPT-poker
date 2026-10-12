@@ -411,3 +411,13 @@ The hygiene audit now enforces the shared wrapper, text, URL, new-tab target,
 and `noopener noreferrer` relationship. Footer presentation remains owned by
 `style.css`; page-specific stylesheets must not redefine the root footer
 primitive.
+
+### Shared select presentation
+
+`style.css` owns `.site-select`, `.site-select-trigger`,
+`.site-select-menu`, and `.site-select-option`. These primitives provide the
+single dark-and-gold select treatment, downward menu geometry, selected state,
+focus visibility, and 44px interaction targets used outside Form Lab. Page
+styles may size their field columns but must not recreate or reposition the
+menu. Form Lab keeps its equivalent `.fl-select` family because its chart
+controls predate the shared enhancer and have dedicated synchronization logic.

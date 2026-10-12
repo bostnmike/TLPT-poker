@@ -103,7 +103,7 @@
 
 .fl-field select {
   width: 100%;
-  min-height: 42px;
+  min-height: 44px;
   border-radius: 12px;
   border: 1px solid rgba(255,184,28,.26);
   background:
@@ -117,6 +117,7 @@
 }
 
 .fl-field select.fl-native-select {
+  display: none;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -138,7 +139,7 @@
 .fl-select-trigger {
   position: relative;
   width: 100%;
-  min-height: 42px;
+  min-height: 44px;
   padding: 0 38px 0 14px;
   border: 1px solid rgba(255,184,28,.30);
   border-radius: var(--control-radius);
@@ -264,6 +265,8 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  min-height: 44px;
+  padding: 4px 2px;
 }
 
 .fl-toggle-row input {
@@ -369,6 +372,14 @@
 .fl-point {
   cursor: pointer;
   transition: opacity .16s ease;
+}
+
+.fl-point-hit {
+  fill: transparent;
+  stroke: rgba(0,0,0,.001);
+  stroke-width: 44px;
+  vector-effect: non-scaling-stroke;
+  pointer-events:all;
 }
 
 .fl-point-dot {

@@ -558,12 +558,23 @@ body .site-page-hero-kicker,
   }
 
   .home-event-tab,
+  .home-event-dot,
+  .pm-btn,
+  #schedule-list .btn-rsvp,
+  .fl-select-trigger,
+  .knockouts-view-button,
+  .crew-view-toolbar .btn,
   .player-page-link,
   .trophy-filter-family button,
   .standings-buttons-shell .btn,
   .tlpt-card-view-switch button,
   .fl-select-option{
     min-height:var(--touch-target) !important;
+  }
+
+  #dashboard-metric-select,
+  #schedule-list .btn-rsvp{
+    height:var(--touch-target) !important;
   }
 
   .site-page-companion{
@@ -661,10 +672,55 @@ body .site-page-hero-kicker,
     grid-template-columns:1fr;
   }
 
-  .site-page-hero-title,
-  .trophy-room-page .trophy-room-hero h2,
+  body:not(.marchand-page) .site-page-hero-title,
+  .trophy-room-page .trophy-room-hero h1,
   .news-header-shell #news-page-title{
-    font-size:clamp(2.15rem,12vw,3.2rem);
+    font-size:clamp(2rem,10.5vw,2.85rem);
+  }
+
+  body:not(.marchand-page) .site-page-hero,
+  .trophy-room-page .trophy-room-hero{
+    gap:12px;
+    padding:20px 18px 18px;
+  }
+
+  body:not(.marchand-page) .site-page-hero-copy,
+  .trophy-room-page .trophy-room-hero-copy{
+    padding-right:0;
+  }
+
+  body:not(.marchand-page) .site-page-hero-description,
+  .trophy-room-page .trophy-room-hero-copy p{
+    font-size:.92rem;
+    line-height:1.42;
+  }
+
+  body:not(.marchand-page) .site-page-hero-brand{
+    gap:14px;
+    width:154px;
+    height:44px;
+  }
+
+  body:not(.marchand-page) .site-page-hero-watermark{
+    width:96px;
+    height:44px;
+  }
+
+  body:not(.marchand-page) .site-page-hero-brand > .site-page-hero-chip,
+  .trophy-room-page .site-page-hero-brand > .trophy-room-chip{
+    flex-basis:44px;
+    width:44px;
+    height:44px;
+  }
+
+  body:not(.marchand-page) .site-page-hero-brand::before{
+    right:-8px;
+    width:60px;
+    height:60px;
+  }
+
+  .section.news-header-shell{
+    padding:20px 18px 18px;
   }
 
   .dashboard-category-tab{

@@ -1,4 +1,8 @@
 let playerAvatarLookup = new Map();
+const NEWS_STORY_BATCH_SIZE = 6;
+let newsWeeksCache = [];
+let newsVisibleStoryCount = NEWS_STORY_BATCH_SIZE;
+let newsFeedContainer = null;
 
 function normalizePlayerLookupKey(value) {
   return String(value || '')
@@ -91,6 +95,16 @@ async function renderNewsPage() {
     }
 
     const latestWeek = weeks[0];
+    newsWeeksCache = weeks;
+    newsFeedContainer = blogFeed;
+
+    const requestedStoryId = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+    const requestedStoryIndex = requestedStoryId
+      ? weeks.findIndex((week) => String(week?.id || '') === requestedStoryId)
+      : -1;
+    newsVisibleStoryCount = requestedStoryIndex >= 0
+      ? Math.max(NEWS_STORY_BATCH_SIZE, requestedStoryIndex + 1)
+      : NEWS_STORY_BATCH_SIZE;
 
     renderSummaryCards(latestWeek.summaryCards || [], summaryGrid);
     renderStatPills(latestWeek.statPills || [], statbarShell);
@@ -254,10 +268,23 @@ function renderStatPills(pills, container) {
 function renderWeeks(weeks, container) {
   const explicitFeaturedIndex = weeks.findIndex((week) => week?.featured === true);
   const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
+  const visibleWeeks = weeks.slice(0, newsVisibleStoryCount);
+  const remaining = Math.max(weeks.length - visibleWeeks.length, 0);
 
-  container.innerHTML = weeks
+  container.innerHTML = visibleWeeks
     .map((week, index) => renderWeek(week, index, index === featuredIndex))
-    .join('');
+    .join('') + (remaining ? `
+      <div class="news-progressive-controls">
+        <button class="btn" type="button" data-news-load-more>
+          ${remaining > NEWS_STORY_BATCH_SIZE ? `Show ${NEWS_STORY_BATCH_SIZE} Older Stories` : `Show ${remaining} Older Stor${remaining === 1 ? 'y' : 'ies'}`}
+        </button>
+      </div>
+    ` : '');
+
+  container.querySelector('[data-news-load-more]')?.addEventListener('click', () => {
+    newsVisibleStoryCount += NEWS_STORY_BATCH_SIZE;
+    renderWeeks(weeks, container);
+  });
 }
 
 function renderWeek(week, index, isFeatured) {
@@ -297,9 +324,16 @@ function openNewsStoryFromHash() {
   const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
   if (!id) return;
 
+  const requestedIndex = newsWeeksCache.findIndex((week) => String(week?.id || '') === id);
+  if (requestedIndex >= newsVisibleStoryCount && newsFeedContainer) {
+    newsVisibleStoryCount = requestedIndex + 1;
+    renderWeeks(newsWeeksCache, newsFeedContainer);
+  }
+
   const story = document.getElementById(id);
   const details = story?.querySelector('.news-post-details');
   if (details) details.open = true;
+  story?.scrollIntoView({ block: 'start' });
 }
 
 function renderWeekBody(week) {

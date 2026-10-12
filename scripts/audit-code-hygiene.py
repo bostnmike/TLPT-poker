@@ -357,17 +357,18 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-7"
-EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-2"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-1"
-EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-6"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-4"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-8"
+EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
+EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-4"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-2"
+EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-5"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-2"
-EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-3"
-EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-2"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-13"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261011-3"
+EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261011-4"
+EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261011-3"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261011-14"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -398,11 +399,11 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "tlpt-update.yml": ["22"],
     "rotate-shared-css-cache.yml": ["22"],
 }
-EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-7"
+EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261011-8"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
 EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
 EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-2"
-EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261011-1"
+EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261011-2"
 INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
     "style.css": (
         (frozenset({".home-jump-pill", ".home-module-cta"}), "var(--control-radius)"),
@@ -609,7 +610,7 @@ GLOBAL_SHARED_ASSETS = (
     SHARED_SHELL_SCRIPT,
 )
 EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
-EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261011-1"
+EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261011-2"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -2750,7 +2751,7 @@ def main() -> int:
                 )
         if parser.heading_counts["h1"] != 1:
             parser.errors.append(
-                "document must contain exactly one site-brand h1 heading"
+                "document must contain exactly one primary h1 heading"
             )
         if parser.html_lang.lower() != "en":
             parser.errors.append('root <html> must use lang="en"')
@@ -2761,7 +2762,9 @@ def main() -> int:
                 "document must contain exactly one canonical viewport meta tag"
             )
         expected_shared_stylesheet = (
-            f"/{EXPECTED_SHARED_STYLESHEET}"
+            EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET
+            if page.name == "marchand.html"
+            else f"/{EXPECTED_SHARED_STYLESHEET}"
             if page.name == "404.html"
             else EXPECTED_SHARED_STYLESHEET
         )
@@ -2796,7 +2799,7 @@ def main() -> int:
             " ".join(parser.site_page_title_text).split()
         )
         if expected_site_page_title:
-            expected_site_page_title_tag = "h1" if page.name == "marchand.html" else "h2"
+            expected_site_page_title_tag = "h1"
             if parser.site_page_title_count != 1:
                 parser.errors.append(
                     "expected exactly one shared site-page-title heading"
@@ -3913,8 +3916,17 @@ def main() -> int:
                 + ", ".join(unexpected_asset_pages)
             )
 
+        cache_references_by_page = (
+            {
+                page_name: references
+                for page_name, references in references_by_page.items()
+                if page_name != "marchand.html"
+            }
+            if asset_path in {"style.css", "ux-convergence.css", SHARED_SHELL_SCRIPT}
+            else references_by_page
+        )
         single_asset_references: set[str] = set()
-        for page_name, references in sorted(references_by_page.items()):
+        for page_name, references in sorted(cache_references_by_page.items()):
             if len(references) != 1:
                 errors.append(f"{page_name}: {asset_path} must be loaded exactly once")
             else:

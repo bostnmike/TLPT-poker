@@ -903,6 +903,7 @@ function renderScatter(rows) {
           aria-pressed="${selected ? "true" : "false"}"
           aria-label="${escapeAttr(pointLabel)}"
         >
+          <circle class="fl-point-hit" cx="${cx}" cy="${cy}" r="22"></circle>
           <circle class="fl-point-dot fl-point-${tone}${selected ? " is-selected" : ""}" cx="${cx}" cy="${cy}" r="${selected ? 9 : 7}"></circle>
           ${FL_STATE.showLabels ? `<text class="fl-point-label" x="${cx + 11}" y="${cy - 10}">${escapeHtml(shortDate(row.dateIso || row.dateRaw))}</text>` : ""}
         </g>

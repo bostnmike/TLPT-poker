@@ -4,12 +4,15 @@ const GALLERY_POSTER_FILE_PATTERN = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
 const PARSED_EVENT_INDEX_PATH = "data/parsed/events/index.json";
 const PARSED_EVENT_BASE_PATH = "data/parsed/events/";
 const PLAYER_METADATA_PATH = "data/player-metadata.json";
+const GALLERY_BATCH_SIZE = 12;
 
 let galleryPosters = [];
 let currentPosterIndex = -1;
 let galleryParsedEventsByDate = new Map();
 let galleryPlayers = [];
 let galleryLightboxReturnFocus = null;
+let galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+let galleryYearFilter = "all";
 
 function formatDisplayDate(isoDate) {
   const [year, month, day] = isoDate.split("-");
@@ -460,6 +463,77 @@ function groupPostersByYear(posters) {
   return Array.from(grouped.entries()).sort((a, b) => Number(b[0]) - Number(a[0]));
 }
 
+function renderGalleryCollection() {
+  const grid = document.getElementById("gallery-grid");
+  const status = document.getElementById("gallery-filter-status");
+  if (!grid) return;
+
+  const comingPosters = galleryPosters.filter(poster => poster.isFuture);
+  const allArchivePosters = galleryPosters.filter(poster => !poster.isFuture);
+  const matchingArchivePosters = galleryYearFilter === "all"
+    ? allArchivePosters
+    : allArchivePosters.filter(poster => poster.date.startsWith(`${galleryYearFilter}-`));
+  const visibleArchivePosters = matchingArchivePosters.slice(0, galleryVisibleArchiveCount);
+  const grouped = groupPostersByYear(visibleArchivePosters);
+  const leadPosterSource = galleryPosters[0]?.src || "";
+  const fragment = document.createDocumentFragment();
+
+  if (comingPosters.length) {
+    fragment.appendChild(createComingAttractionsGroup(comingPosters, leadPosterSource));
+  }
+
+  grouped.forEach(([year, posters]) => {
+    fragment.appendChild(createYearGroup(year, posters, leadPosterSource));
+  });
+
+  const remaining = Math.max(matchingArchivePosters.length - visibleArchivePosters.length, 0);
+  if (remaining) {
+    const controls = document.createElement("div");
+    controls.className = "gallery-progressive-controls";
+    controls.innerHTML = `
+      <button class="btn" type="button" data-gallery-load-more>
+        ${remaining > GALLERY_BATCH_SIZE ? `Show ${GALLERY_BATCH_SIZE} More Posters` : `Show ${remaining} More Poster${remaining === 1 ? "" : "s"}`}
+      </button>
+    `;
+    controls.querySelector("[data-gallery-load-more]")?.addEventListener("click", () => {
+      galleryVisibleArchiveCount += GALLERY_BATCH_SIZE;
+      renderGalleryCollection();
+    });
+    fragment.appendChild(controls);
+  }
+
+  grid.replaceChildren(fragment);
+  if (status) {
+    status.textContent = matchingArchivePosters.length === visibleArchivePosters.length
+      ? `${matchingArchivePosters.length} archived poster${matchingArchivePosters.length === 1 ? "" : "s"} on display`
+      : `Showing ${visibleArchivePosters.length} of ${matchingArchivePosters.length} archived posters`;
+  }
+}
+
+function populateGalleryYearFilter() {
+  const select = document.getElementById("gallery-year-filter");
+  if (!select) return;
+
+  const years = [...new Set(
+    galleryPosters
+      .filter(poster => !poster.isFuture)
+      .map(poster => poster.date.slice(0, 4))
+  )].sort((a, b) => Number(b) - Number(a));
+
+  select.replaceChildren(
+    new Option("All Years", "all"),
+    ...years.map(year => new Option(year, year))
+  );
+  select.value = galleryYearFilter;
+  if (select.dataset.ready === "true") return;
+  select.dataset.ready = "true";
+  select.addEventListener("change", () => {
+    galleryYearFilter = select.value;
+    galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+    renderGalleryCollection();
+  });
+}
+
 async function loadGallery() {
   const grid = document.getElementById("gallery-grid");
   const empty = document.getElementById("gallery-empty");
@@ -531,21 +605,9 @@ async function loadGallery() {
 
     if (empty) empty.hidden = true;
 
-    const comingPosters = galleryPosters.filter(poster => poster.isFuture);
-    const archivePosters = galleryPosters.filter(poster => !poster.isFuture);
-    const grouped = groupPostersByYear(archivePosters);
-    const leadPosterSource = galleryPosters[0]?.src || "";
-    const fragment = document.createDocumentFragment();
-
-    if (comingPosters.length) {
-      fragment.appendChild(createComingAttractionsGroup(comingPosters, leadPosterSource));
-    }
-
-    grouped.forEach(([year, posters]) => {
-      fragment.appendChild(createYearGroup(year, posters, leadPosterSource));
-    });
-
-    grid.appendChild(fragment);
+    galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+    populateGalleryYearFilter();
+    renderGalleryCollection();
   } catch (err) {
     console.error("Gallery load error:", err);
     if (empty) {

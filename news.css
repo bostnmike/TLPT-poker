@@ -673,6 +673,16 @@ body.news-page{
   gap:20px;
 }
 
+.news-progressive-controls{
+  display:flex;
+  justify-content:center;
+  padding:6px 0 2px;
+}
+
+.news-progressive-controls .btn{
+  min-width:min(100%,280px);
+}
+
 .news-post-card{
   position:relative;
   overflow:hidden;

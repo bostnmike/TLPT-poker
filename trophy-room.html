@@ -44,10 +44,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20261011-7" />
+  <link rel="stylesheet" href="style.css?v=20261011-8" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="trophy-room.css?v=20261011-7" />
-  <link rel="stylesheet" href="ux-convergence.css?v=20261011-1" />
+  <link rel="stylesheet" href="trophy-room.css?v=20261011-8" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261011-2" />
 </head>
 <body class="trophy-room-page">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -62,7 +62,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <div>
-      <h1 class="logo">TLPT Poker League</h1>
+      <a class="logo" href="index.html" aria-label="TLPT Poker League home">TLPT Poker League</a>
       <p class="tag">The League. The Players. The Tilt.</p>
     </div>
 
@@ -118,7 +118,7 @@
   <section class="trophy-room-hero site-page-hero-chip-25000" aria-labelledby="trophy-room-title">
     <div class="trophy-room-hero-copy">
       <span class="trophy-room-kicker">TLPT Collectible Card Archive</span>
-      <h2 id="trophy-room-title">The Trophy Room</h2>
+      <h1 id="trophy-room-title">The Trophy Room</h1>
       <p>
         Every permanent special edition, preserved with the rating, tier, attributes,
         and date it carried when it entered the collection. Each player’s highest-priority
@@ -162,6 +162,11 @@
 
     <div class="trophy-filter-fields">
       <label>
+        <span>Find a Card</span>
+        <input id="trophy-search" type="search" placeholder="Player or edition" autocomplete="off" />
+      </label>
+
+      <label>
         <span>Player</span>
         <select id="trophy-player-filter">
           <option value="all">All Collectors</option>
@@ -199,6 +204,10 @@
 
     <div id="trophy-card-grid" class="trophy-card-grid"></div>
 
+    <div id="trophy-progressive-controls" class="trophy-progressive-controls" hidden>
+      <button id="trophy-load-more" class="btn" type="button" aria-controls="trophy-card-grid">Show More Cards</button>
+    </div>
+
     <div id="trophy-empty-state" class="trophy-empty-state" hidden>
       <strong>No cards match those filters.</strong>
       <span>The vault is not empty. Your filter is just being difficult.</span>
@@ -222,7 +231,7 @@
   </div>
 </footer>
 
-<script src="site-shell.js?v=20261011-3"></script>
-<script src="trophy-room.js?v=20261011-1"></script>
+<script src="site-shell.js?v=20261011-4"></script>
+<script src="trophy-room.js?v=20261011-2"></script>
 </body>
 </html>

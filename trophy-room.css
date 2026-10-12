@@ -70,7 +70,7 @@
   color:var(--gold);
 }
 
-.trophy-room-page .trophy-room-hero h2{
+.trophy-room-page .trophy-room-hero h1{
   margin:5px 0 8px;
   color:#fff;
   font-size:clamp(2.35rem,5vw,4.6rem);
@@ -192,7 +192,7 @@
 
 .trophy-room-page .trophy-filter-fields{
   display:grid;
-  grid-template-columns:repeat(3,minmax(150px,1fr));
+  grid-template-columns:repeat(4,minmax(140px,1fr));
   gap:12px;
 }
 
@@ -209,7 +209,8 @@
   text-transform:uppercase;
 }
 
-.trophy-room-page .trophy-filter-fields select{
+.trophy-room-page .trophy-filter-fields select,
+.trophy-room-page .trophy-filter-fields input{
   width:100%;
   min-height:46px;
   padding:9px 36px 9px 13px;
@@ -222,9 +223,32 @@
   font-weight:800;
 }
 
-.trophy-room-page .trophy-filter-fields select:focus{
+.trophy-room-page .trophy-filter-fields input{
+  padding-right:13px;
+}
+
+.trophy-room-page .trophy-filter-fields input::placeholder{
+  color:#7f8f9d;
+}
+
+.trophy-room-page .trophy-filter-fields select:focus,
+.trophy-room-page .trophy-filter-fields input:focus{
   outline:2px solid rgba(255,184,28,.62);
   outline-offset:2px;
+}
+
+.trophy-room-page .trophy-progressive-controls{
+  display:flex;
+  justify-content:center;
+  margin-top:28px;
+}
+
+.trophy-room-page .trophy-progressive-controls[hidden]{
+  display:none;
+}
+
+.trophy-room-page .trophy-progressive-controls .btn{
+  min-width:min(100%,260px);
 }
 
 .trophy-room-page .trophy-room-ledger{
@@ -989,7 +1013,7 @@
   }
 
   .trophy-room-page .trophy-filter-fields{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
 
   .trophy-room-page .trophy-card-grid{

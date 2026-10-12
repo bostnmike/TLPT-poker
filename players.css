@@ -121,6 +121,71 @@
   content:none;
 }
 
+.crew-search-row{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+  padding:0 2px;
+}
+
+.crew-search-row label{
+  display:grid;
+  gap:6px;
+  width:min(100%,360px);
+}
+
+.crew-search-row label > span{
+  color:#fca5a5;
+  font-size:.72rem;
+  font-weight:950;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+
+.crew-search-row input{
+  width:100%;
+  min-height:44px;
+  padding:10px 13px;
+  border:1px solid rgba(239,68,68,.28);
+  border-radius:12px;
+  color:#f7f8fa;
+  background:#10161e;
+  font:inherit;
+  font-weight:800;
+}
+
+#crew-search-status{
+  margin-bottom:12px;
+  color:#9eacb8;
+  font-size:.84rem;
+  font-weight:750;
+}
+
+.crew-search-empty{
+  display:grid;
+  gap:5px;
+  padding:40px 20px;
+  border:1px dashed rgba(239,68,68,.28);
+  border-radius:16px;
+  color:#aab6c0;
+  text-align:center;
+}
+
+.crew-search-empty strong{
+  color:#fecaca;
+}
+
+.crew-progressive-controls{
+  display:flex;
+  justify-content:center;
+  padding:10px 0 2px;
+}
+
+.crew-progressive-controls .btn{
+  min-width:min(100%,270px);
+}
+
 #players-visual{
   position:relative;
   margin:0 0 22px;
@@ -1017,6 +1082,20 @@
   .crew-view-toolbar{
     padding-left:12px;
     padding-right:12px;
+  }
+
+  .crew-search-row{
+    align-items:stretch;
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .crew-search-row label{
+    width:100%;
+  }
+
+  #crew-search-status{
+    margin:0;
   }
 }
 

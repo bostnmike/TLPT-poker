@@ -44,17 +44,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20261011-7" />
+  <link rel="stylesheet" href="style.css?v=20261011-8" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="gallery.css?v=20261011-6" />
-  <link rel="stylesheet" href="ux-convergence.css?v=20261011-1" />
+  <link rel="stylesheet" href="gallery.css?v=20261011-7" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261011-2" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
   <div class="wrap header-inner">
     <div>
-      <h1 class="logo">TLPT Poker League</h1>
+      <a class="logo" href="index.html" aria-label="TLPT Poker League home">TLPT Poker League</a>
       <p class="tag">The League. The Players. The Tilt.</p>
     </div>
 
@@ -110,7 +110,7 @@
     <section class="section gallery-hero site-page-hero site-page-hero-chip-5000" aria-labelledby="gallery-page-title">
       <div class="site-page-hero-copy">
         <span class="site-page-hero-kicker">TLPT Poster Archive</span>
-        <h2 id="gallery-page-title" class="page-title-purple gallery-page-title site-page-title site-page-hero-title">The Art Gallery</h2>
+        <h1 id="gallery-page-title" class="page-title-purple gallery-page-title site-page-title site-page-hero-title">The Art Gallery</h1>
         <p class="site-page-hero-description">
           A running exhibit of TLPT movie-poster nonsense, fake prestige, epic collapses, &amp; deeply unnecessary cinematic drama.
         </p>
@@ -131,6 +131,16 @@
         data-hide-on-error
         />
       </div>
+    </section>
+
+    <section class="gallery-filter-bar" aria-label="Filter the poster archive">
+      <label for="gallery-year-filter">
+        <span>Archive Year</span>
+        <select id="gallery-year-filter">
+          <option value="all">All Years</option>
+        </select>
+      </label>
+      <p id="gallery-filter-status" aria-live="polite">Loading the collection…</p>
     </section>
 
     <section class="section gallery-shell">
@@ -192,7 +202,7 @@
     </div>
   </footer>
 
-  <script src="site-shell.js?v=20261011-3"></script>
-<script src="gallery.js?v=20261011-4"></script>
+  <script src="site-shell.js?v=20261011-4"></script>
+<script src="gallery.js?v=20261011-5"></script>
 </body>
 </html>

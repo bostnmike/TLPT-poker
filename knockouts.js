@@ -592,6 +592,36 @@ const KNOCKOUTS_URLS = [
     `;
   }
 
+  function initProgressiveCollection(hostSelector, itemSelector, initialCount, label) {
+    const host = document.querySelector(hostSelector);
+    const items = host ? [...host.querySelectorAll(itemSelector)] : [];
+    if (!host || items.length <= initialCount) return;
+
+    items.slice(initialCount).forEach(item => {
+      item.hidden = true;
+    });
+
+    const controls = document.createElement("div");
+    controls.className = "knockouts-progressive-controls";
+    controls.innerHTML = `
+      <button class="btn" type="button">Show All ${items.length} ${label}</button>
+    `;
+    controls.querySelector("button")?.addEventListener("click", () => {
+      items.forEach(item => {
+        item.hidden = false;
+      });
+      controls.remove();
+    });
+    host.appendChild(controls);
+  }
+
+  function initProgressiveKnockoutLists() {
+    initProgressiveCollection("#knockouts-nemesis-board", ".knockouts-nemesis-card", 8, "Nemeses");
+    initProgressiveCollection("#knockouts-body-count-ledger", ".knockouts-belt-tally-card", 12, "Players");
+    initProgressiveCollection("#knockouts-bounty-view", ".knockouts-bounty-ledger-card", 12, "Bounty Hunters");
+    initProgressiveCollection("#knockouts-bounty-view", ".knockouts-bounty-claim-card", 10, "Claims");
+  }
+
   function initKnockoutViewSwitch(root) {
     const buttons = [...root.querySelectorAll("[data-knockouts-view]")];
     const panels = [...root.querySelectorAll("[data-knockouts-panel]")];
@@ -691,6 +721,7 @@ const KNOCKOUTS_URLS = [
       bountyViewHost.innerHTML = renderBountyView(players, playerMap, knockouts);
     }
 
+    initProgressiveKnockoutLists();
     initKnockoutViewSwitch(root);
   }
 

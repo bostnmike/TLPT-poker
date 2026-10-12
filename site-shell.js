@@ -330,9 +330,226 @@
     mobileQuery.addEventListener("change", sync);
   };
 
+  const initSiteSelects = () => {
+    if (!document.body || document.body.classList.contains("marchand-page")) return;
+
+    const selectSelector = "select:not([data-site-select-skip]):not(.fl-native-select):not([id^='fl-'])";
+    const getSelectLabel = select => {
+      const label = select.labels?.[0] || select.closest("label");
+      const labelText = label?.querySelector(":scope > span")?.textContent
+        || label?.textContent
+        || select.getAttribute("aria-label")
+        || select.id
+        || "Option";
+      return labelText.replace(/\s+/g, " ").trim();
+    };
+
+    const getSelectShell = select => {
+      const shell = select.nextElementSibling;
+      return shell?.classList.contains("site-select") ? shell : null;
+    };
+
+    const closeSelect = (select, restoreFocus = false) => {
+      const shell = getSelectShell(select);
+      if (!shell) return;
+      const trigger = shell.querySelector(".site-select-trigger");
+      const menu = shell.querySelector(".site-select-menu");
+      if (menu) menu.hidden = true;
+      trigger?.setAttribute("aria-expanded", "false");
+      shell.classList.remove("is-open");
+      if (restoreFocus) trigger?.focus();
+    };
+
+    const closeAllSelects = (exceptSelect = null) => {
+      document.querySelectorAll("select[data-site-select-ready='true']").forEach(select => {
+        if (select !== exceptSelect) closeSelect(select);
+      });
+    };
+
+    const handleOptionKeydown = (event, select) => {
+      const menu = event.currentTarget.closest(".site-select-menu");
+      const options = Array.from(menu?.querySelectorAll(".site-select-option:not(:disabled)") || []);
+      const currentIndex = options.indexOf(event.currentTarget);
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeSelect(select, true);
+        return;
+      }
+      if (event.key === "Tab") {
+        closeSelect(select);
+        return;
+      }
+
+      let nextIndex = null;
+      if (event.key === "ArrowDown") nextIndex = Math.min(options.length - 1, currentIndex + 1);
+      if (event.key === "ArrowUp") nextIndex = Math.max(0, currentIndex - 1);
+      if (event.key === "Home") nextIndex = 0;
+      if (event.key === "End") nextIndex = options.length - 1;
+      if (nextIndex !== null) {
+        event.preventDefault();
+        options[nextIndex]?.focus();
+      }
+    };
+
+    const syncSelect = select => {
+      const shell = getSelectShell(select);
+      if (!shell) return;
+      const trigger = shell.querySelector(".site-select-trigger");
+      const menu = shell.querySelector(".site-select-menu");
+      if (!trigger || !menu) return;
+
+      const signature = Array.from(select.options)
+        .map(option => `${option.value}\u241f${option.textContent}\u241f${option.disabled}`)
+        .join("\u241e");
+      if (shell.dataset.optionSignature !== signature) {
+        shell.dataset.optionSignature = signature;
+        menu.innerHTML = "";
+        Array.from(select.options).forEach(option => {
+          const optionButton = document.createElement("button");
+          optionButton.className = "site-select-option";
+          optionButton.type = "button";
+          optionButton.role = "option";
+          optionButton.dataset.value = option.value;
+          optionButton.textContent = option.textContent;
+          optionButton.disabled = option.disabled;
+          optionButton.addEventListener("click", () => {
+            select.value = option.value;
+            select.dispatchEvent(new Event("change", { bubbles:true }));
+            syncSelect(select);
+            closeSelect(select, true);
+          });
+          optionButton.addEventListener("keydown", event => handleOptionKeydown(event, select));
+          menu.append(optionButton);
+        });
+      }
+
+      const selectedOption = select.selectedOptions?.[0] || select.options[select.selectedIndex];
+      const selectedText = selectedOption?.textContent || "Select…";
+      const label = trigger.dataset.fieldLabel || "Option";
+      if (trigger.textContent !== selectedText) trigger.textContent = selectedText;
+      trigger.disabled = select.disabled;
+      trigger.setAttribute("aria-label", `${label}: ${selectedText}`);
+      menu.querySelectorAll(".site-select-option").forEach(optionButton => {
+        optionButton.setAttribute(
+          "aria-selected",
+          optionButton.dataset.value === select.value ? "true" : "false"
+        );
+      });
+    };
+
+    const openSelect = (select, focusOffset = null) => {
+      const shell = getSelectShell(select);
+      if (!shell) return;
+      closeAllSelects(select);
+      syncSelect(select);
+      const trigger = shell.querySelector(".site-select-trigger");
+      const menu = shell.querySelector(".site-select-menu");
+      if (!trigger || !menu || trigger.disabled) return;
+
+      const availableHeight = Math.max(
+        120,
+        Math.floor(window.innerHeight - trigger.getBoundingClientRect().bottom - 16)
+      );
+      menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;
+      menu.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      shell.classList.add("is-open");
+
+      if (focusOffset !== null) {
+        const options = Array.from(menu.querySelectorAll(".site-select-option:not(:disabled)"));
+        const selectedIndex = Math.max(0, options.findIndex(option => {
+          return option.dataset.value === select.value;
+        }));
+        const focusIndex = focusOffset === "end"
+          ? options.length - 1
+          : focusOffset === "home"
+            ? 0
+            : Math.max(0, Math.min(options.length - 1, selectedIndex + focusOffset));
+        options[focusIndex]?.focus();
+      }
+    };
+
+    const enhanceSelect = select => {
+      if (
+        select.dataset.siteSelectReady === "true"
+        || select.id.startsWith("fl-")
+        || select.closest(".fl-field")
+      ) return;
+      const label = getSelectLabel(select);
+      const shell = document.createElement("div");
+      const trigger = document.createElement("button");
+      const menu = document.createElement("div");
+      const baseId = select.id || `site-select-${document.querySelectorAll(".site-select").length + 1}`;
+
+      shell.className = "site-select";
+      trigger.className = "site-select-trigger";
+      trigger.type = "button";
+      trigger.id = `${baseId}-trigger`;
+      trigger.dataset.fieldLabel = label;
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.setAttribute("aria-controls", `${baseId}-menu`);
+      menu.className = "site-select-menu";
+      menu.id = `${baseId}-menu`;
+      menu.role = "listbox";
+      menu.setAttribute("aria-label", label);
+      menu.hidden = true;
+
+      trigger.addEventListener("click", () => {
+        if (trigger.getAttribute("aria-expanded") === "true") closeSelect(select);
+        else openSelect(select);
+      });
+      trigger.addEventListener("keydown", event => {
+        const offsets = { ArrowDown:1, ArrowUp:-1, Home:"home", End:"end" };
+        if (!(event.key in offsets)) return;
+        event.preventDefault();
+        openSelect(select, offsets[event.key]);
+      });
+      select.addEventListener("change", () => syncSelect(select));
+
+      select.classList.add("site-native-select");
+      select.dataset.siteSelectReady = "true";
+      select.tabIndex = -1;
+      select.setAttribute("aria-hidden", "true");
+      shell.append(trigger, menu);
+      select.insertAdjacentElement("afterend", shell);
+      if (select.labels?.[0]) select.labels[0].htmlFor = trigger.id;
+      syncSelect(select);
+    };
+
+    const enhanceAllSelects = () => {
+      document.querySelectorAll(selectSelector).forEach(enhanceSelect);
+      document.querySelectorAll("select[data-site-select-ready='true']").forEach(syncSelect);
+    };
+
+    enhanceAllSelects();
+    document.addEventListener("click", event => {
+      if (!event.target.closest(".site-select")) closeAllSelects();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeAllSelects();
+    });
+    window.addEventListener("resize", () => closeAllSelects(), { passive:true });
+
+    if (typeof MutationObserver === "function") {
+      let refreshQueued = false;
+      const observer = new MutationObserver(() => {
+        if (refreshQueued) return;
+        refreshQueued = true;
+        requestAnimationFrame(() => {
+          refreshQueued = false;
+          enhanceAllSelects();
+        });
+      });
+      observer.observe(document.body, { childList:true, subtree:true });
+    }
+  };
+
   if (typeof document.querySelector === "function") {
     initResponsiveNavigation();
     initResponsiveProfileTools();
+    initSiteSelects();
   }
   if (typeof document.querySelectorAll === "function") {
     initScrollAffordances();

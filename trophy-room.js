@@ -9,8 +9,12 @@
     type: "all",
     player: "all",
     year: "all",
-    sort: "prestige"
+    sort: "prestige",
+    query: "",
+    visibleCount: 12
   };
+
+  const TROPHY_BATCH_SIZE = 12;
 
   const fixedEditions = {
     "hall-tax-collector": {
@@ -369,8 +373,14 @@
       const matchesType = state.type === "all" || card.type === state.type;
       const matchesPlayer = state.player === "all" || card.player.slug === state.player;
       const matchesYear = state.year === "all" || card.year === state.year;
-      return matchesType && matchesPlayer && matchesYear;
+      const haystack = `${card.player.name} ${card.label} ${card.cardLabel} ${card.eyebrow}`.toLowerCase();
+      const matchesQuery = !state.query || haystack.includes(state.query);
+      return matchesType && matchesPlayer && matchesYear && matchesQuery;
     }));
+  }
+
+  function resetVisibleCards() {
+    state.visibleCount = TROPHY_BATCH_SIZE;
   }
 
   function render() {
@@ -380,11 +390,24 @@
     if (!grid) return;
 
     const cards = filteredCards();
-    grid.innerHTML = cards.map(cardMarkup).join("");
+    const visibleCards = cards.slice(0, state.visibleCount);
+    grid.innerHTML = visibleCards.map(cardMarkup).join("");
     if (resultCount) {
-      resultCount.textContent = `${cards.length} Card${cards.length === 1 ? "" : "s"} on Display`;
+      resultCount.textContent = cards.length === visibleCards.length
+        ? `${cards.length} Card${cards.length === 1 ? "" : "s"} on Display`
+        : `Showing ${visibleCards.length} of ${cards.length} Cards`;
     }
     if (empty) empty.hidden = cards.length > 0;
+
+    const progressiveControls = document.getElementById("trophy-progressive-controls");
+    const loadMore = document.getElementById("trophy-load-more");
+    const remaining = Math.max(cards.length - visibleCards.length, 0);
+    if (progressiveControls) progressiveControls.hidden = remaining === 0;
+    if (loadMore) {
+      loadMore.textContent = remaining > TROPHY_BATCH_SIZE
+        ? `Show ${TROPHY_BATCH_SIZE} More Cards`
+        : `Show ${remaining} More Card${remaining === 1 ? "" : "s"}`;
+    }
   }
 
   function populateSummary() {
@@ -443,6 +466,7 @@
 
       button.addEventListener("click", () => {
         state.type = button.dataset.trophyType || "all";
+        resetVisibleCards();
         document.querySelectorAll("[data-trophy-type]").forEach(item => {
           const active = item === button;
           item.classList.toggle("is-active", active);
@@ -454,14 +478,26 @@
 
     playerSelect?.addEventListener("change", () => {
       state.player = playerSelect.value;
+      resetVisibleCards();
       render();
     });
     yearSelect?.addEventListener("change", () => {
       state.year = yearSelect.value;
+      resetVisibleCards();
       render();
     });
     document.getElementById("trophy-sort")?.addEventListener("change", event => {
       state.sort = event.target.value;
+      resetVisibleCards();
+      render();
+    });
+    document.getElementById("trophy-search")?.addEventListener("input", event => {
+      state.query = String(event.target.value || "").trim().toLowerCase();
+      resetVisibleCards();
+      render();
+    });
+    document.getElementById("trophy-load-more")?.addEventListener("click", () => {
+      state.visibleCount += TROPHY_BATCH_SIZE;
       render();
     });
   }
