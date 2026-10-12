@@ -46,8 +46,8 @@
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="form-lab.css?v=20261011-6" />
-  <link rel="stylesheet" href="ux-convergence.css?v=20261012-5" />
+  <link rel="stylesheet" href="form-lab.css?v=20261012-1" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261012-6" />
 </head>
 
 <body>
@@ -195,7 +195,8 @@
       <div id="fl-player-card" class="fl-player-card"></div>
     </div>
 
-    <div class="fl-chart-stage">
+    <p class="fl-chart-scroll-hint" aria-hidden="true">Swipe chart to explore ↔</p>
+    <div class="fl-chart-stage" tabindex="0" aria-label="Scrollable player event chart">
       <svg id="fl-chart" class="fl-chart" role="group" aria-labelledby="fl-chart-title fl-chart-subtitle"></svg>
       <div id="fl-tooltip" class="fl-tooltip" hidden></div>
     </div>

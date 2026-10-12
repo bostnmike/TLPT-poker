@@ -3433,23 +3433,49 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, option
   `;
 }
 
+function wireMobileJumpNavCues(root = document) {
+  root.querySelectorAll("[data-mobile-jump-nav-shell]").forEach(shell => {
+    if (shell.dataset.jumpNavCueReady === "true") return;
+    const rail = shell.querySelector(".player-section-jump-nav, .crew-tier-jump-nav");
+    if (!rail) return;
+
+    const syncCue = () => {
+      const maxScroll = Math.max(0, rail.scrollWidth - rail.clientWidth);
+      shell.classList.toggle("is-scrollable", maxScroll > 2);
+      shell.classList.toggle("is-scroll-end", rail.scrollLeft >= maxScroll - 2);
+    };
+
+    shell.dataset.jumpNavCueReady = "true";
+    rail.addEventListener("scroll", syncCue, { passive: true });
+    if (typeof ResizeObserver === "function") {
+      const observer = new ResizeObserver(syncCue);
+      observer.observe(rail);
+      rail._tlptJumpNavObserver = observer;
+    }
+    requestAnimationFrame(syncCue);
+  });
+}
+
 function crewTierJumpNavMarkup(groups) {
   const availableGroups = groups.filter(group => group.players.length);
   if (availableGroups.length < 2) return "";
 
   return `
-    <nav class="crew-tier-jump-nav" aria-label="Jump to a crew tier">
-      ${availableGroups.map(group => {
-        const sectionId = `crew-tier-${String(group.className || group.title)
-          .toLowerCase()
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/^-+|-+$/g, "")}`;
-        const shortLabel = group.title
-          .replace(/^The\s+/i, "")
-          .replace(/^(PRO|RKI|UNS)\s+—\s+/i, "");
-        return `<a href="#${sectionId}">${group.emoji} ${shortLabel}</a>`;
-      }).join("")}
-    </nav>
+    <div class="mobile-jump-nav-shell" data-mobile-jump-nav-shell>
+      <nav class="crew-tier-jump-nav" aria-label="Jump to a crew tier">
+        ${availableGroups.map(group => {
+          const sectionId = `crew-tier-${String(group.className || group.title)
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "")}`;
+          const shortLabel = group.title
+            .replace(/^The\s+/i, "")
+            .replace(/^(PRO|RKI|UNS)\s+—\s+/i, "");
+          return `<a href="#${sectionId}">${group.emoji} ${shortLabel}</a>`;
+        }).join("")}
+      </nav>
+      <span class="mobile-jump-nav-cue" aria-hidden="true">Swipe →</span>
+    </div>
   `;
 }
 
@@ -3877,6 +3903,8 @@ function renderPlayers(data) {
       }
     )}
   `;
+
+  wireMobileJumpNavCues(grid);
 
   if (rosterPlayers.length < matchingRosterPlayers.length) {
     grid.insertAdjacentHTML("beforeend", `
@@ -5868,13 +5896,16 @@ function renderPlayerProfile(data) {
   }).join("");
 
   container.innerHTML = `
-    <nav class="player-section-jump-nav" aria-label="Jump to a profile section">
-      <a href="#player-overview">Overview</a>
-      <a href="#player-card-collection">Editions</a>
-      <a href="#player-dna">DNA</a>
-      <a href="#player-archetypes">Archetypes</a>
-      <a href="#player-stats">Stats</a>
-    </nav>
+    <div class="mobile-jump-nav-shell" data-mobile-jump-nav-shell>
+      <nav class="player-section-jump-nav" aria-label="Jump to a profile section">
+        <a href="#player-overview">Overview</a>
+        <a href="#player-card-collection">Editions</a>
+        <a href="#player-dna">DNA</a>
+        <a href="#player-archetypes">Archetypes</a>
+        <a href="#player-stats">Stats</a>
+      </nav>
+      <span class="mobile-jump-nav-cue" aria-hidden="true">Swipe →</span>
+    </div>
     <div class="profile-shell player-profile-shell">
       <div id="player-overview" class="profile-hero profile-hero-wide player-profile-hero">
         ${playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews, specialEdition)}
@@ -5905,6 +5936,8 @@ function renderPlayerProfile(data) {
       </div>
     </div>
   `;
+
+  wireMobileJumpNavCues(container);
 
   const comparisonController = wirePlayerCardComparison(container, player, players, data);
   const ratingController = wirePlayerCardRatingControls(

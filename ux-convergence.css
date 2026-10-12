@@ -152,6 +152,7 @@ body .site-page-hero-kicker,
 }
 
 .dashboard-list-rank,
+.mobile-jump-nav-shell,
 .player-section-jump-nav,
 .crew-tier-jump-nav{
   display:none;
@@ -929,27 +930,62 @@ body:not(.marchand-page) .site-footer a{
     text-align:right;
   }
 
-  .player-section-jump-nav,
-  .crew-tier-jump-nav{
+  .dashboard-studio-strip-inline{
+    min-width:0;
+    padding:12px 14px;
+  }
+
+  .dashboard-studio-strip-inline .dashboard-studio-copy,
+  .dashboard-studio-strip-inline .dashboard-studio-context{
+    width:100%;
+    min-width:0;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+
+  .mobile-jump-nav-shell{
     position:sticky;
     top:8px;
     z-index:18;
+    display:block;
+    width:100%;
+    margin:0 0 12px;
+  }
+
+  .player-section-jump-nav,
+  .crew-tier-jump-nav{
+    position:relative;
     display:flex;
     gap:7px;
     width:100%;
-    margin:0 0 12px;
-    padding:7px;
+    margin:0;
+    padding:7px 90px 9px 7px;
     overflow-x:auto;
     border:1px solid rgba(255,184,28,.24);
     border-radius:13px;
     background:rgba(8,13,19,.94);
     box-shadow:0 10px 24px rgba(0,0,0,.30);
-    scrollbar-width:none;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(255,184,28,.68) rgba(255,255,255,.055);
+    scroll-snap-type:x proximity;
   }
 
   .player-section-jump-nav::-webkit-scrollbar,
   .crew-tier-jump-nav::-webkit-scrollbar{
-    display:none;
+    display:block;
+    height:5px;
+  }
+
+  .player-section-jump-nav::-webkit-scrollbar-track,
+  .crew-tier-jump-nav::-webkit-scrollbar-track{
+    border-radius:999px;
+    background:rgba(255,255,255,.055);
+  }
+
+  .player-section-jump-nav::-webkit-scrollbar-thumb,
+  .crew-tier-jump-nav::-webkit-scrollbar-thumb{
+    border-radius:999px;
+    background:rgba(255,184,28,.68);
   }
 
   .player-section-jump-nav a,
@@ -968,6 +1004,34 @@ body:not(.marchand-page) .site-footer a{
     font-weight:850;
     text-decoration:none;
     white-space:nowrap;
+    scroll-snap-align:start;
+  }
+
+  .mobile-jump-nav-cue{
+    position:absolute;
+    top:1px;
+    right:1px;
+    bottom:6px;
+    z-index:2;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    width:82px;
+    border-left:1px solid rgba(255,184,28,.22);
+    border-radius:0 12px 8px 0;
+    background:rgba(8,13,19,.98);
+    box-shadow:-14px 0 16px rgba(8,13,19,.98);
+    color:#ffd568;
+    font-size:.68rem;
+    font-weight:950;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    pointer-events:none;
+    transition:opacity .16s ease;
+  }
+
+  .mobile-jump-nav-shell.is-scrollable:not(.is-scroll-end) .mobile-jump-nav-cue{
+    display:inline-flex;
   }
 
   :is(#player-overview,#player-card-collection,#player-dna,#player-archetypes,#player-stats,[id^="crew-tier-"]){

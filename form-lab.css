@@ -340,6 +340,10 @@
   overflow: hidden;
 }
 
+.fl-chart-scroll-hint {
+  display: none;
+}
+
 .fl-chart {
   display: block;
   width: 100%;
@@ -613,9 +617,55 @@
     grid-template-columns: 1fr;
   }
 
-  .fl-chart-stage,
+  .fl-chart-scroll-hint {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 8px;
+    color: #ffd568;
+    font-size: .75rem;
+    font-weight: 900;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  .fl-chart-stage {
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,184,28,.72) rgba(255,255,255,.06);
+  }
+
+  .fl-chart-stage::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .fl-chart-stage::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.06);
+  }
+
+  .fl-chart-stage::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: rgba(255,184,28,.72);
+  }
+
   .fl-chart {
-    min-height: 440px;
+    width: 680px;
+    min-width: 680px;
+    max-width: none;
+    min-height: 0;
+    height: auto;
+  }
+
+  .fl-axis-label {
+    font-size: 18px;
+  }
+
+  .fl-tick-label,
+  .fl-point-label,
+  .fl-average-label {
+    font-size: 16px;
   }
 
   .fl-control-shell,
