@@ -1371,6 +1371,264 @@ body:not(.marchand-page) .site-footer a{
   }
 }
 
+.mobile-page-return{
+  display:none;
+}
+
+@media (max-width:700px){
+  .mobile-page-return{
+    position:fixed;
+    right:max(14px,env(safe-area-inset-right));
+    bottom:max(14px,env(safe-area-inset-bottom));
+    z-index:80;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    min-width:70px !important;
+    min-height:46px;
+    padding:9px 12px;
+    border:1px solid rgba(255,184,28,.62);
+    border-radius:12px;
+    color:#fff4ce;
+    background:linear-gradient(180deg,rgba(41,34,17,.98),rgba(16,20,25,.98));
+    box-shadow:0 12px 28px rgba(0,0,0,.44),inset 0 1px 0 rgba(255,255,255,.08);
+    font:inherit;
+    font-size:.78rem;
+    line-height:1;
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(10px);
+    transition:opacity .16s ease,transform .16s ease,border-color .16s ease;
+  }
+
+  .mobile-page-return[hidden]{
+    display:none;
+  }
+
+  .mobile-page-return.is-visible{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+  }
+
+  .mobile-page-return:hover{
+    border-color:#ffd568;
+  }
+
+  .mobile-page-return:focus-visible{
+    outline:2px solid #fff;
+    outline-offset:3px;
+  }
+}
+
+@media (max-width:350px){
+  /* Compact standings keep player identity readable instead of sacrificing
+     nearly the entire name column to the selected metric. */
+  #standings-table tr{
+    grid-template-columns:30px minmax(0,1fr) 70px;
+  }
+
+  #standings-table th,
+  #standings-table td{
+    padding:10px 4px;
+    font-size:.76rem;
+  }
+
+  #standings-table .player-inline{
+    gap:5px;
+  }
+
+  #standings-table .player-avatar.table,
+  #standings-table .player-avatar-fallback.table{
+    width:28px;
+    height:28px;
+    min-width:28px;
+    min-height:28px;
+  }
+
+  #standings-table .player-inline-name{
+    font-size:.74rem;
+  }
+
+  /* Preserve full blind values at 320px by reclaiming padding and giving the
+     numeric columns a compact, tabular treatment. */
+  .blind-table{
+    font-size:.72rem;
+  }
+
+  .blind-table th,
+  .blind-table td,
+  .blind-table th:first-child,
+  .blind-table td:first-child{
+    padding-right:1px;
+    padding-left:1px;
+  }
+
+  .blind-table th:nth-child(1),
+  .blind-table td:nth-child(1){ width:10%; }
+
+  .blind-table th:nth-child(2),
+  .blind-table td:nth-child(2){ width:20%; }
+
+  .blind-table th:nth-child(3),
+  .blind-table td:nth-child(3),
+  .blind-table th:nth-child(4),
+  .blind-table td:nth-child(4){ width:21%; }
+
+  .blind-table th:nth-child(5),
+  .blind-table td:nth-child(5){ width:28%; }
+
+  .blind-table td:nth-child(3),
+  .blind-table td:nth-child(4),
+  .blind-table td:nth-child(5){
+    font-size:.70rem;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.02em;
+  }
+
+  /* The Featured Actors receipt becomes a true compact stack, keeping every
+     avatar and result pill inside the story card. */
+  .news-receipt-panel,
+  .news-receipt-lead,
+  .news-receipt-top,
+  .news-receipt-top-split,
+  .news-receipt-pills{
+    box-sizing:border-box;
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
+
+  .news-receipt-panel{
+    padding:10px;
+  }
+
+  .news-receipt-top-split{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .news-receipt-avatar-row-three{
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  .news-receipt-avatar-row-three .player-avatar-wrap:nth-child(3){
+    grid-column:auto;
+  }
+
+  .news-receipt-pills{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .news-receipt-pill{
+    width:100%;
+    white-space:normal;
+    line-height:1.25;
+  }
+
+  /* Edition cards become a legible snap rail: one full card plus a visible
+     edge of the next, instead of two unreadably compressed thumbnails. */
+  .player-page .tlpt-card-collection-grid{
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:min(68vw,190px);
+    justify-content:start;
+    gap:14px;
+    padding:19px 8px 12px;
+    overflow-x:auto;
+    scroll-padding-inline:8px;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(255,184,28,.70) rgba(255,255,255,.06);
+  }
+
+  .player-page .tlpt-card-collection-grid::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .player-page .tlpt-card-collection-grid::-webkit-scrollbar-thumb{
+    border-radius:999px;
+    background:rgba(255,184,28,.70);
+  }
+
+  .player-page .tlpt-card-collection-grid::-webkit-scrollbar-track{
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+  }
+
+  .player-page .tlpt-card-collectible-button{
+    scroll-snap-align:center;
+  }
+
+  .player-page .tlpt-card-collectible-head{
+    grid-template-columns:31px minmax(0,1fr) 28px;
+    padding-right:5px;
+    padding-left:5px;
+  }
+
+  .player-page .tlpt-card-collectible-rating{
+    margin-top:13px;
+    margin-left:-6px;
+  }
+
+  .player-page .tlpt-card-collectible-rating strong{
+    font-size:1.45rem;
+  }
+
+  .player-page .tlpt-card-collectible-rating small{
+    width:24px;
+    font-size:.51rem;
+  }
+
+  .player-page .tlpt-card-collectible-edition{
+    font-size:.41rem;
+  }
+
+  .player-page .tlpt-card-collectible-edition strong{
+    font-size:.49rem;
+  }
+
+  .player-page .tlpt-card-collectible-head img{
+    width:30px;
+    height:30px;
+    margin-top:13px;
+    margin-right:-6px;
+  }
+
+  .player-page .tlpt-card-collectible-name{
+    font-size:.67rem;
+  }
+
+  .player-page .tlpt-card-collectible-stats{
+    gap:1px 9px;
+    padding-right:7px;
+    padding-left:7px;
+  }
+
+  .player-page .tlpt-card-collectible-stats strong{
+    font-size:.62rem;
+  }
+
+  .player-page .tlpt-card-collectible-stats small{
+    font-size:.36rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption strong{
+    font-size:.61rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption small{
+    font-size:.65rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption em{
+    font-size:.48rem;
+  }
+}
+
 @media (max-width:360px){
   body:not(.marchand-page) .site-header .header-inner{
     grid-template-columns:minmax(0,1fr) 88px;
@@ -1399,6 +1657,10 @@ body:not(.marchand-page) .site-footer a{
   .site-header .nav-dropdown-menu,
   .nav-submenu-toggle::before{
     animation:none !important;
+    transition:none !important;
+  }
+
+  .mobile-page-return{
     transition:none !important;
   }
 }

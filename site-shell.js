@@ -627,10 +627,74 @@
     }
   };
 
+  const initMobilePageReturn = () => {
+    if (
+      !document.body
+      || document.body.classList.contains("marchand-page")
+      || document.querySelector(".mobile-page-return")
+    ) return;
+
+    const mobileQuery = window.matchMedia("(max-width:700px)");
+    const button = document.createElement("button");
+    button.className = "mobile-page-return";
+    button.type = "button";
+    button.hidden = true;
+    button.tabIndex = -1;
+    button.setAttribute("aria-label", "Return to the top of this page");
+    button.setAttribute("aria-hidden", "true");
+    button.innerHTML = '<span aria-hidden="true">↑</span><strong>Top</strong>';
+    document.body.append(button);
+
+    let eligible = false;
+    const syncVisibility = () => {
+      const visible = eligible && window.scrollY > window.innerHeight * 2.25;
+      button.classList.toggle("is-visible", visible);
+      button.tabIndex = visible ? 0 : -1;
+      button.setAttribute("aria-hidden", String(!visible));
+    };
+    const syncEligibility = () => {
+      const pageHeight = Math.max(
+        document.documentElement.scrollHeight,
+        document.body.scrollHeight
+      );
+      eligible = mobileQuery.matches && pageHeight > window.innerHeight * 5.5;
+      const shouldHide = !eligible;
+      if (button.hidden !== shouldHide) button.hidden = shouldHide;
+      syncVisibility();
+    };
+
+    let eligibilityQueued = false;
+    const queueEligibility = () => {
+      if (eligibilityQueued) return;
+      eligibilityQueued = true;
+      requestAnimationFrame(() => {
+        eligibilityQueued = false;
+        syncEligibility();
+      });
+    };
+
+    button.addEventListener("click", () => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+      window.scrollTo({ top:0, behavior:reduceMotion ? "auto" : "smooth" });
+    });
+    window.addEventListener("scroll", syncVisibility, { passive:true });
+    window.addEventListener("resize", queueEligibility, { passive:true });
+    window.addEventListener("load", queueEligibility, { once:true });
+    mobileQuery.addEventListener("change", queueEligibility);
+
+    if (typeof MutationObserver === "function") {
+      const observer = new MutationObserver(queueEligibility);
+      observer.observe(document.body, { childList:true, subtree:true });
+    }
+
+    requestAnimationFrame(queueEligibility);
+  };
+
   if (typeof document.querySelector === "function") {
     initResponsiveNavigation();
     initResponsiveProfileTools();
     initSiteSelects();
+    initMobilePageReturn();
   }
   if (typeof document.querySelectorAll === "function") {
     initScrollAffordances();
