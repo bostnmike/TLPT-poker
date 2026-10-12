@@ -239,6 +239,8 @@ body:not(.marchand-page) .site-footer a{
 }
 
 .nav-submenu-toggle{
+  align-items:center;
+  justify-content:center;
   width:var(--touch-target);
   min-width:var(--touch-target);
   min-height:var(--touch-target);
