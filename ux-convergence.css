@@ -2002,6 +2002,152 @@ body:not(.marchand-page) .site-footer a{
   }
 }
 
+/* Final functional-type floor. Decorative type printed inside player cards,
+   Trophy Room cards, and gallery posters deliberately remains at artwork
+   scale; everything visitors must read or operate clears 12px. */
+.event-rsvp-seating-note,
+#home-snapshot .home-featured-profile-link,
+.crew-search-row label > span,
+.hall-room-header p,
+.fl-field > label,
+.fl-detail-stat span,
+.news-post-details-hint,
+.gallery-filter-bar label > span,
+.gallery-card-subline,
+.vog-overline,
+.vog-card-duration,
+.trophy-room-page .trophy-room-ledger-head > div > span,
+.trophy-room-page #trophy-result-count,
+.player-page .tlpt-card-view-switch button,
+.player-page .tlpt-card-compare-open,
+.player-page .tlpt-card-view-bar > p,
+.player-page .tlpt-player-status-card > span,
+.player-page .tlpt-player-status-card > small,
+.player-page .tlpt-player-snapshot-stat > span,
+.player-page .tlpt-player-archetype-card > span,
+.player-page .tlpt-player-archetype-card > small,
+.player-page .tlpt-card-collection-head > div > span,
+.player-page .tlpt-card-collection-head p,
+.player-page .tlpt-card-collection-head > strong,
+.player-page .tlpt-card-collection-status,
+.player-page .player-stat-kicker,
+.player-page .player-section-jump-nav a,
+.player-page .mobile-jump-nav-cue,
+.player-page .tlpt-card-collectible-caption strong,
+.player-page .tlpt-card-collectible-caption small,
+.player-page .tlpt-card-collectible-caption em,
+.player-page .tlpt-card-collectible-selected,
+.player-page .tlpt-card-collectible-featured,
+.trophy-room-page .trophy-card-plaque > div strong,
+.trophy-room-page .trophy-card-plaque > small{
+  font-size:.75rem;
+}
+
+/* Edition captions are interface labels, not text printed on the card face.
+   Preserve the full earned/upgraded history in no more than two lines. */
+.player-page .tlpt-card-collectible-caption strong,
+.player-page .tlpt-card-collectible-caption small,
+.player-page .tlpt-card-collectible-caption em{
+  display:-webkit-box;
+  overflow:hidden;
+  line-height:1.2;
+  text-overflow:clip;
+  white-space:normal;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.player-page .tlpt-card-collectible-caption em{
+  min-height:2.4em;
+}
+
+/* The plaque belongs to the readable archive interface. Keep long edition
+   names and event notes intact instead of shaving their final characters. */
+.trophy-room-page .trophy-card-plaque{
+  min-height:146px;
+}
+
+.trophy-room-page .trophy-card-plaque > div strong,
+.trophy-room-page .trophy-card-plaque > small{
+  display:-webkit-box;
+  overflow:hidden;
+  line-height:1.2;
+  text-overflow:clip;
+  white-space:normal;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+
+.trophy-room-page .trophy-card-plaque > div strong,
+.trophy-room-page .trophy-card-plaque > small{
+  min-height:2.4em;
+}
+
+/* Tablet and compact-laptop layouts still use the desktop header, so they
+   need an explicit touch-target bridge rather than inheriting phone rules. */
+@media (min-width:701px) and (max-width:1100px){
+  body:not(.marchand-page) button,
+  body:not(.marchand-page) select,
+  body:not(.marchand-page) summary,
+  body:not(.marchand-page) .btn,
+  body:not(.marchand-page) [role="button"]{
+    min-height:var(--touch-target);
+  }
+
+  body:not(.marchand-page) button,
+  body:not(.marchand-page) [role="button"]{
+    min-width:var(--touch-target);
+  }
+
+  body:not(.marchand-page) .site-header .logo,
+  body:not(.marchand-page) .site-header .nav > a,
+  body:not(.marchand-page) .site-header .nav-dropdown-parent{
+    display:inline-flex;
+    align-items:center;
+    min-height:var(--touch-target);
+  }
+
+  body:not(.marchand-page) .home-event-dot,
+  body:not(.marchand-page) .home-event-tab,
+  body:not(.marchand-page) #schedule-list .btn-rsvp,
+  body:not(.marchand-page) .home-module-cta,
+  body:not(.marchand-page) #home-snapshot .home-featured-profile-link,
+  body:not(.marchand-page) .player-page-link,
+  body:not(.marchand-page) .news-archive-link,
+  body:not(.marchand-page) .player-page .tlpt-card-view-switch button,
+  body.player-page:not(.marchand-page) .tlpt-card-view-switch button{
+    min-height:var(--touch-target) !important;
+  }
+
+  body:not(.marchand-page) .home-event-dot{
+    min-width:var(--touch-target);
+  }
+
+  /* The rink still owns 680px at this breakpoint. Stack forecast labels so
+     player names remain whole in the intentionally narrow details column. */
+  #home-events-list .event-rsvp-forecast-row,
+  #schedule-list .event-rsvp-forecast-row{
+    grid-template-columns:1fr !important;
+    gap:3px !important;
+  }
+
+  #home-events-list .event-rsvp-forecast-names,
+  #schedule-list .event-rsvp-forecast-names{
+    overflow-wrap:normal !important;
+    word-break:normal;
+  }
+}
+
+@media (max-width:700px){
+  #standings-table .player-inline-name,
+  #standings-table thead th[aria-sort],
+  .blind-table td,
+  .blind-table th:nth-child(5),
+  .blind-table th:nth-child(-n+4)::after{
+    font-size:.75rem;
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   .tlpt-loading-card,
   .media-video-facade img,
