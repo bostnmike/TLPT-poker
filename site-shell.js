@@ -3,6 +3,84 @@
 (() => {
   const hideOnErrorSelector = "img[data-hide-on-error]";
   const imageErrorActionSelector = "img[data-image-error-action]";
+  const openSelectOverlays = new Map();
+
+  const placeSelectOverlay = (trigger, menu, options = {}) => {
+    if (!trigger || !menu || typeof window === "undefined") return;
+
+    const edge = 12;
+    const gap = 6;
+    const requestedMaxHeight = Number(options.maxHeight || 320);
+    const requestedMinWidth = Number(options.minWidth || 0);
+    let triggerRect = trigger.getBoundingClientRect();
+    let availableHeight = window.innerHeight - triggerRect.bottom - gap - edge;
+
+    if (availableHeight < 96) {
+      const root = document.documentElement;
+      const remainingScroll = Math.max(
+        0,
+        root.scrollHeight - window.innerHeight - window.scrollY
+      );
+      const scrollDistance = Math.min(96 - availableHeight, remainingScroll);
+      if (scrollDistance > 0) {
+        window.scrollBy(0, scrollDistance);
+        triggerRect = trigger.getBoundingClientRect();
+        availableHeight = window.innerHeight - triggerRect.bottom - gap - edge;
+      }
+    }
+
+    const viewportWidth = Math.max(0, window.innerWidth - (edge * 2));
+    const menuWidth = Math.min(
+      Math.max(triggerRect.width, requestedMinWidth),
+      viewportWidth
+    );
+    const left = Math.min(
+      Math.max(edge, triggerRect.left),
+      Math.max(edge, window.innerWidth - edge - menuWidth)
+    );
+    const maxHeight = Math.min(
+      requestedMaxHeight,
+      Math.max(48, availableHeight)
+    );
+
+    menu.style.position = "fixed";
+    menu.style.top = `${Math.round(triggerRect.bottom + gap)}px`;
+    menu.style.right = "auto";
+    menu.style.left = `${Math.round(left)}px`;
+    menu.style.width = `${Math.round(menuWidth)}px`;
+    menu.style.maxHeight = `${Math.floor(maxHeight)}px`;
+    openSelectOverlays.set(menu, { trigger, options });
+  };
+
+  const releaseSelectOverlay = menu => {
+    if (menu) openSelectOverlays.delete(menu);
+  };
+
+  const repositionOpenSelectOverlays = () => {
+    openSelectOverlays.forEach(({ trigger, options }, menu) => {
+      if (!trigger.isConnected || !menu.isConnected || menu.hidden) {
+        openSelectOverlays.delete(menu);
+        return;
+      }
+      placeSelectOverlay(trigger, menu, options);
+    });
+  };
+
+  if (typeof window !== "undefined") {
+    let overlayFrame = 0;
+    const queueOverlayReposition = () => {
+      if (overlayFrame) return;
+      overlayFrame = window.requestAnimationFrame(() => {
+        overlayFrame = 0;
+        repositionOpenSelectOverlays();
+      });
+    };
+    window.TLPTSelectOverlay = {
+      place:placeSelectOverlay,
+      release:releaseSelectOverlay
+    };
+    window.addEventListener("scroll", queueOverlayReposition, true);
+  }
 
   const hideBrokenImage = image => {
     image.hidden = true;
@@ -349,14 +427,21 @@
       return shell?.classList.contains("site-select") ? shell : null;
     };
 
+    const getSelectMenu = select => {
+      const trigger = getSelectShell(select)?.querySelector(".site-select-trigger");
+      const menuId = trigger?.getAttribute("aria-controls");
+      return menuId ? document.getElementById(menuId) : null;
+    };
+
     const closeSelect = (select, restoreFocus = false) => {
       const shell = getSelectShell(select);
       if (!shell) return;
       const trigger = shell.querySelector(".site-select-trigger");
-      const menu = shell.querySelector(".site-select-menu");
+      const menu = getSelectMenu(select);
       if (menu) menu.hidden = true;
       trigger?.setAttribute("aria-expanded", "false");
       shell.classList.remove("is-open");
+      releaseSelectOverlay(menu);
       if (restoreFocus) trigger?.focus();
     };
 
@@ -396,7 +481,7 @@
       const shell = getSelectShell(select);
       if (!shell) return;
       const trigger = shell.querySelector(".site-select-trigger");
-      const menu = shell.querySelector(".site-select-menu");
+      const menu = getSelectMenu(select);
       if (!trigger || !menu) return;
 
       const signature = Array.from(select.options)
@@ -444,17 +529,12 @@
       closeAllSelects(select);
       syncSelect(select);
       const trigger = shell.querySelector(".site-select-trigger");
-      const menu = shell.querySelector(".site-select-menu");
+      const menu = getSelectMenu(select);
       if (!trigger || !menu || trigger.disabled) return;
-
-      const availableHeight = Math.max(
-        120,
-        Math.floor(window.innerHeight - trigger.getBoundingClientRect().bottom - 16)
-      );
-      menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;
       menu.hidden = false;
       trigger.setAttribute("aria-expanded", "true");
       shell.classList.add("is-open");
+      placeSelectOverlay(trigger, menu, { maxHeight:320 });
 
       if (focusOffset !== null) {
         const options = Array.from(menu.querySelectorAll(".site-select-option:not(:disabled)"));
@@ -512,8 +592,9 @@
       select.dataset.siteSelectReady = "true";
       select.tabIndex = -1;
       select.setAttribute("aria-hidden", "true");
-      shell.append(trigger, menu);
+      shell.append(trigger);
       select.insertAdjacentElement("afterend", shell);
+      document.body.append(menu);
       if (select.labels?.[0]) select.labels[0].htmlFor = trigger.id;
       syncSelect(select);
     };
@@ -525,7 +606,7 @@
 
     enhanceAllSelects();
     document.addEventListener("click", event => {
-      if (!event.target.closest(".site-select")) closeAllSelects();
+      if (!event.target.closest(".site-select, .site-select-menu")) closeAllSelects();
     });
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") closeAllSelects();

@@ -226,11 +226,12 @@ main.wrap > .dashboard-page-stack:first-child > .section:first-child{
 }
 
 .site-select-menu{
-  position:absolute;
-  top:calc(100% + 6px);
-  right:0;
+  position:fixed;
+  top:0;
+  right:auto;
   left:0;
-  z-index:140;
+  z-index:10000;
+  box-sizing:border-box;
   max-height:320px;
   margin:0;
   padding:6px;

@@ -357,10 +357,10 @@ EXPECTED_BREADCRUMB_LABELS = {
 EXPECTED_VIEWPORT = "width=device-width, initial-scale=1.0"
 EXPECTED_SKIP_LINK_HREF = "#main-content"
 EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
-EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-8"
+EXPECTED_SHARED_STYLESHEET = "style.css?v=20261011-9"
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
-EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-4"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-2"
+EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-5"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-3"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261011-5"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261011-1"
@@ -2377,7 +2377,7 @@ def audit_javascript(path: Path) -> list[str]:
                 "Form Lab custom select triggers must expose listbox semantics",
             ),
             (
-                'menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;',
+                "window.TLPTSelectOverlay?.place(trigger, menu, { maxHeight:320 });",
                 "Form Lab custom select menus must stay within the viewport",
             ),
             (
@@ -4454,7 +4454,8 @@ def main() -> int:
             form_lab_select_contracts = (
                 (".fl-control-shell", "overflow", "visible"),
                 (".fl-select-trigger", "border-radius", "var(--control-radius)"),
-                (".fl-select-menu", "top", "calc(100% + 6px)"),
+                (".fl-select-menu", "position", "fixed"),
+                (".fl-select-menu", "z-index", "10000"),
                 (".fl-select-menu", "overflow-y", "auto"),
             )
             root_form_lab_rules = [

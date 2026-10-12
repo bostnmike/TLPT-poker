@@ -432,8 +432,9 @@ function enhanceFormLabSelects() {
     select.dataset.enhancedSelect = "true";
     select.tabIndex = -1;
     select.setAttribute("aria-hidden", "true");
-    customSelect.append(trigger, menu);
+    customSelect.append(trigger);
     select.insertAdjacentElement("afterend", customSelect);
+    document.body.append(menu);
     if (fieldLabel) fieldLabel.htmlFor = trigger.id;
     syncEnhancedSelect(select);
   });
@@ -441,7 +442,10 @@ function enhanceFormLabSelects() {
   if (document.documentElement.dataset.formLabSelectsWired !== "true") {
     document.documentElement.dataset.formLabSelectsWired = "true";
     document.addEventListener("click", event => {
-      if (!event.target.closest(".fl-select")) closeAllEnhancedSelects();
+      if (!event.target.closest(".fl-select, .fl-select-menu")) closeAllEnhancedSelects();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeAllEnhancedSelects();
     });
     window.addEventListener("resize", () => closeAllEnhancedSelects());
   }
@@ -452,6 +456,7 @@ function syncEnhancedSelect(select) {
   if (!customSelect || !customSelect.classList.contains("fl-select")) return;
 
   const trigger = customSelect.querySelector(".fl-select-trigger");
+  const menu = document.getElementById(trigger?.getAttribute("aria-controls"));
   const selectedOption = Array.from(select.options).find(option => {
     return option.value === select.value;
   });
@@ -460,7 +465,7 @@ function syncEnhancedSelect(select) {
 
   trigger.textContent = selectedText;
   trigger.setAttribute("aria-label", `${fieldLabel}: ${selectedText}`);
-  customSelect.querySelectorAll(".fl-select-option").forEach(button => {
+  menu?.querySelectorAll(".fl-select-option").forEach(button => {
     button.setAttribute(
       "aria-selected",
       button.dataset.value === select.value ? "true" : "false"
@@ -475,15 +480,12 @@ function openEnhancedSelect(select, focusIndex = null) {
   closeAllEnhancedSelects(select);
 
   const trigger = customSelect.querySelector(".fl-select-trigger");
-  const menu = customSelect.querySelector(".fl-select-menu");
-  const availableHeight = Math.max(
-    96,
-    Math.floor(window.innerHeight - trigger.getBoundingClientRect().bottom - 16)
-  );
-
-  menu.style.maxHeight = `${Math.min(320, availableHeight)}px`;
+  const menu = document.getElementById(trigger?.getAttribute("aria-controls"));
+  if (!trigger || !menu) return;
   menu.hidden = false;
   trigger.setAttribute("aria-expanded", "true");
+  customSelect.classList.add("is-open");
+  window.TLPTSelectOverlay?.place(trigger, menu, { maxHeight:320 });
 
   if (focusIndex !== null) {
     const optionButtons = Array.from(menu.querySelectorAll(".fl-select-option"));
@@ -497,9 +499,11 @@ function closeEnhancedSelect(select, restoreFocus = false) {
   if (!customSelect || !customSelect.classList.contains("fl-select")) return;
 
   const trigger = customSelect.querySelector(".fl-select-trigger");
-  const menu = customSelect.querySelector(".fl-select-menu");
-  menu.hidden = true;
+  const menu = document.getElementById(trigger?.getAttribute("aria-controls"));
+  if (menu) menu.hidden = true;
   trigger.setAttribute("aria-expanded", "false");
+  customSelect.classList.remove("is-open");
+  window.TLPTSelectOverlay?.release(menu);
   if (restoreFocus) trigger.focus();
 }
 
