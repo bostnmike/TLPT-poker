@@ -368,7 +368,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261012-1"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261012-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261012-3"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1382,6 +1382,28 @@ def audit_javascript(path: Path) -> list[str]:
             dashboard_sorting_source,
         ):
             errors.append("Dashboard metric select must rerender the board when changed")
+
+        dashboard_metric_filter_source = function_source("dashboardPlayersForMetric")
+        for fragment, message in (
+            (
+                "Number(player?.entries ?? 0) >= 2",
+                "Dashboard metric filtering must preserve the qualified-field threshold",
+            ),
+            (
+                "Number.isFinite(metricValue)",
+                "Dashboard metric filtering must reject missing or non-numeric values",
+            ),
+            (
+                "metricValue !== 0",
+                "Dashboard metric filtering must omit zero-value players",
+            ),
+        ):
+            if fragment not in dashboard_metric_filter_source:
+                errors.append(message)
+
+        dashboard_render_source = function_source("renderDashboard")
+        if "dashboardPlayersForMetric(window.siteData.players, sortKey)" not in dashboard_render_source:
+            errors.append("Dashboard rendering must apply the non-zero metric filter")
 
         metadata_source = function_source("updatePlayerProfileMetadata")
         for fragment, message in (

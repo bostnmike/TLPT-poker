@@ -704,6 +704,15 @@ function sortPlayers(players, key) {
   });
 }
 
+function dashboardPlayersForMetric(players, sortKey) {
+  return (players || []).filter(player => {
+    const metricValue = Number(player?.[sortKey]);
+    return Number(player?.entries ?? 0) >= 2 &&
+      Number.isFinite(metricValue) &&
+      metricValue !== 0;
+  });
+}
+
 function formatStatLabel(key) {
   const stat = getStatConfig(key);
   return stat?.dashboardLabel || stat?.label || key;
@@ -2184,7 +2193,7 @@ strip.innerHTML = `
   <div class="dashboard-studio-copy">${DASHBOARD_EDITORIAL[sortKey] || "A closer look at the league through this stat lens."}</div>
 
   <div class="dashboard-studio-context">
-    <strong>Qualified Field:</strong> ${sortedPlayers.length} players with 2+ entries
+    <strong>Ranked Field:</strong> ${sortedPlayers.length} players with 2+ entries and non-zero ${meta.label}
   </div>
 `;
 }
@@ -3252,9 +3261,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   syncDashboardSelector(sortKey);
   ensureDashboardHeadline(sortKey);
 
-  const eligiblePlayers = window.siteData.players.filter(
-    player => Number(player?.entries ?? 0) >= 2
-  );
+  const eligiblePlayers = dashboardPlayersForMetric(window.siteData.players, sortKey);
 
   if (DASHBOARD_BOUNTY_SORTS.has(sortKey) && !dashboardHasBountyData(window.siteData.players)) {
     const strip = document.getElementById("dashboard-studio-strip");
@@ -3273,6 +3280,12 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
   const sorted = sortPlayers(eligiblePlayers, sortKey);
 
   renderDashboardStudioStrip(sortKey, sorted);
+
+  if (!sorted.length) {
+    grid.innerHTML = dashboardMetricEmptyMarkup(sortKey);
+    setActiveSortButton("dashboard", sortKey);
+    return;
+  }
 
   grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
   initAnimatedCounters(grid);
@@ -6794,6 +6807,21 @@ function dashboardBountyEmptyMarkup() {
       <div class="dashboard-empty-state-icon" aria-hidden="true">🏷️</div>
       <h3>No bounty results yet</h3>
       <p>This board will open automatically after the first recorded bounty event.</p>
+    </div>
+  `;
+}
+
+function dashboardMetricEmptyMarkup(sortKey) {
+  const meta = DASHBOARD_META[sortKey] || {
+    label: formatStatLabel(sortKey),
+    icon: statIcon(sortKey)
+  };
+
+  return `
+    <div class="dashboard-empty-state" role="status">
+      <div class="dashboard-empty-state-icon" aria-hidden="true">${meta.icon}</div>
+      <h3>No non-zero ${meta.label.toLowerCase()} results yet</h3>
+      <p>Players with a value of 0 are omitted from this ranking.</p>
     </div>
   `;
 }
