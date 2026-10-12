@@ -261,7 +261,7 @@
     });
 
     nav.addEventListener("click", event => {
-      if (event.target.closest("a") && window.matchMedia("(max-width:700px)").matches) {
+      if (event.target.closest("a") && window.matchMedia("(max-width:900px)").matches) {
         closeNavigation(false);
       }
     });
@@ -278,7 +278,7 @@
       }
     });
 
-    window.matchMedia("(min-width:701px)").addEventListener("change", event => {
+    window.matchMedia("(min-width:901px)").addEventListener("change", event => {
       if (event.matches) closeNavigation(false);
     });
   };
