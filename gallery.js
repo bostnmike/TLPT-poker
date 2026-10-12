@@ -4,14 +4,23 @@ const GALLERY_POSTER_FILE_PATTERN = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
 const PARSED_EVENT_INDEX_PATH = "data/parsed/events/index.json";
 const PARSED_EVENT_BASE_PATH = "data/parsed/events/";
 const PLAYER_METADATA_PATH = "data/player-metadata.json";
-const GALLERY_BATCH_SIZE = 12;
+const GALLERY_DESKTOP_BATCH_SIZE = 12;
+const GALLERY_MOBILE_BATCH_SIZE = 6;
+
+function galleryBatchSize() {
+  return typeof window !== "undefined"
+    && typeof window.matchMedia === "function"
+    && window.matchMedia("(max-width: 700px)").matches
+    ? GALLERY_MOBILE_BATCH_SIZE
+    : GALLERY_DESKTOP_BATCH_SIZE;
+}
 
 let galleryPosters = [];
 let currentPosterIndex = -1;
 let galleryParsedEventsByDate = new Map();
 let galleryPlayers = [];
 let galleryLightboxReturnFocus = null;
-let galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+let galleryVisibleArchiveCount = galleryBatchSize();
 let galleryYearFilter = "all";
 
 function formatDisplayDate(isoDate) {
@@ -412,7 +421,7 @@ function createComingAttractionsGroup(posters, leadPosterSource) {
     <div class="gallery-year-head gallery-coming-head">
       <div>
         <div class="gallery-year-kicker">Coming Attractions</div>
-        <h3 class="gallery-year-title">Next on the Marquee</h3>
+        <h2 class="gallery-year-title">Next on the Marquee</h2>
       </div>
     </div>
     <div class="gallery-year-rule"></div>
@@ -436,7 +445,7 @@ function createYearGroup(year, posters, leadPosterSource) {
     <div class="gallery-year-head">
       <div>
         <div class="gallery-year-kicker">TLPT Archive</div>
-        <h3 class="gallery-year-title">${year}</h3>
+        <h2 class="gallery-year-title">${year}</h2>
       </div>
     </div>
     <div class="gallery-year-rule"></div>
@@ -488,15 +497,16 @@ function renderGalleryCollection() {
 
   const remaining = Math.max(matchingArchivePosters.length - visibleArchivePosters.length, 0);
   if (remaining) {
+    const batchSize = galleryBatchSize();
     const controls = document.createElement("div");
     controls.className = "gallery-progressive-controls";
     controls.innerHTML = `
       <button class="btn" type="button" data-gallery-load-more>
-        ${remaining > GALLERY_BATCH_SIZE ? `Show ${GALLERY_BATCH_SIZE} More Posters` : `Show ${remaining} More Poster${remaining === 1 ? "" : "s"}`}
+        ${remaining > batchSize ? `Show ${batchSize} More Posters` : `Show ${remaining} More Poster${remaining === 1 ? "" : "s"}`}
       </button>
     `;
     controls.querySelector("[data-gallery-load-more]")?.addEventListener("click", () => {
-      galleryVisibleArchiveCount += GALLERY_BATCH_SIZE;
+      galleryVisibleArchiveCount += batchSize;
       renderGalleryCollection();
     });
     fragment.appendChild(controls);
@@ -529,7 +539,7 @@ function populateGalleryYearFilter() {
   select.dataset.ready = "true";
   select.addEventListener("change", () => {
     galleryYearFilter = select.value;
-    galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+    galleryVisibleArchiveCount = galleryBatchSize();
     renderGalleryCollection();
   });
 }
@@ -605,7 +615,7 @@ async function loadGallery() {
 
     if (empty) empty.hidden = true;
 
-    galleryVisibleArchiveCount = GALLERY_BATCH_SIZE;
+    galleryVisibleArchiveCount = galleryBatchSize();
     populateGalleryYearFilter();
     renderGalleryCollection();
   } catch (err) {

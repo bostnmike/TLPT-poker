@@ -193,14 +193,14 @@
   );
 }
 
-.knockouts-shell-head h3{
+.knockouts-shell-head h2{
   margin:0 0 4px 0;
   color:#fff;
   font-size:1.15rem;
   line-height:1.2;
 }
 
-.knockouts-shell-head-leaders h3{
+.knockouts-shell-head-leaders h2{
   margin:0;
   color:#fff;
   font-size:1.5em;
@@ -633,7 +633,7 @@
   filter:drop-shadow(0 0 16px rgba(255,184,28,.34));
 }
 
-.knockouts-bounty-empty-state h3{
+.knockouts-bounty-empty-state h2{
   margin:0;
   color:#fff4ca;
   font-size:1.45rem;

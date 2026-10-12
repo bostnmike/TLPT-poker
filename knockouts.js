@@ -558,7 +558,7 @@ const KNOCKOUTS_URLS = [
       return `
         <section class="section knockouts-shell knockouts-bounty-empty-state">
           <div class="knockouts-bounty-empty-icon" aria-hidden="true">🏷️</div>
-          <h3>Bounty board awaiting its first claims</h3>
+          <h2>Bounty board awaiting its first claims</h2>
           <p>The first MTT bounty results will open this view automatically. Bounty money stays separate from tournament profit.</p>
         </section>
       `;
@@ -568,7 +568,7 @@ const KNOCKOUTS_URLS = [
     return `
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head knockouts-shell-head-leaders">
-          <h3>🏷️ Bounty Leaders</h3>
+          <h2>🏷️ Bounty Leaders</h2>
           <p class="muted">First-entry bounty results only. Every claim also remains one ordinary knockout.</p>
         </div>
         <div class="knockouts-summary-grid">${renderBountySummary(players)}</div>
@@ -576,7 +576,7 @@ const KNOCKOUTS_URLS = [
 
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
-          <h3>💰 Career Bounty Ledger</h3>
+          <h2>💰 Career Bounty Ledger</h2>
           <p class="muted">Collected and retained bounty money is tracked outside tournament winnings, profit and Power Index.</p>
         </div>
         ${renderBountyLedger(players)}
@@ -584,7 +584,7 @@ const KNOCKOUTS_URLS = [
 
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
-          <h3>✅ Verified Bounty Claims</h3>
+          <h2>✅ Verified Bounty Claims</h2>
           <p class="muted">Who captured whose first-entry bounty, checked against the Tournament Director totals.</p>
         </div>
         ${renderBountyClaims(playerMap, claims)}
@@ -671,7 +671,7 @@ const KNOCKOUTS_URLS = [
     root.innerHTML = `
       <section class="section knockouts-shell" role="alert">
         <div class="knockouts-shell-head">
-          <h3>⚠️ Knockout data failed to load</h3>
+          <h2>⚠️ Knockout data failed to load</h2>
           <p class="muted">The latest knockout results couldn’t be loaded. Check your connection and try again.</p>
         </div>
         <div class="hero-actions">

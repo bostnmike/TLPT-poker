@@ -146,8 +146,7 @@ let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
 let currentCrewSearch = "";
-let currentCrewVisibleCount = 12;
-const CREW_BATCH_SIZE = 12;
+let currentCrewVisibleCount = 0;
 
 const STAT_FORMULAS = {
   totalCost: "Total Cost: Buy-ins + Rebuys Cost",
@@ -3405,7 +3404,7 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, option
   return `
     <div class="tier-section ${className}">
       <div class="tier-section-head">
-        <h3>${emoji} ${title}<span class="tier-section-range">${rangeLabel}</span></h3>
+        <h2>${emoji} ${title}<span class="tier-section-range">${rangeLabel}</span></h2>
         <div class="tier-header-stats">
           ${sectionHeaderLabel}
         </div>
@@ -3478,7 +3477,7 @@ function archetypeFilterMarkup(groups, activeFilter = "all", mode = "primary", e
     <div class="archetype-visual-card">
       <div class="archetype-visual-head">
         <div class="archetype-visual-head-inline">
-          <h3>🫟 Archetype Radar:</h3>
+          <h2>🫟 Archetype Radar:</h2>
           <p class="archetype-helper-bottom">${explainer}</p>
         </div>
       </div>
@@ -3558,7 +3557,7 @@ function archetypeSectionMarkup(group, data) {
   return `
     <div class="tier-section archetype-section ${group.className}">
       <div class="tier-section-head">
-        <h3>${group.emoji} ${group.title}</h3>
+        <h2>${group.emoji} ${group.title}</h2>
         <div class="tier-header-stats">${group.players.length} player${group.players.length === 1 ? "" : "s"}</div>
       </div>
 
@@ -3577,7 +3576,7 @@ function tierDistributionMarkup(groups) {
   return `
     <div class="tier-distribution">
       <div class="tier-distribution-head">
-        <h3>🎖️  Tier Distribution</h3>
+        <h2>🎖️  Tier Distribution</h2>
       </div>
 
       <div class="tier-distribution-list">
@@ -3630,16 +3629,21 @@ function renderPlayers(data) {
       return haystack.includes(currentCrewSearch);
     })
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
+  const rankedRosterPlayers = matchingRosterPlayers.filter(isCrewEstablished);
+  const developingRosterPlayers = matchingRosterPlayers.filter(player => !isCrewEstablished(player));
   const rosterPlayers = currentCrewView === "tier" && !currentCrewSearch
-    ? matchingRosterPlayers.slice(0, currentCrewVisibleCount)
+    ? [
+        ...rankedRosterPlayers,
+        ...developingRosterPlayers.slice(0, currentCrewVisibleCount)
+      ].sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a))
     : matchingRosterPlayers;
 
   const searchStatus = document.getElementById("crew-search-status");
   if (searchStatus) {
     searchStatus.textContent = currentCrewSearch
       ? `${rosterPlayers.length} player${rosterPlayers.length === 1 ? "" : "s"} found`
-      : rosterPlayers.length < matchingRosterPlayers.length
-        ? `Showing ${rosterPlayers.length} of ${matchingRosterPlayers.length} players`
+      : currentCrewView === "tier" && rosterPlayers.length < matchingRosterPlayers.length
+        ? `Showing all ${rankedRosterPlayers.length} ranked players; ${Math.max(rosterPlayers.length - rankedRosterPlayers.length, 0)} of ${developingRosterPlayers.length} developing players`
         : `Showing all ${matchingRosterPlayers.length} players`;
   }
 
@@ -3846,16 +3850,15 @@ function renderPlayers(data) {
   `;
 
   if (rosterPlayers.length < matchingRosterPlayers.length) {
-    const remaining = matchingRosterPlayers.length - rosterPlayers.length;
     grid.insertAdjacentHTML("beforeend", `
       <div class="crew-progressive-controls">
         <button class="btn" type="button" data-crew-load-more>
-          ${remaining > CREW_BATCH_SIZE ? `Show ${CREW_BATCH_SIZE} More Players` : `Show ${remaining} More Player${remaining === 1 ? "" : "s"}`}
+          Show Provisional, Rookie &amp; Unscouted
         </button>
       </div>
     `);
     grid.querySelector("[data-crew-load-more]")?.addEventListener("click", () => {
-      currentCrewVisibleCount += CREW_BATCH_SIZE;
+      currentCrewVisibleCount = developingRosterPlayers.length;
       renderPlayers(data);
     });
   }
@@ -5104,7 +5107,7 @@ function playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews
           </div>
 
           <div class="tlpt-card-identity">
-            <h2>${displayPlayerName(player)}</h2>
+            <div class="tlpt-card-player-name">${displayPlayerName(player)}</div>
             <div class="tlpt-card-archetype">${primaryArchetype.emoji} ${primaryArchetype.name}</div>
           </div>
 
@@ -5917,7 +5920,7 @@ function renderSchedule(data) {
   list.innerHTML = events.map(event => `
     <div class="event-card compact-event-card home-event-hero schedule-event-card ${getEventThemeClass(event)}" data-event-slot="${getEventSlot(event)}">
       <div class="event-card-topline">
-        <div class="kicker event-title-kicker">${event.title}</div>
+        <h2 class="kicker event-title-kicker">${event.title}</h2>
         <div class="schedule-day-pill">${getEventDayLabel(event)}</div>
       </div>
 
@@ -6513,14 +6516,14 @@ function buildRulesFormatCallout(format) {
         <div class="rules-money-section rules-money-prize">
           <div class="rules-money-icon" aria-hidden="true">💵</div>
           <div>
-            <h4>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h4>
+            <h3>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h3>
             <p>${escapeHtmlAttr(format.payoutLabel)}</p>
           </div>
         </div>
         <div class="rules-money-section rules-money-bounty">
           <div class="rules-money-icon" aria-hidden="true">🏷️</div>
           <div>
-            <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
+            <h3>${escapeHtmlAttr(format.bounty.title)}</h3>
             <p>${escapeHtmlAttr(format.bounty.text)}</p>
           </div>
         </div>
@@ -6532,7 +6535,7 @@ function buildRulesFormatCallout(format) {
     <aside class="rules-bounty-callout" role="note" aria-label="${escapeHtmlAttr(format.bounty.title)}">
       <div class="rules-bounty-icon" aria-hidden="true">🏷️</div>
       <div>
-        <h4>${escapeHtmlAttr(format.bounty.title)}</h4>
+        <h3>${escapeHtmlAttr(format.bounty.title)}</h3>
         <p>${escapeHtmlAttr(format.bounty.text)}</p>
       </div>
     </aside>
@@ -6663,7 +6666,7 @@ function showFormat(formatKey) {
     <div class="rules-format">
       <div class="format-head">
         <div>
-          <h3 class="format-title format-title-${formatKey}">${format.title}</h3>
+          <h2 class="format-title format-title-${formatKey}">${format.title}</h2>
           ${format.description ? `<p class="format-description">${format.description}</p>` : ""}
           ${format.assumption ? `<p class="format-description"><strong>${format.assumption}</strong></p>` : ""}
         </div>
@@ -6783,7 +6786,7 @@ function initCrewViewToggle() {
     currentCrewView = "tier";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
-    currentCrewVisibleCount = CREW_BATCH_SIZE;
+    currentCrewVisibleCount = 0;
     if (crewViewSwitch) crewViewSwitch.checked = false;
     renderPlayers(window.siteData);
   });
@@ -6792,7 +6795,7 @@ function initCrewViewToggle() {
     currentCrewView = "archetype";
     currentArchetypeMode = "primary";
     currentArchetypeFilter = "all";
-    currentCrewVisibleCount = CREW_BATCH_SIZE;
+    currentCrewVisibleCount = 0;
     if (crewViewSwitch) crewViewSwitch.checked = true;
     renderPlayers(window.siteData);
   });
@@ -6802,7 +6805,7 @@ function initCrewViewToggle() {
       currentCrewView = crewViewSwitch.checked ? "archetype" : "tier";
       currentArchetypeMode = "primary";
       currentArchetypeFilter = "all";
-      currentCrewVisibleCount = CREW_BATCH_SIZE;
+      currentCrewVisibleCount = 0;
       renderPlayers(window.siteData);
     });
   }
@@ -6815,7 +6818,7 @@ function initCrewSearch() {
   search.addEventListener("input", () => {
     currentCrewSearch = String(search.value || "").trim().toLowerCase();
     currentArchetypeFilter = "all";
-    currentCrewVisibleCount = CREW_BATCH_SIZE;
+    currentCrewVisibleCount = 0;
     renderPlayers(window.siteData);
   });
 }

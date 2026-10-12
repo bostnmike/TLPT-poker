@@ -11,10 +11,19 @@
     year: "all",
     sort: "prestige",
     query: "",
-    visibleCount: 12
+    visibleCount: 0
   };
 
-  const TROPHY_BATCH_SIZE = 12;
+  const TROPHY_DESKTOP_BATCH_SIZE = 12;
+  const TROPHY_MOBILE_BATCH_SIZE = 6;
+
+  function trophyBatchSize() {
+    return typeof window !== "undefined"
+      && typeof window.matchMedia === "function"
+      && window.matchMedia("(max-width: 700px)").matches
+      ? TROPHY_MOBILE_BATCH_SIZE
+      : TROPHY_DESKTOP_BATCH_SIZE;
+  }
 
   const fixedEditions = {
     "hall-tax-collector": {
@@ -380,7 +389,7 @@
   }
 
   function resetVisibleCards() {
-    state.visibleCount = TROPHY_BATCH_SIZE;
+    state.visibleCount = trophyBatchSize();
   }
 
   function render() {
@@ -404,8 +413,9 @@
     const remaining = Math.max(cards.length - visibleCards.length, 0);
     if (progressiveControls) progressiveControls.hidden = remaining === 0;
     if (loadMore) {
-      loadMore.textContent = remaining > TROPHY_BATCH_SIZE
-        ? `Show ${TROPHY_BATCH_SIZE} More Cards`
+      const batchSize = trophyBatchSize();
+      loadMore.textContent = remaining > batchSize
+        ? `Show ${batchSize} More Cards`
         : `Show ${remaining} More Card${remaining === 1 ? "" : "s"}`;
     }
   }
@@ -497,7 +507,7 @@
       render();
     });
     document.getElementById("trophy-load-more")?.addEventListener("click", () => {
-      state.visibleCount += TROPHY_BATCH_SIZE;
+      state.visibleCount += trophyBatchSize();
       render();
     });
   }
@@ -513,6 +523,7 @@
 
       const data = await response.json();
       state.cards = flattenCollections(data);
+      resetVisibleCards();
       populateSummary();
       populateFilters();
       render();

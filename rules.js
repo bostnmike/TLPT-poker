@@ -55,6 +55,60 @@
     });
   }
 
+  function initRuleChapters() {
+    const chapters = [...document.querySelectorAll(".rules-chapter")];
+    const mobileQuery = window.matchMedia("(max-width: 640px)");
+
+    function setChapterState(chapter, isOpen) {
+      const toggle = chapter.querySelector(".rules-chapter-toggle");
+      const grid = chapter.querySelector(".rules-grid");
+      if (!toggle || !grid) return;
+
+      toggle.setAttribute("aria-expanded", String(isOpen));
+      chapter.classList.toggle("is-open", isOpen);
+      grid.hidden = mobileQuery.matches ? !isOpen : false;
+    }
+
+    function openChapter(chapter) {
+      chapters.forEach((item) => setChapterState(item, item === chapter));
+    }
+
+    function syncChapterLayout(event) {
+      chapters.forEach((chapter, index) => {
+        const toggle = chapter.querySelector(".rules-chapter-toggle");
+        const isOpen = mobileQuery.matches
+          ? (event?.matches ? index === 0 : toggle?.getAttribute("aria-expanded") === "true" || index === 0)
+          : true;
+        setChapterState(chapter, isOpen);
+      });
+    }
+
+    chapters.forEach((chapter) => {
+      chapter.querySelector(".rules-chapter-toggle")?.addEventListener("click", () => {
+        if (!mobileQuery.matches) return;
+        const isOpen = chapter.classList.contains("is-open");
+        if (isOpen) setChapterState(chapter, false);
+        else openChapter(chapter);
+      });
+    });
+
+    document.querySelectorAll(".rules-mobile-jump a").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (!mobileQuery.matches) return;
+        const target = document.querySelector(link.getAttribute("href"));
+        if (!target) return;
+        event.preventDefault();
+        openChapter(target);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    mobileQuery.addEventListener?.("change", syncChapterLayout);
+    syncChapterLayout();
+  }
+
+  initRuleChapters();
+
   fetch("data/player-metadata.json?v=20260907-1", { cache: "no-store" })
     .then((response) => {
       if (!response.ok) throw new Error(`Player metadata request failed (${response.status})`);

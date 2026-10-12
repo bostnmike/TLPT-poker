@@ -44,10 +44,10 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
-  <link rel="stylesheet" href="style.css?v=20261011-9" />
-  <link rel="stylesheet" href="rules.css?v=20261011-22" />
+  <link rel="stylesheet" href="style.css?v=20261012-1" />
+  <link rel="stylesheet" href="rules.css?v=20261012-1" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="ux-convergence.css?v=20261012-1" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261012-2" />
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -141,16 +141,23 @@
       <div class="rules-floor-note">
         <div>
           <span class="page-kicker">The order in the room</span>
-          <h3>Clear action. Protected cards. One final ruling.</h3>
+          <h2>Clear action. Protected cards. One final ruling.</h2>
           <p>These are TLPT house rules. If an edge case is not covered below, pause the action and call the host. The fairest ruling available at the table is final for the night.</p>
         </div>
         <a class="btn paired-page-cta" href="structures.html">View Blind Structures</a>
       </div>
     </section>
 
-    <section class="section rules-overview-shell rules-chapter">
-      <div class="section-head"><h2>Money &amp; Entry</h2></div>
-<div class="rules-grid">
+    <nav class="rules-mobile-jump" aria-label="House rule chapters">
+      <a href="#rules-money">Money &amp; Entry</a>
+      <a href="#rules-action">Action &amp; Betting</a>
+      <a href="#rules-cards">Cards &amp; Deal</a>
+      <a href="#rules-table">Table Management</a>
+    </nav>
+
+    <section id="rules-money" class="section rules-overview-shell rules-chapter">
+      <div class="section-head"><h2>Money &amp; Entry</h2><button class="rules-chapter-toggle" type="button" aria-expanded="true" aria-controls="rules-money-grid"><span class="sr-only">Toggle Money &amp; Entry rules</span></button></div>
+<div id="rules-money-grid" class="rules-grid">
   <div class="rule-card">
     <div class="rule-card-head">
       <div class="dealer-button-icon"><span class="dealer-button-number">1</span></div>
@@ -193,9 +200,9 @@
 </div>
     </section>
 
-    <section class="section rules-overview-shell rules-chapter">
-      <div class="section-head"><h2>Action &amp; Betting</h2></div>
-      <div class="rules-grid">
+    <section id="rules-action" class="section rules-overview-shell rules-chapter">
+      <div class="section-head"><h2>Action &amp; Betting</h2><button class="rules-chapter-toggle" type="button" aria-expanded="false" aria-controls="rules-action-grid"><span class="sr-only">Toggle Action &amp; Betting rules</span></button></div>
+      <div id="rules-action-grid" class="rules-grid">
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">5</span></div><div class="rule-card-title-wrap"><h3>Declarations Are Binding</h3></div></div><p>A clear verbal declaration made in turn is binding. Announce calls, raises, and all-ins before moving chips when possible. Brad R has already perfected the approved speech: “I raise.”</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">6</span></div><div class="rule-card-title-wrap"><h3>No String Bets</h3></div></div><p>Put the full wager forward in one motion or announce the amount first. Red can bring all the aggression he wants; it still has to arrive in one trip.</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">7</span></div><div class="rule-card-title-wrap"><h3>Action Out of Turn</h3></div></div><p>Action out of turn may be binding if the action before it does not change. If the action changes, back it up and let the proper player decide. Hiro will already have stopped play, identified the offender, and opened a one-man disciplinary hearing before the chips finish landing.</p></div>
@@ -208,9 +215,9 @@
       </div>
     </section>
 
-    <section class="section rules-overview-shell rules-chapter">
-      <div class="section-head"><h2>Cards &amp; the Deal</h2></div>
-      <div class="rules-grid">
+    <section id="rules-cards" class="section rules-overview-shell rules-chapter">
+      <div class="section-head"><h2>Cards &amp; the Deal</h2><button class="rules-chapter-toggle" type="button" aria-expanded="false" aria-controls="rules-cards-grid"><span class="sr-only">Toggle Cards &amp; the Deal rules</span></button></div>
+      <div id="rules-cards-grid" class="rules-grid">
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">14</span></div><div class="rule-card-title-wrap"><h3>Protect Live Cards</h3></div></div><p>Keep your hand visible and protected. If unprotected cards are pulled into the muck and cannot be identified with certainty, they may be dead. Pat should probably look at his cards first—and then protect them.</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">15</span></div><div class="rule-card-title-wrap"><h3>One Exposed Card During the Deal</h3></div></div><p>If the dealer exposes exactly one hole card during the initial deal, finish the deal, replace that card with the next card off the deck, and use the exposed card as the first burn. A card exposed by its player is not automatically replaced. Nitro may be a weather event; this card is merely the burn.</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">16</span></div><div class="rule-card-title-wrap"><h3>Misdeals</h3></div></div><p>Two or more dealer-exposed hole cards, a wrong number of cards, or a player improperly dealt in or out may require a misdeal. Stop immediately and call the host. Once substantial action has occurred, the hand normally continues with the fairest available correction. A.I. Dave may diagnose the incident; the host ships the patch.</p></div>
@@ -222,9 +229,9 @@
       </div>
     </section>
 
-    <section class="section rules-overview-shell rules-chapter">
-      <div class="section-head"><h2>Table Management</h2></div>
-      <div class="rules-grid">
+    <section id="rules-table" class="section rules-overview-shell rules-chapter">
+      <div class="section-head"><h2>Table Management</h2><button class="rules-chapter-toggle" type="button" aria-expanded="false" aria-controls="rules-table-grid"><span class="sr-only">Toggle Table Management rules</span></button></div>
+      <div id="rules-table-grid" class="rules-grid">
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">22</span></div><div class="rule-card-title-wrap"><h3>Heads-Up Order</h3></div></div><p>Heads up, the button posts the small blind, acts first before the flop, and acts last after the flop. Griffin is dangerous late, but even he does not get to rewrite the heads-up sequence.</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">23</span></div><div class="rule-card-title-wrap"><h3>Balancing &amp; the Merge</h3></div></div><p>For multi-table events, the host balances tables and assigns moves. The field merges to one table at nine players unless the event page announces otherwise. The Architect may submit a blueprint; the host still approves the floor plan.</p></div>
         <div class="rule-card"><div class="rule-card-head"><div class="dealer-button-icon"><span class="dealer-button-number">24</span></div><div class="rule-card-title-wrap"><h3>Visible Chips &amp; Bigger Denominations</h3></div></div><p>Keep every chip visible and reasonably countable, with larger denominations in front or on top. BostnMike may protect chips like limited-edition Marchand memorabilia; he still has to let the table see them.</p></div>
@@ -252,6 +259,6 @@
 </footer>
 
   <script src="site-shell.js?v=20261011-5"></script>
-  <script src="rules.js?v=20261011-2"></script>
+  <script src="rules.js?v=20261012-1"></script>
 </body>
 </html>

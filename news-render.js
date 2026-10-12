@@ -1,7 +1,9 @@
 let playerAvatarLookup = new Map();
 const NEWS_STORY_BATCH_SIZE = 6;
+const NEWS_ARCHIVE_BATCH_SIZE = 6;
 let newsWeeksCache = [];
 let newsVisibleStoryCount = NEWS_STORY_BATCH_SIZE;
+let newsVisibleArchiveCount = NEWS_ARCHIVE_BATCH_SIZE;
 let newsFeedContainer = null;
 
 function normalizePlayerLookupKey(value) {
@@ -105,6 +107,9 @@ async function renderNewsPage() {
     newsVisibleStoryCount = requestedStoryIndex >= 0
       ? Math.max(NEWS_STORY_BATCH_SIZE, requestedStoryIndex + 1)
       : NEWS_STORY_BATCH_SIZE;
+    newsVisibleArchiveCount = requestedStoryIndex >= 0
+      ? Math.max(NEWS_ARCHIVE_BATCH_SIZE, requestedStoryIndex + 1)
+      : NEWS_ARCHIVE_BATCH_SIZE;
 
     renderSummaryCards(latestWeek.summaryCards || [], summaryGrid);
     renderStatPills(latestWeek.statPills || [], statbarShell);
@@ -153,7 +158,7 @@ function renderAuthor(author, container) {
       <div class="news-author-copy">
         <div class="news-author-title-stack">
           <p class="news-author-kicker">${escapeHtml(safeAuthor.role || 'Weekly Columnist')}</p>
-          <h3 class="news-author-name">By ${escapeHtml(safeAuthor.name || 'BostnMike')}</h3>
+          <p class="news-author-name">By ${escapeHtml(safeAuthor.name || 'BostnMike')}</p>
         </div>
         <p class="news-author-blurb">${escapeHtml(safeAuthor.blurb || '')}</p>
       </div>
@@ -472,7 +477,15 @@ function renderArchiveList(weeks, container) {
   const explicitFeaturedIndex = weeks.findIndex((week) => week?.featured === true);
   const featuredIndex = explicitFeaturedIndex >= 0 ? explicitFeaturedIndex : 0;
 
-  container.innerHTML = weeks
+  const useProgressiveArchive = typeof window !== 'undefined'
+    && typeof window.matchMedia === 'function'
+    && window.matchMedia('(max-width: 1100px)').matches;
+  const visibleWeeks = useProgressiveArchive
+    ? weeks.slice(0, newsVisibleArchiveCount)
+    : weeks;
+  const remaining = Math.max(weeks.length - visibleWeeks.length, 0);
+
+  container.innerHTML = visibleWeeks
     .map((week, index) => {
       const activeClass = index === featuredIndex ? ' is-active' : '';
       return `
@@ -481,7 +494,16 @@ function renderArchiveList(weeks, container) {
         </a>
       `;
     })
-    .join('');
+    .join('') + (remaining ? `
+      <button class="btn news-archive-more" type="button" data-news-archive-more>
+        ${remaining > NEWS_ARCHIVE_BATCH_SIZE ? `Show ${NEWS_ARCHIVE_BATCH_SIZE} More Dates` : `Show ${remaining} More Date${remaining === 1 ? '' : 's'}`}
+      </button>
+    ` : '');
+
+  container.querySelector?.('[data-news-archive-more]')?.addEventListener('click', () => {
+    newsVisibleArchiveCount += NEWS_ARCHIVE_BATCH_SIZE;
+    renderArchiveList(weeks, container);
+  });
 }
 
 function renderAvatar(avatar, options = {}) {

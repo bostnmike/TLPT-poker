@@ -14,6 +14,10 @@
   --surface-raised:linear-gradient(180deg,rgba(20,27,36,.99),rgba(11,16,23,.99));
 }
 
+#schedule-list h2.event-title-kicker{
+  margin:0;
+}
+
 .wrap,
 .site-footer-inner{
   max-width:var(--content-max);
@@ -653,6 +657,155 @@ body .site-page-hero-kicker,
     z-index:5;
     background:#121922;
     box-shadow:7px 0 14px rgba(0,0,0,.18);
+  }
+
+  /* Phone standings are a focused ranking, not a shrunken data wall. The
+     currently selected metric remains the third visible column. */
+  .standings-table-shell.has-horizontal-overflow{
+    padding-top:18px;
+  }
+
+  .standings-table-shell .table-wrap{
+    overflow-x:visible;
+  }
+
+  #standings-table{
+    width:100%;
+    min-width:0 !important;
+    table-layout:fixed;
+  }
+
+  #standings-table thead,
+  #standings-table tbody{
+    display:block;
+  }
+
+  #standings-table tr{
+    display:grid;
+    grid-template-columns:42px minmax(0,1fr) minmax(88px,.58fr);
+    width:100%;
+  }
+
+  #standings-table th,
+  #standings-table td{
+    display:none;
+    min-width:0 !important;
+    padding:11px 7px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  #standings-table th:first-child,
+  #standings-table td:first-child,
+  #standings-table th:nth-child(2),
+  #standings-table td:nth-child(2){
+    position:static;
+    display:table-cell;
+    width:auto;
+    min-width:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  #standings-table th:first-child,
+  #standings-table td:first-child{ grid-column:1; }
+
+  #standings-table th:nth-child(2),
+  #standings-table td:nth-child(2){ grid-column:2; }
+
+  #standings-table[data-active-stat="totalWinnings"] :is(th,td):nth-child(3),
+  #standings-table[data-active-stat="profit"] :is(th,td):nth-child(4),
+  #standings-table[data-active-stat="timesPlaced"] :is(th,td):nth-child(5),
+  #standings-table[data-active-stat="bubbles"] :is(th,td):nth-child(6),
+  #standings-table[data-active-stat="hits"] :is(th,td):nth-child(7),
+  #standings-table[data-active-stat="buyIns"] :is(th,td):nth-child(8),
+  #standings-table[data-active-stat="rebuys"] :is(th,td):nth-child(9),
+  #standings-table[data-active-stat="entries"] :is(th,td):nth-child(10){
+    display:table-cell;
+    grid-column:3;
+  }
+
+  #standings-table .player-inline{
+    gap:8px;
+  }
+
+  #standings-table .player-avatar.table{
+    width:34px;
+    height:34px;
+  }
+
+  /* Blind structures retain the five pieces needed to play a level. Forecast
+     columns stay available on larger screens without forcing phone scrolling. */
+  .blind-sheet.has-horizontal-overflow{
+    padding-top:16px;
+  }
+
+  .blind-table-scroll{
+    overflow-x:visible;
+  }
+
+  .blind-table{
+    width:100%;
+    min-width:0;
+    table-layout:fixed;
+    font-size:.78rem;
+  }
+
+  .blind-table th,
+  .blind-table td,
+  .blind-table th:first-child,
+  .blind-table td:first-child{
+    position:static !important;
+    padding:10px 4px;
+    overflow:hidden;
+    text-align:center;
+    text-overflow:ellipsis;
+    box-shadow:none !important;
+  }
+
+  .blind-table th:nth-child(1),
+  .blind-table td:nth-child(1){ width:12%; }
+
+  .blind-table th:nth-child(2),
+  .blind-table td:nth-child(2){ width:22%; }
+
+  .blind-table th:nth-child(3),
+  .blind-table td:nth-child(3),
+  .blind-table th:nth-child(4),
+  .blind-table td:nth-child(4){ width:20%; }
+
+  .blind-table th:nth-child(5),
+  .blind-table td:nth-child(5){ width:26%; }
+
+  .blind-table th:nth-child(n+6),
+  .blind-table td:nth-child(n+6){
+    display:none;
+  }
+
+  .blind-table th:nth-child(1),
+  .blind-table th:nth-child(2),
+  .blind-table th:nth-child(3),
+  .blind-table th:nth-child(4){
+    font-size:0;
+  }
+
+  .blind-table th:nth-child(1)::after{ content:"Lvl"; }
+  .blind-table th:nth-child(2)::after{ content:"Time"; }
+  .blind-table th:nth-child(3)::after{ content:"SB"; }
+  .blind-table th:nth-child(4)::after{ content:"BB"; }
+
+  .blind-table th:nth-child(1)::after,
+  .blind-table th:nth-child(2)::after,
+  .blind-table th:nth-child(3)::after,
+  .blind-table th:nth-child(4)::after{
+    font-size:.72rem;
+  }
+
+  .blind-table .blind-break td{
+    display:table-cell;
+    width:auto;
+    padding:10px 6px;
+    white-space:normal;
   }
 
   .section.news-header-shell{

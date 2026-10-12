@@ -530,7 +530,7 @@
   text-align:center;
 }
 
-.player-page .tlpt-card-identity h2{
+.player-page .tlpt-card-identity .tlpt-card-player-name{
   width:100%;
   margin:0;
   overflow:hidden;
@@ -2786,7 +2786,7 @@
     --tlpt-profile-avatar-size:160px;
   }
 
-  .player-page .tlpt-card-identity h2{
+  .player-page .tlpt-card-identity .tlpt-card-player-name{
     font-size:1.45rem;
   }
 
