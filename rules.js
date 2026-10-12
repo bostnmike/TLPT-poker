@@ -65,6 +65,8 @@
       if (!toggle || !grid) return;
 
       toggle.setAttribute("aria-expanded", String(isOpen));
+      const chapterName = chapter.querySelector(".section-head h2")?.textContent.trim() || "chapter";
+      toggle.setAttribute("aria-label", `${isOpen ? "Collapse" : "Expand"} ${chapterName} rules`);
       chapter.classList.toggle("is-open", isOpen);
       grid.hidden = mobileQuery.matches ? !isOpen : false;
     }
