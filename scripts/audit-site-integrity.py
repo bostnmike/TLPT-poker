@@ -1244,16 +1244,16 @@ def audit_pages(audit, metadata):
         "Heater Meter must not use a partial static event fallback",
     )
     audit.check(
-        "data/parsed/events/index.json" in movement
-        and "Parsed event index contains no event files" in movement,
+        "data/generated/event-history.json" in movement
+        and "Event history bundle is empty or incomplete" in movement,
         "pages",
-        "Heater Meter must require the authoritative parsed-event index",
+        "Heater Meter must require the consolidated event-history bundle",
     )
     audit.check(
-        "Could not load event file:" not in movement
-        and "Event payload does not match index file:" in movement,
+        "data/parsed/events/" not in movement
+        and movement.count("fetch(") == 2,
         "pages",
-        "Heater Meter must reject incomplete or mismatched indexed event batches",
+        "Heater Meter must not fetch individual parsed event files",
     )
 
     for path in sorted(ROOT.glob("*.js")):

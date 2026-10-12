@@ -791,31 +791,21 @@ async function loadHallHistoryData(data) {
     ? `?v=${encodeURIComponent(data.generatedAt)}`
     : "";
 
-  const indexRes = await fetch(`/data/parsed/events/index.json${version}`, {
-    cache: "no-store"
-  });
+  const historyRes = await fetch(`/data/generated/event-history.json${version}`);
 
-  if (!indexRes.ok) {
-    throw new Error(`Failed to load Hall event index (${indexRes.status})`);
+  if (!historyRes.ok) {
+    throw new Error(`Failed to load Hall event history (${historyRes.status})`);
   }
 
-  const eventFiles = (await indexRes.json())
-    .filter(fileName => /^\d{4}-\d{2}-\d{2}\.json$/.test(String(fileName || "")));
+  const history = await historyRes.json();
+  const events = Array.isArray(history?.events) ? history.events : [];
 
-  const events = await Promise.all(
-    eventFiles.map(async fileName => {
-      const eventRes = await fetch(`/data/parsed/events/${fileName}${version}`);
-
-      if (!eventRes.ok) {
-        throw new Error(`Failed to load Hall event ${fileName} (${eventRes.status})`);
-      }
-
-      return eventRes.json();
-    })
-  );
+  if (Number(history?.eventCount) !== events.length) {
+    throw new Error("Hall event history bundle is incomplete");
+  }
 
   return {
-    eventCount: eventFiles.length,
+    eventCount: events.length,
     events
   };
 }
@@ -1194,7 +1184,7 @@ function archetypeMixMarkup(player) {
   };
 
   return `
-    <div class="player-archetype-spectrum-shell">
+    <div id="player-archetypes" class="player-archetype-spectrum-shell">
       <div class="player-archetype-spectrum-head">
         <div class="kicker player-archetype-spectrum-kicker">Archetype Mix</div>
         <div class="player-archetype-spectrum-sub">How much of each table personality is in the tank.</div>
@@ -3239,8 +3229,9 @@ function dashboardCardMarkup(player, sortKey, rank = null) {
   }
 
   return `
-    <a class="player-card player-card-rich dashboard-card ${rankClass}" href="${playerUrl(player)}">
+    <a class="player-card player-card-rich dashboard-card ${rankClass}${rank > 3 ? " dashboard-card-mobile-compact" : ""}" href="${playerUrl(player)}">
       ${medal ? `<div class="dashboard-rank-medal">${medal}</div>` : ""}
+      <span class="dashboard-list-rank" aria-hidden="true">${rank}</span>
       <div class="dashboard-card-top">
         ${playerImageMarkup(player, "dashboard")}
       </div>
@@ -3400,9 +3391,13 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, option
   else if (!rangeLabel && title === "The League Sponsors") rangeLabel = " (Bottom 20%)";
 
   const sectionHeaderLabel = headerLabel || `Avg Power ${fmtNum(avgPower)}`;
+  const sectionId = `crew-tier-${String(className || title)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")}`;
   
   return `
-    <div class="tier-section ${className}">
+    <div id="${sectionId}" class="tier-section ${className}">
       <div class="tier-section-head">
         <h2>${emoji} ${title}<span class="tier-section-range">${rangeLabel}</span></h2>
         <div class="tier-header-stats">
@@ -3422,6 +3417,26 @@ function tierSectionMarkup(title, emoji, players, data, maxTierPower = 1, option
         ${players.map(player => crewCardMarkup(player, data)).join("")}
       </div>
     </div>
+  `;
+}
+
+function crewTierJumpNavMarkup(groups) {
+  const availableGroups = groups.filter(group => group.players.length);
+  if (availableGroups.length < 2) return "";
+
+  return `
+    <nav class="crew-tier-jump-nav" aria-label="Jump to a crew tier">
+      ${availableGroups.map(group => {
+        const sectionId = `crew-tier-${String(group.className || group.title)
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "")}`;
+        const shortLabel = group.title
+          .replace(/^The\s+/i, "")
+          .replace(/^(PRO|RKI|UNS)\s+—\s+/i, "");
+        return `<a href="#${sectionId}">${group.emoji} ${shortLabel}</a>`;
+      }).join("")}
+    </nav>
   `;
 }
 
@@ -3803,6 +3818,7 @@ function renderPlayers(data) {
   }
 
   grid.innerHTML = `
+    ${crewTierJumpNavMarkup(tierGroups)}
     ${tierSectionMarkup("The Apex Predators", "🦈", apexPredators, data, maxTierPower)}
     ${tierSectionMarkup("The Table Crushers", "⚔️", tableCrushers, data, maxTierPower)}
     ${tierSectionMarkup("The Shot Makers", "☄️", shotMakers, data, maxTierPower)}
@@ -3907,7 +3923,7 @@ function playerDnaMarkup(player) {
   const metrics = playerDnaMetrics(player);
 
   return `
-    <div class="player-dna-card">
+    <div id="player-dna" class="player-dna-card">
       <div class="player-dna-head">
         <h3>🧬 Player DNA</h3>
         <p class="muted">A visual snapshot of how this player tends to win, wobble, and survive.</p>
@@ -5301,7 +5317,7 @@ function playerCardCollectionMarkup(player, players, editions, featuredId = "bas
     .join("");
 
   return `
-    <section class="tlpt-card-collection" aria-labelledby="tlpt-card-collection-title">
+    <section id="player-card-collection" class="tlpt-card-collection" aria-labelledby="tlpt-card-collection-title">
       <header class="tlpt-card-collection-head">
         <div>
           <span>Collectible Career Set</span>
@@ -5839,8 +5855,15 @@ function renderPlayerProfile(data) {
   }).join("");
 
   container.innerHTML = `
+    <nav class="player-section-jump-nav" aria-label="Jump to a profile section">
+      <a href="#player-overview">Overview</a>
+      <a href="#player-card-collection">Editions</a>
+      <a href="#player-dna">DNA</a>
+      <a href="#player-archetypes">Archetypes</a>
+      <a href="#player-stats">Stats</a>
+    </nav>
     <div class="profile-shell player-profile-shell">
-      <div class="profile-hero profile-hero-wide player-profile-hero">
+      <div id="player-overview" class="profile-hero profile-hero-wide player-profile-hero">
         ${playerCardMarkup(player, players, primaryArchetype, tierMeta, cardViews, specialEdition)}
         ${playerProfileSnapshotMarkup(
           player,
@@ -5864,7 +5887,7 @@ function renderPlayerProfile(data) {
 
             <p class="player-formula-help muted">Mouse over or focus any stat to reveal the calculation.</p>
 
-      <div class="profile-grid player-stat-grid-enhanced">
+      <div id="player-stats" class="profile-grid player-stat-grid-enhanced">
         ${statsMarkup}
       </div>
     </div>

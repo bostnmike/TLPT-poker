@@ -74,6 +74,7 @@ jobs:
 
           echo "📦 Staging generated outputs..."
           git add data/parsed/events/
+          git add data/generated/event-history.json
           git add data/generated/site-data.json
           git add data/generated/validation-report.json
           git add data/generated/integrity-report.json

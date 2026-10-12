@@ -247,22 +247,22 @@ checkpoint independently from parsed events.
 
 ## Phase 3B.7 Player Movement data freshness lock
 
-Player Movement now gives its live `site-data.json`, parsed-event index, and
-parsed-event file requests one shared version token per page load and fetches
-all three source classes with `cache: "no-store"`. The main data response is
-also checked before JSON parsing. This prevents a previously cached player list
-or partial historical event set from being combined with newly deployed data.
+Player Movement, Form Lab, Art Gallery, and Hall history consume the generated
+`data/generated/event-history.json` payload. The authoritative build creates
+that bundle from every dated file in `data/parsed/events/`, validates each
+payload against its filename, and records the event count. Pages therefore use
+one cacheable history request instead of dozens of parallel JSON requests.
 
-The page script reference advances to `player-movement.js?v=20260825-1` so the
-freshness behavior reaches existing browsers immediately. The code-hygiene
-audit enforces the single request token and all three versioned, no-store JSON
-fetches. Player Movement formulas, default fallback files, controls, markup,
-styling, player data, and card behavior remain unchanged.
+The code-hygiene and calculation audits enforce the consolidated request path
+and verify that the bundle exactly matches the parsed-event index. Player
+Movement formulas, controls, markup, styling, player data, and card behavior
+remain unchanged.
 
 ## Phase 3B.8 Player Movement authoritative event-index lock
 
-Player Movement now requires the generated `data/parsed/events/index.json`
-ledger and validates that it is a non-empty array of dated JSON event files.
+Player Movement now requires the generated `data/generated/event-history.json`
+ledger and validates that it contains a non-empty event array whose length
+matches its declared event count.
 The retired built-in fallback covered only 32 of the 49 parsed events and could
 therefore publish incomplete movement analytics when the index request failed.
 The page now shows its existing load-error state instead of silently calculating
@@ -270,7 +270,7 @@ rankings from partial history.
 
 The page script reference advances to `player-movement.js?v=20260825-2`.
 The source-to-page integrity audit rejects any return of the partial static
-fallback and requires the authoritative index contract. Player calculations,
+fallback or individual-file loading and requires the authoritative bundle. Player calculations,
 aliases, controls, card presentation, page markup, responsive styling, and the
 49 parsed event files remain unchanged.
 

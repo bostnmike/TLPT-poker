@@ -223,9 +223,7 @@ async function initFormLab() {
 ========================================= */
 
 async function loadFormLabData() {
-  const siteRes = await fetch("data/generated/site-data.json?v=" + Date.now(), {
-    cache: "no-store"
-  });
+  const siteRes = await fetch("data/generated/site-data.json");
 
   if (!siteRes.ok) {
     throw new Error(`Could not load data/generated/site-data.json (${siteRes.status})`);
@@ -233,63 +231,23 @@ async function loadFormLabData() {
 
   const siteData = await siteRes.json();
 
-  const indexRes = await fetch("data/parsed/events/index.json?v=" + Date.now(), {
-    cache: "no-store"
-  });
+  const historyRes = await fetch("data/generated/event-history.json");
 
-  if (!indexRes.ok) {
-    throw new Error(`Could not load data/parsed/events/index.json (${indexRes.status})`);
+  if (!historyRes.ok) {
+    throw new Error(`Could not load data/generated/event-history.json (${historyRes.status})`);
   }
 
-  const indexData = await indexRes.json();
-  const files = normalizeEventIndexFiles(indexData);
+  const historyData = await historyRes.json();
+  const eventFiles = Array.isArray(historyData?.events) ? historyData.events : [];
 
-  const eventFiles = await Promise.all(
-    files.map(async file => {
-      const clean = String(file || "").replace(/^\/+/, "");
-      const url = clean.includes("/")
-        ? clean
-        : `data/parsed/events/${clean}`;
-
-      try {
-        const res = await fetch(`${url}?v=${Date.now()}`, {
-          cache: "no-store"
-        });
-
-        if (!res.ok) {
-          console.warn(`Skipping event file ${url}: ${res.status}`);
-          return null;
-        }
-
-        return await res.json();
-      } catch (error) {
-        console.warn(`Skipping event file ${url}:`, error);
-        return null;
-      }
-    })
-  );
+  if (Number(historyData?.eventCount) !== eventFiles.length) {
+    throw new Error("Event history bundle count does not match its event payload");
+  }
 
   return {
     ...siteData,
-    events: eventFiles.filter(Boolean)
+    events: eventFiles
   };
-}
-
-function normalizeEventIndexFiles(indexData) {
-  if (Array.isArray(indexData)) return indexData;
-
-  if (Array.isArray(indexData && indexData.events)) {
-    return indexData.events
-      .map(item => {
-        if (typeof item === "string") return item;
-        return item.file || item.path || item.filename || "";
-      })
-      .filter(Boolean);
-  }
-
-  if (Array.isArray(indexData && indexData.files)) return indexData.files;
-
-  return [];
 }
 
 /* =========================================

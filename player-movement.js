@@ -1,9 +1,5 @@
 const DATA_URL = "data/generated/site-data.json";
-const DATA_REQUEST_VERSION = Date.now();
-
-function versionedDataUrl(path) {
-  return `${path}?v=${DATA_REQUEST_VERSION}`;
-}
+const EVENT_HISTORY_URL = "data/generated/event-history.json";
 
 let players = [];
 let previousRanks = {};
@@ -86,44 +82,23 @@ function isSamePlayerRow(player, row) {
 
 async function init() {
   try {
-    const res = await fetch(versionedDataUrl(DATA_URL), { cache: "no-store" });
+    const res = await fetch(DATA_URL);
     if (!res.ok) throw new Error(`Failed to load ${DATA_URL} (${res.status})`);
     const data = await res.json();
 
     players = data.players || [];
 
-    const indexRes = await fetch(versionedDataUrl("data/parsed/events/index.json"), { cache: "no-store" });
-    if (!indexRes.ok) {
-      throw new Error(`Failed to load parsed event index (${indexRes.status})`);
+    const historyRes = await fetch(EVENT_HISTORY_URL);
+    if (!historyRes.ok) {
+      throw new Error(`Failed to load event history (${historyRes.status})`);
     }
 
-    const indexJson = await indexRes.json();
-    if (!Array.isArray(indexJson)) {
-      throw new Error("Parsed event index is not an array");
+    const historyData = await historyRes.json();
+    const eventData = Array.isArray(historyData?.events) ? historyData.events : [];
+
+    if (!eventData.length || Number(historyData?.eventCount) !== eventData.length) {
+      throw new Error("Event history bundle is empty or incomplete");
     }
-
-    const eventFiles = [...new Set(indexJson)]
-      .map(file => String(file || ""))
-      .filter(file => /^\d{4}-\d{2}-\d{2}\.json$/.test(file));
-
-    if (!eventFiles.length) {
-      throw new Error("Parsed event index contains no event files");
-    }
-
-    const eventData = await Promise.all(
-      eventFiles.map(async file => {
-        const response = await fetch(versionedDataUrl(`data/parsed/events/${file}`), { cache: "no-store" });
-        if (!response.ok) throw new Error(`Missing event file: ${file}`);
-
-        const event = await response.json();
-        const expectedEventId = file.replace(/\.json$/, "");
-        const actualEventId = String(event.date || event.eventId || "");
-        if (actualEventId !== expectedEventId) {
-          throw new Error(`Event payload does not match index file: ${file}`);
-        }
-        return event;
-      })
-    );
 
     eventData.sort((a, b) =>
       new Date(a.date || a.eventId) - new Date(b.date || b.eventId)

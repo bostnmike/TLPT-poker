@@ -424,7 +424,7 @@
   background:linear-gradient(180deg, rgba(255,184,28,.95), rgba(168,85,247,.78));
 }
 
-.streak-detail-card h4{
+.streak-detail-card h3{
   margin:0 0 10px;
   color:#ffe09a;
   font-size:.96rem;
@@ -444,7 +444,7 @@
   background:linear-gradient(180deg, rgba(252,165,165,.96), rgba(239,68,68,.78));
 }
 
-.streak-detail-card-hot h4{
+.streak-detail-card-hot h3{
   color:#ffb4b4;
 }
 
@@ -459,7 +459,7 @@
   background:linear-gradient(180deg, rgba(147,197,253,.96), rgba(59,130,246,.78));
 }
 
-.streak-detail-card-cold h4{
+.streak-detail-card-cold h3{
   color:#b9d8ff;
 }
 

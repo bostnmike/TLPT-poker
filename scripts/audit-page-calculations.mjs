@@ -12,6 +12,7 @@ const data = readJson("data/generated/site-data.json");
 const config = readJson("data/league-config.json");
 const index = readJson("data/parsed/events/index.json");
 const events = index.map(file => readJson(`data/parsed/events/${file}`));
+const eventHistory = readJson("data/generated/event-history.json");
 const errors = [];
 let checks = 0;
 
@@ -23,6 +24,12 @@ function check(condition, message) {
 function close(a, b, tolerance = 1e-8) {
   return Math.abs(Number(a) - Number(b)) <= tolerance;
 }
+
+check(eventHistory.eventCount === events.length, "Event history count must match the parsed event index");
+check(
+  JSON.stringify(eventHistory.events) === JSON.stringify(events),
+  "Event history bundle must exactly match the authoritative parsed events"
+);
 
 function makeContext() {
   const document = {

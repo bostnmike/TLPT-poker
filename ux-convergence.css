@@ -151,6 +151,12 @@ body .site-page-hero-kicker,
   box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.18);
 }
 
+.dashboard-list-rank,
+.player-section-jump-nav,
+.crew-tier-jump-nav{
+  display:none;
+}
+
 /* Primary UI icons keep a stable footprint. Emoji remain available for the
    site's voice, but no longer move labels around from one platform to another. */
 .btn-emoji,
@@ -474,6 +480,151 @@ body .site-page-hero-kicker,
   }
 }
 
+/* Tablet layouts should not require a sideways swipe to read standings or a
+   blind level. The same focused columns used on phones become active before
+   the full tables run out of room. */
+@media (min-width:701px) and (max-width:900px){
+  .standings-table-shell.has-horizontal-overflow,
+  .blind-sheet.has-horizontal-overflow{
+    padding-top:16px;
+  }
+
+  .standings-table-shell .table-wrap,
+  .blind-table-scroll{
+    overflow-x:visible;
+  }
+
+  #standings-table{
+    width:100%;
+    min-width:0 !important;
+    table-layout:fixed;
+  }
+
+  #standings-table thead,
+  #standings-table tbody{
+    display:block;
+  }
+
+  #standings-table tr{
+    display:grid;
+    grid-template-columns:54px minmax(0,1fr) minmax(116px,.55fr);
+    width:100%;
+  }
+
+  #standings-table th,
+  #standings-table td{
+    display:none;
+    min-width:0 !important;
+    padding:12px 10px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  #standings-table th:first-child,
+  #standings-table td:first-child,
+  #standings-table th:nth-child(2),
+  #standings-table td:nth-child(2){
+    position:static;
+    display:table-cell;
+    width:auto;
+    min-width:0;
+    background:transparent;
+    box-shadow:none;
+  }
+
+  #standings-table[data-active-stat="totalWinnings"] :is(th,td):nth-child(3),
+  #standings-table[data-active-stat="profit"] :is(th,td):nth-child(4),
+  #standings-table[data-active-stat="timesPlaced"] :is(th,td):nth-child(5),
+  #standings-table[data-active-stat="bubbles"] :is(th,td):nth-child(6),
+  #standings-table[data-active-stat="hits"] :is(th,td):nth-child(7),
+  #standings-table[data-active-stat="buyIns"] :is(th,td):nth-child(8),
+  #standings-table[data-active-stat="rebuys"] :is(th,td):nth-child(9),
+  #standings-table[data-active-stat="entries"] :is(th,td):nth-child(10){
+    display:table-cell;
+    grid-column:3;
+  }
+
+  .blind-table{
+    width:100%;
+    min-width:0;
+    table-layout:fixed;
+    font-size:.84rem;
+  }
+
+  .blind-table th,
+  .blind-table td,
+  .blind-table th:first-child,
+  .blind-table td:first-child{
+    position:static !important;
+    padding:11px 7px;
+    overflow:hidden;
+    text-align:center;
+    text-overflow:ellipsis;
+    box-shadow:none !important;
+  }
+
+  .blind-table th:nth-child(1),
+  .blind-table td:nth-child(1){ width:12%; }
+  .blind-table th:nth-child(2),
+  .blind-table td:nth-child(2){ width:22%; }
+  .blind-table th:nth-child(3),
+  .blind-table td:nth-child(3),
+  .blind-table th:nth-child(4),
+  .blind-table td:nth-child(4){ width:20%; }
+  .blind-table th:nth-child(5),
+  .blind-table td:nth-child(5){ width:26%; }
+
+  .blind-table th:nth-child(n+6),
+  .blind-table td:nth-child(n+6){
+    display:none;
+  }
+
+  .blind-table th:nth-child(1),
+  .blind-table th:nth-child(2),
+  .blind-table th:nth-child(3),
+  .blind-table th:nth-child(4){
+    font-size:0;
+  }
+
+  .blind-table th:nth-child(1)::after{ content:"Lvl"; }
+  .blind-table th:nth-child(2)::after{ content:"Time"; }
+  .blind-table th:nth-child(3)::after{ content:"SB"; }
+  .blind-table th:nth-child(4)::after{ content:"BB"; }
+
+  .blind-table th:nth-child(-n+4)::after{
+    font-size:.76rem;
+  }
+
+  .blind-table .blind-break td{
+    display:table-cell;
+    width:auto;
+    padding:10px 6px;
+    white-space:normal;
+  }
+}
+
+@media (max-width:900px){
+  .home-event-rotator-shell,
+  .home-event-rotator-stage,
+  .home-event-rotator-panel,
+  .rotating-home-event-card,
+  #home-events-list .event-card,
+  #home-events-list .event-layout-grid,
+  #home-events-list .event-details-col,
+  #home-events-list .event-rsvp-col,
+  #home-events-list{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+  }
+
+  .home-event-rotator-panel{
+    right:0;
+    left:0;
+  }
+}
+
 @media (max-width:700px){
   .standings-table-shell.has-horizontal-overflow{
     padding-top:36px;
@@ -492,6 +643,18 @@ body .site-page-hero-kicker,
     grid-template-columns:minmax(0,1fr) auto;
     align-items:center;
     gap:12px;
+  }
+
+  .site-header .header-inner > div:first-child,
+  .site-header .logo{
+    min-width:0;
+  }
+
+  .site-header .logo{
+    display:inline-flex;
+    align-items:center;
+    min-height:var(--touch-target);
+    padding:4px 0;
   }
 
   .site-nav-toggle,
@@ -654,7 +817,6 @@ body .site-page-hero-kicker,
 
   .home-event-tab,
   .home-event-dot,
-  .pm-btn,
   #schedule-list .btn-rsvp,
   .fl-select-trigger,
   .knockouts-view-button,
@@ -665,6 +827,111 @@ body .site-page-hero-kicker,
   .tlpt-card-view-switch button,
   .fl-select-option{
     min-height:var(--touch-target) !important;
+  }
+
+  .pm-page .pm-btn{
+    flex:1 1 auto;
+    width:auto;
+    min-width:0;
+    height:auto;
+    min-height:var(--touch-target) !important;
+  }
+
+  .home-module-cta,
+  #home-snapshot .home-featured-profile-link{
+    min-height:var(--touch-target);
+  }
+
+  .dashboard-list-rank{
+    display:none;
+  }
+
+  #dashboard-grid .dashboard-card-mobile-compact{
+    display:grid;
+    grid-template-columns:34px minmax(0,1fr) auto;
+    gap:10px;
+    align-items:center;
+    min-height:64px;
+    padding:10px 14px;
+    text-align:left;
+    transform:none;
+  }
+
+  #dashboard-grid .dashboard-card-mobile-compact:hover{
+    transform:translateY(-1px);
+  }
+
+  .dashboard-card-mobile-compact .dashboard-list-rank{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:30px;
+    height:30px;
+    border:1px solid rgba(255,184,28,.22);
+    border-radius:50%;
+    color:#ffe09a;
+    background:rgba(255,184,28,.07);
+    font-size:.78rem;
+    font-weight:900;
+  }
+
+  .dashboard-card-mobile-compact .dashboard-card-top,
+  .dashboard-card-mobile-compact .dashboard-rank-medal{
+    display:none;
+  }
+
+  .dashboard-card-mobile-compact .dashboard-player-name-below{
+    margin:0;
+  }
+
+  .dashboard-card-mobile-compact .dashboard-card-value{
+    font-size:1.32rem;
+    text-align:right;
+  }
+
+  .player-section-jump-nav,
+  .crew-tier-jump-nav{
+    position:sticky;
+    top:8px;
+    z-index:18;
+    display:flex;
+    gap:7px;
+    width:100%;
+    margin:0 0 12px;
+    padding:7px;
+    overflow-x:auto;
+    border:1px solid rgba(255,184,28,.24);
+    border-radius:13px;
+    background:rgba(8,13,19,.94);
+    box-shadow:0 10px 24px rgba(0,0,0,.30);
+    scrollbar-width:none;
+  }
+
+  .player-section-jump-nav::-webkit-scrollbar,
+  .crew-tier-jump-nav::-webkit-scrollbar{
+    display:none;
+  }
+
+  .player-section-jump-nav a,
+  .crew-tier-jump-nav a{
+    display:inline-flex;
+    flex:0 0 auto;
+    align-items:center;
+    justify-content:center;
+    min-height:var(--touch-target);
+    padding:7px 11px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:9px;
+    color:#edf3f8;
+    background:rgba(255,255,255,.035);
+    font-size:.74rem;
+    font-weight:850;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+
+  :is(#player-overview,#player-card-collection,#player-dna,#player-archetypes,#player-stats,[id^="crew-tier-"]){
+    scroll-margin-top:68px;
   }
 
   #dashboard-metric-select,
@@ -991,6 +1258,12 @@ body .site-page-hero-kicker,
 
   .trophy-room-page .trophy-room-summary.trophy-room-companion{
     grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:480px){
+  .pm-page .pm-btn{
+    width:100%;
   }
 }
 

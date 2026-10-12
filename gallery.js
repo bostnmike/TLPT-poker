@@ -1,8 +1,7 @@
 const GALLERY_FOLDER = "images/fw";
 const MANIFEST_PATH = `${GALLERY_FOLDER}/gallery-manifest.json`;
 const GALLERY_POSTER_FILE_PATTERN = /^fw\d{2}-\d{2}-\d{2}\.jpg$/i;
-const PARSED_EVENT_INDEX_PATH = "data/parsed/events/index.json";
-const PARSED_EVENT_BASE_PATH = "data/parsed/events/";
+const EVENT_HISTORY_PATH = "data/generated/event-history.json";
 const PLAYER_METADATA_PATH = "data/player-metadata.json";
 const GALLERY_DESKTOP_BATCH_SIZE = 12;
 const GALLERY_MOBILE_BATCH_SIZE = 6;
@@ -54,23 +53,6 @@ function normalizeGallerySlug(value) {
     .replace(/\./g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
-}
-
-function normalizeGalleryEventIndexFiles(indexData) {
-  if (Array.isArray(indexData)) return indexData;
-
-  if (Array.isArray(indexData?.events)) {
-    return indexData.events
-      .map(item => {
-        if (typeof item === "string") return item;
-        return item.file || item.path || item.filename || "";
-      })
-      .filter(Boolean);
-  }
-
-  if (Array.isArray(indexData?.files)) return indexData.files;
-
-  return [];
 }
 
 function getGalleryEventDate(event) {
@@ -184,9 +166,7 @@ function buildGalleryWinnerBadgesMarkup(poster) {
 
 async function loadGalleryPlayerMetadata() {
   try {
-    const res = await fetch(`${PLAYER_METADATA_PATH}?v=${Date.now()}`, {
-      cache: "no-store"
-    });
+    const res = await fetch(PLAYER_METADATA_PATH);
 
     if (!res.ok) {
       console.warn(`Gallery warning: player metadata fetch failed (${res.status}).`);
@@ -204,43 +184,20 @@ async function loadGalleryPlayerMetadata() {
 
 async function loadGalleryParsedEvents() {
   try {
-    const indexRes = await fetch(`${PARSED_EVENT_INDEX_PATH}?v=${Date.now()}`, {
-      cache: "no-store"
-    });
+    const historyRes = await fetch(EVENT_HISTORY_PATH);
 
-    if (!indexRes.ok) {
-      console.warn(`Gallery warning: parsed event index fetch failed (${indexRes.status}).`);
+    if (!historyRes.ok) {
+      console.warn(`Gallery warning: event history fetch failed (${historyRes.status}).`);
       galleryParsedEventsByDate = new Map();
       return;
     }
 
-    const indexData = await indexRes.json();
-    const files = normalizeGalleryEventIndexFiles(indexData);
+    const historyData = await historyRes.json();
+    const events = Array.isArray(historyData?.events) ? historyData.events : [];
 
-    const events = await Promise.all(
-      files.map(async file => {
-        const clean = String(file || "").replace(/^\/+/, "");
-        const url = clean.includes("/")
-          ? clean
-          : `${PARSED_EVENT_BASE_PATH}${clean}`;
-
-        try {
-          const res = await fetch(`${url}?v=${Date.now()}`, {
-            cache: "no-store"
-          });
-
-          if (!res.ok) {
-            console.warn(`Gallery warning: parsed event fetch failed for ${url} (${res.status}).`);
-            return null;
-          }
-
-          return await res.json();
-        } catch (err) {
-          console.warn(`Gallery warning: parsed event could not be loaded for ${url}.`, err);
-          return null;
-        }
-      })
-    );
+    if (Number(historyData?.eventCount) !== events.length) {
+      throw new Error("Event history bundle count does not match its event payload");
+    }
 
     galleryParsedEventsByDate = new Map();
 

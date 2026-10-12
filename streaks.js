@@ -119,7 +119,7 @@ function detailCard(title, streak, theme = "hot") {
   if (!streak) {
     return `
       <article class="streak-detail-card ${themeClass}">
-        <h4>${escapeHtml(title)}</h4>
+        <h3>${escapeHtml(title)}</h3>
         <div class="streak-empty">No qualifying run.</div>
       </article>
     `;
@@ -127,7 +127,7 @@ function detailCard(title, streak, theme = "hot") {
 
   return `
     <article class="streak-detail-card ${themeClass}">
-      <h4>${escapeHtml(title)}</h4>
+      <h3>${escapeHtml(title)}</h3>
 
       <div class="streak-detail-pill-row">
         <span class="streak-detail-length">${escapeHtml(streak.length)} straight</span>

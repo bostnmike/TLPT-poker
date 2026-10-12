@@ -360,15 +360,15 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261012-1"
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261011-5"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261011-3"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261012-1"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
-EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-1"
+EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-2"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261012-1"
 EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261012-1"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261012-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261012-2"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -401,8 +401,8 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
 }
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261012-1"
 EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20260825-7"
-EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20260825-2"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261012-1"
+EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261012-1"
 EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261012-1"
 INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
     "style.css": (
@@ -610,7 +610,7 @@ GLOBAL_SHARED_ASSETS = (
     SHARED_SHELL_SCRIPT,
 )
 EXPECTED_SITE_TAIL_REFERENCE = "site-tail.css?v=20260826-10"
-EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261012-3"
+EXPECTED_UX_CONVERGENCE_REFERENCE = "ux-convergence.css?v=20261012-4"
 SHARED_APP_SCRIPT = "app.js"
 EXPECTED_APP_SCRIPT_PAGES = {
     "champions.html",
@@ -1193,20 +1193,13 @@ def audit_javascript(path: Path) -> list[str]:
             )
 
     if path.name == "player-movement.js":
-        if not re.search(
-            r"\bconst\s+DATA_REQUEST_VERSION\s*=\s*Date\.now\(\)\s*;",
-            text,
-        ):
+        if 'const EVENT_HISTORY_URL = "data/generated/event-history.json";' not in text:
             errors.append(
-                "Player Movement must create one data request version per page load"
+                "Player Movement must use the consolidated event-history payload"
             )
-        if not re.search(
-            r"function\s+versionedDataUrl\(path\)\s*\{\s*"
-            r"return\s+`\$\{path\}\?v=\$\{DATA_REQUEST_VERSION\}`\s*;\s*\}",
-            text,
-        ):
+        if "data/parsed/events/" in text or "Date.now()" in text:
             errors.append(
-                "Player Movement versionedDataUrl helper differs from the freshness contract"
+                "Player Movement must not bypass the cacheable event-history bundle"
             )
 
         fetch_lines = [
@@ -1214,17 +1207,14 @@ def audit_javascript(path: Path) -> list[str]:
             for line in text.splitlines()
             if re.search(r"\bfetch\s*\(", line)
         ]
-        if len(fetch_lines) != 3:
+        if len(fetch_lines) != 2:
             errors.append(
-                "Player Movement must contain exactly three JSON fetch operations"
+                "Player Movement must contain exactly two JSON fetch operations"
             )
-        for line_number, line in enumerate(text.splitlines(), start=1):
-            if not re.search(r"\bfetch\s*\(", line):
-                continue
-            if "versionedDataUrl(" not in line or 'cache: "no-store"' not in line:
+        for expected_fetch in ("fetch(DATA_URL)", "fetch(EVENT_HISTORY_URL)"):
+            if expected_fetch not in text:
                 errors.append(
-                    f"line {line_number}: Player Movement JSON fetch must use "
-                    "versionedDataUrl and cache:no-store"
+                    f"Player Movement data loader is missing `{expected_fetch}`"
                 )
         controls_source = function_source("bindControls")
         if 'setAttribute("aria-pressed"' not in controls_source:
@@ -5053,6 +5043,7 @@ def audit_phase_3h7_data_build_runner() -> list[str]:
 
     weekly_text = weekly.read_text(encoding="utf-8")
     pipeline_text = pipeline.read_text(encoding="utf-8")
+    generator_text = (ROOT / "scripts" / "generate-event-index.js").read_text(encoding="utf-8")
 
     if weekly_text.count("bash scripts/run-data-build.sh") != 1:
         errors.append(
@@ -5061,6 +5052,18 @@ def audit_phase_3h7_data_build_runner() -> list[str]:
     if pipeline_text.count("bash scripts/run-data-build.sh") != 2:
         errors.append(
             ".github/workflows/tlpt-update.yml: data pipeline must call the authoritative data-build runner exactly twice"
+        )
+    if 'data/generated/event-history.json' not in generator_text:
+        errors.append(
+            "scripts/generate-event-index.js: consolidated event-history output is missing"
+        )
+    if pipeline_text.count("git add data/generated/event-history.json") != 1:
+        errors.append(
+            ".github/workflows/tlpt-update.yml: event-history bundle must be staged exactly once"
+        )
+    if "data/generated/event-history.json" not in weekly_text:
+        errors.append(
+            "scripts/run-weekly-update.sh: event-history bundle must be listed as generated output"
         )
 
     forbidden_direct = (
