@@ -2033,6 +2033,8 @@ body:not(.marchand-page) .site-footer a{
 .player-page .player-stat-kicker,
 .player-page .player-section-jump-nav a,
 .player-page .mobile-jump-nav-cue,
+.crew-page .crew-tier-jump-nav a,
+.crew-page .mobile-jump-nav-cue,
 .player-page .tlpt-card-collectible-caption strong,
 .player-page .tlpt-card-collectible-caption small,
 .player-page .tlpt-card-collectible-caption em,
@@ -2119,6 +2121,12 @@ body:not(.marchand-page) .site-footer a{
     min-height:var(--touch-target) !important;
   }
 
+  #schedule-list .event-details-col > a.btn.btn-rsvp,
+  body:not(.marchand-page) .pm-page .pm-btn{
+    height:auto !important;
+    min-height:var(--touch-target) !important;
+  }
+
   body:not(.marchand-page) .home-event-dot{
     min-width:var(--touch-target);
   }
@@ -2144,7 +2152,7 @@ body:not(.marchand-page) .site-footer a{
   .blind-table td,
   .blind-table th:nth-child(5),
   .blind-table th:nth-child(-n+4)::after{
-    font-size:.75rem;
+    font-size:.75rem !important;
   }
 }
 
