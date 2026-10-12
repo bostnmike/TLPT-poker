@@ -408,6 +408,45 @@ body .site-page-hero-kicker,
   flex-wrap:wrap;
 }
 
+/* Tablets are touch surfaces too. Keep the full TLPT control system at a
+   dependable target size through the single-column responsive range while
+   leaving the separately branded Marchand experience untouched. */
+@media (max-width:980px){
+  #schedule-list{
+    grid-template-columns:1fr !important;
+  }
+
+  #schedule-list .event-card,
+  #schedule-list .event-layout-grid,
+  #schedule-list .event-details-col,
+  #schedule-list .event-rsvp-col{
+    min-width:0;
+    width:100%;
+  }
+
+  body:not(.marchand-page) button,
+  body:not(.marchand-page) select,
+  body:not(.marchand-page) .btn,
+  body:not(.marchand-page) [role="button"]:not(.fl-point),
+  body:not(.marchand-page) .fl-select-option{
+    min-height:var(--touch-target) !important;
+  }
+
+  #home-events-list .event-details-col > .home-event-fixed-buttons,
+  #home-events-list .event-details-col > .home-event-fixed-buttons-inline,
+  #schedule-list .event-details-col > a.btn.btn-rsvp{
+    order:1;
+    min-height:var(--touch-target) !important;
+    margin:14px 0 0 !important;
+    padding-top:0 !important;
+  }
+
+  #home-events-list .event-details-col > .event-rsvp-forecast,
+  #schedule-list .event-details-col > .event-rsvp-forecast{
+    order:2;
+  }
+}
+
 @media (max-width:800px){
   .tlpt-loading-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -454,6 +493,7 @@ body .site-page-hero-kicker,
   .site-nav-toggle,
   .nav-submenu-toggle{
     display:inline-flex;
+    min-width:var(--touch-target) !important;
   }
 
   .site-header .nav{
@@ -667,6 +707,23 @@ body .site-page-hero-kicker,
   }
 }
 
+@media (max-width:760px){
+  #home-events-list .event-details-col > .home-event-fixed-buttons,
+  #home-events-list .event-details-col > .home-event-fixed-buttons-inline,
+  #schedule-list .event-details-col > a.btn.btn-rsvp{
+    width:100% !important;
+    min-height:48px !important;
+    align-self:stretch !important;
+  }
+
+  #home-events-list .event-details-col > .home-event-fixed-buttons .btn,
+  #home-events-list .event-details-col > .home-event-fixed-buttons-inline .btn,
+  #schedule-list .event-details-col > a.btn.btn-rsvp{
+    width:100%;
+    justify-content:center;
+  }
+}
+
 @media (max-width:520px){
   .tlpt-loading-grid{
     grid-template-columns:1fr;
@@ -730,6 +787,27 @@ body .site-page-hero-kicker,
 
   .trophy-room-page .trophy-room-summary.trophy-room-companion{
     grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:360px){
+  body:not(.marchand-page) .site-header .header-inner{
+    grid-template-columns:minmax(0,1fr) 88px;
+    gap:6px;
+  }
+
+  body:not(.marchand-page) .site-header .logo{
+    font-size:1.2rem;
+  }
+
+  body:not(.marchand-page) .site-header .tag{
+    font-size:.8rem;
+  }
+
+  body:not(.marchand-page) .site-nav-toggle{
+    min-width:88px !important;
+    padding-right:9px;
+    padding-left:9px;
   }
 }
 
