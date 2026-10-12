@@ -642,8 +642,10 @@
     button.tabIndex = -1;
     button.setAttribute("aria-label", "Return to the top of this page");
     button.setAttribute("aria-hidden", "true");
-    button.innerHTML = '<span aria-hidden="true">↑</span><strong>Top</strong>';
-    document.body.append(button);
+    button.innerHTML = '<span aria-hidden="true">↑</span><strong>Back to top</strong>';
+    const footer = document.querySelector(".site-footer");
+    if (footer) footer.insertAdjacentElement("beforebegin", button);
+    else document.body.append(button);
 
     let eligible = false;
     const syncVisibility = () => {

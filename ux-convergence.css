@@ -947,7 +947,10 @@ body:not(.marchand-page) .site-footer a{
     position:sticky;
     top:8px;
     z-index:18;
-    display:block;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:6px;
+    align-items:stretch;
     width:100%;
     margin:0 0 12px;
   }
@@ -958,8 +961,9 @@ body:not(.marchand-page) .site-footer a{
     display:flex;
     gap:7px;
     width:100%;
+    min-width:0;
     margin:0;
-    padding:7px 90px 9px 7px;
+    padding:7px 7px 9px;
     overflow-x:auto;
     border:1px solid rgba(255,184,28,.24);
     border-radius:13px;
@@ -1008,19 +1012,17 @@ body:not(.marchand-page) .site-footer a{
   }
 
   .mobile-jump-nav-cue{
-    position:absolute;
-    top:1px;
-    right:1px;
-    bottom:6px;
+    position:static;
     z-index:2;
     display:none;
     align-items:center;
     justify-content:center;
-    width:82px;
-    border-left:1px solid rgba(255,184,28,.22);
-    border-radius:0 12px 8px 0;
+    min-width:66px;
+    padding:0 8px;
+    border:1px solid rgba(255,184,28,.32);
+    border-radius:10px;
     background:rgba(8,13,19,.98);
-    box-shadow:-14px 0 16px rgba(8,13,19,.98);
+    box-shadow:0 10px 24px rgba(0,0,0,.30);
     color:#ffd568;
     font-size:.68rem;
     font-weight:950;
@@ -1104,7 +1106,7 @@ body:not(.marchand-page) .site-footer a{
 
   #standings-table tr{
     display:grid;
-    grid-template-columns:42px minmax(0,1fr) minmax(88px,.58fr);
+    grid-template-columns:32px minmax(0,1fr) 82px;
     width:100%;
   }
 
@@ -1112,9 +1114,25 @@ body:not(.marchand-page) .site-footer a{
   #standings-table td{
     display:none;
     min-width:0 !important;
-    padding:11px 7px;
+    padding:11px 5px;
     overflow:hidden;
     text-overflow:ellipsis;
+  }
+
+  #standings-table thead th[aria-sort]{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:visible;
+    font-size:.69rem;
+    line-height:1.08;
+    text-align:center;
+    text-overflow:clip;
+    white-space:normal;
+  }
+
+  #standings-table tbody td{
+    white-space:nowrap;
   }
 
   #standings-table th:first-child,
@@ -1148,12 +1166,97 @@ body:not(.marchand-page) .site-footer a{
   }
 
   #standings-table .player-inline{
-    gap:8px;
+    gap:6px;
   }
 
-  #standings-table .player-avatar.table{
-    width:34px;
-    height:34px;
+  #standings-table .player-avatar.table,
+  #standings-table .player-avatar-fallback.table{
+    width:30px;
+    height:30px;
+    min-width:30px;
+    min-height:30px;
+  }
+
+  #standings-table .player-inline-name{
+    font-size:.78rem;
+  }
+
+  /* Collectible cards stay ornate on phones, but their supporting type should
+     still clear a practical ten-pixel reading floor. */
+  .trophy-room-page .trophy-card-edition small{
+    font-size:.58rem;
+  }
+
+  .trophy-room-page .trophy-card-edition strong{
+    font-size:.64rem;
+  }
+
+  .trophy-room-page .trophy-card-edition em{
+    font-size:.52rem;
+  }
+
+  .trophy-room-page .trophy-card-identity small,
+  .trophy-room-page .trophy-card-earned,
+  .trophy-room-page .trophy-card-suits{
+    font-size:.60rem;
+  }
+
+  .trophy-room-page .trophy-card-attributes small{
+    font-size:.64rem;
+  }
+
+  .trophy-room-page .trophy-card-plaque > div span,
+  .trophy-room-page .trophy-card-featured,
+  .trophy-room-page .trophy-card-plaque > em{
+    font-size:.60rem;
+  }
+
+  .trophy-room-page .trophy-card-plaque > div strong{
+    font-size:.82rem;
+  }
+
+  .trophy-room-page .trophy-card-plaque p{
+    font-size:.69rem;
+  }
+
+  .trophy-room-page .trophy-card-plaque > small{
+    font-size:.62rem;
+  }
+
+  .player-page .tlpt-card-collectible-edition{
+    font-size:.58rem;
+  }
+
+  .player-page .tlpt-card-collectible-edition strong{
+    display:-webkit-box;
+    overflow:hidden;
+    font-size:.58rem;
+    line-height:1.05;
+    text-overflow:clip;
+    white-space:normal;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+  }
+
+  .player-page .tlpt-card-collectible-rating small,
+  .player-page .tlpt-card-collectible-stats small{
+    font-size:.58rem;
+  }
+
+  .player-page .tlpt-card-collectible-stamp strong{
+    font-size:.58rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption strong{
+    font-size:.68rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption small{
+    font-size:.72rem;
+  }
+
+  .player-page .tlpt-card-collectible-caption em{
+    font-size:.60rem;
   }
 
   /* Blind structures retain the five pieces needed to play a level. Forecast
@@ -1377,17 +1480,17 @@ body:not(.marchand-page) .site-footer a{
 
 @media (max-width:700px){
   .mobile-page-return{
-    position:fixed;
-    right:max(14px,env(safe-area-inset-right));
-    bottom:max(14px,env(safe-area-inset-bottom));
-    z-index:80;
+    position:static;
+    z-index:auto;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:6px;
-    min-width:70px !important;
+    width:min(calc(100% - 32px),360px);
+    min-width:0 !important;
     min-height:46px;
-    padding:9px 12px;
+    margin:18px auto max(14px,env(safe-area-inset-bottom));
+    padding:11px 16px;
     border:1px solid rgba(255,184,28,.62);
     border-radius:12px;
     color:#fff4ce;
@@ -1398,8 +1501,8 @@ body:not(.marchand-page) .site-footer a{
     line-height:1;
     opacity:0;
     pointer-events:none;
-    transform:translateY(10px);
-    transition:opacity .16s ease,transform .16s ease,border-color .16s ease;
+    transform:none;
+    transition:opacity .16s ease,border-color .16s ease;
   }
 
   .mobile-page-return[hidden]{
@@ -1409,7 +1512,6 @@ body:not(.marchand-page) .site-footer a{
   .mobile-page-return.is-visible{
     opacity:1;
     pointer-events:auto;
-    transform:translateY(0);
   }
 
   .mobile-page-return:hover{
@@ -1426,7 +1528,7 @@ body:not(.marchand-page) .site-footer a{
   /* Compact standings keep player identity readable instead of sacrificing
      nearly the entire name column to the selected metric. */
   #standings-table tr{
-    grid-template-columns:30px minmax(0,1fr) 70px;
+    grid-template-columns:26px minmax(0,1fr) 74px;
   }
 
   #standings-table th,
@@ -1441,10 +1543,10 @@ body:not(.marchand-page) .site-footer a{
 
   #standings-table .player-avatar.table,
   #standings-table .player-avatar-fallback.table{
-    width:28px;
-    height:28px;
-    min-width:28px;
-    min-height:28px;
+    width:26px;
+    height:26px;
+    min-width:26px;
+    min-height:26px;
   }
 
   #standings-table .player-inline-name{
@@ -1580,15 +1682,15 @@ body:not(.marchand-page) .site-footer a{
 
   .player-page .tlpt-card-collectible-rating small{
     width:24px;
-    font-size:.51rem;
+    font-size:.58rem;
   }
 
   .player-page .tlpt-card-collectible-edition{
-    font-size:.41rem;
+    font-size:.58rem;
   }
 
   .player-page .tlpt-card-collectible-edition strong{
-    font-size:.49rem;
+    font-size:.58rem;
   }
 
   .player-page .tlpt-card-collectible-head img{
@@ -1613,19 +1715,23 @@ body:not(.marchand-page) .site-footer a{
   }
 
   .player-page .tlpt-card-collectible-stats small{
-    font-size:.36rem;
+    font-size:.58rem;
   }
 
   .player-page .tlpt-card-collectible-caption strong{
-    font-size:.61rem;
+    font-size:.68rem;
   }
 
   .player-page .tlpt-card-collectible-caption small{
-    font-size:.65rem;
+    font-size:.72rem;
   }
 
   .player-page .tlpt-card-collectible-caption em{
-    font-size:.48rem;
+    font-size:.60rem;
+  }
+
+  .player-page .tlpt-card-collectible-stamp strong{
+    font-size:.58rem;
   }
 }
 
