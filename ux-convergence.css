@@ -2046,6 +2046,27 @@ body:not(.marchand-page) .site-footer a{
   font-size:.75rem;
 }
 
+/* Keep the six featured-player labels readable at the 12px interface floor.
+   Reclaim unused card padding before resorting to truncation on 320px screens. */
+#home-snapshot .home-featured-attribute{
+  padding-inline:6px;
+}
+
+#home-snapshot .home-featured-attribute small{
+  letter-spacing:0;
+  text-overflow:clip;
+}
+
+@media (max-width:340px){
+  #home-snapshot .home-featured-ultimate-shell{
+    padding-inline:0;
+  }
+
+  #home-snapshot .home-featured-attribute{
+    padding-inline:5px;
+  }
+}
+
 /* Edition captions are interface labels, not text printed on the card face.
    Preserve the full earned/upgraded history in no more than two lines. */
 .player-page .tlpt-card-collectible-caption strong,
