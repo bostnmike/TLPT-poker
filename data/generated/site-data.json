@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T21:56:43.857070Z",
+  "generatedAt": "2026-10-13T21:57:50.246180Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -132,7 +132,8 @@
           "griffin",
           "cougar",
           "liam-o",
-          "nasa-al"
+          "nasa-al",
+          "tbd"
         ]
       ],
       "rsvps": {
