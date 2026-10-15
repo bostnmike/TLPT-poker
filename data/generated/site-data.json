@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T20:40:22.267411Z",
+  "generatedAt": "2026-10-15T20:47:41.530998Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -32,7 +32,7 @@
         "hiro": "yes",
         "jeff-t": "no",
         "kishan": "tbd",
-        "li-fo": "tbd",
+        "li-fo": "no",
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
@@ -80,7 +80,7 @@
         "hiro": "no",
         "kishan": "tbd",
         "jeff-t": "no",
-        "li-fo": "tbd",
+        "li-fo": "maybe",
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
