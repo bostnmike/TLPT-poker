@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Complete the private TLPT Poker League player-registration and avatar-intake form." />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Register | TLPT.org</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/site/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/site/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css?v=20261012-1" />
+  <link rel="stylesheet" href="register.css?v=20261015-1" />
+  <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
+  <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
+</head>
+<body class="register-page">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div>
+      <a class="logo" href="index.html" aria-label="TLPT Poker League home">TLPT Poker League</a>
+      <p class="tag">The League. The Players. The Tilt.</p>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+
+      <div class="nav-dropdown">
+        <a href="dashboard.html" class="nav-dropdown-parent">Metrics</a>
+        <div class="nav-dropdown-menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="form-lab.html">Form Lab</a>
+          <a href="player-movement.html">Heater Meter</a>
+          <a href="streaks.html">Streak Tracker</a>
+          <a href="knockouts.html">Knockout Central</a>
+          <a href="standings.html">Standings</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="players.html" class="nav-dropdown-parent">Members</a>
+        <div class="nav-dropdown-menu">
+          <a href="players.html">TLPT Crew</a>
+          <a href="player.html?name=BostnMike">Player Profiles</a>
+          <a href="trophy-room.html">Trophy Room</a>
+        </div>
+      </div>
+
+      <a href="schedule.html">Schedule</a>
+
+      <div class="nav-dropdown">
+        <a href="champions.html" class="nav-dropdown-parent">Roast Zone</a>
+        <div class="nav-dropdown-menu">
+          <a href="champions.html">Hall of Fame</a>
+          <a href="news.html">Felt Whispers</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="rules.html" class="nav-dropdown-parent">Rules</a>
+        <div class="nav-dropdown-menu">
+          <a href="rules.html">House Rules</a>
+          <a href="structures.html">Blind Structures</a>
+        </div>
+      </div>
+
+      <div class="nav-dropdown">
+        <a href="media.html" class="nav-dropdown-parent">Media</a>
+        <div class="nav-dropdown-menu">
+          <a href="media.html">Film Room</a>
+          <a href="voice-of-god.html">Voice of God</a>
+          <a href="gallery.html">Art Gallery</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" class="wrap">
+  <section class="section site-page-hero site-page-hero-chip-100 register-hero" aria-labelledby="register-page-title">
+    <div class="site-page-hero-copy">
+      <span class="site-page-hero-kicker">Invite-Only Player Onboarding</span>
+      <h1 id="register-page-title" class="site-page-title site-page-hero-title">Register</h1>
+      <p class="site-page-hero-description">Give us enough to seat you, track you, and eventually roast you accurately.</p>
+    </div>
+
+    <div class="site-page-hero-brand" aria-hidden="true">
+      <span class="site-page-hero-watermark"></span>
+      <img
+        class="site-page-hero-chip"
+        src="images/site/chip-T-100.png"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        decoding="async"
+        fetchpriority="auto"
+        width="112"
+        height="112"
+        data-hide-on-error
+      />
+    </div>
+  </section>
+
+  <section class="section site-page-companion register-intake-note" aria-labelledby="register-intake-title">
+    <div class="register-intake-mark" aria-hidden="true">♠</div>
+    <div>
+      <span class="page-kicker">Private link • Commissioner review</span>
+      <h2 id="register-intake-title">This is an intake form, not an automatic seat.</h2>
+      <p>Your answers go directly to the league commissioner. Nothing is added to the roster until the registration and avatar are reviewed.</p>
+    </div>
+    <span class="register-time-note">About 6–8 minutes</span>
+  </section>
+
+  <section class="section register-shell" aria-labelledby="register-form-title">
+    <div class="register-shell-head">
+      <div>
+        <span class="page-kicker">The preflop paperwork</span>
+        <h2 id="register-form-title">Build your TLPT player file</h2>
+        <p>Required fields are marked with <span aria-hidden="true">*</span><span class="sr-only">an asterisk</span>. You can go back before submitting.</p>
+      </div>
+      <span class="register-secure-note"><span aria-hidden="true">◆</span> Moderated intake</span>
+    </div>
+
+    <ol class="register-progress" aria-label="Registration progress">
+      <li data-progress-step="0" aria-current="step"><span>1</span><strong>Identity</strong></li>
+      <li data-progress-step="1"><span>2</span><strong>Contact</strong></li>
+      <li data-progress-step="2"><span>3</span><strong>Avatar</strong></li>
+      <li data-progress-step="3"><span>4</span><strong>Persona</strong></li>
+      <li data-progress-step="4"><span>5</span><strong>Review</strong></li>
+    </ol>
+
+    <p class="register-form-status" id="register-form-status" role="status" aria-live="polite"></p>
+
+    <form
+      class="register-form"
+      id="register-form"
+      action="https://formsubmit.co/blanchettemr@gmail.com"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="_subject" value="TLPT Player Registration — New Submission" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" name="_next" value="https://tlpt.org/register.html?submitted=1" />
+      <input type="hidden" name="Registration source" value="TLPT hidden registration page" />
+      <input type="hidden" id="metadata-draft" name="Proposed player metadata" value="" />
+      <label class="register-honey" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
+
+      <fieldset class="register-step" data-register-step="0">
+        <legend class="register-step-heading">
+          <span>Step 1 of 5</span>
+          <strong>Player identity</strong>
+          <small>Tell us what should appear on the site—and what the tournament software may call you.</small>
+        </legend>
+
+        <div class="register-field-grid">
+          <div class="register-field">
+            <label for="display-name">Site display name <span aria-hidden="true">*</span></label>
+            <input id="display-name" name="Site display name" type="text" maxlength="60" autocomplete="nickname" placeholder="BostnMike" required />
+            <small>The name used on cards, standings, and player pages.</small>
+          </div>
+
+          <div class="register-field">
+            <label for="tournament-name">Tournament Director name <span aria-hidden="true">*</span></label>
+            <input id="tournament-name" name="Tournament Director name" type="text" maxlength="80" autocomplete="name" placeholder="Name used in event reports" required />
+            <small>Exact spelling helps every result land on the right profile.</small>
+          </div>
+
+          <div class="register-field">
+            <label for="nicknames">Nicknames or alternate spellings</label>
+            <input id="nicknames" name="Nicknames and aliases" type="text" maxlength="180" placeholder="Separate multiple names with commas" />
+            <small>Include anything the table—or an event export—might use.</small>
+          </div>
+
+          <div class="register-field">
+            <label for="pronunciation">Name pronunciation</label>
+            <input id="pronunciation" name="Name pronunciation" type="text" maxlength="100" placeholder="Optional phonetic spelling" />
+          </div>
+
+          <div class="register-field">
+            <label for="pronouns">Pronouns</label>
+            <input id="pronouns" name="Pronouns" type="text" maxlength="40" placeholder="Optional" autocomplete="off" />
+          </div>
+
+          <div class="register-field">
+            <label for="invited-by">Who invited you? <span aria-hidden="true">*</span></label>
+            <input id="invited-by" name="Invited by" type="text" maxlength="80" placeholder="Current TLPT player" required />
+          </div>
+        </div>
+
+        <div class="register-slug-preview" aria-live="polite">
+          <span>Proposed player ID</span>
+          <output id="slug-preview" for="display-name">waiting-for-name</output>
+        </div>
+
+        <div class="register-step-actions register-step-actions-end">
+          <button class="btn register-next" type="button" data-next-step>Continue to Contact <span aria-hidden="true">→</span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="register-step" data-register-step="1" hidden>
+        <legend class="register-step-heading">
+          <span>Step 2 of 5</span>
+          <strong>Contact &amp; league logistics</strong>
+          <small>Enough to coordinate a game. No address, payment, or banking information belongs here.</small>
+        </legend>
+
+        <div class="register-field-grid">
+          <div class="register-field">
+            <label for="registration-email">Email address <span aria-hidden="true">*</span></label>
+            <input id="registration-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" required />
+          </div>
+
+          <div class="register-field">
+            <label for="registration-phone">Mobile number</label>
+            <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Optional" />
+          </div>
+        </div>
+
+        <fieldset class="register-choice-group">
+          <legend>Preferred contact method <span aria-hidden="true">*</span></legend>
+          <div class="register-choice-grid register-choice-grid-three">
+            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Email" required /><span><strong>Email</strong><small>Keep it in the inbox.</small></span></label>
+            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Text message" /><span><strong>Text</strong><small>Use the mobile number above.</small></span></label>
+            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Either" /><span><strong>Either</strong><small>Dealer’s choice.</small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="register-choice-group">
+          <legend>Which games usually work? <span aria-hidden="true">*</span></legend>
+          <div class="register-choice-grid register-choice-grid-four">
+            <label class="register-choice"><input type="radio" name="Usual availability" value="Friday" required /><span><strong>Friday</strong><small>40K nights</small></span></label>
+            <label class="register-choice"><input type="radio" name="Usual availability" value="Saturday" /><span><strong>Saturday</strong><small>500K nights</small></span></label>
+            <label class="register-choice"><input type="radio" name="Usual availability" value="Either" /><span><strong>Either</strong><small>Shuffle me in</small></span></label>
+            <label class="register-choice"><input type="radio" name="Usual availability" value="Not sure" /><span><strong>Not sure</strong><small>Ask me later</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="register-field">
+          <label for="host-notes">Anything the host should know?</label>
+          <textarea id="host-notes" name="Host notes" rows="4" maxlength="700" placeholder="Scheduling context, accessibility needs, or anything useful for coordinating your first game."></textarea>
+        </div>
+
+        <div class="register-step-actions">
+          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
+          <button class="btn register-next" type="button" data-next-step>Continue to Avatar <span aria-hidden="true">→</span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="register-step" data-register-step="2" hidden>
+        <legend class="register-step-heading">
+          <span>Step 3 of 5</span>
+          <strong>Your avatar starter kit</strong>
+          <small>Give the artist a clear likeness and enough visual material to make the portrait unmistakably yours.</small>
+        </legend>
+
+        <div class="register-upload-panel">
+          <div class="register-upload-icon" aria-hidden="true">◎</div>
+          <div class="register-field">
+            <label for="avatar-photos">Reference photos <span aria-hidden="true">*</span></label>
+            <input id="avatar-photos" name="Avatar reference photos" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple required aria-describedby="avatar-photo-help avatar-file-status" />
+            <small id="avatar-photo-help">Choose 1–4 clear photos. JPG, PNG, WebP, HEIC, or HEIF; 10 MB total maximum.</small>
+            <span class="register-file-status" id="avatar-file-status" aria-live="polite">No photos selected.</span>
+          </div>
+        </div>
+
+        <div class="register-field-grid">
+          <div class="register-field register-field-wide">
+            <label for="features-preserve">Features the artist should preserve <span aria-hidden="true">*</span></label>
+            <textarea id="features-preserve" name="Features to preserve" rows="3" maxlength="500" placeholder="Hair, facial hair, glasses, expression, or anything the photos may not make obvious." required></textarea>
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-clothing">Signature clothing or colors <span aria-hidden="true">*</span></label>
+            <input id="avatar-clothing" name="Avatar clothing and colors" type="text" maxlength="220" placeholder="Favorite jersey, hat, suit, colors…" required />
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-interests">Teams, places, and interests <span aria-hidden="true">*</span></label>
+            <input id="avatar-interests" name="Teams places and interests" type="text" maxlength="300" placeholder="Give us at least three" required />
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-props">Props or symbols <span aria-hidden="true">*</span></label>
+            <input id="avatar-props" name="Avatar props and symbols" type="text" maxlength="240" placeholder="Two or three visual clues" required />
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-setting">Background or setting <span aria-hidden="true">*</span></label>
+            <input id="avatar-setting" name="Avatar background" type="text" maxlength="220" placeholder="A city, landmark, card room—or surprise me" required />
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-expression">Pose or expression</label>
+            <input id="avatar-expression" name="Avatar pose and expression" type="text" maxlength="180" placeholder="Relaxed, intense, laughing, table pose…" />
+          </div>
+
+          <div class="register-field">
+            <label for="avatar-must-have">One must-have detail</label>
+            <input id="avatar-must-have" name="Avatar must-have detail" type="text" maxlength="180" placeholder="Optional" />
+          </div>
+
+          <div class="register-field register-field-wide">
+            <label for="avatar-avoid">Anything that must not appear</label>
+            <textarea id="avatar-avoid" name="Avatar exclusions" rows="3" maxlength="500" placeholder="Teams, colors, props, jokes, or physical details to avoid."></textarea>
+          </div>
+        </div>
+
+        <div class="register-step-actions">
+          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
+          <button class="btn register-next" type="button" data-next-step>Continue to Persona <span aria-hidden="true">→</span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="register-step" data-register-step="3" hidden>
+        <legend class="register-step-heading">
+          <span>Step 4 of 5</span>
+          <strong>Table persona</strong>
+          <small>The stats arrive later. This gives the profile a personality before the first cards are dealt.</small>
+        </legend>
+
+        <div class="register-field-grid">
+          <div class="register-field">
+            <label for="poker-experience">Poker experience <span aria-hidden="true">*</span></label>
+            <select id="poker-experience" name="Poker experience" required>
+              <option value="">Choose one</option>
+              <option>Brand new</option>
+              <option>Friendly home games</option>
+              <option>Regular tournament player</option>
+              <option>Casino or card-room regular</option>
+              <option>I have charts and I am not afraid to mention them</option>
+            </select>
+          </div>
+
+          <div class="register-field">
+            <label for="favorite-hand">Favorite starting hand</label>
+            <input id="favorite-hand" name="Favorite starting hand" type="text" maxlength="60" placeholder="Optional—and possibly incriminating" />
+          </div>
+
+          <div class="register-field register-field-wide">
+            <label for="playing-style">Describe your playing style <span aria-hidden="true">*</span></label>
+            <textarea id="playing-style" name="Self-described playing style" rows="3" maxlength="500" placeholder="Tight, reckless, unreadable, honest to a fault…" required></textarea>
+          </div>
+
+          <div class="register-field">
+            <label for="catchphrase">Catchphrase or quote <span aria-hidden="true">*</span></label>
+            <input id="catchphrase" name="Player catchphrase" type="text" maxlength="180" placeholder="This becomes your starter profile quote" required />
+          </div>
+
+          <div class="register-field">
+            <label for="nickname-fate">A nickname you hope—or fear—will stick</label>
+            <input id="nickname-fate" name="Nickname hopes or fears" type="text" maxlength="140" placeholder="Optional" />
+          </div>
+
+          <div class="register-field register-field-wide">
+            <label for="questionable-habit">Your most questionable poker habit</label>
+            <textarea id="questionable-habit" name="Questionable poker habit" rows="3" maxlength="500" placeholder="Tank too long? Defend every big blind? Celebrate suited cards as a personal achievement?"></textarea>
+          </div>
+
+          <div class="register-field register-field-wide">
+            <label for="roast-material">What will the group probably roast you about?</label>
+            <textarea id="roast-material" name="Volunteered roast material" rows="3" maxlength="600" placeholder="Useful material only. We are not asking for sworn testimony."></textarea>
+          </div>
+
+          <div class="register-field register-field-wide">
+            <label for="off-limits">Anything that is off-limits</label>
+            <textarea id="off-limits" name="Humor boundaries" rows="3" maxlength="600" placeholder="Topics the site and table should leave alone. This answer is respected."></textarea>
+          </div>
+        </div>
+
+        <div class="register-step-actions">
+          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
+          <button class="btn register-next" type="button" data-next-step>Review Registration <span aria-hidden="true">→</span></button>
+        </div>
+      </fieldset>
+
+      <fieldset class="register-step" data-register-step="4" hidden>
+        <legend class="register-step-heading">
+          <span>Step 5 of 5</span>
+          <strong>Review &amp; consent</strong>
+          <small>One last look before this reaches the commissioner’s inbox.</small>
+        </legend>
+
+        <div class="register-review" id="register-review" aria-live="polite"></div>
+
+        <div class="register-consent-list">
+          <label class="register-consent">
+            <input type="checkbox" name="Accuracy confirmed" value="Yes" required />
+            <span><strong>The information I supplied is accurate.</strong><small>I understand that registration is reviewed and does not guarantee a seat.</small></span>
+          </label>
+          <label class="register-consent">
+            <input type="checkbox" name="Public profile consent" value="Yes" required />
+            <span><strong>My display name, poker results, statistics, and league achievements may appear publicly on TLPT.org.</strong></span>
+          </label>
+          <label class="register-consent">
+            <input type="checkbox" name="AI likeness consent" value="Yes" required />
+            <span><strong>TLPT may use my reference photos to create and publicly display an illustrated player avatar.</strong><small>The submitted reference photos themselves will not be posted as my profile image.</small></span>
+          </label>
+          <label class="register-consent">
+            <input type="checkbox" name="Humor boundaries acknowledged" value="Yes" required />
+            <span><strong>I understand the league uses player-specific humor, and any boundaries I listed above still apply.</strong></span>
+          </label>
+        </div>
+
+        <div class="register-field">
+          <label for="final-notes">Final note to the commissioner</label>
+          <textarea id="final-notes" name="Final note" rows="3" maxlength="600" placeholder="Optional"></textarea>
+        </div>
+
+        <div class="register-privacy-note">
+          <strong>What happens next</strong>
+          <p>Your registration and attachments are processed by FormSubmit and emailed to the commissioner at <span>blanchettemr@gmail.com</span>. Do not include passwords, payment information, a home address, or other private access details.</p>
+        </div>
+
+        <div class="register-step-actions">
+          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
+          <button class="btn register-submit" id="register-submit" type="submit">Send Me to the Roster <span aria-hidden="true">♠</span></button>
+        </div>
+      </fieldset>
+    </form>
+
+    <section class="register-confirmation" id="register-confirmation" aria-labelledby="register-confirmation-title" hidden>
+      <span class="register-confirmation-icon" aria-hidden="true">✓</span>
+      <span class="page-kicker">Registration received</span>
+      <h2 id="register-confirmation-title">You’re in the queue.</h2>
+      <p>The commissioner will review your player identity, prepare the avatar brief, and follow up before your first official appearance.</p>
+      <p class="register-confirmation-joke">The statistics—and regrettable decisions—begin at the table.</p>
+      <a class="btn" href="index.html">Return to TLPT Home</a>
+    </section>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>
+      TLPT is a BostnMike Production... and all that, that entails.
+      Site data fueled by
+      <a href="https://thetournamentdirector.net/" target="_blank" rel="noopener noreferrer">The Tournament Director</a>
+    </p>
+  </div>
+</footer>
+
+<script src="site-shell.js?v=20261012-3"></script>
+<script src="register.js?v=20261015-1"></script>
+</body>
+</html>

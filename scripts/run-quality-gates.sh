@@ -27,6 +27,9 @@ echo "🧹 Auditing code hygiene..."
 echo "🧭 Testing shared shell image fallbacks..."
 node scripts/test-site-shell.mjs
 
+echo "♠ Testing hidden player registration..."
+node scripts/test-register-page.mjs
+
 echo "🛟 Testing app data-load recovery..."
 node scripts/test-app-load-failure.mjs
 

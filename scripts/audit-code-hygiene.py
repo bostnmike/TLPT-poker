@@ -65,6 +65,7 @@ EXPECTED_PAGES = {
     "player-movement.html",
     "player.html",
     "players.html",
+    "register.html",
     "rules.html",
     "structures.html",
     "schedule.html",
@@ -181,6 +182,7 @@ EXPECTED_NAV_ACTIVE_LABELS = {
     "player-movement.html": ["Metrics", "Heater Meter"],
     "player.html": ["Members", "Player Profiles"],
     "players.html": ["Members", "TLPT Crew"],
+    "register.html": [],
     "rules.html": ["Rules", "House Rules"],
     "structures.html": ["Rules", "Blind Structures"],
     "schedule.html": ["Schedule"],
@@ -207,6 +209,7 @@ EXPECTED_PAGE_TITLES = {
     "player-movement.html": "The Heater Meter | TLPT.org",
     "player.html": "Player Profile | TLPT.org",
     "players.html": "Meet the Crew | TLPT.org",
+    "register.html": "Register | TLPT.org",
     "rules.html": "House Rules | TLPT.org",
     "structures.html": "Blind Structures | TLPT.org",
     "schedule.html": "Next @ the Caahhd Room | TLPT.org",
@@ -227,6 +230,7 @@ UNIFIED_TITLE_PAGES = {
     "news.html": "Felt Whispers",
     "player-movement.html": "The Heater Meter",
     "players.html": "Meet the Crew",
+    "register.html": "Register",
     "rules.html": "House Rules",
     "structures.html": "Blind Structures",
     "schedule.html": "Next @ the Caahhd Room",
@@ -244,6 +248,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "media.html",
     "player-movement.html",
     "players.html",
+    "register.html",
     "rules.html",
     "structures.html",
     "schedule.html",
@@ -265,6 +270,7 @@ EXPECTED_META_DESCRIPTIONS = {
     "player-movement.html": "Follow TLPT Poker League player movement, recent rating changes, risers, fallers, and momentum.",
     "player.html": "View a TLPT Poker League player profile, Ultimate Player Card, statistics, honors, and card collection.",
     "players.html": "Meet the TLPT Poker League crew and compare tiered Ultimate Player Cards, ratings, and play styles.",
+    "register.html": "Complete the private TLPT Poker League player-registration and avatar-intake form.",
     "rules.html": "Review the TLPT Poker League house rules, betting procedures, table etiquette, and floor rulings.",
     "structures.html": "Compare TLPT Poker League blind structures, level lengths, rebuy windows, chip sets, and projected payouts.",
     "schedule.html": "View upcoming TLPT Poker League events, formats, dates, and RSVP information.",
@@ -2860,7 +2866,7 @@ def main() -> int:
 
         if page.name == "404.html":
             expected_robots_metadata = ["noindex"]
-        elif page.name == "marchand.html":
+        elif page.name in {"marchand.html", "register.html"}:
             expected_robots_metadata = ["noindex,nofollow,noarchive"]
         else:
             expected_robots_metadata = []
@@ -2890,7 +2896,7 @@ def main() -> int:
             if page.name == "marchand.html"
             else "TLPT Poker League"
         )
-        expected_og_metadata = {} if page.name == "404.html" else {
+        expected_og_metadata = {} if page.name in {"404.html", "register.html"} else {
             "og:type": "profile" if page.name == "player.html" else "website",
             "og:site_name": expected_social_site_name,
             "og:title": expected_social_title,
@@ -2918,7 +2924,7 @@ def main() -> int:
                 + ", ".join(unexpected_og_properties)
             )
 
-        expected_twitter_metadata = {} if page.name == "404.html" else {
+        expected_twitter_metadata = {} if page.name in {"404.html", "register.html"} else {
             "twitter:card": (
                 "summary_large_image" if page.name == "marchand.html" else "summary"
             ),
@@ -3857,6 +3863,8 @@ def main() -> int:
         expected_style_prefix = ["style.css"]
         if page.name in {"rules.html", "structures.html"}:
             expected_style_prefix.append("rules.css")
+        elif page.name == "register.html":
+            expected_style_prefix.append("register.css")
         elif page.name == "media.html":
             expected_style_prefix.append("media.css")
         elif page.name == "marchand.html":
@@ -5003,6 +5011,7 @@ def audit_phase_3h6_single_source_quality_runner() -> list[str]:
     required = (
         'scripts/audit-code-hygiene.py',
         'scripts/test-site-shell.mjs',
+        'scripts/test-register-page.mjs',
         'scripts/test-app-load-failure.mjs',
         'scripts/validate-site-data.py',
         'scripts/audit-site-integrity.py',
@@ -5147,8 +5156,8 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
         else:
             if contract.get("schemaVersion") != 1:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
-            if contract.get("publicPageCount") != 20:
-                errors.append("maintenance-baseline.json: publicPageCount must remain 20")
+            if contract.get("publicPageCount") != 21:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 21")
             if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
