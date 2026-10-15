@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
-  <link rel="stylesheet" href="register.css?v=20261015-4" />
+  <link rel="stylesheet" href="register.css?v=20261015-5" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
 </head>
@@ -158,7 +158,7 @@
       <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_next" value="https://tlpt.org/register.html?submitted=1" />
       <input type="hidden" name="Registration source" value="TLPT hidden registration page" />
-      <input type="hidden" name="Registration packet version" value="2" />
+      <input type="hidden" name="Registration packet version" value="3" />
       <input type="hidden" id="registration-packet" name="Registration packet JSON" value="" />
       <label class="register-honey" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
 
@@ -188,12 +188,14 @@
 
           <div class="register-field">
             <label for="registration-email">Email address <span aria-hidden="true">*</span></label>
-            <input id="registration-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" required />
+            <input id="registration-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" aria-describedby="registration-email-help" required />
+            <small id="registration-email-help">We check that the address is properly formatted before you continue.</small>
           </div>
 
           <div class="register-field">
-            <label for="registration-phone">Mobile number</label>
-            <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Optional" />
+            <label for="registration-phone">Mobile number <span aria-hidden="true">*</span></label>
+            <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Mobile number" aria-describedby="registration-phone-help" required />
+            <small id="registration-phone-help">TLPT uses a group chat for game invitations, schedule updates, and day-of reminders.</small>
           </div>
 
           <div class="register-field">
@@ -202,26 +204,7 @@
           </div>
         </div>
 
-        <fieldset class="register-choice-group">
-          <legend>Preferred contact method <span aria-hidden="true">*</span></legend>
-          <div class="register-choice-grid register-choice-grid-three">
-            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Email" required /><span><strong>Email</strong><small>Keep it in the inbox.</small></span></label>
-            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Text message" /><span><strong>Text</strong><small>Use the mobile number above.</small></span></label>
-            <label class="register-choice"><input type="radio" name="Preferred contact method" value="Either" /><span><strong>Either</strong><small>Dealer’s choice.</small></span></label>
-          </div>
-        </fieldset>
-
-        <fieldset class="register-choice-group">
-          <legend>Which games usually work? <span aria-hidden="true">*</span></legend>
-          <div class="register-choice-grid register-choice-grid-four">
-            <label class="register-choice"><input type="radio" name="Usual availability" value="Friday" required /><span><strong>Friday</strong><small>40K nights</small></span></label>
-            <label class="register-choice"><input type="radio" name="Usual availability" value="Saturday" /><span><strong>Saturday</strong><small>500K nights</small></span></label>
-            <label class="register-choice"><input type="radio" name="Usual availability" value="Either" /><span><strong>Either</strong><small>Shuffle me in</small></span></label>
-            <label class="register-choice"><input type="radio" name="Usual availability" value="Not sure" /><span><strong>Not sure</strong><small>Ask me later</small></span></label>
-          </div>
-        </fieldset>
-
-        <div class="register-field">
+        <div class="register-field register-host-notes">
           <label for="host-notes">Anything the host should know?</label>
           <textarea id="host-notes" name="Host notes" rows="4" maxlength="700" placeholder="Scheduling context, accessibility needs, or anything useful for coordinating your first game."></textarea>
         </div>
@@ -368,6 +351,6 @@
 </footer>
 
 <script src="site-shell.js?v=20261012-3"></script>
-<script src="register.js?v=20261015-3"></script>
+<script src="register.js?v=20261015-4"></script>
 </body>
 </html>

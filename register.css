@@ -418,6 +418,10 @@
   border:0;
 }
 
+.register-host-notes{
+  margin-top:20px;
+}
+
 .register-choice-grid{
   display:grid;
   gap:10px;

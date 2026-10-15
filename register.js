@@ -10,6 +10,7 @@
   const review = document.getElementById("register-review");
   const fileInput = document.getElementById("avatar-photos");
   const fileStatus = document.getElementById("avatar-file-status");
+  const emailInput = document.getElementById("registration-email");
   const registrationPacket = document.getElementById("registration-packet");
   const submitButton = document.getElementById("register-submit");
   const confirmation = document.getElementById("register-confirmation");
@@ -44,7 +45,7 @@
       ? [fullName]
       : [];
     const packet = {
-      schemaVersion:2,
+      schemaVersion:3,
       status:"pending-review",
       source:"TLPT hidden registration page",
       identity:{
@@ -60,8 +61,6 @@
       contact:{
         email:valueOf("registration-email"),
         phone:valueOf("registration-phone"),
-        preferredMethod:checkedValue("Preferred contact method"),
-        availability:checkedValue("Usual availability"),
         hostNotes:valueOf("host-notes"),
       },
       avatar:{
@@ -160,6 +159,17 @@
     return true;
   };
 
+  const validateEmail = () => {
+    if (!emailInput) return true;
+    const value = emailInput.value.trim();
+    const completeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const message = value && !completeEmail.test(value)
+      ? "Enter a complete email address, including the part after the dot."
+      : "";
+    emailInput.setCustomValidity(message);
+    return !message;
+  };
+
   const focusInvalidControl = control => {
     if (!control) return;
     if (control.matches("select.site-native-select")) {
@@ -174,6 +184,7 @@
     const step = steps[stepIndex];
     if (!step) return true;
     if (step.contains(fileInput)) validateFiles();
+    if (step.contains(emailInput)) validateEmail();
     const invalid = step.querySelector(":invalid");
     if (!invalid) return true;
     if (status) status.textContent = "A required answer is missing or needs attention before you continue.";
@@ -216,8 +227,6 @@
       ["Invited by", valueOf("invited-by")],
       ["Email", valueOf("registration-email")],
       ["Phone", valueOf("registration-phone")],
-      ["Preferred method", checkedValue("Preferred contact method")],
-      ["Availability", checkedValue("Usual availability")],
       ["Host notes", valueOf("host-notes")],
     ]);
     addReviewGroup("Avatar brief", [
@@ -247,6 +256,7 @@
   form.addEventListener("input", updateRegistrationPacket);
   form.addEventListener("change", updateRegistrationPacket);
   fileInput?.addEventListener("change", validateFiles);
+  emailInput?.addEventListener("input", validateEmail);
 
   form.addEventListener("submit", event => {
     steps.forEach(step => {
@@ -254,6 +264,7 @@
       step.querySelectorAll("select").forEach(syncEnhancedSelect);
     });
     validateFiles();
+    validateEmail();
     const invalidStepIndex = steps.findIndex(step => step.querySelector(":invalid"));
     if (invalidStepIndex !== -1) {
       event.preventDefault();
