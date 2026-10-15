@@ -17,7 +17,7 @@ import {createPaymentSound} from '@/lib/payment-sound.mjs';
 import {paymentPortion} from '@/lib/payment-portions.mjs';
 import {paymentCanBelongTo} from '@/lib/rsvp.mjs';
 import {resolvePaymentPlayer,rememberedPayer,resolveDirectoryVenmoPlayer} from '@/lib/venmo-aliases.mjs';
-type Data={venmoAliases:VenmoAlias[];events:Event[];selectedEventId:string|null;payments:Payment[];totals:{collected:number;prizePool:number;bounty:number;food:number;entries:number;rebuys:number;pizzas:number;review:number};sync:null|{last_check:string;configured_at?:string;armed_at?:string;format_verified?:number;reader_mode?:string;active_event_id?:string};scheduleCheckedAt:string;scheduleError:string;serverAt:string};
+type Data={environment?:string;venmoAliases:VenmoAlias[];events:Event[];selectedEventId:string|null;payments:Payment[];totals:{collected:number;prizePool:number;bounty:number;food:number;entries:number;rebuys:number;pizzas:number;review:number};sync:null|{last_check:string;configured_at?:string;armed_at?:string;format_verified?:number;reader_mode?:string;active_event_id?:string};scheduleCheckedAt:string;scheduleError:string;serverAt:string};
 const money=(n:number)=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:n%100?2:0}).format(n/100);
 const labels:Record<string,string>={entry:'Buy-in',rebuy:'Rebuy',food:'Pizza',unknown:'Choose payment type'};
 const paymentLabel=(p:Payment)=>paymentKinds(p.kind).map((k:string)=>k==='entry'&&p.bounty_cents>0?'Buy-in + bounty':labels[k]).join(' + ')||labels.unknown;
@@ -101,6 +101,7 @@ export default function Register(){
  }
  return <main id="main-content" className="cashier-app" onTouchMove={releaseEditingFocus}>
  <BrandHeader stale={stale}/>
+ {data?.environment==='staging'&&<p className="banner" role="status"><b>Test register.</b> Use the <a href="https://tlpt.org/cashier.html">original cashier</a> for real payments until the migration is complete.</p>}
  <section className="heading cashier-heading"><div className="hero-copy"><p className="eyebrow">SHOW ME THE MONEY</p><h1>Cash Register</h1></div><div className="hero-actions"><ScreenControls/><div className="hero-brand" aria-hidden="true"><img src="/images/brand/tlpt-chip-100.png" width="64" height="64" alt=""/></div></div></section>
  {error&&<div role="alert" className="banner error">{error} {data?'Showing the last saved view.':''} <button onClick={()=>refresh(undefined,true)}>Reconnect</button></div>}
  <section className="event-tabs" role="tablist" aria-label="Current scheduled events">{['friday','saturday','mtt'].map(slot=>{const e=data?.events.find(e=>e.slot===slot);return <button key={slot} data-slot={slot} role="tab" aria-selected={!!e&&e.id===data?.selectedEventId} className={e&&e.id===data?.selectedEventId?'selected':''} onClick={()=>e&&select(e)} disabled={!e||busy}><span>{slots[slot]}</span><strong>{e?new Date(e.date+'T12:00:00Z').toLocaleDateString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric'}):data?'Not scheduled':'Loading…'}</strong><small>{e?money(e.rules.entry)+' buy-in · '+e.tables+' '+(e.tables===1?'table':'tables'):'Waiting for event JSON'}</small></button>;})}</section>
