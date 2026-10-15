@@ -175,13 +175,20 @@ frozen allocations, and private name mappings must survive too.
    using its normal source/deployment workflow. This GET route reads all seven
    original tables, requires the authenticated owner's email, exports no
    connection keys, and does not change the working UI or records.
-2. Take a read-only rehearsal snapshot with `scripts/fetch-sites-snapshot.mjs`.
-   Its input is `{origin,token}` through hidden stdin; never place the bearer
-   credential in a file or shell argument. The output goes to ignored,
-   owner-readable `private/sites-snapshot.json`.
+2. For a browser-mediated backup, also install `migration/sites-backup-page.tsx`
+   at `app/migration-backup/page.tsx` in the existing Sites app. Open that page
+   through the owner's signed-in browser. Save the complete JSON text in
+   `#ledger-snapshot` to ignored `private/sites-snapshot.json`, with directory
+   permissions 0700 and file permissions 0600. This read-only page uses the same
+   owner check as the API export and batches all seven table reads together.
+   A Sites service bearer passes the private Site boundary but supplies no
+   visitor identity; it cannot satisfy these owner-authenticated exports. Do not
+   spoof identity headers or weaken that check to make a service export work.
 3. Rehearse `node scripts/prepare-restore.mjs` and import its private SQL into an
    empty local database. Verify table counts, each event's totals, split amounts,
    aliases, linked manual/email records, voids, and deleted receipt suppression.
+   Read back all seven tables after the remote restore and compare every field,
+   including timestamps and source IDs, rather than totals alone.
 4. After cloud staging tests pass, schedule a brief cashier pause: stop the
    reader timer, avoid manual entry, and take a **fresh final snapshot**. Preserve
    a backup and its totals. Keep the old app available as the rollback target.
@@ -201,7 +208,7 @@ frozen allocations, and private name mappings must survive too.
    origin. Update its fixed-destination hygiene check in the same commit and
    run TLPT's quality gates. The short URL stays the same; it continues to be
    unlisted. Its existing destination is intentionally unchanged in this PR.
-8. Remove the temporary Sites export route and retain the old app as a read-only
+8. Remove the temporary Sites export route and backup page; retain the old app as a read-only
    reference until the migration is accepted. Rollback after new payments have
    started requires reconciling those new records first; never switch between
    two diverged ledgers and assume totals match.
@@ -210,3 +217,10 @@ All original applied SQL migrations and Drizzle snapshots are copied unchanged.
 Only new migrations add polling indexes, the revision counter, and login limits. No private
 runtime state, credentials, production payment examples, or dependency folders
 belong in this repository.
+
+A rehearsal production copy may be prepared while the current reader stays live.
+Before cutover, take a fresh snapshot and compare it with the copied ledger.
+If ledger records or settings changed, restore the fresh snapshot into another
+new, unused database and reconcile it before binding the production Worker.
+The guarded restore intentionally refuses an occupied copy. Reader heartbeat
+and schedule-fetch timestamps naturally advance while the original remains live.
