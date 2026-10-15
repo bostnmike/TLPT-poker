@@ -27,23 +27,35 @@
 
 .register-intake-note{
   display:grid;
-  grid-template-columns:52px minmax(0,1fr) auto;
+  grid-template-columns:82px minmax(0,1fr) auto;
   align-items:center;
-  gap:18px;
+  gap:20px;
   border-color:var(--register-border);
+  background:
+    radial-gradient(circle at 2% 50%,rgba(255,184,28,.12),transparent 22%),
+    linear-gradient(135deg,rgba(18,28,37,.98),rgba(8,14,20,.98));
 }
 
-.register-intake-mark{
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  border:1px solid rgba(244,208,111,.38);
+.register-commish-avatar{
+  width:82px;
+  height:82px;
+  padding:3px;
+  border:2px solid rgba(255,184,28,.84);
   border-radius:50%;
-  background:linear-gradient(145deg,rgba(244,208,111,.2),rgba(255,184,28,.06));
-  color:var(--register-accent);
-  font-size:1.55rem;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+  background:#080d12;
+  box-shadow:0 0 0 4px rgba(255,184,28,.08),inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+.register-commish-avatar img{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.register-intake-copy{
+  min-width:0;
 }
 
 .register-intake-note h2,
@@ -60,6 +72,25 @@
   margin-top:5px;
   color:#b9c6d3;
   line-height:1.48;
+}
+
+.register-intake-note .register-intake-punchline{
+  color:#f4dca3;
+  font-weight:800;
+}
+
+.register-intake-meta{
+  display:grid;
+  justify-items:end;
+  gap:8px;
+}
+
+.register-review-note{
+  color:#8fa0b2;
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.03em;
+  text-align:right;
 }
 
 .register-time-note,
@@ -715,18 +746,24 @@
 
 @media (max-width:800px){
   .register-intake-note{
-    grid-template-columns:44px minmax(0,1fr);
+    grid-template-columns:68px minmax(0,1fr);
     align-items:start;
   }
 
-  .register-intake-mark{
-    width:44px;
-    height:44px;
+  .register-commish-avatar{
+    width:68px;
+    height:68px;
   }
 
-  .register-time-note{
+  .register-intake-meta{
     grid-column:2;
-    justify-self:start;
+    justify-items:start;
+    grid-template-columns:auto minmax(0,1fr);
+    align-items:center;
+  }
+
+  .register-review-note{
+    text-align:left;
   }
 
   .register-shell-head{
@@ -764,16 +801,18 @@
 
 @media (max-width:620px){
   .register-intake-note{
+    grid-template-columns:60px minmax(0,1fr);
+    gap:12px;
+  }
+
+  .register-commish-avatar{
+    width:60px;
+    height:60px;
+  }
+
+  .register-intake-meta{
     grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .register-intake-mark{
-    display:none;
-  }
-
-  .register-time-note{
-    grid-column:1;
+    gap:6px;
   }
 
   .register-field-grid,
