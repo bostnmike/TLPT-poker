@@ -45,10 +45,13 @@ try{
  start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8791','--config','wrangler.password.local.json','--persist-to',state,'--inspector-port','0']);await ready(passwordBase+'/auth/login');
  const logIn=(value,origin=passwordBase)=>workerFetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
  assert.equal((await fetch(passwordBase+'/api/register')).status,401);
+ assert.equal((await fetch(passwordBase+'/api/reader-setup')).status,401,'Reader credentials must require owner sign-in');
+ assert.equal((await fetch(passwordBase+'/auth/login')).headers.get('Referrer-Policy'),'same-origin','Native sign-in forms must preserve their same-origin Origin header');
  assert.equal((await logIn(password,'https://attacker.example')).status,403);
  assert.equal((await logIn('incorrect integration password')).status,401);
  const loggedIn=await logIn(password);assert.equal(loggedIn.status,303,await loggedIn.clone().text());const cookie=loggedIn.headers.get('Set-Cookie').split(';')[0];
  assert.equal((await fetch(passwordBase+'/api/register',{headers:{Cookie:cookie}})).status,200);
+ const privateSettings=await fetch(passwordBase+'/api/reader-setup',{headers:{Cookie:cookie}});assert.equal(privateSettings.status,200);assert.equal(privateSettings.headers.get('Cache-Control'),'private, no-store');assert.equal((await privateSettings.json()).importToken,secret);
  assert.equal((await fetch(passwordBase+'/api/register',{headers:{Cookie:cookie+'x'}})).status,401);
  for(let i=0;i<3;i++)assert.equal((await logIn('incorrect integration password')).status,401);
  assert.equal((await logIn(password)).status,429,'The sixth attempt must be blocked even with a correct password');

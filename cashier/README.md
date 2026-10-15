@@ -112,12 +112,13 @@ relying on automated import.
    password manager. Never paste it into chat. The helper sends only a salted
    100,000-iteration PBKDF2-SHA256 verifier and a random 256-bit session key to
    Cloudflare's encrypted secrets through hidden stdin. It logs no credentials,
-   writes none to disk, checks the form origin and CSRF token, and closes after
-   success. Re-running it rotates the password and invalidates existing sessions.
-5. Generate a distinct random import token with at least 32 characters and set
-   it through `wrangler secret put IMPORT_TOKEN --config
-   wrangler.deploy.local.json`. Do not reuse the Sites access credential. Never
-   place the new token in source, URLs, issues, screenshots, or chat.
+   writes none to disk, checks the form origin and CSRF token, and keeps the success page available until its 20-minute setup window ends. Re-running it rotates the password and invalidates existing sessions.
+5. Run `node scripts/initialize-import.mjs wrangler.deploy.local.json` to create
+   a distinct random 256-bit reader secret. This refuses to replace an existing
+   import secret and logs no credential values. After owner sign-in, the reader
+   setup page offers Copy buttons for the private Google Script Properties. It
+   does not render the secret text; the API is owner-authenticated and no-store.
+   Do not put credentials in source, URLs, issues, screenshots, or chat.
 6. Test owner sign-in on the iPad, secure-cookie behavior, sign-out, anonymous
    and forged-cookie rejection, receipt dry runs, and unchanged payment totals.
    Login permits five attempts per source IP and thirty account-wide per
