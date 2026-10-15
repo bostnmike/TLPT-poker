@@ -9,7 +9,11 @@
         "a.i. dave",
         "ai-dave",
         "ai dave"
-      ]
+      ],
+      "venmoNames": [
+        "David Michaelson"
+      ],
+      "venmoUsername": "dmichaelson"
     },
     {
       "name": "Ahmed",
@@ -18,7 +22,11 @@
       "notes": "You should get in there, Man!",
       "aliases": [
         "ahmed"
-      ]
+      ],
+      "venmoNames": [
+        "Sadr Ahmed"
+      ],
+      "venmoUsername": "Sadr-Ahmed"
     },
     {
       "name": "Alex C",
@@ -29,7 +37,11 @@
         "alex",
         "alex c",
         "alex-c"
-      ]
+      ],
+      "venmoNames": [
+        "Alexander Cowart"
+      ],
+      "venmoUsername": "alexcowart03"
     },
     {
       "name": "Big Tim",
@@ -58,7 +70,11 @@
       "notes": "Play as tight as you want, Mike.",
       "aliases": [
         "bostnmike"
-      ]
+      ],
+      "venmoNames": [
+        "Michael Blanchette"
+      ],
+      "venmoUsername": "BostnMike"
     },
     {
       "name": "Brad R",
@@ -99,7 +115,11 @@
       "aliases": [
         "chris o",
         "chris-o"
-      ]
+      ],
+      "venmoNames": [
+        "Thomas Ormsby"
+      ],
+      "venmoUsername": "Thomas-Ormsby"
     },
     {
       "name": "Cougar",
@@ -108,7 +128,11 @@
       "notes": "Nice hand, you SUCK!",
       "aliases": [
         "cougar"
-      ]
+      ],
+      "venmoNames": [
+        "Timothy Bailey"
+      ],
+      "venmoUsername": "CougarTLB"
     },
     {
       "name": "Dan K",
@@ -178,7 +202,11 @@
       "notes": "It's 1,400 to me.. and I say.... Hmmmmmmmm.!",
       "aliases": [
         "hiro"
-      ]
+      ],
+      "venmoNames": [
+        "Hiro Asari"
+      ],
+      "venmoUsername": "HiroAsari"
     },
     {
       "name": "Jeff T",
@@ -197,7 +225,11 @@
       "notes": "",
       "aliases": [
         "kishan"
-      ]
+      ],
+      "venmoNames": [
+        "Kishan Changela"
+      ],
+      "venmoUsername": "kcchangela"
     },
     {
       "name": "Li-Fo",
@@ -208,7 +240,11 @@
         "li-fo",
         "lifo",
         "tony"
-      ]
+      ],
+      "venmoNames": [
+        "Tony Kosturi"
+      ],
+      "venmoUsername": "soonthanks"
     },
     {
       "name": "Liam O",
@@ -218,7 +254,11 @@
       "aliases": [
         "liam o",
         "liam-o"
-      ]
+      ],
+      "venmoNames": [
+        "Liam Ohanlon"
+      ],
+      "venmoUsername": "Liam-Ohanlon-2"
     },
     {
       "name": "Nasa Al",
@@ -229,7 +269,11 @@
         "nasa al",
         "nasa-al",
         "al"
-      ]
+      ],
+      "venmoNames": [
+        "Nas Al F"
+      ],
+      "venmoUsername": "nasalf"
     },
     {
       "name": "Nitro",
@@ -260,7 +304,11 @@
         "PhattedCalf",
         "Phatted,calf",
         "phatted calf"
-      ]
+      ],
+      "venmoNames": [
+        "Nat Stine"
+      ],
+      "venmoUsername": "Nathaniel-Stine"
     },
     {
       "name": "PittsburghBill",
@@ -271,7 +319,11 @@
         "pittsburghbill",
         "pittsburgh bill",
         "pittdburghbill"
-      ]
+      ],
+      "venmoNames": [
+        "Bill Stevenson"
+      ],
+      "venmoUsername": "Bill-Stevenson-5"
     },
     {
       "name": "ProvidenceMike",
@@ -290,7 +342,11 @@
       "notes": "Glory, Glory, Man United.",
       "aliases": [
         "red"
-      ]
+      ],
+      "venmoNames": [
+        "Andrew Grace"
+      ],
+      "venmoUsername": "Andrew-Grace-10"
     },
     {
       "name": "The Architect",
@@ -303,7 +359,11 @@
         "architect",
         "billy b",
         "billy"
-      ]
+      ],
+      "venmoNames": [
+        "William Blanchette"
+      ],
+      "venmoUsername": "William-Blanchette-1"
     },
     {
       "name": "Tim S",
@@ -332,7 +392,11 @@
       "notes": "I just want to gamble. I shomve. Vamos!",
       "aliases": [
         "vish"
-      ]
+      ],
+      "venmoNames": [
+        "Vishal Nair"
+      ],
+      "venmoUsername": "Vishuals"
     },
     {
       "name": "Wild Bill",
@@ -343,7 +407,11 @@
         "wild bill",
         "wild-bill",
         "bill"
-      ]
+      ],
+      "venmoNames": [
+        "William Lawton"
+      ],
+      "venmoUsername": "LibNotwal"
     },
     {
       "name": "Yann",
