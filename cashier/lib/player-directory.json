@@ -1,0 +1,389 @@
+[
+  {
+    "name": "A.I. Dave",
+    "slug": "ai-dave",
+    "aliases": [
+      "a.i. dave",
+      "ai-dave",
+      "ai dave"
+    ],
+    "image": "https://tlpt.org/images/players/ai-dave.jpg",
+    "venmoNames": [
+      "David Michaelson"
+    ],
+    "venmoUsername": "dmichaelson"
+  },
+  {
+    "name": "Ahmed",
+    "slug": "ahmed",
+    "aliases": [
+      "ahmed"
+    ],
+    "image": "https://tlpt.org/images/players/ahmed.jpg",
+    "venmoNames": [
+      "Sadr Ahmed"
+    ],
+    "venmoUsername": "Sadr-Ahmed"
+  },
+  {
+    "name": "Alex C",
+    "slug": "alex-c",
+    "aliases": [
+      "alex",
+      "alex c",
+      "alex-c"
+    ],
+    "image": "https://tlpt.org/images/players/alex-c.jpg",
+    "venmoNames": [
+      "Alexander Cowart"
+    ],
+    "venmoUsername": "alexcowart03"
+  },
+  {
+    "name": "Big Tim",
+    "slug": "big-tim",
+    "aliases": [
+      "big tim",
+      "big-tim"
+    ],
+    "image": "https://tlpt.org/images/players/big-tim.jpg"
+  },
+  {
+    "name": "Bob",
+    "slug": "rob-f",
+    "aliases": [
+      "rob f",
+      "rob-f"
+    ],
+    "image": "https://tlpt.org/images/players/rob-f.jpg"
+  },
+  {
+    "name": "BostnMike",
+    "slug": "bostnmike",
+    "aliases": [
+      "bostnmike"
+    ],
+    "image": "https://tlpt.org/images/players/bostnmike.jpg",
+    "venmoNames": [
+      "Michael Blanchette"
+    ],
+    "venmoUsername": "BostnMike"
+  },
+  {
+    "name": "Brad R",
+    "slug": "brad-r",
+    "aliases": [
+      "brad r",
+      "brad-r"
+    ],
+    "image": "https://tlpt.org/images/players/brad-r.jpg"
+  },
+  {
+    "name": "BuffaloMike",
+    "slug": "buffalomike",
+    "aliases": [
+      "buffalomike",
+      "buffalo mike",
+      "mike-g"
+    ],
+    "image": "https://tlpt.org/images/players/buffalomike.jpg"
+  },
+  {
+    "name": "Chris F",
+    "slug": "chris-f",
+    "aliases": [
+      "chris f",
+      "chris-f"
+    ],
+    "image": "https://tlpt.org/images/players/chris-f.jpg"
+  },
+  {
+    "name": "Chris O",
+    "slug": "chris-o",
+    "aliases": [
+      "chris o",
+      "chris-o"
+    ],
+    "image": "https://tlpt.org/images/players/chris-o.jpg",
+    "venmoNames": [
+      "Thomas Ormsby"
+    ],
+    "venmoUsername": "Thomas-Ormsby"
+  },
+  {
+    "name": "Cougar",
+    "slug": "cougar",
+    "aliases": [
+      "cougar"
+    ],
+    "image": "https://tlpt.org/images/players/cougar.jpg",
+    "venmoNames": [
+      "Timothy Bailey"
+    ],
+    "venmoUsername": "CougarTLB"
+  },
+  {
+    "name": "Dan K",
+    "slug": "dan-k",
+    "aliases": [
+      "dan k",
+      "dan-k"
+    ],
+    "image": "https://tlpt.org/images/players/dan-k.jpg"
+  },
+  {
+    "name": "David K",
+    "slug": "david-k",
+    "aliases": [
+      "david k",
+      "david-k"
+    ],
+    "image": "https://tlpt.org/images/players/david-k.jpg"
+  },
+  {
+    "name": "Fabian",
+    "slug": "fabian",
+    "aliases": [
+      "fabian"
+    ],
+    "image": "https://tlpt.org/images/players/fabian.jpg"
+  },
+  {
+    "name": "Gilmore",
+    "slug": "gilmore",
+    "aliases": [
+      "gilmore",
+      "matthew g"
+    ],
+    "image": "https://tlpt.org/images/players/gilmore.jpg"
+  },
+  {
+    "name": "Griffin",
+    "slug": "griffin",
+    "aliases": [
+      "griffin",
+      "Griffin",
+      "Grif",
+      "grif"
+    ],
+    "image": "https://tlpt.org/images/players/grif.jpg"
+  },
+  {
+    "name": "Hayden D",
+    "slug": "hayden-d",
+    "aliases": [
+      "hayden d",
+      "hayden-d"
+    ],
+    "image": "https://tlpt.org/images/players/hayden-d.jpg"
+  },
+  {
+    "name": "Hiro",
+    "slug": "hiro",
+    "aliases": [
+      "hiro"
+    ],
+    "image": "https://tlpt.org/images/players/hiro.jpg",
+    "venmoNames": [
+      "Hiro Asari"
+    ],
+    "venmoUsername": "HiroAsari"
+  },
+  {
+    "name": "Jeff T",
+    "slug": "jeff-t",
+    "aliases": [
+      "jeff t",
+      "jeff-t"
+    ],
+    "image": "https://tlpt.org/images/players/jeff-t.jpg"
+  },
+  {
+    "name": "Kishan",
+    "slug": "kishan",
+    "aliases": [
+      "kishan"
+    ],
+    "image": "https://tlpt.org/images/players/kishan.jpg",
+    "venmoNames": [
+      "Kishan Changela"
+    ],
+    "venmoUsername": "kcchangela"
+  },
+  {
+    "name": "Li-Fo",
+    "slug": "li-fo",
+    "aliases": [
+      "li-fo",
+      "lifo",
+      "tony"
+    ],
+    "image": "https://tlpt.org/images/players/li-fo.jpg",
+    "venmoNames": [
+      "Tony Kosturi"
+    ],
+    "venmoUsername": "soonthanks"
+  },
+  {
+    "name": "Liam O",
+    "slug": "liam-o",
+    "aliases": [
+      "liam o",
+      "liam-o"
+    ],
+    "image": "https://tlpt.org/images/players/liam-o.jpg",
+    "venmoNames": [
+      "Liam Ohanlon"
+    ],
+    "venmoUsername": "Liam-Ohanlon-2"
+  },
+  {
+    "name": "Nasa Al",
+    "slug": "nasa-al",
+    "aliases": [
+      "nasa al",
+      "nasa-al",
+      "al"
+    ],
+    "image": "https://tlpt.org/images/players/nasa-al.jpg",
+    "venmoNames": [
+      "Nas Al F"
+    ],
+    "venmoUsername": "nasalf"
+  },
+  {
+    "name": "Nitro",
+    "slug": "nitro",
+    "aliases": [
+      "nitro",
+      "lazar"
+    ],
+    "image": "https://tlpt.org/images/players/nitro.jpg"
+  },
+  {
+    "name": "Pat",
+    "slug": "pat",
+    "aliases": [
+      "pat"
+    ],
+    "image": "https://tlpt.org/images/players/pat.jpg"
+  },
+  {
+    "name": "PhattedCalf",
+    "slug": "phattedcalf",
+    "aliases": [
+      "phattedcalf",
+      "PhattedCalf",
+      "Phatted,calf",
+      "phatted calf"
+    ],
+    "image": "https://tlpt.org/images/players/phattedcalf.jpg",
+    "venmoNames": [
+      "Nat Stine"
+    ],
+    "venmoUsername": "Nathaniel-Stine"
+  },
+  {
+    "name": "PittsburghBill",
+    "slug": "pittsburghbill",
+    "aliases": [
+      "pittsburghbill",
+      "pittsburgh bill",
+      "pittdburghbill"
+    ],
+    "image": "https://tlpt.org/images/players/pittsburghbill.jpg",
+    "venmoNames": [
+      "Bill Stevenson"
+    ],
+    "venmoUsername": "Bill-Stevenson-5"
+  },
+  {
+    "name": "ProvidenceMike",
+    "slug": "providencemike",
+    "aliases": [
+      "providencemike",
+      "providence mike"
+    ],
+    "image": "https://tlpt.org/images/players/providencemike.jpg"
+  },
+  {
+    "name": "Red",
+    "slug": "red",
+    "aliases": [
+      "red"
+    ],
+    "image": "https://tlpt.org/images/players/red.jpg",
+    "venmoNames": [
+      "Andrew Grace"
+    ],
+    "venmoUsername": "Andrew-Grace-10"
+  },
+  {
+    "name": "The Architect",
+    "slug": "the-architect",
+    "aliases": [
+      "the architect",
+      "the-architect",
+      "architect",
+      "billy b",
+      "billy"
+    ],
+    "image": "https://tlpt.org/images/players/the-architect.jpg",
+    "venmoNames": [
+      "William Blanchette"
+    ],
+    "venmoUsername": "William-Blanchette-1"
+  },
+  {
+    "name": "Tim S",
+    "slug": "tim-s",
+    "aliases": [
+      "tim s",
+      "tim-s",
+      "tim s."
+    ],
+    "image": "https://tlpt.org/images/players/tim-s.jpg"
+  },
+  {
+    "name": "Vic",
+    "slug": "vic",
+    "aliases": [
+      "vic"
+    ],
+    "image": "https://tlpt.org/images/players/vic.jpg"
+  },
+  {
+    "name": "Vish",
+    "slug": "vish",
+    "aliases": [
+      "vish"
+    ],
+    "image": "https://tlpt.org/images/players/vish.jpg",
+    "venmoNames": [
+      "Vishal Nair"
+    ],
+    "venmoUsername": "Vishuals"
+  },
+  {
+    "name": "Wild Bill",
+    "slug": "wild-bill",
+    "aliases": [
+      "wild bill",
+      "wild-bill",
+      "bill"
+    ],
+    "image": "https://tlpt.org/images/players/wild-bill.jpg",
+    "venmoNames": [
+      "William Lawton"
+    ],
+    "venmoUsername": "LibNotwal"
+  },
+  {
+    "name": "Yann",
+    "slug": "yann",
+    "aliases": [
+      "yann"
+    ],
+    "image": "https://tlpt.org/images/players/yann.jpg"
+  }
+]

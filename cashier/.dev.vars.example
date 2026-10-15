@@ -1,0 +1,4 @@
+# Local development only. The development launcher supplies this identity only
+# to the loopback Worker. It is rejected by staging/production configuration.
+LOCAL_OWNER_EMAIL=blanchettemr@gmail.com
+IMPORT_TOKEN=local-test-import-token-not-for-deployment

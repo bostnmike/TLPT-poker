@@ -1,0 +1,1 @@
+ALTER TABLE `payments` ADD `item_cents` text;

@@ -1,0 +1,11 @@
+{
+  "id": "/",
+  "name": "TLPT Cash Register",
+  "short_name": "TLPT Register",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0d12",
+  "theme_color": "#0a0d12",
+  "icons": [{"src":"/images/brand/tlpt-chip-100.png","sizes":"598x598","type":"image/png","purpose":"any"}]
+}
