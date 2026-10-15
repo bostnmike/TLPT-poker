@@ -1,0 +1,9 @@
+'use client';
+import {useEffect,useRef} from 'react';
+import {Trash2} from 'lucide-react';
+export default function DeletePayment({player,amount,description,eventLabel,linkedReceipts,busy,error,onCancel,onConfirm}:{player:string;amount:string;description:string;eventLabel:string;linkedReceipts:number;busy:boolean;error:string;onCancel:()=>void;onConfirm:()=>void}){
+ const panel=useRef<HTMLElement|null>(null);
+ useEffect(()=>{panel.current?.focus({preventScroll:true});},[]);
+ useEffect(()=>{const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'&&!busy)onCancel();};document.addEventListener('keydown',escape);return()=>document.removeEventListener('keydown',escape);},[busy,onCancel]);
+ return <div className="overlay"><section ref={panel} tabIndex={-1} className="modal delete-modal" role="alertdialog" aria-modal="true" aria-labelledby="delete-title" aria-describedby="delete-description"><button className="close" disabled={busy} onClick={onCancel} aria-label="Cancel deletion">×</button><p className="eyebrow">TRANSACTION</p><h2 id="delete-title">Delete this transaction?</h2><div className="delete-summary"><strong>{player}</strong><b>{amount}</b><p>{description}</p><small>{eventLabel}</small></div><p id="delete-description">This permanently removes the transaction and all its items. Any confirmed amount is removed from event totals. This cannot be undone and does not send a refund.</p>{linkedReceipts>0&&<p>Its linked Venmo receipt will also be removed so it cannot be counted again.</p>}{error&&<p className="banner error" role="alert">{error}</p>}<div className="modalbuttons"><button disabled={busy} onClick={onCancel}>Cancel</button><button className="danger" disabled={busy} onClick={onConfirm}><Trash2 aria-hidden="true"/>{busy?'Deleting…':'Delete transaction'}</button></div></section></div>;
+}
