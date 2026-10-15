@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
-  <link rel="stylesheet" href="register.css?v=20261015-1" />
+  <link rel="stylesheet" href="register.css?v=20261015-2" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
 </head>
@@ -111,7 +111,7 @@
       <h2 id="register-intake-title">This is an intake form, not an automatic seat.</h2>
       <p>Your answers go directly to the league commissioner. Nothing is added to the roster until the registration and avatar are reviewed.</p>
     </div>
-    <span class="register-time-note">About 6–8 minutes</span>
+    <span class="register-time-note">About 4–5 minutes</span>
   </section>
 
   <section class="section register-shell" aria-labelledby="register-form-title">
@@ -128,8 +128,7 @@
       <li data-progress-step="0" aria-current="step"><span>1</span><strong>Identity</strong></li>
       <li data-progress-step="1"><span>2</span><strong>Contact</strong></li>
       <li data-progress-step="2"><span>3</span><strong>Avatar</strong></li>
-      <li data-progress-step="3"><span>4</span><strong>Persona</strong></li>
-      <li data-progress-step="4"><span>5</span><strong>Review</strong></li>
+      <li data-progress-step="3"><span>4</span><strong>Review</strong></li>
     </ol>
 
     <p class="register-form-status" id="register-form-status" role="status" aria-live="polite"></p>
@@ -146,12 +145,13 @@
       <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_next" value="https://tlpt.org/register.html?submitted=1" />
       <input type="hidden" name="Registration source" value="TLPT hidden registration page" />
-      <input type="hidden" id="metadata-draft" name="Proposed player metadata" value="" />
+      <input type="hidden" name="Registration packet version" value="1" />
+      <input type="hidden" id="registration-packet" name="Registration packet JSON" value="" />
       <label class="register-honey" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
 
       <fieldset class="register-step" data-register-step="0">
         <legend class="register-step-heading">
-          <span>Step 1 of 5</span>
+          <span>Step 1 of 4</span>
           <strong>Player identity</strong>
           <small>Tell us what should appear on the site—and what the tournament software may call you.</small>
         </legend>
@@ -203,7 +203,7 @@
 
       <fieldset class="register-step" data-register-step="1" hidden>
         <legend class="register-step-heading">
-          <span>Step 2 of 5</span>
+          <span>Step 2 of 4</span>
           <strong>Contact &amp; league logistics</strong>
           <small>Enough to coordinate a game. No address, payment, or banking information belongs here.</small>
         </legend>
@@ -252,7 +252,7 @@
 
       <fieldset class="register-step" data-register-step="2" hidden>
         <legend class="register-step-heading">
-          <span>Step 3 of 5</span>
+          <span>Step 3 of 4</span>
           <strong>Your avatar starter kit</strong>
           <small>Give the artist a clear likeness and enough visual material to make the portrait unmistakably yours.</small>
         </legend>
@@ -311,75 +311,13 @@
 
         <div class="register-step-actions">
           <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
-          <button class="btn register-next" type="button" data-next-step>Continue to Persona <span aria-hidden="true">→</span></button>
+          <button class="btn register-next" type="button" data-next-step>Review Registration <span aria-hidden="true">→</span></button>
         </div>
       </fieldset>
 
       <fieldset class="register-step" data-register-step="3" hidden>
         <legend class="register-step-heading">
-          <span>Step 4 of 5</span>
-          <strong>Table persona</strong>
-          <small>The stats arrive later. This gives the profile a personality before the first cards are dealt.</small>
-        </legend>
-
-        <div class="register-field-grid">
-          <div class="register-field">
-            <label for="poker-experience">Poker experience <span aria-hidden="true">*</span></label>
-            <select id="poker-experience" name="Poker experience" required>
-              <option value="">Choose one</option>
-              <option>Brand new</option>
-              <option>Friendly home games</option>
-              <option>Regular tournament player</option>
-              <option>Casino or card-room regular</option>
-              <option>I have charts and I am not afraid to mention them</option>
-            </select>
-          </div>
-
-          <div class="register-field">
-            <label for="favorite-hand">Favorite starting hand</label>
-            <input id="favorite-hand" name="Favorite starting hand" type="text" maxlength="60" placeholder="Optional—and possibly incriminating" />
-          </div>
-
-          <div class="register-field register-field-wide">
-            <label for="playing-style">Describe your playing style <span aria-hidden="true">*</span></label>
-            <textarea id="playing-style" name="Self-described playing style" rows="3" maxlength="500" placeholder="Tight, reckless, unreadable, honest to a fault…" required></textarea>
-          </div>
-
-          <div class="register-field">
-            <label for="catchphrase">Catchphrase or quote <span aria-hidden="true">*</span></label>
-            <input id="catchphrase" name="Player catchphrase" type="text" maxlength="180" placeholder="This becomes your starter profile quote" required />
-          </div>
-
-          <div class="register-field">
-            <label for="nickname-fate">A nickname you hope—or fear—will stick</label>
-            <input id="nickname-fate" name="Nickname hopes or fears" type="text" maxlength="140" placeholder="Optional" />
-          </div>
-
-          <div class="register-field register-field-wide">
-            <label for="questionable-habit">Your most questionable poker habit</label>
-            <textarea id="questionable-habit" name="Questionable poker habit" rows="3" maxlength="500" placeholder="Tank too long? Defend every big blind? Celebrate suited cards as a personal achievement?"></textarea>
-          </div>
-
-          <div class="register-field register-field-wide">
-            <label for="roast-material">What will the group probably roast you about?</label>
-            <textarea id="roast-material" name="Volunteered roast material" rows="3" maxlength="600" placeholder="Useful material only. We are not asking for sworn testimony."></textarea>
-          </div>
-
-          <div class="register-field register-field-wide">
-            <label for="off-limits">Anything that is off-limits</label>
-            <textarea id="off-limits" name="Humor boundaries" rows="3" maxlength="600" placeholder="Topics the site and table should leave alone. This answer is respected."></textarea>
-          </div>
-        </div>
-
-        <div class="register-step-actions">
-          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
-          <button class="btn register-next" type="button" data-next-step>Review Registration <span aria-hidden="true">→</span></button>
-        </div>
-      </fieldset>
-
-      <fieldset class="register-step" data-register-step="4" hidden>
-        <legend class="register-step-heading">
-          <span>Step 5 of 5</span>
+          <span>Step 4 of 4</span>
           <strong>Review &amp; consent</strong>
           <small>One last look before this reaches the commissioner’s inbox.</small>
         </legend>
@@ -400,8 +338,8 @@
             <span><strong>TLPT may use my reference photos to create and publicly display an illustrated player avatar.</strong><small>The submitted reference photos themselves will not be posted as my profile image.</small></span>
           </label>
           <label class="register-consent">
-            <input type="checkbox" name="Humor boundaries acknowledged" value="Yes" required />
-            <span><strong>I understand the league uses player-specific humor, and any boundaries I listed above still apply.</strong></span>
+            <input type="checkbox" name="League humor acknowledged" value="Yes" required />
+            <span><strong>I understand the league uses player-specific humor in its write-ups and at the table.</strong></span>
           </label>
         </div>
 
@@ -412,7 +350,7 @@
 
         <div class="register-privacy-note">
           <strong>What happens next</strong>
-          <p>Your registration and attachments are processed by FormSubmit and emailed to the commissioner at <span>blanchettemr@gmail.com</span>. Do not include passwords, payment information, a home address, or other private access details.</p>
+          <p>Your registration and attachments are processed by FormSubmit and emailed to the commissioner at <span>blanchettemr@gmail.com</span>. A structured registration packet is included so an approved player can be added without retyping the form. Do not include passwords, payment information, a home address, or other private access details.</p>
         </div>
 
         <div class="register-step-actions">
@@ -426,8 +364,8 @@
       <span class="register-confirmation-icon" aria-hidden="true">✓</span>
       <span class="page-kicker">Registration received</span>
       <h2 id="register-confirmation-title">You’re in the queue.</h2>
-      <p>The commissioner will review your player identity, prepare the avatar brief, and follow up before your first official appearance.</p>
-      <p class="register-confirmation-joke">The statistics—and regrettable decisions—begin at the table.</p>
+      <p>BostnMike (aka The Commish) will create your player identity, prepare your avatar, and add you to the roster before your first official appearance.</p>
+      <p class="register-confirmation-joke">The statistics—and regrettable decisions—begin at the table. Welcome to the league!</p>
       <a class="btn" href="index.html">Return to TLPT Home</a>
     </section>
   </section>
@@ -444,6 +382,6 @@
 </footer>
 
 <script src="site-shell.js?v=20261012-3"></script>
-<script src="register.js?v=20261015-1"></script>
+<script src="register.js?v=20261015-2"></script>
 </body>
 </html>

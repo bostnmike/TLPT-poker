@@ -10,7 +10,7 @@
   const review = document.getElementById("register-review");
   const fileInput = document.getElementById("avatar-photos");
   const fileStatus = document.getElementById("avatar-file-status");
-  const metadataDraft = document.getElementById("metadata-draft");
+  const registrationPacket = document.getElementById("registration-packet");
   const submitButton = document.getElementById("register-submit");
   const confirmation = document.getElementById("register-confirmation");
   const shellHead = document.querySelector(".register-shell-head");
@@ -33,7 +33,7 @@
     return slug || "waiting-for-name";
   };
 
-  const updateMetadataDraft = () => {
+  const updateRegistrationPacket = () => {
     const displayName = valueOf("display-name");
     const slug = slugify(displayName);
     const nicknameAliases = valueOf("nicknames")
@@ -47,16 +47,60 @@
         return normalized !== displayName.toLowerCase()
           && values.findIndex(value => value.toLowerCase() === normalized) === index;
       });
-    const draft = {
-      name: displayName,
-      slug,
-      image: `images/players/${slug}.jpg`,
-      notes: valueOf("catchphrase"),
-      aliases,
+    const packet = {
+      schemaVersion:1,
+      status:"pending-review",
+      source:"TLPT hidden registration page",
+      identity:{
+        displayName,
+        tournamentDirectorName:valueOf("tournament-name"),
+        nicknames:valueOf("nicknames"),
+        pronunciation:valueOf("pronunciation"),
+        pronouns:valueOf("pronouns"),
+        invitedBy:valueOf("invited-by"),
+        slug,
+        aliases,
+      },
+      contact:{
+        email:valueOf("registration-email"),
+        phone:valueOf("registration-phone"),
+        preferredMethod:checkedValue("Preferred contact method"),
+        availability:checkedValue("Usual availability"),
+        hostNotes:valueOf("host-notes"),
+      },
+      avatar:{
+        referenceFiles:Array.from(fileInput?.files || []).map(file => ({
+          name:file.name,
+          size:file.size,
+          type:file.type,
+        })),
+        featuresToPreserve:valueOf("features-preserve"),
+        clothingAndColors:valueOf("avatar-clothing"),
+        teamsPlacesInterests:valueOf("avatar-interests"),
+        propsAndSymbols:valueOf("avatar-props"),
+        background:valueOf("avatar-setting"),
+        poseAndExpression:valueOf("avatar-expression"),
+        mustHaveDetail:valueOf("avatar-must-have"),
+        exclusions:valueOf("avatar-avoid"),
+      },
+      consent:{
+        accuracy:checkedValue("Accuracy confirmed") === "Yes",
+        publicProfile:checkedValue("Public profile consent") === "Yes",
+        aiLikeness:checkedValue("AI likeness consent") === "Yes",
+        leagueHumor:checkedValue("League humor acknowledged") === "Yes",
+      },
+      finalNote:valueOf("final-notes"),
+      publicProfileDraft:{
+        name:displayName,
+        slug,
+        image:`images/players/${slug}.jpg`,
+        notes:"",
+        aliases,
+      },
     };
     const slugPreview = document.getElementById("slug-preview");
     if (slugPreview) slugPreview.value = slug;
-    if (metadataDraft) metadataDraft.value = JSON.stringify(draft);
+    if (registrationPacket) registrationPacket.value = JSON.stringify(packet);
   };
 
   const syncEnhancedSelect = select => {
@@ -165,7 +209,7 @@
 
   const renderReview = () => {
     if (!review) return;
-    updateMetadataDraft();
+    updateRegistrationPacket();
     review.replaceChildren();
     const photoNames = Array.from(fileInput?.files || []).map(file => file.name).join(", ");
 
@@ -180,21 +224,18 @@
       ["Phone", valueOf("registration-phone")],
       ["Preferred method", checkedValue("Preferred contact method")],
       ["Availability", checkedValue("Usual availability")],
+      ["Host notes", valueOf("host-notes")],
     ]);
     addReviewGroup("Avatar brief", [
       ["Reference photos", photoNames],
+      ["Features to preserve", valueOf("features-preserve")],
       ["Clothing", valueOf("avatar-clothing")],
       ["Teams & interests", valueOf("avatar-interests")],
       ["Props", valueOf("avatar-props")],
       ["Background", valueOf("avatar-setting")],
+      ["Pose", valueOf("avatar-expression")],
+      ["Must-have detail", valueOf("avatar-must-have")],
       ["Avoid", valueOf("avatar-avoid")],
-    ]);
-    addReviewGroup("Table persona", [
-      ["Experience", valueOf("poker-experience")],
-      ["Playing style", valueOf("playing-style")],
-      ["Catchphrase", valueOf("catchphrase")],
-      ["Roast material", valueOf("roast-material")],
-      ["Off-limits", valueOf("off-limits")],
     ]);
   };
 
@@ -209,8 +250,8 @@
     button.addEventListener("click", () => showStep(currentStep - 1));
   });
 
-  form.addEventListener("input", updateMetadataDraft);
-  form.addEventListener("change", updateMetadataDraft);
+  form.addEventListener("input", updateRegistrationPacket);
+  form.addEventListener("change", updateRegistrationPacket);
   fileInput?.addEventListener("change", validateFiles);
 
   form.addEventListener("submit", event => {
@@ -227,7 +268,7 @@
       focusInvalidControl(steps[invalidStepIndex].querySelector(":invalid"));
       return;
     }
-    updateMetadataDraft();
+    updateRegistrationPacket();
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "Sending registration…";
@@ -249,7 +290,7 @@
     if (confirmation) confirmation.hidden = false;
     window.history.replaceState({}, "", window.location.pathname);
   } else {
-    updateMetadataDraft();
+    updateRegistrationPacket();
     showStep(0, false);
   }
 })();
