@@ -22,6 +22,21 @@ function sendBatch_(messages,mode){
  return result;
 }
 function checkShadowConnection(){const p=PropertiesService.getScriptProperties();requestRegister_(p.getProperty('SHADOW_REGISTER_ORIGIN'),p.getProperty('SHADOW_IMPORT_TOKEN'),null,[],'connection-test');console.log('Secondary cashier connection verified. Current reader target unchanged.');}
+function promoteCloudflareReader(){
+ const lock=LockService.getScriptLock();if(!lock.tryLock(1000))throw new Error('Reader is busy; try the cutover again.');
+ try{
+  const p=PropertiesService.getScriptProperties(),target='https://tlpt-cashier-staging.tlpt-bostnmike.workers.dev';
+  const current=p.getProperty('REGISTER_ORIGIN')||LEGACY_REGISTER_ORIGIN;
+  if(current===target){requestRegister_(target,p.getProperty('IMPORT_TOKEN'),null,[],'connection-test');console.log('Cloudflare is already the primary register. Existing timer and processed IDs unchanged.');return;}
+  if(current!==LEGACY_REGISTER_ORIGIN||p.getProperty('SHADOW_REGISTER_ORIGIN')!==target)throw new Error('Expected the verified legacy primary and Cloudflare secondary. No settings changed.');
+  const token=p.getProperty('SHADOW_IMPORT_TOKEN');
+  requestRegister_(target,token,null,[],'connection-test');
+  // Move existing credentials inside Google; never return or log their values.
+  p.setProperties({PREVIOUS_REGISTER_ORIGIN:current,PREVIOUS_IMPORT_TOKEN:p.getProperty('IMPORT_TOKEN'),REGISTER_ORIGIN:target,IMPORT_TOKEN:token});
+  p.deleteProperty('SHADOW_REGISTER_ORIGIN');p.deleteProperty('SHADOW_IMPORT_TOKEN');
+  console.log('Cloudflare is now the primary register. Previous connection retained privately for rollback. Existing timer and processed IDs unchanged.');
+ }finally{lock.releaseLock();}
+}
 function verifyShadowReceiptFormat(){
  const p=PropertiesService.getScriptProperties(),list=Gmail.Users.Messages.list('me',{q:'in:anywhere from:venmo.com subject:("paid you")',maxResults:5});
  if(!(list.messages||[]).length){console.log('No genuine received-payment emails found. Format remains unverified.');return;}

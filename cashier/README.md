@@ -1,9 +1,21 @@
 # TLPT Cashier — Cloudflare migration
 
 The cashier's interface, payment rules, database migrations, Gmail reader, and
-tests now live with TLPT. This is a parallel migration: **the working Sites app,
-Google reader configuration, and `https://tlpt.org/cashier.html` remain the live
-system until Cloudflare staging is verified and the records are reconciled.**
+tests live with TLPT. **`https://tlpt.org/cashier.html` opens the Cloudflare
+cashier.** The previous owner-private Sites app remains available for fallback.
+
+Production uses the already-tested Worker at
+`https://tlpt-cashier-staging.tlpt-bostnmike.workers.dev`. The historical Worker
+name is retained so the owner's existing password, signed-in session, and import
+secret continue working. Its environment is now `production`, and it binds only
+the reconciled `tlpt-cashier` production database. The old test database is kept
+separately and is not the live ledger. Future staging deployments use the distinct
+Worker name `tlpt-cashier-test` and the separate staging database; they cannot
+overwrite this production Worker through the normal staging command.
+
+The owner approved cutover before the first real Venmo receipts, expected during
+the October 16–17 games. Genuine receipt format verification remains pending;
+synthetic tests and the successful real mailbox connection do not replace it.
 
 ## Architecture
 
@@ -129,8 +141,10 @@ relying on automated import.
 Password sign-in requires no Cloudflare Access enrollment or login exception for
 `/api/import`. That endpoint independently requires its strong import secret.
 All browser ledger routes independently validate the session. The password
-setup helper must run separately for staging and production; their secrets and
-databases must remain separate. Browser sessions last 12 hours and use a
+setup helper must run separately for distinct staging and production Workers;
+their secrets and databases must remain separate. Promoting the already-tested
+Worker retains that Worker's own encrypted secrets while changing its database
+binding to production; it does not copy credentials between Workers. Browser sessions last 12 hours and use a
 `__Host-` cookie with Secure, HttpOnly, and SameSite=Strict. Logout clears that
 browser's cookie; password rotation invalidates all prior sessions.
 
@@ -193,8 +207,9 @@ frozen allocations, and private name mappings must survive too.
    reader timer, avoid manual entry, and take a **fresh final snapshot**. Preserve
    a backup and its totals. Keep the old app available as the rollback target.
 5. Create the separate production D1 database; deploy the production target only
-   with `CASHIER_STAGING_TESTED=1`. Set a new production import secret. Do not arm
-   its reader yet. Apply `private/restore.sql` with Wrangler to that new database.
+   with `CASHIER_STAGING_TESTED=1`. Configure new password/import secrets only for
+   a new Worker; the promoted tested Worker retains its existing secrets. Do not
+   arm its reader yet. Apply `private/restore.sql` with Wrangler to that new database.
    The restore refuses an existing ledger or an armed reader and validates table
    and column names before creating SQL. If an import fails, investigate the
    unused new database; do not resume from a partial ledger or overwrite the old
@@ -224,3 +239,17 @@ If ledger records or settings changed, restore the fresh snapshot into another
 new, unused database and reconcile it before binding the production Worker.
 The guarded restore intentionally refuses an occupied copy. Reader heartbeat
 and schedule-fetch timestamps naturally advance while the original remains live.
+
+## Approved promotion of the verified secondary connection
+
+`promoteCloudflareReader` checks the exact tested Cloudflare destination before
+moving the existing secondary origin/key into the primary Google Script
+Properties. It keeps the previous origin/key privately in
+`PREVIOUS_REGISTER_ORIGIN` and `PREVIOUS_IMPORT_TOKEN`, preserves
+`SITES_ACCESS_TOKEN`, and removes the secondary properties. Credential values
+never leave Google or appear in logs. The script lock prevents overlapping polls;
+the existing one-minute trigger and processed receipt IDs stay unchanged.
+A failed check changes no properties; a repeated successful promotion is safe.
+After promotion, run `checkConnection` and `pollVenmoReceipts`, verify the current
+mailbox check in the production register, and check that there is still one timer.
+Use `verifyReceiptFormat` when the first genuine receipt arrives.

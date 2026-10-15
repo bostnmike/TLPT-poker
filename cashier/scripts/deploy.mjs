@@ -24,4 +24,4 @@ if(!existsSync('dist/index.html'))throw Error('Build the cashier before deployin
 for(const args of [['d1','migrations','apply','DB','--remote','--config','wrangler.deploy.local.json'],['deploy','--config','wrangler.deploy.local.json']]){
  const result=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js',...args],{stdio:'inherit',env:{...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});if(result.status!==0)process.exit(result.status||1);
 }
-console.log('Deployment complete. For password sign-in, run scripts/set-password.mjs with this config. Set a new IMPORT_TOKEN before connecting the reader. The TLPT shortcut and existing app have not been changed.');
+console.log('Deployment complete. Existing encrypted secrets are retained. Configure password and import secrets only for a new Worker. The shortcut and reader are separate cutover steps.');

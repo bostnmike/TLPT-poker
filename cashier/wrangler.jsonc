@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tlpt-cashier-staging",
+  "name": "tlpt-cashier-test",
   "main": "worker.ts",
   "compatibility_date": "2026-05-15",
   "compatibility_flags": [
@@ -41,7 +41,7 @@
   ],
   "env": {
     "production": {
-      "name": "tlpt-cashier",
+      "name": "tlpt-cashier-staging",
       "vars": {
         "CASHIER_ENV": "production",
         "OWNER_EMAIL": "blanchettemr@gmail.com",
