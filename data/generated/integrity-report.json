@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-15T20:17:51.103236Z",
+  "generatedAt": "2026-10-15T20:19:17.644010Z",
   "status": "PASS",
   "scope": {
     "rawEvents": 54,
     "parsedEvents": 54,
     "players": 35,
-    "publicPages": 22,
+    "publicPages": 23,
     "collectibleCards": 65
   },
   "checksRun": 26399,
