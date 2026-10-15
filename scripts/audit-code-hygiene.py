@@ -2725,8 +2725,50 @@ def audit_search_discovery() -> list[str]:
     return errors
 
 
+def audit_cashier_shortcut() -> list[str]:
+    """The unlisted shortcut is a fixed redirect, not another public page shell."""
+    errors: list[str] = []
+    path = ROOT / "cashier.html"
+    if not path.is_file():
+        return ["cashier.html: unlisted cashier shortcut is missing"]
+    destination = "https://tlpt-cash-register-oct24.blanchettemr.chatgpt.site/"
+
+    class ShortcutParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.metas = []
+            self.links = []
+            self.tags = []
+
+        def handle_starttag(self, tag, attrs):
+            self.tags.append(tag)
+            values = dict(attrs)
+            if tag == "meta":
+                self.metas.append(values)
+            if tag == "a":
+                self.links.append(values.get("href"))
+
+    parser = ShortcutParser()
+    parser.feed(path.read_text(encoding="utf-8"))
+    refreshes = [m.get("content") for m in parser.metas if m.get("http-equiv", "").lower() == "refresh"]
+    robots = [m.get("content") for m in parser.metas if m.get("name") == "robots"]
+    if refreshes != ["0; url=" + destination] or parser.links != [destination]:
+        errors.append("cashier.html: redirect and fallback must open the date-independent private Cash Register")
+    if robots != ["noindex, nofollow, noarchive"]:
+        errors.append("cashier.html: unlisted shortcut must discourage search discovery")
+    if set(parser.tags) & {"script", "form", "iframe", "nav", "link"}:
+        errors.append("cashier.html: shortcut must not add scripts, forms, frames, navigation, or asset dependencies")
+    if "cashier.html" in (ROOT / "sitemap.xml").read_text(encoding="utf-8"):
+        errors.append("cashier.html: unlisted shortcut must stay out of the sitemap")
+    for page in ROOT.glob("*.html"):
+        if page.name != "cashier.html" and re.search(r'href=[\"\'][^\"\']*cashier\.html', page.read_text(encoding="utf-8")):
+            errors.append(f"{page.name}: unlisted cashier shortcut must not appear in public links")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_cashier_shortcut())
     errors.extend(audit_rsvp_table_switch())
     errors.extend(audit_site_quality_workflow())
     errors.extend(audit_workflow_runtimes())
@@ -2740,8 +2782,8 @@ def main() -> int:
     errors.extend(audit_phase_3h2_validation_parity())
     errors.extend(audit_phase_3g4_rsvp_control_spacing())
     errors.extend(audit_phase_3h3_home_dot_centering())
-    # Lily is a standalone microsite, validated by lily-site/check_site.py.
-    pages = sorted(page for page in ROOT.glob("*.html") if page.name != "lily.html")
+    # Lily owns its microsite; audit_cashier_shortcut validates the redirect.
+    pages = sorted(page for page in ROOT.glob("*.html") if page.name not in {"lily.html", "cashier.html"})
     page_names = {page.name for page in pages}
 
     missing_pages = sorted(EXPECTED_PAGES - page_names)

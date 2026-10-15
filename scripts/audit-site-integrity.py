@@ -1195,8 +1195,8 @@ def audit_knockouts(audit, events, site_data):
 
 
 def audit_pages(audit, metadata):
-    # Lily is validated separately, including all of its local asset references.
-    html_files = sorted(path for path in ROOT.glob("*.html") if path.name != "lily.html")
+    # Lily is validated separately; hygiene validates the unlisted cashier redirect.
+    html_files = sorted(path for path in ROOT.glob("*.html") if path.name not in {"lily.html", "cashier.html"})
     audit.check(len(html_files) == 21, "pages", f"Expected 21 public HTML pages; found {len(html_files)}")
     local_ref_pattern = re.compile(r'(?:href|src)=["\']([^"\']+)["\']', re.IGNORECASE)
     for path in html_files:

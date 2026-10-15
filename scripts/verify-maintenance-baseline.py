@@ -102,8 +102,9 @@ def main() -> int:
                 )
 
     # Public pages must remain one shared CSS generation.
-    # Lily is a standalone microsite, validated by lily-site/check_site.py.
-    pages = sorted(page for page in ROOT.glob("*.html") if page.name != "lily.html")
+    # Lily owns its microsite; the unlisted cashier redirect owns no shared CSS.
+    # Its redirect and discovery policy are validated by the hygiene audit.
+    pages = sorted(page for page in ROOT.glob("*.html") if page.name not in {"lily.html", "cashier.html"})
     expected_page_count = baseline.get("publicPageCount")
     if len(pages) != expected_page_count:
         errors.append(

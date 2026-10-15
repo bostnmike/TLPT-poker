@@ -1,5 +1,18 @@
 # TLPT HTML Architecture
 
+## Unlisted Cash Register shortcut
+
+`cashier.html` redirects immediately to the private Cash Register's base URL.
+It contains no event date, query forwarding, navigation, scripts, or data copy.
+The register continues reading TLPT's existing event, financial, RSVP, and player
+feeds and keeps its existing sign-in requirement. A plain link provides a
+fallback if automatic navigation is unavailable.
+
+The shortcut stays out of public navigation and the sitemap and publishes
+`noindex, nofollow, noarchive`. It owns no shared stylesheet or public page shell,
+so page-count, shell, and CSS-rotation inventories exclude it explicitly. The
+code-hygiene audit separately protects its fixed destination and unlisted status.
+
 This document records the shared page-shell contract introduced in Phase 2D.
 The site remains a static multi-page application; shared shell markup is kept
 consistent in each HTML file and verified by `scripts/audit-code-hygiene.py`.

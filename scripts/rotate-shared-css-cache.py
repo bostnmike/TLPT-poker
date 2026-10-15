@@ -16,8 +16,8 @@ VERSION_RE = re.compile(r"^[A-Za-z0-9._-]+$")
 
 
 def public_pages() -> list[Path]:
-    # Lily owns its own stylesheet; never add shared CSS to its page.
-    return sorted(page for page in ROOT.glob("*.html") if page.name != "lily.html")
+    # Lily owns its stylesheet; the unlisted cashier redirect has no shared CSS.
+    return sorted(page for page in ROOT.glob("*.html") if page.name not in {"lily.html", "cashier.html"})
 
 
 def page_versions(page: Path) -> list[str]:
