@@ -1,4 +1,5 @@
 import {createRemoteJWKSet,jwtVerify} from 'jose';
+import {passwordOwner} from './password-auth.mjs';
 const keySets=new Map();
 const loopback=host=>['localhost','127.0.0.1','[::1]'].includes(host);
 export function accessConfiguration(env){
@@ -9,6 +10,8 @@ export function accessConfiguration(env){
 export async function authorizeOwner(request,env,keyResolver){
  const owner=String(env.OWNER_EMAIL||'').trim().toLowerCase();
  if(env.CASHIER_ENV==='local'&&loopback(new URL(request.url).hostname)&&owner&&env.LOCAL_OWNER_EMAIL?.toLowerCase()===owner)return {id:'local-owner',email:owner};
+ if(env.AUTH_MODE==='password')return passwordOwner(request,env);
+ if(env.AUTH_MODE&&env.AUTH_MODE!=='access')return null;
  const config=accessConfiguration(env),token=request.headers.get('Cf-Access-Jwt-Assertion');
  if(!config||!token)return null;
  try{

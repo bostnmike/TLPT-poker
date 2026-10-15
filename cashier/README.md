@@ -11,8 +11,10 @@ system until Cloudflare staging is verified and the records are reconciled.**
 - A small Cloudflare Worker handles the register API and imports.
 - A private D1 database stores payments, audit history, source IDs that prevent
   deleted receipts from returning, format overrides, and private payer matches.
-- Cloudflare Access replaces ChatGPT sign-in. The Worker validates the JWT's
-  signature, issuer, audience, expiration, and exact owner email independently.
+- A private cashier password replaces ChatGPT sign-in. Only a salted PBKDF2
+  verifier is stored in Cloudflare secrets. Signed, host-bound, secure cookies
+  last 12 hours. D1 limits login attempts; password rotation invalidates sessions.
+  Cloudflare Access remains an optional alternative, disabled by default.
 - Google Apps Script keeps read-only Gmail access and sends authenticated
   receipt batches. No Venmo API subscription or merchant service is introduced.
 - TLPT's existing published event, financial, RSVP, and player feeds remain the
@@ -20,9 +22,9 @@ system until Cloudflare staging is verified and the records are reconciled.**
 
 ## Free-only operation
 
-Use **Workers Free**, **D1 on Workers Free**, and **Cloudflare Access Free** with
-one allowed owner. Confirm those plans in the account before deploying; do not
-upgrade a plan or enable paid add-ons. Deployment commands never alter billing.
+Use **Workers Free**, **D1 on Workers Free**, and the built-in private password.
+Confirm Workers Free in the account before deploying; do not upgrade a plan,
+add a payment method, enroll in Access, or enable paid add-ons. Deployment commands never alter billing.
 If the account is already on Workers Paid, use a free account for this app rather
 than changing a plan used by other applications.
 
@@ -35,7 +37,7 @@ Verified against Cloudflare's documentation on October 15, 2026:
 | D1 reads | 5 million rows per day |
 | D1 writes | 100,000 rows per day |
 | D1 storage | 5 GB across the account |
-| Access | Free plan for teams under 50 users |
+| Cashier sign-in | Built into the Worker; no separate subscription |
 
 An iPad polling every three seconds for 24 hours makes 28,800 register requests.
 The reader adds roughly 2,880 requests daily plus receipt batches. ETags and a
@@ -46,11 +48,11 @@ other account applications share quotas, and large ledgers or more terminals
 can use more. **Free quotas stop requests/queries when exhausted; this migration
 does not enable an automatic paid fallback for Workers or D1.**
 
-**Access enrollment needs an owner decision:** on October 15, 2026, this
+**Access is not used by this deployment:** on October 15, 2026, this
 account's Zero Trust Free checkout required a payment method, agreement to
 terms, and authorization for excess-usage charges. Do not complete that
 checkout under a free-only/no-billing-authorization instruction. The existing
-cashier remains live while a sign-in approach is selected. Cloudflare also
+cashier remains live while password-protected staging is tested. Cloudflare also
 [documents the payment-details requirement](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/create-zero-trust-org/).
 
 Sources: [Workers pricing](https://developers.cloudflare.com/workers/platform/pricing/),
@@ -85,47 +87,63 @@ relying on automated import.
 
 ## Provision a separate staging app
 
-1. Sign into the selected Google-linked Cloudflare account and verify Workers
-   Free and Access Free. Complete Cloudflare's authorization yourself. For the
-   initial `workers.dev` staging deployment, the official Wrangler connection
-   needs account/user read access, Workers write access, and D1 write access.
-   DNS/zone and route permissions are not needed for this initial test.
-2. Create a new D1 database named `tlpt-cashier-staging`. Record its actual ID.
-   Never bind staging to the production database or any Sites-managed database.
-3. Configure an owner-only Cloudflare Access application for the staging host.
-   Allow only `blanchettemr@gmail.com`, using an email code or an existing
-   identity provider. Use the Free plan. Record the actual team URL and app AUD.
-   The Worker stays closed if either setting is missing or incorrect.
-4. Permit the Google reader's **exact `/api/import` path** to reach the Worker
-   using a separate, more-specific Access application with a Bypass policy.
-   This bypass applies only to the Access login screen on that one endpoint:
-   the Worker still requires its separate strong import secret on every request.
-   All other API paths continue to require the signed owner JWT.
-5. Build, then run the staging deployment with these environment variables:
+1. Sign into the selected Cloudflare account and verify Workers Free. The
+   official Wrangler connection needs account/user read, Workers write, and D1
+   write permissions. No DNS/zone, route, Access, or billing permissions are
+   required for the initial `workers.dev` test.
+2. Create a separate D1 database named `tlpt-cashier-staging`. Record its actual
+   ID. Never bind staging to production or a Sites-managed database.
+3. Build, then deploy with the actual account and database IDs:
 
    ```sh
    CLOUDFLARE_ACCOUNT_ID=<actual-account-id>
    CASHIER_DATABASE_ID=<actual-staging-database-id>
-   CF_ACCESS_TEAM_DOMAIN=https://<actual-team>.cloudflareaccess.com
-   CF_ACCESS_AUD=<actual-staging-application-audience>
+   CASHIER_AUTH_MODE=password
    CASHIER_FREE_PLAN_CONFIRMED=1
    pnpm deploy:staging
    ```
 
-   Export variables in the shell or CI environment; the lines above show names,
-   not real values. IDs and Access configuration are not connection secrets.
-   `scripts/deploy.mjs` creates an ignored target config and refuses placeholders
-   or a local identity. No automatic deploy workflow or paid plan is installed.
-6. Privately generate a new random import token of at least 32 characters and
-   enter it through `wrangler secret put IMPORT_TOKEN --config
-   wrangler.deploy.local.json`. Do not reuse the Sites access token. Do not paste
-   the new token into source, URLs, GitHub issues, screenshots, or chat.
-7. Verify anonymous/forged requests are denied, owner sign-in works on the iPad,
-   and a real Google reader dry run reaches the new endpoint without a redirect.
+   Export these variables in the shell or CI environment. The manual helper
+   creates an ignored config and applies the database migrations. No password
+   exists yet, so the deployed register stays closed.
+4. Run `node scripts/set-password.mjs wrangler.deploy.local.json`. Open its
+   loopback-only setup page on this computer and enter the new password yourself.
+   Use 16–128 characters, preferably four unrelated words, and save it in a
+   password manager. Never paste it into chat. The helper sends only a salted
+   100,000-iteration PBKDF2-SHA256 verifier and a random 256-bit session key to
+   Cloudflare's encrypted secrets through hidden stdin. It logs no credentials,
+   writes none to disk, checks the form origin and CSRF token, and closes after
+   success. Re-running it rotates the password and invalidates existing sessions.
+5. Generate a distinct random import token with at least 32 characters and set
+   it through `wrangler secret put IMPORT_TOKEN --config
+   wrangler.deploy.local.json`. Do not reuse the Sites access credential. Never
+   place the new token in source, URLs, issues, screenshots, or chat.
+6. Test owner sign-in on the iPad, secure-cookie behavior, sign-out, anonymous
+   and forged-cookie rejection, receipt dry runs, and unchanged payment totals.
+   Login permits five attempts per source IP and thirty account-wide per
+   fifteen-minute window. IP keys are keyed hashes, and stale limit records are
+   removed. Hosting quotas remain shared across the account; excessive traffic
+   can interrupt service rather than create a bill on Workers Free.
 
-Account sign-in, account plan verification, cloud resources, real Access login,
-and a genuine receipt are external checks. Passing local tests alone does not
-mean the Cloudflare app is live or that cutover is complete.
+Password sign-in requires no Cloudflare Access enrollment or login exception for
+`/api/import`. That endpoint independently requires its strong import secret.
+All browser ledger routes independently validate the session. The password
+setup helper must run separately for staging and production; their secrets and
+databases must remain separate. Browser sessions last 12 hours and use a
+`__Host-` cookie with Secure, HttpOnly, and SameSite=Strict. Logout clears that
+browser's cookie; password rotation invalidates all prior sessions.
+
+For an explicitly approved Access deployment instead, set
+`CASHIER_AUTH_MODE=access`, `CF_ACCESS_TEAM_DOMAIN`, and `CF_ACCESS_AUD` after
+setting up an owner-only Access application. Protect the hostname, with a
+separate exact `/api/import` application bypassing only the Access login; the
+Worker import secret remains required. Access JWT issuer, signature, audience,
+expiration, and exact owner email are checked independently. Do not enable this
+alternative under the current no-billing-authorization instruction.
+
+Account plan verification, deployed sign-in, and a genuine receipt are external
+checks. Passing local tests alone does not establish successful cloud operation
+or that the live Google reader has been switched.
 
 ## Parallel Gmail check without changing the live target
 
@@ -188,6 +206,6 @@ frozen allocations, and private name mappings must survive too.
    two diverged ledgers and assume totals match.
 
 All original applied SQL migrations and Drizzle snapshots are copied unchanged.
-Only new migrations add polling indexes and the revision counter. No private
+Only new migrations add polling indexes, the revision counter, and login limits. No private
 runtime state, credentials, production payment examples, or dependency folders
 belong in this repository.

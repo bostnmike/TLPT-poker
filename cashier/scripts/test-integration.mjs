@@ -2,13 +2,15 @@ import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
 import {readFileSync,writeFileSync,rmSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {pbkdf2Sync,randomBytes} from 'node:crypto';
 process.chdir(fileURLToPath(new URL('..',import.meta.url)));
 const state='.wrangler/integration-'+Date.now(),base='http://127.0.0.1:8788',secret='local-test-import-token-not-for-deployment';
 let output='';const children=[];
 function start(args){const child=spawn(process.execPath,args,{env:{...process.env,CASHIER_LOCAL_STATE:state,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'},stdio:['ignore','pipe','pipe']});children.push(child);child.stdout.on('data',d=>output+=d);child.stderr.on('data',d=>output+=d);return child;}
 async function ready(url){for(let i=0;i<100;i++){try{const r=await fetch(url);if(r.status<500)return;}catch{}await new Promise(r=>setTimeout(r,200));}throw Error('Local Worker did not start: '+output.slice(-3000));}
 async function get(eventId,etag){const r=await fetch(base+'/api/register'+(eventId?'?eventId='+encodeURIComponent(eventId):''),{headers:etag?{'If-None-Match':etag}:{}});return {r,data:r.status===304?null:await r.json()};}
-async function post(body,expected=200,origin=base){const r=await fetch(base+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});const j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;}
+async function workerFetch(url,options){for(let n=0;;n++){const response=await fetch(url,options);if(n>=3||response.status!==503||!(await response.clone().text()).startsWith('Your worker restarted mid-request.'))return response;await new Promise(r=>setTimeout(r,250));}}
+async function post(body,expected=200,origin=base){const r=await workerFetch(base+'/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:JSON.stringify(body)});const j=await r.json();assert.equal(r.status,expected,JSON.stringify(j));return j;}
 async function intake(messages,mode='live'){const r=await fetch(base+'/api/import',{method:'POST',headers:{'Content-Type':'application/json','X-Register-Token':secret},body:JSON.stringify({messages,mode,readerMode:'rolling'})});const j=await r.json();assert.equal(r.status,200,JSON.stringify(j));return j;}
 try{
  start(['scripts/local-dev.mjs','--api-only']);await ready(base+'/api/health');
@@ -38,8 +40,24 @@ try{
  for(const headers of [{},{'oai-authenticated-user-id':'fake'},{'x-tlpt-authenticated-user-id':'fake'},{'Cf-Access-Jwt-Assertion':'fake.jwt.value'}])assert.equal((await fetch('http://127.0.0.1:8789/api/register',{headers})).status,401);
  assert.equal((await fetch('http://127.0.0.1:8789/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'})).status,401);
  console.log('PASS: deployed-mode Worker rejects anonymous access, spoofed identity headers, forged Access JWTs, and unauthenticated import requests; loopback development identity cannot bypass staging auth.');
+ const password='disposable integration password',salt=randomBytes(16);config.name='tlpt-cashier-password-test';config.vars={...config.vars,AUTH_MODE:'password',CASHIER_PASSWORD_HASH:`v1:100000:${salt.toString('base64url')}:${pbkdf2Sync(password,salt,100000,32,'sha256').toString('base64url')}`,SESSION_SECRET:randomBytes(32).toString('base64url')};
+ writeFileSync('wrangler.password.local.json',JSON.stringify(config));const passwordBase='http://127.0.0.1:8791';
+ start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8791','--config','wrangler.password.local.json','--persist-to',state,'--inspector-port','0']);await ready(passwordBase+'/auth/login');
+ const logIn=(value,origin=passwordBase)=>workerFetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
+ assert.equal((await fetch(passwordBase+'/api/register')).status,401);
+ assert.equal((await logIn(password,'https://attacker.example')).status,403);
+ assert.equal((await logIn('incorrect integration password')).status,401);
+ const loggedIn=await logIn(password);assert.equal(loggedIn.status,303,await loggedIn.clone().text());const cookie=loggedIn.headers.get('Set-Cookie').split(';')[0];
+ assert.equal((await fetch(passwordBase+'/api/register',{headers:{Cookie:cookie}})).status,200);
+ assert.equal((await fetch(passwordBase+'/api/register',{headers:{Cookie:cookie+'x'}})).status,401);
+ for(let i=0;i<3;i++)assert.equal((await logIn('incorrect integration password')).status,401);
+ assert.equal((await logIn(password)).status,429,'The sixth attempt must be blocked even with a correct password');
+ assert.equal((await fetch(passwordBase+'/auth/logout')).status,405);
+ const loggedOut=await fetch(passwordBase+'/auth/logout',{method:'POST',redirect:'manual',headers:{Origin:passwordBase,Cookie:cookie}});assert.equal(loggedOut.status,303);assert.ok(loggedOut.headers.get('Set-Cookie').includes('Max-Age=0'));
+ console.log('PASS: actual Worker password hashing, secure session login, protected ledger, forged-cookie rejection, same-origin checks, D1 failed-login limits, and logout.');
 }catch(error){console.error(output.slice(-4000));throw error;}finally{
  for(const child of children)child.kill('SIGTERM');
  await Promise.all(children.map(c=>c.exitCode===null?new Promise(resolve=>{c.once('exit',resolve);setTimeout(()=>{c.kill('SIGKILL');resolve();},3000).unref();}):Promise.resolve()));
  rmSync(state,{recursive:true,force:true});
+ rmSync('wrangler.password.local.json',{force:true});
 }
