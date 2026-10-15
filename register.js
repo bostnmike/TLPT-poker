@@ -34,29 +34,25 @@
   };
 
   const updateRegistrationPacket = () => {
-    const displayName = valueOf("display-name");
-    const slug = slugify(displayName);
-    const nicknameAliases = valueOf("nicknames")
-      .split(",")
-      .map(alias => alias.trim())
-      .filter(Boolean);
-    const aliases = [valueOf("tournament-name"), ...nicknameAliases]
-      .filter(Boolean)
-      .filter((alias, index, values) => {
-        const normalized = alias.toLowerCase();
-        return normalized !== displayName.toLowerCase()
-          && values.findIndex(value => value.toLowerCase() === normalized) === index;
-      });
+    const firstName = valueOf("first-name");
+    const lastName = valueOf("last-name");
+    const nickname = valueOf("nickname");
+    const fullName = [firstName, lastName].filter(Boolean).join(" ");
+    const displayName = nickname || firstName;
+    const slug = slugify(nickname || fullName);
+    const aliases = fullName && fullName.toLowerCase() !== displayName.toLowerCase()
+      ? [fullName]
+      : [];
     const packet = {
-      schemaVersion:1,
+      schemaVersion:2,
       status:"pending-review",
       source:"TLPT hidden registration page",
       identity:{
+        firstName,
+        lastName,
+        nickname,
         displayName,
-        tournamentDirectorName:valueOf("tournament-name"),
-        nicknames:valueOf("nicknames"),
-        pronunciation:valueOf("pronunciation"),
-        pronouns:valueOf("pronouns"),
+        tournamentDirectorName:fullName,
         invitedBy:valueOf("invited-by"),
         slug,
         aliases,
@@ -213,13 +209,11 @@
     review.replaceChildren();
     const photoNames = Array.from(fileInput?.files || []).map(file => file.name).join(", ");
 
-    addReviewGroup("Identity", [
-      ["Display name", valueOf("display-name")],
-      ["TD name", valueOf("tournament-name")],
-      ["Aliases", valueOf("nicknames")],
+    addReviewGroup("Name & contact", [
+      ["First name", valueOf("first-name")],
+      ["Last name", valueOf("last-name")],
+      ["Nickname", valueOf("nickname")],
       ["Invited by", valueOf("invited-by")],
-    ]);
-    addReviewGroup("Contact", [
       ["Email", valueOf("registration-email")],
       ["Phone", valueOf("registration-phone")],
       ["Preferred method", checkedValue("Preferred contact method")],

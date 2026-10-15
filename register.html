@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
-  <link rel="stylesheet" href="register.css?v=20261015-3" />
+  <link rel="stylesheet" href="register.css?v=20261015-4" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
 </head>
@@ -123,7 +123,7 @@
       <p class="register-intake-punchline">If this feels like overkill for a weekend poker league, you clearly haven’t checked out the rest of the site.</p>
     </div>
     <div class="register-intake-meta" aria-label="Registration details">
-      <span class="register-time-note">About 4–5 minutes</span>
+      <span class="register-time-note">About 3–4 minutes</span>
       <span class="register-review-note">Private link • Commissioner review</span>
     </div>
   </section>
@@ -139,10 +139,9 @@
     </div>
 
     <ol class="register-progress" aria-label="Registration progress">
-      <li data-progress-step="0" aria-current="step"><span>1</span><strong>Identity</strong></li>
-      <li data-progress-step="1"><span>2</span><strong>Contact</strong></li>
-      <li data-progress-step="2"><span>3</span><strong>Avatar</strong></li>
-      <li data-progress-step="3"><span>4</span><strong>Review</strong></li>
+      <li data-progress-step="0" aria-current="step"><span>1</span><strong>Name &amp; Contact</strong></li>
+      <li data-progress-step="1"><span>2</span><strong>Avatar</strong></li>
+      <li data-progress-step="2"><span>3</span><strong>Review</strong></li>
     </ol>
 
     <p class="register-form-status" id="register-form-status" role="status" aria-live="polite"></p>
@@ -159,70 +158,34 @@
       <input type="hidden" name="_captcha" value="true" />
       <input type="hidden" name="_next" value="https://tlpt.org/register.html?submitted=1" />
       <input type="hidden" name="Registration source" value="TLPT hidden registration page" />
-      <input type="hidden" name="Registration packet version" value="1" />
+      <input type="hidden" name="Registration packet version" value="2" />
       <input type="hidden" id="registration-packet" name="Registration packet JSON" value="" />
       <label class="register-honey" aria-hidden="true">Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
 
       <fieldset class="register-step" data-register-step="0">
         <legend class="register-step-heading">
-          <span>Step 1 of 4</span>
-          <strong>Player identity</strong>
-          <small>Tell us what should appear on the site—and what the tournament software may call you.</small>
+          <span>Step 1 of 3</span>
+          <strong>Name &amp; contact</strong>
+          <small>Just enough to identify you, coordinate a game, and make sure your results land on the right profile.</small>
         </legend>
 
         <div class="register-field-grid">
           <div class="register-field">
-            <label for="display-name">Site display name <span aria-hidden="true">*</span></label>
-            <input id="display-name" name="Site display name" type="text" maxlength="60" autocomplete="nickname" placeholder="BostnMike" required />
-            <small>The name used on cards, standings, and player pages.</small>
+            <label for="first-name">First name <span aria-hidden="true">*</span></label>
+            <input id="first-name" name="First name" type="text" maxlength="60" autocomplete="given-name" placeholder="First name" required />
           </div>
 
           <div class="register-field">
-            <label for="tournament-name">Tournament Director name <span aria-hidden="true">*</span></label>
-            <input id="tournament-name" name="Tournament Director name" type="text" maxlength="80" autocomplete="name" placeholder="Name used in event reports" required />
-            <small>Exact spelling helps every result land on the right profile.</small>
+            <label for="last-name">Last name <span aria-hidden="true">*</span></label>
+            <input id="last-name" name="Last name" type="text" maxlength="80" autocomplete="family-name" placeholder="Last name" required />
           </div>
 
           <div class="register-field">
-            <label for="nicknames">Nicknames or alternate spellings</label>
-            <input id="nicknames" name="Nicknames and aliases" type="text" maxlength="180" placeholder="Separate multiple names with commas" />
-            <small>Include anything the table—or an event export—might use.</small>
+            <label for="nickname">Nickname or table name</label>
+            <input id="nickname" name="Nickname" type="text" maxlength="60" autocomplete="nickname" placeholder="How you want to appear on TLPT" />
+            <small>Leave it blank and we’ll use your first name.</small>
           </div>
 
-          <div class="register-field">
-            <label for="pronunciation">Name pronunciation</label>
-            <input id="pronunciation" name="Name pronunciation" type="text" maxlength="100" placeholder="Optional phonetic spelling" />
-          </div>
-
-          <div class="register-field">
-            <label for="pronouns">Pronouns</label>
-            <input id="pronouns" name="Pronouns" type="text" maxlength="40" placeholder="Optional" autocomplete="off" />
-          </div>
-
-          <div class="register-field">
-            <label for="invited-by">Who invited you? <span aria-hidden="true">*</span></label>
-            <input id="invited-by" name="Invited by" type="text" maxlength="80" placeholder="Current TLPT player" required />
-          </div>
-        </div>
-
-        <div class="register-slug-preview" aria-live="polite">
-          <span>Proposed player ID</span>
-          <output id="slug-preview" for="display-name">waiting-for-name</output>
-        </div>
-
-        <div class="register-step-actions register-step-actions-end">
-          <button class="btn register-next" type="button" data-next-step>Continue to Contact <span aria-hidden="true">→</span></button>
-        </div>
-      </fieldset>
-
-      <fieldset class="register-step" data-register-step="1" hidden>
-        <legend class="register-step-heading">
-          <span>Step 2 of 4</span>
-          <strong>Contact &amp; league logistics</strong>
-          <small>Enough to coordinate a game. No address, payment, or banking information belongs here.</small>
-        </legend>
-
-        <div class="register-field-grid">
           <div class="register-field">
             <label for="registration-email">Email address <span aria-hidden="true">*</span></label>
             <input id="registration-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="you@example.com" required />
@@ -231,6 +194,11 @@
           <div class="register-field">
             <label for="registration-phone">Mobile number</label>
             <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Optional" />
+          </div>
+
+          <div class="register-field">
+            <label for="invited-by">Who invited you? <span aria-hidden="true">*</span></label>
+            <input id="invited-by" name="Invited by" type="text" maxlength="80" placeholder="Current TLPT player" required />
           </div>
         </div>
 
@@ -258,15 +226,19 @@
           <textarea id="host-notes" name="Host notes" rows="4" maxlength="700" placeholder="Scheduling context, accessibility needs, or anything useful for coordinating your first game."></textarea>
         </div>
 
-        <div class="register-step-actions">
-          <button class="btn register-back" type="button" data-prev-step><span aria-hidden="true">←</span> Back</button>
+        <div class="register-slug-preview" aria-live="polite">
+          <span>Proposed player ID</span>
+          <output id="slug-preview" for="first-name last-name nickname">waiting-for-name</output>
+        </div>
+
+        <div class="register-step-actions register-step-actions-end">
           <button class="btn register-next" type="button" data-next-step>Continue to Avatar <span aria-hidden="true">→</span></button>
         </div>
       </fieldset>
 
-      <fieldset class="register-step" data-register-step="2" hidden>
+      <fieldset class="register-step" data-register-step="1" hidden>
         <legend class="register-step-heading">
-          <span>Step 3 of 4</span>
+          <span>Step 2 of 3</span>
           <strong>Your avatar starter kit</strong>
           <small>Give the artist a clear likeness and enough visual material to make the portrait unmistakably yours.</small>
         </legend>
@@ -329,9 +301,9 @@
         </div>
       </fieldset>
 
-      <fieldset class="register-step" data-register-step="3" hidden>
+      <fieldset class="register-step" data-register-step="2" hidden>
         <legend class="register-step-heading">
-          <span>Step 4 of 4</span>
+          <span>Step 3 of 3</span>
           <strong>Review &amp; consent</strong>
           <small>One last look before this reaches the commissioner’s inbox.</small>
         </legend>
@@ -396,6 +368,6 @@
 </footer>
 
 <script src="site-shell.js?v=20261012-3"></script>
-<script src="register.js?v=20261015-2"></script>
+<script src="register.js?v=20261015-3"></script>
 </body>
 </html>
