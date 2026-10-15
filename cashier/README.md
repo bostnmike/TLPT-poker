@@ -44,7 +44,14 @@ event queries and the existing event-replacement cleanup limit database work.
 Background iPads pause polling. These are estimates, not reserved capacity:
 other account applications share quotas, and large ledgers or more terminals
 can use more. **Free quotas stop requests/queries when exhausted; this migration
-does not enable an automatic paid fallback.**
+does not enable an automatic paid fallback for Workers or D1.**
+
+**Access enrollment needs an owner decision:** on October 15, 2026, this
+account's Zero Trust Free checkout required a payment method, agreement to
+terms, and authorization for excess-usage charges. Do not complete that
+checkout under a free-only/no-billing-authorization instruction. The existing
+cashier remains live while a sign-in approach is selected. Cloudflare also
+[documents the payment-details requirement](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/create-zero-trust-org/).
 
 Sources: [Workers pricing](https://developers.cloudflare.com/workers/platform/pricing/),
 [D1 pricing and quota behavior](https://developers.cloudflare.com/d1/platform/pricing/),
