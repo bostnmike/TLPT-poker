@@ -258,6 +258,18 @@
   fileInput?.addEventListener("change", validateFiles);
   emailInput?.addEventListener("input", validateEmail);
 
+  // Distinct multipart field names keep PHP-backed receivers from retaining
+  // only the last file when visitors select several reference photos.
+  form.addEventListener("formdata", event => {
+    const photos = event.formData.getAll("attachment")
+      .filter(file => file instanceof File && file.name);
+    event.formData.delete("attachment");
+    photos.forEach((file, index) => {
+      const fieldName = index === 0 ? "attachment" : `attachment${index + 1}`;
+      event.formData.append(fieldName, file, file.name);
+    });
+  });
+
   form.addEventListener("submit", event => {
     steps.forEach(step => {
       step.disabled = false;

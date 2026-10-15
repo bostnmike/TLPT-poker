@@ -35,7 +35,7 @@ assert.match(page, /name="Registration packet version" value="3"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
 assert.match(page, /That email becomes the staged intake record/);
 assert.match(page, /href="register\.css\?v=20261015-6"/);
-assert.match(page, /src="register\.js\?v=20261015-4"/);
+assert.match(page, /src="register\.js\?v=20261015-5"/);
 assert.match(page, /src="images\/players\/bostnmike\.jpg"/);
 assert.match(page, /alt="BostnMike, the TLPT commissioner"/);
 assert.match(page, /If you made it this far, you clearly know someone cool\./);
@@ -80,5 +80,38 @@ assert.match(script, /publicProfileDraft:/);
 assert.match(script, /referenceFiles:Array\.from/);
 assert.match(script, /JSON\.stringify\(packet\)/);
 new vm.Script(script, { filename:"register.js" });
+
+// Exercise the production serialization hook: every selected photo must
+// survive under a distinct field, while the JSON and other answers stay intact.
+const formListeners = new Map();
+const mockForm = {
+  querySelectorAll:() => [],
+  querySelector:() => null,
+  addEventListener:(name, handler) => formListeners.set(name, handler),
+};
+vm.runInNewContext(script, {
+  document:{
+    getElementById:id => id === "register-form" ? mockForm : null,
+    querySelectorAll:() => [],
+    querySelector:() => null,
+  },
+  window:{location:{search:""}, addEventListener:() => {}},
+  URLSearchParams,
+  File,
+  CSS:{escape:value => value},
+});
+for (const photoCount of [1, 2, 4]) {
+  const data = new FormData();
+  const photos = Array.from({length:photoCount}, (_, index) =>
+    new File([`photo-${index}`], `reference-${index + 1}.png`, {type:"image/png"}));
+  photos.forEach(photo => data.append("attachment", photo));
+  data.append("Registration packet JSON", '{"status":"pending-review"}');
+  formListeners.get("formdata")({formData:data});
+  const uploaded = Array.from(data.entries()).filter(([, value]) => value instanceof File);
+  assert.equal(uploaded.length, photoCount, "Every photo must survive serialization");
+  assert.equal(new Set(uploaded.map(([name]) => name)).size, photoCount, "Each photo needs a unique multipart name");
+  assert.deepEqual(uploaded.map(([, file]) => file.name), photos.map(file => file.name));
+  assert.equal(data.get("Registration packet JSON"), '{"status":"pending-review"}');
+}
 
 console.log("Hidden registration page checks passed.");
