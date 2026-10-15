@@ -32,7 +32,7 @@ assert.match(page, /name="AI likeness consent"[^>]+required/);
 assert.match(page, /name="League humor acknowledged"[^>]+required/);
 assert.match(page, /name="Registration packet version" value="3"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
-assert.match(page, /href="register\.css\?v=20261015-5"/);
+assert.match(page, /href="register\.css\?v=20261015-6"/);
 assert.match(page, /src="register\.js\?v=20261015-4"/);
 assert.match(page, /src="images\/players\/bostnmike\.jpg"/);
 assert.match(page, /alt="BostnMike, the TLPT commissioner"/);
@@ -48,6 +48,7 @@ assert.match(page, /id="registration-phone" name="Mobile number" type="tel"[^>]+
 assert.match(page, /TLPT uses a group chat for game invitations, schedule updates, and day-of reminders\./);
 assert.doesNotMatch(page, /Name pronunciation|Nicknames or alternate spellings|name="Pronouns"|Preferred contact method|Which games usually work|Usual availability|Table persona|Poker experience|Self-described playing style|Player catchphrase/);
 assert.match(page, /About 3–4 minutes/);
+assert.doesNotMatch(page, /Moderated intake|register-secure-note/);
 assert.match(page, /BostnMike \(aka The Commish\) will create your player identity, prepare your avatar, and add you to the roster before your first official appearance\./);
 assert.match(page, /The statistics—and regrettable decisions—begin at the table\. Welcome to the league!/);
 assert.match(style, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);

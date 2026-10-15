@@ -93,8 +93,7 @@
   text-align:right;
 }
 
-.register-time-note,
-.register-secure-note{
+.register-time-note{
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -772,10 +771,6 @@
 
   .register-shell-head{
     display:block;
-  }
-
-  .register-secure-note{
-    margin-top:13px;
   }
 
   .register-progress{
