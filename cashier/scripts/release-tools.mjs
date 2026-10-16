@@ -1,20 +1,23 @@
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
 export const ACCOUNT='4d5ea071300fa71b8fa947c06d8ba314';
 export const WORKER='tlpt-cashier-staging';
 export const DATABASE='9165ae68-16fa-4ce2-9b87-77019e52ef20';
 export const PROJECT='tlpt-cashier-domain';
 export const ORIGIN='https://cashier.tlpt.org';
 export const shaPattern=/^[a-f0-9]{40}$/;
-export function git(...args){return execFileSync('git',args,{encoding:'utf8'}).trim();}
+const repositoryRoot=fileURLToPath(new URL('../..',import.meta.url));
+export function git(...args){return execFileSync('git',args,{cwd:repositoryRoot,encoding:'utf8'}).trim();}
 export const gatewayPath=p=>p.startsWith('cashier/domain-gateway/')||p==='cashier/wrangler.gateway.jsonc';
 export const workerPath=p=>(p.startsWith('cashier/')&&!gatewayPath(p))||p==='.github/workflows/cashier-checks.yml';
-export function fingerprint(revision,select){
+export function fingerprint(revision,select,root=repositoryRoot){
  if(!shaPattern.test(revision))throw Error('A full commit SHA is required.');
- const paths=git('ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml').split('\n').filter(select).sort();
+ const paths=execFileSync('git',['ls-tree','-r','--name-only',revision,'--','cashier','.github/workflows/cashier-checks.yml'],{cwd:root,encoding:'utf8'}).trim().split('\n').filter(select).sort();
+ if(!paths.length)throw Error('Release fingerprint has no source files; refusing an unverifiable deployment.');
  const hash=createHash('sha256');
- for(const path of paths){hash.update(path+'\0');hash.update(execFileSync('git',['show',`${revision}:${path}`]));hash.update('\0');}
+ for(const path of paths){hash.update(path+'\0');hash.update(execFileSync('git',['show',`${revision}:${path}`],{cwd:root}));hash.update('\0');}
  return hash.digest('hex');
 }
 export function validateProduction(config){
