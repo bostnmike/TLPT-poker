@@ -9,10 +9,10 @@ import {releaseInfo} from '../lib/release.mjs';
 import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
 const sha='a'.repeat(40),gatewayHash='b'.repeat(64);
-function transport({denied=401,revision=sha,assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
+function transport({denied=401,revision=sha,versionId='deployed-version-id',assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
  return async(url,options={})=>{
   const path=new URL(url).pathname,headers={'Cache-Control':'private, no-store','X-TLPT-Gateway-Source':gateway};
-  if(path==='/api/version')return Response.json({app:'tlpt-cashier',revision,versionId:'deployed-version-id'},{headers});
+  if(path==='/api/version')return Response.json({app:'tlpt-cashier',revision,versionId},{headers});
   if(path==='/release.json')return Response.json({app:'tlpt-cashier',revision:assetRevision});
   if(path.startsWith('/api/'))return Response.json(extraPrivate?{error:'Denied',payments:[]}:{error:'Denied'},{status:denied,headers});
   if(path==='/cashier.html')return new Response(`<meta http-equiv="refresh" content="0; url=${shortcut}"><a href="${shortcut}">Open</a>`);
@@ -88,6 +88,16 @@ test('publishing rejects pull requests, forks, feature branches and non-Actions 
 test('live verification requires matching Worker, interface, gateway, shortcut and denied private endpoints',async()=>{
  const result=await verifyRelease({revision:sha,gatewayHash,fetchImpl:transport()});assert.equal(result.anonymousChecks,7);assert.equal(result.revision,sha);
  for(const options of [{revision:'c'.repeat(40)},{assetRevision:'c'.repeat(40)},{gateway:'wrong'},{shortcut:'https://old.example/'}])await assert.rejects(verifyRelease({revision:sha,gatewayHash,fetchImpl:transport(options)}));
+});
+test('same-commit recovery waits for the exact newly activated Worker version',async()=>{
+ let attempts=0,sleeps=0;
+ const fetchImpl=async(url,options)=>{
+  if(new URL(url).pathname==='/api/version')attempts++;
+  return transport({versionId:attempts===1?'previous-version':'new-version'})(url,options);
+ };
+ const result=await verifyWithRetry({revision:sha,workerVersion:'new-version',gatewayHash,fetchImpl},{sleep:async()=>{sleeps++;},timeoutMs:1000});
+ assert.equal(result.workerVersion,'new-version');assert.equal(attempts,2);assert.equal(sleeps,1);
+ await assert.rejects(verifyRelease({revision:sha,workerVersion:'new-version',gatewayHash,fetchImpl:transport()}),/exact activated Worker/);
 });
 test('an anonymous leak fails immediately and is never hidden by retries',async()=>{
  let sleeps=0;
