@@ -23,6 +23,7 @@ test("serves the current form with canonical assets and a branded success URL", 
   assert.equal(result.status, 200);
   const body = await result.text();
   assert.match(body, /<base href="https:\/\/tlpt\.org\/"/);
+  assert.match(body, /class="skip-link" href="https:\/\/register\.tlpt\.org\/#main-content"/);
   assert.match(body, /name="_next" value="https:\/\/register\.tlpt\.org\/\?submitted=1"/);
   assert.match(body, /action="https:\/\/formsubmit\.co\/blanchettemr@gmail\.com"/);
   assert.match(body, /register\.js\?v=20261015-5/);

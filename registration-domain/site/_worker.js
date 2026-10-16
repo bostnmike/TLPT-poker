@@ -33,7 +33,8 @@ export default {
         throw new Error("Unexpected registration source");
       }
       html = html.replace("<head>", `<head>\n  <base href="${SITE}/" />`)
-        .replace(returnField, `$1${REGISTRATION}/?submitted=1$2`);
+        .replace(returnField, `$1${REGISTRATION}/?submitted=1$2`)
+        .replaceAll('href="#', `href="${REGISTRATION}/#`);
       return new Response(request.method === "HEAD" ? null : html, {
         headers:{...PRIVATE_HEADERS, "Content-Type":"text/html; charset=utf-8"},
       });
