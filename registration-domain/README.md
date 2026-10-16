@@ -1,25 +1,34 @@
 # Registration address
 
-Cloudflare Pages project `tlpt-register-domain` serves the existing unlisted
-registration form at `https://register.tlpt.org/`. The gateway reads the current
-public `https://tlpt.org/register.html`, so future form fixes need only be
-published once. A base URL keeps assets and navigation on the main site; the
-FormSubmit success destination returns to the registration subdomain.
+GitHub Pages project https://github.com/bostnmike/tlpt-registration serves the
+unlisted form at https://register.tlpt.org/. Porkbun DNS has CNAME `register`
+pointing to `bostnmike.github.io`, TTL 600. The main `tlpt.org` and cashier
+configuration must not change.
 
-The gateway stores no registrations, files, credentials, or contact information.
-Form submissions continue directly to the existing FormSubmit endpoint and the
-commissioner's Gmail inbox. The legacy registration address continues working.
-The public form is unlisted, not protected by authentication.
+The form's source of truth is still this repository's `register.html`.
+`build.mjs` generates static registration HTML for GitHub Pages: main-site
+assets/navigation, local skip link, and a branded FormSubmit success URL.
+No Worker, proxy, runtime, database, secret or Cloudflare deployment is needed.
 
-Porkbun DNS: CNAME `register` -> `tlpt-register-domain.pages.dev`, TTL 600.
-Associate `register.tlpt.org` under Pages > Custom domains before adding DNS.
-Keep the existing root, www, cashier, wildcard, and verification records intact.
-Cloudflare must finish hostname verification and TLS issuance before handoff.
+After editing the form, run **Publish registration** in the `tlpt-registration`
+repository's GitHub Actions for immediate publication. An hourly scheduled run
+also refreshes the HTML automatically. GitHub can delay scheduled runs or disable
+them after 60 days of repository inactivity; manual publishing stays available.
+Shared assets load directly from the main site and need no separate copy.
 
-Deploy only the three files in `site/` through Pages Direct Upload (advanced
-mode). The root ZIP must contain `_worker.js`, `_routes.json`, and `index.html`.
-No bindings, secrets, databases, paid plans, or nameserver changes are needed.
-Wrangler configuration documents the equivalent deployment; do not expand CLI
-OAuth permissions just to deploy when the existing dashboard session suffices.
+Submissions, JSON and photos still go directly to FormSubmit and the same Gmail
+inbox. No registration details are stored in either GitHub repository. The legacy
+https://tlpt.org/register.html also continues working. The form is unlisted, not
+password protected, and retains its no-index metadata and restrictive robots.txt.
 
-Checks: `node --test registration-domain/tests/gateway.test.mjs`.
+Checks:
+
+    node --test registration-domain/tests/pages.test.mjs
+    node scripts/test-register-page.mjs
+
+Build into an empty output directory:
+
+    node registration-domain/build.mjs /tmp/tlpt-register-static
+
+The retired Cloudflare registration gateway is recoverable in Git history
+(commit `de6a4eca`); never remove or edit the separate cashier projects.
