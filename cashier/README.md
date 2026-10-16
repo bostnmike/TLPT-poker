@@ -2,9 +2,10 @@
 
 The cashier's interface, payment rules, database migrations, Gmail reader, and
 tests live with TLPT. **`https://tlpt.org/cashier.html` opens the Cloudflare
-cashier.** The previous owner-private Sites app remains available for fallback.
+cashier at **`https://cashier.tlpt.org`**. The previous owner-private Sites app
+remains available for fallback.
 
-Production uses the already-tested Worker at
+The branded address forwards internally to the already-tested production Worker at
 `https://tlpt-cashier-staging.tlpt-bostnmike.workers.dev`. The historical Worker
 name is retained so the owner's existing password, signed-in session, and import
 secret continue working. Its environment is now `production`, and it binds only
