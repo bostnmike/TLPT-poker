@@ -152,16 +152,23 @@
   display:none;
 }
 
-.register-progress li > span{
+.register-progress-chip{
   display:grid;
   place-items:center;
-  width:25px;
-  height:25px;
-  flex:0 0 25px;
-  border:1px solid currentColor;
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
   border-radius:50%;
-  font-size:.75rem;
-  font-weight:950;
+  opacity:.5;
+  transform:scale(.92);
+  transition:filter .18s ease,opacity .18s ease,transform .18s ease,box-shadow .18s ease;
+}
+
+.register-progress-chip img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 
 .register-progress li > strong{
@@ -175,10 +182,9 @@
   color:#c1ccd7;
 }
 
-.register-progress li.is-complete > span{
-  border-color:rgba(61,220,132,.52);
-  background:rgba(61,220,132,.12);
-  color:#8df0b8;
+.register-progress li.is-complete > .register-progress-chip{
+  opacity:.78;
+  transform:scale(.96);
 }
 
 .register-progress li[aria-current="step"]{
@@ -187,11 +193,10 @@
   color:#fff2c8;
 }
 
-.register-progress li[aria-current="step"] > span{
-  border-color:var(--register-accent-strong);
-  background:var(--register-accent-strong);
-  color:#171006;
-  box-shadow:0 0 0 3px rgba(255,184,28,.12);
+.register-progress li[aria-current="step"] > .register-progress-chip{
+  opacity:1;
+  transform:scale(1);
+  filter:saturate(1.08) brightness(1.05) drop-shadow(0 3px 3px rgba(0,0,0,.36));
 }
 
 .register-form-status{
@@ -821,9 +826,10 @@
     min-height:38px;
   }
 
-  .register-progress li > span{
-    width:24px;
-    height:24px;
+  .register-progress-chip{
+    width:32px;
+    height:32px;
+    flex-basis:32px;
   }
 
   .register-choice-grid-four{

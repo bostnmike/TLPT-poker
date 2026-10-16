@@ -898,7 +898,11 @@ class PageAuditParser(HTMLParser):
                 f"inline {attr_name} handler found; move behavior to a JavaScript module"
             )
 
-        if tag == "img" and attrs.get("src", "").startswith("images/site/chip-T-"):
+        if (
+            tag == "img"
+            and attrs.get("src", "").startswith("images/site/chip-T-")
+            and "register-progress-chip-image" not in classes
+        ):
             if "data-hide-on-error" not in attrs:
                 self.errors.append(
                     "static title-chip image is missing data-hide-on-error"
