@@ -1,4 +1,4 @@
-node_modules/
+node_modules
 dist/
 .wrangler/
 .dev.vars*
@@ -8,3 +8,4 @@ private/
 coverage/
 *.tsbuildinfo
 .DS_Store
+deployment-receipt.json

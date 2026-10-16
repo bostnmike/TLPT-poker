@@ -44,6 +44,7 @@ try{
  config.assets.run_worker_first=JSON.parse(readFileSync('wrangler.jsonc','utf8')).assets.run_worker_first;
  writeFileSync('wrangler.password.local.json',JSON.stringify(config));const passwordBase='http://127.0.0.1:8791';
  start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8791','--config','wrangler.password.local.json','--persist-to',state,'--inspector-port','0']);await ready(passwordBase+'/auth/login');
+ const version=await fetch(passwordBase+'/api/version');assert.equal(version.status,200);assert.deepEqual(Object.keys(await version.json()).sort(),['app','revision','versionId']);
  const landing=await fetch(passwordBase+'/');assert.equal(landing.status,200,'Public sign-in page must permit Home Screen metadata lookup');assert.match(await landing.text(),/apple-touch-icon[^>]+tlpt-cashier-yellow-180/);
  const logIn=(value,origin=passwordBase)=>workerFetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
  assert.equal((await fetch(passwordBase+'/api/register')).status,401);

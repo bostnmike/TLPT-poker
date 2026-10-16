@@ -7,14 +7,20 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+env:
+  WRANGLER_SEND_METRICS: "false"
+  WRANGLER_WRITE_LOGS: "false"
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: cashier
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v7
         with:
           node-version: "22"
@@ -23,10 +29,98 @@ jobs:
           python-version: "3.11"
       - run: npm install --global pnpm@11.25.0
       - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Install TLPT quality dependencies
+        working-directory: .
+        run: python -m pip install --requirement requirements-quality.txt
+      - name: Run the complete TLPT quality gates
+        working-directory: .
+        run: bash scripts/run-quality-gates.sh
       - run: pnpm check
       - run: pnpm test:integration
-      - name: Validate Worker bundle without publishing
-        run: pnpm exec wrangler deploy --dry-run --env="" --outdir .wrangler/dry-run
+      - name: Stamp the tested interface artifact
+        run: node scripts/stamp-release.mjs "$RELEASE_SHA"
         env:
-          WRANGLER_SEND_METRICS: "false"
-          WRANGLER_WRITE_LOGS: "false"
+          RELEASE_SHA: ${{ github.sha }}
+      - name: Validate staging and pinned production bundles without publishing
+        run: |
+          pnpm exec wrangler deploy --dry-run --env="" --outdir .wrangler/dry-run
+          pnpm exec wrangler deploy --dry-run --config wrangler.production.jsonc --outdir .wrangler/production-dry-run
+      - uses: actions/upload-artifact@v6
+        with:
+          name: cashier-dist-${{ github.sha }}
+          path: cashier/dist/
+          retention-days: 7
+          if-no-files-found: error
+  deploy:
+    name: Publish and verify production
+    needs: test
+    if: github.repository == 'bostnmike/TLPT-poker' && github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: cashier-production
+      url: https://cashier.tlpt.org
+    concurrency:
+      group: tlpt-cashier-production
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: cashier
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - uses: actions/download-artifact@v6
+        with:
+          name: cashier-dist-${{ github.sha }}
+          path: cashier/dist/
+      - name: Plan changes against the currently published version
+        id: plan
+        run: node scripts/plan-release.mjs
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+      - name: Validate existing production resource and credential bindings
+        if: steps.plan.outputs.worker == 'true'
+        run: node scripts/publish-release.mjs preflight
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_CASHIER_WORKER_TOKEN }}
+      - name: Apply unapplied migrations to the existing production database
+        if: steps.plan.outputs.worker == 'true'
+        run: node scripts/publish-release.mjs migrate
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_CASHIER_DATABASE_TOKEN }}
+      - name: Publish tested Worker and interface without rotating secrets
+        if: steps.plan.outputs.worker == 'true'
+        run: node scripts/publish-release.mjs worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_CASHIER_WORKER_TOKEN }}
+      - name: Publish gateway only when its source or configuration changed
+        if: steps.plan.outputs.gateway == 'true'
+        run: node scripts/publish-release.mjs gateway
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_CASHIER_GATEWAY_TOKEN }}
+          GATEWAY_SOURCE_HASH: ${{ steps.plan.outputs.gateway_hash }}
+      - name: Verify public release, shortcut and anonymous private-data denial
+        run: node scripts/verify-release.mjs
+        env:
+          EXPECTED_REVISION: ${{ steps.plan.outputs.revision }}
+          EXPECTED_GATEWAY_HASH: ${{ steps.plan.outputs.gateway_hash }}
+      - name: Record success or failure and recovery information
+        if: always()
+        run: node scripts/summarize-release.mjs
+        env:
+          RELEASE_STATUS: ${{ job.status }}
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: cashier-production-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          path: cashier/deployment-receipt.json
+          retention-days: 30
+          if-no-files-found: warn
