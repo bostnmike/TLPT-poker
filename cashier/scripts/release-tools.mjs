@@ -2,12 +2,20 @@ import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
 export const ACCOUNT='4d5ea071300fa71b8fa947c06d8ba314';
 export const WORKER='tlpt-cashier-staging';
 export const DATABASE='9165ae68-16fa-4ce2-9b87-77019e52ef20';
 export const PROJECT='tlpt-cashier-domain';
 export const ORIGIN='https://cashier.tlpt.org';
 export const shaPattern=/^[a-f0-9]{40}$/;
+export function gatewayReleaseConfig(source,hash,root){
+ if(source.name!==PROJECT||source.services?.length!==1||source.services[0].binding!=='CASHIER'||source.services[0].service!==WORKER||source.d1_databases||source.env)throw Error('Gateway may only bind to the existing production Worker.');
+ if(!/^[a-f0-9]{64}$/.test(hash||''))throw Error('Missing gateway source fingerprint.');
+ if(source.pages_build_output_dir!=='./domain-gateway')throw Error('Unexpected gateway asset directory.');
+ const {$schema,...config}=source;
+ return {...config,account_id:ACCOUNT,pages_build_output_dir:resolve(root,source.pages_build_output_dir),vars:{GATEWAY_SOURCE_HASH:hash}};
+}
 export function uploadedVersion(items,sha){
  const version=items?.find(v=>v.annotations?.['workers/tag']===sha);
  if(!shaPattern.test(sha||'')||!version?.id)throw Error('Cannot identify the uploaded version for this exact commit.');
