@@ -29,6 +29,10 @@
     "python -m pip install --requirement requirements-quality.txt",
     "bash scripts/run-quality-gates.sh"
   ],
+  "requiredDataPipelineCommands": {
+    "python -m pip install --requirement requirements-quality.txt": 1,
+    "bash scripts/run-quality-gates.sh": 2
+  },
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",
     "scripts/test-event-currency.py",

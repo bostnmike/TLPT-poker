@@ -79,6 +79,13 @@ def main() -> int:
         for token in build_tokens:
             if token in text:
                 errors.append(f"data pipeline bypasses data runner with `{token}`")
+        for command, expected_count in baseline.get("requiredDataPipelineCommands", {}).items():
+            actual = text.count(command)
+            if actual != expected_count:
+                errors.append(
+                    f"{pipeline.relative_to(ROOT)}: expected command `{command}` "
+                    f"{expected_count} time(s), found {actual} occurrence(s)"
+                )
 
     # Complete quality suite stays centralized.
     quality_runner = ROOT / authoritative.get("qualityGates", "")

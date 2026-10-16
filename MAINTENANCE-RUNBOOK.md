@@ -44,7 +44,7 @@ Registration and the cashier have independent quality workflows because they hav
 
 The maintenance baseline verifies that both workflows watch every relevant source and test file, and that their required test, build, integration, and deployment-validation commands remain wired. Run the shared-site, registration, and cashier suites when a change crosses component boundaries.
 
-Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; the site-quality workflow installs that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
+Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 
 ## Shared CSS changes
 
