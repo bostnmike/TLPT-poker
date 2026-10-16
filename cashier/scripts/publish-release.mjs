@@ -38,6 +38,9 @@ if(mode==='preflight'){
  if(cfg.name!==PROJECT||cfg.services?.length!==1||cfg.services[0].binding!=='CASHIER'||cfg.services[0].service!==WORKER||cfg.d1_databases||cfg.env)throw Error('Gateway may only bind to the existing production Worker.');
  cfg.account_id=ACCOUNT;cfg.vars={GATEWAY_SOURCE_HASH:process.env.GATEWAY_SOURCE_HASH};
  if(!/^[a-f0-9]{64}$/.test(cfg.vars.GATEWAY_SOURCE_HASH||''))throw Error('Missing gateway source fingerprint.');
+ // If the hostname is unreachable, use Pages' saved configuration to avoid
+ // uploading an unchanged gateway merely because its HTTP marker was absent.
+ if(previous.deployment_configs?.production?.env_vars?.GATEWAY_SOURCE_HASH?.value===cfg.vars.GATEWAY_SOURCE_HASH){receipt({gatewaySkipped:true});console.log('Gateway source/configuration already matches; no upload.');process.exit(0);}
  writeFileSync('wrangler.gateway.release.local.json',JSON.stringify(cfg,null,2)+'\n');
  wrangler(['pages','deploy','--config','wrangler.gateway.release.local.json','--project-name',PROJECT,'--branch','main','--commit-hash',sha,'--commit-dirty=false']);
  const after=await cloudflare(`pages/projects/${PROJECT}`,token);
