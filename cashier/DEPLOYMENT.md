@@ -93,6 +93,9 @@ Worker version ID. It does not query D1 or reveal owner or credential data.
 must match the expected commit at the branded URL. The gateway fingerprint must
 match its source, and the root must show the password form to anonymous visitors.
 The shortcut page must still target `https://cashier.tlpt.org/`.
+When this run uploaded a Worker, verification also waits for that exact version
+ID from its receipt. A same-commit retry cannot pass against the previous
+deployment while the newly activated version is still propagating.
 
 Anonymous GETs for register, players, health and reader settings, anonymous
 register/import POSTs, and spoofed identity headers must all return 401 with

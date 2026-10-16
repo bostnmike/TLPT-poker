@@ -2,13 +2,14 @@ import {pathToFileURL} from 'node:url';
 import {ORIGIN,shaPattern,receipt} from './release-tools.mjs';
 export class PrivateDataExposed extends Error {}
 const publicHeaders={'Cache-Control':'no-cache','User-Agent':'TLPT-Cashier-CI/1.0'};
-export async function verifyRelease({revision,gatewayHash,fetchImpl=fetch,origin=ORIGIN,shortcut='https://tlpt.org/cashier.html'}){
+export async function verifyRelease({revision,workerVersion,gatewayHash,fetchImpl=fetch,origin=ORIGIN,shortcut='https://tlpt.org/cashier.html'}){
  if(!shaPattern.test(revision||''))throw Error('Expected release SHA is required.');
  const request=(path,options={})=>fetchImpl(origin+path,{...options,redirect:'manual',headers:{...publicHeaders,...options.headers},signal:AbortSignal.timeout(20000)});
  const versionResponse=await request('/api/version');
  if(versionResponse.status!==200)throw Error('Public deployed version is not ready.');
  const version=await versionResponse.json();
  if(Object.keys(version).sort().join(',')!=='app,revision,versionId'||version.app!=='tlpt-cashier'||version.revision!==revision||!version.versionId)throw Error('Live Worker revision/version does not match this release.');
+ if(workerVersion&&version.versionId!==workerVersion)throw Error('The exact activated Worker version has not propagated yet.');
  if(gatewayHash&&versionResponse.headers.get('X-TLPT-Gateway-Source')!==gatewayHash)throw Error('Live gateway does not match its source fingerprint.');
  if(!versionResponse.headers.get('Cache-Control')?.includes('no-store'))throw Error('Build metadata must not be cached.');
  const assetsResponse=await request('/release.json');
@@ -34,6 +35,12 @@ export async function verifyWithRetry(options,{timeoutMs=180000,intervalMs=5000,
  throw last;
 }
 if(import.meta.url===pathToFileURL(process.argv[1]||'').href){
- try{const verified=await verifyWithRetry({revision:process.env.EXPECTED_REVISION||process.argv[2],gatewayHash:process.env.EXPECTED_GATEWAY_HASH});receipt({verified,verifiedAt:new Date().toISOString()});console.log(JSON.stringify(verified,null,2));}
+ try{
+  const revision=process.env.EXPECTED_REVISION||process.argv[2],state=receipt({});
+  const uploadedHere=state.plan?.worker&&state.plan.expectedRevision===revision;
+  const workerVersion=process.env.EXPECTED_WORKER_VERSION||(uploadedHere?state.uploadedWorkerVersion:undefined);
+  if(uploadedHere&&!workerVersion)throw Error('The planned Worker publication has no recorded version to verify.');
+  const verified=await verifyWithRetry({revision,workerVersion,gatewayHash:process.env.EXPECTED_GATEWAY_HASH});receipt({verified,verifiedAt:new Date().toISOString()});console.log(JSON.stringify(verified,null,2));
+ }
  catch(error){receipt({verificationError:error.message});console.error(error.message);process.exitCode=1;}
 }
