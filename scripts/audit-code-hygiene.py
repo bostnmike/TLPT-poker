@@ -2731,7 +2731,7 @@ def audit_cashier_shortcut() -> list[str]:
     path = ROOT / "cashier.html"
     if not path.is_file():
         return ["cashier.html: unlisted cashier shortcut is missing"]
-    destination = "https://tlpt-cashier-staging.tlpt-bostnmike.workers.dev/"
+    destination = "https://cashier.tlpt.org/"
 
     class ShortcutParser(HTMLParser):
         def __init__(self):

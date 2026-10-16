@@ -1,10 +1,11 @@
 # TLPT Cashier — Cloudflare migration
 
 The cashier's interface, payment rules, database migrations, Gmail reader, and
-tests live with TLPT. **`https://tlpt.org/cashier.html` opens the Cloudflare
-cashier.** The previous owner-private Sites app remains available for fallback.
+tests live with TLPT. `https://tlpt.org/cashier.html` opens the Cloudflare
+cashier at `https://cashier.tlpt.org`. The previous owner-private Sites app
+remains available for fallback.
 
-Production uses the already-tested Worker at
+The branded address forwards internally to the already-tested production Worker at
 `https://tlpt-cashier-staging.tlpt-bostnmike.workers.dev`. The historical Worker
 name is retained so the owner's existing password, signed-in session, and import
 secret continue working. Its environment is now `production`, and it binds only
@@ -253,3 +254,36 @@ A failed check changes no properties; a repeated successful promotion is safe.
 After promotion, run `checkConnection` and `pollVenmoReceipts`, verify the current
 mailbox check in the production register, and check that there is still one timer.
 Use `verifyReceiptFormat` when the first genuine receipt arrives.
+
+
+## Branded subdomain with DNS remaining at Porkbun
+
+`cashier/domain-gateway/` is a minimal Cloudflare Pages advanced-mode gateway.
+A Pages project named `tlpt-cashier-domain` binds `CASHIER` to the existing
+`tlpt-cashier-staging` production Worker. Every request is forwarded intact,
+including its custom origin, method, body, and cookies. The existing Worker
+continues to enforce password sessions, same-origin writes, and import tokens;
+the gateway has no database binding and stores no credentials or payment data.
+A missing service binding returns 503 rather than a static app or public ledger.
+
+This allows only the `cashier.tlpt.org` CNAME to be added at Porkbun, without
+moving the domain's nameservers or its other DNS records. Associate the custom
+hostname in the Pages dashboard before adding the CNAME shown there. TLS must
+be active and the password/API behavior checked before the existing shortcut
+is changed. Keep the workers.dev address and Google reader destination working.
+The reader may continue using the original Worker address; both addresses use
+the same production database. The same password works at the branded address,
+but it requires its own host-bound browser session.
+
+To create or update through the existing Cloudflare dashboard, upload a ZIP of
+the three files in `domain-gateway/`, add the production service binding under
+Settings > Bindings, and redeploy the gateway after a binding change. Do not add
+payment methods or enroll in paid plans. `wrangler.gateway.jsonc` documents the
+equivalent deployment configuration; the existing CLI OAuth was not expanded
+for this dashboard setup. Gateway Functions share Workers Free limits with the
+app. They add an invocation per forwarded request; exceeding free limits stops
+service rather than enabling paid fallback.
+
+References: [externally managed Pages subdomains](https://developers.cloudflare.com/pages/configuration/custom-domains/),
+[service bindings](https://developers.cloudflare.com/pages/functions/bindings/#service-bindings),
+[advanced-mode direct upload](https://developers.cloudflare.com/pages/get-started/direct-upload/#functions).

@@ -1,0 +1,7 @@
+{
+ "$schema":"node_modules/wrangler/config-schema.json",
+ "name":"tlpt-cashier-domain",
+ "pages_build_output_dir":"./domain-gateway",
+ "compatibility_date":"2026-05-15",
+ "services":[{"binding":"CASHIER","service":"tlpt-cashier-staging"}]
+}
