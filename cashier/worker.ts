@@ -21,7 +21,7 @@ export default {
    if(!owner){
     const configured=env.AUTH_MODE==='password'?passwordConfiguration(env):accessConfiguration(env);
     if(path.startsWith('/api/'))return secure(response({error:configured?'Sign in to use the register.':'Cashier sign-in is not configured.'},configured?401:503));
-    if(env.AUTH_MODE==='password')return secure(configured?signInPage('',401):signInPage('The test cashier is still being configured.',503));
+    if(env.AUTH_MODE==='password')return secure(configured?signInPage('',200):signInPage('The test cashier is still being configured.',503));
     return secure(new Response('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TLPT Cashier sign-in</title><main><h1>TLPT Cashier</h1><p>'+ (configured?'Sign in with the cashier owner’s email to continue.':'This new cashier is still being configured.')+'</p>'+(configured?'<p><a href="/cdn-cgi/access/login">Sign in</a></p>':'')+'<p><a href="https://tlpt.org/cashier.html">Open the current working register</a></p></main></html>',{status:configured?401:503,headers:{'Content-Type':'text/html;charset=utf-8','Cache-Control':'private, no-store'}}));
    }
    const verified=ownerRequest(request,owner);
