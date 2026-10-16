@@ -1,8 +1,8 @@
 # TLPT Cashier — Cloudflare migration
 
 The cashier's interface, payment rules, database migrations, Gmail reader, and
-tests live with TLPT. **`https://tlpt.org/cashier.html` opens the Cloudflare
-cashier at **`https://cashier.tlpt.org`**. The previous owner-private Sites app
+tests live with TLPT. `https://tlpt.org/cashier.html` opens the Cloudflare
+cashier at `https://cashier.tlpt.org`. The previous owner-private Sites app
 remains available for fallback.
 
 The branded address forwards internally to the already-tested production Worker at
