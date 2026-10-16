@@ -101,6 +101,38 @@ def main() -> int:
                     f"pull_request path filters, found {actual} occurrence(s)"
                 )
 
+    # Component-specific suites stay independently wired to every file that can
+    # affect their behavior. Their commands are intentionally not duplicated in
+    # the root runner because the cashier owns a separate dependency toolchain.
+    satellite_gates = baseline.get("satelliteQualityGates", {})
+    if not isinstance(satellite_gates, dict):
+        errors.append("maintenance-baseline.json: satelliteQualityGates must be an object")
+        satellite_gates = {}
+    for name, contract in satellite_gates.items():
+        if not isinstance(contract, dict):
+            errors.append(f"satellite quality gate `{name}` must be an object")
+            continue
+        workflow_rel = contract.get("workflow", "")
+        workflow = ROOT / workflow_rel
+        if not workflow.is_file():
+            errors.append(f"satellite quality workflow is missing: {workflow_rel}")
+            continue
+        workflow_text = workflow.read_text(encoding="utf-8")
+        for rel in contract.get("triggerPaths", []):
+            actual = len(re.findall(rf'["\']{re.escape(rel)}["\']', workflow_text))
+            if actual != 2:
+                errors.append(
+                    f"{workflow_rel}: expected `{rel}` in both push and pull_request path "
+                    f"filters, found {actual} occurrence(s)"
+                )
+        for command in contract.get("requiredCommands", []):
+            actual = workflow_text.count(command)
+            if actual != 1:
+                errors.append(
+                    f"{workflow_rel}: expected command `{command}` exactly once, "
+                    f"found {actual} occurrence(s)"
+                )
+
     # Public pages must remain one shared CSS generation.
     # Lily owns its microsite; the unlisted cashier redirect owns no shared CSS.
     # Its redirect and discovery policy are validated by the hygiene audit.
@@ -129,6 +161,7 @@ def main() -> int:
     print(
         f"PASS: maintenance baseline verified — {len(pages)} public pages, "
         f"{len(baseline.get('requiredQualityGates', []))} quality gates, "
+        f"{len(satellite_gates)} satellite suites, "
         f"{len(baseline.get('qualityTriggerPaths', []))} protected maintenance paths, "
         f"shared CSS {asset}?v={version}"
     )

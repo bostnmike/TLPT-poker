@@ -29,13 +29,20 @@ The weekly runner and GitHub data pipeline already call both authoritative runne
 
 ## Quality gates
 
-The complete validation suite is owned only by:
+The shared-site validation suite is owned only by:
 
 `bash scripts/run-quality-gates.sh`
 
 Do not duplicate its individual commands in other workflows.
 
-It verifies the maintenance baseline, code hygiene, shared-shell recovery, app data-load recovery, generated data, source-to-page integrity, and rendered page calculations.
+It verifies the maintenance baseline, code hygiene, shared-shell recovery, app data-load recovery, generated data, source-to-page integrity, rendered page calculations, and the complete Marchand puck suite.
+
+Registration and the cashier have independent quality workflows because they have separate hosting and dependency contracts:
+
+- Registration → `.github/workflows/registration-checks.yml`
+- Cashier → `.github/workflows/cashier-checks.yml`
+
+The maintenance baseline verifies that both workflows watch every relevant source and test file, and that their required test, build, integration, and deployment-validation commands remain wired. Run the shared-site, registration, and cashier suites when a change crosses component boundaries.
 
 ## Shared CSS changes
 
@@ -62,7 +69,9 @@ The root file is only a compatibility launcher. Do not add audit logic to it.
 ## What must remain single-source
 
 - Generated-data build sequence → `scripts/run-data-build.sh`
-- Complete validation suite → `scripts/run-quality-gates.sh`
+- Shared-site validation suite → `scripts/run-quality-gates.sh`
+- Registration validation suite → `.github/workflows/registration-checks.yml`
+- Cashier validation suite → `.github/workflows/cashier-checks.yml`
 - Hygiene audit logic → `scripts/audit-code-hygiene.py`
 - Shared CSS cache rotation → `scripts/rotate-shared-css-cache.py`
 - Maintenance contract → `maintenance-baseline.json`

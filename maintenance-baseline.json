@@ -25,15 +25,57 @@
   ],
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",
+    "scripts/test-event-currency.py",
     "scripts/audit-code-hygiene.py",
     "scripts/test-site-shell.mjs",
     "scripts/test-register-page.mjs",
     "scripts/test-app-load-failure.mjs",
     "scripts/test-news-layout.mjs",
     "scripts/test-marchand-page.mjs",
+    "scripts/test-marchand-source-record.mjs",
+    "scripts/test-marchand-authentication-links.mjs",
+    "scripts/test-marchand-photo-manifest.mjs",
+    "scripts/test-marchand-stories.mjs",
+    "scripts/test-marchand-game-stats.mjs",
+    "scripts/test-marchand-vault.mjs",
+    "scripts/test-marchand-filters.mjs",
+    "scripts/test-marchand-merge59.mjs",
+    "scripts/test-marchand-centennial342.mjs",
+    "scripts/test-marchand-centennial343.mjs",
+    "scripts/test-marchand-sync.py",
     "scripts/validate-site-data.py",
     "scripts/audit-site-integrity.py",
     "scripts/audit-page-calculations.mjs",
     "lily-site/check_site.py"
-  ]
+  ],
+  "satelliteQualityGates": {
+    "registration": {
+      "workflow": ".github/workflows/registration-checks.yml",
+      "triggerPaths": [
+        "registration-domain/**",
+        "register.html",
+        "register.js",
+        "register.css",
+        "scripts/test-register-page.mjs",
+        ".github/workflows/registration-checks.yml"
+      ],
+      "requiredCommands": [
+        "node --test registration-domain/tests/*.test.mjs",
+        "node scripts/test-register-page.mjs"
+      ]
+    },
+    "cashier": {
+      "workflow": ".github/workflows/cashier-checks.yml",
+      "triggerPaths": [
+        "cashier/**",
+        ".github/workflows/cashier-checks.yml"
+      ],
+      "requiredCommands": [
+        "pnpm install --frozen-lockfile --ignore-scripts",
+        "pnpm check",
+        "pnpm test:integration",
+        "pnpm exec wrangler deploy --dry-run --env=\"\" --outdir .wrangler/dry-run"
+      ]
+    }
+  }
 }

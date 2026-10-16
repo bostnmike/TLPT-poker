@@ -43,7 +43,12 @@ node scripts/test-marchand-authentication-links.mjs
 node scripts/test-marchand-photo-manifest.mjs
 node scripts/test-marchand-stories.mjs
 node scripts/test-marchand-game-stats.mjs
+node scripts/test-marchand-vault.mjs
+node scripts/test-marchand-filters.mjs
+node scripts/test-marchand-merge59.mjs
 node scripts/test-marchand-centennial342.mjs
+node scripts/test-marchand-centennial343.mjs
+"$PYTHON_BIN" scripts/test-marchand-sync.py
 
 echo "🧪 Validating generated site data..."
 "$PYTHON_BIN" scripts/validate-site-data.py
