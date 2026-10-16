@@ -15,13 +15,19 @@
     "weeklyUpdate": "scripts/run-weekly-update.sh",
     "dataPipelineWorkflow": ".github/workflows/tlpt-update.yml",
     "siteQualityWorkflow": ".github/workflows/site-quality.yml",
+    "qualityRequirements": "requirements-quality.txt",
     "cacheRotationWorkflow": ".github/workflows/rotate-shared-css-cache.yml"
   },
   "qualityTriggerPaths": [
     "audit-code-hygiene.py",
     "maintenance-baseline.json",
     "MAINTENANCE-RUNBOOK.md",
+    "requirements-quality.txt",
     "lily-site/**"
+  ],
+  "requiredQualityWorkflowCommands": [
+    "python -m pip install --requirement requirements-quality.txt",
+    "bash scripts/run-quality-gates.sh"
   ],
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",

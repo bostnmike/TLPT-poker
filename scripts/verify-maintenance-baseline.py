@@ -100,6 +100,13 @@ def main() -> int:
                     f"{site_quality.relative_to(ROOT)}: expected `{rel}` in both push and "
                     f"pull_request path filters, found {actual} occurrence(s)"
                 )
+        for command in baseline.get("requiredQualityWorkflowCommands", []):
+            actual = quality_workflow_text.count(command)
+            if actual != 1:
+                errors.append(
+                    f"{site_quality.relative_to(ROOT)}: expected command `{command}` "
+                    f"exactly once, found {actual} occurrence(s)"
+                )
 
     # Component-specific suites stay independently wired to every file that can
     # affect their behavior. Their commands are intentionally not duplicated in
