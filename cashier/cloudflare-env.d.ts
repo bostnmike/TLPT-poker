@@ -11,5 +11,7 @@ declare namespace Cloudflare {
   CF_ACCESS_AUD:string;
   IMPORT_TOKEN?:string;
   LOCAL_OWNER_EMAIL?:string;
+  RELEASE_SHA?:string;
+  CASHIER_VERSION?:{id:string;tag?:string;timestamp?:string};
  }
 }

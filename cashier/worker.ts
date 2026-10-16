@@ -3,6 +3,7 @@ import {GET as getPlayers} from './app/api/players/route';
 import {POST as importReceipts} from './app/api/import/route';
 import {accessConfiguration,authorizeOwner,ownerRequest,validImportToken} from './lib/owner-auth.mjs';
 import {passwordConfiguration,passwordLogin,passwordLogout,signInPage} from './lib/password-auth.mjs';
+import {releaseInfo} from './lib/release.mjs';
 
 const response=(value:unknown,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'private, no-store'}});
 function secure(res:Response){const headers=new Headers(res.headers);headers.set('X-Robots-Tag','noindex, nofollow, noarchive');headers.set('X-Content-Type-Options','nosniff');headers.set('Referrer-Policy','same-origin');headers.set('Content-Security-Policy',"default-src 'self'; img-src 'self' https://tlpt.org data:; style-src 'self' 'unsafe-inline'; media-src 'self' blob:; connect-src 'self'; script-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'");return new Response(res.body,{status:res.status,statusText:res.statusText,headers});}
@@ -10,6 +11,8 @@ export default {
  async fetch(request:Request,env:Cloudflare.Env):Promise<Response>{
   try{
    const url=new URL(request.url),path=url.pathname;
+   // Public build metadata only: no owner, database, session or reader data.
+   if(path==='/api/version')return secure(request.method==='GET'?response(releaseInfo(env)):response({error:'Method not allowed'},405));
    if(env.AUTH_MODE==='password'&&path==='/auth/login')return secure(await passwordLogin(request,env));
    if(env.AUTH_MODE==='password'&&path==='/auth/logout')return secure(passwordLogout(request));
    if(path==='/api/import'){

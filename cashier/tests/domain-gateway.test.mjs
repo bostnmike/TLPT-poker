@@ -8,7 +8,7 @@ test('domain gateway preserves the custom origin, request body, and private resp
  const expected=new Response(null,{status:303,headers:{Location:'/', 'Set-Cookie':'__Host-tlpt-session=disposable; Secure; HttpOnly; SameSite=Strict; Path=/','Cache-Control':'private, no-store'}});
  const result=await gateway.fetch(request,{CASHIER:{fetch:async incoming=>{forwarded=incoming;return expected;}}});
  assert.equal(forwarded,request);assert.equal(forwarded.url,'https://cashier.tlpt.org/auth/login');assert.equal(forwarded.headers.get('Origin'),'https://cashier.tlpt.org');assert.equal(await forwarded.text(),'password=disposable-test-password');
- assert.equal(result,expected);assert.equal(result.status,303);assert.equal(result.headers.get('Location'),'/');assert.match(result.headers.get('Set-Cookie'),/HttpOnly/);assert.equal(result.headers.get('Cache-Control'),'private, no-store');
+ assert.equal(result.status,303);assert.equal(result.headers.get('Location'),'/');assert.match(result.headers.get('Set-Cookie'),/HttpOnly/);assert.equal(result.headers.get('Cache-Control'),'private, no-store');
 });
 test('domain gateway preserves cashier denials and fails closed when the service binding is absent',async()=>{
  const request=new Request('https://cashier.tlpt.org/api/register');

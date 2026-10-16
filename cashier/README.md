@@ -72,6 +72,14 @@ Sources: [Workers pricing](https://developers.cloudflare.com/workers/platform/pr
 [D1 pricing and quota behavior](https://developers.cloudflare.com/d1/platform/pricing/),
 [Access plans](https://www.cloudflare.com/sase/products/access/).
 
+## Automatic production publication
+
+Requested Cashier changes include publication after checks pass on main.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the workflow, narrowly scoped environment
+credentials, live verification, failure handling and rollback. Staging remains
+separate, and ordinary releases retain the existing database, password, sessions
+and Gmail reader connection.
+
 ## Local development and checks
 
 Node 22.13+ and Python 3 are required. Use the pinned package manager:
@@ -275,7 +283,8 @@ The reader may continue using the original Worker address; both addresses use
 the same production database. The same password works at the branded address,
 but it requires its own host-bound browser session.
 
-To create or update through the existing Cloudflare dashboard, upload a ZIP of
+The automatic release updates this gateway only when its source or configuration
+changes. For emergency recovery through the Cloudflare dashboard, upload a ZIP of
 the three files in `domain-gateway/`, add the production service binding under
 Settings > Bindings, and redeploy the gateway after a binding change. Do not add
 payment methods or enroll in paid plans. `wrangler.gateway.jsonc` documents the
