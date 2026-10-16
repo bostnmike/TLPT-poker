@@ -1,12 +1,13 @@
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI,uploadedVersion,assertActiveVersion} from './release-tools.mjs';
+import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from './release-tools.mjs';
 requireTrustedCI();
 const mode=process.argv[2],sha=process.env.GITHUB_SHA;
 const config=configForRelease(sha),token=process.env.CLOUDFLARE_API_TOKEN;
 if(!token)throw Error('The required Cloudflare environment secret is missing. See DEPLOYMENT.md.');
-function wrangler(args){
- const r=spawnSync(process.execPath,['node_modules/wrangler/bin/wrangler.js',...args],{stdio:'inherit',env:{...process.env,CLOUDFLARE_ACCOUNT_ID:ACCOUNT,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});
+function wrangler(args,cwd=process.cwd()){
+ const r=spawnSync(process.execPath,[resolve('node_modules/wrangler/bin/wrangler.js'),...args],{cwd,stdio:'inherit',env:{...process.env,CLOUDFLARE_ACCOUNT_ID:ACCOUNT,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false'}});
  if(r.status!==0)throw Error(`Wrangler ${args[0]} failed; publishing stopped.`);
 }
 if(mode==='preflight'){
@@ -40,15 +41,15 @@ if(mode==='preflight'){
  const previous=await cloudflare(`pages/projects/${PROJECT}`,token);
  if(previous.production_branch!=='main'||previous.deployment_configs?.production?.fail_open!==false)throw Error('Gateway must keep its main branch and fail-closed free-quota setting.');
  receipt({previousGatewayDeployment:previous.canonical_deployment?.id||null});
- const cfg=JSON.parse(readFileSync('wrangler.gateway.jsonc','utf8'));
- if(cfg.name!==PROJECT||cfg.services?.length!==1||cfg.services[0].binding!=='CASHIER'||cfg.services[0].service!==WORKER||cfg.d1_databases||cfg.env)throw Error('Gateway may only bind to the existing production Worker.');
- cfg.account_id=ACCOUNT;cfg.vars={GATEWAY_SOURCE_HASH:process.env.GATEWAY_SOURCE_HASH};
- if(!/^[a-f0-9]{64}$/.test(cfg.vars.GATEWAY_SOURCE_HASH||''))throw Error('Missing gateway source fingerprint.');
+ const cfg=gatewayReleaseConfig(JSON.parse(readFileSync('wrangler.gateway.jsonc','utf8')),process.env.GATEWAY_SOURCE_HASH,process.cwd());
  // If the hostname is unreachable, use Pages' saved configuration to avoid
  // uploading an unchanged gateway merely because its HTTP marker was absent.
  if(previous.deployment_configs?.production?.env_vars?.GATEWAY_SOURCE_HASH?.value===cfg.vars.GATEWAY_SOURCE_HASH){receipt({gatewaySkipped:true});console.log('Gateway source/configuration already matches; no upload.');process.exit(0);}
- writeFileSync('wrangler.gateway.release.local.json',JSON.stringify(cfg,null,2)+'\n');
- wrangler(['pages','deploy','--config','wrangler.gateway.release.local.json','--project-name',PROJECT,'--branch','main','--commit-hash',sha,'--commit-dirty=false']);
+ // Pages rejects --config. Discover its conventional filename in an isolated
+ // directory so the Worker's wrangler.jsonc can never be mistaken for Pages.
+ const directory=resolve('.wrangler/gateway-release');mkdirSync(directory,{recursive:true});
+ writeFileSync(resolve(directory,'wrangler.json'),JSON.stringify(cfg,null,2)+'\n');
+ wrangler(['pages','deploy','--project-name',PROJECT,'--branch','main','--commit-hash',sha,'--commit-dirty=false'],directory);
  const after=await cloudflare(`pages/projects/${PROJECT}`,token);
  if(after.deployment_configs?.production?.fail_open!==false)throw Error('Gateway fail-closed setting changed; restore it before retrying.');
  receipt({gatewayDeployment:after.canonical_deployment?.id||null});

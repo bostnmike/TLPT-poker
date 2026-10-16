@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {releaseInfo} from '../lib/release.mjs';
-import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion} from '../scripts/release-tools.mjs';
+import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
 const sha='a'.repeat(40),gatewayHash='b'.repeat(64);
 function transport({denied=401,revision=sha,assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
@@ -27,6 +27,17 @@ test('activation selects only the exact commit version and requires all traffic 
  assert.throws(()=>uploadedVersion([{id:'wrong-version'}],sha));
  assert.doesNotThrow(()=>assertActiveVersion({versions:[{version_id:'new-version',percentage:100}]},'new-version'));
  for(const versions of [[{version_id:'old-version',percentage:100}],[{version_id:'new-version',percentage:50}],[{version_id:'new-version',percentage:100},{version_id:'old-version',percentage:0}]])assert.throws(()=>assertActiveVersion({versions},'new-version'));
+});
+test('isolated Pages configuration keeps absolute assets, the production binding and exact fingerprint',()=>{
+ const source=JSON.parse(readFileSync(new URL('../wrangler.gateway.jsonc',import.meta.url)));
+ const result=gatewayReleaseConfig(source,gatewayHash,'/checkout/cashier');
+ assert.equal(result.pages_build_output_dir,'/checkout/cashier/domain-gateway');
+ assert.deepEqual(result.services,source.services);
+ assert.deepEqual(result.vars,{GATEWAY_SOURCE_HASH:gatewayHash});
+ assert.equal(result.$schema,undefined);
+ assert.throws(()=>gatewayReleaseConfig({...source,pages_build_output_dir:'../other'},gatewayHash,'/checkout/cashier'));
+ assert.throws(()=>gatewayReleaseConfig({...source,services:[{binding:'CASHIER',service:'tlpt-cashier-test'}]},gatewayHash,'/checkout/cashier'));
+ assert.throws(()=>gatewayReleaseConfig(source,'invalid','/checkout/cashier'));
 });
 test('source fingerprints use repository-root paths from the cashier working directory and separate app from gateway changes',()=>{
  const root=mkdtempSync(join(tmpdir(),'cashier-release-git-'));
