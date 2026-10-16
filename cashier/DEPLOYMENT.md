@@ -35,6 +35,12 @@ ordinary releases never put/delete secrets, rotate passwords/session keys,
 change the Google reader, initialize an import token, or replace a database.
 Existing signed-in iPads remain valid until their normal session expiry.
 
+Production uses `wrangler versions upload` followed by the single-Worker
+deployments API to activate exactly that version at 100% traffic. This avoids
+`wrangler deploy` changing triggers or reading the account-wide workers.dev
+subdomain. Existing workers.dev/Gmail addresses and Pages/DNS connections remain
+untouched; the Worker token needs no account-wide Worker or subdomain access.
+
 The production job is serialized and rejects an obsolete Cashier checkout if a
 newer Cashier change is already on main. Non-Cashier generated-data commits do
 not prevent publishing the tested Cashier. Worker changes are compared against

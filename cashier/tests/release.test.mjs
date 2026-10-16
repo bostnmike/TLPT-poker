@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {releaseInfo} from '../lib/release.mjs';
-import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint} from '../scripts/release-tools.mjs';
+import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
 const sha='a'.repeat(40),gatewayHash='b'.repeat(64);
 function transport({denied=401,revision=sha,assetRevision=sha,gateway=gatewayHash,shortcut='https://cashier.tlpt.org/',extraPrivate=false}={}){
@@ -20,6 +20,13 @@ function transport({denied=401,revision=sha,assetRevision=sha,gateway=gatewayHas
 }
 test('release metadata is public build identity only, never private configuration',()=>{
  assert.deepEqual(releaseInfo({RELEASE_SHA:sha,CASHIER_VERSION:{id:'version'},OWNER_EMAIL:'private',IMPORT_TOKEN:'secret',SESSION_SECRET:'secret'}),{app:'tlpt-cashier',revision:sha,versionId:'version'});
+});
+test('activation selects only the exact commit version and requires all traffic on that version',()=>{
+ const expected={id:'new-version',annotations:{'workers/tag':sha}};
+ assert.equal(uploadedVersion([{id:'wrong-version',annotations:{'workers/tag':'other'}},expected],sha),expected);
+ assert.throws(()=>uploadedVersion([{id:'wrong-version'}],sha));
+ assert.doesNotThrow(()=>assertActiveVersion({versions:[{version_id:'new-version',percentage:100}]},'new-version'));
+ for(const versions of [[{version_id:'old-version',percentage:100}],[{version_id:'new-version',percentage:50}],[{version_id:'new-version',percentage:100},{version_id:'old-version',percentage:0}]])assert.throws(()=>assertActiveVersion({versions},'new-version'));
 });
 test('source fingerprints use repository-root paths from the cashier working directory and separate app from gateway changes',()=>{
  const root=mkdtempSync(join(tmpdir(),'cashier-release-git-'));
