@@ -1,6 +1,6 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
-import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI} from './release-tools.mjs';
+import {configForRelease,cloudflare,receipt,WORKER,DATABASE,PROJECT,ACCOUNT,requireTrustedCI,uploadedVersion,assertActiveVersion} from './release-tools.mjs';
 requireTrustedCI();
 const mode=process.argv[2],sha=process.env.GITHUB_SHA;
 const config=configForRelease(sha),token=process.env.CLOUDFLARE_API_TOKEN;
@@ -25,10 +25,16 @@ if(mode==='preflight'){
 }else if(mode==='worker'){
  const built=JSON.parse(readFileSync('dist/release.json','utf8'));
  if(built.revision!==sha||built.app!=='tlpt-cashier')throw Error('The tested artifact is not from this commit.');
- wrangler(['deploy','--config','wrangler.release.local.json','--keep-vars']);
+ // Upload and activate code only. `wrangler deploy` also configures triggers
+ // and reads the account-wide workers.dev subdomain; neither is needed here.
+ wrangler(['versions','upload','--config','wrangler.release.local.json','--keep-vars','--tag',sha,'--message',`Cashier ${sha}`]);
+ const versions=await cloudflare(`workers/scripts/${WORKER}/versions?per_page=10`,token);
+ const uploaded=uploadedVersion(versions.items,sha);
+ receipt({uploadedWorkerVersion:uploaded.id});
+ await cloudflare(`workers/scripts/${WORKER}/deployments`,token,{method:'POST',body:JSON.stringify({strategy:'percentage',versions:[{version_id:uploaded.id,percentage:100}],annotations:{'workers/message':`Cashier ${sha}`}})});
  const deployments=await cloudflare(`workers/scripts/${WORKER}/deployments`,token);
  const active=deployments.deployments?.[0];
- if(!active?.versions?.length)throw Error('Cannot identify the new deployed Worker version.');
+ assertActiveVersion(active,uploaded.id);
  receipt({workerDeployment:active});
 }else if(mode==='gateway'){
  const previous=await cloudflare(`pages/projects/${PROJECT}`,token);

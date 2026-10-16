@@ -44,7 +44,7 @@ jobs:
       - name: Validate staging and pinned production bundles without publishing
         run: |
           pnpm exec wrangler deploy --dry-run --env="" --outdir .wrangler/dry-run
-          pnpm exec wrangler deploy --dry-run --config wrangler.production.jsonc --outdir .wrangler/production-dry-run
+          pnpm exec wrangler versions upload --dry-run --config wrangler.production.jsonc --outdir .wrangler/production-dry-run
       - uses: actions/upload-artifact@v6
         with:
           name: cashier-dist-${{ github.sha }}

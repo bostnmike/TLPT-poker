@@ -8,6 +8,14 @@ export const DATABASE='9165ae68-16fa-4ce2-9b87-77019e52ef20';
 export const PROJECT='tlpt-cashier-domain';
 export const ORIGIN='https://cashier.tlpt.org';
 export const shaPattern=/^[a-f0-9]{40}$/;
+export function uploadedVersion(items,sha){
+ const version=items?.find(v=>v.annotations?.['workers/tag']===sha);
+ if(!shaPattern.test(sha||'')||!version?.id)throw Error('Cannot identify the uploaded version for this exact commit.');
+ return version;
+}
+export function assertActiveVersion(deployment,id){
+ if(deployment?.versions?.length!==1||deployment.versions[0].version_id!==id||deployment.versions[0].percentage!==100)throw Error('The intended Worker version is not serving 100% of traffic.');
+}
 const repositoryRoot=fileURLToPath(new URL('../..',import.meta.url));
 export function git(...args){return execFileSync('git',args,{cwd:repositoryRoot,encoding:'utf8'}).trim();}
 export const gatewayPath=p=>p.startsWith('cashier/domain-gateway/')||p==='cashier/wrangler.gateway.jsonc';
