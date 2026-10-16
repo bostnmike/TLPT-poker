@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/site/apple-touch-icon.png">
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
-  <link rel="stylesheet" href="register.css?v=20261015-6" />
+  <link rel="stylesheet" href="register.css?v=20261015-7" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
 </head>
@@ -122,10 +122,6 @@
       <p>Welcome to TLPT. This quick intake gives me what I need to create your player identity, build your avatar, and make sure your first result lands in the right place.</p>
       <p class="register-intake-punchline">If this feels like overkill for a weekend poker league, you clearly haven’t checked out the rest of the site.</p>
     </div>
-    <div class="register-intake-meta" aria-label="Registration details">
-      <span class="register-time-note">About 3–4 minutes</span>
-      <span class="register-review-note">Private link • Commissioner review</span>
-    </div>
   </section>
 
   <section class="section register-shell" aria-labelledby="register-form-title">
@@ -193,8 +189,8 @@
 
           <div class="register-field">
             <label for="registration-phone">Mobile number <span aria-hidden="true">*</span></label>
-            <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="Mobile number" aria-describedby="registration-phone-help" required />
-            <small id="registration-phone-help">TLPT uses a group chat for game invitations, schedule updates, and day-of reminders.</small>
+            <input id="registration-phone" name="Mobile number" type="tel" maxlength="24" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" aria-describedby="registration-phone-help" required />
+            <small id="registration-phone-help">Use a 10-digit mobile number—we’ll format it for you. TLPT uses a group chat for game invitations, schedule updates, and day-of reminders.</small>
           </div>
 
           <div class="register-field">
@@ -286,8 +282,8 @@
       <fieldset class="register-step" data-register-step="2" hidden>
         <legend class="register-step-heading">
           <span>Step 3 of 3</span>
-          <strong>Review &amp; consent</strong>
-          <small>One last look before this reaches the commissioner’s inbox.</small>
+          <strong>Review &amp; the table handshake</strong>
+          <small>One last look, then send your player file to The Commish.</small>
         </legend>
 
         <div class="register-review" id="register-review" aria-live="polite"></div>
@@ -295,19 +291,19 @@
         <div class="register-consent-list">
           <label class="register-consent">
             <input type="checkbox" name="Accuracy confirmed" value="Yes" required />
-            <span><strong>The information I supplied is accurate.</strong><small>I understand that registration is reviewed and does not guarantee a seat.</small></span>
+            <span><strong>My details are right. My poker reads? No promises.</strong><small>The Commish will get me set up; a seat still needs its own RSVP.</small></span>
           </label>
           <label class="register-consent">
             <input type="checkbox" name="Public profile consent" value="Yes" required />
-            <span><strong>My display name, poker results, statistics, and league achievements may appear publicly on TLPT.org.</strong></span>
+            <span><strong>Put my poker name on the board.</strong><small>My display name, results, stats, and league highlights can appear publicly on TLPT.org. Even the numbers I’d rather forget.</small></span>
           </label>
           <label class="register-consent">
             <input type="checkbox" name="AI likeness consent" value="Yes" required />
-            <span><strong>TLPT may use my reference photos to create and publicly display an illustrated player avatar.</strong><small>The submitted reference photos themselves will not be posted as my profile image.</small></span>
+            <span><strong>Give me the TLPT avatar treatment.</strong><small>Use my photos to create and publicly show an AI-illustrated player avatar. The reference photos themselves stay off the site. No Hollywood headshot required.</small></span>
           </label>
           <label class="register-consent">
             <input type="checkbox" name="League humor acknowledged" value="Yes" required />
-            <span><strong>I understand the league uses player-specific humor in its write-ups and at the table.</strong></span>
+            <span><strong>I’m here for the cards—and the friendly roasting.</strong><small>Player-specific jokes are part of the table talk and league write-ups. Apparently, folding doesn’t make me immune.</small></span>
           </label>
         </div>
 
@@ -317,8 +313,8 @@
         </div>
 
         <div class="register-privacy-note">
-          <strong>What happens next</strong>
-          <p>Your registration and attachments are processed by FormSubmit and emailed to the commissioner at <span>blanchettemr@gmail.com</span>. That email becomes the staged intake record, with a structured registration packet included so an approved player can be added without copying or retyping the form. Do not include passwords, payment information, a home address, or other private access details.</p>
+          <strong>Where this goes</strong>
+          <p>Your answers and photos go through FormSubmit to The Commish at <span>blanchettemr@gmail.com</span>. He gets a ready-to-review player file—no copying and pasting required. No passwords, payment details, or home addresses needed—this is poker night, not a mortgage application.</p>
         </div>
 
         <div class="register-step-actions">
@@ -350,6 +346,6 @@
 </footer>
 
 <script src="site-shell.js?v=20261012-3"></script>
-<script src="register.js?v=20261015-5"></script>
+<script src="register.js?v=20261015-6"></script>
 </body>
 </html>

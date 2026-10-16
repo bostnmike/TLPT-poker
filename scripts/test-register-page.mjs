@@ -33,9 +33,9 @@ assert.match(page, /name="AI likeness consent"[^>]+required/);
 assert.match(page, /name="League humor acknowledged"[^>]+required/);
 assert.match(page, /name="Registration packet version" value="3"/);
 assert.match(page, /id="registration-packet" name="Registration packet JSON"/);
-assert.match(page, /That email becomes the staged intake record/);
-assert.match(page, /href="register\.css\?v=20261015-6"/);
-assert.match(page, /src="register\.js\?v=20261015-5"/);
+assert.match(page, /ready-to-review player file/);
+assert.match(page, /href="register\.css\?v=20261015-7"/);
+assert.match(page, /src="register\.js\?v=20261015-6"/);
 assert.match(page, /src="images\/players\/bostnmike\.jpg"/);
 assert.match(page, /alt="BostnMike, the TLPT commissioner"/);
 assert.match(page, /If you made it this far, you clearly know someone cool\./);
@@ -47,10 +47,17 @@ assert.match(page, /id="last-name" name="Last name"[^>]+required/);
 assert.match(page, /id="nickname" name="Nickname"/);
 assert.match(page, /id="registration-email" name="email" type="email"[^>]+required/);
 assert.match(page, /id="registration-phone" name="Mobile number" type="tel"[^>]+required/);
+assert.match(page, /placeholder="\(555\) 123-4567"/);
+assert.ok(page.includes('pattern="\\([0-9]{3}\\) [0-9]{3}-[0-9]{4}"'));
 assert.match(page, /TLPT uses a group chat for game invitations, schedule updates, and day-of reminders\./);
 assert.doesNotMatch(page, /Name pronunciation|Nicknames or alternate spellings|name="Pronouns"|Preferred contact method|Which games usually work|Usual availability|Table persona|Poker experience|Self-described playing style|Player catchphrase/);
-assert.match(page, /About 3–4 minutes/);
-assert.doesNotMatch(page, /Moderated intake|register-secure-note/);
+assert.doesNotMatch(page, /About 3–4 minutes|Private link • Commissioner review|register-intake-meta|Moderated intake|register-secure-note/);
+assert.match(page, /Review &amp; the table handshake/);
+assert.match(page, /Put my poker name on the board\./);
+assert.match(page, /appear publicly on TLPT\.org/);
+assert.match(page, /publicly show an AI-illustrated player avatar/);
+assert.match(page, /reference photos themselves stay off the site/);
+assert.match(page, /friendly roasting/);
 assert.match(page, /BostnMike \(aka The Commish\) will create your player identity, prepare your avatar, and add you to the roster before your first official appearance\./);
 assert.match(page, /The statistics—and regrettable decisions—begin at the table\. Welcome to the league!/);
 assert.match(style, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
@@ -84,6 +91,15 @@ new vm.Script(script, { filename:"register.js" });
 // Exercise the production serialization hook: every selected photo must
 // survive under a distinct field, while the JSON and other answers stay intact.
 const formListeners = new Map();
+const phoneListeners = new Map();
+const mockPhone = {
+  value:"",
+  selectionStart:0,
+  validationMessage:"",
+  setCustomValidity(message) { this.validationMessage = message; },
+  setSelectionRange(start) { this.selectionStart = start; },
+  addEventListener:(name, handler) => phoneListeners.set(name, handler),
+};
 const mockForm = {
   querySelectorAll:() => [],
   querySelector:() => null,
@@ -91,7 +107,7 @@ const mockForm = {
 };
 vm.runInNewContext(script, {
   document:{
-    getElementById:id => id === "register-form" ? mockForm : null,
+    getElementById:id => id === "register-form" ? mockForm : id === "registration-phone" ? mockPhone : null,
     querySelectorAll:() => [],
     querySelector:() => null,
   },
@@ -100,6 +116,36 @@ vm.runInNewContext(script, {
   File,
   CSS:{escape:value => value},
 });
+
+for (const raw of ["2025550100", "202-555-0100", "(202) 555-0100", "+1 (202) 555-0100", "12025550100", "202.555.0100"]) {
+  mockPhone.value = raw;
+  mockPhone.selectionStart = raw.length;
+  phoneListeners.get("input")();
+  assert.equal(mockPhone.value, "(202) 555-0100", `Normalize pasted/typed phone: ${raw}`);
+  assert.equal(mockPhone.validationMessage, "");
+  assert.equal(mockPhone.selectionStart, 14);
+}
+for (const raw of ["202", "202555010", "202555010099", "+44 2071234567"]) {
+  mockPhone.value = raw;
+  mockPhone.selectionStart = raw.length;
+  phoneListeners.get("input")();
+  assert.match(mockPhone.validationMessage, /10-digit mobile number/);
+  assert.equal(mockPhone.value.replace(/\D/g, ""), raw.replace(/\D/g, ""), "Never discard excess digits to fabricate a valid number");
+}
+mockPhone.value = "2026550100";
+mockPhone.selectionStart = 4;
+phoneListeners.get("input")();
+assert.equal(mockPhone.value, "(202) 655-0100");
+assert.equal(mockPhone.selectionStart, 7, "Editing in the middle should not jump to the end");
+mockPhone.value = "";
+mockPhone.selectionStart = 0;
+phoneListeners.get("input")();
+assert.equal(mockPhone.value, "");
+assert.equal(mockPhone.validationMessage, "", "Empty input is handled by the required attribute");
+mockPhone.value = "2025550100";
+phoneListeners.get("blur")();
+assert.equal(mockPhone.value, "(202) 555-0100", "Normalize autofilled values on blur as well");
+
 for (const photoCount of [1, 2, 4]) {
   const data = new FormData();
   const photos = Array.from({length:photoCount}, (_, index) =>

@@ -11,6 +11,7 @@
   const fileInput = document.getElementById("avatar-photos");
   const fileStatus = document.getElementById("avatar-file-status");
   const emailInput = document.getElementById("registration-email");
+  const phoneInput = document.getElementById("registration-phone");
   const registrationPacket = document.getElementById("registration-packet");
   const submitButton = document.getElementById("register-submit");
   const confirmation = document.getElementById("register-confirmation");
@@ -170,6 +171,43 @@
     return !message;
   };
 
+  const formatPhoneInput = () => {
+    if (!phoneInput) return;
+    const raw = phoneInput.value;
+    let digits = raw.replace(/\D/g, "");
+    const hasCountryCode = digits.length === 11 && digits.startsWith("1");
+    if (hasCountryCode) digits = digits.slice(1);
+    // Preserve excess digits so an overlong number is rejected, not silently
+    // changed into a different, valid-looking contact number.
+    const formatted = !digits ? "" : digits.length <= 3 ? `(${digits}`
+      : digits.length <= 6 ? `(${digits.slice(0, 3)}) ${digits.slice(3)}`
+      : `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+    if (formatted === raw) return;
+    const selection = phoneInput.selectionStart ?? raw.length;
+    let digitsBeforeCaret = raw.slice(0, selection).replace(/\D/g, "").length;
+    if (hasCountryCode) digitsBeforeCaret = Math.max(0, digitsBeforeCaret - 1);
+    phoneInput.value = formatted;
+    let caret = selection === raw.length ? formatted.length : 0;
+    if (selection !== raw.length) {
+      let seen = 0;
+      while (caret < formatted.length && seen < digitsBeforeCaret) {
+        if (/\d/.test(formatted[caret])) seen++;
+        caret++;
+      }
+    }
+    phoneInput.setSelectionRange?.(caret, caret);
+  };
+
+  const validatePhone = () => {
+    if (!phoneInput) return true;
+    formatPhoneInput();
+    const message = phoneInput.value && !/^\(\d{3}\) \d{3}-\d{4}$/.test(phoneInput.value)
+      ? "Enter a 10-digit mobile number, like (555) 123-4567. The group chat can’t text a poker face."
+      : "";
+    phoneInput.setCustomValidity(message);
+    return !message;
+  };
+
   const focusInvalidControl = control => {
     if (!control) return;
     if (control.matches("select.site-native-select")) {
@@ -185,6 +223,7 @@
     if (!step) return true;
     if (step.contains(fileInput)) validateFiles();
     if (step.contains(emailInput)) validateEmail();
+    if (step.contains(phoneInput)) validatePhone();
     const invalid = step.querySelector(":invalid");
     if (!invalid) return true;
     if (status) status.textContent = "A required answer is missing or needs attention before you continue.";
@@ -257,6 +296,11 @@
   form.addEventListener("change", updateRegistrationPacket);
   fileInput?.addEventListener("change", validateFiles);
   emailInput?.addEventListener("input", validateEmail);
+  phoneInput?.addEventListener("input", validatePhone);
+  phoneInput?.addEventListener("blur", () => {
+    validatePhone();
+    updateRegistrationPacket();
+  });
 
   // Distinct multipart field names keep PHP-backed receivers from retaining
   // only the last file when visitors select several reference photos.
@@ -277,6 +321,7 @@
     });
     validateFiles();
     validateEmail();
+    validatePhone();
     const invalidStepIndex = steps.findIndex(step => step.querySelector(":invalid"));
     if (invalidStepIndex !== -1) {
       event.preventDefault();

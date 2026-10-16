@@ -27,7 +27,7 @@
 
 .register-intake-note{
   display:grid;
-  grid-template-columns:82px minmax(0,1fr) auto;
+  grid-template-columns:82px minmax(0,1fr);
   align-items:center;
   gap:20px;
   border-color:var(--register-border);
@@ -77,37 +77,6 @@
 .register-intake-note .register-intake-punchline{
   color:#f4dca3;
   font-weight:800;
-}
-
-.register-intake-meta{
-  display:grid;
-  justify-items:end;
-  gap:8px;
-}
-
-.register-review-note{
-  color:#8fa0b2;
-  font-size:.74rem;
-  font-weight:800;
-  letter-spacing:.03em;
-  text-align:right;
-}
-
-.register-time-note{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:34px;
-  padding:7px 11px;
-  border:1px solid rgba(244,208,111,.26);
-  border-radius:999px;
-  background:rgba(244,208,111,.07);
-  color:#f6ddb1;
-  font-size:.77rem;
-  font-weight:900;
-  letter-spacing:.045em;
-  text-transform:uppercase;
-  white-space:nowrap;
 }
 
 .register-shell{
@@ -620,6 +589,18 @@
   accent-color:var(--register-accent-strong);
 }
 
+.register-consent strong,
+.register-consent small{
+  display:block;
+}
+
+.register-consent small{
+  margin-top:4px;
+  color:#b2c1cf;
+  font-size:.84rem;
+  line-height:1.5;
+}
+
 .register-consent:has(input:checked){
   border-color:rgba(61,220,132,.28);
   background:rgba(61,220,132,.045);
@@ -758,17 +739,6 @@
     height:68px;
   }
 
-  .register-intake-meta{
-    grid-column:2;
-    justify-items:start;
-    grid-template-columns:auto minmax(0,1fr);
-    align-items:center;
-  }
-
-  .register-review-note{
-    text-align:left;
-  }
-
   .register-shell-head{
     display:block;
   }
@@ -807,11 +777,6 @@
   .register-commish-avatar{
     width:60px;
     height:60px;
-  }
-
-  .register-intake-meta{
-    grid-template-columns:1fr;
-    gap:6px;
   }
 
   .register-field-grid,
