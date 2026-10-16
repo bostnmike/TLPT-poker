@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {readFileSync,mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
-import {execFileSync} from 'node:child_process';
+import {execFileSync,spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
 import {releaseInfo} from '../lib/release.mjs';
 import {validateProduction,requireTrustedCI,gatewayPath,workerPath,fingerprint,uploadedVersion,assertActiveVersion,gatewayReleaseConfig} from '../scripts/release-tools.mjs';
 import {verifyRelease,verifyWithRetry,PrivateDataExposed} from '../scripts/verify-release.mjs';
@@ -35,9 +36,25 @@ test('isolated Pages configuration keeps absolute assets, the production binding
  assert.deepEqual(result.services,source.services);
  assert.deepEqual(result.vars,{GATEWAY_SOURCE_HASH:gatewayHash});
  assert.equal(result.$schema,undefined);
+ assert.equal(result.account_id,undefined);
  assert.throws(()=>gatewayReleaseConfig({...source,pages_build_output_dir:'../other'},gatewayHash,'/checkout/cashier'));
  assert.throws(()=>gatewayReleaseConfig({...source,services:[{binding:'CASHIER',service:'tlpt-cashier-test'}]},gatewayHash,'/checkout/cashier'));
  assert.throws(()=>gatewayReleaseConfig(source,'invalid','/checkout/cashier'));
+});
+test('pinned Wrangler discovers and validates the generated Pages config without credentials or deployment',()=>{
+ const directory=mkdtempSync(join(tmpdir(),'cashier-pages-config-'));
+ const source=JSON.parse(readFileSync(new URL('../wrangler.gateway.jsonc',import.meta.url)));
+ const config=gatewayReleaseConfig(source,gatewayHash,fileURLToPath(new URL('..',import.meta.url)));
+ const cli=fileURLToPath(new URL('../node_modules/wrangler/bin/wrangler.js',import.meta.url));
+ const outfile=join(directory,'build-env.json');
+ const validate=()=>spawnSync(process.execPath,[cli,'pages','functions','build-env',directory,'--outfile',outfile],{cwd:directory,encoding:'utf8',env:{...process.env,WRANGLER_SEND_METRICS:'false',WRANGLER_WRITE_LOGS:'false',PAGES_ENVIRONMENT:'production'}});
+ try{
+  writeFileSync(join(directory,'wrangler.json'),JSON.stringify(config));
+  const valid=validate();assert.equal(valid.status,0,valid.stdout+valid.stderr);
+  assert.deepEqual(JSON.parse(readFileSync(outfile,'utf8')).vars,{GATEWAY_SOURCE_HASH:gatewayHash});
+  writeFileSync(join(directory,'wrangler.json'),JSON.stringify({...config,account_id:'unsupported'}));
+  assert.notEqual(validate().status,0,'Real Pages validation must reject Worker-only fields.');
+ }finally{rmSync(directory,{recursive:true,force:true});}
 });
 test('source fingerprints use repository-root paths from the cashier working directory and separate app from gateway changes',()=>{
  const root=mkdtempSync(join(tmpdir(),'cashier-release-git-'));

@@ -13,8 +13,10 @@ export function gatewayReleaseConfig(source,hash,root){
  if(source.name!==PROJECT||source.services?.length!==1||source.services[0].binding!=='CASHIER'||source.services[0].service!==WORKER||source.d1_databases||source.env)throw Error('Gateway may only bind to the existing production Worker.');
  if(!/^[a-f0-9]{64}$/.test(hash||''))throw Error('Missing gateway source fingerprint.');
  if(source.pages_build_output_dir!=='./domain-gateway')throw Error('Unexpected gateway asset directory.');
- const {$schema,...config}=source;
- return {...config,account_id:ACCOUNT,pages_build_output_dir:resolve(root,source.pages_build_output_dir),vars:{GATEWAY_SOURCE_HASH:hash}};
+ const {$schema,account_id,...config}=source;
+ // Pages selects the pinned account through CLOUDFLARE_ACCOUNT_ID; unlike
+ // Workers, its configuration schema does not accept account_id.
+ return {...config,pages_build_output_dir:resolve(root,source.pages_build_output_dir),vars:{GATEWAY_SOURCE_HASH:hash}};
 }
 export function uploadedVersion(items,sha){
  const version=items?.find(v=>v.annotations?.['workers/tag']===sha);
