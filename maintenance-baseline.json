@@ -71,7 +71,9 @@
       ],
       "requiredCommands": [
         "node --test registration-domain/tests/*.test.mjs",
-        "node scripts/test-register-page.mjs"
+        "node scripts/test-register-page.mjs",
+        "git -C publisher push origin HEAD:main",
+        "node registration-domain/verify-live.mjs \"$REGISTRATION_REVISION\""
       ]
     },
     "cashier": {

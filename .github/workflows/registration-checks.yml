@@ -29,3 +29,44 @@ jobs:
           node-version: '24'
       - run: node --test registration-domain/tests/*.test.mjs
       - run: node scripts/test-register-page.mjs
+  publish:
+    needs: registration
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: registration-production
+      cancel-in-progress: false
+    steps:
+      - name: Read the latest canonical source
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - name: Open the registration publisher
+        uses: actions/checkout@v7
+        with:
+          repository: bostnmike/tlpt-registration
+          ref: main
+          path: publisher
+          ssh-key: ${{ secrets.REGISTRATION_PUBLISH_SSH_KEY }}
+      - name: Request publication of this source revision
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          revision=$(git rev-parse HEAD)
+          printf '%s\n' "$revision" > publisher/source-revision.txt
+          git -C publisher config user.name 'github-actions[bot]'
+          git -C publisher config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git -C publisher add source-revision.txt
+          git -C publisher commit --allow-empty -m "Publish registration from $revision"
+          git -C publisher push origin HEAD:main
+          printf 'revision=%s\n' "$revision" >> "$GITHUB_OUTPUT"
+      - name: Verify both public addresses and shared form assets
+        env:
+          REGISTRATION_REVISION: ${{ steps.release.outputs.revision }}
+        run: node registration-domain/verify-live.mjs "$REGISTRATION_REVISION"

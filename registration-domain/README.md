@@ -8,13 +8,30 @@ configuration must not change.
 The form's source of truth is still this repository's `register.html`.
 `build.mjs` generates static registration HTML for GitHub Pages: main-site
 assets/navigation, local skip link, and a branded FormSubmit success URL.
-No Worker, proxy, runtime, database, secret or Cloudflare deployment is needed.
+No Worker, proxy, runtime database or Cloudflare deployment is needed.
 
-After editing the form, run **Publish registration** in the `tlpt-registration`
-repository's GitHub Actions for immediate publication. An hourly scheduled run
-also refreshes the HTML automatically. GitHub can delay scheduled runs or disable
-them after 60 days of repository inactivity; manual publishing stays available.
-Shared assets load directly from the main site and need no separate copy.
+After registration changes reach `main`, **TLPT Registration Quality Gate** runs
+the tests and automatically starts **Publish registration** in `tlpt-registration`.
+The publisher reads the exact source commit recorded in `source-revision.txt`,
+validates it again, and deploys it. The main workflow waits until both public
+registration addresses and the shared form CSS/JS match the source. A failed or
+stale publication fails the workflow; a successful push alone is not completion.
+Publication starts automatically after checks and normally takes a few minutes.
+
+The main repository's `REGISTRATION_PUBLISH_SSH_KEY` Actions secret holds a
+dedicated write deploy key restricted to `tlpt-registration`. The matching public
+key is registered there as **TLPT registration auto-publisher**. It cannot write
+to the main site, cashier, or other repositories. The key advances only the
+publisher's source-revision file; private key material never belongs in Git.
+To rotate it, replace that deploy key and Actions secret together.
+GitHub also removes keys created through GitHub CLI if its authorizing token is
+revoked; recreate this dedicated key and secret if that happens.
+
+Manual **Publish registration** and the hourly schedule remain recovery paths
+and read the latest canonical `main`. GitHub can delay scheduled runs or disable
+them after 60 days of repository inactivity. To rerun the full publish and
+two-address verification, manually run **TLPT Registration Quality Gate** on
+`main`. Shared assets load directly from the main site and need no separate copy.
 
 Submissions, JSON and photos still go directly to FormSubmit and the same Gmail
 inbox. No registration details are stored in either GitHub repository. The legacy

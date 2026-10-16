@@ -44,6 +44,14 @@ Registration and the cashier have independent quality workflows because they hav
 
 The maintenance baseline verifies that both workflows watch every relevant source and test file, and that their required test, build, integration, and deployment-validation commands remain wired. Run the shared-site, registration, and cashier suites when a change crosses component boundaries.
 
+Registration changes on `main` also trigger the dedicated `tlpt-registration`
+publisher after validation. Its repository-scoped deploy key is stored as the
+main repository's `REGISTRATION_PUBLISH_SSH_KEY` Actions secret. The registration
+workflow is complete only when the exact source is verified at both
+`tlpt.org/register.html` and `register.tlpt.org`, including shared form CSS/JS.
+See `registration-domain/README.md` for recovery and key rotation. Cashier's
+workflow remains validation-only; its Cloudflare deployment is separate.
+
 Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 
 ## Shared CSS changes
