@@ -76,7 +76,10 @@ jobs:
         with:
           node-version: "22"
       - run: npm install --global pnpm@11.25.0
-      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Fetch locked deployment dependencies
+        run: pnpm fetch --frozen-lockfile
+      - name: Install deployment dependencies without network or scripts
+        run: pnpm install --offline --frozen-lockfile --ignore-scripts
       - uses: actions/download-artifact@v6
         with:
           name: cashier-dist-${{ github.sha }}
