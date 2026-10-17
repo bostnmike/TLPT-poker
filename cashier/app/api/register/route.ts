@@ -1,4 +1,5 @@
 import {env} from 'cloudflare:workers';
+import {processBatch} from '@/lib/process-batch';
 import {db,json,browserAuth,body} from '@/lib/api';
 import {totals} from '@/lib/receipt.mjs';
 import {paymentKinds,paymentSelection} from '@/lib/events.mjs';
@@ -19,11 +20,13 @@ export async function GET(req:Request){const denied=browserAuth(req);if(denied)r
  if(req.headers.get('If-None-Match')===etag)return new Response(null,{status:304,headers:{ETag:etag,'Cache-Control':'private, no-store'}});
  const rows=selected?(await db().prepare('SELECT * FROM payments WHERE event_id=? OR event_id IS NULL ORDER BY received_at DESC,created_at DESC LIMIT 2000').bind(selected.id).all()).results:[];
  const venmoAliases=(await db().prepare('SELECT payer_key,payer_name,player_slug,player_name,updated_at FROM venmo_player_aliases ORDER BY payer_name').all()).results;
- const result=json({environment:env.CASHIER_ENV,venmoAliases,events:schedule.events,selectedEventId:selected?.id||null,payments:rows,totals:totals(rows.filter((p:any)=>p.event_id===selected?.id)),sync:state,scheduleCheckedAt:schedule.checkedAt,scheduleError:schedule.error,serverAt:new Date().toISOString()});result.headers.set('ETag',etag);return result;
+ const receiptLinks=(await db().prepare('SELECT l.* FROM receipt_links l JOIN payments p ON p.id=l.payment_id WHERE p.event_id=?').bind(selected?.id||'').all()).results;
+ const result=json({environment:env.CASHIER_ENV,receiptLinks,venmoAliases,events:schedule.events,selectedEventId:selected?.id||null,payments:rows,totals:totals(rows.filter((p:any)=>p.event_id===selected?.id)),sync:state,scheduleCheckedAt:schedule.checkedAt,scheduleError:schedule.error,serverAt:new Date().toISOString()});result.headers.set('ETag',etag);return result;
  }catch{return json({error:'Could not load the register or live schedule. Saved records remain intact.'},503);}}
 export async function POST(req:Request){const denied=browserAuth(req,true);if(denied)return denied;try{
  const input=await body(req),now=new Date().toISOString(),actor=req.headers.get('x-tlpt-authenticated-user-id')!,schedule=await getSchedule();
  const event=schedule.events.find((e:any)=>e.id===input.eventId);if(!event)return json({error:'This event has been replaced in the schedule. Reopen the current tab.'},409);
+ if(input.action==='batch')return processBatch(input,event,actor,now);
  if(input.action==='forget-alias'){
   if(typeof input.payerKey!=='string'||!input.payerKey||input.payerKey.length>200)return json({error:'Choose a remembered Venmo name.'},400);
   await db().prepare('DELETE FROM venmo_player_aliases WHERE payer_key=?').bind(input.payerKey).run();return json({ok:true});
@@ -44,8 +47,9 @@ export async function POST(req:Request){const denied=browserAuth(req,true);if(de
   if(!p)return json({error:'This transaction is no longer in the register. Close this window and refresh.'},409);
   if(p.event_id?p.event_id!==event.id:!JSON.parse(p.candidate_event_ids||'[]').includes(event.id))return json({error:'This transaction belongs to another event.'},409);
   if(p.updated_at!==input.expectedUpdatedAt)return json({error:'This transaction changed. Close this window and review the latest record before deleting.'},409);
-  const results=await db().batch(paymentDeletionPlan(p).map((step:any)=>db().prepare(step.sql).bind(...step.values)));
-  if(!results.at(-1)?.meta.changes)return json({error:'This transaction changed. Refresh the register before deleting.'},409);
+  const deletion=paymentDeletionPlan(p);
+  const results=await db().batch(deletion.map((step:any)=>db().prepare(step.sql).bind(...step.values)));
+  if(!results[deletion.findIndex((step:any)=>step.primary)]?.meta.changes)return json({error:'This transaction changed. Refresh the register before deleting.'},409);
   return json({ok:true,eventId:event.id,deleted:true});
  }
  const player=String(input.player||'').trim();
@@ -78,13 +82,7 @@ export async function POST(req:Request){const denied=browserAuth(req,true);if(de
  if(input.action==='link'){
   const target:any=await db().prepare('SELECT * FROM payments WHERE id=?').bind(String(input.linkId)).first();
   if(!input.checked||p.status!=='review'||!target||target.event_id!==event.id||target.status!=='confirmed'||target.method!=='venmo'||!String(target.source_id).startsWith('manual:')||p.cents!==target.cents)return json({error:'Choose a manual Venmo record from this event with the same amount.'},400);
-  const remembered=await aliasPlan(target.player);
-  if(input.rememberPayer===true&&!remembered)return json({error:'Choose a TLPT player to remember this Venmo name.'},400);
-  const results=await db().batch([
-   ...(remembered?[db().prepare(remembered.sql).bind(...remembered.values)]:[]),
-   db().prepare('UPDATE payments SET event_id=?,status=?,player=?,kind=?,note=?,updated_at=?,linked_to=? WHERE id=? AND status=?').bind(event.id,'linked',target.player,target.kind,`Linked to ${target.id}`,now,target.id,p.id,'review'),
-   db().prepare('INSERT INTO audit (id,payment_id,action,actor,details,at) SELECT ?,id,?,?,?,? FROM payments WHERE id=? AND updated_at=?').bind(crypto.randomUUID(),'linked',actor,JSON.stringify({eventId:event.id,target:target.id}),now,p.id,now)
-  ]);if(!results[remembered?1:0]?.meta.changes)return json({error:'This receipt changed. Reopen it before confirming.'},409);return json({ok:true,eventId:event.id,remembered:!!remembered});
+  return processBatch({action:'batch',eventId:event.id,requestId:input.requestId,checked:input.checked,groups:[{id:input.requestId,action:'link',paymentId:p.id,expectedUpdatedAt:p.updated_at,rememberPayer:input.rememberPayer===true,targets:[{paymentId:target.id,cents:target.cents,expectedUpdatedAt:target.updated_at}]}]},event,actor,now);
  }
  if(['confirm','ignore','void'].includes(input.action)){
   const expected=input.action==='void'?'confirmed':'review';if(p.status!==expected)return json({error:'This payment has already been handled.'},409);
