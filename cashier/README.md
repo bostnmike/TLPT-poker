@@ -337,3 +337,24 @@ No Gmail reader changes, new secrets, paid resources or gateway publication are
 required. Legacy Sites export/restore scripts describe the original seven-table
 migration; they are not a complete backup of the new batch relations. Use D1's
 native backups/Time Travel with reconciliation for production recovery.
+
+## iPad Home Screen setup
+
+Open <https://cashier.tlpt.org/install.html> in Safari on the iPad. Use
+Share → Add to Home Screen, leave Open as Web App on if offered, and check the
+yellow poker-chip preview before adding TLPT Cashier. Launch the new icon from
+the Home Screen. Keep any previous shortcut until the new one is verified.
+The dedicated public setup page uses fresh icon filenames to avoid reusing a
+cached fallback icon. Login and register pages use the same artwork and manifest.
+
+The manifest retains the app ID, scope and protected start URL `/`. If an older
+iPad instead launches the saved setup URL, its standalone-only launch script
+navigates to `/` within that app window. Browser visitors stay on the instructions.
+In the installed app, screen controls show “App window” instead of a fullscreen
+toggle. The app still uses the existing password, live database and Gmail reader;
+this is not an offline copy. No new secrets, database migrations or paid resources.
+
+The local Worker integration checks that installation assets are anonymously
+available with correct content types and PNG sizes while private APIs remain
+protected. Confirm the Home Screen icon and standalone window on the physical
+iPad after installation; desktop automation cannot verify the iPad launcher UI.
