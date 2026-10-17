@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-17",
+  "status": "Validated for coordinated Publishing-Visual-Review-20261017-v1 release",
+  "inventoryId": 30,
+  "retainedView": "Edge 3",
+  "removedGalleryReference": "Edge 4",
+  "retainedPath": "images/pucks/30/edge-03.webp?v=1e49af65b85d",
+  "redundantPath": "images/pucks/30/edge-04.webp?v=1e49af65b85d",
+  "sha256": "1e49af65b85dd6cc671beed0506f945295b186c0f9a8cf79b1b8738205dd9fb0",
+  "nativeDimensions": [
+    2800,
+    1347
+  ],
+  "sourceFilesDeletedOrModified": false,
+  "otherGalleriesChanged": false,
+  "canonicalDataChanged": false,
+  "physicalViewsBefore": 831,
+  "physicalViewsAfter": 830,
+  "decodedAudit": "All831views checked; one exact within-gallery duplicate group.304/305/314/315 COA pairs differ and are preserved.71 primary/supplementary certificates preserved.",
+  "relabelledRemainingView": {
+    "from": "Edge 5",
+    "to": "Edge 4",
+    "unchangedSourcePath": "images/pucks/30/edge-05.webp"
+  }
+}

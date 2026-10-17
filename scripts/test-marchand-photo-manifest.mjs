@@ -28,7 +28,14 @@ for (const [id, photos] of Object.entries(manifest)) {
     assert.equal(photos[0].label, 'Front', `Front must lead artifact ${id} when available`);
   }
   assert.equal(new Set(photos.map((photo) => photo.label)).size, photos.length, `Duplicate view: ${id}`);
+  const fullViewHashes = new Map();
   for (const photo of photos) {
+    const externalFull = photo.url.startsWith(libraryBase);
+    const fullPath = (externalFull ? photo.url.slice(libraryBase.length) : photo.url).split('?')[0];
+    const fullHash = externalFull ? library.assets[fullPath]?.sha256 : crypto.createHash('sha256').update(read(fullPath)).digest('hex');
+    assert.ok(fullHash, `Missing full-view content hash: ${photo.url}`);
+    assert.ok(!fullViewHashes.has(fullHash), `Repeated physical/evidence image in artifact ${id}: ${fullViewHashes.get(fullHash)} and ${photo.label}`);
+    fullViewHashes.set(fullHash, photo.label);
     assert.equal(photo.rotation, 0, `Rotation must be baked into image pixels: ${photo.url}`);
     assert.match(photo.label, /^(Front|Back|Edge [1-9]\d*|COA(?: [2-9]\d*)?)$/);
     for (const fullUrl of [photo.url, photo.thumbnailUrl].filter(Boolean)) {

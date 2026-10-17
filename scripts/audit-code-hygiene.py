@@ -307,7 +307,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "gallery.html": f"{SITE_ORIGIN}/images/site/chip-T-5000.png",
     "index.html": f"{SITE_ORIGIN}/images/site/chip-T-100.png",
     "knockouts.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
-    "marchand.html": f"{SITE_ORIGIN}/images/site/marchand-puck-vault-social-v1.jpg",
+    "marchand.html": f"{SITE_ORIGIN}/images/site/marchand-puck-vault-social-v2.jpg",
     "media.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
     "news.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",
     "player-movement.html": f"{SITE_ORIGIN}/images/site/chip-T-1000.png",

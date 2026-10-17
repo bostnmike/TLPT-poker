@@ -1,0 +1,17 @@
+# Museum visual QA — October 17, 2026
+
+The review began from an immutable 1,493-resource live-site snapshot at `97e5fb9c`. All resources decoded or parsed and matched their captured hashes. Every 1,003 gallery view was opened on desktop and mobile (2,006 checks). Physical/COA URLs, labels, full-size certificate links, game credits, containment and rotations matched the frozen source. Two initial delayed image loads decoded normally on follow-up. The final replacement-image validation is recorded separately with the release.
+
+All 113 player/goalie mappings matched 111 official NHL identities. The 106 remote portrait images were visually reviewed; Ilya Samsonov’s current-season asset was a silhouette. His replacement is the real official 2024–25 Vegas portrait for NHL player 8478492. The approved trophy triptych remains in the social preview; stale 122/107 counts were replaced with evergreen text and a versioned v2 image URL.
+
+All 831 physical/evidence views were checked for exact decoded duplication within their own galleries. Only artifact 30 repeats one file: Edge 3 and Edge 4 are both 2800 × 1347, SHA-256 `1e49af65b85dd6cc671beed0506f945295b186c0f9a8cf79b1b8738205dd9fb0`. The gallery retains Edge 3 and omits the redundant Edge 4 reference, leaving 830 views. Both original files remain intact. The unchanged `edge-05.webp` is displayed as Edge 4 so the remaining four edge labels stay consecutive. Distinct COAs for 71 and 304/305/314/315, and all cross-record evidence relationships, remain preserved.
+
+Mobile dialogs 31, 60, 61 and 510 overflowed on long credit or provenance strings. Wrapping those strings fixes all four without truncating content. Each was checked again locally. The final 172 replacement gallery tails are also checked on desktop and mobile for the correct image, captions, credits, last position, decoding and fit.
+
+All 147 distinct video providers and actual preview-image URLs passed fresh availability checks. Their 172 clip-ID mappings are unchanged from the complete prior browser playback audit, which observed decoded content advancing in every listing and distinguished pre-roll ads from the intended video. These checks establish availability/startup and identity mappings at review time; they do not claim complete viewing of every clip or permanent third-party availability.
+
+The apparent streaks in old puck contact sheets came from discarding WebP alpha and exposing hidden RGB beneath transparent pixels. Corrected review composites are clean; source RGBA photographs required no repair. Certificate 20’s printed 254 versus canonical 297, and 71’s erroneous supplementary Heinen text, remain explicitly disclosed. Photographed evidence remains intact.
+
+Known source limits: 31 and 61 await physical receipt/photography; 64 has no registered physical photos and its receipt status is unknown. Artifact 503’s Back is 686 × 686 native and remains unmodified. There are 49 galleries using some full-resolution evidence files as thumbnail buttons, a performance opportunity. Some historical broadcasts retain source softness. The book review verified that Blurb’s 236-page cover measurements equal the approved 234-page cover (27.208 × 11.625 inches, 1.097-inch spine); page count alone requires no resizing.
+
+Detailed evidence is kept under the active collection’s `EXHIBIT63_BOOK/VISUAL_AUDIT_20261017/Production-QA-97e5fb9c8aa6-20261017T211255Z/` and the Museum workspace’s `outputs/museum-publishing-visual-import-20261017/`. Immutable snapshot files and canonical collection masters were not edited.

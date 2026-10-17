@@ -219,14 +219,14 @@ assert.match(html, /<meta name="robots" content="noindex,nofollow,noarchive">/, 
 assert.match(vaultHtml, /<meta name="robots" content="noindex,nofollow,noarchive">/, "hidden vault page must stay out of search indexes");
 assert.match(html, /property="og:site_name" content="Marchand Puck Vault"/, "social preview must use the museum identity");
 assert.match(html, /property="og:title" content="Brad Marchand Puck Vault"/, "social preview needs a dedicated Marchand title");
-assert.match(html, /property="og:image" content="https:\/\/tlpt\.org\/images\/site\/marchand-puck-vault-social-v1\.jpg"/, "Facebook must use the dedicated Marchand preview image");
+assert.match(html, /property="og:image" content="https:\/\/tlpt\.org\/images\/site\/marchand-puck-vault-social-v2\.jpg"/, "Facebook must use the dedicated Marchand preview image");
 assert.match(html, /property="og:image:width" content="1200"/, "social image width metadata drifted");
 assert.match(html, /property="og:image:height" content="630"/, "social image height metadata drifted");
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
-assert.match(html, /marchand\.css\?v=20261017-game-photos/, "Marchand stylesheet cache key drifted");
+assert.match(html, /marchand\.css\?v=20261017-visual-qa/, "Marchand stylesheet cache key drifted");
 assert.match(html, /marchand\.js\?v=20261017-49-to-342/, "Marchand script cache key drifted");
-assert.match(vaultHtml, /marchand\.css\?v=20261017-game-photos/, "vault stylesheet cache key drifted");
+assert.match(vaultHtml, /marchand\.css\?v=20261017-visual-qa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
 assert.doesNotMatch(html, /Names behind the codes/i, "removed deep-dive label returned");
