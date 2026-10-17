@@ -16,7 +16,7 @@ export async function verifyRelease({revision,workerVersion,gatewayHash,fetchImp
  if(assetsResponse.status!==200||(await assetsResponse.json()).revision!==revision)throw Error('Published interface artifact differs from the deployed Worker.');
  const landing=await request('/');
  if(landing.status!==200||!(await landing.text()).includes('action="/auth/login"'))throw Error('Anonymous visitors must see the password form.');
- const checks=[['/api/register',{}],['/api/players',{}],['/api/health',{}],['/api/reader-setup',{}],['/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:'{}'}],['/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'}],['/api/register',{headers:{'x-tlpt-authenticated-user-id':'fake','Cf-Access-Jwt-Assertion':'fake.jwt.value'}}]];
+ const checks=[['/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:'{"action":"batch","groups":[],"checked":true}'}],['/api/register',{}],['/api/players',{}],['/api/health',{}],['/api/reader-setup',{}],['/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin},body:'{}'}],['/api/import',{method:'POST',headers:{'Content-Type':'application/json'},body:'{"messages":[]}'}],['/api/register',{headers:{'x-tlpt-authenticated-user-id':'fake','Cf-Access-Jwt-Assertion':'fake.jwt.value'}}]];
  for(const [path,options] of checks){
   const r=await request(path,options);
   if(r.status!==401)throw new PrivateDataExposed(`${options.method||'GET'} ${path} did not deny anonymous/spoofed access (${r.status}).`);

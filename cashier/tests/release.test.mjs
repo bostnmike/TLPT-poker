@@ -86,7 +86,7 @@ test('publishing rejects pull requests, forks, feature branches and non-Actions 
  assert.equal(gatewayPath('cashier/app/page.tsx'),false);assert.equal(gatewayPath('cashier/domain-gateway/_worker.js'),true);assert.equal(gatewayPath('cashier/wrangler.gateway.jsonc'),true);assert.equal(workerPath('lily-site/index.html'),false);assert.equal(workerPath('marchand-vault/index.html'),false);
 });
 test('live verification requires matching Worker, interface, gateway, shortcut and denied private endpoints',async()=>{
- const result=await verifyRelease({revision:sha,gatewayHash,fetchImpl:transport()});assert.equal(result.anonymousChecks,7);assert.equal(result.revision,sha);
+ const result=await verifyRelease({revision:sha,gatewayHash,fetchImpl:transport()});assert.equal(result.anonymousChecks,8);assert.equal(result.revision,sha);
  for(const options of [{revision:'c'.repeat(40)},{assetRevision:'c'.repeat(40)},{gateway:'wrong'},{shortcut:'https://old.example/'}])await assert.rejects(verifyRelease({revision:sha,gatewayHash,fetchImpl:transport(options)}));
 });
 test('same-commit recovery waits for the exact newly activated Worker version',async()=>{

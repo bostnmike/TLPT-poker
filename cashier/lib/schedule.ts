@@ -22,6 +22,7 @@ async function getBaseSchedule(force=false):Promise<any>{
   if(!state||state.source_hash!==hash){
    const ids=events.map((e:any)=>e.id),deleted=stalePaymentPredicate(ids,'deleted_payment_sources');
    statements.push(db().prepare(`DELETE FROM deleted_payment_sources WHERE ${deleted.sql}`).bind(...deleted.values));
+   statements.push(db().prepare(ids.length?`DELETE FROM cashier_batches WHERE event_id NOT IN (${ids.map(()=>'?').join(',')})`:'DELETE FROM cashier_batches').bind(...ids));
    statements.push(db().prepare(ids.length?`DELETE FROM event_payment_formats WHERE event_id NOT IN (${ids.map(()=>'?').join(',')})`:'DELETE FROM event_payment_formats').bind(...ids));
    statements.push(db().prepare(`DELETE FROM audit WHERE payment_id IN (SELECT id FROM payments WHERE ${predicate.sql})`).bind(...predicate.values));
    statements.push(db().prepare(`DELETE FROM payments WHERE ${predicate.sql}`).bind(...predicate.values));

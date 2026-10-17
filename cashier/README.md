@@ -296,3 +296,38 @@ service rather than enabling paid fallback.
 References: [externally managed Pages subdomains](https://developers.cloudflare.com/pages/configuration/custom-domains/),
 [service bindings](https://developers.cloudflare.com/pages/functions/bindings/#service-bindings),
 [advanced-mode direct upload](https://developers.cloudflare.com/pages/get-started/direct-upload/#functions).
+
+## Batch payments
+
+Open **Batch payments**, **Batch check-in**, or **Needs confirmation → Review multiple**.
+A batch belongs to the selected event. Add several roster players in one tap sequence;
+each row has independent Buy-in (including the event's bounty), Rebuy, Food and
+Cash/Venmo selections. For five MTT entries and three food contributions, add five
+players and select Food on only three rows. The individual records, category
+filters, totals, avatars, RSVP status and event export use those same allocations.
+
+Add open emails to that workspace and choose **Confirm as new payment** or
+**Match recorded payments** per receipt. A receipt can cover multiple players;
+separate emails can cover parts of one manual bundle. Matched amounts must equal
+the receipt and cannot exceed the unmatched balance of any recorded payment.
+Matching adds no money. Remember a payer name only for a single TLPT player,
+never for a shared payment covering multiple players.
+
+New entries, confirmations, matches, exclusions, voids and deletions can share one
+batch. Review its totals and verify the payments, then save once. Deletions have
+an additional permanent-delete acknowledgement and never send refunds. A changed
+record or invalid allocation rejects the entire batch. Retrying the exact saved
+request is idempotent, including concurrent taps; an uncertain submission is
+retained in this browser tab's session storage for a safe retry after reload.
+The confirmation sound plays once when a successful batch adds money; email
+matches and corrections stay quiet. Batches are limited to 30 groups and 80
+player allocations/receipt matches per save.
+
+The additive `0011_batch_payments.sql` migration preserves existing payments and
+seeds coverage for older receipt links. It adds private retry summaries, temporary
+transaction guards and receipt-to-payment allocations. Event replacement clears
+its retry summaries and related links; changing RSVPs or prices retains them.
+No Gmail reader changes, new secrets, paid resources or gateway publication are
+required. Legacy Sites export/restore scripts describe the original seven-table
+migration; they are not a complete backup of the new batch relations. Use D1's
+native backups/Time Travel with reconciliation for production recovery.

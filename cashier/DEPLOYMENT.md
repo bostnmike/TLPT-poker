@@ -98,7 +98,7 @@ ID from its receipt. A same-commit retry cannot pass against the previous
 deployment while the newly activated version is still propagating.
 
 Anonymous GETs for register, players, health and reader settings, anonymous
-register/import POSTs, and spoofed identity headers must all return 401 with
+register/import POSTs (including batch submissions), and spoofed identity headers must all return 401 with
 only an error and `private, no-store`. No real payments are created by these
 checks. A denial failure is immediate; it is never treated as a harmless
 propagation delay. Version/asset propagation is retried for up to three minutes,
@@ -161,3 +161,19 @@ reader or duplicate live receipts as part of an ordinary rollback.
 References: [Cloudflare GitHub Actions](https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/),
 [scoped Worker roles](https://developers.cloudflare.com/workers/authorization/workers/),
 [Worker rollback](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/rollbacks/).
+
+## Batch schema and rollback
+
+Migration `0011_batch_payments.sql` is additive and does not rewrite existing
+payment allocations. It records many-to-many receipt coverage and batch retry
+identities. Ordinary releases keep the existing D1 database and all runtime
+credentials. The new batch regression suite and actual Worker/D1 integration
+must pass before publication; do not test by creating disposable production sales.
+
+After shared/partial receipt matches exist, use a batch-aware release when
+rolling back. Earlier Cashier versions can display the individual accounting
+rows but do not enforce the new receipt-coverage rules. Avoid entering or matching
+payments through an older version. Leave the new tables intact and fix forward;
+never drop receipt links, reverse the migration or restore the old seven-table
+migration snapshot over the live ledger. A database restore requires the owner's
+coordination and reconciliation of all receipts received since the restore point.
