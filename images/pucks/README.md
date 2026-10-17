@@ -63,3 +63,7 @@ Describe the game and Marchand’s role directly. Do not add boilerplate saying 
 Do not repeat the puck-type label in a closing sentence or explain that the puck represents the game. Keep concrete event details, such as HFC branding, a ceremony, or a signature. Run `node scripts/test-marchand-stories.mjs` after narrative changes.
 
 The Complete Spreadsheet Record shows populated fields only. Preserve all source columns in the data; omit empty values and dash-only placeholders during rendering, while retaining zero values and populated links. Run `node scripts/test-marchand-source-record.mjs` after rendering changes.
+
+## Stable photo paths after inventory renumbering
+
+An owner-approved inventory renumbering changes gallery keys, captions and record IDs, while existing photo filenames remain stable. `data/marchand-photos.json` declares exceptions in `stableAssetFolders`; each exception must match the canonical Front Image Filename and the dated identity crosswalk. As of October 16, 2026, current artifact 301 uses `images/pucks/343/`, and current 333 uses `images/pucks/342/`. Preserve their original image/COA bytes and hologram associations. Never infer photos from an archived folder merely because its number now matches a reused ID. Current crosswalk: `docs/marchand-id-crosswalk-20261016.json`.

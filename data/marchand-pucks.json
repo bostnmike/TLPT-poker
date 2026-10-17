@@ -28,6 +28,11 @@
       ],
       "sourceSha256": "82c5759b5a0c01a7a89f8a1702c92811ac63bb893b7c9b61f1313342d921c576",
       "scope": "Added two canonical rows; 170 previously published artifact records preserved."
+    },
+    "latestCanonicalUpdate": {
+      "date": "2026-10-16",
+      "sourceSha256": "dc725d4592a36d3c4c86b05c206e0d5bccad73712ce36ec3e7b6fb38567eafef",
+      "scope": "Renumber 343 to 301 and 342 to 333; canonical Notes for 31 and 59; all other artifact facts preserved."
     }
   },
   "records": [
@@ -6511,7 +6516,7 @@
         },
         {
           "label": "Notes",
-          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
           "url": ""
         },
         {
@@ -6607,7 +6612,7 @@
       "secondaryAssist": "DP88",
       "score": "Boston 7 @ Washington 3",
       "puckType": "Goal Scored Puck",
-      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
       "goalieScoredAgainst": "Zach Fucale",
       "playerCodes": [
         "MG48",
@@ -12394,7 +12399,7 @@
       "videoUrl": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112",
       "videoProvider": "nhl",
       "videoId": "6383495592112",
-      "notes": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 consolidated into artifact 59 by owner confirmation.",
+      "notes": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -12491,7 +12496,7 @@
         },
         {
           "label": "Notes",
-          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 consolidated into artifact 59 by owner confirmation.",
+          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
           "url": ""
         },
         {
@@ -42011,10 +42016,10 @@
       "authenticationLookupInstructions": ""
     },
     {
-      "key": "milestone-342",
+      "key": "milestone-333",
       "sourceSheet": "Milestones",
-      "sourceRow": 43,
-      "inventoryId": 342,
+      "sourceRow": 34,
+      "inventoryId": 333,
       "homeRoad": "Home",
       "team": "Boston Bruins",
       "category": "Milestone",
@@ -42035,7 +42040,7 @@
       "videoUrl": "https://www.nhl.com/video/tor-at-bos-recap-6348437197112",
       "videoProvider": "nhl",
       "videoId": "6348437197112",
-      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.\n\nTwo assists with the Cup team back: Marchand helped Boston beat Toronto 4–1 with assists on David Pastrnak’s opening power-play goal and Brandon Carlo’s second-period finish. The captain played 16:54 and delivered three hits. His 2011 Cup teammates were back at TD Garden for the Centennial reunion.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -42049,7 +42054,7 @@
       "sourceData": [
         {
           "label": "ID #",
-          "value": "342",
+          "value": "333",
           "url": ""
         },
         {
@@ -42089,7 +42094,7 @@
         },
         {
           "label": "Notes",
-          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), with the 2011 Stanley Cup team reunion. Fanatics hologram RG13316480 identifies this puck’s digital COA. Packaging label GUHKPK9343 records the March 7, 2024 Boston–Toronto game.\n\nTwo assists with the Cup team back: Marchand helped Boston beat Toronto 4–1 with assists on David Pastrnak’s opening power-play goal and Brandon Carlo’s second-period finish. The captain played 16:54 and delivered three hits. His 2011 Cup teammates were back at TD Garden for the Centennial reunion.",
           "url": ""
         },
         {
@@ -42285,10 +42290,10 @@
       "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
     },
     {
-      "key": "milestone-343",
+      "key": "milestone-301",
       "sourceSheet": "Milestones",
-      "sourceRow": 44,
-      "inventoryId": 343,
+      "sourceRow": 2,
+      "inventoryId": 301,
       "homeRoad": "Home",
       "team": "Boston Bruins",
       "category": "Milestone",
@@ -42309,7 +42314,7 @@
       "videoUrl": "https://www.nhl.com/bruins/video/return-of-a-champion-ceremony-6348427251112",
       "videoProvider": "nhl",
       "videoId": "6348427251112",
-      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.",
+      "notes": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #333 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.\n\nMarchand welcomes the 2011 champions: Thirteen years after scoring twice in the Cup-clinching game, Marchand welcomed his 2011 teammates back as Boston’s captain. The champions arrived by duck boat for the final Centennial Era Night, with Zdeno Chara carrying the Stanley Cup onto the ice. Marchand then added two assists in Boston’s 4–1 win over Toronto.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -42323,7 +42328,7 @@
       "sourceData": [
         {
           "label": "ID #",
-          "value": "343",
+          "value": "301",
           "url": ""
         },
         {
@@ -42363,7 +42368,7 @@
         },
         {
           "label": "Notes",
-          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #342 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.",
+          "value": "Fifth Centennial Era Night: Return of a Champion (2001–Present), featuring the 2011 Stanley Cup team reunion. Fanatics hologram RG13316479 identifies this puck’s digital COA. Owner confirmed this is a separate March 7, 2024 game-used puck from artifact #333 (RG13316480). Packaging label GUHKPK9343 (IMG_9775.JPG) accompanies this puck.\n\nMarchand welcomes the 2011 champions: Thirteen years after scoring twice in the Cup-clinching game, Marchand welcomed his 2011 teammates back as Boston’s captain. The champions arrived by duck boat for the final Centennial Era Night, with Zdeno Chara carrying the Stanley Cup onto the ice. Marchand then added two assists in Boston’s 4–1 win over Toronto.",
           "url": ""
         },
         {

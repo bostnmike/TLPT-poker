@@ -1983,7 +1983,7 @@
       }
     },
     {
-      "inventoryId": 342,
+      "inventoryId": 333,
       "route": "prefilled",
       "entries": [
         {
@@ -2005,7 +2005,7 @@
       }
     },
     {
-      "inventoryId": 343,
+      "inventoryId": 301,
       "route": "prefilled",
       "entries": [
         {
@@ -2431,5 +2431,19 @@
     "No external URL is guaranteed permanent. Do not invent unsupported query parameters.",
     "Corrected after live route checks: 027 = Real Sports (prefilled codes plus CAPTCHA); 028 = Seattle Kraken (manual codes); 02M = NHL licensing QR to NHL Shop, excluded as an authentication link.",
     "Bruins links use the observed HTTPS authenticator record URL with both codes, avoiding an intermediate QR redirect."
-  ]
+  ],
+  "identityCrosswalk": {
+    "date": "2026-10-16",
+    "changes": [
+      {
+        "oldId": 343,
+        "newId": 301
+      },
+      {
+        "oldId": 342,
+        "newId": 333
+      }
+    ],
+    "authenticationValuesUnchanged": true
+  }
 }

@@ -3956,7 +3956,7 @@
         }
       }
     ],
-    "342": [
+    "333": [
       {
         "label": "Front",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/342/front.webp?v=4777f8a301c5",
@@ -3987,7 +3987,7 @@
         "authenticationScope": "Game date, opponents and game-used designation on packaging; digital COA identified by the puck’s hologram."
       }
     ],
-    "343": [
+    "301": [
       {
         "label": "Front",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/343/front.webp?v=8bfb58113828",
@@ -5108,5 +5108,9 @@
     "viewsAdded": 239,
     "viewsReplaced": 1,
     "method": "Non-generative Photoshop edits and reviewed pixel leveling; original photos and lossless masters retained. High-quality WebP compression independently checked for unchanged dimensions and alpha, with detailed images retained when quality or size checks fail. Front thumbnails remain lossless."
+  },
+  "stableAssetFolders": {
+    "301": "images/pucks/343/",
+    "333": "images/pucks/342/"
   }
 }

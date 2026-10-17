@@ -4,7 +4,8 @@ import crypto from 'node:crypto';
 
 const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url));
 const records = JSON.parse(read('data/marchand-pucks.json')).records;
-const manifest = JSON.parse(read('data/marchand-photos.json')).artifacts;
+const photoData = JSON.parse(read('data/marchand-photos.json'));
+const manifest = photoData.artifacts;
 const library = JSON.parse(read('data/marchand-photo-library.json'));
 const libraryBase = 'https://bostnmike.github.io/marchand-puck-images/';
 assert.equal(library.baseUrl, libraryBase, 'Unexpected photo-library host');
@@ -33,7 +34,12 @@ for (const [id, photos] of Object.entries(manifest)) {
     for (const fullUrl of [photo.url, photo.thumbnailUrl].filter(Boolean)) {
       const external = fullUrl.startsWith(libraryBase);
       const url = (external ? fullUrl.slice(libraryBase.length) : fullUrl).split('?')[0];
-      assert.ok(url.startsWith(`images/pucks/${id}/`) && !url.includes('..'), `Wrong folder: ${url}`);
+      const stableFolder = photoData.stableAssetFolders?.[id] || `images/pucks/${id}/`;
+      const record = records.find((record) => String(record.inventoryId) === id);
+      if (photoData.stableAssetFolders?.[id]) {
+        assert.equal(record.sourceData.find((field) => field.label === 'Front Image Filename').value, `${stableFolder}front.webp`, 'Stable asset folder must match the canonical object');
+      }
+      assert.ok(url.startsWith(stableFolder) && !url.includes('..'), `Wrong object folder: ${url}`);
       if (external) {
         const expected = library.assets[url];
         assert.ok(expected?.bytes > 100, `Missing library inventory entry: ${url}`);

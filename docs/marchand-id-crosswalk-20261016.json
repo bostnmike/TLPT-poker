@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-16",
+  "sourceWorkbookSha256": "dc725d4592a36d3c4c86b05c206e0d5bccad73712ce36ec3e7b6fb38567eafef",
+  "collectionCount": 172,
+  "milestoneCount": 41,
+  "nextNewMilestoneId": 342,
+  "changes": [
+    {
+      "oldId": 343,
+      "newId": 301,
+      "oldKey": "milestone-343",
+      "newKey": "milestone-301",
+      "assetFolder": "images/pucks/343/",
+      "hologram": "RG13316479",
+      "sourceRow": 44,
+      "destinationRow": 2,
+      "originalFront": "IMG_9880.JPG",
+      "originalCOA": "IMG_9775.JPG"
+    },
+    {
+      "oldId": 342,
+      "newId": 333,
+      "oldKey": "milestone-342",
+      "newKey": "milestone-333",
+      "assetFolder": "images/pucks/342/",
+      "hologram": "RG13316480",
+      "sourceRow": 43,
+      "destinationRow": 34,
+      "originalFront": "333-front",
+      "originalCOA": "IMG_9774.JPG"
+    }
+  ],
+  "stableAssetPolicy": "No file or image bytes renamed/moved. Rebind the explicit gallery index and preserve canonical /343/ and /342/ paths. Historical /301/ and /333/ folders are unrelated and remain unused.",
+  "aliasPolicy": "Active canonical keys win. Old milestone-343 resolves to milestone-301; old milestone-342 resolves to milestone-333 only while those old keys are inactive. Retired 301-to-9 and 333-to-59 consolidations do not override the active 301 and 333 objects.",
+  "canonicalNotesUpdated": [
+    31,
+    59
+  ],
+  "unchanged": "Other 168 record facts, artifact 9/59 identities, incoming photo status, all 108 authentication values, all asset bytes and all game statistics."
+}

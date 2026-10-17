@@ -1119,6 +1119,14 @@
       && payload.records.every((record) => record.key && Number.isFinite(record.inventoryId) && Array.isArray(record.sourceData)));
   }
 
+  function resolveArtifact(requestedKey) {
+    // Active IDs win when an owner reuses a formerly vacant inventory number.
+    const current = state.records.find((record) => record.key === requestedKey);
+    if (current) return current;
+    const aliases = { "milestone-343": "milestone-301", "milestone-342": "milestone-333" };
+    return state.records.find((record) => record.key === aliases[requestedKey]);
+  }
+
   async function loadCollection() {
     elements.status.className = "marchand-loading";
     elements.status.innerHTML = '<span class="marchand-loader-puck" aria-hidden="true">63</span><p>Opening the vault…</p>';
@@ -1152,9 +1160,7 @@
       if (["boston", "florida", "canada"].includes(requestedEra)) setEra(requestedEra);
       render();
       const requestedArtifact = new URLSearchParams(window.location.search).get("artifact");
-      // Owner-confirmed duplicate: preserve old shared links after consolidation.
-      const resolvedArtifact = requestedArtifact === "milestone-333" ? "goal-59" : requestedArtifact;
-      const linkedRecord = state.records.find((record) => record.key === resolvedArtifact);
+      const linkedRecord = resolveArtifact(requestedArtifact);
       if (linkedRecord) openArtifact(linkedRecord);
     } catch (error) {
       console.error("Could not load Marchand collection:", error);
