@@ -358,3 +358,29 @@ The local Worker integration checks that installation assets are anonymously
 available with correct content types and PNG sizes while private APIs remain
 protected. Confirm the Home Screen icon and standalone window on the physical
 iPad after installation; desktop automation cannot verify the iPad launcher UI.
+
+## Embedded-icon Web Clip installer
+
+If Safari's Home Screen installation still chooses a fallback letter, open
+<https://cashier.tlpt.org/webclip.html> in Safari on the iPad. Download
+`TLPT-Cashier.mobileconfig`, then install it yourself from Settings → Profile
+Downloaded within eight minutes. Settings may instead list it under General →
+VPN & Device Management. Review that it contains only one Web Clip for
+`https://cashier.tlpt.org/`. It is an unsigned, manually installed profile; no
+signing certificate or device-management enrollment is included or needed.
+
+The profile embeds the existing opaque 180×180 poker-chip PNG, sets FullScreen
+and Precomposed true, and leaves IsRemovable true and IgnoreManifestScope false.
+The only payload is `com.apple.webClip.managed`; there are no certificates,
+VPN/network settings, restrictions, credentials, payment data, or MDM payloads.
+Stable profile and payload identifiers permit a future deliberate replacement.
+The `_headers` rule applies only to this file and sets the Apple profile MIME
+type, attachment filename, no-store caching and nosniff. The production Worker,
+database, password/session/import secrets and gateway do not change.
+
+Keep the working Home Screen entry until the new icon/window is verified on
+the actual iPad. To undo, remove the TLPT Cashier profile in Settings → General
+→ VPN & Device Management. Only its Home Screen entry is removed; server-side
+payment data remains. Unit tests parse the plist and allowlist every key;
+Worker integration checks the exact bytes and download headers. Installation
+and the iPad launcher icon still need a physical-device acceptance check.
