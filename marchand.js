@@ -8,6 +8,7 @@
     players: {},
     goalies: {},
     photos: {},
+    gamePhotos: { assets: {}, artifacts: {} },
     stories: {},
     gameStats: {},
     activeArtifactKey: null,
@@ -137,6 +138,7 @@
     puckImage: document.getElementById("artifact-puck-image"),
     puckViews: document.getElementById("artifact-puck-views"),
     puckCaption: document.getElementById("artifact-puck-caption"),
+    gamePhotoCredit: document.getElementById("artifact-game-photo-credit"),
     previousPuck: document.getElementById("artifact-previous"),
     nextPuck: document.getElementById("artifact-next"),
     navigationPosition: document.getElementById("artifact-navigation-position"),
@@ -424,11 +426,15 @@
   }
 
   function artifactPhotos(record) {
-    if (record.photoStatus === "Pending owner receipt") return [];
     const registeredPhotos = state.photos[record.inventoryId];
-    return Array.isArray(registeredPhotos)
+    const physical = record.photoStatus === "Pending owner receipt" ? [] : Array.isArray(registeredPhotos)
       ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
       : normalize(record.imageUrl) ? [{ label: "Front", url: record.imageUrl }] : [];
+    const mapping = state.gamePhotos.artifacts?.[record.key];
+    const gamePhoto = mapping?.inventoryId === record.inventoryId ? state.gamePhotos.assets?.[mapping.assetId] : null;
+    return gamePhoto?.role === "game_reference" && normalize(gamePhoto.url)
+      ? [...physical, { ...gamePhoto, artifactDate: mapping.artifactDate, photoDate: mapping.photoDate }]
+      : physical;
   }
 
   function renderRows(records) {
@@ -817,6 +823,9 @@
   }
 
   function showPuckPlaceholder(record) {
+    renderGamePhotoCredit(null);
+    elements.puckImage.classList.toggle("is-game-reference", false);
+    elements.puckCaption.classList.toggle("is-game-reference", false);
     document.getElementById("artifact-coa-full-size").hidden = true;
     elements.puckImage.hidden = true;
     elements.puckImage.removeAttribute("src");
@@ -826,6 +835,29 @@
     elements.puckCaption.textContent = record.photoStatus === "Pending owner receipt"
       ? "Incoming purchase · Photos pending receipt."
       : "Reserved for the authenticated puck photograph.";
+  }
+
+  function renderGamePhotoCredit(photo) {
+    const container = elements.gamePhotoCredit;
+    container.replaceChildren();
+    container.hidden = photo?.role !== "game_reference";
+    if (container.hidden) return;
+    const credit = document.createElement("span");
+    credit.textContent = photo.credit || "Source credit";
+    const source = document.createElement("a");
+    source.textContent = "Source ↗";
+    source.href = photo.sourceUrl;
+    source.target = "_blank";
+    source.rel = "noopener noreferrer";
+    container.append(credit, source);
+    if (photo.licenseUrl) {
+      const license = document.createElement("a");
+      license.textContent = photo.license;
+      license.href = photo.licenseUrl;
+      license.target = "_blank";
+      license.rel = "noopener noreferrer";
+      container.append(license);
+    }
   }
 
   function renderPuckPhoto(record) {
@@ -847,8 +879,19 @@
       elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
       elements.puckPlaceholder.hidden = true;
       elements.puckImage.hidden = false;
-      elements.puckImage.alt = `Artifact ${record.inventoryId} — ${puckTypeLabel(record.puckType)} — ${photo.label}`;
-      elements.puckCaption.textContent = `Artifact No. ${record.inventoryId} · ${photo.label} · ${index + 1} of ${photos.length}${photo.caption ? ` — ${photo.caption}` : ""}`;
+      const isGameReference = photo.role === "game_reference";
+      elements.puckImage.classList.toggle("is-game-reference", isGameReference);
+      elements.puckCaption.classList.toggle("is-game-reference", isGameReference);
+      elements.puckImage.alt = isGameReference
+        ? `Artifact ${record.inventoryId} — game reference — ${photo.caption}`
+        : `Artifact ${record.inventoryId} — ${puckTypeLabel(record.puckType)} — ${photo.label}`;
+      const photoDate = isGameReference ? ` · ${displayDate(photo.photoDate)}` : "";
+      const rescheduled = isGameReference && photo.photoDate !== photo.artifactDate
+        ? ` Rescheduled game; original collection date ${displayDate(photo.artifactDate)}.` : "";
+      const pending = isGameReference && record.photoStatus === "Pending owner receipt"
+        ? " Physical puck photos pending receipt." : "";
+      elements.puckCaption.textContent = `Artifact No. ${record.inventoryId} · ${photo.label} · ${index + 1} of ${photos.length}${photoDate}${photo.caption ? ` — ${photo.caption}` : ""}${rescheduled}${pending}`;
+      renderGamePhotoCredit(photo);
       for (const [buttonIndex, button] of buttons.entries()) button.setAttribute("aria-pressed", String(buttonIndex === index));
       elements.puckImage.onerror = () => {
         showPuckPlaceholder(record);
@@ -862,20 +905,29 @@
       button.type = "button";
       button.setAttribute("aria-label", `Show ${photo.label.toLowerCase()} photo of artifact ${record.inventoryId}`);
       button.setAttribute("aria-controls", "artifact-puck-image");
+      if (photo.role === "game_reference") button.className = "marchand-game-reference-view";
       const thumbnail = document.createElement("img");
-      thumbnail.src = photo.url;
+      thumbnail.src = photo.thumbnailUrl || photo.url;
       orientPuckPhoto(thumbnail, photo);
       thumbnail.alt = "";
       thumbnail.loading = "lazy";
       const label = document.createElement("span");
       label.textContent = photo.label;
       button.append(thumbnail, label);
-      button.addEventListener("click", () => selectPhoto(photo, index));
+      button.addEventListener("click", () => {
+        selectPhoto(photo, index);
+        if (photo.role === "game_reference") elements.puckImage.scrollIntoView({ block: "nearest", behavior: "auto" });
+      });
       buttons.push(button);
       elements.puckViews.append(button);
     }
-    elements.puckViews.hidden = photos.length < 2;
-    selectPhoto(photos[0], 0);
+    const hasPhysicalPuckPhoto = photos.some((photo) => photo.role !== "game_reference");
+    elements.puckViews.hidden = photos.length < 2 && hasPhysicalPuckPhoto;
+    if (hasPhysicalPuckPhoto) selectPhoto(photos[0], 0);
+    else {
+      showPuckPlaceholder(record);
+      for (const button of buttons) button.setAttribute("aria-pressed", "false");
+    }
   }
 
   function orientPuckPhoto(image, photo) {
@@ -1143,6 +1195,8 @@
       state.players = decoder.players;
       state.photos = await fetch("data/marchand-photos.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.artifacts || {}).catch(() => ({}));
+      state.gamePhotos = await fetch("data/marchand-game-photos.json", { cache: "no-store" })
+        .then((result) => result.ok ? result.json() : {}).then((data) => ({ assets: data.assets || {}, artifacts: data.artifacts || {} })).catch(() => ({ assets: {}, artifacts: {} }));
       state.goalies = await fetch("data/marchand-goalies.json", { cache: "no-store" })
         .then((result) => result.ok ? result.json() : {}).then((data) => data.goalies || {}).catch(() => ({}));
       state.stories = await fetch("data/marchand-stories.json", { cache: "no-store" })

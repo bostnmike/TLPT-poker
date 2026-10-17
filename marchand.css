@@ -2149,3 +2149,11 @@ select option[value="Hockey Fights Cancer"]{color:#c5a6df;background:#24172f}
 .marchand-authentication-record a:focus-visible,.marchand-authentication-record button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 
 #artifact-authentication-instructions{margin:12px 0 0;font-size:.85rem;line-height:1.5;letter-spacing:0}
+
+/* Game references retain their complete frame and remain separate from puck/COA views. */
+.marchand-puck-display > img.is-game-reference{aspect-ratio:auto;width:auto;max-width:100%;max-height:min(56vh,680px)}
+.marchand-puck-photo figcaption.is-game-reference{max-width:85ch;margin:0 auto;color:#b4bdc6;font-size:.8rem;line-height:1.5}
+.marchand-game-photo-credit{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin:7px 0 3px;color:#b4bdc6;font-size:.76rem;line-height:1.5;text-align:center}
+.marchand-game-photo-credit[hidden]{display:none}
+.marchand-game-photo-credit a{color:#f4e7cc;text-underline-offset:3px}
+.marchand-dialog[data-team="florida"] .marchand-puck-views button.marchand-game-reference-view[aria-pressed="true"]{color:#fff}

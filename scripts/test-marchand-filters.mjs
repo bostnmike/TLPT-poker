@@ -10,6 +10,12 @@ const decoder = JSON.parse(read("data/marchand-players.json"));
 const photoManifest = JSON.parse(read("data/marchand-photos.json"));
 const photoLibrary = JSON.parse(read("data/marchand-photo-library.json"));
 const storyManifest = JSON.parse(read("data/marchand-stories.json"));
+const gamePhotoManifest = JSON.parse(read("data/marchand-game-photos.json"));
+const gamePhotoFor = (id) => {
+  const record = payload.records.find((r) => r.inventoryId === Number(id));
+  const mapping = gamePhotoManifest.artifacts[record.key];
+  return mapping ? gamePhotoManifest.assets[mapping.assetId] : null;
+};
 const registeredPhotos = structuredClone(photoManifest.artifacts);
 const noPhotoId = payload.records.find((record) => !registeredPhotos[String(record.inventoryId)])?.inventoryId;
 assert.ok(noPhotoId, "a no-photo artifact is needed to test the standard fallback");
@@ -85,7 +91,7 @@ vm.runInNewContext(read("marchand-labels.js") + "\n" + read("marchand.js"), {
     querySelectorAll: (selector) => ({ "[data-collection-filter]": statButtons, "[data-era-button]": eraButtons, "[data-sort]": sortButtons })[selector] || [],
   },
   window: { location: { search: "?artifact=goal-72" }, matchMedia: () => ({ matches: true }) },
-  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("photos") ? photoManifest : url.includes("stories") ? storyManifest : url.includes("game-stats") ? JSON.parse(read("data/marchand-game-stats.json")) : payload }),
+  fetch: async (url) => ({ ok: true, json: async () => url.includes("players") ? decoder : url.includes("goalies") ? JSON.parse(read("data/marchand-goalies.json")) : url.includes("game-photos") ? gamePhotoManifest : url.includes("photos") ? photoManifest : url.includes("stories") ? storyManifest : url.includes("game-stats") ? JSON.parse(read("data/marchand-game-stats.json")) : payload }),
   console: { error: (...args) => errors.push(args) },
   URLSearchParams, Intl, Date,
 });
@@ -121,8 +127,14 @@ for (const id of [31, 61]) {
   assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`);
   assert.equal(element("artifact-puck-placeholder").hidden, false);
   assert.equal(element("artifact-puck-image").hidden, true);
-  assert.equal(element("artifact-puck-views").children.length, 0);
+  assert.equal(element("artifact-puck-views").children.length, 1, "Incoming pucks can expose an explicitly separate game reference");
+  assert.equal(element("artifact-puck-views").hidden, false);
   assert.match(element("artifact-puck-caption").textContent, /Incoming purchase.*Photos pending receipt/);
+  element("artifact-puck-views").children[0].click();
+  assert.equal(element("artifact-puck-image").src, gamePhotoFor(id).url);
+  assert.match(element("artifact-puck-image").alt, /game reference/);
+  assert.match(element("artifact-puck-caption").textContent, /Physical puck photos pending receipt/);
+  assert.equal(element("artifact-coa-full-size").hidden, true);
   assert.match(element("artifact-dialog-facts").textContent, /Incoming — not yet in hand/);
   assert.equal(row.children[8].children[0].disabled, false);
   delete photoManifest.artifacts[id];
@@ -155,7 +167,9 @@ for (const id of [2, noPhotoId]) {
   const button = rows().find((row) => Number(row.children[0].textContent) === id).children[1].children[0];
   assert.equal(button.children.some((child) => child.tag === "img"), false, "no Front photo means the standard Deep Dive button");
 }
-for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["1", "2"].includes(id))) {
+for (const [id, physicalPhotos] of Object.entries(registeredPhotos).filter(([id]) => !["1", "2"].includes(id))) {
+  const reference = gamePhotoFor(id);
+  const photos = [...physicalPhotos, ...(reference ? [reference] : [])];
   const inventoryId = Number(id);
   const expectedViews = photos.length;
   const row = rows().find((entry) => Number(entry.children[0].textContent) === inventoryId);
@@ -179,15 +193,29 @@ for (const [id, photos] of Object.entries(registeredPhotos).filter(([id]) => !["
     const isCertificate = /^COA(?: \d+)?$/.test(photos[index].label);
     assert.equal(element("artifact-coa-full-size").hidden, !isCertificate);
     if (isCertificate) assert.equal(element("artifact-coa-full-size").href, photos[index].url);
+    const isGameReference = photos[index].role === "game_reference";
+    assert.equal(element("artifact-game-photo-credit").hidden, !isGameReference);
+    if (isGameReference) {
+      assert.equal(index, photos.length - 1, "Game reference must be last");
+      assert.equal(element("artifact-game-photo-credit").children[0].textContent, photos[index].credit);
+      assert.equal(element("artifact-game-photo-credit").children[1].href, photos[index].sourceUrl);
+      if (photos[index].licenseUrl) assert.equal(element("artifact-game-photo-credit").children[2].href, photos[index].licenseUrl);
+      assert.equal(element("artifact-puck-image").classList.contains("is-game-reference"), true);
+    }
   }
   element("artifact-puck-image").onerror();
   assert.equal(element("artifact-puck-placeholder").hidden, false);
   views.children[0].click();
   assert.equal(element("artifact-puck-placeholder").hidden, true);
 }
+const noPhotoKey = payload.records.find((r) => r.inventoryId === noPhotoId).key;
+const savedReference = gamePhotoManifest.artifacts[noPhotoKey];
+delete gamePhotoManifest.artifacts[noPhotoKey];
 rows().find((entry) => Number(entry.children[0].textContent) === noPhotoId).children[1].children[0].click();
 assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
+assert.equal(element("artifact-game-photo-credit").hidden, true);
+gamePhotoManifest.artifacts[noPhotoKey] = savedReference;
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 7);
 assert.equal(rows().length, 172);
@@ -375,7 +403,7 @@ const checkNavigation = () => {
       }
     }
     if (photoManifest.artifacts[id]?.length) assert.equal(element("artifact-puck-image").src, photoManifest.artifacts[id][0].url);
-    else assert.equal(element("artifact-puck-views").hidden, true);
+    else assert.equal(element("artifact-puck-views").hidden, !gamePhotoFor(id));
     element("artifact-next").click();
   }
   assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${orderedIds.at(-1)}`);
