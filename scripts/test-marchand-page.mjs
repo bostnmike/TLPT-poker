@@ -53,8 +53,8 @@ const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-pla
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
 assert.equal(payload.meta.records, 172, "collection total must match the authoritative populated rows");
-assert.equal(payload.meta.goalsAndGames, 77, "goals and games count drifted");
-assert.equal(payload.meta.milestones, 41, "milestone count drifted");
+assert.equal(payload.meta.goalsAndGames, 76, "goals and games count drifted");
+assert.equal(payload.meta.milestones, 42, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
 assert.equal(payload.meta.videos, 172, "video count drifted");
@@ -225,7 +225,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20261017-game-photos/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261017-game-photos/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20261017-49-to-342/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20261017-game-photos/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
@@ -361,9 +361,9 @@ assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is
 const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
 assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
-assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 76, "scoring records retain researched goalies; commemorative artifact 49 has no attributed scoring play");
-assert.equal(payload.records.find(record => record.inventoryId === 49).category, "Game-Used Puck");
-assert.equal(payload.records.find(record => record.inventoryId === 49).careerStat, null);
+assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 76, "scoring records retain researched goalies; commemorative artifact 342 has no attributed scoring play");
+assert.equal(payload.records.find(record => record.inventoryId === 342).category, "Milestone");
+assert.equal(payload.records.find(record => record.inventoryId === 342).careerStat, null);
 assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [], "Every artifact retains its canonical video or game recap source");
 assert.equal(payload.records.find(r => r.inventoryId === 713).videoId, "6387090130112", "Use the playable official recap, not the withdrawn NHL clip");
 assert.equal(payload.records.find(r => r.inventoryId === 705).videoId, "6336358911112", "HFC puck uses the February 10 rescheduled game recap");

@@ -3,13 +3,13 @@
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
     "sourceSha256": "aafa996e674e0e39c561be1644936eb6acd651b4826699b3f1446948e71f6bed",
     "records": 172,
-    "goalsAndGames": 77,
-    "milestones": 41,
+    "goalsAndGames": 76,
+    "milestones": 42,
     "roadToHistory": 10,
     "videos": 172,
     "sourceSheets": {
-      "Goals & Games": 77,
-      "Milestones": 41,
+      "Goals & Games": 76,
+      "Milestones": 42,
       "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
@@ -30,9 +30,9 @@
       "scope": "Added two canonical rows; 170 previously published artifact records preserved."
     },
     "latestCanonicalUpdate": {
-      "date": "2026-10-16",
-      "sourceSha256": "dc725d4592a36d3c4c86b05c206e0d5bccad73712ce36ec3e7b6fb38567eafef",
-      "scope": "Renumber 343 to 301 and 342 to 333; canonical Notes for 31 and 59; all other artifact facts preserved."
+      "date": "2026-10-17",
+      "sourceSha256": "48c14579001bc85b277e768bbc13e41728df925699b259ce5cfe35cb107ddfe0",
+      "scope": "Reclassify former goal 49 as milestone 342 and assign one COA each to 342 and 322; other 170 artifact records preserved."
     }
   },
   "records": [
@@ -10251,16 +10251,16 @@
       "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
     },
     {
-      "key": "goal-49",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 50,
-      "inventoryId": 49,
+      "key": "milestone-342",
+      "sourceSheet": "Milestones",
+      "sourceRow": 43,
+      "inventoryId": 342,
       "homeRoad": "Road",
       "team": "Boston Bruins",
-      "category": "Game-Used Puck",
+      "category": "Milestone",
       "careerStat": null,
       "seasonStat": null,
-      "description": "",
+      "description": "Career Goals #410 and #411 Commemorative Puck",
       "date": "2024-12-04",
       "arena": "United Center",
       "opponent": "Chicago Blackhawks",
@@ -10271,7 +10271,7 @@
       "secondaryAssist": "",
       "score": "Boston 4 @ Chicago 2",
       "puckType": "Game Used Puck",
-      "videoLabel": "https://www.nhl.com/video/c-6365566513112",
+      "videoLabel": "Game Context",
       "videoUrl": "https://www.nhl.com/video/c-6365566513112",
       "videoProvider": "nhl",
       "videoId": "6365566513112",
@@ -10283,13 +10283,8 @@
       "playerCodes": [],
       "sourceData": [
         {
-          "label": "ID",
-          "value": "49",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Road",
+          "label": "ID #",
+          "value": "342",
           "url": ""
         },
         {
@@ -10299,17 +10294,12 @@
         },
         {
           "label": "Category",
-          "value": "Game-Used Puck",
+          "value": "Milestone",
           "url": ""
         },
         {
-          "label": "Career Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "",
+          "label": "Description",
+          "value": "Career Goals #410 and #411 Commemorative Puck",
           "url": ""
         },
         {
@@ -10325,6 +10315,46 @@
         {
           "label": "Opponent",
           "value": "Chicago Blackhawks",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Game Used Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 4 @ Chicago 2",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "",
           "url": ""
         },
         {
@@ -10353,29 +10383,14 @@
           "url": ""
         },
         {
-          "label": "Score",
-          "value": "Boston 4 @ Chicago 2",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Game Used Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "https://www.nhl.com/video/c-6365566513112",
-          "url": "https://www.nhl.com/video/c-6365566513112"
-        },
-        {
-          "label": "Notes",
-          "value": "Game-used puck commemorating Marchand’s two-goal game in Chicago on December 4, 2024 (career goals 410 and 411). The actual goal-scored pucks are separate artifacts 44 and 45; this puck is not attributed to either scoring play.",
-          "url": ""
-        },
-        {
           "label": "Goalie Scored Against",
           "value": "",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "https://www.nhl.com/video/c-6365566513112",
+          "url": "https://www.nhl.com/video/c-6365566513112"
         },
         {
           "label": "Front Image Filename",
@@ -10394,7 +10409,52 @@
         },
         {
           "label": "COA Filename",
-          "value": "images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+          "value": "images/pucks/49/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
           "url": ""
         },
         {
@@ -10404,7 +10464,7 @@
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/49/back.webp; images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+          "value": "images/pucks/49/back.webp; images/pucks/49/coa.webp",
           "url": ""
         },
         {
@@ -10450,7 +10510,7 @@
       ],
       "goalieScoredAgainst": "",
       "authenticationType": "Digital COA / Hologram",
-      "authenticationEvidence": "images/pucks/49/back.webp; images/pucks/49/coa.webp; images/pucks/49/coa-02.webp",
+      "authenticationEvidence": "images/pucks/49/back.webp; images/pucks/49/coa.webp",
       "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
       "authenticationIssuer": "Fanatics",
       "authenticationSerial": "XJ05532097",
@@ -20751,7 +20811,7 @@
         },
         {
           "label": "COA Filename",
-          "value": "images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+          "value": "images/pucks/322/coa-02.webp",
           "url": ""
         },
         {
@@ -20806,7 +20866,7 @@
         },
         {
           "label": "Authentication Evidence",
-          "value": "images/pucks/322/back.webp; images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+          "value": "images/pucks/322/back.webp; images/pucks/322/coa-02.webp",
           "url": ""
         },
         {
@@ -20852,7 +20912,7 @@
       ],
       "goalieScoredAgainst": "",
       "authenticationType": "Digital COA / Hologram",
-      "authenticationEvidence": "images/pucks/322/back.webp; images/pucks/322/coa.webp; images/pucks/322/coa-02.webp",
+      "authenticationEvidence": "images/pucks/322/back.webp; images/pucks/322/coa-02.webp",
       "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
       "authenticationIssuer": "Fanatics",
       "authenticationSerial": "XJ05532094",

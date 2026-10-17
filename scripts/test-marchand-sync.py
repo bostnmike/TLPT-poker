@@ -47,3 +47,8 @@ assert sync.video_parts(recap, {}) == ("article", "")
 reviewed = {"videoClipId": "6335868297112", "videoClipSourceUrl": recap}
 assert sync.video_parts(recap, reviewed) == ("nhl", "6335868297112")
 assert sync.video_parts(recap + "-changed", reviewed) == ("article", ""), "Reviewed clip must belong to this exact canonical source"
+
+assert 49 not in by_id, "Reserved goal 49 must remain vacant"
+assert by_id[342]["sourceSheet"] == "Milestones" and by_id[342]["sourceRow"] == 43
+assert by_id[342]["authenticationSerial"] == "XJ05532097"
+assert by_id[322]["authenticationSerial"] == "XJ05532094"

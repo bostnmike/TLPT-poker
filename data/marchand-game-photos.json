@@ -469,13 +469,6 @@
       "photoDate": "2024-12-04",
       "relationNote": "Existing approved same-game warm-up photograph"
     },
-    "goal-49": {
-      "inventoryId": 49,
-      "assetId": "2024020407",
-      "artifactDate": "2024-12-04",
-      "photoDate": "2024-12-04",
-      "relationNote": "Existing approved same-game warm-up photograph"
-    },
     "goal-46": {
       "inventoryId": 46,
       "assetId": "2024020472",
@@ -1224,6 +1217,13 @@
       "artifactDate": "2023-04-06",
       "photoDate": "2023-04-06",
       "relationNote": "Marchand is visible in the upper-right rear of the group with helmet number 63. The entire group is celebrating the overtime winner. The source caption explicitly dates this photograph April 6, 2023 vs Toronto; the article was published April 8 and does not supply the image date. This is postgame celebration, not a claim to depict Coyle’s third-period tying goal."
+    },
+    "milestone-342": {
+      "inventoryId": 342,
+      "assetId": "2024020407",
+      "artifactDate": "2024-12-04",
+      "photoDate": "2024-12-04",
+      "relationNote": "Existing approved same-game warm-up photograph"
     }
   },
   "assets": {

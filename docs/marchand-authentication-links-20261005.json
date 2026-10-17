@@ -704,7 +704,7 @@
       }
     },
     {
-      "inventoryId": 49,
+      "inventoryId": 342,
       "route": "prefilled",
       "entries": [
         {
@@ -2444,6 +2444,10 @@
         "newId": 333
       }
     ],
-    "authenticationValuesUnchanged": true
+    "authenticationValuesUnchanged": true,
+    "2026-10-17": {
+      "49": 342,
+      "note": "Current 342 is the Chicago puck, XJ05532097; supersedes the old 342-to-333 alias."
+    }
   }
 }

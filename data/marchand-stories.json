@@ -1306,33 +1306,6 @@
         }
       }
     },
-    "goal-49": {
-      "inventoryId": 49,
-      "date": "2024-12-04",
-      "team": "Boston Bruins",
-      "gameId": 2024020407,
-      "title": "Remembering the two-goal night in Chicago",
-      "paragraphs": [
-        "Marchand scored twice early in the second period, changing a 1–1 tie into a 3–1 Boston lead. His second goal held up as the winner in a 4–2 game. This game-used puck commemorates that performance; the two goal-scored pucks are cataloged separately as artifacts 44 and 45."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2024020407"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
-        "marchand": {
-          "goals": 2,
-          "assists": 0,
-          "points": 2,
-          "shots": 3,
-          "toi": "18:12"
-        }
-      }
-    },
     "goal-50": {
       "inventoryId": 50,
       "date": "2011-05-02",
@@ -5055,6 +5028,33 @@
           "earlierSeasonGoals": 20,
           "thisGoal": 1,
           "careerGoal": 213
+        }
+      }
+    },
+    "milestone-342": {
+      "inventoryId": 342,
+      "date": "2024-12-04",
+      "team": "Boston Bruins",
+      "gameId": 2024020407,
+      "title": "Remembering the two-goal night in Chicago",
+      "paragraphs": [
+        "Marchand scored twice early in the second period, changing a 1–1 tie into a 3–1 Boston lead. His second goal held up as the winner in a 4–2 game. This game-used puck commemorates that performance; the two goal-scored pucks are cataloged separately as artifacts 44 and 45."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2024020407"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020407/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020407/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 0,
+          "points": 2,
+          "shots": 3,
+          "toi": "18:12"
         }
       }
     }

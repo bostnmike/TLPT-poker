@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-17",
+  "sourceWorkbookSha256": "48c14579001bc85b277e768bbc13e41728df925699b259ce5cfe35cb107ddfe0",
+  "collectionCount": 172,
+  "counts": {
+    "Goals & Games": 76,
+    "Milestones": 42,
+    "Road to History": 10,
+    "Road to Repeat": 27,
+    "Hockey Fights Cancer": 9,
+    "Warm-Up Pucks": 8
+  },
+  "reservedVacantGoalId": 49,
+  "nextNewMilestoneId": 343,
+  "changes": [
+    {
+      "oldId": 49,
+      "newId": 342,
+      "oldKey": "goal-49",
+      "newKey": "milestone-342",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 50,
+      "destinationSheet": "Milestones",
+      "destinationRow": 43,
+      "assetFolder": "images/pucks/49/",
+      "hologram": "XJ05532097"
+    }
+  ],
+  "coaAssignment": {
+    "342": {
+      "path": "images/pucks/49/coa.webp",
+      "sha256": "78e00af270a912bebcb83bad9ec3291883c9b62913acd1551aa7795917602ba3"
+    },
+    "322": {
+      "path": "images/pucks/322/coa-02.webp",
+      "sha256": "3d36c25444500e92b096f64009d22ce429ad4fed2c0dd4e31773248c3ba0d94a"
+    }
+  },
+  "coaAssignmentBasis": "Owner-authorized one-to-one assignment. Both packaging labels show shared product GUHKPU1365, without unique holograms; back photographs establish the separate serials.",
+  "preservedIdentities": [
+    {
+      "id": 322,
+      "hologram": "XJ05532094",
+      "assetFolder": "images/pucks/322/"
+    },
+    {
+      "id": 333,
+      "hologram": "RG13316480",
+      "assetFolder": "images/pucks/342/"
+    },
+    {
+      "id": 301,
+      "hologram": "RG13316479",
+      "assetFolder": "images/pucks/343/"
+    }
+  ],
+  "assetPolicy": "Keep all existing photo bytes and explicit stable paths. New 342 uses images/pucks/49/..., while current 333 still uses images/pucks/342/... from the October 16 renumbering. Do not infer gallery folders from artifact IDs. Keep future goal 49 photos distinct from these historical assets.",
+  "aliasPolicy": "Active canonical keys take priority. Current milestone-342 is the Chicago puck. The October 16 milestone-342 to milestone-333 alias is superseded. Former goal-49 resolves to milestone-342 only while goal-49 is vacant. A future goal-49 overrides that alias and must use distinct new photo assets.",
+  "historicalCrosswalk": "docs/marchand-id-crosswalk-20261016.json",
+  "unchanged": "170 other catalog records, all physical asset bytes, all 130 game-image assets including distinct 504/510, all videos, game statistics, and canonical Excel/Word/book files."
+}

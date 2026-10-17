@@ -106,7 +106,7 @@ view("goals");
 assert.ok(summaryRows().some((row) => label(row) === "⚖️ Even-Strength Goal"));
 assert.ok(!element("vault-breakdown-body").textContent.includes("unmarked"));
 assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 74);
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 74, "assist records and commemorative artifact 49 must be excluded from goal types");
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 74, "assist records and commemorative artifact 342 must be excluded from goal types");
 view("sheets");
 assert.equal(summaryRows().length, 6);
 assert.ok(summaryRows().some((row) => label(row) === "Goals"));

@@ -1640,40 +1640,6 @@
         "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
       }
     ],
-    "49": [
-      {
-        "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front.webp?v=c59c9d5b0dfc",
-        "rotation": 0,
-        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front-thumb.webp?v=d024faa8668a"
-      },
-      {
-        "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/back.webp?v=b1c39737c8d8",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=a28d7b96e479",
-        "rotation": 0
-      },
-      {
-        "label": "COA",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/coa.webp?v=78e00af270a9",
-        "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
-        "sourceFile": "IMG_9789.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
-      },
-      {
-        "label": "COA 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/coa-02.webp?v=3d36c2544450",
-        "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
-        "sourceFile": "IMG_9790.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
-      }
-    ],
     "50": [
       {
         "label": "Front",
@@ -3307,19 +3273,12 @@
       },
       {
         "label": "COA",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/coa.webp?v=78e00af270a9",
-        "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
-        "sourceFile": "IMG_9789.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
-      },
-      {
-        "label": "COA 2",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/322/coa-02.webp?v=3d36c2544450",
         "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "caption": "Fanatics packaging label for Chicago vs. Boston, December 4, 2024. Shared product code GUHKPU1365; the unique digital COA hologram is visible on the puck’s back.",
         "sourceFile": "IMG_9790.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        "authenticationScope": "Game date and matchup only. Owner-assigned packaging photograph; no unique hologram is visible on this label. The puck’s back photograph identifies its digital COA.",
+        "assignmentBasis": "Owner-authorized one-to-one assignment; not a serial-matched certificate."
       }
     ],
     "323": [
@@ -5093,6 +5052,33 @@
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/back.webp?v=688b3231159b",
         "rotation": 0
       }
+    ],
+    "342": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front.webp?v=c59c9d5b0dfc",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/front-thumb.webp?v=d024faa8668a"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/back.webp?v=b1c39737c8d8",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/edge-01.webp?v=a28d7b96e479",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49/coa.webp?v=78e00af270a9",
+        "rotation": 0,
+        "caption": "Fanatics packaging label for Chicago vs. Boston, December 4, 2024. Shared product code GUHKPU1365; the unique digital COA hologram is visible on the puck’s back.",
+        "sourceFile": "IMG_9789.JPG",
+        "authenticationScope": "Game date and matchup only. Owner-assigned packaging photograph; no unique hologram is visible on this label. The puck’s back photograph identifies its digital COA.",
+        "assignmentBasis": "Owner-authorized one-to-one assignment; not a serial-matched certificate."
+      }
     ]
   },
   "orientationReview": {
@@ -5111,6 +5097,7 @@
   },
   "stableAssetFolders": {
     "301": "images/pucks/343/",
-    "333": "images/pucks/342/"
+    "333": "images/pucks/342/",
+    "342": "images/pucks/49/"
   }
 }
