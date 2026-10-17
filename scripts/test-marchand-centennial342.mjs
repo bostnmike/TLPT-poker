@@ -43,7 +43,7 @@ for (const [id, path] of [[342, '/49/coa.webp'], [322, '/322/coa-02.webp']]) {
 const gamePhotos = read('marchand-game-photos.json');
 assert.equal(gamePhotos.artifacts['goal-49'], undefined);
 assert.equal(gamePhotos.artifacts[chicago.key].inventoryId, 342);
-assert.equal(gamePhotos.artifacts[chicago.key].assetId, gamePhotos.artifacts[companion.key].assetId);
+assert.notEqual(gamePhotos.artifacts[chicago.key].assetId, gamePhotos.artifacts[companion.key].assetId, "Each Chicago puck must have its own game image");
 assert.notEqual(gamePhotos.artifacts[chicago.key].assetId, gamePhotos.artifacts[r.key].assetId);
 const index = JSON.parse(fs.readFileSync(new URL('../docs/marchand-game-photo-index-20261017.json', import.meta.url))).records;
 assert.equal(index.length, p.records.length);
