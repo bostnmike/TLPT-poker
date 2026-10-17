@@ -124,7 +124,7 @@ for (const id of [31, 61]) {
   assert.equal(element("artifact-puck-views").children.length, 0);
   assert.match(element("artifact-puck-caption").textContent, /Incoming purchase.*Photos pending receipt/);
   assert.match(element("artifact-dialog-facts").textContent, /Incoming — not yet in hand/);
-  assert.equal(row.children[8].children[0].disabled, id === 61);
+  assert.equal(row.children[8].children[0].disabled, false);
   delete photoManifest.artifacts[id];
   delete record.imageUrl;
 }

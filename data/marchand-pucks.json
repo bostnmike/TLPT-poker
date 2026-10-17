@@ -6,7 +6,7 @@
     "goalsAndGames": 77,
     "milestones": 41,
     "roadToHistory": 10,
-    "videos": 171,
+    "videos": 172,
     "sourceSheets": {
       "Goals & Games": 77,
       "Milestones": 41,
@@ -12893,7 +12893,7 @@
         {
           "label": "Goal Video",
           "value": "Game Highlights",
-          "url": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280"
+          "url": "https://www.youtube.com/watch?v=IXYF_qxmurI"
         },
         {
           "label": "Notes",
@@ -12999,9 +12999,9 @@
         "DP88"
       ],
       "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
-      "videoProvider": "article",
-      "videoId": "",
+      "videoUrl": "https://www.youtube.com/watch?v=IXYF_qxmurI",
+      "videoProvider": "youtube",
+      "videoId": "IXYF_qxmurI",
       "authenticationType": "",
       "authenticationEvidence": "",
       "authenticationNotes": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",

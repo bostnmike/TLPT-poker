@@ -57,7 +57,7 @@ assert.equal(payload.meta.goalsAndGames, 77, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 41, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 171, "video count drifted");
+assert.equal(payload.meta.videos, 172, "video count drifted");
 const footerMarkup = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || "";
 const summaryMarkup = html.match(/<section class="marchand-stat-wing"[\s\S]*?<\/section>/)?.[0] || "";
 assert.equal((summaryMarkup.match(/data-collection-filter=/g) || []).length, 7, "All seven collection buttons must remain available");
@@ -410,8 +410,8 @@ for (const [id, date, career, season, period, time, goalie, primary, secondary] 
   assert.equal(JSON.parse(fs.readFileSync(path.join(root, "data/marchand-photos.json"))).artifacts[id], undefined);
 }
 assert.equal(payload.records.find((record) => record.inventoryId === 31).videoId, "6335868297112");
-assert.equal(payload.records.find((record) => record.inventoryId === 61).videoProvider, "article");
-assert.equal(payload.records.find((record) => record.inventoryId === 61).videoId, "");
+assert.equal(payload.records.find((record) => record.inventoryId === 61).videoProvider, "youtube");
+assert.equal(payload.records.find((record) => record.inventoryId === 61).videoId, "IXYF_qxmurI");
 const retained330 = payload.records.find((record) => record.inventoryId === 330);
 assert.equal(retained330.key, "milestone-330");
 assert.equal(retained330.date, "2025-04-10");

@@ -5,7 +5,7 @@ Owner-authorized gap-first numbering: **31** and **61**, not 78/79. Canonical ha
 - 31: January 10, 2022 at Washington; career RS goal 334 / season 15; P1 19:14; PPG; Zach Fucale; MG48 then DP88; Boston 7 @ Washington 3.
 - 61: January 23, 2018 vs New Jersey; career RS goal 213 / season 21; P2 19:27; even-strength backhand / GWG; Cory Schneider; DP88 sole assist; New Jersey 2 @ Boston 3.
 
-Both are incoming, not yet in hand. Full canonical Notes and both rows are imported; all 170 prior active record objects, their source rows, authentication fields, stories and game statistics are preserved. The catalog now has 172 records, including 77 Goals & Games, and 171 playable video mappings. New games have all 13 game statistics cross-checked against NHL box scores and official event reports.
+Both are incoming, not yet in hand. Full canonical Notes and both rows are imported; all 170 prior active record objects, their source rows, authentication fields, stories and game statistics are preserved. The catalog now has 172 records, including 77 Goals & Games, and 172 playable video mappings. New games have all 13 game statistics cross-checked against NHL box scores and official event reports.
 
 ## Historical ID inspection
 
@@ -13,7 +13,7 @@ Git history before `ce20ef23` shows old goal-31 was a removed San Jose entry (ca
 
 ## Videos
 
-The canonical Goal Video hyperlinks point to NHL recap articles. Their nine-digit article IDs must never be embedded as Brightcove IDs. Artifact 31's official scoring feed identifies reviewed goal clip **6335868297112**, kept separately as videoClipId while retaining the canonical hyperlink. Artifact 61 retains the official recap as a source link; no working embedded clip was verified, so its Watch button is disabled. A recap article is not counted as a playable video. No guessed clip ID is published.
+The canonical Goal Video hyperlinks point to NHL recap articles. Their nine-digit article IDs must never be embedded as Brightcove IDs. Artifact 31's official scoring feed identifies reviewed goal clip **6335868297112**, kept separately as videoClipId while retaining the canonical hyperlink. Artifact 61 now uses the NHL channel's official [01/23/18 Condensed Game: Devils @ Bruins](https://www.youtube.com/watch?v=IXYF_qxmurI), verified public and embeddable. Marchand's winner appears around 6:22–6:28, with 32.9 seconds left in the second period. Its Watch button is enabled, and its canonical Goal Video hyperlink is being synchronized through Collection Data - Work. The NHL recap remains a research source in Notes. The shorter NHL video MbKUBRY1cXA disallows embedding and is not used. Recap articles are never counted as playable videos.
 
 ## Receipt follow-up
 
