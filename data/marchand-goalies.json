@@ -72,6 +72,12 @@
       "headshot": "https://assets.nhle.com/mugs/nhl/latest/8478971.png",
       "source": "https://api-web.nhle.com/v1/player/8478971/landing"
     },
+    "Cory Schneider": {
+      "id": 8471239,
+      "name": "Cory Schneider",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20172018/NJD/8471239.png",
+      "source": "https://api-web.nhle.com/v1/player/8471239/landing"
+    },
     "Craig Anderson": {
       "id": 8467950,
       "name": "Craig Anderson",
@@ -311,6 +317,12 @@
       "name": "Ukko-Pekka Luukkonen",
       "headshot": "https://assets.nhle.com/mugs/nhl/20262027/BUF/8480045.png",
       "source": "https://api-web.nhle.com/v1/player/8480045/landing"
+    },
+    "Zach Fucale": {
+      "id": 8477457,
+      "name": "Zach Fucale",
+      "headshot": "https://assets.nhle.com/mugs/nhl/20212022/WSH/8477457.png",
+      "source": "https://api-web.nhle.com/v1/player/8477457/landing"
     }
   }
 }

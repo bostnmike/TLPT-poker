@@ -41,3 +41,9 @@ for number in (10, 12, 32, 67, 77):
     assert by_id[number]["authenticationType"] == "Digital COA / Hologram"
     assert by_id[number]["authenticationEvidence"]
 print(f"PASS: all {len(by_id)} artifacts round-trip across six sheets; stable IDs, scoring details, titles, video labels and holograms preserved.")
+
+recap = "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280"
+assert sync.video_parts(recap, {}) == ("article", "")
+reviewed = {"videoClipId": "6335868297112", "videoClipSourceUrl": recap}
+assert sync.video_parts(recap, reviewed) == ("nhl", "6335868297112")
+assert sync.video_parts(recap + "-changed", reviewed) == ("article", ""), "Reviewed clip must belong to this exact canonical source"

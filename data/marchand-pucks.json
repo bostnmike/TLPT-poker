@@ -2,13 +2,13 @@
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
     "sourceSha256": "aafa996e674e0e39c561be1644936eb6acd651b4826699b3f1446948e71f6bed",
-    "records": 170,
-    "goalsAndGames": 75,
+    "records": 172,
+    "goalsAndGames": 77,
     "milestones": 41,
     "roadToHistory": 10,
-    "videos": 170,
+    "videos": 171,
     "sourceSheets": {
-      "Goals & Games": 75,
+      "Goals & Games": 77,
       "Milestones": 41,
       "Road to History": 10,
       "Road to Repeat": 27,
@@ -18,7 +18,17 @@
     "roadToRepeat": 27,
     "hockeyFightsCancer": 9,
     "warmUpPucks": 8,
-    "hfcExhibitCount": 10
+    "hfcExhibitCount": 10,
+    "incomingRecords": 2,
+    "latestCanonicalAddition": {
+      "date": "2026-10-16",
+      "inventoryIds": [
+        31,
+        61
+      ],
+      "sourceSha256": "82c5759b5a0c01a7a89f8a1702c92811ac63bb893b7c9b61f1313342d921c576",
+      "scope": "Added two canonical rows; 170 previously published artifact records preserved."
+    }
   },
   "records": [
     {
@@ -6405,6 +6415,223 @@
       "authenticationLookupInstructions": "Opens the collection’s retained certificate. A public issuer lookup for this hologram has not yet been located."
     },
     {
+      "key": "goal-31",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 32,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "videoClipId": "6335868297112",
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "31",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "334",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "15",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2022-01-10",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "Capital One Arena",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Washington Capitals",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "1",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "19:14",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "PPG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "MG48",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "DP88",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Boston 7 @ Washington 3",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414"
+        },
+        {
+          "label": "Notes",
+          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Zach Fucale",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Notes",
+          "value": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+          "url": ""
+        },
+        {
+          "label": "Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Lookup Instructions",
+          "value": "",
+          "url": ""
+        }
+      ],
+      "inventoryId": 31,
+      "homeRoad": "Road",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 334,
+      "seasonStat": 15,
+      "description": "",
+      "date": "2022-01-10",
+      "arena": "Capital One Arena",
+      "opponent": "Washington Capitals",
+      "period": "1",
+      "time": "19:14",
+      "goalType": "PPG",
+      "primaryAssist": "MG48",
+      "secondaryAssist": "DP88",
+      "score": "Boston 7 @ Washington 3",
+      "puckType": "Goal Scored Puck",
+      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+      "goalieScoredAgainst": "Zach Fucale",
+      "playerCodes": [
+        "MG48",
+        "DP88"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+      "videoProvider": "nhl",
+      "videoId": "6335868297112",
+      "authenticationType": "",
+      "authenticationEvidence": "",
+      "authenticationNotes": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+      "authenticationIssuer": "",
+      "authenticationSerial": "",
+      "authenticationRecordUrl": "",
+      "authenticationAlternateIssuer": "",
+      "authenticationAlternateSerial": "",
+      "authenticationAlternateRecordUrl": "",
+      "authenticationLookupInstructions": "",
+      "receiptStatus": "Incoming — not yet in hand",
+      "photoStatus": "Pending owner receipt",
+      "videoClipSourceUrl": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414"
+    },
+    {
       "key": "goal-32",
       "sourceSheet": "Goals & Games",
       "sourceRow": 33,
@@ -12568,6 +12795,220 @@
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
       "authenticationLookupInstructions": "The hologram link includes its identifier and validation code."
+    },
+    {
+      "key": "goal-61",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 62,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "61",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "213",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "21",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2018-01-23",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "New Jersey Devils",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "2",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "19:27",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "GWG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "DP88",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "New Jersey 2 @ Boston 3",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280"
+        },
+        {
+          "label": "Notes",
+          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Cory Schneider",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Notes",
+          "value": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+          "url": ""
+        },
+        {
+          "label": "Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Lookup Instructions",
+          "value": "",
+          "url": ""
+        }
+      ],
+      "inventoryId": 61,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "RS Goal",
+      "careerStat": 213,
+      "seasonStat": 21,
+      "description": "",
+      "date": "2018-01-23",
+      "arena": "TD Garden",
+      "opponent": "New Jersey Devils",
+      "period": "2",
+      "time": "19:27",
+      "goalType": "GWG",
+      "primaryAssist": "DP88",
+      "secondaryAssist": "",
+      "score": "New Jersey 2 @ Boston 3",
+      "puckType": "Goal Scored Puck",
+      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
+      "goalieScoredAgainst": "Cory Schneider",
+      "playerCodes": [
+        "DP88"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
+      "videoProvider": "article",
+      "videoId": "",
+      "authenticationType": "",
+      "authenticationEvidence": "",
+      "authenticationNotes": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+      "authenticationIssuer": "",
+      "authenticationSerial": "",
+      "authenticationRecordUrl": "",
+      "authenticationAlternateIssuer": "",
+      "authenticationAlternateSerial": "",
+      "authenticationAlternateRecordUrl": "",
+      "authenticationLookupInstructions": "",
+      "receiptStatus": "Incoming — not yet in hand",
+      "photoStatus": "Pending owner receipt"
     },
     {
       "key": "goal-62",

@@ -110,6 +110,15 @@ def video_parts(url, previous):
     if "youtu.be" in host:
         return "youtube", parsed.path.strip("/").split("/")[0]
     if "nhl.com" in host:
+        if parsed.path.startswith("/news/"):
+            # A recap article ID is not a Brightcove video ID. A reviewed clip
+            # may accompany the canonical article; otherwise retain the recap only.
+            clip_id = str(previous.get("videoClipId", ""))
+            if clip_id and previous.get("videoClipSourceUrl") == url:
+                if not re.fullmatch(r"\d{13}", clip_id):
+                    raise ValueError(f"Invalid reviewed NHL clip ID: {clip_id}")
+                return "nhl", clip_id
+            return "article", ""
         match = re.search(r"(\d+)$", parsed.path.rstrip("/"))
         if not match:
             raise ValueError(f"NHL video URL has no clip ID: {url}")
@@ -381,7 +390,7 @@ def main():
         roadToRepeat=counts["Road to Repeat"],
         hockeyFightsCancer=counts["Hockey Fights Cancer"],
         warmUpPucks=counts["Warm-Up Pucks"],
-        videos=sum(bool(record.get("videoUrl")) for record in payload["records"]),
+        videos=sum(record.get("videoProvider") in ("nhl", "youtube") and bool(record.get("videoId")) for record in payload["records"]),
         sourceSheets=counts,
     )
 

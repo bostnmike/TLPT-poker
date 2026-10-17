@@ -288,7 +288,7 @@
   function filteredRecords() {
     const query = lower(elements.search.value);
     return state.records.filter((record) => {
-      if (state.videoOnly && !record.videoUrl) return false;
+      if (state.videoOnly && !embedUrl(record)) return false;
       if (elements.team.value && record.team !== elements.team.value) return false;
       if (elements.sheet.value === "Hockey Fights Cancer" ? !record.hockeyFightsCancer : elements.sheet.value && record.sourceSheet !== elements.sheet.value) return false;
       if (elements.category.value === "Perfection Line") {
@@ -424,6 +424,7 @@
   }
 
   function artifactPhotos(record) {
+    if (record.photoStatus === "Pending owner receipt") return [];
     const registeredPhotos = state.photos[record.inventoryId];
     return Array.isArray(registeredPhotos)
       ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
@@ -490,12 +491,12 @@
       const watch = document.createElement("button");
       watch.type = "button";
       watch.className = "marchand-watch-button";
-      watch.disabled = !record.videoUrl;
-      watch.setAttribute("aria-label", record.videoUrl ? `Watch video for artifact ${record.inventoryId}` : `No film available for artifact ${record.inventoryId}`);
-      watch.innerHTML = record.videoUrl
+      watch.disabled = !embedUrl(record);
+      watch.setAttribute("aria-label", embedUrl(record) ? `Watch video for artifact ${record.inventoryId}` : `No film available for artifact ${record.inventoryId}`);
+      watch.innerHTML = embedUrl(record)
         ? '<span aria-hidden="true">🎥</span><span class="visually-hidden">Watch</span>'
         : '<span aria-hidden="true">—</span><span class="visually-hidden">No film</span>';
-      if (record.videoUrl) watch.addEventListener("click", () => openVideo(record));
+      if (embedUrl(record)) watch.addEventListener("click", () => openVideo(record));
       watchCell.append(watch);
       row.append(watchCell);
       fragment.append(row);
@@ -822,7 +823,9 @@
     elements.puckImage.alt = "";
     elements.puckPlaceholder.hidden = false;
     elements.puckPhotoId.textContent = `Artifact No. ${record.inventoryId}`;
-    elements.puckCaption.textContent = "Reserved for the authenticated puck photograph.";
+    elements.puckCaption.textContent = record.photoStatus === "Pending owner receipt"
+      ? "Incoming purchase · Photos pending receipt."
+      : "Reserved for the authenticated puck photograph.";
   }
 
   function renderPuckPhoto(record) {
@@ -1061,6 +1064,7 @@
     addFact("Line Combination", perfectionLine(record));
     addFact("Goalie Scored Against", goalieLabel(record));
     addFact("Final Result", record.score);
+    addFact("Collection Status", record.receiptStatus);
     addFact("Authentication", record.authenticationType === "Not Yet Documented" ? "" : record.authenticationType);
 
     renderAuthentication(record);

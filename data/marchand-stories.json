@@ -2,10 +2,11 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-29",
-    "records": 170,
+    "records": 172,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
-    "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates."
+    "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates.",
+    "latestAdditionsReviewedAt": "2026-10-16"
   },
   "artifacts": {
     "goal-1": {
@@ -4957,6 +4958,80 @@
           "points": 2,
           "shots": 2,
           "toi": "16:54"
+        }
+      }
+    },
+    "goal-31": {
+      "inventoryId": 31,
+      "date": "2022-01-10",
+      "team": "Boston Bruins",
+      "gameId": 2021020632,
+      "title": "A power-play equalizer before the first intermission",
+      "paragraphs": [
+        "Marchand tied Washington 2–2 with a power-play wrist shot at 19:14 of the first period, assisted by Matt Grzelcyk and David Pastrnak. It was his 15th goal of the season and 334th regular-season career goal. This puck represents that first goal, distinct from his third-period strike. He finished with two goals and an assist as Boston won 7–3."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2021020632"
+        },
+        {
+          "label": "NHL game recap",
+          "url": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021020632/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore",
+        "marchand": {
+          "goals": 2,
+          "assists": 1,
+          "points": 3,
+          "shots": 5,
+          "toi": "18:14"
+        },
+        "careerRegularSeasonGoal": {
+          "priorSeasonGoals": 319,
+          "earlierSeasonGoals": 14,
+          "thisGoal": 1,
+          "careerGoal": 334
+        }
+      }
+    },
+    "goal-61": {
+      "inventoryId": 61,
+      "date": "2018-01-23",
+      "team": "Boston Bruins",
+      "gameId": 2017020732,
+      "title": "The backhand that held up as the winner",
+      "paragraphs": [
+        "Marchand broke a 2–2 tie with an even-strength backhand at 19:27 of the second period, taking David Pastrnak’s pass and beating Cory Schneider. His 21st goal of the season and 213th regular-season career goal held up as the winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s power-play goal and finished with two points."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2017020732"
+        },
+        {
+          "label": "NHL game recap",
+          "url": "https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2017020732/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 1,
+          "points": 2,
+          "shots": 4,
+          "toi": "20:06"
+        },
+        "careerRegularSeasonGoal": {
+          "priorSeasonGoals": 192,
+          "earlierSeasonGoals": 20,
+          "thisGoal": 1,
+          "careerGoal": 213
         }
       }
     }

@@ -109,6 +109,25 @@ const rows = () => element("collection-body").children;
 const shownIds = () => rows().map((row) => Number(row.children[0].textContent));
 const pressStat = (filter) => statButtons.find((button) => button.dataset.collectionFilter === filter).click();
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
+for (const id of [31, 61]) {
+  const record = payload.records.find((entry) => entry.inventoryId === id);
+  // Inject a stale mapping and legacy fallback to prove neither can leak.
+  photoManifest.artifacts[id] = [{label: "Front", url: `old-object-${id}.webp`}];
+  record.imageUrl = `old-object-${id}.webp`;
+  element("clear-filters").click();
+  const row = rows().find((entry) => Number(entry.children[0].textContent) === id);
+  assert.ok(!row.children[1].children[0].children.some((child) => child.tag === "img"));
+  row.children[1].children[0].click();
+  assert.equal(element("artifact-dialog-number").textContent, `Artifact No. ${id}`);
+  assert.equal(element("artifact-puck-placeholder").hidden, false);
+  assert.equal(element("artifact-puck-image").hidden, true);
+  assert.equal(element("artifact-puck-views").children.length, 0);
+  assert.match(element("artifact-puck-caption").textContent, /Incoming purchase.*Photos pending receipt/);
+  assert.match(element("artifact-dialog-facts").textContent, /Incoming — not yet in hand/);
+  assert.equal(row.children[8].children[0].disabled, id === 61);
+  delete photoManifest.artifacts[id];
+  delete record.imageUrl;
+}
 const frontPhotos = Object.entries(photoManifest.artifacts)
   .map(([id, photos]) => {
     const front = photos.find((photo) => photo.label.toLowerCase() === "front");
@@ -171,14 +190,14 @@ assert.equal(element("artifact-puck-views").hidden, true);
 assert.equal(element("artifact-puck-views").children.length, 0);
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 7);
-assert.equal(rows().length, 170);
+assert.equal(rows().length, 172);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 50);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
-assert.equal(rows().length, 119);
+assert.equal(rows().length, 121);
 assert.ok(!shownIds().includes(335));
 change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
@@ -205,13 +224,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 170);
+assert.equal(rows().length, 172);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 41], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 170]]) {
+for (const [filter, expected] of [["Goals & Games", 77], ["Milestones", 41], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 172]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -233,7 +252,7 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 170);
+assert.equal(rows().length, 172);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
@@ -304,7 +323,7 @@ for (const row of rows()) {
       assert.doesNotMatch(cellValue("artifact-source-grid", "Description"), /warm-up|Warm-up/);
     }
   }
-  if (record.videoUrl) {
+  if (record.videoId) {
     const sourceUrl = record.videoProvider === "nhl" ? `https://players.brightcove.net/6415718365001/default_default/index.html?videoId=${record.videoId}&autoplay=false&muted=false&applicationId=nhl` : record.videoUrl;
     assert.equal(element("artifact-video-source").href, sourceUrl);
     assert.equal(element("artifact-video-source").target, "_blank");

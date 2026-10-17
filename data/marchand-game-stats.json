@@ -2,8 +2,9 @@
   "meta": {
     "reviewedAt": "2026-09-29",
     "playerId": 8473419,
-    "games": 126,
-    "method": "Official NHL box scores cross-checked with event reports. Missing data is null, never an inferred zero."
+    "games": 128,
+    "method": "Official NHL box scores cross-checked with event reports. Missing data is null, never an inferred zero.",
+    "latestAdditionsReviewedAt": "2026-10-16"
   },
   "games": {
     "2010030222": {
@@ -3654,6 +3655,64 @@
         "evenStrengthToi": "13:37",
         "powerPlayToi": "01:09",
         "shortHandedToi": "00:00"
+      }
+    },
+    "2021020632": {
+      "date": "2022-01-10",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20212022/ES020632.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 2,
+        "assists": 1,
+        "points": 3,
+        "shots": 5,
+        "totalToi": "18:14",
+        "shifts": 25,
+        "plusMinus": -1,
+        "hits": 1,
+        "blockedShots": 2,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "15:04",
+        "powerPlayToi": "02:31",
+        "shortHandedToi": "00:39"
+      }
+    },
+    "2017020732": {
+      "date": "2018-01-23",
+      "status": "Played",
+      "sources": [
+        {
+          "label": "NHL box score",
+          "url": "https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore"
+        },
+        {
+          "label": "NHL official event report",
+          "url": "https://www.nhl.com/scores/htmlreports/20172018/ES020732.HTM"
+        }
+      ],
+      "stats": {
+        "goals": 1,
+        "assists": 1,
+        "points": 2,
+        "shots": 4,
+        "totalToi": "20:06",
+        "shifts": 24,
+        "plusMinus": 0,
+        "hits": 2,
+        "blockedShots": 0,
+        "penaltyMinutes": 0,
+        "evenStrengthToi": "15:29",
+        "powerPlayToi": "02:16",
+        "shortHandedToi": "02:21"
       }
     }
   }
