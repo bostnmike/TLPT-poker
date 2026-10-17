@@ -300,8 +300,13 @@ References: [externally managed Pages subdomains](https://developers.cloudflare.
 ## Batch payments
 
 Open **Batch payments**, **Batch check-in**, or **Needs confirmation → Review multiple**.
-A batch belongs to the selected event. Add several roster players in one tap sequence;
-each row has independent Buy-in (including the event's bounty), Rebuy, Food and
+A batch belongs to the selected event. The round-checkbox player list opens with
+each new manual group. Select several players (or **Select all shown**), then
+tap **Add players together**. Switch between **Event RSVPs** and **All TLPT
+players** without losing selections; players already in that group cannot be
+added twice. Use **Select players** to reopen the list or **Add guest / one
+player** for an individual entry. Each row has independent Buy-in (including
+the event's bounty), Rebuy, Food and
 Cash/Venmo selections. For five MTT entries and three food contributions, add five
 players and select Food on only three rows. The individual records, category
 filters, totals, avatars, RSVP status and event export use those same allocations.
@@ -319,9 +324,10 @@ an additional permanent-delete acknowledgement and never send refunds. A changed
 record or invalid allocation rejects the entire batch. Retrying the exact saved
 request is idempotent, including concurrent taps; an uncertain submission is
 retained in this browser tab's session storage for a safe retry after reload.
-The confirmation sound plays once when a successful batch adds money; email
-matches and corrections stay quiet. Batches are limited to 30 groups and 80
-player allocations/receipt matches per save.
+The confirmation sound plays once per successfully saved batch, including a
+receipt-matching batch, using its request ID so duplicate acknowledgements do
+not replay it. The iPad's sound-off setting still applies. Batches are limited to
+30 groups and 80 player allocations/receipt matches per save.
 
 The additive `0011_batch_payments.sql` migration preserves existing payments and
 seeds coverage for older receipt links. It adds private retry summaries, temporary

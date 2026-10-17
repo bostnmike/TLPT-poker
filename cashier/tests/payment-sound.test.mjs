@@ -20,6 +20,17 @@ test('links, voids, excluded receipts, and refreshes do not sound; a muted iPad 
  f.player.setEnabled(true);assert.equal(await f.player.test(),true);assert.equal(f.audible().length,1);
  f.player.setEnabled(false);assert.equal(f.audible()[0].stopped,true);
 });
+test('a completed batch sounds once for the entire request, including duplicate acknowledgements and receipt-only batches',async()=>{
+ const f=fixture();f.player.prepare();assert.equal(f.audible().length,0);
+ // Five entries and three food contributions share one successful batch ID.
+ assert.deepEqual(await Promise.all([f.player.confirmed('batch','five-players-three-food'),f.player.confirmed('batch','five-players-three-food')]),[true,false]);
+ assert.equal(f.audible().length,1);
+ assert.equal(await f.player.confirmed('batch','five-players-three-food'),false);
+ assert.equal(await f.player.confirmed('batch','receipt-matches-only'),true);
+ assert.equal(f.audible().length,2);
+ f.player.setEnabled(false);assert.equal(await f.player.confirmed('batch','muted-batch'),false);
+ assert.equal(f.audible().length,2);
+});
 test('unavailable audio reports a separate sound error and never throws a payment failure',async()=>{
  let unavailable=true;const f=fixture({fetchAudio:async()=>{if(unavailable)throw Error('offline');return new ArrayBuffer(8);}});
  f.player.prepare();assert.equal(await f.player.confirmed('manual','saved-payment'),false);assert.match(f.errors.at(-1),/Sound could not play/);
