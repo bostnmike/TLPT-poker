@@ -28,7 +28,8 @@ for (const record of records) {
     const url = new URL(source.url);
     assert.equal(url.protocol, "https:");
     const rescheduledHfcSource = record.inventoryId === 705 && source.url === "https://www.boston.com/things-to-do/events/bruins-bringing-the-fight-to-cancer-and-the-carolina-hurricanes/";
-    assert.ok(/(^|\.)nhle?\.com$/.test(url.hostname) || rescheduledHfcSource || (record.inventoryId === 50 && ["https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp","https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"].includes(source.url)), "Source must be NHL or the verified artifact-specific evidence");
+    const bloodyNoseReport = record.inventoryId === 31 && source.url === "https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/";
+    assert.ok(/(^|\.)nhle?\.com$/.test(url.hostname) || bloodyNoseReport || rescheduledHfcSource || (record.inventoryId === 50 && ["https://bostnmike.github.io/marchand-puck-images/images/pucks/50/coa.webp","https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"].includes(source.url)), "Source must be NHL or the verified artifact-specific evidence");
     assert.ok(source.label.length > 5);
   }
   if (!story.gameId) {
@@ -79,3 +80,10 @@ assert.ok(html.indexOf('id="artifact-game-stats"') < html.indexOf('id="artifact-
 assert.ok(html.indexOf('id="artifact-puck-image"') < html.indexOf('id="artifact-puck-views"'));
 assert.match(html, /id="artifact-dialog-title" tabindex="-1" autofocus/);
 console.log(`PASS: ${meta.records} sourced game stories, artifact mappings, milestone distinctions, and deep-dive layout order.`);
+
+const bloodyNose = artifacts["goal-31"];
+assert.equal(bloodyNose.title, "The “Bloody Nose Goal”");
+assert.match(bloodyNose.paragraphs.join(" "), /Nic Dowd.*14:42.*gauze.*18:34.*40 seconds.*19:14.*5-on-4/);
+assert.match(bloodyNose.paragraphs.join(" "), /separate third-period goal/);
+assert.equal(bloodyNose.verification.bloodyNoseSequence.goalEventId, 220);
+assert.equal(bloodyNose.verification.bloodyNoseSequence.secondsBetweenGoals, 40);

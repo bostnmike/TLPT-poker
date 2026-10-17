@@ -18,3 +18,7 @@ The canonical Goal Video hyperlinks point to NHL recap articles. Their nine-digi
 ## Receipt follow-up
 
 After physical receipt, verify identity and authentication from the supplied photos/documents, explicitly map newly processed photos, remove `photoStatus: Pending owner receipt`, and update receiptStatus. Until then the renderer blocks photo manifests and legacy imageUrl fallbacks for these pending objects. Never attach an archived numbered folder by inference. Excel remains the detailed database; Word remains concise. Canonical masters were read only; no broad resync of older owner notes was performed.
+
+## Artifact 31 story follow-up — Bloody Nose Goal
+
+Owner identified the “Bloody Nose Goal” connection. Verified against official NHL play-by-play / scoring summary and the contemporaneous Associated Press report published by Sportsnet: https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/ . Dowd's high-sticking double minor came at P1 14:42. After bench treatment and returning with gauze in his nostrils, Marchand assisted on Pastrnak's PPG at 18:34 and scored the equalizer at 19:14. Official goal event 220 and clip 6335868297112 are the same scoring play as artifact 31. Use **5-on-4** for Marchand's goal; the Bruins recap incorrectly calls it 5-on-3. His separate third-period goal is not this artifact. Updated only artifact 31's reviewed story, supporting source links and sequence verification. Canonical Notes enrichment belongs to Collection Data - Work; keep Word concise and leave photos/authentication pending.

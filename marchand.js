@@ -978,7 +978,8 @@
         "https://www.espn.com/nhl/game/_/gameId/310502015/bruins-flyers"
       ].includes(source.url);
       const approvedRescheduleSource = record.inventoryId === 705 && source.url === "https://www.boston.com/things-to-do/events/bruins-bringing-the-fight-to-cancer-and-the-carolina-hurricanes/";
-      if (!approvedArtifactEvidence && !approvedRescheduleSource && !/^https:\/\/(?:[a-z0-9-]+\.)*nhle?\.com\//i.test(source.url)) continue;
+      const approvedBloodyNoseReport = record.inventoryId === 31 && source.url === "https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/";
+      if (!approvedArtifactEvidence && !approvedRescheduleSource && !approvedBloodyNoseReport && !/^https:\/\/(?:[a-z0-9-]+\.)*nhle?\.com\//i.test(source.url)) continue;
       const link = document.createElement("a");
       link.href = source.url;
       link.textContent = source.label;

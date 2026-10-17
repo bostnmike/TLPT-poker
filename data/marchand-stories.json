@@ -4966,9 +4966,10 @@
       "date": "2022-01-10",
       "team": "Boston Bruins",
       "gameId": 2021020632,
-      "title": "A power-play equalizer before the first intermission",
+      "title": "The “Bloody Nose Goal”",
       "paragraphs": [
-        "Marchand tied Washington 2–2 with a power-play wrist shot at 19:14 of the first period, assisted by Matt Grzelcyk and David Pastrnak. It was his 15th goal of the season and 334th regular-season career goal. This puck represents that first goal, distinct from his third-period strike. He finished with two goals and an assist as Boston won 7–3."
+        "Nic Dowd’s high stick cut Marchand across the nose at 14:42 of the first period. After treatment on the bench, Marchand returned with gauze in his nostrils and helped erase Washington’s 2–0 lead. He set up David Pastrnak’s power-play goal at 18:34, then scored this equalizer 40 seconds later.",
+        "At 19:14, his wrist shot from the right circle beat Zach Fucale on a 5-on-4 power play, assisted by Matt Grzelcyk and Pastrnak. The “Bloody Nose Goal” was season goal 15 and regular-season career goal 334. Marchand later scored a separate third-period goal in Boston’s 7–3 win."
       ],
       "sources": [
         {
@@ -4978,6 +4979,14 @@
         {
           "label": "NHL game recap",
           "url": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414"
+        },
+        {
+          "label": "Associated Press: Marchand bloodied, scores twice",
+          "url": "https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/"
+        },
+        {
+          "label": "NHL official scoring and penalty summary",
+          "url": "https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM"
         }
       ],
       "verification": {
@@ -4995,6 +5004,20 @@
           "earlierSeasonGoals": 14,
           "thisGoal": 1,
           "careerGoal": 334
+        },
+        "bloodyNoseSequence": {
+          "reviewedAt": "2026-10-16",
+          "penaltyTime": "14:42",
+          "penaltyPeriod": 1,
+          "penalizedPlayer": "Nic Dowd",
+          "penalty": "High-sticking double minor",
+          "penaltyMinutes": 4,
+          "pastrnakGoalTime": "18:34",
+          "marchandGoalTime": "19:14",
+          "secondsBetweenGoals": 40,
+          "marchandGoalSituation": "5-on-4",
+          "goalEventId": 220,
+          "evidence": "Official NHL play-by-play, scoring summary, Associated Press game report and existing verified goal clip 6335868297112. Bruins recap misstates the equalizer as 5-on-3; official event personnel and AP report establish 5-on-4."
         }
       }
     },
