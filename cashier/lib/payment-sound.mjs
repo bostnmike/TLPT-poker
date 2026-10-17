@@ -2,7 +2,8 @@ export const CONFIRMATION_AUDIO='/audio/payment-confirmed.m4a';
 const soundError='Sound could not play. Tap Test sound and check the iPad volume.';
 
 // The cashier's tap unlocks audio before the save request; only a successful
-// new payment plays the clip. Polling, receipt links, and corrections stay quiet.
+// new payment or completed batch plays the clip once. Polling and individual
+// receipt links/corrections stay quiet; a batch uses its one request identity.
 export function createPaymentSound({createContext,fetchAudio=async()=>{
  const response=await fetch(CONFIRMATION_AUDIO);if(!response.ok)throw Error('Audio unavailable');return response.arrayBuffer();
 },onError=(_message)=>{},onPlaying=(_playing)=>{}}){
@@ -33,7 +34,7 @@ export function createPaymentSound({createContext,fetchAudio=async()=>{
  }
  return {
   prepare,
-  confirmed(action,id){return ['manual','confirm'].includes(action)&&id?play(`${action}:${id}`):Promise.resolve(false);},
+  confirmed(action,id){return ['manual','confirm','batch'].includes(action)&&id?play(`${action}:${id}`):Promise.resolve(false);},
   test(){prepare();return play(null);},
   setEnabled(value){enabled=!!value;if(!enabled){stop();onPlaying(false);onError('');}},
   dispose(){disposed=true;stop();if(context)void context.close().catch(()=>{});played.clear();}

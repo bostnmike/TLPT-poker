@@ -435,13 +435,27 @@ html:-webkit-full-screen { background: var(--bg); overflow-y: auto; }
 .batch-player-row>strong { text-align:right; font-size:20px; }
 .batch-item-buttons { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; }
 .batch-item-buttons button { flex-direction:column; padding:8px 5px; min-height:56px; font-size:11px; gap:3px; }
-.batch-item-buttons button[aria-pressed=true],.batch-roster button[aria-pressed=true] { border-color:var(--gold); background:rgba(255,184,28,.13); color:var(--gold); }
+.batch-item-buttons button[aria-pressed=true],.batch-roster-tools button[aria-pressed=true] { border-color:var(--gold); background:rgba(255,184,28,.13); color:var(--gold); }
 .batch-group>footer { padding-top:14px; color:#86efac; font-size:13px; }
 .batch-group>footer.batch-unbalanced { color:var(--amber); }
 .batch-roster { border:1px solid var(--line); border-radius:12px; padding:12px; margin:10px 0; }
 .batch-roster legend { color:var(--gold); font-size:13px; }
-.batch-roster>div { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; max-height:280px; overflow-y:auto; padding:5px 0 12px; }
 .batch-roster button { justify-content:flex-start; font-size:12px; text-align:left; }
+.batch-roster>p { color:var(--muted); font-size:12px; line-height:1.5; margin:4px 0 12px; }
+.batch-roster-tools,.batch-roster-tools>div,.batch-roster-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+.batch-roster-tools { margin-bottom:12px; }
+.batch-roster-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:8px; max-height:340px; overflow-y:auto; padding:4px; }
+.batch-roster-choice { display:flex; align-items:center; gap:9px; min-height:64px; padding:10px; border:1px solid var(--line); border-radius:12px; cursor:pointer; background:var(--bg); font-size:13px; font-weight:700; }
+.batch-roster-choice:has(input:checked) { border-color:var(--gold); background:rgba(255,184,28,.13); }
+.batch-roster-choice:has(input:focus-visible) { outline:2px solid #fff4cc; outline-offset:1px; }
+.batch-roster-choice.already-added { opacity:.55; cursor:default; }
+.batch-roster-choice input[type=checkbox] { appearance:none; -webkit-appearance:none; flex:0 0 24px; width:24px; height:24px; padding:0; margin:0; border:2px solid var(--muted); border-radius:50%; background:var(--bg); display:grid; place-content:center; cursor:inherit; }
+.batch-roster-choice input:checked { background:var(--gold); border-color:var(--gold); }
+.batch-roster-choice input:checked::after { content:'✓'; color:#111; font-size:17px; font-weight:bold; }
+.batch-roster-choice .player-avatar { width:32px; height:32px; flex-basis:32px; }
+.batch-roster-choice>span { min-width:0; overflow-wrap:anywhere; }
+.batch-roster-choice small { display:block; color:var(--muted); font-size:10px; margin-top:3px; font-weight:400; }
+.batch-roster-footer { margin-top:12px; color:var(--gold); font-size:13px; }
 .batch-match-list>p { color:var(--muted); font-size:13px; line-height:1.6; }
 .batch-match-row { display:flex; justify-content:space-between; align-items:center; gap:14px; border-bottom:1px solid var(--line); padding:12px 0; }
 .batch-match-row .check { margin:0; flex:1; }
@@ -471,11 +485,11 @@ html:-webkit-full-screen { background: var(--bg); overflow-y: auto; }
  .batch-player-row>button { grid-column:3; grid-row:1; }
  .batch-heading>button { width:100%; }
  .batch-tools>button { flex:1; }
- .batch-roster>div { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .batch-roster-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .batch-roster-choice { padding:8px; gap:6px; font-size:12px; }
+ .batch-roster-choice .player-avatar { display:none; }
 }
 
 .batch-heading h2 { scroll-margin-top:120px; }
 .receipt-match-status { color:var(--muted); font-size:11px; line-height:1.5; }
 aside[aria-label="Needs confirmation"] .sectionhead { flex-wrap:wrap; }
-
-.batch-roster button small { display:block; color:var(--muted); font-size:10px; margin-top:3px; }
