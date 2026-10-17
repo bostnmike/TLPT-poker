@@ -69,12 +69,20 @@ for (const [id, photo] of Object.entries(photos.assets)) {
     assert.ok(!photo.license.startsWith('CC '), 'A former photograph license must not transfer to a new broadcast still');
   }
   for (const [url, expected, bytes] of [[photo.url,photo.sha256,photo.bytes],[photo.thumbnailUrl,photo.thumbnailSha256,photo.thumbnailBytes]]) {
-    assert.match(url, /^images\/marchand-games\/[a-z0-9][a-z0-9-]*\/game(?:-thumb)?\.webp\?v=[a-f0-9]{12}$/);
+    assert.match(url, /^images\/marchand-games\/[a-z0-9][a-z0-9-]*\/(?:game\.(?:png|webp)|game-thumb\.webp)\?v=[a-f0-9]{12}$/);
     const data = read(url.split('?')[0]);
     assert.equal(data.length, bytes);
     assert.equal(crypto.createHash('sha256').update(data).digest('hex'), expected);
-    assert.equal(data.subarray(0,4).toString(), 'RIFF');
-    assert.equal(data.subarray(8,12).toString(), 'WEBP');
+    if (url.split('?')[0].endsWith('.png')) assert.equal(data.subarray(0,8).toString('hex'), '89504e470d0a1a0a');
+    else {
+      assert.equal(data.subarray(0,4).toString(), 'RIFF');
+      assert.equal(data.subarray(8,12).toString(), 'WEBP');
+    }
+  }
+  if (photo.nativeFullSize) {
+    assert.equal(photo.sha256, photo.nativeSha256, 'Native full delivery must preserve the source file exactly');
+    assert.equal(photo.width, photo.nativeWidth);
+    assert.equal(photo.height, photo.nativeHeight);
   }
   if (photo.license.startsWith('CC ')) assert.match(photo.licenseUrl, /^https:\/\/creativecommons.org\/licenses\/by-sa\/(?:2|4)\.0\/$/);
 }

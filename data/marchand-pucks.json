@@ -7299,7 +7299,7 @@
       "videoUrl": "https://www.nhl.com/video/bos-mtl-marchand-scores-goal-against-canadiens-6340973100112",
       "videoProvider": "nhl",
       "videoId": "6340973100112",
-      "notes": "Marking review: the handwritten seconds on the puck are ambiguous. The validated game time, 58 seconds, remains authoritative; no alteration has been made to the physical marking image.",
+      "notes": "Marking review: the handwritten seconds on the puck are ambiguous. The validated scoring time, 12:58 of the third period, remains authoritative; no alteration has been made to the physical marking image.",
       "game": null,
       "wins": null,
       "losses": null,
@@ -7396,7 +7396,7 @@
         },
         {
           "label": "Notes",
-          "value": "Marking review: the handwritten seconds on the puck are ambiguous. The validated game time, 58 seconds, remains authoritative; no alteration has been made to the physical marking image.",
+          "value": "Marking review: the handwritten seconds on the puck are ambiguous. The validated scoring time, 12:58 of the third period, remains authoritative; no alteration has been made to the physical marking image.",
           "url": ""
         },
         {

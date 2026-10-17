@@ -1,5 +1,7 @@
 # Museum visual QA — October 17, 2026
 
+The completed Publishing Visual Review evidence below is a historical baseline. The subsequent `Perfectionist-Review-20261017-v1` corrects 23 further native selections and the artifact 6 caption, and carries the prepared 35/711 text fixes. It retains 149 image pairs and all physical evidence. Records 57/313 remain an explicitly unresolved shared-identification question; no complete physical-identity verification or count of 172 distinct physical pucks is asserted. See the current media notes and the qualified release receipt for the new verification results.
+
 The review began from an immutable 1,493-resource live-site snapshot at `97e5fb9c`. All resources decoded or parsed and matched their captured hashes. Every 1,003 gallery view was opened on desktop and mobile (2,006 checks). Physical/COA URLs, labels, full-size certificate links, game credits, containment and rotations matched the frozen source. Two initial delayed image loads decoded normally on follow-up. The final replacement-image validation is recorded separately with the release.
 
 All 113 player/goalie mappings matched 111 official NHL identities. The 106 remote portrait images were visually reviewed; Ilya Samsonov’s current-season asset was a silhouette. His replacement is the real official 2024–25 Vegas portrait for NHL player 8478492. The approved trophy triptych remains in the social preview; stale 122/107 counts were replaced with evergreen text and a versioned v2 image URL.

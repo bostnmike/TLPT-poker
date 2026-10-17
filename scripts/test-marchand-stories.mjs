@@ -87,3 +87,13 @@ assert.match(bloodyNose.paragraphs.join(" "), /Nic Dowd.*14:42.*gauze.*18:34.*40
 assert.match(bloodyNose.paragraphs.join(" "), /separate third-period goal/);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.goalEventId, 220);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.secondsBetweenGoals, 40);
+
+// The shared hologram does not establish two different physical pucks.
+for (const key of ['goal-57', 'milestone-313']) {
+  const story = artifacts[key];
+  assert.match(story.paragraphs.join(' '), /RG13313204/);
+  assert.match(story.paragraphs.join(' '), /pending owner clarification/);
+  assert.match(story.paragraphs.join(' '), /does not establish two distinct physical pucks/);
+  assert.equal(story.verification.identityReview.status, 'Owner clarification pending');
+}
+assert.doesNotMatch(artifacts['milestone-313'].paragraphs.join(' '), /artifact 57 is a separate game-used puck|assist puck is cataloged separately/);

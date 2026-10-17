@@ -1,0 +1,13 @@
+{
+  "status": "Unresolved owner review; no physical identity merge or reassignment",
+  "catalogRecords": [
+    57,
+    313
+  ],
+  "sharedHologram": "RG13313204",
+  "qualification": "Shared identification under review: records 57 and 313 reference the same photographed puck and hologram RG13313204. Both catalog records are retained pending owner clarification; this does not establish two distinct physical pucks.",
+  "sourceHandoff": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Perfectionist Publishing Review Handoff 2026-10-17-v1/57-313-identity-claims.json",
+  "catalogRecordCount": 172,
+  "distinctPhysicalPuckCountAsserted": false,
+  "physicalPhotographsOrCoasChanged": false
+}
