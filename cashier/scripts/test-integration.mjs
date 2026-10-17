@@ -91,7 +91,12 @@ try{
  writeFileSync('wrangler.password.local.json',JSON.stringify(config));const passwordBase='http://127.0.0.1:8791';
  start(['node_modules/wrangler/bin/wrangler.js','dev','--local','--ip','127.0.0.1','--port','8791','--config','wrangler.password.local.json','--persist-to',state,'--inspector-port','0']);await ready(passwordBase+'/auth/login');
  const version=await fetch(passwordBase+'/api/version');assert.equal(version.status,200);assert.deepEqual(Object.keys(await version.json()).sort(),['app','revision','versionId']);
- const landing=await fetch(passwordBase+'/');assert.equal(landing.status,200,'Public sign-in page must permit Home Screen metadata lookup');assert.match(await landing.text(),/apple-touch-icon[^>]+tlpt-cashier-yellow-180/);
+ const landing=await fetch(passwordBase+'/');assert.equal(landing.status,200,'Public sign-in page must permit Home Screen metadata lookup');assert.match(await landing.text(),/apple-touch-icon[^>]+cashier-home-chip-180/);
+ const install=await fetch(passwordBase+'/install.html');assert.equal(install.status,200);assert.match(install.headers.get('Content-Type'),/text\/html/);assert.match(await install.text(),/Add to Home Screen/);
+ const manifestResponse=await fetch(passwordBase+'/cashier-home.webmanifest');assert.equal(manifestResponse.status,200);assert.match(manifestResponse.headers.get('Content-Type'),/manifest|json/);const homeManifest=await manifestResponse.json();assert.equal(homeManifest.display,'standalone');assert.equal(homeManifest.start_url,'/');
+ for(const size of [152,167,180,192,512]){const icon=await fetch(passwordBase+`/cashier-home-chip-${size}.png`);assert.equal(icon.status,200);assert.match(icon.headers.get('Content-Type'),/image\/png/);const bytes=Buffer.from(await icon.arrayBuffer());assert.equal(bytes.readUInt32BE(16),size);assert.equal(bytes.readUInt32BE(20),size);}
+ const launchScript=await fetch(passwordBase+'/cashier-install.mjs');assert.equal(launchScript.status,200);assert.match(launchScript.headers.get('Content-Type'),/javascript/);
+ console.log('PASS: anonymous iPad installation page, standalone manifest, launch script and all five exact-size poker-chip PNGs are served without exposing the private register.');
  const logIn=(value,origin=passwordBase)=>workerFetch(passwordBase+'/auth/login',{method:'POST',redirect:'manual',headers:{Origin:origin,'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({password:value})});
  assert.equal((await fetch(passwordBase+'/api/register')).status,401);
  assert.equal((await fetch(passwordBase+'/api/reader-setup')).status,401,'Reader credentials must require owner sign-in');
