@@ -2787,12 +2787,14 @@ def audit_mtt_player_guide() -> list[str]:
             errors.append(f"{page}: expected one clearly named MTT guide viewing link")
             continue
         attributes = links[0]
+        if 'class="btn btn-format mtt-guide-button"' not in attributes:
+            errors.append(f"{page}: MTT guide must share the format-button typography and sizing")
         if (f'href="{href}"' not in attributes or 'target="_blank"' not in attributes
                 or 'rel="noopener noreferrer"' not in attributes or re.search(r'\bdownload(?:\s|=|$)', attributes)
                 or 'opens in a new tab' not in attributes):
             errors.append(f"{page}: MTT guide must open safely for viewing and announce its new tab")
         if page == "structures.html" and not re.search(
-                r'id="format-btn-two-table"[^>]*>[^<]+</button>\s*<a\b[^>]*class="btn mtt-guide-button"', source):
+                r'id="format-btn-two-table"[^>]*>[^<]+</button>\s*<a\b[^>]*class="btn btn-format mtt-guide-button"', source):
             errors.append("structures.html: MTT guide must immediately follow the deep-stack selector")
         if page == "rules.html" and not re.search(
                 rf'<a\b[^>]*href="{re.escape(href)}"[^>]*\bdownload>Download PDF</a>', source):
