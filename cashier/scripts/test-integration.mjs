@@ -22,7 +22,8 @@ try{
  await post(manual);await post(manual);let stateNow=(await get(event.id)).data;assert.equal(stateNow.totals.collected,cents);assert.equal(stateNow.totals.entries,1);assert.equal(stateNow.totals.pizzas,1);
  const recorded=stateNow.payments.find(p=>p.source_id==='manual:'+requestId);assert.deepEqual(JSON.parse(recorded.item_cents),{entry:event.rules.entry,food:event.rules.food});
  const receipt=id=>({id,from:'Venmo <venmo@venmo.com>',authenticationResults:'mx.google.com; dkim=pass header.i=@venmo.com; spf=pass',subject:'Sadr Ahmed paid you $'+(cents/100).toFixed(2),body:`TLPT ${event.slot} ${event.date} entry`,internalDate:String(Date.now())});
- const m1=receipt('CFQA_'+crypto.randomUUID().replaceAll('-','')),m2=receipt('CFQA_'+crypto.randomUUID().replaceAll('-',''));
+ const m1=receipt('CFQA_'+crypto.randomUUID().replaceAll('-','')),m2={...receipt('CFQA_'+crypto.randomUUID().replaceAll('-','')),subject:'Test Player paid $'+(cents/100).toFixed(2)+' to your Venmo account. Leave it in Venmo or transfer it to your bank account.'};
+ const refused=await intake([{...m2,id:'CFQA_bad_'+crypto.randomUUID().replaceAll('-',''),authenticationResults:'mx.google.com; dkim=fail header.i=@venmo.com'}]);assert.equal(refused.rejectedReasons.authentication,1);assert.equal(refused.acceptedIds.length,0);
  const dry=await intake([m1],'receipt-test');assert.equal(dry.diagnostics[0].accepted,true);assert.equal((await get(event.id)).data.payments.length,1,'Receipt-format test must not create a payment');
  await intake([m1]);await intake([m1]);stateNow=(await get(event.id)).data;assert.equal(stateNow.payments.filter(p=>p.source_id==='gmail:'+m1.id).length,1);assert.equal(stateNow.totals.collected,cents);
  const imported=stateNow.payments.find(p=>p.source_id==='gmail:'+m1.id);assert.equal(imported.status,'review');assert.equal(imported.player,'');

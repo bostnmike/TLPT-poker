@@ -19,11 +19,11 @@ export async function POST(req:Request){
    const diagnostics=input.messages.map((m:any)=>{const p=parseReceipt(m);return {id:String(m.id),accepted:!p.rejected,reason:p.rejected||null,category:p.kind||null};});
    if(diagnostics.some((x:any)=>x.accepted))await db().prepare('UPDATE sync_state SET format_verified=1 WHERE id=?').bind('venmo').run();return json({ok:true,diagnostics,noPaymentRecordsCreated:true});
   }
-  let matched=0,rejected=0;const acceptedIds:string[]=[],ignoredIds:string[]=[],receiptEvents:Record<string,string>={};
-  for(const message of input.messages){const p=routeReceipt(parseReceipt(message),schedule.events);if(p.rejected){rejected++;if(p.rejected==='outside-active-events')ignoredIds.push(String(message.id));continue;}
+  let matched=0,rejected=0;const acceptedIds:string[]=[],ignoredIds:string[]=[],receiptEvents:Record<string,string>={},rejectedReasons:Record<string,number>={};
+  for(const message of input.messages){const p=routeReceipt(parseReceipt(message),schedule.events);if(p.rejected){rejected++;rejectedReasons[p.rejected]=(rejectedReasons[p.rejected]||0)+1;if(p.rejected==='outside-active-events')ignoredIds.push(String(message.id));continue;}
    if(await db().prepare('SELECT source_id FROM deleted_payment_sources WHERE source_id=?').bind(p.sourceId).first()){ignoredIds.push(String(message.id));continue;}matched++;
    await db().prepare(RECEIPT_INSERT_SQL).bind(crypto.randomUUID(),p.sourceId,p.eventId,JSON.stringify(p.candidateIds),p.payer,'',p.cents,p.kind,'review','venmo',p.note,p.receivedAt,now,now,p.sourceId).run();acceptedIds.push(String(message.id));receiptEvents[String(message.id)]=p.eventId||p.candidateIds.join('|');
   }
-  await db().prepare('INSERT INTO sync_state (id,last_check,matched,rejected,reader_mode) VALUES (?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET last_check=excluded.last_check,matched=excluded.matched,rejected=excluded.rejected,reader_mode=excluded.reader_mode').bind('venmo',now,matched,rejected,input.readerMode==='rolling'?'rolling':'event').run();return json({ok:true,matched,rejected,acceptedIds,ignoredIds,receiptEvents});
+  await db().prepare('INSERT INTO sync_state (id,last_check,matched,rejected,reader_mode) VALUES (?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET last_check=excluded.last_check,matched=excluded.matched,rejected=excluded.rejected,reader_mode=excluded.reader_mode').bind('venmo',now,matched,rejected,input.readerMode==='rolling'?'rolling':'event').run();return json({ok:true,matched,rejected,rejectedReasons,acceptedIds,ignoredIds,receiptEvents});
  }catch(error){if(env.CASHIER_ENV==='local')console.error('Local receipt import failed:',error);return json({error:'Import failed; retry the same batch safely.'},503);}
 }
