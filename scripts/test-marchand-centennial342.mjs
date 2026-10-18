@@ -43,8 +43,10 @@ for (const [id, path] of [[342, '/49/coa.webp'], [322, '/322/coa-02.webp']]) {
 const gamePhotos = read('marchand-game-photos.json');
 assert.equal(gamePhotos.artifacts['goal-49'], undefined);
 assert.equal(gamePhotos.artifacts[chicago.key].inventoryId, 342);
-assert.notEqual(gamePhotos.artifacts[chicago.key].assetId, gamePhotos.artifacts[companion.key].assetId, "Each Chicago puck must have its own game image");
-assert.notEqual(gamePhotos.artifacts[chicago.key].assetId, gamePhotos.artifacts[r.key].assetId);
+for (const key of [chicago.key, companion.key, r.key]) {
+  assert.equal(gamePhotos.artifacts[key].displaySelected, false, 'Withheld supplemental images do not change protected physical identities');
+  assert.equal(gamePhotos.assets[gamePhotos.artifacts[key].assetId], undefined);
+}
 const index = JSON.parse(fs.readFileSync(new URL('../docs/marchand-game-photo-index-20261017.json', import.meta.url))).records;
 assert.equal(index.length, p.records.length);
 for (const record of p.records) {
@@ -54,6 +56,8 @@ for (const record of p.records) {
   assert.equal(entry.canonicalSheet, record.sourceSheet);
   assert.equal(entry.canonicalIdCell, `A${record.sourceRow}`);
   assert.equal(entry.assetId, gamePhotos.artifacts[record.key].assetId);
-  assert.equal(entry.nativeSha256, gamePhotos.assets[entry.assetId].nativeSha256);
+  assert.equal(entry.displaySelected, gamePhotos.artifacts[record.key].displaySelected);
+  if (entry.displaySelected) assert.equal(entry.nativeSha256, gamePhotos.assets[entry.assetId].nativeSha256);
+  else assert.equal(entry.url, null);
 }
 console.log('PASS: Chicago 342/322 identities, one assigned COA each, vacant 49, preserved 333 and all 172 current media joins.');

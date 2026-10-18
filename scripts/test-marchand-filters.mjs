@@ -208,6 +208,16 @@ for (const [id, physicalPhotos] of Object.entries(registeredPhotos).filter(([id]
   views.children[0].click();
   assert.equal(element("artifact-puck-placeholder").hidden, true);
 }
+// An explicit omission wins even if an archived asset is accidentally present.
+const withheldRecord = payload.records.find(record => gamePhotoManifest.artifacts[record.key]?.displaySelected === false && ![1,2].includes(record.inventoryId));
+const withheldMapping = gamePhotoManifest.artifacts[withheldRecord.key];
+assert.equal(gamePhotoManifest.assets[withheldMapping.assetId], undefined);
+gamePhotoManifest.assets[withheldMapping.assetId] = { ...Object.values(gamePhotoManifest.assets)[0], url: 'stale-withheld-game.webp', role: 'game_reference' };
+rows().find(row => Number(row.children[0].textContent) === withheldRecord.inventoryId).children[1].children[0].click();
+assert.equal(element('artifact-puck-views').children.length, photoManifest.artifacts[withheldRecord.inventoryId].length);
+assert.notEqual(element('artifact-puck-image').src, 'stale-withheld-game.webp');
+assert.equal(element('artifact-game-photo-credit').hidden, true);
+delete gamePhotoManifest.assets[withheldMapping.assetId];
 const noPhotoKey = payload.records.find((r) => r.inventoryId === noPhotoId).key;
 const savedReference = gamePhotoManifest.artifacts[noPhotoKey];
 delete gamePhotoManifest.artifacts[noPhotoKey];

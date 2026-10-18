@@ -31,36 +31,54 @@
     },
     "latestCanonicalUpdate": {
       "date": "2026-10-17",
-      "sourceSha256": "16d58da4b159a9d910e37c7022fc3dd9819bd07372fab25efc5e411c15d9bef3",
-      "scope": "Verified canonical note corrections: artifact 35 full scoring time 12:58 of the third period; artifact 711 Bergeron short-handed. No other canonical values or physical assignments changed.",
+      "sourceSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
       "inventoryIds": [
-        35,
-        711
+        19,
+        27
       ],
       "sourceCells": [
-        "Goals & Games!R36",
-        "Warm-Up Pucks!I4"
+        "Goals & Games!Q20",
+        "Goals & Games!Q28"
       ],
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Notes 35 and 711 correction receipt 2026-10-17.json",
-      "wordChanged": false
+      "scope": "Correct only canonical19/27 video hyperlink targets, preserving Game Highlights labels, all other cell values and historical source hashes.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
+      "wordChanged": false,
+      "packageDataValidation": "PASS",
+      "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
     },
     "canonicalUpdateHistory": [
       {
         "date": "2026-10-17",
         "sourceSha256": "48c14579001bc85b277e768bbc13e41728df925699b259ce5cfe35cb107ddfe0",
         "scope": "Reclassify former goal 49 as milestone 342 and assign one COA each to 342 and 322; other 170 artifact records preserved."
+      },
+      {
+        "date": "2026-10-17",
+        "sourceSha256": "16d58da4b159a9d910e37c7022fc3dd9819bd07372fab25efc5e411c15d9bef3",
+        "scope": "Verified canonical note corrections: artifact 35 full scoring time 12:58 of the third period; artifact 711 Bergeron short-handed. No other canonical values or physical assignments changed.",
+        "inventoryIds": [
+          35,
+          711
+        ],
+        "sourceCells": [
+          "Goals & Games!R36",
+          "Warm-Up Pucks!I4"
+        ],
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Notes 35 and 711 correction receipt 2026-10-17.json",
+        "wordChanged": false
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "16d58da4b159a9d910e37c7022fc3dd9819bd07372fab25efc5e411c15d9bef3",
+    "currentCanonicalMasterSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "16d58da4b159a9d910e37c7022fc3dd9819bd07372fab25efc5e411c15d9bef3",
+      "sha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
       "verifiedDate": "2026-10-17",
       "wordSource": "BM63-Goal-Puck-List.docx",
       "wordSha256": "1a780917190bfa5cd09be2cf629da26dbe7dc3bc0ac34a4c0e164a78f03d78e6",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Notes 35 and 711 correction receipt 2026-10-17.json",
-      "projection": "Current canonical source verified; reviewed note corrections mirrored without claiming a new full extraction."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
+      "projection": "Canonical package/data checks pass;19/27 hyperlink corrections mirrored. Native Excel app test not yet performed.",
+      "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
     }
   },
   "records": [
@@ -3915,9 +3933,9 @@
       "score": "Boston 5 @ Washington 3",
       "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.youtube.com/watch?v=jSFIXs6EPoA",
+      "videoUrl": "https://www.youtube.com/watch?v=lceo1s1K0c0",
       "videoProvider": "youtube",
-      "videoId": "jSFIXs6EPoA",
+      "videoId": "lceo1s1K0c0",
       "notes": "",
       "game": null,
       "wins": null,
@@ -4010,7 +4028,7 @@
         {
           "label": "Goal Video",
           "value": "Game Highlights",
-          "url": "https://www.youtube.com/watch?v=jSFIXs6EPoA"
+          "url": "https://www.youtube.com/watch?v=lceo1s1K0c0"
         },
         {
           "label": "Notes",
@@ -5618,9 +5636,9 @@
       "score": "Boston 2 @ Tampa Bay 3",
       "puckType": "Goal Scored Puck",
       "videoLabel": "Game Highlights",
-      "videoUrl": "https://www.youtube.com/watch?v=mlVtuuh_dbY",
+      "videoUrl": "https://www.youtube.com/watch?v=Vf6W6gdGQy8",
       "videoProvider": "youtube",
-      "videoId": "mlVtuuh_dbY",
+      "videoId": "Vf6W6gdGQy8",
       "notes": "",
       "game": null,
       "wins": null,
@@ -5714,7 +5732,7 @@
         {
           "label": "Goal Video",
           "value": "Game Highlights",
-          "url": "https://www.youtube.com/watch?v=mlVtuuh_dbY"
+          "url": "https://www.youtube.com/watch?v=Vf6W6gdGQy8"
         },
         {
           "label": "Notes",

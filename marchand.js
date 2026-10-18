@@ -431,7 +431,7 @@
       ? registeredPhotos.filter((photo) => normalize(photo.url) && normalize(photo.label))
       : normalize(record.imageUrl) ? [{ label: "Front", url: record.imageUrl }] : [];
     const mapping = state.gamePhotos.artifacts?.[record.key];
-    const gamePhoto = mapping?.inventoryId === record.inventoryId ? state.gamePhotos.assets?.[mapping.assetId] : null;
+    const gamePhoto = mapping?.displaySelected !== false && mapping?.inventoryId === record.inventoryId ? state.gamePhotos.assets?.[mapping.assetId] : null;
     return gamePhoto?.role === "game_reference" && normalize(gamePhoto.url)
       ? [...physical, { ...gamePhoto, artifactDate: mapping.artifactDate, photoDate: mapping.photoDate }]
       : physical;
