@@ -194,7 +194,7 @@ function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
       </div>
 
       <div class="player-body-count-list">
-        ${victims.map(({ slug, count }) => {
+        ${window.TLPTRoster.sections(victims, ({ slug, count }) => {
           const victim = playerMap.get(slug);
           const displayName = victim?.name || slug;
 
@@ -205,7 +205,7 @@ function bodyCountMarkup(currentPlayer, byKiller, playerMap) {
               <div class="player-body-count-tile-number">${count}</div>
             </div>
           `;
-        }).join("")}
+        }, { playerOf: item => playerMap.get(item.slug) })}
       </div>
     </div>
   `;

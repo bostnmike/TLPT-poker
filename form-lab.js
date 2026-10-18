@@ -275,9 +275,9 @@ function populatePlayerSelect() {
     return;
   }
 
-  select.innerHTML = FL_STATE.players.map(player => `
+  select.innerHTML = window.TLPTRoster.options(FL_STATE.players, player => `
     <option value="${escapeAttr(player.slug)}">${escapeHtml(displayName(player))}</option>
-  `).join("");
+  `);
 }
 
 function populatePresetSelect() {
@@ -341,13 +341,24 @@ function enhanceFormLabSelects() {
     }
     menu.hidden = true;
 
+    let previousGroup = null;
     Array.from(select.options).forEach(option => {
+      const group = option.parentElement?.tagName === "OPTGROUP" ? option.parentElement : null;
+      if (group && group !== previousGroup) {
+        const heading = document.createElement("div");
+        heading.className = "site-select-group-label";
+        heading.setAttribute("role", "presentation");
+        heading.textContent = group.label;
+        menu.append(heading);
+      }
+      previousGroup = group;
       const optionButton = document.createElement("button");
       optionButton.className = "fl-select-option";
       optionButton.type = "button";
       optionButton.setAttribute("role", "option");
       optionButton.dataset.value = option.value;
       optionButton.textContent = option.textContent;
+      if (group) optionButton.setAttribute("aria-label", `${option.textContent}, ${group.label}`);
       optionButton.addEventListener("click", () => {
         select.value = option.value;
         select.dispatchEvent(new Event("change", { bubbles: true }));

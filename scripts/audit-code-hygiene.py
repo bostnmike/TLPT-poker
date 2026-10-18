@@ -367,15 +367,15 @@ EXPECTED_SKIP_LINK_TEXT = "Skip to main content"
 EXPECTED_SHARED_STYLESHEET = "style.css?v=20261012-1"
 EXPECTED_ISOLATED_MARCHAND_SHARED_STYLESHEET = "style.css?v=20261011-7"
 EXPECTED_FORM_LAB_STYLESHEET = "form-lab.css?v=20261012-1"
-EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261018-1"
+EXPECTED_FORM_LAB_SCRIPT = "form-lab.js?v=20261018-2"
 EXPECTED_GALLERY_STYLESHEET = "gallery.css?v=20261011-7"
 EXPECTED_GALLERY_SCRIPT = "gallery.js?v=20261012-2"
 EXPECTED_VOICE_OF_GOD_STYLESHEET = "voice-of-god.css?v=20261012-1"
-EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
-EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261018-2"
+EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20261018-1"
+EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261018-3"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-4"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-5"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -407,10 +407,10 @@ EXPECTED_WORKFLOW_NODE_VERSIONS = {
     "rotate-shared-css-cache.yml": ["22"],
 }
 EXPECTED_PLAYER_STYLESHEET = "player.css?v=20261012-1"
-EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20260825-1"
-EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261012-1"
-EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261012-1"
-EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261012-1"
+EXPECTED_PLAYER_KNOCKOUTS_SCRIPT = "player-knockouts.js?v=20261018-1"
+EXPECTED_PLAYER_MOVEMENT_SCRIPT = "player-movement.js?v=20261018-1"
+EXPECTED_STREAKS_SCRIPT = "streaks.js?v=20261018-1"
+EXPECTED_TROPHY_ROOM_SCRIPT = "trophy-room.js?v=20261018-1"
 INTERACTIVE_CONTROL_RADIUS_CONTRACTS = {
     "style.css": (
         (frozenset({".home-jump-pill", ".home-module-cta"}), "var(--control-radius)"),
@@ -1274,12 +1274,12 @@ def audit_javascript(path: Path) -> list[str]:
             if fragment not in card_source:
                 errors.append(message)
         top_movers_source = function_source("renderTopMovers")
-        if '.map(player => createCard(player, { imageLoading: "eager" }))' not in top_movers_source:
+        if 'player => createCard(player, { imageLoading: "eager" })' not in top_movers_source:
             errors.append(
                 "Heater Meter visible top movers must keep eager portrait loading"
             )
         all_players_source = function_source("renderAllPlayers")
-        if '.map(player => createCard(player, { imageLoading: "lazy" }))' not in all_players_source:
+        if 'player => createCard(player, { imageLoading: "lazy" })' not in all_players_source:
             errors.append(
                 "Heater Meter full-board portraits must use lazy loading"
             )

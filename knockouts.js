@@ -222,7 +222,8 @@ const KNOCKOUTS_URLS = [
       }));
     }
 
-    return html.join("");
+    const leaders = [mostKnockouts?.slug, mostBusted?.slug, biggestBully?.killerSlug, mostUniqueVictims?.slug];
+    return window.TLPTRoster.sections(html, card => card, { playerOf: (_card, index) => playerMap.get(leaders[index]) });
   }
 
   function renderRivalries(playerMap, byVictim) {
@@ -278,7 +279,7 @@ const KNOCKOUTS_URLS = [
 
     return `
       <div class="knockouts-vendetta-list">
-        ${rivalries.map(entry => {
+        ${window.TLPTRoster.sections(rivalries, entry => {
           const playerA = safePlayer(playerMap, entry.slugA);
           const playerB = safePlayer(playerMap, entry.slugB);
 
@@ -308,7 +309,7 @@ const KNOCKOUTS_URLS = [
               </div>
             </div>
           `;
-        }).join("")}
+        }, { playerOf: entry => [playerMap.get(entry.slugA), playerMap.get(entry.slugB)].find(window.TLPTRoster.isAlumni), alumniLabel: "Rivalries involving alumni" })}
       </div>
     `;
   }
@@ -347,7 +348,7 @@ const KNOCKOUTS_URLS = [
 
     return `
       <div class="knockouts-nemesis-grid">
-        ${board.map(item => {
+        ${window.TLPTRoster.sections(board, item => {
           const victim = safePlayer(playerMap, item.victimSlug);
           const killer = safePlayer(playerMap, item.killerSlug);
 
@@ -375,7 +376,7 @@ const KNOCKOUTS_URLS = [
               </div>
             </div>
           `;
-        }).join("")}
+        }, { playerOf: item => playerMap.get(item.victimSlug) })}
       </div>
     `;
   }
@@ -396,7 +397,7 @@ const KNOCKOUTS_URLS = [
 
     return `
       <div class="knockouts-belt-grid">
-        ${killers.map(killerEntry => {
+        ${window.TLPTRoster.sections(killers, killerEntry => {
           const killer = safePlayer(playerMap, killerEntry.slug);
           const displayName = killer?.name || killerEntry.slug;
 
@@ -411,7 +412,7 @@ const KNOCKOUTS_URLS = [
               ${renderTallyMarks(killerEntry.total)}
             </div>
           `;
-        }).join("")}
+        }, { playerOf: item => playerMap.get(item.slug) })}
       </div>
     `;
   }
@@ -454,7 +455,7 @@ const KNOCKOUTS_URLS = [
     const mostCollected = bountyLeader(players, "bountyCollected");
     const mostRetained = bountyLeader(players, "bountyRetained");
 
-    return [
+    return window.TLPTRoster.sections([
       renderStatCard({
         label: "Most Bounties Won",
         player: mostWon,
@@ -479,7 +480,7 @@ const KNOCKOUTS_URLS = [
         value: mostRetained ? formatMoney(mostRetained.bountyRetained) : "—",
         subtext: "Own unclaimed bounty returned"
       })
-    ].join("");
+    ], card => card, { playerOf: (_card, index) => [mostWon, bestNet, mostCollected, mostRetained][index] });
   }
 
   function renderBountyLedger(players) {
@@ -496,7 +497,7 @@ const KNOCKOUTS_URLS = [
 
     return `
       <div class="knockouts-bounty-ledger-grid">
-        ${rows.map(player => `
+        ${window.TLPTRoster.sections(rows, player => `
           <a class="knockouts-bounty-ledger-card" href="player.html?name=${encodeURIComponent(player.name || "")}">
             <div class="knockouts-bounty-ledger-player">
               ${avatarMarkup(player, "knockouts-avatar-md")}
@@ -512,7 +513,7 @@ const KNOCKOUTS_URLS = [
               <div><dt>Net</dt><dd class="${bountyValueClass(player.bountyNet).trim()}">${formatMoney(player.bountyNet)}</dd></div>
             </dl>
           </a>
-        `).join("")}
+        `)}
       </div>
     `;
   }
@@ -596,6 +597,8 @@ const KNOCKOUTS_URLS = [
     const host = document.querySelector(hostSelector);
     const items = host ? [...host.querySelectorAll(itemSelector)] : [];
     if (!host || items.length <= initialCount) return;
+    // Keep both membership sections visible rather than orphaning an Alumni heading.
+    if (host.querySelector("[data-roster-section='alumni']")) return;
 
     items.slice(initialCount).forEach(item => {
       item.hidden = true;

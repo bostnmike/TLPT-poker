@@ -485,18 +485,29 @@
       if (!trigger || !menu) return;
 
       const signature = Array.from(select.options)
-        .map(option => `${option.value}\u241f${option.textContent}\u241f${option.disabled}`)
+        .map(option => `${option.value}\u241f${option.textContent}\u241f${option.disabled}\u241f${option.parentElement?.label || ""}`)
         .join("\u241e");
       if (shell.dataset.optionSignature !== signature) {
         shell.dataset.optionSignature = signature;
         menu.innerHTML = "";
+        let previousGroup = null;
         Array.from(select.options).forEach(option => {
+          const group = option.parentElement?.tagName === "OPTGROUP" ? option.parentElement : null;
+          if (group && group !== previousGroup) {
+            const groupLabel = document.createElement("div");
+            groupLabel.className = "site-select-group-label";
+            groupLabel.setAttribute("role", "presentation");
+            groupLabel.textContent = group.label;
+            menu.append(groupLabel);
+          }
+          previousGroup = group;
           const optionButton = document.createElement("button");
           optionButton.className = "site-select-option";
           optionButton.type = "button";
           optionButton.role = "option";
           optionButton.dataset.value = option.value;
           optionButton.textContent = option.textContent;
+          if (group) optionButton.setAttribute("aria-label", `${option.textContent}, ${group.label}`);
           optionButton.disabled = option.disabled;
           optionButton.addEventListener("click", () => {
             select.value = option.value;

@@ -82,6 +82,7 @@ function makeContext() {
 
 function loadScript(relative, transform = source => source) {
   const context = makeContext();
+  vm.runInContext(fs.readFileSync(path.join(root, "roster-display.js"), "utf8"), context);
   const source = transform(fs.readFileSync(path.join(root, relative), "utf8"));
   vm.runInContext(source, context, { filename: relative });
   return {
@@ -719,6 +720,79 @@ for (const player of players) {
 for (const [amount, expected] of [[157.5, "$157.50"], [132.5, "$132.50"], [-65.5, "-$65.50"], [65, "$65"], [0.01, "$0.01"]]) {
   check(app.get("fmtMoney")(amount) === expected, `Shared money display must preserve cents for ${amount}`);
   check(formLab.get("moneyFmt")(amount) === expected, `Form Lab money display must preserve cents for ${amount}`);
+}
+
+// Exercise actual grouped renderers, not just the underlying ranking formula.
+const groupedApp = loadScript("app.js");
+const membership = groupedApp.context.window.TLPTRoster;
+const sampleMembers = [
+  { slug: "alum-first", rosterStatus: "alumni" },
+  { slug: "active-first", rosterStatus: "active" },
+  { slug: "alum-second", rosterStatus: "alumni" },
+  { slug: "legacy-active" }
+];
+const frozenMembers = JSON.stringify(sampleMembers);
+const groupedMarkup = membership.sections(sampleMembers, (p, index) => `<p>${p.slug}:${index + 1}</p>`);
+check(groupedMarkup.indexOf("active-first:2") < groupedMarkup.indexOf('data-roster-section="alumni"'), "Active rows must precede the Alumni subsection");
+check(groupedMarkup.includes("alum-first:1") && groupedMarkup.includes("alum-second:3"), "Grouping must retain original global ranks");
+check(!membership.sections([], () => "x").length, "Empty lists must not produce empty membership headings");
+check(!membership.sections([sampleMembers[1]], () => "active").includes("Alumni"), "Active-only lists must not invent an Alumni section");
+check(!membership.sections([sampleMembers[0]], () => "alum").includes("Active players"), "Alumni-only lists must not show an empty Active section");
+check(JSON.stringify(sampleMembers) === frozenMembers, "Grouping must not mutate source records");
+const groupedOptions = membership.options(sampleMembers, p => `<option value="${p.slug}">${p.slug}</option>`);
+check(groupedOptions.indexOf('label="Active players"') < groupedOptions.indexOf('label="Alumni"'), "Selectors must group active players before Alumni");
+check((groupedOptions.match(/<option /g) || []).length === sampleMembers.length, "All player selector options must be retained");
+const sampleTrophyData = { ...data, players: data.players.map(p => ({ ...p, rosterStatus: p.slug === "bostnmike" ? "alumni" : p.rosterStatus })) };
+const sampleTrophies = trophyAudit.flattenCollections(sampleTrophyData);
+check(sampleTrophies.filter(card => card.player.slug === "bostnmike").every(card => card.player.rosterStatus === "alumni"), "Trophy cards must carry current membership separately from frozen snapshots");
+check(JSON.stringify(sampleTrophies.map(card => card.snapshot)) === JSON.stringify(trophyCards.map(card => card.snapshot)), "Membership must never alter earned-card snapshots");
+const orderedTrophies = membership.ordered(sampleTrophies, card => card.player);
+const firstAlumniCard = orderedTrophies.findIndex(card => card.player.rosterStatus === "alumni");
+check(firstAlumniCard > 0 && orderedTrophies.slice(firstAlumniCard).every(card => card.player.rosterStatus === "alumni"), "Trophy pagination must finish active collectors before Alumni cards");
+check(orderedTrophies.length === sampleTrophies.length, "Trophy grouping must preserve every earned card");
+
+const host = () => ({ innerHTML: "", querySelectorAll: () => [], querySelector: () => null,
+  insertAdjacentHTML(_where, markup) { this.innerHTML += markup; } });
+const groupedGrid = host(), groupedBody = host(), crewGrid = host(), crewVisual = host();
+const groupedTable = { dataset: {}, querySelector: () => groupedBody, querySelectorAll: () => [] };
+const hosts = { "dashboard-grid": groupedGrid, "standings-table": groupedTable, "players-grid": crewGrid, "players-visual": crewVisual };
+groupedApp.context.document.getElementById = id => hosts[id] || null;
+groupedApp.context.window.siteData = data;
+for (const name of ["syncDashboardSelector", "ensureDashboardHeadline", "renderDashboardStudioStrip", "initAnimatedCounters", "setActiveSortButton", "ensureStandingsHeadline", "renderStandingsRaceStrip", "wireMobileJumpNavCues"]) groupedApp.set(name, () => {});
+for (const metric of ["hits", "profit", "roi", "bountyNet"]) {
+  groupedApp.get("renderDashboard")(metric);
+  const expected = groupedApp.get("sortPlayers")(groupedApp.get("dashboardPlayersForMetric")(data.players, metric), metric);
+  for (const [index, player] of expected.entries()) {
+    check(groupedGrid.innerHTML.includes(groupedApp.get("dashboardCardMarkup")(player, metric, index + 1)), `${metric}/${player.slug}: grouping changed Dashboard card or league rank`);
+  }
+  const alumniStart = groupedGrid.innerHTML.indexOf('data-roster-section="alumni"');
+  for (const player of expected) {
+    const cardAt = groupedGrid.innerHTML.indexOf(`href="${groupedApp.get("playerUrl")(player)}"`);
+    check(alumniStart < 0 || (player.rosterStatus === "alumni" ? cardAt > alumniStart : cardAt < alumniStart), `${metric}/${player.slug}: Dashboard membership subsection is wrong`);
+  }
+}
+groupedApp.get("renderStandings")("profit");
+check(groupedBody.innerHTML.includes('colspan="10" scope="rowgroup"'), "Standings membership headings must span the complete table");
+const standingPlayers = groupedApp.get("sortPlayers")(data.players.filter(p => Number(p.entries) >= 2), "profit");
+check((groupedBody.innerHTML.match(/class="standings-row-link"/g) || []).length === standingPlayers.length, "Standings must preserve every eligible row");
+groupedApp.get('currentCrewRoster = "all"');
+for (const view of ["tier", "archetype"]) {
+  groupedApp.get(`currentCrewView = "${view}"`);
+  groupedApp.get("renderPlayers")(data);
+  check((crewGrid.innerHTML.match(/aria-label="Open /g) || []).length === data.players.length, `All Players ${view} must contain every card exactly once`);
+  const alumniStart = crewGrid.innerHTML.indexOf(view === "tier" ? 'id="crew-tier-alumni"' : 'data-roster-section="alumni"');
+  check(alumniStart >= 0, `All Players ${view} needs one consolidated Alumni section`);
+  for (const player of data.players) {
+    const cardAt = crewGrid.innerHTML.indexOf(`aria-label="Open ${groupedApp.get("displayPlayerNamePlain")(player)} profile.`);
+    check(player.rosterStatus === "alumni" ? cardAt > alumniStart : cardAt < alumniStart, `${player.slug}: ${view} Crew card appears in wrong membership section`);
+  }
+}
+const forecastMarkup = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: Object.fromEntries(data.players.map(p => [p.slug, "maybe"])) }, data);
+check(forecastMarkup.includes("<strong>Active:</strong>") && forecastMarkup.includes("<strong>Alumni:</strong>"), "RSVP forecast must separate membership without removing invitees");
+for (const page of ["index", "champions", "dashboard", "standings", "players", "player", "schedule", "structures", "form-lab", "trophy-room", "knockouts", "streaks", "player-movement", "voice-of-god"]) {
+  const html = fs.readFileSync(path.join(root, `${page}.html`), "utf8");
+  check(html.includes('roster-display.css?v=20261018-1') && html.includes('roster-display.js?v=20261018-1'), `${page}: shared roster display assets missing`);
+  check(html.indexOf('roster-display.js') > html.indexOf('site-shell.js'), `${page}: shared shell must initialize before roster helpers`);
 }
 
 const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors };

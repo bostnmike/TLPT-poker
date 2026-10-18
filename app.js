@@ -1683,9 +1683,17 @@ function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
 }
 
 function eventRsvpForecastMarkup(event, data) {
-  const maybePlayers = getRsvpPlayersByStatus(event, data, "maybe");
-  const tbdPlayers = getRsvpPlayersByStatus(event, data, "tbd");
-  const noPlayers = getRsvpPlayersByStatus(event, data, "no");
+  const namesByMembership = (status, options) => {
+    const players = Object.entries(event?.rsvps || {})
+      .filter(([, answer]) => String(answer || "tbd").toLowerCase() === status)
+      .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
+      .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+    const names = members => escapeHtmlAttr(formatRsvpNameList(members.map(player => displayPlayerNamePlain(player)), "Nobody yet", options));
+    const alumni = players.filter(isPlayerAlumni);
+    if (!alumni.length) return names(players);
+    const active = players.filter(player => !isPlayerAlumni(player));
+    return `${active.length ? `<span class="roster-rsvp-group"><strong>Active:</strong> ${names(active)}</span>` : ""}<span class="roster-rsvp-group"><strong>Alumni:</strong> ${names(alumni)}</span>`;
+  };
 
   return `
     <div class="event-rsvp-forecast" aria-label="Table forecast">
@@ -1693,7 +1701,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
         <span class="event-rsvp-forecast-label">On the Rail</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(maybePlayers, "Nobody yet", {
+        <span class="event-rsvp-forecast-names">${namesByMembership("maybe", {
           maxNames: 6,
           collapseAfter: 12
         })}</span>
@@ -1701,7 +1709,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-tbd">
         <span class="event-rsvp-forecast-label">In the Tank</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(tbdPlayers, "Nobody yet", {
+        <span class="event-rsvp-forecast-names">${namesByMembership("tbd", {
           maxNames: 8,
           collapseAfter: 14
         })}</span>
@@ -1709,7 +1717,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-no">
         <span class="event-rsvp-forecast-label">Folded Pre</span>
-        <span class="event-rsvp-forecast-names">${formatRsvpNameList(noPlayers, "Nobody yet", {
+        <span class="event-rsvp-forecast-names">${namesByMembership("no", {
           maxNames: 4,
           collapseAfter: 8
         })}</span>
@@ -2838,7 +2846,7 @@ if (leaderStrip) {
     crewLeaderPool
   );
 
-  leaderStrip.innerHTML = [
+  leaderStrip.innerHTML = window.TLPTRoster.sections([
     buildHomeStripCard(
       "Profit Leader",
       "💰",
@@ -2867,7 +2875,7 @@ if (leaderStrip) {
       hitLeader,
       hitLeader ? String(hitLeader.hits) : ""
     )
-  ].join("");
+  ], html => html, { playerOf: (_html, index) => [profitLeader, powerLeader, clutchLeader, hitLeader][index] });
 }
 
 const badgeCluster = document.getElementById("home-badge-cluster");
@@ -2875,7 +2883,7 @@ const badgeCluster = document.getElementById("home-badge-cluster");
 if (badgeCluster) {
   const crewBadgePool = allPlayers.filter(isCrewEligible);
 
-  const badges = HOME_BADGE_CONFIG.map(config => {
+  const badges = window.TLPTRoster.sections(HOME_BADGE_CONFIG, config => {
     const leader = getLeaderByRule(
       allPlayers,
       HONOR_RULES[config.rule],
@@ -2883,7 +2891,7 @@ if (badgeCluster) {
     );
 
     return leader ? buildHomeBadgeCard(config, leader) : "";
-  }).join("");
+  }, { playerOf: config => getLeaderByRule(allPlayers, HONOR_RULES[config.rule], crewBadgePool) });
 
   badgeCluster.innerHTML = badges;
 }
@@ -2953,7 +2961,7 @@ wireHomeFormulaReveal();
     HONOR_RULES["Hit King"],
     crewInsightPool
   );
-    insightsGrid.innerHTML = [
+    insightsGrid.innerHTML = window.TLPTRoster.sections([
       profitLeader ? buildHomeInsightCard(
         "Profit Leader",
         "💰",
@@ -2990,7 +2998,7 @@ wireHomeFormulaReveal();
         "hits",
         ""
       ) : ""
-    ].join("");
+    ], html => html, { playerOf: (_html, index) => [profitLeader, powerLeader, clutchLeader, hitLeader][index] });
   }
 
   const insightFormula = document.getElementById("home-insight-formula");
@@ -3222,7 +3230,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
 
   renderStandingsRaceStrip(sortKey, sorted);
 
-  tbody.innerHTML = sorted.map((player, index) => `
+  tbody.innerHTML = window.TLPTRoster.sections(sorted, (player, index) => `
     <tr
       class="standings-row-link"
       data-href="${playerUrl(player)}"
@@ -3238,7 +3246,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
       <td>${player.rebuys ?? "-"}</td>
       <td>${player.entries ?? "-"}</td>
     </tr>
-  `).join("");
+  `, { columns: 10, ranked: true });
 
   setActiveSortButton("standings", sortKey);
 
@@ -3320,7 +3328,7 @@ function renderDashboard(sortKey = DEFAULT_DASHBOARD_SORT) {
     return;
   }
 
-  grid.innerHTML = sorted.map((player, index) => dashboardCardMarkup(player, sortKey, index + 1)).join("");
+  grid.innerHTML = window.TLPTRoster.sections(sorted, (player, index) => dashboardCardMarkup(player, sortKey, index + 1), { ranked: true });
   initAnimatedCounters(grid);
   setActiveSortButton("dashboard", sortKey);
 }
@@ -3788,9 +3796,11 @@ function renderPlayers(data) {
       );
     }
 
-    grid.innerHTML = filteredGroups
-      .map(group => archetypeSectionMarkup(group, data))
-      .join("");
+    grid.innerHTML = window.TLPTRoster.sections(filteredGroups.flatMap(group => group.players), null, {
+      renderGroup: members => filteredGroups.map(group => archetypeSectionMarkup({
+        ...group, players: group.players.filter(player => members.includes(player))
+      }, data)).join("")
+    });
 
     document.querySelectorAll("[data-archetype-filter]").forEach(button => {
       button.addEventListener("click", () => {
@@ -3827,10 +3837,12 @@ function renderPlayers(data) {
   const gamblers = [];
   const leagueSponsors = [];
   const cardRatingSort = playerCardRatingComparator(data.players);
-  const unscoutedPlayers = rosterPlayers
+  const allViewAlumni = currentCrewRoster === "all" ? rosterPlayers.filter(isPlayerAlumni).sort(cardRatingSort) : [];
+  const tierRoster = currentCrewRoster === "all" ? rosterPlayers.filter(player => !isPlayerAlumni(player)) : rosterPlayers;
+  const unscoutedPlayers = tierRoster
     .filter(isPlayerUnscouted)
     .sort(cardRatingSort);
-  const fieldPlayers = rosterPlayers.filter(isCrewVisible);
+  const fieldPlayers = tierRoster.filter(isCrewVisible);
   const provisionalPlayers = fieldPlayers
     .filter(isCrewProvisional)
     .sort(cardRatingSort);
@@ -3883,7 +3895,8 @@ function renderPlayers(data) {
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" },
     { title: "PRO — Provisional", emoji: "🧪", players: provisionalPlayers, className: "provisionals" },
     { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies" },
-    { title: "UNS — Unscouted", emoji: "🔭", players: unscoutedPlayers, className: "unscouted" }
+    { title: "UNS — Unscouted", emoji: "🔭", players: unscoutedPlayers, className: "unscouted" },
+    { title: "Alumni", emoji: "♠", players: allViewAlumni, className: "alumni" }
   ];
 
   if (helpCopy) {
@@ -3952,6 +3965,12 @@ function renderPlayers(data) {
   `;
 
   wireMobileJumpNavCues(grid);
+
+  if (allViewAlumni.length) {
+    grid.insertAdjacentHTML("beforeend", tierSectionMarkup("Alumni", "♠", allViewAlumni, data, maxTierPower, {
+      className: "alumni", rangeLabel: " · Always welcome back", headerLabel: `${allViewAlumni.length} players`, unranked: true
+    }));
+  }
 
   if (rosterPlayers.length < matchingRosterPlayers.length) {
     grid.insertAdjacentHTML("beforeend", `
@@ -4911,11 +4930,11 @@ function playerCardComparisonMarkup(player, players, data) {
           <label>
             <span>Compare ${escapeHtmlAttr(displayPlayerNamePlain(player))} with</span>
             <select data-card-compare-player>
-              ${candidates.map(candidate => {
+              ${window.TLPTRoster.options(candidates, candidate => {
                 const tierMeta = playerCardTierMeta(candidate, players);
                 const rating = playerCardOverallRating(candidate, players);
                 return `<option value="${escapeHtmlAttr(candidate.slug)}">${escapeHtmlAttr(displayPlayerNamePlain(candidate))} — ${tierMeta.code} • ${rating}</option>`;
-              }).join("")}
+              })}
             </select>
           </label>
 
@@ -6393,32 +6412,16 @@ async function renderHall(data) {
 
     if (bestsEl) {
 
-      bestsEl.innerHTML =
-        HALL_RULES.bests
-          .map(rule =>
-            hallCardMarkup(
-              findHallLeader(rule),
-              rule,
-              "best"
-            )
-          )
-          .join("");
+      bestsEl.innerHTML = window.TLPTRoster.sections(HALL_RULES.bests,
+        rule => hallCardMarkup(findHallLeader(rule), rule, "best"), { playerOf: findHallLeader });
 
     }
 
 
     if (worstsEl) {
 
-      worstsEl.innerHTML =
-        HALL_RULES.worsts
-          .map(rule =>
-            hallCardMarkup(
-              findHallLeader(rule),
-              rule,
-              "worst"
-            )
-          )
-          .join("");
+      worstsEl.innerHTML = window.TLPTRoster.sections(HALL_RULES.worsts,
+        rule => hallCardMarkup(findHallLeader(rule), rule, "worst"), { playerOf: findHallLeader });
 
     }
 
@@ -6434,7 +6437,7 @@ function renderChampions(data) {
   const { recordItems } = getBalancedHonorsSections(data);
 
   if (honorsEl && Array.isArray(data?.honors)) {
-    honorsEl.innerHTML = data.honors.map(honor => {
+    honorsEl.innerHTML = window.TLPTRoster.sections(data.honors, honor => {
       const rule = HONOR_RULES[honor.type];
       const player = getLeaderByRule(players, rule);
       if (!player) return "";
@@ -6459,13 +6462,13 @@ function renderChampions(data) {
         false,
         valueClass
       );
-    }).join("");
+    }, { playerOf: honor => getLeaderByRule(players, HONOR_RULES[honor.type]) });
 
     initAnimatedCounters(honorsEl);
   }
 
   if (recordsEl) {
-    recordsEl.innerHTML = recordItems.map(record => {
+    recordsEl.innerHTML = window.TLPTRoster.sections(recordItems, record => {
       const rule = RECORD_RULES[record.label];
       const player = getLeaderByRule(players, rule);
       if (!player) return "";
@@ -6488,7 +6491,7 @@ function renderChampions(data) {
         false,
         valueClass
       );
-    }).join("");
+    }, { playerOf: record => getLeaderByRule(players, RECORD_RULES[record.label]) });
 
     initAnimatedCounters(recordsEl);
   }
@@ -6507,7 +6510,7 @@ function renderStatLeaders(data) {
     return;
   }
 
-  list.innerHTML = statLeaders.map(stat => {
+  list.innerHTML = window.TLPTRoster.sections(statLeaders, stat => {
     const leader = sortPlayers(eligiblePlayers, stat.key)[0];
     if (!leader) return "";
 
@@ -6541,7 +6544,7 @@ function renderStatLeaders(data) {
         </div>
       </a>
     `;
-  }).join("");
+  }, { playerOf: stat => sortPlayers(eligiblePlayers, stat.key)[0] });
 
   initAnimatedCounters(list);
 }

@@ -1,0 +1,26 @@
+.roster-section-heading,
+.roster-section-row th {
+  grid-column: 1 / -1;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 16px;
+  margin: 18px 0 4px;
+  padding: 14px 16px;
+  border-top: 1px solid #52606d;
+  border-radius: 8px;
+  background: #141c24;
+  color: #f2f5f8;
+  font: 700 1.05rem/1.4 system-ui, sans-serif;
+  text-align: left;
+}
+.roster-section-heading small,
+.roster-section-row small { color: #b7c5d1; font-size: .85rem; font-weight: 500; }
+.roster-section-heading:first-child { margin-top: 0; }
+.roster-section-row th { display: table-cell; }
+.roster-section-row th > small { margin-left: 16px; }
+.site-select-group-label { padding: 10px 12px 6px; color: #b7c5d1; font-size: .85rem; font-weight: 700; }
+.roster-rsvp-group { display: block; }
+.roster-rsvp-group + .roster-rsvp-group { margin-top: 6px; }

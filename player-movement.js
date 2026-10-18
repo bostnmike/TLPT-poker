@@ -773,19 +773,16 @@ function renderTopMovers(players) {
   const el = document.getElementById("pm-top-movers");
   if (!el) return;
 
-  el.innerHTML = players
-    .slice(0, 5)
-    .map(player => createCard(player, { imageLoading: "eager" }))
-    .join("");
+  el.innerHTML = window.TLPTRoster.sections(players.slice(0, 5),
+    player => createCard(player, { imageLoading: "eager" }), { ranked: true });
 }
 
 function renderAllPlayers(players) {
   const el = document.getElementById("pm-player-grid");
   if (!el) return;
 
-  el.innerHTML = players
-    .map(player => createCard(player, { imageLoading: "lazy" }))
-    .join("");
+  el.innerHTML = window.TLPTRoster.sections(players,
+    player => createCard(player, { imageLoading: "lazy" }), { ranked: true });
 
   drawAllSparklines();
 }

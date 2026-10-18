@@ -1,4 +1,5 @@
 const DATA_URL = "data/generated/site-data.json";
+let streakPlayerMap = new Map();
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -59,7 +60,7 @@ function renderLeaderboard(items, containerId, emptyText, limit = null, collapse
 
   let rows = Array.isArray(items) ? [...items] : [];
 
-  if (collapseTwos) {
+  if (collapseTwos && !rows.some(item => window.TLPTRoster.isAlumni(streakPlayerMap.get(item.slug)))) {
     const threePlus = rows.filter((item) => Number(item.length) >= 3);
     const twoCount = rows.filter((item) => Number(item.length) === 2).length;
 
@@ -81,8 +82,7 @@ function renderLeaderboard(items, containerId, emptyText, limit = null, collapse
     return;
   }
 
-  container.innerHTML = finalRows
-    .map((item, index) => {
+  container.innerHTML = window.TLPTRoster.sections(finalRows, (item, index) => {
       if (item.isTieSummary) {
         return `
           <article class="streak-row">
@@ -109,8 +109,7 @@ function renderLeaderboard(items, containerId, emptyText, limit = null, collapse
           <div class="streak-row-length">${escapeHtml(item.length)} straight</div>
         </article>
       `;
-    })
-    .join("");
+    }, { playerOf: item => streakPlayerMap.get(item.slug), ranked: true });
 }
 
 function detailCard(title, streak, theme = "hot") {
@@ -188,19 +187,19 @@ function initPlayerSelect(streaks) {
     return;
   }
 
-  select.innerHTML = eligiblePlayers
-    .map(player => `
+  select.innerHTML = window.TLPTRoster.options(eligiblePlayers.map(player => ({
+    ...player, rosterStatus: streakPlayerMap.get(player.slug)?.rosterStatus
+  })), player => `
       <option value="${escapeHtml(player.slug)}">
         ${escapeHtml(player.name)} (${escapeHtml(player.playedEvents)} events)
       </option>
-    `)
-    .join("");
+    `);
 
   select.addEventListener("change", (event) => {
     renderPlayerDetail(streaks, event.target.value);
   });
 
-  renderPlayerDetail(streaks, eligiblePlayers[0].slug);
+  renderPlayerDetail(streaks, select.value);
 }
 
 async function initStreakTracker() {
@@ -209,6 +208,7 @@ async function initStreakTracker() {
     if (!res.ok) throw new Error(`Failed to load ${DATA_URL}`);
 
     const data = await res.json();
+    streakPlayerMap = new Map((data.players || []).map(player => [player.slug, player]));
     const streaks = data.streaks || {};
 
     renderLeaderboard(

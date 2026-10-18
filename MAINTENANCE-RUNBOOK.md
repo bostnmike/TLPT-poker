@@ -77,6 +77,16 @@ The initial alumni are Brad R, Gilmore, Hayden D, Yann, Big Tim, Fabian, and Bob
 automatic status change from a date or RSVP; review his status after the event is
 finalized.
 
+Mixed player lists use `roster-display.js` and `roster-display.css`: active players
+first, then a labeled Alumni subsection. Preserve the original sort order and
+league-wide rank inside each membership group; do not recalculate metrics or
+qualification pools. Crew All Players consolidates alumni after the active tiers.
+Player selectors use Active/Alumni optgroups, also rendered in the custom menus.
+Trophy pagination partitions before slicing so active cards stay together.
+Event finish orders, historical stories, matchup pairs, and seating previews keep
+their meaningful order; RSVP forecasts and player/opponent directories are grouped.
+Do not apply public membership presentation rules to cashier eligibility or imports.
+
 ## Prize and bounty accounting
 
 Event prize pools and `winners[].payout` contain tournament prize money only.

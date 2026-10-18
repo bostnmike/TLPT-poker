@@ -212,7 +212,8 @@
           player: {
             name: player.name,
             slug: player.slug,
-            image: player.image
+            image: player.image,
+            rosterStatus: player.rosterStatus
           },
           isFeatured: edition.id === featuredId,
           activityDate: edition.upgradedDate || edition.earnedDate,
@@ -398,9 +399,11 @@
     const empty = document.getElementById("trophy-empty-state");
     if (!grid) return;
 
-    const cards = filteredCards();
+    const cards = window.TLPTRoster.ordered(filteredCards(), card => card.player);
     const visibleCards = cards.slice(0, state.visibleCount);
-    grid.innerHTML = visibleCards.map(cardMarkup).join("");
+    grid.innerHTML = window.TLPTRoster.sections(visibleCards, cardMarkup, {
+      playerOf: card => card.player, activeLabel: "Active players’ cards", alumniLabel: "Alumni cards"
+    });
     if (resultCount) {
       resultCount.textContent = cards.length === visibleCards.length
         ? `${cards.length} Card${cards.length === 1 ? "" : "s"} on Display`
@@ -447,9 +450,9 @@
     if (playerSelect) {
       playerSelect.insertAdjacentHTML(
         "beforeend",
-        players.map(player => `
+        window.TLPTRoster.options(players, player => `
           <option value="${escapeHtml(player.slug)}">${escapeHtml(player.name)}</option>
-        `).join("")
+        `)
       );
     }
 

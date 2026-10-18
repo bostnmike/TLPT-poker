@@ -267,14 +267,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         playerCounts.set(slug, (playerCounts.get(slug) || 0) + 1);
       });
     });
-    [...playerCounts]
+    const filterPlayers = [...playerCounts]
       .sort((a, b) => playerLabel(a[0]).localeCompare(playerLabel(b[0])))
-      .forEach(([slug, count]) => {
-        const option = document.createElement("option");
-        option.value = slug;
-        option.textContent = `${playerLabel(slug)} (${count})`;
-        playerFilter.appendChild(option);
-      });
+      .map(([slug, count]) => ({ ...playerProfiles.get(slug), slug, count }));
+    playerFilter.insertAdjacentHTML("beforeend", window.TLPTRoster.options(filterPlayers, player =>
+      `<option value="${escapeHtml(player.slug)}">${escapeHtml(playerLabel(player.slug))} (${player.count})</option>`));
 
     applyFilters();
     selectClip(allClips[Math.floor(Math.random() * allClips.length)] || allClips[0]);
