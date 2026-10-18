@@ -1,13 +1,13 @@
 {
   "meta": {
-    "releaseStatus": "FIVE PHOTO PUNCH LIST EDITION; OWNER57/313 REVIEW REMAINS OPEN",
-    "revision": "Photo-Punchlist-Edition-20261018-v1",
-    "sourceManifestSha256": "58c07b21191abbd19850a1adda491762a33f6dc6b8427532ed96b1178df46569",
-    "sourceIndexSha256": "7d2127902f593883c920a051af73bc66fadec10127349fef23a6a153e6327c7f",
+    "releaseStatus": "EIGHT OWNER-APPROVED TARGETED PHOTOS; OWNER57/313 REVIEW REMAINS OPEN",
+    "revision": "Targeted-Photo-Edition-20261018-v2",
+    "sourceManifestSha256": "f1ea812568e3cfcf43d1bad276fe0b3983425cab76ead942877f4624da2972ec",
+    "sourceIndexSha256": "13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0",
     "artifacts": 172,
     "assets": 172,
-    "photographs": 84,
-    "videoStills": 88,
+    "photographs": 89,
+    "videoStills": 83,
     "galleryPosition": "last",
     "physicalPhotographySeparate": true,
     "subjectRule": "Best verified correctly matched available image on every artifact; documentary source limits remain candid. Brad identifiable when he played; documented ceremonial/DNP context preserved.",
@@ -28,8 +28,8 @@
       ]
     },
     "rightsMetadataCorrections": [],
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Photo-Punchlist-Edition-20261018-v1/Exhibit63-Blurb-Large-Landscape-Pages-Photo-Punchlist-Edition-October18-2026-v1.pdf",
-    "bookSha256": "9d88c2e33aae5c9e443b7fd155b7e1baf73feaa99bd24b4bcd3fa8fab25abc69",
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
+    "bookSha256": "18a6c050e8144830abf7e13c845cbb4f5a6b7f874842bcadd67b860b5c3a64ba",
     "bookPages": 236,
     "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Perfectionist-Review-236pages-20261017-v1/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Perfectionist-Review-October17-2026-v1.pdf",
     "coverSha256": "878ccd583ab34a395368179d0134420cc96b4f0596bd5ac90edc82f1efa52cc9",
@@ -45,21 +45,25 @@
       }
     ],
     "changedNativeImages": [
-      4,
-      10,
-      333,
-      502,
-      510
+      2,
+      36,
+      56,
+      303,
+      305,
+      506,
+      601,
+      702
     ],
     "retainedNativeImages": [
       1,
-      2,
       3,
+      4,
       5,
       6,
       7,
       8,
       9,
+      10,
       11,
       12,
       13,
@@ -85,7 +89,6 @@
       33,
       34,
       35,
-      36,
       37,
       38,
       39,
@@ -104,7 +107,6 @@
       53,
       54,
       55,
-      56,
       57,
       58,
       59,
@@ -128,9 +130,7 @@
       77,
       301,
       302,
-      303,
       304,
-      305,
       306,
       307,
       308,
@@ -158,6 +158,7 @@
       330,
       331,
       332,
+      333,
       334,
       335,
       336,
@@ -168,15 +169,15 @@
       341,
       342,
       501,
+      502,
       503,
       504,
       505,
-      506,
       507,
       508,
       509,
+      510,
       600,
-      601,
       602,
       603,
       604,
@@ -204,7 +205,6 @@
       626,
       700,
       701,
-      702,
       703,
       704,
       705,
@@ -220,9 +220,9 @@
       716,
       717
     ],
-    "delivery": "167 current served image pairs retained byte-for-byte with identical URLs/dimensions/captions/credits; five exact-native full PNG replacements plus proportional320px WebP thumbnails; no restorations.",
+    "delivery": "164 complete asset and mapping objects and served pairs preserved exactly; eight exact-native PNG fulls and320px thumbnails. All172 selected singular LAST;0withheld.",
     "sourceLimits": [
-      "Five documented weak images replaced with materially clearer, visible-Brad images after source/visual/native checks. Honest same-game interview/action context is labeled. Other documentary-source qualifications remain recorded; no blanket claim that all172 are exceptional.",
+      "Eight owner-approved exact-game, no-paid-image replacements. Native source pixels and ICC preserved by exact crops. No synthetic detail or watermark removal. Existing source softness and owner association qualifications remain; no blanket all172 exceptional claim.",
       "Owner association57/313 remains open; no assertion of172 unique physical pucks.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
@@ -341,6 +341,23 @@
           "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Game photo media reconciliation 2026-10-18-v1.json",
           "sha256": "fb09a4a932caad9d603611d5ce1131c61a86e759a47b2982f2ca85c47f0b919a"
         }
+      },
+      {
+        "revision": "Photo-Punchlist-Edition-20261018-v1",
+        "sourceIndexSha256": "7d2127902f593883c920a051af73bc66fadec10127349fef23a6a153e6327c7f",
+        "sourceManifestSha256": "58c07b21191abbd19850a1adda491762a33f6dc6b8427532ed96b1178df46569",
+        "bookSha256": "9d88c2e33aae5c9e443b7fd155b7e1baf73feaa99bd24b4bcd3fa8fab25abc69",
+        "registration": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
+          "sha256": "444a38a1f50180cee484e379ab31cf03e517dd4d1d261a56545ff6afc0a6a550"
+        },
+        "changedNativeImages": [
+          4,
+          10,
+          333,
+          502,
+          510
+        ]
       }
     ],
     "uniqueGames": 129,
@@ -356,23 +373,23 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
       "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
     },
-    "sourceHandoffSha256": "6b9897c9bfc7058cb172342ab7a6536a7a645d8217cd6c39fc211cf0cc8edb59",
+    "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5",
     "parentMediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Game photo media reconciliation 2026-10-18-v1.json",
-      "sha256": "fb09a4a932caad9d603611d5ce1131c61a86e759a47b2982f2ca85c47f0b919a"
-    },
-    "parentMediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
-      "sha256": "66297cd998404bdf567464d6f74849eaada10cff200d4d2820c8f4dba33d511d"
-    },
-    "registrationStatus": "REGISTERED; DATA/MEDIA VERIFIED; NATIVE EXCEL PASS; OWNER REVIEW57/313",
-    "mediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
       "sha256": "444a38a1f50180cee484e379ab31cf03e517dd4d1d261a56545ff6afc0a6a550"
     },
-    "mediaRegistryAtRegistration": {
+    "parentMediaRegistryAtRegistration": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
       "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
+    },
+    "registrationStatus": "REGISTERED; LOCAL DATA/MEDIA VERIFIED; NATIVE EXCEL PASS; WEBSITE SYNCHRONIZATION PENDING",
+    "mediaRegistrationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
+      "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
+    },
+    "mediaRegistryAtRegistration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
+      "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
     }
   },
   "artifacts": {
@@ -394,7 +411,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Back of Brad helmet dominates; no face, eyes, smile or gesture visible. Correct huddle is emotionally anonymous."
+      "selectionReason": "Postgame interview after January2 win; no goal celebration claim."
     },
     "goal-3": {
       "inventoryId": 3,
@@ -734,7 +751,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Colorado27 is foreground hero; Brad partially hidden behind him in ordinary action. Little emotion or strong goal moment."
+      "selectionReason": "Pregame portrait, January8 Denver."
     },
     "goal-37": {
       "inventoryId": 37,
@@ -924,7 +941,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Rear huddle of helmets/sticks; Brad name/number visible but no face. Generic pile rather than emotional moment."
+      "selectionReason": "Featured first-period power-play goal bench celebration, Game4 April23."
     },
     "goal-57": {
       "inventoryId": 57,
@@ -1164,7 +1181,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Readable Brad profile after his tying goal; neutral expression and modest source softness. Retain while testing earlier whole-glove celebration frames."
+      "selectionReason": "Same-game FIRST-period goal celebration. The artifact899th point is from his SECOND goal; do not conflate the photo with the milestone moment."
     },
     "milestone-304": {
       "inventoryId": 304,
@@ -1184,7 +1201,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Clear frontal smiling expression and no McAvoy blocking his face. Authentic broadcast motion softness remains; earlier42.0 is less blurred than previously rejected42.25, still an explicit source-quality tradeoff, for parent visual judgment."
+      "selectionReason": "900th career point celebration with DeBrusk and McAvoy, January13."
     },
     "milestone-306": {
       "inventoryId": 306,
@@ -1614,7 +1631,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Correct Philadelphia celebration; Brad63 rear surrounded by Coyle/DeBrusk. Documentary fallback."
+      "selectionReason": "April9,2023 postgame celebration of record63rd win, BradandSwayman, crop[1500,125,2310,990]810x865. Photographernotnamed; sourceBostonBruins/NHL."
     },
     "history-507": {
       "inventoryId": 507,
@@ -1674,7 +1691,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Sharp professional Tampa Game2 confrontation; Brad63 back and partial profile facing Kucherov. Clear documentary action rather than joy."
+      "selectionReason": "Game2 action context. Puck remains warm-up classification; photo is not claimed to show warm-up."
     },
     "repeat-602": {
       "inventoryId": 602,
@@ -1954,7 +1971,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Correct NewJersey goal hug, Brad mostly obscured by Pastrnak88. Source action/context fallback."
+      "selectionReason": "Shootout-win celebration. HFC warm-up puck classification unchanged; do not describe as his regulation-goal celebration."
     },
     "hfc-703": {
       "inventoryId": 703,
@@ -2175,16 +2192,25 @@
     "2017020603-a2-publishing": {
       "assetId": "2017020603-a2-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2017020603-a2-publishing/game.webp?v=adf110a94862",
-      "thumbnailUrl": "images/marchand-games/2017020603-a2-publishing/game-thumb.webp?v=c3cc996454b3",
+      "displaySelected": true,
+      "label": "POSTGAME INTERVIEW / JANUARY 2, 2018",
+      "displayLabel": "POSTGAME INTERVIEW / JANUARY 2, 2018",
       "rotation": 0,
-      "caption": "Marchand joins the goal celebration against the Islanders.",
-      "originalCaption": "Marchand joins the goal celebration against the Islanders.",
-      "credit": "Video still: NHL / YouTube",
-      "sourceUrl": "https://www.youtube.com/watch?v=4SY1klZ1m1I",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
+      "url": "images/marchand-games/targeted-v2-20261018-a2/game.png?v=5aa292bde860",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a2/game-thumb.webp?v=c963995d72aa",
+      "width": 1020,
+      "height": 620,
+      "sha256": "5aa292bde86070f842a673816f8e8b937959017704abb22e9d0c1657c1d2d982",
+      "bytes": 359230,
+      "thumbnailSha256": "c963995d72aa117612eef680b49ce6f54775606b559280be5c4a932bd0f48fed",
+      "thumbnailBytes": 6944,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand speaks after Boston’s 5–1 win over the Islanders in Brooklyn.",
+      "originalCaption": "Marchand speaks after Boston’s 5–1 win over the Islanders in Brooklyn.",
+      "credit": "Video still: Boston Bruins / X",
+      "sourceUrl": "https://x.com/NHLBruins/status/948566442953363457",
+      "sourceImageUrl": "",
       "imageKind": "video_still",
       "photoDate": "2018-01-02",
       "gameId": "2017020603",
@@ -2192,90 +2218,88 @@
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2017020603/boxscore",
-      "relationNote": "Brad visually identified in the actual footage; game opponents, scoreboard/period, goal sequence or dated official postgame report verified. Other featured Bruins/Panthers are in a goal celebration. Broadcast graphics are preserved.",
-      "videoSource": {
-        "provider": "youtube",
-        "id": "4SY1klZ1m1I",
-        "url": "https://www.youtube.com/watch?v=4SY1klZ1m1I",
-        "artifacts": [
-          2
-        ],
-        "title": "01/02/18 Condensed Game: Bruins @ Islanders",
-        "playbackStatus": "OK",
-        "embeddingAllowed": true,
-        "method": "Public playback status and explicit playableInEmbed permission",
-        "status": "pass",
-        "game_id": "2017020603",
-        "clip_id": "4SY1klZ1m1I",
-        "width": 1280,
-        "height": 720,
-        "ext": "mp4",
-        "duration": 525,
-        "uploader": "NHL",
-        "webpage_url": "https://www.youtube.com/watch?v=4SY1klZ1m1I",
-        "local_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-photo-correction-20261017/clips/youtube-4SY1klZ1m1I.mp4",
-        "local_video": "RESEARCH/original-clips/90f8fd58240cf628--youtube-4SY1klZ1m1I.mp4",
-        "seconds": 400.5,
-        "source_url": "https://www.youtube.com/watch?v=4SY1klZ1m1I",
-        "origin_group": "youtube",
-        "original_video_sha256": "90f8fd58240cf62874d497924936ca13f4a9f3d5b32fe57ee6282c08ceabd22e",
-        "selected_frame_seconds": 400.5,
-        "frame_extraction": "ffmpeg -ss TIME -i ORIGINAL -frames:v 1 OUTPUT.png; native decoded dimensions, no crop, resize, enhancement or generative changes"
-      },
+      "relationNote": "Postgame interview after January2 win; no goal celebration claim.",
+      "context": "Postgame interview after January2 win; no goal celebration claim.",
+      "license": "Copyrighted source video",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": false,
       "nativeAssetPath": "assets/2017020603-a2-publishing/game-image.png",
-      "nativeSha256": "fd635158c48dd54fd81a741597606f4496ac8190c28e66b93fae510c6c78256b",
-      "nativeWidth": 973,
-      "nativeHeight": 720,
-      "width": 973,
-      "height": 720,
-      "sha256": "adf110a9486273fd031d04b54c96f24ceb7fced0cacef3fc13fcbee766af8ef5",
-      "bytes": 66064,
-      "thumbnailSha256": "c3cc996454b304f56cd467fbe041e63fed855fc631dd7c0966d97afafc08aaa7",
-      "thumbnailBytes": 12222,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "5aa292bde86070f842a673816f8e8b937959017704abb22e9d0c1657c1d2d982",
+      "nativeWidth": 1020,
+      "nativeHeight": 620,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          307,
+          160,
           0,
-          1280,
-          720
-        ],
-        "crop_fraction": [
-          0.24,
-          0,
-          1,
-          1
+          1180,
+          620
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
       "originalAssetPath": "originals/2017020603-a2-publishing.png",
-      "originalAssetSha256": "4df8093c55b0f615c02bb2709599301b76b85038960a0a139da47ecfc6f160f9",
+      "originalAssetSha256": "7cfc93b30f2bf765a1472d894c1ce3e0b7c932dbb40d26bb6b8347a0dba4cae7",
       "originalWidth": 1280,
       "originalHeight": 720,
-      "criticalReview": {
-        "baseline_grade": "C",
-        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
-        "recommended_action": "seek_upgrade",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true,
-        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Restore the correctly matched available source under complete-coverage preference. Back of Brad helmet dominates; no face, eyes, smile or gesture visible. Correct huddle is emotionally anonymous.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 2,
+          "page": 9,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Actual face clearly recognizable; neutral speaking profile. Original upper-hairline camera crop and modest video compression remain honestly accepted. Caption and sourcecredit clean and fully readable."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Replaces back-facing huddle with clearly visible, naturally sharp Brad face from the verified exact-game postgame interview. Neutral expression and source-clipped upper hair retained honestly; no synthesized detail.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": "Clear same-game postgame portrait. Neutral expression; slight source clipping of upper hair.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      },
+      "videoSource": {
+        "local_video": "RESEARCH/original-clips/d297bbc16e09e44e--948566442953363457-native720.mp4",
+        "original_video_sha256": "d297bbc16e09e44e712d7db53d0a933d574e67fb95e2bf5241d0f1ebec00b39e",
+        "selected_frame_seconds": 50.0,
+        "provider": "X / Boston Bruins",
+        "clip_id": "948457916356423681",
+        "title": "Boston Bruins - “I’m just impressed by the way everyone is contributing. One night it...",
+        "url": "https://x.com/NHLBruins/status/948566442953363457",
+        "upload_date": "20180103",
+        "source_game_date": "2018-01-02",
+        "width": 1280,
+        "height": 720,
+        "status_id": "948566442953363457",
+        "embedded_video_id": "948457916356423681",
+        "seconds": 50.0,
+        "game_id": "2017020603",
+        "game_date": "2018-01-02",
+        "source_url": "https://x.com/NHLBruins/status/948566442953363457"
+      }
     },
     "2017020696-a3-publishing": {
       "assetId": "2017020696-a3-publishing",
@@ -5446,17 +5470,25 @@
     "2023020624-a36-publishing": {
       "assetId": "2023020624-a36-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/2023020624-a36-publishing/game.webp?v=112ae9fee483",
-      "thumbnailUrl": "images/marchand-games/2023020624-a36-publishing/game-thumb.webp?v=a73c14956613",
+      "displaySelected": true,
+      "label": "PREGAME / JAN 8, 2024",
+      "displayLabel": "PREGAME / JAN 8, 2024",
       "rotation": 0,
-      "caption": "Marchand in this game.",
-      "originalCaption": "Marchand in this game.",
-      "credit": "David Zalubowski / AP",
-      "sourceUrl": "https://www.pressherald.com/2024/01/09/avalanche-get-lone-goal-in-shootout-to-top-bruins/",
-      "sourceImageUrl": "https://www.pressherald.com/wp-content/uploads/sites/4/2024/01/AP24009104121239-1704778749.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photo. Included for the owner-authorized single private collection book. Public website publication rights are not established by this handoff.",
+      "url": "images/marchand-games/targeted-v2-20261018-a36/game.png?v=84293b44fa2d",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a36/game-thumb.webp?v=e57ff54002d3",
+      "width": 2900,
+      "height": 2450,
+      "sha256": "84293b44fa2db3414ea166c2c66b8d26c50ede90b5f63b3a0371a81069677133",
+      "bytes": 10646465,
+      "thumbnailSha256": "e57ff54002d3656b46f17d8669b7a364fbdb9a47af8fef028c2cd949ba97d3fc",
+      "thumbnailBytes": 20270,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand before the January 8 game in Denver.",
+      "originalCaption": "Marchand before the January 8 game in Denver.",
+      "credit": "Isaiah J. Downing / USA TODAY Sports via Reuters",
+      "sourceUrl": "https://www.therinklive.com/nhl/valeri-nichushkin-lifts-avs-over-bruins-in-shootout",
+      "sourceImageUrl": "https://forum-communications-production-web.s3.us-west-2.amazonaws.com/brightspot/de/7c/187a237e8a4ddaf869b78477f536/tag-reuters.com,2024:binary_MTZXEK19Z10MXW-FILEDIMAGE",
       "imageKind": "photograph",
       "photoDate": "2024-01-08",
       "gameId": "2023020624",
@@ -5464,58 +5496,69 @@
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2023020624/boxscore",
-      "relationNote": "featured",
-      "nativeAssetPath": "assets/2023020624-a36-publishing/game-image.jpg",
-      "nativeSha256": "ebf1e8931c93eed0a019f9afe3c3d812c686167ec18fa5eaa8d24ea8792bc62f",
-      "nativeWidth": 1200,
-      "nativeHeight": 856,
-      "width": 1200,
-      "height": 856,
-      "sha256": "112ae9fee483a57f9e77ae2be5c7f1ca120c9fb4e00095d5485c4f051a2132c2",
-      "bytes": 200400,
-      "thumbnailSha256": "a73c14956613a1b243f0c9e242570641a3f85480275ca5960f43b8eed441885e",
-      "thumbnailBytes": 21054,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "relationNote": "Pregame portrait, January8 Denver.",
+      "context": "Pregame portrait, January8 Denver.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": true,
+      "nativeAssetPath": "assets/2023020624-a36-publishing/game-image.png",
+      "nativeSha256": "84293b44fa2db3414ea166c2c66b8d26c50ede90b5f63b3a0371a81069677133",
+      "nativeWidth": 2900,
+      "nativeHeight": 2450,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
-        "method": "unchanged_native_file",
+        "method": "exact_native_pixel_crop",
+        "crop_box": [
+          850,
+          100,
+          3750,
+          2550
+        ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true,
-        "crop_box": [
-          0,
-          0,
-          1200,
-          856
-        ]
+        "decoded_pixel_equality_verified": true
       },
       "originalAssetPath": "originals/2023020624-a36-publishing.jpg",
-      "originalAssetSha256": "ebf1e8931c93eed0a019f9afe3c3d812c686167ec18fa5eaa8d24ea8792bc62f",
-      "originalWidth": 1200,
-      "originalHeight": 856,
-      "criticalReview": {
-        "baseline_grade": "C",
-        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
-        "recommended_action": "seek_upgrade",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true,
-        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Restore the correctly matched available source under complete-coverage preference. Colorado27 is foreground hero; Brad partially hidden behind him in ordinary action. Little emotion or strong goal moment.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetSha256": "4be2801081e6dee9fa3d96e142c0c002b8d9225e33ae91df5949f74ee15699c4",
+      "originalWidth": 4772,
+      "originalHeight": 3181,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true,
-      "sourceEmbeddedCaption": "Colorado Avalanche left wing Jonathan Drouin (27) collects the puck as Boston Bruins left wing Brad Marchand (63) pursues in the first period of an NHL hockey game Monday, Jan. 8, 2024, in Denver. (AP Photo/David Zalubowski)",
-      "sourceEmbeddedCredit": "David Zalubowski",
-      "sourceEmbeddedCopyright": "Copyright 2024 The Associated Press. All rights reserved."
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 36,
+          "page": 45,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Full helmet63, face/eyes and captainC clear; sharp focused pregame portrait. Fullpage scale balanced; caption correctly PREGAME, no goal claim."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Materially sharper, unobstructed recognizable face/eyes and whole helmet; professional pregame portrait replaces Drouin-dominated action.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": "Sharp, unobstructed pregame portrait from the Colorado game.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2023020624-a37-publishing": {
       "assetId": "2023020624-a37-publishing",
@@ -7225,86 +7268,99 @@
     "2022030114-a56-publishing": {
       "assetId": "2022030114-a56-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2022030114-a56-publishing/game.webp?v=81e97103d1d2",
-      "thumbnailUrl": "images/marchand-games/2022030114-a56-publishing/game-thumb.webp?v=e182f568eef9",
+      "displaySelected": true,
+      "label": "GOAL CELEBRATION / APR 23, 2023",
+      "displayLabel": "GOAL CELEBRATION / APR 23, 2023",
       "rotation": 0,
-      "caption": "Marchand raises his arms after his power-play goal in Game 4.",
-      "originalCaption": "Marchand raises his arms after his power-play goal in Game 4.",
-      "credit": "Game video still / NHL.com",
-      "sourceUrl": "https://www.nhl.com/video/c-6335752983112",
-      "sourceImageUrl": "",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/targeted-v2-20261018-a56/game.png?v=8c740253e3f3",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a56/game-thumb.webp?v=ee9e04a17470",
+      "width": 810,
+      "height": 630,
+      "sha256": "8c740253e3f3555f9c42b21b9ca69d5d70bd5128ac8eb37bc8570ca5c19be5bd",
+      "bytes": 717849,
+      "thumbnailSha256": "ee9e04a17470e4e6d249ab9b6c37a5e449cf8d5a9f1a8afe21faa5a7105222a4",
+      "thumbnailBytes": 20026,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand exchanges fist bumps with the Bruins bench after his first-period power-play goal in Game 4.",
+      "originalCaption": "Marchand exchanges fist bumps with the Bruins bench after his first-period power-play goal in Game 4.",
+      "credit": "Eliot J. Schechter / NHLI via Getty Images",
+      "sourceUrl": "https://www.cbsnews.com/boston/news/brad-marchand-live-microphones-benches-during-nhl-games/",
+      "sourceImageUrl": "https://assets3.cbsnewsstatic.com/hub/i/r/2023/04/24/292d4fa1-2d9e-43db-9d74-2cfa6426420d/thumbnail/1200x630g2/37d40fcea6e65698ddff52b0f98fef36/gettyimages-1252122498.jpg",
+      "imageKind": "photograph",
       "photoDate": "2023-04-23",
       "gameId": "2022030114",
       "bradPlayed": true,
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2022030114/boxscore",
-      "relationNote": "Replace DeBrusk/Foligno image without Brad; Marchand63 raises his arms in his own power-play goal celebration.",
-      "videoSource": {
-        "clip_id": "6335752983112",
-        "title": "Marchand's power-play goal",
-        "local_video": "RESEARCH/original-clips/911a441ba3cc4b9c--6335752983112.mp4",
-        "native_height": 720,
-        "source_url": "https://www.nhl.com/video/c-6335752983112",
-        "hls_source": "https://hlslive-wsczoominwestus.med.nhl.com/publish-hls/new/10908386/MasterWired60.m3u8",
-        "hls_variant": "https://hlslive-wsczoominwestus.med.nhl.com/publish-hls/new/10908386/18375731/game.m3u8",
-        "provider": "nhl",
-        "selected_frame_seconds": 17.0,
-        "status": "downloaded",
-        "frame_extraction": "Native ffmpeg decoded frame; exact pixel crop only. No resize, synthesis or retouching.",
-        "original_video_sha256": "911a441ba3cc4b9cdfdad00349afe86f126321c427f92d6040a5c2ac003d6df0",
-        "seconds": 17.0
-      },
+      "relationNote": "Featured first-period power-play goal bench celebration, Game4 April23.",
+      "context": "Featured first-period power-play goal bench celebration, Game4 April23.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2022030114-a56-publishing/game-image.png",
-      "nativeSha256": "f502532a556652009412da1ca5ecfec8ae43f134acc8495579f918f994ac36d2",
-      "nativeWidth": 835,
-      "nativeHeight": 660,
-      "width": 835,
-      "height": 660,
-      "sha256": "81e97103d1d2ff3b0a340fc40bf26b555f2cde4693414e247c8c501c9ea74b9c",
-      "bytes": 53312,
-      "thumbnailSha256": "e182f568eef9ae906d537e6031e968383a346ab8a80e9ee9cde0a880fad964dc",
-      "thumbnailBytes": 13632,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "8c740253e3f3555f9c42b21b9ca69d5d70bd5128ac8eb37bc8570ca5c19be5bd",
+      "nativeWidth": 810,
+      "nativeHeight": 630,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          345,
+          275,
           0,
-          1180,
-          660
+          1085,
+          630
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
-      "originalAssetPath": "originals/2022030114-a56-publishing.png",
-      "originalAssetSha256": "ebb64a294cd11346957f5cd293d44649e3813bfd73f8fed32c3af3d877c5a606",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Replace DeBrusk/Foligno image without Brad; Marchand63 raises his arms in his own power-play goal celebration.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Restore the correctly matched available source under complete-coverage preference. Rear huddle of helmets/sticks; Brad name/number visible but no face. Generic pile rather than emotional moment.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2022030114-a56-publishing.jpg",
+      "originalAssetSha256": "3a42d5da557cfc77dd4a5b56e04fecbcf8d951dc516de92d780d39c18a851c9b",
+      "originalWidth": 1200,
+      "originalHeight": 630,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 56,
+          "page": 64,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Front-facing Brad and bench fist-bump gesture clear. Whole helmet/face preserved; caption accurately identifies featured first-period Game4 goal. Original published derivative resolution retained."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Materially clearer recognizable Brad face/eyes with actual featured-goal bench acknowledgment, replacing rear-facing soft huddle. Genuine sharp professional photograph; no invented emotion or details.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": [
+        "Clean1200x630native published CBS image, not full camera-resolution original.",
+        "Expression is focused with slightly open mouth, not a broad grin. Actual fist-bump celebration is visible.",
+        "Copyrighted editorial photograph; publicly published clean copy requires no acquisition payment; no broader reuse licence asserted."
+      ],
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2024020086-a57-publishing": {
       "assetId": "2024020086-a57-publishing",
@@ -9445,166 +9501,95 @@
     "2023020624-a303-publishing": {
       "assetId": "2023020624-a303-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2023020624-a303-publishing/game.webp?v=a0d70c3b5b00",
-      "thumbnailUrl": "images/marchand-games/2023020624-a303-publishing/game-thumb.webp?v=4b93ab715a34",
+      "displaySelected": true,
+      "label": "FIRST-PERIOD CELEBRATION / JAN 8, 2024",
+      "displayLabel": "FIRST-PERIOD CELEBRATION / JAN 8, 2024",
       "rotation": 0,
-      "caption": "Marchand after his game-tying goal in Colorado.",
-      "originalCaption": "Marchand after his game-tying goal in Colorado.",
-      "credit": "Video still: NHL / game broadcast",
-      "sourceUrl": "https://www.nhl.com/video/c-6344519723112",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/targeted-v2-20261018-a303/game.png?v=1f97ba22a4fc",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a303/game-thumb.webp?v=cc1ec0bd7664",
+      "width": 2130,
+      "height": 2130,
+      "sha256": "1f97ba22a4fcd14495fbd1b062548984880bc1e262ed5ccb1aae50ca21a9690f",
+      "bytes": 6528147,
+      "thumbnailSha256": "cc1ec0bd76643474ac2fda946067cb105a45a72d69b43c25abdc72ea734cd326",
+      "thumbnailBytes": 27280,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates his first-period goal with teammates in the same game.",
+      "originalCaption": "Marchand celebrates his first-period goal with teammates in the same game.",
+      "credit": "Isaiah J. Downing / USA TODAY Sports via Reuters",
+      "sourceUrl": "https://www.therinklive.com/nhl/valeri-nichushkin-lifts-avs-over-bruins-in-shootout",
+      "sourceImageUrl": "https://forum-communications-production-web.s3.us-west-2.amazonaws.com/brightspot/52/b2/8957fbe0ca1a990532efc4c5d381/tag-reuters.com,2024:binary_MTZXEK19Z4W65X-FILEDIMAGE",
+      "imageKind": "photograph",
       "photoDate": "2024-01-08",
       "gameId": "2023020624",
       "bradPlayed": true,
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2023020624/boxscore",
-      "relationNote": "Distinct solo skate-away rather than repeating 37’s arms-spread moment. Exact game and Brad identity manually reviewed at native size.",
-      "videoSource": {
-        "clip_id": "6344519723112",
-        "game_id": "2023020624",
-        "game_date": "2024-01-08",
-        "artifact_ids": [
-          37,
-          303
-        ],
-        "goal": {
-          "situationCode": "1551",
-          "eventId": 915,
-          "strength": "ev",
-          "playerId": 8473419,
-          "firstName": {
-            "default": "Brad"
-          },
-          "lastName": {
-            "default": "Marchand"
-          },
-          "name": {
-            "default": "B. Marchand"
-          },
-          "teamAbbrev": {
-            "default": "BOS"
-          },
-          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/BOS/8473419.png",
-          "highlightClipSharingUrl": "https://nhl.com/video/bos-col-marchand-scores-goal-against-alexandar-georgiev-6344519723112",
-          "highlightClipSharingUrlFr": "https://nhl.com/fr/video/bos-col-marchand-scores-goal-against-alexandar-georgiev-6344521656112",
-          "highlightClip": 6344519723112,
-          "highlightClipFr": 6344521656112,
-          "goalsToDate": 17,
-          "goalInGame": 2,
-          "awayScore": 3,
-          "homeScore": 3,
-          "timeInPeriod": "05:46",
-          "shotType": "tip-in",
-          "goalModifier": "none",
-          "assists": [
-            {
-              "playerId": 8475745,
-              "firstName": {
-                "default": "Charlie"
-              },
-              "lastName": {
-                "default": "Coyle"
-              },
-              "name": {
-                "default": "C. Coyle"
-              },
-              "assistsToDate": 16,
-              "sweaterNumber": 13
-            },
-            {
-              "playerId": 8476891,
-              "firstName": {
-                "default": "Matt"
-              },
-              "lastName": {
-                "default": "Grzelcyk"
-              },
-              "name": {
-                "default": "M. Grzelcyk"
-              },
-              "assistsToDate": 4,
-              "sweaterNumber": 48
-            }
-          ],
-          "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020624/ev915.json",
-          "homeTeamDefendingSide": "right",
-          "isHome": false,
-          "period_number": 3
-        },
-        "exact_artifact_event_ids": [
-          37
-        ],
-        "title": "Marchand ties it up in 3rd",
-        "description": "BOS@COL: Marchand tips home his second goal of the game",
-        "created_at": "2024-01-09T04:20:43.068Z",
-        "duration": 41564,
-        "width": 1280,
-        "height": 720,
-        "local_video": "RESEARCH/original-clips/3cfcd446db14a8a5--6344519723112.mp4",
-        "bytes": 11173643,
-        "source_url": "https://www.nhl.com/video/c-6344519723112",
-        "status": "downloaded",
-        "selected_frame_seconds": 23.0,
-        "seconds": 23.0,
-        "original_video_sha256": "3cfcd446db14a8a54bd165f807c5d3f096c13021f60518c429e4859dccde3f73",
-        "frame_extraction": "Native ffmpeg decoded frame; exact PIL crop only, no resampling, retouching or synthesis"
-      },
+      "relationNote": "Same-game FIRST-period goal celebration. The artifact899th point is from his SECOND goal; do not conflate the photo with the milestone moment.",
+      "context": "Same-game FIRST-period goal celebration. The artifact899th point is from his SECOND goal; do not conflate the photo with the milestone moment.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2023020624-a303-publishing/game-image.png",
-      "nativeSha256": "506885d9070f25b000d3de7812fc8724961063b93330d5eaba56d0342ad1b9a1",
-      "nativeWidth": 998,
-      "nativeHeight": 720,
-      "width": 998,
-      "height": 720,
-      "sha256": "a0d70c3b5b00ace3f0efccac68bc11523b5511e2105c1a27a7580aba37cb1755",
-      "bytes": 47518,
-      "thumbnailSha256": "4b93ab715a341420f91748805aa4dd65ee1ce66d15f083580bf566b2642304b8",
-      "thumbnailBytes": 9866,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "1f97ba22a4fcd14495fbd1b062548984880bc1e262ed5ccb1aae50ca21a9690f",
+      "nativeWidth": 2130,
+      "nativeHeight": 2130,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          282,
-          0,
-          1280,
-          720
-        ],
-        "crop_fraction": [
-          0.22,
-          0,
-          1,
-          1
+          1400,
+          370,
+          3530,
+          2500
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
-      "originalAssetPath": "originals/2023020624-a303-publishing.png",
-      "originalAssetSha256": "49c204b9fe7505fe9293475ca9459cab17e636b99601cfe05f8e4708b7184932",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Distinct solo skate-away rather than repeating 37’s arms-spread moment.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Readable Brad profile after his tying goal; neutral expression and modest source softness. Retain while testing earlier whole-glove celebration frames.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2023020624-a303-publishing.jpg",
+      "originalAssetSha256": "44df790515d6670d247f5586ac260e1deb9a582b59f5ad908525bf58540ae8e7",
+      "originalWidth": 4412,
+      "originalHeight": 2944,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 303,
+          "page": 90,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Brad face/visor and natural helmetpat visible between Pastrnak/Lindholm. FIRST-PERIOD same-game legend explicitly avoids assigning photo to second-goal899th-point moment. Long credit wraps/reads cleanly."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Sharper frontal face during genuine teammate celebration. Different underlying photograph and moment from37. This is first goal, NOT the second-goal899th-point moment; same-game context must remain explicit.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": "First-period celebration in the same game; the 899th point came on his second goal.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2023020667-a304-publishing": {
       "assetId": "2023020667-a304-publishing",
@@ -9676,180 +9661,95 @@
     "2023020667-a305-publishing": {
       "assetId": "2023020667-a305-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/complete-20261018-a305/game.png?v=e40e6621e98d",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a305/game-thumb.webp?v=5e30c9c1e44b",
+      "displaySelected": true,
+      "label": "900TH CAREER POINT / JAN 13, 2024",
+      "displayLabel": "900TH CAREER POINT / JAN 13, 2024",
       "rotation": 0,
-      "caption": "Marchand reacts after his second goal in St. Louis.",
-      "originalCaption": "Marchand reacts after his second goal in St. Louis.",
-      "credit": "Game video still / NHL.com",
-      "sourceUrl": "https://www.nhl.com/video/c-6344863560112",
-      "license": "Copyrighted broadcast",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/targeted-v2-20261018-a305/game.png?v=06e5f6671415",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a305/game-thumb.webp?v=5f2d5058f741",
+      "width": 4950,
+      "height": 3520,
+      "sha256": "06e5f66714155113d3702a348a7126636d8135251755a57aacb3799b65c752da",
+      "bytes": 21280245,
+      "thumbnailSha256": "5f2d5058f7414f3dfe802668a343f697a4f5bf8edc1f9e79fc29d5b130e69063",
+      "thumbnailBytes": 23270,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates his 900th career point with Jake DeBrusk and Charlie McAvoy.",
+      "originalCaption": "Marchand celebrates his 900th career point with Jake DeBrusk and Charlie McAvoy.",
+      "credit": "Jeff Curry / USA TODAY Sports via Reuters",
+      "sourceUrl": "https://www.therinklive.com/nhl/charlie-mcavoy-nets-ot-winner-as-bruins-knock-off-blues",
+      "sourceImageUrl": "https://forum-communications-production-web.s3.us-west-2.amazonaws.com/brightspot/07/54/d4f1e8f66055841555e4ce5954e7/tag-reuters.com,2024:binary_MTZXEK1E8B10TU-FILEDIMAGE",
+      "imageKind": "photograph",
       "photoDate": "2024-01-13",
       "gameId": "2023020667",
       "bradPlayed": true,
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2023020667/boxscore",
-      "relationNote": "Clear frontal smiling expression and no McAvoy blocking his face. Authentic broadcast motion softness remains; earlier42.0 is less blurred than previously rejected42.25, still an explicit source-quality tradeoff, for parent visual judgment.",
-      "videoSource": {
-        "clip_id": "6344863560112",
-        "game_id": "2023020667",
-        "game_date": "2024-01-13",
-        "artifact_ids": [
-          304,
-          305
-        ],
-        "goal": {
-          "situationCode": "1531",
-          "eventId": 915,
-          "strength": "pp",
-          "playerId": 8473419,
-          "firstName": {
-            "default": "Brad"
-          },
-          "lastName": {
-            "default": "Marchand"
-          },
-          "name": {
-            "default": "B. Marchand"
-          },
-          "teamAbbrev": {
-            "default": "BOS"
-          },
-          "headshot": "https://assets.nhle.com/mugs/nhl/20232024/BOS/8473419.png",
-          "highlightClipSharingUrl": "https://nhl.com/video/bos-stl-marchand-scores-goal-against-jordan-binnington-6344863560112",
-          "highlightClip": 6344863560112,
-          "goalsToDate": 19,
-          "goalInGame": 2,
-          "awayScore": 3,
-          "homeScore": 2,
-          "leadingTeamAbbrev": {
-            "default": "BOS"
-          },
-          "timeInPeriod": "07:43",
-          "shotType": "snap",
-          "goalModifier": "none",
-          "assists": [
-            {
-              "playerId": 8477956,
-              "firstName": {
-                "default": "David"
-              },
-              "lastName": {
-                "default": "Pastrnak",
-                "cs": "Pastrňák",
-                "sk": "Pastrňák"
-              },
-              "name": {
-                "default": "D. Pastrnak",
-                "cs": "D. Pastrňák",
-                "sk": "D. Pastrňák"
-              },
-              "assistsToDate": 33,
-              "sweaterNumber": 88
-            },
-            {
-              "playerId": 8474037,
-              "firstName": {
-                "default": "James"
-              },
-              "lastName": {
-                "default": "van Riemsdyk"
-              },
-              "name": {
-                "default": "J. van Riemsdyk"
-              },
-              "assistsToDate": 20,
-              "sweaterNumber": 21
-            }
-          ],
-          "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020667/ev915.json",
-          "homeTeamDefendingSide": "left",
-          "isHome": false,
-          "period_number": 3
-        },
-        "exact_artifact_event_ids": [],
-        "title": "Marchand takes lead with PPG",
-        "description": "BOS@STL: Marchand nets his second goal of game with PPG",
-        "created_at": "2024-01-14T03:17:16.480Z",
-        "duration": 47160,
-        "width": 1280,
-        "height": 720,
-        "local_video": "RESEARCH/original-clips/b8aebcef536b3889--6344863560112.mp4",
-        "bytes": 12776989,
-        "source_url": "https://www.nhl.com/video/c-6344863560112",
-        "status": "downloaded",
-        "selected_frame_seconds": 42.0,
-        "seconds": 42.0,
-        "original_video_sha256": "b8aebcef536b388981bf670d79f5295b02cee4fa11b4386cd521955ddb132a20",
-        "frame_extraction": "Native ffmpeg decoded frame; exact pixel crop only, no resampling, enhancement, synthesis or retouching.",
-        "source_clip_sha256_reverified": true,
-        "fps": 59.94,
-        "reproduction_command_argv": [
-          "/private/tmp/exhibit63-media-tools/imageio_ffmpeg/binaries/ffmpeg-macos-aarch64-v7.1",
-          "-loglevel",
-          "error",
-          "-ss",
-          "42.0",
-          "-i",
-          "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Expressive-Photo-Edit-20261017-v1/RESEARCH/original-clips/6344863560112.mp4",
-          "-frames:v",
-          "1",
-          "FRAME.png"
-        ],
-        "crop_reproduction": "PIL.Image.open(FRAME).crop(crop_box), no resampling. Preserve source color profile if present."
-      },
+      "relationNote": "900th career point celebration with DeBrusk and McAvoy, January13.",
+      "context": "900th career point celebration with DeBrusk and McAvoy, January13.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2023020667-a305-publishing/game-image.png",
-      "nativeSha256": "e40e6621e98d14507c3b5ef654619d513e462afdcef2b3a745caf9b418d7df34",
-      "nativeWidth": 750,
-      "nativeHeight": 655,
-      "width": 750,
-      "height": 655,
-      "sha256": "e40e6621e98d14507c3b5ef654619d513e462afdcef2b3a745caf9b418d7df34",
-      "bytes": 274796,
-      "thumbnailSha256": "5e30c9c1e44b600e1ce949915367a33e833e8615edbb06961ce0400cfb35d6eb",
-      "thumbnailBytes": 7754,
-      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "replaced_for_verified_moment_expression_or_clarity",
+      "nativeSha256": "06e5f66714155113d3702a348a7126636d8135251755a57aacb3799b65c752da",
+      "nativeWidth": 4950,
+      "nativeHeight": 3520,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          100,
-          65,
-          850,
-          720
+          950,
+          280,
+          5900,
+          3800
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
-      "originalAssetPath": "originals/2023020667-a305-publishing.png",
-      "originalAssetSha256": "7725a7e8f066789e9acf4d155067898ac85178fdf835960be0bfbb426ed9e1be",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "The later replay celebration gives a clearer Brad63 face and helmet beside McAvoy73, replacing the42.75s motion blur. No television graphics are visible. This second-goal huddle differs from38/304's first-goal raised-arm views.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Clear frontal smiling expression and no McAvoy blocking his face. Authentic broadcast motion softness remains; earlier42.0 is less blurred than previously rejected42.25, still an explicit source-quality tradeoff, for parent visual judgment.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2023020667-a305-publishing.jpg",
+      "originalAssetSha256": "09c2393414bb507e16bfb19b9f2a11e5d36b8e7e77434026b60e01b34596ca84",
+      "originalWidth": 6546,
+      "originalHeight": 4364,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "sourceImageUrl": "",
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 305,
+          "page": 92,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Three-player embrace shows animated Brad centrally with DeBrusk/McAvoy. All three helmets clear. Photo900th-point caption is correctly first-goal context; body separately explains latersecondgoal. No clipping or legendcollision."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Unobstructed frontal Brad at center, open mouth and genuine arm-around celebration with DeBrusk/McAvoy. Sharp professional original6546×4364; exactdate and FIRSTperiod goal established by originalIPTC. Canonical305 is BM63 Career Point900; official NHL/FLM game report confirms firstgoal provided900thpoint, so this photo matches the actual milestone. Different underlying photo/pose from38and304. Prior mistaken300throadgame rationale corrected after directcanonical read.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": "Front-facing 900th-point celebration with DeBrusk and McAvoy.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2023020710-a306-publishing": {
       "assetId": "2023020710-a306-publishing",
@@ -13586,101 +13486,95 @@
     "2022021273-a506-publishing": {
       "assetId": "2022021273-a506-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2022021273-a506-publishing/game.webp?v=c7b4572a22ed",
-      "thumbnailUrl": "images/marchand-games/2022021273-a506-publishing/game-thumb.webp?v=36b2bce3289d",
+      "displaySelected": true,
+      "label": "RECORD-SETTING WIN / APRIL 9, 2023",
+      "displayLabel": "RECORD-SETTING WIN / APRIL 9, 2023",
       "rotation": 0,
-      "caption": "Marchand joins Coyle's goal celebration.",
-      "originalCaption": "Marchand joins Coyle's goal celebration.",
-      "credit": "Video still: NHL.com",
-      "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335756132112",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/targeted-v2-20261018-a506/game.png?v=2a51d93ccf9e",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a506/game-thumb.webp?v=33a2a61101f2",
+      "width": 810,
+      "height": 865,
+      "sha256": "2a51d93ccf9e836256e5c9a0a9834c12f5d838d444e70c2430cf206819107edc",
+      "bytes": 870698,
+      "thumbnailSha256": "33a2a61101f2c220ba8cf3b52333065cca1db0698f30fab94a136dfc1b9d8163",
+      "thumbnailBytes": 23986,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates Boston’s record-setting 63rd win with Jeremy Swayman in Philadelphia.",
+      "originalCaption": "Marchand celebrates Boston’s record-setting 63rd win with Jeremy Swayman in Philadelphia.",
+      "credit": "Boston Bruins / NHL",
+      "sourceUrl": "https://www.nhl.com/bruins/news/brad-marchand-through-the-years",
+      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_ratio16_9-size40/dpr_3.0/f_auto/prd/gn6hmjurseqtonk2ligh.jpg",
+      "imageKind": "photograph",
       "photoDate": "2023-04-09",
       "gameId": "2022021273",
       "bradPlayed": true,
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2022021273/boxscore",
-      "relationNote": "Brad visually identified in the actual footage; game opponents, scoreboard/period, goal sequence or dated official postgame report verified. Other featured Bruins/Panthers are in a goal celebration. Broadcast graphics are preserved.",
-      "videoSource": {
-        "provider": "nhl",
-        "id": "6335756132112",
-        "url": "https://www.nhl.com/video/6335756132112",
-        "artifacts": [
-          506
-        ],
-        "title": "Coyle strikes first",
-        "mediaStatus": 200,
-        "method": "Public embedded-player policy, HLS master/media playlists and media segment",
-        "status": "pass",
-        "game_id": "2022021273",
-        "clip_id": "6335756132112",
-        "duration": 0,
-        "local_video": "RESEARCH/original-clips/e0abb967a0276f1b--6335756132112.mp4",
-        "hls_source": "https://hlslive-wsczoominwestus.med.nhl.com/publish-hls/new/10624469/MasterWired60.m3u8",
-        "native_height": 720,
-        "seconds": 15,
-        "origin_group": "first",
-        "original_video_sha256": "e0abb967a0276f1be76a02e439a840f47cfe98c9017032bd6fb8db8142282d7f",
-        "selected_frame_seconds": 15,
-        "frame_extraction": "ffmpeg -ss TIME -i ORIGINAL -frames:v 1 OUTPUT.png; native decoded dimensions, no crop, resize, enhancement or generative changes"
-      },
+      "relationNote": "April9,2023 postgame celebration of record63rd win, BradandSwayman, crop[1500,125,2310,990]810x865. Photographernotnamed; sourceBostonBruins/NHL.",
+      "context": "April9,2023 postgame celebration of record63rd win, BradandSwayman, crop[1500,125,2310,990]810x865. Photographernotnamed; sourceBostonBruins/NHL.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": false,
+      "photographerNote": "Photographer not named on the official publishing page or in acquired image metadata.",
       "nativeAssetPath": "assets/2022021273-a506-publishing/game-image.png",
-      "nativeSha256": "23e1cce869dd1b1948c126ead30473f1068b6b68cb5c7728e241ec919904ff3c",
-      "nativeWidth": 960,
-      "nativeHeight": 720,
-      "width": 960,
-      "height": 720,
-      "sha256": "c7b4572a22edb83daa05c4627d88b062f964b3768436dc09ac4736eecd23bb6f",
-      "bytes": 93606,
-      "thumbnailSha256": "36b2bce3289dd055b12e09d8616e4cf09825c96060fb201282f06817bcd2eb87",
-      "thumbnailBytes": 19522,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "2a51d93ccf9e836256e5c9a0a9834c12f5d838d444e70c2430cf206819107edc",
+      "nativeWidth": 810,
+      "nativeHeight": 865,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          320,
-          0,
-          1280,
-          720
-        ],
-        "crop_fraction": [
-          0.25,
-          0,
-          1,
-          1
+          1500,
+          125,
+          2310,
+          990
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
-      "originalAssetPath": "originals/2022021273-a506-publishing.png",
-      "originalAssetSha256": "a2b20254710d798b0a64f14067c692ff2eae76412cf87594a8c46a51b53c793d",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "baseline_grade": "C",
-        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
-        "recommended_action": "seek_upgrade",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true,
-        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Correct Philadelphia celebration; Brad63 rear surrounded by Coyle/DeBrusk. Documentary fallback.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2022021273-a506-publishing.jpg",
+      "originalAssetSha256": "ddb10bf7d7633bf4c87ecd7022fcacf77bc32fef8d8ce0d8aa569896069366e8",
+      "originalWidth": 2496,
+      "originalHeight": 1404,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 506,
+          "page": 137,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Actual upper-body portrait2a51 shows clear Brad profile/eyes, raised glove and completeSwaymanmask; meaningful postgame record-win context. Fullpage/panel clean. Original through-glass/compression softness preserved; publishing-sourcecredit only, no invented photographer."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Upper-body crop makes Brad face larger at actual book placement size; clear raised glove and Swayman mask remain. Slight published-source compression and profile remain visible.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2022021290-a507-publishing": {
       "assetId": "2022021290-a507-publishing",
@@ -14145,17 +14039,25 @@
     "2024030122-a601-publishing": {
       "assetId": "2024030122-a601-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/2024030122-a601-publishing/game.webp?v=5418a3ff083e",
-      "thumbnailUrl": "images/marchand-games/2024030122-a601-publishing/game-thumb.webp?v=e5e6038984fa",
+      "displaySelected": true,
+      "label": "GAME ACTION / APRIL 24, 2025",
+      "displayLabel": "GAME ACTION / APRIL 24, 2025",
       "rotation": 0,
-      "caption": "Marchand in this game.",
-      "originalCaption": "Marchand in this game.",
-      "credit": "Chris O'Meara / AP",
-      "sourceUrl": "https://www.clickorlando.com/sports/2025/04/25/schmidt-scores-again-bobrovsky-has-19-saves-as-panthers-beat-lightning-2-0-for-2-0-series-lead/",
-      "sourceImageUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/gmg/JGTSBJQLT5D3NGYYG5KLW6BOVM.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photo. Included for the owner-authorized single private collection book. Public website publication rights are not established by this handoff.",
+      "url": "images/marchand-games/targeted-v2-20261018-a601/game.png?v=1a5b66129b4b",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a601/game-thumb.webp?v=ec91fcc63864",
+      "width": 735,
+      "height": 985,
+      "sha256": "1a5b66129b4b74c9212108acc2d76c05f2cb70ed022d4934abc6103fd26ba091",
+      "bytes": 701717,
+      "thumbnailSha256": "ec91fcc638648861ec876a0b56ed95ee963a075b056c083bd796ebcbb5c6e278",
+      "thumbnailBytes": 15968,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand in action during Game 2 against Tampa Bay.",
+      "originalCaption": "Marchand in action during Game 2 against Tampa Bay.",
+      "credit": "Getty Images / Florida Panthers",
+      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-2-florida-panthers-at-tampa-bay-lightning-4-24-2025",
+      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_ratio16_9-size60-c_pad/prd/lhnhpjcad9aoxs2ojkzu.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-04-24",
       "gameId": "2024030122",
@@ -14163,58 +14065,70 @@
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030122/boxscore",
-      "relationNote": "AP syndicated gallery",
-      "nativeAssetPath": "assets/2024030122-a601-publishing/game-image.jpg",
-      "nativeSha256": "da21c9b5f4f2d9c710e420819457937d1e464fcb9213c259b2a4cafcf654b445",
-      "nativeWidth": 5304,
-      "nativeHeight": 3536,
-      "width": 1600,
-      "height": 1067,
-      "sha256": "5418a3ff083e1a585a7213a421dd5d69a551f709a06dc5ab9bad8de7ad9bac3a",
-      "bytes": 259456,
-      "thumbnailSha256": "e5e6038984fa24840bb1bfb286cfec1e3a8e65103f0114104e8fa3a94b5897fb",
-      "thumbnailBytes": 19054,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "relationNote": "Game2 action context. Puck remains warm-up classification; photo is not claimed to show warm-up.",
+      "context": "Game2 action context. Puck remains warm-up classification; photo is not claimed to show warm-up.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": false,
+      "photographerNote": "Gallery gives GettyImages-2211856649 identifier but no named photographer in data-credit. No photographer name invented.",
+      "nativeAssetPath": "assets/2024030122-a601-publishing/game-image.png",
+      "nativeSha256": "1a5b66129b4b74c9212108acc2d76c05f2cb70ed022d4934abc6103fd26ba091",
+      "nativeWidth": 735,
+      "nativeHeight": 985,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
-        "method": "unchanged_native_file",
+        "method": "exact_native_pixel_crop",
+        "crop_box": [
+          650,
+          95,
+          1385,
+          1080
+        ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true,
-        "crop_box": [
-          0,
-          0,
-          5304,
-          3536
-        ]
+        "decoded_pixel_equality_verified": true
       },
       "originalAssetPath": "originals/2024030122-a601-publishing.jpg",
-      "originalAssetSha256": "da21c9b5f4f2d9c710e420819457937d1e464fcb9213c259b2a4cafcf654b445",
-      "originalWidth": 5304,
-      "originalHeight": 3536,
-      "criticalReview": {
-        "baseline_grade": "C",
-        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
-        "recommended_action": "seek_upgrade",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true,
-        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Sharp professional Tampa Game2 confrontation; Brad63 back and partial profile facing Kucherov. Clear documentary action rather than joy.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetSha256": "08d74d1a7a54ae0a869f3b3f1225790f417f4f9f1e30e510ff50277cadd877c4",
+      "originalWidth": 1920,
+      "originalHeight": 1080,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true,
-      "sourceEmbeddedCaption": "Linesman Devin Berg (87) separates Tampa Bay Lightning right wing Nikita Kucherov (86) and Florida Panthers center Brad Marchand (63) during the second period in Game 2 of an NHL hockey Stanley Cup first-round playoff series, Thursday, April 24, 2025, in Tampa, Fla. (AP Photo/Chris O'Meara)",
-      "sourceEmbeddedCredit": "Chris O'Meara",
-      "sourceEmbeddedCopyright": "Copyright 2025 The Associated Press. All rights reserved."
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 601,
+          "page": 145,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Focused Brad actionportrait is clear; whole helmet and lowerglove/stick interaction fit. GAME ACTION label distinguishes photograph from warm-up puck classification. Sourcecredit genericGetty/FloridaPanthers appropriately avoids unproven photographer."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Clear in-focus face, full helmet and63 markings replace the back-facing scuffle. Exact portrait crop isolates Brad from Niko Mikkola #77 and preserves the forward glove. Same-game action, not claimed as goal celebration.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": "Sharp solo Brad game-action crop. Background teammate excluded.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2024030124-a602-publishing": {
       "assetId": "2024030124-a602-publishing",
@@ -16741,154 +16655,99 @@
     "2020020556-a702-publishing": {
       "assetId": "2020020556-a702-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2020020556-a702-publishing/game.webp?v=62fc684b1616",
-      "thumbnailUrl": "images/marchand-games/2020020556-a702-publishing/game-thumb.webp?v=4f14b97bf195",
+      "displaySelected": true,
+      "label": "SHOOTOUT WIN / MAR 30, 2021",
+      "displayLabel": "SHOOTOUT WIN / MAR 30, 2021",
       "rotation": 0,
-      "caption": "Marchand after scoring against New Jersey Devils.",
-      "originalCaption": "Marchand after scoring against New Jersey Devils.",
-      "credit": "Video still: NHL.com",
-      "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335918282112",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/targeted-v2-20261018-a702/game.png?v=a6a3c255d53d",
+      "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a702/game-thumb.webp?v=adf52350a1af",
+      "width": 1370,
+      "height": 970,
+      "sha256": "a6a3c255d53dbfd22d37b29a6423830695aa2e62ae842ea2b4885db4a1fa235b",
+      "bytes": 1656811,
+      "thumbnailSha256": "adf52350a1affa235b3bc72288ccfe34da384429294273cbc9c90d3b33b4866f",
+      "thumbnailBytes": 23548,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand and the Bruins bench celebrate their shootout victory over New Jersey.",
+      "originalCaption": "Marchand and the Bruins bench celebrate their shootout victory over New Jersey.",
+      "credit": "Charles Krupa / AP",
+      "sourceUrl": "https://www.wcvb.com/article/boston-bruins-new-jersey-devils-nhl-recap-march-30-2021/35985014",
+      "sourceImageUrl": "https://htv-prod-media.s3.amazonaws.com/images/bruins-celebrate-win-over-devils-ap-photo-3-30-2021-1617159393.jpg",
+      "imageKind": "photograph",
       "photoDate": "2021-03-30",
       "gameId": "2020020556",
       "bradPlayed": true,
       "bradVisible": true,
       "subjectRuleReview": "PASS",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2020020556/boxscore",
-      "relationNote": "Remove residual top/side frame-edge lines.",
-      "videoSource": {
-        "game_id": "2020020556",
-        "goal": {
-          "situationCode": "1451",
-          "eventId": 420,
-          "strength": "pp",
-          "playerId": 8473419,
-          "firstName": {
-            "default": "Brad"
-          },
-          "lastName": {
-            "default": "Marchand"
-          },
-          "name": {
-            "default": "B. Marchand"
-          },
-          "teamAbbrev": {
-            "default": "BOS"
-          },
-          "headshot": "https://assets.nhle.com/mugs/nhl/20202021/BOS/8473419.png",
-          "discreteClip": 6335918282112,
-          "goalsToDate": 13,
-          "awayScore": 3,
-          "homeScore": 2,
-          "leadingTeamAbbrev": {
-            "default": "NJD"
-          },
-          "timeInPeriod": "15:48",
-          "shotType": "wrist",
-          "goalModifier": "none",
-          "assists": [
-            {
-              "playerId": 8470638,
-              "firstName": {
-                "default": "Patrice"
-              },
-              "lastName": {
-                "default": "Bergeron"
-              },
-              "name": {
-                "default": "P. Bergeron"
-              },
-              "assistsToDate": 17,
-              "sweaterNumber": 37
-            },
-            {
-              "playerId": 8471276,
-              "firstName": {
-                "default": "David"
-              },
-              "lastName": {
-                "default": "Krejci",
-                "cs": "Krejčí",
-                "sk": "Krejčí"
-              },
-              "name": {
-                "default": "D. Krejci",
-                "cs": "D. Krejčí",
-                "sk": "D. Krejčí"
-              },
-              "assistsToDate": 19,
-              "sweaterNumber": 46
-            }
-          ],
-          "homeTeamDefendingSide": "right",
-          "isHome": true
-        },
-        "clip_id": "6335918282112",
-        "artifacts": [
-          702
-        ],
-        "title": "Marchand trims deficit with PPG",
-        "duration": 0,
-        "thumbnail": "https://fastly-signed-us-east-1-prod.brightcovecdn.com/image/v1/static/6415718365001/278c0656-2b8b-4907-9ad3-b2a9d9b9ef81/77796e7f-ed5d-48cf-b3d5-38d96fb0e6ca/1280x720/match/image.jpg?fastly_token=NmNiNGRlMWJfYWJjNDZhNTRlOWM4OTBkNTkxYTgzNDY1Y2I4MmJkMzkzYWFhNjgzZWI4YzQyOTYxMTBjMzEyOTRhMTc2OTM5MF9odHRwczovL2Zhc3RseS1zaWduZWQtdXMtZWFzdC0xLXByb2QuYnJpZ2h0Y292ZWNkbi5jb20vaW1hZ2UvdjEvc3RhdGljLzY0MTU3MTgzNjUwMDEvMjc4YzA2NTYtMmI4Yi00OTA3LTlhZDMtYjJhOWQ5YjllZjgxLzc3Nzk2ZTdmLWVkNWQtNDhjZi1iM2Q1LTM4ZDk2ZmIwZTZjYS8xMjgweDcyMC9tYXRjaC9pbWFnZS5qcGc%3D",
-        "created_at": "2023-08-29T12:55:35.345Z",
-        "local_video": "RESEARCH/original-clips/494eaca9da4dccf0--6335918282112.mp4",
-        "hls_source": "https://hlslive-wsczoominwestus.med.nhl.com/publish-hls/1996339/MasterWired60.m3u8",
-        "native_height": 720,
-        "seconds": 15,
-        "origin_group": "first",
-        "original_video_sha256": "494eaca9da4dccf0b53aaef918895891f7989e38e031178a58eac8e49f74bcfb",
-        "selected_frame_seconds": 15,
-        "frame_extraction": "ffmpeg -ss TIME -i ORIGINAL -frames:v 1 OUTPUT.png; native decoded dimensions, no crop, resize, enhancement or generative changes"
-      },
+      "relationNote": "Shootout-win celebration. HFC warm-up puck classification unchanged; do not describe as his regulation-goal celebration.",
+      "context": "Shootout-win celebration. HFC warm-up puck classification unchanged; do not describe as his regulation-goal celebration.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Source and credit retained. Public availability does not establish a free publication license.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2020020556-a702-publishing/game-image.png",
-      "nativeSha256": "522eccc7bb9b725425e089eec31de1ccb2b21c9404e8aa06edc2fdeb813f6a40",
-      "nativeWidth": 1276,
-      "nativeHeight": 621,
-      "width": 1276,
-      "height": 621,
-      "sha256": "62fc684b16164205e600b10697a9329b3ffd38f6aeb2becaa2ff6314c7857d3c",
-      "bytes": 88778,
-      "thumbnailSha256": "4f14b97bf195080e137c7cf2550ec2be7d8d5e68bafdeb5a627b35f36632c396",
-      "thumbnailBytes": 10704,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "a6a3c255d53dbfd22d37b29a6423830695aa2e62ae842ea2b4885db4a1fa235b",
+      "nativeWidth": 1370,
+      "nativeHeight": 970,
+      "sourceRevision": "Targeted-Photo-Edition-20261018-v2",
+      "selectionAction": "user_approved_targeted_native_replacement",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          2,
-          99,
-          1278,
-          720
+          230,
+          110,
+          1600,
+          1080
         ],
         "no_resampling": true,
         "generative_processing": false,
         "decoded_pixel_equality_verified": true
       },
-      "originalAssetPath": "originals/2020020556-a702-publishing.png",
-      "originalAssetSha256": "6ee284f147352fe9d057df6b2cb94181af8d7535b0879ff671f54585d558eb03",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Remove residual top/side frame-edge lines.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Correct NewJersey goal hug, Brad mostly obscured by Pastrnak88. Source action/context fallback.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2020020556-a702-publishing.jpg",
+      "originalAssetSha256": "d387ed98a08e1f1c9897c9e9fd789be156da1d9e6d8fad7c26b86c232286ff3e",
+      "originalWidth": 1920,
+      "originalHeight": 1080,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Independent actual changed-page visual/editorial proof for v2eightapprovedreplacements; not downstreamDB/sitecompletion orBlurbuploaderacceptance.",
+        "reviewDate": "2026-10-18",
+        "artifactReview": {
+          "artifact_id": 702,
+          "page": 175,
+          "visually_inspected_full150": true,
+          "visually_inspected_panel300": true,
+          "actual_caption_credit_label_source_link_match_approved": true,
+          "native_index_join_match_approved": true,
+          "visible_brad_and_material_improvement": true,
+          "no_tv_scores_bugs_or_publisher_watermarks_in_selected_pixels": true,
+          "no_layout_overlap_or_margin_clipping": true,
+          "legend_clear_of_photo_body_footer": true,
+          "notes": "Animated Brad foreground with joyful bench reaction; wholeBradhelmet/face preserved. SHOOTOUT WIN label correctly contextualizes warm-up HFCpuck; no false regulationgoal/warm-up-photo claim."
+        },
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted Photo Handoff 2026-10-18-v2/QA/final-eight-page-visual-signoff.json",
+          "sha256": "1a8daa0aef17f7afe71773e06fdab26b63c9545ad837b6e64c9b56822645652a",
+          "bytes": 16293,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-targeted-approved-20261018-v2/editorial-qa/final-eight-page-visual-signoff.json"
+        }
+      },
+      "criticalReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "reason": "Sharp recognizable animated Brad face and genuine delighted team context replace faceless rear huddle. Ritchie’s bench leap and Bergeron/Pastrnak reaction convey actual winning energy.",
+        "completedHandoffRevision": "Targeted-Photo-Edition-20261018-v2"
+      },
+      "sourceQualityLimitations": [
+        "Samegame shootout victory context; does not show Marchand’s regulationgoal celebration.",
+        "Clean1920x1080publicly published AP source; no fullcameraoriginal claim.",
+        "Copyrighted editorial photograph; no acquisition payment or publicreuse-license assertion."
+      ],
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Targeted-Photo-Edition-20261018-v2",
+        "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
+      }
     },
     "2022020100-a703-publishing": {
       "assetId": "2022020100-a703-publishing",

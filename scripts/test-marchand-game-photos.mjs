@@ -117,8 +117,23 @@ assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.curre
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
 assert.equal(photos.meta.nativeExcelAppTest,'PASS');
-assert.equal(photos.meta.sourceIndexSha256,'7d2127902f593883c920a051af73bc66fadec10127349fef23a6a153e6327c7f');
-assert.equal(photos.meta.changedNativeImages.length,5);
-assert.equal(photos.meta.retainedNativeImages.length,167);
+assert.equal(photos.meta.sourceIndexSha256,'13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0');
+assert.equal(photos.meta.changedNativeImages.length,8);
+assert.equal(photos.meta.retainedNativeImages.length,164);
 assert.equal(photos.meta.restoredArchivedNativeImages.length,0);
-console.log('PASS:172 distinct singular gallery tails;5 exact native replacements;167 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner qualification retained.');
+console.log('PASS:172 distinct singular gallery tails;8 exact native replacements;164 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner qualification retained.');
+
+// Owner-approved v2 context must be visible, not only implicit in image type.
+for(const id of [2,36,56,303,305,506,601,702]){const r=byId(id),a=selected(r.key);assert.equal(a.label,a.displayLabel);assert.ok(a.displayLabel);assert.match(a.url,/targeted-v2-20261018-/);assert.equal(a.sourceRevision,'Targeted-Photo-Edition-20261018-v2');assert.equal(a.sha256,a.nativeSha256);assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);if(a.imageKind==='photograph')assert.equal(a.videoSource,undefined);}
+assert.equal(selected('history-506').sha256,'2a51d93ccf9e836256e5c9a0a9834c12f5d838d444e70c2430cf206819107edc');
+assert.deepEqual([selected('history-506').width,selected('history-506').height],[810,865]);
+assert.deepEqual(selected('history-506').selectedImageProcessing.crop_box,[1500,125,2310,990]);
+assert.equal(selected('history-506').photographerIdentified,false);
+assert.equal(selected('history-506').credit,'Boston Bruins / NHL');
+assert.match(selected('milestone-303').displayLabel,/FIRST-PERIOD/);
+assert.match(selected('milestone-303').context,/SECOND goal/);
+assert.match(selected('goal-36').displayLabel,/PREGAME/);
+assert.match(selected('goal-2').displayLabel,/POSTGAME/);
+assert.match(selected('repeat-601').displayLabel,/GAME ACTION/);
+assert.match(selected('hfc-702').displayLabel,/SHOOTOUT WIN/);
+assert.equal(photos.meta.photographs,89);assert.equal(photos.meta.videoStills,83);

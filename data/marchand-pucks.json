@@ -85,18 +85,18 @@
       "verificationReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
     },
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
-      "sha256": "444a38a1f50180cee484e379ab31cf03e517dd4d1d261a56545ff6afc0a6a550"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
+      "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
     },
     "mediaRegistryAtRegistration": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
-      "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
+      "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
     },
     "nativeExcelCompletionReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
       "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
     },
-    "sourceHandoffSha256": "6b9897c9bfc7058cb172342ab7a6536a7a645d8217cd6c39fc211cf0cc8edb59",
+    "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5",
     "canonicalVerificationHistory": [
       {
         "currentCanonicalMaster": {
@@ -140,6 +140,17 @@
           "sha256": "66297cd998404bdf567464d6f74849eaada10cff200d4d2820c8f4dba33d511d"
         },
         "sourceHandoffSha256": "bab34c8030e659050ed99177cc702fdaccf9fade0d2b402ecc016efa216fbc61"
+      },
+      {
+        "mediaRegistrationReceipt": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
+          "sha256": "444a38a1f50180cee484e379ab31cf03e517dd4d1d261a56545ff6afc0a6a550"
+        },
+        "mediaRegistryAtRegistration": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
+          "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
+        },
+        "sourceHandoffSha256": "6b9897c9bfc7058cb172342ab7a6536a7a645d8217cd6c39fc211cf0cc8edb59"
       }
     ]
   },
