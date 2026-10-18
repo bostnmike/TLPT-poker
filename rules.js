@@ -26,7 +26,11 @@
     24: "bostnmike",
     25: "tim-s",
     26: "ahmed",
-    27: "chris-f"
+    27: "chris-f",
+    28: "li-fo",
+    29: "bostnmike",
+    30: "hiro",
+    31: "ahmed"
   });
 
   function addRoastAvatars(players) {
@@ -75,6 +79,14 @@
       chapters.forEach((item) => setChapterState(item, item === chapter));
     }
 
+    function openLinkedChapter() {
+      if (!mobileQuery.matches) return;
+      const target = document.getElementById(window.location.hash.slice(1));
+      if (!target?.classList.contains("rules-chapter")) return;
+      openChapter(target);
+      target.scrollIntoView({ block: "start" });
+    }
+
     function syncChapterLayout(event) {
       chapters.forEach((chapter, index) => {
         const toggle = chapter.querySelector(".rules-chapter-toggle");
@@ -83,6 +95,7 @@
           : true;
         setChapterState(chapter, isOpen);
       });
+      openLinkedChapter();
     }
 
     chapters.forEach((chapter) => {
@@ -94,7 +107,7 @@
       });
     });
 
-    document.querySelectorAll(".rules-mobile-jump a").forEach((link) => {
+    document.querySelectorAll('.rules-mobile-jump a, .rule-card a[href="#rules-mtt-bounties"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         if (!mobileQuery.matches) return;
         const target = document.querySelector(link.getAttribute("href"));
@@ -106,6 +119,7 @@
     });
 
     mobileQuery.addEventListener?.("change", syncChapterLayout);
+    window.addEventListener("hashchange", openLinkedChapter);
     syncChapterLayout();
   }
 

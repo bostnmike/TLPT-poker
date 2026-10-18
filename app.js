@@ -538,16 +538,12 @@ const RULES_FORMATS = {
     payoutPlaces: 6,
     projectedPool: "$1,040",
     payoutLabel: "1st $380 • 2nd $240 • 3rd $160 • 4th $120 • 5th $100 • 6th $40",
-    payoutNote: "Top 6 paid: reserve $40 for 6th, then divide the remaining regular prize pool 38% / 24% / 16% / 12% / 10% for 1st–5th. No $5 or whole-dollar rounding. Bounty receipts and winner-only forfeitures are extra, not part of this percentage split. Any chop requires unanimous agreement and host confirmation of prize and bounty accounting; no automatic chop allocation of the winner-only fund is assumed.",
+    payoutNote: "Top 6 paid. Reserve $40 for 6th; split the remaining regular prize pool 38% / 24% / 16% / 12% / 10% for 1st–5th. Bounty money is separate.",
     combinePayoutAndBounty: true,
     bounty: {
       title: "$10 Bounty — Optional on Rebuys",
-      text: "First entry is $50 total: $40 to the regular prize pool plus a mandatory $10 bounty. Each subsequent rebuy independently opts in ($50 total) or out ($40 tournament rebuy only). Eligibility follows the current entry.",
-      details: [
-        "Players receive a Schnazzy ALL-IN/Bounty Plaque. Collected plaques are receipts for bounty payouts at the end of the night. A later bounty opt-in gets a new Schnazzy plaque with the fresh stack; previously collected bounties stay yours after busting.",
-        "An opted-in entry collects $10 for knocking out a bounty-bearing entry. An opted-out eliminator cannot collect it: return the orphaned bounty chip or plaque to Mike for bookkeeping. Busting an opted-out entry pays nothing, regardless of the eliminator’s choice: No Bounty Paid (No Blood from Rocks).",
-        "All forfeitures go ONLY to the eventual tournament winner as extra prize money—even if that winner opted out. They are never spread through payout percentages or counted as collected bounties. The winner retains a personal bounty only if posted on the surviving entry. Opting back in restores eligibility prospectively; earlier forfeitures stay in the winner fund."
-      ]
+      text: "First entry: $50 ($40 prize pool + $10 bounty). Rebuys: $50 with a bounty or $40 without. Only opted-in entries can collect bounties.",
+      rulesLink: true
     },
     runtimeLabel: "9 hrs 20 min",
     levelMinutes: 25,
@@ -6621,7 +6617,7 @@ function buildRulesFormatCallout(format) {
           <div>
             <h3>${escapeHtmlAttr(format.bounty.title)}</h3>
             <p>${escapeHtmlAttr(format.bounty.text)}</p>
-            ${(format.bounty.details || []).map(text => `<p>${escapeHtmlAttr(text)}</p>`).join("")}
+            ${format.bounty.rulesLink ? '<p><a href="rules.html#rules-mtt-bounties">Read MTT bounty rules →</a></p>' : ""}
           </div>
         </div>
       </aside>

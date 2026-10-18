@@ -103,11 +103,26 @@ check(mttFinancials.regularPayoutFixed["6"] === 40
     && JSON.stringify(Object.values(mttFinancials.regularPayoutPercentages)) === JSON.stringify([38, 24, 16, 12, 10])
     && mttFinancials.bounty.mode === "optional-rebuy" && mttFinancials.bounty.winnerOnlyRollover === true,
   "MTT display and future financial configuration must use the same policy");
-for (const phrase of ["mandatory $10 bounty", "independently opts in ($50 total) or out ($40 tournament rebuy only)",
+check(mtt.bounty.text.split(/\s+/).length <= 40 && !mtt.bounty.details,
+  "MTT structure bounty summary must remain brief");
+check(mttCallout.includes('href="rules.html#rules-mtt-bounties"'),
+  "MTT structure must link directly to the full bounty rules");
+check(!/rounding|whole-dollar/i.test(mttCallout + houseRules),
+  "Public MTT copy must omit rounding commentary");
+for (const phrase of ["mandatory $10 bounty", "$50 with a bounty or $40 without",
   "Schnazzy", "receipts for bounty payouts at the end of the night", "new Schnazzy plaque",
   "No Bounty Paid (No Blood from Rocks)", "ONLY to the eventual tournament winner",
   "earlier forfeitures stay in the winner fund", "unanimous agreement and host confirmation"]) {
-  check(mttCallout.includes(phrase) && houseRules.includes(phrase), `MTT policy must agree on both pages: ${phrase}`);
+  check(houseRules.includes(phrase), `Full MTT policy must remain on House Rules: ${phrase}`);
+}
+const rulesScript = fs.readFileSync(path.join(root, "rules.js"), "utf8");
+const bountyChapter = houseRules.match(/<section id="rules-mtt-bounties"[\s\S]*?<\/section>/)?.[0] || "";
+check(bountyChapter.includes('rules-chapter') && bountyChapter.includes('class="rules-grid"')
+    && (bountyChapter.match(/class="rule-card"/g) || []).length === 4,
+  "MTT rules must use the existing four-card chapter layout");
+for (const [number, slug, name] of [[28, "li-fo", "Li-Fo"], [29, "bostnmike", "BostnMike"], [30, "hiro", "Hiro"], [31, "ahmed", "Ahmed"]]) {
+  check(bountyChapter.includes(`dealer-button-number">${number}</span>`) && bountyChapter.includes(name)
+      && rulesScript.includes(`${number}: "${slug}"`), `MTT rule ${number} needs its numbered badge, player joke and matching avatar`);
 }
 for (const phrase of ["after Level 11", "beginning Level 12", "6:40 PM", "10,000", "payment is confirmed"]) {
   check(mtt.blindNote.includes(phrase) && houseRules.includes(phrase), `MTT entry-window policy missing: ${phrase}`);

@@ -375,7 +375,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261018-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-2"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-3"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -1904,9 +1904,9 @@ def audit_javascript(path: Path) -> list[str]:
                     f"rules.css: retired-number badges must use one gold circle without {token}"
                 )
         rules_html = (ROOT / "rules.html").read_text(encoding="utf-8")
-        if rules_html.count('class="dealer-button-number"') != 27:
+        if re.findall(r'class="dealer-button-number">(\d+)</span>', rules_html) != [str(n) for n in range(1, 32)]:
             errors.append(
-                "rules.html: all 27 rule badges must keep their number above the spokes and B"
+                "rules.html: all 31 rule badges must retain their order and existing badge design"
             )
         show_format_source = function_source("showFormat")
         if (
@@ -2155,9 +2155,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must display optional rebuy bounties",
                 ),
                 (
-                    'First entry is $50 total: $40 to the regular prize pool plus a mandatory $10 bounty. '
-                    'Each subsequent rebuy independently opts in ($50 total) or out ($40 tournament rebuy only). '
-                    'Eligibility follows the current entry.',
+                    'First entry: $50 ($40 prize pool + $10 bounty). Rebuys: $50 with a bounty or $40 without. '
+                    'Only opted-in entries can collect bounties.',
                     "Two-Table 50K Deep Stack must keep the bounty separate from the $40 entry",
                 ),
                 (
@@ -2775,9 +2774,10 @@ def audit_cashier_shortcut() -> list[str]:
 def audit_mtt_player_guide() -> list[str]:
     """Keep the approved PDF intact and reachable through view-first controls."""
     errors = []
-    href = "downloads/tlpt-mtt-know-before-you-go.pdf"
-    pdf = ROOT / href
-    approved_sha = "77951b09f7a054649ab8ad87c3ae2e7615748828df6b17e8e426414d4c3013bf"
+    href = "downloads/tlpt-mtt-know-before-you-go.pdf?v=20261018-2"
+    pdf = ROOT / href.split("?")[0]
+    # October 18 owner-approved removal of the rounding phrase; all other text retained.
+    approved_sha = "f7c81833e2cdda3c8935366735110a0f4301c26e6c585875dc8e0748540a03de"
     if not pdf.is_file() or hashlib.sha256(pdf.read_bytes()).hexdigest() != approved_sha:
         errors.append("MTT guide must match the approved two-page PDF; review any replacement explicitly")
     for page in ("rules.html", "structures.html"):
