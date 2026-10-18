@@ -21,6 +21,9 @@ echo "🧭 Verifying maintenance baseline..."
 echo "💵 Testing event currency precision..."
 "$PYTHON_BIN" scripts/test-event-currency.py
 
+echo "🏷️ Testing optional rebuy bounties and historical financial parity..."
+"$PYTHON_BIN" scripts/test-optional-bounties.py
+
 echo "🧹 Auditing code hygiene..."
 "$PYTHON_BIN" scripts/audit-code-hygiene.py
 

@@ -14,10 +14,12 @@ import json
 import math
 import re
 import subprocess
+import importlib.util
 from collections import Counter
 from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
+from audit_optional_bounties import audit_optional_event
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -662,6 +664,13 @@ def audit_event_financial_config(audit, event_financials, schedule):
         amount = Decimal(str(bounty.get("amount", 0)))
         audit.check(amount >= 0, section, f"{event_id}: bounty amount cannot be negative")
         if amount:
+            if bounty.get("mode") == "optional-rebuy":
+                audit.check(bounty.get('winnerOnlyRollover') is True and bounty.get('retainIfUnbusted') is True
+                            and bounty.get('firstEntryOnly') is not True, section, f'{event_id}: invalid optional bounty policy')
+                audit.check(bool(rule.get('regularPayoutsByPlayer')) != bool(rule.get('regularPayoutPercentages')),
+                            section, f'{event_id}: explicit regular prizes required')
+                audit.check(bool(rule.get('detailedHistoryFile')), section, f'{event_id}: paired history required')
+                continue
             audit.check(bounty.get("firstEntryOnly") is True, section, f"{event_id}: bounty must be first-entry only")
             audit.check(bounty.get("retainIfUnbusted") is True, section, f"{event_id}: unbusted bounty must be retained")
             payouts = rule.get("tournamentPayoutsByPlayer") or rule.get("tournamentPayouts") or {}
@@ -716,6 +725,13 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
         audit.check(event.get("eventId") == event_id and event.get("date") == event_id, section, f"{event_id}: date/id mismatch")
         raw_path = RAW_DIR / str(event.get("sourceFile", ""))
         audit.check(raw_path.exists(), section, f"{event_id}: source HTML is missing")
+        raw_rule = (event_financials.get('events') or {}).get(event_id, {})
+        if (raw_rule.get('bounty') or {}).get('mode') == 'optional-rebuy':
+            spec = importlib.util.spec_from_file_location('optional_source_decoder', ROOT / 'scripts/parse-event-reports.py')
+            decoder = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(decoder)
+            audit_optional_event(audit, event, raw_path, raw_rule, metadata, decoder)
+            continue
         summary = event.get("summary") or {}
         financial_rule = financial_rule_for_event(event_id, config, event_financials)
         entry_amount = financial_rule["entryAmount"]
@@ -1166,6 +1182,7 @@ def audit_knockouts(audit, events, site_data):
                 "killer": row.get("killer"),
                 "victim": row.get("victim"),
                 "amount": row.get("bountyAmount"),
+                **{key: row[key] for key in ('victimEntry', 'killerEntry') if key in row},
             }
             event_claims.append(claim)
             bounty_claims.append(claim)
@@ -1184,7 +1201,12 @@ def audit_knockouts(audit, events, site_data):
             if int(row.get("bountiesWon", 0) or 0) > 0
         }
         actual_by_killer = Counter(claim["killer"] for claim in event_claims)
-        victims = [claim["victim"] for claim in event_claims]
+        victims = [(claim["victim"], claim.get('victimEntry')) for claim in event_claims]
+        if bounty_summary.get('mode') == 'optional-rebuy':
+            expected_claims = [dict(eventId=event_id, killer=a['bySlug'], victim=a['slug'], amount=a['bountyAmount'],
+                                   victimEntry=a['victimEntry'], killerEntry=a['killerEntry'])
+                               for a in event['actions'] if a.get('bountyDisposition') == 'collected']
+            audit.check(event_claims == expected_claims, 'knockouts', f'{event_id}: entry-qualified claims differ from verified actions')
         audit.check(
             dict(actual_by_killer) == expected_by_killer,
             "knockouts",

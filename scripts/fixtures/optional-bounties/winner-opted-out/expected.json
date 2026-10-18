@@ -1,0 +1,150 @@
+{
+  "fixtureId": "03_winner_opted_out",
+  "synthetic": true,
+  "shouldPass": true,
+  "basePrizePool": 540,
+  "baseTournamentPrizes": {
+    "Bob": 270,
+    "Ahmed": 160,
+    "Ai-Dave": 110,
+    "Brad R": 0,
+    "Alex C": 0
+  },
+  "players": {
+    "Ahmed": {
+      "entries": 5,
+      "rebuyChoices": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "bountyPaid": 15,
+      "bountyCollected": 10,
+      "bountyRetained": 0,
+      "bountiesWon": 2,
+      "hits": 4,
+      "tournamentPrize": 160,
+      "rolloverPrize": 0,
+      "totalReceived": 170,
+      "totalCost": 165,
+      "profit": 5
+    },
+    "Ai-Dave": {
+      "entries": 2,
+      "rebuyChoices": [
+        true
+      ],
+      "bountyPaid": 10,
+      "bountyCollected": 5,
+      "bountyRetained": 0,
+      "bountiesWon": 1,
+      "hits": 2,
+      "tournamentPrize": 110,
+      "rolloverPrize": 0,
+      "totalReceived": 115,
+      "totalCost": 70,
+      "profit": 45
+    },
+    "Alex C": {
+      "entries": 4,
+      "rebuyChoices": [
+        true,
+        false,
+        false
+      ],
+      "bountyPaid": 10,
+      "bountyCollected": 5,
+      "bountyRetained": 0,
+      "bountiesWon": 1,
+      "hits": 1,
+      "tournamentPrize": 0,
+      "rolloverPrize": 0,
+      "totalReceived": 5,
+      "totalCost": 130,
+      "profit": -125
+    },
+    "Bob": {
+      "entries": 6,
+      "rebuyChoices": [
+        true,
+        false,
+        true,
+        true,
+        false
+      ],
+      "bountyPaid": 20,
+      "bountyCollected": 10,
+      "bountyRetained": 0,
+      "bountiesWon": 2,
+      "hits": 5,
+      "tournamentPrize": 270,
+      "rolloverPrize": 15,
+      "totalReceived": 295,
+      "totalCost": 200,
+      "profit": 95
+    },
+    "Brad R": {
+      "entries": 1,
+      "rebuyChoices": [],
+      "bountyPaid": 5,
+      "bountyCollected": 15,
+      "bountyRetained": 0,
+      "bountiesWon": 3,
+      "hits": 5,
+      "tournamentPrize": 0,
+      "rolloverPrize": 0,
+      "totalReceived": 15,
+      "totalCost": 35,
+      "profit": -20
+    }
+  },
+  "totals": {
+    "entries": 18,
+    "hits": 17,
+    "bountyPaid": 60,
+    "bountyCollected": 45,
+    "bountyRetained": 0,
+    "rollover": 15,
+    "totalReceived": 600,
+    "profit": 0
+  },
+  "focusClaims": [
+    {
+      "time": "08:25:58",
+      "victim": "Alex C",
+      "victimEntry": 2,
+      "killer": "Ahmed",
+      "killerEntry": 2,
+      "amount": 5,
+      "disposition": "winner_rollover"
+    },
+    {
+      "time": "08:27:23",
+      "victim": "Brad R",
+      "victimEntry": 1,
+      "killer": "Ahmed",
+      "killerEntry": 3,
+      "amount": 5,
+      "disposition": "collected"
+    },
+    {
+      "time": "08:27:58",
+      "victim": "Ai-Dave",
+      "victimEntry": 2,
+      "killer": "Bob",
+      "killerEntry": 6,
+      "amount": 5,
+      "disposition": "winner_rollover"
+    },
+    {
+      "time": "08:28:06",
+      "victim": "Ahmed",
+      "victimEntry": 5,
+      "killer": "Bob",
+      "killerEntry": 6,
+      "amount": 5,
+      "disposition": "winner_rollover"
+    }
+  ]
+}

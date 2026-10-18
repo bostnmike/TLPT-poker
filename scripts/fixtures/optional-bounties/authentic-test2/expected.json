@@ -1,0 +1,155 @@
+{
+  "fixtureId": "08_authentic_test2_baseline",
+  "inputFormat": "authentic_td_pair",
+  "synthetic": false,
+  "shouldPass": true,
+  "allocationStatus": "RESOLVED_UNDER_STATED_SCHEDULE",
+  "players": {
+    "Ahmed": {
+      "entries": 1,
+      "rebuyChoices": [],
+      "bountyPaid": 5,
+      "bountyCollected": 15,
+      "bountiesWon": 3,
+      "bountyRetained": 0,
+      "hits": 3,
+      "reportedReceipt": 95,
+      "unallocatedPrizeAndRollover": 80
+    },
+    "Ai-Dave": {
+      "entries": 3,
+      "rebuyChoices": [
+        true,
+        true
+      ],
+      "bountyPaid": 15,
+      "bountyCollected": 10,
+      "bountiesWon": 2,
+      "bountyRetained": 0,
+      "hits": 5,
+      "reportedReceipt": 130,
+      "unallocatedPrizeAndRollover": 120
+    },
+    "Alex C": {
+      "entries": 6,
+      "rebuyChoices": [
+        true,
+        true,
+        false,
+        false,
+        true
+      ],
+      "bountyPaid": 20,
+      "bountyCollected": 5,
+      "bountiesWon": 1,
+      "bountyRetained": 5,
+      "hits": 2,
+      "reportedReceipt": 210,
+      "unallocatedPrizeAndRollover": 200
+    },
+    "Bob": {
+      "entries": 3,
+      "rebuyChoices": [
+        false,
+        true
+      ],
+      "bountyPaid": 10,
+      "bountyCollected": 5,
+      "bountiesWon": 1,
+      "bountyRetained": 0,
+      "hits": 2,
+      "reportedReceipt": 5,
+      "unallocatedPrizeAndRollover": 0
+    }
+  },
+  "totals": {
+    "entries": 13,
+    "hits": 12,
+    "basePrizePool": 390,
+    "bountyPaid": 50,
+    "bountyCollected": 35,
+    "bountyRetained": 5,
+    "rollover": 10,
+    "reportedKept": 15,
+    "totalReceived": 440,
+    "profit": 0
+  },
+  "focusClaims": [
+    {
+      "time": "09:06:13",
+      "victim": "Alex C",
+      "victimEntry": 2,
+      "killer": "Bob",
+      "killerEntry": 2,
+      "amount": 5,
+      "disposition": "winner_rollover"
+    },
+    {
+      "time": "09:06:58",
+      "victim": "Ai-Dave",
+      "victimEntry": 1,
+      "killer": "Alex C",
+      "killerEntry": 4,
+      "amount": 5,
+      "disposition": "winner_rollover"
+    },
+    {
+      "time": "09:06:41",
+      "victim": "Alex C",
+      "victimEntry": 3,
+      "killer": "Bob",
+      "killerEntry": 3,
+      "amount": 5,
+      "disposition": "collected"
+    },
+    {
+      "time": "09:08:20",
+      "victim": "Ai-Dave",
+      "victimEntry": 3,
+      "killer": "Alex C",
+      "killerEntry": 6,
+      "amount": 5,
+      "disposition": "collected"
+    }
+  ],
+  "payoutScheduleContext": {
+    "percentagesByRank": {
+      "1": 50,
+      "2": 30,
+      "3": 20
+    },
+    "percentagesSource": "User confirmed in chat 2026-10-18",
+    "roundingIncrement": 0.01,
+    "roundingStatus": "Exact percentages; no rounding to whole dollars or $5. User policy going forward, applied to baseline."
+  },
+  "normalize": true,
+  "confirmedBasePrizes": {
+    "Alex C": 195,
+    "Ai-Dave": 117,
+    "Ahmed": 78,
+    "Bob": 0
+  },
+  "configurationProvenance": "User confirmed 50/30/20 percentages and no rounding going forward; this policy is applied as the regression target. The exports do not specify the original test rounding setting.",
+  "expectedNormalization": {
+    "Alex C": {
+      "exportUncollectedBountyAllocation": 5,
+      "correctedReceipt": 215,
+      "adjustment": 5
+    },
+    "Ai-Dave": {
+      "exportUncollectedBountyAllocation": 3,
+      "correctedReceipt": 127,
+      "adjustment": -3
+    },
+    "Ahmed": {
+      "exportUncollectedBountyAllocation": 2,
+      "correctedReceipt": 93,
+      "adjustment": -2
+    },
+    "Bob": {
+      "exportUncollectedBountyAllocation": 0,
+      "correctedReceipt": 5,
+      "adjustment": 0
+    }
+  }
+}

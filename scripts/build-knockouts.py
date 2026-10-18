@@ -78,7 +78,14 @@ def bounty_claims_for_event(event_id, event, event_financials):
     financial_rule = (event_financials.get("events") or {}).get(event_id, {})
     override_claims = financial_rule.get("bountyClaims")
 
-    if override_claims is not None:
+    optional = bounty_summary.get("mode") == "optional-rebuy"
+    if optional:
+        if override_claims is not None:
+            raise RuntimeError(f"{event_id}: optional bounty claims must come from verified entry history")
+        claims = [dict(killer=a['bySlug'], victim=a['slug'], amount=a['bountyAmount'],
+                       victimEntry=a['victimEntry'], killerEntry=a['killerEntry'])
+                  for a in event.get('actions', []) if a.get('bountyDisposition') == 'collected']
+    elif override_claims is not None:
         if not isinstance(override_claims, list):
             raise RuntimeError(f"{event_id}: bountyClaims must be a list")
         claims = [
@@ -119,7 +126,7 @@ def bounty_claims_for_event(event_id, event, event_financials):
     ):
         raise RuntimeError(f"{event_id}: bounty claims contain an invalid killer/victim pairing")
 
-    victims = [claim["victim"] for claim in claims]
+    victims = [(claim["victim"], claim.get("victimEntry")) for claim in claims]
     if len(victims) != len(set(victims)):
         raise RuntimeError(f"{event_id}: a first-entry bounty victim is assigned more than once")
 
@@ -167,7 +174,7 @@ def extract_knockout_archive_from_parsed_events():
         entries = []
         bounty_claims = bounty_claims_for_event(event_id, event, event_financials)
         remaining_bounty_pairs = {
-            (claim["killer"], claim["victim"]): claim["amount"]
+            (claim["killer"], claim["victim"], claim.get("victimEntry")): claim["amount"]
             for claim in bounty_claims
         }
 
@@ -202,7 +209,9 @@ def extract_knockout_archive_from_parsed_events():
                 "sourceVictim": source_victim,
                 "sourceKiller": source_killer
             }
-            bounty_pair = (killer_slug, victim_slug)
+            if 'victimEntry' in action:
+                entry.update(victimEntry=action['victimEntry'], killerEntry=action['killerEntry'])
+            bounty_pair = (killer_slug, victim_slug, action.get('victimEntry'))
             if bounty_pair in remaining_bounty_pairs:
                 entry["bountyAmount"] = remaining_bounty_pairs.pop(bounty_pair)
             entries.append(entry)
@@ -217,7 +226,7 @@ def extract_knockout_archive_from_parsed_events():
         if remaining_bounty_pairs:
             missing = ", ".join(
                 f"{killer}->{victim}"
-                for killer, victim in sorted(remaining_bounty_pairs)
+                for killer, victim, ordinal in sorted(remaining_bounty_pairs)
             )
             raise RuntimeError(
                 f"{event_id}: verified bounty claim pair is absent from the knockout log: {missing}"
@@ -266,6 +275,7 @@ def rebuild_runtime_from_archive(archive):
                     "killer": killer_slug,
                     "victim": victim_slug,
                     "amount": entry["bountyAmount"],
+                    **{key: entry[key] for key in ('victimEntry', 'killerEntry') if key in entry},
                 })
                 bounty_events.add(event_id)
 
@@ -341,6 +351,7 @@ def validate_runtime(runtime, archive):
                 "killer": entry.get("killer"),
                 "victim": entry.get("victim"),
                 "amount": entry.get("bountyAmount"),
+                **{key: entry[key] for key in ('victimEntry', 'killerEntry') if key in entry},
             })
             expected_bounty_events.add(event_id)
 

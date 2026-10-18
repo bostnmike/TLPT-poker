@@ -29,6 +29,14 @@ The weekly runner and GitHub data pipeline already call both authoritative runne
 
 ## Quality gates
 
+### Optional rebuy bounty intake
+
+Follow [the paired-export intake and accounting contract](docs/optional-rebuy-bounties.md)
+for optional rebuy bounties. The detailed history and explicit regular prize schedule
+are mandatory. Forfeitures are winner-only prize money, never collected bounties.
+The shared quality runner exercises production regressions and locks all 55
+preexisting event financial results. Practice fixtures must never enter live history.
+
 The shared-site validation suite is owned only by:
 
 `bash scripts/run-quality-gates.sh`

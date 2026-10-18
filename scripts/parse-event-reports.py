@@ -6,6 +6,7 @@ from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from html import unescape
 from pathlib import Path
+from optional_bounties import reconcile as reconcile_optional_bounties
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
@@ -211,6 +212,12 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
     entry_amount = parse_currency(override.get("entryAmount", default_entry_amount))
     bounty = override.get("bounty") or {}
     bounty_amount = parse_currency(bounty.get("amount", 0))
+    optional = bounty.get("mode") == "optional-rebuy"
+    if bounty.get("mode") not in (None, "optional-rebuy"):
+        raise RuntimeError(f"{event_date}: unsupported bounty mode")
+    if optional and (bounty_amount <= 0 or bounty.get("winnerOnlyRollover") is not True
+                     or bounty.get("firstEntryOnly") is True):
+        raise RuntimeError(f"{event_date}: optional rebuy bounties require a positive amount and winner-only rollover")
     tournament_payouts = {
         safe_int(rank): parse_currency(amount)
         for rank, amount in (override.get("tournamentPayouts") or {}).items()
@@ -228,7 +235,7 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
         raise RuntimeError(f"{event_date}: entry amount must be greater than zero")
     if bounty_amount < 0:
         raise RuntimeError(f"{event_date}: bounty amount cannot be negative")
-    if bounty_amount and bounty.get("firstEntryOnly") is not True:
+    if bounty_amount and not optional and bounty.get("firstEntryOnly") is not True:
         raise RuntimeError(f"{event_date}: bounty must be limited to the first entry")
     if bounty_amount and bounty.get("retainIfUnbusted") is not True:
         raise RuntimeError(f"{event_date}: unbusted players must retain their original bounty")
@@ -241,6 +248,8 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
         "bountyAmount": bounty_amount,
         "tournamentPayouts": tournament_payouts,
         "tournamentPayoutsByPlayer": payouts_by_player,
+        "optionalRebuy": optional,
+        "configuration": override,
     }
 
 
@@ -722,7 +731,7 @@ def derive_event_player_stats(
             values = bounty_values.get(record["slug"], {})
             record.update({
                 "bountiesWon": values.get("bountiesWon", 0),
-                "bountyPaid": bounty_amount if record["buyIns"] > 0 else 0,
+                "bountyPaid": values.get("bountyPaid", bounty_amount if record["buyIns"] > 0 else 0),
                 "bountyCollected": values.get("bountyCollected", 0),
                 "bountyRetained": values.get("bountyRetained", 0),
                 "bountyWinnings": values.get("bountyWinnings", 0),
@@ -736,6 +745,12 @@ def derive_event_player_stats(
             record["totalCost"] += record["bountyPaid"]
             record["totalWinnings"] += record["bountyWinnings"]
             record["profit"] += record["bountyNet"]
+            if "rollover" in bounty_ledger:
+                record["regularPrize"] = values.get("regularPrize", 0)
+                record["rolloverPrize"] = values.get("rolloverPrize", 0)
+                for key in ('totalCost', 'totalWinnings', 'profit', 'tournamentCost', 'tournamentWinnings',
+                            'tournamentProfit', 'bountyPaid', 'bountyCollected', 'bountyRetained', 'bountyWinnings', 'bountyNet'):
+                    record[key] = round(record[key], 2)
 
     return player_map, paid_slugs, permanent_out_noncashers
 
@@ -812,16 +827,23 @@ def parse_report_file(
         "won": extract_table_money_count(html, "Bounties", "Won:"),
         "kept": extract_table_money_count(html, "Bounties", "Kept:"),
     }
-    payouts, bounty_ledger = split_bounty_report_payouts(
-        event_date=event_date,
-        reported_payouts=reported_payouts,
-        paid_spots=paid_spots,
-        total_pot=total_pot,
-        buyins_count=buyins_count,
-        financial_rule=financial_rule,
-        bounty_table=bounty_table,
-        actions=parsed_actions,
-    )
+    if financial_rule["optionalRebuy"]:
+        payouts, bounty_ledger, parsed_actions = reconcile_optional_bounties(
+            path, financial_rule["configuration"], parsed_actions, reported_payouts,
+            bounty_table, total_pot, paid_spots, event_entry_amount, bounty_amount,
+            alias_map, canonicalize_player_name, summary_start, summary_end, buyins_count, rebuys_count, winner_text,
+        )
+    else:
+        payouts, bounty_ledger = split_bounty_report_payouts(
+            event_date=event_date,
+            reported_payouts=reported_payouts,
+            paid_spots=paid_spots,
+            total_pot=total_pot,
+            buyins_count=buyins_count,
+            financial_rule=financial_rule,
+            bounty_table=bounty_table,
+            actions=parsed_actions,
+        )
 
     player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(
         metadata_players=metadata_players,
@@ -892,6 +914,14 @@ def parse_report_file(
         "players": sorted(player_stats.values(), key=lambda p: p["name"].lower()),
         "warnings": warnings
     }
+
+    if financial_rule["optionalRebuy"]:
+        summary["regularPrizePool"] = total_pot
+        summary["totalPot"] = parse_currency(str(Decimal(str(total_pot)) + Decimal(str(bounty_ledger["rollover"]))))
+        summary["bounty"].update(mode="optional-rebuy", firstEntryOnly=False,
+                                  rollover=bounty_ledger["rollover"], winnerOnlyRollover=True)
+        event["bountyAccounting"] = {key: bounty_ledger[key] for key in
+            ("historyFile", "historySha256", "claims", "reconciliation")}
 
     return event
 

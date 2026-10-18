@@ -459,7 +459,7 @@ const KNOCKOUTS_URLS = [
         label: "Most Bounties Won",
         player: mostWon,
         value: mostWon ? String(mostWon.bountiesWon) : "—",
-        subtext: "First-entry prizes collected"
+        subtext: "Eligible bounties collected"
       }),
       renderStatCard({
         label: "Best Bounty Net",
@@ -544,7 +544,7 @@ const KNOCKOUTS_URLS = [
               </div>
               <div class="knockouts-bounty-claim-player is-victim">
                 ${avatarMarkup(victim, "knockouts-avatar-sm")}
-                <span><strong>${victim?.name || claim.victim}</strong><small>first-entry bounty</small></span>
+                <span><strong>${victim?.name || claim.victim}</strong><small>${claim.victimEntry ? `entry #${Number(claim.victimEntry)} bounty` : "first-entry bounty"}</small></span>
               </div>
             </div>
           `;
@@ -569,7 +569,7 @@ const KNOCKOUTS_URLS = [
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head knockouts-shell-head-leaders">
           <h2>🏷️ Bounty Leaders</h2>
-          <p class="muted">First-entry bounty results only. Every claim also remains one ordinary knockout.</p>
+          <p class="muted">Eligible bounty claims only. Every claim also remains one ordinary knockout.</p>
         </div>
         <div class="knockouts-summary-grid">${renderBountySummary(players)}</div>
       </section>
@@ -585,7 +585,7 @@ const KNOCKOUTS_URLS = [
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
           <h2>✅ Verified Bounty Claims</h2>
-          <p class="muted">Who captured whose first-entry bounty, checked against the Tournament Director totals.</p>
+          <p class="muted">Who captured whose bounty, checked against the event’s entry rules and Tournament Director totals. Forfeited bounties become winner-only prize money, not bounty claims.</p>
         </div>
         ${renderBountyClaims(playerMap, claims)}
       </section>

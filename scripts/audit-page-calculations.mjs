@@ -541,6 +541,15 @@ check(
   "Knockout Central must render career bounty money and verified killer-to-victim claims"
 );
 
+const rebuyBountyMarkup = knockoutAudit.renderBountyView(
+  syntheticBountyPlayers,
+  knockoutAudit.buildPlayerMap(syntheticBountyPlayers),
+  { bounties: { claims: [{ ...syntheticClaims[0], victimEntry: 3, killerEntry: 2 }] } }
+);
+check(rebuyBountyMarkup.includes("entry #3 bounty")
+    && rebuyBountyMarkup.includes("winner-only prize money"),
+  "Optional rebuy claims must display the victim entry and exclude forfeitures from bounty wins");
+
 const sortableKeys = [
   "totalWinnings", "profit", "hits", "timesPlaced", "bubbles", "hitRate",
   "cashRate", "bubbleRate", "roi", "trueSkillScore", "luckIndex",

@@ -1,0 +1,32 @@
+09:05:14 am 10/18/2026: Ahmed bought-in (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL Buy-In)
+09:05:14 am 10/18/2026: Ai-Dave bought-in (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL Buy-In)
+09:05:14 am 10/18/2026: Alex C bought-in (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL Buy-In)
+09:05:14 am 10/18/2026: Bob bought-in (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL Buy-In)
+09:05:20 am 10/18/2026: Featured, Seat 1: Alex C
+09:05:20 am 10/18/2026: Tournament started
+09:05:20 am 10/18/2026: Featured, Seat 5: Ahmed
+09:05:20 am 10/18/2026: Featured, Seat 7: Ai-Dave
+09:05:20 am 10/18/2026: Featured, Seat 9: Bob
+09:05:32 am 10/18/2026: Bob busted out of the tournament (Featured, Seat 9) by Ahmed (Featured, Seat 5)
+09:05:44 am 10/18/2026: Bob rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+09:05:59 am 10/18/2026: Alex C busted out of the tournament (Featured, Seat 1) by Ahmed (Featured, Seat 5)
+09:06:02 am 10/18/2026: Alex C rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:06:13 am 10/18/2026: Alex C busted out of the tournament (Featured, Seat 1) by Bob (Featured, Seat 9)
+09:06:22 am 10/18/2026: Alex C rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:06:29 am 10/18/2026: Bob busted out of the tournament (Featured, Seat 9) by Ai-Dave (Featured, Seat 7)
+09:06:33 am 10/18/2026: Bob rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:06:41 am 10/18/2026: Alex C busted out of the tournament (Featured, Seat 1) by Bob (Featured, Seat 9)
+09:06:50 am 10/18/2026: Alex C rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+09:06:58 am 10/18/2026: Ai-Dave busted out of the tournament (Featured, Seat 7) by Alex C (Featured, Seat 1)
+09:07:02 am 10/18/2026: Ai-Dave rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:07:15 am 10/18/2026: Ai-Dave busted out of the tournament (Featured, Seat 7) by Ahmed (Featured, Seat 5)
+09:07:18 am 10/18/2026: Ai-Dave rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:07:26 am 10/18/2026: Bob busted out of the tournament (Featured, Seat 9) by Ai-Dave (Featured, Seat 7)
+09:07:37 am 10/18/2026: Alex C busted out of the tournament (Featured, Seat 1) by Ai-Dave (Featured, Seat 7)
+09:07:46 am 10/18/2026: Alex C rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+09:07:55 am 10/18/2026: Ahmed busted out of the tournament (Featured, Seat 5) by Ai-Dave (Featured, Seat 7)
+09:08:06 am 10/18/2026: Alex C busted out of the tournament (Featured, Seat 1) by Ai-Dave (Featured, Seat 7)
+09:08:10 am 10/18/2026: Alex C rebought into tournament (Fee: $30.00, Rake: $0.00, Chips: 40,000, Points: 0.00, Bounty Chip: $5.00, Profile: TLPT FINAL REBUY)
+09:08:20 am 10/18/2026: Ai-Dave busted out of the tournament (Featured, Seat 7) by Alex C (Featured, Seat 1)
+09:08:23 am 10/18/2026: Alex C won the tournament
+09:08:23 am 10/18/2026: Tournament ended
