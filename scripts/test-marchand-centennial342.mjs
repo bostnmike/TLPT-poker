@@ -44,8 +44,9 @@ const gamePhotos = read('marchand-game-photos.json');
 assert.equal(gamePhotos.artifacts['goal-49'], undefined);
 assert.equal(gamePhotos.artifacts[chicago.key].inventoryId, 342);
 for (const key of [chicago.key, companion.key, r.key]) {
-  assert.equal(gamePhotos.artifacts[key].displaySelected, false, 'Withheld supplemental images do not change protected physical identities');
-  assert.equal(gamePhotos.assets[gamePhotos.artifacts[key].assetId], undefined);
+  assert.equal(gamePhotos.artifacts[key].displaySelected, true, 'Restored supplemental images do not change protected physical identities');
+  assert.equal(gamePhotos.artifacts[key].galleryPosition, 'last');
+  assert.ok(gamePhotos.assets[gamePhotos.artifacts[key].assetId]);
 }
 const index = JSON.parse(fs.readFileSync(new URL('../docs/marchand-game-photo-index-20261017.json', import.meta.url))).records;
 assert.equal(index.length, p.records.length);

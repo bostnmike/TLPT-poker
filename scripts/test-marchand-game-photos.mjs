@@ -8,11 +8,11 @@ const index=JSON.parse(read('docs/marchand-game-photo-index-20261017.json')).rec
 assert.equal(collection.records.length,172);
 assert.equal(index.length,172);
 assert.equal(Object.keys(photos.artifacts).length,172);
-assert.equal(Object.keys(photos.assets).length,95);
+assert.equal(Object.keys(photos.assets).length,172);
 assert.equal(photos.meta.artifacts,172);
-assert.equal(photos.meta.assets,95);
-assert.equal(photos.meta.selectedGameImages,95);
-assert.equal(photos.meta.withheldGameImages,77);
+assert.equal(photos.meta.assets,172);
+assert.equal(photos.meta.selectedGameImages,172);
+assert.equal(photos.meta.withheldGameImages,0);
 assert.equal(photos.meta.uniqueImagePerSelectedArtifact,true);
 assert.equal(photos.meta.physicalPhotographySeparate,true);
 let selectedCount=0,withheldCount=0;
@@ -51,10 +51,10 @@ for(const record of collection.records){
  if(mapping.photoDate!==record.date)assert.equal(record.inventoryId,705);
  for(const field of ['caption','credit','sourceUrl','nativeSha256','url','thumbnailUrl'])assert.equal(joined[field],photo[field]);
 }
-assert.equal(selectedCount,95);
-assert.equal(withheldCount,77);
+assert.equal(selectedCount,172);
+assert.equal(withheldCount,0);
 assert.ok(nonBrad.every(id=>[703,705].includes(id)));
-for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,95,`Selected images/originals must be distinct: ${field}`);
+for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,172,`Selected images/originals must be distinct: ${field}`);
 for(const [id,photo]of Object.entries(photos.assets)){
  assert.ok(photo.caption&&photo.originalCaption&&photo.credit);
  assert.match(photo.sourceUrl,/^https:\/\//);
@@ -88,7 +88,17 @@ for(const[id,videoId]of[[19,'lceo1s1K0c0'],[27,'Vf6W6gdGQy8']]){
 const selected=key=>photos.assets[photos.artifacts[key].assetId];
 assert.equal(selected('goal-27').gameId,'2022020771');
 assert.equal(selected('goal-27').videoSource.clip_id,'6335779350112');
-for(const id of [3,12,24,45])assert.equal(photos.artifacts[`goal-${id}`].displaySelected,false,'Different-goal celebration must not fall back');
+for(const id of [3,12,24,45]){ const a=selected(`goal-${id}`); assert.equal(photos.artifacts[`goal-${id}`].displaySelected,true); assert.ok(a.nativeFullSize); assert.match(a.url,/complete-20261018-/); assert.equal(a.sha256,a.nativeSha256); }
+assert.match(selected('milestone-322').caption,/TNT interview in Chicago/);
+assert.match(selected('milestone-322').relationNote,/Pregame/);
+assert.doesNotMatch(selected('milestone-322').caption,/postgame|post-game/i);
+assert.match(selected('history-509').relationNote,/Post-win/);
+assert.notEqual(selected('history-510').nativeSha256,selected('history-504').nativeSha256);
+assert.equal(selected('goal-4').credit,'Game video still / BruinsCorner on YouTube');
+assert.equal(selected('goal-40').videoSource.clip_id,'6347357564112');
+assert.match(selected('milestone-314').sourceEmbeddedCaption,/Barry Chin/);
+assert.match(selected('repeat-626').sourceEmbeddedCaption,/Sam Navarro/);
+assert.ok(selected('milestone-317').rawIptcQualification);
 assert.equal(photos.artifacts['goal-49'],undefined);
 assert.equal(photos.artifacts['milestone-342'].inventoryId,342);
 assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
@@ -98,5 +108,10 @@ assert.match(byId(713).notes,/reached November 13, 2025/);
 assert.equal(collection.meta.currentCanonicalMasterSha256,'326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
-assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PENDING_MAC_UNLOCK');
-console.log('PASS:172 canonical decisions;95 distinct selected gallery tails;77 omissions without active assets;native delivery;correct19/27 links;713 ceremony;pending Excel qualification.');
+assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
+assert.equal(photos.meta.nativeExcelAppTest,'PASS');
+assert.equal(photos.meta.sourceIndexSha256,'573fcf2c510fa3b72078b773dac08f5fbf4d6869cd03f656c1150f198ec29e57');
+assert.equal(photos.meta.changedNativeImages.length,10);
+assert.equal(photos.meta.retainedNativeImages.length,95);
+assert.equal(photos.meta.restoredArchivedNativeImages.length,67);
+console.log('PASS:172 distinct singular gallery tails;10 exact native replacements;95 retained/67 restored;source credits;correct19/27 links;713 ceremony;Excel PASS;owner qualification retained.');

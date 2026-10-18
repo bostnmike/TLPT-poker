@@ -41,10 +41,13 @@
         "Goals & Games!Q28"
       ],
       "scope": "Correct only canonical19/27 video hyperlink targets, preserving Game Highlights labels, all other cell values and historical source hashes.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
       "wordChanged": false,
       "packageDataValidation": "PASS",
-      "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
+      "nativeExcelAppTest": "PASS",
+      "nativeExcelCompletedDate": "2026-10-18",
+      "nativeExcelCompletionReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
+      "nativeExcelCompletionReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
     },
     "canonicalUpdateHistory": [
       {
@@ -73,13 +76,59 @@
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
       "sha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
-      "verifiedDate": "2026-10-17",
+      "verifiedDate": "2026-10-18",
       "wordSource": "BM63-Goal-Puck-List.docx",
       "wordSha256": "1a780917190bfa5cd09be2cf629da26dbe7dc3bc0ac34a4c0e164a78f03d78e6",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
-      "projection": "Canonical package/data checks pass;19/27 hyperlink corrections mirrored. Native Excel app test not yet performed.",
-      "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
-    }
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
+      "projection": "Canonical package/data checks and native Microsoft Excel opening, hyperlink inspection, recalculation and visible dashboard checks pass. No workbook edit or save performed.",
+      "nativeExcelAppTest": "PASS",
+      "verificationReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+    },
+    "mediaRegistrationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Game photo media reconciliation 2026-10-18-v1.json",
+      "sha256": "fb09a4a932caad9d603611d5ce1131c61a86e759a47b2982f2ca85c47f0b919a"
+    },
+    "mediaRegistryAtRegistration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
+      "sha256": "66297cd998404bdf567464d6f74849eaada10cff200d4d2820c8f4dba33d511d"
+    },
+    "nativeExcelCompletionReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
+      "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+    },
+    "sourceHandoffSha256": "bab34c8030e659050ed99177cc702fdaccf9fade0d2b402ecc016efa216fbc61",
+    "canonicalVerificationHistory": [
+      {
+        "currentCanonicalMaster": {
+          "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+          "sha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+          "verifiedDate": "2026-10-17",
+          "wordSource": "BM63-Goal-Puck-List.docx",
+          "wordSha256": "1a780917190bfa5cd09be2cf629da26dbe7dc3bc0ac34a4c0e164a78f03d78e6",
+          "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
+          "projection": "Canonical package/data checks pass;19/27 hyperlink corrections mirrored. Native Excel app test not yet performed.",
+          "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
+        },
+        "latestCanonicalUpdate": {
+          "date": "2026-10-17",
+          "sourceSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+          "inventoryIds": [
+            19,
+            27
+          ],
+          "sourceCells": [
+            "Goals & Games!Q20",
+            "Goals & Games!Q28"
+          ],
+          "scope": "Correct only canonical19/27 video hyperlink targets, preserving Game Highlights labels, all other cell values and historical source hashes.",
+          "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Expressive Photo Edit Handoff 2026-10-17-v1/Canonical-Link-Correction-Pending-Excel.json",
+          "wordChanged": false,
+          "packageDataValidation": "PASS",
+          "nativeExcelAppTest": "PENDING_MAC_UNLOCK"
+        },
+        "supersededByNativeExcelVerificationDate": "2026-10-18"
+      }
+    ]
   },
   "records": [
     {
