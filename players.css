@@ -129,6 +129,42 @@
   padding:0 2px;
 }
 
+.crew-page .crew-roster-filter{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.crew-page .crew-roster-filter .btn{
+  min-height:44px;
+  padding:10px 16px;
+  border-radius:12px;
+  border-color:rgba(239,68,68,.4);
+  color:#fecaca;
+  font-size:1rem;
+  font-weight:700;
+  background:#151b23;
+}
+
+.crew-page .crew-roster-filter .btn:hover,
+.crew-page .crew-roster-filter .btn.active{
+  background:#8f2428;
+  border-color:#f87171;
+  color:#fff;
+}
+
+.crew-page .crew-roster-filter .btn:focus-visible{
+  outline:2px solid #fca5a5;
+  outline-offset:3px;
+}
+
+.crew-roster-filter [data-roster-count]{
+  margin-left:6px;
+  font-size:.85em;
+}
+
+.crew-page #crew-roster-note{margin:0;}
+
 .crew-search-row label{
   display:grid;
   gap:6px;

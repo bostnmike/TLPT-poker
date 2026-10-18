@@ -62,6 +62,21 @@ workflow remains validation-only; its Cloudflare deployment is separate.
 
 Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 
+## Player membership: Active and Alumni
+
+`data/player-metadata.json` owns the optional `rosterStatus` field (`active` or
+`alumni`; omitted means active). Change this field to restore a regular player.
+Membership filters only the Crew page display; never remove alumni from metadata,
+generated players, event imports, RSVP identity resolution, or the cashier roster.
+Career ratings, tier benchmarks, records, collections, and all historical results
+continue to use the complete league. A guest appearance updates the same player
+identity and does not automatically change their membership status.
+
+The initial alumni are Brad R, Gilmore, Hayden D, Yann, Big Tim, Fabian, and Bob
+(slug `rob-f`). Red remains active through the MTT. Do not schedule or infer an
+automatic status change from a date or RSVP; review his status after the event is
+finalized.
+
 ## Prize and bounty accounting
 
 Event prize pools and `winners[].payout` contain tournament prize money only.

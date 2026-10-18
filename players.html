@@ -46,7 +46,7 @@
 
   <link rel="stylesheet" href="style.css?v=20261012-1" />
   <link rel="stylesheet" href="site-tail.css?v=20260826-10" />
-  <link rel="stylesheet" href="players.css?v=20261012-1" />
+  <link rel="stylesheet" href="players.css?v=20261018-1" />
   <link rel="stylesheet" href="ux-convergence.css?v=20261012-15" />
 </head>
 <body class="crew-page">
@@ -144,6 +144,13 @@
       <div class="site-page-hero-lower crew-header-controls">
         <div id="players-explainer" class="page-kicker" hidden></div>
 
+        <div class="crew-roster-filter" role="group" aria-label="League membership">
+          <button class="btn active" type="button" data-crew-roster="active" aria-pressed="true" aria-controls="players-visual players-grid">Active <span data-roster-count></span></button>
+          <button class="btn" type="button" data-crew-roster="alumni" aria-pressed="false" aria-controls="players-visual players-grid">Alumni <span data-roster-count></span></button>
+          <button class="btn" type="button" data-crew-roster="all" aria-pressed="false" aria-controls="players-visual players-grid">All Players <span data-roster-count></span></button>
+        </div>
+        <p id="crew-roster-note" class="muted">The regular lineup. Alumni remain part of TLPT and are always welcome back.</p>
+
         <div class="crew-view-toolbar" data-sort-scope="crew-view" role="group" aria-label="Crew view">
           <button id="crew-view-tier" class="btn active" type="button" aria-pressed="true" aria-controls="players-visual players-grid">🎖️ Tier View</button>
 
@@ -164,7 +171,7 @@
             <span>Find a Player</span>
             <input id="crew-player-search" type="search" placeholder="Start typing a name" autocomplete="off" />
           </label>
-          <span id="crew-search-status" aria-live="polite">Showing the full crew</span>
+          <span id="crew-search-status" aria-live="polite">Loading active players</span>
         </div>
       </div>
     </section>
@@ -192,6 +199,6 @@
 </footer>
   
   <script src="site-shell.js?v=20261012-3"></script>
-  <script src="app.js?v=20261018-3"></script>
+  <script src="app.js?v=20261018-4"></script>
 </body>
 </html>

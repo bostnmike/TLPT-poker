@@ -146,6 +146,7 @@ let currentCrewView = "tier";
 let currentArchetypeMode = "primary";
 let currentArchetypeFilter = "all";
 let currentCrewSearch = "";
+let currentCrewRoster = "active";
 let currentCrewVisibleCount = 0;
 
 const STAT_FORMULAS = {
@@ -764,6 +765,16 @@ function getEligiblePlayers(players) {
 
 function isCrewVisible(player) {
   return Number(player?.buyIns ?? 0) >= CREW_ROOKIE_MIN_BUY_INS;
+}
+
+// Membership changes visibility only, never identity, eligibility, ratings, or RSVPs.
+function isPlayerAlumni(player) {
+  return player?.rosterStatus === "alumni";
+}
+
+function crewRosterPlayers(players, roster = "active") {
+  return (players || []).filter(player => roster === "all" ||
+    (roster === "alumni" ? isPlayerAlumni(player) : !isPlayerAlumni(player)));
 }
 
 function isCrewRookie(player) {
@@ -3390,8 +3401,8 @@ function crewCardMarkup(player, data) {
           `).join("")}
         </div>
 
-        <div class="crew-ultimate-footer" aria-hidden="true">
-          <span>TLPT</span>
+        <div class="crew-ultimate-footer">
+          <span>${isPlayerAlumni(player) ? "Alumni" : "TLPT"}</span>
           <span>${tierMeta.status}</span>
         </div>
       </div>
@@ -3516,9 +3527,9 @@ function archetypeMeta(name) {
   return map[name] || { emoji: "🧍", className: "archetype-unknown" };
 }
 
-function groupPlayersByArchetype(players, mode = "primary") {
+function groupPlayersByArchetype(players, mode = "primary", ratingPool = players) {
   const groups = new Map();
-  const cardRatingSort = playerCardRatingComparator(players);
+  const cardRatingSort = playerCardRatingComparator(ratingPool);
 
   players.forEach(player => {
     const archetypes = getPlayerArchetypes(player);
@@ -3698,7 +3709,21 @@ function renderPlayers(data) {
 
   if (!grid || !data?.players) return;
 
-  const matchingRosterPlayers = [...data.players]
+  document.querySelectorAll("[data-crew-roster]").forEach(button => {
+    const selected = button.dataset.crewRoster === currentCrewRoster;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+    const count = button.querySelector("[data-roster-count]");
+    if (count) count.textContent = String(crewRosterPlayers(data.players, button.dataset.crewRoster).length);
+  });
+  const rosterNote = document.getElementById("crew-roster-note");
+  if (rosterNote) rosterNote.textContent = currentCrewRoster === "alumni"
+    ? "Away from the table. Still on the record. Always welcome back."
+    : currentCrewRoster === "all"
+      ? "The whole league, past and present. Career ratings and history stay together."
+      : "The regular lineup. Alumni remain part of TLPT and are always welcome back.";
+
+  const matchingRosterPlayers = crewRosterPlayers(data.players, currentCrewRoster)
     .filter(player => {
       if (!currentCrewSearch) return true;
       const haystack = `${player?.name || ""} ${player?.slug || ""}`.toLowerCase();
@@ -3707,7 +3732,7 @@ function renderPlayers(data) {
     .sort((a, b) => getPlayerTierScore(b) - getPlayerTierScore(a));
   const rankedRosterPlayers = matchingRosterPlayers.filter(isCrewEstablished);
   const developingRosterPlayers = matchingRosterPlayers.filter(player => !isCrewEstablished(player));
-  const rosterPlayers = currentCrewView === "tier" && !currentCrewSearch
+  const rosterPlayers = currentCrewRoster === "active" && currentCrewView === "tier" && !currentCrewSearch
     ? [
         ...rankedRosterPlayers,
         ...developingRosterPlayers.slice(0, currentCrewVisibleCount)
@@ -3728,14 +3753,14 @@ function renderPlayers(data) {
     grid.innerHTML = `
       <div class="crew-search-empty" role="status">
         <strong>No player matches that search.</strong>
-        <span>Even the commissioner cannot roster somebody who is not there.</span>
+        <span>${currentCrewRoster === "active" ? "Try All Players to include alumni, or check the spelling." : "Try another name or choose All Players."}</span>
       </div>
     `;
     return;
   }
 
   if (currentCrewView === "archetype") {
-    const archetypeGroups = groupPlayersByArchetype(rosterPlayers, currentArchetypeMode);
+    const archetypeGroups = groupPlayersByArchetype(rosterPlayers, currentArchetypeMode, data.players);
     const filteredGroups = currentArchetypeFilter === "all"
       ? archetypeGroups
       : archetypeGroups.filter(group => group.title === currentArchetypeFilter);
@@ -3815,7 +3840,7 @@ function renderPlayers(data) {
   const establishedPlayers = fieldPlayers.filter(isCrewEstablished);
 
   establishedPlayers.forEach(player => {
-    const tier = getPlayerTier(player, establishedPlayers);
+    const tier = getPlayerTier(player, data.players);
 
     if (tier.name === "The Apex Predator") {
       apexPredators.push(player);
@@ -5762,6 +5787,7 @@ function playerProfileSnapshotMarkup(player, data, primaryArchetype, secondaryAr
       <div class="tlpt-player-summary-title-row">
         <div>
           <h1 id="tlpt-player-summary-title">${displayPlayerName(player)}</h1>
+          ${isPlayerAlumni(player) ? '<p class="tlpt-player-summary-quote"><strong>TLPT Alumni</strong> · Away from the table. Still on the record.</p>' : ""}
           <p class="tlpt-player-summary-quote">${quote}</p>
         </div>
       </div>
@@ -6920,6 +6946,14 @@ function initCrewViewToggle() {
 }
 
 function initCrewSearch() {
+  document.querySelectorAll("[data-crew-roster]").forEach(button => {
+    button.addEventListener("click", () => {
+      currentCrewRoster = button.dataset.crewRoster;
+      currentArchetypeFilter = "all";
+      currentCrewVisibleCount = 0;
+      renderPlayers(window.siteData);
+    });
+  });
   const search = document.getElementById("crew-player-search");
   if (!search) return;
 

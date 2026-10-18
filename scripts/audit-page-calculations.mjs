@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { buildRsvpChecklist } from "../cashier/lib/rsvp.mjs";
 
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -91,6 +92,29 @@ function loadScript(relative, transform = source => source) {
 }
 
 const app = loadScript("app.js");
+// Membership is a display filter, never a new identity or a statistical reset.
+const metadataPlayers = readJson("data/player-metadata.json").players;
+const alumni = metadataPlayers.filter(player => player.rosterStatus === "alumni");
+const rosterSnapshot = JSON.stringify(data.players);
+const filterRoster = app.get("crewRosterPlayers");
+check(data.players.length === metadataPlayers.length, "Membership must preserve every player identity");
+check(JSON.stringify(filterRoster(data.players, "alumni").map(p => p.slug).sort()) === JSON.stringify(alumni.map(p => p.slug).sort()), "Generated alumni must match metadata");
+check(filterRoster(data.players, "all").length === data.players.length, "All Players must include the complete roster");
+check(filterRoster(data.players).length + alumni.length === data.players.length, "Active and Alumni must partition the full roster");
+check(app.get("isPlayerAlumni")({}) === false, "Legacy players must default to active membership");
+for (const player of data.players) {
+  check(["active", "alumni"].includes(player.rosterStatus), `${player.slug}: invalid membership status`);
+  const toggled = { ...player, rosterStatus: player.rosterStatus === "alumni" ? "active" : "alumni" };
+  for (const fn of ["playerCardTierMeta", "playerCardOverallRating"]) {
+    check(JSON.stringify(app.get(fn)(player, data.players)) === JSON.stringify(app.get(fn)(toggled, data.players)), `${player.slug}: membership must not change ${fn}`);
+  }
+}
+const alumniRsvps = Object.fromEntries(alumni.map(player => [player.slug, "yes"]));
+check(app.get("getRsvpCounts")({ rsvps: alumniRsvps }).yes === alumni.length, "Alumni must count toward event RSVPs");
+check(app.get("getRsvpPlayersByStatus")({ rsvps: alumniRsvps }, data, "yes").length === alumni.length, "Alumni must appear in RSVP attendee lists");
+const alumniChecklist = buildRsvpChecklist({ id: "alumni-regression", rsvps: alumni.map(player => ({ player: player.slug, answer: "yes" })) }, [], metadataPlayers);
+check(alumniChecklist.expected === alumni.length && alumniChecklist.rows.every(row => row.known), "Cashier must resolve every alumni RSVP to the existing identity");
+check(JSON.stringify(data.players) === rosterSnapshot, "Roster filtering must not mutate player data");
 const mtt = app.get('RULES_FORMATS["two-table"]');
 const mttCallout = app.get("buildRulesFormatCallout")(mtt);
 const houseRules = fs.readFileSync(path.join(root, "rules.html"), "utf8");

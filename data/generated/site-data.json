@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T20:18:40.230397Z",
+  "generatedAt": "2026-10-18T20:29:55.395053Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -776,6 +776,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -1416,6 +1417,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "hall-billing-department",
       "featuredCardMode": "automatic"
     },
@@ -1657,6 +1659,7 @@
           "streakLength": 2
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -1820,6 +1823,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -2025,6 +2029,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -2995,6 +3000,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
       "featuredCardMode": "automatic"
     },
@@ -3179,6 +3185,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -3342,6 +3349,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -3583,6 +3591,7 @@
           "streakLength": 2
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -4113,6 +4122,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "leader-roi",
       "featuredCardMode": "automatic"
     },
@@ -4641,6 +4651,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "leader-roi",
       "featuredCardMode": "automatic"
     },
@@ -4867,6 +4878,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -5030,6 +5042,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -5193,6 +5206,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -5377,6 +5391,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -5618,6 +5633,7 @@
           "streakLength": 2
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -5802,6 +5818,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -6715,6 +6732,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
       "featuredCardMode": "automatic"
     },
@@ -7034,6 +7052,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -7317,6 +7336,7 @@
           "streakLength": 2
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -8232,6 +8252,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
       "featuredCardMode": "automatic"
     },
@@ -8395,6 +8416,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -9200,6 +9222,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "hall-tax-collector",
       "featuredCardMode": "automatic"
     },
@@ -9617,6 +9640,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "milestone-10",
       "featuredCardMode": "automatic"
     },
@@ -9780,6 +9804,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -10120,6 +10145,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -10283,6 +10309,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -10813,6 +10840,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-3",
       "featuredCardMode": "automatic"
     },
@@ -11341,6 +11369,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "leader-knockouts",
       "featuredCardMode": "automatic"
     },
@@ -11738,6 +11767,7 @@
           "streakLength": 2
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "heater-2",
       "featuredCardMode": "automatic"
     },
@@ -11922,6 +11952,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -12127,6 +12158,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -12544,6 +12576,7 @@
           }
         }
       ],
+      "rosterStatus": "active",
       "featuredCardEdition": "milestone-10",
       "featuredCardMode": "automatic"
     },
@@ -12842,6 +12875,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     },
@@ -13005,6 +13039,7 @@
         }
       },
       "cardCollection": [],
+      "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
     }

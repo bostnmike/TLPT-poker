@@ -1188,6 +1188,10 @@ def build_card_form_payload(players, parsed_events, window_size=CARD_FORM_WINDOW
 
 def main():
     metadata = load_json(METADATA_PATH)
+    # Membership is presentation-only: never filter event imports, metrics, or history.
+    roster_status = {p["slug"]: p.get("rosterStatus", "active") for p in metadata["players"]}
+    if any(status not in {"active", "alumni"} for status in roster_status.values()):
+        raise ValueError("Player rosterStatus must be active or alumni")
     config = load_json(CONFIG_PATH)
     events = load_json(EVENTS_PATH)
     featured_card_policy = load_json(FEATURED_CARDS_PATH)
@@ -1284,6 +1288,7 @@ def main():
     for player in players:
         player["cardForm"] = card_form.get(player["slug"])
         player["cardCollection"] = card_collections.get(player["slug"], [])
+        player["rosterStatus"] = roster_status.get(player["slug"], "active")
     featured_card_summary = apply_featured_card_policy(players, featured_card_policy)
 
     streaks = build_streak_payload(player_lookup, parsed_events, min_events=2, min_streak=2)
