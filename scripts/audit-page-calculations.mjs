@@ -817,7 +817,12 @@ for (const view of ["tier", "archetype"]) {
   }
 }
 const forecastMarkup = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: Object.fromEntries(data.players.map(p => [p.slug, "maybe"])) }, data);
-check(forecastMarkup.includes("<strong>Active:</strong>") && forecastMarkup.includes("<strong>Alumni:</strong>"), "RSVP forecast must separate membership without removing invitees");
+check(!forecastMarkup.includes("Active:") && !forecastMarkup.includes("Alumni:") && forecastMarkup.includes("35 players"), "Event forecasts must combine active and alumni attendees in one count");
+for (const status of ["maybe", "tbd", "no"]) {
+  const mixedForecast = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: { "rob-f": status, ahmed: status, bostnmike: status } }, data);
+  check(mixedForecast.includes("BostnMike, Ahmed, Bob"), `${status}: event forecasts must retain alumni alongside active names with the Commish first`);
+  check(!mixedForecast.includes("Alumni:") && !mixedForecast.includes("Active:"), `${status}: event forecasts must not label separate membership sections`);
+}
 for (const page of ["index", "champions", "dashboard", "standings", "players", "player", "schedule", "structures", "form-lab", "trophy-room", "knockouts", "streaks", "player-movement", "voice-of-god"]) {
   const html = fs.readFileSync(path.join(root, `${page}.html`), "utf8");
   check(html.includes('roster-display.css?v=20261018-2') && html.includes('roster-display.js?v=20261018-1'), `${page}: shared roster display assets missing`);

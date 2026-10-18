@@ -1693,17 +1693,10 @@ function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
 }
 
 function eventRsvpForecastMarkup(event, data) {
-  const namesByMembership = (status, options) => {
-    const players = Object.entries(event?.rsvps || {})
-      .filter(([, answer]) => String(answer || "tbd").toLowerCase() === status)
-      .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
-      .sort(compareEventRosterPlayers);
-    const names = members => escapeHtmlAttr(formatRsvpNameList(members.map(player => displayPlayerNamePlain(player)), "Nobody yet", options));
-    const alumni = players.filter(isPlayerAlumni);
-    if (!alumni.length) return names(players);
-    const active = players.filter(player => !isPlayerAlumni(player));
-    return `${active.length ? `<span class="roster-rsvp-group"><strong>Active:</strong> ${names(active)}</span>` : ""}<span class="roster-rsvp-group"><strong>Alumni:</strong> ${names(alumni)}</span>`;
-  };
+  // Event attendance stays together regardless of league membership status.
+  const namesForStatus = (status, options) => escapeHtmlAttr(formatRsvpNameList(
+    getRsvpPlayersByStatus(event, data, status), "Nobody yet", options
+  ));
 
   return `
     <div class="event-rsvp-forecast" aria-label="Table forecast">
@@ -1711,7 +1704,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-maybe">
         <span class="event-rsvp-forecast-label">On the Rail</span>
-        <span class="event-rsvp-forecast-names">${namesByMembership("maybe", {
+        <span class="event-rsvp-forecast-names">${namesForStatus("maybe", {
           maxNames: 6,
           collapseAfter: 12
         })}</span>
@@ -1719,7 +1712,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-tbd">
         <span class="event-rsvp-forecast-label">In the Tank</span>
-        <span class="event-rsvp-forecast-names">${namesByMembership("tbd", {
+        <span class="event-rsvp-forecast-names">${namesForStatus("tbd", {
           maxNames: 8,
           collapseAfter: 14
         })}</span>
@@ -1727,7 +1720,7 @@ function eventRsvpForecastMarkup(event, data) {
 
       <div class="event-rsvp-forecast-row event-rsvp-forecast-no">
         <span class="event-rsvp-forecast-label">Folded Pre</span>
-        <span class="event-rsvp-forecast-names">${namesByMembership("no", {
+        <span class="event-rsvp-forecast-names">${namesForStatus("no", {
           maxNames: 4,
           collapseAfter: 8
         })}</span>
