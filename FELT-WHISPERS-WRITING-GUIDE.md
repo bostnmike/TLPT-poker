@@ -43,6 +43,8 @@ Nicknames, food, table jokes, and equipment incidents belong to the event where 
 
 Tone: witty, sharp, specific, slightly savage, poker-literate TLPT insider copy. Funny because the details are real; avoid generic poker filler and forced recurring jokes.
 
+Naming: always call the shuffler **The DeckMate**, including the capitalized "The" as part of its name, in story copy, deks, summary cards, and other editorial mentions. Do not use bare "DeckMate" or the spelling "Deckmate".
+
 - Summary cards: exactly four short headline facts identifying major players/outcomes. The first card is labeled `🏆 The Big Winner`. Do not tell the whole story in each card.
 - Stat pills: entries, rebuys, prize pool, and elapsed duration only.
 - Dek: one brief hook, not an inventory of every subplot.

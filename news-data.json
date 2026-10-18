@@ -19,7 +19,7 @@
   "eventName": "ALL-E-IN - 9-Max",
   "title": "ALL-E-IN - 9-Max",
   "featured": true,
-  "dek": "DeckMate went full video poker, Red barely survived introductions, and the Commissioner found a way to monetize the guest list.",
+  "dek": "The DeckMate went full video poker, Red barely survived introductions, and the Commissioner found a way to monetize the guest list.",
   "summaryCards": [
     {
       "tone": "green",
@@ -65,7 +65,7 @@
       "label": "🎰 Opening Jackpot",
       "player": "ProvidenceMike",
       "value": "Quads on hand one",
-      "copy": "DeckMate wasted no time establishing the evening’s terms.",
+      "copy": "The DeckMate wasted no time establishing the evening’s terms.",
       "avatar": "images/players/providencemike.jpg",
       "fallback": "PM"
     }
@@ -105,7 +105,7 @@
     "firstOut": "Red",
     "firstPermanentOut": "A.I. Dave"
   },
-  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-17.jpg\" alt=\"Poster for the 10/17/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>TLPT went fully digital Saturday, and DeckMate immediately started behaving like something you should be able to unplug at a Nevada gas station. ProvidenceMike made quads on hand one. Red then ran a set into BostnMike&apos;s bigger set and set the room&apos;s fastest-exit record before the first orbit was even finished. The rebuy followed nine seconds later. Red had barely settled in and was already being asked for another payment. Ahmed diagnosed the machine as &ldquo;Full-Blown-Video-Poker-Mode,&rdquo; which felt less like an accusation than a description of the product.</p><p>The bounty trial was supposed to be a test drive before next week&apos;s big two-table event. BostnMike treated it like a host reimbursement program. Red, Li-Fo, ProvidenceMike and A.I. Dave all surrendered their first-entry bounties to the Commissioner, who finished with five recorded knockouts and four paid scalps. Those four bounties also earned him the Bounty Hunter Ultimate Player Card. The man had found a way to charge admission, invoice people for leaving, and get a collectible for his hospitality.</p><p>ProvidenceMike&apos;s opening quads did not purchase immunity from the rest of the deck. His pocket kings later ran into Ahmed&apos;s pocket aces, and the aces actually held. Somewhere in all this, Tony coined &ldquo;Draw-Maxing,&rdquo; a practice considerably more dangerous than Looks-Maxing because the damage shows up on your bank statement instead of your dating profile. Li-Fo bought two rebuys, took ProvidenceMike out for good, and still ended up on the bubble when BostnMike made the third exit stick. Three bullets, fourth place. The new payment system had no trouble processing that particular research grant.</p><p>Ahmed handled Red&apos;s final exit and then removed Cougar in third, leaving himself and the Commissioner to agree to a chop just after midnight. Neither finalist had needed a rebuy, and both kept their own unclaimed bounties. Cougar reached the money without recording a knockout, which was a tidy way to let everyone else demonstrate the new format while he collected third. One table had produced quads, set-over-set carnage and a small collection of paid hits. Next week, apparently, the league wants twice the seating capacity.</p>",
+  "mainStoryHtml": "<div class=\"news-story-poster-wrap\"><img src=\"images/fw/fw26-10-17.jpg\" alt=\"Poster for the 10/17/2026 game\" class=\"news-story-poster\" loading=\"lazy\" decoding=\"async\"></div><p>TLPT went fully digital Saturday, and The DeckMate immediately started behaving like something you should be able to unplug at a Nevada gas station. ProvidenceMike made quads on hand one. Red then ran a set into BostnMike&apos;s bigger set and added a new entry in the annals of TLPT Lore, recording the room&apos;s fastest exit... EVER. The first orbit wasn&apos;t even finished! The rebuy followed nine seconds later. Red had barely settled in and was already being asked for another payment. Ahmed diagnosed the machine as &ldquo;Full-Blown-Video-Poker-Mode,&rdquo; which felt less like an accusation than a description of the product.</p><p>The bounty trial was supposed to be a test drive before next week&apos;s big two-table event. BostnMike treated it like a host reimbursement program. Red, Li-Fo, ProvidenceMike and A.I. Dave all surrendered their first-entry bounties to the Commissioner, who finished with five recorded knockouts and four paid scalps. Those four bounties also earned him the Bounty Hunter Ultimate Player Card. The man had found a way to charge admission, invoice people for leaving, and get a collectible for his hospitality.</p><p>ProvidenceMike&apos;s opening quads did not purchase immunity from the rest of the deck. His pocket kings later ran into Ahmed&apos;s pocket aces, and the aces actually held. Somewhere in all this, Tony coined &ldquo;Draw-Maxing,&rdquo; a practice considerably more dangerous than Looks-Maxing because the damage shows up on your bank statement instead of your dating profile. Li-Fo bought two rebuys, took ProvidenceMike out for good, and still ended up on the bubble when BostnMike made the third exit stick. Three bullets, fourth place. The new payment system had no trouble processing that particular research grant.</p><p>Ahmed handled Red&apos;s final exit and then removed Cougar in third, leaving himself and the Commissioner to agree to a chop just after midnight. Neither finalist had needed a rebuy, and both kept their own unclaimed bounties. Cougar reached the money without recording a knockout, which was a tidy way to let everyone else demonstrate the new format while he collected third. One table had produced quads, set-over-set carnage and a small collection of paid hits. Next week, apparently, the league wants twice the seating capacity.</p>",
   "spotlight": {
     "player": "BostnMike / Ahmed / Red",
     "fallback": "BAR",
@@ -139,8 +139,8 @@
   "numbersThatMatter": [
     "7 buy-ins and 4 rebuys produced 11 total entries; play ran from 7:21 pm to 12:01 am, about 4h 40m.",
     "$330 tournament prize pool: Ahmed and BostnMike agreed to $132.50 each; Cougar received $65 for third.",
-    "Separate $35 bounty pool: BostnMike collected $20 and retained $5; Ahmed collected $5 and retained $5. Each initial entry posted one $5 bounty; rebuys carried none.",
-    "Total take-home: BostnMike $157.50, Ahmed $142.50, Cougar $65. After each player’s $30 entry and $5 bounty cost, their net profits were $122.50, $107.50 and $30 respectively."
+    "Separate $35 bounty pool: BostnMike collected $20 and retained $5; Ahmed collected $5 and retained $5.",
+    "Total take-home: BostnMike $157.50, Ahmed $142.50, Cougar $65."
   ],
   "roastHtml": "<p>BostnMike successfully introduced digital payments and then discovered he had told the software the tournament started at 9:02 in the morning. Actual start: 7:21 at night. The Commissioner can now take your money electronically; telling time remains a manual process. Next week he gets two tables. An adult should probably check the settings.</p>"
 },
