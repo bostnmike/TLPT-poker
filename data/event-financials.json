@@ -16,17 +16,21 @@
     },
     "2026-10-24": {
       "entryAmount": 40,
-      "tournamentPayouts": {
-        "1": 375,
-        "2": 240,
-        "3": 160,
-        "4": 125,
-        "5": 100,
+      "detailedHistoryFile": "Event History 2026-10-24.txt",
+      "regularPayoutFixed": {
         "6": 40
+      },
+      "regularPayoutPercentages": {
+        "1": 38,
+        "2": 24,
+        "3": 16,
+        "4": 12,
+        "5": 10
       },
       "bounty": {
         "amount": 10,
-        "firstEntryOnly": true,
+        "mode": "optional-rebuy",
+        "winnerOnlyRollover": true,
         "retainIfUnbusted": true
       }
     }

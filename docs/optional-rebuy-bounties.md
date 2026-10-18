@@ -45,6 +45,16 @@ paid rank. Without that choice the import fails. Exact prizes must already be
 in cents and sum to the regular entry pool. No whole-dollar or $5 rounding is
 applied. Historical results are not recalculated under this forward policy.
 
+For October 24's MTT, `regularPayoutFixed: {"6":40}` reserves sixth place
+before `regularPayoutPercentages: {"1":38,"2":24,"3":16,"4":12,"5":10}`
+divides the remaining regular pool. Fixed and percentage ranks must not overlap.
+At $1,040 this produces $380/$240/$160/$120/$100/$40. Bounty receipts and
+winner-only forfeitures are excluded from that percentage calculation. The
+future configuration requires `Event History 2026-10-24.txt` alongside the HTML.
+No fractional-cent or chop allocation has been invented: supply an explicit
+cent-remainder choice if needed, and obtain unanimous agreement plus host
+confirmation for any chop. Ambiguous optional-bounty chops still fail closed.
+
 Do not combine optional-mode regular prizes with the legacy
 `tournamentPayouts` or `tournamentPayoutsByPlayer` fields. Existing historical
 chops keep using those fields unchanged. An optional-bounty export must identify

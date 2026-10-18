@@ -91,6 +91,36 @@ function loadScript(relative, transform = source => source) {
 }
 
 const app = loadScript("app.js");
+const mtt = app.get('RULES_FORMATS["two-table"]');
+const mttCallout = app.get("buildRulesFormatCallout")(mtt);
+const houseRules = fs.readFileSync(path.join(root, "rules.html"), "utf8");
+const mttFinancials = readJson("data/event-financials.json").events["2026-10-24"];
+const projectedMttPrizes = [38, 24, 16, 12, 10].map(percent => (1040 - 40) * percent / 100).concat(40);
+check(JSON.stringify(projectedMttPrizes) === JSON.stringify([380, 240, 160, 120, 100, 40])
+    && projectedMttPrizes.every((value, i) => mtt.payoutLabel.includes(`${i + 1}${i === 0 ? "st" : i === 1 ? "nd" : i === 2 ? "rd" : "th"} $${value}`)),
+  "MTT projected payouts must reserve sixth before applying percentages");
+check(mttFinancials.regularPayoutFixed["6"] === 40
+    && JSON.stringify(Object.values(mttFinancials.regularPayoutPercentages)) === JSON.stringify([38, 24, 16, 12, 10])
+    && mttFinancials.bounty.mode === "optional-rebuy" && mttFinancials.bounty.winnerOnlyRollover === true,
+  "MTT display and future financial configuration must use the same policy");
+for (const phrase of ["mandatory $10 bounty", "independently opts in ($50 total) or out ($40 tournament rebuy only)",
+  "Schnazzy", "receipts for bounty payouts at the end of the night", "new Schnazzy plaque",
+  "No Bounty Paid (No Blood from Rocks)", "ONLY to the eventual tournament winner",
+  "earlier forfeitures stay in the winner fund", "unanimous agreement and host confirmation"]) {
+  check(mttCallout.includes(phrase) && houseRules.includes(phrase), `MTT policy must agree on both pages: ${phrase}`);
+}
+for (const phrase of ["after Level 11", "beginning Level 12", "6:40 PM", "10,000", "payment is confirmed"]) {
+  check(mtt.blindNote.includes(phrase) && houseRules.includes(phrase), `MTT entry-window policy missing: ${phrase}`);
+}
+check(!/first-entry only|rebuys carry no bounty/i.test(mttCallout),
+  "MTT must not retain obsolete bounty restrictions");
+let mttMinutesToClose = 0;
+for (const row of mtt.levels) {
+  mttMinutesToClose += row.type === "break" ? (row.durationMinutes || mtt.breakMinutes) : mtt.levelMinutes;
+  if (row.level === "11") break;
+}
+check(mttMinutesToClose === 340 && mtt.levelMinutes === 25,
+  "MTT approximate 6:40 PM cutoff must follow unchanged levels and breaks from a 1 PM start");
 const sortPlayers = app.get("sortPlayers");
 const getPlayerTierScore = app.get("getPlayerTierScore");
 const playerCardOverallRating = app.get("playerCardOverallRating");

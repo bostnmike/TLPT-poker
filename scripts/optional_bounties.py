@@ -93,18 +93,24 @@ def regular_prizes(config, receipts, entrants, pool, paid_spots):
     require(not config.get('tournamentPayouts') and not config.get('tournamentPayoutsByPlayer'),
             'optional mode requires explicitly pre-bounty regular prizes')
     if exact:
+        require(not config.get('regularPayoutFixed'), 'exact prizes already include fixed awards')
         require(set(exact) == entrants, 'regular prize schedule must include every entrant (zero for noncashers)')
         prizes = {slug: money(value) for slug, value in exact.items()}
     else:
         ranks = [row['rank'] for row in receipts]
         require(len(ranks) == len(set(ranks)), 'chops require exact regular prizes')
         shares = {int(rank): Decimal(str(value)) for rank, value in percentages.items()}
+        fixed = {int(rank): money(value) for rank, value in (config.get('regularPayoutFixed') or {}).items()}
         require(all(v.is_finite() and v > 0 for v in shares.values()) and sum(shares.values()) == 100,
                 'percentages must be positive and total 100')
         require(set(shares) <= set(ranks), 'percentage rank is absent from receipts')
+        require(set(fixed) <= set(ranks) and not set(fixed) & set(shares), 'fixed ranks must be present and separate from percentage ranks')
+        remaining_pool = pool - sum(fixed.values())
+        require(remaining_pool > 0, 'fixed awards exhaust the regular prize pool')
         prizes = {slug: Decimal(0) for slug in entrants}
         for row in receipts:
-            prizes[row['slug']] = (pool * shares.get(row['rank'], 0) / 100).quantize(Decimal('.01'), rounding=ROUND_DOWN)
+            prizes[row['slug']] = fixed.get(row['rank'],
+                (remaining_pool * shares.get(row['rank'], 0) / 100).quantize(Decimal('.01'), rounding=ROUND_DOWN))
         remainder = pool - sum(prizes.values())
         if remainder:
             rank = config.get('centRemainderRank')

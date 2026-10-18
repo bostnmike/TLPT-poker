@@ -374,7 +374,7 @@ EXPECTED_VOICE_OF_GOD_SCRIPT = "voice-of-god.js?v=20260909-13"
 EXPECTED_KNOCKOUTS_SCRIPT = "knockouts.js?v=20261018-2"
 EXPECTED_KNOCKOUTS_STYLESHEET = "knockouts.css?v=20261012-1"
 EXPECTED_NEWS_SCRIPT = "news-render.js?v=20261012-1"
-EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-1"
+EXPECTED_APP_SCRIPT_REFERENCE = "app.js?v=20261018-2"
 EXPECTED_SITE_QUALITY_TEST_COMMANDS = [
     "bash scripts/run-quality-gates.sh",
 ]
@@ -2133,8 +2133,8 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must display its projected prize-pool value",
                 ),
                 (
-                    'payoutLabel: "1st $375 • 2nd $240 • 3rd $160 '
-                    '• 4th $125 • 5th $100 • 6th $40",',
+                    'payoutLabel: "1st $380 • 2nd $240 • 3rd $160 '
+                    '• 4th $120 • 5th $100 • 6th $40",',
                     "Two-Table 50K Deep Stack must display its approved payout schedule",
                 ),
                 (
@@ -2150,19 +2150,17 @@ def audit_javascript(path: Path) -> list[str]:
                     "Two-Table 50K Deep Stack must use its dedicated 50K chip set",
                 ),
                 (
-                    'title: "$10 First-Entry Bounty"',
-                    "Two-Table 50K Deep Stack must display the $10 first-entry bounty",
+                    'title: "$10 Bounty — Optional on Rebuys"',
+                    "Two-Table 50K Deep Stack must display optional rebuy bounties",
                 ),
                 (
-                    'The initial entry is $40 plus a separate $10 bounty. '
-                    'First-entry knockouts collect it; unbusted players retain their own. '
-                    '$40 rebuys carry no bounty, and the bounty ledger stays separate '
-                    'while its net result counts toward overall Profit and ROI.',
+                    'First entry is $50 total: $40 to the regular prize pool plus a mandatory $10 bounty. '
+                    'Each subsequent rebuy independently opts in ($50 total) or out ($40 tournament rebuy only). '
+                    'Eligibility follows the current entry.',
                     "Two-Table 50K Deep Stack must keep the bounty separate from the $40 entry",
                 ),
                 (
-                    'rebuys are open through Level 11 at 25 BB and closed '
-                    'beginning with Level 12.',
+                    'Late entry, rebuys and reloads close after Level 11 (25 BB); closed beginning Level 12.',
                     "Two-Table 50K Deep Stack must preserve the 25-BB rebuy floor",
                 ),
                 (
@@ -2217,9 +2215,12 @@ def audit_javascript(path: Path) -> list[str]:
                 errors.append(
                     "Two-Table 50K Deep Stack must not repeat its structure summary"
                 )
-            if re.search(r"\b\d{1,2}:\d{2}\b", two_table_source):
+            advisory_cutoff = "Around 6:40 PM with a 1 PM start and the posted breaks, but the level cutoff governs."
+            if advisory_cutoff not in two_table_source:
+                errors.append("MTT cutoff estimate must be explicitly subordinate to the level cutoff")
+            if re.search(r"\b\d{1,2}:\d{2}\b", two_table_source.replace(advisory_cutoff, "")):
                 errors.append(
-                    "Two-Table 50K Deep Stack must not hardcode event or break times of day"
+                    "Two-Table 50K Deep Stack must not hardcode times beyond its qualified cutoff estimate"
                 )
         friday_chip_count_match = re.search(
             r'const RULES_40K_CHIP_COUNTS = Object\.freeze\(\{'

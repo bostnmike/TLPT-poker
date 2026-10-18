@@ -689,9 +689,9 @@ def audit_event_financial_config(audit, event_financials, schedule):
         audit.check(Decimal(str(mtt_rule.get("entryAmount", 0))) == Decimal("40"), section, "Scheduled MTT entry must remain $40")
         audit.check(Decimal(str((mtt_rule.get("bounty") or {}).get("amount", 0))) == Decimal("10"), section, "Scheduled MTT bounty must remain $10")
         audit.check(
-            mtt_rule.get("tournamentPayouts") == {
-                "1": 375, "2": 240, "3": 160, "4": 125, "5": 100, "6": 40
-            },
+            mtt_rule.get("regularPayoutFixed") == {"6": 40}
+            and mtt_rule.get("regularPayoutPercentages") == {"1": 38, "2": 24, "3": 16, "4": 12, "5": 10}
+            and (mtt_rule.get("bounty") or {}).get("mode") == "optional-rebuy",
             section,
             "Scheduled MTT payouts must match the approved six-place schedule",
         )

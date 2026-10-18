@@ -128,6 +128,21 @@ class OptionalBountiesTests(unittest.TestCase):
         self.assertEqual(sum(w['payout'] for w in event['winners']), 400)
         self.assertEqual(self.audit(event, rule=rule), [])
 
+    def test_fixed_award_is_reserved_before_percentages(self):
+        from optional_bounties import regular_prizes
+        from decimal import Decimal
+        mtt = parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-10-24']
+        receipts = [dict(slug=str(rank), rank=rank) for rank in range(1, 7)]
+        prizes = regular_prizes(mtt, receipts, {r['slug'] for r in receipts}, Decimal(1040), 6)
+        self.assertEqual(prizes, {str(i+1): Decimal(v) for i,v in enumerate([380,240,160,120,100,40])})
+        with self.assertRaisesRegex(RuntimeError, 'centRemainderRank'):
+            regular_prizes(mtt, receipts, {r['slug'] for r in receipts}, Decimal('1040.01'), 6)
+        rule = copy.deepcopy(self.rule)
+        del rule['regularPayoutsByPlayer']
+        rule.update(regularPayoutFixed={'3': 78}, regularPayoutPercentages={'1': 62.5, '2': 37.5})
+        self.assertEqual(self.parse(rule=rule), self.parse())
+        self.assertEqual(self.audit(self.parse(rule=rule), rule=rule), [])
+
     def test_missing_or_incomplete_inputs_are_rejected(self):
         for key, value, error in [('detailedHistoryFile', 'absent.txt', 'MISSING_HISTORY'),
                                  ('regularPayoutsByPlayer', {}, 'MISSING_PRIZES'),

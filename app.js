@@ -165,10 +165,10 @@ const STAT_FORMULAS = {
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
-  bountiesWon: "Bounties Won: Opponents whose first-entry bounty the player collected; retained personal bounties are not counted as wins",
-  bountyPaid: "Bounty Paid: Money posted with first entries; included in overall Total Cost and ROI",
-  bountyCollected: "Bounty Collected: Cash received for eliminating opponents' bounty-bearing first entries",
-  bountyRetained: "Bounty Retained: The player's own first-entry bounty returned when that entry was never eliminated",
+  bountiesWon: "Bounties Won: Eligible opponent-entry bounties collected; retained personal bounties and winner-only forfeitures are not bounty wins",
+  bountyPaid: "Bounty Paid: Money posted for bounty-eligible entries under each event's rules; included in overall Total Cost and ROI",
+  bountyCollected: "Bounty Collected: Cash received for eligible eliminations of opponents' bounty-bearing entries",
+  bountyRetained: "Bounty Retained: The player's own posted bounty returned on a surviving eligible entry",
   bountyWinnings: "Bounty Returns: Bounty Collected + Bounty Retained; included once in Total Take-home",
   bountyNet: "Bounty Net: Bounty Returns − Bounty Paid; included once in overall Profit",
   trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10). Normalized inputs use fixed benchmarks, not the current player pool",
@@ -537,18 +537,24 @@ const RULES_FORMATS = {
     assumption: "Assumptions: 18 starting players, 8 rebuys, and a $1,040 prize pool.",
     payoutPlaces: 6,
     projectedPool: "$1,040",
-    payoutLabel: "1st $375 • 2nd $240 • 3rd $160 • 4th $125 • 5th $100 • 6th $40",
+    payoutLabel: "1st $380 • 2nd $240 • 3rd $160 • 4th $120 • 5th $100 • 6th $40",
+    payoutNote: "Top 6 paid: reserve $40 for 6th, then divide the remaining regular prize pool 38% / 24% / 16% / 12% / 10% for 1st–5th. No $5 or whole-dollar rounding. Bounty receipts and winner-only forfeitures are extra, not part of this percentage split. Any chop requires unanimous agreement and host confirmation of prize and bounty accounting; no automatic chop allocation of the winner-only fund is assumed.",
     combinePayoutAndBounty: true,
     bounty: {
-      title: "$10 First-Entry Bounty",
-      text: "The initial entry is $40 plus a separate $10 bounty. First-entry knockouts collect it; unbusted players retain their own. $40 rebuys carry no bounty, and the bounty ledger stays separate while its net result counts toward overall Profit and ROI."
+      title: "$10 Bounty — Optional on Rebuys",
+      text: "First entry is $50 total: $40 to the regular prize pool plus a mandatory $10 bounty. Each subsequent rebuy independently opts in ($50 total) or out ($40 tournament rebuy only). Eligibility follows the current entry.",
+      details: [
+        "Players receive a Schnazzy ALL-IN/Bounty Plaque. Collected plaques are receipts for bounty payouts at the end of the night. A later bounty opt-in gets a new Schnazzy plaque with the fresh stack; previously collected bounties stay yours after busting.",
+        "An opted-in entry collects $10 for knocking out a bounty-bearing entry. An opted-out eliminator cannot collect it: return the orphaned bounty chip or plaque to Mike for bookkeeping. Busting an opted-out entry pays nothing, regardless of the eliminator’s choice: No Bounty Paid (No Blood from Rocks).",
+        "All forfeitures go ONLY to the eventual tournament winner as extra prize money—even if that winner opted out. They are never spread through payout percentages or counted as collected bounties. The winner retains a personal bounty only if posted on the surviving entry. Opting back in restores eligibility prospectively; earlier forfeitures stay in the winner fund."
+      ]
     },
     runtimeLabel: "9 hrs 20 min",
     levelMinutes: 25,
     levelLengthLabel: "25 min",
     breakMinutes: 20,
     showTypicalRemainingPlayers: true,
-    blindNote: "Gold rows mark scheduled breaks and chip-up points. Green rows mark projected payout territory. Effective BB uses the 50K starting stack; rebuys are open through Level 11 at 25 BB and closed beginning with Level 12. Typical remaining players is a planning estimate; merge to one table as soon as nine players remain.",
+    blindNote: "Gold rows mark scheduled breaks and chip-up points. Green rows mark projected payout territory. Effective BB uses the 50K starting stack. Late entry, rebuys and reloads close after Level 11 (25 BB); closed beginning Level 12. Around 6:40 PM with a 1 PM start and the posted breaks, but the level cutoff governs. Reloads require 10,000 chips or fewer (20% of 50,000) while the window is open. No stack is seated or blinded until the player arrives and payment is confirmed; prepayment does not put an absent stack into play. Typical remaining players is a planning estimate; merge to one table as soon as nine players remain.",
     chips: RULES_TWO_TABLE_CHIPS,
     levels: [
       { type: "level", level: "1", sb: "50", bb: "100", ante: "0", eff: "500 BB", remaining: "18 (2 × 9)" },
@@ -6607,6 +6613,7 @@ function buildRulesFormatCallout(format) {
           <div>
             <h3>Projected Prize Pool: ${escapeHtmlAttr(format.projectedPool)}</h3>
             <p>${escapeHtmlAttr(format.payoutLabel)}</p>
+            ${format.payoutNote ? `<p>${escapeHtmlAttr(format.payoutNote)}</p>` : ""}
           </div>
         </div>
         <div class="rules-money-section rules-money-bounty">
@@ -6614,6 +6621,7 @@ function buildRulesFormatCallout(format) {
           <div>
             <h3>${escapeHtmlAttr(format.bounty.title)}</h3>
             <p>${escapeHtmlAttr(format.bounty.text)}</p>
+            ${(format.bounty.details || []).map(text => `<p>${escapeHtmlAttr(text)}</p>`).join("")}
           </div>
         </div>
       </aside>
