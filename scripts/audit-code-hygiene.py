@@ -7,6 +7,7 @@ HTML/CSS/asset contract around the existing, separately validated data model.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -2771,8 +2772,40 @@ def audit_cashier_shortcut() -> list[str]:
     return errors
 
 
+def audit_mtt_player_guide() -> list[str]:
+    """Keep the approved PDF intact and reachable through view-first controls."""
+    errors = []
+    href = "downloads/tlpt-mtt-know-before-you-go.pdf"
+    pdf = ROOT / href
+    approved_sha = "77951b09f7a054649ab8ad87c3ae2e7615748828df6b17e8e426414d4c3013bf"
+    if not pdf.is_file() or hashlib.sha256(pdf.read_bytes()).hexdigest() != approved_sha:
+        errors.append("MTT guide must match the approved two-page PDF; review any replacement explicitly")
+    for page in ("rules.html", "structures.html"):
+        source = (ROOT / page).read_text(encoding="utf-8")
+        links = re.findall(r'<a\b([^>]*)>MTT Know Before You Go</a>', source)
+        if len(links) != 1:
+            errors.append(f"{page}: expected one clearly named MTT guide viewing link")
+            continue
+        attributes = links[0]
+        if (f'href="{href}"' not in attributes or 'target="_blank"' not in attributes
+                or 'rel="noopener noreferrer"' not in attributes or re.search(r'\bdownload(?:\s|=|$)', attributes)
+                or 'opens in a new tab' not in attributes):
+            errors.append(f"{page}: MTT guide must open safely for viewing and announce its new tab")
+        if page == "structures.html" and not re.search(
+                r'id="format-btn-two-table"[^>]*>[^<]+</button>\s*<a\b[^>]*class="btn mtt-guide-button"', source):
+            errors.append("structures.html: MTT guide must immediately follow the deep-stack selector")
+        if page == "rules.html" and not re.search(
+                rf'<a\b[^>]*href="{re.escape(href)}"[^>]*\bdownload>Download PDF</a>', source):
+            errors.append("rules.html: MTT guide needs an explicit download link")
+    workflow = (ROOT / ".github/workflows/site-quality.yml").read_text(encoding="utf-8")
+    if workflow.count('"downloads/**"') != 2:
+        errors.append("Site quality workflow must validate PDF changes on pushes and pull requests")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
+    errors.extend(audit_mtt_player_guide())
     errors.extend(audit_cashier_shortcut())
     errors.extend(audit_rsvp_table_switch())
     errors.extend(audit_site_quality_workflow())
