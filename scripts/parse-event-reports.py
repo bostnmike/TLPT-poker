@@ -215,6 +215,14 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
         safe_int(rank): parse_currency(amount)
         for rank, amount in (override.get("tournamentPayouts") or {}).items()
     }
+    payouts_by_player = {
+        slug: parse_currency(amount)
+        for slug, amount in (override.get("tournamentPayoutsByPlayer") or {}).items()
+    }
+    if tournament_payouts and payouts_by_player:
+        raise RuntimeError(f"{event_date}: configure payouts by rank or player, not both")
+    if any(not slug or amount <= 0 for slug, amount in payouts_by_player.items()):
+        raise RuntimeError(f"{event_date}: player payout identities and amounts must be valid")
 
     if entry_amount <= 0:
         raise RuntimeError(f"{event_date}: entry amount must be greater than zero")
@@ -232,6 +240,7 @@ def event_financial_rule(event_date, event_financials, default_entry_amount):
         "entryAmount": entry_amount,
         "bountyAmount": bounty_amount,
         "tournamentPayouts": tournament_payouts,
+        "tournamentPayoutsByPlayer": payouts_by_player,
     }
 
 
@@ -277,19 +286,29 @@ def split_bounty_report_payouts(
     buyins_count,
     financial_rule,
     bounty_table,
+    actions=None,
 ):
     bounty_amount = financial_rule["bountyAmount"]
     payout_by_rank = financial_rule["tournamentPayouts"]
+    payout_by_player = financial_rule.get("tournamentPayoutsByPlayer", {})
     if not bounty_amount:
+        if any(value for row in bounty_table.values() for value in row.values()):
+            raise RuntimeError(f"{event_date}: raw report contains bounties; configure event financials")
         return reported_payouts, None
-    if not payout_by_rank:
+    if not payout_by_rank and not payout_by_player:
         raise RuntimeError(
             f"{event_date}: bounty events must define tournamentPayouts so prize money "
             "can be separated from combined Tournament Director receipts"
         )
-    if len(payout_by_rank) != paid_spots or set(payout_by_rank) != set(range(1, paid_spots + 1)):
+    if payout_by_rank and (len(payout_by_rank) != paid_spots or set(payout_by_rank) != set(range(1, paid_spots + 1))):
         raise RuntimeError(f"{event_date}: tournamentPayouts must define ranks 1 through {paid_spots}")
-    if Decimal(str(sum(payout_by_rank.values()))) != Decimal(str(total_pot)):
+    reported_slugs = [payout["slug"] for payout in reported_payouts]
+    if len(reported_slugs) != len(set(reported_slugs)):
+        raise RuntimeError(f"{event_date}: duplicate player receipt in raw report")
+    if payout_by_player and (len(payout_by_player) != paid_spots or not set(payout_by_player) <= set(reported_slugs)):
+        raise RuntimeError(f"{event_date}: player payouts must identify all {paid_spots} paid players in the report")
+    configured_total = sum((Decimal(str(value)) for value in (payout_by_player or payout_by_rank).values()), Decimal(0))
+    if configured_total != Decimal(str(total_pot)):
         raise RuntimeError(
             f"{event_date}: configured tournament payouts do not equal the ${total_pot} prize pool"
         )
@@ -308,14 +327,15 @@ def split_bounty_report_payouts(
     by_rank = {}
     for payout in reported_payouts:
         rank = payout["rank"]
-        if rank in by_rank:
-            raise RuntimeError(f"{event_date}: bounty payout splitting does not support tied ranks")
+        if rank in by_rank and not payout_by_player:
+            raise RuntimeError(f"{event_date}: tied ranks require tournamentPayoutsByPlayer")
         by_rank[rank] = payout
 
     tournament_payouts = []
     bounty_returns = {}
     for payout in reported_payouts:
-        tournament_amount = payout_by_rank.get(payout["rank"], 0)
+        tournament_amount = (payout_by_player.get(payout["slug"], 0) if payout_by_player
+                             else payout_by_rank.get(payout["rank"], 0))
         bounty_return = Decimal(str(payout["payout"])) - Decimal(str(tournament_amount))
         if bounty_return < 0 or bounty_return % Decimal(str(bounty_amount)) != 0:
             raise RuntimeError(
@@ -333,11 +353,22 @@ def split_bounty_report_payouts(
         raise RuntimeError(f"{event_date}: separated bounty returns do not equal the bounty pool")
 
     retained_slugs = []
-    for payout in sorted(reported_payouts, key=lambda item: item["rank"]):
-        if len(retained_slugs) >= kept["count"]:
-            break
-        if Decimal(str(bounty_returns.get(payout["slug"], 0))) >= Decimal(str(bounty_amount)):
-            retained_slugs.append(payout["slug"])
+    if payout_by_player:
+        if actions is None:
+            raise RuntimeError(f"{event_date}: player payouts require the verified action log")
+        # Chop-only terminal busts have already been removed. An earlier real
+        # bust still disqualifies a finalist from retaining a first-entry bounty.
+        entered = {a["slug"] for a in actions if a["type"] == "buyin"}
+        busted = {a["slug"] for a in actions if a["type"] in {"bustout", "bustout_uncredited"}}
+        retained_slugs = sorted(entered - busted)
+        if any(Decimal(str(bounty_returns.get(slug, 0))) < Decimal(str(bounty_amount)) for slug in retained_slugs):
+            raise RuntimeError(f"{event_date}: unbusted player's receipt is missing the retained bounty")
+    else:
+        for payout in sorted(reported_payouts, key=lambda item: item["rank"]):
+            if len(retained_slugs) >= kept["count"]:
+                break
+            if Decimal(str(bounty_returns.get(payout["slug"], 0))) >= Decimal(str(bounty_amount)):
+                retained_slugs.append(payout["slug"])
     if len(retained_slugs) != kept["count"]:
         raise RuntimeError(f"{event_date}: retained bounties cannot be assigned to the top finishers")
 
@@ -781,6 +812,7 @@ def parse_report_file(
         buyins_count=buyins_count,
         financial_rule=financial_rule,
         bounty_table=bounty_table,
+        actions=parsed_actions,
     )
 
     player_stats, paid_slugs, permanent_out_noncashers = derive_event_player_stats(

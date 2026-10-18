@@ -1,6 +1,19 @@
 {
   "version": 1,
   "events": {
+    "2026-10-17": {
+      "entryAmount": 30,
+      "tournamentPayoutsByPlayer": {
+        "ahmed": 132.5,
+        "bostnmike": 132.5,
+        "cougar": 65
+      },
+      "bounty": {
+        "amount": 5,
+        "firstEntryOnly": true,
+        "retainIfUnbusted": true
+      }
+    },
     "2026-10-24": {
       "entryAmount": 40,
       "tournamentPayouts": {

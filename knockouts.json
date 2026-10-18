@@ -17,7 +17,7 @@
     },
     "ai-dave": {
       "ahmed": 3,
-      "bostnmike": 4,
+      "bostnmike": 5,
       "chris-o": 1,
       "cougar": 2,
       "hiro": 4,
@@ -77,7 +77,7 @@
       "red": 3
     },
     "cougar": {
-      "ahmed": 4,
+      "ahmed": 5,
       "ai-dave": 1,
       "bostnmike": 2,
       "chris-o": 1,
@@ -151,7 +151,7 @@
       "ahmed": 9,
       "ai-dave": 1,
       "big-tim": 1,
-      "bostnmike": 7,
+      "bostnmike": 9,
       "chris-f": 1,
       "chris-o": 4,
       "cougar": 4,
@@ -160,7 +160,7 @@
       "kishan": 1,
       "nasa-al": 2,
       "providencemike": 6,
-      "red": 3,
+      "red": 4,
       "the-architect": 1,
       "tim-s": 2,
       "vish": 2,
@@ -215,7 +215,7 @@
     "providencemike": {
       "ahmed": 3,
       "ai-dave": 3,
-      "bostnmike": 9,
+      "bostnmike": 10,
       "buffalomike": 1,
       "chris-f": 2,
       "chris-o": 3,
@@ -223,7 +223,7 @@
       "gilmore": 1,
       "griffin": 2,
       "hiro": 1,
-      "li-fo": 4,
+      "li-fo": 5,
       "nasa-al": 1,
       "nitro": 1,
       "red": 3,
@@ -234,10 +234,10 @@
       "wild-bill": 1
     },
     "red": {
-      "ahmed": 2,
+      "ahmed": 3,
       "ai-dave": 1,
       "alex-c": 2,
-      "bostnmike": 3,
+      "bostnmike": 4,
       "chris-o": 2,
       "cougar": 1,
       "griffin": 1,
@@ -305,7 +305,7 @@
       "alex-c": 1,
       "bostnmike": 7,
       "chris-o": 2,
-      "cougar": 4,
+      "cougar": 5,
       "david-k": 1,
       "griffin": 1,
       "hiro": 9,
@@ -315,7 +315,7 @@
       "nasa-al": 3,
       "phattedcalf": 1,
       "providencemike": 3,
-      "red": 2,
+      "red": 3,
       "the-architect": 1
     },
     "ai-dave": {
@@ -346,19 +346,19 @@
     },
     "bostnmike": {
       "ahmed": 4,
-      "ai-dave": 4,
+      "ai-dave": 5,
       "chris-o": 2,
       "cougar": 2,
       "hayden-d": 1,
       "hiro": 10,
       "jeff-t": 1,
       "kishan": 1,
-      "li-fo": 7,
+      "li-fo": 9,
       "nasa-al": 3,
       "nitro": 2,
       "phattedcalf": 4,
-      "providencemike": 9,
-      "red": 3,
+      "providencemike": 10,
+      "red": 4,
       "rob-f": 1,
       "the-architect": 1,
       "tim-s": 1,
@@ -471,7 +471,7 @@
       "jeff-t": 3,
       "nasa-al": 3,
       "nitro": 2,
-      "providencemike": 4,
+      "providencemike": 5,
       "red": 3,
       "the-architect": 1,
       "tim-s": 1,
@@ -534,7 +534,7 @@
       "hayden-d": 1,
       "hiro": 5,
       "kishan": 1,
-      "li-fo": 3,
+      "li-fo": 4,
       "nitro": 2,
       "phattedcalf": 1,
       "pittsburghbill": 1,
@@ -645,10 +645,44 @@
     "2026-09-04",
     "2026-09-05",
     "2026-10-03",
-    "2026-10-09"
+    "2026-10-09",
+    "2026-10-17"
   ],
   "bounties": {
-    "claims": [],
-    "eventsProcessed": []
+    "claims": [
+      {
+        "eventId": "2026-10-17",
+        "killer": "bostnmike",
+        "victim": "red",
+        "amount": 5
+      },
+      {
+        "eventId": "2026-10-17",
+        "killer": "bostnmike",
+        "victim": "li-fo",
+        "amount": 5
+      },
+      {
+        "eventId": "2026-10-17",
+        "killer": "bostnmike",
+        "victim": "providencemike",
+        "amount": 5
+      },
+      {
+        "eventId": "2026-10-17",
+        "killer": "bostnmike",
+        "victim": "ai-dave",
+        "amount": 5
+      },
+      {
+        "eventId": "2026-10-17",
+        "killer": "ahmed",
+        "victim": "cougar",
+        "amount": 5
+      }
+    ],
+    "eventsProcessed": [
+      "2026-10-17"
+    ]
   }
 }

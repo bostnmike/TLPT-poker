@@ -3004,5 +3004,66 @@
       "sourceVictim": "Alex C",
       "sourceKiller": "Ahmed"
     }
+  ],
+  "2026-10-17": [
+    {
+      "victim": "red",
+      "killer": "bostnmike",
+      "sourceVictim": "Red",
+      "sourceKiller": "BostnMike",
+      "bountyAmount": 5
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "BostnMike",
+      "bountyAmount": 5
+    },
+    {
+      "victim": "li-fo",
+      "killer": "red",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Red"
+    },
+    {
+      "victim": "providencemike",
+      "killer": "bostnmike",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "BostnMike",
+      "bountyAmount": 5
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "bostnmike",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "BostnMike",
+      "bountyAmount": 5
+    },
+    {
+      "victim": "providencemike",
+      "killer": "li-fo",
+      "sourceVictim": "ProvidenceMike",
+      "sourceKiller": "Li-Fo"
+    },
+    {
+      "victim": "red",
+      "killer": "ahmed",
+      "sourceVictim": "Red",
+      "sourceKiller": "Ahmed"
+    },
+    {
+      "victim": "li-fo",
+      "killer": "bostnmike",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "BostnMike"
+    },
+    {
+      "victim": "cougar",
+      "killer": "ahmed",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "Ahmed",
+      "bountyAmount": 5
+    }
   ]
 }

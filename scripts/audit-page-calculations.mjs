@@ -484,16 +484,35 @@ const knockoutPage = loadScript("knockouts.js", source => source.replace(
 ));
 const knockoutAudit = knockoutPage.get("__TLPT_KNOCKOUT_AUDIT__");
 const knockoutData = readJson("data/generated/knockouts.json");
+const noBountyPlayers = players.map(player => ({
+  ...player,
+  bountiesWon: 0,
+  bountyPaid: 0,
+  bountyCollected: 0,
+  bountyRetained: 0,
+  bountyWinnings: 0,
+  bountyNet: 0
+}));
 const emptyBountyMarkup = knockoutAudit.renderBountyView(
+  noBountyPlayers,
+  knockoutAudit.buildPlayerMap(noBountyPlayers),
+  { ...knockoutData, bounties: { claims: [], eventsProcessed: [] } }
+);
+check(
+  !knockoutAudit.hasBountyData(noBountyPlayers)
+    && emptyBountyMarkup.includes("Bounty board awaiting its first claims")
+    && !emptyBountyMarkup.includes("Career Bounty Ledger"),
+  "Knockout Central must keep the bounty view closed until real bounty data exists"
+);
+const actualBountyMarkup = knockoutAudit.renderBountyView(
   players,
   knockoutAudit.buildPlayerMap(players),
   knockoutData
 );
 check(
-  !knockoutAudit.hasBountyData(players)
-    && emptyBountyMarkup.includes("Bounty board awaiting its first claims")
-    && !emptyBountyMarkup.includes("Career Bounty Ledger"),
-  "Knockout Central must keep the bounty view closed until real bounty data exists"
+  actualBountyMarkup.includes("Career Bounty Ledger")
+    === players.some(player => Number(player.bountyPaid || 0) > 0),
+  "Knockout Central must open its bounty ledger when actual bounty events exist"
 );
 
 const syntheticBountyPlayers = players.map((player, index) => ({

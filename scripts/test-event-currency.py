@@ -21,6 +21,7 @@ def load_script(name):
 
 parser = load_script("parse-event-reports")
 integrity = load_script("audit-site-integrity")
+knockouts = load_script("build-knockouts")
 
 
 class RecordingAudit:
@@ -197,6 +198,77 @@ class EventCurrencyTests(unittest.TestCase):
     def test_sample_reports_are_not_added_to_live_history(self):
         names = [path.name for path in parser.production_raw_files()]
         self.assertNotIn("SAMPLE Event Report.html", names)
+
+    def parse_october_bounty_chop(self, financials=None):
+        return parser.parse_report_file(
+            parser.RAW_EVENTS_DIR / "Event Report 2026-10-17.html",
+            parser.build_alias_map(self.metadata), self.metadata,
+            self.config["buy_in_amount"],
+            self.event_financials if financials is None else financials,
+        )
+
+    def test_actual_bounty_chop_preserves_hits_prizes_and_retained_bounties(self):
+        event = self.parse_october_bounty_chop()
+        self.assertEqual(event['date'], '2026-10-17')
+        self.assertEqual([(w['slug'], w['rank'], w['payout']) for w in event['winners']],
+                         [('ahmed', 1, 132.5), ('bostnmike', 1, 132.5), ('cougar', 3, 65)])
+        rows = {r['slug']: r for r in event['players'] if r['buyIns']}
+        expected = {
+            # hits, bounty hits, collected, retained, net, tournament profit
+            'ahmed': (2, 1, 5, 5, 5, 102.5),
+            'bostnmike': (5, 4, 20, 5, 20, 102.5),
+            'cougar': (0, 0, 0, 0, -5, 35),
+            'ai-dave': (0, 0, 0, 0, -5, -30),
+            'li-fo': (1, 0, 0, 0, -5, -90),
+            'providencemike': (0, 0, 0, 0, -5, -60),
+            'red': (1, 0, 0, 0, -5, -60),
+        }
+        keys = ('hits', 'bountiesWon', 'bountyCollected', 'bountyRetained', 'bountyNet', 'profit')
+        self.assertEqual({slug: tuple(r[k] for k in keys) for slug, r in rows.items()}, expected)
+        self.assertEqual(sum(r['hits'] for r in rows.values()), 9)
+        self.assertEqual(sum(r['bountyWinnings'] for r in rows.values()), 35)
+        self.assertEqual(sum(r['bountyNet'] for r in rows.values()), 0)
+        self.assertEqual(sum(r['totalWinnings'] for r in rows.values()), 330)
+        self.assertEqual(sum(r['profit'] for r in rows.values()), 0)
+        self.assertFalse(any(a['type'].startswith('bustout') and a['slug'] in {'ahmed', 'bostnmike'} for a in event['actions']))
+        claims = knockouts.bounty_claims_for_event('2026-10-17', event, self.event_financials)
+        self.assertEqual({(c['killer'], c['victim'], c['amount']) for c in claims}, {
+            ('bostnmike', 'red', 5), ('bostnmike', 'li-fo', 5),
+            ('bostnmike', 'providencemike', 5), ('bostnmike', 'ai-dave', 5),
+            ('ahmed', 'cougar', 5),
+        })
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / '2026-10-17.json'
+            path.write_text(json.dumps(event))
+            audit = RecordingAudit()
+            integrity.audit_events(audit, [path], self.metadata, self.config, self.event_financials)
+            self.assertEqual(audit.failures, [])
+            # A balanced but misassigned bounty must not pass independent audit.
+            rows['ahmed']['bountyRetained'] = 0
+            rows['cougar']['bountyRetained'] = 5
+            path.write_text(json.dumps(event))
+            bad = RecordingAudit()
+            integrity.audit_events(bad, [path], self.metadata, self.config, self.event_financials)
+            self.assertTrue(any('bountyRetained differs' in error for error in bad.failures))
+
+    def test_bounty_chop_rejects_missing_or_ambiguous_financials(self):
+        with self.assertRaisesRegex(RuntimeError, 'raw report contains bounties'):
+            self.parse_october_bounty_chop({})
+        cases = [
+            ({'tournamentPayouts': {'1': 132.5, '2': 132.5, '3': 65}}, 'tied ranks require'),
+            ({'tournamentPayoutsByPlayer': {'unknown': 132.5, 'bostnmike': 132.5, 'cougar': 65}}, 'identify all'),
+            ({'tournamentPayoutsByPlayer': {'ahmed': 130, 'bostnmike': 132.5, 'cougar': 65}}, 'prize pool'),
+            ({'tournamentPayouts': {'1': 132.5, '2': 132.5, '3': 65},
+              'tournamentPayoutsByPlayer': {'ahmed': 132.5, 'bostnmike': 132.5, 'cougar': 65}}, 'not both'),
+        ]
+        for payouts, message in cases:
+            with self.subTest(message=message):
+                financials = copy.deepcopy(self.event_financials)
+                rule = financials['events']['2026-10-17']
+                rule.pop('tournamentPayoutsByPlayer')
+                rule.update(payouts)
+                with self.assertRaisesRegex(RuntimeError, message):
+                    self.parse_october_bounty_chop(financials)
 
 
 if __name__ == "__main__":

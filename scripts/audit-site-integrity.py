@@ -627,6 +627,10 @@ def financial_rule_for_event(event_id, config, event_financials):
             for rank, amount in (override.get("tournamentPayouts") or {}).items()
         },
         "firstEntryOnly": bounty.get("firstEntryOnly") is True,
+        "tournamentPayoutsByPlayer": {
+            slug: Decimal(str(amount))
+            for slug, amount in (override.get("tournamentPayoutsByPlayer") or {}).items()
+        },
         "retainIfUnbusted": bounty.get("retainIfUnbusted") is True,
         "isOverride": bool(override),
     }
@@ -649,7 +653,8 @@ def audit_event_financial_config(audit, event_financials, schedule):
         if amount:
             audit.check(bounty.get("firstEntryOnly") is True, section, f"{event_id}: bounty must be first-entry only")
             audit.check(bounty.get("retainIfUnbusted") is True, section, f"{event_id}: unbusted bounty must be retained")
-            payouts = rule.get("tournamentPayouts") or {}
+            payouts = rule.get("tournamentPayoutsByPlayer") or rule.get("tournamentPayouts") or {}
+            audit.check(not (rule.get("tournamentPayoutsByPlayer") and rule.get("tournamentPayouts")), section, f"{event_id}: ambiguous payout configuration")
             audit.check(bool(payouts), section, f"{event_id}: bounty event must define tournamentPayouts")
             audit.check(all(Decimal(str(value)) > 0 for value in payouts.values()), section, f"{event_id}: tournament payouts must be positive")
 
@@ -733,9 +738,10 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
         audit.check(sum(Decimal(str(winner.get("payout", 0))) for winner in winners) == total_pot, section, f"{event_id}: payout total differs from pot")
         audit.check(int(summary.get("paidSpots", 0)) == len(winners), section, f"{event_id}: paidSpots differs from payout rows")
         if bounty_amount:
+            by_player = financial_rule["tournamentPayoutsByPlayer"]
             audit.check(
-                {int(winner.get("rank", 0)): Decimal(str(winner.get("payout", 0))) for winner in winners}
-                == financial_rule["tournamentPayouts"],
+                {(winner.get("slug") if by_player else int(winner.get("rank", 0))): Decimal(str(winner.get("payout", 0))) for winner in winners}
+                == (by_player or financial_rule["tournamentPayouts"]),
                 section,
                 f"{event_id}: tournament-only payouts differ from the configured schedule",
             )
@@ -761,13 +767,15 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
         }
         if bounty_amount:
             payout_by_rank = financial_rule["tournamentPayouts"]
+            payout_by_player = financial_rule["tournamentPayoutsByPlayer"]
             reported_payouts = sorted(
                 (action for action in actions if action.get("type") == "payout"),
                 key=lambda action: int(action.get("rank", 0)),
             )
             bounty_returns = {}
             for payout in reported_payouts:
-                tournament_amount = payout_by_rank.get(int(payout.get("rank", 0)), Decimal("0"))
+                tournament_amount = (payout_by_player.get(payout.get("slug"), Decimal("0")) if payout_by_player
+                                     else payout_by_rank.get(int(payout.get("rank", 0)), Decimal("0")))
                 gross = Decimal(str(payout.get("payout", 0))) - tournament_amount
                 audit.check(gross >= 0 and gross % bounty_amount == 0, section, f"{event_id}/{payout.get('slug')}: combined receipt cannot be split cleanly")
                 if gross > 0:
@@ -775,11 +783,16 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
 
             retained_count = int(bounty_summary.get("bountiesRetained", 0))
             retained_slugs = []
-            for payout in reported_payouts:
-                if len(retained_slugs) >= retained_count:
-                    break
-                if bounty_returns.get(payout.get("slug"), Decimal("0")) >= bounty_amount:
-                    retained_slugs.append(payout.get("slug"))
+            if payout_by_player:
+                retained_slugs = [row['slug'] for row in rows if row.get('buyIns', 0) > 0
+                                  and not any(a.get('slug') == row['slug'] and a.get('type') in {'bustout', 'bustout_uncredited'} for a in actions)]
+                audit.check(all(bounty_returns.get(slug, Decimal(0)) >= bounty_amount for slug in retained_slugs), section, f"{event_id}: retained bounty missing from unbusted player's receipt")
+            else:
+                for payout in reported_payouts:
+                    if len(retained_slugs) >= retained_count:
+                        break
+                    if bounty_returns.get(payout.get("slug"), Decimal("0")) >= bounty_amount:
+                        retained_slugs.append(payout.get("slug"))
 
             audit.check(len(retained_slugs) == retained_count, section, f"{event_id}: retained bounties cannot be assigned")
             retained_set = set(retained_slugs)
@@ -831,6 +844,7 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
             raw_bounty_won = raw_table_money_count(html, "Bounties", "Won:")
             raw_bounty_kept = raw_table_money_count(html, "Bounties", "Kept:")
             raw_paid = raw_table_count(html, "Prizes", "Total:")
+            audit.check(not raw_bounty_bought["count"] or bounty_amount > 0, section, f"{event_id}: raw bounties missing financial configuration")
             raw_pot = re.search(r"Total pot:\s*\$([0-9,]+(?:\.\d{2})?)", html, re.IGNORECASE)
             raw_pot_value = Decimal(raw_pot.group(1).replace(",", "")) if raw_pot else None
             audit.check(raw_buyins == summary.get("buyIns"), section, f"{event_id}: parsed buy-ins differ from raw report")
