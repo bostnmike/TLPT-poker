@@ -36,3 +36,20 @@ test('reader promotion refuses an unexpected target without sending credentials 
  const s=setup();s.props.set('SHADOW_REGISTER_ORIGIN','https://unexpected.owner.workers.dev');s.props.set('SHADOW_IMPORT_TOKEN','existing-cloudflare-import-secret-at-least-32-characters');
  const before=[...s.props];assert.throws(()=>s.context.promoteCloudflareReader(),/Expected/);assert.deepEqual([...s.props],before);assert.equal(s.sent.length,0);
 });
+
+test('the reader searches both incoming subject formats, paginates by message and acknowledges only accepted IDs',()=>{
+ const s=setup(),queries=[],mails=[{id:'receipt-one',payload:{headers:[{name:'Subject',value:'Test One paid you $30.00'}]}},{id:'receipt-two',payload:{headers:[{name:'Subject',value:'Test Two paid $30.00 to your Venmo account. Leave it in Venmo or transfer it to your bank account.'}]}}];
+ s.context.Gmail.Users.Messages.list=(_user,options)=>{queries.push(options);return options.pageToken?{messages:[{id:'receipt-two'}]}:{messages:[{id:'receipt-one'}],nextPageToken:'next-page'};};
+ s.context.Gmail.Users.Messages.get=(_user,id)=>mails.find(m=>m.id===id);
+ s.context.UrlFetchApp.fetch=(_url,args)=>{const input=JSON.parse(args.payload);s.sent.push(input);return {getResponseCode:()=>200,getContentText:()=>JSON.stringify(input.mode==='config'?{ok:true,events:[{id:'saturday:2026-10-17'}],generation:'saturday:2026-10-17',queryAfter:1791000000}:{ok:true,acceptedIds:input.messages.map(m=>m.id),ignoredIds:[]})};};
+ s.context.pollVenmoReceipts();assert.equal(queries.length,2);assert.equal(queries[0].q,'from:venmo.com {subject:"paid you" subject:"to your Venmo account"} after:1791000000');assert.equal(queries[1].pageToken,'next-page');assert.deepEqual(JSON.parse(s.props.get('ROLLING_PROCESSED_IDS')),['receipt-one','receipt-two']);
+ assert.equal(s.sent.at(-1).messages.length,2);s.context.pollVenmoReceipts();assert.equal(s.sent.at(-1).messages.length,0,'A second poll must not resend acknowledged receipts');
+});
+test('an empty plain-text MIME part falls back to HTML while a real plain-text part wins',()=>{
+ const s=setup();s.context.Utilities={base64DecodeWebSafe:value=>Buffer.from(value,'base64url'),newBlob:bytes=>({getDataAsString:()=>bytes.toString('utf8')})};
+ const html='<html><head><style>fake {content:"wrong note"}</style></head><body><script>doNotRun()</script><p>Payment received</p><p>TLPT&#32;saturday&#32;entry</p><p>&#x1f355;</p><p>See transaction</p></body></html>';
+ const mime={mimeType:'multipart/alternative',parts:[{mimeType:'text/plain',body:{size:0,data:''}},{mimeType:'text/html',body:{data:Buffer.from(html).toString('base64url')}}]};
+ const text=s.context.plainText_(mime);assert.match(text,/\nTLPT saturday entry\n/);assert.match(text,/🍕/);assert.doesNotMatch(text,/fake|doNotRun|<p>/);
+ mime.parts[0].body.data=Buffer.from('TLPT friday rebuy').toString('base64url');assert.equal(s.context.plainText_(mime),'TLPT friday rebuy');
+ assert.equal(s.context.plainText_({mimeType:'text/html',body:{data:'%%%'}}),'');
+});

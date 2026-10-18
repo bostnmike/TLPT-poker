@@ -13,3 +13,15 @@ test('the newest upcoming event in each slot is selected without inventing dates
 test('metadata edits retain identity; date replacement changes only that slot',()=>{const changed=structuredClone(source);changed.events[0].title='New title';changed.events[0].rsvps={red:'yes'};assert.deepEqual(normalizeSchedule(changed,{events:{}},Date.parse('2026-10-14T12:00:00Z')).map(e=>e.id),events.map(e=>e.id));changed.events[0].date='Friday, October 23, 2026';const ids=normalizeSchedule(changed,{events:{}},Date.parse('2026-10-14T12:00:00Z')).map(e=>e.id);assert.equal(ids[0],'friday:2026-10-23');assert.equal(ids[1],events[1].id);assert.equal(ids[2],events[2].id);});
 test('confirmed totals use stored allocations so later price edits cannot alter collected money',()=>{const a=allocation(events[0],'entry');const rows=[{status:'confirmed',kind:'entry',cents:3000,prize_cents:a.prize,bounty_cents:a.bounty,food_cents:a.food},{status:'confirmed',kind:'rebuy',cents:3000,prize_cents:3000,bounty_cents:0,food_cents:0},{status:'review',kind:'entry',cents:3000},{status:'void',kind:'entry',cents:3000}];assert.deepEqual(totals(rows),{collected:6000,prizePool:6000,bounty:0,food:0,entries:1,rebuys:1,pizzas:0,review:1});});
 test('invalid schedule cannot yield a wipe plan',()=>{assert.throws(()=>normalizeSchedule({events:[{slot:'friday',title:'Invalid',date:'Friday, February 30, 2026'}]},{events:{}}));assert.throws(()=>normalizeSchedule({},{events:{}}));});
+
+test('both observed Venmo incoming subjects retain payer, amount, ID and event routing',()=>{
+ for(const subject of ['Test Player paid you $30.00','Test Player paid $30.00 to your Venmo account. Leave it in Venmo or transfer it to your bank account.','Test Player paid $30.00 to your Venmo account.']){
+  const p=routeReceipt(parseReceipt({...receipt,subject,body:'TLPT friday entry',internalDate:String(Date.parse('2026-10-16T23:00:00Z'))}),events);
+  assert.equal(p.payer,'Test Player');assert.equal(p.cents,3000);assert.equal(p.sourceId,'gmail:abc123receipt');assert.equal(p.eventId,'friday:2026-10-16');assert.equal(p.kind,'entry');
+ }
+ assert.equal(parseReceipt({...receipt,subject:'Test Player paid $1,234.56 to your Venmo account. Leave it in Venmo or transfer it to your bank account.'}).cents,123456);
+});
+test('the alternate incoming format retains all authentication checks and never accepts transfers or outgoing payments',()=>{
+ const subject='Test Player paid $30.00 to your Venmo account. Leave it in Venmo or transfer it to your bank account.';
+ for(const change of [{authenticationResults:'mx.google.com; dkim=fail header.i=@venmo.com'},{authenticationResults:'mx.google.com; dkim=pass header.i=@evil.com'},{from:'Venmo <venmo@evil.com>'},{subject:'You paid Test Player $30.00'},{subject:'Your $30.00 transfer from Visa is complete'},{subject:'Test Player requested $30.00'},{subject:'Fwd: '+subject},{subject:subject+' Click here to claim.'}])assert.ok(parseReceipt({...receipt,subject,...change}).rejected);
+});

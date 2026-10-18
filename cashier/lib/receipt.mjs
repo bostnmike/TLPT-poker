@@ -4,7 +4,11 @@ export function parseReceipt(mail){
  if(!/(?:<|\s|^)[\w.+-]+@(?:[\w-]+\.)*venmo\.com>?$/i.test(String(mail.from||'')))return {rejected:'sender'};
  const auth=String(mail.authenticationResults||'');if(!/^mx\.google\.com;/i.test(auth.trim())||!/dkim=pass[^;]*header\.(?:i|d)=@?(?:[\w-]+\.)*venmo\.com(?:\s|;|$)/i.test(auth))return {rejected:'authentication'};
  const at=Number(mail.internalDate);if(!Number.isFinite(at)||at<=0)return {rejected:'timestamp'};
- const m=String(mail.subject||'').trim().match(/^(.{1,100}?)\s+paid you\s+\$([\d,]+\.\d{2})[.!]?$/i);if(!m)return {rejected:'not-receipt'};
+ const subject=String(mail.subject||'').trim();
+ if(/^(?:fwd?|re):/i.test(subject))return {rejected:'not-receipt'};
+ // Venmo uses both subjects for authenticated incoming payments. Do not infer
+ // money received from an outgoing-payment subject or the email body alone.
+ const m=subject.match(/^(.{1,100}?)\s+paid you\s+\$([\d,]+\.\d{2})[.!]?$/i)||subject.match(/^(.{1,100}?)\s+paid\s+\$([\d,]+\.\d{2})\s+to your Venmo account(?:\.\s+Leave it in Venmo or transfer it to your bank account)?[.!]?$/i);if(!m)return {rejected:'not-receipt'};
  const cents=Math.round(Number(m[2].replaceAll(',',''))*100);if(!Number.isSafeInteger(cents)||cents<=0||cents>1000000)return {rejected:'amount'};
  const candidates=[String(mail.note||''),...String(mail.body||'').slice(0,30000).split(/\r?\n/).map(x=>x.trim().replace(/^Note:\s*/i,'').replace(/^['"]|['"]$/g,''))];
  const note=candidates.find(x=>/^(?:MTT|Try Again|🍕|pizza|TLPT|TLPT\s+(?:friday|saturday|mtt)\s+(?:\d{4}-\d{2}-\d{2}\s+)?(?:entry|rebuy|food))$/i.test(x))||'';

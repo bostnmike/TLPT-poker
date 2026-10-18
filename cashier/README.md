@@ -384,3 +384,34 @@ the actual iPad. To undo, remove the TLPT Cashier profile in Settings → Genera
 payment data remains. Unit tests parse the plist and allowlist every key;
 Worker integration checks the exact bytes and download headers. Installation
 and the iPad launcher icon still need a physical-device acceptance check.
+
+## Venmo receipt formats and reader maintenance
+
+The reader supports both authenticated incoming subjects observed on October 17:
+`Player paid you $30.00` and `Player paid $30.00 to your Venmo account. Leave it
+in Venmo or transfer it to your bank account.` Gmail discovery uses an OR of
+those subject phrases. Sender validation and Google's passing Venmo DKIM result
+are still required; outgoing payments, reloads/transfers, requests and promotional
+emails are not receipts. Both subjects use the same immutable Gmail message ID,
+existing duplicate/deletion guards, and review-before-confirmation process.
+
+When MIME text/plain is empty, the bridge converts text/html to plain text,
+stripping markup, scripts/styles and decoding common/numeric entities. This
+retains recognized TLPT notes instead of discarding them. An actual nonempty
+plain-text part takes priority. No email HTML is executed or displayed as markup.
+
+A reader-source release has two publication steps: first merge/pass/publish the
+Worker parser; then update the existing Apps Script project's Code.gs to the
+exact tested bridge/Code.gs. Keep appsscript.json, Script Properties, credentials,
+processed IDs and the existing one-minute trigger unchanged. Do not run
+startReceiptImport or promoteCloudflareReader for a parser/search correction.
+Use verifyReceiptFormat for a recent-message diagnostic only: it includes Trash
+for read-only format inspection but creates no payment records. Normal polling
+continues to exclude Spam/Trash. Live batch logs give counts/rejection reasons
+without names, amounts, subjects or credentials. Rejected messages are not marked
+processed; only server-acknowledged IDs are.
+
+Recovery of a previous game's missed messages is a separate reconciliation task.
+Do not blindly replay messages into a newly selected event, untrash emails, clear
+processed IDs, or reconstruct a replaced event's ledger. A date replacement may
+already have cleared the old ledger under the owner's configured retention rule.
