@@ -34,7 +34,7 @@
       const pdfjs = await import("../vendor/pdfjs/pdf.min.mjs");
       pdfjs.GlobalWorkerOptions.workerSrc = "../vendor/pdfjs/pdf.worker.min.mjs";
       const pdf = await pdfjs.getDocument({
-        url: "tlpt-mtt-know-before-you-go.pdf?v=20261018-2",
+        url: "tlpt-mtt-know-before-you-go.pdf?v=20261018-3",
         isEvalSupported: false
       }).promise;
       for (let number = 1; number <= pdf.numPages; number++) {

@@ -2774,10 +2774,10 @@ def audit_cashier_shortcut() -> list[str]:
 def audit_mtt_player_guide() -> list[str]:
     """Keep the approved PDF intact and accessible through an inline viewer."""
     errors = []
-    href = "downloads/tlpt-mtt-know-before-you-go.pdf?v=20261018-2"
+    href = "downloads/tlpt-mtt-know-before-you-go.pdf?v=20261018-3"
     pdf = ROOT / href.split("?")[0]
-    # October 18 owner-approved removal of the rounding phrase; all other text retained.
-    approved_sha = "f7c81833e2cdda3c8935366735110a0f4301c26e6c585875dc8e0748540a03de"
+    # October 18 owner-approved evergreen guide and copy cleanup from the guide chat.
+    approved_sha = "f0d31202eaef7dd7242b0cbe86f70cf2efa5e41f604b284a3b24bfe7fb113cc9"
     if not pdf.is_file() or hashlib.sha256(pdf.read_bytes()).hexdigest() != approved_sha:
         errors.append("MTT guide must match the approved two-page PDF; review any replacement explicitly")
     for page in ("rules.html", "structures.html"):
@@ -2800,13 +2800,16 @@ def audit_mtt_player_guide() -> list[str]:
             errors.append(f"{page}: MTT guide needs an explicit download link")
         for token in ('id="mtt-guide-panel"', 'data-mtt-guide-print', 'data-mtt-guide-status',
                       'src="mtt-guide.js?v=20261018-1"', 'rules.css?v=20261018-3',
-                      'data-src="downloads/mtt-guide-viewer.html?v=20261018-1"', 'title="MTT Know Before You Go — two-page PDF guide"'):
+                      'data-src="downloads/mtt-guide-viewer.html?v=20261018-2"', 'title="MTT Know Before You Go — two-page PDF guide"'):
             if token not in source:
                 errors.append(f"{page}: inline MTT viewer is missing {token}")
         if not (source.index('data-mtt-guide-toggle') < source.index('data-mtt-guide-print') < source.index('<iframe class="mtt-guide-frame"')):
             errors.append(f"{page}: PDF controls must appear above the embedded guide, below the viewing button")
         if re.search(r'<a\b[^>]*tlpt-mtt-know-before-you-go[^>]*target="_blank"', source):
             errors.append(f"{page}: MTT guide must not open a separate tab")
+    viewer = (ROOT / "downloads/mtt-guide-viewer.html").read_text(encoding="utf-8")
+    if f'url: "{href.removeprefix("downloads/")}"' not in viewer:
+        errors.append("MTT inline viewer must load the same current PDF version as the download links")
     workflow = (ROOT / ".github/workflows/site-quality.yml").read_text(encoding="utf-8")
     if workflow.count('"downloads/**"') != 2:
         errors.append("Site quality workflow must validate PDF changes on pushes and pull requests")

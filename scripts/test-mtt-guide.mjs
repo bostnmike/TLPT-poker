@@ -19,7 +19,7 @@ function element(attrs = {}) {
 for (const hasFormats of [true, false]) {
   const toggle = element({"aria-expanded":"false"});
   const panel = element(); panel.hidden = true;
-  const frame = element(); frame.dataset.src = "downloads/mtt-guide-viewer.html?v=20261018-1";
+  const frame = element(); frame.dataset.src = "downloads/mtt-guide-viewer.html?v=20261018-2";
   const print = element(); const status = element(); const content = element();
   let printCalls = 0;
   frame.contentWindow = {focus() {}, print() { printCalls++; }};
