@@ -993,7 +993,8 @@
     0 0 0 1px rgba(252,165,165,.18);
 }
 
-.btn.mtt-guide-button:active{
+.btn.mtt-guide-button:active,
+.btn.mtt-guide-button[aria-expanded="true"]{
   transform:translateY(0);
   color:#fef2f2;
   background:linear-gradient(180deg, rgba(239,68,68,.34) 0%, rgba(153,27,27,.96) 100%);
@@ -1005,14 +1006,53 @@
   outline-offset:3px;
 }
 
-.mtt-guide-download{
-  display:inline-flex;
+.mtt-guide-panel{
+  margin-top:20px;
+  min-width:0;
+}
+
+.mtt-guide-panel[hidden],
+.format-content-shell[hidden]{
+  display:none !important;
+}
+
+.mtt-guide-toolbar,
+.mtt-guide-actions{
+  display:flex;
+  flex-wrap:wrap;
   align-items:center;
+  gap:12px;
+}
+
+.mtt-guide-toolbar{
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.mtt-guide-toolbar h2{
+  margin:0;
+  font-size:1.25rem;
+}
+
+.mtt-guide-frame{
+  display:block;
+  width:100%;
+  height:80vh;
+  min-height:480px;
+  max-height:1100px;
+  margin-top:12px;
+  border:1px solid rgba(239,68,68,.36);
+  border-radius:12px;
+  background:#202124;
+}
+
+.mtt-guide-actions .btn{
   min-height:44px;
-  color:var(--gold);
-  font-weight:700;
-  text-decoration:underline;
-  text-underline-offset:3px;
+}
+
+.mtt-guide-actions .btn:disabled{
+  opacity:.55;
+  cursor:wait;
 }
 
 .mtt-guide-caption{

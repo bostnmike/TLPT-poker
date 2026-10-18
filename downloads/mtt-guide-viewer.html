@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>MTT Know Before You Go</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;padding:16px;background:#202124;color:#f1f5f9;font:16px/1.5 system-ui,sans-serif}
+    #status{margin:0 auto 16px;max-width:816px}
+    a{color:#fca5a5}
+    .page{max-width:816px;margin:0 auto 16px;background:#fff;box-shadow:0 2px 8px #0006}
+    canvas{display:block;width:100%;height:auto}
+    .page-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:pre-wrap}
+    @media(max-width:480px){body{padding:6px}.page{margin-bottom:8px}}
+    @page{size:letter portrait;margin:0}
+    @media print{
+      body{padding:0;background:white}
+      #status,.page-text{display:none}
+      .page{width:8.5in;height:11in;max-width:none;margin:0;box-shadow:none;break-after:page;break-inside:avoid}
+      .page:last-child{break-after:auto}
+      canvas{width:8.5in;height:11in}
+    }
+  </style>
+</head>
+<body>
+  <p id="status" role="status">Loading your two-page MTT guide…</p>
+  <main id="pages" aria-label="MTT player guide"></main>
+  <script type="module">
+    const status = document.getElementById("status");
+    const pages = document.getElementById("pages");
+    try {
+      const pdfjs = await import("../vendor/pdfjs/pdf.min.mjs");
+      pdfjs.GlobalWorkerOptions.workerSrc = "../vendor/pdfjs/pdf.worker.min.mjs";
+      const pdf = await pdfjs.getDocument({
+        url: "tlpt-mtt-know-before-you-go.pdf?v=20261018-2",
+        isEvalSupported: false
+      }).promise;
+      for (let number = 1; number <= pdf.numPages; number++) {
+        const page = await pdf.getPage(number);
+        const viewport = page.getViewport({scale:3});
+        const section = document.createElement("section");
+        section.className = "page";
+        section.setAttribute("aria-label", `Page ${number} of ${pdf.numPages}`);
+        const canvas = document.createElement("canvas");
+        canvas.setAttribute("aria-hidden", "true");
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+        section.append(canvas);
+        pages.append(section);
+        await page.render({canvasContext:canvas.getContext("2d"),viewport}).promise;
+        const text = await page.getTextContent();
+        const accessibleText = document.createElement("p");
+        accessibleText.className = "page-text";
+        accessibleText.textContent = text.items.map(item => item.str + (item.hasEOL ? "\n" : " ")).join("");
+        section.append(accessibleText);
+      }
+      status.hidden = true;
+      parent.postMessage({type:"mtt-guide-ready"}, location.origin);
+    } catch {
+      status.textContent = "The preview could not load. Use Download PDF above to read or print the guide.";
+      parent.postMessage({type:"mtt-guide-error"}, location.origin);
+    }
+  </script>
+</body>
+</html>

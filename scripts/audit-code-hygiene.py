@@ -2772,7 +2772,7 @@ def audit_cashier_shortcut() -> list[str]:
 
 
 def audit_mtt_player_guide() -> list[str]:
-    """Keep the approved PDF intact and reachable through view-first controls."""
+    """Keep the approved PDF intact and accessible through an inline viewer."""
     errors = []
     href = "downloads/tlpt-mtt-know-before-you-go.pdf?v=20261018-2"
     pdf = ROOT / href.split("?")[0]
@@ -2782,23 +2782,31 @@ def audit_mtt_player_guide() -> list[str]:
         errors.append("MTT guide must match the approved two-page PDF; review any replacement explicitly")
     for page in ("rules.html", "structures.html"):
         source = (ROOT / page).read_text(encoding="utf-8")
-        links = re.findall(r'<a\b([^>]*)>MTT Know Before You Go</a>', source)
+        links = re.findall(r'<button\b([^>]*)>MTT Know Before You Go</button>', source)
         if len(links) != 1:
-            errors.append(f"{page}: expected one clearly named MTT guide viewing link")
+            errors.append(f"{page}: expected one clearly named inline MTT guide button")
             continue
         attributes = links[0]
         if 'class="btn btn-format mtt-guide-button"' not in attributes:
             errors.append(f"{page}: MTT guide must share the format-button typography and sizing")
-        if (f'href="{href}"' not in attributes or 'target="_blank"' not in attributes
-                or 'rel="noopener noreferrer"' not in attributes or re.search(r'\bdownload(?:\s|=|$)', attributes)
-                or 'opens in a new tab' not in attributes):
-            errors.append(f"{page}: MTT guide must open safely for viewing and announce its new tab")
+        if ('data-mtt-guide-toggle' not in attributes or 'aria-expanded="false"' not in attributes
+                or 'aria-controls="mtt-guide-panel"' not in attributes):
+            errors.append(f"{page}: MTT guide must control its initially collapsed inline panel")
         if page == "structures.html" and not re.search(
-                r'id="format-btn-two-table"[^>]*>[^<]+</button>\s*<a\b[^>]*class="btn btn-format mtt-guide-button"', source):
+                r'id="format-btn-two-table"[^>]*>[^<]+</button>\s*<button\b[^>]*class="btn btn-format mtt-guide-button"', source):
             errors.append("structures.html: MTT guide must immediately follow the deep-stack selector")
-        if page == "rules.html" and not re.search(
+        if not re.search(
                 rf'<a\b[^>]*href="{re.escape(href)}"[^>]*\bdownload>Download PDF</a>', source):
-            errors.append("rules.html: MTT guide needs an explicit download link")
+            errors.append(f"{page}: MTT guide needs an explicit download link")
+        for token in ('id="mtt-guide-panel"', 'data-mtt-guide-print', 'data-mtt-guide-status',
+                      'src="mtt-guide.js?v=20261018-1"', 'rules.css?v=20261018-3',
+                      'data-src="downloads/mtt-guide-viewer.html?v=20261018-1"', 'title="MTT Know Before You Go — two-page PDF guide"'):
+            if token not in source:
+                errors.append(f"{page}: inline MTT viewer is missing {token}")
+        if not (source.index('data-mtt-guide-toggle') < source.index('data-mtt-guide-print') < source.index('<iframe class="mtt-guide-frame"')):
+            errors.append(f"{page}: PDF controls must appear above the embedded guide, below the viewing button")
+        if re.search(r'<a\b[^>]*tlpt-mtt-know-before-you-go[^>]*target="_blank"', source):
+            errors.append(f"{page}: MTT guide must not open a separate tab")
     workflow = (ROOT / ".github/workflows/site-quality.yml").read_text(encoding="utf-8")
     if workflow.count('"downloads/**"') != 2:
         errors.append("Site quality workflow must validate PDF changes on pushes and pull requests")

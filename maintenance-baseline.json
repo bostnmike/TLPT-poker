@@ -39,6 +39,7 @@
     "scripts/test-optional-bounties.py",
     "scripts/audit-code-hygiene.py",
     "scripts/test-site-shell.mjs",
+    "scripts/test-mtt-guide.mjs",
     "scripts/test-register-page.mjs",
     "scripts/test-app-load-failure.mjs",
     "scripts/test-news-layout.mjs",
