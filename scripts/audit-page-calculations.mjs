@@ -116,6 +116,29 @@ check(app.get("getRsvpPlayersByStatus")({ rsvps: alumniRsvps }, data, "yes").len
 const alumniChecklist = buildRsvpChecklist({ id: "alumni-regression", rsvps: alumni.map(player => ({ player: player.slug, answer: "yes" })) }, [], metadataPlayers);
 check(alumniChecklist.expected === alumni.length && alumniChecklist.rows.every(row => row.known), "Cashier must resolve every alumni RSVP to the existing identity");
 check(JSON.stringify(data.players) === rosterSnapshot, "Roster filtering must not mutate player data");
+const eventRosterOrder = members => [...members].sort((a, b) => {
+  const group = p => p.slug === "bostnmike" ? 0 : p.rosterStatus === "alumni" ? 2 : 1;
+  return group(a) - group(b) || a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+});
+for (const event of readJson("data/events.json").events) {
+  const slugs = Object.keys(event.rsvps || {});
+  const members = slugs.map(slug => metadataPlayers.find(p => p.slug === slug) || { slug, name: slug });
+  const expected = eventRosterOrder(members).map(p => p.slug);
+  check(JSON.stringify(slugs) === JSON.stringify(expected), `${event.slot}: RSVP keys must be Commish first, active alphabetically, then alumni alphabetically`);
+  const expectedConfirmed = eventRosterOrder(data.players.filter(p => event.rsvps[p.slug] === "yes")).map(p => p.slug);
+  check(JSON.stringify(app.get("getConfirmedRsvpPlayers")(event, data).map(p => p.slug)) === JSON.stringify(expectedConfirmed), `${event.slot}: confirmed RSVP roster order is incorrect`);
+  if (event.seatAssignments) {
+    const seats = app.get("getEventSeatingTables")(event, data);
+    event.seatAssignments.forEach((table, index) => {
+      const configured = table.filter(slug => event.rsvps[slug] === "yes");
+      check(JSON.stringify(seats[index].slice(0, configured.length).map(p => p.slug)) === JSON.stringify(configured), `${event.slot}: RSVP sorting must not move explicitly assigned seats`);
+    });
+  }
+}
+const shuffledRosterEvent = { rsvps: Object.fromEntries([...data.players].reverse().map(p => [p.slug, "yes"])) };
+const expectedRosterNames = eventRosterOrder(data.players).map(app.get("displayPlayerNamePlain"));
+check(JSON.stringify(app.get("getRsvpPlayersByStatus")(shuffledRosterEvent, data, "yes")) === JSON.stringify(expectedRosterNames), "Every RSVP status list must sort independently of input order");
+check(expectedRosterNames[0] === "BostnMike", "Commish must retain the first event roster slot");
 const mtt = app.get('RULES_FORMATS["two-table"]');
 const mttCallout = app.get("buildRulesFormatCallout")(mtt);
 const houseRules = fs.readFileSync(path.join(root, "rules.html"), "utf8");
@@ -775,11 +798,17 @@ groupedApp.get("renderStandings")("profit");
 check(groupedBody.innerHTML.includes('colspan="10" scope="rowgroup"'), "Standings membership headings must span the complete table");
 const standingPlayers = groupedApp.get("sortPlayers")(data.players.filter(p => Number(p.entries) >= 2), "profit");
 check((groupedBody.innerHTML.match(/class="standings-row-link"/g) || []).length === standingPlayers.length, "Standings must preserve every eligible row");
+for (const [index, player] of standingPlayers.entries()) {
+  check(groupedBody.innerHTML.includes(`data-league-rank="${index + 1}"\n      data-href="${groupedApp.get("playerUrl")(player)}"`), `${player.slug}: podium styling must use the actual league rank, not membership header positions`);
+}
 groupedApp.get('currentCrewRoster = "all"');
 for (const view of ["tier", "archetype"]) {
   groupedApp.get(`currentCrewView = "${view}"`);
   groupedApp.get("renderPlayers")(data);
   check((crewGrid.innerHTML.match(/aria-label="Open /g) || []).length === data.players.length, `All Players ${view} must contain every card exactly once`);
+  for (const [, anchor] of crewGrid.innerHTML.matchAll(/href="#(crew-tier-[^"]+)"/g)) {
+    check(crewGrid.innerHTML.includes(`id="${anchor}"`), `Crew jump link ${anchor} must reach a rendered section`);
+  }
   const alumniStart = crewGrid.innerHTML.indexOf(view === "tier" ? 'id="crew-tier-alumni"' : 'data-roster-section="alumni"');
   check(alumniStart >= 0, `All Players ${view} needs one consolidated Alumni section`);
   for (const player of data.players) {
@@ -791,7 +820,7 @@ const forecastMarkup = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: Object
 check(forecastMarkup.includes("<strong>Active:</strong>") && forecastMarkup.includes("<strong>Alumni:</strong>"), "RSVP forecast must separate membership without removing invitees");
 for (const page of ["index", "champions", "dashboard", "standings", "players", "player", "schedule", "structures", "form-lab", "trophy-room", "knockouts", "streaks", "player-movement", "voice-of-god"]) {
   const html = fs.readFileSync(path.join(root, `${page}.html`), "utf8");
-  check(html.includes('roster-display.css?v=20261018-1') && html.includes('roster-display.js?v=20261018-1'), `${page}: shared roster display assets missing`);
+  check(html.includes('roster-display.css?v=20261018-2') && html.includes('roster-display.js?v=20261018-1'), `${page}: shared roster display assets missing`);
   check(html.indexOf('roster-display.js') > html.indexOf('site-shell.js'), `${page}: shared shell must initialize before roster helpers`);
 }
 

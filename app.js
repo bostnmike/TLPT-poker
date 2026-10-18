@@ -1651,15 +1651,25 @@ function getDisplayNameForRsvpSlug(slug, data) {
     .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
+// Event rosters: Commish first, then active and alumni alphabetically.
+// Explicit table assignments and historical finish orders are not rosters.
+function compareEventRosterPlayers(a, b) {
+  if (a.slug === "bostnmike" && b.slug !== "bostnmike") return -1;
+  if (b.slug === "bostnmike" && a.slug !== "bostnmike") return 1;
+  return Number(isPlayerAlumni(a)) - Number(isPlayerAlumni(b))
+    || displayPlayerNamePlain(a).localeCompare(displayPlayerNamePlain(b), "en", { sensitivity: "base" });
+}
+
 function getRsvpPlayersByStatus(event, data, statusKey) {
   const rsvps = event?.rsvps || {};
   const targetStatus = String(statusKey || "").toLowerCase();
 
   return Object.entries(rsvps)
     .filter(([, status]) => String(status || "tbd").toLowerCase() === targetStatus)
-    .map(([slug]) => getDisplayNameForRsvpSlug(slug, data))
-    .filter(Boolean)
-    .sort((a, b) => a.localeCompare(b));
+    .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
+    .sort(compareEventRosterPlayers)
+    .map(displayPlayerNamePlain)
+    .filter(Boolean);
 }
 
 function formatRsvpNameList(names, emptyText = "Nobody yet", options = {}) {
@@ -1687,7 +1697,7 @@ function eventRsvpForecastMarkup(event, data) {
     const players = Object.entries(event?.rsvps || {})
       .filter(([, answer]) => String(answer || "tbd").toLowerCase() === status)
       .map(([slug]) => getPlayerBySlug(slug, data) || { slug, name: getDisplayNameForRsvpSlug(slug, data) })
-      .sort((a, b) => String(a.name).localeCompare(String(b.name)));
+      .sort(compareEventRosterPlayers);
     const names = members => escapeHtmlAttr(formatRsvpNameList(members.map(player => displayPlayerNamePlain(player)), "Nobody yet", options));
     const alumni = players.filter(isPlayerAlumni);
     if (!alumni.length) return names(players);
@@ -1735,7 +1745,8 @@ function getConfirmedRsvpPlayers(event, data) {
     .map(([slug]) =>
       players.find(player => String(player.slug || "").toLowerCase() === String(slug).toLowerCase())
     )
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort(compareEventRosterPlayers);
 }
 
 function buildRsvpSummaryMarkup(event, extraClass = "") {
@@ -3233,6 +3244,7 @@ function renderStandings(sortKey = DEFAULT_STANDINGS_SORT) {
   tbody.innerHTML = window.TLPTRoster.sections(sorted, (player, index) => `
     <tr
       class="standings-row-link"
+      data-league-rank="${index + 1}"
       data-href="${playerUrl(player)}"
     >
       <td>${index + 1}</td>
@@ -3505,7 +3517,7 @@ function crewTierJumpNavMarkup(groups) {
     <div class="mobile-jump-nav-shell" data-mobile-jump-nav-shell>
       <nav class="crew-tier-jump-nav" aria-label="Jump to a crew tier">
         ${availableGroups.map(group => {
-          const sectionId = `crew-tier-${String(group.className || group.title)
+          const sectionId = `crew-tier-${String(group.sectionClassName || group.title)
             .toLowerCase()
             .replace(/[^a-z0-9]+/g, "-")
             .replace(/^-+|-+$/g, "")}`;
@@ -3893,10 +3905,10 @@ function renderPlayers(data) {
     { title: "The Shot Makers", emoji: "☄️", players: shotMakers, className: "shot-makers" },
     { title: "The Gamblers", emoji: "🎲", players: gamblers, className: "gamblers" },
     { title: "The League Sponsors", emoji: "🍣", players: leagueSponsors, className: "league-sponsors" },
-    { title: "PRO — Provisional", emoji: "🧪", players: provisionalPlayers, className: "provisionals" },
-    { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies" },
-    { title: "UNS — Unscouted", emoji: "🔭", players: unscoutedPlayers, className: "unscouted" },
-    { title: "Alumni", emoji: "♠", players: allViewAlumni, className: "alumni" }
+    { title: "PRO — Provisional", emoji: "🧪", players: provisionalPlayers, className: "provisionals", sectionClassName: "tier-section-provisional" },
+    { title: "RKI — Rookie", emoji: "🌱", players: rookiePlayers, className: "rookies", sectionClassName: "tier-section-rookie" },
+    { title: "UNS — Unscouted", emoji: "🔭", players: unscoutedPlayers, className: "unscouted", sectionClassName: "tier-section-unscouted" },
+    { title: "Alumni", emoji: "♠", players: allViewAlumni, className: "alumni", sectionClassName: "alumni" }
   ];
 
   if (helpCopy) {

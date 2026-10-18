@@ -21,6 +21,35 @@
 .roster-section-heading:first-child { margin-top: 0; }
 .roster-section-row th { display: table-cell; }
 .roster-section-row th > small { margin-left: 16px; }
+/* Membership rows are section dividers, never rank cells or podium rows. */
+#standings-table tbody .roster-section-row {
+  background: transparent;
+  box-shadow: none;
+}
+#standings-table .roster-section-row > th {
+  grid-column: 1 / -1;
+  position: static;
+  width: auto;
+  padding: 14px 16px;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+  background: #141c24;
+  box-shadow: none;
+  font: 700 1.05rem/1.4 system-ui, sans-serif;
+}
+@media (max-width: 700px) {
+  #standings-table .roster-section-row > th {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  #standings-table .roster-section-row th > small { margin-left: 0; }
+}
 .site-select-group-label { padding: 10px 12px 6px; color: #b7c5d1; font-size: .85rem; font-weight: 700; }
 .roster-rsvp-group { display: block; }
 .roster-rsvp-group + .roster-rsvp-group { margin-top: 6px; }
+/* A longer alumni board must not stretch its neighboring panel into a void. */
+.streak-two-up:has([data-roster-section]) { align-items: start; }
