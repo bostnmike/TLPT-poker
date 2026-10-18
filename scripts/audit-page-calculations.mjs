@@ -615,6 +615,34 @@ for (const player of players) {
   }
 }
 
+// A bounty receipt without a prize-pool payout must never create a cash.
+const bountyOnlyPlayer = { name: "A.I. Dave", slug: "ai-dave" };
+const bountyOnlyEvent = {
+  date: "2026-10-17", eventId: "2026-10-17",
+  summary: { buyIns: 7, paidSpots: 3 },
+  winners: [], actions: [],
+  players: [{ ...bountyOnlyPlayer, buyIns: 1, entries: 1, rebuys: 0,
+    totalWinnings: 10, tournamentWinnings: 0, bountyWinnings: 10,
+    totalCost: 35, profit: -25, timesPlaced: 0, bubbles: 0 }]
+};
+const bountyOnlyRow = formLab.get("buildPlayerEventRow")(bountyOnlyEvent, bountyOnlyPlayer, "ai-dave");
+check(bountyOnlyRow.cashFlag === 0, "Bounty-only take-home must not create a Form Lab cash");
+check(bountyOnlyRow.winnings === 10 && bountyOnlyRow.profit === -25,
+  "Form Lab must include bounty receipts and costs in take-home and profit");
+for (const player of players) {
+  check(close(player.totalWinnings, player.tournamentWinnings + player.bountyWinnings),
+    `${player.slug}: take-home must equal prize money + bounty returns`);
+  check(close(player.totalCost, player.tournamentCost + player.bountyPaid),
+    `${player.slug}: total cost must include bounty purchases`);
+  check(close(player.profit, player.tournamentProfit + player.bountyNet),
+    `${player.slug}: overall profit must include bounty net once`);
+}
+
+for (const [amount, expected] of [[157.5, "$157.50"], [132.5, "$132.50"], [-65.5, "-$65.50"], [65, "$65"], [0.01, "$0.01"]]) {
+  check(app.get("fmtMoney")(amount) === expected, `Shared money display must preserve cents for ${amount}`);
+  check(formLab.get("moneyFmt")(amount) === expected, `Form Lab money display must preserve cents for ${amount}`);
+}
+
 const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors };
 process.stdout.write(JSON.stringify(result));
 if (errors.length) process.exitCode = 2;

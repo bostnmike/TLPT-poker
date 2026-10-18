@@ -112,19 +112,19 @@ const FL_METRICS = {
     label: "Profit",
     short: "Profit",
     format: moneyFmt,
-    description: "Event winnings minus buy-in/rebuy cost."
+    description: "Prize money plus bounty returns, minus tournament entries and bounty purchases."
   },
   cost: {
     label: "Cost",
     short: "Cost",
     format: moneyFmt,
-    description: "Event cost based on buy-in plus rebuys."
+    description: "Tournament entry and rebuy costs plus bounty purchases."
   },
   winnings: {
     label: "Winnings",
     short: "Won",
     format: moneyFmt,
-    description: "Event payout."
+    description: "Total take-home from tournament prizes and bounty returns."
   },
   bubbleFlag: {
     label: "Bubble Flag",
@@ -988,7 +988,9 @@ function renderEventDetail(rows) {
       ${detailStat("Rebuys", row.rebuys)}
       ${detailStat("Hits", row.hits)}
       ${detailStat("Cost", moneyFmt(row.cost))}
-      ${detailStat("Winnings", moneyFmt(row.winnings))}
+      ${detailStat("Tournament Winnings", moneyFmt(row.tournamentWinnings))}
+      ${detailStat("Bounty Returns", moneyFmt(row.bountyReturns))}
+      ${detailStat("Total Take-home", moneyFmt(row.winnings))}
       ${detailStat("Form", numberFmt(row.formScore, 1))}
       ${detailStat("Pain", numberFmt(row.painIndex, 1))}
     </div>
@@ -1174,8 +1176,10 @@ function buildPlayerEventRow(event, player, playerSlug) {
     ? getNumeric(explicitProfit)
     : winnings - cost;
 
+  const tournamentWinnings = getNumeric(firstDefined(found.tournamentWinnings, winnings - getNumeric(found.bountyWinnings)));
+  const bountyReturns = getNumeric(found.bountyWinnings);
   const paidSpots = getPaidSpots(event);
-  const cashFlag = winnings > 0 || (paidSpots > 0 && finishPosition > 0 && finishPosition <= paidSpots);
+  const cashFlag = tournamentWinnings > 0 || (paidSpots > 0 && finishPosition > 0 && finishPosition <= paidSpots);
   const bubbleFlag = getNumeric(firstDefined(found.bubbles, 0)) > 0 ||
     (paidSpots > 0 && finishPosition === paidSpots + 1)
       ? 1
@@ -1220,6 +1224,8 @@ function buildPlayerEventRow(event, player, playerSlug) {
     entriesUsed,
     hits,
     winnings,
+    tournamentWinnings,
+    bountyReturns,
     cost,
     profit,
     paidSpots,
@@ -1602,7 +1608,10 @@ function numberFmt(value, digits) {
 function moneyFmt(value) {
   const num = Number(value || 0);
   const sign = num < 0 ? "-" : "";
-  return `${sign}$${Math.abs(Math.round(num)).toLocaleString("en-US")}`;
+  return `${sign}$${Math.abs(num).toLocaleString("en-US", {
+    minimumFractionDigits: Number.isInteger(num) ? 0 : 2,
+    maximumFractionDigits: 2
+  })}`;
 }
 
 function ordinal(value) {

@@ -63,6 +63,14 @@ def validate_player(p):
     if p.get("profit", 0) != expected_profit:
         errors.append(f"profit mismatch: {p.get('profit')} != {expected_profit}")
 
+    for key, expected in {
+        "tournamentCost": p.get("totalCost", 0) - p.get("bountyPaid", 0),
+        "tournamentWinnings": p.get("totalWinnings", 0) - p.get("bountyWinnings", 0),
+        "tournamentProfit": p.get("profit", 0) - p.get("bountyNet", 0),
+    }.items():
+        if p.get(key) != expected:
+            errors.append(f"{key} mismatch")
+
     expected_roi = safe_div(p.get("profit", 0), p.get("totalCost", 0))
     if not approx_equal(p.get("roi", 0), expected_roi):
         errors.append("roi mismatch")

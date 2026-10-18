@@ -149,9 +149,12 @@ let currentCrewSearch = "";
 let currentCrewVisibleCount = 0;
 
 const STAT_FORMULAS = {
-  totalCost: "Total Cost: Buy-ins + Rebuys Cost",
-  totalWinnings: "Gross Winnings: Total prize money won before subtracting costs",
-  profit: "Profit: Total Take − Total Cost",
+  tournamentWinnings: "Tournament Winnings: Prize-pool payouts only, excluding all bounty returns",
+  tournamentCost: "Tournament Cost: Buy-ins and rebuys, excluding bounty purchases",
+  tournamentProfit: "Tournament Profit: Prize-pool payouts minus tournament entry costs",
+  totalCost: "Total Cost: Tournament entries + bounty money posted",
+  totalWinnings: "Total Take-home: Tournament prize money + collected and retained bounty returns",
+  profit: "Profit: Total Take-home − tournament entry costs − bounty money posted",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
   bubbleRate: "Bubble Rate: Bubbles ÷ Buy-ins",
@@ -163,11 +166,11 @@ const STAT_FORMULAS = {
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
   bountiesWon: "Bounties Won: Opponents whose first-entry bounty the player collected; retained personal bounties are not counted as wins",
-  bountyPaid: "Bounty Paid: Separate bounty money posted with first entries; excluded from tournament cost, Profit, ROI, and Power Index",
+  bountyPaid: "Bounty Paid: Money posted with first entries; included in overall Total Cost and ROI",
   bountyCollected: "Bounty Collected: Cash received for eliminating opponents' bounty-bearing first entries",
   bountyRetained: "Bounty Retained: The player's own first-entry bounty returned when that entry was never eliminated",
-  bountyWinnings: "Bounty Returns: Bounty Collected + Bounty Retained; tracked separately from tournament winnings",
-  bountyNet: "Bounty Net: Bounty Returns − Bounty Paid; excluded from tournament Profit, ROI, and Power Index",
+  bountyWinnings: "Bounty Returns: Bounty Collected + Bounty Retained; included once in Total Take-home",
+  bountyNet: "Bounty Net: Bounty Returns − Bounty Paid; included once in overall Profit",
   trueSkillScore: "Power Index: (1.4 × normalized ROI) + (1.2 × Clutch) + Aggression + Survival + (0.5 × normalized Luck) + (0.8 × Composure) + appearance bonus (maximum 10). Normalized inputs use fixed benchmarks, not the current player pool",
   luckIndex: "Luck Index: Profit − Expected Profit, where Expected Profit is based on Cash Rate, Hit Rate, and Bubble Avoidance",
   clutchIndex: "Clutch Index: normalized career cash frequency (Times Placed ÷ Buy-ins)",
@@ -179,7 +182,10 @@ const STAT_FORMULAS = {
 
 const PROFILE_STAT_CONFIG = [
   { key: "totalCost", label: "Total Cost", type: "money", icon: "💸", dashboard: false },
-  { key: "totalWinnings", label: "Gross Winnings", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
+  { key: "tournamentWinnings", label: "Tournament Winnings", type: "money", icon: "🏆", dashboard: false },
+  { key: "tournamentCost", label: "Tournament Cost", type: "money", icon: "🎟️", dashboard: false },
+  { key: "tournamentProfit", label: "Tournament Profit", type: "money", icon: "🧮", dashboard: false, profitClass: true },
+  { key: "totalWinnings", label: "Total Take-home", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
 
   { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
   { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
@@ -239,7 +245,7 @@ const DASHBOARD_EDITORIAL = {
   survivorIndex: "Who outlasts the field when stacks get shallow.",
   tiltIndex: "Who stays the steadiest when the session starts getting expensive.",
   bountiesWon: "Who has collected the most bounty-bearing first entries.",
-  bountyNet: "Bounty money only — kept completely separate from tournament profit."
+  bountyNet: "Bounty returns minus bounty costs; this component is already included in overall profit."
 };
 
 const STAT_LEADER_CONFIG = [
@@ -535,7 +541,7 @@ const RULES_FORMATS = {
     combinePayoutAndBounty: true,
     bounty: {
       title: "$10 First-Entry Bounty",
-      text: "The initial entry is $40 plus a separate $10 bounty. First-entry knockouts collect it; unbusted players retain their own. $40 rebuys carry no bounty, and bounty money is tracked separately from tournament profit."
+      text: "The initial entry is $40 plus a separate $10 bounty. First-entry knockouts collect it; unbusted players retain their own. $40 rebuys carry no bounty, and the bounty ledger stays separate while its net result counts toward overall Profit and ROI."
     },
     runtimeLabel: "9 hrs 20 min",
     levelMinutes: 25,
@@ -592,8 +598,8 @@ function fmtMoney(n) {
   const num = Number(n ?? 0);
   const sign = num < 0 ? "-" : "";
   return `${sign}$${Math.abs(num).toLocaleString("en-US", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
+    minimumFractionDigits: Number.isInteger(num) ? 0 : 2,
+    maximumFractionDigits: 2
   })}`;
 }
 
@@ -914,7 +920,7 @@ function getLeaderByRule(players, rule, customPool = null) {
 }
 
 function statValueClass(player, key) {
-  if (!new Set(["profit", "bountyNet"]).has(key)) return "";
+  if (!new Set(["profit", "tournamentProfit", "bountyNet"]).has(key)) return "";
   const value = Number(player?.[key] ?? 0);
   if (value > 0) return "positive";
   if (value < 0) return "negative";

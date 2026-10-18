@@ -54,6 +54,24 @@ workflow remains validation-only; its Cloudflare deployment is separate.
 
 Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 
+## Prize and bounty accounting
+
+Event prize pools and `winners[].payout` contain tournament prize money only.
+Tournament Director receipt lines may include bounty returns; event financial rules
+separate them during parsing. Keep those receipt lines intact rather than subtracting
+bounties from the source and then subtracting them again downstream.
+
+`totalWinnings` is overall take-home: tournament prize money + `bountyCollected` +
+`bountyRetained`. `totalCost` includes tournament entries and `bountyPaid`; `profit`
+and ROI use those combined totals. `tournamentWinnings`, `tournamentCost`, and
+`tournamentProfit` expose the prize-only breakdown. Retaining your own bounty offsets
+its original purchase cost. Bounty-only receipts never count as tournament cashes.
+The same accounting applies to career, recent-form, standings, and profile statistics.
+Power Index keeps its formula and uses the corrected overall ROI/profit inputs.
+
+October 17, 2026 started at 7:21 p.m. per Mike's correction; the raw summary and
+start action both use 7:21:00 p.m. because seconds were not provided.
+
 ## Shared CSS changes
 
 For changes to `site-tail.css`, rotate the cache key with the **Rotate Shared CSS Cache** GitHub Action rather than manually editing all public HTML pages.

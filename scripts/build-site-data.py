@@ -60,6 +60,16 @@ BOUNTY_KEYS = (
 )
 
 
+def tournament_breakdown(record):
+    cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
+    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0)
+    return {
+        "tournamentCost": cost,
+        "tournamentWinnings": winnings,
+        "tournamentProfit": winnings - cost,
+    }
+
+
 def hall_minimum_appearances(event_count):
     """Return the live 25%-of-history Hall threshold, with its floor."""
     return max(math.ceil(event_count * HALL_PERCENTAGE), HALL_MIN_EVENTS)
@@ -117,6 +127,8 @@ def normalize_stat(players, key, bounds):
 
 
 def finalize_career_metrics(players):
+    for player in players:
+        player.update(tournament_breakdown(player))
     # Calculate career metrics without letting zero-game metadata affect the league.
     active_players = [
         player for player in players
@@ -242,6 +254,7 @@ def build_zero_player(meta):
         "totalCost": 0,
         "totalWinnings": 0,
         **{key: 0 for key in BOUNTY_KEYS},
+        **tournament_breakdown({}),
         "expectedProfit": 0.0,
         "luckIndex": 0.0,
         "clutchIndex": 0.0,
@@ -488,6 +501,7 @@ def aggregate_card_form_window(player_meta, event_rows):
         ]:
             metrics[key] += row.get(key, 0) or 0
 
+    metrics.update(tournament_breakdown(metrics))
     return {
         "eventCount": len(event_rows),
         "startDate": event_rows[0]["date"] if event_rows else None,
@@ -505,6 +519,7 @@ def aggregate_card_form_window(player_meta, event_rows):
                 "profit": item["row"].get("profit", 0) or 0,
                 "totalCost": item["row"].get("totalCost", 0) or 0,
                 "totalWinnings": item["row"].get("totalWinnings", 0) or 0,
+                **tournament_breakdown(item["row"]),
                 **{
                     key: item["row"].get(key, 0) or 0
                     for key in BOUNTY_KEYS

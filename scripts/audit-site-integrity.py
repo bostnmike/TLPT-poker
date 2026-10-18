@@ -140,6 +140,14 @@ class Audit:
         self.warnings.append({"section": section, "message": message})
 
 
+def tournament_breakdown(record):
+    # Recompute the prize-only ledger from combined totals independently.
+    cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
+    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0)
+    return {"tournamentCost": cost, "tournamentWinnings": winnings,
+            "tournamentProfit": winnings - cost}
+
+
 def empty_player(meta):
     return {
         "name": meta["name"],
@@ -148,6 +156,7 @@ def empty_player(meta):
         "notes": meta.get("notes", ""),
         **{key: 0 for key in CORE_KEYS},
         **{key: 0 for key in BOUNTY_KEYS},
+        **tournament_breakdown({}),
         "roi": 0.0,
         "cashRate": 0.0,
         "bubbleRate": 0.0,
@@ -235,6 +244,8 @@ def finalize_metrics(
 
 
 def finalize_career_metrics(records):
+    for record in records:
+        record.update(tournament_breakdown(record))
     # Independent career calculation excluding metadata-only zero-game players.
     active = [
         player for player in records
@@ -730,8 +741,9 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
         audit.check(sums["rebuys"] == int(summary.get("rebuys", 0)), section, f"{event_id}: rebuy total mismatch")
         audit.check(sums["entries"] == int(summary.get("entries", 0)), section, f"{event_id}: entry total mismatch")
         audit.check(sums["entries"] == sums["buyIns"] + sums["rebuys"], section, f"{event_id}: entries != buy-ins + rebuys")
-        audit.check(sums["totalCost"] == sums["entries"] * entry_amount, section, f"{event_id}: cost does not equal entries × event entry")
-        audit.check(sums["totalWinnings"] == total_pot, section, f"{event_id}: winnings do not equal pot")
+        bounty_pool = bounty_amount * sums["buyIns"]
+        audit.check(sums["totalCost"] == sums["entries"] * entry_amount + bounty_pool, section, f"{event_id}: cost does not equal tournament entries + bounty purchases")
+        audit.check(sums["totalWinnings"] == total_pot + bounty_pool, section, f"{event_id}: take-home does not equal prize + bounty pools")
         audit.check(sums["profit"] == 0, section, f"{event_id}: event is not zero-sum")
         audit.check(sums["hits"] == sum(action.get("type") == "bustout" and bool(action.get("bySlug")) for action in actions), section, f"{event_id}: credited hits differ from bustout actions")
         audit.check(sums["timesPlaced"] == len(winners), section, f"{event_id}: cash count differs from payouts")
@@ -750,7 +762,8 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
         for row in rows:
             slug = row.get("slug", "unknown")
             audit.check(int(row.get("entries", 0)) == int(row.get("buyIns", 0)) + int(row.get("rebuys", 0)), section, f"{event_id}/{slug}: entries mismatch")
-            audit.check(Decimal(str(row.get("totalCost", 0))) == int(row.get("entries", 0)) * entry_amount, section, f"{event_id}/{slug}: cost mismatch")
+            expected_cost = int(row.get("entries", 0)) * entry_amount + (bounty_amount if int(row.get("buyIns", 0)) > 0 else Decimal(0))
+            audit.check(Decimal(str(row.get("totalCost", 0))) == expected_cost, section, f"{event_id}/{slug}: cost mismatch")
             audit.check(Decimal(str(row.get("profit", 0))) == Decimal(str(row.get("totalWinnings", 0))) - Decimal(str(row.get("totalCost", 0))), section, f"{event_id}/{slug}: profit mismatch")
 
         bounty_summary = summary.get("bounty") or {}
@@ -813,6 +826,13 @@ def audit_events(audit, parsed_files, metadata, config, event_financials):
                 actual = Decimal(str(row.get(key, 0) or 0))
                 expected = Decimal(str(expected_bounty[slug][key]))
                 audit.check(actual == expected, section, f"{event_id}/{slug}: {key} differs from the bounty ledger")
+
+            prize = sum(Decimal(str(w["payout"])) for w in winners if w["slug"] == slug)
+            cost = int(row.get("entries", 0)) * entry_amount
+            audit.check(Decimal(str(row.get("totalWinnings", 0))) == prize + expected_bounty[slug]["bountyWinnings"], section, f"{event_id}/{slug}: take-home differs from prize + bounty returns")
+            if bounty_amount:
+                for key, expected in {"tournamentCost": cost, "tournamentWinnings": prize, "tournamentProfit": prize - cost}.items():
+                    audit.check(Decimal(str(row.get(key, 0))) == expected, section, f"{event_id}/{slug}: {key} mismatch")
 
         bounty_sums = {
             key: sum(Decimal(str(row.get(key, 0) or 0)) for row in rows)
@@ -883,7 +903,7 @@ def audit_players(audit, expected_players, site_data, config):
     actual_by_slug = {player.get("slug"): player for player in actual}
     audit.check(list(actual_by_slug) == sorted(actual_by_slug, key=lambda slug: actual_by_slug[slug]["name"].lower()), "playerAggregates", "Published players are not alphabetically ordered")
     audit.check(set(actual_by_slug) == set(expected_by_slug), "playerAggregates", "Published player set differs from source metadata")
-    numeric_keys = (*CORE_KEYS, *BOUNTY_KEYS, "roi", "cashRate", "bubbleRate", "hitRate", "expectedProfit", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw", "tiltScoreDirect", "tiltIndex", "trueSkillScore", "roi_norm", "luckIndex_norm", "clutchRaw_norm", "aggressionRaw_norm", "survivorRaw_norm", "clutchIndex", "aggressionIndex", "survivorIndex")
+    numeric_keys = (*CORE_KEYS, *BOUNTY_KEYS, "tournamentCost", "tournamentWinnings", "tournamentProfit", "roi", "cashRate", "bubbleRate", "hitRate", "expectedProfit", "luckIndex", "clutchRaw", "aggressionRaw", "survivorRaw", "tiltScoreDirect", "tiltIndex", "trueSkillScore", "roi_norm", "luckIndex_norm", "clutchRaw_norm", "aggressionRaw_norm", "survivorRaw_norm", "clutchIndex", "aggressionIndex", "survivorIndex")
     zero_game_derived_keys = (
         "roi", "cashRate", "bubbleRate", "hitRate",
         "expectedProfit", "luckIndex",
@@ -935,12 +955,13 @@ def audit_card_form(audit, metadata, events, site_data):
             for _, row in subset:
                 for core in (*CORE_KEYS, *BOUNTY_KEYS):
                     metrics[core] += row.get(core, 0) or 0
+            metrics.update(tournament_breakdown(metrics))
             window = {
                 "eventCount": len(subset),
                 "startDate": subset[0][0]["date"] if subset else None,
                 "endDate": subset[-1][0]["date"] if subset else None,
                 "metrics": metrics,
-                "events": [{"date": event["date"], "title": event["title"], **{core: row.get(core, 0) or 0 for core in ("entries", "rebuys", "hits", "timesPlaced", "bubbles", "profit", "totalCost", "totalWinnings", *BOUNTY_KEYS)}} for event, row in subset],
+                "events": [{"date": event["date"], "title": event["title"], **tournament_breakdown(row), **{core: row.get(core, 0) or 0 for core in ("entries", "rebuys", "hits", "timesPlaced", "bubbles", "profit", "totalCost", "totalWinnings", *BOUNTY_KEYS)}} for event, row in subset],
             }
             expected[meta["slug"]][key] = window
             windows[key].append(window)

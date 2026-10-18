@@ -4,8 +4,8 @@
   "title": "ALL-E-IN - 9-Max",
   "date": "2026-10-17",
   "summary": {
-    "startTimeRaw": "9:02:55 am 10/17/2026",
-    "startTimeIso": "2026-10-17T09:02:55",
+    "startTimeRaw": "7:21:00 pm 10/17/2026",
+    "startTimeIso": "2026-10-17T19:21:00",
     "endTimeRaw": "12:01:27 am 10/18/2026",
     "endTimeIso": "2026-10-18T00:01:27",
     "firstOut": "Red",
@@ -52,7 +52,7 @@
   "actions": [
     {
       "type": "tournament_started",
-      "time_raw": "9:02:55 am 10/17/2026"
+      "time_raw": "7:21:00 pm 10/17/2026"
     },
     {
       "type": "buyin",
@@ -254,15 +254,18 @@
       "hits": 0,
       "timesPlaced": 0,
       "bubbles": 0,
-      "totalCost": 30,
+      "totalCost": 35,
       "totalWinnings": 0,
-      "profit": -30,
+      "profit": -35,
       "bountiesWon": 0,
       "bountyPaid": 5,
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": -5
+      "bountyNet": -5,
+      "tournamentCost": 30,
+      "tournamentWinnings": 0,
+      "tournamentProfit": -30
     },
     {
       "name": "Ahmed",
@@ -273,15 +276,18 @@
       "hits": 2,
       "timesPlaced": 1,
       "bubbles": 0,
-      "totalCost": 30,
-      "totalWinnings": 132.5,
-      "profit": 102.5,
+      "totalCost": 35,
+      "totalWinnings": 142.5,
+      "profit": 107.5,
       "bountiesWon": 1,
       "bountyPaid": 5,
       "bountyCollected": 5,
       "bountyRetained": 5,
       "bountyWinnings": 10,
-      "bountyNet": 5
+      "bountyNet": 5,
+      "tournamentCost": 30,
+      "tournamentWinnings": 132.5,
+      "tournamentProfit": 102.5
     },
     {
       "name": "Alex C",
@@ -300,7 +306,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Big Tim",
@@ -319,7 +328,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Bob",
@@ -338,7 +350,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "BostnMike",
@@ -349,15 +364,18 @@
       "hits": 5,
       "timesPlaced": 1,
       "bubbles": 0,
-      "totalCost": 30,
-      "totalWinnings": 132.5,
-      "profit": 102.5,
+      "totalCost": 35,
+      "totalWinnings": 157.5,
+      "profit": 122.5,
       "bountiesWon": 4,
       "bountyPaid": 5,
       "bountyCollected": 20,
       "bountyRetained": 5,
       "bountyWinnings": 25,
-      "bountyNet": 20
+      "bountyNet": 20,
+      "tournamentCost": 30,
+      "tournamentWinnings": 132.5,
+      "tournamentProfit": 102.5
     },
     {
       "name": "Brad R",
@@ -376,7 +394,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "BuffaloMike",
@@ -395,7 +416,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Chris F",
@@ -414,7 +438,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Chris O",
@@ -433,7 +460,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Cougar",
@@ -444,15 +474,18 @@
       "hits": 0,
       "timesPlaced": 1,
       "bubbles": 0,
-      "totalCost": 30,
+      "totalCost": 35,
       "totalWinnings": 65,
-      "profit": 35,
+      "profit": 30,
       "bountiesWon": 0,
       "bountyPaid": 5,
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": -5
+      "bountyNet": -5,
+      "tournamentCost": 30,
+      "tournamentWinnings": 65,
+      "tournamentProfit": 35
     },
     {
       "name": "Dan K",
@@ -471,7 +504,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "David K",
@@ -490,7 +526,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Fabian",
@@ -509,7 +548,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Gilmore",
@@ -528,7 +570,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Griffin",
@@ -547,7 +592,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Hayden D",
@@ -566,7 +614,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Hiro",
@@ -585,7 +636,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Jeff T",
@@ -604,7 +658,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Kishan",
@@ -623,7 +680,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Li-Fo",
@@ -634,15 +694,18 @@
       "hits": 1,
       "timesPlaced": 0,
       "bubbles": 1,
-      "totalCost": 90,
+      "totalCost": 95,
       "totalWinnings": 0,
-      "profit": -90,
+      "profit": -95,
       "bountiesWon": 0,
       "bountyPaid": 5,
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": -5
+      "bountyNet": -5,
+      "tournamentCost": 90,
+      "tournamentWinnings": 0,
+      "tournamentProfit": -90
     },
     {
       "name": "Liam O",
@@ -661,7 +724,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Nasa Al",
@@ -680,7 +746,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Nitro",
@@ -699,7 +768,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Pat",
@@ -718,7 +790,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "PhattedCalf",
@@ -737,7 +812,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "PittsburghBill",
@@ -756,7 +834,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "ProvidenceMike",
@@ -767,15 +848,18 @@
       "hits": 0,
       "timesPlaced": 0,
       "bubbles": 0,
-      "totalCost": 60,
+      "totalCost": 65,
       "totalWinnings": 0,
-      "profit": -60,
+      "profit": -65,
       "bountiesWon": 0,
       "bountyPaid": 5,
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": -5
+      "bountyNet": -5,
+      "tournamentCost": 60,
+      "tournamentWinnings": 0,
+      "tournamentProfit": -60
     },
     {
       "name": "Red",
@@ -786,15 +870,18 @@
       "hits": 1,
       "timesPlaced": 0,
       "bubbles": 0,
-      "totalCost": 60,
+      "totalCost": 65,
       "totalWinnings": 0,
-      "profit": -60,
+      "profit": -65,
       "bountiesWon": 0,
       "bountyPaid": 5,
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": -5
+      "bountyNet": -5,
+      "tournamentCost": 60,
+      "tournamentWinnings": 0,
+      "tournamentProfit": -60
     },
     {
       "name": "The Architect",
@@ -813,7 +900,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Tim S",
@@ -832,7 +922,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Vic",
@@ -851,7 +944,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Vish",
@@ -870,7 +966,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Wild Bill",
@@ -889,7 +988,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     },
     {
       "name": "Yann",
@@ -908,7 +1010,10 @@
       "bountyCollected": 0,
       "bountyRetained": 0,
       "bountyWinnings": 0,
-      "bountyNet": 0
+      "bountyNet": 0,
+      "tournamentCost": 0,
+      "tournamentWinnings": 0,
+      "tournamentProfit": 0
     }
   ],
   "warnings": [

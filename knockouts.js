@@ -559,7 +559,7 @@ const KNOCKOUTS_URLS = [
         <section class="section knockouts-shell knockouts-bounty-empty-state">
           <div class="knockouts-bounty-empty-icon" aria-hidden="true">🏷️</div>
           <h2>Bounty board awaiting its first claims</h2>
-          <p>The first MTT bounty results will open this view automatically. Bounty money stays separate from tournament profit.</p>
+          <p>The first MTT bounty results will open this view automatically. Bounty money has its own ledger and counts toward overall profit.</p>
         </section>
       `;
     }
@@ -577,7 +577,7 @@ const KNOCKOUTS_URLS = [
       <section class="section knockouts-shell">
         <div class="knockouts-shell-head">
           <h2>💰 Career Bounty Ledger</h2>
-          <p class="muted">Collected and retained bounty money is tracked outside tournament winnings, profit and Power Index.</p>
+          <p class="muted">Prize-pool payouts and bounty returns stay separate. Overall take-home and profit include both; retained bounties offset the original bounty cost.</p>
         </div>
         ${renderBountyLedger(players)}
       </section>

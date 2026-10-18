@@ -728,6 +728,14 @@ def derive_event_player_stats(
                 "bountyWinnings": values.get("bountyWinnings", 0),
             })
             record["bountyNet"] = record["bountyWinnings"] - record["bountyPaid"]
+            # Prize money and bounty returns remain separate ledgers. Public
+            # bankroll totals include both receipts and both kinds of cost.
+            record["tournamentCost"] = record["totalCost"]
+            record["tournamentWinnings"] = record["totalWinnings"]
+            record["tournamentProfit"] = record["profit"]
+            record["totalCost"] += record["bountyPaid"]
+            record["totalWinnings"] += record["bountyWinnings"]
+            record["profit"] += record["bountyNet"]
 
     return player_map, paid_slugs, permanent_out_noncashers
 

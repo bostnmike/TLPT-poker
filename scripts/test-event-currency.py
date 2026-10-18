@@ -214,21 +214,32 @@ class EventCurrencyTests(unittest.TestCase):
                          [('ahmed', 1, 132.5), ('bostnmike', 1, 132.5), ('cougar', 3, 65)])
         rows = {r['slug']: r for r in event['players'] if r['buyIns']}
         expected = {
-            # hits, bounty hits, collected, retained, net, tournament profit
-            'ahmed': (2, 1, 5, 5, 5, 102.5),
-            'bostnmike': (5, 4, 20, 5, 20, 102.5),
-            'cougar': (0, 0, 0, 0, -5, 35),
-            'ai-dave': (0, 0, 0, 0, -5, -30),
-            'li-fo': (1, 0, 0, 0, -5, -90),
-            'providencemike': (0, 0, 0, 0, -5, -60),
-            'red': (1, 0, 0, 0, -5, -60),
+            # hits, bounty hits, collected, retained, bounty net, overall profit
+            'ahmed': (2, 1, 5, 5, 5, 107.5),
+            'bostnmike': (5, 4, 20, 5, 20, 122.5),
+            'cougar': (0, 0, 0, 0, -5, 30),
+            'ai-dave': (0, 0, 0, 0, -5, -35),
+            'li-fo': (1, 0, 0, 0, -5, -95),
+            'providencemike': (0, 0, 0, 0, -5, -65),
+            'red': (1, 0, 0, 0, -5, -65),
         }
         keys = ('hits', 'bountiesWon', 'bountyCollected', 'bountyRetained', 'bountyNet', 'profit')
         self.assertEqual({slug: tuple(r[k] for k in keys) for slug, r in rows.items()}, expected)
         self.assertEqual(sum(r['hits'] for r in rows.values()), 9)
         self.assertEqual(sum(r['bountyWinnings'] for r in rows.values()), 35)
         self.assertEqual(sum(r['bountyNet'] for r in rows.values()), 0)
-        self.assertEqual(sum(r['totalWinnings'] for r in rows.values()), 330)
+        self.assertEqual(sum(r['tournamentWinnings'] for r in rows.values()), 330)
+        self.assertEqual(sum(r['tournamentCost'] for r in rows.values()), 330)
+        self.assertEqual(sum(r['tournamentProfit'] for r in rows.values()), 0)
+        self.assertEqual(sum(r['totalWinnings'] for r in rows.values()), 365)
+        self.assertEqual(sum(r['totalCost'] for r in rows.values()), 365)
+        self.assertEqual(rows['bostnmike']['totalWinnings'], 157.5)
+        self.assertEqual(rows['ahmed']['totalWinnings'], 142.5)
+        self.assertEqual(rows['bostnmike']['totalCost'], 35)
+        self.assertEqual(rows['ahmed']['totalCost'], 35)
+        self.assertEqual(rows['li-fo']['totalCost'], 95)
+        self.assertEqual(rows['bostnmike']['tournamentProfit'], 102.5)
+        self.assertEqual(event['summary']['startTimeIso'], '2026-10-17T19:21:00')
         self.assertEqual(sum(r['profit'] for r in rows.values()), 0)
         self.assertFalse(any(a['type'].startswith('bustout') and a['slug'] in {'ahmed', 'bostnmike'} for a in event['actions']))
         claims = knockouts.bounty_claims_for_event('2026-10-17', event, self.event_financials)
@@ -250,6 +261,20 @@ class EventCurrencyTests(unittest.TestCase):
             bad = RecordingAudit()
             integrity.audit_events(bad, [path], self.metadata, self.config, self.event_financials)
             self.assertTrue(any('bountyRetained differs' in error for error in bad.failures))
+
+    def test_bounty_audit_rejects_double_counted_return_and_reassigned_prize(self):
+        event = self.parse_october_bounty_chop()
+        rows = {row["slug"]: row for row in event["players"]}
+        # Balanced errors still have to fail against the independent ledgers.
+        for slug, amount in (("bostnmike", 5), ("ahmed", -5)):
+            rows[slug]["totalWinnings"] += amount
+            rows[slug]["profit"] += amount
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "2026-10-17.json"
+            path.write_text(json.dumps(event))
+            audit = RecordingAudit()
+            integrity.audit_events(audit, [path], self.metadata, self.config, self.event_financials)
+        self.assertTrue(any("take-home differs" in error for error in audit.failures))
 
     def test_bounty_chop_rejects_missing_or_ambiguous_financials(self):
         with self.assertRaisesRegex(RuntimeError, 'raw report contains bounties'):
