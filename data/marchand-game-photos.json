@@ -202,7 +202,7 @@
       716,
       717
     ],
-    "delivery": "Only708native game photo changes;170other assets are exact.59mapping becomes343with unchanged asset/path/bytes.171selected singularLAST;825physical/996combined;830historical source views preserved.",
+    "delivery": "Only708native game photo changes;170other assets are exact.59mapping becomes343with unchanged asset/path/bytes.171selected singularLAST;825physical/996combined;830historical source views preserved. At the v6 publication baseline; owner COA assignment overlay now has811physical/982combined, with all native game assets unchanged.",
     "sourceLimits": [
       "Owner-approved708source/date/identity replacement plus owner-authorized canonical59-to343 reorder and joins;170other native selections preserved. No synthesis, face edits, retouch, resampling, watermark removal or new blanket171identity claim.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
@@ -212,7 +212,7 @@
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
       "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
-      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
+      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only. This records the sealedv6 baseline; current owner COA overlay has811 active physical/evidence views and129 document cards, all830 historical source files preserved.",
       "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
       "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
       "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
@@ -230,7 +230,7 @@
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
       "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
-      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
+      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only. This records the sealedv6 baseline; current owner COA overlay has811 active physical/evidence views and129 document cards, all830 historical source files preserved.",
       "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
       "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
       "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
@@ -443,8 +443,8 @@
     "sourceManifestSha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
     "sourceIndexSha256": "4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d",
     "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
-    "physicalEvidenceViews": 825,
-    "combinedGalleryViews": 996,
+    "physicalEvidenceViews": 811,
+    "combinedGalleryViews": 982,
     "archivedPhysicalDocumentSourceViews": 830,
     "mediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical renumbered 708 media reconciliation 2026-10-19-v1.json",
@@ -474,6 +474,26 @@
         "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d",
         "bytes": 13808
       }
+    },
+    "ownerAuthorizedCOAAssignment": {
+      "path": "docs/marchand-coa-assignments-20261019.json",
+      "sha256": "29c1e5d07d71af5840a27ecd947ec770549039c856b632b1043a10e8fa01658f",
+      "revision": "Museum-COA-Assignments-20261019-v1",
+      "date": "2026-10-19",
+      "inventoryIds": [
+        304,
+        305,
+        314,
+        315,
+        325,
+        326,
+        327,
+        328,
+        329,
+        331,
+        339
+      ],
+      "canonicalDataAndBookStatus": "PENDING HANDOFF; current source-master hashes and sealedv6 bindings remain historical and unchanged"
     }
   },
   "artifacts": {

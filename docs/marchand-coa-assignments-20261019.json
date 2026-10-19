@@ -1,0 +1,1007 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "revision": "Museum-COA-Assignments-20261019-v1",
+  "status": "OWNER AUTHORIZED WEBSITE ASSIGNMENTS; CANONICAL DATA AND BOOK HANDOFF PENDING",
+  "parentMuseumReleaseCommit": "8f143eba807c4f834b76d848dd830b3907875534",
+  "parentDeployedHead": "9749c6430d9706ac6015e266fd174fbe5a13047b",
+  "ownerDecision": "314 receives originalCOA1;315 receives originalCOA2 (owner clarified315, not325). In other equivalent groups, choose one per puck when SKU/hologram does not determine a unique assignment. All chosen singleton labels become COA.",
+  "assignmentGroups": [
+    {
+      "ids": [
+        304,
+        305
+      ],
+      "sku": "GUHKPU0273",
+      "date": "2024-01-13"
+    },
+    {
+      "ids": [
+        314,
+        315
+      ],
+      "sku": "GUHKPU1196",
+      "date": "2024-10-26"
+    },
+    {
+      "ids": [
+        325,
+        326,
+        327
+      ],
+      "sku": "GUHKPU2036",
+      "date": "2025-03-01"
+    },
+    {
+      "ids": [
+        328,
+        329
+      ],
+      "sku": "GUHKPU1632",
+      "date": "2025-03-28"
+    },
+    {
+      "ids": [
+        331,
+        339
+      ],
+      "sku": "GUHKPU2210",
+      "date": "2025-04-15"
+    }
+  ],
+  "assignments": [
+    {
+      "inventoryId": 304,
+      "recordKey": "milestone-304",
+      "sourceSheet": "Milestones",
+      "sourceRow": 5,
+      "date": "2024-01-13",
+      "description": "BM63 Career Point #900",
+      "hologram": "RG13333047",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13333047",
+      "printedSKU": "GUHKPU0273",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 1,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa.webp?v=e214bc047094",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9769.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/304/coa.webp",
+      "originalFilename": "IMG_9769.JPG",
+      "sha256": "e214bc0470948c25248996c367b6382f4ec164dc7bd9517cf46dfa23b0d58961",
+      "bytes": 452412,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa.webp?v=e214bc047094",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9769.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa-02.webp?v=97730a644dc4",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9770.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/304/coa-02.webp?v=97730a644dc4",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9770.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+          "after": "images/pucks/304/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9769.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/304/back.webp; images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+          "after": "images/pucks/304/back.webp; images/pucks/304/coa.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/304/back.webp; images/pucks/304/coa.webp; images/pucks/304/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/304/back.webp; images/pucks/304/coa.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 305,
+      "recordKey": "milestone-305",
+      "sourceSheet": "Milestones",
+      "sourceRow": 6,
+      "date": "2024-01-13",
+      "description": "BM63 Career Point #900",
+      "hologram": "RG13333048",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13333048",
+      "printedSKU": "GUHKPU0273",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 2,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa-02.webp?v=97730a644dc4",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9770.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/305/coa-02.webp",
+      "originalFilename": "IMG_9770.JPG",
+      "sha256": "97730a644dc40712b2bda9ad6ac8ae03fb43a1d6de274cd8485ce5dea64b9872",
+      "bytes": 462126,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa.webp?v=e214bc047094",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9769.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa-02.webp?v=97730a644dc4",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9770.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/305/coa.webp?v=e214bc047094",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9769.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+          "after": "images/pucks/305/coa-02.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9770.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/305/back.webp; images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+          "after": "images/pucks/305/back.webp; images/pucks/305/coa-02.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/305/back.webp; images/pucks/305/coa.webp; images/pucks/305/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/305/back.webp; images/pucks/305/coa-02.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 314,
+      "recordKey": "milestone-314",
+      "sourceSheet": "Milestones",
+      "sourceRow": 15,
+      "date": "2024-10-26",
+      "description": "BM63 Ties RM16 4th All-Time Goals 402",
+      "hologram": "RG13313187",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13313187",
+      "printedSKU": "GUHKPU1196",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 1,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa.webp?v=757aeb347381",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9781.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/314/coa.webp",
+      "originalFilename": "IMG_9781.JPG",
+      "sha256": "757aeb347381d46b4c9cc0e887414705682ce1ee1fab2f903a5a77c73b1d0a9e",
+      "bytes": 420182,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa.webp?v=757aeb347381",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9781.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa-02.webp?v=2704853e7669",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9782.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/314/coa-02.webp?v=2704853e7669",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9782.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+          "after": "images/pucks/314/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9781.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/314/back.webp; images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+          "after": "images/pucks/314/back.webp; images/pucks/314/coa.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/314/back.webp; images/pucks/314/coa.webp; images/pucks/314/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/314/back.webp; images/pucks/314/coa.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 315,
+      "recordKey": "milestone-315",
+      "sourceSheet": "Milestones",
+      "sourceRow": 16,
+      "date": "2024-10-26",
+      "description": "BM63 Passes PE7 for 3rd in Bruins GWG with 78",
+      "hologram": "RG13313186",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13313186",
+      "printedSKU": "GUHKPU1196",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 2,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa-02.webp?v=2704853e7669",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9782.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/315/coa-02.webp",
+      "originalFilename": "IMG_9782.JPG",
+      "sha256": "2704853e7669239849c3211f2b2d7ae00615f491bbdee7f09af46ede67db7231",
+      "bytes": 428600,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa.webp?v=757aeb347381",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9781.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa-02.webp?v=2704853e7669",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9782.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/315/coa.webp?v=757aeb347381",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9781.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+          "after": "images/pucks/315/coa-02.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9782.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/315/back.webp; images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+          "after": "images/pucks/315/back.webp; images/pucks/315/coa-02.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/315/back.webp; images/pucks/315/coa.webp; images/pucks/315/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/315/back.webp; images/pucks/315/coa-02.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 325,
+      "recordKey": "milestone-325",
+      "sourceSheet": "Milestones",
+      "sourceRow": 26,
+      "date": "2025-03-01",
+      "description": "BM63 Final Game as a Boston Bruin",
+      "hologram": "NR81048595",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81048595",
+      "printedSKU": "GUHKPU2036",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 1,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa.webp?v=854b1ad92691",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9795.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/325/coa.webp",
+      "originalFilename": "IMG_9795.JPG",
+      "sha256": "854b1ad926912ef3029dddbd09cfab03d892e62a3c5898ae9c2abb0059631baa",
+      "bytes": 482344,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa.webp?v=854b1ad92691",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9795.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-02.webp?v=dbd4b8923c95",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9796.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-03.webp?v=125f1c604af6",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9797.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-02.webp?v=dbd4b8923c95",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9796.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/325/coa-03.webp?v=125f1c604af6",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9797.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+          "after": "images/pucks/325/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9795.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/325/back.webp; images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+          "after": "images/pucks/325/back.webp; images/pucks/325/coa.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/325/back.webp; images/pucks/325/coa.webp; images/pucks/325/coa-02.webp; images/pucks/325/coa-03.webp",
+      "authenticationEvidenceAfter": "images/pucks/325/back.webp; images/pucks/325/coa.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 326,
+      "recordKey": "milestone-326",
+      "sourceSheet": "Milestones",
+      "sourceRow": 27,
+      "date": "2025-03-01",
+      "description": "BM63 Final Game as a Boston Bruin",
+      "hologram": "NR81048596",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81048596",
+      "printedSKU": "GUHKPU2036",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 2,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-02.webp?v=dbd4b8923c95",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9796.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/326/coa-02.webp",
+      "originalFilename": "IMG_9796.JPG",
+      "sha256": "dbd4b8923c95038296903e5991c31a24ec65f44dfdbc5b130fc1b29be227f393",
+      "bytes": 373938,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa.webp?v=854b1ad92691",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9795.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-02.webp?v=dbd4b8923c95",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9796.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-03.webp?v=125f1c604af6",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9797.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa.webp?v=854b1ad92691",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9795.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/326/coa-03.webp?v=125f1c604af6",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9797.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+          "after": "images/pucks/326/coa-02.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9796.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/326/back.webp; images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+          "after": "images/pucks/326/back.webp; images/pucks/326/coa-02.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/326/back.webp; images/pucks/326/coa.webp; images/pucks/326/coa-02.webp; images/pucks/326/coa-03.webp",
+      "authenticationEvidenceAfter": "images/pucks/326/back.webp; images/pucks/326/coa-02.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 327,
+      "recordKey": "milestone-327",
+      "sourceSheet": "Milestones",
+      "sourceRow": 28,
+      "date": "2025-03-01",
+      "description": "BM63 Final Game as a Boston Bruin",
+      "hologram": "NR81048593",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81048593",
+      "printedSKU": "GUHKPU2036",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 3,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-03.webp?v=125f1c604af6",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9797.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/327/coa-03.webp",
+      "originalFilename": "IMG_9797.JPG",
+      "sha256": "125f1c604af69d3daefebe367bc50f4db54bf55521351136c15bd0df9d5249c7",
+      "bytes": 423206,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa.webp?v=854b1ad92691",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9795.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-02.webp?v=dbd4b8923c95",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9796.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-03.webp?v=125f1c604af6",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9797.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa.webp?v=854b1ad92691",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9795.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/327/coa-02.webp?v=dbd4b8923c95",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9796.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+          "after": "images/pucks/327/coa-03.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9797.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/327/back.webp; images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+          "after": "images/pucks/327/back.webp; images/pucks/327/coa-03.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/327/back.webp; images/pucks/327/coa.webp; images/pucks/327/coa-02.webp; images/pucks/327/coa-03.webp",
+      "authenticationEvidenceAfter": "images/pucks/327/back.webp; images/pucks/327/coa-03.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 328,
+      "recordKey": "milestone-328",
+      "sourceSheet": "Milestones",
+      "sourceRow": 29,
+      "date": "2025-03-28",
+      "description": "BM63 First Game as a Florida Panther",
+      "hologram": "NR81045793",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81045793",
+      "printedSKU": "GUHKPU1632",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 1,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa.webp?v=ada829a6d94c",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9798.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/328/coa.webp",
+      "originalFilename": "IMG_9798.JPG",
+      "sha256": "ada829a6d94c3cc8df40cf2dbad1e7dc9cd2aaebf43c15a3168040733296298c",
+      "bytes": 447610,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa.webp?v=ada829a6d94c",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9798.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa-02.webp?v=fc88a6ca37e9",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9799.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/328/coa-02.webp?v=fc88a6ca37e9",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9799.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+          "after": "images/pucks/328/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9798.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/328/back.webp; images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+          "after": "images/pucks/328/back.webp; images/pucks/328/coa.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/328/back.webp; images/pucks/328/coa.webp; images/pucks/328/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/328/back.webp; images/pucks/328/coa.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 329,
+      "recordKey": "milestone-329",
+      "sourceSheet": "Milestones",
+      "sourceRow": 30,
+      "date": "2025-03-28",
+      "description": "BM63 First Game as a Florida Panther",
+      "hologram": "NR81045797",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81045797",
+      "printedSKU": "GUHKPU1632",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 2,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa-02.webp?v=fc88a6ca37e9",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9799.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/329/coa-02.webp",
+      "originalFilename": "IMG_9799.JPG",
+      "sha256": "fc88a6ca37e957d2e36c5fc30edc39dea9df37da77730af346b1d79c00e1e37f",
+      "bytes": 378178,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa.webp?v=ada829a6d94c",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9798.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa-02.webp?v=fc88a6ca37e9",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9799.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/329/coa.webp?v=ada829a6d94c",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9798.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+          "after": "images/pucks/329/coa-02.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9799.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/329/back.webp; images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+          "after": "images/pucks/329/back.webp; images/pucks/329/coa-02.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/329/back.webp; images/pucks/329/coa.webp; images/pucks/329/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/329/back.webp; images/pucks/329/coa-02.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 331,
+      "recordKey": "milestone-331",
+      "sourceSheet": "Milestones",
+      "sourceRow": 32,
+      "date": "2025-04-15",
+      "description": "BM63 Career Game #1100",
+      "hologram": "NR81046869",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81046869",
+      "printedSKU": "GUHKPU2210",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 1,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa.webp?v=c73fd6565721",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9801.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/331/coa.webp",
+      "originalFilename": "IMG_9801.JPG",
+      "sha256": "c73fd6565721190e8512b41775828639539dd9e886584fd0863272621b06fe82",
+      "bytes": 339538,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa.webp?v=c73fd6565721",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9801.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa-02.webp?v=284ef8d8f710",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9802.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/331/coa-02.webp?v=284ef8d8f710",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9802.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+          "after": "images/pucks/331/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9801.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/331/back.webp; images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+          "after": "images/pucks/331/back.webp; images/pucks/331/coa.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/331/back.webp; images/pucks/331/coa.webp; images/pucks/331/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/331/back.webp; images/pucks/331/coa.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    },
+    {
+      "inventoryId": 339,
+      "recordKey": "milestone-339",
+      "sourceSheet": "Milestones",
+      "sourceRow": 40,
+      "date": "2025-04-15",
+      "description": "BM63 Career Game #1100",
+      "hologram": "NR81046867",
+      "digitalAuthenticationRecordUrl": "https://fanatics.com/fansecure?id=NR81046867",
+      "printedSKU": "GUHKPU2210",
+      "printedUniquePuckHologram": false,
+      "previousCOAPositionSelected": 2,
+      "displayLabel": "COA",
+      "selectedView": {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa-02.webp?v=284ef8d8f710",
+        "rotation": 0,
+        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "sourceFile": "IMG_9802.JPG",
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+      },
+      "selectedPath": "images/pucks/339/coa-02.webp",
+      "originalFilename": "IMG_9802.JPG",
+      "sha256": "284ef8d8f710b0af29c3c08ecf1c2bbfd35548cf52deb9883740d98cfdc01119",
+      "bytes": 443976,
+      "beforeViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa.webp?v=c73fd6565721",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9801.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        },
+        {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa-02.webp?v=284ef8d8f710",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9802.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "removedGalleryViews": [
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/339/coa.webp?v=c73fd6565721",
+          "rotation": 0,
+          "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+          "sourceFile": "IMG_9801.JPG",
+          "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        }
+      ],
+      "sourceDataChanges": [
+        {
+          "label": "COA Filename",
+          "before": "images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+          "after": "images/pucks/339/coa-02.webp",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "before": "",
+          "after": "IMG_9802.JPG",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "before": "images/pucks/339/back.webp; images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+          "after": "images/pucks/339/back.webp; images/pucks/339/coa-02.webp",
+          "url": ""
+        }
+      ],
+      "authenticationEvidenceBefore": "images/pucks/339/back.webp; images/pucks/339/coa.webp; images/pucks/339/coa-02.webp",
+      "authenticationEvidenceAfter": "images/pucks/339/back.webp; images/pucks/339/coa-02.webp",
+      "assignmentBasis": "Owner-authorized one-label-per-puck assignment within the matching game/SKU group. The packaging label does not print a unique puck hologram, so this is not a serial-matched certificate assignment. The puck’s own hologram identifies its digital COA."
+    }
+  ],
+  "retainedMultipleDocuments": [
+    {
+      "inventoryId": 11,
+      "decision": "RETAIN BOTH DISTINCT DOCUMENTS",
+      "reason": "Distinct VGK goal-description card and formal certificate; both refer to the same goal, with certificate01724. No second owned puck to allocate."
+    },
+    {
+      "inventoryId": 50,
+      "decision": "RETAIN BOTH DISTINCT DOCUMENTS",
+      "reason": "MeiGray PHI000599 letter plus separate double-goal provenance label; complementary evidence for the same puck."
+    },
+    {
+      "inventoryId": 71,
+      "decision": "RETAIN BOTH DISTINCT DOCUMENTS",
+      "reason": "Primary correct Marchand245 certificate plus historical alternate with the previously documented erroneous Heinen sentence and different hologram; preserve existing owner-approved supplementary-evidence qualification, no new reassignment."
+    },
+    {
+      "inventoryId": 74,
+      "decision": "RETAIN BOTH DISTINCT DOCUMENTS",
+      "reason": "Game-used puck certificate plus combined autograph authentication tickets for all three signatures, explicitly requested by owner; distinct purposes."
+    }
+  ],
+  "counts": {
+    "catalogRecords": 171,
+    "changedRecords": 11,
+    "removedDuplicateGalleryEntries": 14,
+    "beforePhysicalEvidenceViews": 825,
+    "physicalEvidenceViews": 811,
+    "beforeDocumentCards": 143,
+    "documentCards": 129,
+    "gameReferences": 171,
+    "beforeCombinedGalleryViews": 996,
+    "combinedGalleryViews": 982,
+    "historicalPhysicalDocumentSourceViewsPreserved": 830
+  },
+  "preservation": {
+    "filesDeletedRenamedOrOverwritten": false,
+    "all171GameAssetObjectsAndMappingsUnchanged": true,
+    "allStoriesUnchanged": true,
+    "allHologramsAndDigitalLookupLinksUnchanged": true,
+    "other160RecordAndGalleryObjectsUnchanged": true,
+    "protectedNamespacesAndVacantIdsUnchanged": true,
+    "canonicalExcelWordAndBookNotEditedByMuseum": true,
+    "allOriginalImageLibraryObjectsRetained": true
+  },
+  "dataHandoff": "Apply exact sourceDataChanges and selected original filename/evidence to canonical Excel and corresponding Word entries; retain owner-assignment qualification. Update active evidence counts, preserve historical source830 and sealedv6 history.",
+  "bookHandoff": "After canonical Data receipt, update document-card associations and captions/metadata wherever used; preserve all171 game images, selected708JPEG, native resolution, order, protected identities and existing qualifications. This is a COA gallery/data correction, not a new game-photo edition."
+}

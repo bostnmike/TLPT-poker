@@ -227,7 +227,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20261017-visual-qa/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261019-343-708-v6/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20261019-coa-assignment-v1/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20261017-visual-qa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
