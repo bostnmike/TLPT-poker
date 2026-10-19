@@ -1,0 +1,544 @@
+{
+  "status": "OWNER_AUTHORIZED_ACTIVE343;59VACANT;PHYSICAL59PRESERVED",
+  "handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Handoff.json",
+    "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d",
+    "bytes": 13808
+  },
+  "nativeExcelReceipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+    "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+    "bytes": 2389
+  },
+  "historical59": {
+    "status": "HISTORICAL_IDENTITY_ONLY;PHYSICAL59FILESREMAINACTIVEFOR343",
+    "record": {
+      "key": "goal-59",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 60,
+      "inventoryId": 59,
+      "homeRoad": "Road",
+      "team": "Florida Panthers",
+      "category": "RS Point",
+      "careerStat": 988,
+      "seasonStat": 5,
+      "description": "",
+      "date": "2025-10-21",
+      "arena": "TD Garden",
+      "opponent": "Boston Bruins",
+      "period": "3",
+      "time": "09:58",
+      "goalType": "",
+      "primaryAssist": "BM63",
+      "secondaryAssist": "AE5",
+      "score": "Florida 4 @ Boston 3",
+      "puckType": "Goal Scored Puck",
+      "videoLabel": "Watch Goal",
+      "videoUrl": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112",
+      "videoProvider": "nhl",
+      "videoId": "6383495592112",
+      "notes": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "playerCodes": [
+        "BM63",
+        "AE5"
+      ],
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "59",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Florida Panthers",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "RS Point",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "988",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "5",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2025-10-21",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "3",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "09:58",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "BM63",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "AE5",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Florida 4 @ Boston 3",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Watch Goal",
+          "url": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112"
+        },
+        {
+          "label": "Notes",
+          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Jeremy Swayman",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/59/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/59/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/59/edge-01.webp; images/pucks/59/edge-02.webp; images/pucks/59/edge-03.webp; images/pucks/59/edge-04.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/59/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Authentication Type",
+          "value": "Digital COA / Hologram",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "value": "images/pucks/59/back.webp; images/pucks/59/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Authentication Notes",
+          "value": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
+          "url": ""
+        },
+        {
+          "label": "Authentication Issuer",
+          "value": "Bruins Authentics",
+          "url": ""
+        },
+        {
+          "label": "Hologram Number",
+          "value": "BB25087",
+          "url": ""
+        },
+        {
+          "label": "Authentication Record URL",
+          "value": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=RNZ&identifierCode=BB25087",
+          "url": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=RNZ&identifierCode=BB25087"
+        },
+        {
+          "label": "Additional Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Lookup Instructions",
+          "value": "The hologram link includes its identifier and validation code.",
+          "url": ""
+        }
+      ],
+      "goalieScoredAgainst": "Jeremy Swayman",
+      "authenticationType": "Digital COA / Hologram",
+      "authenticationEvidence": "images/pucks/59/back.webp; images/pucks/59/coa.webp",
+      "authenticationNotes": "Authentication hologram on the puck identifies its digital COA; visible in the back photograph.",
+      "authenticationIssuer": "Bruins Authentics",
+      "authenticationSerial": "BB25087",
+      "authenticationRecordUrl": "https://tdgardenapps.com/bruins-authentics/authenticator/index.html?validationCode=RNZ&identifierCode=BB25087",
+      "authenticationAlternateIssuer": "",
+      "authenticationAlternateSerial": "",
+      "authenticationAlternateRecordUrl": "",
+      "authenticationLookupInstructions": "The hologram link includes its identifier and validation code."
+    },
+    "story": {
+      "inventoryId": 59,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Two assists on his return to Boston",
+      "paragraphs": [
+        "Marchand helped Florida score 61 seconds into the game, then assisted on Eetu Luostarinen’s goal at 9:58 of the third to restore a 3–2 lead. This puck is from Luostarinen’s goal. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds left; Marchand finished with two assists against his former team."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL return-to-Boston notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
+        }
+      }
+    },
+    "physicalViews": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front.webp?v=31de385f27f3",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front-thumb.webp?v=77752b23c3f0"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/back.webp?v=b30bf8f43be3",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-01.webp?v=423f4a363a2c",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-02.webp?v=9bbf7059089b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-03.webp?v=109fbad787bc",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-04.webp?v=3fe6124f713f",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/59/coa.webp?v=20260928-coa",
+        "rotation": 0
+      }
+    ],
+    "gameMapping": {
+      "inventoryId": 59,
+      "assetId": "2025020103-a59-publishing",
+      "artifactDate": "2025-10-21",
+      "photoDate": "2025-10-21",
+      "displaySelected": true,
+      "selectionStatus": "selected",
+      "galleryPosition": "last",
+      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo."
+    },
+    "gameAsset": {
+      "assetId": "2025020103-a59-publishing",
+      "role": "game_reference",
+      "label": "Video still",
+      "url": "images/marchand-games/perfectionist-20261017-a59/game.png?v=725736d9b36d",
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a59/game-thumb.webp?v=66725cc495d6",
+      "rotation": 0,
+      "caption": "Marchand embraces Luostarinen after assisting his go-ahead goal in Boston.",
+      "originalCaption": "Marchand embraces Luostarinen after assisting his go-ahead goal in Boston.",
+      "credit": "Game video still / NHL.com",
+      "sourceUrl": "https://www.nhl.com/video/c-6383495592112",
+      "sourceImageUrl": "",
+      "license": "Copyrighted broadcast",
+      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
+      "imageKind": "video_still",
+      "photoDate": "2025-10-21",
+      "gameId": "2025020103",
+      "bradPlayed": true,
+      "bradVisible": true,
+      "subjectRuleReview": "PASS",
+      "participationSource": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+      "relationNote": "Replaces the postgame Bobrovsky greeting with the exact featured Luostarinen goal celebration at P3 09:58, with Marchand credited the primary assist. Helmet63 and sleeve63 identify Brad embracing Luostarinen27. The native crop removes both television graphics and excludes Ekblad's head. This reverse close view differs from707's full-body frontal photograph and334's tribute photograph.",
+      "nativeAssetPath": "assets/2025020103-a59-publishing/game-image.png",
+      "nativeSha256": "725736d9b36d626d7b57ef03b5832494a72d41446dbee3f31a73c1cc6cac3ab1",
+      "nativeWidth": 850,
+      "nativeHeight": 565,
+      "width": 850,
+      "height": 565,
+      "sha256": "725736d9b36d626d7b57ef03b5832494a72d41446dbee3f31a73c1cc6cac3ab1",
+      "bytes": 347093,
+      "thumbnailSha256": "66725cc495d67415ecc45851b021ce49a33d951a34d0fd9d3c619804d9e3e063",
+      "thumbnailBytes": 9608,
+      "derivativeMethod": "Full PNG is byte-identical to approved native selection, preserving pixels and ICC without resampling. Only thumbnail is proportionally reduced to320px and converted to sRGB WebP.",
+      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
+      "selectionAction": "restored_best_verified_available",
+      "selectedImageProcessing": {
+        "method": "exact_native_pixel_crop",
+        "crop_box": [
+          180,
+          155,
+          1030,
+          720
+        ],
+        "no_resampling": true,
+        "generative_processing": false,
+        "decoded_pixel_equality_verified": true
+      },
+      "originalAssetPath": "originals/2025020103-a59-publishing.png",
+      "originalAssetSha256": "d948e2f768a75be7e022c63090c43c82c20178f15ade3a3f9e08d1c9b4b38ab7",
+      "originalWidth": 1280,
+      "originalHeight": 720,
+      "criticalReview": {
+        "status": "PASS",
+        "reason": "Replaces the postgame Bobrovsky greeting with the exact featured Luostarinen goal celebration at P3 09:58, with Marchand credited the primary assist. Helmet63 and sleeve63 identify Brad embracing Luostarinen27. The native crop removes both television graphics and excludes Ekblad's head. This reverse close view differs from707's full-body frontal photograph and334's tribute photograph.",
+        "identity_checked": true,
+        "game_match_checked": true,
+        "manual_review_completed": true
+      },
+      "finalVisualReview": {
+        "status": "PASS",
+        "review_date": "2026-10-18",
+        "reason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo.",
+        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
+        "native_pixels_preserved": true,
+        "no_generative_edits": true
+      },
+      "exactScoringInstantAsserted": false,
+      "nativeFullSize": true,
+      "videoSource": {
+        "clip_id": "6383495592112",
+        "provider": "nhl",
+        "title": "Luostarinen takes lead",
+        "source_url": "https://www.nhl.com/video/c-6383495592112",
+        "local_video": "RESEARCH/original-clips/95f0127b50951165--6383495592112.mp4",
+        "original_video_sha256": "95f0127b50951165a8cecad729d91c1a1a344bbe96c5fdd9da9af6a2801667e5",
+        "game_id": "2025020103",
+        "game_date": "2025-10-21",
+        "status": "downloaded",
+        "width": 1280,
+        "height": 720,
+        "frame_extraction": "Native ffmpeg decoded frame; exact pixel crop only, no resampling, enhancement, synthesis or retouching.",
+        "selected_frame_seconds": 21.75,
+        "seconds": 21.75
+      },
+      "displaySelected": true
+    },
+    "indexRow": {
+      "inventoryId": 59,
+      "collectionRecordKey": "goal-59",
+      "canonicalSheet": "Goals & Games",
+      "canonicalIdCell": "A60",
+      "assetId": "2025020103-a59-publishing",
+      "artifactDate": "2025-10-21",
+      "photoDate": "2025-10-21",
+      "displaySelected": true,
+      "selectionStatus": "selected",
+      "galleryPosition": "last",
+      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo.",
+      "mediaRole": "game_reference",
+      "nativeSha256": "725736d9b36d626d7b57ef03b5832494a72d41446dbee3f31a73c1cc6cac3ab1",
+      "caption": "Marchand embraces Luostarinen after assisting his go-ahead goal in Boston.",
+      "credit": "Game video still / NHL.com",
+      "sourceUrl": "https://www.nhl.com/video/c-6383495592112",
+      "url": "images/marchand-games/perfectionist-20261017-a59/game.png?v=725736d9b36d",
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a59/game-thumb.webp?v=66725cc495d6",
+      "bookPage": 66
+    },
+    "preserveRule": "All original media remains byte-identical at current59paths;future59needs a fresh explicit namespace."
+  },
+  "physicalMigration": {
+    "status": "EXACT_GALLERY_MAPPING_PRESERVED;NO_MEDIA_FILE_MUTATION",
+    "views": [
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Front",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front.webp?v=31de385f27f3",
+          "rotation": 0,
+          "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front-thumb.webp?v=77752b23c3f0"
+        },
+        "afterView": {
+          "label": "Front",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front.webp?v=31de385f27f3",
+          "rotation": 0,
+          "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front-thumb.webp?v=77752b23c3f0"
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Back",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/back.webp?v=b30bf8f43be3",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "Back",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/back.webp?v=b30bf8f43be3",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Edge 1",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-01.webp?v=423f4a363a2c",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "Edge 1",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-01.webp?v=423f4a363a2c",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Edge 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-02.webp?v=9bbf7059089b",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "Edge 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-02.webp?v=9bbf7059089b",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Edge 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-03.webp?v=109fbad787bc",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "Edge 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-03.webp?v=109fbad787bc",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "Edge 4",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-04.webp?v=3fe6124f713f",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "Edge 4",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-04.webp?v=3fe6124f713f",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      },
+      {
+        "oldInventoryId": 59,
+        "newInventoryId": 343,
+        "beforeView": {
+          "label": "COA",
+          "url": "images/pucks/59/coa.webp?v=20260928-coa",
+          "rotation": 0
+        },
+        "afterView": {
+          "label": "COA",
+          "url": "images/pucks/59/coa.webp?v=20260928-coa",
+          "rotation": 0
+        },
+        "physicalNamespace": 59,
+        "fileBytesOrURLsChanged": false
+      }
+    ],
+    "protected301Gallery": {
+      "inventoryId": 301,
+      "physicalNamespace": 343,
+      "beforeEqualsAfter": true,
+      "hologram": "RG13316479"
+    }
+  },
+  "active343ScorerDerivation": "EL27from unchanged canonicalNotes;preserves prior scorer/assist/goalie display after source-sheet move.",
+  "future59Rule": "Fresh explicitnamespace required;never overwrite physical59files now used by343.",
+  "protected301Rule": "Physical343continues tobelongto301/RG13316479;no folder inference from active343."
+}

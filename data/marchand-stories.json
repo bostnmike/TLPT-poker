@@ -1534,37 +1534,6 @@
         }
       }
     },
-    "goal-59": {
-      "inventoryId": 59,
-      "date": "2025-10-21",
-      "team": "Florida Panthers",
-      "gameId": 2025020103,
-      "title": "Two assists on his return to Boston",
-      "paragraphs": [
-        "Marchand helped Florida score 61 seconds into the game, then assisted on Eetu Luostarinen’s goal at 9:58 of the third to restore a 3–2 lead. This puck is from Luostarinen’s goal. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds left; Marchand finished with two assists against his former team."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2025020103"
-        },
-        {
-          "label": "NHL return-to-Boston notes",
-          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
-        "marchand": {
-          "goals": 0,
-          "assists": 2,
-          "points": 2,
-          "shots": 1,
-          "toi": "19:38"
-        }
-      }
-    },
     "goal-60": {
       "inventoryId": 60,
       "date": "2023-10-30",
@@ -5045,6 +5014,37 @@
           "points": 2,
           "shots": 3,
           "toi": "18:12"
+        }
+      }
+    },
+    "milestone-343": {
+      "inventoryId": 343,
+      "date": "2025-10-21",
+      "team": "Florida Panthers",
+      "gameId": 2025020103,
+      "title": "Two assists on his return to Boston",
+      "paragraphs": [
+        "Marchand helped Florida score 61 seconds into the game, then assisted on Eetu Luostarinen’s goal at 9:58 of the third to restore a 3–2 lead. This puck is from Luostarinen’s goal. Florida won 4–3 on Carter Verhaeghe’s goal with 26 seconds left; Marchand finished with two assists against his former team."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary & box score",
+          "url": "https://www.nhl.com/gamecenter/2025020103"
+        },
+        {
+          "label": "NHL return-to-Boston notes",
+          "url": "https://media.nhl.com/site/vasset/public/attachments/2025/10/19214/MorningSkate102125.pdf"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2025020103/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2025020103/boxscore",
+        "marchand": {
+          "goals": 0,
+          "assists": 2,
+          "points": 2,
+          "shots": 1,
+          "toi": "19:38"
         }
       }
     }

@@ -13,7 +13,10 @@ vm.runInContext(script.slice(script.indexOf('  function renderAuthentication(rec
 let links=0;
 for(const record of records){
  context.renderAuthentication(record);
- const expected=report.records.find(row=>row.inventoryId===record.inventoryId);
+ // The immutable October5 review used59 for the item now canonically343.
+ const reviewedInventoryId=record.key==='milestone-343'?59:record.inventoryId;
+ const expected=report.records.find(row=>row.inventoryId===reviewedInventoryId);
+ if(record.inventoryId===343)assert.equal(record.authenticationSerial,'BB25087');
  assert.equal(panels['artifact-authentication'].hidden,!expected,record.key);
  if(!expected) continue;
  const rows=panels['artifact-authentication-links'].children;

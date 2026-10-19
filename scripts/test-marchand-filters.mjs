@@ -271,7 +271,7 @@ change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 42], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 171]]) {
+for (const [filter, expected] of [["Goals & Games", 74], ["Milestones", 43], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 171]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -298,7 +298,7 @@ assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
 const cellValue = (parentId, label) => element(parentId).children.find((child) => child.children[0].textContent === label)?.children[1].textContent;
-for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
+for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [343, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
   const row = rows().find((item) => Number(item.children[0].textContent) === id);
   const symbol = row.children[7].children[0];
   assert.equal(symbol.textContent, emoji);
@@ -307,7 +307,7 @@ for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [59, "🍎",
   assert.equal(element("artifact-dialog").open, true);
   assert.equal(cellValue("artifact-dialog-facts", "Puck type"), `${emoji} ${label}`);
   assert.equal(cellValue("artifact-source-grid", "Puck Type"), `${emoji} ${label}`);
-  if (id === 59) {
+  if (id === 343) {
     assert.ok(cellValue("artifact-dialog-facts", "Category").startsWith("🍎 "));
     const cards = element("artifact-personnel-grid").children;
     assert.equal(cards[0].dataset.player, "EL27");

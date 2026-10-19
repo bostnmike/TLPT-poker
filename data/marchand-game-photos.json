@@ -1,10 +1,10 @@
 {
   "meta": {
-    "releaseStatus": "CANONICAL171 CONSOLIDATION AND EIGHT APPROVED PHOTOS;708 QUALITY ITEM REMAINS OPEN",
+    "releaseStatus": "CANONICAL59TO343ANDOWNER708PUBLISHEDMEDIA;REGISTERED,NATIVEEXCELPASS",
     "artifacts": 171,
     "assets": 171,
-    "photographs": 91,
-    "videoStills": 80,
+    "photographs": 92,
+    "videoStills": 79,
     "galleryPosition": "last",
     "physicalPhotographySeparate": true,
     "subjectRule": "Best verified correctly matched available image on every artifact; documentary source limits remain candid. Brad identifiable when he played; documented ceremonial/DNP context preserved.",
@@ -28,14 +28,7 @@
     "bookPages": 236,
     "coverPages": 1,
     "changedNativeImages": [
-      67,
-      602,
-      605,
-      608,
-      617,
-      621,
-      622,
-      625
+      708
     ],
     "retainedNativeImages": [
       1,
@@ -94,7 +87,6 @@
       55,
       56,
       58,
-      59,
       60,
       61,
       62,
@@ -102,6 +94,7 @@
       64,
       65,
       66,
+      67,
       68,
       69,
       70,
@@ -154,6 +147,7 @@
       340,
       341,
       342,
+      343,
       501,
       502,
       503,
@@ -166,10 +160,13 @@
       510,
       600,
       601,
+      602,
       603,
       604,
+      605,
       606,
       607,
+      608,
       609,
       610,
       611,
@@ -178,11 +175,15 @@
       614,
       615,
       616,
+      617,
       618,
       619,
       620,
+      621,
+      622,
       623,
       624,
+      625,
       626,
       700,
       701,
@@ -192,7 +193,6 @@
       705,
       706,
       707,
-      708,
       710,
       711,
       712,
@@ -202,21 +202,22 @@
       716,
       717
     ],
-    "delivery": "171 selected singular LAST;825 active physical/evidence views;996 total. Original830 physical mappings and retired57 files preserved as history.",
+    "delivery": "Only708native game photo changes;170other assets are exact.59mapping becomes343with unchanged asset/path/bytes.171selected singularLAST;825physical/996combined;830historical source views preserved.",
     "sourceLimits": [
-      "Canonical owner-confirmed consolidation plus preserved user-approved photographs. No synthesis, retouch, native resampling, watermark removal, paid image substitution or fresh all171identity claim.",
+      "Owner-approved708source/date/identity replacement plus owner-authorized canonical59-to343 reorder and joins;170other native selections preserved. No synthesis, face edits, retouch, resampling, watermark removal or new blanket171identity claim.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
       "Local PDF validation does not claim Blurb uploader acceptance.",
-      "Artifact708 remains selected and unchanged with an open source-quality limitation; no replacement adopted.",
       "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
       "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
-      "Artifact708remains selected/unchanged with its existing soft source-quality limitation; no replacement adopted.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
-      "All171surviving native game selections remain byte-exact from unpublishedv3; prior identity/photo qualifications remain. No new blanket171exceptional/fresh-identity certification.",
       "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
-      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained."
+      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
+      "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
+      "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
+      "170 other selected native game images and all16 prior explicit labels remain unchanged from completedv4, including old59 retained for active343. Book-page references follow the verified canonical reorder. No fresh all171identity or exceptional-quality certification.",
+      "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
     ],
     "selectedGameImages": 171,
     "withheldGameImages": 0,
@@ -225,15 +226,16 @@
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
       "Local PDF validation does not claim Blurb uploader acceptance.",
-      "Artifact708 remains selected and unchanged with an open source-quality limitation; no replacement adopted.",
       "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
       "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
-      "Artifact708remains selected/unchanged with its existing soft source-quality limitation; no replacement adopted.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
-      "All171surviving native game selections remain byte-exact from unpublishedv3; prior identity/photo qualifications remain. No new blanket171exceptional/fresh-identity certification.",
       "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
-      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained."
+      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
+      "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
+      "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
+      "170 other selected native game images and all16 prior explicit labels remain unchanged from completedv4, including old59 retained for active343. Book-page references follow the verified canonical reorder. No fresh all171identity or exceptional-quality certification.",
+      "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
     ],
     "nativeExcelAppTest": "PASS",
     "canonicalVideoCorrections": [
@@ -356,19 +358,40 @@
           502,
           510
         ]
+      },
+      {
+        "revision": "Canonical-Consolidated-Edition-20261018-v4",
+        "sourceManifestSha256": "e2026004895a5d9841386c56264c96183a5936a1ecb73340d40b2da85089336f",
+        "sourceIndexSha256": "8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0",
+        "bookSha256": "10ef94fc4b5830096d6e6a7990c22831325ea278c5c011b5769b66e358bd2031",
+        "registration": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
+          "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
+          "bytes": 86323
+        },
+        "registryAtRegistration": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
+          "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
+          "bytes": 34923
+        },
+        "openQualityIdsAtPublication": [
+          708
+        ]
       }
     ],
     "uniqueGames": 129,
     "uniqueImagePerArtifact": true,
     "restoredArchivedNativeImages": [],
     "nativeExcelVerificationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
-      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+      "bytes": 2389
     },
     "sourceOnlyCorrections": [],
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
-      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+      "bytes": 2389
     },
     "parentMediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
@@ -378,7 +401,7 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
       "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
     },
-    "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS",
+    "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS",
     "historicalV2Provenance": {
       "revision": "Targeted-Photo-Edition-20261018-v2",
       "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
@@ -407,31 +430,50 @@
         }
       ]
     },
-    "revision": "Canonical-Consolidated-Edition-20261018-v4",
+    "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
     "openOwnerReview": [],
     "canonicalConsolidationHandoff": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
       "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
     },
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Canonical-Consolidated-Edition-20261018-v4/Exhibit63-Blurb-Large-Landscape-Pages-Canonical-Consolidated-Edition-October18-2026-v4.pdf",
-    "bookSha256": "10ef94fc4b5830096d6e6a7990c22831325ea278c5c011b5769b66e358bd2031",
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Canonical-Renumbered-708-Edition-20261019-v6/Exhibit63-Blurb-Large-Landscape-Pages-Canonical-Renumbered-708-Edition-October19-2026-v6.pdf",
+    "bookSha256": "14f0b636252b4d465d0d0ee093c877304ea2a5cf5ec57fc27f79e8e44c2a7b21",
     "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
     "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
-    "sourceManifestSha256": "e2026004895a5d9841386c56264c96183a5936a1ecb73340d40b2da85089336f",
-    "sourceIndexSha256": "8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0",
-    "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
+    "sourceManifestSha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
+    "sourceIndexSha256": "4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d",
+    "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
     "physicalEvidenceViews": 825,
     "combinedGalleryViews": 996,
     "archivedPhysicalDocumentSourceViews": 830,
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
-      "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
-      "bytes": 86323
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical renumbered 708 media reconciliation 2026-10-19-v1.json",
+      "sha256": "0c95ac25b094f6e712b664862b6e02efdc6894f64b2f67e247e50940172e754f",
+      "bytes": 61585
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
-      "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
-      "bytes": 34923
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Media Registration 2026-10-19-v6/Registry-at-registration.json",
+      "sha256": "608e302a9752514dac9805bd473ea99cdd6153e4992746de966a4ad5ee024283",
+      "bytes": 38884
+    },
+    "openQualityIds": [],
+    "resolvedPriorQualityIds": [
+      708
+    ],
+    "renumbering": {
+      "fromInventoryId": 59,
+      "toInventoryId": 343,
+      "oldKey": "goal-59",
+      "newKey": "milestone-343",
+      "physicalNamespace": "images/pucks/59/",
+      "protected301Namespace": "images/pucks/343/",
+      "noPermanentActive59Alias": true,
+      "active343OverridesHistoricalAlias": true,
+      "canonicalHandoff": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Handoff.json",
+        "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d",
+        "bytes": 13808
+      }
     }
   },
   "artifacts": {
@@ -994,16 +1036,6 @@
       "selectionStatus": "selected",
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained"
-    },
-    "goal-59": {
-      "inventoryId": 59,
-      "assetId": "2025020103-a59-publishing",
-      "artifactDate": "2025-10-21",
-      "photoDate": "2025-10-21",
-      "displaySelected": true,
-      "selectionStatus": "selected",
-      "galleryPosition": "last",
-      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo."
     },
     "goal-60": {
       "inventoryId": 60,
@@ -2063,7 +2095,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Same-game photograph of Brad Marchand and Evgeni Malkin. No scoring, celebration or warm-up moment asserted. Date, identity and attribution are supported by preserved embedded EXIF/IPTC/XMP; source page was not independently verified live."
     },
     "warmup-710": {
       "inventoryId": 710,
@@ -2144,6 +2176,16 @@
       "selectionStatus": "selected",
       "galleryPosition": "last",
       "selectionReason": "Sharp Brad63 rear helmet pat from Reinhart in Chicago. Genuine affection despite no face. Reject Samoskevich79 gallery substitutions."
+    },
+    "milestone-343": {
+      "inventoryId": 343,
+      "assetId": "2025020103-a59-publishing",
+      "artifactDate": "2025-10-21",
+      "photoDate": "2025-10-21",
+      "displaySelected": true,
+      "selectionStatus": "selected",
+      "galleryPosition": "last",
+      "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo."
     }
   },
   "assets": {
@@ -17330,107 +17372,134 @@
     "2013020184-a708-publishing": {
       "assetId": "2013020184-a708-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2013020184-a708-publishing/game.webp?v=2009c9b7e7b5",
-      "thumbnailUrl": "images/marchand-games/2013020184-a708-publishing/game-thumb.webp?v=6323aa81bd51",
+      "displaySelected": true,
+      "label": "Game photograph",
       "rotation": 0,
-      "caption": "Marchand joins Bergeron's tying-goal celebration.",
-      "originalCaption": "Marchand joins Bergeron's tying-goal celebration.",
-      "credit": "Video still: All About Hockey / YouTube",
-      "sourceUrl": "https://www.youtube.com/watch?v=thyZzfvmliU",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/owner-708-v5-20261019/game.jpg?v=47a628ade4c9",
+      "thumbnailUrl": "images/marchand-games/owner-708-v5-20261019/game-thumb.webp?v=f438bd303749",
+      "width": 594,
+      "height": 423,
+      "nativeWidth": 594,
+      "nativeHeight": 423,
+      "sha256": "47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e",
+      "nativeSha256": "47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e",
+      "bytes": 92787,
+      "thumbnailSha256": "f438bd303749efc906c8f3aba74ca66bf7baf38fabbae4165e5020ff27259ace",
+      "thumbnailBytes": 18888,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full JPEG byte-identical to owner-supplied original, including embedded agency metadata; no crop, resampling, enhancement or generative editing. Only proportional320px WebP thumbnail is resampled.",
+      "caption": "Marchand and Malkin at Consol Energy Center.",
+      "originalCaption": "PITTSBURGH, PA - OCTOBER 30:  Evgeni Malkin #71 of the Pittsburgh Penguins has words with Brad Marchand #63 of the Boston Bruins on October 30, 2013 at Consol Energy Center in Pittsburgh, Pennsylvania.  (Photo by Gregory Shamus/NHLI via Getty Images)",
+      "credit": "Gregory Shamus / NHLI via Getty Images",
+      "sourceUrl": "https://www.gettyimages.com/detail/187101132",
+      "sourceUrlBasis": "Embedded XMP plus:LicensorURL and GettyImagesGIFT:AssetID187101132; marketing query removed.",
+      "sourceUrlLiveVerification": "Web tool could not access Getty.com detail187101132 or corresponding Getty.co.uk descriptive page. Search returned no exact catalog match. No guessed paid original/preview URL acquired. Embedded agency provenance is the verified primary evidence;do not label live page independently verified.",
+      "imageKind": "photograph",
       "photoDate": "2013-10-30",
       "gameId": "2013020184",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_OWNER_APPROVED_EXACT_GAME_PHOTO",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2013020184/boxscore",
-      "relationNote": "Brad visually identified in the actual footage; game opponents, scoreboard/period, goal sequence or dated official postgame report verified. Other featured Bruins/Panthers are in a goal celebration. Broadcast graphics are preserved.",
-      "videoSource": {
-        "provider": "youtube",
-        "id": "thyZzfvmliU",
-        "url": "https://www.youtube.com/watch?v=thyZzfvmliU",
-        "artifacts": [
-          708
-        ],
-        "title": "NHL   Oct.30/2013   Boston Bruins - Pittsburgh Penguins",
-        "playbackStatus": "OK",
-        "embeddingAllowed": true,
-        "method": "Public playback status and explicit playableInEmbed permission",
-        "status": "pass",
-        "game_id": "2013020184",
-        "clip_id": "thyZzfvmliU",
-        "width": 854,
-        "height": 480,
-        "ext": "mp4",
-        "duration": 5970,
-        "uploader": "All About Hockey",
-        "webpage_url": "https://www.youtube.com/watch?v=thyZzfvmliU",
-        "local_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-photo-correction-20261017/clips/youtube-thyZzfvmliU.mp4",
-        "local_video": "RESEARCH/original-clips/79d79785b9fdcce9--youtube-thyZzfvmliU.mp4",
-        "seconds": 3820.5,
-        "source_url": "https://www.youtube.com/watch?v=thyZzfvmliU",
-        "origin_group": "youtube",
-        "original_video_sha256": "79d79785b9fdcce9d0892addcd8cd49249b120b42b7d6332e3f80431b1784a72",
-        "selected_frame_seconds": 3820.5,
-        "frame_extraction": "ffmpeg -ss TIME -i ORIGINAL -frames:v 1 OUTPUT.png; native decoded dimensions, no crop, resize, enhancement or generative changes"
-      },
-      "nativeAssetPath": "assets/2013020184-a708-publishing/game-image-v3.png",
-      "nativeSha256": "fb871547eea218f4594df44454d11270955b8373a3ebd7d7a8035eab92a6a232",
-      "nativeWidth": 854,
-      "nativeHeight": 415,
-      "width": 854,
-      "height": 415,
-      "sha256": "2009c9b7e7b5292d45099e8afc75bf7723a51f2225d8ff0167e9501a0f1591b3",
-      "bytes": 31892,
-      "thumbnailSha256": "6323aa81bd51b0d7588c17ad0f959ba3e3f528601a345a4d4a533c14dc681462",
-      "thumbnailBytes": 8406,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "relationNote": "Same-game photograph of Brad Marchand and Evgeni Malkin. No scoring, celebration or warm-up moment asserted. Date, identity and attribution are supported by preserved embedded EXIF/IPTC/XMP; source page was not independently verified live.",
+      "context": "Same-game photograph of Brad Marchand and Evgeni Malkin. No scoring, celebration or warm-up moment asserted. Date, identity and attribution are supported by preserved embedded EXIF/IPTC/XMP; source page was not independently verified live.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Owner supplied and approved file for private book and authorized media handoffs;embedded attribution preserved. No new public-domain or unrestricted license grant claimed.",
+      "photographerIdentified": true,
+      "photographer": "Gregory Shamus",
+      "copyright": "2013 NHLI",
+      "gettyAssetId": "187101132",
+      "selectionAction": "owner_selected_native_jpeg_replacement",
       "selectedImageProcessing": {
-        "method": "exact_native_pixel_crop",
+        "method": "full_original_file_no_image_editing",
         "crop_box": [
           0,
-          65,
-          854,
-          480
-        ],
-        "crop_fraction": [
           0,
-          0.135,
-          1,
-          1
+          594,
+          423
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "source_bytes_and_embedded_metadata_preserved": true
       },
-      "originalAssetPath": "originals/2013020184-a708-publishing.png",
-      "originalAssetSha256": "94465f5a8799b38934cc28ea492ce741fc83c9f4bd71af6871cffa2bf9bff47d",
-      "originalWidth": 854,
-      "originalHeight": 480,
-      "criticalReview": {
-        "baseline_grade": "C",
-        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
-        "recommended_action": "seek_upgrade",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true,
-        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
+      "originalAssetSha256": "47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e",
+      "originalWidth": 594,
+      "originalHeight": 423,
+      "ownerSuppliedOriginal": {
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/owner-original-708.jpg",
+        "sha256": "47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e",
+        "bytes": 92787
       },
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "sourceQualityLimitations": "Artifact708 owner-supplied photograph is594x423 native pixels, retained without resampling; full-frame print size1.98x1.41in at300ppi. The former soft/partly screened broadcast fallback is superseded; modest supplied resolution remains an explicit source limit.",
+      "criticalReview": {
+        "status": "PASS_OWNER_PHOTO_EMBEDDED_SOURCE_METADATA",
+        "identityEvidence": "Visible Brad face/sleeve63 and Malkin face/helmet71 agree with embedded agency caption.",
+        "dateEvidence": "Embedded EXIF/IPTC/XMP explicitly identify October30,2013 at Consol Energy Center.",
+        "sourceReviewSha256": "b3a8167f537e4c9d0368025fdd9ef2372421b1e6da0adf54bdf543f0095c23f3",
+        "scope": "Actual owner JPEG viewed; original byte hash, native pixels and embedded metadata independently checked. New book and publication QA are separate."
+      },
+      "finalVisualReview": {
+        "status": "PASS_SCOPED_VISUAL_NAVIGATION_ONLY",
+        "scope": "Supplied scoped book/navigation visual QA,20actual files/19pages;708owner source independently viewed. No fresh all171identity claim.",
+        "reviewDate": "2026-10-19",
+        "bookPage": 179,
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Book Handoff 2026-10-19-v6/QA/visual.json",
+          "sha256": "5a3c3c41db7922e7863546693c62a54eb0f5ac6aa21b0b6cd52b208dde526e6b",
+          "bytes": 25428
+        }
+      },
+      "sourceRevision": "Canonical-Renumbered-708-Edition-20261019-v6",
+      "nativeAssetPath": "assets/2013020184-a708-publishing/owner-supplied-708.jpg",
+      "originalAssetPath": "originals/owner-supplied-708.jpg",
+      "sourceEvidence": [
+        {
+          "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/RESEARCH/owner-supplied708/Owner-Approval.json",
+          "sha256": "b5e4f1a3f2a721497a940cf96beb322df20e85b20fcbe53707e639201a48961d",
+          "bytes": 589,
+          "archive_relative_path": "RESEARCH/owner-supplied708/Owner-Approval.json",
+          "source_original_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/Owner-Approval.json"
+        },
+        {
+          "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/RESEARCH/owner-supplied708/708-source-review.json",
+          "sha256": "b3a8167f537e4c9d0368025fdd9ef2372421b1e6da0adf54bdf543f0095c23f3",
+          "bytes": 4669,
+          "archive_relative_path": "RESEARCH/owner-supplied708/708-source-review.json",
+          "source_original_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/research/708-source-review.json"
+        },
+        {
+          "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/RESEARCH/owner-supplied708/canonical-708-proof.json",
+          "sha256": "223b9c933af18300ea3dc6bdb0dede267f2a2b28b7245a14820a4c41b8ba3712",
+          "bytes": 4166,
+          "archive_relative_path": "RESEARCH/owner-supplied708/canonical-708-proof.json",
+          "source_original_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/research/canonical-708-proof.json"
+        },
+        {
+          "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/RESEARCH/owner-supplied708/embedded-xmp.xml",
+          "sha256": "9b53e0714504694c088e5ee356268d813094addb359d15222375ba80db1b80b1",
+          "bytes": 1617,
+          "archive_relative_path": "RESEARCH/owner-supplied708/embedded-xmp.xml",
+          "source_original_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/research/embedded-xmp.xml"
+        },
+        {
+          "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/RESEARCH/owner-supplied708/source-metadata.json",
+          "sha256": "95a558afbba628116953605b24ea432bc8f3cb51935bccdefa3f9ac76298951a",
+          "bytes": 1877,
+          "archive_relative_path": "RESEARCH/owner-supplied708/source-metadata.json",
+          "source_original_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/research/source-metadata.json"
+        }
+      ],
+      "approval": {
+        "status": "OWNER_SELECTED",
+        "evidence": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/Owner-Approval.json",
+          "sha256": "b5e4f1a3f2a721497a940cf96beb322df20e85b20fcbe53707e639201a48961d",
+          "bytes": 589
+        },
+        "publishedRevision": "Canonical-Renumbered-708-Edition-20261019-v6"
+      }
     },
     "2021020224-a710-publishing": {
       "assetId": "2021020224-a710-publishing",

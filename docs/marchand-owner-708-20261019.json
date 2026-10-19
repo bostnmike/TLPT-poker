@@ -1,0 +1,196 @@
+{
+  "status": "OWNER_SELECTED_EXACT_NATIVE_JPEG;FORMER_SOFTSTILL_QUALITY_ITEM_SUPERSEDED",
+  "sourceHandoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Book Handoff 2026-10-19-v6/Handoff.json",
+    "sha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
+    "bytes": 21579
+  },
+  "ownerApproval": {
+    "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/Owner-Approval.json",
+    "sha256": "b5e4f1a3f2a721497a940cf96beb322df20e85b20fcbe53707e639201a48961d",
+    "bytes": 589
+  },
+  "sourceReview": {
+    "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-owner-708-20261019-v5/research/708-source-review.json",
+    "sha256": "b3a8167f537e4c9d0368025fdd9ef2372421b1e6da0adf54bdf543f0095c23f3",
+    "bytes": 4669
+  },
+  "ownerNativeSha256": "47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e",
+  "dimensions": [
+    594,
+    423
+  ],
+  "embeddedMetadataPreserved": true,
+  "caption": "Marchand and Malkin at Consol Energy Center.",
+  "credit": "Gregory Shamus / NHLI via Getty Images",
+  "sourceUrl": "https://www.gettyimages.com/detail/187101132",
+  "sourceUrlLiveVerification": "Web tool could not access Getty.com detail187101132 or corresponding Getty.co.uk descriptive page. Search returned no exact catalog match. No guessed paid original/preview URL acquired. Embedded agency provenance is the verified primary evidence;do not label live page independently verified.",
+  "sourceQualityLimitations": "Artifact708 owner-supplied photograph is594x423 native pixels, retained without resampling; full-frame print size1.98x1.41in at300ppi. The former soft/partly screened broadcast fallback is superseded; modest supplied resolution remains an explicit source limit.",
+  "canonicalYouTubeVideoUnchanged": true,
+  "supersededHistory": {
+    "status": "SUPERSEDED_HISTORY_ONLY; OWNER-SELECTED PHOTO NOT YET PUBLISHED",
+    "asset": {
+      "assetId": "2013020184-a708-publishing",
+      "role": "game_reference",
+      "label": "Video still",
+      "url": "images/marchand-games/2013020184-a708-publishing/game.webp?v=2009c9b7e7b5",
+      "thumbnailUrl": "images/marchand-games/2013020184-a708-publishing/game-thumb.webp?v=6323aa81bd51",
+      "rotation": 0,
+      "caption": "Marchand joins Bergeron's tying-goal celebration.",
+      "originalCaption": "Marchand joins Bergeron's tying-goal celebration.",
+      "credit": "Video still: All About Hockey / YouTube",
+      "sourceUrl": "https://www.youtube.com/watch?v=thyZzfvmliU",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
+      "imageKind": "video_still",
+      "photoDate": "2013-10-30",
+      "gameId": "2013020184",
+      "bradPlayed": true,
+      "bradVisible": true,
+      "subjectRuleReview": "PASS",
+      "participationSource": "https://api-web.nhle.com/v1/gamecenter/2013020184/boxscore",
+      "relationNote": "Brad visually identified in the actual footage; game opponents, scoreboard/period, goal sequence or dated official postgame report verified. Other featured Bruins/Panthers are in a goal celebration. Broadcast graphics are preserved.",
+      "videoSource": {
+        "provider": "youtube",
+        "id": "thyZzfvmliU",
+        "url": "https://www.youtube.com/watch?v=thyZzfvmliU",
+        "artifacts": [
+          708
+        ],
+        "title": "NHL   Oct.30/2013   Boston Bruins - Pittsburgh Penguins",
+        "playbackStatus": "OK",
+        "embeddingAllowed": true,
+        "method": "Public playback status and explicit playableInEmbed permission",
+        "status": "pass",
+        "game_id": "2013020184",
+        "clip_id": "thyZzfvmliU",
+        "width": 854,
+        "height": 480,
+        "ext": "mp4",
+        "duration": 5970,
+        "uploader": "All About Hockey",
+        "webpage_url": "https://www.youtube.com/watch?v=thyZzfvmliU",
+        "local_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-photo-correction-20261017/clips/youtube-thyZzfvmliU.mp4",
+        "local_video": "RESEARCH/original-clips/79d79785b9fdcce9--youtube-thyZzfvmliU.mp4",
+        "seconds": 3820.5,
+        "source_url": "https://www.youtube.com/watch?v=thyZzfvmliU",
+        "origin_group": "youtube",
+        "original_video_sha256": "79d79785b9fdcce9d0892addcd8cd49249b120b42b7d6332e3f80431b1784a72",
+        "selected_frame_seconds": 3820.5,
+        "frame_extraction": "ffmpeg -ss TIME -i ORIGINAL -frames:v 1 OUTPUT.png; native decoded dimensions, no crop, resize, enhancement or generative changes"
+      },
+      "nativeAssetPath": "assets/2013020184-a708-publishing/game-image-v3.png",
+      "nativeSha256": "fb871547eea218f4594df44454d11270955b8373a3ebd7d7a8035eab92a6a232",
+      "nativeWidth": 854,
+      "nativeHeight": 415,
+      "width": 854,
+      "height": 415,
+      "sha256": "2009c9b7e7b5292d45099e8afc75bf7723a51f2225d8ff0167e9501a0f1591b3",
+      "bytes": 31892,
+      "thumbnailSha256": "6323aa81bd51b0d7588c17ad0f959ba3e3f528601a345a4d4a533c14dc681462",
+      "thumbnailBytes": 8406,
+      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
+      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
+      "selectionAction": "retained_current_selection",
+      "selectedImageProcessing": {
+        "method": "exact_native_pixel_crop",
+        "crop_box": [
+          0,
+          65,
+          854,
+          480
+        ],
+        "crop_fraction": [
+          0,
+          0.135,
+          1,
+          1
+        ],
+        "no_resampling": true,
+        "generative_processing": false,
+        "decoded_pixel_equality_verified": true
+      },
+      "originalAssetPath": "originals/2013020184-a708-publishing.png",
+      "originalAssetSha256": "94465f5a8799b38934cc28ea492ce741fc83c9f4bd71af6871cffa2bf9bff47d",
+      "originalWidth": 854,
+      "originalHeight": 480,
+      "criticalReview": {
+        "baseline_grade": "C",
+        "assessment": "Verified game image, but neutral action, obstructed huddle, bench portrait or limited clarity weakens the moment; seek goal/raised-arm alternative.",
+        "recommended_action": "seek_upgrade",
+        "identity_checked": true,
+        "game_match_checked": true,
+        "manual_review_completed": true,
+        "final_disposition": "Retained after final comparison; current verified photograph selected over available weaker or unverifiable alternatives. Baseline assessment retained for continuity."
+      },
+      "finalVisualReview": {
+        "status": "PASS",
+        "review_date": "2026-10-18",
+        "reason": "Previously selected, source-verified native image retained.",
+        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
+        "native_pixels_preserved": true,
+        "no_generative_edits": true
+      },
+      "exactScoringInstantAsserted": false,
+      "displaySelected": true
+    },
+    "mapping": {
+      "inventoryId": 708,
+      "assetId": "2013020184-a708-publishing",
+      "artifactDate": "2013-10-30",
+      "photoDate": "2013-10-30",
+      "displaySelected": true,
+      "selectionStatus": "selected",
+      "galleryPosition": "last",
+      "selectionReason": "Previously selected verified image retained"
+    },
+    "indexRow": {
+      "inventoryId": 708,
+      "collectionRecordKey": "hfc-708",
+      "canonicalSheet": "Hockey Fights Cancer",
+      "canonicalIdCell": "A9",
+      "assetId": "2013020184-a708-publishing",
+      "artifactDate": "2013-10-30",
+      "photoDate": "2013-10-30",
+      "displaySelected": true,
+      "selectionStatus": "selected",
+      "galleryPosition": "last",
+      "selectionReason": "Previously selected verified image retained",
+      "mediaRole": "game_reference",
+      "nativeSha256": "fb871547eea218f4594df44454d11270955b8373a3ebd7d7a8035eab92a6a232",
+      "caption": "Marchand joins Bergeron's tying-goal celebration.",
+      "credit": "Video still: All About Hockey / YouTube",
+      "sourceUrl": "https://www.youtube.com/watch?v=thyZzfvmliU",
+      "url": "images/marchand-games/2013020184-a708-publishing/game.webp?v=2009c9b7e7b5",
+      "thumbnailUrl": "images/marchand-games/2013020184-a708-publishing/game-thumb.webp?v=6323aa81bd51",
+      "bookPage": 179
+    },
+    "archivedFiles": [
+      {
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-owner-708-v5-preparation-20261019/archive/708/served-game.webp",
+        "sha256": "2009c9b7e7b5292d45099e8afc75bf7723a51f2225d8ff0167e9501a0f1591b3",
+        "bytes": 31892,
+        "sourcePath": "/Volumes/Documents/Marchand-Puck-Agent/03_PUCK_MUSEUM/REPO/TLPT-poker/images/marchand-games/2013020184-a708-publishing/game.webp"
+      },
+      {
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-owner-708-v5-preparation-20261019/archive/708/served-thumbnail.webp",
+        "sha256": "6323aa81bd51b0d7588c17ad0f959ba3e3f528601a345a4d4a533c14dc681462",
+        "bytes": 8406,
+        "sourcePath": "/Volumes/Documents/Marchand-Puck-Agent/03_PUCK_MUSEUM/REPO/TLPT-poker/images/marchand-games/2013020184-a708-publishing/game-thumb.webp"
+      },
+      {
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-owner-708-v5-preparation-20261019/archive/708/selected-native.png",
+        "sha256": "fb871547eea218f4594df44454d11270955b8373a3ebd7d7a8035eab92a6a232",
+        "bytes": 281108,
+        "sourcePath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Consolidated-Edition-20261018-v4/assets/2013020184-a708-publishing/game-image-v3.png"
+      },
+      {
+        "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-owner-708-v5-preparation-20261019/archive/708/original-native.png",
+        "sha256": "94465f5a8799b38934cc28ea492ce741fc83c9f4bd71af6871cffa2bf9bff47d",
+        "bytes": 435272,
+        "sourcePath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Consolidated-Edition-20261018-v4/originals/2013020184-a708-publishing.png"
+      }
+    ],
+    "sourceVideoRule": "Original video/research files remain in the existing immutable versioned library; no deletions or changes. Canonical708YouTubevideo remains current and separate from the new Getty photo source."
+  }
+}

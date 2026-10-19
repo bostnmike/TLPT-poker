@@ -3,13 +3,13 @@
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
     "sourceSha256": "aafa996e674e0e39c561be1644936eb6acd651b4826699b3f1446948e71f6bed",
     "records": 171,
-    "goalsAndGames": 75,
-    "milestones": 42,
+    "goalsAndGames": 74,
+    "milestones": 43,
     "roadToHistory": 10,
     "videos": 171,
     "sourceSheets": {
-      "Goals & Games": 75,
-      "Milestones": 42,
+      "Goals & Games": 74,
+      "Milestones": 43,
       "Road to History": 10,
       "Road to Repeat": 27,
       "Hockey Fights Cancer": 9,
@@ -30,18 +30,17 @@
       "scope": "Added two canonical rows; 170 previously published artifact records preserved."
     },
     "latestCanonicalUpdate": {
-      "date": "2026-10-18",
-      "sourceSha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
+      "date": "2026-10-19",
+      "sourceSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
       "inventoryIds": [
-        57,
-        313
+        59,
+        343
       ],
-      "scope": "Retire duplicate57, retain milestone313 and its existing physical paths; transfer exact scoring/video details. All other170 record objects preserved.57vacant; no permanent active alias.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 consolidation receipt 2026-10-18-v1.json",
-      "receiptSha256": "4b319ec802d9fa2896e7f4c742ef4a001bd95caab6dd52d22c2485052bc930be",
-      "wordChanged": true,
-      "packageDataValidation": "PASS",
-      "nativeExcelAppTest": "PASS"
+      "scope": "Move sole active record59 to milestone343/MilestonesA44;retain all source facts, physicalnamespace59 and supportedEL27scorer.59vacant, no permanent alias. Other170record objects exact.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 renumbering receipt 2026-10-19-v1.json",
+      "receiptSha256": "7ab4cfe141fa1fbc2436f5d73d84f2329485864fc6eafb6088cadd0079a9886c",
+      "nativeExcelAppTest": "PASS",
+      "wordChanged": true
     },
     "canonicalUpdateHistory": [
       {
@@ -83,24 +82,39 @@
         "nativeExcelCompletedDate": "2026-10-18",
         "nativeExcelCompletionReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
         "nativeExcelCompletionReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+      },
+      {
+        "date": "2026-10-18",
+        "sourceSha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
+        "inventoryIds": [
+          57,
+          313
+        ],
+        "scope": "Retire duplicate57, retain milestone313 and its existing physical paths; transfer exact scoring/video details. All other170 record objects preserved.57vacant; no permanent active alias.",
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 consolidation receipt 2026-10-18-v1.json",
+        "receiptSha256": "4b319ec802d9fa2896e7f4c742ef4a001bd95caab6dd52d22c2485052bc930be",
+        "wordChanged": true,
+        "packageDataValidation": "PASS",
+        "nativeExcelAppTest": "PASS"
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
+    "currentCanonicalMasterSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
-      "verifiedDate": "2026-10-18",
+      "sha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
       "wordSource": "BM63-Goal-Puck-List.docx",
-      "wordSha256": "21e3022a95ead792d7234ddd0e6a6ed8817a90090c5dc9b39ea5b8f4f347dda9",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 consolidation receipt 2026-10-18-v1.json",
-      "verificationReceiptSha256": "4b319ec802d9fa2896e7f4c742ef4a001bd95caab6dd52d22c2485052bc930be",
+      "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "verifiedDate": "2026-10-19",
       "nativeExcelAppTest": "PASS",
-      "projection": "Canonical171 package readback and completed upstream native Excel PASS; website publication held pending integrated book/media handoff."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "verificationReceiptSha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+      "projection": "Actual owner-authorized59to343canonical package and completed nativeExcelPASS verified;new combined book/media registration bound."
     },
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
-      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+      "bytes": 2389
     },
     "canonicalVerificationHistory": [
       {
@@ -173,18 +187,36 @@
       },
       "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5"
     },
-    "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
-    "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS",
+    "canonicalRenumberingHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Handoff.json",
+      "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d"
+    },
+    "historicalPublishedV4MediaBindings": {
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
+        "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
+        "bytes": 86323
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
+        "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
+        "bytes": 34923
+      },
+      "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
+      "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS"
+    },
+    "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
-      "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
-      "bytes": 86323
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical renumbered 708 media reconciliation 2026-10-19-v1.json",
+      "sha256": "0c95ac25b094f6e712b664862b6e02efdc6894f64b2f67e247e50940172e754f",
+      "bytes": 61585
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
-      "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
-      "bytes": 34923
-    }
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Media Registration 2026-10-19-v6/Registry-at-registration.json",
+      "sha256": "608e302a9752514dac9805bd473ea99cdd6153e4992746de966a4ad5ee024283",
+      "bytes": 38884
+    },
+    "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS"
   },
   "records": [
     {
@@ -12374,16 +12406,16 @@
       "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
     },
     {
-      "key": "goal-59",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 60,
-      "inventoryId": 59,
+      "key": "milestone-343",
+      "sourceSheet": "Milestones",
+      "sourceRow": 44,
+      "inventoryId": 343,
       "homeRoad": "Road",
       "team": "Florida Panthers",
       "category": "RS Point",
       "careerStat": 988,
       "seasonStat": 5,
-      "description": "",
+      "description": "Career Point #988 on EL27 Goal · Return to Boston",
       "date": "2025-10-21",
       "arena": "TD Garden",
       "opponent": "Boston Bruins",
@@ -12409,13 +12441,8 @@
       ],
       "sourceData": [
         {
-          "label": "ID",
-          "value": "59",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Road",
+          "label": "ID #",
+          "value": "343",
           "url": ""
         },
         {
@@ -12429,13 +12456,8 @@
           "url": ""
         },
         {
-          "label": "Career Stat",
-          "value": "988",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "5",
+          "label": "Description",
+          "value": "Career Point #988 on EL27 Goal · Return to Boston",
           "url": ""
         },
         {
@@ -12451,6 +12473,46 @@
         {
           "label": "Opponent",
           "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Notes",
+          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Road",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Florida 4 @ Boston 3",
+          "url": ""
+        },
+        {
+          "label": "Workflow Status",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "City/Region",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "988",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "5",
           "url": ""
         },
         {
@@ -12479,29 +12541,14 @@
           "url": ""
         },
         {
-          "label": "Score",
-          "value": "Florida 4 @ Boston 3",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Goal Scored Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "Watch Goal",
-          "url": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112"
-        },
-        {
-          "label": "Notes",
-          "value": "Primary assist on EL27 goal; AE5 secondary assist. Brad Marchand’s return to Boston as a Florida Panther. Former duplicate artifact 333 (historical number retired before the October 16, 2026 renumbering; unrelated to current artifact 333) consolidated into artifact 59 by owner confirmation.",
-          "url": ""
-        },
-        {
           "label": "Goalie Scored Against",
           "value": "Jeremy Swayman",
           "url": ""
+        },
+        {
+          "label": "Video URL",
+          "value": "Watch Goal",
+          "url": "https://www.nhl.com/video/fla-bos-luostarinen-scores-goal-against-jeremy-swayman-6383495592112"
         },
         {
           "label": "Front Image Filename",
@@ -12521,6 +12568,51 @@
         {
           "label": "COA Filename",
           "value": "images/pucks/59/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Purchase Document Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Source / Seller",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Last Updated",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Front Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Back Image Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original Detail Image Filenames",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Original COA Filename",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Research Sources",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Intake Date (As Submitted)",
+          "value": "",
           "url": ""
         },
         {
@@ -12584,7 +12676,8 @@
       "authenticationAlternateIssuer": "",
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "The hologram link includes its identifier and validation code."
+      "authenticationLookupInstructions": "The hologram link includes its identifier and validation code.",
+      "scorerCode": "EL27"
     },
     {
       "key": "goal-60",

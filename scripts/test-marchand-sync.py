@@ -76,3 +76,11 @@ workbook["Milestones"].cell(14, video_column).value = survivor["videoUrl"]
 unlabeled["videoLabel"] = ""
 sync.synchronize_record(unlabeled, workbook, workbook)
 assert unlabeled["videoLabel"] == "Game Context"
+
+assert 59 not in by_id and 57 not in by_id
+renumbered=by_id[343]
+assert renumbered["sourceSheet"]=="Milestones" and renumbered["sourceRow"]==44
+assert renumbered["category"]=="RS Point" and renumbered["puckType"]=="Goal Scored Puck"
+assert renumbered["scorerCode"]=="EL27" and renumbered["primaryAssist"]=="BM63" and renumbered["secondaryAssist"]=="AE5"
+assert renumbered["authenticationSerial"]=="BB25087"
+assert renumbered["sourceData"][22]["value"]=="images/pucks/59/front.webp"

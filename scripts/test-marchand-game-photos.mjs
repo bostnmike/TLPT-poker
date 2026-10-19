@@ -45,7 +45,7 @@ for(const record of collection.records){
  assert.equal(photo.displaySelected,true);
  assert.equal(mapping.galleryPosition,'last');
  assert.equal(joined.galleryPosition,'last');
- assert.ok(['PASS','PASS_FRESH_APPROVED_SOURCE_IDENTITY'].includes(photo.subjectRuleReview));
+ assert.ok(['PASS','PASS_FRESH_APPROVED_SOURCE_IDENTITY','PASS_OWNER_APPROVED_EXACT_GAME_PHOTO'].includes(photo.subjectRuleReview));
  assert.ok(photo.bradVisible||!photo.bradPlayed);
  if(!photo.bradPlayed)nonBrad.push(record.inventoryId);
  if(mapping.photoDate!==record.date)assert.equal(record.inventoryId,705);
@@ -70,11 +70,12 @@ for(const [id,photo]of Object.entries(photos.assets)){
   assert.ok(!photo.license.startsWith('CC '));
  }
  for(const[url,hash,bytes]of[[photo.url,photo.sha256,photo.bytes],[photo.thumbnailUrl,photo.thumbnailSha256,photo.thumbnailBytes]]){
-  assert.match(url,/^images\/marchand-games\/[a-z0-9][a-z0-9-]*\/(?:game\.(?:png|webp)|game-thumb\.webp)\?v=[a-f0-9]{12}$/);
+  assert.match(url,/^images\/marchand-games\/[a-z0-9][a-z0-9-]*\/(?:game\.(?:png|jpg|webp)|game-thumb\.webp)\?v=[a-f0-9]{12}$/);
   const data=read(url.split('?')[0]);
   assert.equal(data.length,bytes);
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),hash);
   if(url.split('?')[0].endsWith('.png'))assert.equal(data.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
+  else if(url.split('?')[0].endsWith('.jpg'))assert.equal(data.subarray(0,3).toString('hex'),'ffd8ff');
   else{assert.equal(data.subarray(0,4).toString(),'RIFF');assert.equal(data.subarray(8,12).toString(),'WEBP');}
  }
  if(photo.nativeFullSize){assert.equal(photo.sha256,photo.nativeSha256);assert.equal(photo.width,photo.nativeWidth);assert.equal(photo.height,photo.nativeHeight);}
@@ -112,16 +113,16 @@ assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
 assert.equal(photos.artifacts['warmup-713'].photoDate,'2025-12-30');
 assert.match(selected('warmup-713').caption,/Kevin/);
 assert.match(byId(713).notes,/reached November 13, 2025/);
-assert.equal(collection.meta.currentCanonicalMasterSha256,'9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562');
+assert.equal(collection.meta.currentCanonicalMasterSha256,'6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
 assert.equal(photos.meta.nativeExcelAppTest,'PASS');
-assert.equal(photos.meta.sourceIndexSha256,'8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0');
-assert.equal(photos.meta.changedNativeImages.length,8);
-assert.equal(photos.meta.retainedNativeImages.length,163);
+assert.equal(photos.meta.sourceIndexSha256,'4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d');
+assert.equal(photos.meta.changedNativeImages.length,1);
+assert.equal(photos.meta.retainedNativeImages.length,170);
 assert.equal(photos.meta.restoredArchivedNativeImages.length,0);
-console.log('PASS:171 distinct singular gallery tails;8 exact native replacements;163 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner consolidation resolved.');
+console.log('PASS:171 distinct singular gallery tails;1 exact nativeJPEG replacement;170 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner consolidation resolved.');
 
 // Owner-approved v2 context must be visible, not only implicit in image type.
 for(const id of [2,36,56,303,305,506,601,702]){const r=byId(id),a=selected(r.key);assert.equal(a.label,a.displayLabel);assert.ok(a.displayLabel);assert.match(a.url,/targeted-v2-20261018-/);assert.equal(a.sourceRevision,'Targeted-Photo-Edition-20261018-v2');assert.equal(a.sha256,a.nativeSha256);assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);if(a.imageKind==='photograph')assert.equal(a.videoSource,undefined);}
@@ -136,15 +137,15 @@ assert.match(selected('goal-36').displayLabel,/PREGAME/);
 assert.match(selected('goal-2').displayLabel,/POSTGAME/);
 assert.match(selected('repeat-601').displayLabel,/GAME ACTION/);
 assert.match(selected('hfc-702').displayLabel,/SHOOTOUT WIN/);
-assert.equal(photos.meta.photographs,91);assert.equal(photos.meta.videoStills,80);
+assert.equal(photos.meta.photographs,92);assert.equal(photos.meta.videoStills,79);
 
 assert.equal(photos.artifacts['goal-57'],undefined);
 assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
 assert.deepEqual(photos.meta.openOwnerReview,[]);
-assert.equal(photos.meta.revision,'Canonical-Consolidated-Edition-20261018-v4');
+assert.equal(photos.meta.revision,'Canonical-Renumbered-708-Edition-20261019-v6');
 for(const id of [67,602,605,608,617,621,622,625]){
  const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
- assert.equal(a.sourceRevision,photos.meta.revision);assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');
+ assert.equal(a.sourceRevision,'Canonical-Consolidated-Edition-20261018-v4');assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');
  assert.equal(a.videoSource,undefined);assert.equal(a.subjectRuleReview,'PASS_FRESH_APPROVED_SOURCE_IDENTITY');
  assert.equal(a.finalVisualReview.status,'PASS_WITH_EXISTING_QUALIFICATIONS');assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);
 }
@@ -155,3 +156,16 @@ assert.match(selected('repeat-625').context,/no specific goal/i);
 assert.equal(selected('repeat-602').photographerIdentified,false);
 assert.equal(selected('repeat-625').photographerIdentified,false);
 assert.match(selected('repeat-605').identityEvidence,/partly covers.*helmet numeral/i);
+
+assert.equal(photos.artifacts['goal-59'],undefined);
+assert.equal(photos.artifacts['milestone-343'].assetId,'2025020103-a59-publishing');
+assert.equal(selected('milestone-343').sha256,'725736d9b36d626d7b57ef03b5832494a72d41446dbee3f31a73c1cc6cac3ab1');
+const owner708=selected('hfc-708');
+assert.equal(owner708.sha256,'47a628ade4c90f925ef1c799eac6b859a392ba84f89cc5209b26b4970f98fd6e');
+assert.deepEqual([owner708.width,owner708.height],[594,423]);assert.equal(owner708.bytes,92787);
+assert.equal(owner708.label,'Game photograph');assert.equal(owner708.imageKind,'photograph');assert.equal(owner708.videoSource,undefined);
+assert.equal(owner708.caption,'Marchand and Malkin at Consol Energy Center.');
+assert.equal(owner708.credit,'Gregory Shamus / NHLI via Getty Images');assert.equal(owner708.sourceUrl,'https://www.gettyimages.com/detail/187101132');
+assert.equal(byId(708).videoUrl,'https://www.youtube.com/watch?v=thyZzfvmliU');
+assert.deepEqual(photos.meta.openQualityIds,[]);assert.deepEqual(photos.meta.resolvedPriorQualityIds,[708]);
+assert.equal(index.find(r=>r.inventoryId===343).bookPage,128);
