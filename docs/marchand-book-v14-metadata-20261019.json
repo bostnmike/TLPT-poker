@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14",
+  "status": "REGISTERED240PAGE_THREE_TICKET_EDITION_QA_PASS;MATCHING_COVER_PENDING",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Handoff.json",
+    "sha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
+    "bytes": 14943
+  },
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Reconciliation 2026-10-19-v1.json",
+    "sha256": "635332265a79602207ab9239d7a3b85ceba8059f82391bd926565c2d1bbb4b24",
+    "bytes": 11443
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Registration 2026-10-19-v14/Registry-at-registration.json",
+    "sha256": "af946d57f92d7423ef47fc6e88bb4ecb2a0949a9fde7c6058b3804ae89021bd8",
+    "bytes": 95684
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Three-Autograph-COAs-240page-Edition-20261019-v14/Exhibit63-Separate-Autograph-COAs-240page-Interior-October19-2026-v14.pdf",
+    "sha256": "86e582d3729888da2727d2a56a26399d64ce7fcd46da833ae587a1889de2b149",
+    "bytes": 790015107,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "cover_reference_only": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
+    "sha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "bytes": 23494936,
+    "pages": 1,
+    "dimensions_inches": [
+      27.208,
+      11.625
+    ],
+    "spine_inches": 1.097,
+    "artifact_count": 171,
+    "reused_unchanged": true,
+    "prior_page_count": 236,
+    "status": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
+    "for_prior_page_count": 236,
+    "fits_current240page_book": false
+  },
+  "print_configuration": {
+    "paper": "Premium Lustre",
+    "interior_pages": 240,
+    "paper_page_count_fits": true,
+    "paper_changed": false,
+    "paper_choice_pending": false,
+    "matching240page_cover_pending": true,
+    "status": "INTERIOR_PAGE_COUNT_FITS; MATCHING_COVER_PENDING"
+  },
+  "unqualified_publish_ready": false,
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Game-Photo-Index.json",
+    "sha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
+    "bytes": 205789
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/manifest.json",
+    "sha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
+    "bytes": 2127379
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "bytes": 102120
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "bytes": 31810
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
+    "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+    "bytes": 14086
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+    "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+    "bytes": 3475
+  },
+  "counts": {
+    "catalog_records": 171,
+    "active_physical_document_views": 813,
+    "document_cards": 131,
+    "unique_active_document_images": 130,
+    "original_native_document_streams": 128,
+    "selected_game_images": 171,
+    "combined_gallery_views": 984,
+    "historical_original_source_views": 830
+  },
+  "index_scope": "All 171 game and main-page joins are unchanged. Only 074’s supporting tickets are separately presented, after the regular packaging labels. The v14 canonical three-cell update is registered; the matching 240-page cover is pending.",
+  "paper_status": "Premium Lustre; page count fits; paper unchanged; paper choice is not pending.",
+  "cover_status": "Only matching240-page cover pending. Prior236-page c074 wrap is reference-only and does not fit current240-page book.",
+  "print_ready": false,
+  "privacy": "Private working interior; neither full Book nor standalone proof PDF is hosted publicly.",
+  "historical_prepared_h8": {
+    "status": "UNPUBLISHED PREPARATION PRESERVED AS HISTORY",
+    "metadata": {
+      "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-book-v8-metadata-20261019-v1/staged/docs/marchand-book-v8-metadata-20261019.json",
+      "sha256": "155c76e678bcaa6f4adbb116fb19139951e14e851c57eeb46d9ca5762bce63b1",
+      "bytes": 8017
+    },
+    "handoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Inside Collection COA Assigned Book Handoff 2026-10-19-v8/Handoff.json",
+      "sha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
+      "bytes": 9975
+    }
+  },
+  "upstream_qa": {
+    "native": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Native-Ticket-Reflow-QA.json",
+      "sha256": "7ea2e7bdbe6ead1e1ca879728e06370fbf4543c9f8a80aa6adecb9bb87a2d27c",
+      "bytes": 1062120
+    },
+    "native_checks_passed": 1917,
+    "offline_rebuild": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Reproducibility-QA.json",
+      "sha256": "49487f3a40b28b2dc2432c8a3e3d661759a5c76f468f2bdc24301183cfcbd7df",
+      "bytes": 1686
+    },
+    "code_review": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/code-review.json",
+      "sha256": "e1a4b7cab68351eead74fd0a3e5a9e2c4b349df136700ee22d3f6059c87269cd",
+      "bytes": 5391
+    },
+    "actual_visual_reviews": [
+      {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Final-Label-Pages-Visual-QA.json",
+        "sha256": "61351821b2972efe4f8d96fdd2f4eea6dfffcc6a62fa1f6fc7e9cd9120488bda",
+        "bytes": 7712
+      },
+      {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Final-Editorial-Visual-QA.json",
+        "sha256": "843dcb6f4d0154ce6546057110d046f371dd1cc7a09f7c0ac81cbc24c2ff85a9",
+        "bytes": 5005
+      }
+    ],
+    "actual_changed_page_renders": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Three-Autograph-COAs-240page-Edition-20261019-v14/QA-renders/Render-Receipt.json",
+      "sha256": "af6c69980029edcf81fcdff737678b4fbbd344a17e1de1e60dd6d4295b635792",
+      "bytes": 4283
+    },
+    "source_native_ticket_review": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/three-ticket-native-proposal.json",
+      "sha256": "3e21239cb9f7cf0802f52c848ae66eaef86112e034b532704273d3b1edf51952",
+      "bytes": 16159
+    }
+  },
+  "upstream_qa_scope": "Supplied Book/Data proof files independently hash-verified. No renewed native Excel, Book rendering, blanket physical-puck or photo-identity certification by Museum.",
+  "document_clipping": {
+    "document_view_specification": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Document-View-Specification-v14.json",
+      "sha256": "5145f5236cd760aa12507ff6c45de9e8c4574acb278048fc6855fd4c09b6bd14",
+      "bytes": 794986
+    },
+    "current_archive_plan": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/v14-archive-plan.json",
+      "sha256": "d9b5315fb1885f31b0803f85f03155ede657dc9bf467a808823c7d0196d2c9bf",
+      "bytes": 315203
+    },
+    "autograph_tickets": {
+      "inventory_id": 74,
+      "labels": [
+        "074 / COA 2",
+        "074 / COA 3",
+        "074 / COA 4"
+      ],
+      "book_page": 223,
+      "proof_page": 18,
+      "image_height_points": 97,
+      "minimum_effective_ppi": 733,
+      "issuer": "Your Sports Memorabilia Store",
+      "source_native_encoded_sha256": "e6e0bb19b7ec72fd01fd60c779a0229301cef19249089e2dd823a41e2e2db6a1",
+      "original_composite_archived": true,
+      "literal_associations": {
+        "COA2": "Perfection Line: Brad Marchand, Patrice Bergeron, David Pastrnak",
+        "COA3": "Brad Marchand and Patrice Bergeron",
+        "COA4": "David Pastrnak"
+      },
+      "event_date_not_signing_date": "December 22, 2018",
+      "existing_independent_authentication_qualification_retained": true,
+      "main_goal_puck_MeiGray_MGA21566_unchanged": true
+    },
+    "source_document_associations": 129,
+    "displayed_document_views": 131,
+    "unique_original_native_streams": 128,
+    "all_native_image_pixels_ICC_unchanged": true,
+    "prior040_bottom_crop_v13_preserved": true
+  },
+  "website_document_crops": {
+    "path": "docs/marchand-coa074-three-tickets-20261019-v14.json",
+    "sha256": "335b3f8022a8973314d5a85505f1b79becee02bc5b6ee18f623f215751bb4753",
+    "revision": "Museum-COA074-Three-Tickets-20261019-v14"
+  },
+  "prior_verified_v11_publication": {
+    "document": {
+      "path": "docs/marchand-book-v11-metadata-20261019.json",
+      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7"
+    },
+    "release": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum Compact COA Book Metadata Release 2026-10-19-v11.json",
+      "sha256": "328c0547f684dccc5ff33257e6a6b2b6d9087207c535ba1ca84bf657d3708c85",
+      "bytes": 24297
+    }
+  },
+  "prior_verified_v12_publication": {
+    "document": {
+      "path": "docs/marchand-book-v12-metadata-20261019.json",
+      "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c"
+    },
+    "release": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA Document Crop Release 2026-10-19-v12.json",
+      "sha256": "81716488546c015073879303830762ebdf8aac0aac5c8c477e4acc718a746064",
+      "bytes": 23650
+    }
+  },
+  "prior_verified_v13_publication": {
+    "document": {
+      "path": "docs/marchand-book-v13-metadata-20261019.json",
+      "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d"
+    },
+    "release": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA040 Bottom Crop Release 2026-10-19-v13.json",
+      "sha256": "e1d7584302fbeea8d5d7e1a1e929934542ffa125730f217c9dc25439f8e3568d",
+      "bytes": 18287
+    }
+  }
+}

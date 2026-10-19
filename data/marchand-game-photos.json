@@ -383,15 +383,15 @@
     "uniqueImagePerArtifact": true,
     "restoredArchivedNativeImages": [],
     "nativeExcelVerificationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
-      "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
-      "bytes": 5868
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+      "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+      "bytes": 3475
     },
     "sourceOnlyCorrections": [],
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
-      "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
-      "bytes": 5868
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+      "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+      "bytes": 3475
     },
     "parentMediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
@@ -430,31 +430,31 @@
         }
       ]
     },
-    "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13",
+    "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14",
     "openOwnerReview": [],
     "canonicalConsolidationHandoff": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
       "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
     },
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/COA-Bottom-Crop-240page-Edition-20261019-v13/Exhibit63-COA-Bottom-Crop-240page-Interior-October19-2026-v13.pdf",
-    "bookSha256": "0eaec164b168102bd4e3ec09dea39e8e1886ff54407354db941dd98e8e213d74",
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Three-Autograph-COAs-240page-Edition-20261019-v14/Exhibit63-Separate-Autograph-COAs-240page-Interior-October19-2026-v14.pdf",
+    "bookSha256": "86e582d3729888da2727d2a56a26399d64ce7fcd46da833ae587a1889de2b149",
     "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
     "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
     "sourceManifestSha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
     "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
-    "sourceHandoffSha256": "9dbc818d4a8dc0273b38f97a35b20d6104b7c243e33771cc2bf6b656add86dfc",
-    "physicalEvidenceViews": 811,
-    "combinedGalleryViews": 982,
+    "sourceHandoffSha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
+    "physicalEvidenceViews": 813,
+    "combinedGalleryViews": 984,
     "archivedPhysicalDocumentSourceViews": 830,
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Reconciliation 2026-10-19-v1.json",
-      "sha256": "3552a00a680aaa614b305f9a0ada410068ac8a875cca1fff544ad7ee32597b1a",
-      "bytes": 9700
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Reconciliation 2026-10-19-v1.json",
+      "sha256": "635332265a79602207ab9239d7a3b85ceba8059f82391bd926565c2d1bbb4b24",
+      "bytes": 11443
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Registration 2026-10-19-v13/Registry-at-registration.json",
-      "sha256": "969db0fd74aadc3c347aa0df12ce536a97c131429be3224edd77fdb07caa3e37",
-      "bytes": 82327
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Registration 2026-10-19-v14/Registry-at-registration.json",
+      "sha256": "af946d57f92d7423ef47fc6e88bb4ecb2a0949a9fde7c6058b3804ae89021bd8",
+      "bytes": 95684
     },
     "openQualityIds": [],
     "resolvedPriorQualityIds": [
@@ -504,8 +504,8 @@
       "canonicalMasters": {
         "Marchand_Puck_Collection_FullIngest.xlsx": {
           "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
-          "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
-          "bytes": 102025
+          "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+          "bytes": 102120
         },
         "BM63-Goal-Puck-List.docx": {
           "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
@@ -514,9 +514,9 @@
         }
       },
       "nativeExcelVerificationReceipt": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
-        "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
-        "bytes": 5868
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+        "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+        "bytes": 3475
       },
       "canonicalMetadataReconciliation": {
         "path": "docs/marchand-coa-canonical-metadata-20261019.json",
@@ -524,9 +524,14 @@
         "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
       },
       "bookMetadataReconciliation": {
-        "path": "docs/marchand-book-v13-metadata-20261019.json",
-        "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
-        "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
+        "path": "docs/marchand-book-v14-metadata-20261019.json",
+        "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0",
+        "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14"
+      },
+      "currentCanonicalMediaUpdate": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
+        "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+        "bytes": 14086
       }
     },
     "priorNativeExcelMetadataBeforeCOADataSync": {
@@ -543,16 +548,16 @@
     },
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+      "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
       "wordSource": "BM63-Goal-Puck-List.docx",
       "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
       "verifiedDate": "2026-10-19",
       "nativeExcelAppTest": "PASS",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
-      "verificationReceiptSha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
-      "projection": "Actual canonical COA assignment package and completed native Excel PASS verified. Website records already match all33 changed cells; Book update remains pending."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+      "verificationReceiptSha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+      "projection": "Actual canonical074three-cell media/evidence update and completed native Excel PASS verified. Registeredv14Book and website metadata synchronized; Word byte-exact."
     },
-    "currentCanonicalMasterSha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+    "currentCanonicalMasterSha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
     "historicalV6PublicationBindingsBeforeH8": {
       "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
       "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
@@ -575,9 +580,9 @@
       }
     },
     "currentMediaAndBookPublication": {
-      "path": "docs/marchand-book-v13-metadata-20261019.json",
-      "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
-      "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
+      "path": "docs/marchand-book-v14-metadata-20261019.json",
+      "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0",
+      "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14"
     },
     "coverStatus": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
     "coverFitsCurrentBook": false,
@@ -644,9 +649,9 @@
       "bookPages": 240
     },
     "coaDocumentCrops": {
-      "path": "docs/marchand-coa040-bottom-crop-20261019-v13.json",
-      "sha256": "c0d099ee1817fafc891a44fc6e17ae271173496e25571c961195372c80e0166c",
-      "revision": "Museum-COA040-Bottom-Crop-20261019-v13"
+      "path": "docs/marchand-coa074-three-tickets-20261019-v14.json",
+      "sha256": "335b3f8022a8973314d5a85505f1b79becee02bc5b6ee18f623f215751bb4753",
+      "revision": "Museum-COA074-Three-Tickets-20261019-v14"
     },
     "historicalV12PublicationBindings": {
       "revision": "COA-Document-Crop-240page-Edition-20261019-v12",
@@ -673,6 +678,109 @@
         "path": "docs/marchand-coa-document-crops-20261019.json",
         "sha256": "18353b9cad20132961624406fa6f994832a15a3689d54421faeb1ccda73be26d",
         "revision": "Museum-COA-Document-Crops-20261019-v12"
+      }
+    },
+    "historicalV13PublicationBindings": {
+      "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13",
+      "sourceHandoffSha256": "9dbc818d4a8dc0273b38f97a35b20d6104b7c243e33771cc2bf6b656add86dfc",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Reconciliation 2026-10-19-v1.json",
+        "sha256": "3552a00a680aaa614b305f9a0ada410068ac8a875cca1fff544ad7ee32597b1a",
+        "bytes": 9700
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Registration 2026-10-19-v13/Registry-at-registration.json",
+        "sha256": "969db0fd74aadc3c347aa0df12ce536a97c131429be3224edd77fdb07caa3e37",
+        "bytes": 82327
+      },
+      "currentMediaAndBookPublication": {
+        "path": "docs/marchand-book-v13-metadata-20261019.json",
+        "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
+        "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
+      },
+      "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/COA-Bottom-Crop-240page-Edition-20261019-v13/Exhibit63-COA-Bottom-Crop-240page-Interior-October19-2026-v13.pdf",
+      "bookSha256": "0eaec164b168102bd4e3ec09dea39e8e1886ff54407354db941dd98e8e213d74",
+      "bookPages": 240,
+      "coaDocumentCrops": {
+        "path": "docs/marchand-coa040-bottom-crop-20261019-v13.json",
+        "sha256": "c0d099ee1817fafc891a44fc6e17ae271173496e25571c961195372c80e0166c",
+        "revision": "Museum-COA040-Bottom-Crop-20261019-v13"
+      },
+      "currentCanonicalMasterSha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+      "currentCanonicalMaster": {
+        "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+        "wordSource": "BM63-Goal-Puck-List.docx",
+        "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "verifiedDate": "2026-10-19",
+        "nativeExcelAppTest": "PASS",
+        "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "verificationReceiptSha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+        "projection": "Actual canonical COA assignment package and completed native Excel PASS verified. Website records already match all33 changed cells; Book update remains pending."
+      },
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+        "bytes": 5868
+      },
+      "nativeExcelVerificationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+        "bytes": 5868
+      }
+    },
+    "historicalV13COAAssignmentProvenance": {
+      "path": "docs/marchand-coa-assignments-20261019.json",
+      "sha256": "29c1e5d07d71af5840a27ecd947ec770549039c856b632b1043a10e8fa01658f",
+      "revision": "Museum-COA-Assignments-20261019-v1",
+      "date": "2026-10-19",
+      "inventoryIds": [
+        304,
+        305,
+        314,
+        315,
+        325,
+        326,
+        327,
+        328,
+        329,
+        331,
+        339
+      ],
+      "canonicalDataAndBookStatus": "CANONICAL COA DATA AND BOOK CONTENT/INDEX SYNCHRONIZED; MATCHING240PAGE COVER PENDING",
+      "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
+      "bookStatus": "CONTENT AND INDEX SYNCHRONIZED; PREMIUM LUSTRE PAGE COUNT FITS; ONLY MATCHING COVER PENDING",
+      "canonicalHandoff": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+        "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+        "bytes": 28053
+      },
+      "canonicalMasters": {
+        "Marchand_Puck_Collection_FullIngest.xlsx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+          "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+          "bytes": 102025
+        },
+        "BM63-Goal-Puck-List.docx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+          "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+          "bytes": 31810
+        }
+      },
+      "nativeExcelVerificationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+        "bytes": 5868
+      },
+      "canonicalMetadataReconciliation": {
+        "path": "docs/marchand-coa-canonical-metadata-20261019.json",
+        "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
+        "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+      },
+      "bookMetadataReconciliation": {
+        "path": "docs/marchand-book-v13-metadata-20261019.json",
+        "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
+        "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
       }
     }
   },

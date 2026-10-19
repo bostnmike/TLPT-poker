@@ -1883,8 +1883,16 @@
       "sha256": "5daa9757881319450145cd9063636da252d23b116366a63822bd8ba41dda3065"
     },
     "images/pucks/74/coa-02.webp": {
-      "bytes": 8467806,
-      "sha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed"
+      "bytes": 2650134,
+      "sha256": "8601ec47493c8c508dc6c1ce38c2a01c92d813e485e00cbf0008e9664da13575"
+    },
+    "images/pucks/74/coa-03.webp": {
+      "bytes": 2535968,
+      "sha256": "6b468326caaf2314032443c96a33f06ff3b5e55e772d842024d89aced72a9f27"
+    },
+    "images/pucks/74/coa-04.webp": {
+      "bytes": 2951884,
+      "sha256": "a3b18491cf0abd05dcb49ee2d037818f1b3a97ab833f92f6f162883f0dddfddc"
     }
   }
 }

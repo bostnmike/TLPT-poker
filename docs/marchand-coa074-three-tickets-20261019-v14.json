@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "revision": "Museum-COA074-Three-Tickets-20261019-v14",
+  "status": "REVIEWED_NATIVE_TICKETS_SEPARATED",
+  "artifact": 74,
+  "sourceBookHandoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Separate Autograph COAs Book Handoff 2026-10-19-v14/Handoff.json",
+    "sha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
+    "bytes": 14943
+  },
+  "sourceBook": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Three-Autograph-COAs-240page-Edition-20261019-v14/Exhibit63-Separate-Autograph-COAs-240page-Interior-October19-2026-v14.pdf",
+    "sha256": "86e582d3729888da2727d2a56a26399d64ce7fcd46da833ae587a1889de2b149",
+    "bytes": 790015107,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "sourceRegistration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Reconciliation 2026-10-19-v1.json",
+    "sha256": "635332265a79602207ab9239d7a3b85ceba8059f82391bd926565c2d1bbb4b24",
+    "bytes": 11443
+  },
+  "immutableRegistryAtRegistration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Registration 2026-10-19-v14/Registry-at-registration.json",
+    "sha256": "af946d57f92d7423ef47fc6e88bb4ecb2a0949a9fde7c6058b3804ae89021bd8",
+    "bytes": 95684
+  },
+  "canonicalHandoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
+    "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+    "bytes": 14086
+  },
+  "nativeExcelReceipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+    "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+    "bytes": 3475
+  },
+  "canonicalMasters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "bytes": 102120
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "bytes": 31810
+    }
+  },
+  "stagingReceipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum Artifact074 Three Ticket COA Staging 2026-10-19-v14.json",
+    "sha256": "b11abc119b51c92bed9f776a89cf0d96e0d99852a83c04fefa5b24cc042f1dab",
+    "bytes": 17830
+  },
+  "sourceComposite": {
+    "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/inputs/Current-Published-074-Composite.webp",
+    "sha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+    "bytes": 8467806
+  },
+  "imageRoleMap": {
+    "status": "FINAL_AGREED_STAGING_MAP_NOT_YET_PUBLISHED",
+    "artifact": 74,
+    "primaryGameCOA": {
+      "label": "COA",
+      "path": "images/pucks/74/coa.webp",
+      "unchanged": true,
+      "issuer": "MeiGray",
+      "hologram": "MGA21566"
+    },
+    "children": [
+      {
+        "artifact": 74,
+        "label": "COA 2",
+        "sequence": 1,
+        "assetPath": "images/pucks/74/coa-02.webp",
+        "proposedURL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=8601ec47493c",
+        "caption": "Your Sports Memorabilia Store autograph ticket — Perfection Line: Brad Marchand, Patrice Bergeron and David Pastrnak.",
+        "role": "autograph_ticket",
+        "printedIssuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "Brad Marchand",
+          "Patrice Bergeron",
+          "David Pastrnak"
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "sourceComposite": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/inputs/Current-Published-074-Composite.webp",
+          "sha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "bytes": 8467806
+        },
+        "sourceNativeBookFlateSha256": "e6e0bb19b7ec72fd01fd60c779a0229301cef19249089e2dd823a41e2e2db6a1",
+        "sourceNativeBookPNG": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-coa-document-crop-audit-20261019-v12/native-images/coa-100-artifact-074-e6e0bb19b7ec.png",
+          "sha256": "ee26d8111eabadd6d6aa75af4fc96d072a554eee98877c314aa16d5cb1651a52",
+          "bytes": 13161689
+        },
+        "sourceCurrentWebsiteBBox": [
+          0,
+          0,
+          2749,
+          989
+        ],
+        "derivative": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/074-coa-02-v14.webp",
+          "sha256": "8601ec47493c8c508dc6c1ce38c2a01c92d813e485e00cbf0008e9664da13575",
+          "bytes": 2650134
+        },
+        "dimensions": [
+          2749,
+          989
+        ],
+        "proposedPhotoObject": {
+          "label": "COA 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=8601ec47493c",
+          "rotation": 0,
+          "caption": "Your Sports Memorabilia Store autograph ticket — Perfection Line: Brad Marchand, Patrice Bergeron and David Pastrnak.",
+          "sourceFile": "IMG_9887.jpeg",
+          "authenticationScope": "autograph",
+          "autographDocument": {
+            "issuer": "Your Sports Memorabilia Store",
+            "printedPlayers": [
+              "Brad Marchand",
+              "Patrice Bergeron",
+              "David Pastrnak"
+            ],
+            "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+            "sourceCompositeRegion": [
+              0,
+              0,
+              2749,
+              989
+            ],
+            "sourceOriginalFilename": "IMG_9887.jpeg",
+            "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+          }
+        }
+      },
+      {
+        "artifact": 74,
+        "label": "COA 3",
+        "sequence": 2,
+        "assetPath": "images/pucks/74/coa-03.webp",
+        "proposedURL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-03.webp?v=6b468326caaf",
+        "caption": "Your Sports Memorabilia Store autograph ticket — Brad Marchand and Patrice Bergeron.",
+        "role": "autograph_ticket",
+        "printedIssuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "Brad Marchand",
+          "Patrice Bergeron"
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "sourceComposite": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/inputs/Current-Published-074-Composite.webp",
+          "sha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "bytes": 8467806
+        },
+        "sourceNativeBookFlateSha256": "e6e0bb19b7ec72fd01fd60c779a0229301cef19249089e2dd823a41e2e2db6a1",
+        "sourceNativeBookPNG": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-coa-document-crop-audit-20261019-v12/native-images/coa-100-artifact-074-e6e0bb19b7ec.png",
+          "sha256": "ee26d8111eabadd6d6aa75af4fc96d072a554eee98877c314aa16d5cb1651a52",
+          "bytes": 13161689
+        },
+        "sourceCurrentWebsiteBBox": [
+          45,
+          1025,
+          2748,
+          2018
+        ],
+        "derivative": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/074-coa-03-v14.webp",
+          "sha256": "6b468326caaf2314032443c96a33f06ff3b5e55e772d842024d89aced72a9f27",
+          "bytes": 2535968
+        },
+        "dimensions": [
+          2703,
+          993
+        ],
+        "proposedPhotoObject": {
+          "label": "COA 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-03.webp?v=6b468326caaf",
+          "rotation": 0,
+          "caption": "Your Sports Memorabilia Store autograph ticket — Brad Marchand and Patrice Bergeron.",
+          "sourceFile": "IMG_9887.jpeg",
+          "authenticationScope": "autograph",
+          "autographDocument": {
+            "issuer": "Your Sports Memorabilia Store",
+            "printedPlayers": [
+              "Brad Marchand",
+              "Patrice Bergeron"
+            ],
+            "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+            "sourceCompositeRegion": [
+              45,
+              1025,
+              2748,
+              2018
+            ],
+            "sourceOriginalFilename": "IMG_9887.jpeg",
+            "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+          }
+        }
+      },
+      {
+        "artifact": 74,
+        "label": "COA 4",
+        "sequence": 3,
+        "assetPath": "images/pucks/74/coa-04.webp",
+        "proposedURL": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-04.webp?v=a3b18491cf0a",
+        "caption": "Your Sports Memorabilia Store autograph ticket — David Pastrnak.",
+        "role": "autograph_ticket",
+        "printedIssuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "David Pastrnak"
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "sourceComposite": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/inputs/Current-Published-074-Composite.webp",
+          "sha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "bytes": 8467806
+        },
+        "sourceNativeBookFlateSha256": "e6e0bb19b7ec72fd01fd60c779a0229301cef19249089e2dd823a41e2e2db6a1",
+        "sourceNativeBookPNG": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-coa-document-crop-audit-20261019-v12/native-images/coa-100-artifact-074-e6e0bb19b7ec.png",
+          "sha256": "ee26d8111eabadd6d6aa75af4fc96d072a554eee98877c314aa16d5cb1651a52",
+          "bytes": 13161689
+        },
+        "sourceCurrentWebsiteBBox": [
+          40,
+          2054,
+          2752,
+          3081
+        ],
+        "derivative": {
+          "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-coa074-split-20261019-v14/074-coa-04-v14.webp",
+          "sha256": "a3b18491cf0abd05dcb49ee2d037818f1b3a97ab833f92f6f162883f0dddfddc",
+          "bytes": 2951884
+        },
+        "dimensions": [
+          2712,
+          1027
+        ],
+        "proposedPhotoObject": {
+          "label": "COA 4",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-04.webp?v=a3b18491cf0a",
+          "rotation": 0,
+          "caption": "Your Sports Memorabilia Store autograph ticket — David Pastrnak.",
+          "sourceFile": "IMG_9887.jpeg",
+          "authenticationScope": "autograph",
+          "autographDocument": {
+            "issuer": "Your Sports Memorabilia Store",
+            "printedPlayers": [
+              "David Pastrnak"
+            ],
+            "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+            "sourceCompositeRegion": [
+              40,
+              2054,
+              2752,
+              3081
+            ],
+            "sourceOriginalFilename": "IMG_9887.jpeg",
+            "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+          }
+        }
+      }
+    ],
+    "dateQualification": "December22,2018 is retained artifact/game event date; autograph signing date not asserted.",
+    "associationQualification": "Your Sports Memorabilia Store autograph support, not threeMarchand goalcertificates or unique barcode/serial-to-puck matches.",
+    "gameReferenceLast": true,
+    "originalCompositePreserved": true,
+    "canonicalCellsToBeOwnedByData": [
+      "Goals & Games!W75",
+      "Goals & Games!Y75",
+      "Goals & Games!Z75"
+    ],
+    "wordByteExactExpected": true,
+    "publicationAuthorized": false
+  },
+  "gallery": [
+    {
+      "label": "Front",
+      "url": "images/pucks/74/front.webp?v=4f47448394e6",
+      "rotation": 0,
+      "thumbnailUrl": "images/pucks/74/front-thumb.webp?v=20260928-batch2"
+    },
+    {
+      "label": "Back",
+      "url": "images/pucks/74/back.webp?v=af0895f61f4a",
+      "rotation": 0
+    },
+    {
+      "label": "Edge 1",
+      "url": "images/pucks/74/edge-01.webp?v=51624beaade4",
+      "rotation": 0
+    },
+    {
+      "label": "Edge 2",
+      "url": "images/pucks/74/edge-02.webp?v=d9db8cf36767",
+      "rotation": 0
+    },
+    {
+      "label": "COA",
+      "url": "images/pucks/74/coa.webp?v=20260928-coa",
+      "rotation": 0
+    },
+    {
+      "label": "COA 2",
+      "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=8601ec47493c",
+      "rotation": 0,
+      "caption": "Your Sports Memorabilia Store autograph ticket — Perfection Line: Brad Marchand, Patrice Bergeron and David Pastrnak.",
+      "sourceFile": "IMG_9887.jpeg",
+      "authenticationScope": "autograph",
+      "autographDocument": {
+        "issuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "Brad Marchand",
+          "Patrice Bergeron",
+          "David Pastrnak"
+        ],
+        "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+        "sourceCompositeRegion": [
+          0,
+          0,
+          2749,
+          989
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+      }
+    },
+    {
+      "label": "COA 3",
+      "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-03.webp?v=6b468326caaf",
+      "rotation": 0,
+      "caption": "Your Sports Memorabilia Store autograph ticket — Brad Marchand and Patrice Bergeron.",
+      "sourceFile": "IMG_9887.jpeg",
+      "authenticationScope": "autograph",
+      "autographDocument": {
+        "issuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "Brad Marchand",
+          "Patrice Bergeron"
+        ],
+        "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+        "sourceCompositeRegion": [
+          45,
+          1025,
+          2748,
+          2018
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+      }
+    },
+    {
+      "label": "COA 4",
+      "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-04.webp?v=a3b18491cf0a",
+      "rotation": 0,
+      "caption": "Your Sports Memorabilia Store autograph ticket — David Pastrnak.",
+      "sourceFile": "IMG_9887.jpeg",
+      "authenticationScope": "autograph",
+      "autographDocument": {
+        "issuer": "Your Sports Memorabilia Store",
+        "printedPlayers": [
+          "David Pastrnak"
+        ],
+        "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+        "sourceCompositeRegion": [
+          40,
+          2054,
+          2752,
+          3081
+        ],
+        "sourceOriginalFilename": "IMG_9887.jpeg",
+        "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+      }
+    }
+  ],
+  "counts": {
+    "catalog_records": 171,
+    "active_physical_document_views": 813,
+    "document_cards": 131,
+    "unique_active_document_images": 130,
+    "original_native_document_streams": 128,
+    "selected_game_images": 171,
+    "combined_gallery_views": 984,
+    "historical_original_source_views": 830
+  },
+  "scope": "Only artifact 074’s three supporting autograph tickets are split top to bottom as COA 2 / COA 3 / COA 4. The regular game COA, MeiGray / MGA21566 / lookup, all game facts and 171 game/index joins are retained. The other 128 document views are unchanged, including the 040 v13 crop. The original composite remains in rollback/history; no signing date or serial match is invented.",
+  "supersedesCombined074PresentationOnly": true,
+  "privatePDFsHosted": false
+}

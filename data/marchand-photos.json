@@ -2392,11 +2392,75 @@
       },
       {
         "label": "COA 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=c1d237180f6a",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-02.webp?v=8601ec47493c",
         "rotation": 0,
-        "caption": "Owner-provided autograph authentication tickets for Brad Marchand, Patrice Bergeron and David Pastrnak, photographed together in one image.",
+        "caption": "Your Sports Memorabilia Store autograph ticket — Perfection Line: Brad Marchand, Patrice Bergeron and David Pastrnak.",
         "sourceFile": "IMG_9887.jpeg",
-        "authenticationScope": "autograph"
+        "authenticationScope": "autograph",
+        "autographDocument": {
+          "issuer": "Your Sports Memorabilia Store",
+          "printedPlayers": [
+            "Brad Marchand",
+            "Patrice Bergeron",
+            "David Pastrnak"
+          ],
+          "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "sourceCompositeRegion": [
+            0,
+            0,
+            2749,
+            989
+          ],
+          "sourceOriginalFilename": "IMG_9887.jpeg",
+          "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+        }
+      },
+      {
+        "label": "COA 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-03.webp?v=6b468326caaf",
+        "rotation": 0,
+        "caption": "Your Sports Memorabilia Store autograph ticket — Brad Marchand and Patrice Bergeron.",
+        "sourceFile": "IMG_9887.jpeg",
+        "authenticationScope": "autograph",
+        "autographDocument": {
+          "issuer": "Your Sports Memorabilia Store",
+          "printedPlayers": [
+            "Brad Marchand",
+            "Patrice Bergeron"
+          ],
+          "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "sourceCompositeRegion": [
+            45,
+            1025,
+            2748,
+            2018
+          ],
+          "sourceOriginalFilename": "IMG_9887.jpeg",
+          "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+        }
+      },
+      {
+        "label": "COA 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/74/coa-04.webp?v=a3b18491cf0a",
+        "rotation": 0,
+        "caption": "Your Sports Memorabilia Store autograph ticket — David Pastrnak.",
+        "sourceFile": "IMG_9887.jpeg",
+        "authenticationScope": "autograph",
+        "autographDocument": {
+          "issuer": "Your Sports Memorabilia Store",
+          "printedPlayers": [
+            "David Pastrnak"
+          ],
+          "sourceCompositeSha256": "c1d237180f6a80e193cca6a64e8692087f41d307c9b26fdf56bc05f5f1cfe4ed",
+          "sourceCompositeRegion": [
+            40,
+            2054,
+            2752,
+            3081
+          ],
+          "sourceOriginalFilename": "IMG_9887.jpeg",
+          "scope": "Supporting autograph ticket; no unique serial-to-puck match asserted."
+        }
       }
     ],
     "75": [
@@ -4993,6 +5057,70 @@
     "canonicalMasters": {
       "Marchand_Puck_Collection_FullIngest.xlsx": {
         "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+        "bytes": 102120
+      },
+      "BM63-Goal-Puck-List.docx": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+        "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "bytes": 31810
+      }
+    },
+    "nativeExcelVerificationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+      "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+      "bytes": 3475
+    },
+    "canonicalMetadataReconciliation": {
+      "path": "docs/marchand-coa-canonical-metadata-20261019.json",
+      "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
+      "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+    },
+    "bookMetadataReconciliation": {
+      "path": "docs/marchand-book-v14-metadata-20261019.json",
+      "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0",
+      "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14"
+    },
+    "currentCanonicalMediaUpdate": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
+      "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+      "bytes": 14086
+    }
+  },
+  "coaDocumentCrops": {
+    "path": "docs/marchand-coa074-three-tickets-20261019-v14.json",
+    "sha256": "335b3f8022a8973314d5a85505f1b79becee02bc5b6ee18f623f215751bb4753",
+    "revision": "Museum-COA074-Three-Tickets-20261019-v14"
+  },
+  "historicalV13COAAssignmentProvenance": {
+    "path": "docs/marchand-coa-assignments-20261019.json",
+    "sha256": "29c1e5d07d71af5840a27ecd947ec770549039c856b632b1043a10e8fa01658f",
+    "revision": "Museum-COA-Assignments-20261019-v1",
+    "date": "2026-10-19",
+    "inventoryIds": [
+      304,
+      305,
+      314,
+      315,
+      325,
+      326,
+      327,
+      328,
+      329,
+      331,
+      339
+    ],
+    "canonicalDataAndBookStatus": "CANONICAL COA DATA AND BOOK CONTENT/INDEX SYNCHRONIZED; MATCHING240PAGE COVER PENDING",
+    "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
+    "bookStatus": "CONTENT AND INDEX SYNCHRONIZED; PREMIUM LUSTRE PAGE COUNT FITS; ONLY MATCHING COVER PENDING",
+    "canonicalHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+      "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+      "bytes": 28053
+    },
+    "canonicalMasters": {
+      "Marchand_Puck_Collection_FullIngest.xlsx": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
         "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
         "bytes": 102025
       },
@@ -5017,10 +5145,5 @@
       "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
       "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
     }
-  },
-  "coaDocumentCrops": {
-    "path": "docs/marchand-coa040-bottom-crop-20261019-v13.json",
-    "sha256": "c0d099ee1817fafc891a44fc6e17ae271173496e25571c961195372c80e0166c",
-    "revision": "Museum-COA040-Bottom-Crop-20261019-v13"
   }
 }
