@@ -65,3 +65,14 @@ fresh = deepcopy(survivor)
 fresh.update(videoUrl="", videoProvider="", videoId="")
 sync.synchronize_record(fresh, workbook, workbook)
 assert fresh == survivor, "Native hyperlink target must import without an existing website URL"
+
+# New native hyperlink labels remain readable; raw URL cells keep the existing default.
+unlabeled = deepcopy(survivor)
+unlabeled["videoLabel"] = ""
+sync.synchronize_record(unlabeled, workbook, workbook)
+assert unlabeled["videoLabel"] == "Watch Goal"
+video_column = next(column for column in range(1, workbook["Milestones"].max_column + 1) if workbook["Milestones"].cell(1, column).value == "Video URL")
+workbook["Milestones"].cell(14, video_column).value = survivor["videoUrl"]
+unlabeled["videoLabel"] = ""
+sync.synchronize_record(unlabeled, workbook, workbook)
+assert unlabeled["videoLabel"] == "Game Context"

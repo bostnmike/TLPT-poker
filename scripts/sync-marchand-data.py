@@ -274,7 +274,9 @@ def synchronize_record(record, workbook_values, workbook_formulas):
                          else video_field["url"])
         provider, video_id = video_parts(canonical_url, record)
         record["videoUrl"] = canonical_url
-        record["videoLabel"] = record.get("videoLabel") or values["Video URL"]
+        record["videoLabel"] = record.get("videoLabel") or (
+            "Game Context" if values["Video URL"].startswith("https://") else values["Video URL"]
+        )
         record["videoProvider"], record["videoId"] = provider, video_id
     if sheet_name == "Milestones" and values.get("Original Front Image Filename"):
         record["playerCodes"] = ["BM63"]
