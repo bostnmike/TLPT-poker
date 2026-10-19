@@ -1,10 +1,10 @@
 {
   "date": "2026-10-18",
-  "revision": "Targeted-Photo-Edition-20261018-v2",
-  "sourceIndexSha256": "13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0",
-  "bookSha256": "18a6c050e8144830abf7e13c845cbb4f5a6b7f874842bcadd67b860b5c3a64ba",
-  "coverSha256": "878ccd583ab34a395368179d0134420cc96b4f0596bd5ac90edc82f1efa52cc9",
-  "scope": "All172 canonical joins, each with a singular last-position game reference. No distinct physical-puck count asserted.",
+  "revision": "Canonical-Consolidated-Edition-20261018-v4",
+  "sourceIndexSha256": "8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0",
+  "bookSha256": "10ef94fc4b5830096d6e6a7990c22831325ea278c5c011b5769b66e358bd2031",
+  "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+  "scope": "171 actual canonical key/sheet/cell/book-page joins; eight owner-approved native replacements;163 surviving native selections retained;57 retired and313 sole active.",
   "records": [
     {
       "inventoryId": 1,
@@ -19,13 +19,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 8,
       "nativeSha256": "b75d3ad54aa1aaf801fbc4da272b90f9fa8767cf1ae488f7c3c93df8abf500a3",
       "caption": "Marchand looks for a rebound against Ramo.",
       "credit": "Larry MacDougal / Canadian Press / AP",
       "sourceUrl": "https://www.ksl.com/article/sports/national/gaudreau-finishes-hat-trick-in-ot-flames-beat-bruins-5-4/37633720",
       "url": "images/marchand-games/2015020385-a1-publishing/game.webp?v=f87483ca2100",
-      "thumbnailUrl": "images/marchand-games/2015020385-a1-publishing/game-thumb.webp?v=3829eacd5714"
+      "thumbnailUrl": "images/marchand-games/2015020385-a1-publishing/game-thumb.webp?v=3829eacd5714",
+      "bookPage": 8
     },
     {
       "inventoryId": 2,
@@ -40,14 +40,14 @@
       "galleryPosition": "last",
       "selectionReason": "Postgame interview after January2 win; no goal celebration claim.",
       "mediaRole": "game_reference",
-      "bookPage": 9,
       "nativeSha256": "5aa292bde86070f842a673816f8e8b937959017704abb22e9d0c1657c1d2d982",
       "caption": "Marchand speaks after Boston’s 5–1 win over the Islanders in Brooklyn.",
       "credit": "Video still: Boston Bruins / X",
       "sourceUrl": "https://x.com/NHLBruins/status/948566442953363457",
       "url": "images/marchand-games/targeted-v2-20261018-a2/game.png?v=5aa292bde860",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a2/game-thumb.webp?v=c963995d72aa",
-      "displayLabel": "POSTGAME INTERVIEW / JANUARY 2, 2018"
+      "displayLabel": "POSTGAME INTERVIEW / JANUARY 2, 2018",
+      "bookPage": 9
     },
     {
       "inventoryId": 3,
@@ -62,13 +62,13 @@
       "galleryPosition": "last",
       "selectionReason": "Replaces a photograph of Bergeron first-periodgoal with a clear frontal portrait immediately after the actual featuredMarchand18:59P3empty-netgoal. Full helmet, eyes and63sleeve visible; scoregraphic entirely excluded by native780x680crop. Expression is restrained documentary, not an exuberantjoy claim. Correct dated NHLrecapfreshlyretrieved; continuoussequence 479–485s showsclock1:01remaining, ENG, 4-2to5-2 and RileyNash20joining.24tenth-secondframescompared;482.5s precedes helmetclipping/Nashforeground. Exact full-startdecode independently matchesfastresearchpixels.",
       "mediaRole": "game_reference",
-      "bookPage": 10,
       "nativeSha256": "6e632c81f9a4bb5ecc46352affd22110246e6f0773898a7d97028f8f56e550e8",
       "caption": "Marchand after his empty-net goal against the Islanders.",
       "credit": "Game video still / NHL / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=pAh4uqkYe8s",
       "url": "images/marchand-games/complete-20261018-a3/game.png?v=6e632c81f9a4",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a3/game-thumb.webp?v=e5adaf2a1e05"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a3/game-thumb.webp?v=e5adaf2a1e05",
+      "bookPage": 10
     },
     {
       "inventoryId": 4,
@@ -83,13 +83,13 @@
       "galleryPosition": "last",
       "selectionReason": "Material upgrade from632x480bench fallback to880x615native clean frontal smile/glove gesture, with Brad unobscured and recognizable. Authentic exactfeaturedgoal7:28P2; source score1-2 andclock12:32 verify event387. OfficialNHL higher-quality1280x720encode, fromfreshretrieval; digital scoreboard/poll banner entirelyexcluded by y105crop. No retouching, synthesis or upscaling. Frame240.5 chosen over blinking241.0and teammate intrusion later; no overlapping body in selected crop.",
       "mediaRole": "game_reference",
-      "bookPage": 11,
       "nativeSha256": "f62e534e68ca770b8f879a5785deb9e403f8eae164568d1bfda0eddde09895ec",
       "caption": "Marchand smiles and offers a glove after his backhand goal against Columbus.",
       "credit": "Game video still / NHL / NESN broadcast",
       "sourceUrl": "https://www.youtube.com/watch?v=L78CO2tABvk",
       "url": "images/marchand-games/punchlist-20261018-a4/game.png?v=f62e534e68ca",
-      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a4/game-thumb.webp?v=6557bdcfd9fb"
+      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a4/game-thumb.webp?v=6557bdcfd9fb",
+      "bookPage": 11
     },
     {
       "inventoryId": 5,
@@ -104,13 +104,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 12,
       "nativeSha256": "23e445fbf72329d04dcc71890dcb316b68d0908309bbf8aad669e97dbe65a7f5",
       "caption": "Marchand at the Dallas crease after his goal.",
       "credit": "Game video still / FOX Sports Southwest, via NHL Video",
       "sourceUrl": "https://www.youtube.com/watch?v=tZBbhWNDTWo",
       "url": "images/marchand-games/2017021150-a5-publishing/game.webp?v=c42c6fda689f",
-      "thumbnailUrl": "images/marchand-games/2017021150-a5-publishing/game-thumb.webp?v=54cb2556140f"
+      "thumbnailUrl": "images/marchand-games/2017021150-a5-publishing/game-thumb.webp?v=54cb2556140f",
+      "bookPage": 12
     },
     {
       "inventoryId": 6,
@@ -125,13 +125,13 @@
       "galleryPosition": "last",
       "selectionReason": "Retain the clear recognizable profile and lifted glove; cached12.25–42.25s comparisons show huddle backs and graphic-covered neutral closeups. Caption intentionally neutral: no power-play/even-strength assertion from the video graphic.",
       "mediaRole": "game_reference",
-      "bookPage": 13,
       "nativeSha256": "039bc1bec62ff089ff3cbf66bf84ba5f055d5e1af4594618ed7cf7d0acfc8697",
       "caption": "Marchand acknowledges the Boston bench.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336107676112",
       "url": "images/marchand-games/2018020256-a6-publishing/game.webp?v=f393fdd38420",
-      "thumbnailUrl": "images/marchand-games/2018020256-a6-publishing/game-thumb.webp?v=b9b8f12bbfc2"
+      "thumbnailUrl": "images/marchand-games/2018020256-a6-publishing/game-thumb.webp?v=b9b8f12bbfc2",
+      "bookPage": 13
     },
     {
       "inventoryId": 7,
@@ -146,13 +146,13 @@
       "galleryPosition": "last",
       "selectionReason": "Retain the genuine arms/stick-up reaction and visible face. Re-reviewed37.75–56.75s plus prior fine native huddle frames; closer huddle has partially framed teammate heads and less emotion. Wide body language is stronger.",
       "mediaRole": "game_reference",
-      "bookPage": 14,
       "nativeSha256": "8884f6f29b103909c4cc438332ab8595a4416c9bc9c317ddafb5cb56c73192f8",
       "caption": "Marchand raises his stick after scoring against the Islanders.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336099714112",
       "url": "images/marchand-games/2018020382-a7-publishing/game.webp?v=8ad54c0606d2",
-      "thumbnailUrl": "images/marchand-games/2018020382-a7-publishing/game-thumb.webp?v=caba3dac2ae7"
+      "thumbnailUrl": "images/marchand-games/2018020382-a7-publishing/game-thumb.webp?v=caba3dac2ae7",
+      "bookPage": 14
     },
     {
       "inventoryId": 8,
@@ -167,13 +167,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 15,
       "nativeSha256": "7994223ad6e73a1cc48993c0715a36e06de23b6d26063c477f6ad0a1e319a3a3",
       "caption": "Marchand after scoring against Montreal Canadiens.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6336091104112",
       "url": "images/marchand-games/2018020514-a8-publishing/game.webp?v=9b7537d8afac",
-      "thumbnailUrl": "images/marchand-games/2018020514-a8-publishing/game-thumb.webp?v=b044ce158401"
+      "thumbnailUrl": "images/marchand-games/2018020514-a8-publishing/game-thumb.webp?v=b044ce158401",
+      "bookPage": 15
     },
     {
       "inventoryId": 9,
@@ -188,13 +188,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 16,
       "nativeSha256": "f0924e6e947a7aa94e7960df125254f18c1872528402329f756bb8c09d28a693",
       "caption": "Marchand celebrates after scoring against San Jose.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2018020968-a9-publishing/game.webp?v=72245536cdd4",
-      "thumbnailUrl": "images/marchand-games/2018020968-a9-publishing/game-thumb.webp?v=91ac9fe0fc74"
+      "thumbnailUrl": "images/marchand-games/2018020968-a9-publishing/game-thumb.webp?v=91ac9fe0fc74",
+      "bookPage": 16
     },
     {
       "inventoryId": 10,
@@ -209,13 +209,13 @@
       "galleryPosition": "last",
       "selectionReason": "Genuine teeth-visible smile with fully recognizable, sharply detailed Bradface; materially resolves blocked-face oldAPhuddle. PrimaryNESN1920x1080source explicitly identifies postgame reaction toSaturday1-0win overCoyotes, uploaded20191006. A truthful postgameportrait, not an on-ice goalcelebration. Source camera already clips the cap crown at top; crop retains all available native cap/brim and adds no head clipping. No TVgraphics at thislate moment. Larger1220x1080native crop preserves original pixels and ICC.",
       "mediaRole": "game_reference",
-      "bookPage": 17,
       "nativeSha256": "6aeadafacc5bc2453a295b375a3603b8f542ed6e8b2730542be7a62f1aae3e57",
       "caption": "Postgame interview, October 5, 2019: Marchand after Boston's 1-0 win in Arizona.",
       "credit": "Postgame video still / NESN",
       "sourceUrl": "https://www.youtube.com/watch?v=-uheTFQ9ARU",
       "url": "images/marchand-games/punchlist-20261018-a10/game.png?v=6aeadafacc5b",
-      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a10/game-thumb.webp?v=dca06d0fa247"
+      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a10/game-thumb.webp?v=dca06d0fa247",
+      "bookPage": 17
     },
     {
       "inventoryId": 11,
@@ -230,13 +230,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 18,
       "nativeSha256": "dd7cd830f5adac69de7082b8e7b5af9c51a309d0e74a51c159988b3a628ba25b",
       "caption": "Marchand after his power-play goal in Las Vegas.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6336026717112",
       "url": "images/marchand-games/2019020043-a11-publishing/game.webp?v=895d03b7cb7d",
-      "thumbnailUrl": "images/marchand-games/2019020043-a11-publishing/game-thumb.webp?v=0580bc5b8114"
+      "thumbnailUrl": "images/marchand-games/2019020043-a11-publishing/game-thumb.webp?v=0580bc5b8114",
+      "bookPage": 18
     },
     {
       "inventoryId": 12,
@@ -251,13 +251,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct actual featured1:08P2goal, replacing professional photograph of Bergeron0:11P2goal. Clear recognizable Brad profile, open mouth and lifted glove during bench acknowledgment. Exact native crop removes score; selected25.5s is before lower-third begins25.75s. Fine21-frame comparison inspected; huddle15–18s hides Bradface, bench25.5s gives clearest gesture. Source896x504native detail is a real historical limit, not upscaled.",
       "mediaRole": "game_reference",
-      "bookPage": 19,
       "nativeSha256": "d64fea8130f1d3a188429ed512ac0369d0c599dbae10f85564cd163e3e17cb72",
       "caption": "Marchand greets the Boston bench after his first goal in New York.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336019139112",
       "url": "images/marchand-games/complete-20261018-a12/game.png?v=d64fea8130f1",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a12/game-thumb.webp?v=19cd25d296a3"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a12/game-thumb.webp?v=19cd25d296a3",
+      "bookPage": 19
     },
     {
       "inventoryId": 13,
@@ -272,13 +272,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 20,
       "nativeSha256": "2f83516967a057645b08b084fe09404b50984390ca2f0aeba6347f46889a7630",
       "caption": "Marchand points after tying the game.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336016045112",
       "url": "images/marchand-games/2019020267-a13-publishing/game.webp?v=14e8fc81c1df",
-      "thumbnailUrl": "images/marchand-games/2019020267-a13-publishing/game-thumb.webp?v=6880ab4e64a8"
+      "thumbnailUrl": "images/marchand-games/2019020267-a13-publishing/game-thumb.webp?v=6880ab4e64a8",
+      "bookPage": 20
     },
     {
       "inventoryId": 14,
@@ -293,13 +293,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Pastrnak is the delighted frontal hero; Brad is only the back of a helmet/jersey. Strong photograph of the wrong emotional subject.",
       "mediaRole": "game_reference",
-      "bookPage": 21,
       "nativeSha256": "3ced10ebe59215a53592a5b2214776a512a9b6d09117ed004735ae0de50ee80f",
       "caption": "Bruins in this game.",
       "credit": "Ryan Remiorz / The Canadian Press via AP",
       "sourceUrl": "https://www.pressherald.com/2019/11/26/pastrnak-scores-three-goals-as-bruins-crush-canadiens-8-1/",
       "url": "images/marchand-games/2019020374-a14-publishing/game.webp?v=396f2f30bd31",
-      "thumbnailUrl": "images/marchand-games/2019020374-a14-publishing/game-thumb.webp?v=fcf9064a663e"
+      "thumbnailUrl": "images/marchand-games/2019020374-a14-publishing/game-thumb.webp?v=fcf9064a663e",
+      "bookPage": 21
     },
     {
       "inventoryId": 15,
@@ -314,13 +314,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 22,
       "nativeSha256": "28c59f1247f2ff7e4f650d37a9917c2c07455f3eb6f8adbc0bad1d19e12dba40",
       "caption": "Marchand celebrates his tying goal with Sean Kuraly in Ottawa.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336009795112",
       "url": "images/marchand-games/expressive-20261017-a15/game.png?v=28c59f1247f2",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a15/game-thumb.webp?v=924671db7d1f"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a15/game-thumb.webp?v=924671db7d1f",
+      "bookPage": 22
     },
     {
       "inventoryId": 16,
@@ -335,13 +335,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 23,
       "nativeSha256": "be140ce7b51adba769b1c09be5deb2433fbc35d1ea1f0169dd2f658b11bce413",
       "caption": "Marchand during the New Jersey Devils game.",
       "credit": "Video still: NHL / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=3i6MO_naByU",
       "url": "images/marchand-games/2019020613-a16-publishing/game.webp?v=9eb0741bc79f",
-      "thumbnailUrl": "images/marchand-games/2019020613-a16-publishing/game-thumb.webp?v=2ab8cc0febf1"
+      "thumbnailUrl": "images/marchand-games/2019020613-a16-publishing/game-thumb.webp?v=2ab8cc0febf1",
+      "bookPage": 23
     },
     {
       "inventoryId": 17,
@@ -356,13 +356,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 24,
       "nativeSha256": "769ad69686e3ad9cf31891cf9584f68587014a3138c32b5d3356cf49068b0344",
       "caption": "Marchand completes the scoring at the Pittsburgh net.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335969146112",
       "url": "images/marchand-games/2019020727-a17-publishing/game.webp?v=70af1f6806aa",
-      "thumbnailUrl": "images/marchand-games/2019020727-a17-publishing/game-thumb.webp?v=082eee75fd0b"
+      "thumbnailUrl": "images/marchand-games/2019020727-a17-publishing/game-thumb.webp?v=082eee75fd0b",
+      "bookPage": 24
     },
     {
       "inventoryId": 18,
@@ -377,13 +377,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Central Brad face with open mouth, but eyes squint/soft, multiple helmets/sticks crowd him. Seek peak grin or raised-glove frame before huddle closes.",
       "mediaRole": "game_reference",
-      "bookPage": 25,
       "nativeSha256": "feff445895744979e1a6423c51e077e688c7b065d64f7f3e91593e2fbaf62e80",
       "caption": "Marchand after scoring against Calgary Flames.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335958710112",
       "url": "images/marchand-games/2019020945-a18-publishing/game.webp?v=ec5ee97a3356",
-      "thumbnailUrl": "images/marchand-games/2019020945-a18-publishing/game-thumb.webp?v=0642688d93fe"
+      "thumbnailUrl": "images/marchand-games/2019020945-a18-publishing/game-thumb.webp?v=0642688d93fe",
+      "bookPage": 25
     },
     {
       "inventoryId": 19,
@@ -398,13 +398,13 @@
       "galleryPosition": "last",
       "selectionReason": "Retain the clean native1500x1000 AP photograph: affectionate paired embrace and professional detail are stronger than the newly inspected exact-goal footage. The fresh official34-secondFeb1ENGclip shows Bradback-facing through huddle; late replay is distant/soft and benchcut offers no clearly identified strongerBradportrait. Correct datedNHLfullrecap was also compared. No superior verified alternative found in these bounded sources; updated caption asserts samegame context only.",
       "mediaRole": "game_reference",
-      "bookPage": 26,
       "nativeSha256": "2e2214e69b624516d0a01392d18f73605a72e79b72de5aa488b486024e7dd9ce",
       "caption": "Marchand and Pastrnak embrace during Boston’s comeback in Washington.",
       "credit": "Nick Wass / AP",
       "sourceUrl": "https://www.pressherald.com/2021/02/01/bruins-escape-from-three-goal-deficit-for-5-3-win-over-capitals/",
       "url": "images/marchand-games/2020020145-a19-publishing/game.webp?v=46cf8b5ab41e",
-      "thumbnailUrl": "images/marchand-games/2020020145-a19-publishing/game-thumb.webp?v=1079730019e9"
+      "thumbnailUrl": "images/marchand-games/2020020145-a19-publishing/game-thumb.webp?v=1079730019e9",
+      "bookPage": 26
     },
     {
       "inventoryId": 20,
@@ -419,13 +419,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 27,
       "nativeSha256": "191d9d51f9ed08b792e22d3d3208f73530f1382a24bd1c43dbaeaec814163b87",
       "caption": "Marchand in this game.",
       "credit": "Matt Slocum / AP",
       "sourceUrl": "https://www.pressherald.com/2021/02/05/bruins-continue-comeback-streak/",
       "url": "images/marchand-games/2020020174-a20-publishing/game.webp?v=cb08b7c2844b",
-      "thumbnailUrl": "images/marchand-games/2020020174-a20-publishing/game-thumb.webp?v=37a1376828fc"
+      "thumbnailUrl": "images/marchand-games/2020020174-a20-publishing/game-thumb.webp?v=37a1376828fc",
+      "bookPage": 27
     },
     {
       "inventoryId": 21,
@@ -440,13 +440,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Brad face fairly clear but subdued and motion-soft; Pastrnak shoulder occupies much of frame. Seek more expressive face/solo reaction.",
       "mediaRole": "game_reference",
-      "bookPage": 28,
       "nativeSha256": "93890ecd814e75dc2f0ff6df0c040be91be151bcd819344b618a62690a585780",
       "caption": "Marchand celebrates his power-play goal with Pastrnak.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335868630112",
       "url": "images/marchand-games/2021020599-a21-publishing/game.webp?v=8428f9ab941a",
-      "thumbnailUrl": "images/marchand-games/2021020599-a21-publishing/game-thumb.webp?v=50a38ebf000c"
+      "thumbnailUrl": "images/marchand-games/2021020599-a21-publishing/game-thumb.webp?v=50a38ebf000c",
+      "bookPage": 28
     },
     {
       "inventoryId": 22,
@@ -461,13 +461,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Face visible in huddle but profile/half-closed eyes, modest emotion and several faces compete. Seek stronger immediate goal reaction.",
       "mediaRole": "game_reference",
-      "bookPage": 29,
       "nativeSha256": "26c87c4fc85ce68ac7d77d11071f2025752128386cda0089a21339e2e72c7700",
       "caption": "Marchand celebrates the opening goal with teammates.",
       "credit": "Game video still / SPORTSNET",
       "sourceUrl": "https://www.youtube.com/watch?v=M4bWlr8ctP0",
       "url": "images/marchand-games/2021020838-a22-publishing/game.webp?v=2b971d8f40a4",
-      "thumbnailUrl": "images/marchand-games/2021020838-a22-publishing/game-thumb.webp?v=0704be5d1ae7"
+      "thumbnailUrl": "images/marchand-games/2021020838-a22-publishing/game-thumb.webp?v=0704be5d1ae7",
+      "bookPage": 29
     },
     {
       "inventoryId": 23,
@@ -482,13 +482,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 30,
       "nativeSha256": "7671a71c7c8f66ed5e4a70522dd5ac9bd1de40d8fd33c52594f6e000f18b9e60",
       "caption": "Marchand celebrates with his teammates against Winnipeg.",
       "credit": "Game video still / Sportsnet",
       "sourceUrl": "https://www.youtube.com/watch?v=v5EXGYk6rrc",
       "url": "images/marchand-games/perfectionist-20261017-a23/game.png?v=7671a71c7c8f",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a23/game-thumb.webp?v=a3a414d2bf19"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a23/game-thumb.webp?v=a3a414d2bf19",
+      "bookPage": 30
     },
     {
       "inventoryId": 24,
@@ -503,13 +503,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct featured10:34P2goal/event458, replacing archived DeBrusk16:09P1celebration. Fresh official publicHLS supplies native1280x720 (oldMP4links had failed).13.05s gives two recognizable warm faces, Bergeron embracing Brad, lifted Bradglove/stick, before huddleconcealment.675x625exact crop excludes entire scorebug and opponent while preserving both full helmets/faces and Bradsticktip/glove. Bergeron extendedleftforearm continues beyond croppededge.19quarter-second frames and4openingframes plusrecapcompared.",
       "mediaRole": "game_reference",
-      "bookPage": 31,
       "nativeSha256": "3f8092c5762e13b50041c7eeb35d5fbfa3ef1788e11477108eae07256321501e",
       "caption": "Marchand and Bergeron celebrate Marchand's second goal against New Jersey.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335841273112",
       "url": "images/marchand-games/complete-20261018-a24/game.png?v=3f8092c5762e",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a24/game-thumb.webp?v=e63f53476813"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a24/game-thumb.webp?v=e63f53476813",
+      "bookPage": 31
     },
     {
       "inventoryId": 25,
@@ -524,13 +524,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 32,
       "nativeSha256": "18d2edefd935194851fe23a4043b0d1eabe980936ea40309f91b826d39fef15c",
       "caption": "Marchand acknowledges the Bruins bench after his power-play goal.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335809080112",
       "url": "images/marchand-games/perfectionist-20261017-a25/game.png?v=18d2edefd935",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a25/game-thumb.webp?v=345262e86dbd"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a25/game-thumb.webp?v=345262e86dbd",
+      "bookPage": 32
     },
     {
       "inventoryId": 26,
@@ -545,13 +545,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 33,
       "nativeSha256": "2a435e31314841f4e3c12a427bdfb281e1d3554f7f057bf9037e0fe82f161ef2",
       "caption": "Marchand after scoring against Anaheim Ducks.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335784635112",
       "url": "images/marchand-games/2022020644-a26-publishing/game.webp?v=0c113e8856f9",
-      "thumbnailUrl": "images/marchand-games/2022020644-a26-publishing/game-thumb.webp?v=06f5cab65ce6"
+      "thumbnailUrl": "images/marchand-games/2022020644-a26-publishing/game-thumb.webp?v=06f5cab65ce6",
+      "bookPage": 33
     },
     {
       "inventoryId": 27,
@@ -566,13 +566,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 34,
       "nativeSha256": "a70f10bc817f7fa52a20c5f2703aa26b5d97aa8e111ab9a3b50eaa0304cbb74f",
       "caption": "Marchand acknowledges teammates after tying the game in Tampa.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335779350112",
       "url": "images/marchand-games/expressive-20261017-a27/game.png?v=a70f10bc817f",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a27/game-thumb.webp?v=32bb08e258cd"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a27/game-thumb.webp?v=32bb08e258cd",
+      "bookPage": 34
     },
     {
       "inventoryId": 28,
@@ -587,13 +587,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Crowded glove/helmet huddle; Brad only name/back63, face entirely concealed. Need face-bearing reaction.",
       "mediaRole": "game_reference",
-      "bookPage": 35,
       "nativeSha256": "84659aab26e66e573ab48d4208ed1a5ac14de194962ac3a503ed213f48d21054",
       "caption": "Marchand celebrates his goal against Nashville.",
       "credit": "Mark Zaleski / AP",
       "sourceUrl": "https://bostonhockeynow.com/talking-points-boston-bruins-dominate-predators-in-shutout-win//",
       "url": "images/marchand-games/2022020873-a28-publishing/game.webp?v=e6e60da6d05b",
-      "thumbnailUrl": "images/marchand-games/2022020873-a28-publishing/game-thumb.webp?v=aa8e0f949cdd"
+      "thumbnailUrl": "images/marchand-games/2022020873-a28-publishing/game-thumb.webp?v=aa8e0f949cdd",
+      "bookPage": 35
     },
     {
       "inventoryId": 29,
@@ -608,13 +608,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Neutral frontal glide with mild expression, blocky facial compression and cropped foreground helmet. Seek happier/raised-arm moment distinct from711.",
       "mediaRole": "game_reference",
-      "bookPage": 38,
       "nativeSha256": "f4fb4c895d909b9c41c8ba0a0bc9226e653570db497a9867df0dea8c496bc8db",
       "caption": "Marchand celebrates his goal with Pastrnak.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.youtube.com/watch?v=Kb3uQ7K5f-8",
       "url": "images/marchand-games/2022020927-a29-publishing/game.webp?v=6b36ca2ac808",
-      "thumbnailUrl": "images/marchand-games/2022020927-a29-publishing/game-thumb.webp?v=2a8d1a0489ec"
+      "thumbnailUrl": "images/marchand-games/2022020927-a29-publishing/game-thumb.webp?v=2a8d1a0489ec",
+      "bookPage": 38
     },
     {
       "inventoryId": 30,
@@ -629,13 +629,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 39,
       "nativeSha256": "f06980a511cf1372f767a7cdae11205d4815c01af2a1d0f57b463fd2b59080af",
       "caption": "Marchand celebrates his first-period goal with teammates.",
       "credit": "Rich Lam / The Canadian Press via AP",
       "sourceUrl": "https://www.ksl.com/article/sports/nhl/bruins-goaltender-linus-ullmark-scores-into-empty-net/50587641",
       "url": "images/marchand-games/2022020939-a30-publishing/game.webp?v=e526045070ee",
-      "thumbnailUrl": "images/marchand-games/2022020939-a30-publishing/game-thumb.webp?v=4a867abd65f4"
+      "thumbnailUrl": "images/marchand-games/2022020939-a30-publishing/game-thumb.webp?v=4a867abd65f4",
+      "bookPage": 39
     },
     {
       "inventoryId": 31,
@@ -650,13 +650,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 40,
       "nativeSha256": "38184ef43329a27c17e0676c2c341789336cda47dac8e5f82aa2d7478b662ae7",
       "caption": "The Bloody Nose Goal: Marchand celebrates with his linemates.",
       "credit": "Game video still / NBC Sports Washington, via NHL",
       "sourceUrl": "https://www.youtube.com/watch?v=U8jz4S_GZ2k",
       "url": "images/marchand-games/2021020632-a31-publishing/game.webp?v=e7d39c8e8823",
-      "thumbnailUrl": "images/marchand-games/2021020632-a31-publishing/game-thumb.webp?v=58b79bf0a8f2"
+      "thumbnailUrl": "images/marchand-games/2021020632-a31-publishing/game-thumb.webp?v=58b79bf0a8f2",
+      "bookPage": 40
     },
     {
       "inventoryId": 32,
@@ -671,13 +671,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 41,
       "nativeSha256": "64b9bf9556eb5d254e8716838b603b531079ca87cd936fabcce247d98e939624",
       "caption": "Marchand celebrates his goal with the Bruins in Los Angeles.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6339641419112",
       "url": "images/marchand-games/perfectionist-20261017-a32/game.png?v=64b9bf9556eb",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a32/game-thumb.webp?v=fe2c756a6ba2"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a32/game-thumb.webp?v=fe2c756a6ba2",
+      "bookPage": 41
     },
     {
       "inventoryId": 33,
@@ -692,13 +692,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 42,
       "nativeSha256": "48256dd33bd5536c2e8914c1b78d65d05395411bd20625ac21cc931a6f459c74",
       "caption": "Marchand after scoring into the empty net in Anaheim.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6339687417112",
       "url": "images/marchand-games/2023020081-a33-publishing/game.webp?v=071a9a073e8f",
-      "thumbnailUrl": "images/marchand-games/2023020081-a33-publishing/game-thumb.webp?v=5de8ed472388"
+      "thumbnailUrl": "images/marchand-games/2023020081-a33-publishing/game-thumb.webp?v=5de8ed472388",
+      "bookPage": 42
     },
     {
       "inventoryId": 34,
@@ -713,13 +713,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 43,
       "nativeSha256": "60fa2f69173bd599cd5de2693ef2fba456101a87e64939a9b8d5b9f6083fd0f9",
       "caption": "Marchand throws up his arm after scoring in Dallas.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6340644033112",
       "url": "images/marchand-games/2023020178-a34-publishing/game.webp?v=e81fdf945982",
-      "thumbnailUrl": "images/marchand-games/2023020178-a34-publishing/game-thumb.webp?v=626e3454c882"
+      "thumbnailUrl": "images/marchand-games/2023020178-a34-publishing/game-thumb.webp?v=626e3454c882",
+      "bookPage": 43
     },
     {
       "inventoryId": 35,
@@ -734,13 +734,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Both arms/stick raised is animated, but distant rear view hides face and looks generic. Seek close joyful face/bench acknowledgment from same featured goal.",
       "mediaRole": "game_reference",
-      "bookPage": 44,
       "nativeSha256": "4ca9357c07fb0768d7df9cb7b64f2c906ed755d595dbc6ab79426c56c83f4572",
       "caption": "Marchand raises both arms after his power-play goal.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6340973100112",
       "url": "images/marchand-games/2023020212-a35-publishing/game.webp?v=ef443d677ed4",
-      "thumbnailUrl": "images/marchand-games/2023020212-a35-publishing/game-thumb.webp?v=801421b08f68"
+      "thumbnailUrl": "images/marchand-games/2023020212-a35-publishing/game-thumb.webp?v=801421b08f68",
+      "bookPage": 44
     },
     {
       "inventoryId": 36,
@@ -755,14 +755,14 @@
       "galleryPosition": "last",
       "selectionReason": "Pregame portrait, January8 Denver.",
       "mediaRole": "game_reference",
-      "bookPage": 45,
       "nativeSha256": "84293b44fa2db3414ea166c2c66b8d26c50ede90b5f63b3a0371a81069677133",
       "caption": "Marchand before the January 8 game in Denver.",
       "credit": "Isaiah J. Downing / USA TODAY Sports via Reuters",
       "sourceUrl": "https://www.therinklive.com/nhl/valeri-nichushkin-lifts-avs-over-bruins-in-shootout",
       "url": "images/marchand-games/targeted-v2-20261018-a36/game.png?v=84293b44fa2d",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a36/game-thumb.webp?v=e57ff54002d3",
-      "displayLabel": "PREGAME / JAN 8, 2024"
+      "displayLabel": "PREGAME / JAN 8, 2024",
+      "bookPage": 45
     },
     {
       "inventoryId": 37,
@@ -777,13 +777,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 46,
       "nativeSha256": "6d9d71217d73447b9fb50eba5b9d758ea9d82e10803b052feb1aef6f48e25ad6",
       "caption": "Marchand spreads his arms after his game-tying goal.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6344519723112",
       "url": "images/marchand-games/2023020624-a37-publishing/game.webp?v=829ac2438532",
-      "thumbnailUrl": "images/marchand-games/2023020624-a37-publishing/game-thumb.webp?v=2486413e4f6c"
+      "thumbnailUrl": "images/marchand-games/2023020624-a37-publishing/game-thumb.webp?v=2486413e4f6c",
+      "bookPage": 46
     },
     {
       "inventoryId": 38,
@@ -798,13 +798,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Raised glove and face visible but subject is small in broad white-ice shot, limited expression detail. Seek tighter genuine reaction distinct from304/305.",
       "mediaRole": "game_reference",
-      "bookPage": 47,
       "nativeSha256": "be16a8fa2e24c7626d5366867308af798c620fb06e9eb58f9cbc0fb0b051c5d2",
       "caption": "Marchand raises his glove after his 900th NHL point.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6344858410112",
       "url": "images/marchand-games/2023020667-a38-publishing/game.webp?v=61e8a0f99601",
-      "thumbnailUrl": "images/marchand-games/2023020667-a38-publishing/game-thumb.webp?v=db473908a052"
+      "thumbnailUrl": "images/marchand-games/2023020667-a38-publishing/game-thumb.webp?v=db473908a052",
+      "bookPage": 47
     },
     {
       "inventoryId": 39,
@@ -819,13 +819,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 48,
       "nativeSha256": "3eb138ce30119b16e4798b6637d2a369a5158b6fa00204b923b4b7a9f20216ec",
       "caption": "Marchand scores against Carolina.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6345520064112",
       "url": "images/marchand-games/perfectionist-20261017-a39/game.png?v=3eb138ce3011",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a39/game-thumb.webp?v=87f714d92e09"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a39/game-thumb.webp?v=87f714d92e09",
+      "bookPage": 48
     },
     {
       "inventoryId": 40,
@@ -840,13 +840,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Close recognizable profile but slightly soft and ordinary expression; foreground helmet intrudes. Seek fuller smile/arms-up frame.",
       "mediaRole": "game_reference",
-      "bookPage": 49,
       "nativeSha256": "ab37ecc7ffe56e0a91182fc1084313146fc93dd33558c5a3b4e67a74213b5e8a",
       "caption": "Marchand after scoring against Edmonton Oilers.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6347357564112",
       "url": "images/marchand-games/2023020888-a40-publishing/game.webp?v=22078c4b9d4c",
-      "thumbnailUrl": "images/marchand-games/2023020888-a40-publishing/game-thumb.webp?v=8e47dc586ed8"
+      "thumbnailUrl": "images/marchand-games/2023020888-a40-publishing/game-thumb.webp?v=8e47dc586ed8",
+      "bookPage": 49
     },
     {
       "inventoryId": 41,
@@ -861,13 +861,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 50,
       "nativeSha256": "09910b057c66444aaa4249bfdc1dc27371e327262092bb21c3d28c03f6fd39be",
       "caption": "Marchand celebrates his shorthanded goal with Charlie Coyle.",
       "credit": "Justin Berl / Getty Images",
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2023021279-a41-publishing/game.webp?v=142d999d4d28",
-      "thumbnailUrl": "images/marchand-games/2023021279-a41-publishing/game-thumb.webp?v=6d53aee04f16"
+      "thumbnailUrl": "images/marchand-games/2023021279-a41-publishing/game-thumb.webp?v=6d53aee04f16",
+      "bookPage": 50
     },
     {
       "inventoryId": 42,
@@ -882,13 +882,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 51,
       "nativeSha256": "8baad74e91a4d0ec6ab88c7dd751726fe4fbc72de87948aef31024e064918052",
       "caption": "Marchand in this game.",
       "credit": "Karl B DeBlaker / AP",
       "sourceUrl": "https://www.pressherald.com/2024/10/31/bruins-lose-to-hurricanes-fall-to-1-4-1-in-last-six-games/",
       "url": "images/marchand-games/2024020165-a42-publishing/game.webp?v=f48f8cae6762",
-      "thumbnailUrl": "images/marchand-games/2024020165-a42-publishing/game-thumb.webp?v=6a6b240d39dd"
+      "thumbnailUrl": "images/marchand-games/2024020165-a42-publishing/game-thumb.webp?v=6a6b240d39dd",
+      "bookPage": 51
     },
     {
       "inventoryId": 43,
@@ -903,13 +903,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Brad face technically visible but dark and squeezed against crop edge; Peeke foreground steals space. Prior identification improvement does not make this an exceptional picture.",
       "mediaRole": "game_reference",
-      "bookPage": 52,
       "nativeSha256": "18b04bb9dd083a9c646bf023fc8d1cabfd4567673f9070fdd12e7ef3b1b81a74",
       "caption": "Marchand celebrates his goal with the Bruins in Detroit.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6365112024112",
       "url": "images/marchand-games/perfectionist-20261017-a43/game.png?v=18b04bb9dd08",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a43/game-thumb.webp?v=64c5e70f09f5"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a43/game-thumb.webp?v=64c5e70f09f5",
+      "bookPage": 52
     },
     {
       "inventoryId": 44,
@@ -924,13 +924,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 53,
       "nativeSha256": "a71dcc7bfc336afaac4ccd4b13c347fec418bb8986e596b1fed67ea0e7f3cd1c",
       "caption": "Marchand points after the first of his two Chicago goals.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6365563138112",
       "url": "images/marchand-games/2024020407-a44-publishing/game.webp?v=93d555cad33f",
-      "thumbnailUrl": "images/marchand-games/2024020407-a44-publishing/game-thumb.webp?v=4e1708e3155a"
+      "thumbnailUrl": "images/marchand-games/2024020407-a44-publishing/game-thumb.webp?v=4e1708e3155a",
+      "bookPage": 53
     },
     {
       "inventoryId": 45,
@@ -945,13 +945,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct featured secondgoal at5:03P2, replacing archived celebration of firstgoal2:58P2. Clear frontal Brad/Pastrnak embrace; softer real broadcast detail is accepted for complete coverage. Score graphic excluded by exact native crop. Source event568 verified in official landing; neighboring44firstgoalpoint remains distinct.322/342partners coordinated withphoto_b toavoid samehug.",
       "mediaRole": "game_reference",
-      "bookPage": 54,
       "nativeSha256": "d4e3503b866af6af3eb135e7e26532fe85943f61339a1b85c2b2b5f7dcff53f4",
       "caption": "Marchand and Pastrnak embrace after the winning goal in Chicago.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6365562065112",
       "url": "images/marchand-games/complete-20261018-a45/game.png?v=d4e3503b866a",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a45/game-thumb.webp?v=e798e90daa0d"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a45/game-thumb.webp?v=e798e90daa0d",
+      "bookPage": 54
     },
     {
       "inventoryId": 46,
@@ -966,13 +966,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Bench glove acknowledgment is relevant but face small/profile and blurred. Seek cleaner expressive moment, distinct from321.",
       "mediaRole": "game_reference",
-      "bookPage": 55,
       "nativeSha256": "fe44a6b04afdef4f080b743de50c6ecebd4f46d3e6bb970ac91b97d19620c937",
       "caption": "Marchand celebrates his penalty-shot goal against Seattle.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6365935071112",
       "url": "images/marchand-games/2024020472-a46-publishing/game.webp?v=f8be76830f3d",
-      "thumbnailUrl": "images/marchand-games/2024020472-a46-publishing/game-thumb.webp?v=0b418b58ebd8"
+      "thumbnailUrl": "images/marchand-games/2024020472-a46-publishing/game-thumb.webp?v=0b418b58ebd8",
+      "bookPage": 55
     },
     {
       "inventoryId": 47,
@@ -987,13 +987,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Top/back of helmet and ordinary glide; no readable face or emotional payoff.",
       "mediaRole": "game_reference",
-      "bookPage": 56,
       "nativeSha256": "363e4c0f36e04c70b0c6636c6e94ff00cf6ea4bb1b93b382a6f32b553c35eeb2",
       "caption": "Marchand lifts his glove after scoring against Tampa Bay.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://nhl.com/video/tbl-bos-marchand-scores-goal-against-andrei-vasilevskiy-6367102316112",
       "url": "images/marchand-games/2024020692-a47-publishing/game.webp?v=db74c8733633",
-      "thumbnailUrl": "images/marchand-games/2024020692-a47-publishing/game-thumb.webp?v=4088f3d90d73"
+      "thumbnailUrl": "images/marchand-games/2024020692-a47-publishing/game-thumb.webp?v=4088f3d90d73",
+      "bookPage": 56
     },
     {
       "inventoryId": 48,
@@ -1008,13 +1008,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Face/profile visible but compressed/soft with neutral expression; no distinctive celebration gesture.",
       "mediaRole": "game_reference",
-      "bookPage": 57,
       "nativeSha256": "9a06307514422841cedff448a2da897bd08b576a061d830823187c69e74e5ade",
       "caption": "Marchand after scoring against Buffalo Sabres.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://nhl.com/video/bos-buf-marchand-scores-goal-against-ukko-pekka-luukkonen-6367919930112",
       "url": "images/marchand-games/2024020799-a48-publishing/game.webp?v=3ffe883d7fc5",
-      "thumbnailUrl": "images/marchand-games/2024020799-a48-publishing/game-thumb.webp?v=7355e50cae34"
+      "thumbnailUrl": "images/marchand-games/2024020799-a48-publishing/game-thumb.webp?v=7355e50cae34",
+      "bookPage": 57
     },
     {
       "inventoryId": 50,
@@ -1029,13 +1029,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 58,
       "nativeSha256": "44c2c30086e6d1a7fac396c5019fe9b037c512a79bb4f95932bbfb897d3e8900",
       "caption": "Marchand and Bergeron celebrate the overtime victory.",
       "credit": "Tom Mihalek / AP",
       "sourceUrl": "https://www.ctinsider.com/news/article/Bruins-Shock-Flyers-3-2-in-Overtime-to-Take-2-0-12055146.php",
       "url": "images/marchand-games/2010030222-a50-publishing/game.webp?v=b0bdbc7ffbc0",
-      "thumbnailUrl": "images/marchand-games/2010030222-a50-publishing/game-thumb.webp?v=643f12eff7c3"
+      "thumbnailUrl": "images/marchand-games/2010030222-a50-publishing/game-thumb.webp?v=643f12eff7c3",
+      "bookPage": 58
     },
     {
       "inventoryId": 51,
@@ -1050,13 +1050,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 59,
       "nativeSha256": "10ae1aef51f7873a44c2dc3550f5bf3c8701473bf369b96710127fd0a35dd9bb",
       "caption": "Marchand celebrates his late game-winning goal.",
       "credit": "Jana Chytilova / Freestyle Photo / Getty Images",
       "sourceUrl": "https://www.nhl.com/news/boston-bruins-ottawa-senators-game-1-recap-288725314",
       "url": "images/marchand-games/2016030121-a51-publishing/game.webp?v=71947c9defb0",
-      "thumbnailUrl": "images/marchand-games/2016030121-a51-publishing/game-thumb.webp?v=85be950dbf3d"
+      "thumbnailUrl": "images/marchand-games/2016030121-a51-publishing/game-thumb.webp?v=85be950dbf3d",
+      "bookPage": 59
     },
     {
       "inventoryId": 52,
@@ -1071,13 +1071,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 60,
       "nativeSha256": "227a4dea206a0b7dffdc9dc09b3ff78c10f1288b19f3ec55e1983007f338710c",
       "caption": "Marchand celebrates his goal with Marcus Johansson.",
       "credit": "Frank Gunn / The Canadian Press via AP",
       "sourceUrl": "https://www.pressherald.com/2019/04/21/bruins-force-game-7-with-4-2-win/",
       "url": "images/marchand-games/2018030126-a52-publishing/game.webp?v=bd3b8a659af0",
-      "thumbnailUrl": "images/marchand-games/2018030126-a52-publishing/game-thumb.webp?v=1ae7f8208b17"
+      "thumbnailUrl": "images/marchand-games/2018030126-a52-publishing/game-thumb.webp?v=1ae7f8208b17",
+      "bookPage": 60
     },
     {
       "inventoryId": 53,
@@ -1092,13 +1092,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 61,
       "nativeSha256": "4f394a204559be05faa791220db8215f02a96455727f337aa7230091d6b1a018",
       "caption": "Marchand is congratulated after his go-ahead goal.",
       "credit": "Elsa / Getty Images",
       "sourceUrl": "https://www.cbsnews.com/boston/news/jake-debrusk-charlie-mcavoy-awaken-bruins-alter-scope-hurricanes-series/",
       "url": "images/marchand-games/2019030144-a53-publishing/game.webp?v=e0088f6744c4",
-      "thumbnailUrl": "images/marchand-games/2019030144-a53-publishing/game-thumb.webp?v=df360e6d7ef8"
+      "thumbnailUrl": "images/marchand-games/2019030144-a53-publishing/game-thumb.webp?v=df360e6d7ef8",
+      "bookPage": 61
     },
     {
       "inventoryId": 54,
@@ -1113,13 +1113,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 62,
       "nativeSha256": "a216d822b0a4c1be70dae6697cf8e6fbfd81dbb30de851350658c6ffad40d675",
       "caption": "Marchand celebrates his power-play goal with Bergeron.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335945941112",
       "url": "images/marchand-games/2019030222-a54-publishing/game.webp?v=4982d770a32f",
-      "thumbnailUrl": "images/marchand-games/2019030222-a54-publishing/game-thumb.webp?v=8c2fa315d205"
+      "thumbnailUrl": "images/marchand-games/2019030222-a54-publishing/game-thumb.webp?v=8c2fa315d205",
+      "bookPage": 62
     },
     {
       "inventoryId": 55,
@@ -1134,13 +1134,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 63,
       "nativeSha256": "5aa9b6f3d596a75fc9b0f9a4c39da2673262e87d29e1d21072e15287281db778",
       "caption": "Marchand celebrates his power-play goal with teammates.",
       "credit": "Michael Dwyer / AP",
       "sourceUrl": "https://www.click2houston.com/sports/2021/05/22/bruins-score-3-ppg-beat-capitals-4-1-for-3-1-series-lead/",
       "url": "images/marchand-games/2020030124-a55-publishing/game.webp?v=c5d81624302f",
-      "thumbnailUrl": "images/marchand-games/2020030124-a55-publishing/game-thumb.webp?v=0cacbdcdb2bb"
+      "thumbnailUrl": "images/marchand-games/2020030124-a55-publishing/game-thumb.webp?v=0cacbdcdb2bb",
+      "bookPage": 63
     },
     {
       "inventoryId": 56,
@@ -1155,35 +1155,14 @@
       "galleryPosition": "last",
       "selectionReason": "Featured first-period power-play goal bench celebration, Game4 April23.",
       "mediaRole": "game_reference",
-      "bookPage": 64,
       "nativeSha256": "8c740253e3f3555f9c42b21b9ca69d5d70bd5128ac8eb37bc8570ca5c19be5bd",
       "caption": "Marchand exchanges fist bumps with the Bruins bench after his first-period power-play goal in Game 4.",
       "credit": "Eliot J. Schechter / NHLI via Getty Images",
       "sourceUrl": "https://www.cbsnews.com/boston/news/brad-marchand-live-microphones-benches-during-nhl-games/",
       "url": "images/marchand-games/targeted-v2-20261018-a56/game.png?v=8c740253e3f3",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a56/game-thumb.webp?v=ee9e04a17470",
-      "displayLabel": "GOAL CELEBRATION / APR 23, 2023"
-    },
-    {
-      "inventoryId": 57,
-      "collectionRecordKey": "goal-57",
-      "canonicalSheet": "Goals & Games",
-      "canonicalIdCell": "A58",
-      "assetId": "2024020086-a57-publishing",
-      "artifactDate": "2024-10-19",
-      "photoDate": "2024-10-19",
-      "displaySelected": true,
-      "selectionStatus": "selected",
-      "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
-      "mediaRole": "game_reference",
-      "bookPage": 65,
-      "nativeSha256": "b96d6d155ab503179f7b32f72c11dd72ce23508e17427fab9ff46add90737f68",
-      "caption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
-      "credit": "Spenser Heaps / AP",
-      "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
-      "url": "images/marchand-games/2024020086-a57-publishing/game.webp?v=fa775a188ef9",
-      "thumbnailUrl": "images/marchand-games/2024020086-a57-publishing/game-thumb.webp?v=1b96ae89e06c"
+      "displayLabel": "GOAL CELEBRATION / APR 23, 2023",
+      "bookPage": 64
     },
     {
       "inventoryId": 58,
@@ -1198,13 +1177,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 66,
       "nativeSha256": "c1df246be32a094328870ebf82069c628fc013b21ad8be8de21770c506b4f06d",
       "caption": "Marchand celebrates his first-period goal against Sweden.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6368734035112",
       "url": "images/marchand-games/expressive-20261017-a58/game.png?v=c1df246be32a",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a58/game-thumb.webp?v=13129ff77157"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a58/game-thumb.webp?v=13129ff77157",
+      "bookPage": 65
     },
     {
       "inventoryId": 59,
@@ -1219,13 +1198,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Accurate featured-assist huddle but Brad is only close back of helmet63; Luostarinen face also bent down. Need genuine face-bearing moment from same goal or distinct dated goal photo.",
       "mediaRole": "game_reference",
-      "bookPage": 67,
       "nativeSha256": "725736d9b36d626d7b57ef03b5832494a72d41446dbee3f31a73c1cc6cac3ab1",
       "caption": "Marchand embraces Luostarinen after assisting his go-ahead goal in Boston.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6383495592112",
       "url": "images/marchand-games/perfectionist-20261017-a59/game.png?v=725736d9b36d",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a59/game-thumb.webp?v=66725cc495d6"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a59/game-thumb.webp?v=66725cc495d6",
+      "bookPage": 66
     },
     {
       "inventoryId": 60,
@@ -1240,13 +1219,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Close-net event is relevant, but Brad is small/back-facing and soft; seek his immediate face-forward reaction or a crisp goal-side photo.",
       "mediaRole": "game_reference",
-      "bookPage": 68,
       "nativeSha256": "438bdad26d08bef57025ea9ce72f0aea431c45f4045e68ae89603559d6642f5c",
       "caption": "Marchand scores at the crease against Florida.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a60-publishing/game.webp?v=4dc292af60b9",
-      "thumbnailUrl": "images/marchand-games/2023020130-a60-publishing/game-thumb.webp?v=1ddd4954b5c3"
+      "thumbnailUrl": "images/marchand-games/2023020130-a60-publishing/game-thumb.webp?v=1ddd4954b5c3",
+      "bookPage": 67
     },
     {
       "inventoryId": 61,
@@ -1261,13 +1240,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 69,
       "nativeSha256": "cfec941d6ce320831474d6d7bd3b35172a5e63f0d22409e806d72e0af6f824c7",
       "caption": "Marchand in this game.",
       "credit": "Source: Portland Press Herald archive",
       "sourceUrl": "https://www.pressherald.com/2018/01/23/bruins-top-devils-as-point-streak-hits-17-games/",
       "url": "images/marchand-games/2017020732-a61-publishing/game.webp?v=d5241214bafe",
-      "thumbnailUrl": "images/marchand-games/2017020732-a61-publishing/game-thumb.webp?v=198a8e54f84d"
+      "thumbnailUrl": "images/marchand-games/2017020732-a61-publishing/game-thumb.webp?v=198a8e54f84d",
+      "bookPage": 68
     },
     {
       "inventoryId": 62,
@@ -1282,13 +1261,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Raised stick is good, but Brad is small and broadcast detail/expression modest; seek a tighter excited face or bench acknowledgement.",
       "mediaRole": "game_reference",
-      "bookPage": 70,
       "nativeSha256": "1cf5a1cbfea20059230a0a81dac8d5aa52d980b91e43b2a7cf77451dca24af79",
       "caption": "Marchand raises his stick after the Detroit wraparound.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6382819193112",
       "url": "images/marchand-games/perfectionist-20261017-a62/game.png?v=1cf5a1cbfea2",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a62/game-thumb.webp?v=062e6a5c7364"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a62/game-thumb.webp?v=062e6a5c7364",
+      "bookPage": 69
     },
     {
       "inventoryId": 63,
@@ -1303,13 +1282,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Back of helmet and cropped lower body in mostly empty ice; face/emotion absent and gesture too small.",
       "mediaRole": "game_reference",
-      "bookPage": 71,
       "nativeSha256": "b9dde739a765d07f93ed8a030ee3b9400568fac20affbe64017946e09a8ac889",
       "caption": "Marchand lifts his glove after scoring in Anaheim.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6384535250112",
       "url": "images/marchand-games/2025020211-a63-publishing/game.webp?v=5c857ececb3b",
-      "thumbnailUrl": "images/marchand-games/2025020211-a63-publishing/game-thumb.webp?v=33eb60e2be06"
+      "thumbnailUrl": "images/marchand-games/2025020211-a63-publishing/game-thumb.webp?v=33eb60e2be06",
+      "bookPage": 70
     },
     {
       "inventoryId": 64,
@@ -1324,13 +1303,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 72,
       "nativeSha256": "7e8f3ab4337ee1889fc6e5409ff8c005686f44de9c2df3abbd5c8b3b1180fbab",
       "caption": "Marchand smiles after his second goal against Los Angeles.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6384776227112",
       "url": "images/marchand-games/expressive-20261017-a64/game.png?v=7e8f3ab4337e",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a64/game-thumb.webp?v=642f3319a118"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a64/game-thumb.webp?v=642f3319a118",
+      "bookPage": 71
     },
     {
       "inventoryId": 65,
@@ -1345,13 +1324,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 73,
       "nativeSha256": "21f7ebace4c83e65928685f44026eb7410c6d5aa7415a1a99013177e1fe7b3c3",
       "caption": "Marchand celebrates with his Panthers teammates against Vancouver.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-vs-vancouver-canucks-11-17-2025",
       "url": "images/marchand-games/2025020303-a65-publishing/game.webp?v=e9345b738948",
-      "thumbnailUrl": "images/marchand-games/2025020303-a65-publishing/game-thumb.webp?v=13f3c75932e6"
+      "thumbnailUrl": "images/marchand-games/2025020303-a65-publishing/game-thumb.webp?v=13f3c75932e6",
+      "bookPage": 72
     },
     {
       "inventoryId": 66,
@@ -1366,13 +1345,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Open-mouth reaction is promising, but the frame is soft and a foreground stick cuts through the helmet/face area; seek a cleaner, sharper adjacent expression.",
       "mediaRole": "game_reference",
-      "bookPage": 74,
       "nativeSha256": "aaaddd125088fabab45872b918096348c216886fc337038a920827a356f38610",
       "caption": "Marchand reacts after tipping in the goal against Tampa Bay.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6386533077112",
       "url": "images/marchand-games/2025020514-a66-publishing/game.webp?v=4463dadb971c",
-      "thumbnailUrl": "images/marchand-games/2025020514-a66-publishing/game-thumb.webp?v=ff50ed25f542"
+      "thumbnailUrl": "images/marchand-games/2025020514-a66-publishing/game-thumb.webp?v=ff50ed25f542",
+      "bookPage": 73
     },
     {
       "inventoryId": 67,
@@ -1385,15 +1364,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
+      "selectionReason": "Source-caption-verified empty-net goal celebration.",
       "mediaRole": "game_reference",
-      "bookPage": 75,
-      "nativeSha256": "d16494e3c2f3b38ac0ea2daccde9e44511d8d9d1dd295a3bf3f04d1140b998be",
-      "caption": "Marchand celebrates in Game 7.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-7-florida-panthers-at-toronto-maple-leafs-5-18-2025",
-      "url": "images/marchand-games/perfectionist-20261017-a67/game.png?v=d16494e3c2f3",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a67/game-thumb.webp?v=cecaf7461a36"
+      "nativeSha256": "4c2481187f55c043ed917ebe1561480b637ec3e7cae1941da55eaf971d3612a2",
+      "caption": "Marchand celebrates his empty-net goal with Forsling in Game 7.",
+      "credit": "Frank Gunn/The Canadian Press",
+      "sourceUrl": "https://www.sportsnet.ca/nhl/article/brad-marchand-has-message-for-panthers-gm-give-me-a-contract/",
+      "url": "images/marchand-games/identity-v3-20261018-a67/game.png?v=4c2481187f55",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a67/game-thumb.webp?v=da497033774a",
+      "displayLabel": "GAME 7 EMPTY-NET GOAL / MAY 18, 2025",
+      "bookPage": 74
     },
     {
       "inventoryId": 68,
@@ -1408,13 +1388,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 76,
       "nativeSha256": "51298e5b1b4f935a3df22ec67f53514ec0f577b897d43300cc62fa66a9898ac7",
       "caption": "Marchand and Tkachuk against Minnesota.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-minnesota-wild-1-24-2026",
       "url": "images/marchand-games/perfectionist-20261017-a68/game.png?v=51298e5b1b4f",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a68/game-thumb.webp?v=8f45f0e1864c"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a68/game-thumb.webp?v=8f45f0e1864c",
+      "bookPage": 75
     },
     {
       "inventoryId": 69,
@@ -1429,13 +1409,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Bench moment has personality, but image is dark, low-native-resolution and visually crowded with sticks; seek brighter smiling/high-five reaction.",
       "mediaRole": "game_reference",
-      "bookPage": 77,
       "nativeSha256": "85f12bf38a7481e09e7379bb645d807754e4cffa874d8481231411c590734eac",
       "caption": "Marchand on the bench after his goal in Columbus.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6336056615112",
       "url": "images/marchand-games/2018021074-a69-publishing/game.webp?v=61490d9363e4",
-      "thumbnailUrl": "images/marchand-games/2018021074-a69-publishing/game-thumb.webp?v=dce928c56c02"
+      "thumbnailUrl": "images/marchand-games/2018021074-a69-publishing/game-thumb.webp?v=dce928c56c02",
+      "bookPage": 76
     },
     {
       "inventoryId": 70,
@@ -1450,13 +1430,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Readable face and hint of smile, but flat generic skating and soft broadcast texture do not meet the emotional benchmark.",
       "mediaRole": "game_reference",
-      "bookPage": 78,
       "nativeSha256": "b06c5edc023adf0b774cbd277b474e1a2405fede71c3ba6b57bb77f2959bcafe",
       "caption": "Marchand after his goal against Arizona.",
       "credit": "Video still: NHL / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=Lrz7NP9ShfE",
       "url": "images/marchand-games/2017020072-a70-publishing/game.webp?v=775c9d0e7000",
-      "thumbnailUrl": "images/marchand-games/2017020072-a70-publishing/game-thumb.webp?v=64445dbd6bb9"
+      "thumbnailUrl": "images/marchand-games/2017020072-a70-publishing/game-thumb.webp?v=64445dbd6bb9",
+      "bookPage": 77
     },
     {
       "inventoryId": 71,
@@ -1471,13 +1451,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Net-side raised-arm goal moment is useful, but it shows mostly his back and clips the gesture; seek next front/three-quarter reaction.",
       "mediaRole": "game_reference",
-      "bookPage": 79,
       "nativeSha256": "5182358aac237ad3236c347217b27724ac216cea8e1821bbb9391a5843f7b3ca",
       "caption": "Marchand celebrates beside the Rangers net.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336076629112",
       "url": "images/marchand-games/2018020742-a71-publishing/game.webp?v=72fea751657f",
-      "thumbnailUrl": "images/marchand-games/2018020742-a71-publishing/game-thumb.webp?v=65943ccf1c58"
+      "thumbnailUrl": "images/marchand-games/2018020742-a71-publishing/game-thumb.webp?v=65943ccf1c58",
+      "bookPage": 78
     },
     {
       "inventoryId": 72,
@@ -1492,13 +1472,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 80,
       "nativeSha256": "10a4506185671798bacfccc34700b72805fe637c9866fb13009e7a084ac67165",
       "caption": "Marchand celebrates his game-tying goal.",
       "credit": "Video still: NHL Fans / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=Ws_joIaCCQE",
       "url": "images/marchand-games/2016020331-a72-publishing/game.webp?v=61afacf5bac0",
-      "thumbnailUrl": "images/marchand-games/2016020331-a72-publishing/game-thumb.webp?v=5d81ac00e185"
+      "thumbnailUrl": "images/marchand-games/2016020331-a72-publishing/game-thumb.webp?v=5d81ac00e185",
+      "bookPage": 79
     },
     {
       "inventoryId": 73,
@@ -1513,13 +1493,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Small profile and muted gesture behind a diagonal glass cable; seek a more joyful, clear close-up or high five.",
       "mediaRole": "game_reference",
-      "bookPage": 81,
       "nativeSha256": "56e17f35d68fcc9386ab990685fc359fa490f95a8c83e3ad5f524fc7d62b9c2f",
       "caption": "Marchand raises his glove after the power-play goal.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6336094453112",
       "url": "images/marchand-games/2018020456-a73-publishing/game.webp?v=0b846a0a78dd",
-      "thumbnailUrl": "images/marchand-games/2018020456-a73-publishing/game-thumb.webp?v=31f0c9dc7e35"
+      "thumbnailUrl": "images/marchand-games/2018020456-a73-publishing/game-thumb.webp?v=31f0c9dc7e35",
+      "bookPage": 80
     },
     {
       "inventoryId": 74,
@@ -1534,13 +1514,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 82,
       "nativeSha256": "11e6dbb3712d4bea962a5dc55d4f1a3f0aa57fd86c28f3ed3751b37012554bef",
       "caption": "Marchand in this game.",
       "credit": "Michael Dwyer / AP",
       "sourceUrl": "https://www.pressherald.com/2018/12/24/tom-caron-christmas-gifts-for-boston-sports-teams-2/",
       "url": "images/marchand-games/2018020545-a74-publishing/game.webp?v=48d171906785",
-      "thumbnailUrl": "images/marchand-games/2018020545-a74-publishing/game-thumb.webp?v=d873d2d5f922"
+      "thumbnailUrl": "images/marchand-games/2018020545-a74-publishing/game-thumb.webp?v=d873d2d5f922",
+      "bookPage": 81
     },
     {
       "inventoryId": 75,
@@ -1555,13 +1535,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Marchand is readable but subdued in a crowded, soft huddle; neutral faces and foreground helmet reduce impact.",
       "mediaRole": "game_reference",
-      "bookPage": 83,
       "nativeSha256": "af07f6c663cc38ff5ca5acb7452060b056a47806dfa0c1cef8a29a84d3aa2dfd",
       "caption": "Marchand celebrates one of his two goals against Buffalo.",
       "credit": "Video still: NHL / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=mjV9WiRIy64",
       "url": "images/marchand-games/2019020333-a75-publishing/game.webp?v=dec1ffe9059f",
-      "thumbnailUrl": "images/marchand-games/2019020333-a75-publishing/game-thumb.webp?v=8380236033b5"
+      "thumbnailUrl": "images/marchand-games/2019020333-a75-publishing/game-thumb.webp?v=8380236033b5",
+      "bookPage": 82
     },
     {
       "inventoryId": 76,
@@ -1576,13 +1556,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 84,
       "nativeSha256": "8e8d8d9a8825d83b496be0812e7226a42dac6d2eb15aabe65f4a1a8cc3cde69a",
       "caption": "Marchand joins Bergeron's overtime goal celebration.",
       "credit": "Winslow Townson / AP",
       "sourceUrl": "https://www.boston25news.com/sports/photos-patrice/VTVYWZZNJ5HZHI2GOVSYLHIYVM/",
       "url": "images/marchand-games/2018020838-a76-publishing/game.webp?v=22ec5f4c27d4",
-      "thumbnailUrl": "images/marchand-games/2018020838-a76-publishing/game-thumb.webp?v=105448f8154b"
+      "thumbnailUrl": "images/marchand-games/2018020838-a76-publishing/game-thumb.webp?v=105448f8154b",
+      "bookPage": 83
     },
     {
       "inventoryId": 77,
@@ -1597,13 +1577,13 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Quiet, dim two-player embrace; Brad expression is subdued and video detail soft; seek more animated acknowledgement.",
       "mediaRole": "game_reference",
-      "bookPage": 85,
       "nativeSha256": "4d94f267f5cda5d4b08320d888822fef26f456fa8dd4823ec34cabf30be897c2",
       "caption": "Marchand with Bergeron after the empty-net goal in Montreal.",
       "credit": "Video still: NHL / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=9aJaUfl2O_Q",
       "url": "images/marchand-games/2015020686-a77-publishing/game.webp?v=7066807fd543",
-      "thumbnailUrl": "images/marchand-games/2015020686-a77-publishing/game-thumb.webp?v=e60a245c6c93"
+      "thumbnailUrl": "images/marchand-games/2015020686-a77-publishing/game-thumb.webp?v=e60a245c6c93",
+      "bookPage": 84
     },
     {
       "inventoryId": 301,
@@ -1618,13 +1598,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 88,
       "nativeSha256": "e4c3f7d4ed63ccd228c50bfa58f84c9578fd4e787e0f80ebea19799fe10584ef",
       "caption": "Marchand laughs with his 2011 championship teammates.",
       "credit": "Steve Babineau / NHLI via Getty Images",
       "sourceUrl": "https://www.nhl.com/bruins/multimedia/galleries/return-of-a-champion-ceremony-photos",
       "url": "images/marchand-games/expressive-20261017-a301/game.png?v=e4c3f7d4ed63",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a301/game-thumb.webp?v=49718c67a29c"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a301/game-thumb.webp?v=49718c67a29c",
+      "bookPage": 87
     },
     {
       "inventoryId": 302,
@@ -1639,13 +1619,13 @@
       "galleryPosition": "last",
       "selectionReason": "Brad in McAvoy milestone-goal hug; back/side profile, small native source. Correct documentary context, limited facial expression.",
       "mediaRole": "game_reference",
-      "bookPage": 89,
       "nativeSha256": "eddc9fe59dffe674fa2056039ebde5e921e89a746451aa1159e87c0f3d45ee07",
       "caption": "Marchand celebrates the McAvoy goal that brought his 500th career assist.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6341411012112",
       "url": "images/marchand-games/2023020258-a302-publishing/game.webp?v=edf34f5ee1d4",
-      "thumbnailUrl": "images/marchand-games/2023020258-a302-publishing/game-thumb.webp?v=4d787bfaadd4"
+      "thumbnailUrl": "images/marchand-games/2023020258-a302-publishing/game-thumb.webp?v=4d787bfaadd4",
+      "bookPage": 88
     },
     {
       "inventoryId": 303,
@@ -1660,14 +1640,14 @@
       "galleryPosition": "last",
       "selectionReason": "Same-game FIRST-period goal celebration. The artifact899th point is from his SECOND goal; do not conflate the photo with the milestone moment.",
       "mediaRole": "game_reference",
-      "bookPage": 90,
       "nativeSha256": "1f97ba22a4fcd14495fbd1b062548984880bc1e262ed5ccb1aae50ca21a9690f",
       "caption": "Marchand celebrates his first-period goal with teammates in the same game.",
       "credit": "Isaiah J. Downing / USA TODAY Sports via Reuters",
       "sourceUrl": "https://www.therinklive.com/nhl/valeri-nichushkin-lifts-avs-over-bruins-in-shootout",
       "url": "images/marchand-games/targeted-v2-20261018-a303/game.png?v=1f97ba22a4fc",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a303/game-thumb.webp?v=cc1ec0bd7664",
-      "displayLabel": "FIRST-PERIOD CELEBRATION / JAN 8, 2024"
+      "displayLabel": "FIRST-PERIOD CELEBRATION / JAN 8, 2024",
+      "bookPage": 89
     },
     {
       "inventoryId": 304,
@@ -1682,13 +1662,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 91,
       "nativeSha256": "2e8c4d223a8012b3a12afd9651286a400caba26a29a1d7c3d8b8b1f512624f05",
       "caption": "Marchand raises his glove after scoring for career point No. 900.",
       "credit": "Rick Ulreich / Icon Sportswire via Getty Images",
       "sourceUrl": "https://www.nhl.com/bruins/news/brad-marchand-through-the-years",
       "url": "images/marchand-games/expressive-20261017-a304/game.png?v=2e8c4d223a80",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a304/game-thumb.webp?v=9c1165215ef4"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a304/game-thumb.webp?v=9c1165215ef4",
+      "bookPage": 90
     },
     {
       "inventoryId": 305,
@@ -1703,14 +1683,14 @@
       "galleryPosition": "last",
       "selectionReason": "900th career point celebration with DeBrusk and McAvoy, January13.",
       "mediaRole": "game_reference",
-      "bookPage": 92,
       "nativeSha256": "06e5f66714155113d3702a348a7126636d8135251755a57aacb3799b65c752da",
       "caption": "Marchand celebrates his 900th career point with Jake DeBrusk and Charlie McAvoy.",
       "credit": "Jeff Curry / USA TODAY Sports via Reuters",
       "sourceUrl": "https://www.therinklive.com/nhl/charlie-mcavoy-nets-ot-winner-as-bruins-knock-off-blues",
       "url": "images/marchand-games/targeted-v2-20261018-a305/game.png?v=06e5f6671415",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a305/game-thumb.webp?v=5f2d5058f741",
-      "displayLabel": "900TH CAREER POINT / JAN 13, 2024"
+      "displayLabel": "900TH CAREER POINT / JAN 13, 2024",
+      "bookPage": 91
     },
     {
       "inventoryId": 306,
@@ -1725,13 +1705,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 93,
       "nativeSha256": "d98e2c05f8bec865a0df5089fcef5ba169ad75040cf61fe14341e50f9a867aa2",
       "caption": "Marchand skates against David Savard.",
       "credit": "Maddie Meyer / Getty Images",
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2023020710-a306-publishing/game.webp?v=02a5b6ce75c1",
-      "thumbnailUrl": "images/marchand-games/2023020710-a306-publishing/game-thumb.webp?v=7c99a52e55cb"
+      "thumbnailUrl": "images/marchand-games/2023020710-a306-publishing/game-thumb.webp?v=7c99a52e55cb",
+      "bookPage": 92
     },
     {
       "inventoryId": 307,
@@ -1746,13 +1726,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 94,
       "nativeSha256": "db1d13afb5305de48f10e2dc28c134b667be99244fd21b6f48832a9ac0f24f62",
       "caption": "Marchand in this game.",
       "credit": "Adrian Wyld / The Canadian Press via AP",
       "sourceUrl": "https://www.pressherald.com/2024/01/25/brad-marchands-overtime-goal-lifts-bruins-to-3-2-victory-over-senators/",
       "url": "images/marchand-games/2023020749-a307-publishing/game.webp?v=c9538ed3ac21",
-      "thumbnailUrl": "images/marchand-games/2023020749-a307-publishing/game-thumb.webp?v=ca490aa9dcfe"
+      "thumbnailUrl": "images/marchand-games/2023020749-a307-publishing/game-thumb.webp?v=ca490aa9dcfe",
+      "bookPage": 93
     },
     {
       "inventoryId": 308,
@@ -1767,13 +1747,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 95,
       "nativeSha256": "8fb915ab62d87ffea61c94c970fa47be10cf22d9195a3ce98420b2debbe38cdf",
       "caption": "Marchand in this game.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.pressherald.com/2024/02/13/lightning-beat-bruins-as-brad-marchand-plays-1000th-career-game/",
       "url": "images/marchand-games/2023020823-a308-publishing/game.webp?v=2f3ffb759d8f",
-      "thumbnailUrl": "images/marchand-games/2023020823-a308-publishing/game-thumb.webp?v=4aeb79de0d35"
+      "thumbnailUrl": "images/marchand-games/2023020823-a308-publishing/game-thumb.webp?v=4aeb79de0d35",
+      "bookPage": 94
     },
     {
       "inventoryId": 309,
@@ -1788,13 +1768,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 96,
       "nativeSha256": "2db2ae02c41bf0436088928268e1e26a8e0b1227929765d9e70b64b27b36a366",
       "caption": "Marchand scores his 400th career regular-season goal.",
       "credit": "Karl B DeBlaker / AP",
       "sourceUrl": "https://www.bastillepost.com/global/article/3726790-bruins-beat-hurricanes-4-1-in-matchup-of-playoff-bound-teams",
       "url": "images/marchand-games/2023021202-a309-publishing/game.webp?v=1fbd04411e8c",
-      "thumbnailUrl": "images/marchand-games/2023021202-a309-publishing/game-thumb.webp?v=f9f609653b53"
+      "thumbnailUrl": "images/marchand-games/2023021202-a309-publishing/game-thumb.webp?v=f9f609653b53",
+      "bookPage": 95
     },
     {
       "inventoryId": 310,
@@ -1809,13 +1789,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Toronto playoff goal celebration; Brad face dark between teammates. Genuine group context, limited expression.",
       "mediaRole": "game_reference",
-      "bookPage": 97,
       "nativeSha256": "dce5369aac33070e85a1f9f14c8c759ab1d689b3a715bcd8e06bb89415523160",
       "caption": "Marchand joins DeBrusk's goal celebration.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://nhl.com/video/tor-bos-debrusk-scores-goal-against-ilya-samsonov-6351341884112",
       "url": "images/marchand-games/2023030121-a310-publishing/game.webp?v=59e029b20109",
-      "thumbnailUrl": "images/marchand-games/2023030121-a310-publishing/game-thumb.webp?v=35ca8bc31270"
+      "thumbnailUrl": "images/marchand-games/2023030121-a310-publishing/game-thumb.webp?v=35ca8bc31270",
+      "bookPage": 96
     },
     {
       "inventoryId": 311,
@@ -1830,13 +1810,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 98,
       "nativeSha256": "d2bf5e17f85e8ea84f6281f2293823f99388d9085558110759fb99c01e1ee64b",
       "caption": "Marchand in this game.",
       "credit": "Claus Andersen",
       "sourceUrl": "https://www.pressherald.com/2024/04/25/pesky-marchand-keeps-grating-on-maple-leafs-with-bostons-game-3-win/",
       "url": "images/marchand-games/2023030123-a311-publishing/game.webp?v=84704f000b8d",
-      "thumbnailUrl": "images/marchand-games/2023030123-a311-publishing/game-thumb.webp?v=6fa1815a3edf"
+      "thumbnailUrl": "images/marchand-games/2023030123-a311-publishing/game-thumb.webp?v=6fa1815a3edf",
+      "bookPage": 97
     },
     {
       "inventoryId": 312,
@@ -1851,13 +1831,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 99,
       "nativeSha256": "9d5c65236f9bb575f8e8f0f321d8772d0a503b8fc9378c699448348e9fb926cc",
       "caption": "Marchand in this game.",
       "credit": "Frank Gunn / The Canadian Press via AP",
       "sourceUrl": "https://www.pressherald.com/2024/04/29/bruins-know-from-experience-fourth-win-is-the-hardest/",
       "url": "images/marchand-games/2023030124-a312-publishing/game.webp?v=544842dbd8a3",
-      "thumbnailUrl": "images/marchand-games/2023030124-a312-publishing/game-thumb.webp?v=5bc5ba079ef2"
+      "thumbnailUrl": "images/marchand-games/2023030124-a312-publishing/game-thumb.webp?v=5bc5ba079ef2",
+      "bookPage": 98
     },
     {
       "inventoryId": 313,
@@ -1870,15 +1850,15 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Physical57/313 ownership qualification remains unchanged.",
+      "selectionReason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Sole active artifact313; owner-confirmed duplicate57 retired.",
       "mediaRole": "game_reference",
-      "bookPage": 100,
       "nativeSha256": "9161b83114ed34e73c7a32bfdeb922e5f7a6e9a62d934faefd2ef90979be705f",
       "caption": "Marchand approaches Koepke after helping set up the goal.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6363508247112",
       "url": "images/marchand-games/2024020086-a313-publishing/game.webp?v=506bbafb1bd6",
-      "thumbnailUrl": "images/marchand-games/2024020086-a313-publishing/game-thumb.webp?v=4be7676c6809"
+      "thumbnailUrl": "images/marchand-games/2024020086-a313-publishing/game-thumb.webp?v=4be7676c6809",
+      "bookPage": 99
     },
     {
       "inventoryId": 314,
@@ -1893,13 +1873,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp professional OT huddle, Brad face visible among teammates. Test tighter native crop to improve his prominence without duplicating315.",
       "mediaRole": "game_reference",
-      "bookPage": 101,
       "nativeSha256": "a3da8f349f40d4d49b0815eb8cd7f10217fe65bf6a865415b55278aad149e1ee",
       "caption": "Marchand and teammates celebrate his overtime winner.",
       "credit": "Barry Chin / The Boston Globe",
       "sourceUrl": "https://www.bostonglobe.com/2024/10/26/sports/bruins-maple-leafs-nhl/",
       "url": "images/marchand-games/2024020125-a314-publishing/game.webp?v=e9ca1fb59e0f",
-      "thumbnailUrl": "images/marchand-games/2024020125-a314-publishing/game-thumb.webp?v=da344c7fcce2"
+      "thumbnailUrl": "images/marchand-games/2024020125-a314-publishing/game-thumb.webp?v=da344c7fcce2",
+      "bookPage": 100
     },
     {
       "inventoryId": 315,
@@ -1914,13 +1894,13 @@
       "galleryPosition": "last",
       "selectionReason": "Distinct video view of same OT goal; Brad side profile and lifted glove, crowded/dark. Professional alternative desirable if genuinely distinct.",
       "mediaRole": "game_reference",
-      "bookPage": 102,
       "nativeSha256": "80cc5ecdee97bc3832bfb2de10049ae376cceb3f6d562d75d30098cf9b0d89a5",
       "caption": "Marchand raises his glove after the overtime winner against Toronto.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6363818168112",
       "url": "images/marchand-games/2024020125-a315-publishing/game.webp?v=a7c49542827e",
-      "thumbnailUrl": "images/marchand-games/2024020125-a315-publishing/game-thumb.webp?v=f90aa5983fcf"
+      "thumbnailUrl": "images/marchand-games/2024020125-a315-publishing/game-thumb.webp?v=f90aa5983fcf",
+      "bookPage": 101
     },
     {
       "inventoryId": 316,
@@ -1935,13 +1915,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Carolina PPG reaction, Brad mostly side/back. Authentic documentary fallback.",
       "mediaRole": "game_reference",
-      "bookPage": 103,
       "nativeSha256": "51bc46fb7dc48a255155101e03be17d2910569b4e9b48d5bf1cc0558ce0218f1",
       "caption": "Marchand reacts after scoring on the power play in Carolina.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6364058822112",
       "url": "images/marchand-games/2024020165-a316-publishing/game.webp?v=e4b811c14fb8",
-      "thumbnailUrl": "images/marchand-games/2024020165-a316-publishing/game-thumb.webp?v=049a918bdd9c"
+      "thumbnailUrl": "images/marchand-games/2024020165-a316-publishing/game-thumb.webp?v=049a918bdd9c",
+      "bookPage": 102
     },
     {
       "inventoryId": 317,
@@ -1956,13 +1936,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 104,
       "nativeSha256": "a94c29e4667ea21ef13a1f5f4c418577744369109d67a23ac1aa12519200c9ce",
       "caption": "Marchand celebrates his overtime-winning goal.",
       "credit": "Matthew J. Lee / The Boston Globe",
       "sourceUrl": "https://www.bostonglobe.com/2024/11/07/sports/bruins-flames/?p1=Article_Inline_Related_Link",
       "url": "images/marchand-games/2024020208-a317-publishing/game.webp?v=6d9ef4589500",
-      "thumbnailUrl": "images/marchand-games/2024020208-a317-publishing/game-thumb.webp?v=9f864dfac468"
+      "thumbnailUrl": "images/marchand-games/2024020208-a317-publishing/game-thumb.webp?v=9f864dfac468",
+      "bookPage": 103
     },
     {
       "inventoryId": 318,
@@ -1977,13 +1957,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 105,
       "nativeSha256": "357f834219685e8c87d1ff31f8d521ad4344ade72be113414713b489c7c6dfbe",
       "caption": "Marchand in this game.",
       "credit": "Duane Burleson / AP",
       "sourceUrl": "https://www.pressherald.com/2024/11/23/marchands-third-period-goal-propels-bruins/",
       "url": "images/marchand-games/2024020324-a318-publishing/game.webp?v=62a0dc4f1a3e",
-      "thumbnailUrl": "images/marchand-games/2024020324-a318-publishing/game-thumb.webp?v=4e86f357a5fa"
+      "thumbnailUrl": "images/marchand-games/2024020324-a318-publishing/game-thumb.webp?v=4e86f357a5fa",
+      "bookPage": 104
     },
     {
       "inventoryId": 319,
@@ -1998,13 +1978,13 @@
       "galleryPosition": "last",
       "selectionReason": "Raised glove and frontal Brad reaction, visibly source-soft. Correct second-goal context, distinct retained320 close-net photograph.",
       "mediaRole": "game_reference",
-      "bookPage": 106,
       "nativeSha256": "d65972b89b3f5c804ad2d89e79e858e3e0419cdb45d476aae46b6d35539de2f9",
       "caption": "Marchand raises his glove after his second goal against the Islanders.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6365270720112",
       "url": "images/marchand-games/2024020353-a319-publishing/game.webp?v=d13eba5033d0",
-      "thumbnailUrl": "images/marchand-games/2024020353-a319-publishing/game-thumb.webp?v=9dd3742d3e18"
+      "thumbnailUrl": "images/marchand-games/2024020353-a319-publishing/game-thumb.webp?v=9dd3742d3e18",
+      "bookPage": 105
     },
     {
       "inventoryId": 320,
@@ -2019,13 +1999,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 107,
       "nativeSha256": "663c252e58447be3be622712ae4d14ee7b062d3631f42c5de9bb1b911df56de8",
       "caption": "Marchand scores his second goal against the Islanders.",
       "credit": "Julia Demaree Nikhinson / AP",
       "sourceUrl": "https://bostonhockeynow.com/boston-bruins-new-york-islanders-takeaways-marchand-geekie-zacha-zadorov-korpisalo-11-27-2024//",
       "url": "images/marchand-games/2024020353-a320-publishing/game.webp?v=dded04cb607f",
-      "thumbnailUrl": "images/marchand-games/2024020353-a320-publishing/game-thumb.webp?v=7de380d1c23b"
+      "thumbnailUrl": "images/marchand-games/2024020353-a320-publishing/game-thumb.webp?v=7de380d1c23b",
+      "bookPage": 106
     },
     {
       "inventoryId": 321,
@@ -2040,13 +2020,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 108,
       "nativeSha256": "68c3606ed32fd4933973e86e377005dda96382a87a8d3a11a4d24acf423af26c",
       "caption": "Marchand skates during the Seattle game.",
       "credit": "Steph Chambers / Getty Images",
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2024020472-a321-publishing/game.webp?v=08d18cfd483c",
-      "thumbnailUrl": "images/marchand-games/2024020472-a321-publishing/game-thumb.webp?v=46eee88b8cdf"
+      "thumbnailUrl": "images/marchand-games/2024020472-a321-publishing/game-thumb.webp?v=46eee88b8cdf",
+      "bookPage": 107
     },
     {
       "inventoryId": 322,
@@ -2061,13 +2041,13 @@
       "galleryPosition": "last",
       "selectionReason": "Dramatic emotional improvement and wholly distinct solo interview rather than another Pasta embrace.",
       "mediaRole": "game_reference",
-      "bookPage": 109,
       "nativeSha256": "36f137986756ade62d7d606a2e5582652f1fd19d0e23f17618d8b755b909191d",
       "caption": "Marchand laughs during his TNT interview in Chicago.",
       "credit": "Game video still / NHL on TNT",
       "sourceUrl": "https://www.youtube.com/watch?v=oi1R9aw8V5o",
       "url": "images/marchand-games/complete-20261018-a322/game.png?v=36f137986756",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a322/game-thumb.webp?v=36ddc743f94d"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a322/game-thumb.webp?v=36ddc743f94d",
+      "bookPage": 108
     },
     {
       "inventoryId": 323,
@@ -2082,13 +2062,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 110,
       "nativeSha256": "2860d8a2db3b2fab35671954764b9c2a336396f4c3aca49948dc4a0caf6bdb5a",
       "caption": "Marchand reacts during the Islanders game.",
       "credit": "Bob DeChiara / Imagn Images",
       "sourceUrl": "https://causewaycrowd.com/brad-marchand-contract-rumor-suggests-bruins-avoided-catastrophic-mistake",
       "url": "images/marchand-games/2024020933-a323-publishing/game.webp?v=2fcaaf2283a6",
-      "thumbnailUrl": "images/marchand-games/2024020933-a323-publishing/game-thumb.webp?v=ce6b7d243e3e"
+      "thumbnailUrl": "images/marchand-games/2024020933-a323-publishing/game-thumb.webp?v=ce6b7d243e3e",
+      "bookPage": 109
     },
     {
       "inventoryId": 324,
@@ -2103,13 +2083,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 111,
       "nativeSha256": "5988259e1662a1ae3d193aedf01b315dd76bec8de770fe304211aa4fac49af62",
       "caption": "Marchand in his final home game as a Bruin.",
       "credit": "Fred Kfoury III / Icon Sportswire / Getty Images",
       "sourceUrl": "https://www.nhl.com/cs/news/boston-se-musi-obejit-bez-lidra-marchanda",
       "url": "images/marchand-games/2024020933-a324-publishing/game.webp?v=f8a65d3aa82b",
-      "thumbnailUrl": "images/marchand-games/2024020933-a324-publishing/game-thumb.webp?v=a6c7b8483e52"
+      "thumbnailUrl": "images/marchand-games/2024020933-a324-publishing/game-thumb.webp?v=a6c7b8483e52",
+      "bookPage": 110
     },
     {
       "inventoryId": 325,
@@ -2124,13 +2104,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct last Boston appearance, Brad63 rear puck pursuit. Injury source has no strong celebration; documentary action fallback.",
       "mediaRole": "game_reference",
-      "bookPage": 112,
       "nativeSha256": "2852ba2b8e4fa8bcd6b12fc976f63c1390478aa4d5bf03fb0c8aa39c91f1bde4",
       "caption": "Marchand pursues the puck against Pittsburgh.",
       "credit": "Video still: Sportsnet",
       "sourceUrl": "https://www.sportsnet.ca/nhl/article/bruins-brad-marchand-unlikely-to-return-vs-penguins-with-upper-body-injury/",
       "url": "images/marchand-games/2024020952-a325-publishing/game.webp?v=ee4faf32e91d",
-      "thumbnailUrl": "images/marchand-games/2024020952-a325-publishing/game-thumb.webp?v=752293182d5b"
+      "thumbnailUrl": "images/marchand-games/2024020952-a325-publishing/game-thumb.webp?v=752293182d5b",
+      "bookPage": 111
     },
     {
       "inventoryId": 326,
@@ -2145,13 +2125,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 113,
       "nativeSha256": "61149aed2e4ba389e2028c5978cd1a4e81d3500ba5df1ed5bba05b7e6fe45425",
       "caption": "Marchand takes the ice before his final Bruins game.",
       "credit": "Charles LeClaire / Imagn Images",
       "sourceUrl": "https://fieldlevelmedia.com/nhl/hockey-nhl-fla-marchand-2/",
       "url": "images/marchand-games/2024020952-a326-publishing/game.webp?v=993668a6c9a0",
-      "thumbnailUrl": "images/marchand-games/2024020952-a326-publishing/game-thumb.webp?v=a8ef6504ae4b"
+      "thumbnailUrl": "images/marchand-games/2024020952-a326-publishing/game-thumb.webp?v=a8ef6504ae4b",
+      "bookPage": 112
     },
     {
       "inventoryId": 327,
@@ -2166,13 +2146,13 @@
       "galleryPosition": "last",
       "selectionReason": "Clean neutral same-game warm-up portrait, modest720p source. Distinct from326 entrance.",
       "mediaRole": "game_reference",
-      "bookPage": 114,
       "nativeSha256": "d180f3b606215acb9565898cd6654eb5c00ee9769e32e39afdfe82b7f06e52e5",
       "caption": "Marchand warms up in Pittsburgh before his final Bruins appearance.",
       "credit": "Charles LeClaire / Imagn Images",
       "sourceUrl": "https://www.si.com/onsi/breakaway/news-feed-page/brad-marchand-set-florida-panthers-debut",
       "url": "images/marchand-games/2024020952-a327-publishing/game.webp?v=7e177a1ba4d1",
-      "thumbnailUrl": "images/marchand-games/2024020952-a327-publishing/game-thumb.webp?v=1cea34041065"
+      "thumbnailUrl": "images/marchand-games/2024020952-a327-publishing/game-thumb.webp?v=1cea34041065",
+      "bookPage": 113
     },
     {
       "inventoryId": 328,
@@ -2187,13 +2167,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 115,
       "nativeSha256": "445a18c151abf8f24ec0a96394e2266e658c7c3a9733a73c26a491b5a93e2c1e",
       "caption": "Marchand in this game.",
       "credit": "Rhona Wise / AP",
       "sourceUrl": "https://www.news4jax.com/gallery/sports/2025/03/28/brad-marchand-in-the-lineup-friday-for-his-panthers-debut/",
       "url": "images/marchand-games/2024021153-a328-publishing/game.webp?v=3dd2bef69d04",
-      "thumbnailUrl": "images/marchand-games/2024021153-a328-publishing/game-thumb.webp?v=204860776388"
+      "thumbnailUrl": "images/marchand-games/2024021153-a328-publishing/game-thumb.webp?v=204860776388",
+      "bookPage": 114
     },
     {
       "inventoryId": 329,
@@ -2208,13 +2188,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 116,
       "nativeSha256": "2b7d2e2e289049f41b0918764cca6d186ab8267285238e1046c175110af2aedd",
       "caption": "Marchand celebrates the overtime winner with Bennett in his Florida debut.",
       "credit": "Rhona Wise / AP",
       "sourceUrl": "https://www.news4jax.com/gallery/sports/2025/03/28/brad-marchand-in-the-lineup-friday-for-his-panthers-debut/",
       "url": "images/marchand-games/expressive-20261017-a329/game.png?v=2b7d2e2e2890",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a329/game-thumb.webp?v=696e12d04a1c"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a329/game-thumb.webp?v=696e12d04a1c",
+      "bookPage": 115
     },
     {
       "inventoryId": 330,
@@ -2229,13 +2209,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 117,
       "nativeSha256": "7fe7e17c3f6210fe3205930c2dd759a390d9e2d74b9d453db56b66478e4acf46",
       "caption": "Marchand celebrates his first Panthers goal with Balinskis and Forsling.",
       "credit": "Marta Lavandier / AP",
       "sourceUrl": "https://sports.yahoo.com/article/brad-marchand-gets-first-goal-004951413.html",
       "url": "images/marchand-games/expressive-20261017-a330/game.png?v=7fe7e17c3f62",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a330/game-thumb.webp?v=8eca02285f68"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a330/game-thumb.webp?v=8eca02285f68",
+      "bookPage": 116
     },
     {
       "inventoryId": 331,
@@ -2250,13 +2230,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp native professional glove interaction; Brad front face partly competing with Guentzel foreground. Clear event context.",
       "mediaRole": "game_reference",
-      "bookPage": 118,
       "nativeSha256": "a9b00b8378a962e42d88ce563ade41dfd9e16fdb8dbf1a80790848dde072d4eb",
       "caption": "Marchand celebrates his goal in his 1,100th NHL game.",
       "credit": "Chris O'Meara / AP",
       "sourceUrl": "https://sports.yahoo.com/article/brayden-points-goal-2-assists-022347421.html",
       "url": "images/marchand-games/2024021294-a331-publishing/game.webp?v=cdb0cec635c7",
-      "thumbnailUrl": "images/marchand-games/2024021294-a331-publishing/game-thumb.webp?v=0b53d422a4de"
+      "thumbnailUrl": "images/marchand-games/2024021294-a331-publishing/game-thumb.webp?v=0b53d422a4de",
+      "bookPage": 117
     },
     {
       "inventoryId": 332,
@@ -2271,13 +2251,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 119,
       "nativeSha256": "6278360f7fd7ca5361ff89c12c3eb8378256477171b5553b14721e15fc93b7d1",
       "caption": "Marchand in this game.",
       "credit": "Chris O'Meara / AP",
       "sourceUrl": "https://www.wsls.com/sports/2025/04/23/tkachuk-stars-in-his-return-by-scoring-twice-as-the-panthers-top-lightning-6-2-in-series-opener/",
       "url": "images/marchand-games/2024030121-a332-publishing/game.webp?v=e2d86803c301",
-      "thumbnailUrl": "images/marchand-games/2024030121-a332-publishing/game-thumb.webp?v=6594760bdf6a"
+      "thumbnailUrl": "images/marchand-games/2024030121-a332-publishing/game-thumb.webp?v=6594760bdf6a",
+      "bookPage": 118
     },
     {
       "inventoryId": 333,
@@ -2292,13 +2272,13 @@
       "galleryPosition": "last",
       "selectionReason": "Materially clearer recognizable smiling Brad in the actual Carlo goal he assisted; distinct from301 reunion laugh and the other171game images.",
       "mediaRole": "game_reference",
-      "bookPage": 120,
       "nativeSha256": "0643ab5dc83e9014a499711023e5a2c2aa6be77bb3cf2d2c35c84789ec0c570c",
       "caption": "Marchand celebrates Carlo’s goal with his teammates.",
       "credit": "Steve Babineau / NHLI via Getty Images",
       "sourceUrl": "https://www.nhl.com/de/news/boston-bruins-befinden-sich-bereits-im-playoff-modus",
       "url": "images/marchand-games/punchlist-20261018-a333/game.png?v=0643ab5dc83e",
-      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a333/game-thumb.webp?v=bac77d2af285"
+      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a333/game-thumb.webp?v=bac77d2af285",
+      "bookPage": 119
     },
     {
       "inventoryId": 334,
@@ -2313,13 +2293,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 121,
       "nativeSha256": "2b3f20ea42f0e5b120f3a3980e2f4b0c45ad2b6d9ad6e8c5bf8d7e7e726ad8ed",
       "caption": "Marchand acknowledges the crowd on his return to Boston.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-boston-bruins-10-21-2025",
       "url": "images/marchand-games/2025020103-a334-publishing/game.webp?v=87eace892d9d",
-      "thumbnailUrl": "images/marchand-games/2025020103-a334-publishing/game-thumb.webp?v=523b7db7f46d"
+      "thumbnailUrl": "images/marchand-games/2025020103-a334-publishing/game-thumb.webp?v=523b7db7f46d",
+      "bookPage": 120
     },
     {
       "inventoryId": 335,
@@ -2334,13 +2314,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 122,
       "nativeSha256": "27bd49e6e5d944b5572be04dbcc2ae5d79132a5b83f9bd9d6ec97f35c41b5e9a",
       "caption": "Marchand acknowledges his 1,000th NHL point.",
       "credit": "Source: NHL.com",
       "sourceUrl": "https://www.nhl.com/news/florida-panthers-celebrate-brad-marchands-1000th-point",
       "url": "images/marchand-games/2025020273-a335-publishing/game.webp?v=b0fd1a1065e3",
-      "thumbnailUrl": "images/marchand-games/2025020273-a335-publishing/game-thumb.webp?v=daae3e3ddd44"
+      "thumbnailUrl": "images/marchand-games/2025020273-a335-publishing/game-thumb.webp?v=daae3e3ddd44",
+      "bookPage": 121
     },
     {
       "inventoryId": 336,
@@ -2355,13 +2335,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 123,
       "nativeSha256": "adf5d868ff9eeb522395794627fe7a8261d3395842ead61367917f9c191c9de7",
       "caption": "Marchand celebrates the assist that gives him 1,000 NHL points.",
       "credit": "NHL.com",
       "sourceUrl": "https://www.nhl.com/news/florida-panthers-celebrate-brad-marchands-1000th-point",
       "url": "images/marchand-games/expressive-20261017-a336/game.png?v=adf5d868ff9e",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a336/game-thumb.webp?v=5fb09c11e8ef"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a336/game-thumb.webp?v=5fb09c11e8ef",
+      "bookPage": 122
     },
     {
       "inventoryId": 337,
@@ -2376,13 +2356,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 124,
       "nativeSha256": "574131d9c1c431453e16f7bd73985a0336569f1d5f6db49a2b102033c87c6aaf",
       "caption": "Marchand with family during his 1,000-point ceremony.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6387083947112",
       "url": "images/marchand-games/2025020618-a337-publishing/game.webp?v=7bda67748215",
-      "thumbnailUrl": "images/marchand-games/2025020618-a337-publishing/game-thumb.webp?v=c36dfe39c864"
+      "thumbnailUrl": "images/marchand-games/2025020618-a337-publishing/game-thumb.webp?v=c36dfe39c864",
+      "bookPage": 123
     },
     {
       "inventoryId": 338,
@@ -2397,13 +2377,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 125,
       "nativeSha256": "458979f54a8d568e80de51bf3a2956dab2446b391637eddceb9eacad8274fb3d",
       "caption": "Marchand acknowledges the crowd after his Panthers debut.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-vs-utah-hockey-club-3-28-2025",
       "url": "images/marchand-games/2024021153-a338-publishing/game.webp?v=682177d60512",
-      "thumbnailUrl": "images/marchand-games/2024021153-a338-publishing/game-thumb.webp?v=82eb2291ce35"
+      "thumbnailUrl": "images/marchand-games/2024021153-a338-publishing/game-thumb.webp?v=82eb2291ce35",
+      "bookPage": 124
     },
     {
       "inventoryId": 339,
@@ -2418,13 +2398,13 @@
       "galleryPosition": "last",
       "selectionReason": "Materially clearer face and subject prominence within genuine same-game goal sequence; no implied win/joy.",
       "mediaRole": "game_reference",
-      "bookPage": 126,
       "nativeSha256": "812c047f23713f266ec3d74b9f048bc92ea8d963d4d95adb59f38ddecf3473b8",
       "caption": "Marchand after scoring in his 1,100th career game.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6371543190112",
       "url": "images/marchand-games/complete-20261018-a339/game.png?v=812c047f2371",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a339/game-thumb.webp?v=9700891ce184"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a339/game-thumb.webp?v=9700891ce184",
+      "bookPage": 125
     },
     {
       "inventoryId": 340,
@@ -2439,13 +2419,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 127,
       "nativeSha256": "fca2ad83085b7bd84b7ed9e162a826e2782e484ccdf51cbf1898e815a2c39062",
       "caption": "Marchand at the Centennial Game ceremonial faceoff.",
       "credit": "Steve Babineau / NHLI via Getty Images",
       "sourceUrl": "https://www.nhl.com/news/boston-bruins-mark-100th-anniversary-with-centennial-celebration",
       "url": "images/marchand-games/perfectionist-20261017-a340/game.png?v=fca2ad83085b",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a340/game-thumb.webp?v=0ad706fac537"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a340/game-thumb.webp?v=0ad706fac537",
+      "bookPage": 126
     },
     {
       "inventoryId": 341,
@@ -2460,13 +2440,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 128,
       "nativeSha256": "df2404e4cc0636b67b79e2888065bcb36914b1e0b9baa07ebc7529c76b21651a",
       "caption": "Marchand raises his arm after the overtime winner.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6388268137112",
       "url": "images/marchand-games/perfectionist-20261017-a341/game.png?v=df2404e4cc06",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a341/game-thumb.webp?v=9bf1eee158c9"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a341/game-thumb.webp?v=9bf1eee158c9",
+      "bookPage": 127
     },
     {
       "inventoryId": 342,
@@ -2481,13 +2461,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp AP Chicago huddle; Brad helmet/partial face wedged between Oesterle/McAvoy. Distinct from44 and A45 new goal shot.",
       "mediaRole": "game_reference",
-      "bookPage": 129,
       "nativeSha256": "22445298e348140c2d1b35fe84ea48ab6eb2491126ab2c6043c1d1857ab844c2",
       "caption": "Marchand in this game.",
       "credit": "Erin Hooley / AP",
       "sourceUrl": "https://www.pressherald.com/2024/12/04/bruins-extend-winning-streak-to-three-games/",
       "url": "images/marchand-games/2024020407-a342-publishing/game.webp?v=a8b816edde4f",
-      "thumbnailUrl": "images/marchand-games/2024020407-a342-publishing/game-thumb.webp?v=6f79d9e133cb"
+      "thumbnailUrl": "images/marchand-games/2024020407-a342-publishing/game-thumb.webp?v=6f79d9e133cb",
+      "bookPage": 128
     },
     {
       "inventoryId": 501,
@@ -2502,13 +2482,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 132,
       "nativeSha256": "ddcb154525b228d51dd8a53532fdbdb87c5bffcd31adf40669dc95a4999183eb",
       "caption": "Marchand and Marcus Bjork compete along the boards.",
       "credit": "Steven Senne / AP",
       "sourceUrl": "https://www.clickorlando.com/sports/2023/03/31/bruins-wrap-up-presidents-trophy-with-win-over-blue-jackets/",
       "url": "images/marchand-games/2022021189-a501-publishing/game.webp?v=2d4fa2c9bf1b",
-      "thumbnailUrl": "images/marchand-games/2022021189-a501-publishing/game-thumb.webp?v=58205aa97595"
+      "thumbnailUrl": "images/marchand-games/2022021189-a501-publishing/game-thumb.webp?v=58205aa97595",
+      "bookPage": 131
     },
     {
       "inventoryId": 502,
@@ -2523,13 +2503,13 @@
       "galleryPosition": "last",
       "selectionReason": "Replaces tiny substantially motion-soft distant action with a large recognizable frontal Brad, playful lean toward camera, open eyes and animated expression. Entire helmet and63 preserved; unrelated background teammate face and source hashtag excluded by native exact crop. Honest pregame documentary context; not represented as the McAvoy goal or postgame celebration. Original video compression and modest native softness remain, materially clearer than previous source.",
       "mediaRole": "game_reference",
-      "bookPage": 133,
       "nativeSha256": "5aa6fd7096a1ddcf1788e3fa909afbf352d232360fedc73e5fe38f6c5f5769d5",
       "caption": "Marchand brings his pregame energy to the Bruins’ Pittsburgh locker room.",
       "credit": "Video still: Boston Bruins / Behind the B",
       "sourceUrl": "https://www.youtube.com/watch?v=cMUnZ0trY30",
       "url": "images/marchand-games/punchlist-20261018-a502/game.png?v=5aa6fd7096a1",
-      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a502/game-thumb.webp?v=98a9b83e81d5"
+      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a502/game-thumb.webp?v=98a9b83e81d5",
+      "bookPage": 132
     },
     {
       "inventoryId": 503,
@@ -2544,13 +2524,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 134,
       "nativeSha256": "8c21fba568f0170f2e1cf28e0480f62691e5ea4f65beeb76ee5cac3a09a8fcd6",
       "caption": "Marchand works against Colton Parayko in St. Louis.",
       "credit": "Scott Rovak / NHLI via Getty Images",
       "sourceUrl": "https://www.nhl.com/blues/multimedia/galleries/20230402-blues-bruins",
       "url": "images/marchand-games/perfectionist-20261017-a503/game.png?v=8c21fba568f0",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a503/game-thumb.webp?v=90e8a7c431aa"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a503/game-thumb.webp?v=90e8a7c431aa",
+      "bookPage": 133
     },
     {
       "inventoryId": 504,
@@ -2565,13 +2545,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 135,
       "nativeSha256": "be931b153702333ce176395c164dd6b8d1f1949a699454a946bfcfe3d04edb63",
       "caption": "Marchand joins Pastrnak and teammates after the overtime winner.",
       "credit": "Game video still / SPORTSNET",
       "sourceUrl": "https://www.youtube.com/watch?v=vnWRRQePiOM",
       "url": "images/marchand-games/2022021246-a504-publishing/game.webp?v=313958be2760",
-      "thumbnailUrl": "images/marchand-games/2022021246-a504-publishing/game-thumb.webp?v=4c054bcc2fbe"
+      "thumbnailUrl": "images/marchand-games/2022021246-a504-publishing/game-thumb.webp?v=4c054bcc2fbe",
+      "bookPage": 134
     },
     {
       "inventoryId": 505,
@@ -2586,13 +2566,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Detroit group around Zacha goal; Brad63 back clear, face hidden. Documentary fallback.",
       "mediaRole": "game_reference",
-      "bookPage": 136,
       "nativeSha256": "48197ac413b02cc2732826b258f92c0bd8070e63e58c20d8c6236f4b8dd41fa3",
       "caption": "Marchand joins Zacha's goal celebration as Boston earns win 62.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://www.nhl.com/video/c-6335758181112",
       "url": "images/marchand-games/2022021265-a505-publishing/game.webp?v=69adaef26a08",
-      "thumbnailUrl": "images/marchand-games/2022021265-a505-publishing/game-thumb.webp?v=004fe788cfe3"
+      "thumbnailUrl": "images/marchand-games/2022021265-a505-publishing/game-thumb.webp?v=004fe788cfe3",
+      "bookPage": 135
     },
     {
       "inventoryId": 506,
@@ -2607,14 +2587,14 @@
       "galleryPosition": "last",
       "selectionReason": "April9,2023 postgame celebration of record63rd win, BradandSwayman, crop[1500,125,2310,990]810x865. Photographernotnamed; sourceBostonBruins/NHL.",
       "mediaRole": "game_reference",
-      "bookPage": 137,
       "nativeSha256": "2a51d93ccf9e836256e5c9a0a9834c12f5d838d444e70c2430cf206819107edc",
       "caption": "Marchand celebrates Boston’s record-setting 63rd win with Jeremy Swayman in Philadelphia.",
       "credit": "Boston Bruins / NHL",
       "sourceUrl": "https://www.nhl.com/bruins/news/brad-marchand-through-the-years",
       "url": "images/marchand-games/targeted-v2-20261018-a506/game.png?v=2a51d93ccf9e",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a506/game-thumb.webp?v=33a2a61101f2",
-      "displayLabel": "RECORD-SETTING WIN / APRIL 9, 2023"
+      "displayLabel": "RECORD-SETTING WIN / APRIL 9, 2023",
+      "bookPage": 136
     },
     {
       "inventoryId": 507,
@@ -2629,13 +2609,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 138,
       "nativeSha256": "4b44b9acda5215fbb3ff9d692bf8d20799b1b57f28fabb719da83989b4342e09",
       "caption": "Marchand in this game.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.pressherald.com/2023/04/11/bruins-break-nhl-points-record-with-win-over-capitals/",
       "url": "images/marchand-games/2022021290-a507-publishing/game.webp?v=232a5d9b29f9",
-      "thumbnailUrl": "images/marchand-games/2022021290-a507-publishing/game-thumb.webp?v=94786a81461f"
+      "thumbnailUrl": "images/marchand-games/2022021290-a507-publishing/game-thumb.webp?v=94786a81461f",
+      "bookPage": 137
     },
     {
       "inventoryId": 508,
@@ -2650,13 +2630,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Montreal DeBrusk-goal group; Brad profile partly occluded by Orlov81, source-soft.",
       "mediaRole": "game_reference",
-      "bookPage": 139,
       "nativeSha256": "3f514ef832605424f2dfd2a9384d90f41347644f9e6ebc52151099ece9d6b652",
       "caption": "Marchand joins DeBrusk's goal celebration in Boston's regular-season finale.",
       "credit": "Game video still / NHL.com",
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335755119112",
       "url": "images/marchand-games/2022021298-a508-publishing/game.webp?v=c14ad81530ef",
-      "thumbnailUrl": "images/marchand-games/2022021298-a508-publishing/game-thumb.webp?v=19a66916dad5"
+      "thumbnailUrl": "images/marchand-games/2022021298-a508-publishing/game-thumb.webp?v=19a66916dad5",
+      "bookPage": 138
     },
     {
       "inventoryId": 509,
@@ -2671,13 +2651,13 @@
       "galleryPosition": "last",
       "selectionReason": "Clearer Brad profile and warm genuine post-win interaction, substantially sharper native professional photograph.",
       "mediaRole": "game_reference",
-      "bookPage": 140,
       "nativeSha256": "ba217e12484ffdf10763fa0700765c062d9a6c9df4ed7ee5c32a8071f16f77cc",
       "caption": "Marchand greets Ullmark with Frederic after Boston’s 60th win.",
       "credit": "Joe Puetz / NHLI via Getty Images",
       "sourceUrl": "https://bleacherreport.com/articles/10070985-nhl-playoff-picture-2023-bracket-predictions-and-teams-to-watch",
       "url": "images/marchand-games/complete-20261018-a509/game.png?v=ba217e12484f",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a509/game-thumb.webp?v=227513636d3a"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a509/game-thumb.webp?v=227513636d3a",
+      "bookPage": 139
     },
     {
       "inventoryId": 510,
@@ -2692,13 +2672,13 @@
       "galleryPosition": "last",
       "selectionReason": "Clear recognizable Brad face and63, engaged affectionate embrace with Bertuzzi in the actual winning-goal celebration. Materially improves tiny330x480 neutral bench image to840x715 native crop. Cleaner face/visor than neighboring frames, full key helmets and arms preserved. Exact y875 crop excludes entire BehindTheB overlay starting near y890; it also excludes the earlier lower-left score caption. Original documentary compression and movement softness remain; this is not a broad-grin or professional-photo claim. Different earlier interaction and ice-level camera angle from504’s later broadcast Pastrnak huddle.",
       "mediaRole": "game_reference",
-      "bookPage": 141,
       "nativeSha256": "3729387a0f18f41b3e358e56c57203e9d96e77c247fd0666d1efc4672256e41a",
       "caption": "Marchand embraces Bertuzzi after Pastrnak’s overtime winner against Toronto.",
       "credit": "Game video still / Boston Bruins / Behind The B",
       "sourceUrl": "https://www.youtube.com/watch?v=cMUnZ0trY30",
       "url": "images/marchand-games/punchlist-20261018-a510/game.png?v=3729387a0f18",
-      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a510/game-thumb.webp?v=6e37d8bbdf56"
+      "thumbnailUrl": "images/marchand-games/punchlist-20261018-a510/game-thumb.webp?v=6e37d8bbdf56",
+      "bookPage": 140
     },
     {
       "inventoryId": 600,
@@ -2713,13 +2693,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp professional Tampa Game1 celebration; Brad back63 foreground, full group. Correct documentary fallback.",
       "mediaRole": "game_reference",
-      "bookPage": 144,
       "nativeSha256": "aa68d2332823f5c597cc4151e6fea0669b7516bb607ca4971046bfc2248d70cf",
       "caption": "Marchand celebrates with Lundell and Luostarinen in Game 1.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-1-florida-panthers-at-tampa-bay-lightning-4-22-2025",
       "url": "images/marchand-games/2024030121-a600-publishing/game.webp?v=03dbb0c4fe63",
-      "thumbnailUrl": "images/marchand-games/2024030121-a600-publishing/game-thumb.webp?v=733380622347"
+      "thumbnailUrl": "images/marchand-games/2024030121-a600-publishing/game-thumb.webp?v=733380622347",
+      "bookPage": 143
     },
     {
       "inventoryId": 601,
@@ -2734,14 +2714,14 @@
       "galleryPosition": "last",
       "selectionReason": "Game2 action context. Puck remains warm-up classification; photo is not claimed to show warm-up.",
       "mediaRole": "game_reference",
-      "bookPage": 145,
       "nativeSha256": "1a5b66129b4b74c9212108acc2d76c05f2cb70ed022d4934abc6103fd26ba091",
       "caption": "Marchand in action during Game 2 against Tampa Bay.",
       "credit": "Getty Images / Florida Panthers",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-2-florida-panthers-at-tampa-bay-lightning-4-24-2025",
       "url": "images/marchand-games/targeted-v2-20261018-a601/game.png?v=1a5b66129b4b",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a601/game-thumb.webp?v=ec91fcc63864",
-      "displayLabel": "GAME ACTION / APRIL 24, 2025"
+      "displayLabel": "GAME ACTION / APRIL 24, 2025",
+      "bookPage": 144
     },
     {
       "inventoryId": 602,
@@ -2754,15 +2734,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
+      "selectionReason": "Same-game action; no exact scoring instant or celebration claimed.",
       "mediaRole": "game_reference",
-      "bookPage": 146,
-      "nativeSha256": "30eb44d3c3b4388b0796c28a1550971ab80aefdd255a4550f9c0a64016477ae6",
-      "caption": "Marchand and Lundell in Game 4.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-4-florida-panthers-vs-tampa-bay-lightning-4-28-2025",
-      "url": "images/marchand-games/perfectionist-20261017-a602/game.png?v=30eb44d3c3b4",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a602/game-thumb.webp?v=bd7406bb6c69"
+      "nativeSha256": "3707717180228cc9a025c645bdfb9f6b5fe266837b3aac64d004cadad2446227",
+      "caption": "Marchand in Game 4 against Tampa Bay.",
+      "credit": "Tampa Bay Lightning / NHL.com",
+      "sourceUrl": "https://www.nhl.com/lightning/multimedia/galleries/photos-tampa-bay-lightning-at-florida-panthers-round-1-game-4",
+      "url": "images/marchand-games/identity-v3-20261018-a602/game.png?v=370771718022",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a602/game-thumb.webp?v=e06e53fe328d",
+      "displayLabel": "GAME 4 / APRIL 28, 2025",
+      "bookPage": 145
     },
     {
       "inventoryId": 603,
@@ -2777,13 +2758,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp professional Tampa Game5 group with Brad63 raised glove/back. Correct documentary celebration.",
       "mediaRole": "game_reference",
-      "bookPage": 147,
       "nativeSha256": "986960bf0b48eb462368e34a1e6ec4c6b7cf6c68eec0a5beb1754ea2ad94efe1",
       "caption": "Marchand and teammates celebrate in Tampa in Game 5.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-5-florida-panthers-at-tampa-bay-lightning-4-30-2025",
       "url": "images/marchand-games/2024030125-a603-publishing/game.webp?v=6ba1cee31f3b",
-      "thumbnailUrl": "images/marchand-games/2024030125-a603-publishing/game-thumb.webp?v=ee04a6899d99"
+      "thumbnailUrl": "images/marchand-games/2024030125-a603-publishing/game-thumb.webp?v=ee04a6899d99",
+      "bookPage": 146
     },
     {
       "inventoryId": 604,
@@ -2798,13 +2779,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 148,
       "nativeSha256": "7db1e2d1ad9b56d8bfab369ac2c495b33b5d5f37aa352cabaf083b3f99a398d0",
       "caption": "Marchand celebrates with teammates during Game 1 in Toronto.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-1-florida-panthers-at-toronto-maple-leafs-5-5-2025",
       "url": "images/marchand-games/expressive-20261017-a604/game.png?v=7db1e2d1ad9b",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a604/game-thumb.webp?v=6677f1cb2cd9"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a604/game-thumb.webp?v=6677f1cb2cd9",
+      "bookPage": 147
     },
     {
       "inventoryId": 605,
@@ -2817,15 +2798,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
+      "selectionReason": "Source-caption-verified overtime-winning-goal celebration.",
       "mediaRole": "game_reference",
-      "bookPage": 149,
-      "nativeSha256": "76088b59d2c934bb2637f9f99ce7d538754fea9a576ee38aa878351260eb9241",
-      "caption": "Marchand celebrates with Sam Bennett after the overtime winner.",
-      "credit": "Florida Panthers / NHL.com",
+      "nativeSha256": "69f84d29633e3ddf313818e5ad207254e0a07856fb2f91aa4617f5c50312c740",
+      "caption": "Marchand celebrates his overtime winner with Barkov and Verhaeghe.",
+      "credit": "Carmen Mandato/Getty Images",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-3-florida-panthers-vs-toronto-maple-leafs-5-9-2025",
-      "url": "images/marchand-games/expressive-20261017-a605/game.png?v=76088b59d2c9",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a605/game-thumb.webp?v=8e96b6320793"
+      "url": "images/marchand-games/identity-v3-20261018-a605/game.png?v=69f84d29633e",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a605/game-thumb.webp?v=08d1cb68117f",
+      "displayLabel": "OVERTIME WINNER / MAY 9, 2025",
+      "bookPage": 148
     },
     {
       "inventoryId": 606,
@@ -2840,13 +2822,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 150,
       "nativeSha256": "0bf1ca2861650c110ee6b483156a4cad8a79a075a517d88e64488873fcf9ebc0",
       "caption": "Marchand by the Panthers bench during Game 4 against Toronto.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-4-florida-panthers-vs-toronto-maple-leafs-5-11-2025",
       "url": "images/marchand-games/2024030214-a606-publishing/game.webp?v=8e87e5b5c343",
-      "thumbnailUrl": "images/marchand-games/2024030214-a606-publishing/game-thumb.webp?v=a47f554ea93e"
+      "thumbnailUrl": "images/marchand-games/2024030214-a606-publishing/game-thumb.webp?v=a47f554ea93e",
+      "bookPage": 149
     },
     {
       "inventoryId": 607,
@@ -2861,13 +2843,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 151,
       "nativeSha256": "4c8b9f9e20d54496816b15c17fb6c6582473c3b5dc146556cf48174751492cf1",
       "caption": "Marchand battles Matthews and Tavares.",
       "credit": "Dan Hamilton / Imagn Images",
       "sourceUrl": "https://www.si.com/onsi/breakaway/news-feed-page/another-disappointing-end-nears-toronto-maple-leafs",
       "url": "images/marchand-games/2024030215-a607-publishing/game.webp?v=93e47590d908",
-      "thumbnailUrl": "images/marchand-games/2024030215-a607-publishing/game-thumb.webp?v=f2fb57d16a75"
+      "thumbnailUrl": "images/marchand-games/2024030215-a607-publishing/game-thumb.webp?v=f2fb57d16a75",
+      "bookPage": 150
     },
     {
       "inventoryId": 608,
@@ -2880,15 +2862,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Brad face left of Luostarinen in Lundell Game7 hug, glass rail across lower foreground. Source-soft but face/expression readable.",
+      "selectionReason": "Postgame handshake line; no scoring-play claim.",
       "mediaRole": "game_reference",
-      "bookPage": 152,
-      "nativeSha256": "5b2cc282b450c33d816eda7293adcd4466741273f2806409262e8f0b2cb98bce",
-      "caption": "Marchand joins Lundell's Game 7 goal celebration in Toronto.",
-      "credit": "Game video still / NHL.com",
-      "sourceUrl": "https://www.nhl.com/video/c-6373037531112",
-      "url": "images/marchand-games/2024030217-a608-publishing/game.webp?v=78bbd6ffe065",
-      "thumbnailUrl": "images/marchand-games/2024030217-a608-publishing/game-thumb.webp?v=06fa91715717"
+      "nativeSha256": "1d15aa2d30fa7d69931c6b4da40dfd3ec0591e6d4b548378267dc469ca2d9448",
+      "caption": "Marchand in the postgame handshake line after Game 7.",
+      "credit": "Claus Andersen/Getty Images",
+      "sourceUrl": "https://www.thescore.com/nhl/news/3288122",
+      "url": "images/marchand-games/identity-v3-20261018-a608/game.png?v=1d15aa2d30fa",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a608/game-thumb.webp?v=1d16fca16f4e",
+      "displayLabel": "GAME 7 POSTGAME / MAY 18, 2025",
+      "bookPage": 151
     },
     {
       "inventoryId": 609,
@@ -2903,13 +2886,13 @@
       "galleryPosition": "last",
       "selectionReason": "Excellent sharp bareheaded Brad after Carolina scrum, openly expressive face, authentic documentary moment.",
       "mediaRole": "game_reference",
-      "bookPage": 153,
       "nativeSha256": "a61cf944ecd21177f4be1a03bfa9f15baf8755ad9d1d78b7a088b5233a4b3204",
       "caption": "Marchand in this game.",
       "credit": "Karl DeBlaker / AP",
       "sourceUrl": "https://www.wsls.com/sports/2025/05/21/reigning-stanley-cup-champ-florida-panthers-beat-carolina-hurricanes-5-2-in-eastern-final-opener/",
       "url": "images/marchand-games/2024030311-a609-publishing/game.webp?v=6ed5c1c27c35",
-      "thumbnailUrl": "images/marchand-games/2024030311-a609-publishing/game-thumb.webp?v=f6ed7657b4bb"
+      "thumbnailUrl": "images/marchand-games/2024030311-a609-publishing/game-thumb.webp?v=f6ed7657b4bb",
+      "bookPage": 152
     },
     {
       "inventoryId": 610,
@@ -2924,13 +2907,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp Carolina action with Brad63 face above downed Roslovic96. Strong documentary action.",
       "mediaRole": "game_reference",
-      "bookPage": 154,
       "nativeSha256": "455b5fb732b1d02e606d9c9d159dcd4e69493442ea884b4f5fab0227fc81cc85",
       "caption": "Marchand takes the puck against Carolina.",
       "credit": "Karl DeBlaker / AP",
       "sourceUrl": "https://www.clickorlando.com/sports/2025/05/23/hurricanes-game-2-loss-to-panthers-offers-an-unwelcome-repeat-of-conference-final-history-from-23/",
       "url": "images/marchand-games/2024030312-a610-publishing/game.webp?v=57215344192d",
-      "thumbnailUrl": "images/marchand-games/2024030312-a610-publishing/game-thumb.webp?v=27878077694d"
+      "thumbnailUrl": "images/marchand-games/2024030312-a610-publishing/game-thumb.webp?v=27878077694d",
+      "bookPage": 153
     },
     {
       "inventoryId": 611,
@@ -2945,13 +2928,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp close board battle with Brad face and63 clear; actual Carolina Game2 context. Strong documentary action.",
       "mediaRole": "game_reference",
-      "bookPage": 155,
       "nativeSha256": "cdaa23573db64d2aadb7c070616694319bb4a7aca8441af3eb344a0ecb36a01a",
       "caption": "Marchand battles for the puck in Game 2 in Carolina.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-2-florida-panthers-at-carolina-hurricanes-5-22-2025",
       "url": "images/marchand-games/2024030312-a611-publishing/game.webp?v=dd520747d380",
-      "thumbnailUrl": "images/marchand-games/2024030312-a611-publishing/game-thumb.webp?v=34944583a9ce"
+      "thumbnailUrl": "images/marchand-games/2024030312-a611-publishing/game-thumb.webp?v=34944583a9ce",
+      "bookPage": 154
     },
     {
       "inventoryId": 612,
@@ -2966,13 +2949,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 156,
       "nativeSha256": "b96acf915f67ec4bc0029065cc60dc6f14513e98df14b5b28d0d632e1ebfe681",
       "caption": "Marchand controls the puck against Carolina.",
       "credit": "Source: Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-4-florida-panthers-vs-carolina-hurricanes",
       "url": "images/marchand-games/perfectionist-20261017-a612/game.png?v=b96acf915f67",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a612/game-thumb.webp?v=424db7f9c353"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a612/game-thumb.webp?v=424db7f9c353",
+      "bookPage": 155
     },
     {
       "inventoryId": 613,
@@ -2987,13 +2970,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 157,
       "nativeSha256": "40e3ed319a3fea12356a696a4db7b274bfe55cec048dde9c0f2921d29aca1ac8",
       "caption": "Marchand celebrates with Lundell in the series-clinching Game 5.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
       "url": "images/marchand-games/2024030315-a613-publishing/game.webp?v=0c7fbd2cf10f",
-      "thumbnailUrl": "images/marchand-games/2024030315-a613-publishing/game-thumb.webp?v=177112d8b3bb"
+      "thumbnailUrl": "images/marchand-games/2024030315-a613-publishing/game-thumb.webp?v=177112d8b3bb",
+      "bookPage": 156
     },
     {
       "inventoryId": 614,
@@ -3008,13 +2991,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 158,
       "nativeSha256": "596b132a7aaa28d67125fdf8113f87f1a2794aaccbc7ed3023f0522351f3689d",
       "caption": "Marchand embraces a teammate during Game 5 of the Eastern Conference Final.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
       "url": "images/marchand-games/expressive-20261017-a614/game.png?v=596b132a7aaa",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a614/game-thumb.webp?v=84d259d15c60"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a614/game-thumb.webp?v=84d259d15c60",
+      "bookPage": 157
     },
     {
       "inventoryId": 615,
@@ -3029,13 +3012,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 159,
       "nativeSha256": "2683c6137fb96af2d0117fb71d1fe3165ab193839659227910885abce30c078f",
       "caption": "Marchand celebrates with teammates in Stanley Cup Final Game 2.",
       "credit": "Brian Babineau / NHLI via Getty Images",
       "sourceUrl": "https://frontend.d3.nhle.com/news/brad-marchand-lifts-florida-panthers-in-game-2-with-2ot-goal",
       "url": "images/marchand-games/2024030412-a615-publishing/game.webp?v=3370d706b6ce",
-      "thumbnailUrl": "images/marchand-games/2024030412-a615-publishing/game-thumb.webp?v=64fe1c87a740"
+      "thumbnailUrl": "images/marchand-games/2024030412-a615-publishing/game-thumb.webp?v=64fe1c87a740",
+      "bookPage": 158
     },
     {
       "inventoryId": 616,
@@ -3050,13 +3033,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 160,
       "nativeSha256": "97de6b67417650206ee472484333633f58790745ebf4327d207c1e2a52ba71ec",
       "caption": "Marchand celebrates against Edmonton.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-3-florida-panthers-vs-edmonton-oilers-6-9-2025",
       "url": "images/marchand-games/perfectionist-20261017-a616/game.png?v=97de6b674176",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a616/game-thumb.webp?v=7911b75d0897"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a616/game-thumb.webp?v=7911b75d0897",
+      "bookPage": 159
     },
     {
       "inventoryId": 617,
@@ -3069,15 +3052,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
+      "selectionReason": "Source-IPTC-verified first-period goal celebration; no claim that this is the puck record scoring event.",
       "mediaRole": "game_reference",
-      "bookPage": 161,
-      "nativeSha256": "969ab89d3df2a1e6572f5ca40ce9519798d776d7df607146eeae04b80f6c5be5",
-      "caption": "Marchand celebrates with a teammate in Game 5 of the Stanley Cup Final.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-5-florida-panthers-at-edmonton-oilers-6-14-2025",
-      "url": "images/marchand-games/expressive-20261017-a617/game.png?v=969ab89d3df2",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a617/game-thumb.webp?v=be85fa12b95b"
+      "nativeSha256": "de2dc7a242aa8e143990ed1d2a2184c88c478e6630cf515afec4d803515b8af8",
+      "caption": "Marchand celebrates a first-period goal with Eetu Luostarinen in Game 5 of the Stanley Cup Final.",
+      "credit": "Jamie Squire / Getty Images",
+      "sourceUrl": "https://www.nbcsportsboston.com/nhl/boston-bruins/brad-marchand-stanley-cup-stats-highlights/714463/",
+      "url": "images/marchand-games/identity-v3-20261018-a617/game.png?v=de2dc7a242aa",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a617/game-thumb.webp?v=f8e0943dc0de",
+      "displayLabel": "GAME 5 / JUNE 14, 2025",
+      "bookPage": 160
     },
     {
       "inventoryId": 618,
@@ -3092,13 +3076,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 162,
       "nativeSha256": "95ef554dde51b3a975b8ec4180c3af3be94a903fa33f5ad6892c7bf727d45481",
       "caption": "Marchand kisses the Stanley Cup after Florida’s Game 6 victory.",
       "credit": "Mike Carlson / Getty Images",
       "sourceUrl": "https://www.nhl.com/de/news/marchand-holt-nach-14-jahren-und-2-niederlagen-im-finale-wieder-den-stanley-cup",
       "url": "images/marchand-games/perfectionist-20261017-a618/game.png?v=95ef554dde51",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a618/game-thumb.webp?v=6db9ed19b284"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a618/game-thumb.webp?v=6db9ed19b284",
+      "bookPage": 161
     },
     {
       "inventoryId": 619,
@@ -3113,13 +3097,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 163,
       "nativeSha256": "cf283c9db82994026c6331909ecf5be284248f7206695f965eabee036e2a613a",
       "caption": "Marchand gestures alongside Lundell on Cup-clinching night.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-6-florida-panthers-vs-edmonton-oilers-6-17-2025",
       "url": "images/marchand-games/2024030416-a619-publishing/game.webp?v=c545fd3fb642",
-      "thumbnailUrl": "images/marchand-games/2024030416-a619-publishing/game-thumb.webp?v=480b3cf74a4c"
+      "thumbnailUrl": "images/marchand-games/2024030416-a619-publishing/game-thumb.webp?v=480b3cf74a4c",
+      "bookPage": 162
     },
     {
       "inventoryId": 620,
@@ -3134,13 +3118,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 164,
       "nativeSha256": "c1e286025b93a4d9e50deb250faf2ff2b02b39a131e29656bd98979119eeb70e",
       "caption": "Marchand celebrates the championship with Bennett and Barkov.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-6-florida-panthers-vs-edmonton-oilers-6-17-2025",
       "url": "images/marchand-games/2024030416-a620-publishing/game.webp?v=35c66d75064a",
-      "thumbnailUrl": "images/marchand-games/2024030416-a620-publishing/game-thumb.webp?v=79e1978a8b2a"
+      "thumbnailUrl": "images/marchand-games/2024030416-a620-publishing/game-thumb.webp?v=79e1978a8b2a",
+      "bookPage": 163
     },
     {
       "inventoryId": 621,
@@ -3153,15 +3137,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Correct Luostarinen scoring-play setup, Brad small near right boards. Goal-action context retained; expression not readable.",
+      "selectionReason": "Postgame coach greeting after series clinch; no scoring-play claim.",
       "mediaRole": "game_reference",
-      "bookPage": 165,
-      "nativeSha256": "13578dfa14d6ca8e325f6e04253788f7a3d14cdd1f32ad043c2bf96f43d7817a",
-      "caption": "Marchand sets up Luostarinen during the Game 5 scoring play.",
-      "credit": "Video still: NHL / game broadcast",
-      "sourceUrl": "https://www.nhl.com/video/c-6372142992112",
-      "url": "images/marchand-games/2024030125-a621-publishing/game.webp?v=7cdc6ce11d68",
-      "thumbnailUrl": "images/marchand-games/2024030125-a621-publishing/game-thumb.webp?v=9fc66146452b"
+      "nativeSha256": "b9841082795e6b62e88fbacf9ac8c153b752cdce202bc25f40e186308e089789",
+      "caption": "Marchand greets Lightning coach Jon Cooper after Florida’s series-clinching win in Tampa.",
+      "credit": "Chris O’Meara / AP",
+      "sourceUrl": "https://www.ksl.com/article/51304736/panthers-advance-to-the-second-round-after-defeating-tampa-bay-in-5-games",
+      "url": "images/marchand-games/identity-v3-20261018-a621/game.png?v=b9841082795e",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a621/game-thumb.webp?v=7a2e917d1d26",
+      "displayLabel": "POSTGAME / APRIL 30, 2025",
+      "bookPage": 164
     },
     {
       "inventoryId": 622,
@@ -3174,15 +3159,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Brad face center-right behind Bennett9/Lundell15, correct power-play goal group. Timestamp251.0 exact verified, limited prominence.",
+      "selectionReason": "Same-game on-ice portrait; no scoring-play claim.",
       "mediaRole": "game_reference",
-      "bookPage": 166,
-      "nativeSha256": "a65e6315923fc61b64d13d8c0242f3e215016dbc490f3f208399025d986f911b",
-      "caption": "Marchand and teammates after Bennett’s power-play goal in Toronto.",
-      "credit": "Video still: NHL / game broadcast",
-      "sourceUrl": "https://www.nhl.com/video/c-6372822730112",
-      "url": "images/marchand-games/2024030215-a622-publishing/game.webp?v=250eb58ed99c",
-      "thumbnailUrl": "images/marchand-games/2024030215-a622-publishing/game-thumb.webp?v=0c4d09e3aa87"
+      "nativeSha256": "bed2d67ef4ddcbfd961da721e54d9dd7ecfab4c1137d78a0d70a41252c115be0",
+      "caption": "Marchand during Game 5 against the Maple Leafs in Toronto.",
+      "credit": "Kevin Sousa / NHLI via Getty Images",
+      "sourceUrl": "https://people.com/nhl-player-brad-marchand-misses-practice-to-coach-a-junior-hockey-team-11840033",
+      "url": "images/marchand-games/identity-v3-20261018-a622/game.png?v=bed2d67ef4dd",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a622/game-thumb.webp?v=eae7ec1336b4",
+      "displayLabel": "GAME PORTRAIT / MAY 14, 2025",
+      "bookPage": 165
     },
     {
       "inventoryId": 623,
@@ -3197,13 +3183,13 @@
       "galleryPosition": "last",
       "selectionReason": "Frontal open-mouth Brad reaction with his whole helmet, substantially clearer expression than the archived sideways partly blocked face. Original broadcast softness remains but readable native detail is stronger.",
       "mediaRole": "game_reference",
-      "bookPage": 167,
       "nativeSha256": "696843ce802b81d6bb8c34fbc2e22492ed2ac68b1320c313bf8322b9ad16dd20",
       "caption": "Marchand celebrates his empty-net goal with teammates in Game 7.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6373038861112",
       "url": "images/marchand-games/complete-20261018-a623/game.png?v=696843ce802b",
-      "thumbnailUrl": "images/marchand-games/complete-20261018-a623/game-thumb.webp?v=29076e61cabe"
+      "thumbnailUrl": "images/marchand-games/complete-20261018-a623/game-thumb.webp?v=29076e61cabe",
+      "bookPage": 166
     },
     {
       "inventoryId": 624,
@@ -3218,13 +3204,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 168,
       "nativeSha256": "684dab593f27e9a57323c871683fb7a84dd72aefd2d1de53c52ca66405cf2822",
       "caption": "Marchand joins the Game 2 goal celebration with Verhaeghe.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6373366696112",
       "url": "images/marchand-games/2024030312-a624-publishing/game.webp?v=f0a0c0c20697",
-      "thumbnailUrl": "images/marchand-games/2024030312-a624-publishing/game-thumb.webp?v=03d4c4213ae8"
+      "thumbnailUrl": "images/marchand-games/2024030312-a624-publishing/game-thumb.webp?v=03d4c4213ae8",
+      "bookPage": 167
     },
     {
       "inventoryId": 625,
@@ -3237,15 +3223,16 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained",
+      "selectionReason": "Same-game team celebration; no specific goal attributed.",
       "mediaRole": "game_reference",
-      "bookPage": 169,
-      "nativeSha256": "e745e4dcd8c235b446e754130ea051e5eaaeb66287867dffb990bf7e4e526056",
-      "caption": "Marchand celebrates with his teammates at the Florida bench.",
+      "nativeSha256": "efceeb161f32ef8d78dc49ad24ac1176ca5db743f81c391268b9a164e4072b8e",
+      "caption": "Marchand celebrates with teammates in Game 5 of the Eastern Conference Final in Carolina.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
-      "url": "images/marchand-games/expressive-20261017-a625/game.png?v=e745e4dcd8c2",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a625/game-thumb.webp?v=1d26bac3615a"
+      "url": "images/marchand-games/identity-v3-20261018-a625/game.png?v=efceeb161f32",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a625/game-thumb.webp?v=499d2c48465c",
+      "displayLabel": "GAME 5 / MAY 28, 2025",
+      "bookPage": 168
     },
     {
       "inventoryId": 626,
@@ -3260,13 +3247,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp Brad carrying puck vs Kaiser44, full face and63 visible. Correct Oct7 Imagn image, manifest embedded-caption fields need refresh.",
       "mediaRole": "game_reference",
-      "bookPage": 170,
       "nativeSha256": "7c5a467da838779880eed60e45de45ccea3ea016a4f5a2222a35f6c404dd4b67",
       "caption": "Marchand carries the puck against Chicago.",
       "credit": "Sam Navarro / Imagn Images",
       "sourceUrl": "https://ontapsportsnet.com/nhl/chicago-blackhawks/blackhawks-panthers-2025-season-opener-recap/",
       "url": "images/marchand-games/2025020001-a626-publishing/game.webp?v=214828ba425d",
-      "thumbnailUrl": "images/marchand-games/2025020001-a626-publishing/game-thumb.webp?v=4dc4feb55a1b"
+      "thumbnailUrl": "images/marchand-games/2025020001-a626-publishing/game-thumb.webp?v=4dc4feb55a1b",
+      "bookPage": 169
     },
     {
       "inventoryId": 700,
@@ -3281,13 +3268,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Oct30 goal reaction, Brad side profile/name63, neutral. Distinct701 rear frame and60 crease action.",
       "mediaRole": "game_reference",
-      "bookPage": 173,
       "nativeSha256": "f3fed1f44074424924b19f85838a3736d116653e97bb384b40d5a6e722baf9cf",
       "caption": "Marchand reacts after scoring against Florida.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a700-publishing/game.webp?v=e3313822d425",
-      "thumbnailUrl": "images/marchand-games/2023020130-a700-publishing/game-thumb.webp?v=225f1ea1c682"
+      "thumbnailUrl": "images/marchand-games/2023020130-a700-publishing/game-thumb.webp?v=225f1ea1c682",
+      "bookPage": 172
     },
     {
       "inventoryId": 701,
@@ -3302,13 +3289,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct same goal, Brad rear63 lifting glove. Distinct700 profile, no expressive face.",
       "mediaRole": "game_reference",
-      "bookPage": 174,
       "nativeSha256": "29d55304b28dbe72455c35d2b02d753e8f914b2e7a25d6c8adb4c09857598b4c",
       "caption": "Marchand skates away after scoring against Florida.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a701-publishing/game.webp?v=2a3759d6eaf0",
-      "thumbnailUrl": "images/marchand-games/2023020130-a701-publishing/game-thumb.webp?v=e595888e9482"
+      "thumbnailUrl": "images/marchand-games/2023020130-a701-publishing/game-thumb.webp?v=e595888e9482",
+      "bookPage": 173
     },
     {
       "inventoryId": 702,
@@ -3323,14 +3310,14 @@
       "galleryPosition": "last",
       "selectionReason": "Shootout-win celebration. HFC warm-up puck classification unchanged; do not describe as his regulation-goal celebration.",
       "mediaRole": "game_reference",
-      "bookPage": 175,
       "nativeSha256": "a6a3c255d53dbfd22d37b29a6423830695aa2e62ae842ea2b4885db4a1fa235b",
       "caption": "Marchand and the Bruins bench celebrate their shootout victory over New Jersey.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.wcvb.com/article/boston-bruins-new-jersey-devils-nhl-recap-march-30-2021/35985014",
       "url": "images/marchand-games/targeted-v2-20261018-a702/game.png?v=a6a3c255d53d",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a702/game-thumb.webp?v=adf52350a1af",
-      "displayLabel": "SHOOTOUT WIN / MAR 30, 2021"
+      "displayLabel": "SHOOTOUT WIN / MAR 30, 2021",
+      "bookPage": 174
     },
     {
       "inventoryId": 703,
@@ -3345,13 +3332,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 176,
       "nativeSha256": "2effbb5962943afe00b2939976b364bc0c2402ffc3fa8be8be09ff312d593d1d",
       "caption": "Bruins in this game.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.pressherald.com/2022/10/25/bruins-improve-to-6-1-by-beating-stars-3-1/",
       "url": "images/marchand-games/2022020100-a703-publishing/game.webp?v=400e8a855a40",
-      "thumbnailUrl": "images/marchand-games/2022020100-a703-publishing/game-thumb.webp?v=dd53c34cd307"
+      "thumbnailUrl": "images/marchand-games/2022020100-a703-publishing/game-thumb.webp?v=dd53c34cd307",
+      "bookPage": 175
     },
     {
       "inventoryId": 704,
@@ -3366,13 +3353,13 @@
       "galleryPosition": "last",
       "selectionReason": "Genuine dated Nashville postgame interview, clear face and cap. Neutral, honest after-game caption.",
       "mediaRole": "game_reference",
-      "bookPage": 177,
       "nativeSha256": "f23e6914d1510221a135e19a1ff9e52c2b4694878b1a0fdde04cea555bffa1a0",
       "caption": "Marchand after the Nashville Predators game.",
       "credit": "Video still: Boston Bruins / NHL.com",
       "sourceUrl": "https://www.nhl.com/bruins/video/postgame-preds-top-b-s-1-0-301598780",
       "url": "images/marchand-games/2018020202-a704-publishing/game.webp?v=25216c0ddd8b",
-      "thumbnailUrl": "images/marchand-games/2018020202-a704-publishing/game-thumb.webp?v=d4bfd1819c68"
+      "thumbnailUrl": "images/marchand-games/2018020202-a704-publishing/game-thumb.webp?v=d4bfd1819c68",
+      "bookPage": 176
     },
     {
       "inventoryId": 705,
@@ -3387,13 +3374,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 178,
       "nativeSha256": "1f161ad81f9dfa58f938e275067775653183422dfc5a9cf0b43fe56bd8cde6e2",
       "caption": "McAvoy in the rescheduled game.",
       "credit": "Charles Krupa / AP",
       "sourceUrl": "https://www.pressherald.com/2022/02/10/short-handed-bruins-routed-by-hurricanes-6-0/",
       "url": "images/marchand-games/2021020494-a705-publishing/game.webp?v=606bf64973b6",
-      "thumbnailUrl": "images/marchand-games/2021020494-a705-publishing/game-thumb.webp?v=a612540b3708"
+      "thumbnailUrl": "images/marchand-games/2021020494-a705-publishing/game-thumb.webp?v=a612540b3708",
+      "bookPage": 177
     },
     {
       "inventoryId": 706,
@@ -3408,13 +3395,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 179,
       "nativeSha256": "c07a6842434c9c60738580a7de9a3647110097cfba435d74d00fb5c30cd88a5e",
       "caption": "Marchand scores on a penalty shot against Toronto.",
       "credit": "Claus Andersen / Getty Images",
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2022020179-a706-publishing/game.webp?v=7d487095d3d3",
-      "thumbnailUrl": "images/marchand-games/2022020179-a706-publishing/game-thumb.webp?v=01f9b5729781"
+      "thumbnailUrl": "images/marchand-games/2022020179-a706-publishing/game-thumb.webp?v=01f9b5729781",
+      "bookPage": 178
     },
     {
       "inventoryId": 707,
@@ -3429,13 +3416,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 184,
       "nativeSha256": "77e78d4721dff6330f8f051fb0d5ef879c7ee314031ff955b7ec7e124be9884f",
       "caption": "Marchand celebrates with teammates in Boston.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-boston-bruins-10-21-2025",
       "url": "images/marchand-games/expressive-20261017-a707/game.png?v=77e78d4721df",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a707/game-thumb.webp?v=3b0e1f20c459"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a707/game-thumb.webp?v=3b0e1f20c459",
+      "bookPage": 183
     },
     {
       "inventoryId": 708,
@@ -3450,13 +3437,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 180,
       "nativeSha256": "fb871547eea218f4594df44454d11270955b8373a3ebd7d7a8035eab92a6a232",
       "caption": "Marchand joins Bergeron's tying-goal celebration.",
       "credit": "Video still: All About Hockey / YouTube",
       "sourceUrl": "https://www.youtube.com/watch?v=thyZzfvmliU",
       "url": "images/marchand-games/2013020184-a708-publishing/game.webp?v=2009c9b7e7b5",
-      "thumbnailUrl": "images/marchand-games/2013020184-a708-publishing/game-thumb.webp?v=6323aa81bd51"
+      "thumbnailUrl": "images/marchand-games/2013020184-a708-publishing/game-thumb.webp?v=6323aa81bd51",
+      "bookPage": 179
     },
     {
       "inventoryId": 710,
@@ -3471,13 +3458,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct McAvoy goal celebration; Brad63 approaches from rear, teammates central. Documentary group context, limited face.",
       "mediaRole": "game_reference",
-      "bookPage": 185,
       "nativeSha256": "5b6d92a93e54e2c96ef0eece8d9268d8558c233aca655e20299a36c5ce2efef4",
       "caption": "Marchand joins McAvoy's goal celebration.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335882836112",
       "url": "images/marchand-games/perfectionist-20261017-a710/game.png?v=5b6d92a93e54",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a710/game-thumb.webp?v=045621b8c3a8"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a710/game-thumb.webp?v=045621b8c3a8",
+      "bookPage": 184
     },
     {
       "inventoryId": 711,
@@ -3492,13 +3479,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 186,
       "nativeSha256": "b95f0dbd89e1e17cbea5a585d05a3e49035bf7bba1d3bf88d17ec425990437c6",
       "caption": "Marchand reacts to Boston’s late go-ahead goal in Seattle.",
       "credit": "Video still: NHL / game broadcast",
       "sourceUrl": "https://www.youtube.com/watch?v=Kb3uQ7K5f-8",
       "url": "images/marchand-games/perfectionist-20261017-a711/game.png?v=b95f0dbd89e1",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a711/game-thumb.webp?v=3e74087f3938"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a711/game-thumb.webp?v=3e74087f3938",
+      "bookPage": 185
     },
     {
       "inventoryId": 712,
@@ -3513,13 +3500,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 187,
       "nativeSha256": "fd177eaa023bb5c07eb2bc0c996fc5f54078977b12213dbd317d9d98db9b92dd",
       "caption": "Marchand celebrates his power-play goal with teammates.",
       "credit": "Ethan Miller / Getty Images",
       "sourceUrl": "https://www.boston.com/sports/boston-bruins/2019/10/09/bruins-vegas-golden-knights-score-analysis/",
       "url": "images/marchand-games/2019020043-a712-publishing/game.webp?v=f3f6a372c348",
-      "thumbnailUrl": "images/marchand-games/2019020043-a712-publishing/game-thumb.webp?v=8023d02d510c"
+      "thumbnailUrl": "images/marchand-games/2019020043-a712-publishing/game-thumb.webp?v=8023d02d510c",
+      "bookPage": 186
     },
     {
       "inventoryId": 713,
@@ -3534,13 +3521,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 188,
       "nativeSha256": "7e0c5082df91b1fa8a2342b881b9e6036a6c4f3af99e789662823258533056e1",
       "caption": "Brad and his father, Kevin, share a moment at the 1,000-point ceremony.",
       "credit": "NHL.com game video",
       "sourceUrl": "https://www.nhl.com/de/video/marchand-s-1-000-point-ceremony-6387083947112",
       "url": "images/marchand-games/expressive-20261017-a713/game.png?v=7e0c5082df91",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a713/game-thumb.webp?v=a7aa662cb5f6"
+      "thumbnailUrl": "images/marchand-games/expressive-20261017-a713/game-thumb.webp?v=a7aa662cb5f6",
+      "bookPage": 187
     },
     {
       "inventoryId": 714,
@@ -3555,13 +3542,13 @@
       "galleryPosition": "last",
       "selectionReason": "Correct Buffalo goal group with Brad63 rear/profile behind Zacha/Pastrnak; plain ice right. Documentary fallback.",
       "mediaRole": "game_reference",
-      "bookPage": 189,
       "nativeSha256": "40993901cd4b90086e888be689800c5cb9c975193558cf7b5b23c8c8d8204563",
       "caption": "Marchand joins the goal celebration against Buffalo Sabres.",
       "credit": "Video still: NHL.com",
       "sourceUrl": "https://nhl.com/video/bos-buf-lindholm-scores-goal-against-sabres-6341131220112",
       "url": "images/marchand-games/2023020229-a714-publishing/game.webp?v=7a7581ca5e91",
-      "thumbnailUrl": "images/marchand-games/2023020229-a714-publishing/game-thumb.webp?v=748934c31e64"
+      "thumbnailUrl": "images/marchand-games/2023020229-a714-publishing/game-thumb.webp?v=748934c31e64",
+      "bookPage": 188
     },
     {
       "inventoryId": 715,
@@ -3576,13 +3563,13 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained",
       "mediaRole": "game_reference",
-      "bookPage": 190,
       "nativeSha256": "e488aa483388603e08b55190e5e44b60bd121f6c44286b8852bd21c5dbdfc474",
       "caption": "Marchand warms up for Boston’s first visit to Utah.",
       "credit": "Spenser Heaps / AP",
       "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
       "url": "images/marchand-games/2024020086-a715-publishing/game.webp?v=b89e8da164a6",
-      "thumbnailUrl": "images/marchand-games/2024020086-a715-publishing/game-thumb.webp?v=08791cc1f27b"
+      "thumbnailUrl": "images/marchand-games/2024020086-a715-publishing/game-thumb.webp?v=08791cc1f27b",
+      "bookPage": 189
     },
     {
       "inventoryId": 716,
@@ -3597,13 +3584,13 @@
       "galleryPosition": "last",
       "selectionReason": "Clear smiling/knowing Brad face in genuine May6 Columbus postgame interview. Stronger facial expression than many action fallbacks.",
       "mediaRole": "game_reference",
-      "bookPage": 191,
       "nativeSha256": "c1f02e6025c9194e9935aedb09081ff96551b76ca30ee17c70a6bbcddbae0304",
       "caption": "Marchand after the Columbus Blue Jackets game.",
       "credit": "Video still: Boston Bruins / NHL.com",
       "sourceUrl": "https://www.nhl.com/bruins/video/marchand-s-quick-interview-307251206",
       "url": "images/marchand-games/2018030216-a716-publishing/game.webp?v=16cd38292e01",
-      "thumbnailUrl": "images/marchand-games/2018030216-a716-publishing/game-thumb.webp?v=5f57f2033444"
+      "thumbnailUrl": "images/marchand-games/2018030216-a716-publishing/game-thumb.webp?v=5f57f2033444",
+      "bookPage": 190
     },
     {
       "inventoryId": 717,
@@ -3618,13 +3605,13 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp Brad63 rear helmet pat from Reinhart in Chicago. Genuine affection despite no face. Reject Samoskevich79 gallery substitutions.",
       "mediaRole": "game_reference",
-      "bookPage": 181,
       "nativeSha256": "39d62bcd56c85a728074328f4d4f2a75661a0bffbe5a48326a89f8cd6b721cad",
       "caption": "Marchand and Reinhart in Chicago.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-chicago-blackhawks-1-25-2026",
       "url": "images/marchand-games/perfectionist-20261017-a717/game.png?v=39d62bcd56c8",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a717/game-thumb.webp?v=c4130f15c155"
+      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a717/game-thumb.webp?v=c4130f15c155",
+      "bookPage": 180
     }
   ]
 }

@@ -1,13 +1,10 @@
 {
-  "status": "Unresolved owner review; no physical identity merge or reassignment",
-  "catalogRecords": [
-    57,
-    313
-  ],
+  "status": "RESOLVED_OWNER_CONFIRMED_SINGLE_ITEM",
+  "activeArtifact": 313,
+  "vacantArtifact": 57,
   "sharedHologram": "RG13313204",
-  "qualification": "Shared identification under review: records 57 and 313 reference the same photographed puck and hologram RG13313204. Both catalog records are retained pending owner clarification; this does not establish two distinct physical pucks.",
-  "sourceHandoff": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Perfectionist Publishing Review Handoff 2026-10-17-v1/57-313-identity-claims.json",
-  "catalogRecordCount": 172,
-  "distinctPhysicalPuckCountAsserted": false,
-  "physicalPhotographsOrCoasChanged": false
+  "catalogRecordCount": 171,
+  "sourceHandoff": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
+  "sourceHandoffSha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3",
+  "rule": "No active57alias. Preserve all historical files.171records does not certify171distinct physical pucks."
 }

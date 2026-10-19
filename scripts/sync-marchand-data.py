@@ -269,9 +269,12 @@ def synchronize_record(record, workbook_values, workbook_formulas):
         raise ValueError(f"Unsupported source sheet: {sheet_name}")
 
     if sheet_name != "Goals & Games" and values.get("Video URL"):
-        provider, video_id = video_parts(values["Video URL"], record)
-        record["videoUrl"] = values["Video URL"]
-        record["videoLabel"] = record.get("videoLabel") or "Game Context"
+        video_field = next(field for field in fields if field["label"] == "Video URL")
+        canonical_url = (values["Video URL"] if values["Video URL"].startswith("https://")
+                         else video_field["url"])
+        provider, video_id = video_parts(canonical_url, record)
+        record["videoUrl"] = canonical_url
+        record["videoLabel"] = record.get("videoLabel") or values["Video URL"]
         record["videoProvider"], record["videoId"] = provider, video_id
     if sheet_name == "Milestones" and values.get("Original Front Image Filename"):
         record["playerCodes"] = ["BM63"]

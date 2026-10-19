@@ -52,3 +52,16 @@ assert 49 not in by_id, "Reserved goal 49 must remain vacant"
 assert by_id[342]["sourceSheet"] == "Milestones" and by_id[342]["sourceRow"] == 43
 assert by_id[342]["authenticationSerial"] == "XJ05532097"
 assert by_id[322]["authenticationSerial"] == "XJ05532094"
+
+assert 57 not in by_id, "Owner-retired57 remains vacant"
+survivor = by_id[313]
+assert survivor["sourceSheet"] == "Milestones" and survivor["sourceRow"] == 14
+assert survivor["seasonStat"] == 4 and survivor["time"] == "12:49"
+assert survivor["primaryAssist"] == "BM63" and survivor["secondaryAssist"] == ""
+assert survivor["goalieScoredAgainst"] == "Connor Ingram"
+source_video = next(field for field in survivor["sourceData"] if field["label"] == "Video URL")
+assert source_video["value"] == "Watch Goal" and source_video["url"] == survivor["videoUrl"]
+fresh = deepcopy(survivor)
+fresh.update(videoUrl="", videoProvider="", videoId="")
+sync.synchronize_record(fresh, workbook, workbook)
+assert fresh == survivor, "Native hyperlink target must import without an existing website URL"

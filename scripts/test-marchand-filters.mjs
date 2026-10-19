@@ -231,14 +231,14 @@ assert.equal(element("artifact-game-photo-credit").hidden, true);
 gamePhotoManifest.artifacts[noPhotoKey] = savedReference;
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 7);
-assert.equal(rows().length, 172);
+assert.equal(rows().length, 171);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 50);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
-assert.equal(rows().length, 121);
+assert.equal(rows().length, 120);
 assert.ok(!shownIds().includes(335));
 change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
@@ -265,13 +265,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 172);
+assert.equal(rows().length, 171);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 76], ["Milestones", 42], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 172]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 42], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 171]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -293,12 +293,12 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 172);
+assert.equal(rows().length, 171);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
 const cellValue = (parentId, label) => element(parentId).children.find((child) => child.children[0].textContent === label)?.children[1].textContent;
-for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎", "Assist · Game Used Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
+for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [59, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
   const row = rows().find((item) => Number(item.children[0].textContent) === id);
   const symbol = row.children[7].children[0];
   assert.equal(symbol.textContent, emoji);
@@ -307,15 +307,15 @@ for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [57, "🍎",
   assert.equal(element("artifact-dialog").open, true);
   assert.equal(cellValue("artifact-dialog-facts", "Puck type"), `${emoji} ${label}`);
   assert.equal(cellValue("artifact-source-grid", "Puck Type"), `${emoji} ${label}`);
-  if ([57, 59].includes(id)) {
+  if (id === 59) {
     assert.ok(cellValue("artifact-dialog-facts", "Category").startsWith("🍎 "));
     const cards = element("artifact-personnel-grid").children;
-    assert.equal(cards[0].dataset.player, id === 57 ? "CK45" : "EL27");
+    assert.equal(cards[0].dataset.player, "EL27");
     assert.ok(cards[0].textContent.includes("Goal Scorer"));
     assert.equal(cards[1].dataset.player, "BM63");
     assert.ok(cards[1].textContent.includes("Primary Assist"));
     assert.equal(cards.at(-1).dataset.role, "goalie");
-    assert.ok(cards.at(-1).textContent.includes(id === 57 ? "Connor Ingram" : "Jeremy Swayman"));
+    assert.ok(cards.at(-1).textContent.includes("Jeremy Swayman"));
   }
   if (id === 316 || id === 503) assert.ok(!element("artifact-personnel-grid").children.some((card) => card.dataset.role === "goalie"));
   element("artifact-dialog-close").click();

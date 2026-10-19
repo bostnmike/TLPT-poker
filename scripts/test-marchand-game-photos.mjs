@@ -5,13 +5,13 @@ const read=name=>fs.readFileSync(new URL(`../${name}`,import.meta.url));
 const collection=JSON.parse(read('data/marchand-pucks.json'));
 const photos=JSON.parse(read('data/marchand-game-photos.json'));
 const index=JSON.parse(read('docs/marchand-game-photo-index-20261017.json')).records;
-assert.equal(collection.records.length,172);
-assert.equal(index.length,172);
-assert.equal(Object.keys(photos.artifacts).length,172);
-assert.equal(Object.keys(photos.assets).length,172);
-assert.equal(photos.meta.artifacts,172);
-assert.equal(photos.meta.assets,172);
-assert.equal(photos.meta.selectedGameImages,172);
+assert.equal(collection.records.length,171);
+assert.equal(index.length,171);
+assert.equal(Object.keys(photos.artifacts).length,171);
+assert.equal(Object.keys(photos.assets).length,171);
+assert.equal(photos.meta.artifacts,171);
+assert.equal(photos.meta.assets,171);
+assert.equal(photos.meta.selectedGameImages,171);
 assert.equal(photos.meta.withheldGameImages,0);
 assert.equal(photos.meta.uniqueImagePerSelectedArtifact,true);
 assert.equal(photos.meta.physicalPhotographySeparate,true);
@@ -45,16 +45,16 @@ for(const record of collection.records){
  assert.equal(photo.displaySelected,true);
  assert.equal(mapping.galleryPosition,'last');
  assert.equal(joined.galleryPosition,'last');
- assert.equal(photo.subjectRuleReview,'PASS');
+ assert.ok(['PASS','PASS_FRESH_APPROVED_SOURCE_IDENTITY'].includes(photo.subjectRuleReview));
  assert.ok(photo.bradVisible||!photo.bradPlayed);
  if(!photo.bradPlayed)nonBrad.push(record.inventoryId);
  if(mapping.photoDate!==record.date)assert.equal(record.inventoryId,705);
  for(const field of ['caption','credit','sourceUrl','nativeSha256','url','thumbnailUrl'])assert.equal(joined[field],photo[field]);
 }
-assert.equal(selectedCount,172);
+assert.equal(selectedCount,171);
 assert.equal(withheldCount,0);
 assert.ok(nonBrad.every(id=>[703,705].includes(id)));
-for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,172,`Selected images/originals must be distinct: ${field}`);
+for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,171,`Selected images/originals must be distinct: ${field}`);
 for(const [id,photo]of Object.entries(photos.assets)){
  assert.ok(photo.caption&&photo.originalCaption&&photo.credit);
  assert.match(photo.sourceUrl,/^https:\/\//);
@@ -112,16 +112,16 @@ assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
 assert.equal(photos.artifacts['warmup-713'].photoDate,'2025-12-30');
 assert.match(selected('warmup-713').caption,/Kevin/);
 assert.match(byId(713).notes,/reached November 13, 2025/);
-assert.equal(collection.meta.currentCanonicalMasterSha256,'326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd');
+assert.equal(collection.meta.currentCanonicalMasterSha256,'9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
 assert.equal(photos.meta.nativeExcelAppTest,'PASS');
-assert.equal(photos.meta.sourceIndexSha256,'13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0');
+assert.equal(photos.meta.sourceIndexSha256,'8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0');
 assert.equal(photos.meta.changedNativeImages.length,8);
-assert.equal(photos.meta.retainedNativeImages.length,164);
+assert.equal(photos.meta.retainedNativeImages.length,163);
 assert.equal(photos.meta.restoredArchivedNativeImages.length,0);
-console.log('PASS:172 distinct singular gallery tails;8 exact native replacements;164 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner qualification retained.');
+console.log('PASS:171 distinct singular gallery tails;8 exact native replacements;163 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner consolidation resolved.');
 
 // Owner-approved v2 context must be visible, not only implicit in image type.
 for(const id of [2,36,56,303,305,506,601,702]){const r=byId(id),a=selected(r.key);assert.equal(a.label,a.displayLabel);assert.ok(a.displayLabel);assert.match(a.url,/targeted-v2-20261018-/);assert.equal(a.sourceRevision,'Targeted-Photo-Edition-20261018-v2');assert.equal(a.sha256,a.nativeSha256);assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);if(a.imageKind==='photograph')assert.equal(a.videoSource,undefined);}
@@ -136,4 +136,22 @@ assert.match(selected('goal-36').displayLabel,/PREGAME/);
 assert.match(selected('goal-2').displayLabel,/POSTGAME/);
 assert.match(selected('repeat-601').displayLabel,/GAME ACTION/);
 assert.match(selected('hfc-702').displayLabel,/SHOOTOUT WIN/);
-assert.equal(photos.meta.photographs,89);assert.equal(photos.meta.videoStills,83);
+assert.equal(photos.meta.photographs,91);assert.equal(photos.meta.videoStills,80);
+
+assert.equal(photos.artifacts['goal-57'],undefined);
+assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
+assert.deepEqual(photos.meta.openOwnerReview,[]);
+assert.equal(photos.meta.revision,'Canonical-Consolidated-Edition-20261018-v4');
+for(const id of [67,602,605,608,617,621,622,625]){
+ const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
+ assert.equal(a.sourceRevision,photos.meta.revision);assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');
+ assert.equal(a.videoSource,undefined);assert.equal(a.subjectRuleReview,'PASS_FRESH_APPROVED_SOURCE_IDENTITY');
+ assert.equal(a.finalVisualReview.status,'PASS_WITH_EXISTING_QUALIFICATIONS');assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);
+}
+assert.match(selected('repeat-608').displayLabel,/POSTGAME/);
+assert.match(selected('repeat-621').displayLabel,/POSTGAME/);
+assert.match(selected('repeat-622').displayLabel,/PORTRAIT/);
+assert.match(selected('repeat-625').context,/no specific goal/i);
+assert.equal(selected('repeat-602').photographerIdentified,false);
+assert.equal(selected('repeat-625').photographerIdentified,false);
+assert.match(selected('repeat-605').identityEvidence,/partly covers.*helmet numeral/i);

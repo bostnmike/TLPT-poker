@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-29",
-    "records": 172,
+    "records": 171,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates.",
@@ -1507,43 +1507,6 @@
         }
       }
     },
-    "goal-57": {
-      "inventoryId": 57,
-      "date": "2024-10-19",
-      "team": "Boston Bruins",
-      "gameId": 2024020086,
-      "title": "An assist on Boston’s only goal in Utah",
-      "paragraphs": [
-        "Marchand earned the lone assist on Cole Koepke’s goal at 12:49 of the second period. Boston held that 1–0 lead until Utah tied it with 5:09 left in regulation, then lost 2–1 in overtime. This record documents Marchand’s assist on the opening goal, not a Marchand goal.",
-        "Shared identification under review: records 57 and 313 reference the same photographed puck and hologram RG13313204. Both catalog records are retained pending owner clarification; this does not establish two distinct physical pucks."
-      ],
-      "sources": [
-        {
-          "label": "NHL game summary & box score",
-          "url": "https://www.nhl.com/gamecenter/2024020086"
-        }
-      ],
-      "verification": {
-        "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020086/landing",
-        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
-        "marchand": {
-          "goals": 0,
-          "assists": 1,
-          "points": 1,
-          "shots": 1,
-          "toi": "18:06"
-        },
-        "identityReview": {
-          "status": "Owner clarification pending",
-          "catalogRecords": [
-            57,
-            313
-          ],
-          "hologram": "RG13313204",
-          "review": "docs/marchand-identity-review-20261017.json"
-        }
-      }
-    },
     "goal-58": {
       "inventoryId": 58,
       "date": "2025-02-12",
@@ -2427,8 +2390,8 @@
       "gameId": 2024020086,
       "title": "A first point against Utah",
       "paragraphs": [
-        "Marchand assisted on Koepke’s goal at 12:49 of the second period in Boston’s first game against Utah Hockey Club. It was Boston’s only goal in a 2–1 overtime loss. This catalog entry records his first point against Utah; artifact 57 documents the assist from the same game.",
-        "Shared identification under review: records 57 and 313 reference the same photographed puck and hologram RG13313204. Both catalog records are retained pending owner clarification; this does not establish two distinct physical pucks."
+        "Marchand earned his first career point against Utah Hockey Club with the primary assist on Cole Koepke’s goal against Connor Ingram at 12:49 of the second period on October 19, 2024, at Delta Center. It was Marchand’s fourth assist of the season and Boston’s only goal in a 2–1 overtime loss.",
+        "Boston held that 1–0 lead until Utah tied the game with 5:09 left in regulation. This milestone records Marchand’s assist and first point against Utah; the goal was scored by Koepke."
       ],
       "sources": [
         {
@@ -2446,14 +2409,21 @@
           "shots": 1,
           "toi": "18:06"
         },
-        "identityReview": {
-          "status": "Owner clarification pending",
-          "catalogRecords": [
-            57,
-            313
-          ],
+        "canonicalConsolidation": {
+          "status": "OWNER_CONFIRMED_ONE_ITEM; SOLE_ACTIVE313;57VACANT",
           "hologram": "RG13313204",
-          "review": "docs/marchand-identity-review-20261017.json"
+          "handoff": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
+          "handoffSha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
+        },
+        "scoringDetail": {
+          "scorer": "CK45",
+          "primaryAssist": "BM63",
+          "secondaryAssist": "",
+          "seasonAssist": 4,
+          "period": 2,
+          "time": "12:49",
+          "goalie": "Connor Ingram",
+          "videoUrl": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112"
         }
       }
     },

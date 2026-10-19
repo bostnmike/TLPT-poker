@@ -1,13 +1,10 @@
 {
   "meta": {
-    "releaseStatus": "EIGHT OWNER-APPROVED TARGETED PHOTOS; OWNER57/313 REVIEW REMAINS OPEN",
-    "revision": "Targeted-Photo-Edition-20261018-v2",
-    "sourceManifestSha256": "f1ea812568e3cfcf43d1bad276fe0b3983425cab76ead942877f4624da2972ec",
-    "sourceIndexSha256": "13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0",
-    "artifacts": 172,
-    "assets": 172,
-    "photographs": 89,
-    "videoStills": 83,
+    "releaseStatus": "CANONICAL171 CONSOLIDATION AND EIGHT APPROVED PHOTOS;708 QUALITY ITEM REMAINS OPEN",
+    "artifacts": 171,
+    "assets": 171,
+    "photographs": 91,
+    "videoStills": 80,
     "galleryPosition": "last",
     "physicalPhotographySeparate": true,
     "subjectRule": "Best verified correctly matched available image on every artifact; documentary source limits remain candid. Brad identifiable when he played; documented ceremonial/DNP context preserved.",
@@ -28,34 +25,21 @@
       ]
     },
     "rightsMetadataCorrections": [],
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
-    "bookSha256": "18a6c050e8144830abf7e13c845cbb4f5a6b7f874842bcadd67b860b5c3a64ba",
     "bookPages": 236,
-    "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Perfectionist-Review-236pages-20261017-v1/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Perfectionist-Review-October17-2026-v1.pdf",
-    "coverSha256": "878ccd583ab34a395368179d0134420cc96b4f0596bd5ac90edc82f1efa52cc9",
     "coverPages": 1,
-    "openOwnerReview": [
-      {
-        "artifacts": [
-          57,
-          313
-        ],
-        "hologram": "RG13313204",
-        "status": "Same photographed puck/hologram; both catalog records retained. Book separate-puck assertion removed and explicit shared-identification qualification added. Owner factual clarification pending. Do not merge/reassign identities or infer two distinct physical pucks."
-      }
-    ],
     "changedNativeImages": [
-      2,
-      36,
-      56,
-      303,
-      305,
-      506,
-      601,
-      702
+      67,
+      602,
+      605,
+      608,
+      617,
+      621,
+      622,
+      625
     ],
     "retainedNativeImages": [
       1,
+      2,
       3,
       4,
       5,
@@ -89,6 +73,7 @@
       33,
       34,
       35,
+      36,
       37,
       38,
       39,
@@ -107,7 +92,7 @@
       53,
       54,
       55,
-      57,
+      56,
       58,
       59,
       60,
@@ -117,7 +102,6 @@
       64,
       65,
       66,
-      67,
       68,
       69,
       70,
@@ -130,7 +114,9 @@
       77,
       301,
       302,
+      303,
       304,
+      305,
       306,
       307,
       308,
@@ -173,18 +159,17 @@
       503,
       504,
       505,
+      506,
       507,
       508,
       509,
       510,
       600,
-      602,
+      601,
       603,
       604,
-      605,
       606,
       607,
-      608,
       609,
       610,
       611,
@@ -193,18 +178,15 @@
       614,
       615,
       616,
-      617,
       618,
       619,
       620,
-      621,
-      622,
       623,
       624,
-      625,
       626,
       700,
       701,
+      702,
       703,
       704,
       705,
@@ -220,22 +202,38 @@
       716,
       717
     ],
-    "delivery": "164 complete asset and mapping objects and served pairs preserved exactly; eight exact-native PNG fulls and320px thumbnails. All172 selected singular LAST;0withheld.",
+    "delivery": "171 selected singular LAST;825 active physical/evidence views;996 total. Original830 physical mappings and retired57 files preserved as history.",
     "sourceLimits": [
-      "Eight owner-approved exact-game, no-paid-image replacements. Native source pixels and ICC preserved by exact crops. No synthetic detail or watermark removal. Existing source softness and owner association qualifications remain; no blanket all172 exceptional claim.",
-      "Owner association57/313 remains open; no assertion of172 unique physical pucks.",
+      "Canonical owner-confirmed consolidation plus preserved user-approved photographs. No synthesis, retouch, native resampling, watermark removal, paid image substitution or fresh all171identity claim.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
-      "Local PDF validation does not claim Blurb uploader acceptance."
+      "Local PDF validation does not claim Blurb uploader acceptance.",
+      "Artifact708 remains selected and unchanged with an open source-quality limitation; no replacement adopted.",
+      "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
+      "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
+      "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
+      "Artifact708remains selected/unchanged with its existing soft source-quality limitation; no replacement adopted.",
+      "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
+      "All171surviving native game selections remain byte-exact from unpublishedv3; prior identity/photo qualifications remain. No new blanket171exceptional/fresh-identity certification.",
+      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
+      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained."
     ],
-    "selectedGameImages": 172,
+    "selectedGameImages": 171,
     "withheldGameImages": 0,
     "uniqueImagePerSelectedArtifact": true,
     "qualifications": [
-      "Owner association57/313 remains open; no assertion of172 unique physical pucks.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
-      "Local PDF validation does not claim Blurb uploader acceptance."
+      "Local PDF validation does not claim Blurb uploader acceptance.",
+      "Artifact708 remains selected and unchanged with an open source-quality limitation; no replacement adopted.",
+      "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
+      "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
+      "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
+      "Artifact708remains selected/unchanged with its existing soft source-quality limitation; no replacement adopted.",
+      "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
+      "All171surviving native game selections remain byte-exact from unpublishedv3; prior identity/photo qualifications remain. No new blanket171exceptional/fresh-identity certification.",
+      "825active physical/document views;143active document cards. All830former physical/document source files remain preserved;57five views are archived-only.",
+      "Public source availability is not an unrestricted license grant; source/access/usage records remain retained."
     ],
     "nativeExcelAppTest": "PASS",
     "canonicalVideoCorrections": [
@@ -364,16 +362,14 @@
     "uniqueImagePerArtifact": true,
     "restoredArchivedNativeImages": [],
     "nativeExcelVerificationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5",
-      "bytes": 10342
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
+      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
     },
     "sourceOnlyCorrections": [],
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
+      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
     },
-    "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5",
     "parentMediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
       "sha256": "444a38a1f50180cee484e379ab31cf03e517dd4d1d261a56545ff6afc0a6a550"
@@ -382,14 +378,60 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
       "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
     },
-    "registrationStatus": "REGISTERED; LOCAL DATA/MEDIA VERIFIED; NATIVE EXCEL PASS; WEBSITE SYNCHRONIZATION PENDING",
+    "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS",
+    "historicalV2Provenance": {
+      "revision": "Targeted-Photo-Edition-20261018-v2",
+      "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
+      "bookSha256": "18a6c050e8144830abf7e13c845cbb4f5a6b7f874842bcadd67b860b5c3a64ba",
+      "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Perfectionist-Review-236pages-20261017-v1/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Perfectionist-Review-October17-2026-v1.pdf",
+      "coverSha256": "878ccd583ab34a395368179d0134420cc96b4f0596bd5ac90edc82f1efa52cc9",
+      "sourceManifestSha256": "f1ea812568e3cfcf43d1bad276fe0b3983425cab76ead942877f4624da2972ec",
+      "sourceIndexSha256": "13e93fc5eff39f1ff600c6f420641193f0b8f47524a97c878fce62a456a8dbd0",
+      "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
+        "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
+        "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
+      },
+      "openOwnerReview": [
+        {
+          "artifacts": [
+            57,
+            313
+          ],
+          "hologram": "RG13313204",
+          "status": "Same photographed puck/hologram; both catalog records retained. Book separate-puck assertion removed and explicit shared-identification qualification added. Owner factual clarification pending. Do not merge/reassign identities or infer two distinct physical pucks."
+        }
+      ]
+    },
+    "revision": "Canonical-Consolidated-Edition-20261018-v4",
+    "openOwnerReview": [],
+    "canonicalConsolidationHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
+      "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
+    },
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Canonical-Consolidated-Edition-20261018-v4/Exhibit63-Blurb-Large-Landscape-Pages-Canonical-Consolidated-Edition-October18-2026-v4.pdf",
+    "bookSha256": "10ef94fc4b5830096d6e6a7990c22831325ea278c5c011b5769b66e358bd2031",
+    "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
+    "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "sourceManifestSha256": "e2026004895a5d9841386c56264c96183a5936a1ecb73340d40b2da85089336f",
+    "sourceIndexSha256": "8c2c50e43c4dcaeeab5ae00c39d86d5412d624518a4eebd889c86f14010814b0",
+    "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
+    "physicalEvidenceViews": 825,
+    "combinedGalleryViews": 996,
+    "archivedPhysicalDocumentSourceViews": 830,
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
-      "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
+      "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
+      "bytes": 86323
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
-      "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
+      "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
+      "bytes": 34923
     }
   },
   "artifacts": {
@@ -943,16 +985,6 @@
       "galleryPosition": "last",
       "selectionReason": "Featured first-period power-play goal bench celebration, Game4 April23."
     },
-    "goal-57": {
-      "inventoryId": 57,
-      "assetId": "2024020086-a57-publishing",
-      "artifactDate": "2024-10-19",
-      "photoDate": "2024-10-19",
-      "displaySelected": true,
-      "selectionStatus": "selected",
-      "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
-    },
     "goal-58": {
       "inventoryId": 58,
       "assetId": "2024190001-a58-publishing",
@@ -1051,7 +1083,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Source-caption-verified empty-net goal celebration."
     },
     "goal-68": {
       "inventoryId": 68,
@@ -1281,7 +1313,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Physical57/313 ownership qualification remains unchanged."
+      "selectionReason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Sole active artifact313; owner-confirmed duplicate57 retired."
     },
     "milestone-314": {
       "inventoryId": 314,
@@ -1701,7 +1733,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Same-game action; no exact scoring instant or celebration claimed."
     },
     "repeat-603": {
       "inventoryId": 603,
@@ -1731,7 +1763,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Source-caption-verified overtime-winning-goal celebration."
     },
     "repeat-606": {
       "inventoryId": 606,
@@ -1761,7 +1793,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Brad face left of Luostarinen in Lundell Game7 hug, glass rail across lower foreground. Source-soft but face/expression readable."
+      "selectionReason": "Postgame handshake line; no scoring-play claim."
     },
     "repeat-609": {
       "inventoryId": 609,
@@ -1851,7 +1883,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Source-IPTC-verified first-period goal celebration; no claim that this is the puck record scoring event."
     },
     "repeat-618": {
       "inventoryId": 618,
@@ -1891,7 +1923,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Correct Luostarinen scoring-play setup, Brad small near right boards. Goal-action context retained; expression not readable."
+      "selectionReason": "Postgame coach greeting after series clinch; no scoring-play claim."
     },
     "repeat-622": {
       "inventoryId": 622,
@@ -1901,7 +1933,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Brad face center-right behind Bennett9/Lundell15, correct power-play goal group. Timestamp251.0 exact verified, limited prominence."
+      "selectionReason": "Same-game on-ice portrait; no scoring-play claim."
     },
     "repeat-623": {
       "inventoryId": 623,
@@ -1931,7 +1963,7 @@
       "displaySelected": true,
       "selectionStatus": "selected",
       "galleryPosition": "last",
-      "selectionReason": "Previously selected verified image retained"
+      "selectionReason": "Same-game team celebration; no specific goal attributed."
     },
     "repeat-626": {
       "inventoryId": 626,
@@ -7362,78 +7394,6 @@
         "approvedReplacementsSha256": "64039a2921f8e30b6280d5bb6ca6ac3a2dad11cd6be583ba373c6097bfef77d9"
       }
     },
-    "2024020086-a57-publishing": {
-      "assetId": "2024020086-a57-publishing",
-      "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/2024020086-a57-publishing/game.webp?v=fa775a188ef9",
-      "thumbnailUrl": "images/marchand-games/2024020086-a57-publishing/game-thumb.webp?v=1b96ae89e06c",
-      "rotation": 0,
-      "caption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
-      "originalCaption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
-      "credit": "Spenser Heaps / AP",
-      "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
-      "sourceImageUrl": "https://image.bastillepost.com/1200x/wp-content/uploads/global/2024/10/Bruins_Utah_Hockey_85112.jpg.webp",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial image; source/credit preserved; no public-web license established by this research.",
-      "imageKind": "photograph",
-      "photoDate": "2024-10-19",
-      "gameId": "2024020086",
-      "bradPlayed": true,
-      "bradVisible": true,
-      "subjectRuleReview": "PASS",
-      "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
-      "relationNote": "Remove artificial white padding; preserve complete photographic pixels and subjects.",
-      "nativeAssetPath": "assets/2024020086-a57-publishing/game-image.png",
-      "nativeSha256": "b96d6d155ab503179f7b32f72c11dd72ce23508e17427fab9ff46add90737f68",
-      "nativeWidth": 1200,
-      "nativeHeight": 780,
-      "width": 1200,
-      "height": 780,
-      "sha256": "fa775a188ef904e351d17ee7b9e928cc4633ea8716d4366b55bfe75fefd00b41",
-      "bytes": 120174,
-      "thumbnailSha256": "1b96ae89e06cd40ff0db6baf2a3d55509f2a4a41a355a1c9f48a04c0c795c8d5",
-      "thumbnailBytes": 17826,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
-      "selectedImageProcessing": {
-        "method": "exact_native_pixel_crop",
-        "crop_box": [
-          0,
-          0,
-          1200,
-          780
-        ],
-        "no_resampling": true,
-        "generative_processing": false,
-        "decoded_pixel_equality_verified": true
-      },
-      "originalAssetPath": "originals/2024020086-a57-publishing.webp",
-      "originalAssetSha256": "d9a2c311131421c887ccdf3f489e741d04d72ee5040a11068c53c850180755e4",
-      "originalWidth": 1200,
-      "originalHeight": 800,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Remove artificial white padding; preserve complete photographic pixels and subjects.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
-      "exactScoringInstantAsserted": false,
-      "displaySelected": true,
-      "sourceEmbeddedCaption": "",
-      "sourceEmbeddedCredit": "",
-      "sourceEmbeddedCopyright": ""
-    },
     "2024190001-a58-publishing": {
       "assetId": "2024190001-a58-publishing",
       "role": "game_reference",
@@ -8321,75 +8281,109 @@
     "2024030217-a67-publishing": {
       "assetId": "2024030217-a67-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/perfectionist-20261017-a67/game.png?v=d16494e3c2f3",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a67/game-thumb.webp?v=cecaf7461a36",
+      "displaySelected": true,
+      "label": "GAME 7 EMPTY-NET GOAL / MAY 18, 2025",
+      "displayLabel": "GAME 7 EMPTY-NET GOAL / MAY 18, 2025",
       "rotation": 0,
-      "caption": "Marchand celebrates in Game 7.",
-      "originalCaption": "Marchand celebrates in Game 7.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-7-florida-panthers-at-toronto-maple-leafs-5-18-2025",
-      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_ratio16_9-size60-c_pad/prd/dkhc8clrhipyhgmti4hq.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photo. Included for the owner-authorized single private collection book. Public website publication rights are not established by this handoff.",
+      "url": "images/marchand-games/identity-v3-20261018-a67/game.png?v=4c2481187f55",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a67/game-thumb.webp?v=da497033774a",
+      "width": 1280,
+      "height": 720,
+      "sha256": "4c2481187f55c043ed917ebe1561480b637ec3e7cae1941da55eaf971d3612a2",
+      "bytes": 1426450,
+      "thumbnailSha256": "da497033774a9e63f1b170087ba419256643c7e3ac183c71d60be12026a85554",
+      "thumbnailBytes": 15324,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates his empty-net goal with Forsling in Game 7.",
+      "originalCaption": "Marchand celebrates his empty-net goal with Forsling in Game 7.",
+      "credit": "Frank Gunn/The Canadian Press",
+      "sourceUrl": "https://www.sportsnet.ca/nhl/article/brad-marchand-has-message-for-panthers-gm-give-me-a-contract/",
+      "sourceImageUrl": "https://www.sportsnet.ca/wp-content/uploads/2025/05/Marchand-1.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-05-18",
       "gameId": "2024030217",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030217/boxscore",
-      "relationNote": "Remove artificial white padding fringes using exact source-photo pixels.",
+      "relationNote": "Source-caption-verified empty-net goal celebration.",
+      "context": "Source-caption-verified empty-net goal celebration.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030217-a67-publishing/game-image.png",
-      "nativeSha256": "d16494e3c2f3b38ac0ea2daccde9e44511d8d9d1dd295a3bf3f04d1140b998be",
-      "nativeWidth": 1620,
-      "nativeHeight": 1080,
-      "width": 1620,
-      "height": 1080,
-      "sha256": "d16494e3c2f3b38ac0ea2daccde9e44511d8d9d1dd295a3bf3f04d1140b998be",
-      "bytes": 1648455,
-      "thumbnailSha256": "cecaf7461a3645c242b1dc27f15cdc60375b490a9557fa83d95ac68e733e7c86",
-      "thumbnailBytes": 20026,
-      "derivativeMethod": "Full PNG is byte-identical to approved native selection, preserving pixels and ICC without resampling. Only thumbnail is proportionally reduced to320px and converted to sRGB WebP.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "nativeSha256": "4c2481187f55c043ed917ebe1561480b637ec3e7cae1941da55eaf971d3612a2",
+      "nativeWidth": 1280,
+      "nativeHeight": 720,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          150,
           0,
-          1770,
-          1080
+          0,
+          1280,
+          720
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030217-a67-publishing.jpg",
-      "originalAssetSha256": "bf3c018d4b94df0438a2e71d5665ba2eb20ff8e8566eabfbdf4eb85027e19a8b",
-      "originalWidth": 1920,
-      "originalHeight": 1080,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Remove artificial white padding fringes using exact source-photo pixels.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030217-a67-publishing-identity-approved.jpg",
+      "originalAssetSha256": "fdf0442222d3bda157c636f2a52ba3f039895140ce99b028e86690b7eefce272",
+      "originalWidth": 1280,
+      "originalHeight": 720,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "displaySelected": true,
-      "sourceEmbeddedCaption": "",
-      "sourceEmbeddedCredit": "",
-      "sourceEmbeddedCopyright": ""
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 74
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face and helmet/shoulder 63 beside Forsling 42; publisher caption explicitly identifies the May 18, 2025 empty-net celebration.",
+        "game_date": "2025-05-18",
+        "game_id": "2024030217",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/sportsnet-image-sources.json",
+            "sha256": "c809c2bfc20f6f02bd99e9689ccac1815211f9b1aeba214c68238fd3770517b0",
+            "bytes": 2943,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/sportsnet-image-sources.json"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/sportsnet.html",
+            "sha256": "c3b11eddc58e4ad31485e9d2669c8c00e3b9bbaed766caa5bfe6825da2d7332b",
+            "bytes": 215905,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/sportsnet.html"
+          }
+        ],
+        "source_context": "Source-caption-verified empty-net goal celebration.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Published 1280x720 JPEG source; native source compression remains."
+      },
+      "sourceQualityLimitations": "Published 1280x720 JPEG source; native source compression remains.",
+      "identityEvidence": "Recognizable Brad face and helmet/shoulder 63 beside Forsling 42; publisher caption explicitly identifies the May 18, 2025 empty-net celebration.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2025020817-a68-publishing": {
       "assetId": "2025020817-a68-publishing",
@@ -10495,7 +10489,7 @@
       "finalVisualReview": {
         "status": "PASS",
         "review_date": "2026-10-18",
-        "reason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Physical57/313 ownership qualification remains unchanged.",
+        "reason": "Genuine smiling interaction with Koepke after his goal; source-soft and glass foreground. Sole active artifact313; owner-confirmed duplicate57 retired.",
         "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
         "native_pixels_preserved": true,
         "no_generative_edits": true
@@ -14133,75 +14127,104 @@
     "2024030124-a602-publishing": {
       "assetId": "2024030124-a602-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/perfectionist-20261017-a602/game.png?v=30eb44d3c3b4",
-      "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a602/game-thumb.webp?v=bd7406bb6c69",
+      "displaySelected": true,
+      "label": "GAME 4 / APRIL 28, 2025",
+      "displayLabel": "GAME 4 / APRIL 28, 2025",
       "rotation": 0,
-      "caption": "Marchand and Lundell in Game 4.",
-      "originalCaption": "Marchand and Lundell in Game 4.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-4-florida-panthers-vs-tampa-bay-lightning-4-28-2025",
-      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_ratio16_9-size60-c_pad/prd/vbvc01ufjopjjs7cykuu.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photo. Included for the owner-authorized single private collection book. Public website publication rights are not established by this handoff.",
+      "url": "images/marchand-games/identity-v3-20261018-a602/game.png?v=370771718022",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a602/game-thumb.webp?v=e06e53fe328d",
+      "width": 1950,
+      "height": 1750,
+      "sha256": "3707717180228cc9a025c645bdfb9f6b5fe266837b3aac64d004cadad2446227",
+      "bytes": 3210647,
+      "thumbnailSha256": "e06e53fe328d8fc5195710001caddf20ab0dfcb4f8c8765aa33d640133641b71",
+      "thumbnailBytes": 19446,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand in Game 4 against Tampa Bay.",
+      "originalCaption": "Marchand in Game 4 against Tampa Bay.",
+      "credit": "Tampa Bay Lightning / NHL.com",
+      "sourceUrl": "https://www.nhl.com/lightning/multimedia/galleries/photos-tampa-bay-lightning-at-florida-panthers-round-1-game-4",
+      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_q-best/prd/ygwrddepieptzed2d3db.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-04-28",
       "gameId": "2024030124",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030124/boxscore",
-      "relationNote": "Remove artificial white padding fringe using exact source-photo pixels.",
+      "relationNote": "Same-game action; no exact scoring instant or celebration claimed.",
+      "context": "Same-game action; no exact scoring instant or celebration claimed.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": false,
       "nativeAssetPath": "assets/2024030124-a602-publishing/game-image.png",
-      "nativeSha256": "30eb44d3c3b4388b0796c28a1550971ab80aefdd255a4550f9c0a64016477ae6",
-      "nativeWidth": 1620,
-      "nativeHeight": 1080,
-      "width": 1620,
-      "height": 1080,
-      "sha256": "30eb44d3c3b4388b0796c28a1550971ab80aefdd255a4550f9c0a64016477ae6",
-      "bytes": 1702231,
-      "thumbnailSha256": "bd7406bb6c693f122c77840093e4addf1b095c97b7bb80725f670d3a41349549",
-      "thumbnailBytes": 16496,
-      "derivativeMethod": "Full PNG is byte-identical to approved native selection, preserving pixels and ICC without resampling. Only thumbnail is proportionally reduced to320px and converted to sRGB WebP.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "nativeSha256": "3707717180228cc9a025c645bdfb9f6b5fe266837b3aac64d004cadad2446227",
+      "nativeWidth": 1950,
+      "nativeHeight": 1750,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          150,
-          0,
-          1770,
-          1080
+          1550,
+          100,
+          3500,
+          1850
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030124-a602-publishing.jpg",
-      "originalAssetSha256": "18cce9e34fed47bb24071beffc94eb3e025fdf2ad578a2ddf3ad704b8801beef",
-      "originalWidth": 1920,
-      "originalHeight": 1080,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Remove artificial white padding fringe using exact source-photo pixels.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030124-a602-publishing-identity-approved.jpg",
+      "originalAssetSha256": "2c16d5cd5adb171e8f0ced5e52cfdfa0c59e255bc3ed3d81af33fbdcf371091d",
+      "originalWidth": 3730,
+      "originalHeight": 2487,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "displaySelected": true,
-      "sourceEmbeddedCaption": "",
-      "sourceEmbeddedCredit": "",
-      "sourceEmbeddedCopyright": ""
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 145
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face, full helmet 63 and both shoulder 63 numerals visible; dated official Lightning Game 4 gallery proves April 28, 2025.",
+        "game_date": "2025-04-28",
+        "game_id": "2024030124",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_b/602-lightning/source.html",
+            "sha256": "78e8de982c0de634dd6f17107b3c67fbf8a7cbbaadfc4840bc0c6a0f1e509179",
+            "bytes": 153821,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_b/602-lightning/source.html"
+          }
+        ],
+        "source_context": "Same-game action; no exact scoring instant or celebration claimed.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Clear documentary action rather than a smile/celebration. Photographer unidentified; credit publisher only."
+      },
+      "sourceQualityLimitations": "Clear documentary action rather than a smile/celebration. Photographer unidentified; credit publisher only.",
+      "identityEvidence": "Recognizable Brad face, full helmet 63 and both shoulder 63 numerals visible; dated official Lightning Game 4 gallery proves April 28, 2025.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      },
+      "photographerNote": "Photographer unidentified; publisher credit only."
     },
     "2024030125-a603-publishing": {
       "assetId": "2024030125-a603-publishing",
@@ -14351,73 +14374,265 @@
     "2024030213-a605-publishing": {
       "assetId": "2024030213-a605-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/expressive-20261017-a605/game.png?v=76088b59d2c9",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a605/game-thumb.webp?v=8e96b6320793",
+      "displaySelected": true,
+      "label": "OVERTIME WINNER / MAY 9, 2025",
+      "displayLabel": "OVERTIME WINNER / MAY 9, 2025",
       "rotation": 0,
-      "caption": "Marchand celebrates with Sam Bennett after the overtime winner.",
-      "originalCaption": "Marchand celebrates with Sam Bennett after the overtime winner.",
-      "credit": "Florida Panthers / NHL.com",
+      "url": "images/marchand-games/identity-v3-20261018-a605/game.png?v=69f84d29633e",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a605/game-thumb.webp?v=08d1cb68117f",
+      "width": 1180,
+      "height": 980,
+      "sha256": "69f84d29633e3ddf313818e5ad207254e0a07856fb2f91aa4617f5c50312c740",
+      "bytes": 1313386,
+      "thumbnailSha256": "08d1cb68117fae9ccdbcc3eddb9247122bd1b68515f63e207cb58e512e2168cb",
+      "thumbnailBytes": 22432,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates his overtime winner with Barkov and Verhaeghe.",
+      "originalCaption": "Marchand celebrates his overtime winner with Barkov and Verhaeghe.",
+      "credit": "Carmen Mandato/Getty Images",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-3-florida-panthers-vs-toronto-maple-leafs-5-9-2025",
-      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_q-best/prd/gyu5d5fi7a4hl0nsomda.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photograph; source and credit retained. No license grant inferred.",
+      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_ratio16_9-size60-c_pad/prd/p6ta74e8ciliyt1pmify.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-05-09",
       "gameId": "2024030213",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030213/boxscore",
-      "relationNote": "Large clear shouting Bradface over Bennett9 shoulder, strongembrace and warmth; distinctfromback-facingAPcurrent.",
+      "relationNote": "Source-caption-verified overtime-winning-goal celebration.",
+      "context": "Source-caption-verified overtime-winning-goal celebration.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030213-a605-publishing/game-image.png",
-      "nativeSha256": "76088b59d2c934bb2637f9f99ce7d538754fea9a576ee38aa878351260eb9241",
-      "nativeWidth": 2330,
-      "nativeHeight": 2140,
-      "width": 2330,
-      "height": 2140,
-      "sha256": "76088b59d2c934bb2637f9f99ce7d538754fea9a576ee38aa878351260eb9241",
-      "bytes": 6229372,
-      "thumbnailSha256": "8e96b6320793cc22ad19eaa2eae154a4850b0d7e0a5f5d0f7dc1be20e6767327",
-      "thumbnailBytes": 19302,
-      "derivativeMethod": "Full PNG is byte-identical to supplied native crop, preserving pixels and ICC. Only thumbnail is proportionally reduced to320px sRGB WebP.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "nativeSha256": "69f84d29633e3ddf313818e5ad207254e0a07856fb2f91aa4617f5c50312c740",
+      "nativeWidth": 1180,
+      "nativeHeight": 980,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          0,
-          0,
-          2330,
-          2140
+          330,
+          100,
+          1510,
+          1080
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030213-a605-publishing.jpg",
-      "originalAssetSha256": "3b6be5ae6135a0122533f73a049ab42adace8312a862958a7ec181a92dc55377",
-      "originalWidth": 3903,
-      "originalHeight": 2602,
-      "criticalReview": {
-        "baseline_grade": "B",
-        "assessment": "Verified Brad and relevant action/celebration; compare with cleaner, more expressive goal footage.",
-        "recommended_action": "compare",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030213-a605-publishing-identity-approved.jpg",
+      "originalAssetSha256": "b2b2665ab070be960fa4d68e9f76f667093671b45587ba513b6a08dbffb2faef",
+      "originalWidth": 1920,
+      "originalHeight": 1080,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 148
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face at left; primary Getty 2214297924 caption explicitly identifies his May 9, 2025 overtime winner. A raised glove partly covers his helmet numeral; identity is not inferred from an unobstructed full 63 numeral.",
+        "game_date": "2025-05-09",
+        "game_id": "2024030213",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3-gallery.json",
+            "sha256": "49f45605903fd6526e437db7df65d4e448bd732be964af98b5fbb235085a3b82",
+            "bytes": 16848,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3-gallery.json"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3.html",
+            "sha256": "ba7b173fa0e76ade03c3ef173ca8b568271c29959125457e1fde592af280fdab",
+            "bytes": 136821,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3.html"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/01.jpg",
+            "sha256": "e2d3555d5210994cd685f70be77176e520b84d615a85be26766808f1986ac9b7",
+            "bytes": 250358,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/01.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/02.jpg",
+            "sha256": "525fe6897e3bd2cebe7f80a11360fcef25a4e151935828fd48891a5d848a4261",
+            "bytes": 190594,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/02.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/03.jpg",
+            "sha256": "ce99571c5c329acd523289409a7b0acd00f10323a36c60aa73c2256c88499f0c",
+            "bytes": 352528,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/03.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/04.jpg",
+            "sha256": "4d93849e6b7ca2888caa9f7e7adf64c1a431901e627771711ffe8387a3eb40e1",
+            "bytes": 191961,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/04.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/05.jpg",
+            "sha256": "c40eed5bb80d6591fc98b8b69c6cbce5ac67d2124fbe56588ab842af94663795",
+            "bytes": 197276,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/05.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/06.jpg",
+            "sha256": "15cea528531c9b64615db7a3998c39ada3edb4a228245fee5c8484a14830b6eb",
+            "bytes": 278510,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/06.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/07.jpg",
+            "sha256": "85a445c4be8dd28656518abcde5e7ade995315a69913178ee70a7a99e5668bce",
+            "bytes": 311956,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/07.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/08.jpg",
+            "sha256": "bb2c17729de202568cca2e80a4dc2f675cd98f071c01090d4a40250992c5a470",
+            "bytes": 280153,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/08.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/09.jpg",
+            "sha256": "4f057d02d5c0147664c9debf11943fd604034faffbd8d74d86800fed98f7ceb0",
+            "bytes": 176423,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/09.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/10.jpg",
+            "sha256": "3eb32bbee634e9dec35ba30a38272183b62776480429810d5c9a8b01a7f8734d",
+            "bytes": 308386,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/10.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/11.jpg",
+            "sha256": "66f7361e5a79293f8d6b1ced56ee0aa222b43d04691e7667b7ac5ffaba0e64ce",
+            "bytes": 243656,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/11.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/12.jpg",
+            "sha256": "3d69f17dc603c22919955af9a7586ec08c8819dd33ec3312b96d24ab0219dd10",
+            "bytes": 276070,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/12.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/13.jpg",
+            "sha256": "329f326188ffd66f23b8b94743d2191ec93583145ad342f7991f177d24e1d232",
+            "bytes": 267925,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/13.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/14.jpg",
+            "sha256": "78da38ff26fb94b9b9f0715c0d6fdd2285a9b2df8ddb6ae842f17d975c82c30b",
+            "bytes": 237766,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/14.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/15.jpg",
+            "sha256": "805b4b7650376b3bcb7c14061f52b3ff0dfa63d46a9812c0fa3430be96aeb009",
+            "bytes": 195106,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/15.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/16.jpg",
+            "sha256": "52f7969b7ee4fd528f068b9fe585c6ba00ddfd51e6247636e1356cfba8a2dfaa",
+            "bytes": 193517,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/16.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/17.jpg",
+            "sha256": "f435e2575bf7df96585073b3a15fb02a3fa9ba74108b385f65f8cd8aafc4da94",
+            "bytes": 222896,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/17.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/18.jpg",
+            "sha256": "f268ed04c3dafb9f345307c414a6d83ffc44bf3c009ca3660c9a82e4aeb527b3",
+            "bytes": 221617,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/18.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/19.jpg",
+            "sha256": "9607367417ed8e0a7e62b1c0c448805d7a248ddf538b677e94be515e3dacd8fd",
+            "bytes": 252220,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/19.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/20.jpg",
+            "sha256": "e057cb683adc8b8fb7a3d6bccdb84fbd17829f6139db5fcb7154128517c95e65",
+            "bytes": 203615,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/20.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/21.jpg",
+            "sha256": "f268ed04c3dafb9f345307c414a6d83ffc44bf3c009ca3660c9a82e4aeb527b3",
+            "bytes": 221617,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/21.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/22.jpg",
+            "sha256": "c1285f884124b908cb90fa56ef259e078ef1fc9c60af9a15a1386b70510cf77c",
+            "bytes": 261508,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/22.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/23.jpg",
+            "sha256": "9a981f25be6912c2bdb664b1f0129256eb481dc93f6b0f9e3066725318c91269",
+            "bytes": 173464,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/23.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/24.jpg",
+            "sha256": "84d8623e966328c5db27851fad09a7d29341780bbd51ef3cbf7e0a133743e5fe",
+            "bytes": 266680,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/24.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/game3/25.jpg",
+            "sha256": "b2b2665ab070be960fa4d68e9f76f667093671b45587ba513b6a08dbffb2faef",
+            "bytes": 211780,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/game3/25.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/getty605.html",
+            "sha256": "e0d29dd2962f8c87eb28e7a2967e333fec4ec8ee839697bf17af6b23631280b1",
+            "bytes": 343064,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/getty605.html"
+          }
+        ],
+        "source_context": "Source-caption-verified overtime-winning-goal celebration.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Foreground teammate and glove occupy part of frame, but Brad face is clear; helmet numeral partly covered."
+      },
+      "sourceQualityLimitations": "Foreground teammate and glove occupy part of frame, but Brad face is clear; helmet numeral partly covered.",
+      "identityEvidence": "Recognizable Brad face at left; primary Getty 2214297924 caption explicitly identifies his May 9, 2025 overtime winner. A raised glove partly covers his helmet numeral; identity is not inferred from an unobstructed full 63 numeral.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2024030214-a606-publishing": {
       "assetId": "2024030214-a606-publishing",
@@ -14565,164 +14780,115 @@
     "2024030217-a608-publishing": {
       "assetId": "2024030217-a608-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2024030217-a608-publishing/game.webp?v=78bbd6ffe065",
-      "thumbnailUrl": "images/marchand-games/2024030217-a608-publishing/game-thumb.webp?v=06fa91715717",
+      "displaySelected": true,
+      "label": "GAME 7 POSTGAME / MAY 18, 2025",
+      "displayLabel": "GAME 7 POSTGAME / MAY 18, 2025",
       "rotation": 0,
-      "caption": "Marchand joins Lundell's Game 7 goal celebration in Toronto.",
-      "originalCaption": "Marchand joins Lundell's Game 7 goal celebration in Toronto.",
-      "credit": "Game video still / NHL.com",
-      "sourceUrl": "https://www.nhl.com/video/c-6373037531112",
-      "sourceImageUrl": "",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/identity-v3-20261018-a608/game.png?v=1d15aa2d30fa",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a608/game-thumb.webp?v=1d16fca16f4e",
+      "width": 950,
+      "height": 695,
+      "sha256": "1d15aa2d30fa7d69931c6b4da40dfd3ec0591e6d4b548378267dc469ca2d9448",
+      "bytes": 980809,
+      "thumbnailSha256": "1d16fca16f4e2b3060e9038044d463cba192519c4ee005111ab5e1ac1296ca42",
+      "thumbnailBytes": 23960,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand in the postgame handshake line after Game 7.",
+      "originalCaption": "Marchand in the postgame handshake line after Game 7.",
+      "credit": "Claus Andersen/Getty Images",
+      "sourceUrl": "https://www.thescore.com/nhl/news/3288122",
+      "sourceImageUrl": "https://assets-cms.thescore.com/uploads/image/file/786376/w1280xh720_GettyImages-2215808205.jpg?ts=1747626594",
+      "imageKind": "photograph",
       "photoDate": "2025-05-18",
       "gameId": "2024030217",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030217/boxscore",
-      "relationNote": "Choose a clearer, verified Marchand frame and exclude every TV overlay with an exact crop.",
-      "videoSource": {
-        "clip_id": "6373037531112",
-        "game_id": "2024030217",
-        "game_date": "2025-05-18",
-        "artifact_ids": [
-          608,
-          623
-        ],
-        "goal": {
-          "situationCode": "1551",
-          "eventId": 757,
-          "strength": "ev",
-          "playerId": 8482113,
-          "firstName": {
-            "default": "Anton"
-          },
-          "lastName": {
-            "default": "Lundell"
-          },
-          "name": {
-            "default": "A. Lundell"
-          },
-          "teamAbbrev": {
-            "default": "FLA"
-          },
-          "headshot": "https://assets.nhle.com/mugs/nhl/20242025/FLA/8482113.png",
-          "highlightClipSharingUrl": "https://nhl.com/video/fla-tor-lundell-scores-goal-against-joseph-woll-6373037531112",
-          "highlightClipSharingUrlFr": "https://nhl.com/fr/video/fla-tor-lundell-marque-un-but-contre-joseph-woll-6373036666112",
-          "highlightClip": 6373037531112,
-          "highlightClipFr": 6373036666112,
-          "discreteClip": 6373037930112,
-          "discreteClipFr": 6373037929112,
-          "goalsToDate": 4,
-          "awayScore": 2,
-          "homeScore": 0,
-          "leadingTeamAbbrev": {
-            "default": "FLA"
-          },
-          "timeInPeriod": "07:18",
-          "shotType": "wrist",
-          "goalModifier": "none",
-          "assists": [
-            {
-              "playerId": 8480185,
-              "firstName": {
-                "default": "Eetu"
-              },
-              "lastName": {
-                "default": "Luostarinen"
-              },
-              "name": {
-                "default": "E. Luostarinen"
-              },
-              "assistsToDate": 8,
-              "sweaterNumber": 27
-            },
-            {
-              "playerId": 8473419,
-              "firstName": {
-                "default": "Brad"
-              },
-              "lastName": {
-                "default": "Marchand"
-              },
-              "name": {
-                "default": "B. Marchand"
-              },
-              "assistsToDate": 8,
-              "sweaterNumber": 63
-            }
-          ],
-          "pptReplayUrl": "https://wsr.nhle.com/sprites/20242025/2024030217/ev757.json",
-          "homeTeamDefendingSide": "left",
-          "isHome": false,
-          "period_number": 2
-        },
-        "exact_artifact_event_ids": [],
-        "title": "Lundell cleans up in front",
-        "description": "FLA@TOR, Gm7: Lundell puts home the rebound to double the lead",
-        "created_at": "2025-05-19T00:56:16.016Z",
-        "duration": 59582,
-        "width": 1280,
-        "height": 720,
-        "local_video": "RESEARCH/original-clips/1e722e42a4cf3aed--6373037531112.mp4",
-        "bytes": 16016849,
-        "source_url": "https://www.nhl.com/video/c-6373037531112",
-        "status": "downloaded",
-        "selected_frame_seconds": 17.0,
-        "seconds": 17.0,
-        "original_video_sha256": "1e722e42a4cf3aedd3f97c42dc17e21a9ccfb2a35e080814ac0601360e41f55f",
-        "frame_extraction": "Native ffmpeg decoded frame; exact pixel crop only. No resize, synthesis or retouching.",
-        "provider": "nhl"
-      },
+      "relationNote": "Postgame handshake line; no scoring-play claim.",
+      "context": "Postgame handshake line; no scoring-play claim.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030217-a608-publishing/game-image.png",
-      "nativeSha256": "5b2cc282b450c33d816eda7293adcd4466741273f2806409262e8f0b2cb98bce",
-      "nativeWidth": 740,
-      "nativeHeight": 710,
-      "width": 740,
-      "height": 710,
-      "sha256": "78bbd6ffe065a3aa3c22a1ba944f40e887145bbaaeb0ee6f06565773a06424bc",
-      "bytes": 43874,
-      "thumbnailSha256": "06fa917157175899d7910623cdc116071e9e63f71103645099f03cafd0d32d89",
-      "thumbnailBytes": 13130,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "1d15aa2d30fa7d69931c6b4da40dfd3ec0591e6d4b548378267dc469ca2d9448",
+      "nativeWidth": 950,
+      "nativeHeight": 695,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          440,
-          0,
-          1180,
-          710
+          100,
+          25,
+          1050,
+          720
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030217-a608-publishing.png",
-      "originalAssetSha256": "4498e7586858e353c6dd49545e1ae630096fa6a3f46803162328f214f0563a00",
+      "originalAssetPath": "originals/2024030217-a608-publishing-identity-approved.jpg",
+      "originalAssetSha256": "81f29b93d08c16510e3cb644b9a4b74ac8474682910e7da7ca08d8b423bc39ba",
       "originalWidth": 1280,
       "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Choose a clearer, verified Marchand frame and exclude every TV overlay with an exact crop.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Brad face left of Luostarinen in Lundell Game7 hug, glass rail across lower foreground. Source-soft but face/expression readable.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 151
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face and shoulder 63 in handshake line; primary Getty 2215808205 caption binds May 18, 2025 Game 7. Neutral caption avoids assigning a precise visible handshake partner.",
+        "game_date": "2025-05-18",
+        "game_id": "2024030217",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/getty608-option.html",
+            "sha256": "8dd962665460165763c7fa3064fd83743fec9cd0460f722538cc33101c95921e",
+            "bytes": 339163,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/getty608-option.html"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/thescore-images.json",
+            "sha256": "26ba3ad9eef7198b589a67513f0b22a61562b6d8cda08b5f49d85b9f14337b6a",
+            "bytes": 24663,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/thescore-images.json"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_a/thescore.html",
+            "sha256": "d047241ec09be1712684935e782903c3b518266652d6ae5ac97ce07567dbd501",
+            "bytes": 306314,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_a/thescore.html"
+          }
+        ],
+        "source_context": "Postgame handshake line; no scoring-play claim.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Neutral/crowded documentary handshake scene; not an exceptional joyful close-up. Native 950x695 crop still exceeds 300 ppi within the existing book slot."
+      },
+      "sourceQualityLimitations": "Neutral/crowded documentary handshake scene; not an exceptional joyful close-up. Native 950x695 crop still exceeds 300 ppi within the existing book slot.",
+      "identityEvidence": "Recognizable Brad face and shoulder 63 in handshake line; primary Getty 2215808205 caption binds May 18, 2025 Game 7. Neutral caption avoids assigning a precise visible handshake partner.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2024030311-a609-publishing": {
       "assetId": "2024030311-a609-publishing",
@@ -15309,72 +15475,103 @@
     "2024030415-a617-publishing": {
       "assetId": "2024030415-a617-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/expressive-20261017-a617/game.png?v=969ab89d3df2",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a617/game-thumb.webp?v=be85fa12b95b",
+      "displaySelected": true,
+      "label": "GAME 5 / JUNE 14, 2025",
+      "displayLabel": "GAME 5 / JUNE 14, 2025",
       "rotation": 0,
-      "caption": "Marchand celebrates with a teammate in Game 5 of the Stanley Cup Final.",
-      "originalCaption": "Marchand celebrates with a teammate in Game 5 of the Stanley Cup Final.",
-      "credit": "Florida Panthers / NHL.com",
-      "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-5-florida-panthers-at-edmonton-oilers-6-14-2025",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photograph; source and credit retained. No license grant inferred.",
+      "url": "images/marchand-games/identity-v3-20261018-a617/game.png?v=de2dc7a242aa",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a617/game-thumb.webp?v=f8e0943dc0de",
+      "width": 1200,
+      "height": 675,
+      "sha256": "de2dc7a242aa8e143990ed1d2a2184c88c478e6630cf515afec4d803515b8af8",
+      "bytes": 1398182,
+      "thumbnailSha256": "f8e0943dc0de6a99d3ab73cd80cdb7bd0d206c6976d65db7311675eb309a8320",
+      "thumbnailBytes": 20008,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates a first-period goal with Eetu Luostarinen in Game 5 of the Stanley Cup Final.",
+      "originalCaption": "Marchand celebrates a first-period goal with Eetu Luostarinen in Game 5 of the Stanley Cup Final.",
+      "credit": "Jamie Squire / Getty Images",
+      "sourceUrl": "https://www.nbcsportsboston.com/nhl/boston-bruins/brad-marchand-stanley-cup-stats-highlights/714463/",
+      "sourceImageUrl": "https://media.nbcsportsboston.com/2025/06/Brad-Marchand-GettyImages-2220173256.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-06-14",
       "gameId": "2024030415",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030415/boxscore",
-      "relationNote": "Professional closejoyportrait, recognizablefrontface, raisedstick and embrace; richeremotion anddetailthan720pneutralcurrent.",
+      "relationNote": "Source-IPTC-verified first-period goal celebration; no claim that this is the puck record scoring event.",
+      "context": "Source-IPTC-verified first-period goal celebration; no claim that this is the puck record scoring event.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030415-a617-publishing/game-image.png",
-      "nativeSha256": "969ab89d3df2a1e6572f5ca40ce9519798d776d7df607146eeae04b80f6c5be5",
-      "nativeWidth": 4200,
-      "nativeHeight": 3324,
-      "width": 4200,
-      "height": 3324,
-      "sha256": "969ab89d3df2a1e6572f5ca40ce9519798d776d7df607146eeae04b80f6c5be5",
-      "bytes": 17308013,
-      "thumbnailSha256": "be85fa12b95b7530ef3368a55694cfb919c4115fefb1787c1373266e6254ce97",
-      "thumbnailBytes": 21912,
-      "derivativeMethod": "Full PNG is byte-identical to supplied native crop, preserving pixels and ICC. Only thumbnail is proportionally reduced to320px sRGB WebP.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "nativeSha256": "de2dc7a242aa8e143990ed1d2a2184c88c478e6630cf515afec4d803515b8af8",
+      "nativeWidth": 1200,
+      "nativeHeight": 675,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          350,
-          160,
-          4550,
-          3484
+          0,
+          0,
+          1200,
+          675
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030415-a617-publishing.jpg",
-      "originalAssetSha256": "69aada486348945f05bbe194ffa9c616a68f27fb91610ddefff0d787b45a9e1a",
-      "originalWidth": 5206,
-      "originalHeight": 3484,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Alternate native frame improves recognizable Marchand identity, facial clarity or raised-arm composition.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030415-a617-publishing-identity-approved.jpg",
+      "originalAssetSha256": "8bcd34387fc6469e829daf3efef43a0ceeab82f3a3aa365b0e22d601fde27b5e",
+      "originalWidth": 1200,
+      "originalHeight": 675,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_q-best/prd/hojwdfpp1javivii8smq.jpg",
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 160
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face, helmet 63 and shoulder 63, raised glove; original IPTC explicitly identifies Brad and Luostarinen 27 during the first period of June 14, 2025 Final Game 5.",
+        "game_date": "2025-06-14",
+        "game_id": "2024030415",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_b/617-capture-date-proof.json",
+            "sha256": "63421c786bb3540272178d21dfc279167cc2cc9fec59e3f8881f62b3a7d096c1",
+            "bytes": 1076,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_b/617-capture-date-proof.json"
+          }
+        ],
+        "source_context": "Source-IPTC-verified first-period goal celebration; no claim that this is the puck record scoring event.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Public publisher native source is 1200x675, not an agency original; 400 ppi at 3in. Stick continues outside original top edge, but helmet and raised glove remain intact."
+      },
+      "sourceQualityLimitations": "Public publisher native source is 1200x675, not an agency original; 400 ppi at 3in. Stick continues outside original top edge, but helmet and raised glove remain intact.",
+      "identityEvidence": "Recognizable Brad face, helmet 63 and shoulder 63, raised glove; original IPTC explicitly identifies Brad and Luostarinen 27 during the first period of June 14, 2025 Final Game 5.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2024030416-a618-publishing": {
       "assetId": "2024030416-a618-publishing",
@@ -15602,261 +15799,234 @@
     "2024030125-a621-publishing": {
       "assetId": "2024030125-a621-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2024030125-a621-publishing/game.webp?v=7cdc6ce11d68",
-      "thumbnailUrl": "images/marchand-games/2024030125-a621-publishing/game-thumb.webp?v=9fc66146452b",
+      "displaySelected": true,
+      "label": "POSTGAME / APRIL 30, 2025",
+      "displayLabel": "POSTGAME / APRIL 30, 2025",
       "rotation": 0,
-      "caption": "Marchand sets up Luostarinen during the Game 5 scoring play.",
-      "originalCaption": "Marchand sets up Luostarinen during the Game 5 scoring play.",
-      "credit": "Video still: NHL / game broadcast",
-      "sourceUrl": "https://www.nhl.com/video/c-6372142992112",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/identity-v3-20261018-a621/game.png?v=b9841082795e",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a621/game-thumb.webp?v=7a2e917d1d26",
+      "width": 1270,
+      "height": 1160,
+      "sha256": "b9841082795e6b62e88fbacf9ac8c153b752cdce202bc25f40e186308e089789",
+      "bytes": 2299591,
+      "thumbnailSha256": "7a2e917d1d264ae1ff66fd5298c0914421b574b808eacec988fe7ca474146ecc",
+      "thumbnailBytes": 17408,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand greets Lightning coach Jon Cooper after Florida’s series-clinching win in Tampa.",
+      "originalCaption": "Marchand greets Lightning coach Jon Cooper after Florida’s series-clinching win in Tampa.",
+      "credit": "Chris O’Meara / AP",
+      "sourceUrl": "https://www.ksl.com/article/51304736/panthers-advance-to-the-second-round-after-defeating-tampa-bay-in-5-games",
+      "sourceImageUrl": "https://img.ksl.com/slc/3083/308340/30834034.jpg",
+      "imageKind": "photograph",
       "photoDate": "2025-04-30",
       "gameId": "2024030125",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030125/boxscore",
-      "relationNote": "Remove Scripps Sports corner graphic; retain Marchand and the goal action.",
-      "videoSource": {
-        "clip_id": "6372142992112",
-        "game_id": "2024030125",
-        "game_date": "2025-04-30",
-        "artifact_ids": [
-          603,
-          621
-        ],
-        "goal": {
-          "situationCode": "1551",
-          "eventId": 1179,
-          "strength": "ev",
-          "playerId": 8480185,
-          "firstName": {
-            "default": "Eetu"
-          },
-          "lastName": {
-            "default": "Luostarinen"
-          },
-          "name": {
-            "default": "E. Luostarinen"
-          },
-          "teamAbbrev": {
-            "default": "FLA"
-          },
-          "headshot": "https://assets.nhle.com/mugs/nhl/20242025/FLA/8480185.png",
-          "highlightClipSharingUrl": "https://nhl.com/video/fla-tbl-luostarinen-scores-goal-against-andrei-vasilevskiy-6372142992112",
-          "highlightClipSharingUrlFr": "https://nhl.com/fr/video/fla-tbl-luostarinen-marque-un-but-contre-andrei-vasilevskiy-6372144255112",
-          "highlightClip": 6372142992112,
-          "highlightClipFr": 6372144255112,
-          "discreteClip": 6372144159112,
-          "discreteClipFr": 6372142588112,
-          "goalsToDate": 1,
-          "awayScore": 5,
-          "homeScore": 3,
-          "leadingTeamAbbrev": {
-            "default": "FLA"
-          },
-          "timeInPeriod": "13:02",
-          "shotType": "snap",
-          "goalModifier": "none",
-          "assists": [
-            {
-              "playerId": 8473419,
-              "firstName": {
-                "default": "Brad"
-              },
-              "lastName": {
-                "default": "Marchand"
-              },
-              "name": {
-                "default": "B. Marchand"
-              },
-              "assistsToDate": 4,
-              "sweaterNumber": 63
-            },
-            {
-              "playerId": 8482113,
-              "firstName": {
-                "default": "Anton"
-              },
-              "lastName": {
-                "default": "Lundell"
-              },
-              "name": {
-                "default": "A. Lundell"
-              },
-              "assistsToDate": 3,
-              "sweaterNumber": 15
-            }
-          ],
-          "pptReplayUrl": "https://wsr.nhle.com/sprites/20242025/2024030125/ev1179.json",
-          "homeTeamDefendingSide": "left",
-          "isHome": false,
-          "period_number": 3
-        },
-        "exact_artifact_event_ids": [],
-        "title": "Marchand and Luostarinen team up for the goal",
-        "description": "FLA@TBL, Gm5: Luostarinen's sweet finish puts the Panthers up by 2",
-        "created_at": "2025-05-01T02:08:28.459Z",
-        "duration": 53197,
-        "width": 1280,
-        "height": 720,
-        "local_video": "RESEARCH/original-clips/5550baf361fea853--6372142992112.mp4",
-        "bytes": 14252144,
-        "source_url": "https://www.nhl.com/video/c-6372142992112",
-        "status": "downloaded",
-        "selected_frame_seconds": 37.0,
-        "seconds": 37.0,
-        "original_video_sha256": "5550baf361fea8537dbb4fa3d12a755b5dffdd0b6a4e4ea0739f51a25b4df50f",
-        "frame_extraction": "Native ffmpeg decoded frame; exact PIL crop only, no resampling, retouching or synthesis"
-      },
+      "relationNote": "Postgame coach greeting after series clinch; no scoring-play claim.",
+      "context": "Postgame coach greeting after series clinch; no scoring-play claim.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030125-a621-publishing/game-image.png",
-      "nativeSha256": "13578dfa14d6ca8e325f6e04253788f7a3d14cdd1f32ad043c2bf96f43d7817a",
-      "nativeWidth": 1152,
-      "nativeHeight": 630,
-      "width": 1152,
-      "height": 630,
-      "sha256": "7cdc6ce11d68e0c327fa83eb24838fd4339668347c862e5f327845761d6c81f2",
-      "bytes": 89174,
-      "thumbnailSha256": "9fc66146452bd628b83888f052f8ce8812d354d930d6e246bd095813392ab29d",
-      "thumbnailBytes": 13878,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "b9841082795e6b62e88fbacf9ac8c153b752cdce202bc25f40e186308e089789",
+      "nativeWidth": 1270,
+      "nativeHeight": 1160,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          128,
-          90,
-          1280,
-          720
+          550,
+          20,
+          1820,
+          1180
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030125-a621-publishing.png",
-      "originalAssetSha256": "ba04030b46398a3d2b8e9267796203d42779087655414852428cff988a96f092",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Remove Scripps Sports corner graphic; retain Marchand and the goal action.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Correct Luostarinen scoring-play setup, Brad small near right boards. Goal-action context retained; expression not readable.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030125-a621-publishing-identity-approved.jpg",
+      "originalAssetSha256": "f12d7115a30a44672a5a0522b031a72f4b3194bafdf4580017e8710374a66363",
+      "originalWidth": 2597,
+      "originalHeight": 1731,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 164
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face, helmet 63 and shoulder 63 greeting Jon Cooper; actual AP caption binds April 30, 2025 Game 5.",
+        "game_date": "2025-04-30",
+        "game_id": "2024030125",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/621/ap-ksl/30834034-hug.jpg",
+            "sha256": "f12d7115a30a44672a5a0522b031a72f4b3194bafdf4580017e8710374a66363",
+            "bytes": 2462934,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/621/ap-ksl/30834034-hug.jpg"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/621/ap-ksl/source.html",
+            "sha256": "e360dacbf283cdb072ae4f6914e77bc9253dd73694ae36e453e7a5fd5e7bb4ef",
+            "bytes": 214070,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/621/ap-ksl/source.html"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/621/source-proof.json",
+            "sha256": "6dd621ad106ac29cbe159c00baaf805e1a0f410af64987c73a56850f6ec220a4",
+            "bytes": 2136,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/621/source-proof.json"
+          }
+        ],
+        "source_context": "Postgame coach greeting after series clinch; no scoring-play claim.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Coach back occupies left foreground intentionally; Brad face remains clear. Postgame context must remain explicit."
+      },
+      "sourceQualityLimitations": "Coach back occupies left foreground intentionally; Brad face remains clear. Postgame context must remain explicit.",
+      "identityEvidence": "Recognizable Brad face, helmet 63 and shoulder 63 greeting Jon Cooper; actual AP caption binds April 30, 2025 Game 5.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2024030215-a622-publishing": {
       "assetId": "2024030215-a622-publishing",
       "role": "game_reference",
-      "label": "Video still",
-      "url": "images/marchand-games/2024030215-a622-publishing/game.webp?v=250eb58ed99c",
-      "thumbnailUrl": "images/marchand-games/2024030215-a622-publishing/game-thumb.webp?v=0c4d09e3aa87",
+      "displaySelected": true,
+      "label": "GAME PORTRAIT / MAY 14, 2025",
+      "displayLabel": "GAME PORTRAIT / MAY 14, 2025",
       "rotation": 0,
-      "caption": "Marchand and teammates after Bennett’s power-play goal in Toronto.",
-      "originalCaption": "Marchand and teammates after Bennett’s power-play goal in Toronto.",
-      "credit": "Video still: NHL / game broadcast",
-      "sourceUrl": "https://www.nhl.com/video/c-6372822730112",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Game broadcast still; source and credit retained. No license grant inferred.",
-      "imageKind": "video_still",
+      "url": "images/marchand-games/identity-v3-20261018-a622/game.png?v=bed2d67ef4dd",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a622/game-thumb.webp?v=eae7ec1336b4",
+      "width": 2000,
+      "height": 1333,
+      "sha256": "bed2d67ef4ddcbfd961da721e54d9dd7ecfab4c1137d78a0d70a41252c115be0",
+      "bytes": 2176406,
+      "thumbnailSha256": "eae7ec1336b4251d96bbb7707cf90436ff14b4eb3ffaa44223e0ffb17636ed2e",
+      "thumbnailBytes": 14738,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand during Game 5 against the Maple Leafs in Toronto.",
+      "originalCaption": "Marchand during Game 5 against the Maple Leafs in Toronto.",
+      "credit": "Kevin Sousa / NHLI via Getty Images",
+      "sourceUrl": "https://people.com/nhl-player-brad-marchand-misses-practice-to-coach-a-junior-hockey-team-11840033",
+      "sourceImageUrl": "https://people.com/thmb/ebi7FpWQzBVDsevtSkMZK1qTF14%3D/4000x0/filters%3Ano_upscale%28%29%3Amax_bytes%28150000%29%3Astrip_icc%28%29%3Afocal%28999x0%3A1001x2%29%3Aformat%28webp%29/Brad-Marchand-102925-053868dec14a4508ac3106c3b24e607d.jpg",
+      "imageKind": "photograph",
       "photoDate": "2025-05-14",
       "gameId": "2024030215",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030215/boxscore",
-      "relationNote": "Alternative Canadian broadcast view, after the assisted goal; Brad identified by face and helmet 63, without the large graphic over the huddle. Exact game and Brad identity manually reviewed at native size.",
-      "videoSource": {
-        "clip_id": "6372822730112",
-        "game_id": "2024030215",
-        "game_date": "2025-05-14",
-        "artifact_ids": [
-          607,
-          622
-        ],
-        "goal": null,
-        "source_kind": "canonical_game_video",
-        "title": "FLA at TOR | Recap",
-        "description": "FLA at TOR | Recap",
-        "created_at": "2025-05-15T02:17:37.949Z",
-        "duration": 303624,
-        "width": 1280,
-        "height": 720,
-        "local_video": "RESEARCH/original-clips/8e747600ddd2c07e--6372822730112.mp4",
-        "bytes": 80992382,
-        "source_url": "https://www.nhl.com/video/c-6372822730112",
-        "status": "downloaded",
-        "selected_frame_seconds": 251.0,
-        "seconds": 251.0,
-        "original_video_sha256": "8e747600ddd2c07e062e9fef4b32dc640a5a280a65c6594eebc9b0129aaed317",
-        "frame_extraction": "Native ffmpeg decoded frame; exact PIL crop only, no resampling, retouching or synthesis"
-      },
+      "relationNote": "Same-game on-ice portrait; no scoring-play claim.",
+      "context": "Same-game on-ice portrait; no scoring-play claim.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": true,
       "nativeAssetPath": "assets/2024030215-a622-publishing/game-image.png",
-      "nativeSha256": "a65e6315923fc61b64d13d8c0242f3e215016dbc490f3f208399025d986f911b",
-      "nativeWidth": 896,
-      "nativeHeight": 720,
-      "width": 896,
-      "height": 720,
-      "sha256": "250eb58ed99c4cdf8b7e98925a0eae84e2e0fe262f8cdd4903989e93f4f71ed7",
-      "bytes": 66482,
-      "thumbnailSha256": "0c4d09e3aa877376f8fd57321e06d2a2710a5bdc8e0f35a6273f397cfca6a37c",
-      "thumbnailBytes": 15400,
-      "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "restored_best_verified_available",
+      "nativeSha256": "bed2d67ef4ddcbfd961da721e54d9dd7ecfab4c1137d78a0d70a41252c115be0",
+      "nativeWidth": 2000,
+      "nativeHeight": 1333,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          384,
           0,
-          1280,
-          720
-        ],
-        "crop_fraction": [
-          0.3,
           0,
-          1,
-          1
+          2000,
+          1333
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030215-a622-publishing.png",
-      "originalAssetSha256": "b1f6fbee3d08b6ec29ff93dac3b9555d9dc2e33c152efc62673658861fcff74a",
-      "originalWidth": 1280,
-      "originalHeight": 720,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Alternative Canadian broadcast view, after the assisted goal; Brad identified by face and helmet 63, without the large graphic over the huddle.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Brad face center-right behind Bennett9/Lundell15, correct power-play goal group. Timestamp251.0 exact verified, limited prominence.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030215-a622-publishing-identity-approved.webp",
+      "originalAssetSha256": "bb80d97ef7a49d0a9ca31ff35ebd9eea5f5a40f384ce5ccc6cbc34b0c99ac1a8",
+      "originalWidth": 2000,
+      "originalHeight": 1333,
       "exactScoringInstantAsserted": false,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 165
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face, full helmet 63 and shoulder 63 numerals; People image caption identifies May 14, 2025 Game 5 and Kevin Sousa / NHLI via Getty Images.",
+        "game_date": "2025-05-14",
+        "game_id": "2024030215",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/622/people-original/may14-people-published-original.webp",
+            "sha256": "bb80d97ef7a49d0a9ca31ff35ebd9eea5f5a40f384ce5ccc6cbc34b0c99ac1a8",
+            "bytes": 145472,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/622/people-original/may14-people-published-original.webp"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/622/people-original/published-image-receipt.json",
+            "sha256": "3745e917cce565ac317c24034184b231aea6108a030c1947593ae6a1dedeea89",
+            "bytes": 708,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/622/people-original/published-image-receipt.json"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/622/source-proof.json",
+            "sha256": "a4f4e5abbd88873f65cd1a35e869fa8c2e16397a18fd968bd0b47d2b56fdd2e2",
+            "bytes": 2732,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/622/source-proof.json"
+          },
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_c/622/yahoo-people-profile/source.html",
+            "sha256": "90f63ea709a1b7e181e278fd250a9563ec7522505006ce37c77817580df18edd",
+            "bytes": 739566,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_c/622/yahoo-people-profile/source.html"
+          }
+        ],
+        "source_context": "Same-game on-ice portrait; no scoring-play claim.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Actual source format is WEBP, not JPEG despite the published URL suffix; preserve its exact archived bytes as .webp. Neutral portrait, not a goal celebration."
+      },
+      "sourceQualityLimitations": "Actual source format is WEBP, not JPEG despite the published URL suffix; preserve its exact archived bytes as .webp. Neutral portrait, not a goal celebration.",
+      "identityEvidence": "Recognizable Brad face, full helmet 63 and shoulder 63 numerals; People image caption identifies May 14, 2025 Game 5 and Kevin Sousa / NHLI via Getty Images.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      }
     },
     "2024030217-a623-publishing": {
       "assetId": "2024030217-a623-publishing",
@@ -16127,72 +16297,104 @@
     "2024030315-a625-publishing": {
       "assetId": "2024030315-a625-publishing",
       "role": "game_reference",
-      "label": "Game photo",
-      "url": "images/marchand-games/expressive-20261017-a625/game.png?v=e745e4dcd8c2",
-      "thumbnailUrl": "images/marchand-games/expressive-20261017-a625/game-thumb.webp?v=1d26bac3615a",
+      "displaySelected": true,
+      "label": "GAME 5 / MAY 28, 2025",
+      "displayLabel": "GAME 5 / MAY 28, 2025",
       "rotation": 0,
-      "caption": "Marchand celebrates with his teammates at the Florida bench.",
-      "originalCaption": "Marchand celebrates with his teammates at the Florida bench.",
+      "url": "images/marchand-games/identity-v3-20261018-a625/game.png?v=efceeb161f32",
+      "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a625/game-thumb.webp?v=499d2c48465c",
+      "width": 2200,
+      "height": 1220,
+      "sha256": "efceeb161f32ef8d78dc49ad24ac1176ca5db743f81c391268b9a164e4072b8e",
+      "bytes": 2911206,
+      "thumbnailSha256": "499d2c48465ce00fb6b1a91901b26c69597aa577b9a07b8f40d61b884ac8896a",
+      "thumbnailBytes": 14268,
+      "nativeFullSize": true,
+      "derivativeMethod": "Full PNG byte-identical to approved native crop; only proportional 320px sRGB WebP thumbnail resampled.",
+      "caption": "Marchand celebrates with teammates in Game 5 of the Eastern Conference Final in Carolina.",
+      "originalCaption": "Marchand celebrates with teammates in Game 5 of the Eastern Conference Final in Carolina.",
       "credit": "Florida Panthers / NHL.com",
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
-      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_q-best/prd/urd3cijxv2hsbuu1qeiy.jpg",
-      "license": "Copyrighted editorial image",
-      "usageStatus": "Copyrighted editorial photograph; source and credit retained. No license grant inferred.",
+      "sourceImageUrl": "https://media.d3.nhle.com/image/private/t_q-best/prd/rmmj3cwde1awc9rnq9w4.jpg",
       "imageKind": "photograph",
       "photoDate": "2025-05-28",
       "gameId": "2024030315",
       "bradPlayed": true,
       "bradVisible": true,
-      "subjectRuleReview": "PASS",
+      "subjectRuleReview": "PASS_FRESH_APPROVED_SOURCE_IDENTITY",
       "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024030315/boxscore",
-      "relationNote": "Broad smiling Brad, laughing teammates and glove contact create a genuine shared joy story; materially stronger than distant huddle.",
+      "relationNote": "Same-game team celebration; no specific goal attributed.",
+      "context": "Same-game team celebration; no specific goal attributed.",
+      "license": "Copyrighted editorial image",
+      "usageStatus": "Publicly published clean source accessed without payment; no unrestricted publication license is asserted.",
+      "photographerIdentified": false,
       "nativeAssetPath": "assets/2024030315-a625-publishing/game-image.png",
-      "nativeSha256": "e745e4dcd8c235b446e754130ea051e5eaaeb66287867dffb990bf7e4e526056",
-      "nativeWidth": 2480,
-      "nativeHeight": 1520,
-      "width": 2480,
-      "height": 1520,
-      "sha256": "e745e4dcd8c235b446e754130ea051e5eaaeb66287867dffb990bf7e4e526056",
-      "bytes": 5152215,
-      "thumbnailSha256": "1d26bac3615a90500bf1bf09a35c0bf1ef4be5eb042fbbfd316876b1a8af06fd",
-      "thumbnailBytes": 22740,
-      "derivativeMethod": "Full PNG is byte-identical to supplied native crop, preserving pixels and ICC. Only thumbnail is proportionally reduced to320px sRGB WebP.",
-      "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
-      "selectionAction": "retained_current_selection",
+      "nativeSha256": "efceeb161f32ef8d78dc49ad24ac1176ca5db743f81c391268b9a164e4072b8e",
+      "nativeWidth": 2200,
+      "nativeHeight": 1220,
+      "sourceRevision": "Canonical-Consolidated-Edition-20261018-v4",
+      "selectionAction": "user_approved_identity_corrected_native_photograph",
       "selectedImageProcessing": {
         "method": "exact_native_pixel_crop",
         "crop_box": [
-          90,
-          180,
-          2570,
-          1700
+          1650,
+          30,
+          3850,
+          1250
         ],
         "no_resampling": true,
         "generative_processing": false,
-        "decoded_pixel_equality_verified": true
+        "decoded_pixel_equality_verified": true,
+        "icc_profile_preserved": true
       },
-      "originalAssetPath": "originals/2024030315-a625-publishing.jpg",
-      "originalAssetSha256": "f94ceb627e02f564ea15f169e750cf7724ea21bddf71bfcf585b1fd3c7d52996",
-      "originalWidth": 3298,
-      "originalHeight": 2199,
-      "criticalReview": {
-        "status": "PASS",
-        "reason": "Clear frontal Brad face, helmet 63 and arms out; major upgrade from obscured former photograph.",
-        "identity_checked": true,
-        "game_match_checked": true,
-        "manual_review_completed": true
-      },
-      "finalVisualReview": {
-        "status": "PASS",
-        "review_date": "2026-10-18",
-        "reason": "Previously selected, source-verified native image retained.",
-        "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
-        "native_pixels_preserved": true,
-        "no_generative_edits": true
-      },
+      "originalAssetPath": "originals/2024030315-a625-publishing-identity-approved.jpg",
+      "originalAssetSha256": "1723b6d5f92d4ed9d2a64b3afe417a7c476c87b945b7bace47609569e8c1fedd",
+      "originalWidth": 4538,
+      "originalHeight": 3025,
       "exactScoringInstantAsserted": false,
-      "nativeFullSize": true,
-      "displaySelected": true
+      "finalVisualReview": {
+        "status": "PASS_WITH_EXISTING_QUALIFICATIONS",
+        "scope": "Team review of24actual full pages,8actualcorrect photo panels and2actualcoverrenders; remaining pages assessed through strict all-page pixel/native comparison. Not a new blanket171subject review.",
+        "reviewDate": "2026-10-18",
+        "evidence": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Book Handoff 2026-10-18-v4/QA/book_visual.json",
+          "sha256": "f9e0629ee9a682bafca318c5ead32eb6268f2737cf48143e446ab44c18f15ce6",
+          "bytes": 18733,
+          "source_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-canonical-consolidated-20261018-v4/editorial-qa/final-visual-signoff.json"
+        },
+        "bookPage": 168
+      },
+      "criticalReview": {
+        "status": "PASS_FRESH_NATIVE_IDENTITY_AND_DATED_SOURCE",
+        "review_date": "2026-10-18",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "identity_evidence": "Recognizable Brad face, full helmet 63 and both shoulder 63 numerals, arms open; dated official May 28, 2025 Game 5 gallery. Lundell 15 and Gadjovich 12 are legible; caption claims same-game celebration only.",
+        "game_date": "2025-05-28",
+        "game_id": "2024030315",
+        "source_caption_or_date_proofs": [
+          {
+            "research_path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/exhibit63-user-photo-corrections-20261018-v1/research_b/625-panthers/source.html",
+            "sha256": "cef1574e7162f4f08a1d7e71f797fa6615bd1e78ba15385fa5a1c5deb38a0b42",
+            "bytes": 191026,
+            "archive_relative_path": "RESEARCH/Identity-Correction-Review-20261018-v3/primary-source-evidence/research_b/625-panthers/source.html"
+          }
+        ],
+        "source_context": "Same-game team celebration; no specific goal attributed.",
+        "no_score_tv_bug_or_watermark_in_selected_crop": true,
+        "native_pixels_preserved": true,
+        "no_generative_edits": true,
+        "review_scope": "Actual selected native crop independently viewed; package source/caption and exact native/ICC checks. New PDF validation is separate.",
+        "quality_qualification": "Foreground teammates partially cover lower torso, not Brad face; preserve wide approved crop and generic same-game wording. Photographer unidentified."
+      },
+      "sourceQualityLimitations": "Foreground teammates partially cover lower torso, not Brad face; preserve wide approved crop and generic same-game wording. Photographer unidentified.",
+      "identityEvidence": "Recognizable Brad face, full helmet 63 and both shoulder 63 numerals, arms open; dated official May 28, 2025 Game 5 gallery. Lundell 15 and Gadjovich 12 are legible; caption claims same-game celebration only.",
+      "approval": {
+        "status": "USER_APPROVED",
+        "revision": "Identity-Corrected-Photo-Edition-20261018-v3",
+        "approvedReplacementsSha256": "6705ea2e32acff3325cb2cbac0a6a8c13ef6d0f94a42d6144227c4530d3d7c74",
+        "publishedRevision": "Canonical-Consolidated-Edition-20261018-v4"
+      },
+      "photographerNote": "Photographer unidentified; publisher credit only."
     },
     "2025020001-a626-publishing": {
       "assetId": "2025020001-a626-publishing",

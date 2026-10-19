@@ -1,0 +1,391 @@
+{
+  "status": "HISTORICAL_ONLY_NOT_ACTIVE",
+  "record": {
+    "key": "goal-57",
+    "sourceSheet": "Goals & Games",
+    "sourceRow": 58,
+    "inventoryId": 57,
+    "homeRoad": "Road",
+    "team": "Boston Bruins",
+    "category": "Assist",
+    "careerStat": null,
+    "seasonStat": 4,
+    "description": "",
+    "date": "2024-10-19",
+    "arena": "Delta Center",
+    "opponent": "Utah Hockey Club",
+    "period": "2",
+    "time": "12:49",
+    "goalType": "",
+    "primaryAssist": "BM63",
+    "secondaryAssist": "",
+    "score": "Boston 1 @ Utah 2 - OT",
+    "puckType": "Game Used Puck",
+    "videoLabel": "Watch Goal",
+    "videoUrl": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112",
+    "videoProvider": "nhl",
+    "videoId": "6363508247112",
+    "notes": "Primary assist on CK45 goal",
+    "game": null,
+    "wins": null,
+    "losses": null,
+    "points": null,
+    "playerCodes": [
+      "BM63"
+    ],
+    "sourceData": [
+      {
+        "label": "ID",
+        "value": "57",
+        "url": ""
+      },
+      {
+        "label": "Home/Road",
+        "value": "Road",
+        "url": ""
+      },
+      {
+        "label": "Marchand Team",
+        "value": "Boston Bruins",
+        "url": ""
+      },
+      {
+        "label": "Category",
+        "value": "Assist",
+        "url": ""
+      },
+      {
+        "label": "Career Stat",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Season Stat",
+        "value": "4",
+        "url": ""
+      },
+      {
+        "label": "Date",
+        "value": "2024-10-19",
+        "url": ""
+      },
+      {
+        "label": "Arena",
+        "value": "Delta Center",
+        "url": ""
+      },
+      {
+        "label": "Opponent",
+        "value": "Utah Hockey Club",
+        "url": ""
+      },
+      {
+        "label": "Period",
+        "value": "2",
+        "url": ""
+      },
+      {
+        "label": "Time",
+        "value": "12:49",
+        "url": ""
+      },
+      {
+        "label": "Goal Type",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Primary Assist",
+        "value": "BM63",
+        "url": ""
+      },
+      {
+        "label": "Secondary Assist",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Score",
+        "value": "Boston 1 @ Utah 2 - OT",
+        "url": ""
+      },
+      {
+        "label": "Puck Type",
+        "value": "Game Used Puck",
+        "url": ""
+      },
+      {
+        "label": "Goal Video",
+        "value": "Watch Goal",
+        "url": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112"
+      },
+      {
+        "label": "Notes",
+        "value": "Primary assist on CK45 goal",
+        "url": ""
+      },
+      {
+        "label": "Goalie Scored Against",
+        "value": "Connor Ingram",
+        "url": ""
+      },
+      {
+        "label": "Front Image Filename",
+        "value": "images/pucks/57/front.webp",
+        "url": ""
+      },
+      {
+        "label": "Back Image Filename",
+        "value": "images/pucks/57/back.webp",
+        "url": ""
+      },
+      {
+        "label": "Detail Image Filenames",
+        "value": "images/pucks/57/edge-01.webp; images/pucks/57/edge-02.webp",
+        "url": ""
+      },
+      {
+        "label": "COA Filename",
+        "value": "images/pucks/57/coa.webp",
+        "url": ""
+      },
+      {
+        "label": "Authentication Type",
+        "value": "Digital COA / Hologram",
+        "url": ""
+      },
+      {
+        "label": "Authentication Evidence",
+        "value": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
+        "url": ""
+      },
+      {
+        "label": "Authentication Notes",
+        "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
+        "url": ""
+      },
+      {
+        "label": "Authentication Issuer",
+        "value": "Fanatics",
+        "url": ""
+      },
+      {
+        "label": "Hologram Number",
+        "value": "RG13313204",
+        "url": ""
+      },
+      {
+        "label": "Authentication Record URL",
+        "value": "https://fanatics.com/fansecure?id=RG13313204",
+        "url": "https://fanatics.com/fansecure?id=RG13313204"
+      },
+      {
+        "label": "Additional Authentication Issuer",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Additional Hologram Number",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Additional Authentication Record URL",
+        "value": "",
+        "url": ""
+      },
+      {
+        "label": "Authentication Lookup Instructions",
+        "value": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
+        "url": ""
+      }
+    ],
+    "goalieScoredAgainst": "Connor Ingram",
+    "authenticationType": "Digital COA / Hologram",
+    "authenticationEvidence": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
+    "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
+    "authenticationIssuer": "Fanatics",
+    "authenticationSerial": "RG13313204",
+    "authenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13313204",
+    "authenticationAlternateIssuer": "",
+    "authenticationAlternateSerial": "",
+    "authenticationAlternateRecordUrl": "",
+    "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
+  },
+  "story": {
+    "inventoryId": 57,
+    "date": "2024-10-19",
+    "team": "Boston Bruins",
+    "gameId": 2024020086,
+    "title": "An assist on Boston’s only goal in Utah",
+    "paragraphs": [
+      "Marchand earned the lone assist on Cole Koepke’s goal at 12:49 of the second period. Boston held that 1–0 lead until Utah tied it with 5:09 left in regulation, then lost 2–1 in overtime. This record documents Marchand’s assist on the opening goal, not a Marchand goal.",
+      "Shared identification under review: records 57 and 313 reference the same photographed puck and hologram RG13313204. Both catalog records are retained pending owner clarification; this does not establish two distinct physical pucks."
+    ],
+    "sources": [
+      {
+        "label": "NHL game summary & box score",
+        "url": "https://www.nhl.com/gamecenter/2024020086"
+      }
+    ],
+    "verification": {
+      "scoring": "https://api-web.nhle.com/v1/gamecenter/2024020086/landing",
+      "boxscore": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
+      "marchand": {
+        "goals": 0,
+        "assists": 1,
+        "points": 1,
+        "shots": 1,
+        "toi": "18:06"
+      },
+      "identityReview": {
+        "status": "Owner clarification pending",
+        "catalogRecords": [
+          57,
+          313
+        ],
+        "hologram": "RG13313204",
+        "review": "docs/marchand-identity-review-20261017.json"
+      }
+    }
+  },
+  "physicalViews": [
+    {
+      "label": "Front",
+      "url": "images/pucks/57/front.webp?v=f5662bd94ca7",
+      "rotation": 0,
+      "thumbnailUrl": "images/pucks/57/front-thumb.webp?v=20260928-batch2"
+    },
+    {
+      "label": "Back",
+      "url": "images/pucks/57/back.webp?v=c5be09249907",
+      "rotation": 0
+    },
+    {
+      "label": "Edge 1",
+      "url": "images/pucks/57/edge-01.webp?v=9e14cef9f78b",
+      "rotation": 0
+    },
+    {
+      "label": "Edge 2",
+      "url": "images/pucks/57/edge-02.webp?v=70ddbd5313d6",
+      "rotation": 0
+    },
+    {
+      "label": "COA",
+      "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/57/coa.webp?v=56fb3fc0d4e3",
+      "rotation": 0,
+      "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+      "sourceFile": "IMG_9780.JPG",
+      "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+    }
+  ],
+  "gameMapping": {
+    "inventoryId": 57,
+    "assetId": "2024020086-a57-publishing",
+    "artifactDate": "2024-10-19",
+    "photoDate": "2024-10-19",
+    "displaySelected": true,
+    "selectionStatus": "selected",
+    "galleryPosition": "last",
+    "selectionReason": "Previously selected verified image retained"
+  },
+  "gameAsset": {
+    "assetId": "2024020086-a57-publishing",
+    "role": "game_reference",
+    "label": "Game photo",
+    "url": "images/marchand-games/2024020086-a57-publishing/game.webp?v=fa775a188ef9",
+    "thumbnailUrl": "images/marchand-games/2024020086-a57-publishing/game-thumb.webp?v=1b96ae89e06c",
+    "rotation": 0,
+    "caption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
+    "originalCaption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
+    "credit": "Spenser Heaps / AP",
+    "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
+    "sourceImageUrl": "https://image.bastillepost.com/1200x/wp-content/uploads/global/2024/10/Bruins_Utah_Hockey_85112.jpg.webp",
+    "license": "Copyrighted editorial image",
+    "usageStatus": "Copyrighted editorial image; source/credit preserved; no public-web license established by this research.",
+    "imageKind": "photograph",
+    "photoDate": "2024-10-19",
+    "gameId": "2024020086",
+    "bradPlayed": true,
+    "bradVisible": true,
+    "subjectRuleReview": "PASS",
+    "participationSource": "https://api-web.nhle.com/v1/gamecenter/2024020086/boxscore",
+    "relationNote": "Remove artificial white padding; preserve complete photographic pixels and subjects.",
+    "nativeAssetPath": "assets/2024020086-a57-publishing/game-image.png",
+    "nativeSha256": "b96d6d155ab503179f7b32f72c11dd72ce23508e17427fab9ff46add90737f68",
+    "nativeWidth": 1200,
+    "nativeHeight": 780,
+    "width": 1200,
+    "height": 780,
+    "sha256": "fa775a188ef904e351d17ee7b9e928cc4633ea8716d4366b55bfe75fefd00b41",
+    "bytes": 120174,
+    "thumbnailSha256": "1b96ae89e06cd40ff0db6baf2a3d55509f2a4a41a355a1c9f48a04c0c795c8d5",
+    "thumbnailBytes": 17826,
+    "derivativeMethod": "sRGB WebP; proportional web downsize only, no further crop, retouch, upscaling or generative edits. Approved native selected file and reversible original crop remain archived unchanged.",
+    "sourceRevision": "Complete-Game-Photo-Edition-20261018-v1",
+    "selectionAction": "retained_current_selection",
+    "selectedImageProcessing": {
+      "method": "exact_native_pixel_crop",
+      "crop_box": [
+        0,
+        0,
+        1200,
+        780
+      ],
+      "no_resampling": true,
+      "generative_processing": false,
+      "decoded_pixel_equality_verified": true
+    },
+    "originalAssetPath": "originals/2024020086-a57-publishing.webp",
+    "originalAssetSha256": "d9a2c311131421c887ccdf3f489e741d04d72ee5040a11068c53c850180755e4",
+    "originalWidth": 1200,
+    "originalHeight": 800,
+    "criticalReview": {
+      "status": "PASS",
+      "reason": "Remove artificial white padding; preserve complete photographic pixels and subjects.",
+      "identity_checked": true,
+      "game_match_checked": true,
+      "manual_review_completed": true
+    },
+    "finalVisualReview": {
+      "status": "PASS",
+      "review_date": "2026-10-18",
+      "reason": "Previously selected, source-verified native image retained.",
+      "quality_scope": "Best correctly matched available image; expression and clarity preferred, source limitations remain candid.",
+      "native_pixels_preserved": true,
+      "no_generative_edits": true
+    },
+    "exactScoringInstantAsserted": false,
+    "displaySelected": true,
+    "sourceEmbeddedCaption": "",
+    "sourceEmbeddedCredit": "",
+    "sourceEmbeddedCopyright": ""
+  },
+  "gameIndex": {
+    "inventoryId": 57,
+    "collectionRecordKey": "goal-57",
+    "canonicalSheet": "Goals & Games",
+    "canonicalIdCell": "A58",
+    "assetId": "2024020086-a57-publishing",
+    "artifactDate": "2024-10-19",
+    "photoDate": "2024-10-19",
+    "displaySelected": true,
+    "selectionStatus": "selected",
+    "galleryPosition": "last",
+    "selectionReason": "Previously selected verified image retained",
+    "mediaRole": "game_reference",
+    "bookPage": 65,
+    "nativeSha256": "b96d6d155ab503179f7b32f72c11dd72ce23508e17427fab9ff46add90737f68",
+    "caption": "Marchand, Koepke and Coyle celebrate a Boston goal.",
+    "credit": "Spenser Heaps / AP",
+    "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
+    "url": "images/marchand-games/2024020086-a57-publishing/game.webp?v=fa775a188ef9",
+    "thumbnailUrl": "images/marchand-games/2024020086-a57-publishing/game-thumb.webp?v=1b96ae89e06c"
+  },
+  "gameArchiveFile": {
+    "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-canonical-v4-preparation-20261018/archive/game57/game.webp",
+    "sha256": "fa775a188ef904e351d17ee7b9e928cc4633ea8716d4366b55bfe75fefd00b41",
+    "bytes": 120174
+  }
+}

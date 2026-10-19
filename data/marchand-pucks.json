@@ -2,13 +2,13 @@
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
     "sourceSha256": "aafa996e674e0e39c561be1644936eb6acd651b4826699b3f1446948e71f6bed",
-    "records": 172,
-    "goalsAndGames": 76,
+    "records": 171,
+    "goalsAndGames": 75,
     "milestones": 42,
     "roadToHistory": 10,
-    "videos": 172,
+    "videos": 171,
     "sourceSheets": {
-      "Goals & Games": 76,
+      "Goals & Games": 75,
       "Milestones": 42,
       "Road to History": 10,
       "Road to Repeat": 27,
@@ -30,24 +30,18 @@
       "scope": "Added two canonical rows; 170 previously published artifact records preserved."
     },
     "latestCanonicalUpdate": {
-      "date": "2026-10-17",
-      "sourceSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+      "date": "2026-10-18",
+      "sourceSha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
       "inventoryIds": [
-        19,
-        27
+        57,
+        313
       ],
-      "sourceCells": [
-        "Goals & Games!Q20",
-        "Goals & Games!Q28"
-      ],
-      "scope": "Correct only canonical19/27 video hyperlink targets, preserving Game Highlights labels, all other cell values and historical source hashes.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "wordChanged": false,
+      "scope": "Retire duplicate57, retain milestone313 and its existing physical paths; transfer exact scoring/video details. All other170 record objects preserved.57vacant; no permanent active alias.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 consolidation receipt 2026-10-18-v1.json",
+      "receiptSha256": "4b319ec802d9fa2896e7f4c742ef4a001bd95caab6dd52d22c2485052bc930be",
+      "wordChanged": true,
       "packageDataValidation": "PASS",
-      "nativeExcelAppTest": "PASS",
-      "nativeExcelCompletedDate": "2026-10-18",
-      "nativeExcelCompletionReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "nativeExcelCompletionReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+      "nativeExcelAppTest": "PASS"
     },
     "canonicalUpdateHistory": [
       {
@@ -69,34 +63,45 @@
         ],
         "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Notes 35 and 711 correction receipt 2026-10-17.json",
         "wordChanged": false
+      },
+      {
+        "date": "2026-10-17",
+        "sourceSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+        "inventoryIds": [
+          19,
+          27
+        ],
+        "sourceCells": [
+          "Goals & Games!Q20",
+          "Goals & Games!Q28"
+        ],
+        "scope": "Correct only canonical19/27 video hyperlink targets, preserving Game Highlights labels, all other cell values and historical source hashes.",
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
+        "wordChanged": false,
+        "packageDataValidation": "PASS",
+        "nativeExcelAppTest": "PASS",
+        "nativeExcelCompletedDate": "2026-10-18",
+        "nativeExcelCompletionReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
+        "nativeExcelCompletionReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+    "currentCanonicalMasterSha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "326aa9bf2bac3d809d8e27484c9538eb91846e1ee621c7e344c096c98df329fd",
+      "sha256": "9a20755a91047f49584951d3693cc8132d505cd22fd407ecc80807acefbde562",
       "verifiedDate": "2026-10-18",
       "wordSource": "BM63-Goal-Puck-List.docx",
-      "wordSha256": "1a780917190bfa5cd09be2cf629da26dbe7dc3bc0ac34a4c0e164a78f03d78e6",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "projection": "Canonical package/data checks and native Microsoft Excel opening, hyperlink inspection, recalculation and visible dashboard checks pass. No workbook edit or save performed.",
+      "wordSha256": "21e3022a95ead792d7234ddd0e6a6ed8817a90090c5dc9b39ea5b8f4f347dda9",
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 consolidation receipt 2026-10-18-v1.json",
+      "verificationReceiptSha256": "4b319ec802d9fa2896e7f4c742ef4a001bd95caab6dd52d22c2485052bc930be",
       "nativeExcelAppTest": "PASS",
-      "verificationReceiptSha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
-    },
-    "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
-      "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
-    },
-    "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
-      "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
+      "projection": "Canonical171 package readback and completed upstream native Excel PASS; website publication held pending integrated book/media handoff."
     },
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifacts 19 and 27 video link corrections receipt 2026-10-17.json",
-      "sha256": "d6b164d436efb5c0a72bb61ddb82f6dbe6176b3e1d40f5c0b3a05e271097a3d5"
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Native-Excel-verification.json",
+      "sha256": "054c3e55128e294d24015c25963f3d4eddebbbf89418008a1cb24da922c4f30b"
     },
-    "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5",
     "canonicalVerificationHistory": [
       {
         "currentCanonicalMaster": {
@@ -152,7 +157,34 @@
         },
         "sourceHandoffSha256": "6b9897c9bfc7058cb172342ab7a6536a7a645d8217cd6c39fc211cf0cc8edb59"
       }
-    ]
+    ],
+    "canonicalConsolidationHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
+      "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
+    },
+    "preparationPriorMediaProvenance": {
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Targeted photo media reconciliation 2026-10-18-v2.json",
+        "sha256": "21f3f2da6e4691e48b3799359488fe9697c1f53ccacbfd45b4cca7a29bdd8822"
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
+        "sha256": "c192b66a475a7682f9f4784048f2f53153c3de05bc1615e43cc9e6c6fe6bd0b0"
+      },
+      "sourceHandoffSha256": "b4a656fb62084215135796160be574b39cae3407299fc5c4a68f31b8b4a305c5"
+    },
+    "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
+    "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS",
+    "mediaRegistrationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical consolidated media reconciliation 2026-10-18-v4.json",
+      "sha256": "8f2a96b9cec259ec4d02ee6ea59f3722aa60bbf2784e35fb917068569324567b",
+      "bytes": 86323
+    },
+    "mediaRegistryAtRegistration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Consolidated Media Registration 2026-10-18-v4/Registry-at-registration.json",
+      "sha256": "ce692d5b5a847d76dda1b5ab6143bdb80485c34c2564d80766c642347d9f64b2",
+      "bytes": 34923
+    }
   },
   "records": [
     {
@@ -12129,218 +12161,6 @@
       "authenticationLookupInstructions": ""
     },
     {
-      "key": "goal-57",
-      "sourceSheet": "Goals & Games",
-      "sourceRow": 58,
-      "inventoryId": 57,
-      "homeRoad": "Road",
-      "team": "Boston Bruins",
-      "category": "Assist",
-      "careerStat": null,
-      "seasonStat": 4,
-      "description": "",
-      "date": "2024-10-19",
-      "arena": "Delta Center",
-      "opponent": "Utah Hockey Club",
-      "period": "2",
-      "time": "12:49",
-      "goalType": "",
-      "primaryAssist": "BM63",
-      "secondaryAssist": "",
-      "score": "Boston 1 @ Utah 2 - OT",
-      "puckType": "Game Used Puck",
-      "videoLabel": "Watch Goal",
-      "videoUrl": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112",
-      "videoProvider": "nhl",
-      "videoId": "6363508247112",
-      "notes": "Primary assist on CK45 goal",
-      "game": null,
-      "wins": null,
-      "losses": null,
-      "points": null,
-      "playerCodes": [
-        "BM63"
-      ],
-      "sourceData": [
-        {
-          "label": "ID",
-          "value": "57",
-          "url": ""
-        },
-        {
-          "label": "Home/Road",
-          "value": "Road",
-          "url": ""
-        },
-        {
-          "label": "Marchand Team",
-          "value": "Boston Bruins",
-          "url": ""
-        },
-        {
-          "label": "Category",
-          "value": "Assist",
-          "url": ""
-        },
-        {
-          "label": "Career Stat",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Season Stat",
-          "value": "4",
-          "url": ""
-        },
-        {
-          "label": "Date",
-          "value": "2024-10-19",
-          "url": ""
-        },
-        {
-          "label": "Arena",
-          "value": "Delta Center",
-          "url": ""
-        },
-        {
-          "label": "Opponent",
-          "value": "Utah Hockey Club",
-          "url": ""
-        },
-        {
-          "label": "Period",
-          "value": "2",
-          "url": ""
-        },
-        {
-          "label": "Time",
-          "value": "12:49",
-          "url": ""
-        },
-        {
-          "label": "Goal Type",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Primary Assist",
-          "value": "BM63",
-          "url": ""
-        },
-        {
-          "label": "Secondary Assist",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Score",
-          "value": "Boston 1 @ Utah 2 - OT",
-          "url": ""
-        },
-        {
-          "label": "Puck Type",
-          "value": "Game Used Puck",
-          "url": ""
-        },
-        {
-          "label": "Goal Video",
-          "value": "Watch Goal",
-          "url": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112"
-        },
-        {
-          "label": "Notes",
-          "value": "Primary assist on CK45 goal",
-          "url": ""
-        },
-        {
-          "label": "Goalie Scored Against",
-          "value": "Connor Ingram",
-          "url": ""
-        },
-        {
-          "label": "Front Image Filename",
-          "value": "images/pucks/57/front.webp",
-          "url": ""
-        },
-        {
-          "label": "Back Image Filename",
-          "value": "images/pucks/57/back.webp",
-          "url": ""
-        },
-        {
-          "label": "Detail Image Filenames",
-          "value": "images/pucks/57/edge-01.webp; images/pucks/57/edge-02.webp",
-          "url": ""
-        },
-        {
-          "label": "COA Filename",
-          "value": "images/pucks/57/coa.webp",
-          "url": ""
-        },
-        {
-          "label": "Authentication Type",
-          "value": "Digital COA / Hologram",
-          "url": ""
-        },
-        {
-          "label": "Authentication Evidence",
-          "value": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
-          "url": ""
-        },
-        {
-          "label": "Authentication Notes",
-          "value": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
-          "url": ""
-        },
-        {
-          "label": "Authentication Issuer",
-          "value": "Fanatics",
-          "url": ""
-        },
-        {
-          "label": "Hologram Number",
-          "value": "RG13313204",
-          "url": ""
-        },
-        {
-          "label": "Authentication Record URL",
-          "value": "https://fanatics.com/fansecure?id=RG13313204",
-          "url": "https://fanatics.com/fansecure?id=RG13313204"
-        },
-        {
-          "label": "Additional Authentication Issuer",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Additional Hologram Number",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Additional Authentication Record URL",
-          "value": "",
-          "url": ""
-        },
-        {
-          "label": "Authentication Lookup Instructions",
-          "value": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code.",
-          "url": ""
-        }
-      ],
-      "goalieScoredAgainst": "Connor Ingram",
-      "authenticationType": "Digital COA / Hologram",
-      "authenticationEvidence": "images/pucks/57/back.webp; images/pucks/57/coa.webp",
-      "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",
-      "authenticationIssuer": "Fanatics",
-      "authenticationSerial": "RG13313204",
-      "authenticationRecordUrl": "https://fanatics.com/fansecure?id=RG13313204",
-      "authenticationAlternateIssuer": "",
-      "authenticationAlternateSerial": "",
-      "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
-    },
-    {
       "key": "goal-58",
       "sourceSheet": "Goals & Games",
       "sourceRow": 59,
@@ -18319,19 +18139,19 @@
       "sourceSheet": "Milestones",
       "sourceRow": 14,
       "inventoryId": 313,
-      "homeRoad": "",
+      "homeRoad": "Road",
       "team": "Boston Bruins",
       "category": "Milestone",
       "careerStat": null,
-      "seasonStat": null,
+      "seasonStat": 4,
       "description": "BM63 First Career Point vs Utah Hockey Club",
       "date": "2024-10-19",
       "arena": "Delta Center",
       "opponent": "Utah Hockey Club",
-      "period": "",
-      "time": "",
+      "period": "2",
+      "time": "12:49",
       "goalType": "",
-      "primaryAssist": "",
+      "primaryAssist": "BM63",
       "secondaryAssist": "",
       "score": "BOS 1 @ UTA 2 - OT",
       "puckType": "Game Used Puck",
@@ -18339,7 +18159,7 @@
       "videoUrl": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112",
       "videoProvider": "nhl",
       "videoId": "6363508247112",
-      "notes": "",
+      "notes": "Primary assist on CK45 goal",
       "game": null,
       "wins": null,
       "losses": null,
@@ -18390,12 +18210,12 @@
         },
         {
           "label": "Notes",
-          "value": "",
+          "value": "Primary assist on CK45 goal",
           "url": ""
         },
         {
           "label": "Home/Road",
-          "value": "",
+          "value": "Road",
           "url": ""
         },
         {
@@ -18420,17 +18240,17 @@
         },
         {
           "label": "Season Stat",
-          "value": "",
+          "value": "4",
           "url": ""
         },
         {
           "label": "Period",
-          "value": "",
+          "value": "2",
           "url": ""
         },
         {
           "label": "Time",
-          "value": "",
+          "value": "12:49",
           "url": ""
         },
         {
@@ -18440,7 +18260,7 @@
         },
         {
           "label": "Primary Assist",
-          "value": "",
+          "value": "BM63",
           "url": ""
         },
         {
@@ -18450,13 +18270,13 @@
         },
         {
           "label": "Goalie Scored Against",
-          "value": "",
+          "value": "Connor Ingram",
           "url": ""
         },
         {
           "label": "Video URL",
-          "value": "",
-          "url": ""
+          "value": "Watch Goal",
+          "url": "https://www.nhl.com/video/cole-koepke-with-a-goal-vs-utah-hockey-club-6363508247112"
         },
         {
           "label": "Front Image Filename",
@@ -18574,7 +18394,7 @@
           "url": ""
         }
       ],
-      "goalieScoredAgainst": "",
+      "goalieScoredAgainst": "Connor Ingram",
       "authenticationType": "Digital COA / Hologram",
       "authenticationEvidence": "images/pucks/313/back.webp; images/pucks/313/coa.webp",
       "authenticationNotes": "Fanatics hologram on the puck identifies its digital COA; visible in the back photograph.",

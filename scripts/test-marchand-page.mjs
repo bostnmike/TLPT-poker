@@ -52,12 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 172, "collection total must match the authoritative populated rows");
-assert.equal(payload.meta.goalsAndGames, 76, "goals and games count drifted");
+assert.equal(payload.meta.records, 171, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 42, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 172, "video count drifted");
+assert.equal(payload.meta.videos, 171, "video count drifted");
 const footerMarkup = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || "";
 const summaryMarkup = html.match(/<section class="marchand-stat-wing"[\s\S]*?<\/section>/)?.[0] || "";
 assert.equal((summaryMarkup.match(/data-collection-filter=/g) || []).length, 7, "All seven collection buttons must remain available");
@@ -158,13 +158,14 @@ const exhibit1 = payload.records.find((record) => record.inventoryId === 1);
 const exhibit42 = payload.records.find((record) => record.inventoryId === 42);
 const exhibit316 = payload.records.find((record) => record.inventoryId === 316);
 const addedOwnedGoals = payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.sourceRow >= 73 && record.sourceRow <= 79);
-assert.equal(row58?.videoId, "6363508247112", "source row 58 video drifted");
+assert.equal(row58, undefined, "retired57 source row58 must stay vacant");
+assert.equal(payload.records.find(r => r.inventoryId === 313).videoId, "6363508247112", "313 retains the transferred native hyperlink target");
 assert.equal(row60?.videoId, "6383495592112", "source row 60 video drifted");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 121], ["Florida Panthers", 50], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 120], ["Florida Panthers", 50], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -225,7 +226,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20261017-visual-qa/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261018-targeted-v2-8/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20261018-canonical-v4-171/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20261017-visual-qa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
@@ -361,7 +362,7 @@ assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is
 const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
 assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
-assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 76, "scoring records retain researched goalies; commemorative artifact 342 has no attributed scoring play");
+assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 75, "scoring records retain researched goalies; commemorative artifact 342 has no attributed scoring play");
 assert.equal(payload.records.find(record => record.inventoryId === 342).category, "Milestone");
 assert.equal(payload.records.find(record => record.inventoryId === 342).careerStat, null);
 assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [], "Every artifact retains its canonical video or game recap source");

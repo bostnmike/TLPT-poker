@@ -6,7 +6,7 @@ const {records,meta}=JSON.parse(read('data/marchand-pucks.json'));
 const photos=JSON.parse(read('data/marchand-photos.json')).artifacts;
 const keep=records.find(r=>r.inventoryId===59);
 assert.ok(keep);assert.equal(records.find(r=>r.inventoryId===333).authenticationSerial,"RG13316480");
-assert.equal(meta.records,172);assert.equal(meta.milestones, 42);
+assert.equal(meta.records,171);assert.equal(meta.milestones, 42);
 assert.equal(keep.puckType,'Goal Scored Puck');assert.equal(keep.primaryAssist,'BM63');
 assert.match(keep.notes,/return to Boston/);assert.match(keep.videoUrl,/6383495592112$/);
 assert.equal(JSON.parse(read('data/marchand-stories.json')).artifacts['milestone-333'].gameId,2023020993);
@@ -29,3 +29,9 @@ vm.runInContext(script.slice(script.indexOf('  function resolveArtifact('),scrip
 for(const [key,id] of [['milestone-343',301],['milestone-342',342],['goal-49',342],['milestone-301',301],['milestone-333',333],['goal-59',59],['goal-9',9]])assert.equal(context.resolveArtifact(key).inventoryId,id);
 context.state.records.push({key:'goal-49',inventoryId:49});
 assert.equal(context.resolveArtifact('goal-49').inventoryId,49,'A future active goal 49 must override the historical alias');
+
+assert.equal(records.find(r=>r.inventoryId===57),undefined);
+assert.equal(photos[57],undefined);
+assert.equal(context.resolveArtifact('goal-57'),undefined,'No permanent active57alias');
+context.state.records.push({key:'goal-57',inventoryId:57});
+assert.equal(context.resolveArtifact('goal-57').inventoryId,57,'A future active57 must resolve to itself');

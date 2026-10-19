@@ -88,12 +88,12 @@ assert.match(bloodyNose.paragraphs.join(" "), /separate third-period goal/);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.goalEventId, 220);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.secondsBetweenGoals, 40);
 
-// The shared hologram does not establish two different physical pucks.
-for (const key of ['goal-57', 'milestone-313']) {
-  const story = artifacts[key];
-  assert.match(story.paragraphs.join(' '), /RG13313204/);
-  assert.match(story.paragraphs.join(' '), /pending owner clarification/);
-  assert.match(story.paragraphs.join(' '), /does not establish two distinct physical pucks/);
-  assert.equal(story.verification.identityReview.status, 'Owner clarification pending');
-}
-assert.doesNotMatch(artifacts['milestone-313'].paragraphs.join(' '), /artifact 57 is a separate game-used puck|assist puck is cataloged separately/);
+// Owner-confirmed duplicate57 retired;313 retains the consolidated milestone.
+assert.equal(artifacts['goal-57'],undefined);
+const utah=artifacts['milestone-313'];
+assert.match(utah.title,/first point.*Utah/i);
+assert.match(utah.paragraphs.join(' '),/primary assist.*Cole Koepke.*Connor Ingram.*12:49.*second period/);
+assert.match(utah.paragraphs.join(' '),/fourth assist.*2–1 overtime loss/);
+assert.doesNotMatch(utah.paragraphs.join(' '),/pending owner|Shared identification|artifact 57 documents|two distinct physical pucks/);
+assert.equal(utah.verification.identityReview,undefined);
+assert.equal(utah.verification.canonicalConsolidation.status,'OWNER_CONFIRMED_ONE_ITEM; SOLE_ACTIVE313;57VACANT');

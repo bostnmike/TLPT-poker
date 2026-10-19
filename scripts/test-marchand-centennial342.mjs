@@ -61,4 +61,4 @@ for (const record of p.records) {
   if (entry.displaySelected) assert.equal(entry.nativeSha256, gamePhotos.assets[entry.assetId].nativeSha256);
   else assert.equal(entry.url, null);
 }
-console.log('PASS: Chicago 342/322 identities, one assigned COA each, vacant 49, preserved 333 and all 172 current media joins.');
+console.log('PASS: Chicago 342/322 identities, one assigned COA each, vacant 49, preserved 333 and all 171 current media joins.');

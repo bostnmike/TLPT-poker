@@ -1915,37 +1915,6 @@
         "rotation": 0
       }
     ],
-    "57": [
-      {
-        "label": "Front",
-        "url": "images/pucks/57/front.webp?v=f5662bd94ca7",
-        "rotation": 0,
-        "thumbnailUrl": "images/pucks/57/front-thumb.webp?v=20260928-batch2"
-      },
-      {
-        "label": "Back",
-        "url": "images/pucks/57/back.webp?v=c5be09249907",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 1",
-        "url": "images/pucks/57/edge-01.webp?v=9e14cef9f78b",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 2",
-        "url": "images/pucks/57/edge-02.webp?v=70ddbd5313d6",
-        "rotation": 0
-      },
-      {
-        "label": "COA",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/57/coa.webp?v=56fb3fc0d4e3",
-        "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
-        "sourceFile": "IMG_9780.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
-      }
-    ],
     "58": [
       {
         "label": "Front",
