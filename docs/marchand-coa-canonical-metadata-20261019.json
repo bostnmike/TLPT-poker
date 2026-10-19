@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "revision": "Museum-COA-Canonical-Metadata-20261019-v1",
+  "date": "2026-10-19",
+  "status": "CANONICAL COA DATA SYNCHRONIZED; BOOK UPDATE PENDING",
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+    "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+    "bytes": 28053
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+      "bytes": 102025
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "bytes": 31810
+    }
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+    "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+    "bytes": 5868
+  },
+  "native_excel_validation": "PASS",
+  "word_changed": false,
+  "word_review": "All11 affected entries reviewed; concise narrative has no COA images or COA hyperlinks. No Word content change needed; master retained byte-for-byte. Owner allocation is preserved by ledger and canonical handoff/registry.",
+  "assignment_ledger": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA Assignment Handoff 2026-10-19-v1/Assignment-Ledger.json",
+    "sha256": "29c1e5d07d71af5840a27ecd947ec770549039c856b632b1043a10e8fa01658f"
+  },
+  "museum_assignment_release": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA Assignment Release 2026-10-19-v1.json",
+    "sha256": "3c377007201c1ce50020180c095c310fb909d460b8decd7a9c9896b2b1bc00a3"
+  },
+  "verified_canonical_field_changes": 33,
+  "verified_website_record_count": 171,
+  "counts": {
+    "physical_evidence_views": 811,
+    "document_cards": 129,
+    "game_references": 171,
+    "combined_gallery_views": 982,
+    "historical_source_views": 830
+  },
+  "scope": "Current canonical master hash/native receipt/source metadata only. All171 website record objects, game selections, gallery objects, COA assignments, stories, serials, URLs and source image bytes remain exactly as published before this follow-up. Existing v6/v7 Book/media bindings remain historical; pending Book work is not promoted by this metadata update.",
+  "canonical_data_status": "COMPLETE; NATIVE EXCEL PASS",
+  "book_status": "PENDING IN EXHIBIT 63 BOOK - WORK; separate owner-approved edition not promoted by Museum",
+  "protected_sources": "Museum did not edit canonical Excel, Word, Book, image files, registry or pointers."
+}

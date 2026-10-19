@@ -31,16 +31,25 @@
     },
     "latestCanonicalUpdate": {
       "date": "2026-10-19",
-      "sourceSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+      "sourceSha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
       "inventoryIds": [
-        59,
-        343
+        304,
+        305,
+        314,
+        315,
+        325,
+        326,
+        327,
+        328,
+        329,
+        331,
+        339
       ],
-      "scope": "Move sole active record59 to milestone343/MilestonesA44;retain all source facts, physicalnamespace59 and supportedEL27scorer.59vacant, no permanent alias. Other170record objects exact.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 renumbering receipt 2026-10-19-v1.json",
-      "receiptSha256": "7ab4cfe141fa1fbc2436f5d73d84f2329485864fc6eafb6088cadd0079a9886c",
+      "scope": "Canonical33 COA filename/original filename/evidence fields match the existing owner-approved website assignments. Metadata-only publication; all171 website record objects unchanged.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+      "receiptSha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
       "nativeExcelAppTest": "PASS",
-      "wordChanged": true
+      "wordChanged": false
     },
     "canonicalUpdateHistory": [
       {
@@ -96,25 +105,38 @@
         "wordChanged": true,
         "packageDataValidation": "PASS",
         "nativeExcelAppTest": "PASS"
+      },
+      {
+        "date": "2026-10-19",
+        "sourceSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+        "inventoryIds": [
+          59,
+          343
+        ],
+        "scope": "Move sole active record59 to milestone343/MilestonesA44;retain all source facts, physicalnamespace59 and supportedEL27scorer.59vacant, no permanent alias. Other170record objects exact.",
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 renumbering receipt 2026-10-19-v1.json",
+        "receiptSha256": "7ab4cfe141fa1fbc2436f5d73d84f2329485864fc6eafb6088cadd0079a9886c",
+        "nativeExcelAppTest": "PASS",
+        "wordChanged": true
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+    "currentCanonicalMasterSha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+      "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
       "wordSource": "BM63-Goal-Puck-List.docx",
       "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
       "verifiedDate": "2026-10-19",
       "nativeExcelAppTest": "PASS",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
-      "verificationReceiptSha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
-      "projection": "Actual owner-authorized59to343canonical package and completed nativeExcelPASS verified;new combined book/media registration bound."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "verificationReceiptSha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+      "projection": "Actual canonical COA assignment package and completed native Excel PASS verified. Website records already match all33 changed cells; Book update remains pending."
     },
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
-      "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
-      "bytes": 2389
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+      "bytes": 5868
     },
     "canonicalVerificationHistory": [
       {
@@ -235,7 +257,55 @@
         331,
         339
       ],
-      "canonicalDataAndBookStatus": "PENDING HANDOFF; current source-master hashes and sealedv6 bindings remain historical and unchanged"
+      "canonicalDataAndBookStatus": "CANONICAL DATA SYNCHRONIZED; BOOK UPDATE PENDING",
+      "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
+      "bookStatus": "PENDING IN OWNING BOOK CHAT",
+      "canonicalHandoff": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+        "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+        "bytes": 28053
+      },
+      "canonicalMasters": {
+        "Marchand_Puck_Collection_FullIngest.xlsx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+          "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+          "bytes": 102025
+        },
+        "BM63-Goal-Puck-List.docx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+          "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+          "bytes": 31810
+        }
+      },
+      "nativeExcelVerificationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+        "bytes": 5868
+      },
+      "canonicalMetadataReconciliation": {
+        "path": "docs/marchand-coa-canonical-metadata-20261019.json",
+        "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
+        "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+      }
+    },
+    "priorCanonicalMetadataBeforeCOADataSync": {
+      "currentCanonicalMasterSha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+      "currentCanonicalMaster": {
+        "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03",
+        "wordSource": "BM63-Goal-Puck-List.docx",
+        "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "verifiedDate": "2026-10-19",
+        "nativeExcelAppTest": "PASS",
+        "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "verificationReceiptSha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+        "projection": "Actual owner-authorized59to343canonical package and completed nativeExcelPASS verified;new combined book/media registration bound."
+      },
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Native-Excel-verification.json",
+        "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
+        "bytes": 2389
+      }
     }
   },
   "records": [

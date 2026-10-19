@@ -113,7 +113,7 @@ assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
 assert.equal(photos.artifacts['warmup-713'].photoDate,'2025-12-30');
 assert.match(selected('warmup-713').caption,/Kevin/);
 assert.match(byId(713).notes,/reached November 13, 2025/);
-assert.equal(collection.meta.currentCanonicalMasterSha256,'6eff007aa1d57dea98a56d60a49c3ffded42d35e7a0f6a8f19818e690c454d03');
+assert.equal(collection.meta.currentCanonicalMasterSha256,'947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');

@@ -4982,6 +4982,35 @@
       331,
       339
     ],
-    "canonicalDataAndBookStatus": "PENDING HANDOFF; current source-master hashes and sealedv6 bindings remain historical and unchanged"
+    "canonicalDataAndBookStatus": "CANONICAL DATA SYNCHRONIZED; BOOK UPDATE PENDING",
+    "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
+    "bookStatus": "PENDING IN OWNING BOOK CHAT",
+    "canonicalHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+      "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+      "bytes": 28053
+    },
+    "canonicalMasters": {
+      "Marchand_Puck_Collection_FullIngest.xlsx": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+        "bytes": 102025
+      },
+      "BM63-Goal-Puck-List.docx": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+        "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "bytes": 31810
+      }
+    },
+    "nativeExcelVerificationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+      "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+      "bytes": 5868
+    },
+    "canonicalMetadataReconciliation": {
+      "path": "docs/marchand-coa-canonical-metadata-20261019.json",
+      "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
+      "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+    }
   }
 }
