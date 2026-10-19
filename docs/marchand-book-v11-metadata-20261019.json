@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "revision": "Compact-COA-240page-Edition-20261019-v11",
+  "status": "REGISTERED240PAGE WORKING INTERIOR QA PASS; CANONICAL COA AND BOOK INDEX SYNCHRONIZED; MATCHING COVER PENDING",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA 240page Book Handoff 2026-10-19-v11/Handoff.json",
+    "sha256": "85ce8cbf74878e2879126df2f171a910f84a8470541ae966b12c6bfa74c0bf57",
+    "bytes": 9382
+  },
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Reconciliation 2026-10-19-v1.json",
+    "sha256": "31157db2ff1523386c10933dceebdf023e9b3ce1cc10e114558a5731ef61cd96",
+    "bytes": 10392
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Registration 2026-10-19-v11/Registry-at-registration.json",
+    "sha256": "deec34dc6ef2188dcbf9ac5610ea5e5011ae6c203b8be82cba6aa61ed60f8909",
+    "bytes": 57301
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/Exhibit63-Compact-COA-240page-Interior-October19-2026-v11.pdf",
+    "sha256": "e61109bfa2d0d377ba786d104e0ebe5a8bc9f6a385666b4649142bc01c6b9772",
+    "bytes": 790248983,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "cover_reference_only": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
+    "sha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "bytes": 23494936,
+    "pages": 1,
+    "dimensions_inches": [
+      27.208,
+      11.625
+    ],
+    "spine_inches": 1.097,
+    "artifact_count": 171,
+    "reused_unchanged": true,
+    "prior_page_count": 236,
+    "status": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
+    "for_prior_page_count": 236,
+    "fits_current240page_book": false
+  },
+  "print_configuration": {
+    "paper": "Premium Lustre",
+    "interior_pages": 240,
+    "paper_page_count_fits": true,
+    "paper_changed": false,
+    "paper_choice_pending": false,
+    "matching240page_cover_pending": true,
+    "status": "INTERIOR_PAGE_COUNT_FITS; MATCHING_COVER_PENDING"
+  },
+  "unqualified_publish_ready": false,
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA 240page Book Handoff 2026-10-19-v11/Game-Photo-Index.json",
+    "sha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
+    "bytes": 205789
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/manifest.json",
+    "sha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
+    "bytes": 2127379
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+      "bytes": 102025
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "bytes": 31810
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+    "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+    "bytes": 28053
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+    "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+    "bytes": 5868
+  },
+  "counts": {
+    "catalog_records": 171,
+    "active_physical_document_views": 811,
+    "document_cards": 129,
+    "selected_game_images": 171,
+    "combined_gallery_views": 982,
+    "historical_original_source_views": 830
+  },
+  "index_scope": "Raw source index bytes are exactly H8/fe529. All171 derived website index row objects are exactly the prepared H8 rows; only wrapper provenance/print metadata changes. Main-page joins are prior publishedv6+14. No new index payload, image, asset, mapping, caption, credit, source, label, record, gallery, story, date or runtime change from the prepared state.",
+  "paper_status": "Premium Lustre; page count fits; paper unchanged; paper choice is not pending.",
+  "cover_status": "Only matching240-page cover pending. Prior236-page c074 wrap is reference-only and does not fit current240-page book.",
+  "print_ready": false,
+  "privacy": "Private working interior; neither full Book nor standalone proof PDF is hosted publicly.",
+  "historical_prepared_h8": {
+    "status": "UNPUBLISHED PREPARATION PRESERVED AS HISTORY",
+    "metadata": {
+      "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-book-v8-metadata-20261019-v1/staged/docs/marchand-book-v8-metadata-20261019.json",
+      "sha256": "155c76e678bcaa6f4adbb116fb19139951e14e851c57eeb46d9ca5762bce63b1",
+      "bytes": 8017
+    },
+    "handoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Inside Collection COA Assigned Book Handoff 2026-10-19-v8/Handoff.json",
+      "sha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
+      "bytes": 9975
+    }
+  },
+  "upstream_qa": {
+    "native_preservation": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/native_preservation.json",
+      "sha256": "f13d8e7c282d21b44eaeb54022882180add3a4ae8b556c264af3cd594cdf7829",
+      "bytes": 399554
+    },
+    "standalone_archive": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/standalone_archive.json",
+      "sha256": "a06dac8f3e0da2c3ded5875e683053ec695e0bf51b861413260c2ff1c1f5683b",
+      "bytes": 34073
+    },
+    "archive_actual_visuals": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/archive_actual_visuals.json",
+      "sha256": "254992f0192c9599192c4c47e5d195f5fd8b9033774b80036ddabc386c7904cd",
+      "bytes": 16525
+    },
+    "editorial": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/editorial.json",
+      "sha256": "b23119a338bf6b4ab012b62b6aea1eb75e464173b5eb7b14020873d78908b23e",
+      "bytes": 8994
+    },
+    "tail_visuals": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/tail_visuals.json",
+      "sha256": "4a1f06a19c4de4a10603a47110b2584487ee3d3a55684d74a27bc8d3ecf80398",
+      "bytes": 15054
+    },
+    "offline_reproducibility": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/offline_reproducibility.json",
+      "sha256": "5472efa6d69cc2062717b5d523298ead98602e08d8d1898ec61b568c02b120a8",
+      "bytes": 1737
+    },
+    "true_glyph_clearance": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Compact-COA-240page-Edition-20261019-v11/QA/true_glyph_clearance.json",
+      "sha256": "5aef7168aa8f87e53b5228ea1f43af308bb74ad9a56fafccd3e5882f842b1994",
+      "bytes": 18648
+    }
+  },
+  "upstream_qa_scope": "Supplied Book/Data proof files independently hash-verified. No renewed native Excel, Book rendering, blanket physical-puck or photo-identity certification by Museum."
+}

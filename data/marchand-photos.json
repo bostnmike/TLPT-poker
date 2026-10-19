@@ -4982,9 +4982,9 @@
       331,
       339
     ],
-    "canonicalDataAndBookStatus": "CANONICAL DATA SYNCHRONIZED; BOOK UPDATE PENDING",
+    "canonicalDataAndBookStatus": "CANONICAL COA DATA AND BOOK CONTENT/INDEX SYNCHRONIZED; MATCHING240PAGE COVER PENDING",
     "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
-    "bookStatus": "PENDING IN OWNING BOOK CHAT",
+    "bookStatus": "CONTENT AND INDEX SYNCHRONIZED; PREMIUM LUSTRE PAGE COUNT FITS; ONLY MATCHING COVER PENDING",
     "canonicalHandoff": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
       "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
@@ -5011,6 +5011,11 @@
       "path": "docs/marchand-coa-canonical-metadata-20261019.json",
       "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
       "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+    },
+    "bookMetadataReconciliation": {
+      "path": "docs/marchand-book-v11-metadata-20261019.json",
+      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+      "revision": "Compact-COA-240page-Edition-20261019-v11"
     }
   }
 }

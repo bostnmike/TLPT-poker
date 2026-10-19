@@ -118,7 +118,7 @@ assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.curre
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
 assert.equal(photos.meta.nativeExcelAppTest,'PASS');
-assert.equal(photos.meta.sourceIndexSha256,'4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d');
+assert.equal(photos.meta.sourceIndexSha256,'fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f');
 assert.equal(photos.meta.changedNativeImages.length,1);
 assert.equal(photos.meta.retainedNativeImages.length,170);
 assert.equal(photos.meta.restoredArchivedNativeImages.length,0);
@@ -142,7 +142,7 @@ assert.equal(photos.meta.photographs,92);assert.equal(photos.meta.videoStills,79
 assert.equal(photos.artifacts['goal-57'],undefined);
 assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
 assert.deepEqual(photos.meta.openOwnerReview,[]);
-assert.equal(photos.meta.revision,'Canonical-Renumbered-708-Edition-20261019-v6');
+assert.equal(photos.meta.revision,'Compact-COA-240page-Edition-20261019-v11');
 for(const id of [67,602,605,608,617,621,622,625]){
  const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
  assert.equal(a.sourceRevision,'Canonical-Consolidated-Edition-20261018-v4');assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');
@@ -168,4 +168,4 @@ assert.equal(owner708.caption,'Marchand and Malkin at Consol Energy Center.');
 assert.equal(owner708.credit,'Gregory Shamus / NHLI via Getty Images');assert.equal(owner708.sourceUrl,'https://www.gettyimages.com/detail/187101132');
 assert.equal(byId(708).videoUrl,'https://www.youtube.com/watch?v=thyZzfvmliU');
 assert.deepEqual(photos.meta.openQualityIds,[]);assert.deepEqual(photos.meta.resolvedPriorQualityIds,[708]);
-assert.equal(index.find(r=>r.inventoryId===343).bookPage,128);
+assert.equal(index.find(r=>r.inventoryId===343).bookPage,142);

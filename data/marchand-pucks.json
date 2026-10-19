@@ -227,16 +227,16 @@
       "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
       "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS"
     },
-    "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
+    "sourceHandoffSha256": "85ce8cbf74878e2879126df2f171a910f84a8470541ae966b12c6bfa74c0bf57",
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical renumbered 708 media reconciliation 2026-10-19-v1.json",
-      "sha256": "0c95ac25b094f6e712b664862b6e02efdc6894f64b2f67e247e50940172e754f",
-      "bytes": 61585
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Reconciliation 2026-10-19-v1.json",
+      "sha256": "31157db2ff1523386c10933dceebdf023e9b3ce1cc10e114558a5731ef61cd96",
+      "bytes": 10392
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Media Registration 2026-10-19-v6/Registry-at-registration.json",
-      "sha256": "608e302a9752514dac9805bd473ea99cdd6153e4992746de966a4ad5ee024283",
-      "bytes": 38884
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Registration 2026-10-19-v11/Registry-at-registration.json",
+      "sha256": "deec34dc6ef2188dcbf9ac5610ea5e5011ae6c203b8be82cba6aa61ed60f8909",
+      "bytes": 57301
     },
     "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS",
     "ownerAuthorizedCOAAssignment": {
@@ -257,9 +257,9 @@
         331,
         339
       ],
-      "canonicalDataAndBookStatus": "CANONICAL DATA SYNCHRONIZED; BOOK UPDATE PENDING",
+      "canonicalDataAndBookStatus": "CANONICAL COA DATA AND BOOK CONTENT/INDEX SYNCHRONIZED; MATCHING240PAGE COVER PENDING",
       "canonicalDataStatus": "COMPLETE; NATIVE EXCEL PASS",
-      "bookStatus": "PENDING IN OWNING BOOK CHAT",
+      "bookStatus": "CONTENT AND INDEX SYNCHRONIZED; PREMIUM LUSTRE PAGE COUNT FITS; ONLY MATCHING COVER PENDING",
       "canonicalHandoff": {
         "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
         "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
@@ -286,6 +286,11 @@
         "path": "docs/marchand-coa-canonical-metadata-20261019.json",
         "sha256": "84b4ab0531fa095380bf248ca8490616e70764db4ed98cd17d9d1ae92aafa19a",
         "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
+      },
+      "bookMetadataReconciliation": {
+        "path": "docs/marchand-book-v11-metadata-20261019.json",
+        "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+        "revision": "Compact-COA-240page-Edition-20261019-v11"
       }
     },
     "priorCanonicalMetadataBeforeCOADataSync": {
@@ -306,6 +311,38 @@
         "sha256": "25417a30560551b422f1078916982e7d1bfa6f4dd888e4ba8d3e4da4aa2ea3f0",
         "bytes": 2389
       }
+    },
+    "historicalV6PublicationBindingsBeforeH8": {
+      "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical renumbered 708 media reconciliation 2026-10-19-v1.json",
+        "sha256": "0c95ac25b094f6e712b664862b6e02efdc6894f64b2f67e247e50940172e754f",
+        "bytes": 61585
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Renumbered 708 Media Registration 2026-10-19-v6/Registry-at-registration.json",
+        "sha256": "608e302a9752514dac9805bd473ea99cdd6153e4992746de966a4ad5ee024283",
+        "bytes": 38884
+      }
+    },
+    "currentMediaAndBookPublication": {
+      "path": "docs/marchand-book-v11-metadata-20261019.json",
+      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+      "revision": "Compact-COA-240page-Edition-20261019-v11"
+    },
+    "historicalV8PreparedBookBindings": {
+      "sourceHandoffSha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Inside Collection COA Book Reconciliation 2026-10-19-v1.json",
+        "sha256": "7a5859327f2ffd6c3bd3a7b2edca77a1b172e378a00ac5226668bc2611f52501",
+        "bytes": 11783
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Inside Collection COA Book Registration 2026-10-19-v8/Registry-at-registration.json",
+        "sha256": "c51c59baad3706c069c0db71fe28c7deb938721dab658facaf961bbb19dee4f5",
+        "bytes": 56922
+      },
+      "publicationStatus": "UNPUBLISHED PREPARATION; retained original sources/receipts and staged files"
     }
   },
   "records": [

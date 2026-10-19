@@ -1,10 +1,10 @@
 {
-  "date": "2026-10-18",
-  "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
-  "sourceIndexSha256": "4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d",
-  "bookSha256": "14f0b636252b4d465d0d0ee093c877304ea2a5cf5ec57fc27f79e8e44c2a7b21",
+  "date": "2026-10-19",
+  "revision": "Compact-COA-240page-Edition-20261019-v11",
+  "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
+  "bookSha256": "e61109bfa2d0d377ba786d104e0ebe5a8bc9f6a385666b4649142bc01c6b9772",
   "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
-  "scope": "Actual sealedv6canonical171/sheet/cell/book-page joins.59retired343activephysical59;only708nativechanges;170othergameassets retained.",
+  "scope": "Current registered H11 working-interior provenance. Raw source index bytes exactly H8/fe529 and all171 derived row objects unchanged from prepared H8; existing main-page joins remain publishedv6+14. Only matching240-page cover pending; old236 cover reference-only.",
   "records": [
     {
       "inventoryId": 1,
@@ -25,7 +25,7 @@
       "sourceUrl": "https://www.ksl.com/article/sports/national/gaudreau-finishes-hat-trick-in-ot-flames-beat-bruins-5-4/37633720",
       "url": "images/marchand-games/2015020385-a1-publishing/game.webp?v=f87483ca2100",
       "thumbnailUrl": "images/marchand-games/2015020385-a1-publishing/game-thumb.webp?v=3829eacd5714",
-      "bookPage": 8
+      "bookPage": 22
     },
     {
       "inventoryId": 2,
@@ -47,7 +47,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a2/game.png?v=5aa292bde860",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a2/game-thumb.webp?v=c963995d72aa",
       "displayLabel": "POSTGAME INTERVIEW / JANUARY 2, 2018",
-      "bookPage": 9
+      "bookPage": 23
     },
     {
       "inventoryId": 3,
@@ -68,7 +68,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=pAh4uqkYe8s",
       "url": "images/marchand-games/complete-20261018-a3/game.png?v=6e632c81f9a4",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a3/game-thumb.webp?v=e5adaf2a1e05",
-      "bookPage": 10
+      "bookPage": 24
     },
     {
       "inventoryId": 4,
@@ -89,7 +89,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=L78CO2tABvk",
       "url": "images/marchand-games/punchlist-20261018-a4/game.png?v=f62e534e68ca",
       "thumbnailUrl": "images/marchand-games/punchlist-20261018-a4/game-thumb.webp?v=6557bdcfd9fb",
-      "bookPage": 11
+      "bookPage": 25
     },
     {
       "inventoryId": 5,
@@ -110,7 +110,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=tZBbhWNDTWo",
       "url": "images/marchand-games/2017021150-a5-publishing/game.webp?v=c42c6fda689f",
       "thumbnailUrl": "images/marchand-games/2017021150-a5-publishing/game-thumb.webp?v=54cb2556140f",
-      "bookPage": 12
+      "bookPage": 26
     },
     {
       "inventoryId": 6,
@@ -131,7 +131,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336107676112",
       "url": "images/marchand-games/2018020256-a6-publishing/game.webp?v=f393fdd38420",
       "thumbnailUrl": "images/marchand-games/2018020256-a6-publishing/game-thumb.webp?v=b9b8f12bbfc2",
-      "bookPage": 13
+      "bookPage": 27
     },
     {
       "inventoryId": 7,
@@ -152,7 +152,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336099714112",
       "url": "images/marchand-games/2018020382-a7-publishing/game.webp?v=8ad54c0606d2",
       "thumbnailUrl": "images/marchand-games/2018020382-a7-publishing/game-thumb.webp?v=caba3dac2ae7",
-      "bookPage": 14
+      "bookPage": 28
     },
     {
       "inventoryId": 8,
@@ -173,7 +173,7 @@
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6336091104112",
       "url": "images/marchand-games/2018020514-a8-publishing/game.webp?v=9b7537d8afac",
       "thumbnailUrl": "images/marchand-games/2018020514-a8-publishing/game-thumb.webp?v=b044ce158401",
-      "bookPage": 15
+      "bookPage": 29
     },
     {
       "inventoryId": 9,
@@ -194,7 +194,7 @@
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2018020968-a9-publishing/game.webp?v=72245536cdd4",
       "thumbnailUrl": "images/marchand-games/2018020968-a9-publishing/game-thumb.webp?v=91ac9fe0fc74",
-      "bookPage": 16
+      "bookPage": 30
     },
     {
       "inventoryId": 10,
@@ -215,7 +215,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=-uheTFQ9ARU",
       "url": "images/marchand-games/punchlist-20261018-a10/game.png?v=6aeadafacc5b",
       "thumbnailUrl": "images/marchand-games/punchlist-20261018-a10/game-thumb.webp?v=dca06d0fa247",
-      "bookPage": 17
+      "bookPage": 31
     },
     {
       "inventoryId": 11,
@@ -236,7 +236,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336026717112",
       "url": "images/marchand-games/2019020043-a11-publishing/game.webp?v=895d03b7cb7d",
       "thumbnailUrl": "images/marchand-games/2019020043-a11-publishing/game-thumb.webp?v=0580bc5b8114",
-      "bookPage": 18
+      "bookPage": 32
     },
     {
       "inventoryId": 12,
@@ -257,7 +257,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336019139112",
       "url": "images/marchand-games/complete-20261018-a12/game.png?v=d64fea8130f1",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a12/game-thumb.webp?v=19cd25d296a3",
-      "bookPage": 19
+      "bookPage": 33
     },
     {
       "inventoryId": 13,
@@ -278,7 +278,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336016045112",
       "url": "images/marchand-games/2019020267-a13-publishing/game.webp?v=14e8fc81c1df",
       "thumbnailUrl": "images/marchand-games/2019020267-a13-publishing/game-thumb.webp?v=6880ab4e64a8",
-      "bookPage": 20
+      "bookPage": 34
     },
     {
       "inventoryId": 14,
@@ -299,7 +299,7 @@
       "sourceUrl": "https://www.pressherald.com/2019/11/26/pastrnak-scores-three-goals-as-bruins-crush-canadiens-8-1/",
       "url": "images/marchand-games/2019020374-a14-publishing/game.webp?v=396f2f30bd31",
       "thumbnailUrl": "images/marchand-games/2019020374-a14-publishing/game-thumb.webp?v=fcf9064a663e",
-      "bookPage": 21
+      "bookPage": 35
     },
     {
       "inventoryId": 15,
@@ -320,7 +320,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336009795112",
       "url": "images/marchand-games/expressive-20261017-a15/game.png?v=28c59f1247f2",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a15/game-thumb.webp?v=924671db7d1f",
-      "bookPage": 22
+      "bookPage": 36
     },
     {
       "inventoryId": 16,
@@ -341,7 +341,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=3i6MO_naByU",
       "url": "images/marchand-games/2019020613-a16-publishing/game.webp?v=9eb0741bc79f",
       "thumbnailUrl": "images/marchand-games/2019020613-a16-publishing/game-thumb.webp?v=2ab8cc0febf1",
-      "bookPage": 23
+      "bookPage": 37
     },
     {
       "inventoryId": 17,
@@ -362,7 +362,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335969146112",
       "url": "images/marchand-games/2019020727-a17-publishing/game.webp?v=70af1f6806aa",
       "thumbnailUrl": "images/marchand-games/2019020727-a17-publishing/game-thumb.webp?v=082eee75fd0b",
-      "bookPage": 24
+      "bookPage": 38
     },
     {
       "inventoryId": 18,
@@ -383,7 +383,7 @@
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335958710112",
       "url": "images/marchand-games/2019020945-a18-publishing/game.webp?v=ec5ee97a3356",
       "thumbnailUrl": "images/marchand-games/2019020945-a18-publishing/game-thumb.webp?v=0642688d93fe",
-      "bookPage": 25
+      "bookPage": 39
     },
     {
       "inventoryId": 19,
@@ -404,7 +404,7 @@
       "sourceUrl": "https://www.pressherald.com/2021/02/01/bruins-escape-from-three-goal-deficit-for-5-3-win-over-capitals/",
       "url": "images/marchand-games/2020020145-a19-publishing/game.webp?v=46cf8b5ab41e",
       "thumbnailUrl": "images/marchand-games/2020020145-a19-publishing/game-thumb.webp?v=1079730019e9",
-      "bookPage": 26
+      "bookPage": 40
     },
     {
       "inventoryId": 20,
@@ -425,7 +425,7 @@
       "sourceUrl": "https://www.pressherald.com/2021/02/05/bruins-continue-comeback-streak/",
       "url": "images/marchand-games/2020020174-a20-publishing/game.webp?v=cb08b7c2844b",
       "thumbnailUrl": "images/marchand-games/2020020174-a20-publishing/game-thumb.webp?v=37a1376828fc",
-      "bookPage": 27
+      "bookPage": 41
     },
     {
       "inventoryId": 21,
@@ -446,7 +446,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335868630112",
       "url": "images/marchand-games/2021020599-a21-publishing/game.webp?v=8428f9ab941a",
       "thumbnailUrl": "images/marchand-games/2021020599-a21-publishing/game-thumb.webp?v=50a38ebf000c",
-      "bookPage": 28
+      "bookPage": 42
     },
     {
       "inventoryId": 22,
@@ -467,7 +467,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=M4bWlr8ctP0",
       "url": "images/marchand-games/2021020838-a22-publishing/game.webp?v=2b971d8f40a4",
       "thumbnailUrl": "images/marchand-games/2021020838-a22-publishing/game-thumb.webp?v=0704be5d1ae7",
-      "bookPage": 29
+      "bookPage": 43
     },
     {
       "inventoryId": 23,
@@ -488,7 +488,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=v5EXGYk6rrc",
       "url": "images/marchand-games/perfectionist-20261017-a23/game.png?v=7671a71c7c8f",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a23/game-thumb.webp?v=a3a414d2bf19",
-      "bookPage": 30
+      "bookPage": 44
     },
     {
       "inventoryId": 24,
@@ -509,7 +509,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335841273112",
       "url": "images/marchand-games/complete-20261018-a24/game.png?v=3f8092c5762e",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a24/game-thumb.webp?v=e63f53476813",
-      "bookPage": 31
+      "bookPage": 45
     },
     {
       "inventoryId": 25,
@@ -530,7 +530,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335809080112",
       "url": "images/marchand-games/perfectionist-20261017-a25/game.png?v=18d2edefd935",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a25/game-thumb.webp?v=345262e86dbd",
-      "bookPage": 32
+      "bookPage": 46
     },
     {
       "inventoryId": 26,
@@ -551,7 +551,7 @@
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335784635112",
       "url": "images/marchand-games/2022020644-a26-publishing/game.webp?v=0c113e8856f9",
       "thumbnailUrl": "images/marchand-games/2022020644-a26-publishing/game-thumb.webp?v=06f5cab65ce6",
-      "bookPage": 33
+      "bookPage": 47
     },
     {
       "inventoryId": 27,
@@ -572,7 +572,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335779350112",
       "url": "images/marchand-games/expressive-20261017-a27/game.png?v=a70f10bc817f",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a27/game-thumb.webp?v=32bb08e258cd",
-      "bookPage": 34
+      "bookPage": 48
     },
     {
       "inventoryId": 28,
@@ -593,7 +593,7 @@
       "sourceUrl": "https://bostonhockeynow.com/talking-points-boston-bruins-dominate-predators-in-shutout-win//",
       "url": "images/marchand-games/2022020873-a28-publishing/game.webp?v=e6e60da6d05b",
       "thumbnailUrl": "images/marchand-games/2022020873-a28-publishing/game-thumb.webp?v=aa8e0f949cdd",
-      "bookPage": 35
+      "bookPage": 49
     },
     {
       "inventoryId": 29,
@@ -614,7 +614,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=Kb3uQ7K5f-8",
       "url": "images/marchand-games/2022020927-a29-publishing/game.webp?v=6b36ca2ac808",
       "thumbnailUrl": "images/marchand-games/2022020927-a29-publishing/game-thumb.webp?v=2a8d1a0489ec",
-      "bookPage": 38
+      "bookPage": 52
     },
     {
       "inventoryId": 30,
@@ -635,7 +635,7 @@
       "sourceUrl": "https://www.ksl.com/article/sports/nhl/bruins-goaltender-linus-ullmark-scores-into-empty-net/50587641",
       "url": "images/marchand-games/2022020939-a30-publishing/game.webp?v=e526045070ee",
       "thumbnailUrl": "images/marchand-games/2022020939-a30-publishing/game-thumb.webp?v=4a867abd65f4",
-      "bookPage": 39
+      "bookPage": 53
     },
     {
       "inventoryId": 31,
@@ -656,7 +656,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=U8jz4S_GZ2k",
       "url": "images/marchand-games/2021020632-a31-publishing/game.webp?v=e7d39c8e8823",
       "thumbnailUrl": "images/marchand-games/2021020632-a31-publishing/game-thumb.webp?v=58b79bf0a8f2",
-      "bookPage": 40
+      "bookPage": 54
     },
     {
       "inventoryId": 32,
@@ -677,7 +677,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6339641419112",
       "url": "images/marchand-games/perfectionist-20261017-a32/game.png?v=64b9bf9556eb",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a32/game-thumb.webp?v=fe2c756a6ba2",
-      "bookPage": 41
+      "bookPage": 55
     },
     {
       "inventoryId": 33,
@@ -698,7 +698,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6339687417112",
       "url": "images/marchand-games/2023020081-a33-publishing/game.webp?v=071a9a073e8f",
       "thumbnailUrl": "images/marchand-games/2023020081-a33-publishing/game-thumb.webp?v=5de8ed472388",
-      "bookPage": 42
+      "bookPage": 56
     },
     {
       "inventoryId": 34,
@@ -719,7 +719,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6340644033112",
       "url": "images/marchand-games/2023020178-a34-publishing/game.webp?v=e81fdf945982",
       "thumbnailUrl": "images/marchand-games/2023020178-a34-publishing/game-thumb.webp?v=626e3454c882",
-      "bookPage": 43
+      "bookPage": 57
     },
     {
       "inventoryId": 35,
@@ -740,7 +740,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6340973100112",
       "url": "images/marchand-games/2023020212-a35-publishing/game.webp?v=ef443d677ed4",
       "thumbnailUrl": "images/marchand-games/2023020212-a35-publishing/game-thumb.webp?v=801421b08f68",
-      "bookPage": 44
+      "bookPage": 58
     },
     {
       "inventoryId": 36,
@@ -762,7 +762,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a36/game.png?v=84293b44fa2d",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a36/game-thumb.webp?v=e57ff54002d3",
       "displayLabel": "PREGAME / JAN 8, 2024",
-      "bookPage": 45
+      "bookPage": 59
     },
     {
       "inventoryId": 37,
@@ -783,7 +783,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6344519723112",
       "url": "images/marchand-games/2023020624-a37-publishing/game.webp?v=829ac2438532",
       "thumbnailUrl": "images/marchand-games/2023020624-a37-publishing/game-thumb.webp?v=2486413e4f6c",
-      "bookPage": 46
+      "bookPage": 60
     },
     {
       "inventoryId": 38,
@@ -804,7 +804,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6344858410112",
       "url": "images/marchand-games/2023020667-a38-publishing/game.webp?v=61e8a0f99601",
       "thumbnailUrl": "images/marchand-games/2023020667-a38-publishing/game-thumb.webp?v=db473908a052",
-      "bookPage": 47
+      "bookPage": 61
     },
     {
       "inventoryId": 39,
@@ -825,7 +825,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6345520064112",
       "url": "images/marchand-games/perfectionist-20261017-a39/game.png?v=3eb138ce3011",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a39/game-thumb.webp?v=87f714d92e09",
-      "bookPage": 48
+      "bookPage": 62
     },
     {
       "inventoryId": 40,
@@ -846,7 +846,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6347357564112",
       "url": "images/marchand-games/2023020888-a40-publishing/game.webp?v=22078c4b9d4c",
       "thumbnailUrl": "images/marchand-games/2023020888-a40-publishing/game-thumb.webp?v=8e47dc586ed8",
-      "bookPage": 49
+      "bookPage": 63
     },
     {
       "inventoryId": 41,
@@ -867,7 +867,7 @@
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2023021279-a41-publishing/game.webp?v=142d999d4d28",
       "thumbnailUrl": "images/marchand-games/2023021279-a41-publishing/game-thumb.webp?v=6d53aee04f16",
-      "bookPage": 50
+      "bookPage": 64
     },
     {
       "inventoryId": 42,
@@ -888,7 +888,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/10/31/bruins-lose-to-hurricanes-fall-to-1-4-1-in-last-six-games/",
       "url": "images/marchand-games/2024020165-a42-publishing/game.webp?v=f48f8cae6762",
       "thumbnailUrl": "images/marchand-games/2024020165-a42-publishing/game-thumb.webp?v=6a6b240d39dd",
-      "bookPage": 51
+      "bookPage": 65
     },
     {
       "inventoryId": 43,
@@ -909,7 +909,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6365112024112",
       "url": "images/marchand-games/perfectionist-20261017-a43/game.png?v=18b04bb9dd08",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a43/game-thumb.webp?v=64c5e70f09f5",
-      "bookPage": 52
+      "bookPage": 66
     },
     {
       "inventoryId": 44,
@@ -930,7 +930,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6365563138112",
       "url": "images/marchand-games/2024020407-a44-publishing/game.webp?v=93d555cad33f",
       "thumbnailUrl": "images/marchand-games/2024020407-a44-publishing/game-thumb.webp?v=4e1708e3155a",
-      "bookPage": 53
+      "bookPage": 67
     },
     {
       "inventoryId": 45,
@@ -951,7 +951,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6365562065112",
       "url": "images/marchand-games/complete-20261018-a45/game.png?v=d4e3503b866a",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a45/game-thumb.webp?v=e798e90daa0d",
-      "bookPage": 54
+      "bookPage": 68
     },
     {
       "inventoryId": 46,
@@ -972,7 +972,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6365935071112",
       "url": "images/marchand-games/2024020472-a46-publishing/game.webp?v=f8be76830f3d",
       "thumbnailUrl": "images/marchand-games/2024020472-a46-publishing/game-thumb.webp?v=0b418b58ebd8",
-      "bookPage": 55
+      "bookPage": 69
     },
     {
       "inventoryId": 47,
@@ -993,7 +993,7 @@
       "sourceUrl": "https://nhl.com/video/tbl-bos-marchand-scores-goal-against-andrei-vasilevskiy-6367102316112",
       "url": "images/marchand-games/2024020692-a47-publishing/game.webp?v=db74c8733633",
       "thumbnailUrl": "images/marchand-games/2024020692-a47-publishing/game-thumb.webp?v=4088f3d90d73",
-      "bookPage": 56
+      "bookPage": 70
     },
     {
       "inventoryId": 48,
@@ -1014,7 +1014,7 @@
       "sourceUrl": "https://nhl.com/video/bos-buf-marchand-scores-goal-against-ukko-pekka-luukkonen-6367919930112",
       "url": "images/marchand-games/2024020799-a48-publishing/game.webp?v=3ffe883d7fc5",
       "thumbnailUrl": "images/marchand-games/2024020799-a48-publishing/game-thumb.webp?v=7355e50cae34",
-      "bookPage": 57
+      "bookPage": 71
     },
     {
       "inventoryId": 50,
@@ -1035,7 +1035,7 @@
       "sourceUrl": "https://www.ctinsider.com/news/article/Bruins-Shock-Flyers-3-2-in-Overtime-to-Take-2-0-12055146.php",
       "url": "images/marchand-games/2010030222-a50-publishing/game.webp?v=b0bdbc7ffbc0",
       "thumbnailUrl": "images/marchand-games/2010030222-a50-publishing/game-thumb.webp?v=643f12eff7c3",
-      "bookPage": 58
+      "bookPage": 72
     },
     {
       "inventoryId": 51,
@@ -1056,7 +1056,7 @@
       "sourceUrl": "https://www.nhl.com/news/boston-bruins-ottawa-senators-game-1-recap-288725314",
       "url": "images/marchand-games/2016030121-a51-publishing/game.webp?v=71947c9defb0",
       "thumbnailUrl": "images/marchand-games/2016030121-a51-publishing/game-thumb.webp?v=85be950dbf3d",
-      "bookPage": 59
+      "bookPage": 73
     },
     {
       "inventoryId": 52,
@@ -1077,7 +1077,7 @@
       "sourceUrl": "https://www.pressherald.com/2019/04/21/bruins-force-game-7-with-4-2-win/",
       "url": "images/marchand-games/2018030126-a52-publishing/game.webp?v=bd3b8a659af0",
       "thumbnailUrl": "images/marchand-games/2018030126-a52-publishing/game-thumb.webp?v=1ae7f8208b17",
-      "bookPage": 60
+      "bookPage": 74
     },
     {
       "inventoryId": 53,
@@ -1098,7 +1098,7 @@
       "sourceUrl": "https://www.cbsnews.com/boston/news/jake-debrusk-charlie-mcavoy-awaken-bruins-alter-scope-hurricanes-series/",
       "url": "images/marchand-games/2019030144-a53-publishing/game.webp?v=e0088f6744c4",
       "thumbnailUrl": "images/marchand-games/2019030144-a53-publishing/game-thumb.webp?v=df360e6d7ef8",
-      "bookPage": 61
+      "bookPage": 75
     },
     {
       "inventoryId": 54,
@@ -1119,7 +1119,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335945941112",
       "url": "images/marchand-games/2019030222-a54-publishing/game.webp?v=4982d770a32f",
       "thumbnailUrl": "images/marchand-games/2019030222-a54-publishing/game-thumb.webp?v=8c2fa315d205",
-      "bookPage": 62
+      "bookPage": 76
     },
     {
       "inventoryId": 55,
@@ -1140,7 +1140,7 @@
       "sourceUrl": "https://www.click2houston.com/sports/2021/05/22/bruins-score-3-ppg-beat-capitals-4-1-for-3-1-series-lead/",
       "url": "images/marchand-games/2020030124-a55-publishing/game.webp?v=c5d81624302f",
       "thumbnailUrl": "images/marchand-games/2020030124-a55-publishing/game-thumb.webp?v=0cacbdcdb2bb",
-      "bookPage": 63
+      "bookPage": 77
     },
     {
       "inventoryId": 56,
@@ -1162,7 +1162,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a56/game.png?v=8c740253e3f3",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a56/game-thumb.webp?v=ee9e04a17470",
       "displayLabel": "GOAL CELEBRATION / APR 23, 2023",
-      "bookPage": 64
+      "bookPage": 78
     },
     {
       "inventoryId": 58,
@@ -1183,7 +1183,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6368734035112",
       "url": "images/marchand-games/expressive-20261017-a58/game.png?v=c1df246be32a",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a58/game-thumb.webp?v=13129ff77157",
-      "bookPage": 65
+      "bookPage": 79
     },
     {
       "inventoryId": 343,
@@ -1204,7 +1204,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6383495592112",
       "url": "images/marchand-games/perfectionist-20261017-a59/game.png?v=725736d9b36d",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a59/game-thumb.webp?v=66725cc495d6",
-      "bookPage": 128
+      "bookPage": 142
     },
     {
       "inventoryId": 60,
@@ -1225,7 +1225,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a60-publishing/game.webp?v=4dc292af60b9",
       "thumbnailUrl": "images/marchand-games/2023020130-a60-publishing/game-thumb.webp?v=1ddd4954b5c3",
-      "bookPage": 66
+      "bookPage": 80
     },
     {
       "inventoryId": 61,
@@ -1246,7 +1246,7 @@
       "sourceUrl": "https://www.pressherald.com/2018/01/23/bruins-top-devils-as-point-streak-hits-17-games/",
       "url": "images/marchand-games/2017020732-a61-publishing/game.webp?v=d5241214bafe",
       "thumbnailUrl": "images/marchand-games/2017020732-a61-publishing/game-thumb.webp?v=198a8e54f84d",
-      "bookPage": 67
+      "bookPage": 81
     },
     {
       "inventoryId": 62,
@@ -1267,7 +1267,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6382819193112",
       "url": "images/marchand-games/perfectionist-20261017-a62/game.png?v=1cf5a1cbfea2",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a62/game-thumb.webp?v=062e6a5c7364",
-      "bookPage": 68
+      "bookPage": 82
     },
     {
       "inventoryId": 63,
@@ -1288,7 +1288,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6384535250112",
       "url": "images/marchand-games/2025020211-a63-publishing/game.webp?v=5c857ececb3b",
       "thumbnailUrl": "images/marchand-games/2025020211-a63-publishing/game-thumb.webp?v=33eb60e2be06",
-      "bookPage": 69
+      "bookPage": 83
     },
     {
       "inventoryId": 64,
@@ -1309,7 +1309,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6384776227112",
       "url": "images/marchand-games/expressive-20261017-a64/game.png?v=7e8f3ab4337e",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a64/game-thumb.webp?v=642f3319a118",
-      "bookPage": 70
+      "bookPage": 84
     },
     {
       "inventoryId": 65,
@@ -1330,7 +1330,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-vs-vancouver-canucks-11-17-2025",
       "url": "images/marchand-games/2025020303-a65-publishing/game.webp?v=e9345b738948",
       "thumbnailUrl": "images/marchand-games/2025020303-a65-publishing/game-thumb.webp?v=13f3c75932e6",
-      "bookPage": 71
+      "bookPage": 85
     },
     {
       "inventoryId": 66,
@@ -1351,7 +1351,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6386533077112",
       "url": "images/marchand-games/2025020514-a66-publishing/game.webp?v=4463dadb971c",
       "thumbnailUrl": "images/marchand-games/2025020514-a66-publishing/game-thumb.webp?v=ff50ed25f542",
-      "bookPage": 72
+      "bookPage": 86
     },
     {
       "inventoryId": 67,
@@ -1373,7 +1373,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a67/game.png?v=4c2481187f55",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a67/game-thumb.webp?v=da497033774a",
       "displayLabel": "GAME 7 EMPTY-NET GOAL / MAY 18, 2025",
-      "bookPage": 73
+      "bookPage": 87
     },
     {
       "inventoryId": 68,
@@ -1394,7 +1394,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-minnesota-wild-1-24-2026",
       "url": "images/marchand-games/perfectionist-20261017-a68/game.png?v=51298e5b1b4f",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a68/game-thumb.webp?v=8f45f0e1864c",
-      "bookPage": 74
+      "bookPage": 88
     },
     {
       "inventoryId": 69,
@@ -1415,7 +1415,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336056615112",
       "url": "images/marchand-games/2018021074-a69-publishing/game.webp?v=61490d9363e4",
       "thumbnailUrl": "images/marchand-games/2018021074-a69-publishing/game-thumb.webp?v=dce928c56c02",
-      "bookPage": 75
+      "bookPage": 89
     },
     {
       "inventoryId": 70,
@@ -1436,7 +1436,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=Lrz7NP9ShfE",
       "url": "images/marchand-games/2017020072-a70-publishing/game.webp?v=775c9d0e7000",
       "thumbnailUrl": "images/marchand-games/2017020072-a70-publishing/game-thumb.webp?v=64445dbd6bb9",
-      "bookPage": 76
+      "bookPage": 90
     },
     {
       "inventoryId": 71,
@@ -1457,7 +1457,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336076629112",
       "url": "images/marchand-games/2018020742-a71-publishing/game.webp?v=72fea751657f",
       "thumbnailUrl": "images/marchand-games/2018020742-a71-publishing/game-thumb.webp?v=65943ccf1c58",
-      "bookPage": 77
+      "bookPage": 91
     },
     {
       "inventoryId": 72,
@@ -1478,7 +1478,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=Ws_joIaCCQE",
       "url": "images/marchand-games/2016020331-a72-publishing/game.webp?v=61afacf5bac0",
       "thumbnailUrl": "images/marchand-games/2016020331-a72-publishing/game-thumb.webp?v=5d81ac00e185",
-      "bookPage": 78
+      "bookPage": 92
     },
     {
       "inventoryId": 73,
@@ -1499,7 +1499,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6336094453112",
       "url": "images/marchand-games/2018020456-a73-publishing/game.webp?v=0b846a0a78dd",
       "thumbnailUrl": "images/marchand-games/2018020456-a73-publishing/game-thumb.webp?v=31f0c9dc7e35",
-      "bookPage": 79
+      "bookPage": 93
     },
     {
       "inventoryId": 74,
@@ -1520,7 +1520,7 @@
       "sourceUrl": "https://www.pressherald.com/2018/12/24/tom-caron-christmas-gifts-for-boston-sports-teams-2/",
       "url": "images/marchand-games/2018020545-a74-publishing/game.webp?v=48d171906785",
       "thumbnailUrl": "images/marchand-games/2018020545-a74-publishing/game-thumb.webp?v=d873d2d5f922",
-      "bookPage": 80
+      "bookPage": 94
     },
     {
       "inventoryId": 75,
@@ -1541,7 +1541,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=mjV9WiRIy64",
       "url": "images/marchand-games/2019020333-a75-publishing/game.webp?v=dec1ffe9059f",
       "thumbnailUrl": "images/marchand-games/2019020333-a75-publishing/game-thumb.webp?v=8380236033b5",
-      "bookPage": 81
+      "bookPage": 95
     },
     {
       "inventoryId": 76,
@@ -1562,7 +1562,7 @@
       "sourceUrl": "https://www.boston25news.com/sports/photos-patrice/VTVYWZZNJ5HZHI2GOVSYLHIYVM/",
       "url": "images/marchand-games/2018020838-a76-publishing/game.webp?v=22ec5f4c27d4",
       "thumbnailUrl": "images/marchand-games/2018020838-a76-publishing/game-thumb.webp?v=105448f8154b",
-      "bookPage": 82
+      "bookPage": 96
     },
     {
       "inventoryId": 77,
@@ -1583,7 +1583,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=9aJaUfl2O_Q",
       "url": "images/marchand-games/2015020686-a77-publishing/game.webp?v=7066807fd543",
       "thumbnailUrl": "images/marchand-games/2015020686-a77-publishing/game-thumb.webp?v=e60a245c6c93",
-      "bookPage": 83
+      "bookPage": 97
     },
     {
       "inventoryId": 301,
@@ -1604,7 +1604,7 @@
       "sourceUrl": "https://www.nhl.com/bruins/multimedia/galleries/return-of-a-champion-ceremony-photos",
       "url": "images/marchand-games/expressive-20261017-a301/game.png?v=e4c3f7d4ed63",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a301/game-thumb.webp?v=49718c67a29c",
-      "bookPage": 86
+      "bookPage": 100
     },
     {
       "inventoryId": 302,
@@ -1625,7 +1625,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6341411012112",
       "url": "images/marchand-games/2023020258-a302-publishing/game.webp?v=edf34f5ee1d4",
       "thumbnailUrl": "images/marchand-games/2023020258-a302-publishing/game-thumb.webp?v=4d787bfaadd4",
-      "bookPage": 87
+      "bookPage": 101
     },
     {
       "inventoryId": 303,
@@ -1647,7 +1647,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a303/game.png?v=1f97ba22a4fc",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a303/game-thumb.webp?v=cc1ec0bd7664",
       "displayLabel": "FIRST-PERIOD CELEBRATION / JAN 8, 2024",
-      "bookPage": 88
+      "bookPage": 102
     },
     {
       "inventoryId": 304,
@@ -1668,7 +1668,7 @@
       "sourceUrl": "https://www.nhl.com/bruins/news/brad-marchand-through-the-years",
       "url": "images/marchand-games/expressive-20261017-a304/game.png?v=2e8c4d223a80",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a304/game-thumb.webp?v=9c1165215ef4",
-      "bookPage": 89
+      "bookPage": 103
     },
     {
       "inventoryId": 305,
@@ -1690,7 +1690,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a305/game.png?v=06e5f6671415",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a305/game-thumb.webp?v=5f2d5058f741",
       "displayLabel": "900TH CAREER POINT / JAN 13, 2024",
-      "bookPage": 90
+      "bookPage": 104
     },
     {
       "inventoryId": 306,
@@ -1711,7 +1711,7 @@
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2023020710-a306-publishing/game.webp?v=02a5b6ce75c1",
       "thumbnailUrl": "images/marchand-games/2023020710-a306-publishing/game-thumb.webp?v=7c99a52e55cb",
-      "bookPage": 91
+      "bookPage": 105
     },
     {
       "inventoryId": 307,
@@ -1732,7 +1732,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/01/25/brad-marchands-overtime-goal-lifts-bruins-to-3-2-victory-over-senators/",
       "url": "images/marchand-games/2023020749-a307-publishing/game.webp?v=c9538ed3ac21",
       "thumbnailUrl": "images/marchand-games/2023020749-a307-publishing/game-thumb.webp?v=ca490aa9dcfe",
-      "bookPage": 92
+      "bookPage": 106
     },
     {
       "inventoryId": 308,
@@ -1753,7 +1753,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/02/13/lightning-beat-bruins-as-brad-marchand-plays-1000th-career-game/",
       "url": "images/marchand-games/2023020823-a308-publishing/game.webp?v=2f3ffb759d8f",
       "thumbnailUrl": "images/marchand-games/2023020823-a308-publishing/game-thumb.webp?v=4aeb79de0d35",
-      "bookPage": 93
+      "bookPage": 107
     },
     {
       "inventoryId": 309,
@@ -1774,7 +1774,7 @@
       "sourceUrl": "https://www.bastillepost.com/global/article/3726790-bruins-beat-hurricanes-4-1-in-matchup-of-playoff-bound-teams",
       "url": "images/marchand-games/2023021202-a309-publishing/game.webp?v=1fbd04411e8c",
       "thumbnailUrl": "images/marchand-games/2023021202-a309-publishing/game-thumb.webp?v=f9f609653b53",
-      "bookPage": 94
+      "bookPage": 108
     },
     {
       "inventoryId": 310,
@@ -1795,7 +1795,7 @@
       "sourceUrl": "https://nhl.com/video/tor-bos-debrusk-scores-goal-against-ilya-samsonov-6351341884112",
       "url": "images/marchand-games/2023030121-a310-publishing/game.webp?v=59e029b20109",
       "thumbnailUrl": "images/marchand-games/2023030121-a310-publishing/game-thumb.webp?v=35ca8bc31270",
-      "bookPage": 95
+      "bookPage": 109
     },
     {
       "inventoryId": 311,
@@ -1816,7 +1816,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/04/25/pesky-marchand-keeps-grating-on-maple-leafs-with-bostons-game-3-win/",
       "url": "images/marchand-games/2023030123-a311-publishing/game.webp?v=84704f000b8d",
       "thumbnailUrl": "images/marchand-games/2023030123-a311-publishing/game-thumb.webp?v=6fa1815a3edf",
-      "bookPage": 96
+      "bookPage": 110
     },
     {
       "inventoryId": 312,
@@ -1837,7 +1837,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/04/29/bruins-know-from-experience-fourth-win-is-the-hardest/",
       "url": "images/marchand-games/2023030124-a312-publishing/game.webp?v=544842dbd8a3",
       "thumbnailUrl": "images/marchand-games/2023030124-a312-publishing/game-thumb.webp?v=5bc5ba079ef2",
-      "bookPage": 97
+      "bookPage": 111
     },
     {
       "inventoryId": 313,
@@ -1858,7 +1858,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6363508247112",
       "url": "images/marchand-games/2024020086-a313-publishing/game.webp?v=506bbafb1bd6",
       "thumbnailUrl": "images/marchand-games/2024020086-a313-publishing/game-thumb.webp?v=4be7676c6809",
-      "bookPage": 98
+      "bookPage": 112
     },
     {
       "inventoryId": 314,
@@ -1879,7 +1879,7 @@
       "sourceUrl": "https://www.bostonglobe.com/2024/10/26/sports/bruins-maple-leafs-nhl/",
       "url": "images/marchand-games/2024020125-a314-publishing/game.webp?v=e9ca1fb59e0f",
       "thumbnailUrl": "images/marchand-games/2024020125-a314-publishing/game-thumb.webp?v=da344c7fcce2",
-      "bookPage": 99
+      "bookPage": 113
     },
     {
       "inventoryId": 315,
@@ -1900,7 +1900,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6363818168112",
       "url": "images/marchand-games/2024020125-a315-publishing/game.webp?v=a7c49542827e",
       "thumbnailUrl": "images/marchand-games/2024020125-a315-publishing/game-thumb.webp?v=f90aa5983fcf",
-      "bookPage": 100
+      "bookPage": 114
     },
     {
       "inventoryId": 316,
@@ -1921,7 +1921,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6364058822112",
       "url": "images/marchand-games/2024020165-a316-publishing/game.webp?v=e4b811c14fb8",
       "thumbnailUrl": "images/marchand-games/2024020165-a316-publishing/game-thumb.webp?v=049a918bdd9c",
-      "bookPage": 101
+      "bookPage": 115
     },
     {
       "inventoryId": 317,
@@ -1942,7 +1942,7 @@
       "sourceUrl": "https://www.bostonglobe.com/2024/11/07/sports/bruins-flames/?p1=Article_Inline_Related_Link",
       "url": "images/marchand-games/2024020208-a317-publishing/game.webp?v=6d9ef4589500",
       "thumbnailUrl": "images/marchand-games/2024020208-a317-publishing/game-thumb.webp?v=9f864dfac468",
-      "bookPage": 102
+      "bookPage": 116
     },
     {
       "inventoryId": 318,
@@ -1963,7 +1963,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/11/23/marchands-third-period-goal-propels-bruins/",
       "url": "images/marchand-games/2024020324-a318-publishing/game.webp?v=62a0dc4f1a3e",
       "thumbnailUrl": "images/marchand-games/2024020324-a318-publishing/game-thumb.webp?v=4e86f357a5fa",
-      "bookPage": 103
+      "bookPage": 117
     },
     {
       "inventoryId": 319,
@@ -1984,7 +1984,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6365270720112",
       "url": "images/marchand-games/2024020353-a319-publishing/game.webp?v=d13eba5033d0",
       "thumbnailUrl": "images/marchand-games/2024020353-a319-publishing/game-thumb.webp?v=9dd3742d3e18",
-      "bookPage": 104
+      "bookPage": 118
     },
     {
       "inventoryId": 320,
@@ -2005,7 +2005,7 @@
       "sourceUrl": "https://bostonhockeynow.com/boston-bruins-new-york-islanders-takeaways-marchand-geekie-zacha-zadorov-korpisalo-11-27-2024//",
       "url": "images/marchand-games/2024020353-a320-publishing/game.webp?v=dded04cb607f",
       "thumbnailUrl": "images/marchand-games/2024020353-a320-publishing/game-thumb.webp?v=7de380d1c23b",
-      "bookPage": 105
+      "bookPage": 119
     },
     {
       "inventoryId": 321,
@@ -2026,7 +2026,7 @@
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2024020472-a321-publishing/game.webp?v=08d18cfd483c",
       "thumbnailUrl": "images/marchand-games/2024020472-a321-publishing/game-thumb.webp?v=46eee88b8cdf",
-      "bookPage": 106
+      "bookPage": 120
     },
     {
       "inventoryId": 322,
@@ -2047,7 +2047,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=oi1R9aw8V5o",
       "url": "images/marchand-games/complete-20261018-a322/game.png?v=36f137986756",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a322/game-thumb.webp?v=36ddc743f94d",
-      "bookPage": 107
+      "bookPage": 121
     },
     {
       "inventoryId": 323,
@@ -2068,7 +2068,7 @@
       "sourceUrl": "https://causewaycrowd.com/brad-marchand-contract-rumor-suggests-bruins-avoided-catastrophic-mistake",
       "url": "images/marchand-games/2024020933-a323-publishing/game.webp?v=2fcaaf2283a6",
       "thumbnailUrl": "images/marchand-games/2024020933-a323-publishing/game-thumb.webp?v=ce6b7d243e3e",
-      "bookPage": 108
+      "bookPage": 122
     },
     {
       "inventoryId": 324,
@@ -2089,7 +2089,7 @@
       "sourceUrl": "https://www.nhl.com/cs/news/boston-se-musi-obejit-bez-lidra-marchanda",
       "url": "images/marchand-games/2024020933-a324-publishing/game.webp?v=f8a65d3aa82b",
       "thumbnailUrl": "images/marchand-games/2024020933-a324-publishing/game-thumb.webp?v=a6c7b8483e52",
-      "bookPage": 109
+      "bookPage": 123
     },
     {
       "inventoryId": 325,
@@ -2110,7 +2110,7 @@
       "sourceUrl": "https://www.sportsnet.ca/nhl/article/bruins-brad-marchand-unlikely-to-return-vs-penguins-with-upper-body-injury/",
       "url": "images/marchand-games/2024020952-a325-publishing/game.webp?v=ee4faf32e91d",
       "thumbnailUrl": "images/marchand-games/2024020952-a325-publishing/game-thumb.webp?v=752293182d5b",
-      "bookPage": 110
+      "bookPage": 124
     },
     {
       "inventoryId": 326,
@@ -2131,7 +2131,7 @@
       "sourceUrl": "https://fieldlevelmedia.com/nhl/hockey-nhl-fla-marchand-2/",
       "url": "images/marchand-games/2024020952-a326-publishing/game.webp?v=993668a6c9a0",
       "thumbnailUrl": "images/marchand-games/2024020952-a326-publishing/game-thumb.webp?v=a8ef6504ae4b",
-      "bookPage": 111
+      "bookPage": 125
     },
     {
       "inventoryId": 327,
@@ -2152,7 +2152,7 @@
       "sourceUrl": "https://www.si.com/onsi/breakaway/news-feed-page/brad-marchand-set-florida-panthers-debut",
       "url": "images/marchand-games/2024020952-a327-publishing/game.webp?v=7e177a1ba4d1",
       "thumbnailUrl": "images/marchand-games/2024020952-a327-publishing/game-thumb.webp?v=1cea34041065",
-      "bookPage": 112
+      "bookPage": 126
     },
     {
       "inventoryId": 328,
@@ -2173,7 +2173,7 @@
       "sourceUrl": "https://www.news4jax.com/gallery/sports/2025/03/28/brad-marchand-in-the-lineup-friday-for-his-panthers-debut/",
       "url": "images/marchand-games/2024021153-a328-publishing/game.webp?v=3dd2bef69d04",
       "thumbnailUrl": "images/marchand-games/2024021153-a328-publishing/game-thumb.webp?v=204860776388",
-      "bookPage": 113
+      "bookPage": 127
     },
     {
       "inventoryId": 329,
@@ -2194,7 +2194,7 @@
       "sourceUrl": "https://www.news4jax.com/gallery/sports/2025/03/28/brad-marchand-in-the-lineup-friday-for-his-panthers-debut/",
       "url": "images/marchand-games/expressive-20261017-a329/game.png?v=2b7d2e2e2890",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a329/game-thumb.webp?v=696e12d04a1c",
-      "bookPage": 114
+      "bookPage": 128
     },
     {
       "inventoryId": 330,
@@ -2215,7 +2215,7 @@
       "sourceUrl": "https://sports.yahoo.com/article/brad-marchand-gets-first-goal-004951413.html",
       "url": "images/marchand-games/expressive-20261017-a330/game.png?v=7fe7e17c3f62",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a330/game-thumb.webp?v=8eca02285f68",
-      "bookPage": 115
+      "bookPage": 129
     },
     {
       "inventoryId": 331,
@@ -2236,7 +2236,7 @@
       "sourceUrl": "https://sports.yahoo.com/article/brayden-points-goal-2-assists-022347421.html",
       "url": "images/marchand-games/2024021294-a331-publishing/game.webp?v=cdb0cec635c7",
       "thumbnailUrl": "images/marchand-games/2024021294-a331-publishing/game-thumb.webp?v=0b53d422a4de",
-      "bookPage": 116
+      "bookPage": 130
     },
     {
       "inventoryId": 332,
@@ -2257,7 +2257,7 @@
       "sourceUrl": "https://www.wsls.com/sports/2025/04/23/tkachuk-stars-in-his-return-by-scoring-twice-as-the-panthers-top-lightning-6-2-in-series-opener/",
       "url": "images/marchand-games/2024030121-a332-publishing/game.webp?v=e2d86803c301",
       "thumbnailUrl": "images/marchand-games/2024030121-a332-publishing/game-thumb.webp?v=6594760bdf6a",
-      "bookPage": 117
+      "bookPage": 131
     },
     {
       "inventoryId": 333,
@@ -2278,7 +2278,7 @@
       "sourceUrl": "https://www.nhl.com/de/news/boston-bruins-befinden-sich-bereits-im-playoff-modus",
       "url": "images/marchand-games/punchlist-20261018-a333/game.png?v=0643ab5dc83e",
       "thumbnailUrl": "images/marchand-games/punchlist-20261018-a333/game-thumb.webp?v=bac77d2af285",
-      "bookPage": 118
+      "bookPage": 132
     },
     {
       "inventoryId": 334,
@@ -2299,7 +2299,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-boston-bruins-10-21-2025",
       "url": "images/marchand-games/2025020103-a334-publishing/game.webp?v=87eace892d9d",
       "thumbnailUrl": "images/marchand-games/2025020103-a334-publishing/game-thumb.webp?v=523b7db7f46d",
-      "bookPage": 119
+      "bookPage": 133
     },
     {
       "inventoryId": 335,
@@ -2320,7 +2320,7 @@
       "sourceUrl": "https://www.nhl.com/news/florida-panthers-celebrate-brad-marchands-1000th-point",
       "url": "images/marchand-games/2025020273-a335-publishing/game.webp?v=b0fd1a1065e3",
       "thumbnailUrl": "images/marchand-games/2025020273-a335-publishing/game-thumb.webp?v=daae3e3ddd44",
-      "bookPage": 120
+      "bookPage": 134
     },
     {
       "inventoryId": 336,
@@ -2341,7 +2341,7 @@
       "sourceUrl": "https://www.nhl.com/news/florida-panthers-celebrate-brad-marchands-1000th-point",
       "url": "images/marchand-games/expressive-20261017-a336/game.png?v=adf5d868ff9e",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a336/game-thumb.webp?v=5fb09c11e8ef",
-      "bookPage": 121
+      "bookPage": 135
     },
     {
       "inventoryId": 337,
@@ -2362,7 +2362,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6387083947112",
       "url": "images/marchand-games/2025020618-a337-publishing/game.webp?v=7bda67748215",
       "thumbnailUrl": "images/marchand-games/2025020618-a337-publishing/game-thumb.webp?v=c36dfe39c864",
-      "bookPage": 122
+      "bookPage": 136
     },
     {
       "inventoryId": 338,
@@ -2383,7 +2383,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-vs-utah-hockey-club-3-28-2025",
       "url": "images/marchand-games/2024021153-a338-publishing/game.webp?v=682177d60512",
       "thumbnailUrl": "images/marchand-games/2024021153-a338-publishing/game-thumb.webp?v=82eb2291ce35",
-      "bookPage": 123
+      "bookPage": 137
     },
     {
       "inventoryId": 339,
@@ -2404,7 +2404,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6371543190112",
       "url": "images/marchand-games/complete-20261018-a339/game.png?v=812c047f2371",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a339/game-thumb.webp?v=9700891ce184",
-      "bookPage": 124
+      "bookPage": 138
     },
     {
       "inventoryId": 340,
@@ -2425,7 +2425,7 @@
       "sourceUrl": "https://www.nhl.com/news/boston-bruins-mark-100th-anniversary-with-centennial-celebration",
       "url": "images/marchand-games/perfectionist-20261017-a340/game.png?v=fca2ad83085b",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a340/game-thumb.webp?v=0ad706fac537",
-      "bookPage": 125
+      "bookPage": 139
     },
     {
       "inventoryId": 341,
@@ -2446,7 +2446,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6388268137112",
       "url": "images/marchand-games/perfectionist-20261017-a341/game.png?v=df2404e4cc06",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a341/game-thumb.webp?v=9bf1eee158c9",
-      "bookPage": 126
+      "bookPage": 140
     },
     {
       "inventoryId": 342,
@@ -2467,7 +2467,7 @@
       "sourceUrl": "https://www.pressherald.com/2024/12/04/bruins-extend-winning-streak-to-three-games/",
       "url": "images/marchand-games/2024020407-a342-publishing/game.webp?v=a8b816edde4f",
       "thumbnailUrl": "images/marchand-games/2024020407-a342-publishing/game-thumb.webp?v=6f79d9e133cb",
-      "bookPage": 127
+      "bookPage": 141
     },
     {
       "inventoryId": 501,
@@ -2488,7 +2488,7 @@
       "sourceUrl": "https://www.clickorlando.com/sports/2023/03/31/bruins-wrap-up-presidents-trophy-with-win-over-blue-jackets/",
       "url": "images/marchand-games/2022021189-a501-publishing/game.webp?v=2d4fa2c9bf1b",
       "thumbnailUrl": "images/marchand-games/2022021189-a501-publishing/game-thumb.webp?v=58205aa97595",
-      "bookPage": 131
+      "bookPage": 145
     },
     {
       "inventoryId": 502,
@@ -2509,7 +2509,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=cMUnZ0trY30",
       "url": "images/marchand-games/punchlist-20261018-a502/game.png?v=5aa6fd7096a1",
       "thumbnailUrl": "images/marchand-games/punchlist-20261018-a502/game-thumb.webp?v=98a9b83e81d5",
-      "bookPage": 132
+      "bookPage": 146
     },
     {
       "inventoryId": 503,
@@ -2530,7 +2530,7 @@
       "sourceUrl": "https://www.nhl.com/blues/multimedia/galleries/20230402-blues-bruins",
       "url": "images/marchand-games/perfectionist-20261017-a503/game.png?v=8c21fba568f0",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a503/game-thumb.webp?v=90e8a7c431aa",
-      "bookPage": 133
+      "bookPage": 147
     },
     {
       "inventoryId": 504,
@@ -2551,7 +2551,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=vnWRRQePiOM",
       "url": "images/marchand-games/2022021246-a504-publishing/game.webp?v=313958be2760",
       "thumbnailUrl": "images/marchand-games/2022021246-a504-publishing/game-thumb.webp?v=4c054bcc2fbe",
-      "bookPage": 134
+      "bookPage": 148
     },
     {
       "inventoryId": 505,
@@ -2572,7 +2572,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6335758181112",
       "url": "images/marchand-games/2022021265-a505-publishing/game.webp?v=69adaef26a08",
       "thumbnailUrl": "images/marchand-games/2022021265-a505-publishing/game-thumb.webp?v=004fe788cfe3",
-      "bookPage": 135
+      "bookPage": 149
     },
     {
       "inventoryId": 506,
@@ -2594,7 +2594,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a506/game.png?v=2a51d93ccf9e",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a506/game-thumb.webp?v=33a2a61101f2",
       "displayLabel": "RECORD-SETTING WIN / APRIL 9, 2023",
-      "bookPage": 136
+      "bookPage": 150
     },
     {
       "inventoryId": 507,
@@ -2615,7 +2615,7 @@
       "sourceUrl": "https://www.pressherald.com/2023/04/11/bruins-break-nhl-points-record-with-win-over-capitals/",
       "url": "images/marchand-games/2022021290-a507-publishing/game.webp?v=232a5d9b29f9",
       "thumbnailUrl": "images/marchand-games/2022021290-a507-publishing/game-thumb.webp?v=94786a81461f",
-      "bookPage": 137
+      "bookPage": 151
     },
     {
       "inventoryId": 508,
@@ -2636,7 +2636,7 @@
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335755119112",
       "url": "images/marchand-games/2022021298-a508-publishing/game.webp?v=c14ad81530ef",
       "thumbnailUrl": "images/marchand-games/2022021298-a508-publishing/game-thumb.webp?v=19a66916dad5",
-      "bookPage": 138
+      "bookPage": 152
     },
     {
       "inventoryId": 509,
@@ -2657,7 +2657,7 @@
       "sourceUrl": "https://bleacherreport.com/articles/10070985-nhl-playoff-picture-2023-bracket-predictions-and-teams-to-watch",
       "url": "images/marchand-games/complete-20261018-a509/game.png?v=ba217e12484f",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a509/game-thumb.webp?v=227513636d3a",
-      "bookPage": 139
+      "bookPage": 153
     },
     {
       "inventoryId": 510,
@@ -2678,7 +2678,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=cMUnZ0trY30",
       "url": "images/marchand-games/punchlist-20261018-a510/game.png?v=3729387a0f18",
       "thumbnailUrl": "images/marchand-games/punchlist-20261018-a510/game-thumb.webp?v=6e37d8bbdf56",
-      "bookPage": 140
+      "bookPage": 154
     },
     {
       "inventoryId": 600,
@@ -2699,7 +2699,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-1-florida-panthers-at-tampa-bay-lightning-4-22-2025",
       "url": "images/marchand-games/2024030121-a600-publishing/game.webp?v=03dbb0c4fe63",
       "thumbnailUrl": "images/marchand-games/2024030121-a600-publishing/game-thumb.webp?v=733380622347",
-      "bookPage": 143
+      "bookPage": 157
     },
     {
       "inventoryId": 601,
@@ -2721,7 +2721,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a601/game.png?v=1a5b66129b4b",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a601/game-thumb.webp?v=ec91fcc63864",
       "displayLabel": "GAME ACTION / APRIL 24, 2025",
-      "bookPage": 144
+      "bookPage": 158
     },
     {
       "inventoryId": 602,
@@ -2743,7 +2743,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a602/game.png?v=370771718022",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a602/game-thumb.webp?v=e06e53fe328d",
       "displayLabel": "GAME 4 / APRIL 28, 2025",
-      "bookPage": 145
+      "bookPage": 159
     },
     {
       "inventoryId": 603,
@@ -2764,7 +2764,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-1-game-5-florida-panthers-at-tampa-bay-lightning-4-30-2025",
       "url": "images/marchand-games/2024030125-a603-publishing/game.webp?v=6ba1cee31f3b",
       "thumbnailUrl": "images/marchand-games/2024030125-a603-publishing/game-thumb.webp?v=ee04a6899d99",
-      "bookPage": 146
+      "bookPage": 160
     },
     {
       "inventoryId": 604,
@@ -2785,7 +2785,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-1-florida-panthers-at-toronto-maple-leafs-5-5-2025",
       "url": "images/marchand-games/expressive-20261017-a604/game.png?v=7db1e2d1ad9b",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a604/game-thumb.webp?v=6677f1cb2cd9",
-      "bookPage": 147
+      "bookPage": 161
     },
     {
       "inventoryId": 605,
@@ -2807,7 +2807,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a605/game.png?v=69f84d29633e",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a605/game-thumb.webp?v=08d1cb68117f",
       "displayLabel": "OVERTIME WINNER / MAY 9, 2025",
-      "bookPage": 148
+      "bookPage": 162
     },
     {
       "inventoryId": 606,
@@ -2828,7 +2828,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/round-2-game-4-florida-panthers-vs-toronto-maple-leafs-5-11-2025",
       "url": "images/marchand-games/2024030214-a606-publishing/game.webp?v=8e87e5b5c343",
       "thumbnailUrl": "images/marchand-games/2024030214-a606-publishing/game-thumb.webp?v=a47f554ea93e",
-      "bookPage": 149
+      "bookPage": 163
     },
     {
       "inventoryId": 607,
@@ -2849,7 +2849,7 @@
       "sourceUrl": "https://www.si.com/onsi/breakaway/news-feed-page/another-disappointing-end-nears-toronto-maple-leafs",
       "url": "images/marchand-games/2024030215-a607-publishing/game.webp?v=93e47590d908",
       "thumbnailUrl": "images/marchand-games/2024030215-a607-publishing/game-thumb.webp?v=f2fb57d16a75",
-      "bookPage": 150
+      "bookPage": 164
     },
     {
       "inventoryId": 608,
@@ -2871,7 +2871,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a608/game.png?v=1d15aa2d30fa",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a608/game-thumb.webp?v=1d16fca16f4e",
       "displayLabel": "GAME 7 POSTGAME / MAY 18, 2025",
-      "bookPage": 151
+      "bookPage": 165
     },
     {
       "inventoryId": 609,
@@ -2892,7 +2892,7 @@
       "sourceUrl": "https://www.wsls.com/sports/2025/05/21/reigning-stanley-cup-champ-florida-panthers-beat-carolina-hurricanes-5-2-in-eastern-final-opener/",
       "url": "images/marchand-games/2024030311-a609-publishing/game.webp?v=6ed5c1c27c35",
       "thumbnailUrl": "images/marchand-games/2024030311-a609-publishing/game-thumb.webp?v=f6ed7657b4bb",
-      "bookPage": 152
+      "bookPage": 166
     },
     {
       "inventoryId": 610,
@@ -2913,7 +2913,7 @@
       "sourceUrl": "https://www.clickorlando.com/sports/2025/05/23/hurricanes-game-2-loss-to-panthers-offers-an-unwelcome-repeat-of-conference-final-history-from-23/",
       "url": "images/marchand-games/2024030312-a610-publishing/game.webp?v=57215344192d",
       "thumbnailUrl": "images/marchand-games/2024030312-a610-publishing/game-thumb.webp?v=27878077694d",
-      "bookPage": 153
+      "bookPage": 167
     },
     {
       "inventoryId": 611,
@@ -2934,7 +2934,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-2-florida-panthers-at-carolina-hurricanes-5-22-2025",
       "url": "images/marchand-games/2024030312-a611-publishing/game.webp?v=dd520747d380",
       "thumbnailUrl": "images/marchand-games/2024030312-a611-publishing/game-thumb.webp?v=34944583a9ce",
-      "bookPage": 154
+      "bookPage": 168
     },
     {
       "inventoryId": 612,
@@ -2955,7 +2955,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-4-florida-panthers-vs-carolina-hurricanes",
       "url": "images/marchand-games/perfectionist-20261017-a612/game.png?v=b96acf915f67",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a612/game-thumb.webp?v=424db7f9c353",
-      "bookPage": 155
+      "bookPage": 169
     },
     {
       "inventoryId": 613,
@@ -2976,7 +2976,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
       "url": "images/marchand-games/2024030315-a613-publishing/game.webp?v=0c7fbd2cf10f",
       "thumbnailUrl": "images/marchand-games/2024030315-a613-publishing/game-thumb.webp?v=177112d8b3bb",
-      "bookPage": 156
+      "bookPage": 170
     },
     {
       "inventoryId": 614,
@@ -2997,7 +2997,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/eastern-conference-final-game-5-florida-panthers-at-carolina-hurricanes-5-28-2025",
       "url": "images/marchand-games/expressive-20261017-a614/game.png?v=596b132a7aaa",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a614/game-thumb.webp?v=84d259d15c60",
-      "bookPage": 157
+      "bookPage": 171
     },
     {
       "inventoryId": 615,
@@ -3018,7 +3018,7 @@
       "sourceUrl": "https://frontend.d3.nhle.com/news/brad-marchand-lifts-florida-panthers-in-game-2-with-2ot-goal",
       "url": "images/marchand-games/2024030412-a615-publishing/game.webp?v=3370d706b6ce",
       "thumbnailUrl": "images/marchand-games/2024030412-a615-publishing/game-thumb.webp?v=64fe1c87a740",
-      "bookPage": 158
+      "bookPage": 172
     },
     {
       "inventoryId": 616,
@@ -3039,7 +3039,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-3-florida-panthers-vs-edmonton-oilers-6-9-2025",
       "url": "images/marchand-games/perfectionist-20261017-a616/game.png?v=97de6b674176",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a616/game-thumb.webp?v=7911b75d0897",
-      "bookPage": 159
+      "bookPage": 173
     },
     {
       "inventoryId": 617,
@@ -3061,7 +3061,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a617/game.png?v=de2dc7a242aa",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a617/game-thumb.webp?v=f8e0943dc0de",
       "displayLabel": "GAME 5 / JUNE 14, 2025",
-      "bookPage": 160
+      "bookPage": 174
     },
     {
       "inventoryId": 618,
@@ -3082,7 +3082,7 @@
       "sourceUrl": "https://www.nhl.com/de/news/marchand-holt-nach-14-jahren-und-2-niederlagen-im-finale-wieder-den-stanley-cup",
       "url": "images/marchand-games/perfectionist-20261017-a618/game.png?v=95ef554dde51",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a618/game-thumb.webp?v=6db9ed19b284",
-      "bookPage": 161
+      "bookPage": 175
     },
     {
       "inventoryId": 619,
@@ -3103,7 +3103,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-6-florida-panthers-vs-edmonton-oilers-6-17-2025",
       "url": "images/marchand-games/2024030416-a619-publishing/game.webp?v=c545fd3fb642",
       "thumbnailUrl": "images/marchand-games/2024030416-a619-publishing/game-thumb.webp?v=480b3cf74a4c",
-      "bookPage": 162
+      "bookPage": 176
     },
     {
       "inventoryId": 620,
@@ -3124,7 +3124,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/stanley-cup-final-game-6-florida-panthers-vs-edmonton-oilers-6-17-2025",
       "url": "images/marchand-games/2024030416-a620-publishing/game.webp?v=35c66d75064a",
       "thumbnailUrl": "images/marchand-games/2024030416-a620-publishing/game-thumb.webp?v=79e1978a8b2a",
-      "bookPage": 163
+      "bookPage": 177
     },
     {
       "inventoryId": 621,
@@ -3146,7 +3146,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a621/game.png?v=b9841082795e",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a621/game-thumb.webp?v=7a2e917d1d26",
       "displayLabel": "POSTGAME / APRIL 30, 2025",
-      "bookPage": 164
+      "bookPage": 178
     },
     {
       "inventoryId": 622,
@@ -3168,7 +3168,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a622/game.png?v=bed2d67ef4dd",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a622/game-thumb.webp?v=eae7ec1336b4",
       "displayLabel": "GAME PORTRAIT / MAY 14, 2025",
-      "bookPage": 165
+      "bookPage": 179
     },
     {
       "inventoryId": 623,
@@ -3189,7 +3189,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6373038861112",
       "url": "images/marchand-games/complete-20261018-a623/game.png?v=696843ce802b",
       "thumbnailUrl": "images/marchand-games/complete-20261018-a623/game-thumb.webp?v=29076e61cabe",
-      "bookPage": 166
+      "bookPage": 180
     },
     {
       "inventoryId": 624,
@@ -3210,7 +3210,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6373366696112",
       "url": "images/marchand-games/2024030312-a624-publishing/game.webp?v=f0a0c0c20697",
       "thumbnailUrl": "images/marchand-games/2024030312-a624-publishing/game-thumb.webp?v=03d4c4213ae8",
-      "bookPage": 167
+      "bookPage": 181
     },
     {
       "inventoryId": 625,
@@ -3232,7 +3232,7 @@
       "url": "images/marchand-games/identity-v3-20261018-a625/game.png?v=efceeb161f32",
       "thumbnailUrl": "images/marchand-games/identity-v3-20261018-a625/game-thumb.webp?v=499d2c48465c",
       "displayLabel": "GAME 5 / MAY 28, 2025",
-      "bookPage": 168
+      "bookPage": 182
     },
     {
       "inventoryId": 626,
@@ -3253,7 +3253,7 @@
       "sourceUrl": "https://ontapsportsnet.com/nhl/chicago-blackhawks/blackhawks-panthers-2025-season-opener-recap/",
       "url": "images/marchand-games/2025020001-a626-publishing/game.webp?v=214828ba425d",
       "thumbnailUrl": "images/marchand-games/2025020001-a626-publishing/game-thumb.webp?v=4dc4feb55a1b",
-      "bookPage": 169
+      "bookPage": 183
     },
     {
       "inventoryId": 700,
@@ -3274,7 +3274,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a700-publishing/game.webp?v=e3313822d425",
       "thumbnailUrl": "images/marchand-games/2023020130-a700-publishing/game-thumb.webp?v=225f1ea1c682",
-      "bookPage": 172
+      "bookPage": 186
     },
     {
       "inventoryId": 701,
@@ -3295,7 +3295,7 @@
       "sourceUrl": "https://www.nhl.com/video/c-6340185387112",
       "url": "images/marchand-games/2023020130-a701-publishing/game.webp?v=2a3759d6eaf0",
       "thumbnailUrl": "images/marchand-games/2023020130-a701-publishing/game-thumb.webp?v=e595888e9482",
-      "bookPage": 173
+      "bookPage": 187
     },
     {
       "inventoryId": 702,
@@ -3317,7 +3317,7 @@
       "url": "images/marchand-games/targeted-v2-20261018-a702/game.png?v=a6a3c255d53d",
       "thumbnailUrl": "images/marchand-games/targeted-v2-20261018-a702/game-thumb.webp?v=adf52350a1af",
       "displayLabel": "SHOOTOUT WIN / MAR 30, 2021",
-      "bookPage": 174
+      "bookPage": 188
     },
     {
       "inventoryId": 703,
@@ -3338,7 +3338,7 @@
       "sourceUrl": "https://www.pressherald.com/2022/10/25/bruins-improve-to-6-1-by-beating-stars-3-1/",
       "url": "images/marchand-games/2022020100-a703-publishing/game.webp?v=400e8a855a40",
       "thumbnailUrl": "images/marchand-games/2022020100-a703-publishing/game-thumb.webp?v=dd53c34cd307",
-      "bookPage": 175
+      "bookPage": 189
     },
     {
       "inventoryId": 704,
@@ -3359,7 +3359,7 @@
       "sourceUrl": "https://www.nhl.com/bruins/video/postgame-preds-top-b-s-1-0-301598780",
       "url": "images/marchand-games/2018020202-a704-publishing/game.webp?v=25216c0ddd8b",
       "thumbnailUrl": "images/marchand-games/2018020202-a704-publishing/game-thumb.webp?v=d4bfd1819c68",
-      "bookPage": 176
+      "bookPage": 190
     },
     {
       "inventoryId": 705,
@@ -3380,7 +3380,7 @@
       "sourceUrl": "https://www.pressherald.com/2022/02/10/short-handed-bruins-routed-by-hurricanes-6-0/",
       "url": "images/marchand-games/2021020494-a705-publishing/game.webp?v=606bf64973b6",
       "thumbnailUrl": "images/marchand-games/2021020494-a705-publishing/game-thumb.webp?v=a612540b3708",
-      "bookPage": 177
+      "bookPage": 191
     },
     {
       "inventoryId": 706,
@@ -3401,7 +3401,7 @@
       "sourceUrl": "https://www.boston25news.com/news/photos-longtime/WX4QLZHUVNGLBMZKC52JDWSP5E/",
       "url": "images/marchand-games/2022020179-a706-publishing/game.webp?v=7d487095d3d3",
       "thumbnailUrl": "images/marchand-games/2022020179-a706-publishing/game-thumb.webp?v=01f9b5729781",
-      "bookPage": 178
+      "bookPage": 192
     },
     {
       "inventoryId": 707,
@@ -3422,7 +3422,7 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-boston-bruins-10-21-2025",
       "url": "images/marchand-games/expressive-20261017-a707/game.png?v=77e78d4721df",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a707/game-thumb.webp?v=3b0e1f20c459",
-      "bookPage": 183
+      "bookPage": 197
     },
     {
       "inventoryId": 708,
@@ -3443,7 +3443,7 @@
       "sourceUrl": "https://www.gettyimages.com/detail/187101132",
       "url": "images/marchand-games/owner-708-v5-20261019/game.jpg?v=47a628ade4c9",
       "thumbnailUrl": "images/marchand-games/owner-708-v5-20261019/game-thumb.webp?v=f438bd303749",
-      "bookPage": 179
+      "bookPage": 193
     },
     {
       "inventoryId": 710,
@@ -3464,7 +3464,7 @@
       "sourceUrl": "https://players.brightcove.net/6415718365001/default_default/index.html?videoId=6335882836112",
       "url": "images/marchand-games/perfectionist-20261017-a710/game.png?v=5b6d92a93e54",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a710/game-thumb.webp?v=045621b8c3a8",
-      "bookPage": 184
+      "bookPage": 198
     },
     {
       "inventoryId": 711,
@@ -3485,7 +3485,7 @@
       "sourceUrl": "https://www.youtube.com/watch?v=Kb3uQ7K5f-8",
       "url": "images/marchand-games/perfectionist-20261017-a711/game.png?v=b95f0dbd89e1",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a711/game-thumb.webp?v=3e74087f3938",
-      "bookPage": 185
+      "bookPage": 199
     },
     {
       "inventoryId": 712,
@@ -3506,7 +3506,7 @@
       "sourceUrl": "https://www.boston.com/sports/boston-bruins/2019/10/09/bruins-vegas-golden-knights-score-analysis/",
       "url": "images/marchand-games/2019020043-a712-publishing/game.webp?v=f3f6a372c348",
       "thumbnailUrl": "images/marchand-games/2019020043-a712-publishing/game-thumb.webp?v=8023d02d510c",
-      "bookPage": 186
+      "bookPage": 200
     },
     {
       "inventoryId": 713,
@@ -3527,7 +3527,7 @@
       "sourceUrl": "https://www.nhl.com/de/video/marchand-s-1-000-point-ceremony-6387083947112",
       "url": "images/marchand-games/expressive-20261017-a713/game.png?v=7e0c5082df91",
       "thumbnailUrl": "images/marchand-games/expressive-20261017-a713/game-thumb.webp?v=a7aa662cb5f6",
-      "bookPage": 187
+      "bookPage": 201
     },
     {
       "inventoryId": 714,
@@ -3548,7 +3548,7 @@
       "sourceUrl": "https://nhl.com/video/bos-buf-lindholm-scores-goal-against-sabres-6341131220112",
       "url": "images/marchand-games/2023020229-a714-publishing/game.webp?v=7a7581ca5e91",
       "thumbnailUrl": "images/marchand-games/2023020229-a714-publishing/game-thumb.webp?v=748934c31e64",
-      "bookPage": 188
+      "bookPage": 202
     },
     {
       "inventoryId": 715,
@@ -3569,7 +3569,7 @@
       "sourceUrl": "https://www.bastillepost.com/global/article/4257071-kesslering-scores-in-ot-to-lift-utah-to-2-1-win-over-bruins",
       "url": "images/marchand-games/2024020086-a715-publishing/game.webp?v=b89e8da164a6",
       "thumbnailUrl": "images/marchand-games/2024020086-a715-publishing/game-thumb.webp?v=08791cc1f27b",
-      "bookPage": 189
+      "bookPage": 203
     },
     {
       "inventoryId": 716,
@@ -3590,7 +3590,7 @@
       "sourceUrl": "https://www.nhl.com/bruins/video/marchand-s-quick-interview-307251206",
       "url": "images/marchand-games/2018030216-a716-publishing/game.webp?v=16cd38292e01",
       "thumbnailUrl": "images/marchand-games/2018030216-a716-publishing/game-thumb.webp?v=5f57f2033444",
-      "bookPage": 190
+      "bookPage": 204
     },
     {
       "inventoryId": 717,
@@ -3611,7 +3611,37 @@
       "sourceUrl": "https://www.nhl.com/panthers/multimedia/galleries/florida-panthers-at-chicago-blackhawks-1-25-2026",
       "url": "images/marchand-games/perfectionist-20261017-a717/game.png?v=39d62bcd56c8",
       "thumbnailUrl": "images/marchand-games/perfectionist-20261017-a717/game-thumb.webp?v=c4130f15c155",
-      "bookPage": 180
+      "bookPage": 194
     }
-  ]
+  ],
+  "historicalV6IndexBindings": {
+    "date": "2026-10-18",
+    "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
+    "sourceIndexSha256": "4a6cb50034b8f97e30b4e560695f22f6da5ca0ad83277d297d000ead9ea0bd9d",
+    "bookSha256": "14f0b636252b4d465d0d0ee093c877304ea2a5cf5ec57fc27f79e8e44c2a7b21",
+    "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "scope": "Actual sealedv6canonical171/sheet/cell/book-page joins.59retired343activephysical59;only708nativechanges;170othergameassets retained."
+  },
+  "bookPages": 240,
+  "coverStatus": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
+  "printConfigurationPending": true,
+  "unqualifiedPublishReady": false,
+  "currentMediaAndBookPublication": {
+    "path": "docs/marchand-book-v11-metadata-20261019.json",
+    "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+    "revision": "Compact-COA-240page-Edition-20261019-v11"
+  },
+  "historicalV8PreparedIndexBindings": {
+    "date": "2026-10-19",
+    "revision": "Inside-Collection-COA-Assigned-Edition-20261019-v8",
+    "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
+    "bookSha256": "9bceb1d4d2c0e8bfa3d965bedd77753bf13fdb5d129ad7efaadab84aff0cdbdd",
+    "bookPages": 250,
+    "coverStatus": "REFERENCE_ONLY_NOT_APPROVED_FOR_250_PAGES",
+    "scope": "Current registered H8 working-interior book-page joins. All171 game selections retained; bookPage is exactly prior+14. Paper/matching cover pending; old236-page cover reference-only."
+  },
+  "paper": "Premium Lustre",
+  "paperPageCountFits": true,
+  "paperChoicePending": false,
+  "matching240PageCoverPending": true
 }
