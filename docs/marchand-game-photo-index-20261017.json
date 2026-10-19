@@ -1,10 +1,10 @@
 {
   "date": "2026-10-19",
-  "revision": "Compact-COA-240page-Edition-20261019-v11",
+  "revision": "COA-Document-Crop-240page-Edition-20261019-v12",
   "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
-  "bookSha256": "e61109bfa2d0d377ba786d104e0ebe5a8bc9f6a385666b4649142bc01c6b9772",
+  "bookSha256": "0d588fafcc8cd39a90cba1f259e54f8e953674ca3b0d318a4243ec6c70a05bd7",
   "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
-  "scope": "Current registered H11 working-interior provenance. Raw source index bytes exactly H8/fe529 and all171 derived row objects unchanged from prepared H8; existing main-page joins remain publishedv6+14. Only matching240-page cover pending; old236 cover reference-only.",
+  "scope": "Current registeredv12 private240page working interior with exact document-edge clips. All171 index rows and original game selections/bytes/captions/credits remain exactly registeredv11. Premium Lustre fits; matching240page cover pending; prior236page cover reference-only.",
   "records": [
     {
       "inventoryId": 1,
@@ -3627,9 +3627,9 @@
   "printConfigurationPending": true,
   "unqualifiedPublishReady": false,
   "currentMediaAndBookPublication": {
-    "path": "docs/marchand-book-v11-metadata-20261019.json",
-    "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
-    "revision": "Compact-COA-240page-Edition-20261019-v11"
+    "path": "docs/marchand-book-v12-metadata-20261019.json",
+    "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c",
+    "revision": "COA-Document-Crop-240page-Edition-20261019-v12"
   },
   "historicalV8PreparedIndexBindings": {
     "date": "2026-10-19",
@@ -3643,5 +3643,16 @@
   "paper": "Premium Lustre",
   "paperPageCountFits": true,
   "paperChoicePending": false,
-  "matching240PageCoverPending": true
+  "matching240PageCoverPending": true,
+  "historicalV11PublicationBindings": {
+    "revision": "Compact-COA-240page-Edition-20261019-v11",
+    "bookSha256": "e61109bfa2d0d377ba786d104e0ebe5a8bc9f6a385666b4649142bc01c6b9772",
+    "bookPages": 240,
+    "currentMediaAndBookPublication": {
+      "path": "docs/marchand-book-v11-metadata-20261019.json",
+      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+      "revision": "Compact-COA-240page-Edition-20261019-v11"
+    },
+    "scope": "Current registered H11 working-interior provenance. Raw source index bytes exactly H8/fe529 and all171 derived row objects unchanged from prepared H8; existing main-page joins remain publishedv6+14. Only matching240-page cover pending; old236 cover reference-only."
+  }
 }

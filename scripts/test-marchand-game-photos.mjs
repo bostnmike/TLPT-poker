@@ -142,7 +142,7 @@ assert.equal(photos.meta.photographs,92);assert.equal(photos.meta.videoStills,79
 assert.equal(photos.artifacts['goal-57'],undefined);
 assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
 assert.deepEqual(photos.meta.openOwnerReview,[]);
-assert.equal(photos.meta.revision,'Compact-COA-240page-Edition-20261019-v11');
+assert.equal(photos.meta.revision,'COA-Document-Crop-240page-Edition-20261019-v12');
 for(const id of [67,602,605,608,617,621,622,625]){
  const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
  assert.equal(a.sourceRevision,'Canonical-Consolidated-Edition-20261018-v4');assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');

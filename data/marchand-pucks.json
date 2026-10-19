@@ -227,16 +227,16 @@
       "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
       "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS"
     },
-    "sourceHandoffSha256": "85ce8cbf74878e2879126df2f171a910f84a8470541ae966b12c6bfa74c0bf57",
+    "sourceHandoffSha256": "2e0d7990001230b81a9166eac342097cef8fb03d729cf39248d062307a51293d",
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Reconciliation 2026-10-19-v1.json",
-      "sha256": "31157db2ff1523386c10933dceebdf023e9b3ce1cc10e114558a5731ef61cd96",
-      "bytes": 10392
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Document Crop Book Reconciliation 2026-10-19-v1.json",
+      "sha256": "1eae7f0a284144d7afed8dbce11287d7cc1b92a34bc46f124178c4263aabe0fd",
+      "bytes": 10004
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Registration 2026-10-19-v11/Registry-at-registration.json",
-      "sha256": "deec34dc6ef2188dcbf9ac5610ea5e5011ae6c203b8be82cba6aa61ed60f8909",
-      "bytes": 57301
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Document Crop Book Registration 2026-10-19-v12/Registry-at-registration.json",
+      "sha256": "365e503367e060db1f418acb895f1c58af21d5ffd8b7c777cc761b869b9e8fde",
+      "bytes": 68434
     },
     "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS",
     "ownerAuthorizedCOAAssignment": {
@@ -288,9 +288,9 @@
         "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
       },
       "bookMetadataReconciliation": {
-        "path": "docs/marchand-book-v11-metadata-20261019.json",
-        "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
-        "revision": "Compact-COA-240page-Edition-20261019-v11"
+        "path": "docs/marchand-book-v12-metadata-20261019.json",
+        "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c",
+        "revision": "COA-Document-Crop-240page-Edition-20261019-v12"
       }
     },
     "priorCanonicalMetadataBeforeCOADataSync": {
@@ -326,9 +326,9 @@
       }
     },
     "currentMediaAndBookPublication": {
-      "path": "docs/marchand-book-v11-metadata-20261019.json",
-      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
-      "revision": "Compact-COA-240page-Edition-20261019-v11"
+      "path": "docs/marchand-book-v12-metadata-20261019.json",
+      "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c",
+      "revision": "COA-Document-Crop-240page-Edition-20261019-v12"
     },
     "historicalV8PreparedBookBindings": {
       "sourceHandoffSha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
@@ -343,6 +343,29 @@
         "bytes": 56922
       },
       "publicationStatus": "UNPUBLISHED PREPARATION; retained original sources/receipts and staged files"
+    },
+    "historicalV11PublicationBindings": {
+      "sourceHandoffSha256": "85ce8cbf74878e2879126df2f171a910f84a8470541ae966b12c6bfa74c0bf57",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Reconciliation 2026-10-19-v1.json",
+        "sha256": "31157db2ff1523386c10933dceebdf023e9b3ce1cc10e114558a5731ef61cd96",
+        "bytes": 10392
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Compact COA Book Registration 2026-10-19-v11/Registry-at-registration.json",
+        "sha256": "deec34dc6ef2188dcbf9ac5610ea5e5011ae6c203b8be82cba6aa61ed60f8909",
+        "bytes": 57301
+      },
+      "currentMediaAndBookPublication": {
+        "path": "docs/marchand-book-v11-metadata-20261019.json",
+        "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7",
+        "revision": "Compact-COA-240page-Edition-20261019-v11"
+      }
+    },
+    "coaDocumentCrops": {
+      "path": "docs/marchand-coa-document-crops-20261019.json",
+      "sha256": "18353b9cad20132961624406fa6f994832a15a3689d54421faeb1ccda73be26d",
+      "revision": "Museum-COA-Document-Crops-20261019-v12"
     }
   },
   "records": [
