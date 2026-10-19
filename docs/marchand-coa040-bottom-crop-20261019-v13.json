@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "revision": "Museum-COA040-Bottom-Crop-20261019-v13",
+  "status": "REVIEWED_NATIVE040_BOTTOM_EDGE_CORRECTION",
+  "artifact": 40,
+  "label": "COA",
+  "parentDocumentCrops": {
+    "path": "docs/marchand-coa-document-crops-20261019.json",
+    "sha256": "18353b9cad20132961624406fa6f994832a15a3689d54421faeb1ccda73be26d"
+  },
+  "sourceBookHandoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Handoff.json",
+    "sha256": "9dbc818d4a8dc0273b38f97a35b20d6104b7c243e33771cc2bf6b656add86dfc",
+    "bytes": 10424
+  },
+  "sourceBook": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/COA-Bottom-Crop-240page-Edition-20261019-v13/Exhibit63-COA-Bottom-Crop-240page-Interior-October19-2026-v13.pdf",
+    "sha256": "0eaec164b168102bd4e3ec09dea39e8e1886ff54407354db941dd98e8e213d74",
+    "bytes": 789799889,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "sourceRegistration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Reconciliation 2026-10-19-v1.json",
+    "sha256": "3552a00a680aaa614b305f9a0ada410068ac8a875cca1fff544ad7ee32597b1a",
+    "bytes": 9700
+  },
+  "immutableRegistryAtRegistration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Registration 2026-10-19-v13/Registry-at-registration.json",
+    "sha256": "969db0fd74aadc3c347aa0df12ce536a97c131429be3224edd77fdb07caa3e37",
+    "bytes": 82327
+  },
+  "stagingReceipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA040 Bottom Edge Staging 2026-10-19-v13.json",
+    "sha256": "0e25c3b71a9a86cbb7713edaef3e5e6f48bf841cd417137689e1661ac38e2179",
+    "bytes": 14805
+  },
+  "nativeBookFix": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/040-Bottom-Crop-Fix.json",
+    "sha256": "44ee51e22fac1a8f674a904cadff52394637d1b196ee4a93dd29cc9954c21cf7",
+    "bytes": 5564
+  },
+  "sourceSha256": "2f1eacdef09fe0ee8805db04ac07cdf490d5559b87818f7bbdedb004e60f7a32",
+  "sourceDimensions": [
+    4169,
+    5336
+  ],
+  "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=54ca612b7c51",
+  "sha256": "54ca612b7c511f0815e9626eb9933840074312aea500c9fd085d92e8d9bd27c9",
+  "bytes": 13671206,
+  "dimensions": [
+    4169,
+    5236
+  ],
+  "changedAssociations": 1,
+  "unchangedOtherCOAViews": 128,
+  "allRetainedNativeRGBExact": true,
+  "ICCExact": true,
+  "noResamplingOrReconstruction": true,
+  "originalAndRollbackPreserved": true,
+  "qualification": "Owner-directed removal of lower dark band overrides prior conservative border retention for040only. No claim that band was external background. Other genuine printed document borders remain unchanged.",
+  "scope": "Only040lowerdarkband/intersections removed at owner request. All text/signature preserved; all other128COAviews, all171facts/game selections/index rows, canonical filenames,hosts,photo properties/order and qualifications unchanged."
+}

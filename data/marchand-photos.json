@@ -1351,7 +1351,7 @@
       },
       {
         "label": "COA",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=2f1eacdef09f",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/40/coa.webp?v=54ca612b7c51",
         "rotation": 0,
         "caption": "Certificate of Authenticity",
         "sourceFile": "IMG_9758.JPG",
@@ -5013,14 +5013,14 @@
       "revision": "Museum-COA-Canonical-Metadata-20261019-v1"
     },
     "bookMetadataReconciliation": {
-      "path": "docs/marchand-book-v12-metadata-20261019.json",
-      "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c",
-      "revision": "COA-Document-Crop-240page-Edition-20261019-v12"
+      "path": "docs/marchand-book-v13-metadata-20261019.json",
+      "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
+      "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
     }
   },
   "coaDocumentCrops": {
-    "path": "docs/marchand-coa-document-crops-20261019.json",
-    "sha256": "18353b9cad20132961624406fa6f994832a15a3689d54421faeb1ccda73be26d",
-    "revision": "Museum-COA-Document-Crops-20261019-v12"
+    "path": "docs/marchand-coa040-bottom-crop-20261019-v13.json",
+    "sha256": "c0d099ee1817fafc891a44fc6e17ae271173496e25571c961195372c80e0166c",
+    "revision": "Museum-COA040-Bottom-Crop-20261019-v13"
   }
 }

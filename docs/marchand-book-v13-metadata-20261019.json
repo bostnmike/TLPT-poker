@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13",
+  "status": "REGISTERED240PAGE040BOTTOM_CORRECTION_QA_PASS;MATCHING_COVER_PENDING",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Handoff.json",
+    "sha256": "9dbc818d4a8dc0273b38f97a35b20d6104b7c243e33771cc2bf6b656add86dfc",
+    "bytes": 10424
+  },
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Reconciliation 2026-10-19-v1.json",
+    "sha256": "3552a00a680aaa614b305f9a0ada410068ac8a875cca1fff544ad7ee32597b1a",
+    "bytes": 9700
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Registration 2026-10-19-v13/Registry-at-registration.json",
+    "sha256": "969db0fd74aadc3c347aa0df12ce536a97c131429be3224edd77fdb07caa3e37",
+    "bytes": 82327
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/COA-Bottom-Crop-240page-Edition-20261019-v13/Exhibit63-COA-Bottom-Crop-240page-Interior-October19-2026-v13.pdf",
+    "sha256": "0eaec164b168102bd4e3ec09dea39e8e1886ff54407354db941dd98e8e213d74",
+    "bytes": 789799889,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "cover_reference_only": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
+    "sha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "bytes": 23494936,
+    "pages": 1,
+    "dimensions_inches": [
+      27.208,
+      11.625
+    ],
+    "spine_inches": 1.097,
+    "artifact_count": 171,
+    "reused_unchanged": true,
+    "prior_page_count": 236,
+    "status": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
+    "for_prior_page_count": 236,
+    "fits_current240page_book": false
+  },
+  "print_configuration": {
+    "paper": "Premium Lustre",
+    "interior_pages": 240,
+    "paper_page_count_fits": true,
+    "paper_changed": false,
+    "paper_choice_pending": false,
+    "matching240page_cover_pending": true,
+    "status": "INTERIOR_PAGE_COUNT_FITS; MATCHING_COVER_PENDING"
+  },
+  "unqualified_publish_ready": false,
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Game-Photo-Index.json",
+    "sha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f",
+    "bytes": 205789
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/GAME_PHOTO_LIBRARY/Canonical-Renumbered-708-Edition-20261019-v6/manifest.json",
+    "sha256": "25d7d556f15374bba2dff6439b3ceb69a32ecb5fc504aef1a982ea5041e81726",
+    "bytes": 2127379
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "947bca4ed97a78322c772eb6cc42469bcadc4f4b6fa1304fb142b13b1ede7697",
+      "bytes": 102025
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "bytes": 31810
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Handoff.json",
+    "sha256": "51521db7d115082a8bf2ce06b64b175203b04760557a3e21996ff72ec8c4caec",
+    "bytes": 28053
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Assignment Canonical Handoff 2026-10-19-v1/Native-Excel-verification.json",
+    "sha256": "3d6ddebd4752fe14658b147064d2498ddecffa4eac5e5017cc3a189a142956dd",
+    "bytes": 5868
+  },
+  "counts": {
+    "catalog_records": 171,
+    "active_physical_document_views": 811,
+    "document_cards": 129,
+    "selected_game_images": 171,
+    "combined_gallery_views": 982,
+    "historical_original_source_views": 830
+  },
+  "index_scope": "All171 source/native/book-page index objects and game selections unchanged fromv12. Only040loweredge correction andv13provenance change.",
+  "paper_status": "Premium Lustre; page count fits; paper unchanged; paper choice is not pending.",
+  "cover_status": "Only matching240-page cover pending. Prior236-page c074 wrap is reference-only and does not fit current240-page book.",
+  "print_ready": false,
+  "privacy": "Private working interior; neither full Book nor standalone proof PDF is hosted publicly.",
+  "historical_prepared_h8": {
+    "status": "UNPUBLISHED PREPARATION PRESERVED AS HISTORY",
+    "metadata": {
+      "path": "/Users/michaelblanchette/.codex/.chatgpt-projects/g-p-6a689bee5b888191b6c30f4b973a900b/outputs/museum-book-v8-metadata-20261019-v1/staged/docs/marchand-book-v8-metadata-20261019.json",
+      "sha256": "155c76e678bcaa6f4adbb116fb19139951e14e851c57eeb46d9ca5762bce63b1",
+      "bytes": 8017
+    },
+    "handoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Inside Collection COA Assigned Book Handoff 2026-10-19-v8/Handoff.json",
+      "sha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
+      "bytes": 9975
+    }
+  },
+  "upstream_qa": {
+    "native": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Native-Bottom-Crop-QA.json",
+      "sha256": "6cff1e98d29f3fe8486fe4ad6b3144553648dc3319fe134f1c5f27e4aff89293",
+      "bytes": 143592
+    },
+    "offline_rebuild": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Reproducibility-QA.json",
+      "sha256": "05a797807d6374fac64769bd84aa960b8d2da01e83f6718a3cf0c7005affdb1a",
+      "bytes": 1649
+    },
+    "independent_actual_page19_and_code_review": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Independent-Bottom-Crop-QA.json",
+      "sha256": "5a0312d8051f9ea8e3ae0a1f570ca6309f5c6f2b8fa8874d6cf7288cfe0437fe",
+      "bytes": 5814
+    },
+    "actual_render_pixel_delta": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Pixel-Diff-QA.json",
+      "sha256": "1fee55c2e1d4c3bcc88e8dfb2146122bd9d8efb5dab2d2ef754195acb584daeb",
+      "bytes": 750
+    },
+    "native_boundary_review": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/040-bottom-edge-proposal.json",
+      "sha256": "791e4a951bd06cdd729d743e9dfa92dc45cabbdd44ade2ec938d8580e25930a9",
+      "bytes": 9688
+    },
+    "actual_page19_render": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/COA-Bottom-Crop-240page-Edition-20261019-v13/QA-renders/coa-19.png",
+      "sha256": "215548d39699a12de3fe85d73606a3d285165510b69f775b8f820e098e2dddcd",
+      "bytes": 1306419
+    },
+    "native_checks_passed": 1657,
+    "unchanged_other19proofpagecontents_and_actual_images_verified": true,
+    "unchanged_other239bookpagecontents_verified": true
+  },
+  "upstream_qa_scope": "Supplied Book/Data proof files independently hash-verified. No renewed native Excel, Book rendering, blanket physical-puck or photo-identity certification by Museum.",
+  "document_clipping": {
+    "specification": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/Document-Crop-Specification.json",
+      "sha256": "064fceea7261f31cbedd208244169caa3218e83d90ee95952fb258046b28372d",
+      "bytes": 780139
+    },
+    "single_correction": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/COA Bottom Crop Book Handoff 2026-10-19-v13/040-Bottom-Crop-Fix.json",
+      "sha256": "44ee51e22fac1a8f674a904cadff52394637d1b196ee4a93dd29cc9954c21cf7",
+      "bytes": 5564
+    },
+    "operation": "Only lowerlightpaper boundary of existing/DocCrop126 vectorclip replaced; originalnativeForm,fullCTM,translation,pixels,ICC unchanged.",
+    "native_image_resolution_unchanged": true,
+    "original_encoded_pixels_and_ICC_unchanged": true,
+    "all_other128_document_clip_paths_unchanged": true,
+    "all_printed_text_and_signature_pixels_identical": true,
+    "no_reconstructed_text_or_details": true,
+    "website_native_frame_requires_separate_actual_target_review": true
+  },
+  "website_document_crops": {
+    "path": "docs/marchand-coa040-bottom-crop-20261019-v13.json",
+    "sha256": "c0d099ee1817fafc891a44fc6e17ae271173496e25571c961195372c80e0166c",
+    "revision": "Museum-COA040-Bottom-Crop-20261019-v13"
+  },
+  "prior_verified_v11_publication": {
+    "document": {
+      "path": "docs/marchand-book-v11-metadata-20261019.json",
+      "sha256": "0ee4b678d0a5558900102c5b3672b916d377bc1da15c82bafc84c5c5fb0f60d7"
+    },
+    "release": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum Compact COA Book Metadata Release 2026-10-19-v11.json",
+      "sha256": "328c0547f684dccc5ff33257e6a6b2b6d9087207c535ba1ca84bf657d3708c85",
+      "bytes": 24297
+    }
+  },
+  "prior_verified_v12_publication": {
+    "document": {
+      "path": "docs/marchand-book-v12-metadata-20261019.json",
+      "sha256": "6815bcb5c727ccd31fe709eeff7d09834a8e40e4d4fe56af5a4424241070a78c"
+    },
+    "release": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Museum COA Document Crop Release 2026-10-19-v12.json",
+      "sha256": "81716488546c015073879303830762ebdf8aac0aac5c8c477e4acc718a746064",
+      "bytes": 23650
+    }
+  }
+}
