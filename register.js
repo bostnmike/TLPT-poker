@@ -263,7 +263,7 @@
       ["First name", valueOf("first-name")],
       ["Last name", valueOf("last-name")],
       ["Nickname", valueOf("nickname")],
-      ["Invited by", valueOf("invited-by")],
+      ["Vouched for by", valueOf("invited-by")],
       ["Email", valueOf("registration-email")],
       ["Phone", valueOf("registration-phone")],
       ["Host notes", valueOf("host-notes")],
