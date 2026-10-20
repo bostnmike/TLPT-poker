@@ -72,8 +72,11 @@ assert.match(page, /appear publicly on TLPT\.org/);
 assert.match(page, /publicly show an AI-illustrated player avatar/);
 assert.match(page, /reference photos themselves stay off the site/);
 assert.match(page, /friendly roasting/);
-assert.match(page, /BostnMike \(aka The Commish\) will create your player identity, prepare your avatar, and add you to the roster before your first official appearance\./);
-assert.match(page, /The statistics—and regrettable decisions—begin at the table\. Welcome to the league!/);
+assert.match(page, /<h2 id="register-confirmation-title">The books are being reviewed\.<\/h2>/);
+assert.match(page, /BostnMike \(aka The Commish\) will review your details and confirm whether you’re officially “A Friend of Ours\.”/);
+assert.match(page, /Until then, consider yourself a promising associate\./);
+assert.match(page, /Once you get the nod, he’ll create your player identity, prepare your avatar, and add you to the roster before your first official appearance\./);
+assert.match(page, /No ring-kissing required\. A timely RSVP wouldn’t hurt\./);
 assert.match(style, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
 
 const nav = page.match(/<nav class="nav">([\s\S]*?)<\/nav>/)?.[1] || "";
