@@ -4,6 +4,8 @@ import vm from 'node:vm';
 const script=fs.readFileSync(new URL('../marchand.js',import.meta.url),'utf8');
 const {records}=JSON.parse(fs.readFileSync(new URL('../data/marchand-pucks.json',import.meta.url)));
 const report=JSON.parse(fs.readFileSync(new URL('../docs/marchand-authentication-links-20261005.json',import.meta.url)));
+const approved=JSON.parse(fs.readFileSync(new URL('../docs/marchand-approved-authentication-20261020.json',import.meta.url)));
+report.records.push(...approved.records);
 const element=()=>({children:[],listeners:{},append(...items){this.children.push(...items)},replaceChildren(...items){this.children=items},addEventListener(type,fn){this.listeners[type]=fn}});
 const panels=Object.fromEntries(['artifact-authentication','artifact-authentication-links','artifact-authentication-instructions'].map(id=>[id,element()]));
 let copied='';

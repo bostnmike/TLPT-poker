@@ -48,7 +48,9 @@ reviewed = {"videoClipId": "6335868297112", "videoClipSourceUrl": recap}
 assert sync.video_parts(recap, reviewed) == ("nhl", "6335868297112")
 assert sync.video_parts(recap + "-changed", reviewed) == ("article", ""), "Reviewed clip must belong to this exact canonical source"
 
-assert 49 not in by_id, "Reserved goal 49 must remain vacant"
+assert by_id[49]["date"] == "2022-05-06"
+assert by_id[49]["authenticationSerial"] == "MGA37776"
+assert by_id[49]["careerStat"] == 46 and by_id[49]["category"] == "PO Goal"
 assert by_id[342]["sourceSheet"] == "Milestones" and by_id[342]["sourceRow"] == 43
 assert by_id[342]["authenticationSerial"] == "XJ05532097"
 assert by_id[322]["authenticationSerial"] == "XJ05532094"
@@ -84,3 +86,12 @@ assert renumbered["category"]=="RS Point" and renumbered["puckType"]=="Goal Scor
 assert renumbered["scorerCode"]=="EL27" and renumbered["primaryAssist"]=="BM63" and renumbered["secondaryAssist"]=="AE5"
 assert renumbered["authenticationSerial"]=="BB25087"
 assert renumbered["sourceData"][22]["value"]=="images/pucks/59/front.webp"
+
+assert sync.video_parts("https://www.nhl.com/video/c-6335822476112", {}) == ("nhl", "6335822476112")
+for invalid in ["https://www.nhl.com/gamecenter/2021030133", "https://www.nhl.com/video/c-2021030133"]:
+    try:
+        sync.video_parts(invalid, {})
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("A game ID must not become a video clip: " + invalid)

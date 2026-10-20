@@ -1,45 +1,47 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-20",
-  "revision": "Museum-Legacy-Image-Cleanup-20261020-v1",
+  "revision": "Owner-Approved-Three-Puck-Intake-20261020-v3",
   "scope": "Current active website media ownership overlay. Frozen source manifests and prior release receipts remain immutable historical evidence.",
   "counts": {
-    "catalogRecords": 171,
-    "physicalEvidenceViews": 813,
-    "documentCards": 131,
-    "uniqueDocumentImages": 130,
-    "selectedGameImages": 171,
-    "combinedGalleryViews": 984,
-    "currentWebsiteImageFiles": 869,
-    "currentHostedImageFiles": 452
+    "catalogRecords": 172,
+    "physicalEvidenceViews": 828,
+    "documentCards": 134,
+    "uniqueDocumentImages": 133,
+    "selectedGameImages": 172,
+    "combinedGalleryViews": 1000,
+    "currentWebsiteImageFiles": 871,
+    "currentHostedImageFiles": 470
   },
   "sources": {
     "data/marchand-pucks.json": {
       "path": "data/marchand-pucks.json",
-      "sha256": "3aaf5e925b932edeb720ff363e93cd7995f6e12efa78c081f2e16fde4e7a276a",
-      "bytes": 1162653
+      "sha256": "e7fd5c99bec42bdd7529665875b9334b2b98c9bd7ef9f369c65f8ac2a63d4f1f",
+      "bytes": 1187214
     },
     "data/marchand-photos.json": {
       "path": "data/marchand-photos.json",
-      "sha256": "e2da644964481987021ca7b5b452ae0ccaf24a81f5779aea5871f3908ad481ed",
-      "bytes": 178610
+      "sha256": "8ce756793e468f683fcdea7671127dd8c15c9042b95cc90d2d9f327f4c114f5f",
+      "bytes": 183501
     },
     "data/marchand-game-photos.json": {
       "path": "data/marchand-game-photos.json",
-      "sha256": "b56b71f713db212385bb8bd6eaecb2ba0fd23ae366e3102daa81bad529dcee32",
-      "bytes": 933492
+      "sha256": "c3d0b934befb91a6f8ca355393aaa1e7f938341cfbe14b2cd385cf54dbc2a1cf",
+      "bytes": 946890
     },
     "data/marchand-photo-library.json": {
       "path": "data/marchand-photo-library.json",
-      "sha256": "edff819adbd861f119e9fd4ced3f26a5e9bbb48a7724df6c1584634b0f89f03d",
-      "bytes": 68483
+      "sha256": "9055b8f7197adb487f2d5066ebc6c8656bc39d65e66ca3d44cb13c2fc21ba947",
+      "bytes": 71315
     }
   },
   "stableAssetFolders": {
     "301": "images/pucks/343/",
     "333": "images/pucks/342/",
     "342": "images/pucks/49/",
-    "343": "images/pucks/59/"
+    "343": "images/pucks/59/",
+    "49": "images/pucks/49-20220506/",
+    "61": "images/pucks/61-20180123/"
   },
   "historicalNumbersAreNotCurrentOwnership": true,
   "retiredArtifacts": {
@@ -310,12 +312,13 @@
     613,
     614
   ],
-  "archivedFileCount": 775,
-  "archivedBytes": 100637434,
-  "archiveReceipt": "Museum Legacy Image Cleanup 2026-10-20-v1/Final-Archive-Manifest.json",
-  "pendingIntake": {
-    "approved": false,
-    "includedInCounts": false,
+  "retiredFileCount": 775,
+  "retiredBytes": 100637434,
+  "retiredDerivativeCopiesPermanentlyDeleted": true,
+  "deletionSupersessionReceipt": "Legacy Image Permanent Deletion 2026-10-20-v1/Handoff.json",
+  "approvedIntake": {
+    "approved": true,
+    "includedInCounts": true,
     "artifactIds": [
       31,
       49,
@@ -1462,9 +1465,27 @@
       "inventoryId": 31,
       "key": "goal-31",
       "date": "2022-01-10",
-      "authenticationSerial": "",
+      "authenticationSerial": "MGA37970",
       "physicalNamespace": "images/pucks/31/",
-      "physicalViews": [],
+      "physicalViews": [
+        {
+          "label": "Front",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/front.webp?v=42f776a3ecb6",
+          "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/front-thumb.webp?v=71f814a315ca"
+        },
+        {
+          "label": "Back",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/back.webp?v=63c7367351de"
+        },
+        {
+          "label": "Edge 1",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/edge-01.webp?v=0a7baab462b9"
+        },
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/coa.webp?v=bb9c59209b06"
+        }
+      ],
       "gameAssetId": "2021020632-a31-publishing",
       "gameUrl": "images/marchand-games/2021020632-a31-publishing/game.webp?v=e7d39c8e8823",
       "gameSha256": "e7d39c8e88234daa3b3cad927d3cc2fd99659362fe8a715503a8dd09d77ec7ca"
@@ -2104,6 +2125,43 @@
       "gameSha256": "a8b816edde4f9ab37c5fed5f88f5134a01487115721151877d81fefa3d7362be"
     },
     {
+      "inventoryId": 49,
+      "key": "goal-49",
+      "date": "2022-05-06",
+      "authenticationSerial": "MGA37776",
+      "physicalNamespace": "images/pucks/49-20220506/",
+      "physicalViews": [
+        {
+          "label": "Front",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/front.webp?v=3287cd4dd0dd",
+          "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/front-thumb.webp?v=40fe0dfc1d93"
+        },
+        {
+          "label": "Back",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/back.webp?v=8c0bef2ee6de"
+        },
+        {
+          "label": "Edge 1",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-01.webp?v=fdc8a036c980"
+        },
+        {
+          "label": "Edge 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-02.webp?v=dfbc835227d0"
+        },
+        {
+          "label": "Edge 3",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-03.webp?v=fb15d042b3d4"
+        },
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/coa.webp?v=3f186c53243a"
+        }
+      ],
+      "gameAssetId": "2021030133-a49-intake-20261020",
+      "gameUrl": "images/marchand-games/2021030133-a49-intake-20261020/game.jpg?v=60b52a6d53b8",
+      "gameSha256": "60b52a6d53b8671b7e9f21831e0784e20b3ea6c3f6c379ae64b591278bcd3d83"
+    },
+    {
       "inventoryId": 50,
       "key": "goal-50",
       "date": "2011-05-02",
@@ -2505,9 +2563,31 @@
       "inventoryId": 61,
       "key": "goal-61",
       "date": "2018-01-23",
-      "authenticationSerial": "",
-      "physicalNamespace": "images/pucks/61/",
-      "physicalViews": [],
+      "authenticationSerial": "MGA11235",
+      "physicalNamespace": "images/pucks/61-20180123/",
+      "physicalViews": [
+        {
+          "label": "Front",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/front.webp?v=2d103599330d",
+          "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/front-thumb.webp?v=4b950a95c551"
+        },
+        {
+          "label": "Back",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/back.webp?v=c041766c6fa4"
+        },
+        {
+          "label": "Edge 1",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/edge-01.webp?v=62209010923c"
+        },
+        {
+          "label": "Edge 2",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/edge-02.webp?v=bfb7d043b6a4"
+        },
+        {
+          "label": "COA",
+          "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/coa.webp?v=c52eb008389b"
+        }
+      ],
       "gameAssetId": "2017020732-a61-publishing",
       "gameUrl": "images/marchand-games/2017020732-a61-publishing/game.webp?v=d5241214bafe",
       "gameSha256": "d5241214bafe80d9f0d76d43d72923c45378c7468a97924c54b1cd04eaafb591"
@@ -6339,6 +6419,51 @@
     },
     {
       "repo": "host",
+      "path": "images/pucks/31/back.webp",
+      "bytes": 1765876,
+      "sha256": "63c7367351de437c60af6e970bf301b0fdcb8bc9698196b294e09dba483d19ce",
+      "owners": [
+        31
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/31/coa.webp",
+      "bytes": 1307928,
+      "sha256": "bb9c59209b0604d707f9ca4fbe3238e665c31d1391f86923f325df9baab72bf6",
+      "owners": [
+        31
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/31/edge-01.webp",
+      "bytes": 1667008,
+      "sha256": "0a7baab462b917575dc3d662d0ae45063707c8c3dfba58cbe340088f9a673e03",
+      "owners": [
+        31
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/31/front-thumb.webp",
+      "bytes": 55000,
+      "sha256": "71f814a315ca723f76f3792234781bfb1bd02985ded4f2494054fbec109171d7",
+      "owners": [
+        31
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/31/front.webp",
+      "bytes": 1754466,
+      "sha256": "42f776a3ecb69816e4bcdaa039ce9835ef216bf78e903ed734818281b9de722d",
+      "owners": [
+        31
+      ]
+    },
+    {
+      "repo": "host",
       "path": "images/pucks/310/back.webp",
       "bytes": 747368,
       "sha256": "64f00f262d4776fb7f19ca828fce276386e349830ebc98b6036ad51e7b3605d6",
@@ -8481,6 +8606,69 @@
     },
     {
       "repo": "host",
+      "path": "images/pucks/49-20220506/back.webp",
+      "bytes": 1800978,
+      "sha256": "8c0bef2ee6de437a8e8f186c570601bcb6b32da59a273d57fada2e2652412638",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/coa.webp",
+      "bytes": 1444786,
+      "sha256": "3f186c53243ae8b03e05abfa6238047abbbfa1033949bbc4910264da7d85d218",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/edge-01.webp",
+      "bytes": 1636176,
+      "sha256": "fdc8a036c9806c1fe47af8102cb1ad0a919b35b4cbff7d918fc33fa976084a79",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/edge-02.webp",
+      "bytes": 1761364,
+      "sha256": "dfbc835227d01a524b8a6e1da6949ebc3cf3a40558d5a878914e89f35f0c8eee",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/edge-03.webp",
+      "bytes": 1866328,
+      "sha256": "fb15d042b3d4f859a3b69e93a4b05e56b2549c4026f001b5ae4279587c4e840a",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/front-thumb.webp",
+      "bytes": 58022,
+      "sha256": "40fe0dfc1d9388a6bf2885dcf64fff153202b1f35b2d3861c25630a229686ba9",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/49-20220506/front.webp",
+      "bytes": 1844608,
+      "sha256": "3287cd4dd0dd23cc08527886e02061a6bf186f01d935a6e1617c1d5d50ed1588",
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "host",
       "path": "images/pucks/49/back.webp",
       "bytes": 748156,
       "sha256": "b1c39737c8d87c80cac7db2478ebe7b6a9f20a2cc0d0b1334329c2a9b6bdcbc9",
@@ -9089,6 +9277,60 @@
       "sha256": "0d1aa9c8e308c11fad50a0ab2161434cc1cdaded9a024b9492fee246c091c6e1",
       "owners": [
         60
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/back.webp",
+      "bytes": 1942838,
+      "sha256": "c041766c6fa4d01e863529956b027867ba41b42c88e19985e55bd5dd46df3fa1",
+      "owners": [
+        61
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/coa.webp",
+      "bytes": 1441214,
+      "sha256": "c52eb008389bae8e8319c9575defb4ff86bba91f8855c196a96b38b5958f1ea1",
+      "owners": [
+        61
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/edge-01.webp",
+      "bytes": 2112624,
+      "sha256": "62209010923ce0551ac033519052abfa301f76f23193268c05d4442d8b8e07dc",
+      "owners": [
+        61
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/edge-02.webp",
+      "bytes": 2140426,
+      "sha256": "bfb7d043b6a4939569fb8a3acc2b53a35318d6c241b579e950ac168bad957d6e",
+      "owners": [
+        61
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/front-thumb.webp",
+      "bytes": 60640,
+      "sha256": "4b950a95c551b5a381a7b5e332ac145411356c82c4942f0a2fca87ea4c07ddd5",
+      "owners": [
+        61
+      ]
+    },
+    {
+      "repo": "host",
+      "path": "images/pucks/61-20180123/front.webp",
+      "bytes": 1942890,
+      "sha256": "2d103599330dcb14806f4f527b517739486c95fc6a62e5fb7accbac71bbbce7b",
+      "owners": [
+        61
       ]
     },
     {
@@ -10529,6 +10771,24 @@
       "bytes": 73950,
       "owners": [
         22
+      ]
+    },
+    {
+      "repo": "site",
+      "path": "images/marchand-games/2021030133-a49-intake-20261020/game-thumb.webp",
+      "sha256": "87a68ed2ed8e6df97c405b84eabf90d78046af197d59e4c14366aa116dfdf76e",
+      "bytes": 57414,
+      "owners": [
+        49
+      ]
+    },
+    {
+      "repo": "site",
+      "path": "images/marchand-games/2021030133-a49-intake-20261020/game.jpg",
+      "sha256": "60b52a6d53b8671b7e9f21831e0784e20b3ea6c3f6c379ae64b591278bcd3d83",
+      "bytes": 2606887,
+      "owners": [
+        49
       ]
     },
     {

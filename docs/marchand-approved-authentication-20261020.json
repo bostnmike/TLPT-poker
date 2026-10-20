@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-20",
+  "source": "Approved Three Puck Canonical Handoff-v2; owner proof f60bd156",
+  "schema": {
+    "Authentication Issuer": "authenticationIssuer",
+    "Hologram Number": "authenticationSerial",
+    "Authentication Record URL": "authenticationRecordUrl",
+    "Additional Authentication Issuer": "authenticationAlternateIssuer",
+    "Additional Hologram Number": "authenticationAlternateSerial",
+    "Additional Authentication Record URL": "authenticationAlternateRecordUrl",
+    "Authentication Lookup Instructions": "authenticationLookupInstructions"
+  },
+  "records": [
+    {
+      "inventoryId": 31,
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA37970",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37970",
+          "mode": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA37970",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37970",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      },
+      "verification": "Matched owner-approved COA and ordinary puck-back hologram; official lookup prefilled. CAPTCHA may be required; no successful issuer-record result claimed."
+    },
+    {
+      "inventoryId": 49,
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA37776",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37776",
+          "mode": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA37776",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37776",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      },
+      "verification": "Matched owner-approved COA and ordinary puck-back hologram; official lookup prefilled. CAPTCHA may be required; no successful issuer-record result claimed."
+    },
+    {
+      "inventoryId": 61,
+      "entries": [
+        {
+          "issuer": "MeiGray",
+          "serial": "MGA11235",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA11235",
+          "mode": "prefilled-captcha"
+        }
+      ],
+      "fields": {
+        "Authentication Issuer": "MeiGray",
+        "Hologram Number": "MGA11235",
+        "Authentication Record URL": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA11235",
+        "Additional Authentication Issuer": "",
+        "Additional Hologram Number": "",
+        "Additional Authentication Record URL": "",
+        "Authentication Lookup Instructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed."
+      },
+      "verification": "Matched owner-approved COA and ordinary puck-back hologram; official lookup prefilled. CAPTCHA may be required; no successful issuer-record result claimed."
+    }
+  ]
+}

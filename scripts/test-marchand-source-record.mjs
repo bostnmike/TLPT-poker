@@ -93,3 +93,11 @@ for (const [id, views] of Object.entries(photos)) {
   for (const view of views) assert.doesNotMatch(view.caption ?? '', /not a formal certificate|no individual serial/i, `Artifact ${id} caption`);
 }
 console.log('PASS: digital COAs appear in database detail; packaging identifiers remain distinct; actual certificate and marking conflicts retained.');
+
+for (const id of [31,49,61]) {
+ const record=byId.get(id);context.renderSourceRecord(record);
+ const shown=context.elements.sourceGrid.children[0].children.find(field=>field.children[0].textContent==='Notes');
+ assert.equal(shown.children[1].textContent,record.publicNotes);
+ assert.doesNotMatch(shown.children[1].textContent,/images\/pucks|namespace|approval|source_sha/i);
+ assert.ok(record.sourceData.find(field=>field.label==='Notes').value.length>record.publicNotes.length,'Full canonical notes remain stored');
+}

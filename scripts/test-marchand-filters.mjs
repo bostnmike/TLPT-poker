@@ -117,7 +117,10 @@ const pressStat = (filter) => statButtons.find((button) => button.dataset.collec
 const change = (id, value) => { element(id).value = value; element(id).dispatch("change"); };
 for (const id of [31, 61]) {
   const record = payload.records.find((entry) => entry.inventoryId === id);
-  // Inject a stale mapping and legacy fallback to prove neither can leak.
+  // Simulate a future incoming record; restore the approved photos after this guard check.
+  const approvedPhotos = photoManifest.artifacts[id];
+  const approvedReceiptStatus = record.receiptStatus, approvedPhotoStatus = record.photoStatus;
+  record.receiptStatus = "Incoming — not yet in hand"; record.photoStatus = "Pending owner receipt";
   photoManifest.artifacts[id] = [{label: "Front", url: `old-object-${id}.webp`}];
   record.imageUrl = `old-object-${id}.webp`;
   element("clear-filters").click();
@@ -137,9 +140,11 @@ for (const id of [31, 61]) {
   assert.equal(element("artifact-coa-full-size").hidden, true);
   assert.match(element("artifact-dialog-facts").textContent, /Incoming — not yet in hand/);
   assert.equal(row.children[8].children[0].disabled, false);
-  delete photoManifest.artifacts[id];
+  photoManifest.artifacts[id] = approvedPhotos;
+  record.receiptStatus = approvedReceiptStatus; record.photoStatus = approvedPhotoStatus;
   delete record.imageUrl;
 }
+element("clear-filters").click();
 const frontPhotos = Object.entries(photoManifest.artifacts)
   .map(([id, photos]) => {
     const front = photos.find((photo) => photo.label.toLowerCase() === "front");
@@ -231,14 +236,14 @@ assert.equal(element("artifact-game-photo-credit").hidden, true);
 gamePhotoManifest.artifacts[noPhotoKey] = savedReference;
 assert.equal(element("artifact-puck-image").hidden, true);
 assert.equal(statButtons.length, 7);
-assert.equal(rows().length, 171);
+assert.equal(rows().length, 172);
 assert.equal(element("sheet-filter").children.find((option) => option.value === "Goals & Games").textContent, "Goals");
 assert.equal(element("puck-filter").children.find((option) => option.value === "Warm-Up Puck").textContent, "Warm-Up Puck");
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 50);
 assert.ok(shownIds().includes(335));
 change("team-filter", "Boston Bruins");
-assert.equal(rows().length, 120);
+assert.equal(rows().length, 121);
 assert.ok(!shownIds().includes(335));
 change("team-filter", "");
 assert.equal(element("artifact-dialog").open, true, "vault artifact links should open the requested deep dive on page load");
@@ -265,13 +270,13 @@ assert.deepEqual(shownIds().sort((a,b) => a-b), [6, 51, 71, 74]);
 change("team-filter", "Florida Panthers");
 assert.equal(rows().length, 0, "Perfection Line must combine with the selected team");
 element("clear-filters").click();
-assert.equal(rows().length, 171);
+assert.equal(rows().length, 172);
 assert.equal(element("category-filter").value, "");
 change("category-filter", "PO Goal");
 assert.ok(shownIds().includes(51), "Perfection Line pucks must retain their original category");
 change("category-filter", "");
 
-for (const [filter, expected] of [["Goals & Games", 74], ["Milestones", 43], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 171]]) {
+for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 43], ["Road to History", 10], ["Road to Repeat", 27], ["Hockey Fights Cancer", 10], ["Warm-Up Pucks", 8], ["all", 172]]) {
   change("team-filter", "Florida Panthers");
   element("collection-search").value = "conflicting search";
   pressStat(filter);
@@ -293,7 +298,7 @@ change("category-filter", "Road to History");
 assert.equal(rows().length, 10);
 assert.equal(element("road-to-history-story").hidden, false);
 element("clear-filters").click();
-assert.equal(rows().length, 171);
+assert.equal(rows().length, 172);
 assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 

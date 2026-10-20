@@ -2,11 +2,11 @@
   "meta": {
     "version": 1,
     "reviewedAt": "2026-09-29",
-    "records": 171,
+    "records": 172,
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates.",
-    "latestAdditionsReviewedAt": "2026-10-16"
+    "latestAdditionsReviewedAt": "2026-10-20"
   },
   "artifacts": {
     "goal-1": {
@@ -5046,6 +5046,39 @@
           "shots": 1,
           "toi": "19:38"
         }
+      }
+    },
+    "goal-49": {
+      "inventoryId": 49,
+      "date": "2022-05-06",
+      "team": "Boston Bruins",
+      "gameId": 2021030133,
+      "title": "A playoff goal to pull Boston back into the series",
+      "paragraphs": [
+        "Marchand put Boston ahead 2–1 at 5:41 of the second period, beating Pyotr Kochetkov at even strength with Patrice Bergeron earning the sole assist. His first goal of the 2022 playoffs was his 46th career playoff goal. Marchand added two assists as Boston won 4–2 in Game 3 at TD Garden, cutting Carolina’s series lead to 2–1. David Pastrnak scored Boston’s game-winning goal later in the second period."
+      ],
+      "sources": [
+        {
+          "label": "NHL game summary and box score",
+          "url": "https://www.nhl.com/gamecenter/2021030133"
+        }
+      ],
+      "verification": {
+        "scoring": "https://api-web.nhle.com/v1/gamecenter/2021030133/landing",
+        "boxscore": "https://api-web.nhle.com/v1/gamecenter/2021030133/boxscore",
+        "marchand": {
+          "goals": 1,
+          "assists": 2,
+          "points": 3,
+          "shots": 1,
+          "toi": "19:45"
+        },
+        "goalEvent": 403,
+        "goalClipId": "6335822476112",
+        "goalType": "5-on-5 ESG",
+        "gameWinningGoal": false,
+        "careerPlayoffGoal": 46,
+        "seasonPlayoffGoal": 1
       }
     }
   }

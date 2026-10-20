@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "revision": "Approved-Three-Puck-Intake-Book-20261020-v18",
+  "status": "VALIDATED_CURRENT172_INTERIOR_AND_APPROVED_MEDIA;WEBSITE_RELEASE_QA_TRACKED_SEPARATELY;MATCHING240PAGE_COVER_PENDING",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/Handoff.json",
+    "sha256": "f45d0d47062d29473d44d90ffdc18b660586fb17314f1a7bd8d5b8248b75af2d",
+    "bytes": 10524
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Approved-Three-Puck-Intake-240page-Edition-20261020-v18/Exhibit63-Approved-Three-Puck-Intake-240page-Interior-October20-2026-v18.pdf",
+    "sha256": "5f69754dba36a61ced7a77b394c3924039090b8266f6769c3064642408274eed",
+    "bytes": 953697169,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/Game-Photo-Index.json",
+    "sha256": "05deebe451354fb9984c0ea15e2cf6cc8667f00b694912dd3b38b8e26bb3aa01",
+    "bytes": 207042
+  },
+  "source_freeze": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Approved-Three-Puck-Intake-240page-Edition-20261020-v18/SOURCE-v2/source-freeze.json",
+    "sha256": "b67b40cccc7782aaf8e15b2641d8b6d22172663b42e39d3aa481c23cc3ca2b1d",
+    "bytes": 18345
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Current-172-Media-Manifest.json",
+    "sha256": "55eb130b8becd7ae55fb8fc34da1c7b42d56da1c2eb638e4ed10cb55ce076d4d",
+    "bytes": 142225
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
+      "bytes": 104058
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "39d21e8d9edbfec10facfb47f6e6bd8198b391c7ea751af35ce611335b7b3172",
+      "bytes": 31803
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Handoff.json",
+    "sha256": "0cab27da1d6d5bcf3a86ebac96899aa56ebca488e6bddfa5a487e1932f8ac900",
+    "bytes": 13251
+  },
+  "portable": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Canonical-Collection-Records.json",
+    "sha256": "45a0a1e3ba055e644f6bf8eeca20fa3593b0010c589f092f5b9480538a4c3239",
+    "bytes": 383228
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
+    "sha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
+    "bytes": 2379
+  },
+  "owner_approval": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Canonical Handoff 2026-10-20-v3/Owner-Approval.json",
+    "sha256": "554d10167302ad6f522969adef6ee5436c03eb4e5e575bcedcb149cd9730748e",
+    "bytes": 2385
+  },
+  "counts": {
+    "catalog_records": 172,
+    "active_physical_document_views": 828,
+    "document_cards": 134,
+    "unique_active_document_images": 133,
+    "original_native_document_streams": 131,
+    "selected_game_images": 172,
+    "combined_gallery_views": 1000,
+    "historical_original_source_views": 845
+  },
+  "document_view_specification": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/Document-View-Specification.json",
+    "sha256": "936eca852de5e87b43c355e022feb2c013f6ee4e4fe5496fcab5b1bbc76c501c",
+    "bytes": 828505
+  },
+  "page_mapping": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/Page-Mapping.json",
+    "sha256": "dc8e458194b90c130efc787d8f7dc2e714cd54c8368c31c3a218d5c2d8717462",
+    "bytes": 30022
+  },
+  "artifact_pages": {
+    "31": 54,
+    "49": 72,
+    "61": 82
+  },
+  "new_coa_page": 220,
+  "cover_reference_only": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
+    "sha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
+    "bytes": 23494936,
+    "pages": 1,
+    "dimensions_inches": [
+      27.208,
+      11.625
+    ],
+    "spine_inches": 1.097,
+    "artifact_count": 171,
+    "reused_unchanged": true,
+    "prior_page_count": 236,
+    "status": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
+    "for_prior_page_count": 236,
+    "fits_current240page_book": false
+  },
+  "print_configuration": {
+    "paper": "Premium Lustre",
+    "interior_pages": 240,
+    "paper_page_count_fits": true,
+    "paper_changed": false,
+    "paper_choice_pending": false,
+    "matching240page_cover_pending": true,
+    "status": "INTERIOR_PAGE_COUNT_FITS; MATCHING_COVER_PENDING"
+  },
+  "print_ready": false,
+  "unqualified_publish_ready": false,
+  "privacy": "Private book and proof PDFs; only approved individual media assets are publicly hosted.",
+  "upstream_qa": {
+    "Technical-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Technical-QA.json",
+      "sha256": "6329ba70b83c519919c68b1a410aa2fc09671448a982df776d06ab1554547a29",
+      "bytes": 140216
+    },
+    "Corrected-Canonical172-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Corrected-Canonical172-QA.json",
+      "sha256": "eac3701953d0263dd0e73027dfc44436c059d7e695b2aadaa3e2bb50dbf85afd",
+      "bytes": 26808
+    },
+    "Editorial-Visual-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Editorial-Visual-QA.json",
+      "sha256": "d56a6ab9c4631135326ebc54d5d8f69a43842174d1c17a52da5a74857abe246c",
+      "bytes": 13915
+    },
+    "Root-Visual-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Root-Visual-QA.json",
+      "sha256": "0fae4d4c85c564896bb160627276df4996d29ee3d52162f086f7377c7c450d7c",
+      "bytes": 3156
+    },
+    "Actual-Master-Proof-Pixel-Pairs.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Actual-Master-Proof-Pixel-Pairs.json",
+      "sha256": "1941f68ea377f9c4d5bd0604caa782bd156644f788b29c9ac8ce3a331a3808ac",
+      "bytes": 4046
+    },
+    "Offline-Reproduction-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Book Handoff 2026-10-20-v18/QA/Offline-Reproduction-QA.json",
+      "sha256": "85144177a4de05c6db4ae60a87a5dc007557ca9674a918299cfd60d3ea3952e5",
+      "bytes": 5819
+    }
+  },
+  "upstream_qa_scope": "All referenced files, including actual full master/proof PDFs, independently hash-verified by Museum; Book supplied537 technical checks,30 actual visual reviews,5 master/proof pairs and byte-identical offline reproduction. Museum does not repeat print certification.",
+  "retired_derivative_copy_retention_supersession": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Legacy Image Permanent Deletion 2026-10-20-v1/Handoff.json",
+    "sha256": "09285be6d82c94fb3db78522b206f0f7b047693bb1a9d9b3a28fdb2fcc0939ad",
+    "bytes": 2628
+  },
+  "prior_v14_metadata": {
+    "path": "docs/marchand-book-v14-metadata-20261019.json",
+    "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0"
+  },
+  "registration_status": "Immutable initial172 registration; Data final completion follows actual live website QA without rewriting this snapshot.",
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt.json",
+    "sha256": "e953fcd125513b209c8758d9a0d38673538c5273109d97aa51e7c7bfa8d17536",
+    "bytes": 6193
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration.json",
+    "sha256": "dd80204821c92d91d1b34f6df86dff3d39b6e404aea5874e0c8b8938c85951bf",
+    "bytes": 163093
+  }
+}

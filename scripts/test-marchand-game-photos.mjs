@@ -4,14 +4,15 @@ import crypto from 'node:crypto';
 const read=name=>fs.readFileSync(new URL(`../${name}`,import.meta.url));
 const collection=JSON.parse(read('data/marchand-pucks.json'));
 const photos=JSON.parse(read('data/marchand-game-photos.json'));
-const index=JSON.parse(read('docs/marchand-game-photo-index-20261017.json')).records;
-assert.equal(collection.records.length,171);
-assert.equal(index.length,171);
-assert.equal(Object.keys(photos.artifacts).length,171);
-assert.equal(Object.keys(photos.assets).length,171);
-assert.equal(photos.meta.artifacts,171);
-assert.equal(photos.meta.assets,171);
-assert.equal(photos.meta.selectedGameImages,171);
+const indexData=JSON.parse(read('docs/marchand-game-photo-index-20261017.json'));
+const index=indexData.records;
+assert.equal(collection.records.length,172);
+assert.equal(index.length,172);
+assert.equal(Object.keys(photos.artifacts).length,172);
+assert.equal(Object.keys(photos.assets).length,172);
+assert.equal(photos.meta.artifacts,172);
+assert.equal(photos.meta.assets,172);
+assert.equal(photos.meta.selectedGameImages,172);
 assert.equal(photos.meta.withheldGameImages,0);
 assert.equal(photos.meta.uniqueImagePerSelectedArtifact,true);
 assert.equal(photos.meta.physicalPhotographySeparate,true);
@@ -51,10 +52,10 @@ for(const record of collection.records){
  if(mapping.photoDate!==record.date)assert.equal(record.inventoryId,705);
  for(const field of ['caption','credit','sourceUrl','nativeSha256','url','thumbnailUrl'])assert.equal(joined[field],photo[field]);
 }
-assert.equal(selectedCount,171);
+assert.equal(selectedCount,172);
 assert.equal(withheldCount,0);
 assert.ok(nonBrad.every(id=>[703,705].includes(id)));
-for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,171,`Selected images/originals must be distinct: ${field}`);
+for(const field of ['nativeSha256','originalAssetSha256','sha256'])assert.equal(new Set(Object.values(photos.assets).map(p=>p[field])).size,172,`Selected images/originals must be distinct: ${field}`);
 for(const [id,photo]of Object.entries(photos.assets)){
  assert.ok(photo.caption&&photo.originalCaption&&photo.credit);
  assert.match(photo.sourceUrl,/^https:\/\//);
@@ -107,24 +108,24 @@ assert.equal(selected('goal-40').videoSource.clip_id,'6347357564112');
 assert.match(selected('milestone-314').sourceEmbeddedCaption,/Barry Chin/);
 assert.match(selected('repeat-626').sourceEmbeddedCaption,/Sam Navarro/);
 assert.ok(selected('milestone-317').rawIptcQualification);
-assert.equal(photos.artifacts['goal-49'],undefined);
+assert.equal(photos.artifacts['goal-49'].inventoryId,49);
 assert.equal(photos.artifacts['milestone-342'].inventoryId,342);
 assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
 assert.equal(photos.artifacts['warmup-713'].photoDate,'2025-12-30');
 assert.match(selected('warmup-713').caption,/Kevin/);
 assert.match(byId(713).notes,/reached November 13, 2025/);
-assert.equal(collection.meta.currentCanonicalMasterSha256,'c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127');
+assert.equal(collection.meta.currentCanonicalMasterSha256,'b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0');
 assert.equal(collection.meta.priorCanonicalMetadataBeforeLegacyCleanup.currentCanonicalMasterSha256,'f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9');
 assert.equal(byId(30).sourceData.find(field=>field.label==='Detail Image Filenames').value,'images/pucks/30/edge-01.webp; images/pucks/30/edge-02.webp; images/pucks/30/edge-03.webp; images/pucks/30/edge-05.webp');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.latestCanonicalUpdate.sourceSha256,collection.meta.currentCanonicalMasterSha256);
 assert.equal(collection.meta.currentCanonicalMaster.nativeExcelAppTest,'PASS');
 assert.equal(photos.meta.nativeExcelAppTest,'PASS');
-assert.equal(photos.meta.sourceIndexSha256,'fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f');
+assert.equal(photos.meta.sourceIndexSha256,indexData.sourceIndexSha256);
 assert.equal(photos.meta.changedNativeImages.length,1);
 assert.equal(photos.meta.retainedNativeImages.length,170);
 assert.equal(photos.meta.restoredArchivedNativeImages.length,0);
-console.log('PASS:171 distinct singular gallery tails;1 exact nativeJPEG replacement;170 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner consolidation resolved.');
+console.log('PASS:172 distinct singular gallery tails;1 exact nativeJPEG replacement;170 retained/no restorations;source credits;correct19/27 links;713 ceremony;Excel PASS;owner consolidation resolved.');
 
 // Owner-approved v2 context must be visible, not only implicit in image type.
 for(const id of [2,36,56,303,305,506,601,702]){const r=byId(id),a=selected(r.key);assert.equal(a.label,a.displayLabel);assert.ok(a.displayLabel);assert.match(a.url,/targeted-v2-20261018-/);assert.equal(a.sourceRevision,'Targeted-Photo-Edition-20261018-v2');assert.equal(a.sha256,a.nativeSha256);assert.doesNotMatch(a.finalVisualReview.scope,/pending/i);if(a.imageKind==='photograph')assert.equal(a.videoSource,undefined);}
@@ -139,12 +140,12 @@ assert.match(selected('goal-36').displayLabel,/PREGAME/);
 assert.match(selected('goal-2').displayLabel,/POSTGAME/);
 assert.match(selected('repeat-601').displayLabel,/GAME ACTION/);
 assert.match(selected('hfc-702').displayLabel,/SHOOTOUT WIN/);
-assert.equal(photos.meta.photographs,92);assert.equal(photos.meta.videoStills,79);
+assert.equal(photos.meta.photographs,93);assert.equal(photos.meta.videoStills,79);
 
 assert.equal(photos.artifacts['goal-57'],undefined);
 assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
 assert.deepEqual(photos.meta.openOwnerReview,[]);
-assert.equal(photos.meta.revision,'Three-Autograph-COAs-240page-Edition-20261019-v14');
+assert.equal(photos.meta.revision,'Approved-Three-Puck-Intake-Book-20261020-v18');
 for(const id of [67,602,605,608,617,621,622,625]){
  const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
  assert.equal(a.sourceRevision,'Canonical-Consolidated-Edition-20261018-v4');assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');
@@ -170,4 +171,4 @@ assert.equal(owner708.caption,'Marchand and Malkin at Consol Energy Center.');
 assert.equal(owner708.credit,'Gregory Shamus / NHLI via Getty Images');assert.equal(owner708.sourceUrl,'https://www.gettyimages.com/detail/187101132');
 assert.equal(byId(708).videoUrl,'https://www.youtube.com/watch?v=thyZzfvmliU');
 assert.deepEqual(photos.meta.openQualityIds,[]);assert.deepEqual(photos.meta.resolvedPriorQualityIds,[708]);
-assert.equal(index.find(r=>r.inventoryId===343).bookPage,142);
+assert.equal(index.find(r=>r.inventoryId===343).bookPage,143);

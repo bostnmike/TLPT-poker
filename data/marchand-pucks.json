@@ -2,13 +2,13 @@
   "meta": {
     "source": "Marchand_Puck_Collection_FullIngest.xlsx",
     "sourceSha256": "aafa996e674e0e39c561be1644936eb6acd651b4826699b3f1446948e71f6bed",
-    "records": 171,
-    "goalsAndGames": 74,
+    "records": 172,
+    "goalsAndGames": 75,
     "milestones": 43,
     "roadToHistory": 10,
-    "videos": 171,
+    "videos": 172,
     "sourceSheets": {
-      "Goals & Games": 74,
+      "Goals & Games": 75,
       "Milestones": 43,
       "Road to History": 10,
       "Road to Repeat": 27,
@@ -19,31 +19,29 @@
     "hockeyFightsCancer": 9,
     "warmUpPucks": 8,
     "hfcExhibitCount": 10,
-    "incomingRecords": 2,
+    "incomingRecords": 0,
     "latestCanonicalAddition": {
-      "date": "2026-10-16",
+      "date": "2026-10-20",
       "inventoryIds": [
-        31,
-        61
+        49
       ],
-      "sourceSha256": "82c5759b5a0c01a7a89f8a1702c92811ac63bb893b7c9b61f1313342d921c576",
-      "scope": "Added two canonical rows; 170 previously published artifact records preserved."
+      "sourceSha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
+      "scope": "Add owner-approved May6,2022 playoff goal as49 using a fresh physical namespace; all169 unrelated existing record objects preserved."
     },
     "latestCanonicalUpdate": {
       "date": "2026-10-20",
-      "sourceSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+      "sourceSha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
       "inventoryIds": [
-        30
+        31,
+        49,
+        61
       ],
-      "sourceCells": [
-        "Goals & Games!V31"
-      ],
-      "scope": "Remove only redundant edge-04 filename, whose bytes duplicate retained edge-03. All 171 artifact identities, facts, gallery URLs and images remain unchanged.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Handoff.json",
-      "receiptSha256": "e503b1c188db68ec8972c790cb7df7b834b73f730070ce9f37a1d269c12abf5a",
-      "nativeExcelStatus": "PASS_ACTUAL_FRESH_PRIMARY_OPEN_RECALCULATE_171_ALL_FOUR_CHARTS",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Handoff.json",
+      "receiptSha256": "0cab27da1d6d5bcf3a86ebac96899aa56ebca488e6bddfa5a487e1932f8ac900",
       "nativeExcelAppTest": "PASS",
-      "wordChanged": false
+      "wordChanged": true,
+      "scope": "Owner-approved canonical172 intake, exact15photo filenames and matching holograms; no separate hologram assets.",
+      "video49ClipId": "6335822476112"
     },
     "canonicalUpdateHistory": [
       {
@@ -137,22 +135,22 @@
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+    "currentCanonicalMasterSha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+      "sha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
       "wordSource": "BM63-Goal-Puck-List.docx",
-      "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+      "wordSha256": "39d21e8d9edbfec10facfb47f6e6bd8198b391c7ea751af35ce611335b7b3172",
       "verifiedDate": "2026-10-20",
       "nativeExcelAppTest": "PASS",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
-      "verificationReceiptSha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
-      "projection": "Actual canonical V31 duplicate edge filename removed, all 171 facts/identities and Word preserved; completed fresh native Excel test, recalculation to171 and allfourcharts verified."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
+      "verificationReceiptSha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
+      "projection": "Owner-approved three-puck receipt: new49 plus completed31/61 photography and matching MeiGray serials. Actual canonical172 and native Excel application verification passed."
     },
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
-      "sha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
-      "bytes": 2182
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
+      "sha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
+      "bytes": 2379
     },
     "canonicalVerificationHistory": [
       {
@@ -243,18 +241,8 @@
       "sourceHandoffSha256": "a5d1d5c87cf24eaaf6fa1464d0b4aa43c59dc03d19b52e8e839d623b58e2aa2b",
       "registrationStatus": "REGISTERED; DATA/MEDIA VALIDATION PASS; NATIVE EXCEL PASS"
     },
-    "sourceHandoffSha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
-    "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Reconciliation 2026-10-19-v1.json",
-      "sha256": "635332265a79602207ab9239d7a3b85ceba8059f82391bd926565c2d1bbb4b24",
-      "bytes": 11443
-    },
-    "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Registration 2026-10-19-v14/Registry-at-registration.json",
-      "sha256": "af946d57f92d7423ef47fc6e88bb4ecb2a0949a9fde7c6058b3804ae89021bd8",
-      "bytes": 95684
-    },
-    "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS",
+    "sourceHandoffSha256": "f45d0d47062d29473d44d90ffdc18b660586fb17314f1a7bd8d5b8248b75af2d",
+    "registrationStatus": "Immutable initial172 registration; Data final completion follows actual live website QA without rewriting this snapshot.",
     "ownerAuthorizedCOAAssignment": {
       "path": "docs/marchand-coa-assignments-20261019.json",
       "sha256": "29c1e5d07d71af5840a27ecd947ec770549039c856b632b1043a10e8fa01658f",
@@ -347,9 +335,9 @@
       }
     },
     "currentMediaAndBookPublication": {
-      "path": "docs/marchand-book-v14-metadata-20261019.json",
-      "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0",
-      "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14"
+      "path": "docs/marchand-book-v18-metadata-20261020.json",
+      "sha256": "a6a96214aabc9fbdbdd3fab0face5ccbdeaf68f983eb53b767749dbdf928503f",
+      "revision": "Approved-Three-Puck-Intake-Book-20261020-v18"
     },
     "historicalV8PreparedBookBindings": {
       "sourceHandoffSha256": "fecbf81693d63dddb36daf45d89765c3805da01707e846c061ee56ea9af99f83",
@@ -562,6 +550,101 @@
         "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
         "bytes": 3475
       }
+    },
+    "priorCanonicalMetadataBeforeApprovedIntake": {
+      "currentCanonicalMasterSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+      "currentCanonicalMaster": {
+        "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+        "wordSource": "BM63-Goal-Puck-List.docx",
+        "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "verifiedDate": "2026-10-20",
+        "nativeExcelAppTest": "PASS",
+        "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
+        "verificationReceiptSha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
+        "projection": "Actual canonical V31 duplicate edge filename removed, all 171 facts/identities and Word preserved; completed fresh native Excel test, recalculation to171 and allfourcharts verified."
+      },
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
+        "sha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
+        "bytes": 2182
+      },
+      "latestCanonicalUpdate": {
+        "date": "2026-10-20",
+        "sourceSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
+        "inventoryIds": [
+          30
+        ],
+        "sourceCells": [
+          "Goals & Games!V31"
+        ],
+        "scope": "Remove only redundant edge-04 filename, whose bytes duplicate retained edge-03. All 171 artifact identities, facts, gallery URLs and images remain unchanged.",
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Handoff.json",
+        "receiptSha256": "e503b1c188db68ec8972c790cb7df7b834b73f730070ce9f37a1d269c12abf5a",
+        "nativeExcelStatus": "PASS_ACTUAL_FRESH_PRIMARY_OPEN_RECALCULATE_171_ALL_FOUR_CHARTS",
+        "nativeExcelAppTest": "PASS",
+        "wordChanged": false
+      },
+      "latestCanonicalAddition": {
+        "date": "2026-10-16",
+        "inventoryIds": [
+          31,
+          61
+        ],
+        "sourceSha256": "82c5759b5a0c01a7a89f8a1702c92811ac63bb893b7c9b61f1313342d921c576",
+        "scope": "Added two canonical rows; 170 previously published artifact records preserved."
+      }
+    },
+    "priorApprovedIntakeVideoCorrection": {
+      "masterSha256": "ed096ba9a69392a021ba7338cb25a8bd4642c67f9c7fc841dd7f0686eb1f4d32",
+      "nativeExcelReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Canonical Handoff 2026-10-20-v3/Native-Excel-verification.json",
+        "sha256": "9713cc7f464375af84004bd7900e0a24c9b1c2fc4fc5fdca29086394506152ba",
+        "bytes": 3808
+      },
+      "latestCanonicalUpdate": {
+        "date": "2026-10-20",
+        "sourceSha256": "ed096ba9a69392a021ba7338cb25a8bd4642c67f9c7fc841dd7f0686eb1f4d32",
+        "inventoryIds": [
+          31,
+          49,
+          61
+        ],
+        "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Canonical Handoff 2026-10-20-v3/Handoff-v2.json",
+        "receiptSha256": "ecefb15d2c2f9070c85b6895ac1db33776223e85fef6a04b1677c084eb83b49c",
+        "nativeExcelAppTest": "PASS",
+        "wordChanged": true,
+        "scope": "Owner-approved canonical172 intake, exact15photo filenames and matching holograms; no separate hologram assets."
+      }
+    },
+    "historicalV14PublicationBindings": {
+      "sourceHandoffSha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Reconciliation 2026-10-19-v1.json",
+        "sha256": "635332265a79602207ab9239d7a3b85ceba8059f82391bd926565c2d1bbb4b24",
+        "bytes": 11443
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Three Autograph COA Book Registration 2026-10-19-v14/Registry-at-registration.json",
+        "sha256": "af946d57f92d7423ef47fc6e88bb4ecb2a0949a9fde7c6058b3804ae89021bd8",
+        "bytes": 95684
+      },
+      "registrationStatus": "REGISTERED;DATA/MEDIA VALIDATION PASS;NATIVEEXCELPASS",
+      "currentMediaAndBookPublication": {
+        "path": "docs/marchand-book-v14-metadata-20261019.json",
+        "sha256": "494cb3cee49ccdb6cfa234d5c3c6be3f075627491be3714c6fef9d4698709ed0",
+        "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14"
+      }
+    },
+    "mediaRegistrationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt.json",
+      "sha256": "e953fcd125513b209c8758d9a0d38673538c5273109d97aa51e7c7bfa8d17536",
+      "bytes": 6193
+    },
+    "mediaRegistryAtRegistration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration.json",
+      "sha256": "dd80204821c92d91d1b34f6df86dff3d39b6e404aea5874e0c8b8938c85951bf",
+      "bytes": 163093
     }
   },
   "records": [
@@ -7045,7 +7128,7 @@
         },
         {
           "label": "Notes",
-          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
+          "value": "Physical puck, front/back/edge photographs and matching MeiGray COA documented from owner-supplied originals received October 20, 2026. COA and puck hologram both show MGA37970. Original incoming-purchase status is superseded. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
           "url": ""
         },
         {
@@ -7055,53 +7138,53 @@
         },
         {
           "label": "Front Image Filename",
-          "value": "",
+          "value": "images/pucks/31/front.webp",
           "url": ""
         },
         {
           "label": "Back Image Filename",
-          "value": "",
+          "value": "images/pucks/31/back.webp",
           "url": ""
         },
         {
           "label": "Detail Image Filenames",
-          "value": "",
+          "value": "images/pucks/31/edge-01.webp",
           "url": ""
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/31/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Type",
-          "value": "",
+          "value": "COA / Supporting Document",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "",
+          "value": "images/pucks/31/back.webp; images/pucks/31/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+          "value": "Owner-supplied photographs received October 20, 2026 document the physical puck and Washington Capitals–MeiGray COA. Matching printed MeiGray serial MGA37970 is visible on the COA (IMG_9927.JPG) and puck reverse (IMG_9929.JPG). The COA identifies January 10, 2022, Marchand regular-season career goal 334 / season goal 15, assisted by Matt Grzelcyk and David Pastrnak, Boston 7–3 Washington. The official NHL scoring event agrees. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the browser authentication form requires its current CAPTCHA. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.",
           "url": ""
         },
         {
           "label": "Authentication Issuer",
-          "value": "",
+          "value": "MeiGray",
           "url": ""
         },
         {
           "label": "Hologram Number",
-          "value": "",
+          "value": "MGA37970",
           "url": ""
         },
         {
           "label": "Authentication Record URL",
-          "value": "",
-          "url": ""
+          "value": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37970",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37970"
         },
         {
           "label": "Additional Authentication Issuer",
@@ -7120,7 +7203,7 @@
         },
         {
           "label": "Authentication Lookup Instructions",
-          "value": "",
+          "value": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
           "url": ""
         }
       ],
@@ -7141,7 +7224,7 @@
       "secondaryAssist": "DP88",
       "score": "Boston 7 @ Washington 3",
       "puckType": "Goal Scored Puck",
-      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
+      "notes": "Physical puck, front/back/edge photographs and matching MeiGray COA documented from owner-supplied originals received October 20, 2026. COA and puck hologram both show MGA37970. Original incoming-purchase status is superseded. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.\n\nMarchand tied the game 2–2 with a wrist shot at 19:14 of the first period on a 5-on-4 power play against Zach Fucale. Matt Grzelcyk earned the primary assist and David Pastrnak the secondary assist. This was Marchand’s first goal of the night, season goal 15 and regular-season career goal 334. His later even-strength goal at 10:59 of the third period was season goal 16 / career goal 335, against Vitek Vanecek, with Craig Smith and Grzelcyk assisting; it is a separate scoring play. Boston won 7–3. Marchand finished with two goals, one assist, five shots and 18:14 ice time. The selected goal was not the game-winner (Craig Smith scored Boston’s fourth goal). NHL goal event 220; official goal clip ID 6335868297112.\n\nCareer numbering independently checked from NHL regular-season data: 319 goals before the 2021–22 season + 14 earlier season goals + this goal = 334. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2021020632; https://api-web.nhle.com/v1/gamecenter/2021020632/landing; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021020632/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414\n\nThe “Bloody Nose Goal”: Nic Dowd’s high stick injured Marchand’s nose at 14:42 of the first period, drawing a high-sticking double minor. After treatment on the bench, Marchand returned with gauze in his nostrils. He assisted on Pastrnak’s 18:34 power-play goal before scoring the equalizer at 19:14, just 40 seconds later. The comeback sequence followed Washington’s 2–0 lead. This is the first-period goal represented by this puck, not Marchand’s separate third-period goal.\n\nPower-play source clarification: the equalizer was 5-on-4, as confirmed by the official NHL scoring/on-ice summary and play-by-play, and the contemporary Associated Press report. The Bruins recap’s 5-on-3 wording for this goal is erroneous; the existing database’s 5-on-4 identification remains correct.\n\nAdditional sources (reviewed October 16, 2026): https://www.nhl.com/scores/htmlreports/20212022/GS020632.HTM; https://api-web.nhle.com/v1/gamecenter/2021020632/play-by-play; https://www.sportsnet.ca/nhl/article/marchand-bloodied-scores-twice-bruins-win-capitals/",
       "goalieScoredAgainst": "Zach Fucale",
       "playerCodes": [
         "MG48",
@@ -7151,19 +7234,21 @@
       "videoUrl": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
       "videoProvider": "nhl",
       "videoId": "6335868297112",
-      "authenticationType": "",
-      "authenticationEvidence": "",
-      "authenticationNotes": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
-      "authenticationIssuer": "",
-      "authenticationSerial": "",
-      "authenticationRecordUrl": "",
+      "authenticationType": "COA / Supporting Document",
+      "authenticationEvidence": "images/pucks/31/back.webp; images/pucks/31/coa.webp",
+      "authenticationNotes": "Owner-supplied photographs received October 20, 2026 document the physical puck and Washington Capitals–MeiGray COA. Matching printed MeiGray serial MGA37970 is visible on the COA (IMG_9927.JPG) and puck reverse (IMG_9929.JPG). The COA identifies January 10, 2022, Marchand regular-season career goal 334 / season goal 15, assisted by Matt Grzelcyk and David Pastrnak, Boston 7–3 Washington. The official NHL scoring event agrees. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the browser authentication form requires its current CAPTCHA. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.",
+      "authenticationIssuer": "MeiGray",
+      "authenticationSerial": "MGA37970",
+      "authenticationRecordUrl": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37970",
       "authenticationAlternateIssuer": "",
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "",
-      "receiptStatus": "Incoming — not yet in hand",
-      "photoStatus": "Pending owner receipt",
-      "videoClipSourceUrl": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414"
+      "authenticationLookupInstructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+      "receiptStatus": "Received — photographed",
+      "photoStatus": "Owner-approved photographs",
+      "videoClipSourceUrl": "https://www.nhl.com/news/boston-bruins-washington-capitals-game-recap-329625414",
+      "publicNotes": "The MeiGray certificate and puck hologram both show MGA37970. This puck is from Marchand’s first goal of the night, his 334th regular-season career goal; his later goal in the same game is a separate scoring play.",
+      "publicAuthenticationNotes": "The MeiGray certificate and puck hologram both show MGA37970. The lookup opens with that number prefilled; complete the issuer’s CAPTCHA if requested."
     },
     {
       "key": "goal-32",
@@ -11050,6 +11135,222 @@
       "authenticationLookupInstructions": "The hologram number is prefilled. If Fanatics requests a key code, tilt the physical hologram to read its three-letter code."
     },
     {
+      "key": "goal-49",
+      "sourceSheet": "Goals & Games",
+      "sourceRow": 50,
+      "game": null,
+      "wins": null,
+      "losses": null,
+      "points": null,
+      "sourceData": [
+        {
+          "label": "ID",
+          "value": "49",
+          "url": ""
+        },
+        {
+          "label": "Home/Road",
+          "value": "Home",
+          "url": ""
+        },
+        {
+          "label": "Marchand Team",
+          "value": "Boston Bruins",
+          "url": ""
+        },
+        {
+          "label": "Category",
+          "value": "PO Goal",
+          "url": ""
+        },
+        {
+          "label": "Career Stat",
+          "value": "46",
+          "url": ""
+        },
+        {
+          "label": "Season Stat",
+          "value": "1",
+          "url": ""
+        },
+        {
+          "label": "Date",
+          "value": "2022-05-06",
+          "url": ""
+        },
+        {
+          "label": "Arena",
+          "value": "TD Garden",
+          "url": ""
+        },
+        {
+          "label": "Opponent",
+          "value": "Carolina Hurricanes",
+          "url": ""
+        },
+        {
+          "label": "Period",
+          "value": "2",
+          "url": ""
+        },
+        {
+          "label": "Time",
+          "value": "5:41",
+          "url": ""
+        },
+        {
+          "label": "Goal Type",
+          "value": "ESG",
+          "url": ""
+        },
+        {
+          "label": "Primary Assist",
+          "value": "PB37",
+          "url": ""
+        },
+        {
+          "label": "Secondary Assist",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Score",
+          "value": "Carolina 2 @ Boston 4",
+          "url": ""
+        },
+        {
+          "label": "Puck Type",
+          "value": "Goal Scored Puck",
+          "url": ""
+        },
+        {
+          "label": "Goal Video",
+          "value": "Game Highlights",
+          "url": "https://www.nhl.com/video/c-6335822476112"
+        },
+        {
+          "label": "Notes",
+          "value": "Physical puck documented by six owner-supplied original photographs received October 20, 2026. Owner assigned vacant artifact 49 to this May 6, 2022 purchase. Existing artifact 342 retains legacy media folder images/pucks/49; new artifact 49 requires a fresh media namespace.\n\nMarchand scored a 5-on-5 wrist-shot goal at 5:41 of the second period against Pyotr Kochetkov, assisted solely by Patrice Bergeron. It gave Boston a 2–1 lead in its eventual 4–2 home win over Carolina at TD Garden in Game 3 of the 2022 Eastern Conference First Round. This was Marchand’s first goal of the 2022 playoffs and 46th career Stanley Cup Playoff goal. It was not the game-winner: David Pastrnak scored Boston’s third goal at 14:53 of the second period.\n\nMarchand finished with one goal, two assists, three points, one shot on goal and 19:45 ice time. He assisted on Pastrnak’s second-period power-play goal and Taylor Hall’s third-period power-play goal. Boston cut Carolina’s series lead to 2–1.\n\nPlayoff career numbering independently checked against official NHL season totals: 45 playoff goals before 2021–22 + zero earlier goals in the 2022 playoffs + this goal = 46. Regular-season goals are separate and are not added to this total. NHL goal event 403; official goal clip ID 6335822476112.\n\nSources (reviewed October 20, 2026): https://www.nhl.com/gamecenter/2021030133; https://api-web.nhle.com/v1/gamecenter/2021030133/landing; https://api-web.nhle.com/v1/gamecenter/2021030133/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021030133/boxscore; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/scores/htmlreports/20212022/GS030133.HTM; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/3; https://media.nhl.com/site/vasset/public/attachments/2022/05/16059/MorningSkate050722.pdf\n\nOfficial NHL event-summary detail: total ice time 19:45 = even strength 12:03 + power play 5:22 + shorthanded 2:20. Marchand played 24 shifts (average 0:49), finished +1 with four penalty minutes, one hit and two blocked shots, and won his only faceoff (1–0, 100%). His one shot on goal was supplemented by two attempts blocked and three missed shots. Giveaways and takeaways were both zero in the official NHL boxscore. Source: https://www.nhl.com/scores/htmlreports/20212022/ES030133.HTM (reviewed October 20, 2026).",
+          "url": ""
+        },
+        {
+          "label": "Goalie Scored Against",
+          "value": "Pyotr Kochetkov",
+          "url": ""
+        },
+        {
+          "label": "Front Image Filename",
+          "value": "images/pucks/49-20220506/front.webp",
+          "url": ""
+        },
+        {
+          "label": "Back Image Filename",
+          "value": "images/pucks/49-20220506/back.webp",
+          "url": ""
+        },
+        {
+          "label": "Detail Image Filenames",
+          "value": "images/pucks/49-20220506/edge-01.webp; images/pucks/49-20220506/edge-02.webp; images/pucks/49-20220506/edge-03.webp",
+          "url": ""
+        },
+        {
+          "label": "COA Filename",
+          "value": "images/pucks/49-20220506/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Authentication Type",
+          "value": "COA / Supporting Document",
+          "url": ""
+        },
+        {
+          "label": "Authentication Evidence",
+          "value": "images/pucks/49-20220506/back.webp; images/pucks/49-20220506/coa.webp",
+          "url": ""
+        },
+        {
+          "label": "Authentication Notes",
+          "value": "Owner-supplied photographs received October 20, 2026 document the physical puck and Boston Bruins–MeiGray COA. Matching printed MeiGray serial MGA37776 is visible on the COA (IMG_9921.JPG) and 2022 Stanley Cup Playoffs puck reverse (IMG_9923.JPG). The COA identifies May 6, 2022, first round Game 3, Marchand playoff career goal 46 / 2022 playoff goal 1, assisted solely by Patrice Bergeron, Boston 4–2 Carolina. The official NHL scoring event agrees. Puck edges show the game date, CAR@BOS and MARCHAND across IMG_9924.JPG–IMG_9926.JPG. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the actual browser authentication form displayed the current CAPTCHA requirement. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used. Legacy media folder images/pucks/49 belongs to artifact342 and must not be reused.",
+          "url": ""
+        },
+        {
+          "label": "Authentication Issuer",
+          "value": "MeiGray",
+          "url": ""
+        },
+        {
+          "label": "Hologram Number",
+          "value": "MGA37776",
+          "url": ""
+        },
+        {
+          "label": "Authentication Record URL",
+          "value": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37776",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37776"
+        },
+        {
+          "label": "Additional Authentication Issuer",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Hologram Number",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Additional Authentication Record URL",
+          "value": "",
+          "url": ""
+        },
+        {
+          "label": "Authentication Lookup Instructions",
+          "value": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+          "url": ""
+        }
+      ],
+      "inventoryId": 49,
+      "homeRoad": "Home",
+      "team": "Boston Bruins",
+      "category": "PO Goal",
+      "careerStat": 46,
+      "seasonStat": 1,
+      "description": "",
+      "date": "2022-05-06",
+      "arena": "TD Garden",
+      "opponent": "Carolina Hurricanes",
+      "period": "2",
+      "time": "5:41",
+      "goalType": "ESG",
+      "primaryAssist": "PB37",
+      "secondaryAssist": "",
+      "score": "Carolina 2 @ Boston 4",
+      "puckType": "Goal Scored Puck",
+      "notes": "Physical puck documented by six owner-supplied original photographs received October 20, 2026. Owner assigned vacant artifact 49 to this May 6, 2022 purchase. Existing artifact 342 retains legacy media folder images/pucks/49; new artifact 49 requires a fresh media namespace.\n\nMarchand scored a 5-on-5 wrist-shot goal at 5:41 of the second period against Pyotr Kochetkov, assisted solely by Patrice Bergeron. It gave Boston a 2–1 lead in its eventual 4–2 home win over Carolina at TD Garden in Game 3 of the 2022 Eastern Conference First Round. This was Marchand’s first goal of the 2022 playoffs and 46th career Stanley Cup Playoff goal. It was not the game-winner: David Pastrnak scored Boston’s third goal at 14:53 of the second period.\n\nMarchand finished with one goal, two assists, three points, one shot on goal and 19:45 ice time. He assisted on Pastrnak’s second-period power-play goal and Taylor Hall’s third-period power-play goal. Boston cut Carolina’s series lead to 2–1.\n\nPlayoff career numbering independently checked against official NHL season totals: 45 playoff goals before 2021–22 + zero earlier goals in the 2022 playoffs + this goal = 46. Regular-season goals are separate and are not added to this total. NHL goal event 403; official goal clip ID 6335822476112.\n\nSources (reviewed October 20, 2026): https://www.nhl.com/gamecenter/2021030133; https://api-web.nhle.com/v1/gamecenter/2021030133/landing; https://api-web.nhle.com/v1/gamecenter/2021030133/play-by-play; https://api-web.nhle.com/v1/gamecenter/2021030133/boxscore; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/scores/htmlreports/20212022/GS030133.HTM; https://api-web.nhle.com/v1/player/8473419/game-log/20212022/3; https://media.nhl.com/site/vasset/public/attachments/2022/05/16059/MorningSkate050722.pdf\n\nOfficial NHL event-summary detail: total ice time 19:45 = even strength 12:03 + power play 5:22 + shorthanded 2:20. Marchand played 24 shifts (average 0:49), finished +1 with four penalty minutes, one hit and two blocked shots, and won his only faceoff (1–0, 100%). His one shot on goal was supplemented by two attempts blocked and three missed shots. Giveaways and takeaways were both zero in the official NHL boxscore. Source: https://www.nhl.com/scores/htmlreports/20212022/ES030133.HTM (reviewed October 20, 2026).",
+      "goalieScoredAgainst": "Pyotr Kochetkov",
+      "playerCodes": [
+        "PB37"
+      ],
+      "videoLabel": "Game Highlights",
+      "videoUrl": "https://www.nhl.com/video/c-6335822476112",
+      "videoProvider": "nhl",
+      "videoId": "6335822476112",
+      "authenticationType": "COA / Supporting Document",
+      "authenticationEvidence": "images/pucks/49-20220506/back.webp; images/pucks/49-20220506/coa.webp",
+      "authenticationNotes": "Owner-supplied photographs received October 20, 2026 document the physical puck and Boston Bruins–MeiGray COA. Matching printed MeiGray serial MGA37776 is visible on the COA (IMG_9921.JPG) and 2022 Stanley Cup Playoffs puck reverse (IMG_9923.JPG). The COA identifies May 6, 2022, first round Game 3, Marchand playoff career goal 46 / 2022 playoff goal 1, assisted solely by Patrice Bergeron, Boston 4–2 Carolina. The official NHL scoring event agrees. Puck edges show the game date, CAR@BOS and MARCHAND across IMG_9924.JPG–IMG_9926.JPG. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the actual browser authentication form displayed the current CAPTCHA requirement. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used. Legacy media folder images/pucks/49 belongs to artifact342 and must not be reused.",
+      "authenticationIssuer": "MeiGray",
+      "authenticationSerial": "MGA37776",
+      "authenticationRecordUrl": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA37776",
+      "authenticationAlternateIssuer": "",
+      "authenticationAlternateSerial": "",
+      "authenticationAlternateRecordUrl": "",
+      "authenticationLookupInstructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+      "receiptStatus": "Received — photographed",
+      "photoStatus": "Owner-approved photographs",
+      "publicNotes": "The MeiGray certificate and puck hologram both show MGA37776. Marchand’s first goal of the 2022 playoffs was his 46th career playoff goal. David Pastrnak scored the game-winning goal later in the period.",
+      "publicAuthenticationNotes": "The MeiGray certificate and puck hologram both show MGA37776. The lookup opens with that number prefilled; complete the issuer’s CAPTCHA if requested."
+    },
+    {
       "key": "goal-50",
       "sourceSheet": "Goals & Games",
       "sourceRow": 51,
@@ -13335,7 +13636,7 @@
         },
         {
           "label": "Notes",
-          "value": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
+          "value": "Physical puck, front/back/edge photographs and matching MeiGray COA documented from owner-supplied originals received October 20, 2026. COA and puck hologram both show MGA11235. Original incoming-purchase status is superseded. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
           "url": ""
         },
         {
@@ -13345,53 +13646,53 @@
         },
         {
           "label": "Front Image Filename",
-          "value": "",
+          "value": "images/pucks/61-20180123/front.webp",
           "url": ""
         },
         {
           "label": "Back Image Filename",
-          "value": "",
+          "value": "images/pucks/61-20180123/back.webp",
           "url": ""
         },
         {
           "label": "Detail Image Filenames",
-          "value": "",
+          "value": "images/pucks/61-20180123/edge-01.webp; images/pucks/61-20180123/edge-02.webp",
           "url": ""
         },
         {
           "label": "COA Filename",
-          "value": "",
+          "value": "images/pucks/61-20180123/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Type",
-          "value": "",
+          "value": "COA / Supporting Document",
           "url": ""
         },
         {
           "label": "Authentication Evidence",
-          "value": "",
+          "value": "images/pucks/61-20180123/back.webp; images/pucks/61-20180123/coa.webp",
           "url": ""
         },
         {
           "label": "Authentication Notes",
-          "value": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
+          "value": "Owner-supplied photographs received October 20, 2026 document the physical puck and Boston Bruins–MeiGray COA. Matching printed MeiGray serial MGA11235 is visible on the COA (IMG_9931.JPG) and puck reverse (IMG_9933.JPG). The COA identifies January 23, 2018, Marchand regular-season career goal 213 / season goal 21, assisted solely by David Pastrnak, Boston 3–2 New Jersey. The official NHL scoring event agrees. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the browser authentication form requires its current CAPTCHA. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.",
           "url": ""
         },
         {
           "label": "Authentication Issuer",
-          "value": "",
+          "value": "MeiGray",
           "url": ""
         },
         {
           "label": "Hologram Number",
-          "value": "",
+          "value": "MGA11235",
           "url": ""
         },
         {
           "label": "Authentication Record URL",
-          "value": "",
-          "url": ""
+          "value": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA11235",
+          "url": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA11235"
         },
         {
           "label": "Additional Authentication Issuer",
@@ -13410,7 +13711,7 @@
         },
         {
           "label": "Authentication Lookup Instructions",
-          "value": "",
+          "value": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
           "url": ""
         }
       ],
@@ -13431,7 +13732,7 @@
       "secondaryAssist": "",
       "score": "New Jersey 2 @ Boston 3",
       "puckType": "Goal Scored Puck",
-      "notes": "Incoming purchase reported by the owner on October 16, 2026; puck not yet in hand. Physical receipt, front/back/edge photographs and any authentication documents or hologram details remain pending. No image filenames, issuer, serial or item-specific authentication record have been assigned.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
+      "notes": "Physical puck, front/back/edge photographs and matching MeiGray COA documented from owner-supplied originals received October 20, 2026. COA and puck hologram both show MGA11235. Original incoming-purchase status is superseded. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.\n\nMarchand scored the go-ahead goal at 19:27 of the second period, making it 3–2 against Cory Schneider. David Pastrnak earned the sole assist. The even-strength backhand was Marchand’s season goal 21, regular-season career goal 213 and the game-winner in Boston’s 3–2 victory. Marchand also assisted on Patrice Bergeron’s second-period power-play goal, finishing with one goal, one assist, four shots and 20:06 ice time. Schneider was the goaltender beaten; Ken Appleby entered in relief for the third period and did not allow a goal. NHL goal event 419.\n\nCareer numbering independently checked from NHL regular-season data: 192 goals before the 2017–18 season + 20 earlier season goals + this goal = 213. Playoff goals excluded.\n\nSources (reviewed October 16, 2026): https://www.nhl.com/gamecenter/2017020732; https://api-web.nhle.com/v1/gamecenter/2017020732/landing; https://api-web.nhle.com/v1/gamecenter/2017020732/play-by-play; https://api-web.nhle.com/v1/gamecenter/2017020732/boxscore; https://api-web.nhle.com/v1/player/8473419/game-log/20172018/2; https://api-web.nhle.com/v1/player/8473419/landing; https://www.nhl.com/news/new-jersey-devils-boston-bruins-game-recap-295228280",
       "goalieScoredAgainst": "Cory Schneider",
       "playerCodes": [
         "DP88"
@@ -13440,18 +13741,20 @@
       "videoUrl": "https://www.youtube.com/watch?v=IXYF_qxmurI",
       "videoProvider": "youtube",
       "videoId": "IXYF_qxmurI",
-      "authenticationType": "",
-      "authenticationEvidence": "",
-      "authenticationNotes": "Awaiting physical receipt, photographs and any accompanying COA or hologram. No issuer, serial or item-specific authentication record verified.",
-      "authenticationIssuer": "",
-      "authenticationSerial": "",
-      "authenticationRecordUrl": "",
+      "authenticationType": "COA / Supporting Document",
+      "authenticationEvidence": "images/pucks/61-20180123/back.webp; images/pucks/61-20180123/coa.webp",
+      "authenticationNotes": "Owner-supplied photographs received October 20, 2026 document the physical puck and Boston Bruins–MeiGray COA. Matching printed MeiGray serial MGA11235 is visible on the COA (IMG_9931.JPG) and puck reverse (IMG_9933.JPG). The COA identifies January 23, 2018, Marchand regular-season career goal 213 / season goal 21, assisted solely by David Pastrnak, Boston 3–2 New Jersey. The official NHL scoring event agrees. Public issuer lookup was not independently completed; direct requests returned HTTP403 and the browser authentication form requires its current CAPTCHA. Owner approved the revised standard-view photo proof and game-photo option A on October 20, 2026. Final approved photo filenames are recorded in the image fields. Matching holograms remain visible in the ordinary puck-back and COA views; no standalone hologram images are used.",
+      "authenticationIssuer": "MeiGray",
+      "authenticationSerial": "MGA11235",
+      "authenticationRecordUrl": "https://meigrayauctions.com/iSynApp/authenticateProdAttr.action?searchTerm=MGA11235",
       "authenticationAlternateIssuer": "",
       "authenticationAlternateSerial": "",
       "authenticationAlternateRecordUrl": "",
-      "authenticationLookupInstructions": "",
-      "receiptStatus": "Incoming — not yet in hand",
-      "photoStatus": "Pending owner receipt"
+      "authenticationLookupInstructions": "The authentication number is prefilled. Enter MeiGray’s current CAPTCHA and select Search. The page may display “Captcha does not match” until its CAPTCHA is completed.",
+      "receiptStatus": "Received — photographed",
+      "photoStatus": "Owner-approved photographs",
+      "publicNotes": "The MeiGray certificate and puck hologram both show MGA11235. Marchand scored the winning goal against Cory Schneider; Ken Appleby entered in relief for the third period.",
+      "publicAuthenticationNotes": "The MeiGray certificate and puck hologram both show MGA11235. The lookup opens with that number prefilled; complete the issuer’s CAPTCHA if requested."
     },
     {
       "key": "goal-62",

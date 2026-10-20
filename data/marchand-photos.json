@@ -3139,9 +3139,10 @@
         "label": "COA",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/319/coa.webp?v=6072d959fd75",
         "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "caption": "Fanatics packaging label — game date and matchup. The owner assigned this same-date/SKU label; it does not print a unique puck hologram. The puck’s hologram identifies its digital COA.",
         "sourceFile": "IMG_9786.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner assigned one same-date/SKU packaging label to each artifact; the printed label does not identify a unique puck hologram."
       }
     ],
     "320": [
@@ -3170,9 +3171,10 @@
         "label": "COA",
         "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/320/coa-02.webp?v=89713778cc52",
         "rotation": 0,
-        "caption": "Fanatics packaging label — game date and matchup. The puck’s hologram identifies its digital COA.",
+        "caption": "Fanatics packaging label — game date and matchup. The owner assigned this same-date/SKU label; it does not print a unique puck hologram. The puck’s hologram identifies its digital COA.",
         "sourceFile": "IMG_9787.JPG",
-        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
+        "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram.",
+        "assignmentBasis": "Owner assigned one same-date/SKU packaging label to each artifact; the printed label does not identify a unique puck hologram."
       }
     ],
     "321": [
@@ -5006,6 +5008,99 @@
         "url": "images/pucks/59/coa.webp?v=01d73c9c39a9",
         "rotation": 0
       }
+    ],
+    "31": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/front.webp?v=42f776a3ecb6",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/front-thumb.webp?v=71f814a315ca"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/back.webp?v=63c7367351de",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/edge-01.webp?v=0a7baab462b9",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/31/coa.webp?v=bb9c59209b06",
+        "rotation": 0,
+        "caption": "MeiGray certificate of authenticity — matching puck hologram MGA37970.",
+        "sourceFile": "IMG_9927.JPG",
+        "authenticationScope": "Serial-matched certificate and puck-back hologram."
+      }
+    ],
+    "49": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/front.webp?v=3287cd4dd0dd",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/front-thumb.webp?v=40fe0dfc1d93"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/back.webp?v=8c0bef2ee6de",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-01.webp?v=fdc8a036c980",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-02.webp?v=dfbc835227d0",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/edge-03.webp?v=fb15d042b3d4",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/49-20220506/coa.webp?v=3f186c53243a",
+        "rotation": 0,
+        "caption": "MeiGray certificate of authenticity — matching puck hologram MGA37776.",
+        "sourceFile": "IMG_9921.JPG",
+        "authenticationScope": "Serial-matched certificate and puck-back hologram."
+      }
+    ],
+    "61": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/front.webp?v=2d103599330d",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/front-thumb.webp?v=4b950a95c551"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/back.webp?v=c041766c6fa4",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/edge-01.webp?v=62209010923c",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/edge-02.webp?v=bfb7d043b6a4",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/61-20180123/coa.webp?v=c52eb008389b",
+        "rotation": 0,
+        "caption": "MeiGray certificate of authenticity — matching puck hologram MGA11235.",
+        "sourceFile": "IMG_9931.JPG",
+        "authenticationScope": "Serial-matched certificate and puck-back hologram."
+      }
     ]
   },
   "orientationReview": {
@@ -5026,7 +5121,9 @@
     "301": "images/pucks/343/",
     "333": "images/pucks/342/",
     "342": "images/pucks/49/",
-    "343": "images/pucks/59/"
+    "343": "images/pucks/59/",
+    "49": "images/pucks/49-20220506/",
+    "61": "images/pucks/61-20180123/"
   },
   "ownerAuthorizedCOAAssignment": {
     "path": "docs/marchand-coa-assignments-20261019.json",
@@ -5145,5 +5242,21 @@
       "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
       "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
     }
+  },
+  "approvedThreePuckIntake": {
+    "date": "2026-10-20",
+    "ids": [
+      31,
+      49,
+      61
+    ],
+    "viewsAdded": 15,
+    "ownerApprovedProofSha256": "f60bd15622fbc21124e28d3d7e1606458f265535adedc2d46c1b8e7d564e18d4",
+    "noSeparateHologramViews": true
+  },
+  "currentMediaAndBookPublication": {
+    "path": "docs/marchand-book-v18-metadata-20261020.json",
+    "sha256": "a6a96214aabc9fbdbdd3fab0face5ccbdeaf68f983eb53b767749dbdf928503f",
+    "revision": "Approved-Three-Puck-Intake-Book-20261020-v18"
   }
 }

@@ -119,9 +119,11 @@ def video_parts(url, previous):
                     raise ValueError(f"Invalid reviewed NHL clip ID: {clip_id}")
                 return "nhl", clip_id
             return "article", ""
-        match = re.search(r"(\d+)$", parsed.path.rstrip("/"))
+        if "/video/" not in parsed.path:
+            raise ValueError(f"NHL game summaries are not video clip URLs: {url}")
+        match = re.search(r"(?<!\d)(\d{13})$", parsed.path.rstrip("/"))
         if not match:
-            raise ValueError(f"NHL video URL has no clip ID: {url}")
+            raise ValueError(f"NHL video URL has no valid 13-digit clip ID: {url}")
         return "nhl", match.group(1)
     raise ValueError(f"Unsupported video URL: {url}")
 

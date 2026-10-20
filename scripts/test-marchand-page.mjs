@@ -52,12 +52,12 @@ const payload = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-puc
 const decoder = JSON.parse(fs.readFileSync(path.join(root, "data", "marchand-players.json"), "utf8"));
 assert.deepEqual(payload.records.filter(labels.perfectionLine).map((r) => r.inventoryId), [6, 51, 71, 74]);
 
-assert.equal(payload.meta.records, 171, "collection total must match the authoritative populated rows");
-assert.equal(payload.meta.goalsAndGames, 74, "goals and games count drifted");
+assert.equal(payload.meta.records, 172, "collection total must match the authoritative populated rows");
+assert.equal(payload.meta.goalsAndGames, 75, "goals and games count drifted");
 assert.equal(payload.meta.milestones, 43, "milestone count drifted");
 assert.equal(payload.meta.roadToHistory, 10, "Road to History count drifted");
 assert.equal(payload.meta.roadToRepeat, 27, "Road to Repeat count drifted");
-assert.equal(payload.meta.videos, 171, "video count drifted");
+assert.equal(payload.meta.videos, 172, "video count drifted");
 const footerMarkup = html.match(/<footer\b[\s\S]*?<\/footer>/)?.[0] || "";
 const summaryMarkup = html.match(/<section class="marchand-stat-wing"[\s\S]*?<\/section>/)?.[0] || "";
 assert.equal((summaryMarkup.match(/data-collection-filter=/g) || []).length, 7, "All seven collection buttons must remain available");
@@ -166,7 +166,7 @@ assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN 
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
 assert.equal(exhibit335?.sourceData.find((field) => field.label === "Marchand Team")?.value, "Florida Panthers");
-for (const [team, count] of [["Boston Bruins", 120], ["Florida Panthers", 50], ["Canada", 1]]) {
+for (const [team, count] of [["Boston Bruins", 121], ["Florida Panthers", 50], ["Canada", 1]]) {
   assert.equal(payload.records.filter((record) => record.team === team).length, count, `${team} audited total`);
 }
 assert.equal(exhibit1?.careerStat, 127, "Exhibit 1 must remain career goal #127");
@@ -227,7 +227,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20261017-visual-qa/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261019-coa-assignment-v1/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20261020-approved-three-puck-v3/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20261017-visual-qa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
@@ -363,7 +363,7 @@ assert.match(css, /\.marchand-watch-dialog/, "standalone video dialog styling is
 const exhibit46 = payload.records.find((record) => record.inventoryId === 46);
 assert.equal(exhibit46?.goalType, "PS", "Exhibit #46 must be flagged as a penalty shot");
 assert.equal(exhibit46?.sourceData.find((field) => field.label === "Goal Type")?.value, "PS", "Exhibit #46 source Goal Type must be PS");
-assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 74, "scoring records retain researched goalies; commemorative artifact 342 has no attributed scoring play");
+assert.equal(payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.goalieScoredAgainst).length, 75, "scoring records retain researched goalies; commemorative artifact 342 has no attributed scoring play");
 assert.equal(payload.records.find(record => record.inventoryId === 342).category, "Milestone");
 assert.equal(payload.records.find(record => record.inventoryId === 342).careerStat, null);
 assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.inventoryId), [], "Every artifact retains its canonical video or game recap source");
@@ -405,11 +405,12 @@ for (const [id, date, career, season, period, time, goalie, primary, secondary] 
 ]) {
   const record = payload.records.find((entry) => entry.inventoryId === id);
   assert.deepEqual([record.date, record.careerStat, record.seasonStat, record.period, record.time, record.goalieScoredAgainst, record.primaryAssist, record.secondaryAssist], [date, career, season, period, time, goalie, primary, secondary]);
-  assert.equal(record.receiptStatus, "Incoming — not yet in hand");
-  assert.equal(record.photoStatus, "Pending owner receipt");
+  assert.equal(record.receiptStatus, "Received — photographed");
+  assert.equal(record.photoStatus, "Owner-approved photographs");
   assert.equal(record.imageUrl, undefined);
-  for (const field of record.sourceData.filter((field) => /Filename|Hologram Number|Authentication (?:Issuer|Evidence|Record URL|Type)/.test(field.label))) assert.equal(field.value, "", `Incoming ${id} inherited ${field.label}`);
-  assert.equal(JSON.parse(fs.readFileSync(path.join(root, "data/marchand-photos.json"))).artifacts[id], undefined);
+  assert.equal(record.authenticationSerial, id === 31 ? "MGA37970" : "MGA11235");
+  assert.ok(record.sourceData.find(field => field.label === "Front Image Filename").value);
+  assert.ok(JSON.parse(fs.readFileSync(path.join(root, "data/marchand-photos.json"))).artifacts[id].length >= 4);
 }
 assert.equal(payload.records.find((record) => record.inventoryId === 31).videoId, "6335868297112");
 assert.equal(payload.records.find((record) => record.inventoryId === 61).videoProvider, "youtube");
@@ -418,3 +419,5 @@ const retained330 = payload.records.find((record) => record.inventoryId === 330)
 assert.equal(retained330.key, "milestone-330");
 assert.equal(retained330.date, "2025-04-10");
 assert.equal(retained330.puckType, "Game Used Puck");
+
+assert.equal(payload.records.find(record=>record.inventoryId===49).videoId,"6335822476112");

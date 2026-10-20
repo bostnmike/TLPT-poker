@@ -75,13 +75,15 @@ Folder names are stable storage namespaces. They do not establish current artifa
 
 | Current artifact | Physical image namespace |
 | --- | --- |
+| 49 | `images/pucks/49-20220506/` |
+| 61 | `images/pucks/61-20180123/` |
 | 301 | `images/pucks/343/` |
 | 333 | `images/pucks/342/` |
 | 342 | `images/pucks/49/` |
 | 343 | `images/pucks/59/` |
 
-Removed artifact 57 was consolidated into 313. The old `61/coa.webp` was the pre-crop source for current 330, and `68/coa-02.webp` was the pre-crop source for current 341. Their current approved crops remain active. Do not attach an old file merely because a reused artifact number matches its folder. New receipt photos for 31/49/61 remain approval-pending and are not part of this cleanup. Their proposed namespaces are `31/`, `49-20220506/` and `61-20180123/`.
+Removed artifact 57 was consolidated into 313. The old `61/coa.webp` was the pre-crop source for current 330, and `68/coa-02.webp` was the pre-crop source for current 341. Their current approved crops remain active. Do not attach an old file merely because a reused artifact number matches its folder. The owner approved the October20 receipt photos for31/49/61 and game photoA. Their active namespaces are `31/`, `49-20220506/` and `61-20180123/`; use the normal full Back and COA views, with no isolated hologram images.
 
-Unused public derivatives and retired COA associations were archived privately with exact byte hashes, old-to-current lineage and a restore utility before removal from active files and inventories. Originals, historical release manifests, frozen book sources and Git history remain preserved. The identical certificates at 613/614 are intentional and remain active. Inventory counts describe active media; historical manifests retain their original counts.
+Unused public derivatives and retired COA associations were first archived with exact byte hashes and old-to-current lineage, then permanently deleted on the owner’s explicit instruction. The previous archive receipts are historical; those derivative rollback copies no longer exist. Actual source originals, native reproducible Book inputs, audit metadata and Git history remain preserved. The identical certificates at 613/614 are intentional and remain active. Inventory counts describe active media; historical manifests retain their original counts.
 
 Before future releases, reconcile every artifact and run `node scripts/audit-marchand-media.mjs` in the website repository. To verify the image repository's actual files and hashes too, add `--image-host /absolute/path/to/marchand-puck-images`. Stage unapproved photos outside the active repositories.

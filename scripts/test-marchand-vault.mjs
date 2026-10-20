@@ -68,8 +68,8 @@ const open = (name) => summaryRows().find((row) => label(row) === name).children
 assert.equal(summaryRows().length, 52, "all 52 goalies must be available, including one-goal entries");
 assert.equal(element("vault-breakdown-body").querySelectorAll(".marchand-goalie-portrait").length, 52);
 assert.ok(element("vault-breakdown-body").querySelectorAll(".marchand-goalie-portrait").every((portrait) => portrait.children[0].src.startsWith("https://assets.nhle.com/mugs/nhl/")));
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 67, "duplicate pucks must not inflate the distinct goalie goal count");
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 67);
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 68, "duplicate pucks must not inflate the distinct goalie goal count");
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 68);
 assert.ok(!summaryRows().some((row) => label(row) === "Empty net (no goaltender)"));
 const mrazek = summaryRows().find((row) => label(row) === "Petr Mrazek");
 assert.equal(mrazek.children[1].textContent, "2");
@@ -92,7 +92,7 @@ view("arenas");
 assert.equal(summaryRows().length, new Set(payload.records.map(r => r.arena)).size, "all catalogued arena names must be listed");
 assert.equal(element("vault-search").value, "");
 assert.equal(element("vault-no-results").hidden, true);
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 171);
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 172);
 change("vault-sort", "name");
 const names = summaryRows().map(label);
 assert.deepEqual(names, [...names].sort((a, b) => a.localeCompare(b, undefined, { numeric: true })));
@@ -105,8 +105,8 @@ assert.deepEqual(summaryRows().map(label), [...new Set(payload.records.map((reco
 view("goals");
 assert.ok(summaryRows().some((row) => label(row) === "⚖️ Even-Strength Goal"));
 assert.ok(!element("vault-breakdown-body").textContent.includes("unmarked"));
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 74);
-assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 74, "assist records and commemorative artifact 342 must be excluded from goal types");
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[1].textContent), 0), 75);
+assert.equal(summaryRows().reduce((sum, row) => sum + Number(row.children[2].textContent), 0), 75, "assist records and commemorative artifact 342 must be excluded from goal types");
 view("sheets");
 assert.equal(summaryRows().length, 6);
 assert.ok(summaryRows().some((row) => label(row) === "Goals"));
@@ -137,7 +137,7 @@ for (const team of ["boston", "florida", "canada"]) {
 }
 element("vault-reset").click();
 assert.equal(summaryRows().length, 52);
-assert.equal(element("vault-result-count").textContent, "171");
+assert.equal(element("vault-result-count").textContent, "172");
 assert.ok(backLinks.every((link) => link.href === "../marchand.html"));
 assert.equal(views.filter((button) => button.getAttribute("aria-pressed") === "true").length, 1);
 assert.deepEqual(errors, []);

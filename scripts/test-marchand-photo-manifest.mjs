@@ -51,7 +51,7 @@ for (const [id, photos] of Object.entries(manifest)) {
         const expected = library.assets[url];
         assert.ok(expected?.bytes > 100, `Missing library inventory entry: ${url}`);
         assert.match(expected.sha256, /^[a-f0-9]{64}$/);
-        assert.match(url, /^images\/pucks\/\d+\/(?:front(?:-thumb)?|back|edge-\d+|coa(?:-\d+)?)\.webp$/);
+        assert.match(url, /^images\/pucks\/\d+(?:-\d{8})?\/(?:front(?:-thumb)?|back|edge-\d+|coa(?:-\d+)?)\.webp$/);
         remoteChecks.set(fullUrl, expected);
         continue;
       }

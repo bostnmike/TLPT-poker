@@ -813,6 +813,8 @@
         if (field.label === "Puck Type") value.textContent = puckLabel(record);
         else if (field.label === "Goalie Scored Against") value.textContent = goalieLabel(record) || "—";
         else if (field.label === "Goal Type") value.textContent = goalTypeLabel(field.value) || "—";
+        else if (field.label === "Notes" && record.publicNotes !== undefined) value.textContent = record.publicNotes;
+        else if (field.label === "Authentication Notes" && record.publicAuthenticationNotes !== undefined) value.textContent = record.publicAuthenticationNotes;
         else if (field.label === "Category" && ["Assist", "RS Point"].includes(record.category)) value.textContent = `🍎 ${shown}`;
         else value.textContent = player && /assist/i.test(field.label) ? `${field.value} — ${player.name}` : shown ?? "—";
       }
@@ -1124,9 +1126,10 @@
     renderPersonnel(record);
     renderSourceRecord(record);
 
-    elements.dialogNotes.hidden = !record.notes;
-    elements.dialogNotes.textContent = record.notes
-      ? `${record.sourceSheet === "Road to History" ? "Road to History detail" : "Collection note"}: ${record.notes}`
+    const collectionNotes = record.publicNotes ?? record.notes;
+    elements.dialogNotes.hidden = !collectionNotes;
+    elements.dialogNotes.textContent = collectionNotes
+      ? `${record.sourceSheet === "Road to History" ? "Road to History detail" : "Collection note"}: ${collectionNotes}`
       : "";
 
     const playerUrl = embedUrl(record);

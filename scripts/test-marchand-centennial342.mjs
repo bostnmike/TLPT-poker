@@ -24,9 +24,10 @@ assert.equal(companion.authenticationSerial, 'XJ05532094');
 assert.equal(chicago.videoId, companion.videoId);
 assert.equal(chicago.careerStat, null);
 assert.match(chicago.notes, /separate artifacts 44 and 45/);
-assert.ok(!p.records.some(record => record.inventoryId === 49));
-assert.equal(photos['49'], undefined);
-assert.equal(stories['goal-49'], undefined);
+const approved49 = p.records.find(record => record.inventoryId === 49);
+assert.equal(approved49.date,'2022-05-06');assert.equal(approved49.authenticationSerial,'MGA37776');assert.equal(approved49.category,'PO Goal');assert.equal(approved49.careerStat,46);assert.equal(approved49.primaryAssist,'PB37');
+assert.equal(photos['49'].length,6);
+assert.equal(stories['goal-49'].gameId,2021030133);
 assert.equal(stories[chicago.key].inventoryId, 342);
 assert.equal(stories[chicago.key].gameId, 2024020407);
 const gallery = read('marchand-photos.json');
@@ -41,7 +42,7 @@ for (const [id, path] of [[342, '/49/coa.webp'], [322, '/322/coa-02.webp']]) {
   assert.equal(p.records.find(record => record.inventoryId === id).sourceData.find(field => field.label === 'COA Filename').value, 'images/pucks' + path);
 }
 const gamePhotos = read('marchand-game-photos.json');
-assert.equal(gamePhotos.artifacts['goal-49'], undefined);
+assert.equal(gamePhotos.artifacts['goal-49'].assetId,'2021030133-a49-intake-20261020');
 assert.equal(gamePhotos.artifacts[chicago.key].inventoryId, 342);
 for (const key of [chicago.key, companion.key, r.key]) {
   assert.equal(gamePhotos.artifacts[key].displaySelected, true, 'Restored supplemental images do not change protected physical identities');
@@ -61,4 +62,4 @@ for (const record of p.records) {
   if (entry.displaySelected) assert.equal(entry.nativeSha256, gamePhotos.assets[entry.assetId].nativeSha256);
   else assert.equal(entry.url, null);
 }
-console.log('PASS: Chicago 342/322 identities, one assigned COA each, vacant 49, preserved 333 and all 171 current media joins.');
+console.log('PASS: Chicago 342/322 identities, one assigned COA each, approved fresh-namespace49, preserved333 and all172 current media joins.');
