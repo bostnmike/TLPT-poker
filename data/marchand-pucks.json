@@ -30,19 +30,18 @@
       "scope": "Added two canonical rows; 170 previously published artifact records preserved."
     },
     "latestCanonicalUpdate": {
-      "date": "2026-10-19",
-      "sourceSha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "date": "2026-10-20",
+      "sourceSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
       "inventoryIds": [
-        74
+        30
       ],
       "sourceCells": [
-        "Goals & Games!W75",
-        "Goals & Games!Y75",
-        "Goals & Games!Z75"
+        "Goals & Games!V31"
       ],
-      "scope": "Three separate YSMS autograph ticket views and evidence wording; the existing 074 game COA and all 171 game, ownership and serial facts are retained.",
-      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
-      "receiptSha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+      "scope": "Remove only redundant edge-04 filename, whose bytes duplicate retained edge-03. All 171 artifact identities, facts, gallery URLs and images remain unchanged.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Handoff.json",
+      "receiptSha256": "e503b1c188db68ec8972c790cb7df7b834b73f730070ce9f37a1d269c12abf5a",
+      "nativeExcelStatus": "PASS_ACTUAL_FRESH_PRIMARY_OPEN_RECALCULATE_171_ALL_FOUR_CHARTS",
       "nativeExcelAppTest": "PASS",
       "wordChanged": false
     },
@@ -138,22 +137,22 @@
       }
     ],
     "sourceSha256Scope": "Historical extraction hash retained from the preceding catalog. The current authoritative workbook hash is currentCanonicalMasterSha256.",
-    "currentCanonicalMasterSha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+    "currentCanonicalMasterSha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
     "currentCanonicalMaster": {
       "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "sha256": "c6ee372cf11ffeb2965a490c7a2276fb6900d9da55145dc30a75c5d3a2512127",
       "wordSource": "BM63-Goal-Puck-List.docx",
       "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
-      "verifiedDate": "2026-10-19",
+      "verifiedDate": "2026-10-20",
       "nativeExcelAppTest": "PASS",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
-      "verificationReceiptSha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
-      "projection": "Actual canonical074three-cell media/evidence update and completed native Excel PASS verified. Registeredv14Book and website metadata synchronized; Word byte-exact."
+      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
+      "verificationReceiptSha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
+      "projection": "Actual canonical V31 duplicate edge filename removed, all 171 facts/identities and Word preserved; completed fresh native Excel test, recalculation to171 and allfourcharts verified."
     },
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
-      "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
-      "bytes": 3475
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical ROT30 Cleanup 2026-10-20-v1/Native-Excel-verification.json",
+      "sha256": "3a144d58d968116c91fd0ed53ae6a5930cc0f2ea5278c9f263747fcfc9d6a862",
+      "bytes": 2182
     },
     "canonicalVerificationHistory": [
       {
@@ -526,6 +525,42 @@
         "path": "docs/marchand-book-v13-metadata-20261019.json",
         "sha256": "c31f642d76490fe94c2461b1e65cb39cc248050d5228ced573ffa351ea94164d",
         "revision": "COA-Bottom-Crop-240page-Edition-20261019-v13"
+      }
+    },
+    "priorCanonicalUpdateAtLegacyCleanup": {
+      "date": "2026-10-19",
+      "sourceSha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "inventoryIds": [
+        74
+      ],
+      "sourceCells": [
+        "Goals & Games!W75",
+        "Goals & Games!Y75",
+        "Goals & Games!Z75"
+      ],
+      "scope": "Three separate YSMS autograph ticket views and evidence wording; the existing 074 game COA and all 171 game, ownership and serial facts are retained.",
+      "receipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
+      "receiptSha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
+      "nativeExcelAppTest": "PASS",
+      "wordChanged": false
+    },
+    "priorCanonicalMetadataBeforeLegacyCleanup": {
+      "currentCanonicalMasterSha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+      "currentCanonicalMaster": {
+        "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9",
+        "wordSource": "BM63-Goal-Puck-List.docx",
+        "wordSha256": "befc97676e769c887c5838dd721784b5f9fa0712897854968ccd3e0a967c1197",
+        "verifiedDate": "2026-10-19",
+        "nativeExcelAppTest": "PASS",
+        "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+        "verificationReceiptSha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+        "projection": "Actual canonical074three-cell media/evidence update and completed native Excel PASS verified. Registeredv14Book and website metadata synchronized; Word byte-exact."
+      },
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Native-Excel-verification.json",
+        "sha256": "c11f1cbbb6b05a8b1c95e7794ea63a83a5666ea0a0a2e64cbcb165c6b60e282c",
+        "bytes": 3475
       }
     }
   },
@@ -6842,7 +6877,7 @@
         },
         {
           "label": "Detail Image Filenames",
-          "value": "images/pucks/30/edge-01.webp; images/pucks/30/edge-02.webp; images/pucks/30/edge-03.webp; images/pucks/30/edge-04.webp; images/pucks/30/edge-05.webp",
+          "value": "images/pucks/30/edge-01.webp; images/pucks/30/edge-02.webp; images/pucks/30/edge-03.webp; images/pucks/30/edge-05.webp",
           "url": ""
         },
         {

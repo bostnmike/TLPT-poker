@@ -45,6 +45,7 @@ node scripts/test-marchand-page.mjs
 node scripts/test-marchand-source-record.mjs
 node scripts/test-marchand-authentication-links.mjs
 node scripts/test-marchand-photo-manifest.mjs
+node scripts/audit-marchand-media.mjs
 node scripts/test-marchand-game-photos.mjs
 node scripts/test-marchand-stories.mjs
 node scripts/test-marchand-game-stats.mjs

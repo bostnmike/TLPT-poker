@@ -62,8 +62,26 @@ The existing `imageUrl` field remains supported as a legacy front-photo source w
 Describe the game and Marchand’s role directly. Do not add boilerplate saying a Warm-Up Puck is not a goal puck or is not tied to a scoring play. Preserve genuine provenance conflicts, uncertain dates/use, and player non-participation.
 Do not repeat the puck-type label in a closing sentence or explain that the puck represents the game. Keep concrete event details, such as HFC branding, a ceremony, or a signature. Run `node scripts/test-marchand-stories.mjs` after narrative changes.
 
-The Complete Spreadsheet Record shows populated fields only. Preserve all source columns in the data; omit empty values and dash-only placeholders during rendering, while retaining zero values and populated links. Run `node scripts/test-marchand-source-record.mjs` after rendering changes.
+The Complete Database Record Detail shows populated fields only. Preserve all source columns in the data; omit empty values and dash-only placeholders during rendering, while retaining zero values and populated links. Run `node scripts/test-marchand-source-record.mjs` after rendering changes.
 
 ## Stable photo paths after inventory renumbering
 
 An owner-approved inventory renumbering changes gallery keys, captions and record IDs, while existing photo filenames remain stable. `data/marchand-photos.json` declares exceptions in `stableAssetFolders`; each exception must match the canonical Front Image Filename and the dated identity crosswalk. As of October 16, 2026, current artifact 301 uses `images/pucks/343/`, and current 333 uses `images/pucks/342/`. Preserve their original image/COA bytes and hologram associations. Never infer photos from an archived folder merely because its number now matches a reused ID. Current crosswalk: `docs/marchand-id-crosswalk-20261016.json`.
+
+
+## Current media ownership and retirement — October 20, 2026
+
+Folder names are stable storage namespaces. They do not establish current artifact ownership. The canonical collection and `data/marchand-photos.json` establish ownership; preserve the following active mappings:
+
+| Current artifact | Physical image namespace |
+| --- | --- |
+| 301 | `images/pucks/343/` |
+| 333 | `images/pucks/342/` |
+| 342 | `images/pucks/49/` |
+| 343 | `images/pucks/59/` |
+
+Removed artifact 57 was consolidated into 313. The old `61/coa.webp` was the pre-crop source for current 330, and `68/coa-02.webp` was the pre-crop source for current 341. Their current approved crops remain active. Do not attach an old file merely because a reused artifact number matches its folder. New receipt photos for 31/49/61 remain approval-pending and are not part of this cleanup. Their proposed namespaces are `31/`, `49-20220506/` and `61-20180123/`.
+
+Unused public derivatives and retired COA associations were archived privately with exact byte hashes, old-to-current lineage and a restore utility before removal from active files and inventories. Originals, historical release manifests, frozen book sources and Git history remain preserved. The identical certificates at 613/614 are intentional and remain active. Inventory counts describe active media; historical manifests retain their original counts.
+
+Before future releases, reconcile every artifact and run `node scripts/audit-marchand-media.mjs` in the website repository. To verify the image repository's actual files and hashes too, add `--image-host /absolute/path/to/marchand-puck-images`. Stage unapproved photos outside the active repositories.
