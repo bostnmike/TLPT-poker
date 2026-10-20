@@ -28,9 +28,9 @@
     "bytes": 18345
   },
   "source_manifest": {
-    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Current-172-Media-Manifest.json",
-    "sha256": "55eb130b8becd7ae55fb8fc34da1c7b42d56da1c2eb638e4ed10cb55ce076d4d",
-    "bytes": 142225
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Current-172-Media-Manifest-v2.json",
+    "sha256": "14867673d0bac986f2949f018448ffedb18cf7a8b191faca2c907cf849faf970",
+    "bytes": 142692
   },
   "canonical_masters": {
     "Marchand_Puck_Collection_FullIngest.xlsx": {
@@ -163,13 +163,32 @@
   },
   "registration_status": "Immutable initial172 registration; Data final completion follows actual live website QA without rewriting this snapshot.",
   "registration": {
-    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt.json",
-    "sha256": "e953fcd125513b209c8758d9a0d38673538c5273109d97aa51e7c7bfa8d17536",
-    "bytes": 6193
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt-v2.json",
+    "sha256": "69d5969dd7b4ac4571a3130658a9397b7f94d53540e2941c48e289f55efd5b0b",
+    "bytes": 7244
   },
   "registry_at_registration": {
-    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration.json",
-    "sha256": "dd80204821c92d91d1b34f6df86dff3d39b6e404aea5874e0c8b8938c85951bf",
-    "bytes": 163093
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration-v2.json",
+    "sha256": "9397dafb49e6dd86643126fbf579e938c7450df2b78babe99f3acf58dba9ff58",
+    "bytes": 164804
+  },
+  "historicalInitial172RegistrationV1": {
+    "registration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt.json",
+      "sha256": "e953fcd125513b209c8758d9a0d38673538c5273109d97aa51e7c7bfa8d17536",
+      "bytes": 6193
+    },
+    "registry_at_registration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration.json",
+      "sha256": "dd80204821c92d91d1b34f6df86dff3d39b6e404aea5874e0c8b8938c85951bf",
+      "bytes": 163093
+    },
+    "manifest": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Current-172-Media-Manifest.json",
+      "sha256": "55eb130b8becd7ae55fb8fc34da1c7b42d56da1c2eb638e4ed10cb55ce076d4d",
+      "bytes": 142225
+    },
+    "status": "INITIAL172_CANONICAL_AND_BOOK18_REGISTRATION_COMPLETE;WEBSITE_FINAL_PUBLICATION_PENDING",
+    "scope": "Immutable initial references for Museum public provenance. Final current registry completion follows actual live website QA; initial bindings are not rewritten and require no hash republish loop."
   }
 }

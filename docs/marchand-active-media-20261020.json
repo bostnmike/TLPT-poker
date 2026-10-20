@@ -16,18 +16,18 @@
   "sources": {
     "data/marchand-pucks.json": {
       "path": "data/marchand-pucks.json",
-      "sha256": "e7fd5c99bec42bdd7529665875b9334b2b98c9bd7ef9f369c65f8ac2a63d4f1f",
-      "bytes": 1187214
+      "sha256": "7d00c02cdb9f727865d920c6dfa7885ad3bc8ebc342276dbd707ccb58a14b6d9",
+      "bytes": 1188515
     },
     "data/marchand-photos.json": {
       "path": "data/marchand-photos.json",
-      "sha256": "8ce756793e468f683fcdea7671127dd8c15c9042b95cc90d2d9f327f4c114f5f",
+      "sha256": "22fea5f26f4fe9e6957c482983d8ddcab96461112025476ed4d82bde68c4709e",
       "bytes": 183501
     },
     "data/marchand-game-photos.json": {
       "path": "data/marchand-game-photos.json",
-      "sha256": "c3d0b934befb91a6f8ca355393aaa1e7f938341cfbe14b2cd385cf54dbc2a1cf",
-      "bytes": 946890
+      "sha256": "a8472e6d2a71b06f5472426b3d6aa12c09802650a5314e15601a3ae7ff934b5b",
+      "bytes": 948194
     },
     "data/marchand-photo-library.json": {
       "path": "data/marchand-photo-library.json",
