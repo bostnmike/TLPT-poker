@@ -9,12 +9,23 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from openpyxl import load_workbook
+from openpyxl.utils.cell import range_boundaries
+from openpyxl.utils.datetime import from_excel
 
 
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_DATA = ROOT / "data/marchand-pucks.json"
 CODE_PATTERN = re.compile(r"\b[A-Za-z]{1,3}\d{1,2}\b")
 SOURCE_SHEETS = ("Goals & Games", "Milestones", "Road to History", "Road to Repeat", "Hockey Fights Cancer", "Warm-Up Pucks")
+DATABASE_SCHEMA = json.loads((ROOT / "docs/marchand-database-schema-20261020.json").read_text())
+SOURCE_TABLES = {sheet: table["name"] for sheet, table in DATABASE_SCHEMA["record_tables"].items()}
+NORMALIZED_FIELDS = {
+    "Career Stat Basis": "careerStatBasis", "Season Stat Basis": "seasonStatBasis",
+    "Goal Strength": "goalStrength", "Recorded Scorer": "recordedScorer",
+    "NHL Game ID": "nhlGameId", "NHL Goal Event ID": "nhlGoalEventId",
+}
+ARENA_ALIASES = {row[0]: row[1] for catalog in DATABASE_SCHEMA["catalogs"] if catalog["name"] == "ArenaAliases" for row in catalog["rows"]}
+VENUES = {row[0]: row[1] for catalog in DATABASE_SCHEMA["catalogs"] if catalog["name"] == "PhysicalVenues" for row in catalog["rows"]}
 SOURCE_ID_HEADERS = {
     "Goals & Games": "ID",
     "Milestones": "ID #",
@@ -56,11 +67,15 @@ def as_number(value):
     return value
 
 
-def iso_date(value):
+def iso_date(value, epoch=None):
     if value in (None, ""):
         return ""
     if isinstance(value, (datetime, date)):
         return value.strftime("%Y-%m-%d")
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        if value != int(value):
+            raise ValueError(f"Calendar date has a time fraction: {value!r}")
+        return from_excel(value, **({"epoch": epoch} if epoch else {})).strftime("%Y-%m-%d")
     text = str(value).strip()
     for pattern in ("%B %d, %Y", "%B %-d, %Y", "%Y-%m-%d"):
         try:
@@ -70,9 +85,9 @@ def iso_date(value):
     raise ValueError(f"Unsupported date value: {value!r}")
 
 
-def source_text(header, value):
+def source_text(header, value, epoch=None):
     if header == "Date":
-        return iso_date(value)
+        return iso_date(value, epoch)
     if value is None:
         return ""
     if isinstance(value, (datetime, date)):
@@ -128,19 +143,53 @@ def video_parts(url, previous):
     raise ValueError(f"Unsupported video URL: {url}")
 
 
+def source_table(sheet):
+    """Only explicitly named collection tables own records and source columns."""
+    name = SOURCE_TABLES[sheet.title]
+    if name not in sheet.tables:
+        raise ValueError(f"Missing source table {name!r} in {sheet.title!r}")
+    bounds = range_boundaries(sheet.tables[name].ref)
+    left, header_row, right, bottom = bounds
+    headers = [sheet.cell(header_row, col).value for col in range(left, right + 1)]
+    required = DATABASE_SCHEMA["record_tables"][sheet.title]["headers"]
+    if len(headers) != len(set(headers)) or any(not h for h in headers):
+        raise ValueError(f"Blank or duplicate headers in {name}")
+    missing = set(required) - set(headers)
+    if missing:
+        raise ValueError(f"Missing known headers in {name}: {sorted(missing)}")
+    return bounds, {h: col for col, h in enumerate(headers, left)}
+
+
 def source_data(sheet_values, sheet_formulas, row):
     fields = []
-    for column in range(1, sheet_values.max_column + 1):
-        header = sheet_values.cell(1, column).value
+    (left, header_row, right, bottom), _ = source_table(sheet_values)
+    if not header_row < row <= bottom:
+        raise ValueError(f"Source row outside named table: {sheet_values.title}!{row}")
+    for column in range(left, right + 1):
+        header = sheet_values.cell(header_row, column).value
         value = sheet_values.cell(row, column).value
         formula_cell = sheet_formulas.cell(row, column)
         url = formula_cell.hyperlink.target if formula_cell.hyperlink else ""
-        fields.append({"label": header, "value": source_text(header, value), "url": url})
+        fields.append({"label": header, "value": source_text(header, value, sheet_values.parent.epoch), "url": url})
     return fields
 
 
 def field_map(fields):
     return {field["label"]: field["value"] for field in fields}
+
+
+def synchronize_normalized_fields(record, values):
+    for label, key in NORMALIZED_FIELDS.items():
+        record[key] = values.get(label, "")
+    for label, key in (("Game-Winning Goal", "gameWinningGoal"), ("Overtime Goal", "overtimeGoal")):
+        value = values.get(label, "")
+        if value not in ("", "0", "1"):
+            raise ValueError(f"Invalid scoring flag {label}: {value!r}")
+        record[key] = None if value == "" else value == "1"
+    venue_key = ARENA_ALIASES.get(record["arena"])
+    if not venue_key:
+        raise ValueError(f"Unmapped arena label: {record['arena']!r}")
+    record["venueKey"], record["venueName"] = venue_key, VENUES[venue_key]
 
 
 def synchronize_record(record, workbook_values, workbook_formulas):
@@ -223,11 +272,11 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             date=values["Date"],
             arena=values["Arena"],
             opponent=values["Opponent"],
-            period="",
-            time="",
-            goalType="",
-            primaryAssist="",
-            secondaryAssist="",
+            period=values.get("Period", ""),
+            time=values.get("Time", ""),
+            goalType=values.get("Goal Type", ""),
+            primaryAssist=values.get("Primary Assist", ""),
+            secondaryAssist=values.get("Secondary Assist", ""),
             score=values["Score"],
             puckType=values["Puck Type"],
             notes=values["Notes"],
@@ -237,7 +286,7 @@ def synchronize_record(record, workbook_values, workbook_formulas):
             overtimeLosses=overtime_losses,
             seasonRecord=f"{wins}-{losses}-{overtime_losses}",
             points=as_number(values["Pts"]),
-            goalieScoredAgainst="",
+            goalieScoredAgainst=values.get("Goalie Scored Against", ""),
             playerCodes=record.get("playerCodes") or player_codes(values["Description"], values["Notes"]),
         )
     elif sheet_name == "Road to Repeat":
@@ -298,29 +347,33 @@ def synchronize_record(record, workbook_values, workbook_formulas):
                        ("Authentication Lookup Instructions", "authenticationLookupInstructions")):
         if label in values:
             record[key] = values[label]
+    synchronize_normalized_fields(record, values)
 
 
 def discover_source_records(payload, workbook_values):
     """Match stable inventory IDs, so sorting rows cannot move an exhibit's identity."""
     def row_is_populated(sheet_name, row):
         sheet = workbook_values[sheet_name]
-        if row < 2 or row > sheet.max_row:
+        (_, header_row, _, bottom), headers = source_table(sheet)
+        if row <= header_row or row > bottom:
             return False
-        headers = {
-            sheet.cell(1, column).value: column
-            for column in range(1, sheet.max_column + 1)
-        }
         required = (SOURCE_ID_HEADERS[sheet_name], "Marchand Team", "Category", "Date")
-        return all(sheet.cell(row, headers[header]).value not in (None, "") for header in required)
+        populated = [sheet.cell(row, headers[header]).value not in (None, "") for header in required]
+        if any(populated) and not all(populated):
+            raise ValueError(f"Incomplete collection row in named table: {sheet_name}!{row}")
+        return all(populated)
 
     canonical_rows = {}
     for sheet_name in SOURCE_SHEETS:
         sheet = workbook_values[sheet_name]
-        headers = {sheet.cell(1, c).value: c for c in range(1, sheet.max_column + 1)}
-        for row in range(2, sheet.max_row + 1):
+        (_, header_row, _, bottom), headers = source_table(sheet)
+        for row in range(header_row + 1, bottom + 1):
             if not row_is_populated(sheet_name, row):
                 continue
-            inventory_id = int(sheet.cell(row, headers[SOURCE_ID_HEADERS[sheet_name]]).value)
+            value = sheet.cell(row, headers[SOURCE_ID_HEADERS[sheet_name]]).value
+            if isinstance(value, bool) or not re.fullmatch(r"[1-9]\d*", str(value)):
+                raise ValueError(f"Invalid inventory ID in {sheet_name}!{row}: {value!r}")
+            inventory_id = int(value)
             if inventory_id in canonical_rows:
                 raise ValueError(f"Duplicate canonical inventory ID: {inventory_id}")
             canonical_rows[inventory_id] = (sheet_name, row)
@@ -336,12 +389,9 @@ def discover_source_records(payload, workbook_values):
 
     for sheet_name in SOURCE_SHEETS:
         sheet = workbook_values[sheet_name]
-        headers = {
-            sheet.cell(1, column).value: column
-            for column in range(1, sheet.max_column + 1)
-        }
+        (_, header_row, _, bottom), headers = source_table(sheet)
         id_column = headers[SOURCE_ID_HEADERS[sheet_name]]
-        for row in range(2, sheet.max_row + 1):
+        for row in range(header_row + 1, bottom + 1):
             if not row_is_populated(sheet_name, row):
                 continue
             source_key = (sheet_name, row)

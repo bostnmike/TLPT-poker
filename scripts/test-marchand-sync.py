@@ -4,6 +4,8 @@ import json
 from copy import deepcopy
 from pathlib import Path
 from openpyxl import Workbook
+from openpyxl.worksheet.table import Table
+from openpyxl.utils.cell import get_column_letter
 
 root = Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("sync", root / "scripts/sync-marchand-data.py")
@@ -21,6 +23,9 @@ for record in payload["records"]:
         cell = sheet.cell(record["sourceRow"], column, field["value"])
         if field.get("url"):
             cell.hyperlink = field["url"]
+for name in sync.SOURCE_SHEETS:
+    sheet = workbook[name]
+    sheet.add_table(Table(displayName=sync.SOURCE_TABLES[name], ref=f"A1:{get_column_letter(sheet.max_column)}{sheet.max_row}"))
 for record in payload["records"]:
     rebuilt = deepcopy(record)
     sync.synchronize_record(rebuilt, workbook, workbook)
@@ -30,6 +35,33 @@ for record in reordered["records"]:
     record["sourceRow"] = 999
 sync.discover_source_records(reordered, workbook)
 assert reordered == payload, "row sorting changed artifact identities"
+# Non-record tabs, stray populated rows and cells outside named tables are ignored.
+workbook.create_sheet("New Puck Intake", 0).append(["ID", "Date", "Category"])
+workbook.create_sheet("Dashboard Data").append([1, "fake duplicate", 172])
+workbook.create_sheet("Data Quality").append([1, "fake duplicate", 172])
+workbook.create_sheet("Dashboard").append([172])
+stray = workbook["Goals & Games"]
+for col in range(1, stray.max_column + 1):
+    stray.cell(300, col, stray.cell(2, col).value)
+stray.cell(2, 100, "not a source column")
+again = deepcopy(payload);sync.discover_source_records(again, workbook)
+assert again == payload
+rebuilt = deepcopy(payload['records'][0]);sync.synchronize_record(rebuilt, workbook, workbook)
+assert rebuilt == payload['records'][0], "stray cells leaked into sourceData"
+assert sync.iso_date(45951) == "2025-10-21"
+try:
+    sync.iso_date(45951.5)
+except ValueError:
+    pass
+else:
+    raise AssertionError("Date fractions must not silently change a calendar date")
+broken = deepcopy(workbook);del broken['Goals & Games'].tables[sync.SOURCE_TABLES['Goals & Games']]
+try:
+    sync.discover_source_records(deepcopy(payload), broken)
+except ValueError:
+    pass
+else:
+    raise AssertionError('Missing named table must fail, never fall back to used range')
 by_id = {record["inventoryId"]: record for record in payload["records"]}
 assert by_id[324]["category"] == "Milestone"
 assert by_id[324]["period"] == "2" and by_id[324]["time"] == "4:21"

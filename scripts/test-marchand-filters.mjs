@@ -339,6 +339,19 @@ for (const row of rows()) {
   const record = payload.records.find((r) => r.inventoryId === Number(row.children[0].textContent));
   row.children[1].children[0].click();
   const story = storyManifest.artifacts[record.key];
+  if (record.inventoryId === 300) {
+    assert.equal(cellValue("artifact-dialog-facts", "Career points"), "#988");
+    assert.equal(cellValue("artifact-dialog-facts", "Season assists"), "#5");
+    assert.equal(cellValue("artifact-dialog-facts", "Season points"), undefined);
+  }
+  if ([502,504,506,508].includes(record.inventoryId)) {
+    assert.equal(cellValue("artifact-dialog-facts", "Period"), record.period);
+    assert.equal(cellValue("artifact-dialog-facts", "Time"), record.time);
+    assert.equal(cellValue("artifact-dialog-facts", "Goalie Scored Against"), record.goalieScoredAgainst);
+    assert.ok(element("artifact-personnel-grid").textContent.includes(record.recordedScorer));
+    assert.ok(element("artifact-personnel-grid").textContent.includes("Goal Scorer"));
+    assert.ok(element("artifact-personnel-grid").textContent.includes(record.goalieScoredAgainst));
+  }
   assert.equal(element("artifact-hfc-logo").hidden, !record.hockeyFightsCancer, "HFC logo must appear only on HFC artifacts, including after navigation");
   assert.equal(element("artifact-story-title").textContent, story.title);
   assert.equal(element("artifact-story-copy").textContent, story.paragraphs.join(""));

@@ -18,7 +18,7 @@
   };
   const TEAM_CANADA_CREST = "images/site/hockey-canada-crest.png";
   const SWEDEN_CREST = "images/site/team-sweden-three-crowns.png";
-  const { category: categoryLabel, goalType: goalTypeLabel, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
+  const { category: categoryLabel, goalType: goalTypeLabel, recordGoalType, statLabel, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
   const OPPONENT_CODES = Object.freeze({
     "Anaheim Ducks": "ANA",
     "Arizona Coyotes": "ARI",
@@ -185,7 +185,7 @@
   function recordSubtitle(record) {
     const details = [collectionWing(record.sourceSheet)];
     if (record.seasonStat) details.push(`Season #${record.seasonStat}`);
-    if (record.goalType) details.push(goalTypeLabel(record.goalType));
+    if (recordGoalType(record)) details.push(recordGoalType(record));
     if (record.homeRoad) details.push(record.homeRoad);
     return details.join(" · ");
   }
@@ -716,8 +716,9 @@
     const personnel = [];
     if (record.category === "Game-Used Puck") personnel.push(["BM63", "Collection Subject"]);
     const nonGoalPoint = ["Assist", "RS Point"].includes(record.category);
-    if (record.scorerCode || (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck")) {
-      const scorer = record.scorerCode || (nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63");
+    if (record.recordedScorer || record.scorerCode || (record.sourceSheet === "Goals & Games" && record.category !== "Game-Used Puck")) {
+      const normalizedScorer = record.recordedScorer && (Object.keys(state.players).find((code) => state.players[code].name === record.recordedScorer) || record.recordedScorer);
+      const scorer = record.scorerCode || normalizedScorer || (nonGoalPoint ? record.notes?.match(/\bon ([A-Za-z]{1,3}\d{1,2}) goal\b/i)?.[1] : "BM63");
       if (scorer) personnel.push([scorer, "Goal Scorer"]);
       else personnel.push(["BM63", "Collection Subject"]);
     }
@@ -733,7 +734,7 @@
       return true;
     });
     const cards = unique.map(([code, role]) => createPersonnelCard(code, role, record));
-    if (record.sourceSheet === "Goals & Games" || record.scorerCode) {
+    if (record.sourceSheet === "Goals & Games" || record.scorerCode || record.recordedScorer) {
       const goalie = createGoalieCard(record);
       if (goalie) cards.push(goalie);
     }
@@ -1105,8 +1106,8 @@
     addFact("City / region", arenaLocation(record.arena));
     addOpponentFact(record);
     addFact("Home / road", record.homeRoad);
-    addFact("Career stat", record.careerStat == null ? "" : `#${record.careerStat}`);
-    addFact("Season stat", record.seasonStat == null ? "" : `#${record.seasonStat}`);
+    addFact(statLabel("Career", record.careerStatBasis), record.careerStat == null ? "" : `#${record.careerStat}`);
+    addFact(statLabel("Season", record.seasonStatBasis), record.seasonStat == null ? "" : `#${record.seasonStat}`);
     addFact("Game number", record.game);
     addFact("Playoff round", record.playoffRound);
     addFact("Series after game", record.seriesRecord);
@@ -1115,7 +1116,7 @@
     addFact("Season points", record.points);
     addFact("Period", record.period);
     addFact("Time", record.time);
-    addFact("Goal Type", goalTypeLabel(record.goalType));
+    addFact("Goal Type", recordGoalType(record));
     addFact("Line Combination", perfectionLine(record));
     addFact("Goalie Scored Against", goalieLabel(record));
     addFact("Final Result", record.score);

@@ -114,7 +114,7 @@ assert.match(selected('milestone-301').caption,/2011|reunion|championship/i);
 assert.equal(photos.artifacts['warmup-713'].photoDate,'2025-12-30');
 assert.match(selected('warmup-713').caption,/Kevin/);
 assert.match(byId(713).notes,/reached November 13, 2025/);
-assert.equal(collection.meta.currentCanonicalMasterSha256,'ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1');
+assert.equal(collection.meta.currentCanonicalMasterSha256,'93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77');
 assert.equal(collection.meta.priorCanonicalMetadataBeforeLegacyCleanup.currentCanonicalMasterSha256,'f867496b36eaf13baae8f49883d9b632926395d09b90e1f65ae59238e21869b9');
 assert.equal(byId(30).sourceData.find(field=>field.label==='Detail Image Filenames').value,'images/pucks/30/edge-01.webp; images/pucks/30/edge-02.webp; images/pucks/30/edge-03.webp; images/pucks/30/edge-05.webp');
 assert.equal(collection.meta.currentCanonicalMaster.sha256,collection.meta.currentCanonicalMasterSha256);
@@ -145,7 +145,7 @@ assert.equal(photos.meta.photographs,93);assert.equal(photos.meta.videoStills,79
 assert.equal(photos.artifacts['goal-57'].assetId,'2018020838-a76-publishing');
 assert.equal(photos.assets['2024020086-a57-publishing'],undefined);
 assert.deepEqual(photos.meta.openOwnerReview,[]);
-assert.match(photos.meta.revision,/Gap-Free-Numbering/);
+assert.equal(photos.meta.revision,'Canonical-Hygiene-240page-Edition-20261020-v20');
 for(const id of [67,602,605,608,617,621,622,625]){
  const a=selected(byId(id).key);assert.equal(a.label,a.displayLabel);assert.match(a.url,/identity-v3-20261018-/);
  assert.equal(a.sourceRevision,'Canonical-Consolidated-Edition-20261018-v4');assert.equal(a.sha256,a.nativeSha256);assert.equal(a.imageKind,'photograph');

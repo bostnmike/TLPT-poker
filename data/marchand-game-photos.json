@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releaseStatus": "GAP_FREE172_CANONICAL_AND_SEALED_BOOK_BOUND",
+    "releaseStatus": "CURRENT172_CANONICAL_HYGIENE_AND_SEALED_BOOK20_BOUND",
     "artifacts": 172,
     "assets": 172,
     "photographs": 93,
@@ -388,9 +388,9 @@
     },
     "sourceOnlyCorrections": [],
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
-      "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
-      "bytes": 2066
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Native-Excel-Current-Save-Verification.json",
+      "sha256": "bffd5528d43dd840301873e8eb41a834a99aa4b3dd928040fe9062040e081b5a",
+      "bytes": 1136
     },
     "parentMediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
@@ -400,7 +400,7 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
       "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
     },
-    "registrationStatus": "Immutable initial GapFree172 registration; actual final release completion is additive after live QA.",
+    "registrationStatus": "Immutable initial20 registration; final actual live release completion is additive.",
     "historicalV2Provenance": {
       "revision": "Targeted-Photo-Edition-20261018-v2",
       "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
@@ -429,19 +429,19 @@
         }
       ]
     },
-    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19",
+    "revision": "Canonical-Hygiene-240page-Edition-20261020-v20",
     "openOwnerReview": [],
     "canonicalConsolidationHandoff": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
       "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
     },
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Gap-Free-Numbering-240page-Edition-20261020-v19/Exhibit63-Gap-Free-Numbering-240page-Interior-October20-2026-v19.pdf",
-    "bookSha256": "476f48f524685c94f9f991c66975192fa9eca7440eeb7d722de0a7cf28ad276d",
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Canonical-Hygiene-240page-Edition-20261020-v20/Exhibit63-Canonical-Hygiene-240page-Interior-October20-2026-v20.pdf",
+    "bookSha256": "bbf2d8998ea2b8f50fcf634a9e8912468e58df98df9f9ac1176e9bc24de8cee8",
     "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Verified-240pages-Premium-Lustre-20261020-v5/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-240pages-October20-2026-v5.pdf",
     "coverSha256": "847e0e933dbf5d73b26acadb7faa3d3245762d50941691ab841965485baaf211",
-    "sourceManifestSha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
-    "sourceIndexSha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
-    "sourceHandoffSha256": "71bbc5c20244a162dac44b4e43725929e9dfbce4f645b2d720660b428bad7153",
+    "sourceManifestSha256": "5882ee8d643d5a0e8ec7a2a8204152db37e19dab37a079e4b67af83d1801951d",
+    "sourceIndexSha256": "fbab57298907a4255ef9b6a268a80c243f3749d1f58d1c4dc2e3c80d2b825f81",
+    "sourceHandoffSha256": "a7eabdbfb49856d55ad2e84d5ff302ae16c36207e455bf4457552124c980ac46",
     "physicalEvidenceViews": 828,
     "combinedGalleryViews": 1000,
     "archivedPhysicalDocumentSourceViews": 845,
@@ -529,16 +529,16 @@
     },
     "currentCanonicalMaster": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
-      "bytes": 104161,
+      "sha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+      "bytes": 312972,
       "nativeExcelAppTest": "PASS",
       "nativeExcelVerificationReceipt": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
-        "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
-        "bytes": 2066
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Native-Excel-Current-Save-Verification.json",
+        "sha256": "bffd5528d43dd840301873e8eb41a834a99aa4b3dd928040fe9062040e081b5a",
+        "bytes": 1136
       }
     },
-    "currentCanonicalMasterSha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+    "currentCanonicalMasterSha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
     "historicalV6PublicationBindingsBeforeH8": {
       "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
       "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
@@ -561,12 +561,12 @@
       }
     },
     "currentMediaAndBookPublication": {
-      "path": "docs/marchand-book-v19-metadata-20261020.json",
-      "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
-      "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+      "path": "docs/marchand-book-v20-metadata-20261020.json",
+      "sha256": "4048360c44e343faff5827426af5c7b52026b326671b0e59d7923f13d254827e",
+      "revision": "Canonical-Hygiene-240page-Edition-20261020-v20"
     },
     "coverStatus": "ACTUAL_PRIOR_UPLOAD_REJECTED;CORRECT240CONFIGURATION_ACCEPTANCE_AND_PREVIEW_UNCONFIRMED",
-    "bookContentStatus": "VALIDATED_CURRENT_GAP_FREE240PAGE_INTERIOR",
+    "bookContentStatus": "VALIDATED_CURRENT_DATABASE_HYGIENE240PAGE_INTERIOR",
     "printConfiguration": {
       "nominalPaper": "Premium Lustre",
       "interiorPages": 240,
@@ -776,7 +776,7 @@
       "selectedGameImages": 171,
       "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f"
     },
-    "bookUpdateStatus": "Sealed actual v19/current172 source-row and page joins matched.",
+    "bookUpdateStatus": "Actual sealed Book20/current172 ID/source-row/page/native joins verified.",
     "awaitingApprovedBookIndex": false,
     "priorCanonicalMetadataBeforeApprovedIntake": {
       "currentCanonicalMaster": {
@@ -866,11 +866,11 @@
       ],
       "archivedPhysicalDocumentSourceViews": 830
     },
-    "sourceManifestScope": "Current GapFree172 source manifest at immutable initial registration; native source-library history preserved separately.",
+    "sourceManifestScope": "Current172 immutable initial20 source registration; prior native library history preserved.",
     "sourceFreeze": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/source-freeze.json",
-      "sha256": "7b189c7fa0128d5e27b16908736f1c72e9ac909c777a6c7c36a2d51c43534863",
-      "bytes": 7319
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/source-freeze.json",
+      "sha256": "6ac7095b7749e4612c002bc62fdf1e530d886b85349c3c16406f16109339a92b",
+      "bytes": 7287
     },
     "archivedPhysicalDocumentSourceViewsScope": "Historical845 original source views after15approved intake additions. Retired derivative archive copies permanently deleted; actual originals/native dependencies retained.",
     "retiredDerivativeCopyRetentionSupersession": {
@@ -1161,19 +1161,19 @@
     },
     "awaitingInitialDataRegistration": false,
     "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Initial-Registration-Receipt.json",
-      "sha256": "9287b8ffd9870358d0af318845e527f3ac887df6f6ea8b1230d8b9f075331f42",
-      "bytes": 5229
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Initial-Registration-Receipt.json",
+      "sha256": "51ed9db7200fd01a90dd9fa4956f5507cbd1d62e312afa58e634fa70a0d2e7f7",
+      "bytes": 7153
     },
     "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Registry-at-registration.json",
-      "sha256": "da309f11caa2deb810da3bd7c2591f9f63f8cecdea8807b07724935484ae2822",
-      "bytes": 284071
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Registry-at-registration.json",
+      "sha256": "cca3598dd43bb7ebee3757b1ad6ec736f2d0f65b64832e2c3a1b35c81b56d2e7",
+      "bytes": 326600
     },
     "sourceManifest": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Current-172-Media-Manifest.json",
-      "sha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
-      "bytes": 149069
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Current-172-Media-Manifest.json",
+      "sha256": "5882ee8d643d5a0e8ec7a2a8204152db37e19dab37a079e4b67af83d1801951d",
+      "bytes": 152813
     },
     "coverActualUploadDiagnostic": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Cover Upload Page Count Diagnostic 2026-10-20-v1/Handoff.json",
@@ -1182,7 +1182,103 @@
     },
     "matching240PageCoverPending": false,
     "coverProductPageCountConfigurationPending": true,
-    "actualCorrect240PageBlurbUploadAcceptanceConfirmed": false
+    "actualCorrect240PageBlurbUploadAcceptanceConfirmed": false,
+    "historicalBeforeDatabaseHygiene": {
+      "currentMediaAndBookPublication": {
+        "path": "docs/marchand-book-v19-metadata-20261020.json",
+        "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
+        "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+      },
+      "sourceHandoffSha256": "71bbc5c20244a162dac44b4e43725929e9dfbce4f645b2d720660b428bad7153",
+      "sourceIndexSha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
+      "sourceManifestSha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
+      "sourceManifest": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Current-172-Media-Manifest.json",
+        "sha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
+        "bytes": 149069
+      },
+      "sourceFreeze": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/source-freeze.json",
+        "sha256": "7b189c7fa0128d5e27b16908736f1c72e9ac909c777a6c7c36a2d51c43534863",
+        "bytes": 7319
+      },
+      "currentCanonicalMaster": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+        "bytes": 104161,
+        "nativeExcelAppTest": "PASS",
+        "nativeExcelVerificationReceipt": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+          "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+          "bytes": 2066
+        }
+      },
+      "currentCanonicalMasterSha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+        "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+        "bytes": 2066
+      },
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Initial-Registration-Receipt.json",
+        "sha256": "9287b8ffd9870358d0af318845e527f3ac887df6f6ea8b1230d8b9f075331f42",
+        "bytes": 5229
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Registry-at-registration.json",
+        "sha256": "da309f11caa2deb810da3bd7c2591f9f63f8cecdea8807b07724935484ae2822",
+        "bytes": 284071
+      }
+    },
+    "canonicalHygieneHandoff": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Effective-Handoff.json",
+      "sha256": "1bb425c86f6280e182f2458c56b9903a10a5bc395fe80d3e64d6676188561ff4",
+      "bytes": 14736
+    },
+    "canonicalSourceSaveEquivalence": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Equivalence-QA.json",
+      "sha256": "9d5c462a4bad358c2fea6660d824118267c884304f9ab842d36f990741f30a27",
+      "bytes": 2967
+    },
+    "hygieneSourceAtBuild": {
+      "canonicalHandoff": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Handoff.json",
+        "sha256": "bff9c979ee2bb78cf377c7588678736e674a9d6a85a45061850b27a06c509689",
+        "bytes": 12418
+      },
+      "canonicalMasters": {
+        "Marchand_Puck_Collection_FullIngest.xlsx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+          "sha256": "e88f0c3332f8e9a43bb15217dbea70c66ff4739a9c7bc3b8e5738d5715b4300f",
+          "bytes": 312926
+        },
+        "BM63-Goal-Puck-List.docx": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+          "sha256": "a9f772db8450c0b7689b64fbe0ead83fc8772a1b3497eda358d592d91006ce33",
+          "bytes": 28670
+        }
+      },
+      "portable": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Canonical-Collection-Records.json",
+        "sha256": "2ef5d1211358d67f27335ccfa2673a22acfddda95bc752d730d7afb3ae1967a6",
+        "bytes": 428007
+      },
+      "nativeExcelReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Native-Excel-Verification.json",
+        "sha256": "3a72813299eb98393ad8b4eba4774baafc7c1d19943750b09cca12a0d22d46ae",
+        "bytes": 1679
+      }
+    },
+    "metadataSourceFreeze": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/metadata-source-freeze.json",
+      "sha256": "9f52c6a18f48894a50f780dd0a750ce4b20ee38894d5c8cb62b8af2397244ab0",
+      "bytes": 4036
+    },
+    "canonicalSourceBindings": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Canonical-Source-Bindings.json",
+      "sha256": "e2a1bfbeda9b5d903081cb2b1309ac625fa05c35dd71c358a57c134213294bf1",
+      "bytes": 607156
+    }
   },
   "artifacts": {
     "goal-1": {

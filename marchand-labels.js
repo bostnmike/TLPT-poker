@@ -23,7 +23,18 @@
   const category = (value) => categories[value] || value || "Collection Artifact";
   const collectionWing = (value) => value === "Goals & Games" ? "Goals" : value;
   const puckType = (value) => /^warm-up (used )?puck$/i.test(value || "") ? "Warm-Up Puck" : value;
-  const goalie = (record) => /\bENG\b/.test(record.goalType || "") || record.goalieScoredAgainst === "Empty net (no goaltender)" ? "—" : record.goalieScoredAgainst;
+  const goalie = (record) => goalCodes(record).includes("ENG") || record.goalieScoredAgainst === "Empty net (no goaltender)" ? "—" : record.goalieScoredAgainst;
+  function goalCodes(record) {
+    if (Object.hasOwn(record, "goalStrength")) {
+      return [record.goalStrength, record.gameWinningGoal === true && "GWG", record.overtimeGoal === true && "OT"].filter(Boolean);
+    }
+    return [...new Set(String(record.goalType || "").match(/ESG|PPG|SHG|GWG|ENG|OT|PS/g) || [])];
+  }
+  const recordGoalType = (record, includeCode = true) => goalType(goalCodes(record).join(" & "), includeCode);
+  function statLabel(scope, basis) {
+    const unit = String(basis || "").match(/(goals|points|assists)$/)?.[1];
+    return unit ? `${scope} ${unit}` : `${scope} stat`;
+  }
   function goalType(value, includeCode = true) {
     if (!value) return "";
     const codes = String(value).match(/ESG|PPG|SHG|GWG|ENG|OT|PS/g);
@@ -54,5 +65,5 @@
       return item;
     }));
   }
-  window.MarchandLabels = Object.freeze({ category, goalType, recordTitle, renderKey, perfectionLine, collectionWing, puckType, goalie });
+  window.MarchandLabels = Object.freeze({ category, goalType, goalCodes, recordGoalType, statLabel, recordTitle, renderKey, perfectionLine, collectionWing, puckType, goalie });
 })();

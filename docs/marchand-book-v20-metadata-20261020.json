@@ -1,0 +1,311 @@
+{
+  "schema_version": 2,
+  "revision": "Canonical-Hygiene-240page-Edition-20261020-v20",
+  "status": "CURRENT172_CANONICAL_DATABASE_HYGIENE_BOOK_AND_MEDIA_VALIDATED;FINAL_LIVE_COMPLETION_ADDITIVE",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Handoff.json",
+    "sha256": "a7eabdbfb49856d55ad2e84d5ff302ae16c36207e455bf4457552124c980ac46",
+    "bytes": 20508
+  },
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Initial-Registration-Receipt.json",
+    "sha256": "51ed9db7200fd01a90dd9fa4956f5507cbd1d62e312afa58e634fa70a0d2e7f7",
+    "bytes": 7153
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Registry-at-registration.json",
+    "sha256": "cca3598dd43bb7ebee3757b1ad6ec736f2d0f65b64832e2c3a1b35c81b56d2e7",
+    "bytes": 326600
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Database Hygiene Book Media Registration 2026-10-20-v20/Current-172-Media-Manifest.json",
+    "sha256": "5882ee8d643d5a0e8ec7a2a8204152db37e19dab37a079e4b67af83d1801951d",
+    "bytes": 152813
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Canonical-Hygiene-240page-Edition-20261020-v20/Exhibit63-Canonical-Hygiene-240page-Interior-October20-2026-v20.pdf",
+    "sha256": "bbf2d8998ea2b8f50fcf634a9e8912468e58df98df9f9ac1176e9bc24de8cee8",
+    "bytes": 855383410,
+    "pages": 240,
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Game-Photo-Index.json",
+    "sha256": "fbab57298907a4255ef9b6a268a80c243f3749d1f58d1c4dc2e3c80d2b825f81",
+    "bytes": 751884
+  },
+  "source_freeze": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/source-freeze.json",
+    "sha256": "6ac7095b7749e4612c002bc62fdf1e530d886b85349c3c16406f16109339a92b",
+    "bytes": 7287
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "93b3309d59ca625d10f6309fec59003b6cf821689ebf745819a9ac6d8af12a77",
+      "bytes": 312972
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "a9f772db8450c0b7689b64fbe0ead83fc8772a1b3497eda358d592d91006ce33",
+      "bytes": 28670
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Effective-Handoff.json",
+    "sha256": "1bb425c86f6280e182f2458c56b9903a10a5bc395fe80d3e64d6676188561ff4",
+    "bytes": 14736
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Native-Excel-Current-Save-Verification.json",
+    "sha256": "bffd5528d43dd840301873e8eb41a834a99aa4b3dd928040fe9062040e081b5a",
+    "bytes": 1136
+  },
+  "portable": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Canonical-Collection-Records.json",
+    "sha256": "fb64f415a3d3182e19ec141dd7dc90916194b9f2a3fc765839e8934c4209efe5",
+    "bytes": 428328
+  },
+  "database_schema": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Database-Schema-and-Dictionary.json",
+    "sha256": "adc2a7099d8fd7627d9e6c04d98f52fc432f04d294bddb3b8aeabf9366beac93",
+    "bytes": 46924
+  },
+  "consumer_delta": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Consumer-Data-Delta.json",
+    "sha256": "13c238e4c81d89fa3defe618f742a389b9e211ae3d3dc617163751100bf988f5",
+    "bytes": 7931
+  },
+  "document_view_specification": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Document-View-Specification.json",
+    "sha256": "7564b9f46eac0ae6ee6628ce380306bce0b457708c1f4d31b63bc3151fee1304",
+    "bytes": 831276
+  },
+  "counts": {
+    "catalog_records": 172,
+    "active_physical_document_views": 828,
+    "document_cards": 134,
+    "unique_website_document_images": 133,
+    "historical_source_document_associations": 132,
+    "unique_original_encoded_document_streams": 131,
+    "selected_game_images": 172,
+    "combined_gallery_views": 1000,
+    "active_public_image_files": 1341,
+    "historical_original_source_views": 845,
+    "photographs": 93,
+    "video_stills": 79,
+    "interior_pages": 240
+  },
+  "catalog_records": 172,
+  "chapter_counts": {
+    "Goals & Games": 75,
+    "Milestones": 43,
+    "Road to History": 10,
+    "Road to Repeat": 27,
+    "Hockey Fights Cancer": 9,
+    "Warm-Up Pucks": 8
+  },
+  "verified_metrics": {
+    "record_count": 172,
+    "unique_ids": 172,
+    "chapter_counts": {
+      "Goals & Games": 75,
+      "Milestones": 43,
+      "Road to History": 10,
+      "Road to Repeat": 27,
+      "Hockey Fights Cancer": 9,
+      "Warm-Up Pucks": 8
+    },
+    "physical_counts": {
+      "goal_scored": 81,
+      "game_used": 48,
+      "warm_up": 43
+    },
+    "Marchand_goal_pucks": 74,
+    "Marchand_goal_flags": {
+      "ESG": 45,
+      "ENG": 7,
+      "PPG": 18,
+      "SHG": 3,
+      "PS": 1,
+      "GWG": 14,
+      "OT": 1
+    },
+    "arena_labels": 38,
+    "physical_venues": 34,
+    "official_game_keys": 171,
+    "scoring_contexts": 83
+  },
+  "all172_native_game_images_and_all828_physical_views_unchanged": true,
+  "no_new_public_image_files": true,
+  "cover_actual_upload_diagnostic": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Cover Upload Page Count Diagnostic 2026-10-20-v1/Handoff.json",
+    "sha256": "2454874f7e61dac5817b13b703b75f553ba9af4f4e76afe16eaa91447c1b3b01",
+    "bytes": 4004
+  },
+  "cover_status": "Preserve847e localv5 cover bytes/history. Actual owner upload rejected with short20–50pagebucket expected dimensions; correct240product/parsedpagecount acceptance and preview unconfirmed. No cover resizing in this task; globalprintreadyfalse.",
+  "print_ready": false,
+  "unqualified_publish_ready": false,
+  "privacy": "Private full Book/cover/proof PDFs and original photographs remain private. No new image or PDF uploads.",
+  "upstream_qa": {
+    "fact_preflight": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-fact_preflight.json",
+      "sha256": "2b75b78c336054cfa95aa9539b28f64f4cfd4a1f1e49cfb1c5d037acaaa23d12",
+      "bytes": 28371
+    },
+    "native_selector_font_smoke": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-native_selector_font_smoke.json",
+      "sha256": "526fa23dc578be1fb5c8525667d42a28313d52468adc1babd91d5449fc9a8a15",
+      "bytes": 12054
+    },
+    "actual_text": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-actual_text.json",
+      "sha256": "09ec58a273745a4bb36cfd2b78b88df3be03d26936e04702cf612127dfef5ab2",
+      "bytes": 14175
+    },
+    "visual_A": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-visual_A.json",
+      "sha256": "55c0e9c89dfb3fc96fc58b0d08061fbb61ba04b3748de1162125c1ecca77b73b",
+      "bytes": 5506
+    },
+    "visual_B": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-visual_B.json",
+      "sha256": "32f8b3155e2b435905d7f0b3d0dfcf5b1eb1115a7670ac102aa4e77e4758cb00",
+      "bytes": 5098
+    },
+    "raster": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-raster.json",
+      "sha256": "b64129100e434af764a04593889f83544a50354a43ba6e9619f7c60df81765cb",
+      "bytes": 11424
+    },
+    "offline_reproduction": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-offline_reproduction.json",
+      "sha256": "5e0611ee9d1ee9dedadf071b7a3bf5b1af55f3a79ef05ec35d776966c25e6ac6",
+      "bytes": 5565
+    },
+    "root_visual": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-root_visual.json",
+      "sha256": "092e18386e4d96c7c3ecf1b0ec10f25a2e8fab4997d61562104248f4a0c47049",
+      "bytes": 2915
+    },
+    "at_build_metadata": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-at_build_metadata.json",
+      "sha256": "488d86642f83479c4ea3f326edb22183447b9c05642cf9e228d9deff563dfad7",
+      "bytes": 73822
+    },
+    "at_build_table_bindings": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-at_build_table_bindings.json",
+      "sha256": "91b8d4e2831916f6704eedf37e62090e4fba81439e4aa8c74f16c6ec90a7f1ce",
+      "bytes": 42618
+    },
+    "current_metadata_binding": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-current_metadata_binding.json",
+      "sha256": "b575a03883fac9885d42f283a50b269a51ff13e1bb972213b0842615d14ae3f4",
+      "bytes": 63772
+    },
+    "metadata_staging": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-metadata_staging.json",
+      "sha256": "d5e637375d06eb340aa3dc8ee5aca5ec21479a1ed5e043ecb7e4759f21928361",
+      "bytes": 4964
+    },
+    "independent_workbook_equivalence": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-independent_workbook_equivalence.json",
+      "sha256": "b74599da0b84c14f7f888e915d389d3e651da05ee484703a2daec71f1634fda5",
+      "bytes": 5007
+    },
+    "canonical_save_equivalence": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-canonical_save_equivalence.json",
+      "sha256": "9d5c462a4bad358c2fea6660d824118267c884304f9ab842d36f990741f30a27",
+      "bytes": 2967
+    },
+    "installer_guard_closure": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-installer_guard_closure.json",
+      "sha256": "199b62f8f152baf67c280cc86279412b6268830d0d3b72547aa53a913ba7195d",
+      "bytes": 3830
+    },
+    "current_metadata_peer": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-current_metadata_peer.json",
+      "sha256": "fa9f66e77b79a8213698753c9816fc21aac92bb517623631546f24c8bc749ec6",
+      "bytes": 19477
+    },
+    "actual_written_pdf": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-actual-written-pdf.json",
+      "sha256": "08020fa1b74e901849c006101b5cfb161357fb34b875a7e49a4dbee12b133967",
+      "bytes": 338009
+    },
+    "native_text_mutation": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/QA-native-text-mutation.json",
+      "sha256": "07f580f29123c1b9099db6e27f5ffb2603232b758ff831488848bcb3deb03e7d",
+      "bytes": 20264
+    }
+  },
+  "verification_scope": "Small sealed Book/source/QA/index/spec/initial Data references independently hashed; actual large PDFs stat/size matched. Book technical/visual/rebuild QA retained, not repeated by Museum.",
+  "prior_v19_metadata": {
+    "path": "docs/marchand-book-v19-metadata-20261020.json",
+    "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6"
+  },
+  "initial_registration_scope": "Immutable initial20 source registration; final Data completion follows actual website release/live QA without rewriting public initial hashes.",
+  "cover": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Verified-240pages-Premium-Lustre-20261020-v5/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-240pages-October20-2026-v5.pdf",
+    "sha256": "847e0e933dbf5d73b26acadb7faa3d3245762d50941691ab841965485baaf211",
+    "bytes": 23495234
+  },
+  "matching240page_cover_pending": false,
+  "cover_product_page_count_configuration_pending": true,
+  "actual_correct240page_blurb_upload_acceptance_confirmed": false,
+  "sealed_maintenance_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Handoff.json",
+    "sha256": "bff9c979ee2bb78cf377c7588678736e674a9d6a85a45061850b27a06c509689",
+    "bytes": 12418
+  },
+  "at_build_canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "e88f0c3332f8e9a43bb15217dbea70c66ff4739a9c7bc3b8e5738d5715b4300f",
+      "bytes": 312926
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "a9f772db8450c0b7689b64fbe0ead83fc8772a1b3497eda358d592d91006ce33",
+      "bytes": 28670
+    }
+  },
+  "at_build_portable": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Canonical-Collection-Records.json",
+    "sha256": "2ef5d1211358d67f27335ccfa2673a22acfddda95bc752d730d7afb3ae1967a6",
+    "bytes": 428007
+  },
+  "at_build_native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Native-Excel-Verification.json",
+    "sha256": "3a72813299eb98393ad8b4eba4774baafc7c1d19943750b09cca12a0d22d46ae",
+    "bytes": 1679
+  },
+  "source_save_equivalence": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Database Hygiene 2026-10-20-v20/Source Save Equivalence 2026-10-20-v20/Equivalence-QA.json",
+    "sha256": "9d5c462a4bad358c2fea6660d824118267c884304f9ab842d36f990741f30a27",
+    "bytes": 2967
+  },
+  "current_canonical_record_content_sha256": "3b7a9a0662d9b36dc7ee0f297d912c986a6aadacd7bfbfb3eed3849de2967ac9",
+  "source_save_policy": "Exact byte fingerprints identify saved-file instances. This specific save is equivalent only after removing the three explicitly enumerated view/save metadata differences. Do not treat an arbitrary byte change as harmless. Keep E88 as immutable at-build provenance; current93b is actualexternalmaster. No bookPDF/image rebuild, renumbering or content change. Only current metadata bindings use this effective handoff.",
+  "metadata_source_freeze": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/metadata-source-freeze.json",
+    "sha256": "9f52c6a18f48894a50f780dd0a750ce4b20ee38894d5c8cb62b8af2397244ab0",
+    "bytes": 4036
+  },
+  "canonical_source_bindings": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Canonical-Source-Bindings.json",
+    "sha256": "e2a1bfbeda9b5d903081cb2b1309ac625fa05c35dd71c358a57c134213294bf1",
+    "bytes": 607156
+  },
+  "metadata_binding_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/metadata-binding-receipt.json",
+    "sha256": "b575a03883fac9885d42f283a50b269a51ff13e1bb972213b0842615d14ae3f4",
+    "bytes": 63772
+  },
+  "source_freeze_scope": "Immutable PDF at-build SOURCE-v1/E88; distinct current metadata binding freeze/93b is recorded separately.",
+  "metadata_source_freeze_scope": "Current METADATA-BINDING-v1/93b,18inputs and3outputs; native PDF and original build source freeze unchanged.",
+  "native_excel_verification_scope": "OriginalE88 full20/20functionalproof plus exact source-save equivalence and current93b read-only clean-open; no repeated full test or native PDF rebuild."
+}

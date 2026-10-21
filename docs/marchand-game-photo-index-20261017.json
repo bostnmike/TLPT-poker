@@ -1,8 +1,8 @@
 {
   "date": "2026-10-20",
-  "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19",
-  "sourceIndexSha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
-  "bookPageMappingStatus": "SEALED_ACTUAL_V19_INDEX;ALL172CURRENT_ID_KEY_NATIVE_CREDIT_CAPTION_AND_ROW_JOINS_VERIFIED",
+  "revision": "Canonical-Hygiene-240page-Edition-20261020-v20",
+  "sourceIndexSha256": "fbab57298907a4255ef9b6a268a80c243f3749d1f58d1c4dc2e3c80d2b825f81",
+  "bookPageMappingStatus": "SEALED_ACTUAL_BOOK20;ALL172_ID_KEY_NATIVE_CAPTION_CREDIT_CANONICAL_ROW_AND_PAGE_JOINS_VERIFIED",
   "records": [
     {
       "inventoryId": 1,
@@ -3704,17 +3704,17 @@
       "scope": "Current registeredv13 private240page working interior; only040lowerdocumentedge corrected. All171index rows and game selections unchanged. PremiumLustre fits; matching240cover pending, old236cover reference-only."
     }
   },
-  "bookSha256": "476f48f524685c94f9f991c66975192fa9eca7440eeb7d722de0a7cf28ad276d",
+  "bookSha256": "bbf2d8998ea2b8f50fcf634a9e8912468e58df98df9f9ac1176e9bc24de8cee8",
   "bookPages": 240,
   "currentMediaAndBookPublication": {
-    "path": "docs/marchand-book-v19-metadata-20261020.json",
-    "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
-    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+    "path": "docs/marchand-book-v20-metadata-20261020.json",
+    "sha256": "4048360c44e343faff5827426af5c7b52026b326671b0e59d7923f13d254827e",
+    "revision": "Canonical-Hygiene-240page-Edition-20261020-v20"
   },
   "sourceIndexReference": {
-    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Game-Photo-Index.json",
-    "sha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
-    "bytes": 208085
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Game-Photo-Index.json",
+    "sha256": "fbab57298907a4255ef9b6a268a80c243f3749d1f58d1c4dc2e3c80d2b825f81",
+    "bytes": 751884
   },
   "coverStatus": "ACTUAL_PRIOR_UPLOAD_REJECTED;CORRECT240CONFIGURATION_ACCEPTANCE_UNCONFIRMED",
   "matching240PageCoverPending": false,
@@ -3735,5 +3735,30 @@
     "scope": "Provisional only, awaiting sealed actual V19 index; publication gate remains blocked."
   },
   "coverProductPageCountConfigurationPending": true,
-  "actualCorrect240PageBlurbUploadAcceptanceConfirmed": false
+  "actualCorrect240PageBlurbUploadAcceptanceConfirmed": false,
+  "historicalPublicationBeforeDatabaseHygiene": {
+    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19",
+    "sourceIndexSha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
+    "sourceIndexReference": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Game-Photo-Index.json",
+      "sha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
+      "bytes": 208085
+    },
+    "bookSha256": "476f48f524685c94f9f991c66975192fa9eca7440eeb7d722de0a7cf28ad276d",
+    "currentMediaAndBookPublication": {
+      "path": "docs/marchand-book-v19-metadata-20261020.json",
+      "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
+      "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+    }
+  },
+  "canonicalSourceBindings": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/Canonical-Source-Bindings.json",
+    "sha256": "e2a1bfbeda9b5d903081cb2b1309ac625fa05c35dd71c358a57c134213294bf1",
+    "bytes": 607156
+  },
+  "metadataSourceFreeze": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Hygiene Book Handoff 2026-10-20-v20/metadata-source-freeze.json",
+    "sha256": "9f52c6a18f48894a50f780dd0a750ce4b20ee38894d5c8cb62b8af2397244ab0",
+    "bytes": 4036
+  }
 }

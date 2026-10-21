@@ -2,7 +2,7 @@
   "use strict";
 
   const state = { records: [], goalies: {}, team: "", view: "goalies", selected: "" };
-  const { goalType: goalTypeLabel, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
+  const { goalType: goalTypeLabel, goalCodes, recordGoalType, recordTitle, perfectionLine, collectionWing, puckType: puckTypeLabel, goalie: goalieLabel } = window.MarchandLabels;
   const byId = (id) => document.getElementById(id);
   const elements = {
     body: document.body,
@@ -24,15 +24,15 @@
     repeat: byId("vault-repeat-story"),
   };
   const normalize = (value) => String(value ?? "").trim();
-  const isGoal = (record) => record.sourceSheet === "Goals & Games" && ["4NF Goal", "PO Goal", "RS Goal"].includes(record.category);
+  const isGoal = (record) => record.puckType === "Goal Scored Puck" && record.recordedScorer === "Brad Marchand";
   function isMarchandGoal(record) {
     return isGoal(record) && record.goalieScoredAgainst && record.goalieScoredAgainst !== "Empty net (no goaltender)";
   }
   const views = {
-    goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Every recorded opposing goalie. Assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; both pucks remain listed." },
-    arenas: { title: "Every arena in the vault", singular: "Arena", plural: "arenas", key: (record) => record.arena || "Not recorded", metric: "Games represented", note: "Every arena name recorded in the collection. Historical venue names are preserved as catalogued. Open an arena to see all of its pucks." },
+    goalies: { title: "Goalies scored against", singular: "Goalie", plural: "goalies", key: (record) => record.goalieScoredAgainst, include: isMarchandGoal, metric: "Goals represented", goals: true, note: "Opposing goalies for Marchand goal-scored pucks. Game-used pucks, assists and empty-net goals are excluded. A goal represented by more than one puck counts once in the goal total; all its pucks remain listed." },
+    arenas: { title: "Physical arenas in the vault", singular: "Physical arena", plural: "physical arenas", key: (record) => record.venueName, metric: "Games represented", note: "Renamed arenas are grouped as one physical building. Each puck retains the arena name recorded for its game." },
     years: { title: "The complete collection timeline", singular: "Year", plural: "years", key: (record) => record.date.slice(0, 4) || "Unverified", metric: "Games represented", note: "Every calendar year represented in the collection, including goals, assists, milestones and team artifacts." },
-    goals: { title: "Every Goal Type", singular: "Goal Type", plural: "goal types", key: (record) => goalTypeLabel(record.goalType, false) || "Not Recorded", include: isGoal, metric: "Goals represented", goals: true, note: "Marchand goal records only, including Empty-Net Goals. Open the Goal Type Key for symbols and codes. Combined labels retain every applicable goal type." },
+    goals: { title: "Marchand physical goal pucks", singular: "Goal Type", plural: "goal types", keys: (record) => goalCodes(record).map((code) => goalTypeLabel(code, false)), include: isGoal, metric: "Physical goal pucks", goals: true, physical: true, note: "Only pucks classified as Goal Scored Puck with Marchand as the recorded scorer. Game-used pucks are excluded. Game-winning and overtime flags overlap with goal strength; one physical puck can appear in several rows." },
     sheets: { title: "Every collection wing", singular: "Collection wing", plural: "collection wings", key: (record) => collectionWing(record.sourceSheet), metric: "Games represented", note: "Explore Goals, Career Milestones, Road to History, Road to Repeat, Hockey Fights Cancer and Warm-Up Pucks. Every matching puck is included." },
   };
 
@@ -63,6 +63,7 @@
   }
 
   function eventKey(record, goals) {
+    if (record.nhlGameId && (!goals || record.nhlGoalEventId)) return goals ? `${record.nhlGameId}|${record.nhlGoalEventId}` : record.nhlGameId;
     const game = `${record.team}|${record.date}|${record.opponent}`;
     return goals ? `${game}|${record.period}|${record.time}|${record.careerStat}` : game;
   }
@@ -71,21 +72,22 @@
     const groups = new Map();
     for (const record of records) {
       if (view.include && !view.include(record)) continue;
-      const label = view.key(record);
-      if (!groups.has(label)) groups.set(label, { label, records: [], events: new Set() });
-      const group = groups.get(label);
-      group.records.push(record);
-      group.events.add(eventKey(record, view.goals));
-      if (view === views.sheets && record.hockeyFightsCancer && label !== "Hockey Fights Cancer") {
-        const hfcLabel = "Hockey Fights Cancer";
-        if (!groups.has(hfcLabel)) groups.set(hfcLabel, { label: hfcLabel, records: [], events: new Set() });
-        const hfc = groups.get(hfcLabel);
-        hfc.records.push(record); hfc.events.add(eventKey(record, false));
+      for (const label of view.keys ? view.keys(record) : [view.key(record)]) {
+        if (!groups.has(label)) groups.set(label, { label, records: [], events: new Set() });
+        const group = groups.get(label);
+        group.records.push(record);
+        group.events.add(eventKey(record, view.goals));
+        if (view === views.sheets && record.hockeyFightsCancer && label !== "Hockey Fights Cancer") {
+          const hfcLabel = "Hockey Fights Cancer";
+          if (!groups.has(hfcLabel)) groups.set(hfcLabel, { label: hfcLabel, records: [], events: new Set() });
+          const hfc = groups.get(hfcLabel);
+          hfc.records.push(record); hfc.events.add(eventKey(record, false));
+        }
       }
     }
     return [...groups.values()].map((group) => {
       group.records.sort((a, b) => a.date.localeCompare(b.date) || a.inventoryId - b.inventoryId);
-      return { ...group, count: group.events.size, first: group.records[0].date, latest: group.records[group.records.length - 1].date };
+      return { ...group, count: view.physical ? group.records.length : group.events.size, first: group.records[0].date, latest: group.records[group.records.length - 1].date };
     });
   }
 
@@ -141,7 +143,7 @@
       if (perfectionLine(record)) card.append(node("p", perfectionLine(record), "marchand-line-badge"));
       const point = ["Assist", "RS Point"].includes(record.category);
       const emoji = point ? "🍎" : record.puckType === "Goal Scored Puck" ? "🍪" : "🏒";
-      card.append(node("p", [`${emoji} ${puckTypeLabel(record.puckType)}`, record.period && `Period ${record.period} · ${record.time}`, goalTypeLabel(record.goalType), record.goalieScoredAgainst && `Goalie: ${goalieLabel(record)}`].filter(Boolean).join(" · ")));
+      card.append(node("p", [`${emoji} ${puckTypeLabel(record.puckType)}`, record.period && `Period ${record.period} · ${record.time}`, recordGoalType(record), record.goalieScoredAgainst && `Goalie: ${goalieLabel(record)}`].filter(Boolean).join(" · ")));
       const detailLink = node("a", "Open full deep dive ↗", "marchand-explorer-detail-hint");
       detailLink.href = link.href;
       card.append(detailLink);
@@ -171,11 +173,13 @@
     elements.resultCount.textContent = records.length;
     elements.title.textContent = view.title;
     elements.note.textContent = view.note;
+    if (state.view === "arenas") elements.note.textContent = `${groups.length} physical buildings · ${new Set(records.map((record) => record.arena)).size} recorded arena names. ${view.note}`;
     elements.groupHeading.textContent = view.singular;
     elements.countHeading.textContent = view.metric;
     elements.caption.textContent = `${view.title} — complete collection breakdown`;
     elements.search.placeholder = `Search ${view.plural}…`;
     elements.summary.textContent = `Showing ${shown.length} of ${groups.length} ${view.plural} · ${shown.reduce((sum, group) => sum + group.records.length, 0)} puck records`;
+    if (view.physical) elements.summary.textContent = `Showing ${shown.length} of ${groups.length} goal types · ${new Set(shown.flatMap((group) => group.records.map((record) => record.inventoryId))).size} unique Marchand goal pucks · flags can overlap`;
     elements.empty.hidden = shown.length > 0;
     for (const button of document.querySelectorAll("[data-vault-view]")) {
       button.setAttribute("aria-pressed", String(button.dataset.vaultView === state.view));

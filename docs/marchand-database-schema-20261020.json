@@ -1,0 +1,1796 @@
+{
+  "schema_version": 2,
+  "revision": "Canonical-Database-Hygiene-20261020-v20",
+  "record_identity": "Current inventory ID across six named source tables; never sheet index, bare worksheet used range, photo filename, or historical alias.",
+  "record_tables": {
+    "Goals & Games": {
+      "name": "CollectionGoals",
+      "columns": {
+        "ID": "A",
+        "Home/Road": "B",
+        "Marchand Team": "C",
+        "Category": "D",
+        "Career Stat": "E",
+        "Season Stat": "F",
+        "Date": "G",
+        "Arena": "H",
+        "Opponent": "I",
+        "Period": "J",
+        "Time": "K",
+        "Goal Type": "L",
+        "Primary Assist": "M",
+        "Secondary Assist": "N",
+        "Score": "O",
+        "Puck Type": "P",
+        "Goal Video": "Q",
+        "Notes": "R",
+        "Goalie Scored Against": "S",
+        "Front Image Filename": "T",
+        "Back Image Filename": "U",
+        "Detail Image Filenames": "V",
+        "COA Filename": "W",
+        "Authentication Type": "X",
+        "Authentication Evidence": "Y",
+        "Authentication Notes": "Z",
+        "Authentication Issuer": "AA",
+        "Hologram Number": "AB",
+        "Authentication Record URL": "AC",
+        "Additional Authentication Issuer": "AD",
+        "Additional Hologram Number": "AE",
+        "Additional Authentication Record URL": "AF",
+        "Authentication Lookup Instructions": "AG",
+        "Career Stat Basis": "AH",
+        "Season Stat Basis": "AI",
+        "Goal Strength": "AJ",
+        "Game-Winning Goal": "AK",
+        "Overtime Goal": "AL",
+        "Recorded Scorer": "AM",
+        "NHL Game ID": "AN",
+        "NHL Goal Event ID": "AO"
+      },
+      "original_headers": [
+        "ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Career Stat",
+        "Season Stat",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Score",
+        "Puck Type",
+        "Goal Video",
+        "Notes",
+        "Goalie Scored Against",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Career Stat",
+        "Season Stat",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Score",
+        "Puck Type",
+        "Goal Video",
+        "Notes",
+        "Goalie Scored Against",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Career Stat Basis",
+        "Season Stat Basis",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    },
+    "Milestones": {
+      "name": "CollectionMilestones",
+      "columns": {
+        "ID #": "A",
+        "Marchand Team": "B",
+        "Category": "C",
+        "Description": "D",
+        "Date": "E",
+        "Arena": "F",
+        "Opponent": "G",
+        "Puck Type": "H",
+        "Notes": "I",
+        "Home/Road": "J",
+        "Score": "K",
+        "Workflow Status": "L",
+        "City/Region": "M",
+        "Career Stat": "N",
+        "Season Stat": "O",
+        "Period": "P",
+        "Time": "Q",
+        "Goal Type": "R",
+        "Primary Assist": "S",
+        "Secondary Assist": "T",
+        "Goalie Scored Against": "U",
+        "Video URL": "V",
+        "Front Image Filename": "W",
+        "Back Image Filename": "X",
+        "Detail Image Filenames": "Y",
+        "COA Filename": "Z",
+        "Purchase Document Filename": "AA",
+        "Source / Seller": "AB",
+        "Last Updated": "AC",
+        "Original Front Image Filename": "AD",
+        "Original Back Image Filename": "AE",
+        "Original Detail Image Filenames": "AF",
+        "Original COA Filename": "AG",
+        "Research Sources": "AH",
+        "Intake Date (As Submitted)": "AI",
+        "Authentication Type": "AJ",
+        "Authentication Evidence": "AK",
+        "Authentication Notes": "AL",
+        "Authentication Issuer": "AM",
+        "Hologram Number": "AN",
+        "Authentication Record URL": "AO",
+        "Additional Authentication Issuer": "AP",
+        "Additional Hologram Number": "AQ",
+        "Additional Authentication Record URL": "AR",
+        "Authentication Lookup Instructions": "AS",
+        "Career Stat Basis": "AT",
+        "Season Stat Basis": "AU",
+        "Goal Strength": "AV",
+        "Game-Winning Goal": "AW",
+        "Overtime Goal": "AX",
+        "Recorded Scorer": "AY",
+        "NHL Game ID": "AZ",
+        "NHL Goal Event ID": "BA"
+      },
+      "original_headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Career Stat Basis",
+        "Season Stat Basis",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    },
+    "Road to History": {
+      "name": "CollectionHistory",
+      "columns": {
+        "Inventory ID": "A",
+        "Home/Road": "B",
+        "Marchand Team": "C",
+        "Category": "D",
+        "Description": "E",
+        "Date": "F",
+        "Arena": "G",
+        "Opponent": "H",
+        "Game": "I",
+        "W": "J",
+        "L": "K",
+        "OTL": "L",
+        "Pts": "M",
+        "Score": "N",
+        "Puck Type": "O",
+        "Notes": "P",
+        "Video URL": "Q",
+        "Front Image Filename": "R",
+        "Back Image Filename": "S",
+        "Detail Image Filenames": "T",
+        "COA Filename": "U",
+        "Authentication Type": "V",
+        "Authentication Evidence": "W",
+        "Authentication Notes": "X",
+        "Authentication Issuer": "Y",
+        "Hologram Number": "Z",
+        "Authentication Record URL": "AA",
+        "Additional Authentication Issuer": "AB",
+        "Additional Hologram Number": "AC",
+        "Additional Authentication Record URL": "AD",
+        "Authentication Lookup Instructions": "AE",
+        "Goal Type": "AF",
+        "Period": "AG",
+        "Time": "AH",
+        "Primary Assist": "AI",
+        "Secondary Assist": "AJ",
+        "Goalie Scored Against": "AK",
+        "Goal Strength": "AL",
+        "Game-Winning Goal": "AM",
+        "Overtime Goal": "AN",
+        "Recorded Scorer": "AO",
+        "NHL Game ID": "AP",
+        "NHL Goal Event ID": "AQ"
+      },
+      "original_headers": [
+        "Inventory ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Game",
+        "W",
+        "L",
+        "OTL",
+        "Pts",
+        "Score",
+        "Puck Type",
+        "Notes",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "Inventory ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Game",
+        "W",
+        "L",
+        "OTL",
+        "Pts",
+        "Score",
+        "Puck Type",
+        "Notes",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Goal Type",
+        "Period",
+        "Time",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    },
+    "Road to Repeat": {
+      "name": "CollectionRepeat",
+      "columns": {
+        "Inventory ID": "A",
+        "Home/Road": "B",
+        "Marchand Team": "C",
+        "Category": "D",
+        "Description": "E",
+        "Date": "F",
+        "Arena": "G",
+        "Opponent": "H",
+        "Game": "I",
+        "Playoff Wins": "J",
+        "Playoff Losses": "K",
+        "Series Record": "L",
+        "Playoff Round": "M",
+        "Score": "N",
+        "Puck Type": "O",
+        "Notes": "P",
+        "Workflow Status": "Q",
+        "City/Region": "R",
+        "Career Stat": "S",
+        "Season Stat": "T",
+        "Period": "U",
+        "Time": "V",
+        "Goal Type": "W",
+        "Primary Assist": "X",
+        "Secondary Assist": "Y",
+        "Goalie Scored Against": "Z",
+        "Video URL": "AA",
+        "Front Image Filename": "AB",
+        "Back Image Filename": "AC",
+        "Detail Image Filenames": "AD",
+        "COA Filename": "AE",
+        "Purchase Document Filename": "AF",
+        "Source / Seller": "AG",
+        "Last Updated": "AH",
+        "Original Front Image Filename": "AI",
+        "Original Back Image Filename": "AJ",
+        "Original Detail Image Filenames": "AK",
+        "Original COA Filename": "AL",
+        "Research Sources": "AM",
+        "Intake Date (As Submitted)": "AN",
+        "Authentication Type": "AO",
+        "Authentication Evidence": "AP",
+        "Authentication Notes": "AQ",
+        "Authentication Issuer": "AR",
+        "Hologram Number": "AS",
+        "Authentication Record URL": "AT",
+        "Additional Authentication Issuer": "AU",
+        "Additional Hologram Number": "AV",
+        "Additional Authentication Record URL": "AW",
+        "Authentication Lookup Instructions": "AX",
+        "Career Stat Basis": "AY",
+        "Season Stat Basis": "AZ",
+        "Goal Strength": "BA",
+        "Game-Winning Goal": "BB",
+        "Overtime Goal": "BC",
+        "Recorded Scorer": "BD",
+        "NHL Game ID": "BE",
+        "NHL Goal Event ID": "BF"
+      },
+      "original_headers": [
+        "Inventory ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Game",
+        "Playoff Wins",
+        "Playoff Losses",
+        "Series Record",
+        "Playoff Round",
+        "Score",
+        "Puck Type",
+        "Notes",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "Inventory ID",
+        "Home/Road",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Game",
+        "Playoff Wins",
+        "Playoff Losses",
+        "Series Record",
+        "Playoff Round",
+        "Score",
+        "Puck Type",
+        "Notes",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Career Stat Basis",
+        "Season Stat Basis",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    },
+    "Hockey Fights Cancer": {
+      "name": "CollectionHFC",
+      "columns": {
+        "ID #": "A",
+        "Marchand Team": "B",
+        "Category": "C",
+        "Description": "D",
+        "Date": "E",
+        "Arena": "F",
+        "Opponent": "G",
+        "Puck Type": "H",
+        "Notes": "I",
+        "Home/Road": "J",
+        "Score": "K",
+        "Workflow Status": "L",
+        "City/Region": "M",
+        "Career Stat": "N",
+        "Season Stat": "O",
+        "Period": "P",
+        "Time": "Q",
+        "Goal Type": "R",
+        "Primary Assist": "S",
+        "Secondary Assist": "T",
+        "Goalie Scored Against": "U",
+        "Video URL": "V",
+        "Front Image Filename": "W",
+        "Back Image Filename": "X",
+        "Detail Image Filenames": "Y",
+        "COA Filename": "Z",
+        "Purchase Document Filename": "AA",
+        "Source / Seller": "AB",
+        "Last Updated": "AC",
+        "Original Front Image Filename": "AD",
+        "Original Back Image Filename": "AE",
+        "Original Detail Image Filenames": "AF",
+        "Original COA Filename": "AG",
+        "Research Sources": "AH",
+        "Intake Date (As Submitted)": "AI",
+        "Hockey Fights Cancer": "AJ",
+        "Date Status": "AK",
+        "Authentication Type": "AL",
+        "Authentication Evidence": "AM",
+        "Authentication Notes": "AN",
+        "Authentication Issuer": "AO",
+        "Hologram Number": "AP",
+        "Authentication Record URL": "AQ",
+        "Additional Authentication Issuer": "AR",
+        "Additional Hologram Number": "AS",
+        "Additional Authentication Record URL": "AT",
+        "Authentication Lookup Instructions": "AU",
+        "Career Stat Basis": "AV",
+        "Season Stat Basis": "AW",
+        "Goal Strength": "AX",
+        "Game-Winning Goal": "AY",
+        "Overtime Goal": "AZ",
+        "Recorded Scorer": "BA",
+        "NHL Game ID": "BB",
+        "NHL Goal Event ID": "BC"
+      },
+      "original_headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Hockey Fights Cancer",
+        "Date Status",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Hockey Fights Cancer",
+        "Date Status",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Career Stat Basis",
+        "Season Stat Basis",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    },
+    "Warm-Up Pucks": {
+      "name": "CollectionWarmups",
+      "columns": {
+        "ID #": "A",
+        "Marchand Team": "B",
+        "Category": "C",
+        "Description": "D",
+        "Date": "E",
+        "Arena": "F",
+        "Opponent": "G",
+        "Puck Type": "H",
+        "Notes": "I",
+        "Home/Road": "J",
+        "Score": "K",
+        "Workflow Status": "L",
+        "City/Region": "M",
+        "Career Stat": "N",
+        "Season Stat": "O",
+        "Period": "P",
+        "Time": "Q",
+        "Goal Type": "R",
+        "Primary Assist": "S",
+        "Secondary Assist": "T",
+        "Goalie Scored Against": "U",
+        "Video URL": "V",
+        "Front Image Filename": "W",
+        "Back Image Filename": "X",
+        "Detail Image Filenames": "Y",
+        "COA Filename": "Z",
+        "Purchase Document Filename": "AA",
+        "Source / Seller": "AB",
+        "Last Updated": "AC",
+        "Original Front Image Filename": "AD",
+        "Original Back Image Filename": "AE",
+        "Original Detail Image Filenames": "AF",
+        "Original COA Filename": "AG",
+        "Research Sources": "AH",
+        "Intake Date (As Submitted)": "AI",
+        "Hockey Fights Cancer": "AJ",
+        "Date Status": "AK",
+        "Authentication Type": "AL",
+        "Authentication Evidence": "AM",
+        "Authentication Notes": "AN",
+        "Authentication Issuer": "AO",
+        "Hologram Number": "AP",
+        "Authentication Record URL": "AQ",
+        "Additional Authentication Issuer": "AR",
+        "Additional Hologram Number": "AS",
+        "Additional Authentication Record URL": "AT",
+        "Authentication Lookup Instructions": "AU",
+        "Career Stat Basis": "AV",
+        "Season Stat Basis": "AW",
+        "Goal Strength": "AX",
+        "Game-Winning Goal": "AY",
+        "Overtime Goal": "AZ",
+        "Recorded Scorer": "BA",
+        "NHL Game ID": "BB",
+        "NHL Goal Event ID": "BC"
+      },
+      "original_headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Hockey Fights Cancer",
+        "Date Status",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions"
+      ],
+      "headers": [
+        "ID #",
+        "Marchand Team",
+        "Category",
+        "Description",
+        "Date",
+        "Arena",
+        "Opponent",
+        "Puck Type",
+        "Notes",
+        "Home/Road",
+        "Score",
+        "Workflow Status",
+        "City/Region",
+        "Career Stat",
+        "Season Stat",
+        "Period",
+        "Time",
+        "Goal Type",
+        "Primary Assist",
+        "Secondary Assist",
+        "Goalie Scored Against",
+        "Video URL",
+        "Front Image Filename",
+        "Back Image Filename",
+        "Detail Image Filenames",
+        "COA Filename",
+        "Purchase Document Filename",
+        "Source / Seller",
+        "Last Updated",
+        "Original Front Image Filename",
+        "Original Back Image Filename",
+        "Original Detail Image Filenames",
+        "Original COA Filename",
+        "Research Sources",
+        "Intake Date (As Submitted)",
+        "Hockey Fights Cancer",
+        "Date Status",
+        "Authentication Type",
+        "Authentication Evidence",
+        "Authentication Notes",
+        "Authentication Issuer",
+        "Hologram Number",
+        "Authentication Record URL",
+        "Additional Authentication Issuer",
+        "Additional Hologram Number",
+        "Additional Authentication Record URL",
+        "Authentication Lookup Instructions",
+        "Career Stat Basis",
+        "Season Stat Basis",
+        "Goal Strength",
+        "Game-Winning Goal",
+        "Overtime Goal",
+        "Recorded Scorer",
+        "NHL Game ID",
+        "NHL Goal Event ID"
+      ]
+    }
+  },
+  "non_record_tabs": [
+    "New Puck Intake",
+    "Drop Down Lists",
+    "Dashboard Data",
+    "Data Quality",
+    "Dashboard"
+  ],
+  "current_order": [
+    "New Puck Intake",
+    "Goals & Games",
+    "Milestones",
+    "Road to History",
+    "Road to Repeat",
+    "Hockey Fights Cancer",
+    "Warm-Up Pucks",
+    "Drop Down Lists",
+    "Dashboard Data",
+    "Data Quality",
+    "Dashboard"
+  ],
+  "field_definitions": {
+    "Date": {
+      "type": "Excel integer serial",
+      "meaning": "Calendar date with no time fraction; mm/dd/yyyy display. 705 retains the printed original postponed date. Export date_iso for external consumers."
+    },
+    "Career Stat Basis": {
+      "type": "StatBases catalog value",
+      "meaning": "Unit and competition for existing Career Stat; never infer goal/point/assist from column position or number."
+    },
+    "Season Stat Basis": {
+      "type": "StatBases catalog value",
+      "meaning": "Unit and competition for existing Season Stat. Artifact300 is season assist5, not season point8."
+    },
+    "Goal Strength": {
+      "type": "ESG / PPG / SHG / ENG / PS",
+      "meaning": "One primary strength/goal modifier for the identified scoring event. PS takes precedence over misleading situation-code empty-net parsing."
+    },
+    "Game-Winning Goal": {
+      "type": "0 or1 when scoring context exists; blank otherwise",
+      "meaning": "Orthogonal flag; not additive with strength."
+    },
+    "Overtime Goal": {
+      "type": "0 or1 when scoring context exists; blank otherwise",
+      "meaning": "Orthogonal flag; not additive with strength."
+    },
+    "Recorded Scorer": {
+      "type": "full name",
+      "meaning": "Scorer of the goal event, not automatically Brad Marchand. Physical counts still depend on Puck Type."
+    },
+    "NHL Game ID": {
+      "type": "text identifier",
+      "meaning": "Official NHL primary game key;171registered played contexts.705 original postponed context intentionally blank."
+    },
+    "NHL Goal Event ID": {
+      "type": "text identifier",
+      "meaning": "Official primary event key paired with NHL Game ID.83contexts include81actualgoalpucks and48/313gameusedcontext; it is not proof of physical goal-puck type."
+    },
+    "Arena": {
+      "type": "ArenaAliases catalog value",
+      "meaning": "Preserved recorded game-date arena label. Multiple labels may refer to one PhysicalVenues building."
+    },
+    "ID": {
+      "type": "positive unique integer",
+      "meaning": "Current logical inventory identity. Old ID header spellings remain; current active ID overrides historical aliases."
+    },
+    "Puck Type": {
+      "type": "PuckTypes catalog value",
+      "meaning": "Physical classification. Count one physical puck once, even50two-goal puck or multiple category memberships."
+    }
+  },
+  "catalogs": [
+    {
+      "name": "OpponentTeams",
+      "start": "A1",
+      "headers": [
+        "Team"
+      ],
+      "rows": [
+        [
+          "Anaheim Ducks"
+        ],
+        [
+          "Arizona Coyotes"
+        ],
+        [
+          "Boston Bruins"
+        ],
+        [
+          "Buffalo Sabres"
+        ],
+        [
+          "Calgary Flames"
+        ],
+        [
+          "Canada"
+        ],
+        [
+          "Carolina Hurricanes"
+        ],
+        [
+          "Chicago Blackhawks"
+        ],
+        [
+          "Colorado Avalanche"
+        ],
+        [
+          "Columbus Blue Jackets"
+        ],
+        [
+          "Dallas Stars"
+        ],
+        [
+          "Detroit Red Wings"
+        ],
+        [
+          "Edmonton Oilers"
+        ],
+        [
+          "Florida Panthers"
+        ],
+        [
+          "Los Angeles Kings"
+        ],
+        [
+          "Minnesota Wild"
+        ],
+        [
+          "Montreal Canadiens"
+        ],
+        [
+          "Nashville Predators"
+        ],
+        [
+          "New Jersey Devils"
+        ],
+        [
+          "New York Islanders"
+        ],
+        [
+          "New York Rangers"
+        ],
+        [
+          "Ottawa Senators"
+        ],
+        [
+          "Philadelphia Flyers"
+        ],
+        [
+          "Pittsburgh Penguins"
+        ],
+        [
+          "San Jose Sharks"
+        ],
+        [
+          "Seattle Kraken"
+        ],
+        [
+          "St. Louis Blues"
+        ],
+        [
+          "Sweden"
+        ],
+        [
+          "Tampa Bay Lightning"
+        ],
+        [
+          "Toronto Maple Leafs"
+        ],
+        [
+          "Utah Hockey Club"
+        ],
+        [
+          "Utah Mammoth"
+        ],
+        [
+          "Vancouver Canucks"
+        ],
+        [
+          "Vegas Golden Knights"
+        ],
+        [
+          "Washington Capitals"
+        ],
+        [
+          "Winnipeg Jets"
+        ]
+      ]
+    },
+    {
+      "name": "MarchandTeams",
+      "start": "C1",
+      "headers": [
+        "Marchand Team"
+      ],
+      "rows": [
+        [
+          "Boston Bruins"
+        ],
+        [
+          "Florida Panthers"
+        ],
+        [
+          "Canada"
+        ],
+        [
+          "Team Canada"
+        ]
+      ]
+    },
+    {
+      "name": "ArenaAliases",
+      "start": "E1",
+      "headers": [
+        "Arena",
+        "Venue Key",
+        "Source"
+      ],
+      "rows": [
+        [
+          "Amalie Arena",
+          "VEN001",
+          "https://www.nhl.com/lightning/news/vinik-sports-group-benchmark-international-announce-multi-year-naming-rights-partnership"
+        ],
+        [
+          "Amerant Bank Arena",
+          "VEN002",
+          "https://www.nhl.com/panthers/news/we-just-click-panthers-amerant-bank-a-perfect-fit-in-south-florida"
+        ],
+        [
+          "American Airlines Center",
+          "VEN003",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Ball Arena",
+          "VEN004",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Barclays Center",
+          "VEN005",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Bell Centre",
+          "VEN006",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Benchmark Int’l Arena",
+          "VEN001",
+          "https://www.nhl.com/lightning/news/vinik-sports-group-benchmark-international-announce-multi-year-naming-rights-partnership"
+        ],
+        [
+          "Bridgestone Arena",
+          "VEN007",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "CONSOL Energy Center",
+          "VEN023",
+          "https://investor.ppg.com/news/news-details/2016/PPG-Acquires-Naming-Rights-for-Pittsburgh-Penguins-Home-to-Become-PPG-PAINTS-Arena/default.aspx"
+        ],
+        [
+          "Canada Life Centre",
+          "VEN008",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Canadian Tire Centre",
+          "VEN009",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Capital One Arena",
+          "VEN010",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Climate Pledge Arena",
+          "VEN011",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Crypto.com Arena",
+          "VEN012",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Delta Center",
+          "VEN013",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Enterprise Center",
+          "VEN014",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "FLA Live Arena",
+          "VEN002",
+          "https://www.nhl.com/panthers/news/we-just-click-panthers-amerant-bank-a-perfect-fit-in-south-florida"
+        ],
+        [
+          "Gila River Arena",
+          "VEN015",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Grand Casino Arena",
+          "VEN016",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Honda Center",
+          "VEN017",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "KeyBank Center",
+          "VEN018",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Lenovo Center",
+          "VEN019",
+          "https://www.nhl.com/hurricanes/news/hurricanes-home-arena-officially-re-named-lenovo-center"
+        ],
+        [
+          "Little Caesars Arena",
+          "VEN020",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Madison Square Garden",
+          "VEN021",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Nationwide Arena",
+          "VEN022",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "PNC Arena",
+          "VEN019",
+          "https://www.nhl.com/hurricanes/news/hurricanes-home-arena-officially-re-named-lenovo-center"
+        ],
+        [
+          "PPG Paints Arena",
+          "VEN023",
+          "https://investor.ppg.com/news/news-details/2016/PPG-Acquires-Naming-Rights-for-Pittsburgh-Penguins-Home-to-Become-PPG-PAINTS-Arena/default.aspx"
+        ],
+        [
+          "Prudential Center",
+          "VEN024",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Rogers Arena",
+          "VEN025",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Rogers Place",
+          "VEN026",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "SAP Center",
+          "VEN027",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Scotiabank Arena",
+          "VEN028",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Scotiabank Saddledome",
+          "VEN029",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "T-Mobile Arena",
+          "VEN030",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "TD Garden",
+          "VEN031",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "UBS Arena",
+          "VEN032",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "United Center",
+          "VEN033",
+          "Existing collection arena label; physical identity unchanged."
+        ],
+        [
+          "Wells Fargo Center",
+          "VEN034",
+          "Existing collection arena label; physical identity unchanged."
+        ]
+      ]
+    },
+    {
+      "name": "PhysicalVenues",
+      "start": "I1",
+      "headers": [
+        "Venue Key",
+        "Venue"
+      ],
+      "rows": [
+        [
+          "VEN001",
+          "Amalie / Benchmark"
+        ],
+        [
+          "VEN002",
+          "Amerant / FLA Live"
+        ],
+        [
+          "VEN003",
+          "American Airlines Center"
+        ],
+        [
+          "VEN004",
+          "Ball Arena"
+        ],
+        [
+          "VEN005",
+          "Barclays Center"
+        ],
+        [
+          "VEN006",
+          "Bell Centre"
+        ],
+        [
+          "VEN007",
+          "Bridgestone Arena"
+        ],
+        [
+          "VEN008",
+          "Canada Life Centre"
+        ],
+        [
+          "VEN009",
+          "Canadian Tire Centre"
+        ],
+        [
+          "VEN010",
+          "Capital One Arena"
+        ],
+        [
+          "VEN011",
+          "Climate Pledge Arena"
+        ],
+        [
+          "VEN012",
+          "Crypto.com Arena"
+        ],
+        [
+          "VEN013",
+          "Delta Center"
+        ],
+        [
+          "VEN014",
+          "Enterprise Center"
+        ],
+        [
+          "VEN015",
+          "Gila River Arena"
+        ],
+        [
+          "VEN016",
+          "Grand Casino Arena"
+        ],
+        [
+          "VEN017",
+          "Honda Center"
+        ],
+        [
+          "VEN018",
+          "KeyBank Center"
+        ],
+        [
+          "VEN019",
+          "Lenovo / PNC"
+        ],
+        [
+          "VEN020",
+          "Little Caesars Arena"
+        ],
+        [
+          "VEN021",
+          "Madison Square Garden"
+        ],
+        [
+          "VEN022",
+          "Nationwide Arena"
+        ],
+        [
+          "VEN023",
+          "PPG Paints / CONSOL"
+        ],
+        [
+          "VEN024",
+          "Prudential Center"
+        ],
+        [
+          "VEN025",
+          "Rogers Arena"
+        ],
+        [
+          "VEN026",
+          "Rogers Place"
+        ],
+        [
+          "VEN027",
+          "SAP Center"
+        ],
+        [
+          "VEN028",
+          "Scotiabank Arena"
+        ],
+        [
+          "VEN029",
+          "Scotiabank Saddledome"
+        ],
+        [
+          "VEN030",
+          "T-Mobile Arena"
+        ],
+        [
+          "VEN031",
+          "TD Garden"
+        ],
+        [
+          "VEN032",
+          "UBS Arena"
+        ],
+        [
+          "VEN033",
+          "United Center"
+        ],
+        [
+          "VEN034",
+          "Wells Fargo Center"
+        ]
+      ]
+    },
+    {
+      "name": "CollectionWings",
+      "start": "L1",
+      "headers": [
+        "Collection Wing"
+      ],
+      "rows": [
+        [
+          "Goals & Games"
+        ],
+        [
+          "Milestones"
+        ],
+        [
+          "Road to History"
+        ],
+        [
+          "Road to Repeat"
+        ],
+        [
+          "Hockey Fights Cancer"
+        ],
+        [
+          "Warm-Up Pucks"
+        ]
+      ]
+    },
+    {
+      "name": "CategoryCodes",
+      "start": "N1",
+      "headers": [
+        "Category",
+        "Display Label"
+      ],
+      "rows": [
+        [
+          "RS Goal",
+          "Regular-season goal"
+        ],
+        [
+          "PO Goal",
+          "Playoff goal"
+        ],
+        [
+          "4NF Goal",
+          "4 Nations goal"
+        ],
+        [
+          "RS Point",
+          "Regular-season point"
+        ],
+        [
+          "Assist",
+          "Assist"
+        ],
+        [
+          "Milestone",
+          "Milestone"
+        ],
+        [
+          "Road to History",
+          "Road to History"
+        ],
+        [
+          "Road to Repeat",
+          "Road to Repeat"
+        ],
+        [
+          "Hockey Fights Cancer",
+          "Hockey Fights Cancer"
+        ],
+        [
+          "Warm-Up",
+          "Warm-up"
+        ]
+      ]
+    },
+    {
+      "name": "PuckTypes",
+      "start": "Q1",
+      "headers": [
+        "Puck Type"
+      ],
+      "rows": [
+        [
+          "Goal Scored Puck"
+        ],
+        [
+          "Game Used Puck"
+        ],
+        [
+          "Warm-Up Used Puck"
+        ],
+        [
+          "Warm-Up Puck"
+        ]
+      ]
+    },
+    {
+      "name": "HomeRoadCodes",
+      "start": "S1",
+      "headers": [
+        "Home/Road"
+      ],
+      "rows": [
+        [
+          "Home"
+        ],
+        [
+          "Road"
+        ],
+        [
+          "Neutral"
+        ]
+      ]
+    },
+    {
+      "name": "GoalCodes",
+      "start": "U1",
+      "headers": [
+        "Goal Type Code",
+        "Display Label",
+        "Site Symbol"
+      ],
+      "rows": [
+        [
+          "ESG",
+          "Even-strength goal",
+          "⚖️"
+        ],
+        [
+          "PPG",
+          "Power-play goal",
+          "⚡"
+        ],
+        [
+          "SHG",
+          "Short-handed goal",
+          "🛡️"
+        ],
+        [
+          "GWG",
+          "Game-winning goal",
+          "✅"
+        ],
+        [
+          "OT",
+          "Overtime goal",
+          "⏱️"
+        ],
+        [
+          "PS",
+          "Penalty-shot goal",
+          "🏒"
+        ],
+        [
+          "ENG",
+          "Empty-net goal",
+          "🥅"
+        ],
+        [
+          "ESG & GWG",
+          "ESG & GWG",
+          ""
+        ],
+        [
+          "ESG / GWG",
+          "ESG / GWG",
+          ""
+        ],
+        [
+          "OTGWG",
+          "OTGWG",
+          ""
+        ],
+        [
+          "PPG & GWG",
+          "PPG & GWG",
+          ""
+        ]
+      ]
+    },
+    {
+      "name": "WorkflowStates",
+      "start": "Y1",
+      "headers": [
+        "Workflow Status"
+      ],
+      "rows": [
+        [
+          "Draft"
+        ],
+        [
+          "Ready for Research"
+        ],
+        [
+          "Images Ready"
+        ],
+        [
+          "Ready to Publish"
+        ],
+        [
+          "Published"
+        ]
+      ]
+    },
+    {
+      "name": "StatBases",
+      "start": "AA1",
+      "headers": [
+        "Stat Basis"
+      ],
+      "rows": [
+        [
+          "NHL regular-season goals"
+        ],
+        [
+          "NHL playoff goals"
+        ],
+        [
+          "4 Nations goals"
+        ],
+        [
+          "NHL regular-season points"
+        ],
+        [
+          "NHL regular-season assists"
+        ],
+        [
+          "NHL playoff points"
+        ]
+      ]
+    },
+    {
+      "name": "GoalStrengthCodes",
+      "start": "AC1",
+      "headers": [
+        "Goal Strength"
+      ],
+      "rows": [
+        [
+          "ESG"
+        ],
+        [
+          "PPG"
+        ],
+        [
+          "SHG"
+        ],
+        [
+          "ENG"
+        ],
+        [
+          "PS"
+        ]
+      ]
+    }
+  ],
+  "arena_alias_rules": {
+    "Amerant / FLA Live": "https://www.nhl.com/panthers/news/we-just-click-panthers-amerant-bank-a-perfect-fit-in-south-florida",
+    "Lenovo / PNC": "https://www.nhl.com/hurricanes/news/hurricanes-home-arena-officially-re-named-lenovo-center",
+    "Amalie / Benchmark": "https://www.nhl.com/lightning/news/vinik-sports-group-benchmark-international-announce-multi-year-naming-rights-partnership",
+    "PPG Paints / CONSOL": "https://investor.ppg.com/news/news-details/2016/PPG-Acquires-Naming-Rights-for-Pittsburgh-Penguins-Home-to-Become-PPG-PAINTS-Arena/default.aspx"
+  },
+  "helper_limits": {
+    "arena_aliases": 512,
+    "physical_venues": 512,
+    "artifact_years": [
+      1900,
+      2150
+    ],
+    "behavior": "Capacity checks become Review before unmapped records can be silently omitted. Source register counts use entire expanding tables, not helper capacities."
+  },
+  "current_verified_metrics": {
+    "record_count": 172,
+    "unique_ids": 172,
+    "chapter_counts": {
+      "Goals & Games": 75,
+      "Milestones": 43,
+      "Road to History": 10,
+      "Road to Repeat": 27,
+      "Hockey Fights Cancer": 9,
+      "Warm-Up Pucks": 8
+    },
+    "physical_counts": {
+      "goal_scored": 81,
+      "game_used": 48,
+      "warm_up": 43
+    },
+    "Marchand_goal_pucks": 74,
+    "Marchand_goal_flags": {
+      "ESG": 45,
+      "ENG": 7,
+      "PPG": 18,
+      "SHG": 3,
+      "PS": 1,
+      "GWG": 14,
+      "OT": 1
+    },
+    "arena_labels": 38,
+    "physical_venues": 34,
+    "official_game_keys": 171,
+    "scoring_contexts": 83
+  },
+  "known_qualifications": [
+    "48Buffalo game-used under300 is deliberate and excluded from Marchand physicalgoal flags.",
+    "50is one physical double-goal puck;primaryMarchand career/seasonplayoff4bothcorrect.",
+    "58is international4Nations, not NHLregularseason.",
+    "300careerpoint988/seasonassist5bothcorrect;unitsnowexplicit.",
+    "313solehistoricalformer57physicalitem;current57differentgoal.",
+    "705printedoriginalpostponeddate preserved; rescheduledphotoqualified.",
+    "JvR21for34/35 and fullassistnames324 are owner conventions.",
+    "613/614sharecertificateintentionally; distinctphysicalpucks.711certificate qualification retained.",
+    "DNPstats remainNone, not invented0.",
+    "All stable physical image namespaces/bytes/crops and approved game photos unchanged."
+  ]
+}

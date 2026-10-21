@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "date": "2026-10-20",
-  "revision": "Gap-Free-Numbering-20261020-v1",
+  "revision": "Current172-Database-Hygiene-20261020-v20",
   "scope": "Current172 ownership overlay after owner-authorized gap filling. Stable physical filenames and native bytes remain unchanged; old catalog card IDs are retired without duplicating files.",
   "counts": {
     "catalogRecords": 172,
@@ -16,18 +16,18 @@
   "sources": {
     "data/marchand-pucks.json": {
       "path": "data/marchand-pucks.json",
-      "sha256": "df7d7f298d091a0e786779b256a6794c69d526bb71f7bc999e696390bd4a38a4",
-      "bytes": 1193074
+      "sha256": "0b964fae371d82098947e1601ed8219b42cc2070fefad36e50968ca381318c2b",
+      "bytes": 1408419
     },
     "data/marchand-photos.json": {
       "path": "data/marchand-photos.json",
-      "sha256": "efb39840b36446e8ab2d2e2ed2474999c22d1429ec79ce9584344ba0e51e87b0",
-      "bytes": 184127
+      "sha256": "4192617ae0c778d0cdbfbca73aa6c55cd47e53843963b64776f1cbebdb486002",
+      "bytes": 184390
     },
     "data/marchand-game-photos.json": {
       "path": "data/marchand-game-photos.json",
-      "sha256": "a59d2916f1a24670bf188444bedd1e03a2dcaa6a8f84e42f78e490c2cb6d92ae",
-      "bytes": 958585
+      "sha256": "ba37ff4313813b6f2d1469b8bc20086ef4015fb7cda8a4e81667043fc2c18b1b",
+      "bytes": 964288
     },
     "data/marchand-photo-library.json": {
       "path": "data/marchand-photo-library.json",
@@ -17967,5 +17967,27 @@
         9
       ]
     }
-  ]
+  ],
+  "historicalSourceReferencesBeforeDatabaseHygiene": {
+    "data/marchand-pucks.json": {
+      "path": "data/marchand-pucks.json",
+      "sha256": "df7d7f298d091a0e786779b256a6794c69d526bb71f7bc999e696390bd4a38a4",
+      "bytes": 1193074
+    },
+    "data/marchand-photos.json": {
+      "path": "data/marchand-photos.json",
+      "sha256": "efb39840b36446e8ab2d2e2ed2474999c22d1429ec79ce9584344ba0e51e87b0",
+      "bytes": 184127
+    },
+    "data/marchand-game-photos.json": {
+      "path": "data/marchand-game-photos.json",
+      "sha256": "a59d2916f1a24670bf188444bedd1e03a2dcaa6a8f84e42f78e490c2cb6d92ae",
+      "bytes": 958585
+    },
+    "data/marchand-photo-library.json": {
+      "path": "data/marchand-photo-library.json",
+      "sha256": "9055b8f7197adb487f2d5066ebc6c8656bc39d65e66ca3d44cb13c2fc21ba947",
+      "bytes": 71315
+    }
+  }
 }

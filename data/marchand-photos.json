@@ -5261,13 +5261,18 @@
     "noSeparateHologramViews": true
   },
   "currentMediaAndBookPublication": {
-    "path": "docs/marchand-book-v19-metadata-20261020.json",
-    "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
-    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+    "path": "docs/marchand-book-v20-metadata-20261020.json",
+    "sha256": "4048360c44e343faff5827426af5c7b52026b326671b0e59d7923f13d254827e",
+    "revision": "Canonical-Hygiene-240page-Edition-20261020-v20"
   },
   "gapNumbering": {
     "path": "docs/marchand-gap-numbering-20261020.json",
     "sha256": "2cd7297155856500a94039547240b7a3469c25cbf87dc80d99911ce84613aecd",
     "bytes": 3039
+  },
+  "historicalPublicationBeforeDatabaseHygiene": {
+    "path": "docs/marchand-book-v19-metadata-20261020.json",
+    "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
+    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
   }
 }

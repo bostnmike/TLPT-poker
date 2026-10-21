@@ -1,0 +1,19 @@
+# Canonical database hygiene — October 20, 2026
+
+The website consumes the six explicitly named collection tables in the canonical workbook. The table dictionary is in `marchand-database-schema-20261020.json`. Import by table name, header and current inventory ID. Worksheet order, formatted used ranges, dashboard cells, original image folder numbers and retired aliases do not establish record identity.
+
+`New Puck Intake`, `Drop Down Lists`, `Dashboard Data`, `Data Quality` and `Dashboard` are not collection record tables. A missing source table, missing known header, duplicate ID, invalid ID or incomplete in-table record fails the importer. Rows and columns outside the source tables are ignored. Real Excel dates become ISO calendar dates, with fractional dates rejected. Native hyperlink targets remain separate from their labels.
+
+The published data preserves curated source exceptions rather than replacing the payload with wholesale importer output. This update applies the sealed consumer delta and appends the normalized fields; all existing IDs, row joins, career/season numbers, original source column positions and native hyperlinks are retained. The raw image fields remain stored and are hidden from visitor record detail.
+
+Current source metadata uses the sealed effective handoff1bb425c8, current workbook93b3309d, portablefb64f415 and current native clean-open receiptbffd5528. The at-build E88 workbook, original BFF handoff,2ef portable and3a728 native tests remain immutable provenance. The tightly scoped9d5c462a equivalence proves that this particular save changed only revision ID, Dashboard selectionA5:M5 and modified timestamp: all source cells, formulas, caches, tables, styles, charts and links are identical. It does not authorize treating an arbitrary future file change as view-only. No PDF or image rebuild followed this metadata reconciliation.
+
+Each record carries explicit `careerStatBasis`, `seasonStatBasis`, `goalStrength`, nullable boolean `gameWinningGoal`/`overtimeGoal`, `recordedScorer`, `nhlGameId`, `nhlGoalEventId`, `venueKey` and `venueName`. Do not infer points or assists from a number or category. Artifact300 is career point988 and season assist5. An absent scoring flag stays null, rather than becoming a false claim about a scoring event.
+
+Physical classification determines collection goal statistics:81 goal-scored pucks,48 game-used pucks and43 warm-up pucks.74 goal-scored pucks have Marchand as recorded scorer and7 have another scorer. The Goals & Games chapter has75 records:74 Marchand goal pucks and the single game-used artifact48. The 83 scoring contexts include game-used48 and313; scoring-event metadata does not turn a game-used puck into a physical goal puck. Artifact50 remains one physical puck despite its two-goal provenance. Artifact58 retains its international competition units.
+
+The physical Marchand goal-puck breakdown uses strength ESG45/PPG18/SHG3/ENG7/PS1. GWG14 andOT1 are independent overlapping flags, not extra pucks or mutually exclusive strengths. A puck may appear in multiple flag groups. Goalie rankings exclude game-used pucks and empty-net goals. Event deduplication uses official game/event IDs where available.
+
+The arena breakdown groups38 preserved game-date arena labels into34 physical buildings using the dictionary's verified VEN keys. Each exhibit retains its historical arena name. The four alias pairs are Amalie/Benchmark, Amerant/FLA Live, Lenovo/PNC and PPG Paints/CONSOL.
+
+Artifact705 keeps its original printed postponed date, blank played-game ID and qualified rescheduled game-photo date. DNP statistics remain unavailable. Preserve shared613/614 certificate evidence,711's qualification,JvR21 and324's full assist names. No new physical photographs, crops, hologram isolates, game-photo choices or public image copies accompany this update. The separate actual240-page Blurb configuration/acceptance issue remains open.

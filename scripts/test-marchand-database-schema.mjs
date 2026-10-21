@@ -1,0 +1,44 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+const read = (p) => fs.readFileSync(new URL(`../${p}`, import.meta.url),'utf8');
+const { records } = JSON.parse(read('data/marchand-pucks.json'));
+const schema = JSON.parse(read('docs/marchand-database-schema-20261020.json'));
+const context={window:{}};vm.runInNewContext(read('marchand-labels.js'),context);
+const labels=context.window.MarchandLabels;
+const counts={goal:0,used:0,warmup:0};
+for (const r of records) {
+  if (r.puckType==='Goal Scored Puck') counts.goal++;
+  else if (r.puckType==='Game Used Puck') counts.used++;
+  else if (/^Warm-Up (?:Used )?Puck$/.test(r.puckType)) counts.warmup++;
+  else assert.fail(`Unknown physical type ${r.inventoryId}`);
+  const raw=Object.fromEntries(r.sourceData.map(f=>[f.label,f.value]));
+  assert.deepEqual(r.sourceData.map(f=>f.label),schema.record_tables[r.sourceSheet].headers);
+  for(const [field,key] of Object.entries({'Career Stat Basis':'careerStatBasis','Season Stat Basis':'seasonStatBasis','Goal Strength':'goalStrength','Recorded Scorer':'recordedScorer','NHL Game ID':'nhlGameId','NHL Goal Event ID':'nhlGoalEventId'})) assert.equal(r[key],raw[field]??'',`${r.inventoryId}:${field}`);
+  for(const [field,key] of [['Game-Winning Goal','gameWinningGoal'],['Overtime Goal','overtimeGoal']]) assert.equal(r[key],raw[field]===''?null:raw[field]==='1',`${r.inventoryId}:${field}`);
+  assert.match(r.venueKey,/^VEN\d{3}$/);
+  assert.ok(r.venueName);
+  if(r.nhlGameId) assert.match(r.nhlGameId,/^\d{10}$/);
+}
+assert.deepEqual(counts,{goal:81,used:48,warmup:43});
+const bm=records.filter(r=>r.puckType==='Goal Scored Puck'&&r.recordedScorer==='Brad Marchand');
+assert.equal(bm.length,74);
+assert.equal(records.filter(r=>r.puckType==='Goal Scored Puck'&&r.recordedScorer!=='Brad Marchand').length,7);
+for(const [code,n] of Object.entries({ESG:45,PPG:18,SHG:3,ENG:7,PS:1,GWG:14,OT:1})) assert.equal(bm.filter(r=>labels.goalCodes(r).includes(code)).length,n,code);
+assert.equal(records.filter(r=>r.nhlGameId).length,171);
+assert.equal(records.filter(r=>r.nhlGoalEventId).length,83);
+assert.equal(new Set(records.map(r=>r.arena)).size,38);
+assert.equal(new Set(records.map(r=>r.venueKey)).size,34);
+const id=(n)=>records.find(r=>r.inventoryId===n);
+assert.equal(id(48).puckType,'Game Used Puck');
+assert.equal(id(50).careerStat,4);assert.equal(id(50).seasonStat,4);
+assert.equal(id(58).careerStatBasis,'4 Nations goals');
+assert.equal(id(300).careerStat,988);assert.equal(id(300).seasonStat,5);
+assert.equal(id(300).careerStatBasis,'NHL regular-season points');
+assert.equal(id(300).seasonStatBasis,'NHL regular-season assists');
+assert.equal(id(705).date,'2021-12-21');assert.equal(id(705).nhlGameId,'');assert.equal(id(705).gameWinningGoal,null);
+for(const n of [502,504,506,508]) for(const k of ['goalStrength','period','time','primaryAssist','goalieScoredAgainst','recordedScorer','nhlGameId','nhlGoalEventId']) assert.ok(id(n)[k],`${n}:${k}`);
+// Explicit fields must win over contradictory legacy strings, including false flags.
+assert.deepEqual([...labels.goalCodes({goalType:'PPG & GWG & OT',goalStrength:'ESG',gameWinningGoal:false,overtimeGoal:false})],['ESG']);
+assert.equal(labels.statLabel('Season',id(300).seasonStatBasis),'Season assists');
+console.log('PASS:172 structured records;81/48/43 physical types;74 Marchand goal pucks and independent flag totals;38 labels/34 venues;stat units,83 scoring contexts and171 game IDs.');
