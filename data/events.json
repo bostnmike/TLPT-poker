@@ -111,8 +111,8 @@
       "address": "OCW, in Cary",
       "apple_invite_url": "https://www.icloud.com/invites/0e8Q0k93YKph-ZswoAaBAU3uQ",
       "seatAssignments": [
-        ["bostnmike", "kishan", "providencemike", "vish", "the-architect", "hiro", "ai-dave", "wild-bill", "red"],
-        ["ahmed", "alex-c", "chris-f", "li-fo", "griffin", "cougar", "liam-o", "nasa-al"]
+        ["bostnmike", "", "providencemike", "vish", "the-architect", "hiro", "ai-dave", "wild-bill", "red"],
+        ["ahmed", "alex-c", "chris-f", "li-fo", "griffin", "cougar", "liam-o", "nasa-al", ""]
       ],
       "rsvps": {
         "bostnmike": "yes",
@@ -128,7 +128,7 @@
         "griffin": "yes",
         "hiro": "yes",
         "jeff-t": "no",
-        "kishan": "yes",
+        "kishan": "no",
         "li-fo": "yes",
         "liam-o": "yes",
         "nasa-al": "yes",
