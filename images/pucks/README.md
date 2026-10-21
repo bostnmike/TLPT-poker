@@ -40,7 +40,7 @@ The first September 27 intake added 101 photographs across 20 artifacts: 1, 2, 8
 
 The second intake adds 210 photographs across 40 more artifacts, bringing the collection to 317 views across 62 artifacts. These use conventional Adobe tone correction and background isolation, individually measured pixel rotation, and high-quality website copies from retained full-resolution lossless masters. Every full-resolution front, back, and edge was visually checked; website copies receive compression checks and close-up spot checks. The per-view audit is in `docs/marchand-photo-batch2-review.json`.
 
-Artifact 30 includes five distinct edge views: both sources named `030-edge-04` were retained, with the additional view registered as Edge 5. Artifact 54's formerly unnamed front was confirmed by the owner renaming it `054-front`; it now leads its six-view set and serves as its Deep Dive button. A missing front must not prevent publishing other confirmed views, and the Artifact Hall must keep the generic Deep Dive button until a front is confirmed.
+The original artifact30 intake recorded five edge filenames. The October20 audit confirmed edge04 was byte-identical to edge03; the current gallery retains the four distinct edge views01/02/03/05. Artifact 54's formerly unnamed front was confirmed by the owner renaming it `054-front`; it now leads its six-view set and serves as its Deep Dive button. A missing front must not prevent publishing other confirmed views, and the Artifact Hall must keep the generic Deep Dive button until a front is confirmed.
 
 Map each artifact's photos in `data/marchand-photos.json` using a view label and image path. The deep dive shows the first image by default and provides labeled view buttons. This manifest is separate from the canonical statistics import, so spreadsheet synchronization does not overwrite photo mappings. Uploading future files alone does not associate them with records.
 
@@ -76,13 +76,17 @@ Folder names are stable storage namespaces. They do not establish current artifa
 | Current artifact | Physical image namespace |
 | --- | --- |
 | 49 | `images/pucks/49-20220506/` |
+| 57 | `images/pucks/76/` |
+| 59 | `images/pucks/77/` |
 | 61 | `images/pucks/61-20180123/` |
+| 300 | `images/pucks/59/` |
 | 301 | `images/pucks/343/` |
 | 333 | `images/pucks/342/` |
 | 342 | `images/pucks/49/` |
-| 343 | `images/pucks/59/` |
+| 500 | `images/pucks/510/` |
+| 709 | `images/pucks/717/` |
 
-Removed artifact 57 was consolidated into 313. The old `61/coa.webp` was the pre-crop source for current 330, and `68/coa-02.webp` was the pre-crop source for current 341. Their current approved crops remain active. Do not attach an old file merely because a reused artifact number matches its folder. The owner approved the October20 receipt photos for31/49/61 and game photoA. Their active namespaces are `31/`, `49-20220506/` and `61-20180123/`; use the normal full Back and COA views, with no isolated hologram images.
+The historical former57 was consolidated into313. Current57 is the former76 puck, and current59 is the former77 puck. Current300 is the former343 Boston-return puck in physical59. The owner also moved510→500 and717→709. Retired76/77/343/510/717 have no active cards; their still-used source filenames remain legitimate current-owner namespaces. No duplicate images were created. The old `61/coa.webp` was the pre-crop source for current 330, and `68/coa-02.webp` was the pre-crop source for current 341. Their current approved crops remain active. Do not attach an old file merely because a reused artifact number matches its folder. The owner approved the October20 receipt photos for31/49/61 and game photoA. Their active namespaces are `31/`, `49-20220506/` and `61-20180123/`; use the normal full Back and COA views, with no isolated hologram images.
 
 Unused public derivatives and retired COA associations were first archived with exact byte hashes and old-to-current lineage, then permanently deleted on the owner’s explicit instruction. The previous archive receipts are historical; those derivative rollback copies no longer exist. Actual source originals, native reproducible Book inputs, audit metadata and Git history remain preserved. The identical certificates at 613/614 are intentional and remain active. Inventory counts describe active media; historical manifests retain their original counts.
 

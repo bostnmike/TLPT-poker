@@ -15,10 +15,10 @@ vm.runInContext(script.slice(script.indexOf('  function renderAuthentication(rec
 let links=0;
 for(const record of records){
  context.renderAuthentication(record);
- // The immutable October5 review used59 for the item now canonically343.
- const reviewedInventoryId=record.key==='milestone-343'?59:record.inventoryId;
+ // Immutable authentication reviews retain the original IDs; current IDs join through the approved migration.
+ const reviewedInventoryId=({57:76,59:77,300:59,500:510,709:717})[record.inventoryId]??record.inventoryId;
  const expected=report.records.find(row=>row.inventoryId===reviewedInventoryId);
- if(record.inventoryId===343)assert.equal(record.authenticationSerial,'BB25087');
+ if(record.inventoryId===300)assert.equal(record.authenticationSerial,'BB25087');
  assert.equal(panels['artifact-authentication'].hidden,!expected,record.key);
  if(!expected) continue;
  const rows=panels['artifact-authentication-links'].children;
@@ -49,14 +49,14 @@ assert.equal(records.find(row=>row.inventoryId===41).authenticationSerial,'67375
 assert.equal(records.find(row=>row.inventoryId===502).authenticationSerial,'555680W');
 for(const id of [334,335,341]){const row=records.find(row=>row.inventoryId===id);assert.equal(row.authenticationIssuer,'Fanatics');assert.match(row.authenticationAlternateIssuer,/NHL licensing/);assert.equal(row.authenticationAlternateRecordUrl,'')}
 assert.match(records.find(row=>row.inventoryId===712).authenticationLookupInstructions,/photograph.*not yet been identified/);
-const montreal=records.find(row=>row.inventoryId===77);
+const montreal=records.find(row=>row.inventoryId===59);
 assert.equal(montreal.authenticationRecordUrl,'https://www.tricoloresports.com/us/service/authentique/');
 assert.equal(montreal.authenticationSerial,'G009264');
 assert.match(montreal.authenticationLookupInstructions,/rather than a public serial-number lookup/);
 const coverage=JSON.parse(fs.readFileSync(new URL('../docs/marchand-authentication-coverage-20261005.json',import.meta.url)));
 assert.equal(coverage.reviewedPreviouslyUnlinkedIds.length,90);
 for(const evidence of coverage.newRoutes){
- const row=records.find(row=>row.inventoryId===evidence.inventoryId);
+ const row=records.find(row=>row.inventoryId===(({76:57,77:59,59:300,510:500,717:709})[evidence.inventoryId]??evidence.inventoryId));
  assert.equal(row.authenticationSerial,evidence.serial);
  assert.ok(row.authenticationRecordUrl,`Missing photographed hologram route: ${evidence.inventoryId}`);
  context.renderAuthentication(row);assert.equal(panels['artifact-authentication'].hidden,false);

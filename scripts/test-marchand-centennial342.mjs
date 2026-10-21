@@ -7,7 +7,7 @@ assert.equal(r.key,'milestone-333');assert.equal(r.sourceSheet,'Milestones');ass
 assert.match(r.notes,/RG13316480/);assert.match(r.notes,/digital COA/);assert.match(r.notes,/Return of a Champion/);
 assert.equal(stories[r.key].gameId,2023020993);assert.equal(stats['2023020993'].stats.assists,2);assert.equal(stats['2023020993'].stats.totalToi,'16:54');
 assert.deepEqual(photos['333'].map(x=>x.label),['Front','Back','Edge 1','Edge 2','COA']);assert.ok(photos['333'][0].thumbnailUrl);assert.equal(photos['333'][4].sourceFile,'IMG_9774.JPG');assert.match(photos['333'][4].caption,/digital COA/);
-assert.equal(p.records.find(x=>x.inventoryId===342).authenticationSerial,'XJ05532097');assert.ok(p.records.some(x=>x.inventoryId===343));
+assert.equal(p.records.find(x=>x.inventoryId===342).authenticationSerial,'XJ05532097');assert.ok(p.records.some(x=>x.inventoryId===300));
 for(const [id,theme]of [[302,'Big Bad Bruins'],[306,'New Blood, New Beginnings']]){const rec=p.records.find(x=>x.inventoryId===id);assert.match(rec.notes,new RegExp(theme));assert.ok(stories[rec.key].sources.some(x=>x.label==='Bruins Centennial Era Night announcement'));}
 console.log('March 7 Centennial artifact and era-night regression checks passed.');
 
@@ -15,7 +15,7 @@ console.log('March 7 Centennial artifact and era-night regression checks passed.
 const chicago = p.records.find(record => record.inventoryId === 342);
 const companion = p.records.find(record => record.inventoryId === 322);
 assert.equal(chicago.key, 'milestone-342');
-assert.equal(chicago.sourceRow, 43);
+assert.equal(chicago.sourceRow, 44);
 assert.equal(chicago.sourceSheet, 'Milestones');
 assert.equal(chicago.date, '2024-12-04');
 assert.equal(chicago.opponent, 'Chicago Blackhawks');

@@ -6,7 +6,12 @@
     "method": "Individually written from official NHL scoring summaries and box scores, with NHL/team reports for historical milestones. Artifact identity follows the verified collection registry.",
     "writingReview": "Reviewed against the supplied No AI Slop draft checklist.",
     "liveBoxscoreCheck": "Existing 122 artifact stories preserved; 30 new artifacts checked against official NHL game summaries and box scores for 21 dates.",
-    "latestAdditionsReviewedAt": "2026-10-20"
+    "latestAdditionsReviewedAt": "2026-10-20",
+    "gapNumbering": {
+      "path": "docs/marchand-gap-numbering-20261020.json",
+      "sha256": "2cd7297155856500a94039547240b7a3469c25cbf87dc80d99911ce84613aecd",
+      "bytes": 3039
+    }
   },
   "artifacts": {
     "goal-1": {
@@ -1947,8 +1952,8 @@
         }
       }
     },
-    "goal-76": {
-      "inventoryId": 76,
+    "goal-57": {
+      "inventoryId": 57,
       "date": "2019-02-09",
       "team": "Boston Bruins",
       "gameId": 2018020838,
@@ -1974,8 +1979,8 @@
         }
       }
     },
-    "goal-77": {
-      "inventoryId": 77,
+    "goal-59": {
+      "inventoryId": 59,
       "date": "2016-01-19",
       "team": "Boston Bruins",
       "gameId": 2015020686,
@@ -4656,8 +4661,8 @@
         }
       }
     },
-    "hfc-717": {
-      "inventoryId": 717,
+    "hfc-709": {
+      "inventoryId": 709,
       "date": "2026-01-25",
       "team": "Florida Panthers",
       "gameId": 2025020823,
@@ -4745,8 +4750,8 @@
         }
       }
     },
-    "history-510": {
-      "inventoryId": 510,
+    "history-500": {
+      "inventoryId": 500,
       "date": "2023-04-06",
       "team": "Boston Bruins",
       "gameId": 2022021246,
@@ -5017,8 +5022,8 @@
         }
       }
     },
-    "milestone-343": {
-      "inventoryId": 343,
+    "milestone-300": {
+      "inventoryId": 300,
       "date": "2025-10-21",
       "team": "Florida Panthers",
       "gameId": 2025020103,

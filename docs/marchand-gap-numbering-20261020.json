@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "revision": "Museum-Gap-Free-Numbering-20261020-v1",
+  "date": "2026-10-20",
+  "canonicalHandoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Handoff.json",
+    "sha256": "522fc8c69233abe4feeca3cc9a9fa8a0329284083ad83bcc4cfc06f681df8c36",
+    "bytes": 9204
+  },
+  "nativeExcelReceipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+    "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+    "bytes": 2066
+  },
+  "canonicalMasters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+      "bytes": 104161
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "352ecb85f9840b7991a33354b86bf2a237c3652548e1c2067bb5b5240a95ad07",
+      "bytes": 31776
+    }
+  },
+  "mapping": {
+    "76": 57,
+    "77": 59,
+    "343": 300,
+    "510": 500,
+    "717": 709
+  },
+  "keyMigrations": {
+    "goal-76": "goal-57",
+    "goal-77": "goal-59",
+    "milestone-343": "milestone-300",
+    "history-510": "history-500",
+    "hfc-717": "hfc-709"
+  },
+  "sourceRowMigration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Row-Identity-Migration.json",
+    "sha256": "3bc6ef8691d4376af1ffd89f55f93fd37ba14c34714c7ca9c5d5175a640b88fd",
+    "bytes": 6902
+  },
+  "mediaPlan": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Stable-Media-Migration.json",
+    "sha256": "ee4d851b72e913eddf5453c9284ea4d5cc88899a0e2775d9023f99a33bebcb2b",
+    "bytes": 12592
+  },
+  "counts": {
+    "records": 172,
+    "physicalViews": 828,
+    "documentCards": 134,
+    "uniqueDocumentImages": 133,
+    "gameImages": 172,
+    "combinedViews": 1000,
+    "publicImageFiles": 1341
+  },
+  "physicalNamespaces": {
+    "57": "images/pucks/76/",
+    "59": "images/pucks/77/",
+    "300": "images/pucks/59/",
+    "500": "images/pucks/510/",
+    "709": "images/pucks/717/"
+  },
+  "gameAssetIds": {
+    "57": "2018020838-a76-publishing",
+    "59": "2015020686-a77-publishing",
+    "300": "2025020103-a59-publishing",
+    "500": "2022021246-a510-publishing",
+    "709": "2025020823-a717-publishing"
+  },
+  "historicalAuthenticationReviewIdForCurrent": {
+    "57": 76,
+    "59": 77,
+    "300": 59,
+    "500": 510,
+    "709": 717
+  },
+  "retiredCurrentIds": [
+    76,
+    77,
+    343,
+    510,
+    717
+  ],
+  "noNewPublicImageCopies": true,
+  "all1341ExistingImagePathsAndHashesUnchanged": true,
+  "all172GameAssetObjectsUnchanged": true,
+  "activeIdsAlwaysWinBeforeHistoricalRedirects": true,
+  "sourceFilenamesAreStableNamespacesNotCurrentCatalogNumbers": true
+}

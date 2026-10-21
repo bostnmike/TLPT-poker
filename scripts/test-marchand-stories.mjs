@@ -88,8 +88,8 @@ assert.match(bloodyNose.paragraphs.join(" "), /separate third-period goal/);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.goalEventId, 220);
 assert.equal(bloodyNose.verification.bloodyNoseSequence.secondsBetweenGoals, 40);
 
-// Owner-confirmed duplicate57 retired;313 retains the consolidated milestone.
-assert.equal(artifacts['goal-57'],undefined);
+// Historical duplicate57 remains consolidated into313; fresh57 is the separate LA goal.
+assert.equal(artifacts['goal-57'].gameId,2018020838);
 const utah=artifacts['milestone-313'];
 assert.match(utah.title,/first point.*Utah/i);
 assert.match(utah.paragraphs.join(' '),/primary assist.*Cole Koepke.*Connor Ingram.*12:49.*second period/);

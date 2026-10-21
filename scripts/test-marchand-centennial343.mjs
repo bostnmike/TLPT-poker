@@ -4,7 +4,7 @@ import fs from 'node:fs';
 const read=n=>JSON.parse(fs.readFileSync(new URL('../data/'+n,import.meta.url)));
 const p=read('marchand-pucks.json'),stories=read('marchand-stories.json').artifacts,photos=read('marchand-photos.json').artifacts;
 const a=p.records.find(r=>r.inventoryId===333),b=p.records.find(r=>r.inventoryId===301);
-assert.equal(b.key,'milestone-301');assert.equal(b.sourceSheet,'Milestones');assert.equal(b.sourceRow,2);
+assert.equal(b.key,'milestone-301');assert.equal(b.sourceSheet,'Milestones');assert.equal(b.sourceRow,3);
 assert.equal(b.date,'2024-03-07');assert.equal(b.videoId,'6348427251112');assert.equal(a.videoId,'6348437197112');
 assert.match(a.notes,/RG13316480/);assert.match(b.notes,/RG13316479/);
 assert.deepEqual(photos['301'].map(x=>x.label),['Front','Back','Edge 1','Edge 2','COA']);
@@ -18,10 +18,10 @@ console.log('PASS: separate March 7 pucks, serials, ceremony video, four photos 
 
 assert.equal(a.authenticationSerial, 'RG13316480');
 assert.equal(b.authenticationSerial, 'RG13316479');
-assert.equal(a.sourceRow, 34);
+assert.equal(a.sourceRow, 35);
 assert.ok(photos['333'].every(photo => photo.url.includes('/342/')));
 assert.ok(photos['342'].every(photo => photo.url.includes('/49/')));
-assert.equal(photos['59'], undefined);
-assert.ok(photos['343'].every(photo=>photo.url.includes('/59/')));
+assert.ok(photos['59'].every(photo=>photo.url.includes('/77/')));
+assert.ok(photos['300'].every(photo=>photo.url.includes('/59/')));
 assert.match(b.notes, /artifact #333 \(RG13316480\)/);
-assert.deepEqual(p.records.filter(record => record.sourceSheet === 'Milestones').map(record => record.inventoryId).sort((a,b)=>a-b), Array.from({length:43},(_,i)=>301+i));
+assert.deepEqual(p.records.filter(record => record.sourceSheet === 'Milestones').map(record => record.inventoryId).sort((a,b)=>a-b), Array.from({length:43},(_,i)=>300+i));

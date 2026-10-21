@@ -2501,72 +2501,6 @@
         "rotation": 0
       }
     ],
-    "76": [
-      {
-        "label": "Front",
-        "url": "images/pucks/76/front.webp?v=2af8e9882f06",
-        "rotation": 0,
-        "thumbnailUrl": "images/pucks/76/front-thumb.webp?v=20260928-batch2"
-      },
-      {
-        "label": "Back",
-        "url": "images/pucks/76/back.webp?v=83eafad5e369",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 1",
-        "url": "images/pucks/76/edge-01.webp?v=9ef85aeb6f7e",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 2",
-        "url": "images/pucks/76/edge-02.webp?v=997d68d0599c",
-        "rotation": 0
-      },
-      {
-        "label": "COA",
-        "url": "images/pucks/76/coa.webp?v=7afb6c272486",
-        "rotation": 0
-      }
-    ],
-    "77": [
-      {
-        "label": "Front",
-        "url": "images/pucks/77/front.webp?v=a6234a1a4c43",
-        "rotation": 0,
-        "thumbnailUrl": "images/pucks/77/front-thumb.webp?v=20260928-batch2"
-      },
-      {
-        "label": "Back",
-        "url": "images/pucks/77/back.webp?v=90c5e9eceea9",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 1",
-        "url": "images/pucks/77/edge-01.webp?v=98dc61968447",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 2",
-        "url": "images/pucks/77/edge-02.webp?v=41acf8adbeb7",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 3",
-        "url": "images/pucks/77/edge-03.webp?v=29fa50c92f4b",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 4",
-        "url": "images/pucks/77/edge-04.webp?v=0f86fec23c05",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 5",
-        "url": "images/pucks/77/edge-05.webp?v=9eee152eb5c0",
-        "rotation": 0
-      }
-    ],
     "302": [
       {
         "label": "Front",
@@ -4153,19 +4087,6 @@
         "authenticationScope": "Game date and matchup on packaging; digital COA identified by the puck’s hologram."
       }
     ],
-    "510": [
-      {
-        "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/front.webp?v=c508d48174d8",
-        "rotation": 0,
-        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/front-thumb.webp?v=ef16e146d65f"
-      },
-      {
-        "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/back.webp?v=0700990909a3",
-        "rotation": 0
-      }
-    ],
     "600": [
       {
         "label": "Front",
@@ -4931,19 +4852,6 @@
         "rotation": 0
       }
     ],
-    "717": [
-      {
-        "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/front.webp?v=06da1ca73aa2",
-        "rotation": 0,
-        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/front-thumb.webp?v=c32c22e1e3db"
-      },
-      {
-        "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/back.webp?v=688b3231159b",
-        "rotation": 0
-      }
-    ],
     "342": [
       {
         "label": "Front",
@@ -4969,44 +4877,6 @@
         "sourceFile": "IMG_9789.JPG",
         "authenticationScope": "Game date and matchup only. Owner-assigned packaging photograph; no unique hologram is visible on this label. The puck’s back photograph identifies its digital COA.",
         "assignmentBasis": "Owner-authorized one-to-one assignment; not a serial-matched certificate."
-      }
-    ],
-    "343": [
-      {
-        "label": "Front",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front.webp?v=31de385f27f3",
-        "rotation": 0,
-        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front-thumb.webp?v=77752b23c3f0"
-      },
-      {
-        "label": "Back",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/back.webp?v=b30bf8f43be3",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 1",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-01.webp?v=423f4a363a2c",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 2",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-02.webp?v=9bbf7059089b",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 3",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-03.webp?v=109fbad787bc",
-        "rotation": 0
-      },
-      {
-        "label": "Edge 4",
-        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-04.webp?v=3fe6124f713f",
-        "rotation": 0
-      },
-      {
-        "label": "COA",
-        "url": "images/pucks/59/coa.webp?v=01d73c9c39a9",
-        "rotation": 0
       }
     ],
     "31": [
@@ -5101,6 +4971,136 @@
         "sourceFile": "IMG_9931.JPG",
         "authenticationScope": "Serial-matched certificate and puck-back hologram."
       }
+    ],
+    "57": [
+      {
+        "label": "Front",
+        "url": "images/pucks/76/front.webp?v=2af8e9882f06",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/76/front-thumb.webp?v=20260928-batch2"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/76/back.webp?v=83eafad5e369",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "images/pucks/76/edge-01.webp?v=9ef85aeb6f7e",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "images/pucks/76/edge-02.webp?v=997d68d0599c",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/76/coa.webp?v=7afb6c272486",
+        "rotation": 0
+      }
+    ],
+    "59": [
+      {
+        "label": "Front",
+        "url": "images/pucks/77/front.webp?v=a6234a1a4c43",
+        "rotation": 0,
+        "thumbnailUrl": "images/pucks/77/front-thumb.webp?v=20260928-batch2"
+      },
+      {
+        "label": "Back",
+        "url": "images/pucks/77/back.webp?v=90c5e9eceea9",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "images/pucks/77/edge-01.webp?v=98dc61968447",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "images/pucks/77/edge-02.webp?v=41acf8adbeb7",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "images/pucks/77/edge-03.webp?v=29fa50c92f4b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "images/pucks/77/edge-04.webp?v=0f86fec23c05",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 5",
+        "url": "images/pucks/77/edge-05.webp?v=9eee152eb5c0",
+        "rotation": 0
+      }
+    ],
+    "300": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front.webp?v=31de385f27f3",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/front-thumb.webp?v=77752b23c3f0"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/back.webp?v=b30bf8f43be3",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 1",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-01.webp?v=423f4a363a2c",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 2",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-02.webp?v=9bbf7059089b",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 3",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-03.webp?v=109fbad787bc",
+        "rotation": 0
+      },
+      {
+        "label": "Edge 4",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/59/edge-04.webp?v=3fe6124f713f",
+        "rotation": 0
+      },
+      {
+        "label": "COA",
+        "url": "images/pucks/59/coa.webp?v=01d73c9c39a9",
+        "rotation": 0
+      }
+    ],
+    "500": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/front.webp?v=c508d48174d8",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/front-thumb.webp?v=ef16e146d65f"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/510/back.webp?v=0700990909a3",
+        "rotation": 0
+      }
+    ],
+    "709": [
+      {
+        "label": "Front",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/front.webp?v=06da1ca73aa2",
+        "rotation": 0,
+        "thumbnailUrl": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/front-thumb.webp?v=c32c22e1e3db"
+      },
+      {
+        "label": "Back",
+        "url": "https://bostnmike.github.io/marchand-puck-images/images/pucks/717/back.webp?v=688b3231159b",
+        "rotation": 0
+      }
     ]
   },
   "orientationReview": {
@@ -5121,9 +5121,13 @@
     "301": "images/pucks/343/",
     "333": "images/pucks/342/",
     "342": "images/pucks/49/",
-    "343": "images/pucks/59/",
     "49": "images/pucks/49-20220506/",
-    "61": "images/pucks/61-20180123/"
+    "61": "images/pucks/61-20180123/",
+    "57": "images/pucks/76/",
+    "59": "images/pucks/77/",
+    "300": "images/pucks/59/",
+    "500": "images/pucks/510/",
+    "709": "images/pucks/717/"
   },
   "ownerAuthorizedCOAAssignment": {
     "path": "docs/marchand-coa-assignments-20261019.json",
@@ -5182,7 +5186,9 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
       "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
       "bytes": 14086
-    }
+    },
+    "statusScope": "HISTORICAL_SOURCE_ERA_RECEIPT_ONLY",
+    "scope": "October19,2026 COA assignment proof and source-era master/status snapshot. Owner assignments remain in force. Current canonical/Book/cover status is currentCanonicalMaster and currentMediaAndBookPublication, bound to the later GapFree release."
   },
   "coaDocumentCrops": {
     "path": "docs/marchand-coa074-three-tickets-20261019-v14.json",
@@ -5255,8 +5261,13 @@
     "noSeparateHologramViews": true
   },
   "currentMediaAndBookPublication": {
-    "path": "docs/marchand-book-v18-metadata-20261020.json",
-    "sha256": "4725606ce2f5ae19b5e403af5a776d50eaa6603876cf6d9d1eab0f1eafdd7c04",
-    "revision": "Approved-Three-Puck-Intake-Book-20261020-v18"
+    "path": "docs/marchand-book-v19-metadata-20261020.json",
+    "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
+    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
+  },
+  "gapNumbering": {
+    "path": "docs/marchand-gap-numbering-20261020.json",
+    "sha256": "2cd7297155856500a94039547240b7a3469c25cbf87dc80d99911ce84613aecd",
+    "bytes": 3039
   }
 }

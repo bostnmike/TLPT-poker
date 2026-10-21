@@ -36,8 +36,8 @@ assert by_id[324]["period"] == "2" and by_id[324]["time"] == "4:21"
 assert by_id[324]["goalType"] == "ESG / GWG"
 assert by_id[324]["goalieScoredAgainst"] == "Jeremy Swayman"
 assert "Palmieri" in by_id[324]["description"]
-assert by_id[9]["description"] and by_id[510]["playerCodes"] == ["BM63"]
-for number in (10, 12, 32, 67, 77):
+assert by_id[9]["description"] and by_id[500]["playerCodes"] == ["BM63"]
+for number in (10, 12, 32, 67, 59):
     assert by_id[number]["authenticationType"] == "Digital COA / Hologram"
     assert by_id[number]["authenticationEvidence"]
 print(f"PASS: all {len(by_id)} artifacts round-trip across six sheets; stable IDs, scoring details, titles, video labels and holograms preserved.")
@@ -51,13 +51,13 @@ assert sync.video_parts(recap + "-changed", reviewed) == ("article", ""), "Revie
 assert by_id[49]["date"] == "2022-05-06"
 assert by_id[49]["authenticationSerial"] == "MGA37776"
 assert by_id[49]["careerStat"] == 46 and by_id[49]["category"] == "PO Goal"
-assert by_id[342]["sourceSheet"] == "Milestones" and by_id[342]["sourceRow"] == 43
+assert by_id[342]["sourceSheet"] == "Milestones" and by_id[342]["sourceRow"] == 44
 assert by_id[342]["authenticationSerial"] == "XJ05532097"
 assert by_id[322]["authenticationSerial"] == "XJ05532094"
 
-assert 57 not in by_id, "Owner-retired57 remains vacant"
+assert by_id[57]["authenticationSerial"] == "MGA21933"
 survivor = by_id[313]
-assert survivor["sourceSheet"] == "Milestones" and survivor["sourceRow"] == 14
+assert survivor["sourceSheet"] == "Milestones" and survivor["sourceRow"] == 15
 assert survivor["seasonStat"] == 4 and survivor["time"] == "12:49"
 assert survivor["primaryAssist"] == "BM63" and survivor["secondaryAssist"] == ""
 assert survivor["goalieScoredAgainst"] == "Connor Ingram"
@@ -74,14 +74,14 @@ unlabeled["videoLabel"] = ""
 sync.synchronize_record(unlabeled, workbook, workbook)
 assert unlabeled["videoLabel"] == "Watch Goal"
 video_column = next(column for column in range(1, workbook["Milestones"].max_column + 1) if workbook["Milestones"].cell(1, column).value == "Video URL")
-workbook["Milestones"].cell(14, video_column).value = survivor["videoUrl"]
+workbook["Milestones"].cell(survivor["sourceRow"], video_column).value = survivor["videoUrl"]
 unlabeled["videoLabel"] = ""
 sync.synchronize_record(unlabeled, workbook, workbook)
 assert unlabeled["videoLabel"] == "Game Context"
 
-assert 59 not in by_id and 57 not in by_id
-renumbered=by_id[343]
-assert renumbered["sourceSheet"]=="Milestones" and renumbered["sourceRow"]==44
+assert by_id[59]["authenticationSerial"] == "G009264"
+renumbered=by_id[300]
+assert renumbered["sourceSheet"]=="Milestones" and renumbered["sourceRow"]==2
 assert renumbered["category"]=="RS Point" and renumbered["puckType"]=="Goal Scored Puck"
 assert renumbered["scorerCode"]=="EL27" and renumbered["primaryAssist"]=="BM63" and renumbered["secondaryAssist"]=="AE5"
 assert renumbered["authenticationSerial"]=="BB25087"

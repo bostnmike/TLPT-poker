@@ -1,6 +1,6 @@
 {
   "meta": {
-    "releaseStatus": "OWNER_APPROVED172_MEDIA_AND_VALIDATED_BOOK_BOUND",
+    "releaseStatus": "GAP_FREE172_CANONICAL_AND_SEALED_BOOK_BOUND",
     "artifacts": 172,
     "assets": 172,
     "photographs": 93,
@@ -27,9 +27,7 @@
     "rightsMetadataCorrections": [],
     "bookPages": 240,
     "coverPages": 1,
-    "changedNativeImages": [
-      708
-    ],
+    "changedNativeImages": [],
     "retainedNativeImages": [
       1,
       2,
@@ -79,6 +77,7 @@
       46,
       47,
       48,
+      49,
       50,
       51,
       52,
@@ -86,7 +85,9 @@
       54,
       55,
       56,
+      57,
       58,
+      59,
       60,
       61,
       62,
@@ -103,8 +104,7 @@
       73,
       74,
       75,
-      76,
-      77,
+      300,
       301,
       302,
       303,
@@ -147,7 +147,7 @@
       340,
       341,
       342,
-      343,
+      500,
       501,
       502,
       503,
@@ -157,7 +157,6 @@
       507,
       508,
       509,
-      510,
       600,
       601,
       602,
@@ -193,29 +192,31 @@
       705,
       706,
       707,
+      708,
+      709,
       710,
       711,
       712,
       713,
       714,
       715,
-      716,
-      717
+      716
     ],
-    "delivery": "172 selected game images, singular LAST;171 prior selections retained exactly, new49 uses owner-approved gameA native JPEG.828 physical/document views;1000 combined.15 approved physical views added for31/49/61; no standalone hologram images.",
+    "delivery": "172 current records; all172 native game asset objects and828 physical/document view objects preserved exactly, with zero new image files. IDs76/77/343/510/717 move to57/59/300/500/709; all gallery ownership joins updated.",
     "sourceLimits": [
-      "Owner-approved708source/date/identity replacement plus owner-authorized canonical59-to343 reorder and joins;170other native selections preserved. No synthesis, face edits, retouch, resampling, watermark removal or new blanket171identity claim.",
       "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
       "Existing documentary-source limitations remain recorded.",
       "Local PDF validation does not claim Blurb uploader acceptance.",
       "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
-      "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
       "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
       "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
       "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
-      "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
+      "All172 existing selected native game images and all physical/document crops retain their exact prior pixels, captions, credits and source qualifications; only five catalog IDs/keys and canonical row/Book-page joins change.",
+      "Historical former57 was consolidated into313. Current57 is the different former76 puck, MGA21933, in physical76. Current59 is the former77 Montreal goal, G009264, in physical77.",
+      "Current300 is former343, earlier59, withBB25087 in physical59. Protectedphysical343 belongs301, physical342 belongs333 and physical49 belongs342. Folder numbers are stable namespaces, not catalog ownership.",
+      "Owner actualBlurb upload of the prior cover was rejected; correct240-page product/parsedpagecount acceptance and preview remain unconfirmed. Local geometry checks do not establish uploader acceptance."
     ],
     "selectedGameImages": 172,
     "withheldGameImages": 0,
@@ -226,12 +227,14 @@
       "Local PDF validation does not claim Blurb uploader acceptance.",
       "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
       "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
-      "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
       "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
       "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
       "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
       "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
-      "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
+      "All172 existing selected native game images and all physical/document crops retain their exact prior pixels, captions, credits and source qualifications; only five catalog IDs/keys and canonical row/Book-page joins change.",
+      "Historical former57 was consolidated into313. Current57 is the different former76 puck, MGA21933, in physical76. Current59 is the former77 Montreal goal, G009264, in physical77.",
+      "Current300 is former343, earlier59, withBB25087 in physical59. Protectedphysical343 belongs301, physical342 belongs333 and physical49 belongs342. Folder numbers are stable namespaces, not catalog ownership.",
+      "Owner actualBlurb upload of the prior cover was rejected; correct240-page product/parsedpagecount acceptance and preview remain unconfirmed. Local geometry checks do not establish uploader acceptance."
     ],
     "nativeExcelAppTest": "PASS",
     "canonicalVideoCorrections": [
@@ -379,15 +382,15 @@
     "uniqueImagePerArtifact": true,
     "restoredArchivedNativeImages": [],
     "nativeExcelVerificationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
-      "sha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
-      "bytes": 2379
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+      "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+      "bytes": 2066
     },
     "sourceOnlyCorrections": [],
     "nativeExcelCompletionReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
-      "sha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
-      "bytes": 2379
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+      "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+      "bytes": 2066
     },
     "parentMediaRegistrationReceipt": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Photo punch list media reconciliation 2026-10-18-v1.json",
@@ -397,7 +400,7 @@
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Current Collection Media.json",
       "sha256": "75fa0371eb7575d79e8cc8a23e9f1bbd1680ed8f274b46ab5067d3fa8d8ec250"
     },
-    "registrationStatus": "Immutable initial172 registration; Data final completion follows actual live website QA without rewriting this snapshot.",
+    "registrationStatus": "Immutable initial GapFree172 registration; actual final release completion is additive after live QA.",
     "historicalV2Provenance": {
       "revision": "Targeted-Photo-Edition-20261018-v2",
       "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Targeted-Photo-Edition-20261018-v2/Exhibit63-Blurb-Large-Landscape-Pages-Targeted-Photo-Edition-October18-2026-v2.pdf",
@@ -426,19 +429,19 @@
         }
       ]
     },
-    "revision": "Approved-Three-Puck-Intake-Book-20261020-v18",
+    "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19",
     "openOwnerReview": [],
     "canonicalConsolidationHandoff": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 57 to 313 Consolidation Handoff 2026-10-18-v1/Handoff.json",
       "sha256": "6b1ad8f6841426f70d5b0ada5dd37a42fb4997426c2eae256a67a4a65e4c17e3"
     },
-    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Approved-Three-Puck-Intake-240page-Edition-20261020-v18/Exhibit63-Approved-Three-Puck-Intake-240page-Interior-October20-2026-v18.pdf",
-    "bookSha256": "5f69754dba36a61ced7a77b394c3924039090b8266f6769c3064642408274eed",
-    "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Canonical-Consolidated-236pages-20261018-v4/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-236pages-Canonical-Consolidated-October18-2026-v4.pdf",
-    "coverSha256": "c0742568829ba85dac698f009c4397f65cf026ec67e7bb357c57356c4ad0e0eb",
-    "sourceManifestSha256": "14867673d0bac986f2949f018448ffedb18cf7a8b191faca2c907cf849faf970",
-    "sourceIndexSha256": "05deebe451354fb9984c0ea15e2cf6cc8667f00b694912dd3b38b8e26bb3aa01",
-    "sourceHandoffSha256": "f45d0d47062d29473d44d90ffdc18b660586fb17314f1a7bd8d5b8248b75af2d",
+    "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Gap-Free-Numbering-240page-Edition-20261020-v19/Exhibit63-Gap-Free-Numbering-240page-Interior-October20-2026-v19.pdf",
+    "bookSha256": "476f48f524685c94f9f991c66975192fa9eca7440eeb7d722de0a7cf28ad276d",
+    "coverPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Verified-240pages-Premium-Lustre-20261020-v5/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-240pages-October20-2026-v5.pdf",
+    "coverSha256": "847e0e933dbf5d73b26acadb7faa3d3245762d50941691ab841965485baaf211",
+    "sourceManifestSha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
+    "sourceIndexSha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
+    "sourceHandoffSha256": "71bbc5c20244a162dac44b4e43725929e9dfbce4f645b2d720660b428bad7153",
     "physicalEvidenceViews": 828,
     "combinedGalleryViews": 1000,
     "archivedPhysicalDocumentSourceViews": 845,
@@ -447,19 +450,9 @@
       708
     ],
     "renumbering": {
-      "fromInventoryId": 59,
-      "toInventoryId": 343,
-      "oldKey": "goal-59",
-      "newKey": "milestone-343",
-      "physicalNamespace": "images/pucks/59/",
-      "protected301Namespace": "images/pucks/343/",
-      "noPermanentActive59Alias": true,
-      "active343OverridesHistoricalAlias": true,
-      "canonicalHandoff": {
-        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Handoff.json",
-        "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d",
-        "bytes": 13808
-      }
+      "path": "docs/marchand-gap-numbering-20261020.json",
+      "sha256": "2cd7297155856500a94039547240b7a3469c25cbf87dc80d99911ce84613aecd",
+      "bytes": 3039
     },
     "ownerAuthorizedCOAAssignment": {
       "path": "docs/marchand-coa-assignments-20261019.json",
@@ -518,7 +511,9 @@
         "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact074 Three Ticket Canonical Handoff 2026-10-19-v14/Handoff.json",
         "sha256": "2cc997bfc79a2953e84e0100151db961fd190b18eadef107a6d8e1184011fb5f",
         "bytes": 14086
-      }
+      },
+      "statusScope": "HISTORICAL_SOURCE_ERA_RECEIPT_ONLY",
+      "scope": "October19,2026 COA assignment proof and source-era master/status snapshot. Owner assignments remain in force. Current canonical/Book/cover status is currentCanonicalMaster and currentMediaAndBookPublication, bound to the later GapFree release."
     },
     "priorNativeExcelMetadataBeforeCOADataSync": {
       "nativeExcelVerificationReceipt": {
@@ -533,17 +528,17 @@
       }
     },
     "currentCanonicalMaster": {
-      "source": "Marchand_Puck_Collection_FullIngest.xlsx",
-      "sha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
-      "wordSource": "BM63-Goal-Puck-List.docx",
-      "wordSha256": "39d21e8d9edbfec10facfb47f6e6bd8198b391c7ea751af35ce611335b7b3172",
-      "verifiedDate": "2026-10-20",
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+      "bytes": 104161,
       "nativeExcelAppTest": "PASS",
-      "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
-      "verificationReceiptSha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
-      "projection": "Owner-approved three-puck receipt: new49 plus completed31/61 photography and matching MeiGray serials. Actual canonical172 and native Excel application verification passed."
+      "nativeExcelVerificationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+        "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+        "bytes": 2066
+      }
     },
-    "currentCanonicalMasterSha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
+    "currentCanonicalMasterSha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
     "historicalV6PublicationBindingsBeforeH8": {
       "revision": "Canonical-Renumbered-708-Edition-20261019-v6",
       "sourceHandoffSha256": "9aa9e8904ca718b1e81c59ed6babbed06376067105b76f2651e2e332e15dcfe6",
@@ -566,21 +561,24 @@
       }
     },
     "currentMediaAndBookPublication": {
-      "path": "docs/marchand-book-v18-metadata-20261020.json",
-      "sha256": "4725606ce2f5ae19b5e403af5a776d50eaa6603876cf6d9d1eab0f1eafdd7c04",
-      "revision": "Approved-Three-Puck-Intake-Book-20261020-v18"
+      "path": "docs/marchand-book-v19-metadata-20261020.json",
+      "sha256": "54fe47b8a2f84b32c06d6f782b7fb9f678fb10af7b87bb5313ec965ceb5169f6",
+      "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19"
     },
-    "coverStatus": "REFERENCE_ONLY_NOT_APPROVED_FOR_240_PAGES",
-    "coverFitsCurrentBook": false,
-    "bookContentStatus": "VALIDATED_CURRENT_INTERIOR;MATCHING240PAGE_COVER_PENDING",
+    "coverStatus": "ACTUAL_PRIOR_UPLOAD_REJECTED;CORRECT240CONFIGURATION_ACCEPTANCE_AND_PREVIEW_UNCONFIRMED",
+    "bookContentStatus": "VALIDATED_CURRENT_GAP_FREE240PAGE_INTERIOR",
     "printConfiguration": {
-      "paper": "Premium Lustre",
-      "interior_pages": 240,
-      "paper_page_count_fits": true,
-      "paper_changed": false,
-      "paper_choice_pending": false,
-      "matching240page_cover_pending": true,
-      "status": "INTERIOR_PAGE_COUNT_FITS; MATCHING_COVER_PENDING"
+      "nominalPaper": "Premium Lustre",
+      "interiorPages": 240,
+      "matching240PageCoverPending": false,
+      "coverProductPageCountConfigurationPending": true,
+      "actualCorrect240PageUploadAcceptanceConfirmed": false,
+      "printReady": false,
+      "sourceDiagnostic": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Cover Upload Page Count Diagnostic 2026-10-20-v1/Handoff.json",
+        "sha256": "2454874f7e61dac5817b13b703b75f553ba9af4f4e76afe16eaa91447c1b3b01",
+        "bytes": 4004
+      }
     },
     "unqualifiedPublishReady": false,
     "historicalV8PreparedBookBindings": {
@@ -778,7 +776,7 @@
       "selectedGameImages": 171,
       "sourceIndexSha256": "fe529fb5297030a4e7a4f7868dfd4b4235d6547575c9d1d778e1fb4f4451ad8f"
     },
-    "bookUpdateStatus": "Sealed v18, actual172 page joins and current canonical master verified.",
+    "bookUpdateStatus": "Sealed actual v19/current172 source-row and page joins matched.",
     "awaitingApprovedBookIndex": false,
     "priorCanonicalMetadataBeforeApprovedIntake": {
       "currentCanonicalMaster": {
@@ -807,9 +805,7 @@
       "combinedGalleryViews": 984,
       "releaseStatus": "REGISTERED240PAGE_WORKING_INTERIOR_QA_PASS;ONLY_MATCHING_COVER_PENDING"
     },
-    "addedNativeImages": [
-      49
-    ],
+    "addedNativeImages": [],
     "historicalV14PublicationBindings": {
       "revision": "Three-Autograph-COAs-240page-Edition-20261019-v14",
       "sourceHandoffSha256": "0cc9c6721d1d284edba36ea7c000959e611b793196731e9ac6b1812746ab44cc",
@@ -870,32 +866,17 @@
       ],
       "archivedPhysicalDocumentSourceViews": 830
     },
-    "sourceManifestScope": "Current172 Media Manifest at initial v18 registration; sealed Book source freeze separately recorded. Immutable historical171 library preserved.",
+    "sourceManifestScope": "Current GapFree172 source manifest at immutable initial registration; native source-library history preserved separately.",
     "sourceFreeze": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Approved-Three-Puck-Intake-240page-Edition-20261020-v18/SOURCE-v2/source-freeze.json",
-      "sha256": "b67b40cccc7782aaf8e15b2641d8b6d22172663b42e39d3aa481c23cc3ca2b1d",
-      "bytes": 18345
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/source-freeze.json",
+      "sha256": "7b189c7fa0128d5e27b16908736f1c72e9ac909c777a6c7c36a2d51c43534863",
+      "bytes": 7319
     },
     "archivedPhysicalDocumentSourceViewsScope": "Historical845 original source views after15approved intake additions. Retired derivative archive copies permanently deleted; actual originals/native dependencies retained.",
     "retiredDerivativeCopyRetentionSupersession": {
       "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Legacy Image Permanent Deletion 2026-10-20-v1/Handoff.json",
       "sha256": "09285be6d82c94fb3db78522b206f0f7b047693bb1a9d9b3a28fdb2fcc0939ad",
       "bytes": 2628
-    },
-    "mediaRegistrationReceipt": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt-v2.json",
-      "sha256": "69d5969dd7b4ac4571a3130658a9397b7f94d53540e2941c48e289f55efd5b0b",
-      "bytes": 7244
-    },
-    "mediaRegistryAtRegistration": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration-v2.json",
-      "sha256": "9397dafb49e6dd86643126fbf579e938c7450df2b78babe99f3acf58dba9ff58",
-      "bytes": 164804
-    },
-    "sourceManifest": {
-      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Current-172-Media-Manifest-v2.json",
-      "sha256": "14867673d0bac986f2949f018448ffedb18cf7a8b191faca2c907cf849faf970",
-      "bytes": 142692
     },
     "historicalInitial172RegistrationV1": {
       "registration": {
@@ -915,7 +896,293 @@
       },
       "status": "INITIAL172_CANONICAL_AND_BOOK18_REGISTRATION_COMPLETE;WEBSITE_FINAL_PUBLICATION_PENDING",
       "scope": "Immutable initial references for Museum public provenance. Final current registry completion follows actual live website QA; initial bindings are not rewritten and require no hash republish loop."
-    }
+    },
+    "historicalBeforeGapNumbering": {
+      "revision": "Approved-Three-Puck-Intake-Book-20261020-v18",
+      "sourceIndexSha256": "05deebe451354fb9984c0ea15e2cf6cc8667f00b694912dd3b38b8e26bb3aa01",
+      "sourceManifestSha256": "14867673d0bac986f2949f018448ffedb18cf7a8b191faca2c907cf849faf970",
+      "sourceHandoffSha256": "f45d0d47062d29473d44d90ffdc18b660586fb17314f1a7bd8d5b8248b75af2d",
+      "bookPath": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Approved-Three-Puck-Intake-240page-Edition-20261020-v18/Exhibit63-Approved-Three-Puck-Intake-240page-Interior-October20-2026-v18.pdf",
+      "bookSha256": "5f69754dba36a61ced7a77b394c3924039090b8266f6769c3064642408274eed",
+      "currentMediaAndBookPublication": {
+        "path": "docs/marchand-book-v18-metadata-20261020.json",
+        "sha256": "4725606ce2f5ae19b5e403af5a776d50eaa6603876cf6d9d1eab0f1eafdd7c04",
+        "revision": "Approved-Three-Puck-Intake-Book-20261020-v18"
+      },
+      "mediaRegistrationReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Initial-Registration-Receipt-v2.json",
+        "sha256": "69d5969dd7b4ac4571a3130658a9397b7f94d53540e2941c48e289f55efd5b0b",
+        "bytes": 7244
+      },
+      "mediaRegistryAtRegistration": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved172 Book Media Registration 2026-10-20-v18/Registry-at-registration-v2.json",
+        "sha256": "9397dafb49e6dd86643126fbf579e938c7450df2b78babe99f3acf58dba9ff58",
+        "bytes": 164804
+      },
+      "renumbering": {
+        "fromInventoryId": 59,
+        "toInventoryId": 343,
+        "oldKey": "goal-59",
+        "newKey": "milestone-343",
+        "physicalNamespace": "images/pucks/59/",
+        "protected301Namespace": "images/pucks/343/",
+        "noPermanentActive59Alias": true,
+        "active343OverridesHistoricalAlias": true,
+        "canonicalHandoff": {
+          "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Artifact 59 to 343 Renumbering Handoff 2026-10-19-v1/Handoff.json",
+          "sha256": "adff5b07d36319458baaf34fa23e40d7c449db81996b0192acedc1599f096e1d",
+          "bytes": 13808
+        }
+      },
+      "nativeExcelCompletionReceipt": {
+        "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
+        "sha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
+        "bytes": 2379
+      },
+      "currentCanonicalMaster": {
+        "source": "Marchand_Puck_Collection_FullIngest.xlsx",
+        "sha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
+        "wordSource": "BM63-Goal-Puck-List.docx",
+        "wordSha256": "39d21e8d9edbfec10facfb47f6e6bd8198b391c7ea751af35ce611335b7b3172",
+        "verifiedDate": "2026-10-20",
+        "nativeExcelAppTest": "PASS",
+        "verificationReceipt": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Approved Three Puck Video49 Correction 2026-10-20-v4/Native-Excel-verification.json",
+        "verificationReceiptSha256": "e64f3a3b82b102d2f00a206cb461b0ff6771e147fdfb3c10e6d05180a451ebe0",
+        "projection": "Owner-approved three-puck receipt: new49 plus completed31/61 photography and matching MeiGray serials. Actual canonical172 and native Excel application verification passed."
+      },
+      "currentCanonicalMasterSha256": "b9d41cc275a1ad360f41bd4f729d6ae7608968df4ca8732860bb285960d9ced0",
+      "changedNativeImages": [
+        708
+      ],
+      "retainedNativeImages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        58,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        600,
+        601,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        700,
+        701,
+        702,
+        703,
+        704,
+        705,
+        706,
+        707,
+        710,
+        711,
+        712,
+        713,
+        714,
+        715,
+        716,
+        717
+      ],
+      "restoredArchivedNativeImages": [],
+      "addedNativeImages": [
+        49
+      ],
+      "sourceLimits": [
+        "Owner-approved708source/date/identity replacement plus owner-authorized canonical59-to343 reorder and joins;170other native selections preserved. No synthesis, face edits, retouch, resampling, watermark removal or new blanket171identity claim.",
+        "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
+        "Existing documentary-source limitations remain recorded.",
+        "Local PDF validation does not claim Blurb uploader acceptance.",
+        "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
+        "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
+        "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
+        "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
+        "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
+        "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
+        "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
+        "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
+      ],
+      "qualifications": [
+        "Approved Boston trophy hero remains399x501 native pixels at about222.7ppi.",
+        "Existing documentary-source limitations remain recorded.",
+        "Local PDF validation does not claim Blurb uploader acceptance.",
+        "Artifact605 numeral is partly covered by a glove. Identity is supported by recognizable face and dated Getty caption, not an assertion of an unobstructed number.",
+        "Public source availability is not an unrestricted license grant; original source/access and usage records are retained.",
+        "Owner-confirmed57/313same physical puck resolved:313is sole active;57vacant. Old sealed editions remain historical.",
+        "Artifact605recognizable face and dated source support identity; helmet numeral remains partly gloved.",
+        "Public source availability is not an unrestricted license grant; source/access/usage records remain retained.",
+        "Artifact708 owner-selected exact-game photograph replaces the former soft broadcast still. Full native594x423pixels, printed1.98x1.41inches at300ppi; no enlargement, editing or reconstruction.",
+        "708 attribution/date/players and Getty187101132 URL are supplied by embedded EXIF/IPTC/XMP; the live Getty catalog page was not independently accessible.",
+        "Canonical59-to343 migration uses physical namespace59/BB25087. Physical namespace343 remains301/RG13316479. 59 and57 vacant;313 sole active; future59 requires a fresh explicit namespace."
+      ],
+      "delivery": "172 selected game images, singular LAST;171 prior selections retained exactly, new49 uses owner-approved gameA native JPEG.828 physical/document views;1000 combined.15 approved physical views added for31/49/61; no standalone hologram images."
+    },
+    "awaitingInitialDataRegistration": false,
+    "mediaRegistrationReceipt": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Initial-Registration-Receipt.json",
+      "sha256": "9287b8ffd9870358d0af318845e527f3ac887df6f6ea8b1230d8b9f075331f42",
+      "bytes": 5229
+    },
+    "mediaRegistryAtRegistration": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Registry-at-registration.json",
+      "sha256": "da309f11caa2deb810da3bd7c2591f9f63f8cecdea8807b07724935484ae2822",
+      "bytes": 284071
+    },
+    "sourceManifest": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Current-172-Media-Manifest.json",
+      "sha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
+      "bytes": 149069
+    },
+    "coverActualUploadDiagnostic": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Cover Upload Page Count Diagnostic 2026-10-20-v1/Handoff.json",
+      "sha256": "2454874f7e61dac5817b13b703b75f553ba9af4f4e76afe16eaa91447c1b3b01",
+      "bytes": 4004
+    },
+    "matching240PageCoverPending": false,
+    "coverProductPageCountConfigurationPending": true,
+    "actualCorrect240PageBlurbUploadAcceptanceConfirmed": false
   },
   "artifacts": {
     "goal-1": {
@@ -1638,8 +1905,8 @@
       "galleryPosition": "last",
       "selectionReason": "Restore the correctly matched available source under complete-coverage preference. Marchand is readable but subdued in a crowded, soft huddle; neutral faces and foreground helmet reduce impact."
     },
-    "goal-76": {
-      "inventoryId": 76,
+    "goal-57": {
+      "inventoryId": 57,
       "assetId": "2018020838-a76-publishing",
       "artifactDate": "2019-02-09",
       "photoDate": "2019-02-09",
@@ -1648,8 +1915,8 @@
       "galleryPosition": "last",
       "selectionReason": "Previously selected verified image retained"
     },
-    "goal-77": {
-      "inventoryId": 77,
+    "goal-59": {
+      "inventoryId": 59,
       "assetId": "2015020686-a77-publishing",
       "artifactDate": "2016-01-19",
       "photoDate": "2016-01-19",
@@ -2168,8 +2435,8 @@
       "galleryPosition": "last",
       "selectionReason": "Clearer Brad profile and warm genuine post-win interaction, substantially sharper native professional photograph."
     },
-    "history-510": {
-      "inventoryId": 510,
+    "history-500": {
+      "inventoryId": 500,
       "assetId": "2022021246-a510-publishing",
       "artifactDate": "2023-04-06",
       "photoDate": "2023-04-06",
@@ -2608,8 +2875,8 @@
       "galleryPosition": "last",
       "selectionReason": "Clear smiling/knowing Brad face in genuine May6 Columbus postgame interview. Stronger facial expression than many action fallbacks."
     },
-    "hfc-717": {
-      "inventoryId": 717,
+    "hfc-709": {
+      "inventoryId": 709,
       "assetId": "2025020823-a717-publishing",
       "artifactDate": "2026-01-25",
       "photoDate": "2026-01-25",
@@ -2618,8 +2885,8 @@
       "galleryPosition": "last",
       "selectionReason": "Sharp Brad63 rear helmet pat from Reinhart in Chicago. Genuine affection despite no face. Reject Samoskevich79 gallery substitutions."
     },
-    "milestone-343": {
-      "inventoryId": 343,
+    "milestone-300": {
+      "inventoryId": 300,
       "assetId": "2025020103-a59-publishing",
       "artifactDate": "2025-10-21",
       "photoDate": "2025-10-21",

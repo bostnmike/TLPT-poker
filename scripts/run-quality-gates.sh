@@ -52,6 +52,7 @@ node scripts/test-marchand-game-stats.mjs
 node scripts/test-marchand-vault.mjs
 node scripts/test-marchand-filters.mjs
 node scripts/test-marchand-merge59.mjs
+node scripts/test-marchand-numbering-gaps.mjs
 node scripts/test-marchand-centennial342.mjs
 node scripts/test-marchand-centennial343.mjs
 "$PYTHON_BIN" scripts/test-marchand-sync.py

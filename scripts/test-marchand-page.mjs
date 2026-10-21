@@ -109,8 +109,8 @@ for (const record of payload.records) {
 const roadToHistory = payload.records.filter((record) => record.sourceSheet === "Road to History");
 assert.deepEqual(
   roadToHistory.map((record) => record.inventoryId),
-  [501, 502, 503, 509, 504, 505, 506, 507, 508, 510],
-  "Road to History inventory must follow the canonical chronology without renumbering established artifacts",
+  [500, 501, 502, 503, 504, 505, 506, 507, 508, 509],
+  "Road to History source records must follow the newly approved canonical numeric order",
 );
 const expectedRoadDetails = new Map([
   [501, [75, "58-12-5", 121]],
@@ -122,7 +122,7 @@ const expectedRoadDetails = new Map([
   [506, [80, "63-12-5", 131]],
   [507, [81, "64-12-5", 133]],
   [508, [82, "65-12-5", 135]],
-  [510, [78, "61-12-5", 127]],
+  [500, [78, "61-12-5", 127]],
 ]);
 for (const record of roadToHistory) {
   const [game, seasonRecord, points] = expectedRoadDetails.get(record.inventoryId) || [];
@@ -157,11 +157,11 @@ const exhibit335 = payload.records.find((record) => record.inventoryId === 335);
 const exhibit1 = payload.records.find((record) => record.inventoryId === 1);
 const exhibit42 = payload.records.find((record) => record.inventoryId === 42);
 const exhibit316 = payload.records.find((record) => record.inventoryId === 316);
-const addedOwnedGoals = payload.records.filter((record) => record.sourceSheet === "Goals & Games" && record.sourceRow >= 73 && record.sourceRow <= 79);
-assert.equal(row58, undefined, "retired57 source row58 must stay vacant");
+const addedOwnedGoals = payload.records.filter((record) => record.sourceSheet === "Goals & Games" && [57,59,72,73,74,75].includes(record.inventoryId));
+assert.equal(row58.inventoryId,57);assert.equal(row58.authenticationSerial,"MGA21933");
 assert.equal(payload.records.find(r => r.inventoryId === 313).videoId, "6363508247112", "313 retains the transferred native hyperlink target");
-assert.equal(row60, undefined, "retired59 row60 remains vacant");
-assert.equal(payload.records.find(r => r.inventoryId === 343).videoId, "6383495592112", "343 retains the moved59video");
+assert.equal(row60.inventoryId,59);assert.equal(row60.authenticationSerial,"G009264");
+assert.equal(payload.records.find(r => r.inventoryId === 300).videoId, "6383495592112", "300 retains the same verified return-to-Boston goal video");
 assert.equal(exhibit334?.videoId, "SdPYYLtnm5E", "Exhibit 334 must use the ESPN broadcast of the TD Garden tribute");
 assert.equal(exhibit335?.date, "2025-11-13", "Exhibit 335 must preserve its corrected 2025 date for chronological sorting");
 assert.equal(exhibit335?.team, "Florida Panthers", "The 1,000-point milestone belongs to Florida");
@@ -179,12 +179,12 @@ assert.equal(exhibit316?.sourceData.find((field) => field.label === "Notes")?.va
 assert.deepEqual(
   addedOwnedGoals.map((record) => [record.inventoryId, record.careerStat, record.date]),
   [
+    [57, 246, "2019-02-09"],
+    [59, 133, "2016-01-19"],
     [72, 160, "2016-11-29"],
     [73, 234, "2018-12-09"],
     [74, 238, "2018-12-22"],
     [75, 277, "2019-11-21"],
-    [76, 246, "2019-02-09"],
-    [77, 133, "2016-01-19"],
   ],
   "the seven newly cataloged owned goals must remain tied to their canonical rows",
 );
@@ -227,7 +227,7 @@ assert.match(html, /property="og:image:height" content="630"/, "social image hei
 assert.match(html, /name="twitter:card" content="summary_large_image"/, "social preview must use the large image card");
 assert.doesNotMatch(html, /chip-T-500\.png|TLPT 500 tournament poker chip/, "Marchand social metadata must not use TLPT poker artwork");
 assert.match(html, /marchand\.css\?v=20261017-visual-qa/, "Marchand stylesheet cache key drifted");
-assert.match(html, /marchand\.js\?v=20261020-approved-three-puck-v3/, "Marchand script cache key drifted");
+assert.match(html, /marchand\.js\?v=20261020-gap-free-numbering-v1/, "Marchand script cache key drifted");
 assert.match(vaultHtml, /marchand\.css\?v=20261017-visual-qa/, "vault stylesheet cache key drifted");
 assert.match(vaultHtml, /marchand-vault\.js\?v=20260928-hfc713/, "vault script cache key drifted");
 assert.match(html, /id="artifact-coa-full-size"[^>]*target="_blank"[^>]*rel="noopener noreferrer"[^>]*hidden/, "full-size COA link must start hidden and open safely in a new tab");
@@ -370,7 +370,7 @@ assert.deepEqual(payload.records.filter(record => !record.videoUrl).map(r => r.i
 assert.equal(payload.records.find(r => r.inventoryId === 713).videoId, "6387090130112", "Use the playable official recap, not the withdrawn NHL clip");
 assert.equal(payload.records.find(r => r.inventoryId === 705).videoId, "6336358911112", "HFC puck uses the February 10 rescheduled game recap");
 assert.match(payload.records.find(r => r.inventoryId === 705).videoLabel, /February 10, 2022/);
-assert.equal(payload.records.find(r => r.inventoryId === 510).sourceSheet, "Road to History");
+assert.equal(payload.records.find(r => r.inventoryId === 500).sourceSheet, "Road to History");
 assert.equal(payload.records.find(r => r.inventoryId === 61).date, "2018-01-23", "Vacant ID 61 now belongs to the incoming New Jersey goal, not artifact 330");
 assert.equal(payload.records.find(r => r.inventoryId === 713).date, "2025-12-30");
 assert.equal(payload.records.find(r => r.inventoryId === 713).sourceSheet, "Warm-Up Pucks");

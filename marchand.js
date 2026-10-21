@@ -1178,7 +1178,7 @@
     // Active IDs win when an owner reuses a formerly vacant inventory number.
     const current = state.records.find((record) => record.key === requestedKey);
     if (current) return current;
-    const aliases = { "milestone-343": "milestone-301", "goal-49": "milestone-342" };
+    const aliases = { "goal-76": "goal-57", "goal-77": "goal-59", "milestone-343": "milestone-300", "history-510": "history-500", "hfc-717": "hfc-709", "goal-49": "milestone-342" };
     return state.records.find((record) => record.key === aliases[requestedKey]);
   }
 

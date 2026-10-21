@@ -286,7 +286,7 @@ for (const [filter, expected] of [["Goals & Games", 75], ["Milestones", 43], ["R
   assert.equal(element("archive-title").focused, true);
   assert.equal(element("archive-title").scrolled, true);
   if (filter === "Road to History") {
-    assert.deepEqual(shownIds(), [501, 502, 503, 509, 504, 510, 505, 506, 507, 508]);
+    assert.deepEqual(shownIds(), [501, 502, 503, 509, 500, 504, 505, 506, 507, 508]);
     assert.equal(body.dataset.era, "boston");
   }
   if (filter === "video") assert.ok(shownIds().every((id) => payload.records.find((record) => record.inventoryId === id).videoUrl));
@@ -303,7 +303,7 @@ assert.equal(element("road-to-history-story").hidden, true);
 assert.equal(statButtons[0].getAttribute("aria-pressed"), "true");
 
 const cellValue = (parentId, label) => element(parentId).children.find((child) => child.children[0].textContent === label)?.children[1].textContent;
-for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [343, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
+for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [300, "🍎", "Assist · Goal Scored Puck"], [316, "🏒", "Game Used Puck"], [503, "🏒", "Warm-Up Puck"]]) {
   const row = rows().find((item) => Number(item.children[0].textContent) === id);
   const symbol = row.children[7].children[0];
   assert.equal(symbol.textContent, emoji);
@@ -312,7 +312,7 @@ for (const [id, emoji, label] of [[72, "🍪", "Goal Scored Puck"], [343, "🍎"
   assert.equal(element("artifact-dialog").open, true);
   assert.equal(cellValue("artifact-dialog-facts", "Puck type"), `${emoji} ${label}`);
   assert.equal(cellValue("artifact-source-grid", "Puck Type"), `${emoji} ${label}`);
-  if (id === 343) {
+  if (id === 300) {
     assert.ok(cellValue("artifact-dialog-facts", "Category").startsWith("🍎 "));
     const cards = element("artifact-personnel-grid").children;
     assert.equal(cards[0].dataset.player, "EL27");
@@ -436,7 +436,7 @@ sortButtons.find((button) => button.dataset.sort === "date").click();
 assert.equal(shownIds()[0], 508, "descending date order must change the browsing sequence");
 checkNavigation();
 sortButtons.find((button) => button.dataset.sort === "inventoryId").click();
-assert.equal(shownIds().at(-1), 510, "ID order must change the browsing sequence");
+assert.equal(shownIds().at(-1), 509, "ID order must change the browsing sequence");
 checkNavigation();
 element("clear-filters").click();
 checkNavigation(); // Includes no-photo and back-only destinations as well as front-not-first ordering.

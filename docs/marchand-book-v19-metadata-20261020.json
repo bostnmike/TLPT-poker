@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "revision": "Gap-Free-Numbering-240page-Edition-20261020-v19",
+  "status": "CURRENT172_GAP_FREE_BOOK_AND_MEDIA_VALIDATED;LIVE_RELEASE_COMPLETION_RECORDED_SEPARATELY",
+  "source_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Handoff.json",
+    "sha256": "71bbc5c20244a162dac44b4e43725929e9dfbce4f645b2d720660b428bad7153",
+    "bytes": 23371
+  },
+  "registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Initial-Registration-Receipt.json",
+    "sha256": "9287b8ffd9870358d0af318845e527f3ac887df6f6ea8b1230d8b9f075331f42",
+    "bytes": 5229
+  },
+  "registry_at_registration": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Registry-at-registration.json",
+    "sha256": "da309f11caa2deb810da3bd7c2591f9f63f8cecdea8807b07724935484ae2822",
+    "bytes": 284071
+  },
+  "source_manifest": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap Free172 Book Media Registration 2026-10-20-v19/Current-172-Media-Manifest.json",
+    "sha256": "bff367ad30b5015bfdb925cb7b41959edde1d7b0e09cea844fecbbda7ce1691f",
+    "bytes": 149069
+  },
+  "book": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/PRINT_EXPORTS/Gap-Free-Numbering-240page-Edition-20261020-v19/Exhibit63-Gap-Free-Numbering-240page-Interior-October20-2026-v19.pdf",
+    "bytes": 856465826,
+    "pages": 240,
+    "sha256": "476f48f524685c94f9f991c66975192fa9eca7440eeb7d722de0a7cf28ad276d",
+    "dimensions_inches": [
+      12.625,
+      10.875
+    ]
+  },
+  "source_index": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Game-Photo-Index.json",
+    "sha256": "74f2a63edaa18f9c4701722f68a6d93c0361eb3d9559656f12d05ee8c7cc2d99",
+    "bytes": 208085
+  },
+  "source_freeze": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/source-freeze.json",
+    "sha256": "7b189c7fa0128d5e27b16908736f1c72e9ac909c777a6c7c36a2d51c43534863",
+    "bytes": 7319
+  },
+  "canonical_masters": {
+    "Marchand_Puck_Collection_FullIngest.xlsx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Marchand_Puck_Collection_FullIngest.xlsx",
+      "sha256": "ae10d15325e8195ceac3ff4292831bc53557994a6ce3101a92baa0b80f5857b1",
+      "bytes": 104161
+    },
+    "BM63-Goal-Puck-List.docx": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/BM63-Goal-Puck-List.docx",
+      "sha256": "352ecb85f9840b7991a33354b86bf2a237c3652548e1c2067bb5b5240a95ad07",
+      "bytes": 31776
+    }
+  },
+  "canonical_handoff": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Handoff.json",
+    "sha256": "522fc8c69233abe4feeca3cc9a9fa8a0329284083ad83bcc4cfc06f681df8c36",
+    "bytes": 9204
+  },
+  "native_excel_receipt": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Native-Excel-Verification.json",
+    "sha256": "c48d4d59cd62232c24c641424bc246a5fd1cdea8bea3414f5812a243f2827c3d",
+    "bytes": 2066
+  },
+  "portable": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Canonical Gap Numbering 2026-10-20-v1/Canonical-Collection-Records.json",
+    "sha256": "5a6b98c37ab4fedc21e81ec0304aebd0dad57661d7f7176e18037d4ddd3314d3",
+    "bytes": 383650
+  },
+  "document_view_specification": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Document-View-Specification.json",
+    "sha256": "7f6c7b6bc371371d2c31bbb706ee46a4ea7bfce9c264d9a9b1f16fc33eb5976c",
+    "bytes": 828595
+  },
+  "counts": {
+    "catalog_records": 172,
+    "active_physical_document_views": 828,
+    "document_cards": 134,
+    "unique_website_document_images": 133,
+    "historical_source_document_associations": 132,
+    "unique_original_encoded_document_streams": 131,
+    "selected_game_images": 172,
+    "combined_gallery_views": 1000,
+    "active_public_image_files": 1341,
+    "historical_original_source_views": 845,
+    "photographs": 93,
+    "video_stills": 79,
+    "interior_pages": 240
+  },
+  "catalog_records": 172,
+  "chapter_counts": {
+    "Goals & Games": 75,
+    "Milestones": 43,
+    "Road to History": 10,
+    "Road to Repeat": 27,
+    "Hockey Fights Cancer": 9,
+    "Warm-Up Pucks": 8
+  },
+  "gap_numbering_mapping": {
+    "76": 57,
+    "77": 59,
+    "343": 300,
+    "510": 500,
+    "717": 709
+  },
+  "all172_native_game_images_and_all828_physical_views_unchanged": true,
+  "no_new_public_image_files": true,
+  "cover_actual_upload_diagnostic": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Cover Upload Page Count Diagnostic 2026-10-20-v1/Handoff.json",
+    "sha256": "2454874f7e61dac5817b13b703b75f553ba9af4f4e76afe16eaa91447c1b3b01",
+    "bytes": 4004
+  },
+  "cover_status": "Preserve847e localv5 cover bytes/history. Actual owner upload rejected with short20–50pagebucket expected dimensions; correct240product/parsedpagecount acceptance and preview unconfirmed. No cover resizing in this task; globalprintreadyfalse.",
+  "print_ready": false,
+  "unqualified_publish_ready": false,
+  "privacy": "Private book/cover/proof PDFs remain private; no PDF uploads or visitor-content additions in this metadata binding.",
+  "upstream_qa": {
+    "Actual-Written-PDF-Readback.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Actual-Written-PDF-Readback.json",
+      "sha256": "a50e6599afe07f797b4cd472bc46c066c484b0eba601225233761b05375b7700",
+      "bytes": 417058
+    },
+    "Independent-Canonical-Binding-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Independent-Canonical-Binding-QA.json",
+      "sha256": "69a890f04b1b29d17198acb1bdcd5f20a96a368d562c4986959caab8b5da3664",
+      "bytes": 35736
+    },
+    "Final-Asset-Binding-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Final-Asset-Binding-QA.json",
+      "sha256": "23517139a3cd73ebe504a8416126d97256e265e58ed2ae5f71fb4d7d1992382c",
+      "bytes": 276584
+    },
+    "Filename-Blank-Schema-Calibration.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Filename-Blank-Schema-Calibration.json",
+      "sha256": "36322d275b1827d27a93275deed9dec1d57768a86c7058a8a79762c38ea093cb",
+      "bytes": 6524
+    },
+    "Actual-Visual-QA-A.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Actual-Visual-QA-A.json",
+      "sha256": "0b0734059b8a061a2d076e08e546ceb62b980a7836b20740e12bd197de118380",
+      "bytes": 35121
+    },
+    "Actual-Visual-QA-B.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Actual-Visual-QA-B.json",
+      "sha256": "28831b5c5bb9d05fcba3fca6c53c09ffac3397decb7650537b3664a95cf20a17",
+      "bytes": 52496
+    },
+    "Actual-Visual-QA-Page231.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Actual-Visual-QA-Page231.json",
+      "sha256": "4295ad9831a02f5c2c0e7a54545d939753cadb8f7a47071d6807a598f8716fb0",
+      "bytes": 3052
+    },
+    "Final-Render-Pixel-Identity-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Final-Render-Pixel-Identity-QA.json",
+      "sha256": "ef0467645d2b93ebd49aa7590e1a617704b9ca9027cd160bc003e212e9bb5182",
+      "bytes": 58908
+    },
+    "Final-Visual-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Final-Visual-QA.json",
+      "sha256": "feabc4d56392ea4d7e7e209d8b9d5b310a4690c67e0bd4ecf410d1935299bf16",
+      "bytes": 1861
+    },
+    "Root-Final-Editorial-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Root-Final-Editorial-QA.json",
+      "sha256": "1d57e07e7fd2eb165447cd3cc8bb2d82b77f4861476fe4d826e73f6ac9759567",
+      "bytes": 2013
+    },
+    "Offline-Reproduction-QA.json": {
+      "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/Offline-Reproduction-QA.json",
+      "sha256": "a76e89ad9b06ad9a0f6ba33672aaafadf53beac0ee8d1bd0c090ed26f2f9e4ed",
+      "bytes": 6712
+    }
+  },
+  "verification_scope": "Small sealed source/QA/index/spec/initial Data references independently hashed; actual full PDF stat/size matched; Book supplied independent technical, visual and reproducibility QA. No repeated large-PDF render/body loop by Museum.",
+  "prior_v18_metadata": {
+    "path": "docs/marchand-book-v18-metadata-20261020.json",
+    "sha256": "4725606ce2f5ae19b5e403af5a776d50eaa6603876cf6d9d1eab0f1eafdd7c04"
+  },
+  "initial_registration_scope": "Immutable initial GapFree source snapshot; final Data completion follows actual website live QA without rewriting these public provenance hashes.",
+  "cover": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/EXHIBIT63_BOOK/COVERS/Verified-240pages-Premium-Lustre-20261020-v5/Exhibit63-Blurb-ImageWrap-Cover-Premium-Lustre-240pages-October20-2026-v5.pdf",
+    "sha256": "847e0e933dbf5d73b26acadb7faa3d3245762d50941691ab841965485baaf211",
+    "bytes": 23495234
+  },
+  "page_mapping": {
+    "path": "/Volumes/Documents/Marchand Puck Collection/Maintenance Logs/Gap-Free Numbering Book Handoff 2026-10-20-v19/page-mapping.json",
+    "sha256": "a1f7bacb75884800e71fd0b0b2173e6c454ab9fb6c7c73788e3e9f1a41899c3c",
+    "bytes": 28019
+  },
+  "matching240page_cover_pending": false,
+  "cover_product_page_count_configuration_pending": true,
+  "actual_correct240page_blurb_upload_acceptance_confirmed": false
+}
