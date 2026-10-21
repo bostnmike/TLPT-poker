@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T04:07:26.046369Z",
+  "generatedAt": "2026-10-21T22:38:21.808349Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -115,7 +115,7 @@
       "seatAssignments": [
         [
           "bostnmike",
-          "kishan",
+          "",
           "providencemike",
           "vish",
           "the-architect",
@@ -132,7 +132,8 @@
           "griffin",
           "cougar",
           "liam-o",
-          "nasa-al"
+          "nasa-al",
+          ""
         ]
       ],
       "rsvps": {
@@ -149,7 +150,7 @@
         "griffin": "yes",
         "hiro": "yes",
         "jeff-t": "no",
-        "kishan": "yes",
+        "kishan": "no",
         "li-fo": "yes",
         "liam-o": "yes",
         "nasa-al": "yes",
