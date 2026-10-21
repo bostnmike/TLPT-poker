@@ -1805,6 +1805,11 @@ function getEventSeatingTables(event, data, maxSeats = 9) {
     if (!Array.isArray(seatSlugs)) return;
 
     seatSlugs.slice(0, maxSeats).forEach(slug => {
+      // An explicit empty string is a held-open preview position, not a player.
+      if (slug === "") {
+        tables[tableIndex].push(null);
+        return;
+      }
       const normalizedSlug = String(slug || "").toLowerCase();
       const player = playerBySlug.get(normalizedSlug);
       if (!player || assignedSlugs.has(normalizedSlug)) return;
@@ -1818,8 +1823,8 @@ function getEventSeatingTables(event, data, maxSeats = 9) {
     if (assignedSlugs.has(normalizedSlug)) return;
 
     const availableTableIndex = tables
-      .map((players, index) => ({ index, count: players.length }))
-      .filter(table => table.count < maxSeats)
+      .map((players, index) => ({ index, slots: players.length, count: players.filter(Boolean).length }))
+      .filter(table => table.slots < maxSeats)
       .sort((a, b) => a.count - b.count || a.index - b.index)[0]?.index;
 
     if (availableTableIndex === undefined) return;
@@ -1837,8 +1842,9 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
     compact = false
   } = options;
   const seatedPlayers = players.slice(0, maxSeats);
+  const confirmedCount = seatedPlayers.filter(Boolean).length;
   const emptySeats = Math.max(maxSeats - seatedPlayers.length, 0);
-  const isHotTable = seatedPlayers.length / maxSeats >= 0.8;
+  const isHotTable = confirmedCount / maxSeats >= 0.8;
   const tableLabel = `Table ${tableNumber}`;
   const rowClass = [
     "event-rsvp-avatar-row",
@@ -1851,12 +1857,13 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
       ${showTableHeading ? `
         <div class="event-rsvp-table-heading">
           <span>${tableLabel}</span>
-          <span>${seatedPlayers.length} / ${maxSeats} RSVPs shown</span>
+          <span>${confirmedCount} / ${maxSeats} RSVPs shown</span>
         </div>
       ` : ""}
-      <div class="${rowClass}" aria-label="${tableLabel}: ${seatedPlayers.length} of ${maxSeats} confirmed RSVPs shown">
+      <div class="${rowClass}" aria-label="${tableLabel}: ${confirmedCount} of ${maxSeats} confirmed RSVPs shown">
         <div class="event-rsvp-center-name" aria-hidden="true"></div>
         ${seatedPlayers.map(player => {
+          if (!player) return `<span class="event-empty-seat" aria-label="${tableLabel}: manually held-open RSVP spot">🪑</span>`;
           const displayName = displayPlayerNamePlain(player);
           return `
             <span class="event-rsvp-seat-player" data-player-name="${String(displayName).replace(/"/g, "&quot;")}" tabindex="0" aria-label="${tableLabel} RSVP preview: ${String(displayName).replace(/"/g, "&quot;")}">
@@ -1875,6 +1882,8 @@ function eventRsvpTableMarkup(players, maxSeats = 9, options = {}) {
 function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
   const tableCount = getEventTableCount(event);
   const seatingTables = getEventSeatingTables(event, data, maxSeats);
+  const displayedSlugs = new Set(seatingTables.flat().filter(Boolean).map(player => player.slug));
+  const unplacedPlayers = getConfirmedRsvpPlayers(event, data).filter(player => !displayedSlugs.has(player.slug));
 
   const {
     showRotatorNav = false,
@@ -1903,6 +1912,7 @@ function eventRsvpAvatarMarkup(event, data, maxSeats = 9, options = {}) {
       ${tableMarkup}
 
       ${tableCount === 2 ? `<p class="event-rsvp-seating-note">RSVP preview only • Tournament Director software assigns official seats.</p>` : ""}
+      ${unplacedPlayers.length ? `<p class="event-rsvp-seating-note"><strong>Confirmed, not placed in this preview:</strong> ${unplacedPlayers.map(player => escapeHtmlAttr(displayPlayerNamePlain(player))).join(", ")}. Update the manual layout to place them.</p>` : ""}
 
       ${showRotatorNav ? `
         <div class="home-rotator-nav-inline">

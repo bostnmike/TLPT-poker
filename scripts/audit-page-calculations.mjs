@@ -130,12 +130,35 @@ for (const event of readJson("data/events.json").events) {
   if (event.seatAssignments) {
     const seats = app.get("getEventSeatingTables")(event, data);
     event.seatAssignments.forEach((table, index) => {
-      const configured = table.filter(slug => event.rsvps[slug] === "yes");
-      check(JSON.stringify(seats[index].slice(0, configured.length).map(p => p.slug)) === JSON.stringify(configured), `${event.slot}: RSVP sorting must not move explicitly assigned seats`);
+      const configured = table.filter(slug => slug === "" || event.rsvps[slug] === "yes").map(slug => slug || null);
+      check(JSON.stringify(seats[index].slice(0, configured.length).map(p => p?.slug || null)) === JSON.stringify(configured), `${event.slot}: RSVP sorting must preserve manual players and blank positions`);
     });
   }
 }
 const shuffledRosterEvent = { rsvps: Object.fromEntries([...data.players].reverse().map(p => [p.slug, "yes"])) };
+// Manual blanks hold positions; they never become attendees or automatic seats.
+const previewData = { players: ["bostnmike", "ahmed", "hiro", "kishan", "red", "vish"].map(slug => data.players.find(p => p.slug === slug)) };
+const previewEvent = { tables: 2, seatAssignments: [["bostnmike", "", "hiro"], ["ahmed", ""]],
+  rsvps: { bostnmike: "yes", ahmed: "yes", hiro: "yes", kishan: "yes", red: "no", vish: "tbd" } };
+const previewSnapshot = JSON.stringify(previewEvent);
+const previewTables = app.get("getEventSeatingTables")(previewEvent, previewData, 3);
+const previewSlugs = tables => JSON.stringify(tables.map(table => table.map(p => p?.slug || null)));
+check(previewSlugs(previewTables) === JSON.stringify([["bostnmike", null, "hiro"], ["ahmed", null, "kishan"]]), "Manual interior/trailing blanks must stay open while new confirmations use remaining positions");
+const previewTableHtml = app.get("eventRsvpTableMarkup")(previewTables[0], 3, { showTableHeading: true });
+check(previewTableHtml.includes("2 / 3 RSVPs shown") && previewTableHtml.includes("2 of 3 confirmed RSVPs shown"), "Manual blank positions must not inflate visible or accessible RSVP counts");
+check(!previewTableHtml.includes("is-hot-table"), "Manual blank positions must not inflate table heat");
+check(previewTableHtml.indexOf('data-player-name="BostnMike"') < previewTableHtml.indexOf('class="event-empty-seat"') && previewTableHtml.indexOf('class="event-empty-seat"') < previewTableHtml.indexOf('data-player-name="Hiro"'), "Empty chair must render between its manually assigned neighbors");
+const fullPreviewEvent = { ...previewEvent, rsvps: { ...previewEvent.rsvps, red: "yes" } };
+const fullPreviewHtml = app.get("eventRsvpAvatarMarkup")(fullPreviewEvent, previewData, 3);
+check(fullPreviewHtml.includes("Confirmed, not placed in this preview:</strong> Red."), "Confirmed players blocked by held-open positions must remain visible below the preview");
+check(app.get("getRsvpCounts")(fullPreviewEvent).yes === 5, "Unplaced confirmations must still count toward event totals");
+const resetPreviewEvent = { ...previewEvent, rsvps: Object.fromEntries(Object.keys(previewEvent.rsvps).map(slug => [slug, "tbd"])) };
+const resetPreviewHtml = app.get("eventRsvpAvatarMarkup")(resetPreviewEvent, previewData, 3);
+check(!resetPreviewHtml.includes('data-player-name=') && (resetPreviewHtml.match(/class="event-empty-seat"/g) || []).length === 6, "Resetting all RSVPs to TBD must render empty chairs, not avatars");
+check(resetPreviewHtml.includes("0 / 3 RSVPs shown"), "Reset previews must report zero confirmed players");
+const autoPreviewEvent = { ...previewEvent, seatAssignments: [[], []] };
+check(previewSlugs(app.get("getEventSeatingTables")(autoPreviewEvent, previewData, 3)) === JSON.stringify([["bostnmike", "hiro"], ["ahmed", "kishan"]]), "Empty assignment arrays must retain the ordinary balanced fallback");
+check(JSON.stringify(previewEvent) === previewSnapshot, "Preview rendering must never rewrite manual overrides or RSVP answers");
 const expectedRosterNames = eventRosterOrder(data.players).map(app.get("displayPlayerNamePlain"));
 check(JSON.stringify(app.get("getRsvpPlayersByStatus")(shuffledRosterEvent, data, "yes")) === JSON.stringify(expectedRosterNames), "Every RSVP status list must sort independently of input order");
 check(expectedRosterNames[0] === "BostnMike", "Commish must retain the first event roster slot");
