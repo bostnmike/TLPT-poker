@@ -40,27 +40,10 @@ body.rebuy-hard-page{
   text-transform:uppercase;
 }
 
-.rebuy-actions{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:14px 24px;
-}
-
 .rebuy-download{
   justify-content:center;
   min-height:48px;
   text-align:center;
-}
-
-.rebuy-read{
-  display:inline-flex;
-  align-items:center;
-  min-height:48px;
-  font-size:14px;
-  font-weight:700;
-  text-decoration:underline;
-  text-underline-offset:5px;
 }
 
 .rebuy-page a:focus-visible{
@@ -340,7 +323,6 @@ body.rebuy-hard-page{
   .rebuy-photo-card--felt{top:14px;}
   .rebuy-photo-card--bounties{top:90px;left:25%;}
   .rebuy-card-label{font-size:8px;letter-spacing:.06em;}
-  .rebuy-actions{gap:8px 18px;}
   .rebuy-download{padding:12px 15px;}
   .rebuy-poem{padding:24px 18px;border-radius:17px;scroll-margin-top:90px;}
   .rebuy-stanza{font-size:17px;line-height:1.85;margin-bottom:26px;}
