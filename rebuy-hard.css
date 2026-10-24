@@ -183,8 +183,8 @@ body.rebuy-hard-page{
   border-radius:22px;
   background:
     radial-gradient(ellipse at top left,rgba(255,184,28,.025),transparent 55%),
-    linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.66)),
-    url("images/rebuy-hard/poem-suit-pattern.svg") repeat,
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.28)),
+    url("images/rebuy-hard/poem-suit-pattern.svg?v=20261023-2") repeat,
     #000;
   background-size:auto,auto,192px 192px;
   scroll-margin-top:115px;
