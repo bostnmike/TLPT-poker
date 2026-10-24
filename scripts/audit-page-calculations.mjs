@@ -290,8 +290,16 @@ for (const player of players) {
   check(close(getPlayerTierScore(player), manualTierScore(player)), `${player.slug}: Crew tier score differs from published formula`);
   const overallRating = playerCardOverallRating(player, players);
   if (appearances === 0) {
+    check(
+      app.get("displayPlayerName")(player) === app.get("displayPlayerNamePlain")(player),
+      `${player.slug}: Unscouted display name must not append an entry asterisk`
+    );
     check(overallRating === "NR", `${player.slug}: zero-game card overall must be NR`);
   } else {
+    check(
+      app.get("displayPlayerName")(player).includes("player-entry-asterisk") === (Number(player.entries || 0) < 5),
+      `${player.slug}: preserve the existing entry marker for players who have appeared`
+    );
     check(overallRating === manualOverallRating(player), `${player.slug}: live card overall rating differs from the fixed sample-adjusted formula`);
     check(overallRating >= 40 && overallRating <= 97, `${player.slug}: live card overall rating is outside the fixed 40–97 range`);
   }

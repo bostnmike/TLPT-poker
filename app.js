@@ -975,7 +975,7 @@ function displayPlayerName(player) {
 
   const entries = Number(player?.entries ?? 0);
 
-  if (entries < 5) {
+  if (entries < 5 && !isPlayerUnscouted(player)) {
     return `${name}<span class="player-entry-asterisk" title="* fewer than 5 league entries">*</span>`;
   }
 
