@@ -44,9 +44,9 @@ body.rebuy-hard-page{
 .rebuy-title{
   margin:0;
   color:var(--gold);
-  font-family:"Bodoni 72", Didot, Georgia, serif;
-  font-size:clamp(62px,7.7vw,100px);
-  font-weight:700;
+  font-family:inherit;
+  font-size:clamp(54px,6.7vw,84px);
+  font-weight:900;
   line-height:1.04;
   letter-spacing:-.045em;
 }
@@ -54,9 +54,9 @@ body.rebuy-hard-page{
 .rebuy-title span{
   display:block;
   margin-bottom:10px;
-  font-family:Baskerville, Georgia, serif;
-  font-size:.46em;
-  font-style:italic;
+  font-family:inherit;
+  font-size:.43em;
+  font-weight:600;
   line-height:1.2;
   letter-spacing:-.025em;
 }
@@ -241,10 +241,10 @@ body.rebuy-hard-page{
 .rebuy-stanza{
   margin:0 0 25px;
   color:var(--gold);
-  font-family:"Bodoni 72", Georgia, "Times New Roman", serif;
-  font-size:clamp(17px,1.48vw,19px);
-  font-weight:700;
-  line-height:1.8;
+  font-family:inherit;
+  font-size:clamp(17px,1.4vw,18px);
+  font-weight:500;
+  line-height:1.9;
 }
 
 .rebuy-stanza:last-child{
@@ -326,7 +326,11 @@ body.rebuy-hard-page{
 }
 
 .rebuy-chip-scene figcaption>span:last-child{
-  font:700 italic clamp(30px,3.7vw,48px)/1.15 Baskerville,Georgia,serif;
+  font-family:inherit;
+  font-size:clamp(28px,3.1vw,42px);
+  font-weight:800;
+  line-height:1.15;
+  letter-spacing:-.025em;
 }
 
 .rebuy-print{
@@ -350,9 +354,9 @@ body.rebuy-hard-page{
 
 .rebuy-print h2{
   margin:0 0 16px;
-  font-family:Georgia, serif;
+  font-family:inherit;
   font-size:clamp(28px,4vw,42px);
-  font-weight:700;
+  font-weight:800;
   line-height:1.2;
 }
 
@@ -369,14 +373,14 @@ body.rebuy-hard-page{
   .rebuy-title{font-size:clamp(56px,8vw,80px);}
   .rebuy-deck{max-width:420px;height:410px;}
   .rebuy-poem{grid-template-columns:1fr;gap:25px;padding-left:22px;}
-  .rebuy-stanza{font-size:19px;}
+  .rebuy-stanza{font-size:18px;}
   .rebuy-chip-photo{height:300px;}
 }
 
 @media (max-width:560px){
   .rebuy-hard-page .rebuy-page{padding-top:25px;}
   .rebuy-hero{grid-template-columns:1fr;gap:32px;padding:35px 0 36px;}
-  .rebuy-title{font-size:clamp(53px,12vw,68px);}
+  .rebuy-title{font-size:clamp(40px,10.5vw,58px);}
   .rebuy-title span{font-size:.44em;}
   .rebuy-kicker{font-size:10px;letter-spacing:.16em;}
   .rebuy-deck{width:90%;max-width:340px;height:340px;margin-top:8px;}

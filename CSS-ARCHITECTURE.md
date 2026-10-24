@@ -430,3 +430,6 @@ The page reuses TLPT gold (`--gold`, #ffb81c), keeps the shared site shell,
 and stacks the poem columns for small screens. The hero presents three
 linked photos as a fanned hand of cards; a masked chip-rack panorama follows
 the poem. Card hover/focus exposes each image, with reduced-motion support.
+Web headings and poem text inherit the shared Arial/Helvetica sans-serif
+stack; the approved PDF retains its independent print typography.
+`home.css` owns the compact Re-Buy Hard teaser below the home-page hero.
