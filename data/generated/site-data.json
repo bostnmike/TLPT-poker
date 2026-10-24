@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T02:14:20.869334Z",
+  "generatedAt": "2026-10-24T02:20:56.602388Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -117,9 +117,9 @@
       "seatAssignments": [
         [
           "bostnmike",
-          "cougar",
           "providencemike",
           "vish",
+          "cougar",
           "the-architect",
           "hiro",
           "ai-dave",
