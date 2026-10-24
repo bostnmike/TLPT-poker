@@ -95,6 +95,21 @@ function loadScript(relative, transform = source => source) {
 }
 
 const app = loadScript("app.js");
+// White is the unscouted starter; the 100 Club owns the black/gold finish.
+for (const [file, selector, prefix] of [
+  ["player.css", ".tlpt-compare-card-edition-milestone-100", ""],
+  ["players.css", ".crew-ultimate-card-edition-milestone-100", "crew-"],
+  ["trophy-room.css", ".trophy-card-edition-milestone-100", ""]
+]) {
+  const css = fs.readFileSync(path.join(root, file), "utf8");
+  const block = css.slice(css.indexOf(`${selector}{`)).split("}")[0];
+  check(block.includes(`--${prefix}card-frame:#ffb81c;`) && block.includes(`--${prefix}card-surface-a:#0a1117;`)
+    && block.includes(`--${prefix}card-ink:#f7fbff;`), `${file}: 100 Club must retain the black finish, Bruins-gold edge and readable light text`);
+}
+const starterCss = fs.readFileSync(path.join(root, "player.css"), "utf8");
+const starterBlock = starterCss.slice(starterCss.indexOf(".tlpt-player-card-unscouted:not(.tlpt-player-card-special):not(.tlpt-compare-card-special){")).split("}")[0];
+check(starterBlock.includes("--card-surface-a:#ffffff;") && starterBlock.includes("--card-ink:#111820;"),
+  "Unscouted base finish must be white with dark text, without overriding special editions");
 // Membership is a display filter, never a new identity or a statistical reset.
 const metadataPlayers = readJson("data/player-metadata.json").players;
 const alumni = metadataPlayers.filter(player => player.rosterStatus === "alumni");

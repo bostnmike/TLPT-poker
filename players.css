@@ -696,14 +696,20 @@
 }
 
 .crew-page .crew-ultimate-card-unscouted{
-  --crew-card-edge:#b8c5d1;
-  --crew-card-surface-a:#111820;
-  --crew-card-surface-b:#354554;
-  --crew-card-surface-c:#151d25;
-  --crew-card-ink:#f2f6f9;
-  --crew-card-muted:#c2ced8;
-  --crew-card-line:rgba(194,206,216,.25);
-  --crew-card-glow:rgba(148,163,184,.24);
+  --crew-card-edge:#d5dce3;
+  --crew-card-surface-a:#ffffff;
+  --crew-card-surface-b:#edf0f3;
+  --crew-card-surface-c:#ffffff;
+  --crew-card-ink:#111820;
+  --crew-card-muted:#465360;
+  --crew-card-line:rgba(17,24,32,.22);
+  --crew-card-glow:rgba(235,241,247,.14);
+  --crew-card-frame:#d5dce3;
+}
+
+.crew-page .crew-ultimate-card-edition-milestone-100 .crew-ultimate-edition strong{
+  color:#ffb81c;
+  font-size:.8rem;
 }
 
 /* Phase 2D special editions preserve the official tier color underneath. */
@@ -934,24 +940,22 @@
 }
 
 .crew-page .crew-ultimate-card-edition-milestone-100{
-  --crew-card-edge:#f1cb5f;
-  --crew-card-surface-a:#ffffff;
-  --crew-card-surface-b:#cbd0d7;
-  --crew-card-surface-c:#f7f7f5;
-  --crew-card-ink:#080a0d;
-  --crew-card-muted:#4e4330;
-  --crew-card-line:rgba(24,25,27,.28);
-  --crew-card-glow:rgba(255,220,116,.52);
-  --crew-special-accent:#b98516;
-  --crew-special-soft:rgba(255,218,103,.46);
-  --crew-special-deep:rgba(12,13,15,.22);
-  --crew-card-frame:linear-gradient(145deg,#ffffff 0%,#efd16f 18%,#0a0d10 42%,#f8f8f4 63%,#c08d19 82%,#ffffff 100%);
-  --crew-edition-blend:multiply;
-  --crew-edition-opacity:.54;
-  --crew-edition-overlay:
-    repeating-radial-gradient(circle at 50% 44%,transparent 0 23px,rgba(13,15,18,.08) 24px,transparent 27px 40px,rgba(185,133,22,.10) 41px,transparent 44px 60px),
-    conic-gradient(from 45deg at 50% 42%,rgba(92,222,235,.10),rgba(255,128,188,.10),rgba(255,220,91,.12),rgba(92,222,235,.10)),
-    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.92) 45%,transparent 51% 100%);
+  --crew-card-edge:#ffb81c;
+  --crew-card-surface-a:#0a1117;
+  --crew-card-surface-b:#0a1117;
+  --crew-card-surface-c:#0a1117;
+  --crew-card-ink:#f7fbff;
+  --crew-card-muted:#cbd3dc;
+  --crew-card-line:rgba(255,184,28,.30);
+  --crew-card-glow:rgba(255,184,28,.18);
+  --crew-special-accent:#ffb81c;
+  --crew-special-soft:rgba(255,184,28,.18);
+  --crew-special-deep:rgba(0,0,0,.35);
+  --crew-card-frame:#ffb81c;
+  --crew-card-frame-selected:#ffb81c;
+  --crew-edition-blend:normal;
+  --crew-edition-opacity:1;
+  --crew-edition-overlay:repeating-linear-gradient(102deg,rgba(255,255,255,.025) 0 1px,rgba(0,0,0,.018) 1px 4px);
 }
 
 .crew-page .crew-ultimate-card-special .crew-ultimate-card-inner::before{

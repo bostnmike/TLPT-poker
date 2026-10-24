@@ -1137,24 +1137,22 @@
 
 .player-page .tlpt-player-card-edition-milestone-100,
 .player-page .tlpt-compare-card-edition-milestone-100{
-  --card-edge:#f1cb5f;
-  --card-surface-a:#ffffff;
-  --card-surface-b:#cbd0d7;
-  --card-surface-c:#f7f7f5;
-  --card-ink:#080a0d;
-  --card-muted:#4e4330;
-  --card-line:rgba(24,25,27,.28);
-  --card-glow:rgba(255,220,116,.52);
-  --special-accent:#b98516;
-  --special-soft:rgba(255,218,103,.46);
-  --special-deep:rgba(12,13,15,.22);
-  --card-frame:linear-gradient(145deg,#ffffff 0%,#efd16f 18%,#0a0d10 42%,#f8f8f4 63%,#c08d19 82%,#ffffff 100%);
-  --edition-blend:multiply;
-  --edition-opacity:.54;
-  --edition-overlay:
-    repeating-radial-gradient(circle at 50% 44%,transparent 0 23px,rgba(13,15,18,.08) 24px,transparent 27px 40px,rgba(185,133,22,.10) 41px,transparent 44px 60px),
-    conic-gradient(from 45deg at 50% 42%,rgba(92,222,235,.10),rgba(255,128,188,.10),rgba(255,220,91,.12),rgba(92,222,235,.10)),
-    linear-gradient(118deg,transparent 0 39%,rgba(255,255,255,.92) 45%,transparent 51% 100%);
+  --card-edge:#ffb81c;
+  --card-surface-a:#0a1117;
+  --card-surface-b:#0a1117;
+  --card-surface-c:#0a1117;
+  --card-ink:#f7fbff;
+  --card-muted:#cbd3dc;
+  --card-line:rgba(255,184,28,.30);
+  --card-glow:rgba(255,184,28,.18);
+  --special-accent:#ffb81c;
+  --special-soft:rgba(255,184,28,.18);
+  --special-deep:rgba(0,0,0,.35);
+  --card-frame:#ffb81c;
+  --card-frame-selected:#ffb81c;
+  --edition-blend:normal;
+  --edition-opacity:1;
+  --edition-overlay:repeating-linear-gradient(102deg,rgba(255,255,255,.025) 0 1px,rgba(0,0,0,.018) 1px 4px);
 }
 
 .player-page .tlpt-player-card-special .tlpt-player-card-inner::before,
@@ -1509,14 +1507,29 @@
   transition:transform .55s ease;
 }
 
-/* Keep the unscouted base edition black, with a crisp Bruins-gold shield edge. */
-.player-page .tlpt-card-collectible-button.tlpt-player-card-unscouted:not(.tlpt-player-card-special){
-  --card-frame:#ffb81c;
-  --card-frame-selected:#ffb81c;
+/* White starter finish; black and Bruins gold are reserved for the 100 Club. */
+.player-page .tlpt-player-card-unscouted:not(.tlpt-player-card-special):not(.tlpt-compare-card-special){
+  --card-edge:#d5dce3;
+  --card-surface-a:#ffffff;
+  --card-surface-b:#edf0f3;
+  --card-surface-c:#ffffff;
+  --card-ink:#111820;
+  --card-muted:#465360;
+  --card-line:rgba(17,24,32,.22);
+  --card-glow:rgba(235,241,247,.14);
+  --card-frame:#d5dce3;
+  --card-frame-selected:#ffffff;
 }
 
-.player-page .tlpt-card-collectible-button.tlpt-player-card-unscouted:not(.tlpt-player-card-special) .tlpt-card-collectible-inner{
-  background:#0a1117;
+.player-page .tlpt-player-card-edition-milestone-100 .tlpt-card-edition strong{
+  color:#ffb81c;
+  font-size:1.1rem;
+}
+
+.player-page .tlpt-player-card-edition-milestone-100 .tlpt-card-collectible-edition strong{
+  color:#ffb81c;
+  font-size:.67rem;
+  letter-spacing:.02em;
 }
 
 .player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-inner::after{
