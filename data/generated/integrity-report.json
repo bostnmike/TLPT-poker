@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-24T01:13:29.581987Z",
+  "generatedAt": "2026-10-24T01:23:55.837154Z",
   "status": "PASS",
   "scope": {
     "rawEvents": 55,
     "parsedEvents": 55,
     "players": 36,
-    "publicPages": 23,
+    "publicPages": 24,
     "collectibleCards": 66
   },
-  "checksRun": 30358,
+  "checksRun": 30426,
   "checksBySection": {
-    "assets": 791,
+    "assets": 857,
     "cardForm": 72,
     "cards": 488,
     "eventFinancials": 20,
@@ -19,7 +19,7 @@
     "knockouts": 170,
     "leaderboards": 2,
     "pageCalculations": 6014,
-    "pages": 45,
+    "pages": 47,
     "playerAggregates": 1406,
     "sources": 7,
     "streaks": 1,
