@@ -1509,7 +1509,7 @@
 
 /* White starter finish; black and Bruins gold are reserved for the 100 Club. */
 .player-page .tlpt-player-card-unscouted:not(.tlpt-player-card-special):not(.tlpt-compare-card-special){
-  --card-edge:#d5dce3;
+  --card-edge:#dc3545;
   --card-surface-a:#ffffff;
   --card-surface-b:#edf0f3;
   --card-surface-c:#ffffff;
@@ -1517,8 +1517,8 @@
   --card-muted:#465360;
   --card-line:rgba(17,24,32,.22);
   --card-glow:rgba(235,241,247,.14);
-  --card-frame:#d5dce3;
-  --card-frame-selected:#ffffff;
+  --card-frame:#dc3545;
+  --card-frame-selected:#dc3545;
 }
 
 .player-page .tlpt-player-card-edition-milestone-100 .tlpt-card-edition strong{

@@ -696,7 +696,7 @@
 }
 
 .crew-page .crew-ultimate-card-unscouted{
-  --crew-card-edge:#d5dce3;
+  --crew-card-edge:#dc3545;
   --crew-card-surface-a:#ffffff;
   --crew-card-surface-b:#edf0f3;
   --crew-card-surface-c:#ffffff;
@@ -704,7 +704,7 @@
   --crew-card-muted:#465360;
   --crew-card-line:rgba(17,24,32,.22);
   --crew-card-glow:rgba(235,241,247,.14);
-  --crew-card-frame:#d5dce3;
+  --crew-card-frame:#dc3545;
 }
 
 .crew-page .crew-ultimate-card-edition-milestone-100 .crew-ultimate-edition strong{

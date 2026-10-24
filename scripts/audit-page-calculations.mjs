@@ -108,8 +108,9 @@ for (const [file, selector, prefix] of [
 }
 const starterCss = fs.readFileSync(path.join(root, "player.css"), "utf8");
 const starterBlock = starterCss.slice(starterCss.indexOf(".tlpt-player-card-unscouted:not(.tlpt-player-card-special):not(.tlpt-compare-card-special){")).split("}")[0];
-check(starterBlock.includes("--card-surface-a:#ffffff;") && starterBlock.includes("--card-ink:#111820;"),
-  "Unscouted base finish must be white with dark text, without overriding special editions");
+check(starterBlock.includes("--card-surface-a:#ffffff;") && starterBlock.includes("--card-ink:#111820;")
+  && starterBlock.includes("--card-frame:#dc3545;") && starterBlock.includes("--card-frame-selected:#dc3545;"),
+  "Unscouted base finish must be white with dark text and a red outline, without overriding special editions");
 // Membership is a display filter, never a new identity or a statistical reset.
 const metadataPlayers = readJson("data/player-metadata.json").players;
 const alumni = metadataPlayers.filter(player => player.rosterStatus === "alumni");
