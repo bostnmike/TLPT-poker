@@ -26,10 +26,10 @@ body.rebuy-hard-page{
 
 .rebuy-hero{
   display:grid;
-  grid-template-columns:minmax(0,1fr) 230px;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
   align-items:center;
   gap:40px;
-  padding:52px 0 62px;
+  padding:52px 0 76px;
 }
 
 .rebuy-kicker{
@@ -45,7 +45,7 @@ body.rebuy-hard-page{
   margin:0;
   color:var(--gold);
   font-family:"Bodoni 72", Didot, Georgia, serif;
-  font-size:clamp(62px,8.4vw,110px);
+  font-size:clamp(62px,7.7vw,100px);
   font-weight:700;
   line-height:1.04;
   letter-spacing:-.045em;
@@ -104,38 +104,124 @@ body.rebuy-hard-page{
   outline-offset:6px;
 }
 
-.rebuy-ornament{
+.rebuy-deck{
   position:relative;
-  margin:0 0 20px;
-  padding:8px;
-  border:1px solid var(--gold);
-  border-radius:50%;
+  width:100%;
+  max-width:470px;
+  height:410px;
+  margin:0 auto;
+  isolation:isolate;
 }
 
-.rebuy-ornament::before{
+.rebuy-deck::before{
   content:"";
   position:absolute;
-  bottom:100%;
-  left:50%;
-  width:1px;
-  height:45px;
-  background:var(--gold);
+  inset:6% -3% 2%;
+  border:1px solid #5d4215;
+  border-radius:50%;
+  transform:rotate(-24deg);
+  z-index:-1;
 }
 
-.rebuy-ornament::after{
+.rebuy-deck::after{
   content:"✦";
   position:absolute;
-  top:-10px;
-  right:-16px;
+  top:5%;
+  right:5%;
   font-size:28px;
 }
 
-.rebuy-ornament img{
+.rebuy-photo-card{
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  width:47%;
+  height:285px;
+  padding:12px;
+  border:1px solid var(--gold);
+  border-radius:12px;
+  background:#10100c;
+  box-shadow:0 16px 30px #000c;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.rebuy-photo-card--room{
+  top:35px;
+  left:0;
+  transform:rotate(-15deg);
+}
+
+.rebuy-photo-card--felt{
+  top:20px;
+  right:0;
+  transform:rotate(13deg);
+}
+
+.rebuy-photo-card--bounties{
+  top:110px;
+  left:27%;
+  z-index:1;
+  transform:rotate(-3deg);
+}
+
+.rebuy-card-index{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  height:25px;
+  margin-bottom:8px;
+  color:var(--gold);
+  font:700 23px/1 Georgia,serif;
+}
+
+.rebuy-card-index span{
+  font-size:18px;
+}
+
+.rebuy-photo-card img{
   width:100%;
-  aspect-ratio:1;
-  border-radius:50%;
+  min-height:0;
+  flex:1;
+  border-radius:3px;
   object-fit:cover;
+}
+
+.rebuy-photo-card--room img{
+  object-position:44% 55%;
+}
+
+.rebuy-photo-card--felt img{
+  object-position:50% 50%;
+}
+
+.rebuy-photo-card--bounties img{
   object-position:56% 58%;
+}
+
+.rebuy-card-label{
+  display:flex;
+  justify-content:space-between;
+  gap:5px;
+  padding-top:12px;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.rebuy-photo-card:focus-visible{
+  z-index:3;
+  transform:translateY(-14px) rotate(0);
+}
+
+@media (hover:hover){
+  .rebuy-photo-card:hover{
+    z-index:3;
+    transform:translateY(-14px) rotate(0);
+    box-shadow:0 22px 45px #000;
+  }
 }
 
 .rebuy-poem{
@@ -171,41 +257,76 @@ body.rebuy-hard-page{
   text-indent:-15px;
 }
 
-.rebuy-photos{
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1.2fr;
-  gap:8px;
-  margin:20px 0 64px;
+.rebuy-chip-scene{
+  position:relative;
+  margin:12px 0 64px;
+  padding-bottom:14px;
 }
 
-.rebuy-photo{
-  min-width:0;
-  margin:0;
-}
-
-.rebuy-photo-window{
+.rebuy-chip-photo{
+  position:relative;
+  display:block;
   overflow:hidden;
-  height:230px;
-  border-bottom:3px solid var(--gold);
+  height:350px;
+  clip-path:polygon(3% 0,100% 0,97% 100%,0 100%);
+  background:#0c0d08;
 }
 
-.rebuy-photo img{
+.rebuy-chip-photo::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,#000 0%,#000d 17%,#0004 46%,transparent 72%),linear-gradient(0deg,#0008,transparent 50%);
+  pointer-events:none;
+}
+
+.rebuy-chip-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:60% 40%;
+  transform:scale(1.22) rotate(-3deg);
+  transform-origin:65% 32%;
 }
 
-.rebuy-photo--chips img{
-  transform:scale(1.7);
-  transform-origin:72% 32%;
+.rebuy-photo-expand{
+  position:absolute;
+  top:20px;
+  right:30px;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  background:#000b;
+  font-size:22px;
 }
 
-.rebuy-photo figcaption{
-  padding-top:13px;
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.2em;
-  text-transform:uppercase;
+.rebuy-chip-photo:focus-visible{
+  outline:none;
+  box-shadow:inset 0 0 0 4px #fff;
+}
+
+.rebuy-chip-scene figcaption{
+  position:absolute;
+  top:50%;
+  left:30px;
+  display:grid;
+  max-width:310px;
+  gap:16px;
+  color:var(--gold);
+  transform:translateY(-50%);
+  pointer-events:none;
+}
+
+.rebuy-chip-scene figcaption .rebuy-kicker{
+  margin:0;
+}
+
+.rebuy-chip-scene figcaption>span:last-child{
+  font:700 italic clamp(30px,3.7vw,48px)/1.15 Baskerville,Georgia,serif;
 }
 
 .rebuy-print{
@@ -244,11 +365,12 @@ body.rebuy-hard-page{
 }
 
 @media (max-width:850px){
-  .rebuy-hero{grid-template-columns:minmax(0,1fr) 165px;gap:20px;}
+  .rebuy-hero{grid-template-columns:1fr;gap:36px;padding-bottom:45px;}
   .rebuy-title{font-size:clamp(56px,8vw,80px);}
+  .rebuy-deck{max-width:420px;height:410px;}
   .rebuy-poem{grid-template-columns:1fr;gap:25px;padding-left:22px;}
   .rebuy-stanza{font-size:19px;}
-  .rebuy-photo-window{height:180px;}
+  .rebuy-chip-photo{height:300px;}
 }
 
 @media (max-width:560px){
@@ -257,17 +379,26 @@ body.rebuy-hard-page{
   .rebuy-title{font-size:clamp(53px,12vw,68px);}
   .rebuy-title span{font-size:.44em;}
   .rebuy-kicker{font-size:10px;letter-spacing:.16em;}
-  .rebuy-ornament{width:100px;margin:8px 0 0 auto;}
-  .rebuy-ornament::before{height:20px;}
-  .rebuy-ornament::after{font-size:20px;right:-9px;}
+  .rebuy-deck{width:90%;max-width:340px;height:340px;margin-top:8px;}
+  .rebuy-photo-card{height:235px;padding:9px;}
+  .rebuy-photo-card--room{top:24px;}
+  .rebuy-photo-card--felt{top:14px;}
+  .rebuy-photo-card--bounties{top:90px;left:25%;}
+  .rebuy-card-label{font-size:8px;letter-spacing:.06em;}
   .rebuy-actions{gap:8px 18px;}
   .rebuy-download{padding:12px 15px;}
   .rebuy-poem{padding:28px 0 28px 16px;scroll-margin-top:90px;}
   .rebuy-stanza{font-size:17px;line-height:1.85;margin-bottom:26px;}
-  .rebuy-photos{grid-template-columns:1fr 1fr;gap:20px 8px;margin-bottom:40px;}
-  .rebuy-photo:first-child{grid-column:1/-1;}
-  .rebuy-photo:first-child .rebuy-photo-window{height:210px;}
-  .rebuy-photo-window{height:145px;}
+  .rebuy-chip-scene{margin:0 0 35px;}
+  .rebuy-chip-photo{height:250px;}
+  .rebuy-chip-photo::after{background:linear-gradient(0deg,#000e,transparent 85%);}
+  .rebuy-chip-scene figcaption{top:auto;bottom:35px;left:20px;max-width:230px;gap:10px;transform:none;}
+  .rebuy-chip-scene figcaption>span:last-child{font-size:30px;}
+  .rebuy-photo-expand{top:14px;right:18px;width:35px;height:35px;}
   .rebuy-print{grid-template-columns:1fr;gap:26px;padding:24px;}
   .rebuy-print-preview{max-width:170px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rebuy-photo-card{transition:none;}
 }
