@@ -17,6 +17,69 @@
     0 0 22px rgba(255,184,28,.10);
 }
 
+.home-rebuy-teaser{
+  display:grid;
+  grid-template-columns:64px minmax(0,1fr) auto;
+  align-items:center;
+  gap:18px;
+  padding:16px 20px;
+  border:1px solid rgba(255,184,28,.35);
+  border-left:3px solid var(--gold);
+  border-radius:14px;
+  background:linear-gradient(110deg,rgba(255,184,28,.09),transparent 65%),#10151c;
+  color:var(--text);
+}
+
+.home-rebuy-teaser img{
+  width:64px;
+  height:64px;
+  border-radius:8px;
+  object-fit:cover;
+  object-position:56% 58%;
+}
+
+.home-rebuy-copy{
+  display:grid;
+  gap:6px;
+}
+
+.home-rebuy-kicker{
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.home-rebuy-copy strong{
+  font-size:18px;
+  line-height:1.35;
+}
+
+.home-rebuy-cta{
+  color:var(--gold);
+  font-size:14px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.home-rebuy-teaser:hover{
+  border-color:var(--gold);
+  color:#fff;
+}
+
+.home-rebuy-teaser:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:4px;
+}
+
+@media (max-width:560px){
+  .home-rebuy-teaser{grid-template-columns:52px minmax(0,1fr);gap:8px 14px;padding:14px;}
+  .home-rebuy-teaser img{width:52px;height:52px;}
+  .home-rebuy-copy strong{font-size:16px;}
+  .home-rebuy-cta{grid-column:2;font-size:13px;}
+}
+
 .events-header-stack{
   position:relative;
   display:flex;

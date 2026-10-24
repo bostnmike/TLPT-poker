@@ -263,7 +263,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "voice-of-god.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
-    "rebuy-hard.html": "Read the complete TLPT Re-Buy Hard poem, explore the room and custom chips, and download the illustrated one-page handout.",
+    "rebuy-hard.html": "Read the complete TLPT Re-Buy Hard poem, explore the room and custom chips, and download the illustrated one-page poem.",
     "404.html": "The requested TLPT Poker League page could not be found. Return home or view the upcoming schedule.",
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
     "dashboard.html": "Explore TLPT Poker League standings, player performance, rankings, trends, and league-wide metrics.",
