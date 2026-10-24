@@ -1509,6 +1509,16 @@
   transition:transform .55s ease;
 }
 
+/* Keep the unscouted base edition black, with a crisp Bruins-gold shield edge. */
+.player-page .tlpt-card-collectible-button.tlpt-player-card-unscouted:not(.tlpt-player-card-special){
+  --card-frame:#ffb81c;
+  --card-frame-selected:#ffb81c;
+}
+
+.player-page .tlpt-card-collectible-button.tlpt-player-card-unscouted:not(.tlpt-player-card-special) .tlpt-card-collectible-inner{
+  background:#0a1117;
+}
+
 .player-page .tlpt-card-collectible-button:hover .tlpt-card-collectible-inner::after{
   transform:translateX(58%) rotate(20deg);
 }
