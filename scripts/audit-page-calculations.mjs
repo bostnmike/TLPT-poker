@@ -120,6 +120,12 @@ const eventRosterOrder = members => [...members].sort((a, b) => {
   const group = p => p.slug === "bostnmike" ? 0 : p.rosterStatus === "alumni" ? 2 : 1;
   return group(a) - group(b) || a.name.localeCompare(b.name, "en", { sensitivity: "base" });
 });
+// Manual assignments accept mixed case, just like the production seat lookup.
+// Normalize before looking up RSVP answers, while preserving explicit blanks.
+const confirmedManualSlots = (table, rsvps) => table
+  .map(slug => String(slug || "").toLowerCase())
+  .filter(slug => slug === "" || rsvps[slug] === "yes")
+  .map(slug => slug || null);
 for (const event of readJson("data/events.json").events) {
   const slugs = Object.keys(event.rsvps || {});
   const members = slugs.map(slug => metadataPlayers.find(p => p.slug === slug) || { slug, name: slug });
@@ -130,8 +136,9 @@ for (const event of readJson("data/events.json").events) {
   if (event.seatAssignments) {
     const seats = app.get("getEventSeatingTables")(event, data);
     event.seatAssignments.forEach((table, index) => {
-      const configured = table.filter(slug => slug === "" || event.rsvps[slug] === "yes").map(slug => slug || null);
-      check(JSON.stringify(seats[index].slice(0, configured.length).map(p => p?.slug || null)) === JSON.stringify(configured), `${event.slot}: RSVP sorting must preserve manual players and blank positions`);
+      const configured = confirmedManualSlots(table, event.rsvps);
+      const actual = seats[index].slice(0, configured.length).map(p => p?.slug || null);
+      check(JSON.stringify(actual) === JSON.stringify(configured), `${event.slot} table ${index + 1}: RSVP sorting must preserve manual players and blank positions; expected ${JSON.stringify(configured)}, got ${JSON.stringify(actual)}`);
     });
   }
 }
@@ -143,6 +150,18 @@ const previewEvent = { tables: 2, seatAssignments: [["bostnmike", "", "hiro"], [
 const previewSnapshot = JSON.stringify(previewEvent);
 const previewTables = app.get("getEventSeatingTables")(previewEvent, previewData, 3);
 const previewSlugs = tables => JSON.stringify(tables.map(table => table.map(p => p?.slug || null)));
+const casePreviewData = { players: [...previewData.players, { slug: "p", name: "P" }] };
+const casePreviewEvent = { tables: 2, seatAssignments: [["BostnMike", "", "HIRO"], ["AHMED", "P", ""]],
+  rsvps: { bostnmike: "yes", hiro: "yes", ahmed: "yes", p: "yes" } };
+const casePreviewSnapshot = JSON.stringify(casePreviewEvent);
+const casePreviewTables = app.get("getEventSeatingTables")(casePreviewEvent, casePreviewData, 3);
+check(previewSlugs(casePreviewTables) === JSON.stringify([["bostnmike", null, "hiro"], ["ahmed", "p", null]]),
+  "Mixed-case manual player IDs must resolve without shifting interior or trailing blank positions");
+check(JSON.stringify(casePreviewEvent.seatAssignments.map(table => confirmedManualSlots(table, casePreviewEvent.rsvps))) === previewSlugs(casePreviewTables),
+  "Manual-position audit must accept uppercase P immediately before a blank, matching the site lookup");
+check(JSON.stringify(confirmedManualSlots(["P", "HIRO", "", "AHMED"], { p: "no", hiro: "tbd", ahmed: "yes" })) === JSON.stringify([null, "ahmed"]),
+  "Case-insensitive manual audit must still exclude no/TBD players and preserve blanks");
+check(JSON.stringify(casePreviewEvent) === casePreviewSnapshot, "Mixed-case manual preview must not rewrite user assignments or RSVP answers");
 check(previewSlugs(previewTables) === JSON.stringify([["bostnmike", null, "hiro"], ["ahmed", null, "kishan"]]), "Manual interior/trailing blanks must stay open while new confirmations use remaining positions");
 const previewTableHtml = app.get("eventRsvpTableMarkup")(previewTables[0], 3, { showTableHeading: true });
 check(previewTableHtml.includes("2 / 3 RSVPs shown") && previewTableHtml.includes("2 of 3 confirmed RSVPs shown"), "Manual blank positions must not inflate visible or accessible RSVP counts");

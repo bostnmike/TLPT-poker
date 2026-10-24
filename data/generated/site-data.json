@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T02:20:56.602388Z",
+  "generatedAt": "2026-10-24T02:30:45.090071Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -121,21 +121,21 @@
           "vish",
           "cougar",
           "the-architect",
-          "hiro",
           "ai-dave",
           "wild-bill",
+          "alex-c",
           "red"
         ],
         [
           "ahmed",
-          "alex-c",
           "chris-f",
           "li-fo",
           "griffin",
-          "",
+          "hiro",
           "liam-o",
           "nasa-al",
-          "P"
+          "P",
+          ""
         ]
       ],
       "rsvps": {
