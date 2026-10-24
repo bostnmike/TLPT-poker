@@ -27,6 +27,22 @@ def load(name):
 parser, integrity, knockouts, builder = map(load, ('parse-event-reports', 'audit-site-integrity', 'build-knockouts', 'build-site-data'))
 
 
+def historical_financial_payload(event, baseline_slugs):
+    # These hashes freeze the original roster's complete records. The parser
+    # also seeds zero rows for later registrations; those are not appearances.
+    # Never ignore a newly added identity with any actual historical activity.
+    for player in event['players']:
+        if player['slug'] not in baseline_slugs:
+            if any(value != 0 for key, value in player.items() if key not in ('name', 'slug')):
+                raise ValueError(f"Unexpected historical activity for {player['slug']}")
+    return {
+        'players': [p for p in event['players'] if p['slug'] in baseline_slugs],
+        'winners': event['winners'],
+        'summary': {k: v for k, v in event['summary'].items() if k in
+                    ['buyIns', 'rebuys', 'entries', 'totalPot', 'paidSpots', 'entryAmount', 'bounty']}
+    }
+
+
 class Audit:
     def __init__(self):
         self.failures = []
@@ -203,20 +219,33 @@ class OptionalBountiesTests(unittest.TestCase):
     def test_every_historical_event_financial_result_is_unchanged(self):
         financials = parser.load_json(parser.EVENT_FINANCIALS_PATH)
         hashes = json.loads((FIXTURES/'historical-financials.json').read_text())
+        baseline_slugs = set(json.loads((FIXTURES/'historical-player-slugs.json').read_text()))
         found = set()
         for path in parser.production_raw_files():
             event = parser.parse_report_file(path, self.aliases, self.metadata, 30, financials)
             if event['eventId'] not in hashes:
                 continue
             found.add(event['eventId'])
-            payload = {'players':event['players'], 'winners':event['winners'], 'summary':{
-                k:v for k,v in event['summary'].items() if k in
-                ['buyIns','rebuys','entries','totalPot','paidSpots','entryAmount','bounty']}}
+            payload = historical_financial_payload(event, baseline_slugs)
             actual = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(',',':')).encode()).hexdigest()
             self.assertEqual(actual, hashes[event['eventId']], event['eventId'])
         self.assertEqual(found, set(hashes))
         self.assertEqual(len(hashes), 55)
         self.assertFalse(any('fixtures' in str(path) for path in parser.production_raw_files()))
+
+    def test_historical_guard_allows_registration_but_not_phantom_results(self):
+        event = {'players': [{'name': 'Original', 'slug': 'original', 'entries': 1, 'profit': -30}],
+                 'winners': [], 'summary': {'entries': 1, 'totalPot': 30}}
+        expected = historical_financial_payload(event, {'original'})
+        newcomer = {'name': 'New registration', 'slug': 'new-registration', 'entries': 0, 'profit': 0}
+        event['players'].append(newcomer)
+        self.assertEqual(historical_financial_payload(event, {'original'}), expected)
+        for field in ('entries', 'profit', 'hits', 'bountyCollected'):
+            with self.subTest(field=field):
+                changed = copy.deepcopy(event)
+                changed['players'][-1][field] = 1
+                with self.assertRaisesRegex(ValueError, 'Unexpected historical activity'):
+                    historical_financial_payload(changed, {'original'})
 
     def test_full_derived_outputs_and_audits_with_optional_event(self):
         rule = copy.deepcopy(self.rule)

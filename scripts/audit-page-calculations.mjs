@@ -840,7 +840,7 @@ for (const view of ["tier", "archetype"]) {
   }
 }
 const forecastMarkup = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: Object.fromEntries(data.players.map(p => [p.slug, "maybe"])) }, data);
-check(!forecastMarkup.includes("Active:") && !forecastMarkup.includes("Alumni:") && forecastMarkup.includes("35 players"), "Event forecasts must combine active and alumni attendees in one count");
+check(!forecastMarkup.includes("Active:") && !forecastMarkup.includes("Alumni:") && forecastMarkup.includes(`${data.players.length} players`), "Event forecasts must combine active and alumni attendees in one count");
 for (const status of ["maybe", "tbd", "no"]) {
   const mixedForecast = groupedApp.get("eventRsvpForecastMarkup")({ rsvps: { "rob-f": status, ahmed: status, bostnmike: status } }, data);
   check(mixedForecast.includes("BostnMike, Ahmed, Bob"), `${status}: event forecasts must retain alumni alongside active names with the Commish first`);
