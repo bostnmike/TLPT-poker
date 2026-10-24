@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T02:12:33.426592Z",
+  "generatedAt": "2026-10-24T02:14:20.869334Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -117,7 +117,7 @@
       "seatAssignments": [
         [
           "bostnmike",
-          "",
+          "cougar",
           "providencemike",
           "vish",
           "the-architect",
@@ -132,7 +132,7 @@
           "chris-f",
           "li-fo",
           "griffin",
-          "cougar",
+          "",
           "liam-o",
           "nasa-al",
           "P"
