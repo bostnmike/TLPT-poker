@@ -293,13 +293,14 @@
     },
     {
       "name": "P",
-      "slug": "piercen-craig",
+      "slug": "p",
       "image": "images/players/piercen-craig.jpg",
       "notes": "Super excited to play!",
       "aliases": [
         "p",
         "piercen",
-        "piercen craig"
+        "piercen craig",
+        "piercen-craig"
       ]
     },
     {

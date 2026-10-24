@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T01:57:27.698699Z",
+  "generatedAt": "2026-10-24T02:03:01.225688Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -33,7 +33,7 @@
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
-        "piercen-craig": "tbd",
+        "p": "tbd",
         "pat": "tbd",
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
@@ -82,7 +82,7 @@
         "liam-o": "tbd",
         "nasa-al": "tbd",
         "nitro": "tbd",
-        "piercen-craig": "tbd",
+        "p": "tbd",
         "pat": "tbd",
         "phattedcalf": "tbd",
         "pittsburghbill": "tbd",
@@ -157,7 +157,7 @@
         "liam-o": "yes",
         "nasa-al": "yes",
         "nitro": "tbd",
-        "piercen-craig": "tbd",
+        "p": "tbd",
         "pat": "tbd",
         "phattedcalf": "no",
         "pittsburghbill": "tbd",
@@ -9650,7 +9650,7 @@
     },
     {
       "name": "P",
-      "slug": "piercen-craig",
+      "slug": "p",
       "image": "images/players/piercen-craig.jpg",
       "notes": "Super excited to play!",
       "entries": 0,
@@ -9700,7 +9700,7 @@
           "endDate": null,
           "metrics": {
             "name": "P",
-            "slug": "piercen-craig",
+            "slug": "p",
             "image": "images/players/piercen-craig.jpg",
             "notes": "Super excited to play!",
             "entries": 0,
@@ -9741,7 +9741,7 @@
           "endDate": null,
           "metrics": {
             "name": "P",
-            "slug": "piercen-craig",
+            "slug": "p",
             "image": "images/players/piercen-craig.jpg",
             "notes": "Super excited to play!",
             "entries": 0,
@@ -16749,7 +16749,7 @@
           ]
         }
       },
-      "piercen-craig": {
+      "p": {
         "playedEvents": 0,
         "eligible": false,
         "bestCashStreak": null,
