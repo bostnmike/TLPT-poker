@@ -31,6 +31,40 @@ body.rebuy-hard-page{
   margin-bottom:26px;
 }
 
+.rebuy-audio{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,420px);
+  align-items:center;
+  gap:18px 28px;
+  margin-bottom:26px;
+  padding:22px 26px;
+  border:1px solid rgba(255,184,28,.3);
+  border-radius:16px;
+  background:linear-gradient(110deg,rgba(255,184,28,.07),transparent 65%),#10151c;
+}
+
+.rebuy-audio h2{
+  margin:0 0 6px;
+  color:var(--gold);
+  font-size:21px;
+  line-height:1.3;
+}
+
+.rebuy-audio p{
+  margin:0;
+  color:#d8c9aa;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.rebuy-audio audio{
+  display:block;
+  width:100%;
+  min-width:0;
+  color-scheme:dark;
+  accent-color:var(--gold);
+}
+
 .rebuy-kicker{
   margin:0 0 22px;
   font-size:12px;
@@ -315,6 +349,7 @@ body.rebuy-hard-page{
 }
 
 @media (max-width:560px){
+  .rebuy-audio{grid-template-columns:1fr;padding:20px 18px;gap:15px;}
   .rebuy-hard-page .rebuy-page{padding-top:25px;}
   .rebuy-kicker{font-size:10px;letter-spacing:.16em;}
   .rebuy-deck{width:90%;max-width:340px;height:340px;margin-top:8px;}
