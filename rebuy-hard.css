@@ -106,6 +106,7 @@ body.rebuy-hard-page{
   border-radius:12px;
   background:#10100c;
   box-shadow:0 16px 30px #000c;
+  transition:transform .25s ease,box-shadow .25s ease;
 }
 
 .rebuy-photo-card--room{
@@ -172,6 +173,14 @@ body.rebuy-hard-page{
   line-height:1.2;
   letter-spacing:.12em;
   text-transform:uppercase;
+}
+
+@media (hover:hover){
+  .rebuy-photo-card:hover{
+    z-index:3;
+    transform:translateY(-14px) rotate(0);
+    box-shadow:0 22px 45px #000;
+  }
 }
 
 .rebuy-poem{
@@ -342,4 +351,8 @@ body.rebuy-hard-page{
   .rebuy-chip-scene figcaption>span:last-child{font-size:30px;}
   .rebuy-print{grid-template-columns:1fr;gap:26px;padding:24px;}
   .rebuy-print-preview{max-width:170px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .rebuy-photo-card{transition:none;}
 }
