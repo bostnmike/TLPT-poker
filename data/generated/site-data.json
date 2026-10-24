@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T03:42:08.378494Z",
+  "generatedAt": "2026-10-24T03:46:55.452933Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -9651,7 +9651,7 @@
     {
       "name": "P",
       "slug": "p",
-      "image": "images/players/piercen-craig.jpg",
+      "image": "images/players/piercen-craig-v2.webp",
       "notes": "Super excited to play!",
       "entries": 0,
       "buyIns": 0,
@@ -9701,7 +9701,7 @@
           "metrics": {
             "name": "P",
             "slug": "p",
-            "image": "images/players/piercen-craig.jpg",
+            "image": "images/players/piercen-craig-v2.webp",
             "notes": "Super excited to play!",
             "entries": 0,
             "buyIns": 0,
@@ -9742,7 +9742,7 @@
           "metrics": {
             "name": "P",
             "slug": "p",
-            "image": "images/players/piercen-craig.jpg",
+            "image": "images/players/piercen-craig-v2.webp",
             "notes": "Super excited to play!",
             "entries": 0,
             "buyIns": 0,
