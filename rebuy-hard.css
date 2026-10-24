@@ -1,0 +1,273 @@
+/* Editorial companion to the approved Re-Buy Hard handout. */
+html.rebuy-hard-page,
+body.rebuy-hard-page{
+  background:#000;
+}
+
+.rebuy-hard-page .rebuy-page{
+  max-width:1240px;
+  padding-top:40px;
+  padding-bottom:35px;
+  color:var(--gold);
+}
+
+.rebuy-breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:13px;
+  letter-spacing:.08em;
+}
+
+.rebuy-breadcrumb a{
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.rebuy-hero{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 230px;
+  align-items:center;
+  gap:40px;
+  padding:52px 0 62px;
+}
+
+.rebuy-kicker{
+  margin:0 0 22px;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.6;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+.rebuy-title{
+  margin:0;
+  color:var(--gold);
+  font-family:"Bodoni 72", Didot, Georgia, serif;
+  font-size:clamp(62px,8.4vw,110px);
+  font-weight:700;
+  line-height:1.04;
+  letter-spacing:-.045em;
+}
+
+.rebuy-title span{
+  display:block;
+  margin-bottom:10px;
+  font-family:Baskerville, Georgia, serif;
+  font-size:.46em;
+  font-style:italic;
+  line-height:1.2;
+  letter-spacing:-.025em;
+}
+
+.rebuy-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px 24px;
+  margin-top:30px;
+}
+
+.rebuy-download{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:48px;
+  padding:13px 20px;
+  border:1px solid var(--gold);
+  border-radius:4px;
+  background:var(--gold);
+  color:#000;
+  font:800 14px/1.4 Arial, Helvetica, sans-serif;
+  text-align:center;
+}
+
+.rebuy-download:hover{
+  background:var(--gold-soft);
+  color:#000;
+}
+
+.rebuy-read{
+  display:inline-flex;
+  align-items:center;
+  min-height:48px;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:5px;
+}
+
+.rebuy-page a:focus-visible{
+  outline:3px solid #fff;
+  outline-offset:6px;
+}
+
+.rebuy-ornament{
+  position:relative;
+  margin:0 0 20px;
+  padding:8px;
+  border:1px solid var(--gold);
+  border-radius:50%;
+}
+
+.rebuy-ornament::before{
+  content:"";
+  position:absolute;
+  bottom:100%;
+  left:50%;
+  width:1px;
+  height:45px;
+  background:var(--gold);
+}
+
+.rebuy-ornament::after{
+  content:"✦";
+  position:absolute;
+  top:-10px;
+  right:-16px;
+  font-size:28px;
+}
+
+.rebuy-ornament img{
+  width:100%;
+  aspect-ratio:1;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:56% 58%;
+}
+
+.rebuy-poem{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:55px;
+  padding:42px 0 46px 28px;
+  border-top:1px solid #6b4b12;
+  border-left:3px solid var(--gold);
+  scroll-margin-top:115px;
+}
+
+.rebuy-poem-column{
+  min-width:0;
+}
+
+.rebuy-stanza{
+  margin:0 0 25px;
+  color:var(--gold);
+  font-family:"Bodoni 72", Georgia, "Times New Roman", serif;
+  font-size:clamp(17px,1.48vw,19px);
+  font-weight:700;
+  line-height:1.8;
+}
+
+.rebuy-stanza:last-child{
+  margin-bottom:0;
+}
+
+.rebuy-line{
+  display:block;
+  padding-left:15px;
+  text-indent:-15px;
+}
+
+.rebuy-photos{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1.2fr;
+  gap:8px;
+  margin:20px 0 64px;
+}
+
+.rebuy-photo{
+  min-width:0;
+  margin:0;
+}
+
+.rebuy-photo-window{
+  overflow:hidden;
+  height:230px;
+  border-bottom:3px solid var(--gold);
+}
+
+.rebuy-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.rebuy-photo--chips img{
+  transform:scale(1.7);
+  transform-origin:72% 32%;
+}
+
+.rebuy-photo figcaption{
+  padding-top:13px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+
+.rebuy-print{
+  display:grid;
+  grid-template-columns:190px minmax(0,1fr);
+  align-items:center;
+  gap:48px;
+  padding:42px;
+  border:1px solid #6b4b12;
+  background:#090805;
+}
+
+.rebuy-print-preview{
+  display:block;
+  border:1px solid #6b4b12;
+}
+
+.rebuy-print-preview img{
+  width:100%;
+}
+
+.rebuy-print h2{
+  margin:0 0 16px;
+  font-family:Georgia, serif;
+  font-size:clamp(28px,4vw,42px);
+  font-weight:700;
+  line-height:1.2;
+}
+
+.rebuy-print p:not(.rebuy-kicker){
+  max-width:470px;
+  margin:0 0 23px;
+  color:#d8c9aa;
+  font-size:15px;
+  line-height:1.7;
+}
+
+@media (max-width:850px){
+  .rebuy-hero{grid-template-columns:minmax(0,1fr) 165px;gap:20px;}
+  .rebuy-title{font-size:clamp(56px,8vw,80px);}
+  .rebuy-poem{grid-template-columns:1fr;gap:25px;padding-left:22px;}
+  .rebuy-stanza{font-size:19px;}
+  .rebuy-photo-window{height:180px;}
+}
+
+@media (max-width:560px){
+  .rebuy-hard-page .rebuy-page{padding-top:25px;}
+  .rebuy-hero{grid-template-columns:1fr;gap:32px;padding:35px 0 36px;}
+  .rebuy-title{font-size:clamp(53px,12vw,68px);}
+  .rebuy-title span{font-size:.44em;}
+  .rebuy-kicker{font-size:10px;letter-spacing:.16em;}
+  .rebuy-ornament{width:100px;margin:8px 0 0 auto;}
+  .rebuy-ornament::before{height:20px;}
+  .rebuy-ornament::after{font-size:20px;right:-9px;}
+  .rebuy-actions{gap:8px 18px;}
+  .rebuy-download{padding:12px 15px;}
+  .rebuy-poem{padding:28px 0 28px 16px;scroll-margin-top:90px;}
+  .rebuy-stanza{font-size:17px;line-height:1.85;margin-bottom:26px;}
+  .rebuy-photos{grid-template-columns:1fr 1fr;gap:20px 8px;margin-bottom:40px;}
+  .rebuy-photo:first-child{grid-column:1/-1;}
+  .rebuy-photo:first-child .rebuy-photo-window{height:210px;}
+  .rebuy-photo-window{height:145px;}
+  .rebuy-print{grid-template-columns:1fr;gap:26px;padding:24px;}
+  .rebuy-print-preview{max-width:170px;}
+}

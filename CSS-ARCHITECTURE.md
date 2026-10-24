@@ -421,3 +421,10 @@ focus visibility, and 44px interaction targets used outside Form Lab. Page
 styles may size their field columns but must not recreate or reposition the
 menu. Form Lab keeps its equivalent `.fl-select` family because its chart
 controls predate the shared enhancer and have dedicated synchronization logic.
+
+## Re-Buy Hard editorial styling
+
+`rebuy-hard.css` owns the black-and-gold poem layout and loads immediately
+after `site-tail.css`. Document overrides are scoped to `rebuy-hard-page`.
+The page reuses TLPT gold (`--gold`, #ffb81c), keeps the shared site shell,
+and stacks the poem columns and photographic strip for small screens.
