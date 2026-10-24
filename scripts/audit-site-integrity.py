@@ -1336,6 +1336,8 @@ def audit_pages(audit, metadata):
     audit.checks["pageCalculations"] += int(page_report.get("checks", 0))
     for message in page_report.get("errors", []):
         audit.errors.append({"section": "pageCalculations", "message": message})
+    for message in page_report.get("warnings", []):
+        audit.warnings.append({"section": "pageCalculations", "message": message})
     if page_audit.returncode != 0 and not page_report.get("errors"):
         audit.errors.append({
             "section": "pageCalculations",

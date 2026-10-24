@@ -77,6 +77,33 @@ workflow remains validation-only; its Cloudflare deployment is separate.
 
 Python packages used by the shared-site gates are pinned in `requirements-quality.txt`; both the site-quality workflow and automated data pipeline install that file before invoking the runner. Add a dependency there whenever a new gate imports a package that is not part of Python itself.
 
+## Editing event RSVPs and manual previews
+
+Edit `data/events.json`; the data pipeline rebuilds the published copy. RSVP
+answers are `yes`, `no`, `maybe`, or `tbd`, case-insensitive. A blank or null
+answer is treated as TBD. Missing player entries are allowed. Use existing roster
+slugs for player IDs; capitalization is accepted, but surrounding whitespace and
+misspelled IDs/statuses are not supported and receive field-specific errors.
+
+JSON key order is a maintenance preference, not a deployment requirement: the
+display always sorts BostnMike first, then active/alumni alphabetically. Unsorted
+keys produce only a warning. These checks do not rewrite the source file.
+
+Manual `seatAssignments` may be omitted, null, empty, or partial. `""` holds an
+empty preview position and never counts as a player or gets auto-filled. Only
+confirmed players are displayed; no/maybe/TBD entries do not reserve a chair.
+For duplicate assignments, the first eligible position wins; a warning identifies
+the duplicate without blocking the update. Extra tables/positions beyond the
+configured preview are ignored with warnings. Confirmations beyond available
+preview positions stay counted and are listed below the tables. Unknown player
+IDs, malformed arrays, invalid statuses, and duplicate RSVP keys differing only
+by case are errors because they could hide a player or double-count attendance.
+
+`scripts/audit-rsvp.mjs` validates this contract against the production renderer.
+The page-calculation suite covers 640 status/layout combinations, single- and
+two-table resets, over-capacity attendance, malformed input, and deliberate
+renderer regressions. Warnings appear in both the page and integrity reports.
+
 ## Player membership: Active and Alumni
 
 `data/player-metadata.json` owns the optional `rosterStatus` field (`active` or

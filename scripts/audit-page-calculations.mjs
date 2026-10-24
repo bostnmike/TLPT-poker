@@ -5,6 +5,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { buildRsvpChecklist } from "../cashier/lib/rsvp.mjs";
+import { auditRsvpEvent } from "./audit-rsvp.mjs";
 
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -15,6 +16,7 @@ const index = readJson("data/parsed/events/index.json");
 const events = index.map(file => readJson(`data/parsed/events/${file}`));
 const eventHistory = readJson("data/generated/event-history.json");
 const errors = [];
+const warnings = [];
 let checks = 0;
 
 function check(condition, message) {
@@ -127,20 +129,59 @@ const confirmedManualSlots = (table, rsvps) => table
   .filter(slug => slug === "" || rsvps[slug] === "yes")
   .map(slug => slug || null);
 for (const event of readJson("data/events.json").events) {
-  const slugs = Object.keys(event.rsvps || {});
-  const members = slugs.map(slug => metadataPlayers.find(p => p.slug === slug) || { slug, name: slug });
-  const expected = eventRosterOrder(members).map(p => p.slug);
-  check(JSON.stringify(slugs) === JSON.stringify(expected), `${event.slot}: RSVP keys must be Commish first, active alphabetically, then alumni alphabetically`);
-  const expectedConfirmed = eventRosterOrder(data.players.filter(p => event.rsvps[p.slug] === "yes")).map(p => p.slug);
-  check(JSON.stringify(app.get("getConfirmedRsvpPlayers")(event, data).map(p => p.slug)) === JSON.stringify(expectedConfirmed), `${event.slot}: confirmed RSVP roster order is incorrect`);
-  if (event.seatAssignments) {
-    const seats = app.get("getEventSeatingTables")(event, data);
-    event.seatAssignments.forEach((table, index) => {
-      const configured = confirmedManualSlots(table, event.rsvps);
-      const actual = seats[index].slice(0, configured.length).map(p => p?.slug || null);
-      check(JSON.stringify(actual) === JSON.stringify(configured), `${event.slot} table ${index + 1}: RSVP sorting must preserve manual players and blank positions; expected ${JSON.stringify(configured)}, got ${JSON.stringify(actual)}`);
-    });
+  const report = auditRsvpEvent(event, data, app);
+  checks += report.checks;
+  errors.push(...report.errors);
+  warnings.push(...report.warnings);
+}
+// Exercise ordinary edits in combinations, rather than locking today's roster.
+const editingData = { players: data.players.filter(p => ["bostnmike", "ahmed", "hiro", "p", "rob-f", "wild-bill"].includes(p.slug)) };
+const editingLayouts = [undefined, [], [[], []], [["BostnMike", "", "HIRO"], ["P", ""]],
+  [["P", "AHMED", ""], ["hiro", "rob-f"]], [["ahmed", "ahmed", ""], ["AHMED", "P", ""]],
+  [Array(9).fill(""), Array(9).fill("")], [["wild-bill", "hiro"], []],
+  [[...Array(9).fill(""), "P"], []], [[], [], ["P"]]];
+for (const ahmed of ["yes", "NO", "Maybe", "TBD"])
+  for (const hiro of ["YES", "no", "maybe", "tbd"])
+    for (const p of ["Yes", "No", "MAYBE", "tbd"])
+      for (const [layoutIndex, seatAssignments] of editingLayouts.entries()) {
+        const event = { slot: `editing matrix ${ahmed}/${hiro}/${p}/${layoutIndex}`, tables: 2,
+          seatAssignments, rsvps: { P: p, "rob-f": "yes", HIRO: hiro, ahmed, BostnMike: "yes" } };
+        const report = auditRsvpEvent(event, editingData, app);
+        checks += report.checks;
+        errors.push(...report.errors);
+      }
+for (const tables of [1, 2]) {
+  for (const rsvps of [undefined, {}, null, { P: "", HIRO: null },
+    Object.fromEntries(editingData.players.map(p => [p.slug, "TBD"])),
+    Object.fromEntries(data.players.map(p => [p.slug, "YES"]))]) {
+    const report = auditRsvpEvent({ slot: "empty/reset/capacity", tables, rsvps }, data, app);
+    checks += report.checks;
+    errors.push(...report.errors);
   }
+}
+for (const invalid of [
+  { rsvps: [] }, { rsvps: { ahmed: true } }, { rsvps: { ahmed: "yess" } },
+  { rsvps: { ahmed: " yes " } }, { rsvps: { unknown: "yes" } },
+  { rsvps: { ahmed: "yes", AHMED: "no" } },
+  { seatAssignments: "ahmed" }, { seatAssignments: [null] },
+  { seatAssignments: [[null]] }, { seatAssignments: [["unknown"]] }, { tables: 0 }
+]) check(auditRsvpEvent({ tables: 2, ...invalid }, editingData, app).errors.length > 0,
+  `Invalid RSVP data must fail clearly: ${JSON.stringify(invalid)}`);
+const validEditingEvent = { tables: 2, rsvps: { ahmed: "yes", P: "yes" }, seatAssignments: [["P", ""], ["ahmed"]] };
+const duplicateEditingReport = auditRsvpEvent({ tables: 2, rsvps: { P: "yes", ahmed: "yes" },
+  seatAssignments: [["P", ""], ["p", "ahmed"]] }, editingData, app);
+check(!duplicateEditingReport.errors.length && duplicateEditingReport.warnings.some(w => w.includes("duplicate"))
+  && duplicateEditingReport.warnings.some(w => w.includes("key order")),
+  "Temporary duplicate manual assignments and unsorted RSVP keys must warn without blocking normal edits");
+check(!auditRsvpEvent({ tables: 2, seatAssignments: null }, editingData, app).errors.length,
+  "Null manual assignments must retain the site's automatic-preview fallback");
+for (const brokenFunction of ["getRsvpCounts", "getConfirmedRsvpPlayers", "getEventSeatingTables"]) {
+  const brokenApp = { get(name) {
+    if (name !== brokenFunction) return app.get(name);
+    return () => name === "getRsvpCounts" ? { yes: 99 } : name === "getEventSeatingTables" ? [[], []] : [];
+  } };
+  check(auditRsvpEvent(validEditingEvent, editingData, brokenApp).errors.length > 0,
+    `RSVP checks must catch a genuine ${brokenFunction} regression`);
 }
 const shuffledRosterEvent = { rsvps: Object.fromEntries([...data.players].reverse().map(p => [p.slug, "yes"])) };
 // Manual blanks hold positions; they never become attendees or automatic seats.
@@ -879,6 +920,6 @@ for (const page of ["index", "champions", "dashboard", "standings", "players", "
   check(html.indexOf('roster-display.js') > html.indexOf('site-shell.js'), `${page}: shared shell must initialize before roster helpers`);
 }
 
-const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors };
+const result = { status: errors.length ? "FAIL" : "PASS", checks, errorCount: errors.length, errors, warningCount: warnings.length, warnings };
 process.stdout.write(JSON.stringify(result));
 if (errors.length) process.exitCode = 2;
