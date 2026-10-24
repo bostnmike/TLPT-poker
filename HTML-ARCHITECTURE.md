@@ -839,7 +839,8 @@ and exposes selected state through its listbox semantics.
 Re-Buy Hard. Its approved 56-line poem is preserved in
 `docs/rebuy-hard-poem.txt` and rendered as selectable HTML in reading order.
 The desktop layout uses two stanza groups; narrow screens stack them without
-changing poem order. This editorial page uses its own title treatment, like
-the Hall of Fame, while retaining the shared header, footer, and navigation.
+changing poem order. The page uses the canonical `.site-page-hero` title,
+watermark/chip brand pair, and lower action row. The black-and-gold poem
+panel and photographic card fan remain separate below that shared header.
 `downloads/twas-the-night-before-rebuy-hard.pdf` is the approved one-page
 black-and-gold handout linked by both download buttons.
