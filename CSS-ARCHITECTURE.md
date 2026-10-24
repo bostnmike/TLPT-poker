@@ -427,9 +427,9 @@ controls predate the shared enhancer and have dedicated synchronization logic.
 `rebuy-hard.css` owns the black-and-gold poem layout and loads immediately
 after `site-tail.css`. Document overrides are scoped to `rebuy-hard-page`.
 The page reuses TLPT gold (`--gold`, #ffb81c), keeps the shared site shell,
-and stacks the poem columns for small screens. The hero presents three
-linked photos as a fanned hand of cards; a masked chip-rack panorama follows
-the poem. Card hover/focus exposes each image, with reduced-motion support.
+and stacks the poem columns for small screens. The shared hero owns the title, chip branding, and download actions. Below
+the poem, three linked photos form a fanned hand of cards beside a masked
+chip-rack panorama. Card hover/focus exposes each image, with reduced-motion support.
 Web headings and poem text inherit the shared Arial/Helvetica sans-serif
 stack; the approved PDF retains its independent print typography.
 `home.css` owns the compact Re-Buy Hard teaser below the home-page hero.

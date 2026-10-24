@@ -1,12 +1,12 @@
 /* Editorial companion to the approved Re-Buy Hard handout. */
 html.rebuy-hard-page,
 body.rebuy-hard-page{
-  background:#000;
+  background:#0a0d12;
 }
 
 .rebuy-hard-page .rebuy-page{
   max-width:1240px;
-  padding-top:40px;
+  padding-top:26px;
   padding-bottom:35px;
   color:var(--gold);
 }
@@ -17,6 +17,7 @@ body.rebuy-hard-page{
   gap:12px;
   font-size:13px;
   letter-spacing:.08em;
+  margin-bottom:22px;
 }
 
 .rebuy-breadcrumb a{
@@ -24,12 +25,10 @@ body.rebuy-hard-page{
   text-underline-offset:4px;
 }
 
-.rebuy-hero{
-  display:grid;
-  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
-  align-items:center;
-  gap:40px;
-  padding:52px 0 76px;
+.rebuy-page-hero{
+  --site-page-hero-accent-rgb:255,184,28;
+  --site-page-hero-secondary-rgb:34,197,94;
+  margin-bottom:26px;
 }
 
 .rebuy-kicker{
@@ -41,52 +40,17 @@ body.rebuy-hard-page{
   text-transform:uppercase;
 }
 
-.rebuy-title{
-  margin:0;
-  color:var(--gold);
-  font-family:inherit;
-  font-size:clamp(54px,6.7vw,84px);
-  font-weight:900;
-  line-height:1.04;
-  letter-spacing:-.045em;
-}
-
-.rebuy-title span{
-  display:block;
-  margin-bottom:10px;
-  font-family:inherit;
-  font-size:.43em;
-  font-weight:600;
-  line-height:1.2;
-  letter-spacing:-.025em;
-}
-
 .rebuy-actions{
   display:flex;
   flex-wrap:wrap;
   align-items:center;
   gap:14px 24px;
-  margin-top:30px;
 }
 
 .rebuy-download{
-  display:inline-flex;
-  align-items:center;
   justify-content:center;
-  gap:10px;
   min-height:48px;
-  padding:13px 20px;
-  border:1px solid var(--gold);
-  border-radius:4px;
-  background:var(--gold);
-  color:#000;
-  font:800 14px/1.4 Arial, Helvetica, sans-serif;
   text-align:center;
-}
-
-.rebuy-download:hover{
-  background:var(--gold-soft);
-  color:#000;
 }
 
 .rebuy-read{
@@ -228,9 +192,10 @@ body.rebuy-hard-page{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:55px;
-  padding:42px 0 46px 28px;
-  border-top:1px solid #6b4b12;
-  border-left:3px solid var(--gold);
+  padding:36px;
+  border:1px solid rgba(255,184,28,.25);
+  border-radius:22px;
+  background:radial-gradient(ellipse at top left,rgba(255,184,28,.035),transparent 50%),#000;
   scroll-margin-top:115px;
 }
 
@@ -257,9 +222,18 @@ body.rebuy-hard-page{
   text-indent:-15px;
 }
 
+.rebuy-media{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  align-items:center;
+  gap:38px;
+  margin:42px 0;
+}
+
 .rebuy-chip-scene{
   position:relative;
-  margin:12px 0 64px;
+  min-width:0;
+  margin:0;
   padding-bottom:14px;
 }
 
@@ -339,8 +313,9 @@ body.rebuy-hard-page{
   align-items:center;
   gap:48px;
   padding:42px;
-  border:1px solid #6b4b12;
-  background:#090805;
+  border:1px solid rgba(255,184,28,.25);
+  border-radius:22px;
+  background:#0c1015;
 }
 
 .rebuy-print-preview{
@@ -369,19 +344,15 @@ body.rebuy-hard-page{
 }
 
 @media (max-width:850px){
-  .rebuy-hero{grid-template-columns:1fr;gap:36px;padding-bottom:45px;}
-  .rebuy-title{font-size:clamp(56px,8vw,80px);}
+  .rebuy-media{grid-template-columns:1fr;gap:25px;}
   .rebuy-deck{max-width:420px;height:410px;}
-  .rebuy-poem{grid-template-columns:1fr;gap:25px;padding-left:22px;}
+  .rebuy-poem{grid-template-columns:1fr;gap:25px;padding:28px;}
   .rebuy-stanza{font-size:18px;}
   .rebuy-chip-photo{height:300px;}
 }
 
 @media (max-width:560px){
   .rebuy-hard-page .rebuy-page{padding-top:25px;}
-  .rebuy-hero{grid-template-columns:1fr;gap:32px;padding:35px 0 36px;}
-  .rebuy-title{font-size:clamp(40px,10.5vw,58px);}
-  .rebuy-title span{font-size:.44em;}
   .rebuy-kicker{font-size:10px;letter-spacing:.16em;}
   .rebuy-deck{width:90%;max-width:340px;height:340px;margin-top:8px;}
   .rebuy-photo-card{height:235px;padding:9px;}
@@ -391,9 +362,9 @@ body.rebuy-hard-page{
   .rebuy-card-label{font-size:8px;letter-spacing:.06em;}
   .rebuy-actions{gap:8px 18px;}
   .rebuy-download{padding:12px 15px;}
-  .rebuy-poem{padding:28px 0 28px 16px;scroll-margin-top:90px;}
+  .rebuy-poem{padding:24px 18px;border-radius:17px;scroll-margin-top:90px;}
   .rebuy-stanza{font-size:17px;line-height:1.85;margin-bottom:26px;}
-  .rebuy-chip-scene{margin:0 0 35px;}
+  .rebuy-media{margin:30px 0;}
   .rebuy-chip-photo{height:250px;}
   .rebuy-chip-photo::after{background:linear-gradient(0deg,#000e,transparent 85%);}
   .rebuy-chip-scene figcaption{top:auto;bottom:35px;left:20px;max-width:230px;gap:10px;transform:none;}

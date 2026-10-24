@@ -225,6 +225,7 @@ EXPECTED_PAGE_TITLES = {
     "voice-of-god.html": "The Voice of God | TLPT.org",
 }
 UNIFIED_TITLE_PAGES = {
+    "rebuy-hard.html": "’Twas the Night Before Re-Buy Hard",
     "404.html": "This Hand Went Missing",
     "dashboard.html": "The Dashboard",
     "form-lab.html": "The Form Lab",
@@ -245,6 +246,7 @@ UNIFIED_TITLE_PAGES = {
     "voice-of-god.html": "The Voice of God",
 }
 TROPHY_INSPIRED_HERO_PAGES = {
+    "rebuy-hard.html",
     "404.html",
     "dashboard.html",
     "form-lab.html",
