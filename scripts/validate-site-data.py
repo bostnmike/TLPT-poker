@@ -10,6 +10,7 @@ GENERATED_PATH = DATA_DIR / "generated" / "site-data.json"
 OUTPUT_PATH = DATA_DIR / "generated" / "validation-report.json"
 PARSED_EVENTS_DIR = DATA_DIR / "parsed" / "events"
 CARD_FIXED_ORDER = {
+    "rookie": (0, 99),
     "hall-tax-collector": (4, 0),
     "hall-direct-deposit": (4, 1),
     "hall-billing-department": (4, 2),
@@ -196,7 +197,7 @@ def validate_player(p):
     if featured_mode != "automatic":
         errors.append("featuredCardMode must be automatic")
 
-    expected_featured = card_ids[0] if card_ids else "base"
+    expected_featured = next((card_id for card_id in card_ids if card_id != "rookie"), "base")
     if featured != expected_featured:
         errors.append(
             f"automatic featuredCardEdition mismatch: {featured} != {expected_featured}"

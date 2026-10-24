@@ -26,6 +26,16 @@
   }
 
   const fixedEditions = {
+    "rookie": {
+      type: "rookie",
+      className: "rookie",
+      icon: "RC",
+      eyebrow: "Rookie Edition",
+      label: "Rookie Card",
+      cardLabel: "Rookie Card",
+      priority: 0,
+      order: 99
+    },
     "hall-tax-collector": {
       type: "hall",
       className: "hall",
@@ -201,7 +211,7 @@
 
     (data?.players || []).forEach(player => {
       const collection = player?.cardCollection || [];
-      const featuredId = collection[0]?.id || "base";
+      const featuredId = collection.find(record => record.id !== "rookie")?.id || "base";
 
       collection.forEach(record => {
         const edition = editionMetadata(record);
@@ -232,6 +242,7 @@
 
   function earnedLabel(card) {
     const earned = shortDate(card.earnedDate);
+    if (card.id === "rookie") return `Debut ${earned}`;
     const upgraded = card.upgradedDate ? shortDate(card.upgradedDate) : "";
     return upgraded === "" ? `Earned ${earned}` : `Earned ${earned} • Upgraded ${upgraded}`;
   }

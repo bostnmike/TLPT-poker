@@ -73,6 +73,7 @@ FORM_LUCK_PROXY_BASELINE = 0.6785963274198568
 HALL_PERCENTAGE = 0.25
 HALL_MIN_EVENTS = 10
 CARD_FIXED_ORDER = {
+    "rookie": (0, 99),
     "hall-tax-collector": (4, 0),
     "hall-direct-deposit": (4, 1),
     "hall-billing-department": (4, 2),
@@ -1076,6 +1077,7 @@ def audit_cards(audit, metadata, events, site_data):
         active_slugs = {row["slug"] for row in event["players"] if int(row.get("entries", 0)) > 0}
         cash_slugs = {row["slug"] for row in event["players"] if int(row.get("entries", 0)) > 0 and int(row.get("timesPlaced", 0)) > 0}
         for slug in active_slugs:
+            expected_cards.setdefault((slug, "rookie"), event["date"])
             for milestone in CARD_MILESTONES:
                 key = (slug, f"milestone-{milestone}")
                 if int(by_slug[slug]["buyIns"]) >= milestone and key not in expected_cards:
@@ -1126,7 +1128,7 @@ def audit_cards(audit, metadata, events, site_data):
     audit.check(featured_policy.get("mode") == "automatic", "cards", "Crew-skin policy is not automatic")
     audit.check("featuredCards" not in featured_policy, "cards", "Manual featured-card overrides must not be present")
     for slug, player in actual_by_slug.items():
-        ids = [record["id"] for record in player.get("cardCollection") or []]
+        ids = [record["id"] for record in player.get("cardCollection") or [] if record["id"] != "rookie"]
         expected = ids[0] if ids else "base"
         audit.check(player.get("featuredCardEdition") == expected and player.get("featuredCardMode") == "automatic", "cards", f"{slug}: automatic Crew skin resolution is incorrect")
     featured_summary = site_data.get("featuredCardConfig") or {}

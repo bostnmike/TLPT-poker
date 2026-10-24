@@ -981,6 +981,32 @@
   --edition-overlay:repeating-linear-gradient(102deg,rgba(255,255,255,.025) 0 1px,rgba(0,0,0,.018) 1px 4px);
 }
 
+.trophy-room-page .trophy-collection-edition-rookie{
+  --special-accent:#ff8791;
+  --card-glow:rgba(220,53,69,.14);
+}
+
+.trophy-room-page .trophy-card-edition-rookie{
+  --card-edge:#dc3545;
+  --card-surface-a:#ffffff;
+  --card-surface-b:#edf0f3;
+  --card-surface-c:#ffffff;
+  --card-ink:#111820;
+  --card-muted:#465360;
+  --card-line:rgba(17,24,32,.22);
+  --card-glow:rgba(235,241,247,.14);
+  --special-accent:#b91c2b;
+  --card-frame:#dc3545;
+  --edition-blend:normal;
+  --edition-opacity:1;
+  --edition-overlay:repeating-linear-gradient(102deg,rgba(255,255,255,.025) 0 1px,rgba(0,0,0,.018) 1px 4px);
+}
+
+.trophy-room-page .trophy-card-edition-rookie .trophy-card-edition em{
+  background:#fff;
+  color:#b91c2b;
+}
+
 .trophy-room-page .trophy-empty-state,
 .trophy-room-page .trophy-load-error{
   grid-column:1 / -1;

@@ -4429,6 +4429,15 @@ function playerCardEditionClassName(edition) {
 function playerCardEditionCatalogRecord(record) {
   const id = String(record?.id || "");
   const fixed = {
+    "rookie": {
+      className: "rookie",
+      icon: "RC",
+      eyebrow: "Rookie Edition",
+      label: "Rookie Card",
+      cardLabel: "Rookie Card",
+      shortLabel: "ROOKIE",
+      priority: 0
+    },
     "hall-tax-collector": {
       className: "hall",
       icon: "🏛️",
@@ -4555,7 +4564,7 @@ function playerCardEditionEarnedLabel(edition) {
   const upgraded = playerCardWindowDate(edition?.upgradedDate);
 
   if (earned && upgraded) return `Earned ${earned} • Upgraded ${upgraded}`;
-  if (earned) return `Earned ${earned}`;
+  if (earned) return edition?.id === "rookie" ? `Debut ${earned}` : `Earned ${earned}`;
   return "";
 }
 
@@ -4763,7 +4772,7 @@ function playerCardSpecialEdition(player, data) {
 
 function playerCardFeaturedEditionId(player, data) {
   const editions = playerCardSpecialEditions(player, data);
-  return editions[0]?.id || "base";
+  return editions.find(edition => edition.id !== "rookie")?.id || "base";
 }
 
 function playerCardComparisonCandidates(player, players) {
@@ -5359,10 +5368,10 @@ function playerCardCollectibleMarkup(
     className: "base",
     icon: "♠",
     eyebrow: "Base Edition",
-    label: "Original Career Card",
+    label: "Live Career Card",
     cardLabel: "Base Card",
     shortLabel: "BASE",
-    reason: "The original career card using the player's official tier finish."
+    reason: "The live career card using the player's current official tier finish."
   };
   const specialClass = edition
     ? ` tlpt-player-card-special tlpt-player-card-special-${edition.className} tlpt-player-card-edition-${playerCardEditionClassName(edition)}`
@@ -5444,9 +5453,9 @@ function playerCardCollectionMarkup(player, players, editions, featuredId = "bas
         <div>
           <span>Collectible Career Set</span>
           <h2 id="tlpt-card-collection-title">Ultimate Card Editions</h2>
-          <p>Every earned finish stays in the collection with its original date and frozen ratings. The highest-priority earned edition becomes the Active Crew Skin automatically; select any card here to preview it above.</p>
+          <p>Your Rookie Card preserves your first recorded appearance and debut ratings. Earned editions keep their original dates and frozen ratings too. The highest-priority achievement becomes the Active Crew Skin; the Rookie Card never replaces it. Select any card to preview it above.</p>
         </div>
-        <strong>${collected.length} Special Edition${collected.length === 1 ? "" : "s"} Collected</strong>
+        <strong>${collected.length} Collectible${collected.length === 1 ? "" : "s"} Earned</strong>
       </header>
 
       <div class="tlpt-card-collection-grid">
@@ -5475,7 +5484,7 @@ function wirePlayerCardEditionCollection(
   if (!card || !banner || !buttons.length) return;
 
   const collection = editions || [];
-  const specialClasses = ["hall", "infamy", "leader", "heater", "milestone"]
+  const specialClasses = ["hall", "infamy", "leader", "heater", "milestone", "rookie"]
     .map(className => `tlpt-player-card-special-${className}`);
   const status = scope.querySelector("[data-card-collection-status]");
   const activeCrewSkinId = initialEditionId;
@@ -5650,7 +5659,7 @@ function wirePlayerCardEditionCollection(
 
   const validInitialEdition = initialEditionId === "base"
     || collection.some(edition => edition.id === initialEditionId);
-  applyEdition(validInitialEdition ? initialEditionId : (collection[0]?.id || "base"));
+  applyEdition(validInitialEdition ? initialEditionId : (collection.find(edition => edition.id !== "rookie")?.id || "base"));
 }
 
 function wirePlayerCardRatingControls(scope, cardViews, onViewChange) {

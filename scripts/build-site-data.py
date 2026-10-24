@@ -93,7 +93,7 @@ def apply_featured_card_policy(players, featured_card_policy):
         )
 
     for player in players:
-        collection = player.get("cardCollection") or []
+        collection = [card for card in player.get("cardCollection") or [] if card["id"] != "rookie"]
         player["featuredCardEdition"] = collection[0]["id"] if collection else "base"
         player["featuredCardMode"] = "automatic"
 
@@ -103,7 +103,7 @@ def apply_featured_card_policy(players, featured_card_policy):
         "mode": "automatic",
         "overrideCount": 0,
         "rules": {
-            "activeSkin": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
+            "activeSkin": "Uses the first non-Rookie card in the permanent prestige-ordered collection, or Base when no special edition is earned. Rookie Cards are historic collectibles, not automatic active skins.",
             "manualOverrides": "Not supported.",
             "liveData": "The automatic skin changes presentation only; ratings, tier placement, Crew ordering and ownership remain unchanged."
         }
@@ -1003,6 +1003,15 @@ def build_historical_card_collections(players, parsed_events):
             player = by_slug[slug]
             appearances = int(player.get("buyIns", 0))
 
+            issue(
+                slug,
+                "rookie",
+                event,
+                f"First recorded TLPT appearance at {event.get('title', 'a TLPT event')}. Everyone starts somewhere. The alibis come later.",
+                historical_card_snapshot(player, checkpoint),
+                0
+            )
+
             for milestone in CARD_MILESTONES:
                 if appearances < milestone:
                     continue
@@ -1105,6 +1114,7 @@ def build_historical_card_collections(players, parsed_events):
             )
 
     fixed_order = {
+        "rookie": 99,
         "hall-tax-collector": 0,
         "hall-direct-deposit": 1,
         "hall-billing-department": 2,

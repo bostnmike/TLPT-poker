@@ -3,7 +3,7 @@
   "mode": "automatic",
   "description": "The Crew page automatically applies each player's highest-priority earned card skin. Manual featured-card overrides are not supported.",
   "rules": [
-    "The first edition in the permanent prestige-ordered cardCollection becomes the Active Crew Skin.",
+    "The first non-Rookie edition in the permanent prestige-ordered cardCollection becomes the Active Crew Skin. Rookie Cards are historic collectibles only.",
     "Players without a special edition use the live Base Edition.",
     "The selected skin never changes live ratings, tier placement, Crew ordering, or permanent card ownership."
   ]

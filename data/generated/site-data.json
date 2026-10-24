@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T04:00:20.266285Z",
+  "generatedAt": "2026-10-24T04:02:37.604639Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -778,6 +778,61 @@
               "trueSkillScore": 169.352
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-14",
+          "earnedEvent": "Gunga Galunga 9-Max",
+          "reason": "First recorded TLPT appearance at Gunga Galunga 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 93
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 77
+              }
+            ],
+            "metrics": {
+              "profit": 70,
+              "roi": 2.333333,
+              "cashRate": 1.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 299.348
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -1419,6 +1474,61 @@
               "trueSkillScore": 203.387
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-11-15",
+          "earnedEvent": "You Can Act Like a Man! | 9-Max",
+          "reason": "First recorded TLPT appearance at You Can Act Like a Man! | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 5,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 43
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 70
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 70
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 64.224
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -1661,6 +1771,61 @@
             }
           },
           "streakLength": 2
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2026-09-04",
+          "earnedEvent": "Pot Predator | 9-Max",
+          "reason": "First recorded TLPT appearance at Pot Predator | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 82,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 16,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 86
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 180,
+              "roi": 6.0,
+              "cashRate": 1.0,
+              "hitRate": 5.0,
+              "trueSkillScore": 488.633
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -1826,7 +1991,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-11-30",
+          "earnedEvent": "Sunday Funday Matinee | 9-Max",
+          "reason": "First recorded TLPT appearance at Sunday Funday Matinee | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 7,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 86
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 86
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 86
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 55,
+              "roi": 1.833333,
+              "cashRate": 1.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 288.699
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -2032,7 +2253,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-14",
+          "earnedEvent": "Gunga Galunga 9-Max",
+          "reason": "First recorded TLPT appearance at Gunga Galunga 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 77
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 35,
+              "roi": 1.166667,
+              "cashRate": 1.0,
+              "hitRate": 3.0,
+              "trueSkillScore": 329.587
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -3002,6 +3279,61 @@
               "trueSkillScore": 204.188
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 67,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 52
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 78.343
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -3188,7 +3520,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-14",
+          "earnedEvent": "Gunga Galunga 9-Max",
+          "reason": "First recorded TLPT appearance at Gunga Galunga 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 45
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 49
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 49
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 45
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.5,
+              "trueSkillScore": 57.075
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -3352,7 +3740,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-03-27",
+          "earnedEvent": "March Sadness Part I | 9-Max",
+          "reason": "First recorded TLPT appearance at March Sadness Part I | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 76,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 86
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 105,
+              "roi": 1.75,
+              "cashRate": 1.0,
+              "hitRate": 2.5,
+              "trueSkillScore": 321.436
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -3593,6 +4037,61 @@
             }
           },
           "streakLength": 2
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2026-09-05",
+          "earnedEvent": "Bluff Runner | 9-Max",
+          "reason": "First recorded TLPT appearance at Bluff Runner | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 78,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 16,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 86
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 135,
+              "roi": 4.5,
+              "cashRate": 1.0,
+              "hitRate": 2.0,
+              "trueSkillScore": 372.897
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -4124,6 +4623,61 @@
               "trueSkillScore": 195.557
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-08-23",
+          "earnedEvent": "Honey, I'm Home | 9-Max",
+          "reason": "First recorded TLPT appearance at Honey, I'm Home | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 65,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 3,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 40
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -90,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 36.328
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -4653,6 +5207,61 @@
               "trueSkillScore": 201.446
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First recorded TLPT appearance at I'm Your Huckleberry | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 74,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 5,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 60,
+              "roi": 2.0,
+              "cashRate": 1.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 264.846
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -4881,7 +5490,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 68,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 61
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 3.0,
+              "trueSkillScore": 117.255
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -5045,7 +5710,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-01-17",
+          "earnedEvent": "Finally, Leaving Las Vegas | 9-Max",
+          "reason": "First recorded TLPT appearance at Finally, Leaving Las Vegas | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 10,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 46
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -5209,7 +5930,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First recorded TLPT appearance at I'm Your Huckleberry | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 5,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -5394,7 +6171,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-28",
+          "earnedEvent": "Say My Name | 9-Max",
+          "reason": "First recorded TLPT appearance at Say My Name | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -5635,6 +6468,61 @@
             }
           },
           "streakLength": 2
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2026-05-09",
+          "earnedEvent": "High-Roller Ball | 9-Max",
+          "reason": "First recorded TLPT appearance at High-Roller Ball | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 80,
+              "roi": 1.333333,
+              "cashRate": 1.0,
+              "hitRate": 2.0,
+              "trueSkillScore": 298.644
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -5821,7 +6709,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-01-24",
+          "earnedEvent": "Mother, \"Maye\" I? | 9-Max",
+          "reason": "First recorded TLPT appearance at Mother, \"Maye\" I? | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 12,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 47
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -6734,6 +7678,61 @@
               "trueSkillScore": 215.189
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 77,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 96
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 77
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 77
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 115,
+              "roi": 3.833333,
+              "cashRate": 1.0,
+              "hitRate": 2.0,
+              "trueSkillScore": 358.698
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -7055,7 +8054,63 @@
           ]
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 40
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -7338,6 +8393,61 @@
             }
           },
           "streakLength": 2
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2026-03-27",
+          "earnedEvent": "March Sadness Part I | 9-Max",
+          "reason": "First recorded TLPT appearance at March Sadness Part I | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 84
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 35,
+              "roi": 1.166667,
+              "cashRate": 1.0,
+              "hitRate": 2.0,
+              "trueSkillScore": 301.903
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -8254,6 +9364,61 @@
               "trueSkillScore": 238.579
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 78
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 59
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 59
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 84
+              }
+            ],
+            "metrics": {
+              "profit": 65,
+              "roi": 2.166667,
+              "cashRate": 1.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 295.798
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -8419,7 +9584,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-10-09",
+          "earnedEvent": "Check Raise to Victory | 9-Max",
+          "reason": "First recorded TLPT appearance at Check Raise to Victory | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 16,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 47
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -9224,6 +10445,61 @@
               "trueSkillScore": 279.033
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-21",
+          "earnedEvent": "Oh What a Night | 9-Max",
+          "reason": "First recorded TLPT appearance at Oh What a Night | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -9642,6 +10918,61 @@
               "trueSkillScore": 92.905
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-14",
+          "earnedEvent": "Gunga Galunga 9-Max",
+          "reason": "First recorded TLPT appearance at Gunga Galunga 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 48
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -9941,7 +11272,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-03-27",
+          "earnedEvent": "March Sadness Part I | 9-Max",
+          "reason": "First recorded TLPT appearance at March Sadness Part I | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 75,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 85
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 84
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 84
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 70,
+              "roi": 2.333333,
+              "cashRate": 1.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 299.348
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -10282,7 +11669,63 @@
           ]
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-02-27",
+          "earnedEvent": "Back from Broadway | 9-Max",
+          "reason": "First recorded TLPT appearance at Back from Broadway | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 46
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 50.897
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -10446,7 +11889,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-03-13",
+          "earnedEvent": "ChatGPT AI Stat Pack Aftermath Part I | 9-Max",
+          "reason": "First recorded TLPT appearance at ChatGPT AI Stat Pack Aftermath Part I | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 46
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -10974,6 +12473,61 @@
               "cashRate": 0.4,
               "hitRate": 0.75,
               "trueSkillScore": 158.318
+            }
+          }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-11-30",
+          "earnedEvent": "Sunday Funday Matinee | 9-Max",
+          "reason": "First recorded TLPT appearance at Sunday Funday Matinee | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 67,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 7,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 45
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 86
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 86
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 51
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 70.452
             }
           }
         }
@@ -11505,6 +13059,61 @@
               "trueSkillScore": 138.904
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-12-13",
+          "earnedEvent": "Ohhh Fuuuudge | 9-Max",
+          "reason": "First recorded TLPT appearance at Ohhh Fuuuudge | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 7,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 44
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -11903,6 +13512,61 @@
             }
           },
           "streakLength": 2
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-06-28",
+          "earnedEvent": "Say My Name | 9-Max",
+          "reason": "First recorded TLPT appearance at Say My Name | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 77,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 87
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 70,
+              "roi": 2.333333,
+              "cashRate": 1.0,
+              "hitRate": 3.0,
+              "trueSkillScore": 354.435
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -12089,7 +13753,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2026-05-01",
+          "earnedEvent": "Clear & Obvious, Bluffs | 9-Max",
+          "reason": "First recorded TLPT appearance at Clear & Obvious, Bluffs | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 67,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 15,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 47
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 77
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 77
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 54
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 70.452
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -12295,7 +14015,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-12-21",
+          "earnedEvent": "A Holly Jolly | 9-Max",
+          "reason": "First recorded TLPT appearance at A Holly Jolly | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 7,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 45
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 93
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 93
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 1.0,
+              "trueSkillScore": 56.939
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -12712,6 +14488,61 @@
               "trueSkillScore": 112.521
             }
           }
+        },
+        {
+          "id": "rookie",
+          "earnedDate": "2025-12-13",
+          "earnedEvent": "Ohhh Fuuuudge | 9-Max",
+          "reason": "First recorded TLPT appearance at Ohhh Fuuuudge | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 7,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 45
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -30,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 47.557
+            }
+          }
         }
       ],
       "rosterStatus": "active",
@@ -13012,7 +14843,63 @@
           ]
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-05-24",
+          "earnedEvent": "There Will Be Blood - 9 Max",
+          "reason": "First recorded TLPT appearance at There Will Be Blood - 9 Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 66,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 0,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 40
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 40
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 40
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 40
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 40
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 40
+              }
+            ],
+            "metrics": {
+              "profit": -60,
+              "roi": -1.0,
+              "cashRate": 0.0,
+              "hitRate": 0.0,
+              "trueSkillScore": 43.612
+            }
+          }
+        }
+      ],
       "rosterStatus": "active",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -13176,7 +15063,63 @@
           "events": []
         }
       },
-      "cardCollection": [],
+      "cardCollection": [
+        {
+          "id": "rookie",
+          "earnedDate": "2025-10-04",
+          "earnedEvent": "I'm Your Huckleberry | 9-Max",
+          "reason": "First recorded TLPT appearance at I'm Your Huckleberry | 9-Max. Everyone starts somewhere. The alibis come later.",
+          "priority": 0,
+          "snapshot": {
+            "overall": 79,
+            "tierCode": "RKI",
+            "tierClassName": "rookie",
+            "tierStatus": "Rookie",
+            "powerRank": null,
+            "totalRanked": 5,
+            "appearances": 1,
+            "attributes": [
+              {
+                "code": "RET",
+                "label": "Return",
+                "value": 85
+              },
+              {
+                "code": "CLT",
+                "label": "Clutch",
+                "value": 96
+              },
+              {
+                "code": "ITM",
+                "label": "In the Money",
+                "value": 96
+              },
+              {
+                "code": "AGR",
+                "label": "Aggression",
+                "value": 96
+              },
+              {
+                "code": "HIT",
+                "label": "Hit Rate",
+                "value": 96
+              },
+              {
+                "code": "SUR",
+                "label": "Survival",
+                "value": 96
+              }
+            ],
+            "metrics": {
+              "profit": 30,
+              "roi": 1.0,
+              "cashRate": 1.0,
+              "hitRate": 6.0,
+              "trueSkillScore": 410.193
+            }
+          }
+        }
+      ],
       "rosterStatus": "alumni",
       "featuredCardEdition": "base",
       "featuredCardMode": "automatic"
@@ -17297,7 +19240,7 @@
     "mode": "automatic",
     "overrideCount": 0,
     "rules": {
-      "activeSkin": "Uses the first card in the permanent prestige-ordered collection, or Base when no special edition is earned.",
+      "activeSkin": "Uses the first non-Rookie card in the permanent prestige-ordered collection, or Base when no special edition is earned. Rookie Cards are historic collectibles, not automatic active skins.",
       "manualOverrides": "Not supported.",
       "liveData": "The automatic skin changes presentation only; ratings, tier placement, Crew ordering and ownership remain unchanged."
     }

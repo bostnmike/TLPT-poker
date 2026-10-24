@@ -430,7 +430,7 @@ for (const player of players) {
   }
 
   const meta = playerCardTierMeta(player, players);
-  const expectedCrewSkin = player.cardCollection?.[0]?.id || "base";
+  const expectedCrewSkin = player.cardCollection?.find(card => card.id !== "rookie")?.id || "base";
   check(player.featuredCardMode === "automatic", `${player.slug}: Crew skin mode must remain automatic`);
   check(player.featuredCardEdition === expectedCrewSkin, `${player.slug}: active Crew skin must be the highest-priority earned edition`);
   check(isCrewVisible(player) === (appearances >= 1), `${player.slug}: Crew visibility threshold is incorrect`);
@@ -514,8 +514,19 @@ check(
 
 for (const player of players) {
   const collection = player.cardCollection || [];
+  const rookieCards = collection.filter(card => card.id === "rookie");
+  check(rookieCards.length === (Number(player.buyIns || 0) > 0 ? 1 : 0),
+    `${player.slug}: exactly one Rookie Card is required after debut, and none before debut`);
+  if (rookieCards.length) {
+    const rookie = rookieCards[0];
+    check(rookie.snapshot?.appearances === 1 && rookie.snapshot?.tierCode === "RKI"
+      && Boolean(rookie.earnedDate) && Boolean(rookie.earnedEvent) && !rookie.upgradedDate,
+      `${player.slug}: Rookie Card must preserve the first appearance, date, event and rookie tier`);
+    check(playerCardFeaturedEditionId({ ...player, cardCollection: [rookie] }, data) === "base",
+      `${player.slug}: Rookie Card alone must not replace the live tier skin`);
+  }
   const expectedIds = collection.map(card => card.id);
-  const expectedSkinId = expectedIds[0] || "base";
+  const expectedSkinId = expectedIds.find(id => id !== "rookie") || "base";
   const editions = playerCardSpecialEditions(player, data);
   const actualIds = editions.map(edition => edition.id);
   const activeEdition = playerCardSpecialEdition(player, data);
@@ -635,6 +646,17 @@ check(
   "Trophy Room must recognize the Bounty Hunter career card"
 );
 const trophyCards = trophyAudit.flattenCollections(data);
+check(trophyAudit.editionMetadata({ id: "rookie" })?.type === "rookie",
+  "Trophy Room must recognize and filter Rookie Cards separately");
+for (const [file, selector] of [
+  ["player.css", ".tlpt-compare-card-edition-rookie{"],
+  ["trophy-room.css", ".trophy-card-edition-rookie{"]
+]) {
+  const css = fs.readFileSync(path.join(root, file), "utf8");
+  const block = css.slice(css.indexOf(selector)).split("}")[0];
+  check(block.includes("--card-surface-a:#ffffff;") && block.includes("--card-frame:#dc3545;")
+    && block.includes("--card-ink:#111820;"), `${file}: Rookie Cards must be white, red-outlined and readable`);
+}
 const expectedTrophyCount = players.reduce(
   (total, player) => total + (player.cardCollection || []).length,
   0
@@ -648,7 +670,7 @@ const trophyCardsByKey = new Map(
   trophyCards.map(card => [`${card.player.slug}/${card.id}`, card])
 );
 for (const player of players) {
-  const expectedSkinId = player.cardCollection?.[0]?.id || "base";
+  const expectedSkinId = player.cardCollection?.find(card => card.id !== "rookie")?.id || "base";
   for (const record of player.cardCollection || []) {
     const key = `${player.slug}/${record.id}`;
     const card = trophyCardsByKey.get(key);
