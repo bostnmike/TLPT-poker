@@ -832,3 +832,14 @@ from the generic enhancer. Pages with `.marchand-page` are also excluded so the
 Puck Vault remains an independent experience. Every enhanced trigger and option
 uses a 44px minimum target, supports arrow, Home, End, Tab, and Escape behavior,
 and exposes selected state through its listbox semantics.
+
+## Re-Buy Hard editorial page
+
+`rebuy-hard.html` is a static Roast Zone page named ’Twas the Night Before
+Re-Buy Hard. Its approved 56-line poem is preserved in
+`docs/rebuy-hard-poem.txt` and rendered as selectable HTML in reading order.
+The desktop layout uses two stanza groups; narrow screens stack them without
+changing poem order. This editorial page uses its own title treatment, like
+the Hall of Fame, while retaining the shared header, footer, and navigation.
+`downloads/twas-the-night-before-rebuy-hard.pdf` is the approved one-page
+black-and-gold handout linked by both download buttons.

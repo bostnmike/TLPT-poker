@@ -44,6 +44,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/news.html",
     "https://tlpt.org/player-movement.html",
     "https://tlpt.org/players.html",
+    "https://tlpt.org/rebuy-hard.html",
     "https://tlpt.org/rules.html",
     "https://tlpt.org/structures.html",
     "https://tlpt.org/schedule.html",
@@ -53,6 +54,7 @@ EXPECTED_SITEMAP_URLS = [
     "https://tlpt.org/voice-of-god.html",
 ]
 EXPECTED_PAGES = {
+    "rebuy-hard.html",
     "404.html",
     "champions.html",
     "dashboard.html",
@@ -157,6 +159,7 @@ EXPECTED_NAV_LABELS = [
     "Roast Zone",
     "Hall of Fame",
     "Felt Whispers",
+    "Re-Buy Hard",
     "Rules",
     "House Rules",
     "Blind Structures",
@@ -170,6 +173,7 @@ EXPECTED_SHELL_REVISION_MARKERS = {
     "streaks.html": "20260825-3g3",
 }
 EXPECTED_NAV_ACTIVE_LABELS = {
+    "rebuy-hard.html": ["Roast Zone", "Re-Buy Hard"],
     "404.html": [],
     "champions.html": ["Roast Zone", "Hall of Fame"],
     "dashboard.html": ["Metrics", "Dashboard"],
@@ -197,6 +201,7 @@ EXPECTED_NAV_CURRENT_LABEL = {
     for page, labels in EXPECTED_NAV_ACTIVE_LABELS.items()
 }
 EXPECTED_PAGE_TITLES = {
+    "rebuy-hard.html": "’Twas the Night Before Re-Buy Hard | TLPT.org",
     "404.html": "This Hand Went Missing | TLPT.org",
     "champions.html": "Hall of In-FAM[E]-Y | TLPT.org",
     "dashboard.html": "The Dashboard | TLPT.org",
@@ -258,6 +263,7 @@ TROPHY_INSPIRED_HERO_PAGES = {
     "voice-of-god.html",
 }
 EXPECTED_META_DESCRIPTIONS = {
+    "rebuy-hard.html": "Read the complete TLPT Re-Buy Hard poem, explore the room and custom chips, and download the illustrated one-page handout.",
     "404.html": "The requested TLPT Poker League page could not be found. Return home or view the upcoming schedule.",
     "champions.html": "Explore TLPT Poker League champions, honors, streaks, milestones, and the Hall of In-FAM[E]-Y.",
     "dashboard.html": "Explore TLPT Poker League standings, player performance, rankings, trends, and league-wide metrics.",
@@ -282,6 +288,7 @@ EXPECTED_META_DESCRIPTIONS = {
 }
 SITE_ORIGIN = "https://tlpt.org"
 EXPECTED_CANONICAL_URLS = {
+    "rebuy-hard.html": f"{SITE_ORIGIN}/rebuy-hard.html",
     "champions.html": f"{SITE_ORIGIN}/champions.html",
     "dashboard.html": f"{SITE_ORIGIN}/dashboard.html",
     "form-lab.html": f"{SITE_ORIGIN}/form-lab.html",
@@ -302,6 +309,7 @@ EXPECTED_CANONICAL_URLS = {
     "voice-of-god.html": f"{SITE_ORIGIN}/voice-of-god.html",
 }
 EXPECTED_SOCIAL_IMAGES = {
+    "rebuy-hard.html": f"{SITE_ORIGIN}/images/rebuy-hard/the-felt.jpg",
     "champions.html": f"{SITE_ORIGIN}/images/site/chip-T-25000.png",
     "dashboard.html": f"{SITE_ORIGIN}/images/site/chip-T-10000.png",
     "form-lab.html": f"{SITE_ORIGIN}/images/site/chip-T-500.png",
@@ -323,6 +331,7 @@ EXPECTED_SOCIAL_IMAGES = {
     "voice-of-god.html": f"{SITE_ORIGIN}/images/site/chip-T-250000.png",
 }
 EXPECTED_SOCIAL_IMAGE_ALT = {
+    "rebuy-hard.html": "Bruins hockey poker felt in the TLPT card room",
     "champions.html": "TLPT 25,000 tournament poker chip",
     "dashboard.html": "TLPT 10,000 tournament poker chip",
     "form-lab.html": "TLPT 500 tournament poker chip",
@@ -344,6 +353,7 @@ EXPECTED_SOCIAL_IMAGE_ALT = {
     "voice-of-god.html": "TLPT 250,000 tournament poker chip",
 }
 EXPECTED_BREADCRUMB_LABELS = {
+    "rebuy-hard.html": "Re-Buy Hard",
     "champions.html": "Hall of Fame",
     "dashboard.html": "Dashboard",
     "form-lab.html": "Form Lab",
@@ -3019,7 +3029,7 @@ def main() -> int:
 
         expected_twitter_metadata = {} if page.name in {"404.html", "register.html"} else {
             "twitter:card": (
-                "summary_large_image" if page.name == "marchand.html" else "summary"
+                "summary_large_image" if page.name in {"marchand.html", "rebuy-hard.html"} else "summary"
             ),
             "twitter:title": expected_social_title,
             "twitter:description": expected_description,
@@ -5249,8 +5259,8 @@ def audit_phase_3h8_maintenance_baseline() -> list[str]:
         else:
             if contract.get("schemaVersion") != 1:
                 errors.append("maintenance-baseline.json: schemaVersion must remain 1")
-            if contract.get("publicPageCount") != 21:
-                errors.append("maintenance-baseline.json: publicPageCount must remain 21")
+            if contract.get("publicPageCount") != 22:
+                errors.append("maintenance-baseline.json: publicPageCount must remain 22")
             if contract.get("sharedCssVersion") != "20260826-10":
                 errors.append(
                     "maintenance-baseline.json: sharedCssVersion must match the current shared visual baseline"
