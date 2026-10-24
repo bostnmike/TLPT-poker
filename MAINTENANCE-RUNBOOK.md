@@ -29,6 +29,21 @@ The weekly runner and GitHub data pipeline already call both authoritative runne
 
 ## Quality gates
 
+### Rebuild coordination
+
+Main-branch site and data changes enter through **TLPT Data Pipeline**. Its
+serialized build retains both existing full quality checks before publishing
+generated data. Only after that job succeeds does its **TLPT Site Quality Gate**
+job call `site-quality.yml`, passing the exact published commit SHA. The final gate
+checks that immutable revision, not whichever commit happens to be on main later.
+Build, validation, or push failures block the final gate; they are not ignored.
+
+There is no separate site-quality push trigger to race the data rebuild. Its PR
+and manual runs first rebuild their own checked-out revision, then run the same
+full suite without publishing. Data-pipeline publication is restricted to main.
+Generated-only commits are excluded from the pipeline's trigger paths to avoid
+rebuild loops. The registration and cashier workflows remain independent.
+
 ### Optional rebuy bounty intake
 
 Follow [the paired-export intake and accounting contract](docs/optional-rebuy-bounties.md)

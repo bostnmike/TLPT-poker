@@ -95,18 +95,20 @@ def main() -> int:
             if quality_text.count(gate) != 1:
                 errors.append(f"quality runner must contain exactly one `{gate}`")
 
-    # Maintenance-contract changes must trigger the site-quality workflow.
+    # Main changes route through the rebuild; PRs still validate independently.
     site_quality = ROOT / maintenance_paths.get("siteQualityWorkflow", "")
     if site_quality.is_file():
         quality_workflow_text = site_quality.read_text(encoding="utf-8")
         for rel in baseline.get("qualityTriggerPaths", []):
             expected = f'"{rel}"'
             actual = quality_workflow_text.count(expected)
-            if actual != 2:
+            if actual != 1:
                 errors.append(
-                    f"{site_quality.relative_to(ROOT)}: expected `{rel}` in both push and "
-                    f"pull_request path filters, found {actual} occurrence(s)"
+                    f"{site_quality.relative_to(ROOT)}: expected `{rel}` in the "
+                    f"pull_request path filter, found {actual} occurrence(s)"
                 )
+            if pipeline.is_file() and pipeline.read_text(encoding="utf-8").count(expected) != 1:
+                errors.append(f"data pipeline must watch `{rel}` before the main quality gate")
         for command in baseline.get("requiredQualityWorkflowCommands", []):
             actual = quality_workflow_text.count(command)
             if actual != 1:

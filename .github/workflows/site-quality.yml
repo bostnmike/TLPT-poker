@@ -1,25 +1,13 @@
 name: TLPT Site Quality Gate
 
 on:
-  push:
-    paths:
-      - "*.html"
-      - "*.css"
-      - "*.js"
-      - "news-data.json"
-      - "FELT-WHISPERS-WRITING-GUIDE.md"
-      - "audit-code-hygiene.py"
-      - "maintenance-baseline.json"
-      - "MAINTENANCE-RUNBOOK.md"
-      - "requirements-quality.txt"
-      - "scripts/**"
-      - "downloads/**"
-      - "vendor/pdfjs/**"
-      - "lily-site/**"
-      - "data/league-config.json"
-      - "data/player-metadata.json"
-      - "data/featured-cards.json"
-      - ".github/workflows/**"
+  # Main pushes enter through tlpt-update.yml, after its rebuild has succeeded.
+  workflow_call:
+    inputs:
+      built_sha:
+        description: Exact commit published by the successful data rebuild
+        required: true
+        type: string
   pull_request:
     paths:
       - "*.html"
@@ -38,6 +26,9 @@ on:
       - "data/league-config.json"
       - "data/player-metadata.json"
       - "data/featured-cards.json"
+      - "data/events.json"
+      - "data/event-financials.json"
+      - "data/raw/events/**"
       - ".github/workflows/**"
   workflow_dispatch:
 
@@ -45,7 +36,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: tlpt-site-quality-${{ github.ref }}
+  group: tlpt-site-quality-${{ inputs.built_sha || github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -55,6 +46,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+        with:
+          # Never move to a newer main commit while checking a completed rebuild.
+          ref: ${{ inputs.built_sha || github.sha }}
 
       - name: Setup Python
         uses: actions/setup-python@v7
@@ -68,6 +62,10 @@ jobs:
 
       - name: Install quality-gate dependencies
         run: python -m pip install --requirement requirements-quality.txt
+
+      - name: Rebuild data for independent PR or manual checks
+        if: ${{ inputs.built_sha == '' }}
+        run: bash scripts/run-data-build.sh
 
       - name: Run complete TLPT quality gates
         run: bash scripts/run-quality-gates.sh

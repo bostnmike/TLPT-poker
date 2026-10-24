@@ -5,7 +5,24 @@ permissions:
 
 on:
   push:
+    branches: [main]
     paths:
+      # Union of site-quality and data inputs: every main quality check waits
+      # for this serialized rebuild instead of racing it in another workflow.
+      - "*.html"
+      - "*.css"
+      - "*.js"
+      - "news-data.json"
+      - "FELT-WHISPERS-WRITING-GUIDE.md"
+      - "audit-code-hygiene.py"
+      - "maintenance-baseline.json"
+      - "MAINTENANCE-RUNBOOK.md"
+      - "downloads/**"
+      - "vendor/pdfjs/**"
+      - "lily-site/**"
+      - "data/league-config.json"
+      - "data/featured-cards.json"
+      - ".github/workflows/**"
       - "data/events.json"
       - "data/player-metadata.json"
       - "data/event-financials.json"
@@ -20,7 +37,10 @@ concurrency:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    outputs:
+      built_sha: ${{ steps.publish.outputs.built_sha }}
 
     steps:
       # -----------------------------------------
@@ -63,6 +83,7 @@ jobs:
       # 💾 Commit + push generated data
       # -----------------------------------------
       - name: Commit updated data
+        id: publish
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -91,6 +112,7 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "✅ No generated data changes to commit."
+            echo "built_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -98,3 +120,13 @@ jobs:
 
           echo "🚀 Pushing generated data..."
           git push origin HEAD:main
+          echo "built_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  quality:
+    name: TLPT Site Quality Gate
+    needs: build
+    permissions:
+      contents: read
+    uses: ./.github/workflows/site-quality.yml
+    with:
+      built_sha: ${{ needs.build.outputs.built_sha }}

@@ -35,6 +35,7 @@
   },
   "requiredQualityGates": [
     "scripts/verify-maintenance-baseline.py",
+    "scripts/test-quality-coordination.py",
     "scripts/test-event-currency.py",
     "scripts/test-optional-bounties.py",
     "scripts/audit-code-hygiene.py",

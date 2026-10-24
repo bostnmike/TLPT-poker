@@ -2823,8 +2823,9 @@ def audit_mtt_player_guide() -> list[str]:
     if f'url: "{href.removeprefix("downloads/")}"' not in viewer:
         errors.append("MTT inline viewer must load the same current PDF version as the download links")
     workflow = (ROOT / ".github/workflows/site-quality.yml").read_text(encoding="utf-8")
-    if workflow.count('"downloads/**"') != 2:
-        errors.append("Site quality workflow must validate PDF changes on pushes and pull requests")
+    pipeline = (ROOT / ".github/workflows/tlpt-update.yml").read_text(encoding="utf-8")
+    if workflow.count('"downloads/**"') != 1 or pipeline.count('"downloads/**"') != 1:
+        errors.append("PDF changes must trigger PR quality checks and the main rebuild/quality pipeline")
     return errors
 
 
