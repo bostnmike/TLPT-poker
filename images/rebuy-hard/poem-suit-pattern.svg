@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <title>Subtle poker suit texture</title>
+  <g fill="none" stroke="#ffb81c" stroke-width=".8" opacity=".24" stroke-linejoin="round">
+    <g transform="translate(41 40) rotate(-18)">
+      <path d="M0-15C-5-8-15-3-15 4C-15 13-4 15 0 7C4 15 15 13 15 4C15-3 5-8 0-15ZM0 7L-5 18H5Z"/>
+    </g>
+    <g transform="translate(139 44) rotate(-18)">
+      <path d="M0 16C-5 10-17 2-17-6C-17-17-4-19 0-10C4-19 17-17 17-6C17 2 5 10 0 16Z"/>
+    </g>
+    <g transform="translate(46 138) rotate(-18)">
+      <path d="M-4 1C-17-7-22 11-10 14C-5 15-2 12 0 8C2 12 5 15 10 14C22 11 17-7 4 1C17-16-17-16-4 1ZM0 8L-5 20H5Z"/>
+    </g>
+    <g transform="translate(143 140) rotate(-18)">
+      <path d="M0-19L14 0L0 19L-14 0Z"/>
+    </g>
+  </g>
+</svg>
