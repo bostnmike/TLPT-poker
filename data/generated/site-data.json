@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T02:05:02.095218Z",
+  "generatedAt": "2026-10-24T02:12:33.426592Z",
   "sourceMode": "event_reports",
   "events": [
     {
@@ -135,7 +135,7 @@
           "cougar",
           "liam-o",
           "nasa-al",
-          ""
+          "P"
         ]
       ],
       "rsvps": {
@@ -157,7 +157,7 @@
         "liam-o": "yes",
         "nasa-al": "yes",
         "nitro": "tbd",
-        "p": "tbd",
+        "p": "yes",
         "pat": "tbd",
         "phattedcalf": "no",
         "pittsburghbill": "tbd",
