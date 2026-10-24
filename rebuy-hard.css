@@ -11,20 +11,6 @@ body.rebuy-hard-page{
   color:var(--gold);
 }
 
-.rebuy-breadcrumb{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:13px;
-  letter-spacing:.08em;
-  margin-bottom:22px;
-}
-
-.rebuy-breadcrumb a{
-  text-decoration:underline;
-  text-underline-offset:4px;
-}
-
 .rebuy-page-hero{
   --site-page-hero-accent-rgb:255,184,28;
   --site-page-hero-secondary-rgb:34,197,94;
