@@ -106,7 +106,6 @@ body.rebuy-hard-page{
   border-radius:12px;
   background:#10100c;
   box-shadow:0 16px 30px #000c;
-  transition:transform .25s ease,box-shadow .25s ease;
 }
 
 .rebuy-photo-card--room{
@@ -173,19 +172,6 @@ body.rebuy-hard-page{
   line-height:1.2;
   letter-spacing:.12em;
   text-transform:uppercase;
-}
-
-.rebuy-photo-card:focus-visible{
-  z-index:3;
-  transform:translateY(-14px) rotate(0);
-}
-
-@media (hover:hover){
-  .rebuy-photo-card:hover{
-    z-index:3;
-    transform:translateY(-14px) rotate(0);
-    box-shadow:0 22px 45px #000;
-  }
 }
 
 .rebuy-poem{
@@ -266,26 +252,6 @@ body.rebuy-hard-page{
   object-position:60% 40%;
   transform:scale(1.22) rotate(-3deg);
   transform-origin:65% 32%;
-}
-
-.rebuy-photo-expand{
-  position:absolute;
-  top:20px;
-  right:30px;
-  z-index:1;
-  display:grid;
-  place-items:center;
-  width:42px;
-  height:42px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  background:#000b;
-  font-size:22px;
-}
-
-.rebuy-chip-photo:focus-visible{
-  outline:none;
-  box-shadow:inset 0 0 0 4px #fff;
 }
 
 .rebuy-chip-scene figcaption{
@@ -374,11 +340,6 @@ body.rebuy-hard-page{
   .rebuy-chip-photo::after{background:linear-gradient(0deg,#000e,transparent 85%);}
   .rebuy-chip-scene figcaption{top:auto;bottom:35px;left:20px;max-width:230px;gap:10px;transform:none;}
   .rebuy-chip-scene figcaption>span:last-child{font-size:30px;}
-  .rebuy-photo-expand{top:14px;right:18px;width:35px;height:35px;}
   .rebuy-print{grid-template-columns:1fr;gap:26px;padding:24px;}
   .rebuy-print-preview{max-width:170px;}
-}
-
-@media (prefers-reduced-motion:reduce){
-  .rebuy-photo-card{transition:none;}
 }
