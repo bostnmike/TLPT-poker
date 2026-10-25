@@ -80,7 +80,7 @@
       const svg=host.querySelector('.crew-map-connectors');
       svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
       svg.innerHTML=nodes.map(p=>`<line x1="${p.ax}" y1="${p.ay}" x2="${p.x}" y2="${p.y}"/><circle cx="${p.ax}" cy="${p.ay}" r="2"/>`).join('');
-      bubbles.innerHTML=nodes.map(p=>`<button type="button" class="crew-map-bubble" data-slug="${esc(p.slug)}" aria-label="${esc(p.name)}: career ${p.career}, Last Five ${p.form}, ${p.appearances} appearances${p.rosterStatus==='alumni'?', Alumni':''}" aria-pressed="false" style="left:${p.x}px;top:${p.y}px;--bubble-size:${p.size}px;--hit-size:${p.hit}px;--map-color:${colors[p.colorKey]}"><span>${esc(p.name.split(/\s+/).map(w=>w[0]).join('').slice(0,2))}</span></button>`).join('');
+      bubbles.innerHTML=nodes.map(p=>`<button type="button" class="crew-map-bubble" data-slug="${esc(p.slug)}" aria-label="${esc(p.name)}: career ${p.career}, Last Five ${p.form}, ${p.appearances} appearances${p.rosterStatus==='alumni'?', Alumni':''}" aria-pressed="false" style="left:${p.x}px;top:${p.y}px;--bubble-size:${p.size}px;--hit-size:${p.hit}px;--map-color:${colors[p.colorKey]}"><span><img src="${esc(p.image || 'images/site/chip-T-1000.png')}" alt="" width="52" height="52" decoding="async" data-image-error-action="fallback-source" data-image-fallback-src="images/site/chip-T-1000.png" /></span></button>`).join('');
       bubbles.querySelectorAll('button').forEach(button=> {
         button.title=points.find(p=>p.slug===button.dataset.slug).name;
         button.addEventListener('click',()=> { select.value=button.dataset.slug; select.dispatchEvent(new Event('change',{bubbles:true})); });

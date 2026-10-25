@@ -176,7 +176,9 @@ Desktop counts sit beside controls; on phones they are expandable.
 `crew-map.js` and `crew-map.css` provide an optional replacement view, not another
 block above the cards. Coordinates use the existing career and Last Five card OVR;
 five recorded appearances are required. Bubble area represents appearances up to
-60, colors retain career tiers, and collision leader lines preserve exact ratings.
+60, avatar borders retain career tier colors, and collision leader lines preserve exact ratings.
+Bubble portraits use each player's canonical avatar, with the shared chip fallback
+if an image cannot load; accessible button labels retain player names and ratings.
 Median reference lines use the full established league, including alumni, regardless
 of display filters. Quadrant names are descriptive only: no rating, award, or
 qualification rules change. Developing players remain available in Cards.

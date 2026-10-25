@@ -43,6 +43,12 @@ const base = process.argv[2] || 'http://127.0.0.1:8767';
       await page.locator('[data-crew-display="map"]').click();
       assert.equal(await page.locator('.crew-ultimate-card').count(), 0);
       assert.equal(await page.locator('.crew-map-bubble').count(), expected.ranked);
+      await page.waitForFunction(() => [...document.querySelectorAll('.crew-map-bubble img')].every(img => img.complete && img.naturalWidth > 0));
+      assert.equal(await page.locator('.crew-map-bubble img').count(), expected.ranked);
+      assert.equal(await page.locator('.crew-map-bubble').evaluateAll(buttons => buttons.every(button => {
+        const player = window.siteData.players.find(p => p.slug === button.dataset.slug);
+        return button.textContent.trim() === '' && button.querySelector('img').getAttribute('src') === player.image;
+      })), true, 'Every map bubble must use its matching player avatar, not initials');
       const medianText = await page.locator('.crew-map-guide').filter({ hasText:'Dashed lines' }).innerText();
       await page.locator('.crew-map-bubble').last().focus();
       const focusedSlug = await page.locator('.crew-map-bubble').last().getAttribute('data-slug');
