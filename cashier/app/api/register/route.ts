@@ -5,6 +5,7 @@ import {totals} from '@/lib/receipt.mjs';
 import {paymentKinds,paymentSelection} from '@/lib/events.mjs';
 import {paymentItemAmounts} from '@/lib/payment-portions.mjs';
 import {paymentDeletionPlan} from '@/lib/deletion.mjs';
+import {canClearEventHistory,eventHistoryClearPlan,HISTORY_SCOPE} from '@/lib/event-history.mjs';
 import {getSchedule} from '@/lib/schedule';
 import {getPlayers} from '@/lib/player-directory';
 import {resolvePlayer} from '@/lib/players.mjs';
@@ -15,17 +16,24 @@ export async function GET(req:Request){const denied=browserAuth(req);if(denied)r
  const state:any=await db().prepare('SELECT * FROM sync_state WHERE id=?').bind('venmo').first();
  const following=new URL(req.url).searchParams.get('follow')==='true';
  const selected=schedule.events.find((e:any)=>e.id===(following?state?.active_event_id:asked))||[...schedule.events].sort((a:any,b:any)=>a.date.localeCompare(b.date))[0]||null;
- const revision:any=await db().prepare('SELECT revision FROM register_revision WHERE id=1').first();
+ const revision:any=await db().prepare('SELECT revision,history_revision FROM register_revision WHERE id=1').first();
  const etag=JSON.stringify(String(revision?.revision||0)+'-'+(selected?.id||'none'));
  if(req.headers.get('If-None-Match')===etag)return new Response(null,{status:304,headers:{ETag:etag,'Cache-Control':'private, no-store'}});
  const rows=selected?(await db().prepare('SELECT * FROM payments WHERE event_id=? OR event_id IS NULL ORDER BY received_at DESC,created_at DESC LIMIT 2000').bind(selected.id).all()).results:[];
  const venmoAliases=(await db().prepare('SELECT payer_key,payer_name,player_slug,player_name,updated_at FROM venmo_player_aliases ORDER BY payer_name').all()).results;
  const receiptLinks=(await db().prepare('SELECT l.* FROM receipt_links l JOIN payments p ON p.id=l.payment_id WHERE p.event_id=?').bind(selected?.id||'').all()).results;
- const result=json({environment:env.CASHIER_ENV,receiptLinks,venmoAliases,events:schedule.events,selectedEventId:selected?.id||null,payments:rows,totals:totals(rows.filter((p:any)=>p.event_id===selected?.id)),sync:state,scheduleCheckedAt:schedule.checkedAt,scheduleError:schedule.error,serverAt:new Date().toISOString()});result.headers.set('ETag',etag);return result;
+ const historyCount:any=selected?await db().prepare(`SELECT COUNT(*) AS records FROM payments WHERE ${HISTORY_SCOPE}`).bind(selected.id,selected.id).first():null;
+ const result=json({environment:env.CASHIER_ENV,receiptLinks,venmoAliases,events:schedule.events,selectedEventId:selected?.id||null,payments:rows,totals:totals(rows.filter((p:any)=>p.event_id===selected?.id)),clearHistory:{eligible:canClearEventHistory(selected),revision:revision?.history_revision||0,records:historyCount?.records||0},sync:state,scheduleCheckedAt:schedule.checkedAt,scheduleError:schedule.error,serverAt:new Date().toISOString()});result.headers.set('ETag',etag);return result;
  }catch{return json({error:'Could not load the register or live schedule. Saved records remain intact.'},503);}}
 export async function POST(req:Request){const denied=browserAuth(req,true);if(denied)return denied;try{
  const input=await body(req),now=new Date().toISOString(),actor=req.headers.get('x-tlpt-authenticated-user-id')!,schedule=await getSchedule();
  const event=schedule.events.find((e:any)=>e.id===input.eventId);if(!event)return json({error:'This event has been replaced in the schedule. Reopen the current tab.'},409);
+ if(input.action==='clear-history'){
+  let plan;try{plan=eventHistoryClearPlan({event,expectedRevision:input.expectedRevision,confirmationDate:input.confirmationDate,checked:input.checked,requestId:crypto.randomUUID()});}catch(error){return json({error:error instanceof Error?error.message:'Confirm the past MTT to clear.'},400);}
+  try{await db().batch(plan.map((s:any)=>db().prepare(s.sql).bind(...s.values)));}catch{return json({error:'The ledger changed or clearing could not be confirmed. Refresh and review the event again before retrying.'},409);}
+  return json({ok:true,eventId:event.id,historyCleared:true});
+ }
+ if(event.historyClearedAt&& !['select','forget-alias'].includes(input.action))return json({error:'History for this MTT has been cleared and the event is closed. Use a newly dated event for new payments.'},409);
  if(input.action==='batch')return processBatch(input,event,actor,now);
  if(input.action==='forget-alias'){
   if(typeof input.payerKey!=='string'||!input.payerKey||input.payerKey.length>200)return json({error:'Choose a remembered Venmo name.'},400);

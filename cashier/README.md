@@ -30,6 +30,24 @@ Explicit cancellation/removal still retires the event; malformed dates still
 fail safely and preserve the last verified schedule. No date is invented and
 future receipts cannot match the retained event through its old receipt window.
 
+## Clear a past MTT
+
+Select its MTT tab, open **Event settings → Clear MTT history**, and export
+first if you want a copy. The control becomes available after 6 AM Eastern the
+morning after the MTT. The confirmation shows the event date, total and full
+record count (including linked receipts). Type that exact date and acknowledge
+permanent deletion. A changed ledger invalidates the confirmation; cancel,
+review the updated event and open it again.
+
+Clearing removes that MTT’s payments, receipt links, audit entries, deleted-source
+identifiers and stored batch results in one transaction. Shared ambiguous emails
+remain available to their other possible events. Friday/Saturday payments, player
+profiles, remembered names, event configuration and website RSVPs are preserved.
+Only an event ID and clear timestamp remain to prevent old emails and stale
+manual/batch submissions from resurrecting the ledger. The cleared event is closed
+to payments; a newly published MTT date opens a fresh register. No refunds are sent.
+Deploying this feature does not clear any existing records.
+
 ## Architecture
 
 - React/Vite supplies the existing iPad interface as static assets.

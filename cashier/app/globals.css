@@ -126,6 +126,9 @@ h2 { font-size: 18px; font-weight: 800; letter-spacing: -.3px; }
 .rsvp-actions button { min-height: 44px; font-size: 11px; padding: 8px 9px; gap: 4px; }
 .rsvp-actions button svg { width: 13px; height: 13px; }
 .remembered-names { padding: 16px 20px; border-top: 1px solid var(--line); }
+.clear-history-settings { padding: 16px 20px; border-top: 1px solid var(--line); }
+.clear-history-settings h2 { margin: 0 0 8px; font-size: 18px; }
+.clear-history-settings p { color: var(--muted); font-size: 12px; line-height: 1.5; }
 .remembered-names h2 { margin: 0 0 8px; font-size: 18px; }
 .remembered-names p,.remember-name-option p { color: var(--muted); font-size: 12px; line-height: 1.5; }
 .remembered-name { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }

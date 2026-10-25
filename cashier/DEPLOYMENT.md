@@ -177,3 +177,16 @@ payments through an older version. Leave the new tables intact and fix forward;
 never drop receipt links, reverse the migration or restore the old seven-table
 migration snapshot over the live ledger. A database restore requires the owner's
 coordination and reconciliation of all receipts received since the restore point.
+
+## Cleared MTT history and rollback
+
+Migration `0012_event_history_clear.sql` is additive: it creates the minimal
+closed-event marker and ledger revision tracking, and never clears existing data.
+Owner-triggered clearing is irreversible through the app and requires the exact
+past MTT date plus an acknowledgement. Database guards reject stale writers even
+if an older Worker is restored. Keep these guards and markers during code rollback;
+an old interface may report a save error for a closed event, but must not recreate
+its payments. Prefer fixing forward. Never remove a marker, reset the importer's
+seen IDs, or replay old mail as a code-recovery shortcut. Recovering intentionally
+cleared payments from an export/backup is a separate owner-approved reconciliation,
+including receipts and payments received since the clear.

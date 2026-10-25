@@ -93,9 +93,13 @@
     "slug": "chris-f",
     "aliases": [
       "chris f",
-      "chris-f"
+      "chris-f",
+      "Christopher Fiander"
     ],
-    "image": "https://tlpt.org/images/players/chris-f.jpg"
+    "image": "https://tlpt.org/images/players/chris-f.jpg",
+    "venmoNames": [
+      "Christopher Fiander"
+    ]
   },
   {
     "name": "Chris O",
@@ -164,9 +168,13 @@
       "griffin",
       "Griffin",
       "Grif",
-      "grif"
+      "grif",
+      "Griffin Goralski"
     ],
-    "image": "https://tlpt.org/images/players/grif.jpg"
+    "image": "https://tlpt.org/images/players/grif.jpg",
+    "venmoNames": [
+      "Griffin Goralski"
+    ]
   },
   {
     "name": "Hayden D",
@@ -259,6 +267,21 @@
       "lazar"
     ],
     "image": "https://tlpt.org/images/players/nitro.jpg"
+  },
+  {
+    "name": "P",
+    "slug": "p",
+    "aliases": [
+      "p",
+      "piercen",
+      "piercen craig",
+      "piercen-craig",
+      "Pushin Craig"
+    ],
+    "image": "https://tlpt.org/images/players/piercen-craig-v2.webp",
+    "venmoNames": [
+      "Pushin Craig"
+    ]
   },
   {
     "name": "Pat",

@@ -9,7 +9,7 @@ export async function POST(req:Request){
  try{
   const input=await body(req);if(!Array.isArray(input.messages)||input.messages.length>30)return json({error:'Invalid batch'},400);
   const mode=input.mode||'live',now=new Date().toISOString();if(!['live','config','connection-test','armed','receipt-test'].includes(mode))return json({error:'Invalid mode'},400);
-  const schedule=await getSchedule();
+  const loadedSchedule=await getSchedule(),schedule={...loadedSchedule,events:loadedSchedule.events.filter((e:any)=>!e.historyClearedAt)};
   if(mode==='config'){if(input.messages.length)return json({error:'Config takes no messages.'},400);return json({ok:true,events:schedule.events,scheduleError:schedule.error,queryAfter:Math.floor((Date.now()-14*86400000)/1000),generation:schedule.events.map((e:any)=>e.id).sort().join('|')});}
   if(['connection-test','armed'].includes(mode)){
    if(input.messages.length)return json({error:'Connection checks take no messages.'},400);
