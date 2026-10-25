@@ -8,7 +8,7 @@
       "cougar": 1,
       "griffin": 1,
       "hiro": 4,
-      "li-fo": 8,
+      "li-fo": 9,
       "nasa-al": 2,
       "phattedcalf": 1,
       "providencemike": 4,
@@ -23,6 +23,7 @@
       "hiro": 4,
       "jeff-t": 1,
       "li-fo": 3,
+      "liam-o": 1,
       "nasa-al": 3,
       "nitro": 1,
       "phattedcalf": 1,
@@ -30,10 +31,12 @@
       "the-architect": 2,
       "vic": 1,
       "vish": 1,
+      "wild-bill": 1,
       "yann": 1
     },
     "alex-c": {
-      "ahmed": 1
+      "ahmed": 1,
+      "liam-o": 1
     },
     "big-tim": {
       "ai-dave": 1
@@ -41,7 +44,7 @@
     "bostnmike": {
       "ahmed": 7,
       "ai-dave": 2,
-      "alex-c": 2,
+      "alex-c": 3,
       "buffalomike": 1,
       "chris-o": 1,
       "cougar": 4,
@@ -66,7 +69,9 @@
       "kishan": 1
     },
     "chris-f": {
-      "cougar": 1
+      "ahmed": 1,
+      "cougar": 1,
+      "griffin": 1
     },
     "chris-o": {
       "ahmed": 2,
@@ -78,7 +83,7 @@
     },
     "cougar": {
       "ahmed": 5,
-      "ai-dave": 1,
+      "ai-dave": 2,
       "bostnmike": 2,
       "chris-o": 1,
       "hayden-d": 1,
@@ -106,8 +111,10 @@
     },
     "griffin": {
       "ahmed": 1,
+      "chris-f": 2,
       "jeff-t": 1,
-      "nasa-al": 1
+      "li-fo": 1,
+      "nasa-al": 2
     },
     "hayden-d": {
       "bostnmike": 1,
@@ -121,7 +128,7 @@
       "chris-f": 1,
       "cougar": 1,
       "gilmore": 1,
-      "li-fo": 6,
+      "li-fo": 7,
       "nasa-al": 7,
       "nitro": 1,
       "phattedcalf": 1,
@@ -148,7 +155,7 @@
       "red": 1
     },
     "li-fo": {
-      "ahmed": 9,
+      "ahmed": 10,
       "ai-dave": 1,
       "big-tim": 1,
       "bostnmike": 9,
@@ -158,6 +165,7 @@
       "griffin": 2,
       "hiro": 9,
       "kishan": 1,
+      "liam-o": 1,
       "nasa-al": 2,
       "providencemike": 6,
       "red": 4,
@@ -174,12 +182,13 @@
       "ai-dave": 1,
       "alex-c": 1,
       "bostnmike": 3,
+      "chris-f": 2,
       "chris-o": 1,
       "cougar": 1,
       "dan-k": 1,
       "griffin": 2,
       "hiro": 3,
-      "li-fo": 3,
+      "li-fo": 4,
       "phattedcalf": 1,
       "vish": 1,
       "yann": 1
@@ -194,6 +203,10 @@
       "red": 2,
       "vish": 2,
       "wild-bill": 1
+    },
+    "p": {
+      "hiro": 2,
+      "li-fo": 3
     },
     "pat": {
       "buffalomike": 1
@@ -234,9 +247,9 @@
       "wild-bill": 1
     },
     "red": {
-      "ahmed": 3,
+      "ahmed": 4,
       "ai-dave": 1,
-      "alex-c": 2,
+      "alex-c": 4,
       "bostnmike": 4,
       "chris-o": 2,
       "cougar": 1,
@@ -263,7 +276,7 @@
       "ai-dave": 2,
       "bostnmike": 1,
       "chris-o": 2,
-      "hiro": 2,
+      "hiro": 3,
       "li-fo": 1,
       "providencemike": 1
     },
@@ -279,6 +292,7 @@
     },
     "vish": {
       "ai-dave": 2,
+      "alex-c": 1,
       "bostnmike": 6,
       "chris-o": 2,
       "cougar": 1,
@@ -287,10 +301,10 @@
       "li-fo": 1,
       "providencemike": 3,
       "red": 4,
-      "the-architect": 1
+      "the-architect": 3
     },
     "wild-bill": {
-      "ai-dave": 2,
+      "ai-dave": 3,
       "dan-k": 2,
       "hiro": 2,
       "li-fo": 1
@@ -304,18 +318,19 @@
       "ai-dave": 3,
       "alex-c": 1,
       "bostnmike": 7,
+      "chris-f": 1,
       "chris-o": 2,
       "cougar": 5,
       "david-k": 1,
       "griffin": 1,
       "hiro": 9,
       "kishan": 1,
-      "li-fo": 9,
+      "li-fo": 10,
       "liam-o": 1,
       "nasa-al": 3,
       "phattedcalf": 1,
       "providencemike": 3,
-      "red": 3,
+      "red": 4,
       "the-architect": 1
     },
     "ai-dave": {
@@ -323,7 +338,7 @@
       "big-tim": 1,
       "bostnmike": 2,
       "chris-o": 1,
-      "cougar": 1,
+      "cougar": 2,
       "hiro": 4,
       "li-fo": 1,
       "nasa-al": 1,
@@ -333,13 +348,14 @@
       "the-architect": 2,
       "vic": 2,
       "vish": 2,
-      "wild-bill": 2
+      "wild-bill": 3
     },
     "alex-c": {
-      "bostnmike": 2,
+      "bostnmike": 3,
       "kishan": 1,
       "nasa-al": 1,
-      "red": 2
+      "red": 4,
+      "vish": 1
     },
     "big-tim": {
       "li-fo": 1
@@ -378,8 +394,10 @@
     },
     "chris-f": {
       "ahmed": 2,
+      "griffin": 2,
       "hiro": 1,
       "li-fo": 1,
+      "nasa-al": 2,
       "providencemike": 2
     },
     "chris-o": {
@@ -421,6 +439,7 @@
     "griffin": {
       "ahmed": 1,
       "bostnmike": 1,
+      "chris-f": 1,
       "li-fo": 2,
       "nasa-al": 2,
       "providencemike": 2,
@@ -440,11 +459,12 @@
       "jeff-t": 1,
       "li-fo": 9,
       "nasa-al": 3,
+      "p": 2,
       "phattedcalf": 2,
       "providencemike": 1,
       "red": 2,
       "rob-f": 2,
-      "the-architect": 2,
+      "the-architect": 3,
       "vish": 4,
       "wild-bill": 2
     },
@@ -460,23 +480,30 @@
       "red": 1
     },
     "li-fo": {
-      "ahmed": 8,
+      "ahmed": 9,
       "ai-dave": 3,
       "bostnmike": 10,
       "brad-r": 1,
       "chris-o": 3,
       "cougar": 4,
       "gilmore": 1,
-      "hiro": 6,
+      "griffin": 1,
+      "hiro": 7,
       "jeff-t": 3,
-      "nasa-al": 3,
+      "nasa-al": 4,
       "nitro": 2,
+      "p": 3,
       "providencemike": 5,
       "red": 3,
       "the-architect": 1,
       "tim-s": 1,
       "vish": 1,
       "wild-bill": 1
+    },
+    "liam-o": {
+      "ai-dave": 1,
+      "alex-c": 1,
+      "li-fo": 1
     },
     "nasa-al": {
       "ahmed": 2,
@@ -485,7 +512,7 @@
       "chris-o": 2,
       "dan-k": 1,
       "gilmore": 1,
-      "griffin": 1,
+      "griffin": 2,
       "hiro": 7,
       "jeff-t": 2,
       "li-fo": 2,
@@ -553,7 +580,7 @@
       "li-fo": 1,
       "providencemike": 1,
       "red": 1,
-      "vish": 1
+      "vish": 3
     },
     "tim-s": {
       "li-fo": 2,
@@ -578,6 +605,7 @@
     },
     "wild-bill": {
       "ahmed": 1,
+      "ai-dave": 1,
       "hiro": 2,
       "nitro": 1,
       "providencemike": 1,
@@ -646,7 +674,8 @@
     "2026-09-05",
     "2026-10-03",
     "2026-10-09",
-    "2026-10-17"
+    "2026-10-17",
+    "2026-10-24"
   ],
   "bounties": {
     "claims": [
@@ -679,10 +708,227 @@
         "killer": "ahmed",
         "victim": "cougar",
         "amount": 5
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "ahmed",
+        "victim": "li-fo",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "alex-c",
+        "victim": "red",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "nasa-al",
+        "victim": "griffin",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "p",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "alex-c",
+        "victim": "red",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "hiro",
+        "victim": "p",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "the-architect",
+        "victim": "vish",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "griffin",
+        "victim": "chris-f",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "alex-c",
+        "victim": "vish",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "chris-f",
+        "victim": "griffin",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "chris-f",
+        "victim": "nasa-al",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "ai-dave",
+        "victim": "cougar",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "chris-f",
+        "victim": "griffin",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "p",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "chris-f",
+        "victim": "nasa-al",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "p",
+        "amount": 10,
+        "victimEntry": 4,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "wild-bill",
+        "victim": "ai-dave",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "alex-c",
+        "victim": "bostnmike",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "ahmed",
+        "victim": "chris-f",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "liam-o",
+        "victim": "alex-c",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "hiro",
+        "victim": "p",
+        "amount": 10,
+        "victimEntry": 5,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "ahmed",
+        "victim": "red",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "hiro",
+        "victim": "the-architect",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 1
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "nasa-al",
+        "amount": 10,
+        "victimEntry": 3,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "ahmed",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "li-fo",
+        "victim": "hiro",
+        "amount": 10,
+        "victimEntry": 1,
+        "killerEntry": 2
+      },
+      {
+        "eventId": "2026-10-24",
+        "killer": "liam-o",
+        "victim": "li-fo",
+        "amount": 10,
+        "victimEntry": 2,
+        "killerEntry": 1
       }
     ],
     "eventsProcessed": [
-      "2026-10-17"
+      "2026-10-17",
+      "2026-10-24"
     ]
   }
 }

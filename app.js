@@ -154,7 +154,8 @@ const STAT_FORMULAS = {
   tournamentCost: "Tournament Cost: Buy-ins and rebuys, excluding bounty purchases",
   tournamentProfit: "Tournament Profit: Prize-pool payouts minus tournament entry costs",
   totalCost: "Total Cost: Tournament entries + bounty money posted",
-  totalWinnings: "Total Take-home: Tournament prize money + collected and retained bounty returns",
+  totalWinnings: "Total Take-home: Tournament prize money + collected and retained bounty returns + any confirmed settlement adjustments",
+  settlementAdjustment: "Settlement Adjustment: Confirmed extra cash paid, separate from tournament prizes and bounty returns. Does not count as a cash, knockout, or bounty win",
   profit: "Profit: Total Take-home − tournament entry costs − bounty money posted",
   roi: "ROI: Profit ÷ Total Cost",
   cashRate: "Cash Rate: Times Placed ÷ Buy-ins",
@@ -162,7 +163,7 @@ const STAT_FORMULAS = {
   hitRate: "Hit Rate: Hits ÷ (Buy-ins + Rebuys)",
   entries: "Entries: Buy-ins + Rebuys",
   buyIns: "Buy-ins: Total number of initial tournament entries purchased",
-  rebuys: "Rebuys: Total number of re-entry purchases after busting",
+  rebuys: "Rebuys: Re-entry purchases after busting plus permitted live-stack reloads; reloads are not knockouts",
   hits: "Hits: Total number of opponents eliminated by the player",
   timesPlaced: "Times Placed: Total number of times the player finished in the money",
   bubbles: "Bubbles: Total number of times the player finished one position outside the money",
@@ -187,6 +188,7 @@ const PROFILE_STAT_CONFIG = [
   { key: "tournamentCost", label: "Tournament Cost", type: "money", icon: "🎟️", dashboard: false },
   { key: "tournamentProfit", label: "Tournament Profit", type: "money", icon: "🧮", dashboard: false, profitClass: true },
   { key: "totalWinnings", label: "Total Take-home", type: "money", icon: "🏦", dashboard: false, profitClassFromValue: true },
+  { key: "settlementAdjustment", label: "Settlement Adjustment", type: "money", icon: "🧾", dashboard: false, nonzeroOnly: true },
 
   { key: "profit", label: "Profit", type: "money", icon: "💰", dashboard: true, profitClass: true },
   { key: "roi", label: "ROI", type: "pct", icon: "📈", dashboard: true },
@@ -5947,7 +5949,7 @@ function renderPlayerProfile(data) {
   const featuredEditionId = playerCardFeaturedEditionId(player, data);
   const specialEdition = playerCardSpecialEdition(player, data);
 
-  const profileStats = PROFILE_STAT_CONFIG.map(config => {
+  const profileStats = PROFILE_STAT_CONFIG.filter(config => !config.nonzeroOnly || (Number(player?.[config.key]) || 0) !== 0).map(config => {
     let valueClass = "";
 
     if (config.profitClass) {

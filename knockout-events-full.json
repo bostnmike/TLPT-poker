@@ -3065,5 +3065,282 @@
       "sourceKiller": "Ahmed",
       "bountyAmount": 5
     }
+  ],
+  "2026-10-24": [
+    {
+      "victim": "li-fo",
+      "killer": "ahmed",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Ahmed",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "red",
+      "killer": "alex-c",
+      "sourceVictim": "Red",
+      "sourceKiller": "Alex C",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "griffin",
+      "killer": "nasa-al",
+      "sourceVictim": "Griffin",
+      "sourceKiller": "Nasa Al",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "p",
+      "killer": "li-fo",
+      "sourceVictim": "P",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "red",
+      "killer": "alex-c",
+      "sourceVictim": "Red",
+      "sourceKiller": "Alex C",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "p",
+      "killer": "hiro",
+      "sourceVictim": "P",
+      "sourceKiller": "Hiro",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "vish",
+      "killer": "the-architect",
+      "sourceVictim": "Vish",
+      "sourceKiller": "The Architect",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "chris-f",
+      "killer": "griffin",
+      "sourceVictim": "Chris F",
+      "sourceKiller": "Griffin",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "vish",
+      "killer": "alex-c",
+      "sourceVictim": "Vish",
+      "sourceKiller": "Alex C",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "griffin",
+      "killer": "chris-f",
+      "sourceVictim": "Griffin",
+      "sourceKiller": "Chris F",
+      "victimEntry": 2,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "chris-f",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Chris F",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "cougar",
+      "killer": "ai-dave",
+      "sourceVictim": "Cougar",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "griffin",
+      "killer": "chris-f",
+      "sourceVictim": "Griffin",
+      "sourceKiller": "Chris F",
+      "victimEntry": 3,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "p",
+      "killer": "li-fo",
+      "sourceVictim": "P",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 3,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "chris-f",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Chris F",
+      "victimEntry": 2,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "p",
+      "killer": "li-fo",
+      "sourceVictim": "P",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 4,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "vish",
+      "killer": "the-architect",
+      "sourceVictim": "Vish",
+      "sourceKiller": "The Architect",
+      "victimEntry": 3,
+      "killerEntry": 1
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "wild-bill",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Wild Bill",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "bostnmike",
+      "killer": "alex-c",
+      "sourceVictim": "BostnMike",
+      "sourceKiller": "Alex C",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "chris-f",
+      "killer": "ahmed",
+      "sourceVictim": "Chris F",
+      "sourceKiller": "Ahmed",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "alex-c",
+      "killer": "liam-o",
+      "sourceVictim": "Alex C",
+      "sourceKiller": "Liam O",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "p",
+      "killer": "hiro",
+      "sourceVictim": "P",
+      "sourceKiller": "Hiro",
+      "victimEntry": 5,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "griffin",
+      "killer": "li-fo",
+      "sourceVictim": "Griffin",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 4,
+      "killerEntry": 2
+    },
+    {
+      "victim": "wild-bill",
+      "killer": "ai-dave",
+      "sourceVictim": "Wild Bill",
+      "sourceKiller": "A.I. Dave",
+      "victimEntry": 1,
+      "killerEntry": 2
+    },
+    {
+      "victim": "red",
+      "killer": "ahmed",
+      "sourceVictim": "Red",
+      "sourceKiller": "Ahmed",
+      "victimEntry": 3,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "ai-dave",
+      "killer": "liam-o",
+      "sourceVictim": "A.I. Dave",
+      "sourceKiller": "Liam O",
+      "victimEntry": 2,
+      "killerEntry": 1
+    },
+    {
+      "victim": "the-architect",
+      "killer": "hiro",
+      "sourceVictim": "The Architect",
+      "sourceKiller": "Hiro",
+      "victimEntry": 1,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "nasa-al",
+      "killer": "li-fo",
+      "sourceVictim": "Nasa Al",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 3,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "ahmed",
+      "killer": "li-fo",
+      "sourceVictim": "Ahmed",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "hiro",
+      "killer": "li-fo",
+      "sourceVictim": "Hiro",
+      "sourceKiller": "Li-Fo",
+      "victimEntry": 1,
+      "killerEntry": 2,
+      "bountyAmount": 10
+    },
+    {
+      "victim": "li-fo",
+      "killer": "liam-o",
+      "sourceVictim": "Li-Fo",
+      "sourceKiller": "Liam O",
+      "victimEntry": 2,
+      "killerEntry": 1,
+      "bountyAmount": 10
+    }
   ]
 }

@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-10-24T04:45:15.412620Z",
+  "generatedAt": "2026-10-25T03:06:33.858868Z",
   "status": "PASS",
   "scope": {
-    "rawEvents": 55,
-    "parsedEvents": 55,
+    "rawEvents": 56,
+    "parsedEvents": 56,
     "players": 36,
     "publicPages": 24,
-    "collectibleCards": 101
+    "collectibleCards": 104
   },
-  "checksRun": 58272,
+  "checksRun": 59529,
   "checksBySection": {
     "assets": 857,
     "cardForm": 72,
-    "cards": 698,
+    "cards": 716,
     "eventFinancials": 20,
-    "eventMath": 21303,
+    "eventMath": 21305,
     "javascript": 19,
-    "knockouts": 170,
+    "knockouts": 175,
     "leaderboards": 2,
-    "pageCalculations": 33650,
+    "optionalBounties": 1019,
+    "pageCalculations": 33847,
     "pages": 47,
-    "playerAggregates": 1406,
+    "playerAggregates": 1442,
     "sources": 7,
-    "streaks": 1,
-    "zeroGamePlayers": 20
+    "streaks": 1
   },
   "errorCount": 0,
   "warningCount": 0,

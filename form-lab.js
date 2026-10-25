@@ -112,7 +112,7 @@ const FL_METRICS = {
     label: "Profit",
     short: "Profit",
     format: moneyFmt,
-    description: "Prize money plus bounty returns, minus tournament entries and bounty purchases."
+    description: "Prize money, bounty returns, and confirmed settlement adjustments, minus tournament entries and bounty purchases."
   },
   cost: {
     label: "Cost",
@@ -124,7 +124,7 @@ const FL_METRICS = {
     label: "Winnings",
     short: "Won",
     format: moneyFmt,
-    description: "Total take-home from tournament prizes and bounty returns."
+    description: "Total take-home from tournament prizes, bounty returns, and confirmed settlement adjustments."
   },
   bubbleFlag: {
     label: "Bubble Flag",
@@ -1001,6 +1001,7 @@ function renderEventDetail(rows) {
       ${detailStat("Cost", moneyFmt(row.cost))}
       ${detailStat("Tournament Winnings", moneyFmt(row.tournamentWinnings))}
       ${detailStat("Bounty Returns", moneyFmt(row.bountyReturns))}
+      ${row.settlementAdjustment ? detailStat("Settlement Adjustment", moneyFmt(row.settlementAdjustment)) : ""}
       ${detailStat("Total Take-home", moneyFmt(row.winnings))}
       ${detailStat("Form", numberFmt(row.formScore, 1))}
       ${detailStat("Pain", numberFmt(row.painIndex, 1))}
@@ -1187,7 +1188,8 @@ function buildPlayerEventRow(event, player, playerSlug) {
     ? getNumeric(explicitProfit)
     : winnings - cost;
 
-  const tournamentWinnings = getNumeric(firstDefined(found.tournamentWinnings, winnings - getNumeric(found.bountyWinnings)));
+  const settlementAdjustment = getNumeric(found.settlementAdjustment);
+  const tournamentWinnings = getNumeric(firstDefined(found.tournamentWinnings, winnings - getNumeric(found.bountyWinnings) - settlementAdjustment));
   const bountyReturns = getNumeric(found.bountyWinnings);
   const paidSpots = getPaidSpots(event);
   const cashFlag = tournamentWinnings > 0 || (paidSpots > 0 && finishPosition > 0 && finishPosition <= paidSpots);
@@ -1237,6 +1239,7 @@ function buildPlayerEventRow(event, player, playerSlug) {
     winnings,
     tournamentWinnings,
     bountyReturns,
+    settlementAdjustment,
     cost,
     profit,
     paidSpots,

@@ -246,10 +246,12 @@ const projectedMttPrizes = [38, 24, 16, 12, 10].map(percent => (1040 - 40) * per
 check(JSON.stringify(projectedMttPrizes) === JSON.stringify([380, 240, 160, 120, 100, 40])
     && projectedMttPrizes.every((value, i) => mtt.payoutLabel.includes(`${i + 1}${i === 0 ? "st" : i === 1 ? "nd" : i === 2 ? "rd" : "th"} $${value}`)),
   "MTT projected payouts must reserve sixth before applying percentages");
-check(mttFinancials.regularPayoutFixed["6"] === 40
-    && JSON.stringify(Object.values(mttFinancials.regularPayoutPercentages)) === JSON.stringify([38, 24, 16, 12, 10])
+const completedMttChop = fs.existsSync(path.join(root, "data/parsed/events/2026-10-24.json"))
+    && mttFinancials.chopFinalists?.length > 1 && !!mttFinancials.regularPayoutsByPlayer;
+check((completedMttChop || (mttFinancials.regularPayoutFixed?.["6"] === 40
+    && JSON.stringify(Object.values(mttFinancials.regularPayoutPercentages || {})) === JSON.stringify([38, 24, 16, 12, 10])))
     && mttFinancials.bounty.mode === "optional-rebuy" && mttFinancials.bounty.winnerOnlyRollover === true,
-  "MTT display and future financial configuration must use the same policy");
+  "MTT must use the planned payout policy or a completed source-audited chop; projected structure stays unchanged");
 check(mtt.bounty.text.split(/\s+/).length <= 40 && !mtt.bounty.details,
   "MTT structure bounty summary must remain brief");
 check(mttCallout.includes('href="rules.html#rules-mtt-bounties"'),
@@ -860,13 +862,22 @@ const bountyOnlyRow = formLab.get("buildPlayerEventRow")(bountyOnlyEvent, bounty
 check(bountyOnlyRow.cashFlag === 0, "Bounty-only take-home must not create a Form Lab cash");
 check(bountyOnlyRow.winnings === 10 && bountyOnlyRow.profit === -25,
   "Form Lab must include bounty receipts and costs in take-home and profit");
+const settlementEvent = JSON.parse(JSON.stringify(bountyOnlyEvent));
+settlementEvent.players[0].totalWinnings = 20;
+settlementEvent.players[0].profit = -15;
+settlementEvent.players[0].settlementAdjustment = 10;
+delete settlementEvent.players[0].tournamentWinnings;
+const settlementRow = formLab.get("buildPlayerEventRow")(settlementEvent, bountyOnlyPlayer, "ai-dave");
+check(settlementRow.tournamentWinnings === 0 && settlementRow.cashFlag === 0 && settlementRow.settlementAdjustment === 10
+    && settlementRow.winnings === 20 && settlementRow.profit === -15,
+  "Confirmed settlement money must affect take-home without becoming a bounty or tournament cash");
 for (const player of players) {
-  check(close(player.totalWinnings, player.tournamentWinnings + player.bountyWinnings),
-    `${player.slug}: take-home must equal prize money + bounty returns`);
+  check(close(player.totalWinnings, player.tournamentWinnings + player.bountyWinnings + (player.settlementAdjustment || 0)),
+    `${player.slug}: take-home must equal prize money + bounty returns + confirmed settlement adjustments`);
   check(close(player.totalCost, player.tournamentCost + player.bountyPaid),
     `${player.slug}: total cost must include bounty purchases`);
-  check(close(player.profit, player.tournamentProfit + player.bountyNet),
-    `${player.slug}: overall profit must include bounty net once`);
+  check(close(player.profit, player.tournamentProfit + player.bountyNet + (player.settlementAdjustment || 0)),
+    `${player.slug}: overall profit must include bounty net and settlement adjustments once`);
 }
 
 for (const [amount, expected] of [[157.5, "$157.50"], [132.5, "$132.50"], [-65.5, "-$65.50"], [65, "$65"], [0.01, "$0.01"]]) {

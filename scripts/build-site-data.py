@@ -58,11 +58,12 @@ BOUNTY_KEYS = (
     "bountyWinnings",
     "bountyNet",
 )
+ACCOUNTING_KEYS = (*BOUNTY_KEYS, "settlementAdjustment")
 
 
 def tournament_breakdown(record):
     cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
-    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0)
+    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0) - record.get("settlementAdjustment", 0)
     return {
         "tournamentCost": cost,
         "tournamentWinnings": winnings,
@@ -253,7 +254,7 @@ def build_zero_player(meta):
         "hitRate": 0.0,
         "totalCost": 0,
         "totalWinnings": 0,
-        **{key: 0 for key in BOUNTY_KEYS},
+        **{key: 0 for key in ACCOUNTING_KEYS},
         **tournament_breakdown({}),
         "expectedProfit": 0.0,
         "luckIndex": 0.0,
@@ -497,7 +498,7 @@ def aggregate_card_form_window(player_meta, event_rows):
         for key in [
             "entries", "buyIns", "rebuys", "hits", "timesPlaced",
             "bubbles", "profit", "totalCost", "totalWinnings",
-            *BOUNTY_KEYS,
+            *ACCOUNTING_KEYS,
         ]:
             metrics[key] += row.get(key, 0) or 0
 
@@ -522,7 +523,7 @@ def aggregate_card_form_window(player_meta, event_rows):
                 **tournament_breakdown(item["row"]),
                 **{
                     key: item["row"].get(key, 0) or 0
-                    for key in BOUNTY_KEYS
+                    for key in ACCOUNTING_KEYS
                 },
             }
             for item in event_rows
@@ -973,7 +974,7 @@ def build_historical_card_collections(players, parsed_events):
             for key in [
                 "entries", "buyIns", "rebuys", "hits", "timesPlaced",
                 "bubbles", "profit", "totalCost", "totalWinnings",
-                *BOUNTY_KEYS
+                *ACCOUNTING_KEYS
             ]:
                 player[key] += row.get(key, 0) or 0
 
@@ -1253,7 +1254,7 @@ def main():
             for key in [
                 "entries", "buyIns", "rebuys", "hits",
                 "timesPlaced", "bubbles", "profit",
-                "totalCost", "totalWinnings", *BOUNTY_KEYS,
+                "totalCost", "totalWinnings", *ACCOUNTING_KEYS,
             ]:
                 p[key] += ep.get(key, 0)
 

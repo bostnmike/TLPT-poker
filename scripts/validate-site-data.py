@@ -66,8 +66,8 @@ def validate_player(p):
 
     for key, expected in {
         "tournamentCost": p.get("totalCost", 0) - p.get("bountyPaid", 0),
-        "tournamentWinnings": p.get("totalWinnings", 0) - p.get("bountyWinnings", 0),
-        "tournamentProfit": p.get("profit", 0) - p.get("bountyNet", 0),
+        "tournamentWinnings": p.get("totalWinnings", 0) - p.get("bountyWinnings", 0) - p.get("settlementAdjustment", 0),
+        "tournamentProfit": p.get("profit", 0) - p.get("bountyNet", 0) - p.get("settlementAdjustment", 0),
     }.items():
         if p.get(key) != expected:
             errors.append(f"{key} mismatch")

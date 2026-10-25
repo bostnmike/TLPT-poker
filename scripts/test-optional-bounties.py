@@ -147,7 +147,8 @@ class OptionalBountiesTests(unittest.TestCase):
     def test_fixed_award_is_reserved_before_percentages(self):
         from optional_bounties import regular_prizes
         from decimal import Decimal
-        mtt = parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-10-24']
+        mtt = dict(regularPayoutFixed={'6': 40},
+                   regularPayoutPercentages={'1': 38, '2': 24, '3': 16, '4': 12, '5': 10})
         receipts = [dict(slug=str(rank), rank=rank) for rank in range(1, 7)]
         prizes = regular_prizes(mtt, receipts, {r['slug'] for r in receipts}, Decimal(1040), 6)
         self.assertEqual(prizes, {str(i+1): Decimal(v) for i,v in enumerate([380,240,160,120,100,40])})
@@ -232,6 +233,88 @@ class OptionalBountiesTests(unittest.TestCase):
         self.assertEqual(found, set(hashes))
         self.assertEqual(len(hashes), 55)
         self.assertFalse(any('fixtures' in str(path) for path in parser.production_raw_files()))
+
+    def mtt(self, mutate_rule=None, mutate_history=None):
+        rule = copy.deepcopy(parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-10-24'])
+        if mutate_rule:
+            mutate_rule(rule)
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            summary = 'Event Report 2026-10-24.html'
+            shutil.copyfile(parser.RAW_EVENTS_DIR/summary, directory/summary)
+            history = (parser.RAW_EVENTS_DIR/rule['detailedHistoryFile']).read_text()
+            (directory/rule['detailedHistoryFile']).write_text(mutate_history(history) if mutate_history else history)
+            event = parser.parse_report_file(directory/summary, self.aliases, self.metadata, 30,
+                                             {'events': {'2026-10-24': rule}})
+            from audit_optional_bounties import audit_optional_event
+            result = Audit()
+            audit_optional_event(result, event, directory/summary, rule, self.metadata, parser)
+            self.assertEqual(result.failures, [])
+            return event
+
+    def test_mtt_confirmed_chop_reloads_and_actual_cash(self):
+        for filename, digest in {
+            'Event Report 2026-10-24.html': '5913d29f95894ed10d8decce84ec890d0353770a1fef75ba9df19f5bb58077ad',
+            'Event History 2026-10-24.txt': '02183cb6c69a651e5ba4a87884c1d23f916f5617238831140f4ea9699c2d676c',
+        }.items():
+            self.assertEqual(hashlib.sha256((parser.RAW_EVENTS_DIR/filename).read_bytes()).hexdigest(), digest)
+        event = self.mtt()
+        rows = {r['slug']: r for r in event['players']}
+        self.assertEqual((event['summary']['buyIns'], event['summary']['rebuys']), (17, 18))
+        self.assertEqual(sum(r['hits'] for r in rows.values()), 31)
+        self.assertEqual(sum(r['bountiesWon'] for r in rows.values()), 27)
+        self.assertEqual(sum(r['bountyPaid'] for r in rows.values()), 300)
+        self.assertEqual(sum(r['bountyRetained'] for r in rows.values()), 20)
+        self.assertEqual(sum(r['rolloverPrize'] for r in rows.values()), 10)
+        self.assertEqual((sum(r['totalCost'] for r in rows.values()), sum(r['totalWinnings'] for r in rows.values())), (1700, 1710))
+        self.assertEqual(sum(r['profit'] for r in rows.values()), 10)
+        self.assertEqual(rows['wild-bill']['totalWinnings'], 20)
+        self.assertEqual((rows['wild-bill']['bountiesWon'], rows['wild-bill']['bountyCollected'],
+                          rows['wild-bill']['bountyRetained'], rows['wild-bill']['settlementAdjustment'],
+                          rows['wild-bill']['timesPlaced']), (1, 10, 0, 10, 0))
+        expected = {'liam-o': (370, 20, 10, 400), 'providencemike': (480, 0, 10, 490),
+                    'li-fo': (220, 60, 0, 280), 'hiro': (165, 30, 0, 195),
+                    'ahmed': (135, 30, 0, 165), 'nasa-al': (40, 10, 0, 50)}
+        for slug, values in expected.items():
+            self.assertEqual(tuple(rows[slug][k] for k in ('tournamentWinnings','bountyCollected','bountyRetained','totalWinnings')), values)
+        self.assertEqual([(w['slug'], w['rank']) for w in event['winners'][:2]], [('liam-o', 1), ('providencemike', 1)])
+        reloads = [a for a in event['actions'] if a.get('isReload')]
+        self.assertEqual([(a['slug'], a['entryOrdinal'], a['activeEntryOrdinal']) for a in reloads], [('hiro', 2, 1), ('providencemike', 2, 1)])
+        hiro_bust = next(c for c in event['bountyAccounting']['claims'] if c['victim'] == 'hiro')
+        self.assertEqual((hiro_bust['victimEntry'], hiro_bust['amount']), (1, 10))
+        self.assertEqual(rows['kishan']['entries'], 0)
+        self.assertEqual(rows['the-architect']['bubbles'], 1)
+        self.assertEqual(sum(r['timesPlaced'] for r in rows.values()), 6)
+
+    def test_mtt_requires_each_explicit_confirmation(self):
+        for key, error in [('chopFinalists', 'ambiguous chops'), ('rolloverRecipient', 'recipient'),
+                           ('reloads', 'ENTRY_WHILE_ACTIVE'), ('allowOmittedZeroReceipts', 'receipt'),
+                           ('settlementAdjustmentsByPlayer', 'actual receipt'),
+                           ('sourceRolloverAllocationsByPlayer', 'reconciled')]:
+            with self.subTest(key=key), self.assertRaisesRegex(RuntimeError, error):
+                self.mtt(lambda r: r.pop(key))
+        with self.assertRaisesRegex(RuntimeError, 'actual receipt'):
+            self.mtt(lambda r: r['actualReceiptsByPlayer'].update(providencemike=480))
+
+    def test_mtt_undo_and_unknown_action_guards(self):
+        with self.assertRaisesRegex(RuntimeError, 'UNDO_MISMATCH'):
+            self.mtt(mutate_history=lambda t: t.replace('Undo buy-in for Ahmed (Fee: $40.00', 'Undo buy-in for Ahmed (Fee: $50.00', 1))
+        with self.assertRaisesRegex(RuntimeError, 'unsupported history action'):
+            self.mtt(mutate_history=lambda t: t.replace('Start of round 1\n', 'Unrecorded cash payment\n', 1))
+        with self.assertRaisesRegex(RuntimeError, 'configured reload absent'):
+            self.mtt(lambda r: r['reloads'].append({'slug':'hiro','time':'2026-10-24T14:51:21'}))
+
+    def test_mtt_independent_audit_rejects_settlement_as_bounty_or_prize(self):
+        from audit_optional_bounties import audit_optional_event
+        event = self.mtt()
+        rule = parser.load_json(parser.EVENT_FINANCIALS_PATH)['events']['2026-10-24']
+        for field in ('bountiesWon', 'bountyRetained', 'timesPlaced', 'tournamentWinnings', 'settlementAdjustment'):
+            changed = copy.deepcopy(event)
+            bill = next(r for r in changed['players'] if r['slug'] == 'wild-bill')
+            bill[field] += 1
+            result = Audit()
+            audit_optional_event(result, changed, parser.RAW_EVENTS_DIR/'Event Report 2026-10-24.html', rule, self.metadata, parser)
+            self.assertTrue(result.failures, field)
 
     def test_historical_guard_allows_registration_but_not_phantom_results(self):
         event = {'players': [{'name': 'Original', 'slug': 'original', 'entries': 1, 'profit': -30}],

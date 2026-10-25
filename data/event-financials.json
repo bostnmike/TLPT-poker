@@ -17,15 +17,39 @@
     "2026-10-24": {
       "entryAmount": 40,
       "detailedHistoryFile": "Event History 2026-10-24.txt",
-      "regularPayoutFixed": {
-        "6": 40
+      "regularPayoutsByPlayer": {
+        "liam-o": 370,
+        "providencemike": 470,
+        "li-fo": 220,
+        "hiro": 165,
+        "ahmed": 135,
+        "nasa-al": 40,
+        "the-architect": 0,
+        "ai-dave": 0,
+        "red": 0,
+        "wild-bill": 0,
+        "griffin": 0,
+        "p": 0,
+        "alex-c": 0,
+        "chris-f": 0,
+        "bostnmike": 0,
+        "vish": 0,
+        "cougar": 0
       },
-      "regularPayoutPercentages": {
-        "1": 38,
-        "2": 24,
-        "3": 16,
-        "4": 12,
-        "5": 10
+      "chopFinalists": ["liam-o", "providencemike"],
+      "rolloverRecipient": "providencemike",
+      "reloads": [
+        {"slug": "hiro", "time": "2026-10-24T14:51:20"},
+        {"slug": "providencemike", "time": "2026-10-24T17:37:24"}
+      ],
+      "allowOmittedZeroReceipts": true,
+      "sourceRolloverAllocationsByPlayer": {"wild-bill": 10},
+      "actualReceiptsByPlayer": {"providencemike": 490, "wild-bill": 20},
+      "settlementAdjustmentsByPlayer": {
+        "wild-bill": {
+          "amount": 10,
+          "reason": "Commish confirmed Wild Bill was paid $20 although history supports one $10 bounty win and no retained bounty. The forfeited $10 was separately paid to ProvidenceMike (actual receipt $490). This is an extra settlement payment, not another bounty or prize; funding source is unconfirmed."
+        }
       },
       "bounty": {
         "amount": 10,

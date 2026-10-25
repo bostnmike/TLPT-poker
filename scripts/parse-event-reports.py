@@ -748,6 +748,10 @@ def derive_event_player_stats(
             if "rollover" in bounty_ledger:
                 record["regularPrize"] = values.get("regularPrize", 0)
                 record["rolloverPrize"] = values.get("rolloverPrize", 0)
+                if any("settlementAdjustment" in v for v in bounty_values.values()):
+                    record["settlementAdjustment"] = values.get("settlementAdjustment", 0)
+                    record["totalWinnings"] += record["settlementAdjustment"]
+                    record["profit"] += record["settlementAdjustment"]
                 for key in ('totalCost', 'totalWinnings', 'profit', 'tournamentCost', 'tournamentWinnings',
                             'tournamentProfit', 'bountyPaid', 'bountyCollected', 'bountyRetained', 'bountyWinnings', 'bountyNet'):
                     record[key] = round(record[key], 2)
@@ -922,6 +926,14 @@ def parse_report_file(
                                   rollover=bounty_ledger["rollover"], winnerOnlyRollover=True)
         event["bountyAccounting"] = {key: bounty_ledger[key] for key in
             ("historyFile", "historySha256", "claims", "reconciliation")}
+        settlement = sum(p.get("settlementAdjustment", 0) for p in event["players"])
+        if settlement:
+            summary["settlement"] = {
+                "adjustment": settlement,
+                "cashCollected": sum(p["totalCost"] for p in event["players"]),
+                "cashPaid": sum(p["totalWinnings"] for p in event["players"]),
+                "note": f"Confirmed payouts exceed collections by ${settlement:g}. Recorded separately from tournament prizes and bounty returns; funding source is unconfirmed."
+            }
 
     return event
 

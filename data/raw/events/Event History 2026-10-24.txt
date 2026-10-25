@@ -1,0 +1,176 @@
+11:26:20 am 10/11/2026: Ahmed bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Ai-Dave bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Bostnmike bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Chris F bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Griffin bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Hiro bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Kishan bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Li-Fo bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Liam O bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Nasa Al bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Providencemike bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Red bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: The Architect bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Vish bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:20 am 10/11/2026: Wild Bill bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:26:35 am 10/11/2026: Alex C bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+12:44:58 pm 10/12/2026: Cougar bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Ahmed (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Ai-Dave (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Alex C (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Bostnmike (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Chris F (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Cougar (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Griffin (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Hiro (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Kishan (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Li-Fo (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Liam O (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Nasa Al (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Providencemike (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Red (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for The Architect (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Vish (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+10:08:25 am 10/19/2026: Undo buy-in for Wild Bill (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Wild Bill bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Liam O bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Nasa Al bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Providencemike bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Red bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: The Architect bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Vish bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Chris F bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Cougar bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Griffin bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Hiro bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Kishan bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Li-Fo bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Ahmed bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Ai-Dave bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Alex C bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:45:08 pm 10/20/2026: Bostnmike bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:49:45 pm 10/20/2026: Undo buy-in for Ai-Dave (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+11:50:08 pm 10/20/2026: Ai-Dave bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+06:35:26 pm 10/21/2026: Undo buy-in for Kishan (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+09:26:34 pm 10/23/2026: P bought-in (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL Buy-In)
+09:46:36 am 10/24/2026: Start of pre-tournament countdown
+09:47:43 am 10/24/2026: Start of pre-tournament countdown
+11:50:15 am 10/24/2026: Start of pre-tournament countdown
+01:04:59 pm 10/24/2026: End of pre-tournament countdown
+01:05:03 pm 10/24/2026: Kitchen, Seat 2: Liam O
+01:05:03 pm 10/24/2026: Tournament started
+01:05:03 pm 10/24/2026: Kitchen, Seat 3: Nasa Al
+01:05:03 pm 10/24/2026: Kitchen, Seat 4: P
+01:05:03 pm 10/24/2026: Kitchen, Seat 5: Ahmed
+01:05:03 pm 10/24/2026: Kitchen, Seat 6: Hiro
+01:05:03 pm 10/24/2026: Kitchen, Seat 7: Chris F
+01:05:03 pm 10/24/2026: Kitchen, Seat 8: Li-Fo
+01:05:03 pm 10/24/2026: Kitchen, Seat 9: Griffin
+01:05:03 pm 10/24/2026: Featured, Seat 1: Ai-Dave
+01:05:03 pm 10/24/2026: Featured, Seat 2: Wild Bill
+01:05:03 pm 10/24/2026: Featured, Seat 3: Alex C
+01:05:03 pm 10/24/2026: Featured, Seat 4: Red
+01:05:03 pm 10/24/2026: Featured, Seat 5: Bostnmike
+01:05:03 pm 10/24/2026: Featured, Seat 6: Providencemike
+01:05:03 pm 10/24/2026: Featured, Seat 7: Vish
+01:05:03 pm 10/24/2026: Featured, Seat 8: Cougar
+01:05:03 pm 10/24/2026: Featured, Seat 9: The Architect
+01:05:03 pm 10/24/2026: Start of round 1
+01:29:38 pm 10/24/2026: Li-Fo busted out of the tournament (Kitchen, Seat 8) by Ahmed (Kitchen, Seat 5)
+01:30:21 pm 10/24/2026: Li-Fo rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+01:39:15 pm 10/24/2026: End of round 1
+01:39:19 pm 10/24/2026: Start of round 2
+02:01:10 pm 10/24/2026: Red busted out of the tournament (Featured, Seat 4) by Alex C (Featured, Seat 3)
+02:01:23 pm 10/24/2026: Red rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+02:06:06 pm 10/24/2026: End of round 2
+02:06:10 pm 10/24/2026: Start of round 3
+02:30:10 pm 10/24/2026: Griffin busted out of the tournament (Kitchen, Seat 9) by Nasa Al (Kitchen, Seat 3)
+02:30:19 pm 10/24/2026: Griffin rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+02:31:10 pm 10/24/2026: End of round 3
+02:31:14 pm 10/24/2026: Start of round 4
+02:46:35 pm 10/24/2026: P busted out of the tournament (Kitchen, Seat 4) by Li-Fo (Kitchen, Seat 1)
+02:46:44 pm 10/24/2026: P rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+02:51:20 pm 10/24/2026: Hiro rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+02:52:17 pm 10/24/2026: Red rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+02:52:56 pm 10/24/2026: Undo of latest rebuy for Red (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+02:53:03 pm 10/24/2026: Red busted out of the tournament (Featured, Seat 4) by Alex C (Featured, Seat 3)
+02:53:07 pm 10/24/2026: Red rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+02:56:14 pm 10/24/2026: End of round 4
+02:56:18 pm 10/24/2026: Start of round 5
+03:12:28 pm 10/24/2026: P busted out of the tournament (Kitchen, Seat 4) by Hiro (Kitchen, Seat 6)
+03:12:35 pm 10/24/2026: P rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+03:21:18 pm 10/24/2026: End of round 5
+03:21:22 pm 10/24/2026: Start of break 1
+03:44:56 pm 10/24/2026: End of break 1
+03:45:00 pm 10/24/2026: Start of round 6
+03:58:11 pm 10/24/2026: Vish busted out of the tournament (Featured, Seat 7) by The Architect (Featured, Seat 9)
+03:59:54 pm 10/24/2026: Vish rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+04:10:00 pm 10/24/2026: End of round 6
+04:10:04 pm 10/24/2026: Start of round 7
+04:13:26 pm 10/24/2026: Chris F busted out of the tournament (Kitchen, Seat 7) by Griffin (Kitchen, Seat 9)
+04:14:25 pm 10/24/2026: Chris F rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+04:32:43 pm 10/24/2026: Vish busted out of the tournament (Featured, Seat 7) by Alex C (Featured, Seat 3)
+04:32:51 pm 10/24/2026: Vish rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+04:35:04 pm 10/24/2026: End of round 7
+04:35:08 pm 10/24/2026: Start of round 8
+04:45:27 pm 10/24/2026: Griffin busted out of the tournament (Kitchen, Seat 9) by Chris F (Kitchen, Seat 7)
+04:45:36 pm 10/24/2026: Griffin rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+04:54:26 pm 10/24/2026: Nasa Al busted out of the tournament (Kitchen, Seat 3) by Chris F (Kitchen, Seat 7)
+04:54:34 pm 10/24/2026: Nasa Al rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+05:00:08 pm 10/24/2026: End of round 8
+05:00:12 pm 10/24/2026: Start of round 9
+05:08:52 pm 10/24/2026: Cougar busted out of the tournament (Featured, Seat 8) by Ai-Dave (Featured, Seat 1)
+05:15:06 pm 10/24/2026: Griffin busted out of the tournament (Kitchen, Seat 9) by Chris F (Kitchen, Seat 7)
+05:15:16 pm 10/24/2026: Griffin rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+05:25:12 pm 10/24/2026: End of round 9
+05:25:16 pm 10/24/2026: Start of round 10
+05:29:22 pm 10/24/2026: P busted out of the tournament (Kitchen, Seat 4) by Li-Fo (Kitchen, Seat 1)
+05:29:29 pm 10/24/2026: P rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+05:33:07 pm 10/24/2026: Nasa Al busted out of the tournament (Kitchen, Seat 3) by Chris F (Kitchen, Seat 7)
+05:33:12 pm 10/24/2026: Nasa Al rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+05:37:24 pm 10/24/2026: Providencemike rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+05:50:16 pm 10/24/2026: End of round 10
+05:50:20 pm 10/24/2026: Start of break 2
+06:16:40 pm 10/24/2026: P busted out of the tournament (Kitchen, Seat 4) by Li-Fo (Kitchen, Seat 1)
+06:16:44 pm 10/24/2026: P rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+06:35:20 pm 10/24/2026: End of break 2
+06:35:24 pm 10/24/2026: Start of round 11
+06:43:21 pm 10/24/2026: Vish busted out of the tournament (Featured, Seat 7) by The Architect (Featured, Seat 9)
+06:52:29 pm 10/24/2026: Ai-Dave busted out of the tournament (Featured, Seat 1) by Wild Bill (Featured, Seat 2)
+06:52:34 pm 10/24/2026: Ai-Dave rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+06:53:11 pm 10/24/2026: Undo of latest rebuy for Ai-Dave (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Bounty Chip: $10.00, Profile: TLPT FINAL REBUY)
+06:53:40 pm 10/24/2026: Ai-Dave rebought into tournament (Fee: $40.00, Rake: $0.00, Chips: 50,000, Points: 0.00, Profile: TLPT FINAL REBUY)
+07:00:24 pm 10/24/2026: End of round 11
+07:00:28 pm 10/24/2026: Start of round 12
+07:04:14 pm 10/24/2026: Bostnmike busted out of the tournament (Featured, Seat 5) by Alex C (Featured, Seat 3)
+07:25:28 pm 10/24/2026: End of round 12
+07:25:32 pm 10/24/2026: Start of round 13
+07:37:46 pm 10/24/2026: Chris F busted out of the tournament (Kitchen, Seat 7) by Ahmed (Kitchen, Seat 5)
+07:42:39 pm 10/24/2026: Alex C busted out of the tournament (Featured, Seat 3) by Liam O (Featured, Seat 7)
+07:45:02 pm 10/24/2026: P busted out of the tournament (Kitchen, Seat 4) by Hiro (Kitchen, Seat 6)
+07:50:32 pm 10/24/2026: End of round 13
+07:50:36 pm 10/24/2026: Start of round 14
+08:06:16 pm 10/24/2026: Griffin busted out of the tournament (Kitchen, Seat 9) by Li-Fo (Kitchen, Seat 1)
+08:09:02 pm 10/24/2026: Wild Bill busted out of the tournament (Featured, Seat 2) by Ai-Dave (Featured, Seat 1)
+08:09:45 pm 10/24/2026: Red busted out of the tournament (Kitchen, Seat 4) by Ahmed (Kitchen, Seat 5)
+08:25:28 pm 10/24/2026: End of round 14
+08:25:32 pm 10/24/2026: Start of round 15
+08:38:34 pm 10/24/2026: Ai-Dave busted out of the tournament (Featured, Seat 2) by Liam O (Featured, Seat 7)
+08:41:21 pm 10/24/2026: The Architect busted out of the tournament (Featured, Seat 6) by Hiro (Featured, Seat 3)
+08:50:32 pm 10/24/2026: End of round 15
+08:50:36 pm 10/24/2026: Start of break 3
+08:59:33 pm 10/24/2026: User initiated next round
+08:59:33 pm 10/24/2026: Start of round 16
+09:04:36 pm 10/24/2026: Nasa Al busted out of the tournament (Featured, Seat 5) by Li-Fo (Featured, Seat 4)
+09:24:34 pm 10/24/2026: End of round 16
+09:24:38 pm 10/24/2026: Start of round 17
+09:33:42 pm 10/24/2026: Ahmed busted out of the tournament (Featured, Seat 8) by Li-Fo (Featured, Seat 4)
+09:49:38 pm 10/24/2026: End of round 17
+09:49:42 pm 10/24/2026: Start of round 18
+09:53:49 pm 10/24/2026: Hiro busted out of the tournament (Featured, Seat 3) by Li-Fo (Featured, Seat 4)
+10:10:00 pm 10/24/2026: Li-Fo busted out of the tournament (Featured, Seat 4) by Liam O (Featured, Seat 7)
+10:14:42 pm 10/24/2026: End of round 18
+10:14:46 pm 10/24/2026: Start of round 19
+10:20:25 pm 10/24/2026: Liam O chopped for 1st place
+10:20:25 pm 10/24/2026: Providencemike chopped for 1st place
+10:20:25 pm 10/24/2026: Tournament ended

@@ -137,7 +137,9 @@ separate them during parsing. Keep those receipt lines intact rather than subtra
 bounties from the source and then subtracting them again downstream.
 
 `totalWinnings` is overall take-home: tournament prize money + `bountyCollected` +
-`bountyRetained`. `totalCost` includes tournament entries and `bountyPaid`; `profit`
+`bountyRetained` + explicitly confirmed `settlementAdjustment` (normally zero).
+Settlement adjustments never become bounty wins, tournament prizes, or cashes.
+`totalCost` includes tournament entries and `bountyPaid`; `profit`
 and ROI use those combined totals. `tournamentWinnings`, `tournamentCost`, and
 `tournamentProfit` expose the prize-only breakdown. Retaining your own bounty offsets
 its original purchase cost. Bounty-only receipts never count as tournament cashes.

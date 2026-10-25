@@ -32,7 +32,7 @@ EVENT_FINANCIALS_PATH = DATA / "event-financials.json"
 
 CORE_KEYS = (
     "entries", "buyIns", "rebuys", "hits", "timesPlaced", "bubbles",
-    "profit", "totalCost", "totalWinnings"
+    "profit", "totalCost", "totalWinnings", "settlementAdjustment"
 )
 BOUNTY_KEYS = (
     "bountiesWon",
@@ -146,7 +146,7 @@ class Audit:
 def tournament_breakdown(record):
     # Recompute the prize-only ledger from combined totals independently.
     cost = record.get("totalCost", 0) - record.get("bountyPaid", 0)
-    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0)
+    winnings = record.get("totalWinnings", 0) - record.get("bountyWinnings", 0) - record.get("settlementAdjustment", 0)
     return {"tournamentCost": cost, "tournamentWinnings": winnings,
             "tournamentProfit": winnings - cost}
 
@@ -689,12 +689,14 @@ def audit_event_financial_config(audit, event_financials, schedule):
         audit.check(bool(mtt_rule), section, "Scheduled MTT is missing an event-financial rule")
         audit.check(Decimal(str(mtt_rule.get("entryAmount", 0))) == Decimal("40"), section, "Scheduled MTT entry must remain $40")
         audit.check(Decimal(str((mtt_rule.get("bounty") or {}).get("amount", 0))) == Decimal("10"), section, "Scheduled MTT bounty must remain $10")
+        completed_chop = (PARSED_DIR / f"{mtt_date}.json").is_file() and bool(mtt_rule.get("chopFinalists"))
         audit.check(
+            (completed_chop and bool(mtt_rule.get("regularPayoutsByPlayer")) or
             mtt_rule.get("regularPayoutFixed") == {"6": 40}
             and mtt_rule.get("regularPayoutPercentages") == {"1": 38, "2": 24, "3": 16, "4": 12, "5": 10}
-            and (mtt_rule.get("bounty") or {}).get("mode") == "optional-rebuy",
+            ) and (mtt_rule.get("bounty") or {}).get("mode") == "optional-rebuy",
             section,
-            "Scheduled MTT payouts must match the approved six-place schedule",
+            "MTT needs the approved planned schedule or a completed, source-audited exact chop",
         )
 
 
@@ -978,7 +980,7 @@ def audit_card_form(audit, metadata, events, site_data):
                 "startDate": subset[0][0]["date"] if subset else None,
                 "endDate": subset[-1][0]["date"] if subset else None,
                 "metrics": metrics,
-                "events": [{"date": event["date"], "title": event["title"], **tournament_breakdown(row), **{core: row.get(core, 0) or 0 for core in ("entries", "rebuys", "hits", "timesPlaced", "bubbles", "profit", "totalCost", "totalWinnings", *BOUNTY_KEYS)}} for event, row in subset],
+                "events": [{"date": event["date"], "title": event["title"], **tournament_breakdown(row), **{core: row.get(core, 0) or 0 for core in ("entries", "rebuys", "hits", "timesPlaced", "bubbles", "profit", "totalCost", "totalWinnings", "settlementAdjustment", *BOUNTY_KEYS)}} for event, row in subset],
             }
             expected[meta["slug"]][key] = window
             windows[key].append(window)
